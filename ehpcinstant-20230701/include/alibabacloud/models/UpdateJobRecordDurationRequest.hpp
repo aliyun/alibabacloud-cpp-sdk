@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The job record duration, in days. The value must be an integer from 1 to 30. Default value: 30.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> jobRecordDuration_ {};
   };

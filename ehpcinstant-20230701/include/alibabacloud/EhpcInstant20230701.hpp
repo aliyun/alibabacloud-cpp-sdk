@@ -38,9 +38,9 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImage(const Models::AddImageRequest &request);
 
       /**
-       * @summary Create a E-HPC execution plan.
+       * @summary Creates an E-HPC execution plan.
        *
-       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+       * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
        *
        * @param tmpReq CreateActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,9 +49,9 @@ namespace EhpcInstant20230701
       Models::CreateActionPlanResponse createActionPlanWithOptions(const Models::CreateActionPlanRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a E-HPC execution plan.
+       * @summary Creates an E-HPC execution plan.
        *
-       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+       * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
        *
        * @param request CreateActionPlanRequest
        * @return CreateActionPlanResponse
@@ -59,7 +59,7 @@ namespace EhpcInstant20230701
       Models::CreateActionPlanResponse createActionPlan(const Models::CreateActionPlanRequest &request);
 
       /**
-       * @summary Create a E-HPC Instant job.
+       * @summary Creates an E-HPC Instant job.
        *
        * @param tmpReq CreateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -68,7 +68,7 @@ namespace EhpcInstant20230701
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a E-HPC Instant job.
+       * @summary Creates an E-HPC Instant job.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -201,7 +201,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLast(const Models::DescribeJobMetricLastRequest &request);
 
       /**
-       * @summary Query job logs
+       * @summary Retrieves the logs for a job.
        *
        * @param request DescribeJobResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -210,7 +210,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobResultsResponse describeJobResultsWithOptions(const Models::DescribeJobResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query job logs
+       * @summary Retrieves the logs for a job.
        *
        * @param request DescribeJobResultsRequest
        * @return DescribeJobResultsResponse
@@ -218,7 +218,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobResultsResponse describeJobResults(const Models::DescribeJobResultsRequest &request);
 
       /**
-       * @summary Querying Execution Plan Details
+       * @summary Queries the details of an execution plan.
        *
        * @param request GetActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -227,7 +227,7 @@ namespace EhpcInstant20230701
       Models::GetActionPlanResponse getActionPlanWithOptions(const Models::GetActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Querying Execution Plan Details
+       * @summary Queries the details of an execution plan.
        *
        * @param request GetActionPlanRequest
        * @return GetActionPlanResponse
@@ -252,7 +252,7 @@ namespace EhpcInstant20230701
       Models::GetAppVersionsResponse getAppVersions(const Models::GetAppVersionsRequest &request);
 
       /**
-       * @summary Obtains the information about an image.
+       * @summary Get image details.
        *
        * @param tmpReq GetImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +261,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImageWithOptions(const Models::GetImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about an image.
+       * @summary Get image details.
        *
        * @param request GetImageRequest
        * @return GetImageResponse
@@ -269,7 +269,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImage(const Models::GetImageRequest &request);
 
       /**
-       * @summary Obtains the details of an execution job.
+       * @summary Retrieves the details of an execution job.
        *
        * @param request GetJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -278,7 +278,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJobWithOptions(const Models::GetJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of an execution job.
+       * @summary Retrieves the details of an execution job.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -286,7 +286,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJob(const Models::GetJobRequest &request);
 
       /**
-       * @summary 查询作业保留时长
+       * @summary Retrieves the job record retention period.
        *
        * @param request GetJobRecordDurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -295,7 +295,7 @@ namespace EhpcInstant20230701
       Models::GetJobRecordDurationResponse getJobRecordDurationWithOptions(const Models::GetJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业保留时长
+       * @summary Retrieves the job record retention period.
        *
        * @param request GetJobRecordDurationRequest
        * @return GetJobRecordDurationResponse
@@ -303,7 +303,7 @@ namespace EhpcInstant20230701
       Models::GetJobRecordDurationResponse getJobRecordDuration(const Models::GetJobRecordDurationRequest &request);
 
       /**
-       * @summary Obtains the details of a resource pool.
+       * @summary Retrieves the details of a specified resource pool.
        *
        * @param request GetPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -312,7 +312,7 @@ namespace EhpcInstant20230701
       Models::GetPoolResponse getPoolWithOptions(const Models::GetPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a resource pool.
+       * @summary Retrieves the details of a specified resource pool.
        *
        * @param request GetPoolRequest
        * @return GetPoolResponse
@@ -375,7 +375,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorEventsResponse listExecutorEvents(const Models::ListExecutorEventsRequest &request);
 
       /**
-       * @summary Querying Global Executor Information
+       * @summary Queries information about global executors.
        *
        * @param tmpReq ListExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -384,7 +384,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorsResponse listExecutorsWithOptions(const Models::ListExecutorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Querying Global Executor Information
+       * @summary Queries information about global executors.
        *
        * @param request ListExecutorsRequest
        * @return ListExecutorsResponse
@@ -409,9 +409,9 @@ namespace EhpcInstant20230701
       Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
 
       /**
-       * @summary Queries job executor information.
+       * @summary Retrieves information about job executors.
        *
-       * @description Queries job executor information.
+       * @description Retrieves information about job executors.
        *
        * @param request ListJobExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -420,9 +420,9 @@ namespace EhpcInstant20230701
       Models::ListJobExecutorsResponse listJobExecutorsWithOptions(const Models::ListJobExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries job executor information.
+       * @summary Retrieves information about job executors.
        *
-       * @description Queries job executor information.
+       * @description Retrieves information about job executors.
        *
        * @param request ListJobExecutorsRequest
        * @return ListJobExecutorsResponse
@@ -430,7 +430,7 @@ namespace EhpcInstant20230701
       Models::ListJobExecutorsResponse listJobExecutors(const Models::ListJobExecutorsRequest &request);
 
       /**
-       * @summary Queries the jobs in a cluster.
+       * @summary Returns a list of jobs.
        *
        * @param tmpReq ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +439,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the jobs in a cluster.
+       * @summary Returns a list of jobs.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -447,7 +447,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary Queries the resource pool list.
+       * @summary Lists resource pools.
        *
        * @param tmpReq ListPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +456,7 @@ namespace EhpcInstant20230701
       Models::ListPoolsResponse listPoolsWithOptions(const Models::ListPoolsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource pool list.
+       * @summary Lists resource pools.
        *
        * @param request ListPoolsRequest
        * @return ListPoolsResponse
@@ -566,7 +566,7 @@ namespace EhpcInstant20230701
       Models::UpdateActionPlanResponse updateActionPlan(const Models::UpdateActionPlanRequest &request);
 
       /**
-       * @summary 更新作业保留时长
+       * @summary Updates the job record duration.
        *
        * @param request UpdateJobRecordDurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -575,7 +575,7 @@ namespace EhpcInstant20230701
       Models::UpdateJobRecordDurationResponse updateJobRecordDurationWithOptions(const Models::UpdateJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新作业保留时长
+       * @summary Updates the job record duration.
        *
        * @param request UpdateJobRecordDurationRequest
        * @return UpdateJobRecordDurationResponse
@@ -583,7 +583,7 @@ namespace EhpcInstant20230701
       Models::UpdateJobRecordDurationResponse updateJobRecordDuration(const Models::UpdateJobRecordDurationRequest &request);
 
       /**
-       * @summary Update the resource pool configuration.
+       * @summary Updates the configuration of a resource pool.
        *
        * @param tmpReq UpdatePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -592,7 +592,7 @@ namespace EhpcInstant20230701
       Models::UpdatePoolResponse updatePoolWithOptions(const Models::UpdatePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the resource pool configuration.
+       * @summary Updates the configuration of a resource pool.
        *
        * @param request UpdatePoolRequest
        * @return UpdatePoolResponse

@@ -133,13 +133,13 @@ namespace Models
 
 
       protected:
-        // The type of the architecture.
+        // Architecture type.
         shared_ptr<string> architecture_ {};
-        // The image ID.
+        // Image ID.
         shared_ptr<string> imageId_ {};
-        // The ID of the specific OS version.
+        // OS version identifier.
         shared_ptr<string> osTag_ {};
-        // The type of the platform.
+        // Platform type.
         shared_ptr<string> platform_ {};
       };
 
@@ -275,11 +275,11 @@ namespace Models
 
 
         protected:
-          // The password of the logon user.
+          // Password for the username.
           shared_ptr<string> password_ {};
-          // The registered address of the image repository.
+          // Registry server address.
           shared_ptr<string> server_ {};
-          // The username of the logon user.
+          // Username to log on to the registry.
           shared_ptr<string> userName_ {};
         };
 
@@ -346,23 +346,25 @@ namespace Models
 
       protected:
         shared_ptr<string> architecture_ {};
-        // Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+        // Indicates whether the image is stored in an ACR Enterprise Edition instance. Valid values:
         // 
-        // *   True
-        // *   False
+        // - True: yes.
+        // 
+        // - False: no.
         shared_ptr<bool> isACREnterprise_ {};
-        // Whether it is an Alibaba Cloud image repository.
+        // Indicates whether the image is stored in an Alibaba Cloud Container Registry (ACR) instance. Valid values:
         // 
-        // *   True
-        // *   False
+        // - True: yes.
+        // 
+        // - False: no.
         shared_ptr<bool> isACRRegistry_ {};
         shared_ptr<string> osTag_ {};
         shared_ptr<string> platform_ {};
-        // The authentication of the private image repository.
+        // Authentication for a private image registry.
         shared_ptr<ContainerImageSpec::RegistryCredential> registryCredential_ {};
-        // The ID of the Container Registry Enterprise Edition image repository.
+        // ACR Enterprise Edition instance ID.
         shared_ptr<string> registryCriId_ {};
-        // The endpoint of the container image.
+        // Container image registry URL.
         shared_ptr<string> registryUrl_ {};
       };
 
@@ -517,25 +519,25 @@ namespace Models
     protected:
       shared_ptr<vector<Image::AdditionalRegionsInfo>> additionalRegionsInfo_ {};
       shared_ptr<string> appId_ {};
-      // The configuration details of the container image.
+      // Container image configuration details.
       shared_ptr<Image::ContainerImageSpec> containerImageSpec_ {};
-      // The time when the image was created.
+      // Image creation time.
       shared_ptr<string> createTime_ {};
-      // The description of the image.
+      // Image description.
       shared_ptr<string> description_ {};
       shared_ptr<Image::DocumentInfo> documentInfo_ {};
-      // The type of the image.
+      // Image type.
       // 
       // This parameter is required.
       shared_ptr<string> imageType_ {};
-      // The name of the image.
+      // Image name.
       shared_ptr<string> name_ {};
-      // The size of the image. Unit: GiB.
+      // Image size, in GiB.
       shared_ptr<string> size_ {};
       shared_ptr<string> status_ {};
-      // The configuration details of the virtual machine image.
+      // Virtual machine image configuration details.
       shared_ptr<Image::VMImageSpec> VMImageSpec_ {};
-      // The version.
+      // Version.
       shared_ptr<string> version_ {};
     };
 
@@ -572,16 +574,17 @@ namespace Models
 
 
   protected:
-    // The details of the image.
+    // Image details.
     shared_ptr<GetImageResponseBody::Image> image_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation succeeded. Valid values:
     // 
-    // *   true: The task is successful.
-    // *   false: The error occurred.
+    // - true: succeeded.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
-    // The total amount of data in this request.
+    // Total number of items returned for this request.
     shared_ptr<int32_t> totalCount_ {};
   };
 

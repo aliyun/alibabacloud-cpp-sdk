@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Queries the filter conditions of a resource pool.
+    // The filter conditions for querying resource pools.
     shared_ptr<string> filterShrink_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page. Maximum value: 50. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

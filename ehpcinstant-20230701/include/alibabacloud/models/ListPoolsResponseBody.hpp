@@ -131,32 +131,43 @@ namespace Models
 
 
     protected:
+      // The time when the resource pool was created.
       shared_ptr<string> createTime_ {};
-      // Indices whether the resource pool is the default resource pool. Valid values:
+      // Indicates whether the resource pool is the default pool. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The resource pool is the default pool.
+      // 
+      // - **false**: The resource pool is not the default pool.
       shared_ptr<bool> isDefault_ {};
+      // The number of running executor nodes in the resource pool.
       shared_ptr<int32_t> maxExecutorNum_ {};
       // The name of the resource pool.
       // 
-      // *   The value can be up to 15 characters in length.
-      // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
+      // - Maximum length: 15 characters.
+      // 
+      // - Allowed characters: digits, letters, underscores (_), and periods (.).
       shared_ptr<string> poolName_ {};
       // The priority of the resource pool.
       // 
-      // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
-      // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
+      // - Valid values: 1 to 99. Default value: 1 (lowest priority).
+      // 
+      // - Jobs in a resource pool with a higher priority are scheduled before those in a pool with a lower priority. The pool\\"s priority overrides the priority of an individual job.
       shared_ptr<int32_t> priority_ {};
+      // The ID of the scheduling policy.
       shared_ptr<string> schedulingPolicyId_ {};
       // The status of the resource pool. Valid values:
       // 
-      // *   Creating: The resource pool is being created.
-      // *   Updating: The resource pool is being updated.
-      // *   Deleting: The resource pool is being deleted.
-      // *   Working: The resource pool is working.
-      // *   Deleted: The resource pool is deleted.
+      // - Creating: The resource pool is being created.
+      // 
+      // - Updating: The resource pool is being updated.
+      // 
+      // - Deleting: The resource pool is being deleted.
+      // 
+      // - Working: The resource pool is operational.
+      // 
+      // - Deleted: The resource pool has been deleted.
       shared_ptr<string> status_ {};
+      // The time when the resource pool was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -202,13 +213,13 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page. Maximum value: 50. Default value: 10.
+    // The number of entries returned per page. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Queries the resource pool list.
+    // An array of resource pools.
     shared_ptr<vector<ListPoolsResponseBody::PoolList>> poolList_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of list entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Queries job filter conditions.
+    // The filter conditions for querying jobs.
     shared_ptr<string> filterShrink_ {};
-    // The page number.
+    // The current page number.
     // 
-    // Pages start from page 1.
+    // Start value: 1
     // 
-    // Default value: 1.
+    // Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page. Default value: 50. Maximum value: 100.
+    // The number of entries to return on each page. The default value is 50. The maximum value is 100.
     shared_ptr<int32_t> pageSize_ {};
     // The sorting method.
     shared_ptr<string> sortByShrink_ {};

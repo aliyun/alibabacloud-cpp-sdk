@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Image, image_);
         DARABONBA_PTR_TO_JSON(IpAddresses, ipAddresses_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
+        DARABONBA_PTR_TO_JSON(JobTemplateId, jobTemplateId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TimeCreatedAfter, timeCreatedAfter_);
         DARABONBA_PTR_TO_JSON(TimeCreatedBefore, timeCreatedBefore_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Image, image_);
         DARABONBA_PTR_FROM_JSON(IpAddresses, ipAddresses_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
+        DARABONBA_PTR_FROM_JSON(JobTemplateId, jobTemplateId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TimeCreatedAfter, timeCreatedAfter_);
         DARABONBA_PTR_FROM_JSON(TimeCreatedBefore, timeCreatedBefore_);
@@ -70,8 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->executorIds_ == nullptr
-        && this->image_ == nullptr && this->ipAddresses_ == nullptr && this->jobName_ == nullptr && this->status_ == nullptr && this->timeCreatedAfter_ == nullptr
-        && this->timeCreatedBefore_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
+        && this->image_ == nullptr && this->ipAddresses_ == nullptr && this->jobName_ == nullptr && this->jobTemplateId_ == nullptr && this->status_ == nullptr
+        && this->timeCreatedAfter_ == nullptr && this->timeCreatedBefore_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
       // executorIds Field Functions 
       bool hasExecutorIds() const { return this->executorIds_ != nullptr;};
       void deleteExecutorIds() { this->executorIds_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
       void deleteJobName() { this->jobName_ = nullptr;};
       inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
       inline Filter& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
+
+
+      // jobTemplateId Field Functions 
+      bool hasJobTemplateId() const { return this->jobTemplateId_ != nullptr;};
+      void deleteJobTemplateId() { this->jobTemplateId_ = nullptr;};
+      inline string getJobTemplateId() const { DARABONBA_PTR_GET_DEFAULT(jobTemplateId_, "") };
+      inline Filter& setJobTemplateId(string jobTemplateId) { DARABONBA_PTR_SET_VALUE(jobTemplateId_, jobTemplateId) };
 
 
       // status Field Functions 
@@ -142,22 +151,24 @@ namespace Models
 
 
     protected:
-      // The list of executor IDs. A maximum of 100 IDs are supported.
+      // A list of executor IDs. You can specify up to 100 IDs.
       shared_ptr<vector<string>> executorIds_ {};
-      // Executor image.
+      // The executor image.
       shared_ptr<string> image_ {};
-      // The list of internal IP addresses. A maximum of 100 IP addresses are supported.
+      // A list of private IP addresses. You can specify up to 100 IP addresses.
       shared_ptr<vector<string>> ipAddresses_ {};
-      // The job name. Exact filtering. Fuzzy query is not supported.
+      // The job name. Fuzzy queries are supported.
       shared_ptr<string> jobName_ {};
-      // Executor status list.
+      shared_ptr<string> jobTemplateId_ {};
+      // A list of executor statuses.
       shared_ptr<vector<string>> status_ {};
-      // For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
+      // The jobs submitted after this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
       shared_ptr<int32_t> timeCreatedAfter_ {};
-      // For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
+      // The jobs submitted before this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
       shared_ptr<int32_t> timeCreatedBefore_ {};
+      // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -187,13 +198,11 @@ namespace Models
 
 
   protected:
-    // Queries the Executor filter conditions.
+    // The filter conditions for querying executors.
     shared_ptr<ListExecutorsRequest::Filter> filter_ {};
-    // The current page number.\\
-    // Starting value: 1\\
-    // Default value: 1
+    // The current page number.<br>Start value: 1<br>Default value: 1<br><br>
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The number of entries returned per page. Default value: 50. Maximum value: 100.
+    // The number of entries to return on each page for a paged query. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

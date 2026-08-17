@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // Queries the list of resource pool names.
+      // The list of resource pool names to query.
       shared_ptr<vector<string>> poolName_ {};
-      // Queries resource pool status list.
+      // The list of resource pool statuses to query.
       shared_ptr<vector<string>> status_ {};
-      // For node pools created after this time, the time in the region is converted into a UNIX timestamp.
+      // Returns only resource pools created after the specified time. The time must be a Unix timestamp in UTC+8.
       shared_ptr<int32_t> timeCreatedAfter_ {};
-      // For node pools created before this time, the time in the region is converted into a UNIX timestamp.
+      // Returns only resource pools created before the specified time. The time must be a Unix timestamp in UTC+8.
       shared_ptr<int32_t> timeCreatedBefore_ {};
     };
 
@@ -130,11 +130,11 @@ namespace Models
 
 
   protected:
-    // Queries the filter conditions of a resource pool.
+    // The filter conditions for querying resource pools.
     shared_ptr<ListPoolsRequest::Filter> filter_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page. Maximum value: 50. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

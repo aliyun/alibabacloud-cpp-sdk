@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(JobScheduler, jobScheduler_);
+      DARABONBA_PTR_TO_JSON(JobTemplateId, jobTemplateId_);
       DARABONBA_PTR_TO_JSON(SecurityPolicy, securityPolicyShrink_);
       DARABONBA_PTR_TO_JSON(Tasks, tasksShrink_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(JobScheduler, jobScheduler_);
+      DARABONBA_PTR_FROM_JSON(JobTemplateId, jobTemplateId_);
       DARABONBA_PTR_FROM_JSON(SecurityPolicy, securityPolicyShrink_);
       DARABONBA_PTR_FROM_JSON(Tasks, tasksShrink_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dependencyPolicyShrink_ == nullptr
-        && this->deploymentPolicyShrink_ == nullptr && this->jobDescription_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->securityPolicyShrink_ == nullptr
-        && this->tasksShrink_ == nullptr; };
+        && this->deploymentPolicyShrink_ == nullptr && this->jobDescription_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->jobTemplateId_ == nullptr
+        && this->securityPolicyShrink_ == nullptr && this->tasksShrink_ == nullptr; };
     // dependencyPolicyShrink Field Functions 
     bool hasDependencyPolicyShrink() const { return this->dependencyPolicyShrink_ != nullptr;};
     void deleteDependencyPolicyShrink() { this->dependencyPolicyShrink_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline CreateJobShrinkRequest& setJobScheduler(string jobScheduler) { DARABONBA_PTR_SET_VALUE(jobScheduler_, jobScheduler) };
 
 
+    // jobTemplateId Field Functions 
+    bool hasJobTemplateId() const { return this->jobTemplateId_ != nullptr;};
+    void deleteJobTemplateId() { this->jobTemplateId_ = nullptr;};
+    inline string getJobTemplateId() const { DARABONBA_PTR_GET_DEFAULT(jobTemplateId_, "") };
+    inline CreateJobShrinkRequest& setJobTemplateId(string jobTemplateId) { DARABONBA_PTR_SET_VALUE(jobTemplateId_, jobTemplateId) };
+
+
     // securityPolicyShrink Field Functions 
     bool hasSecurityPolicyShrink() const { return this->securityPolicyShrink_ != nullptr;};
     void deleteSecurityPolicyShrink() { this->securityPolicyShrink_ = nullptr;};
@@ -94,26 +103,22 @@ namespace Models
 
 
   protected:
-    // Dependency policy.
+    // The dependency policy.
     shared_ptr<string> dependencyPolicyShrink_ {};
     // The resource deployment policy.
     shared_ptr<string> deploymentPolicyShrink_ {};
-    // The description of the job.
+    // The job description.
     shared_ptr<string> jobDescription_ {};
-    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
-    // The type of the job scheduler.
-    // 
-    // *   HPC
-    // *   K8S
-    // 
-    // Default value: HPC
     shared_ptr<string> jobScheduler_ {};
+    // The job template ID.
+    shared_ptr<string> jobTemplateId_ {};
     // The security policy.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The list of tasks. Only one task is supported.
+    // The task list. Currently, only one task is supported.
     // 
     // This parameter is required.
     shared_ptr<string> tasksShrink_ {};

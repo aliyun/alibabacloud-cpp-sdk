@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The number of CPUs in the running environment.
+      // The number of vCPUs for the runtime environment.
       shared_ptr<double> cores_ {};
-      // The memory size of the running environment. Unit: GiB.
+      // The memory size of the runtime environment. Unit: GiB.
       shared_ptr<double> memory_ {};
     };
 
@@ -158,10 +158,11 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The list of security groups available for the execution plan in the region. You can have 0 to 5 security groups.
+      // A list of security groups that are available for the execution plan in the region. You can specify 0 to 5 security groups.
       shared_ptr<vector<string>> securityGroupId_ {};
+      // A list of security group IDs. You can call the [DescribeSecurityGroups](https://api.aliyun.com/document/Ecs/2014-05-26/DescribeSecurityGroups) operation to query information about available security groups.
       shared_ptr<vector<string>> securityGroupIds_ {};
-      // The list of VSwitches available for the execution plan in the region. Supports 0 to 5 VSwitches.
+      // A list of vSwitches that are available for the execution plan in the region. You can specify 0 to 5 vSwitches.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
 
@@ -252,36 +253,40 @@ namespace Models
   protected:
     // The name of the execution plan.
     shared_ptr<string> actionPlanName_ {};
-    // The type of the resource.
+    // The resource type.
     // 
-    // *   Standard
-    // *   Dedicated: You must enable a whitelist for use.
-    // *   Economic: You must enable a whitelist for use.
+    // - Standard: Standard.
+    // 
+    // - Dedicated: Dedicated. This type is available only to users in the whitelist.
+    // 
+    // - Economic: Economy. This type is available only to users in the whitelist.
     shared_ptr<string> allocationSpec_ {};
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
+    // The desired size of the resource for the execution plan. For example, if you set ResourceType to VcpuCapacity, this parameter specifies the number of vCPUs that you want to maintain for the execution plan.
     shared_ptr<double> desiredCapacity_ {};
     shared_ptr<int32_t> intervalMinutes_ {};
-    // The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
+    // The computing power level. This parameter is valid only when you set AllocationSpec to Economic. The following types are supported:
     // 
-    // *   General
-    // *   Performance
+    // - General: General-purpose.
+    // 
+    // - Performance: Compute-optimized.
     // 
     // Default value: General
     shared_ptr<string> level_ {};
-    // The pre-processing script. Base64 encoding is required.
+    // The pre-execution script. The script must be Base64-encoded.
     shared_ptr<string> prologScript_ {};
-    // The list of resource configurations in the region where the execution plan runs.
+    // A list of regional resource configurations for the runtime environment of the execution plan.
     shared_ptr<vector<CreateActionPlanRequest::Regions>> regions_ {};
-    // Target resource type: the capacity of vCPUs or the number of execution nodes. Valid values:
+    // The type of resource for the execution target. The value can be the vCPU capacity or the number of executor nodes. Valid values:
     // 
-    // *   VCpuCapacity
-    // *   ExecutorCapacity
+    // - VCpuCapacity: vCPU capacity
+    // 
+    // - ExecutorCapacity: number of executor nodes
     shared_ptr<string> resourceType_ {};
-    // The list of resource configurations of the execution plan runtime environment. You can configure 1 to 10 resources.
+    // A list of resource configurations for the runtime environment of the execution plan. You can specify 1 to 10 resource configurations.
     shared_ptr<vector<CreateActionPlanRequest::Resources>> resources_ {};
-    // The running-job script. Base64 encoding is required.
+    // The script to run the job. The script must be Base64-encoded.
     shared_ptr<string> script_ {};
   };
 

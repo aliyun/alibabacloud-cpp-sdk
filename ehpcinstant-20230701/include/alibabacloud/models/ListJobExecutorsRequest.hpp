@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the job.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // The page number of the page to return.
+    // The page number for the paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The job name.
     shared_ptr<string> taskName_ {};

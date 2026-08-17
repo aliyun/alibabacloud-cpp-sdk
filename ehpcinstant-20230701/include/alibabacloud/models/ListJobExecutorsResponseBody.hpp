@@ -129,9 +129,9 @@ namespace Models
 
 
       protected:
-        // The key of the executor tag.
+        // The tag key of the executor.
         shared_ptr<string> tagKey_ {};
-        // The value of the executor tag.
+        // The tag value of the executor.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -253,42 +253,61 @@ namespace Models
 
 
     protected:
+      // The resource type.
+      // 
+      // - Standard: Standard.
+      // 
+      // - Dedicated: Dedicated. To use this resource type, you must be added to the whitelist.
+      // 
+      // - Economic: Economy. To use this resource type, you must be added to the whitelist.
       shared_ptr<string> allocationSpec_ {};
-      // The executor index number.
+      // The index of the executor.
       shared_ptr<int32_t> arrayIndex_ {};
+      // The retention period of the compute resources.
       shared_ptr<int32_t> blockDuration_ {};
-      // The time when the storage resource was created.
+      // The time when the executor was created.
       shared_ptr<string> createTime_ {};
-      // The end time.
+      // The time when the executor ended.
       shared_ptr<string> endTime_ {};
-      // The executor ID. The format is JobId-TaskName-ArrayIndex.
+      // The ID of the executor. The format is \\`JobId-TaskName-ArrayIndex\\`.
       shared_ptr<string> executorId_ {};
       shared_ptr<string> expirationTime_ {};
-      // The list of public IP addresses of the nodes.
+      // A list of public IP addresses of the nodes.
       shared_ptr<vector<string>> externalIpAddress_ {};
       // An array of node hostnames.
       shared_ptr<vector<string>> hostName_ {};
-      // The list of node IP addresses.
+      // A list of node IP addresses.
       shared_ptr<vector<string>> ipAddress_ {};
       shared_ptr<bool> preemptible_ {};
-      // The create time.
+      // The time when the executor started.
       shared_ptr<string> startTime_ {};
       // The status of the executor. Valid values:
       // 
-      // *   Pending
-      // *   Initing
-      // *   Succeed
-      // *   Failed
-      // *   Running
-      // *   Unknown
-      // *   Exception
-      // *   Retrying
-      // *   Expired
-      // *   Deleted
+      // - Pending: In queue
+      // 
+      // - Initing: Initializing
+      // 
+      // - Succeed: Succeeded
+      // 
+      // - Failed: Failed
+      // 
+      // - Running: Running
+      // 
+      // - Exception: Abnormal scheduling
+      // 
+      // - Retrying: Retrying
+      // 
+      // - Expired: Timed out
+      // 
+      // - Suspended: Job hibernating
+      // 
+      // - Restarting: Job restarting
+      // 
+      // - Deleted: Deleted
       shared_ptr<string> status_ {};
-      // The description of the status reason.
+      // The reason for the status.
       shared_ptr<string> statusReason_ {};
-      // The list of executor tags.
+      // A list of executor tags.
       shared_ptr<vector<Executors::Tags>> tags_ {};
     };
 
@@ -394,21 +413,23 @@ namespace Models
 
 
     protected:
-      // The number of executers in the Deleted state.
+      // The number of executors in the Deleted state.
       shared_ptr<int32_t> deleted_ {};
-      // The number of executers in the abnormal state.
+      // The number of executors in the Exception state.
       shared_ptr<int32_t> exception_ {};
-      // The number of executers in the Failed state.
+      // The number of executors in the Failed state.
       shared_ptr<int32_t> failed_ {};
-      // The number of executers in the initialized state.
+      // The number of executors in the Initing state.
       shared_ptr<int32_t> initing_ {};
-      // The number of executers in the queued state.
+      // The number of executors in the Pending state.
       shared_ptr<int32_t> pending_ {};
+      // The number of executors in the Restarting state.
       shared_ptr<int32_t> restarting_ {};
-      // The number of executers in the running state.
+      // The number of executors in the Running state.
       shared_ptr<int32_t> running_ {};
-      // The number of executoresin the Successful state.
+      // The number of executors in the Succeeded state.
       shared_ptr<int32_t> succeeded_ {};
+      // The number of executors in the Suspended state.
       shared_ptr<int32_t> suspended_ {};
     };
 
@@ -476,21 +497,21 @@ namespace Models
 
 
   protected:
-    // Executor status statistics.
+    // Statistics about executor statuses.
     shared_ptr<ListJobExecutorsResponseBody::ExecutorStatus> executorStatus_ {};
-    // The executor list.
+    // A list of executors.
     shared_ptr<vector<ListJobExecutorsResponseBody::Executors>> executors_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The job name.
     shared_ptr<string> taskName_ {};
-    // The total number of list entries.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

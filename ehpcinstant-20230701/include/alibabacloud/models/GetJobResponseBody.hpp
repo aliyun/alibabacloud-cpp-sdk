@@ -247,9 +247,9 @@ namespace Models
             protected:
               // The image ID.
               shared_ptr<string> image_ {};
-              // The pre-processing script. Base64 encoding is required.
+              // The preprocessing script. The script must be Base64-encoded.
               shared_ptr<string> prologScript_ {};
-              // The running-job script. Base64 encoding is required.
+              // The job execution script. The script must be Base64-encoded.
               shared_ptr<string> script_ {};
             };
 
@@ -264,7 +264,7 @@ namespace Models
 
 
           protected:
-            // Use ECS instances.
+            // The ECS instance configuration.
             shared_ptr<TaskExecutor::VM> VM_ {};
           };
 
@@ -421,12 +421,12 @@ namespace Models
 
 
             protected:
-              // The size of the disk.
+              // The cloud disk size.
               shared_ptr<int32_t> size_ {};
-              // The type of the disk. The following disk categories are supported:
+              // The cloud disk type. Valid values:
               // 
-              // *   System: system disk.
-              // *   Data: data disk.
+              // - System: system cloud disk.
+              // - Data: data cloud disk.
               shared_ptr<string> type_ {};
             };
 
@@ -479,14 +479,14 @@ namespace Models
 
 
           protected:
-            // The number of CPUs on which the job is run.
+            // The number of CPUs used to run the job.
             shared_ptr<float> cores_ {};
-            // The array of the disks.
+            // The cloud disk array.
             shared_ptr<vector<Resource::Disks>> disks_ {};
             shared_ptr<bool> enableHT_ {};
             shared_ptr<string> hostNamePrefix_ {};
             shared_ptr<vector<string>> instanceTypes_ {};
-            // The memory capacity. Unit: GiB.
+            // The total amount of memory resources. Unit: GiB.
             shared_ptr<int32_t> memory_ {};
           };
 
@@ -532,7 +532,7 @@ namespace Models
           // The resource information.
           shared_ptr<TaskSpec::Resource> resource_ {};
           shared_ptr<TaskSpec::RetryPolicy> retryPolicy_ {};
-          // The task execution configurations.
+          // The task execution configuration.
           shared_ptr<vector<TaskSpec::TaskExecutor>> taskExecutor_ {};
           shared_ptr<vector<TaskSpec::VolumeMount>> volumeMount_ {};
         };
@@ -611,17 +611,17 @@ namespace Models
 
 
         protected:
-          // Sub-job ID
+          // The subtask ID.
           shared_ptr<int32_t> arrayId_ {};
-          // The time when the job was created.
+          // The job creation time.
           shared_ptr<string> createTime_ {};
-          // The end time of the scaling plan job.
+          // The job end time.
           shared_ptr<string> endTime_ {};
-          // The start time of the scaling plan job.
+          // The job start time.
           shared_ptr<string> startTime_ {};
-          // The status of the job.
+          // The job status.
           shared_ptr<string> status_ {};
-          // The reason why the stack instance is in the OUTDATED state.
+          // The status reason description.
           shared_ptr<string> statusReason_ {};
         };
 
@@ -693,13 +693,12 @@ namespace Models
 
 
           protected:
-            // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
+            // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to IndexStart.
             shared_ptr<int32_t> indexEnd_ {};
-            // The starting value of the array job index. Valid values: 0 to 4999.
+            // The start value of the array job index. Valid values: 0 to 4999.
             shared_ptr<int32_t> indexStart_ {};
             // The interval of the array job index.
-            // 
-            // > If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three subtasks. The values of the subtask indexes are 1,3, and 5.
+            // > If the array job properties are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three subtasks with indexes 1, 3, and 5.
             shared_ptr<int32_t> indexStep_ {};
           };
 
@@ -722,9 +721,9 @@ namespace Models
 
 
         protected:
-          // The details of the array job.
+          // The array job details.
           shared_ptr<ExecutorPolicy::ArraySpec> arraySpec_ {};
-          // The maximum number of nodes to run the job.
+          // The maximum number of nodes for running the job.
           shared_ptr<int32_t> maxCount_ {};
         };
 
@@ -774,13 +773,13 @@ namespace Models
       protected:
         // The task execution policy.
         shared_ptr<Tasks::ExecutorPolicy> executorPolicy_ {};
-        // The execution status of the task.
+        // The task execution status.
         shared_ptr<vector<Tasks::ExecutorStatus>> executorStatus_ {};
-        // The name of the task.
+        // The task name.
         shared_ptr<string> taskName_ {};
-        // The details of the task specification.
+        // The task specification details.
         shared_ptr<Tasks::TaskSpec> taskSpec_ {};
-        // Indicate whether the job is a long-running job.
+        // Indicates whether the job is long-running.
         shared_ptr<bool> taskSustainable_ {};
       };
 
@@ -857,6 +856,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Level, level_);
           DARABONBA_PTR_TO_JSON(Network, network_);
           DARABONBA_PTR_TO_JSON(Pool, pool_);
+          DARABONBA_PTR_TO_JSON(Priority, priority_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
         };
         friend void from_json(const Darabonba::Json& j, DeploymentPolicy& obj) { 
@@ -864,6 +864,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Level, level_);
           DARABONBA_PTR_FROM_JSON(Network, network_);
           DARABONBA_PTR_FROM_JSON(Pool, pool_);
+          DARABONBA_PTR_FROM_JSON(Priority, priority_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
         };
         DeploymentPolicy() = default ;
@@ -915,9 +916,9 @@ namespace Models
 
 
         protected:
-          // The key of the job tag.
+          // The job tag key.
           shared_ptr<string> tagKey_ {};
-          // The value of the job tag.
+          // The job tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -970,24 +971,20 @@ namespace Models
 
 
         protected:
-          // Whether the resource is created in the zone corresponding to the passed-in VSwitch parameter.
+          // Indicates whether resources are created in the zone that corresponds to the specified vSwitch.
           // 
-          // *   true: The resource is created in the zone corresponding to the passed-in VSwitch parameter.
-          // *   false: The resource is created in any zone that has resources.
+          // - true: Resources are created in the zone that corresponds to the specified vSwitch.
+          // 
+          // - false: Resources are created in any zone that has available resources.
           shared_ptr<bool> enableENIMapping_ {};
-          // Whether to create a public IP address.
-          // 
-          // Valid values:
-          // 
-          // *   false: false.
-          // *   true: true.
+          // Indicates whether a public IP address is created.
           shared_ptr<bool> enableExternalIpAddress_ {};
-          // The VSwitch array.
+          // The vSwitch array.
           shared_ptr<vector<string>> vswitch_ {};
         };
 
         virtual bool empty() const override { return this->allocationSpec_ == nullptr
-        && this->level_ == nullptr && this->network_ == nullptr && this->pool_ == nullptr && this->tags_ == nullptr; };
+        && this->level_ == nullptr && this->network_ == nullptr && this->pool_ == nullptr && this->priority_ == nullptr && this->tags_ == nullptr; };
         // allocationSpec Field Functions 
         bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
         void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -1018,6 +1015,13 @@ namespace Models
         inline DeploymentPolicy& setPool(string pool) { DARABONBA_PTR_SET_VALUE(pool_, pool) };
 
 
+        // priority Field Functions 
+        bool hasPriority() const { return this->priority_ != nullptr;};
+        void deletePriority() { this->priority_ = nullptr;};
+        inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+        inline DeploymentPolicy& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
         // tags Field Functions 
         bool hasTags() const { return this->tags_ != nullptr;};
         void deleteTags() { this->tags_ = nullptr;};
@@ -1028,19 +1032,19 @@ namespace Models
 
 
       protected:
-        // The type of the resource. Only Dedicated is supported. You must enable a whitelist.
+        // The resource type. Currently, only Dedicated is supported. You must be added to the whitelist to use this feature.
         shared_ptr<string> allocationSpec_ {};
-        // The computing power level. The following disk categories are supported:
+        // The computing power level. Valid values:
+        // - General: general-purpose.
+        // - Performance: compute-optimized.
         // 
-        // *   General
-        // *   Performance
-        // 
-        // Default value: General
+        // Default value: General.
         shared_ptr<string> level_ {};
-        // The network configuration information.
+        // The network configuration.
         shared_ptr<DeploymentPolicy::Network> network_ {};
         shared_ptr<string> pool_ {};
-        // The list of job tags.
+        shared_ptr<int32_t> priority_ {};
+        // The job tag list.
         shared_ptr<vector<DeploymentPolicy::Tags>> tags_ {};
       };
 
@@ -1223,41 +1227,40 @@ namespace Models
 
 
     protected:
-      // The additional information about the application.
+      // The application additional information.
       shared_ptr<string> appExtraInfo_ {};
-      // The time when the job was submitted.
+      // The job submission time.
       shared_ptr<string> createTime_ {};
       shared_ptr<JobInfo::DependencyPolicy> dependencyPolicy_ {};
       // The resource deployment policy.
       shared_ptr<JobInfo::DeploymentPolicy> deploymentPolicy_ {};
-      // The time when the job is complete.
+      // The job end time.
       shared_ptr<string> endTime_ {};
-      // The description of the job.
+      // The job description.
       shared_ptr<string> jobDescription_ {};
-      // The ID of the job.
+      // The job ID.
       shared_ptr<string> jobId_ {};
       // The job name.
       shared_ptr<string> jobName_ {};
-      // The type of the job scheduler.
       shared_ptr<string> jobScheduler_ {};
       shared_ptr<JobInfo::SecurityPolicy> securityPolicy_ {};
-      // The time when the job started.
+      // The job start time.
       shared_ptr<string> startTime_ {};
       // The job status. Valid values:
       // 
-      // *   Pending: The job is being queued.
-      // *   Initing: The job is being initialized.
-      // *   Succeed: The job is successfully run.
-      // *   Failed: The job failed to run.
-      // *   Running: The job is running.
-      // *   Exception: scheduling exception
-      // *   Retrying: The job is being retried.
-      // *   Expired: The job timed out.
-      // *   Deleted: The job is deleted.
-      // *   Suspended: job hibernation
-      // *   Restarting: The job is being restarted.
+      // - Pending: the job is queued.
+      // - Initing: the job is being initialized.
+      // - Succeed: the job succeeded.
+      // - Failed: the job failed.
+      // - Running: the job is running.
+      // - Exception: a scheduling exception occurred.
+      // - Retrying: the job is being retried.
+      // - Expired: the job timed out.
+      // - Deleted: the job is deleted.
+      // - Suspended: the job is suspended.
+      // - Restarting: the job is being restarted.
       shared_ptr<string> status_ {};
-      // The list of tasks. Only one task is supported.
+      // The task list. Currently, only one task is supported.
       shared_ptr<vector<JobInfo::Tasks>> tasks_ {};
     };
 

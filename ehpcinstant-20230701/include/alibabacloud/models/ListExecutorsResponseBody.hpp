@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The key of the executor tag.
+        // The tag key of the executor.
         shared_ptr<string> tagKey_ {};
-        // The value of the executor tag.
+        // The tag value of the executor.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -212,12 +212,13 @@ namespace Models
 
 
         protected:
-          // The size of the disk.
+          // The size of the cloud disk.
           shared_ptr<int32_t> size_ {};
-          // The category of the disk. The following disk categories are supported:
+          // The type of the cloud disk. The following types are supported:
           // 
-          // *   System: system disk.
-          // *   Data: data disk.
+          // - System: The system disk.
+          // 
+          // - Data: The data disk.
           shared_ptr<string> type_ {};
         };
 
@@ -254,10 +255,11 @@ namespace Models
 
 
       protected:
-        // The number of running CPUs.
+        // The number of CPU cores.
         shared_ptr<float> cores_ {};
-        // The array of the disks.
+        // An array of cloud disks.
         shared_ptr<vector<Resource::Disks>> disks_ {};
+        // The instance type of the runtime environment.
         shared_ptr<string> instanceType_ {};
         // The total amount of memory resources. Unit: GiB.
         shared_ptr<float> memory_ {};
@@ -455,25 +457,35 @@ namespace Models
 
 
     protected:
+      // The resource type.
+      // 
+      // - Standard: Standard.
+      // 
+      // - Dedicated: Dedicated. This type requires whitelisting.
+      // 
+      // - Economic: Economy. This type requires whitelisting.
       shared_ptr<string> allocationSpec_ {};
+      // The application name.
       shared_ptr<string> appName_ {};
       // The executor number.
       shared_ptr<int32_t> arrayIndex_ {};
+      // The duration for which the compute resources are reserved.
       shared_ptr<int32_t> blockDuration_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The end time.
       shared_ptr<string> endTime_ {};
       // The executor ID. The format is JobId-TaskName-ArrayIndex.
       shared_ptr<string> executorId_ {};
+      // The expiration time.
       shared_ptr<string> expirationTime_ {};
-      // The list of public IP addresses of the nodes.
+      // A list of public IP addresses of the node.
       shared_ptr<vector<string>> externalIpAddress_ {};
-      // The list of hostnames.
+      // A list of hostnames.
       shared_ptr<vector<string>> hostName_ {};
-      // Executor image.
+      // The executor image.
       shared_ptr<string> image_ {};
-      // The list of internal IP addresses.
+      // A list of private IP addresses.
       shared_ptr<vector<string>> ipAddress_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
@@ -482,33 +494,45 @@ namespace Models
       shared_ptr<bool> preemptible_ {};
       // The resource information.
       shared_ptr<Executors::Resource> resource_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
       // The start time.
       shared_ptr<string> startTime_ {};
-      // The status of the executor. Valid values:
+      // The status of the executor. Possible values:
       // 
-      // *   Pending
-      // *   Initing
-      // *   Succeed
-      // *   Failed
-      // *   Running
-      // *   Unknown
-      // *   Exception
-      // *   Retrying
-      // *   Expired
-      // *   Deleted
+      // - Pending: The executor is waiting in a queue.
+      // 
+      // - Initing: The executor is being initialized.
+      // 
+      // - Succeeded: The executor ran successfully.
+      // 
+      // - Failed: The executor failed to run.
+      // 
+      // - Running: The executor is running.
+      // 
+      // - Exception: A scheduling error occurred.
+      // 
+      // - Retrying: The system is retrying the executor.
+      // 
+      // - Expired: The executor timed out.
+      // 
+      // - Suspended: The job is in hibernation.
+      // 
+      // - Restarting: The job is restarting.
+      // 
+      // - Deleted: The executor is deleted.
       shared_ptr<string> status_ {};
       // The description of the status reason.
       shared_ptr<string> statusReason_ {};
-      // The list of executor tags.
+      // A list of executor tags.
       shared_ptr<vector<Executors::Tags>> tags_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // Indicate whether the job is a long-running job.
+      // Indicates whether the job is a long-running job.
       shared_ptr<bool> taskSustainable_ {};
+      // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -552,7 +576,7 @@ namespace Models
 
 
   protected:
-    // Executor list.
+    // The list of executors.
     shared_ptr<vector<ListExecutorsResponseBody::Executors>> executors_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -560,7 +584,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The number of CPUs in the running environment.
+      // Number of CPUs in the runtime environment.
       shared_ptr<float> cores_ {};
-      // The memory size of the running environment. Unit: GiB.
+      // Memory size in the runtime environment, in GiB.
       shared_ptr<float> memory_ {};
     };
 
@@ -155,11 +155,11 @@ namespace Models
 
 
     protected:
-      // The region ID of the instance.
+      // ID of the region.
       shared_ptr<string> regionId_ {};
-      // The list of security groups available for the execution plan in the region.
+      // List of security groups available to the execution plan in this region.
       shared_ptr<vector<string>> securityGroupIds_ {};
-      // The list of VSwitches available for the execution plan in the region.
+      // List of vSwitches available to the execution plan in this region.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
 
@@ -284,43 +284,46 @@ namespace Models
 
 
   protected:
-    // The ID of the execution plan.
+    // ID of the execution plan.
     shared_ptr<string> actionPlanId_ {};
-    // The name of the execution plan.
+    // Name of the execution plan.
     shared_ptr<string> actionPlanName_ {};
-    // The type of the resource.
+    // Resource type.
     shared_ptr<string> allocationSpec_ {};
-    // The ID of the application.
+    // ID of the application.
     shared_ptr<string> appId_ {};
-    // The time when the execution plan was created.
+    // Time when the execution plan was created.
     shared_ptr<string> createTime_ {};
-    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
+    // Target resource size for the execution plan. If ResourceType is VCpuCapacity, this value represents the target vCPU count.
     shared_ptr<float> desiredCapacity_ {};
     shared_ptr<int32_t> intervalMinutes_ {};
-    // The computing power level.
+    // Computing power level.
     shared_ptr<string> level_ {};
-    // The pre-processing script. Base64 encoding is required.
+    // Prologue script. Must be Base64-encoded.
     shared_ptr<string> prologScript_ {};
-    // The list of resource configurations in the region where the execution plan runs.
+    // List of region-specific resource configurations for the execution plan\\"s runtime environment.
     shared_ptr<vector<GetActionPlanResponseBody::Regions>> regions_ {};
-    // The request ID.
+    // ID of the request.
     shared_ptr<string> requestId_ {};
-    // Target resource type: the capacity of vCPUs or the number of execution nodes. Valid values:
+    // Type of target resource for the execution plan. Valid values are:
     // 
-    // *   VCpuCapacity
-    // *   ExecutorCapacity
+    // - VCpuCapacity: vCPU capacity
+    // 
+    // - ExecutorCapacity: number of executor nodes
     shared_ptr<string> resourceType_ {};
-    // The list of resource configurations of the execution plan runtime environment.
+    // List of resource configurations for the execution plan\\"s runtime environment.
     shared_ptr<vector<GetActionPlanResponseBody::Resources>> resources_ {};
-    // The status of the execution plan. The possible values are as follows:
+    // Status of the execution plan. Valid values are:
     // 
-    // *   Active Instant tasks are dynamically managed only when the execution plan is in the Active state.
-    // *   Inactive Instant tasks are no longer managed by execution plans in the Inactive state.
-    // *   Deleting You cannot modify the parameters of an execution plan in this state.
+    // - Active: The execution plan is active and dynamically manages Instant jobs.
+    // 
+    // - Inactive: The execution plan is inactive and no longer manages Instant jobs.
+    // 
+    // - Deleting: The execution plan is being deleted. You cannot modify parameters during this state.
     shared_ptr<string> status_ {};
-    // The size of the resources currently managed by the execution plan.
+    // Current resource size managed by the execution plan.
     shared_ptr<float> totalCapacity_ {};
-    // The time when the execution plan was last modified.
+    // Last time the execution plan was modified.
     shared_ptr<string> updateTime_ {};
   };
 

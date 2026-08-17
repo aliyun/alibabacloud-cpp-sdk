@@ -17,7 +17,24 @@ namespace EhpcInstant20230701
 {
 
 AlibabaCloud::EhpcInstant20230701::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shenzhen" , "ehpcinstant.cn-shenzhen.aliyuncs.com"},
+    {"cn-wulanchabu" , "ehpcinstant.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "ehpcinstant.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-2" , "ehpcinstant.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "ehpcinstant.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "ehpcinstant.cn-chengdu.aliyuncs.com"},
+    {"cn-shanghai" , "ehpcinstant.cn-shanghai.aliyuncs.com"},
+    {"cn-guangzhou" , "ehpcinstant.cn-guangzhou.aliyuncs.com"},
+    {"cn-hongkong" , "ehpcinstant.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "ehpcinstant.cn-heyuan.aliyuncs.com"},
+    {"ap-southeast-1" , "ehpcinstant.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "ehpcinstant.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "ehpcinstant.ap-southeast-5.aliyuncs.com"},
+    {"cn-hangzhou" , "ehpcinstant.cn-hangzhou.aliyuncs.com"},
+    {"eu-central-1" , "ehpcinstant.eu-central-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ehpcinstant", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -108,9 +125,9 @@ AddImageResponse Client::addImage(const AddImageRequest &request) {
 }
 
 /**
- * @summary Create a E-HPC execution plan.
+ * @summary Creates an E-HPC execution plan.
  *
- * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+ * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
  *
  * @param tmpReq CreateActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -191,9 +208,9 @@ CreateActionPlanResponse Client::createActionPlanWithOptions(const CreateActionP
 }
 
 /**
- * @summary Create a E-HPC execution plan.
+ * @summary Creates an E-HPC execution plan.
  *
- * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+ * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
  *
  * @param request CreateActionPlanRequest
  * @return CreateActionPlanResponse
@@ -204,7 +221,7 @@ CreateActionPlanResponse Client::createActionPlan(const CreateActionPlanRequest 
 }
 
 /**
- * @summary Create a E-HPC Instant job.
+ * @summary Creates an E-HPC Instant job.
  *
  * @param tmpReq CreateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -251,6 +268,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
     query["JobScheduler"] = request.getJobScheduler();
   }
 
+  if (!!request.hasJobTemplateId()) {
+    query["JobTemplateId"] = request.getJobTemplateId();
+  }
+
   if (!!request.hasSecurityPolicyShrink()) {
     query["SecurityPolicy"] = request.getSecurityPolicyShrink();
   }
@@ -277,7 +298,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Create a E-HPC Instant job.
+ * @summary Creates an E-HPC Instant job.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -662,7 +683,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMet
 }
 
 /**
- * @summary Query job logs
+ * @summary Retrieves the logs for a job.
  *
  * @param request DescribeJobResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -713,7 +734,7 @@ DescribeJobResultsResponse Client::describeJobResultsWithOptions(const DescribeJ
 }
 
 /**
- * @summary Query job logs
+ * @summary Retrieves the logs for a job.
  *
  * @param request DescribeJobResultsRequest
  * @return DescribeJobResultsResponse
@@ -724,7 +745,7 @@ DescribeJobResultsResponse Client::describeJobResults(const DescribeJobResultsRe
 }
 
 /**
- * @summary Querying Execution Plan Details
+ * @summary Queries the details of an execution plan.
  *
  * @param request GetActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -755,7 +776,7 @@ GetActionPlanResponse Client::getActionPlanWithOptions(const GetActionPlanReques
 }
 
 /**
- * @summary Querying Execution Plan Details
+ * @summary Queries the details of an execution plan.
  *
  * @param request GetActionPlanRequest
  * @return GetActionPlanResponse
@@ -824,7 +845,7 @@ GetAppVersionsResponse Client::getAppVersions(const GetAppVersionsRequest &reque
 }
 
 /**
- * @summary Obtains the information about an image.
+ * @summary Get image details.
  *
  * @param tmpReq GetImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -873,7 +894,7 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
 }
 
 /**
- * @summary Obtains the information about an image.
+ * @summary Get image details.
  *
  * @param request GetImageRequest
  * @return GetImageResponse
@@ -884,7 +905,7 @@ GetImageResponse Client::getImage(const GetImageRequest &request) {
 }
 
 /**
- * @summary Obtains the details of an execution job.
+ * @summary Retrieves the details of an execution job.
  *
  * @param request GetJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +936,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 }
 
 /**
- * @summary Obtains the details of an execution job.
+ * @summary Retrieves the details of an execution job.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -926,7 +947,7 @@ GetJobResponse Client::getJob(const GetJobRequest &request) {
 }
 
 /**
- * @summary 查询作业保留时长
+ * @summary Retrieves the job record retention period.
  *
  * @param request GetJobRecordDurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +971,7 @@ GetJobRecordDurationResponse Client::getJobRecordDurationWithOptions(const GetJo
 }
 
 /**
- * @summary 查询作业保留时长
+ * @summary Retrieves the job record retention period.
  *
  * @param request GetJobRecordDurationRequest
  * @return GetJobRecordDurationResponse
@@ -961,7 +982,7 @@ GetJobRecordDurationResponse Client::getJobRecordDuration(const GetJobRecordDura
 }
 
 /**
- * @summary Obtains the details of a resource pool.
+ * @summary Retrieves the details of a specified resource pool.
  *
  * @param request GetPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -992,7 +1013,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
 }
 
 /**
- * @summary Obtains the details of a resource pool.
+ * @summary Retrieves the details of a specified resource pool.
  *
  * @param request GetPoolRequest
  * @return GetPoolResponse
@@ -1169,7 +1190,7 @@ ListExecutorEventsResponse Client::listExecutorEvents(const ListExecutorEventsRe
 }
 
 /**
- * @summary Querying Global Executor Information
+ * @summary Queries information about global executors.
  *
  * @param tmpReq ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1214,7 +1235,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary Querying Global Executor Information
+ * @summary Queries information about global executors.
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -1301,9 +1322,9 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Queries job executor information.
+ * @summary Retrieves information about job executors.
  *
- * @description Queries job executor information.
+ * @description Retrieves information about job executors.
  *
  * @param request ListJobExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1346,9 +1367,9 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
 }
 
 /**
- * @summary Queries job executor information.
+ * @summary Retrieves information about job executors.
  *
- * @description Queries job executor information.
+ * @description Retrieves information about job executors.
  *
  * @param request ListJobExecutorsRequest
  * @return ListJobExecutorsResponse
@@ -1359,7 +1380,7 @@ ListJobExecutorsResponse Client::listJobExecutors(const ListJobExecutorsRequest 
 }
 
 /**
- * @summary Queries the jobs in a cluster.
+ * @summary Returns a list of jobs.
  *
  * @param tmpReq ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1412,7 +1433,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Queries the jobs in a cluster.
+ * @summary Returns a list of jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -1423,7 +1444,7 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary Queries the resource pool list.
+ * @summary Lists resource pools.
  *
  * @param tmpReq ListPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1468,7 +1489,7 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
 }
 
 /**
- * @summary Queries the resource pool list.
+ * @summary Lists resource pools.
  *
  * @param request ListPoolsRequest
  * @return ListPoolsResponse
@@ -1793,7 +1814,7 @@ UpdateActionPlanResponse Client::updateActionPlan(const UpdateActionPlanRequest 
 }
 
 /**
- * @summary 更新作业保留时长
+ * @summary Updates the job record duration.
  *
  * @param request UpdateJobRecordDurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1824,7 +1845,7 @@ UpdateJobRecordDurationResponse Client::updateJobRecordDurationWithOptions(const
 }
 
 /**
- * @summary 更新作业保留时长
+ * @summary Updates the job record duration.
  *
  * @param request UpdateJobRecordDurationRequest
  * @return UpdateJobRecordDurationResponse
@@ -1835,7 +1856,7 @@ UpdateJobRecordDurationResponse Client::updateJobRecordDuration(const UpdateJobR
 }
 
 /**
- * @summary Update the resource pool configuration.
+ * @summary Updates the configuration of a resource pool.
  *
  * @param tmpReq UpdatePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1884,7 +1905,7 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
 }
 
 /**
- * @summary Update the resource pool configuration.
+ * @summary Updates the configuration of a resource pool.
  *
  * @param request UpdatePoolRequest
  * @return UpdatePoolResponse

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(JobScheduler, jobScheduler_);
+      DARABONBA_PTR_TO_JSON(JobTemplateId, jobTemplateId_);
       DARABONBA_PTR_TO_JSON(SecurityPolicy, securityPolicy_);
       DARABONBA_PTR_TO_JSON(Tasks, tasks_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobDescription, jobDescription_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(JobScheduler, jobScheduler_);
+      DARABONBA_PTR_FROM_JSON(JobTemplateId, jobTemplateId_);
       DARABONBA_PTR_FROM_JSON(SecurityPolicy, securityPolicy_);
       DARABONBA_PTR_FROM_JSON(Tasks, tasks_);
     };
@@ -148,26 +150,20 @@ namespace Models
 
 
         protected:
-          // The list of data volume mount parameters. Each option is a key-value pair in a JSON string.
+          // The list of volume mount parameters. Passed as key-value pairs in JSON format.
+          // - Reference format for mounting NAS: {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+          // > server specifies the mount target address of the NAS file system. path specifies a subdirectory under the NAS path, starting with /, and the directory must already exist. vers specifies the NFS protocol version for mounting NAS. Version 3 is recommended. options specifies custom parameters for mounting NAS, in the format "xxx,xxx,xxx".
           // 
-          // *   Format for mounting a NAS file system:{"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
-          // 
-          // > server indicates the address of the mount point of the NAS file system. path indicates the subdirectory of the NAS file system. The subdirectory must start with a (/) and must already exist. vers indicates the version number of the NFS protocol used to mount the file system. We recommend that you use v3. options indicates the custom parameters in the format of "xxx,xxx,xxx".
-          // 
-          // *   OSS mount format:{"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
-          // 
-          // > bucket indicates the name of the OSS bucket. url indicates the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the Overview page of the destination bucket. path indicates the directory structure of the root file of the bucket. The default value is /, which requires that the directory already exists. akId indicates the AccessKey ID. akSecret indicates the AccessKey secret.
+          // - Reference format for mounting OSS: {"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
+          // > bucket specifies the name of the OSS bucket. url specifies the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the overview page of the target bucket. path specifies the directory structure relative to the root of the bucket when mounting. The default value is /. The directory must already exist. akId specifies the AccessKey ID used for direct authorization with an AccessKey pair. akSecret specifies the AccessKey secret used for direct authorization with an AccessKey pair.
           shared_ptr<string> mountOptions_ {};
-          // The directory where the task mounts the data volume.
-          // 
-          // > The content of the mounted directory is overwritten by the content of the volume. Exercise caution when you use the directory.
+          // The directory where the data volume is mounted to the task.
           shared_ptr<string> mountPath_ {};
-          // Specifies whether the volume is read-only. Default value: false.
+          // Specifies whether the data volume is read-only. Default value: false.
           shared_ptr<bool> readOnly_ {};
-          // Currently supported data volume types.
-          // 
-          // *   alicloud/nas: mounts NAS.
-          // *   alicloud/oss: mounts OSS.
+          // The supported data volume type. Valid values:
+          // - alicloud/nas: mounts a NAS file system.
+          // - alicloud/oss: mounts an OSS bucket.
           shared_ptr<string> volumeDriver_ {};
         };
 
@@ -196,6 +192,7 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const VM& obj) { 
               DARABONBA_PTR_TO_JSON(AppId, appId_);
+              DARABONBA_PTR_TO_JSON(EnvironmentVars, environmentVars_);
               DARABONBA_PTR_TO_JSON(Image, image_);
               DARABONBA_PTR_TO_JSON(Password, password_);
               DARABONBA_PTR_TO_JSON(PrologScript, prologScript_);
@@ -203,6 +200,7 @@ namespace Models
             };
             friend void from_json(const Darabonba::Json& j, VM& obj) { 
               DARABONBA_PTR_FROM_JSON(AppId, appId_);
+              DARABONBA_PTR_FROM_JSON(EnvironmentVars, environmentVars_);
               DARABONBA_PTR_FROM_JSON(Image, image_);
               DARABONBA_PTR_FROM_JSON(Password, password_);
               DARABONBA_PTR_FROM_JSON(PrologScript, prologScript_);
@@ -219,13 +217,64 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class EnvironmentVars : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const EnvironmentVars& obj) { 
+                DARABONBA_PTR_TO_JSON(Name, name_);
+                DARABONBA_PTR_TO_JSON(Value, value_);
+              };
+              friend void from_json(const Darabonba::Json& j, EnvironmentVars& obj) { 
+                DARABONBA_PTR_FROM_JSON(Name, name_);
+                DARABONBA_PTR_FROM_JSON(Value, value_);
+              };
+              EnvironmentVars() = default ;
+              EnvironmentVars(const EnvironmentVars &) = default ;
+              EnvironmentVars(EnvironmentVars &&) = default ;
+              EnvironmentVars(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~EnvironmentVars() = default ;
+              EnvironmentVars& operator=(const EnvironmentVars &) = default ;
+              EnvironmentVars& operator=(EnvironmentVars &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+              // name Field Functions 
+              bool hasName() const { return this->name_ != nullptr;};
+              void deleteName() { this->name_ = nullptr;};
+              inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+              inline EnvironmentVars& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+              // value Field Functions 
+              bool hasValue() const { return this->value_ != nullptr;};
+              void deleteValue() { this->value_ = nullptr;};
+              inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+              inline EnvironmentVars& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+            protected:
+              shared_ptr<string> name_ {};
+              shared_ptr<string> value_ {};
+            };
+
             virtual bool empty() const override { return this->appId_ == nullptr
-        && this->image_ == nullptr && this->password_ == nullptr && this->prologScript_ == nullptr && this->script_ == nullptr; };
+        && this->environmentVars_ == nullptr && this->image_ == nullptr && this->password_ == nullptr && this->prologScript_ == nullptr && this->script_ == nullptr; };
             // appId Field Functions 
             bool hasAppId() const { return this->appId_ != nullptr;};
             void deleteAppId() { this->appId_ = nullptr;};
             inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
             inline VM& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+            // environmentVars Field Functions 
+            bool hasEnvironmentVars() const { return this->environmentVars_ != nullptr;};
+            void deleteEnvironmentVars() { this->environmentVars_ = nullptr;};
+            inline const vector<VM::EnvironmentVars> & getEnvironmentVars() const { DARABONBA_PTR_GET_CONST(environmentVars_, vector<VM::EnvironmentVars>) };
+            inline vector<VM::EnvironmentVars> getEnvironmentVars() { DARABONBA_PTR_GET(environmentVars_, vector<VM::EnvironmentVars>) };
+            inline VM& setEnvironmentVars(const vector<VM::EnvironmentVars> & environmentVars) { DARABONBA_PTR_SET_VALUE(environmentVars_, environmentVars) };
+            inline VM& setEnvironmentVars(vector<VM::EnvironmentVars> && environmentVars) { DARABONBA_PTR_SET_RVALUE(environmentVars_, environmentVars) };
 
 
             // image Field Functions 
@@ -257,21 +306,24 @@ namespace Models
 
 
           protected:
-            // The ID of the virtual machine application.
+            // The virtual machine application ID.
             shared_ptr<string> appId_ {};
-            // The ID of the image.
+            shared_ptr<vector<VM::EnvironmentVars>> environmentVars_ {};
+            // The image ID.
             // 
             // This parameter is required.
             shared_ptr<string> image_ {};
-            // The logon password of the virtual machine environment. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+            // The logon password for the virtual machine environment. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters are:
             // 
-            // ()\\`~!@#$%^&\\*-_+=|{}[]:;\\"<>,.?/ In Windows, the password cannot contain a forward slash (/) as the first character.
+            // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
             // 
-            // > We recommend that you use HTTPS to send requests if you specify Password to avoid password leakage.
+            // For Windows environments, the password cannot start with a forward slash (/).
+            // 
+            // > If you specify the Password parameter, use HTTPS to send the request to prevent password leakage.
             shared_ptr<string> password_ {};
-            // The pre-processing script. Base64 encoding is required.
+            // The pre-processing script. The script must be Base64-encoded.
             shared_ptr<string> prologScript_ {};
-            // The running-job script. Base64 encoding is required.
+            // The job execution script. The script must be Base64-encoded.
             shared_ptr<string> script_ {};
           };
 
@@ -344,9 +396,9 @@ namespace Models
 
 
             protected:
-              // The name of the environment variable for the container. It can be 1 to 128 characters in length. Format requirement: [0-9a-zA-Z], and underscores, cannot start with a number.
+              // The environment variable name. The name must be 1 to 128 characters in length. The format is [0-9a-zA-Z] and underscores. The name cannot start with a digit.
               shared_ptr<string> name_ {};
-              // The value of the environment variable for the container. The value must be 0 to 256 bits in length.
+              // The environment variable value. The value can be 0 to 256 characters in length.
               shared_ptr<string> value_ {};
             };
 
@@ -409,26 +461,25 @@ namespace Models
 
 
           protected:
-            // The application ID.
+            // The container application ID.
             shared_ptr<string> appId_ {};
-            // The startup argument of the init container. A maximum of 10 groups.
+            // The arguments for the container startup command. A maximum of 10 arguments are supported.
             shared_ptr<vector<string>> arg_ {};
-            // The container startup commands. You can specify up to 20 commands. Each command can be up to 256 characters in length.
-            // 
-            // > 
-            // 
-            // *   If the start command contains spaces (for example, `sleep 60s` ), the input JSON format parameter is `["sleep", "60s"]`.
-            // 
-            // *   If the startup command is complex, the parameter format may be a combination of `Command: ["/bin/bash"]` and `Arg:["-c", "<customized command>"]`. The `<customized command>` is a user-defined combination of commands and can contain characters such as spaces.
+            // The list of container startup commands. A maximum of 20 commands are supported. Each command can contain up to 256 characters.
+            // > 1. If a startup command contains spaces (for example, `sleep 60s`), pass the JSON parameter as `["sleep", "60s"]`.
+            // > 2. If a startup command is complex, use a combination of `Command: ["/bin/bash"]` and `Arg:["-c", "<customized command>"]`, where `<customized command>` is a user-defined command that can contain spaces and other characters.
             shared_ptr<vector<string>> command_ {};
-            // The environment variables of the container. A maximum of 20 groups.
+            // The environment variables of the container. A maximum of 20 environment variables are supported.
             shared_ptr<vector<Container::EnvironmentVars>> environmentVars_ {};
-            // The image of the container.
+            // The container image.
             // 
             // This parameter is required.
             shared_ptr<string> image_ {};
+            // The list of mount parameters for a self-managed image registry. The parameters are in key-value format and passed as a JSON string.
+            // 
+            // - Reference format: {"ImageRegistryType":"https","ImageRegistryServer":"xxx","ImageRegistryUserName":"xxx","ImageRegistryPassword":"xxx"}
             shared_ptr<string> imageRegistryOptions_ {};
-            // The working directory of the container.
+            // The container working directory.
             shared_ptr<string> workingDir_ {};
           };
 
@@ -453,9 +504,9 @@ namespace Models
 
 
         protected:
-          // Use the container environment.
+          // The container environment settings.
           shared_ptr<TaskExecutor::Container> container_ {};
-          // Use a virtual machine environment.
+          // The virtual machine environment settings.
           shared_ptr<TaskExecutor::VM> VM_ {};
         };
 
@@ -518,14 +569,15 @@ namespace Models
 
 
           protected:
-            // The next step behavior of the task.
+            // The next action for the node. Valid values:
             // 
-            // *   Retry: The job starts a retry when a specific exit code is hit.
-            // *   Exit: The job exits when a specific exit code is hit.
+            // - Retry: When a specific exit code is matched, the job starts a new retry.
+            // 
+            // - Exit: When a specific exit code is matched, the job exits.
             // 
             // This parameter is required.
             shared_ptr<string> action_ {};
-            // The task exit code, which is used together with the action to form a job retry rule. Valid values: 0 to 255.
+            // The task exit code, which is used together with Action to form a job retry rule. Valid values: 0 to 255.
             // 
             // This parameter is required.
             shared_ptr<int64_t> exitCode_ {};
@@ -550,9 +602,9 @@ namespace Models
 
 
         protected:
-          // The retry rule. A maximum of 10 groups.
+          // The retry rules. A maximum of 10 rules are supported.
           shared_ptr<vector<RetryPolicy::ExitCodeActions>> exitCodeActions_ {};
-          // The maximum number of retries. Valid values: 1 to 10. Default value: 3.
+          // The number of retries. Valid values: 1 to 10. Default value: 3.
           shared_ptr<int32_t> retryCount_ {};
         };
 
@@ -623,9 +675,9 @@ namespace Models
 
 
           protected:
-            // The size of the disk. Unit: GiB.
+            // The cloud disk size. Unit: GiB.
             shared_ptr<int32_t> size_ {};
-            // The type of the disk. Currently, only System is supported, which indicates the system disk.
+            // The cloud disk type. Currently, only System is supported, which indicates a system cloud disk.
             shared_ptr<string> type_ {};
           };
 
@@ -678,15 +730,21 @@ namespace Models
 
 
         protected:
-          // The number of CPUs in the running environment.
+          // The number of CPUs in the runtime environment.
           shared_ptr<float> cores_ {};
-          // The array of the disks.
+          // The cloud disk array.
           shared_ptr<vector<Resource::Disks>> disks_ {};
+          // Specifies whether hyper-threading is enabled in the runtime environment. Default value: true.
           shared_ptr<bool> enableHT_ {};
+          // The hostname prefix of the runtime environment. The following limits apply:
+          // 
+          // - A period (.) and a hyphen (-) cannot be used as the first or last character, or consecutively.
+          // - Windows environment: The value can be up to 10 characters in length, cannot contain periods (.), and cannot consist of digits only. Uppercase and lowercase letters, digits, and hyphens (-) are allowed.
+          // - Linux environment: The value can be up to 32 characters in length and can contain multiple periods (.). The hostname is divided into segments by periods. Each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
           shared_ptr<string> hostNamePrefix_ {};
-          // The instance type of the running environment. A maximum of 5 groups.
+          // The instance types of the runtime environment. A maximum of 5 instance types are supported.
           shared_ptr<vector<string>> instanceTypes_ {};
-          // The memory size of the running environment. Unit: GiB.
+          // The memory size of the runtime environment. Unit: GiB.
           shared_ptr<float> memory_ {};
         };
 
@@ -729,15 +787,15 @@ namespace Models
 
 
       protected:
-        // The resource information of the running environment.
+        // The resource information of the runtime environment.
         shared_ptr<TaskSpec::Resource> resource_ {};
-        // Task retry policy.
+        // The task retry policy.
         shared_ptr<TaskSpec::RetryPolicy> retryPolicy_ {};
-        // The task execution configurations.
+        // The task execution configuration.
         // 
         // This parameter is required.
         shared_ptr<vector<TaskSpec::TaskExecutor>> taskExecutor_ {};
-        // The list of data volumes mounted to the task. A maximum of 10 groups.
+        // The list of data volumes mounted to the task. A maximum of 10 data volumes are supported.
         shared_ptr<vector<TaskSpec::VolumeMount>> volumeMount_ {};
       };
 
@@ -809,13 +867,12 @@ namespace Models
 
 
         protected:
-          // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
+          // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to IndexStart.
           shared_ptr<int32_t> indexEnd_ {};
-          // The starting value of the array job index. Valid values: 0 to 4999.
+          // The start value of the array job index. Valid values: 0 to 4999.
           shared_ptr<int32_t> indexStart_ {};
-          // The interval of the array job index.
-          // 
-          // > If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three sub-jobs. The index values of the sub-jobs are 1,3, and 5. You can access the sub-jobs by using environment variables.
+          // The interval between indexes in an array job.
+          // > If the array job has the properties IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three sub-jobs with indexes 1, 3, and 5. Your application can access these indexes through environment variables.
           shared_ptr<int32_t> indexStep_ {};
         };
 
@@ -838,21 +895,19 @@ namespace Models
 
 
       protected:
-        // The details of the array job. The index value of the sub-job is passed to the running environment through environment variables to support user business program reference. Environment variables include:
-        // 
-        // *   EHPC_JOB_NAME: the name of the job. This parameter corresponds to the JobName parameter.
-        // *   EHPC_JOB_ID: The ID of the job.
-        // *   EHPC_TASK_NAME: the name of the task. This parameter corresponds to the TaskName parameter.
-        // *   EHPC_EXECUTOR_ID: The ID of the execution unit.
-        // *   EHPC_ARRAY_TASK_ID: the sub-job index value.
-        // *   EHPC_ARRAY_TASK_COUNT: the total number of sub-jobs.
-        // *   EHPC_ARRAY_TASK_MAX: the maximum sub-job index, which corresponds to the IndexStart parameter.
-        // *   EHPC_ARRAY_TASK_MIN: the minimum value of the sub-job index, which corresponds to the IndexEnd parameter.
-        // *   EHPC_ARRAY_TASK_STEP: the index step size of the sub-job, which corresponds to the IndexStep parameter.
+        // The array job details. Sub-job index values are passed to the runtime environment through environment variables, which can be referenced by user applications. The environment variables include:
+        // - EHPC_JOB_NAME: the job name, corresponding to the JobName parameter.
+        // - EHPC_JOB_ID: the job ID.
+        // - EHPC_TASK_NAME: the task name, corresponding to the TaskName parameter.
+        // - EHPC_EXECUTOR_ID: the executor ID.
+        // - EHPC_ARRAY_TASK_ID: the sub-job index value.
+        // - EHPC_ARRAY_TASK_COUNT: the total number of sub-jobs.
+        // - EHPC_ARRAY_TASK_MAX: the maximum sub-job index value, corresponding to the IndexStart parameter.
+        // - EHPC_ARRAY_TASK_MIN: the minimum sub-job index value, corresponding to the IndexEnd parameter.
+        // - EHPC_ARRAY_TASK_STEP: the sub-job index step, corresponding to the IndexStep parameter.
         shared_ptr<ExecutorPolicy::ArraySpec> arraySpec_ {};
-        // The maximum number of nodes to run the job.
-        // 
-        // > Follow the calculation formula: `MaxCount = (IndexEnd - IndexStart) / IndexStep +1`
+        // The maximum number of nodes for the job.
+        // > The value must comply with the following formula: `MaxCount = (IndexEnd - IndexStart) / IndexStep + 1`
         shared_ptr<int32_t> maxCount_ {};
       };
 
@@ -893,14 +948,13 @@ namespace Models
     protected:
       // The task execution policy.
       shared_ptr<Tasks::ExecutorPolicy> executorPolicy_ {};
-      // The job name. It must be 2 to 32 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+      // The task name. The name must be 2 to 32 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
       shared_ptr<string> taskName_ {};
-      // The details of the task specification.
+      // The task specification details.
       shared_ptr<Tasks::TaskSpec> taskSpec_ {};
-      // Indicate whether the job is a long-running job.
-      // 
-      // *   true: background service the job.
-      // *   false: batch jobs.
+      // Specifies whether the job is a long-running job. Valid values:
+      // - true: background service job.
+      // - false: batch job.
       // 
       // Default value: false.
       shared_ptr<bool> taskSustainable_ {};
@@ -970,7 +1024,7 @@ namespace Models
 
 
     protected:
-      // The security group ID.
+      // The security group.
       shared_ptr<SecurityPolicy::SecurityGroup> securityGroup_ {};
     };
 
@@ -1041,11 +1095,11 @@ namespace Models
 
 
       protected:
-        // The key of the job tag. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+        // The tag key of the job. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The value of the job tag. You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+        // The tag value of the job. If you specify this parameter, the value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
         shared_ptr<string> value_ {};
       };
 
@@ -1089,14 +1143,9 @@ namespace Models
 
 
       protected:
-        // Whether the job creates a public IP address.
-        // 
-        // *   true: creates a public IP address.
-        // *   false: does not create a public IP address.
-        // 
-        // Default value: false.
+        // Specifies whether to create a public IP address for the job.
         shared_ptr<bool> enableExternalIpAddress_ {};
-        // The VSwitch array.
+        // The vSwitch array.
         shared_ptr<vector<string>> vswitch_ {};
       };
 
@@ -1149,26 +1198,21 @@ namespace Models
 
 
     protected:
-      // The resource type,
-      // 
-      // *   Standard
-      // *   Dedicated: You must enable a whitelist for use.
-      // *   Economic: You must enable a whitelist for use.
+      // The resource type.
       shared_ptr<string> allocationSpec_ {};
-      // The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
+      // The computing power level. This parameter is valid only when the resource type is economy. Valid values:
+      // - General: general-purpose.
+      // - Performance: compute-optimized.
       // 
-      // *   General
-      // *   Performance
-      // 
-      // Default value: General.
+      // Default value: General
       shared_ptr<string> level_ {};
-      // The network configuration information.
+      // The network configuration.
       shared_ptr<DeploymentPolicy::Network> network_ {};
-      // The resource pool of the job.
+      // The job resource pool.
       shared_ptr<string> pool_ {};
-      // The priorities of the jobs. A larger value indicates a higher job scheduling priority. Valid values: 1 to 100.
+      // The job priority. A larger value indicates a higher scheduling priority. Valid values: 1 to 100.
       shared_ptr<int32_t> priority_ {};
-      // The tag information of the job. A maximum of 20 groups.
+      // The job tag information. A maximum of 20 tags are supported.
       shared_ptr<vector<DeploymentPolicy::Tag>> tag_ {};
     };
 
@@ -1229,16 +1273,16 @@ namespace Models
 
 
       protected:
-        // The ID of the job.
+        // The job ID.
         // 
         // This parameter is required.
         shared_ptr<string> jobId_ {};
-        // The type of the dependency. Valid values:
+        // The dependency type. Valid values:
         // 
-        // *   AfterSucceeded: **All subtasks** of the dependent job or array job succeed. The exit code is 0.
-        // *   AfterFailed: **All subtasks** of the dependent job or array job fail. The exit code is not 0.
-        // *   AfterAny: The dependent job completes (succeeds or fails).
-        // *   AfterCorresponding: The subtask corresponding to the dependent array job succeeds. The exit code is 0.
+        // - AfterSucceeded: **All tasks** in the dependent job or array job run successfully (exit code 0).
+        // - AfterFailed: **Any task** in the dependent job or array job fails (exit code is not 0).
+        // - AfterAny: The dependent job finishes running (succeeded or failed).
+        // - AfterCorresponding: The corresponding task in the dependent array job runs successfully (exit code 0).
         // 
         // Default value: AfterSucceeded.
         shared_ptr<string> type_ {};
@@ -1255,13 +1299,13 @@ namespace Models
 
 
     protected:
-      // The job dependency. A maximum of 10 groups.
+      // The job dependencies. A maximum of 10 groups are supported.
       shared_ptr<vector<DependencyPolicy::JobDependency>> jobDependency_ {};
     };
 
     virtual bool empty() const override { return this->dependencyPolicy_ == nullptr
-        && this->deploymentPolicy_ == nullptr && this->jobDescription_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->securityPolicy_ == nullptr
-        && this->tasks_ == nullptr; };
+        && this->deploymentPolicy_ == nullptr && this->jobDescription_ == nullptr && this->jobName_ == nullptr && this->jobScheduler_ == nullptr && this->jobTemplateId_ == nullptr
+        && this->securityPolicy_ == nullptr && this->tasks_ == nullptr; };
     // dependencyPolicy Field Functions 
     bool hasDependencyPolicy() const { return this->dependencyPolicy_ != nullptr;};
     void deleteDependencyPolicy() { this->dependencyPolicy_ = nullptr;};
@@ -1301,6 +1345,13 @@ namespace Models
     inline CreateJobRequest& setJobScheduler(string jobScheduler) { DARABONBA_PTR_SET_VALUE(jobScheduler_, jobScheduler) };
 
 
+    // jobTemplateId Field Functions 
+    bool hasJobTemplateId() const { return this->jobTemplateId_ != nullptr;};
+    void deleteJobTemplateId() { this->jobTemplateId_ = nullptr;};
+    inline string getJobTemplateId() const { DARABONBA_PTR_GET_DEFAULT(jobTemplateId_, "") };
+    inline CreateJobRequest& setJobTemplateId(string jobTemplateId) { DARABONBA_PTR_SET_VALUE(jobTemplateId_, jobTemplateId) };
+
+
     // securityPolicy Field Functions 
     bool hasSecurityPolicy() const { return this->securityPolicy_ != nullptr;};
     void deleteSecurityPolicy() { this->securityPolicy_ = nullptr;};
@@ -1320,26 +1371,22 @@ namespace Models
 
 
   protected:
-    // Dependency policy.
+    // The dependency policy.
     shared_ptr<CreateJobRequest::DependencyPolicy> dependencyPolicy_ {};
     // The resource deployment policy.
     shared_ptr<CreateJobRequest::DeploymentPolicy> deploymentPolicy_ {};
-    // The description of the job.
+    // The job description.
     shared_ptr<string> jobDescription_ {};
-    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
-    // The type of the job scheduler.
-    // 
-    // *   HPC
-    // *   K8S
-    // 
-    // Default value: HPC
     shared_ptr<string> jobScheduler_ {};
+    // The job template ID.
+    shared_ptr<string> jobTemplateId_ {};
     // The security policy.
     shared_ptr<CreateJobRequest::SecurityPolicy> securityPolicy_ {};
-    // The list of tasks. Only one task is supported.
+    // The task list. Currently, only one task is supported.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateJobRequest::Tasks>> tasks_ {};
