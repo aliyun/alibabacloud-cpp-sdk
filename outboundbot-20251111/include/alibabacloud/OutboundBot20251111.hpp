@@ -21,6 +21,90 @@ namespace OutboundBot20251111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Stops an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param request AbortCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AbortCampaignResponse
+       */
+      Models::AbortCampaignResponse abortCampaignWithOptions(const Models::AbortCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param request AbortCampaignRequest
+       * @return AbortCampaignResponse
+       */
+      Models::AbortCampaignResponse abortCampaign(const Models::AbortCampaignRequest &request);
+
+      /**
+       * @summary Stops an outbound call case.
+       *
+       * @description ****
+       *
+       * @param tmpReq AbortCasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AbortCasesResponse
+       */
+      Models::AbortCasesResponse abortCasesWithOptions(const Models::AbortCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops an outbound call case.
+       *
+       * @description ****
+       *
+       * @param request AbortCasesRequest
+       * @return AbortCasesResponse
+       */
+      Models::AbortCasesResponse abortCases(const Models::AbortCasesRequest &request);
+
+      /**
+       * @summary Appends contacts to an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param tmpReq AppendCasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AppendCasesResponse
+       */
+      Models::AppendCasesResponse appendCasesWithOptions(const Models::AppendCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Appends contacts to an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param request AppendCasesRequest
+       * @return AppendCasesResponse
+       */
+      Models::AppendCasesResponse appendCases(const Models::AppendCasesRequest &request);
+
+      /**
+       * @summary Creates an outbound call task.
+       *
+       * @description ****
+       *
+       * @param tmpReq CreateCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCampaignResponse
+       */
+      Models::CreateCampaignResponse createCampaignWithOptions(const Models::CreateCampaignRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an outbound call task.
+       *
+       * @description ****
+       *
+       * @param request CreateCampaignRequest
+       * @return CreateCampaignResponse
+       */
+      Models::CreateCampaignResponse createCampaign(const Models::CreateCampaignRequest &request);
+
+      /**
        * @summary Creates an instance.
        *
        * @param request CreateCloneVoiceRequest
@@ -259,6 +343,23 @@ namespace OutboundBot20251111
       Models::DisableSubscriptionResponse disableSubscription(const Models::DisableSubscriptionRequest &request);
 
       /**
+       * @summary Retrieves the details of an outbound campaign.
+       *
+       * @param request GetCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCampaignResponse
+       */
+      Models::GetCampaignResponse getCampaignWithOptions(const Models::GetCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an outbound campaign.
+       *
+       * @param request GetCampaignRequest
+       * @return GetCampaignResponse
+       */
+      Models::GetCampaignResponse getCampaign(const Models::GetCampaignRequest &request);
+
+      /**
        * @summary Retrieves the details of an instance.
        *
        * @param request GetInstanceRequest
@@ -308,6 +409,27 @@ namespace OutboundBot20251111
        * @return GetSubscriptionResponse
        */
       Models::GetSubscriptionResponse getSubscription(const Models::GetSubscriptionRequest &request);
+
+      /**
+       * @summary Retrieves the list of outbound call campaigns.
+       *
+       * @description ****
+       *
+       * @param request ListCampaignsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCampaignsResponse
+       */
+      Models::ListCampaignsResponse listCampaignsWithOptions(const Models::ListCampaignsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of outbound call campaigns.
+       *
+       * @description ****
+       *
+       * @param request ListCampaignsRequest
+       * @return ListCampaignsResponse
+       */
+      Models::ListCampaignsResponse listCampaigns(const Models::ListCampaignsRequest &request);
 
       /**
        * @summary Retrieves the list of available models for voice cloning.
@@ -514,6 +636,23 @@ namespace OutboundBot20251111
       Models::ListVoiceAccessProfilesResponse listVoiceAccessProfiles(const Models::ListVoiceAccessProfilesRequest &request);
 
       /**
+       * @summary Pauses an outbound call campaign.
+       *
+       * @param request PauseCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseCampaignResponse
+       */
+      Models::PauseCampaignResponse pauseCampaignWithOptions(const Models::PauseCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pauses an outbound call campaign.
+       *
+       * @param request PauseCampaignRequest
+       * @return PauseCampaignResponse
+       */
+      Models::PauseCampaignResponse pauseCampaign(const Models::PauseCampaignRequest &request);
+
+      /**
        * @summary Updates an instance.
        *
        * @param request PublishScriptRequest
@@ -529,6 +668,48 @@ namespace OutboundBot20251111
        * @return PublishScriptResponse
        */
       Models::PublishScriptResponse publishScript(const Models::PublishScriptRequest &request);
+
+      /**
+       * @summary Resumes an outbound campaign.
+       *
+       * @description ****
+       *
+       * @param request ResumeCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeCampaignResponse
+       */
+      Models::ResumeCampaignResponse resumeCampaignWithOptions(const Models::ResumeCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resumes an outbound campaign.
+       *
+       * @description ****
+       *
+       * @param request ResumeCampaignRequest
+       * @return ResumeCampaignResponse
+       */
+      Models::ResumeCampaignResponse resumeCampaign(const Models::ResumeCampaignRequest &request);
+
+      /**
+       * @summary Submits an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param request SubmitCampaignRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitCampaignResponse
+       */
+      Models::SubmitCampaignResponse submitCampaignWithOptions(const Models::SubmitCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an outbound call campaign.
+       *
+       * @description ****
+       *
+       * @param request SubmitCampaignRequest
+       * @return SubmitCampaignResponse
+       */
+      Models::SubmitCampaignResponse submitCampaign(const Models::SubmitCampaignRequest &request);
 
       /**
        * @summary Updates an instance.
@@ -599,7 +780,7 @@ namespace OutboundBot20251111
       Models::UpdateScriptResponse updateScript(const Models::UpdateScriptRequest &request);
 
       /**
-       * @summary 更新场景配置
+       * @summary Updates the scenario configuration.
        *
        * @description ****
        *
@@ -610,7 +791,7 @@ namespace OutboundBot20251111
       Models::UpdateScriptVersionResponse updateScriptVersionWithOptions(const Models::UpdateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新场景配置
+       * @summary Updates the scenario configuration.
        *
        * @description ****
        *

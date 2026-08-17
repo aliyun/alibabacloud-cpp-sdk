@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 交互配置
+    // The interaction configuration.
     shared_ptr<string> interactionConfigShrink_ {};
-    // 草稿版本的标签配置（JSON字符串）
+    // The label configurations.
     shared_ptr<string> labelConfigsShrink_ {};
-    // 场景ID
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // 话术配置
+    // The dialogue capability configuration.
     shared_ptr<string> scriptProfileShrink_ {};
-    // 语音合成配置
+    // The TTS configuration.
     shared_ptr<string> synthesizerConfigShrink_ {};
-    // 语音识别配置
+    // The ASR configuration.
     shared_ptr<string> transcriberConfigShrink_ {};
-    // 版本ID
+    // The version ID.
     shared_ptr<string> versionId_ {};
   };
 

@@ -39,6 +39,308 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Stops an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param request AbortCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AbortCampaignResponse
+ */
+AbortCampaignResponse Client::abortCampaignWithOptions(const AbortCampaignRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AbortCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AbortCampaignResponse>();
+}
+
+/**
+ * @summary Stops an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param request AbortCampaignRequest
+ * @return AbortCampaignResponse
+ */
+AbortCampaignResponse Client::abortCampaign(const AbortCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return abortCampaignWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops an outbound call case.
+ *
+ * @description ****
+ *
+ * @param tmpReq AbortCasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AbortCasesResponse
+ */
+AbortCasesResponse Client::abortCasesWithOptions(const AbortCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AbortCasesShrinkRequest request = AbortCasesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPhoneNumbers()) {
+    request.setPhoneNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhoneNumbers(), "PhoneNumbers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPhoneNumbersShrink()) {
+    query["PhoneNumbers"] = request.getPhoneNumbersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AbortCases"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AbortCasesResponse>();
+}
+
+/**
+ * @summary Stops an outbound call case.
+ *
+ * @description ****
+ *
+ * @param request AbortCasesRequest
+ * @return AbortCasesResponse
+ */
+AbortCasesResponse Client::abortCases(const AbortCasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return abortCasesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Appends contacts to an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param tmpReq AppendCasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AppendCasesResponse
+ */
+AppendCasesResponse Client::appendCasesWithOptions(const AppendCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AppendCasesShrinkRequest request = AppendCasesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCases()) {
+    request.setCasesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCases(), "Cases", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasCasesShrink()) {
+    body["Cases"] = request.getCasesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AppendCases"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AppendCasesResponse>();
+}
+
+/**
+ * @summary Appends contacts to an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param request AppendCasesRequest
+ * @return AppendCasesResponse
+ */
+AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return appendCasesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an outbound call task.
+ *
+ * @description ****
+ *
+ * @param tmpReq CreateCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCampaignResponse
+ */
+CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCampaignShrinkRequest request = CreateCampaignShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCases()) {
+    request.setCasesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCases(), "Cases", "json"));
+  }
+
+  if (!!tmpReq.hasNumbers()) {
+    request.setNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNumbers(), "Numbers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAttemptOrder()) {
+    query["AttemptOrder"] = request.getAttemptOrder();
+  }
+
+  if (!!request.hasCallableTime()) {
+    query["CallableTime"] = request.getCallableTime();
+  }
+
+  if (!!request.hasCaseFileKey()) {
+    query["CaseFileKey"] = request.getCaseFileKey();
+  }
+
+  if (!!request.hasDialingTimeoutSeconds()) {
+    query["DialingTimeoutSeconds"] = request.getDialingTimeoutSeconds();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasFixedQuota()) {
+    query["FixedQuota"] = request.getFixedQuota();
+  }
+
+  if (!!request.hasFlashSmsParameters()) {
+    query["FlashSmsParameters"] = request.getFlashSmsParameters();
+  }
+
+  if (!!request.hasHolidayRestricted()) {
+    query["HolidayRestricted"] = request.getHolidayRestricted();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxAttemptCount()) {
+    query["MaxAttemptCount"] = request.getMaxAttemptCount();
+  }
+
+  if (!!request.hasMinAttemptInterval()) {
+    query["MinAttemptInterval"] = request.getMinAttemptInterval();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNumbersShrink()) {
+    query["Numbers"] = request.getNumbersShrink();
+  }
+
+  if (!!request.hasRedialRestrictions()) {
+    query["RedialRestrictions"] = request.getRedialRestrictions();
+  }
+
+  if (!!request.hasRunUntilEndTime()) {
+    query["RunUntilEndTime"] = request.getRunUntilEndTime();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWeight()) {
+    query["Weight"] = request.getWeight();
+  }
+
+  json body = {};
+  if (!!request.hasCasesShrink()) {
+    body["Cases"] = request.getCasesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCampaignResponse>();
+}
+
+/**
+ * @summary Creates an outbound call task.
+ *
+ * @description ****
+ *
+ * @param request CreateCampaignRequest
+ * @return CreateCampaignResponse
+ */
+CreateCampaignResponse Client::createCampaign(const CreateCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCampaignWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an instance.
  *
  * @param request CreateCloneVoiceRequest
@@ -777,6 +1079,52 @@ DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptio
 }
 
 /**
+ * @summary Retrieves the details of an outbound campaign.
+ *
+ * @param request GetCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCampaignResponse
+ */
+GetCampaignResponse Client::getCampaignWithOptions(const GetCampaignRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCampaignResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an outbound campaign.
+ *
+ * @param request GetCampaignRequest
+ * @return GetCampaignResponse
+ */
+GetCampaignResponse Client::getCampaign(const GetCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCampaignWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of an instance.
  *
  * @param request GetInstanceRequest
@@ -904,6 +1252,84 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscription
 GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of outbound call campaigns.
+ *
+ * @description ****
+ *
+ * @param request ListCampaignsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCampaignsResponse
+ */
+ListCampaignsResponse Client::listCampaignsWithOptions(const ListCampaignsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActualStartTimeFrom()) {
+    query["ActualStartTimeFrom"] = request.getActualStartTimeFrom();
+  }
+
+  if (!!request.hasActualStartTimeTo()) {
+    query["ActualStartTimeTo"] = request.getActualStartTimeTo();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlannedStartTimeFrom()) {
+    query["PlannedStartTimeFrom"] = request.getPlannedStartTimeFrom();
+  }
+
+  if (!!request.hasPlannedStartTimeTo()) {
+    query["PlannedStartTimeTo"] = request.getPlannedStartTimeTo();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.getState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCampaigns"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCampaignsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of outbound call campaigns.
+ *
+ * @description ****
+ *
+ * @param request ListCampaignsRequest
+ * @return ListCampaignsResponse
+ */
+ListCampaignsResponse Client::listCampaigns(const ListCampaignsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCampaignsWithOptions(request, runtime);
 }
 
 /**
@@ -1517,6 +1943,52 @@ ListVoiceAccessProfilesResponse Client::listVoiceAccessProfiles(const ListVoiceA
 }
 
 /**
+ * @summary Pauses an outbound call campaign.
+ *
+ * @param request PauseCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseCampaignResponse
+ */
+PauseCampaignResponse Client::pauseCampaignWithOptions(const PauseCampaignRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseCampaignResponse>();
+}
+
+/**
+ * @summary Pauses an outbound call campaign.
+ *
+ * @param request PauseCampaignRequest
+ * @return PauseCampaignResponse
+ */
+PauseCampaignResponse Client::pauseCampaign(const PauseCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pauseCampaignWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates an instance.
  *
  * @param request PublishScriptRequest
@@ -1564,6 +2036,106 @@ PublishScriptResponse Client::publishScriptWithOptions(const PublishScriptReques
 PublishScriptResponse Client::publishScript(const PublishScriptRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return publishScriptWithOptions(request, runtime);
+}
+
+/**
+ * @summary Resumes an outbound campaign.
+ *
+ * @description ****
+ *
+ * @param request ResumeCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeCampaignResponse
+ */
+ResumeCampaignResponse Client::resumeCampaignWithOptions(const ResumeCampaignRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeCampaignResponse>();
+}
+
+/**
+ * @summary Resumes an outbound campaign.
+ *
+ * @description ****
+ *
+ * @param request ResumeCampaignRequest
+ * @return ResumeCampaignResponse
+ */
+ResumeCampaignResponse Client::resumeCampaign(const ResumeCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeCampaignWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param request SubmitCampaignRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitCampaignResponse
+ */
+SubmitCampaignResponse Client::submitCampaignWithOptions(const SubmitCampaignRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitCampaign"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitCampaignResponse>();
+}
+
+/**
+ * @summary Submits an outbound call campaign.
+ *
+ * @description ****
+ *
+ * @param request SubmitCampaignRequest
+ * @return SubmitCampaignResponse
+ */
+SubmitCampaignResponse Client::submitCampaign(const SubmitCampaignRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitCampaignWithOptions(request, runtime);
 }
 
 /**
@@ -1785,7 +2357,7 @@ UpdateScriptResponse Client::updateScript(const UpdateScriptRequest &request) {
 }
 
 /**
- * @summary 更新场景配置
+ * @summary Updates the scenario configuration.
  *
  * @description ****
  *
@@ -1868,7 +2440,7 @@ UpdateScriptVersionResponse Client::updateScriptVersionWithOptions(const UpdateS
 }
 
 /**
- * @summary 更新场景配置
+ * @summary Updates the scenario configuration.
  *
  * @description ****
  *
