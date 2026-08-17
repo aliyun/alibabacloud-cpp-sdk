@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to perform a dry run.
     shared_ptr<bool> dryRun_ {};
+    // The region to which the cluster belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
   };

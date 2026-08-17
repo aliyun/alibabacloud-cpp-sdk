@@ -137,11 +137,11 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategy(const Models::CreateAlertStrategyRequest &request);
 
       /**
-       * @summary 创建集群Vpc端点连接
+       * @summary Creates a VPC endpoint connection for a cluster.
        *
-       * @description - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
-       * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
-       * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
+       * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
+       * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @param headers map
@@ -151,11 +151,11 @@ namespace SysOM20231230
       Models::CreateClusterVpcEndpointConnectionResponse createClusterVpcEndpointConnectionWithOptions(const Models::CreateClusterVpcEndpointConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建集群Vpc端点连接
+       * @summary Creates a VPC endpoint connection for a cluster.
        *
-       * @description - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
-       * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
-       * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
+       * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
+       * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @return CreateClusterVpcEndpointConnectionResponse
@@ -837,9 +837,9 @@ namespace SysOM20231230
       Models::InstallAgentForClusterResponse installAgentForCluster(const Models::InstallAgentForClusterRequest &request);
 
       /**
-       * @summary 在指定的实例上安装 Agent
+       * @summary Installs an Agent on a specified instance.
        *
-       * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
        *
        * @param request InstallAgentWithTypeRequest
        * @param headers map
@@ -849,9 +849,9 @@ namespace SysOM20231230
       Models::InstallAgentWithTypeResponse installAgentWithTypeWithOptions(const Models::InstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在指定的实例上安装 Agent
+       * @summary Installs an Agent on a specified instance.
        *
-       * @description 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
        *
        * @param request InstallAgentWithTypeRequest
        * @return InstallAgentWithTypeResponse
@@ -1349,9 +1349,9 @@ namespace SysOM20231230
       Models::UninstallAgentForClusterResponse uninstallAgentForCluster(const Models::UninstallAgentForClusterRequest &request);
 
       /**
-       * @summary 卸载 SysOM Agent
+       * @summary Uninstalls a specified version of a component.
        *
-       * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UninstallAgentWithTypeRequest
        * @param headers map
@@ -1361,9 +1361,9 @@ namespace SysOM20231230
       Models::UninstallAgentWithTypeResponse uninstallAgentWithTypeWithOptions(const Models::UninstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 卸载 SysOM Agent
+       * @summary Uninstalls a specified version of a component.
        *
-       * @description 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UninstallAgentWithTypeRequest
        * @return UninstallAgentWithTypeResponse
@@ -1511,9 +1511,9 @@ namespace SysOM20231230
       Models::UpgradeAgentForClusterResponse upgradeAgentForCluster(const Models::UpgradeAgentForClusterRequest &request);
 
       /**
-       * @summary 更新 SysOM Agent
+       * @summary Updates the version of an installed component to a specified version.
        *
-       * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UpgradeAgentWithTypeRequest
        * @param headers map
@@ -1523,9 +1523,9 @@ namespace SysOM20231230
       Models::UpgradeAgentWithTypeResponse upgradeAgentWithTypeWithOptions(const Models::UpgradeAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 SysOM Agent
+       * @summary Updates the version of an installed component to a specified version.
        *
-       * @description 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+       * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UpgradeAgentWithTypeRequest
        * @return UpgradeAgentWithTypeResponse

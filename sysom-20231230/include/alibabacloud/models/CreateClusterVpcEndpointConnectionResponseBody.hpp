@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The ID of the endpoint connection.
       shared_ptr<string> endpointConnectionId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateClusterVpcEndpointConnectionResponseBody::Data> data_ {};
+    // The description of the error code. This parameter is empty if no error occurs.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

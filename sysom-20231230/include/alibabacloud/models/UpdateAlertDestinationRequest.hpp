@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEALERTDESTINATIONREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEALERTDESTINATIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,14 +14,22 @@ namespace Models
   class UpdateAlertDestinationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateAlertDestinationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(app_id, appId_);
+      DARABONBA_PTR_TO_JSON(app_secret, appSecret_);
+      DARABONBA_PTR_TO_JSON(group_id, groupId_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(imbot, imbot_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(params, params_);
       DARABONBA_PTR_TO_JSON(source, source_);
       DARABONBA_PTR_TO_JSON(target, target_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAlertDestinationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(app_id, appId_);
+      DARABONBA_PTR_FROM_JSON(app_secret, appSecret_);
+      DARABONBA_PTR_FROM_JSON(group_id, groupId_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(imbot, imbot_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(params, params_);
       DARABONBA_PTR_FROM_JSON(source, source_);
@@ -103,13 +112,44 @@ namespace Models
       shared_ptr<string> webhook_ {};
     };
 
-    virtual bool empty() const override { return this->id_ == nullptr
-        && this->name_ == nullptr && this->params_ == nullptr && this->source_ == nullptr && this->target_ == nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appSecret_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->imbot_ == nullptr && this->name_ == nullptr
+        && this->params_ == nullptr && this->source_ == nullptr && this->target_ == nullptr; };
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline UpdateAlertDestinationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // appSecret Field Functions 
+    bool hasAppSecret() const { return this->appSecret_ != nullptr;};
+    void deleteAppSecret() { this->appSecret_ = nullptr;};
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline UpdateAlertDestinationRequest& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
+
+
+    // groupId Field Functions 
+    bool hasGroupId() const { return this->groupId_ != nullptr;};
+    void deleteGroupId() { this->groupId_ = nullptr;};
+    inline const vector<string> & getGroupId() const { DARABONBA_PTR_GET_CONST(groupId_, vector<string>) };
+    inline vector<string> getGroupId() { DARABONBA_PTR_GET(groupId_, vector<string>) };
+    inline UpdateAlertDestinationRequest& setGroupId(const vector<string> & groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+    inline UpdateAlertDestinationRequest& setGroupId(vector<string> && groupId) { DARABONBA_PTR_SET_RVALUE(groupId_, groupId) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateAlertDestinationRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // imbot Field Functions 
+    bool hasImbot() const { return this->imbot_ != nullptr;};
+    void deleteImbot() { this->imbot_ = nullptr;};
+    inline bool getImbot() const { DARABONBA_PTR_GET_DEFAULT(imbot_, false) };
+    inline UpdateAlertDestinationRequest& setImbot(bool imbot) { DARABONBA_PTR_SET_VALUE(imbot_, imbot) };
 
 
     // name Field Functions 
@@ -143,8 +183,12 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> appSecret_ {};
+    shared_ptr<vector<string>> groupId_ {};
     // The ID of the alert contact.
     shared_ptr<string> id_ {};
+    shared_ptr<bool> imbot_ {};
     // The name of the alert contact.
     shared_ptr<string> name_ {};
     // The configuration parameters.
