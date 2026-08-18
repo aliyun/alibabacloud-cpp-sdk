@@ -108,7 +108,7 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<int32_t> current_ {};
-        // The number of records per page.
+        // The number of records returned per page.
         shared_ptr<int32_t> pageSize_ {};
         // The total number of events.
         shared_ptr<int32_t> total_ {};
@@ -422,15 +422,21 @@ namespace Models
         shared_ptr<string> actionCode_ {};
         // The action name.
         shared_ptr<string> actionName_ {};
-        // The time when the alert ended.
+        // The alert end time.
         shared_ptr<string> alertEndTime_ {};
-        // The time when the first alert was triggered.
+        // The first alert time.
         shared_ptr<string> alertStartTime_ {};
         // The time when the control action was released.
         shared_ptr<string> antiPunishTime_ {};
         // The number of unblock application records.
         shared_ptr<int32_t> applyRecordCount_ {};
         // The application status.
+        // 
+        // Valid values:
+        // 
+        // - **AUDIT**: Under review.
+        // - **SUCCESS**: Approved.
+        // - **FAIL**: Rejected.
         shared_ptr<string> applyStatus_ {};
         // Indicates whether the unblock application is processed through the review platform.
         shared_ptr<bool> applyTrial_ {};
@@ -471,6 +477,12 @@ namespace Models
         // The security hardening suggestion.
         shared_ptr<string> reinforcement_ {};
         // The task status.
+        // 
+        // - **Executing**: executing
+        // - **Removed**: removed
+        // - **Alerting**: alerting
+        // - **Ended**: ended
+        // - **Processed**: processed by the user and under platform review
         shared_ptr<string> status_ {};
         // Indicates whether batch unblock applications are supported.
         shared_ptr<bool> supportBatchApply_ {};

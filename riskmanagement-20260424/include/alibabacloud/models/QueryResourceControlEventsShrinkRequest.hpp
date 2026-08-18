@@ -276,6 +276,7 @@ namespace Models
     shared_ptr<string> aliyunLang_ {};
     // The product.
     shared_ptr<string> businessCode_ {};
+    // The list of product types.
     shared_ptr<string> businessCodesShrink_ {};
     // The collection of event name code prefixes.
     shared_ptr<string> caseCodesPrefixShrink_ {};
@@ -286,6 +287,8 @@ namespace Models
     // The event name code.
     shared_ptr<string> eventCode_ {};
     // The collection of event name codes.
+    // 
+    // > Example: [\\\\\\"BANFF_ECS_PE_ECS_MINING_SHUTDOWN\\\\\\"]
     shared_ptr<string> eventCodesShrink_ {};
     // The event ID.
     shared_ptr<string> eventId_ {};
@@ -315,7 +318,12 @@ namespace Models
     shared_ptr<string> sourceCodesShrink_ {};
     // The task status.
     shared_ptr<string> status_ {};
-    // The collection of task statuses.
+    // The collection of task statuses. Valid values:
+    // - **Executing**: executing
+    // - **Removed**: removed
+    // - **Alerting**: alerting
+    // - **Ended**: ended
+    // - **Processed**: processed by the user and under platform review
     shared_ptr<string> statusListShrink_ {};
     // The control URL.
     shared_ptr<string> url_ {};

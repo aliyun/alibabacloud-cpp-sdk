@@ -120,11 +120,15 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ActionCode, actionCode_);
           DARABONBA_PTR_TO_JSON(ActionName, actionName_);
           DARABONBA_PTR_TO_JSON(AntiPunishTime, antiPunishTime_);
+          DARABONBA_PTR_TO_JSON(CallApi, callApi_);
           DARABONBA_PTR_TO_JSON(DateExtras, dateExtras_);
           DARABONBA_PTR_TO_JSON(EventId, eventId_);
           DARABONBA_PTR_TO_JSON(EventImpact, eventImpact_);
           DARABONBA_PTR_TO_JSON(EventName, eventName_);
           DARABONBA_PTR_TO_JSON(EventReason, eventReason_);
+          DARABONBA_PTR_TO_JSON(EventType, eventType_);
+          DARABONBA_PTR_TO_JSON(ExceptionCallTime, exceptionCallTime_);
+          DARABONBA_PTR_TO_JSON(ExceptionIp, exceptionIp_);
           DARABONBA_PTR_TO_JSON(PunishTime, punishTime_);
           DARABONBA_PTR_TO_JSON(Reinforcement, reinforcement_);
           DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
@@ -138,11 +142,15 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ActionCode, actionCode_);
           DARABONBA_PTR_FROM_JSON(ActionName, actionName_);
           DARABONBA_PTR_FROM_JSON(AntiPunishTime, antiPunishTime_);
+          DARABONBA_PTR_FROM_JSON(CallApi, callApi_);
           DARABONBA_PTR_FROM_JSON(DateExtras, dateExtras_);
           DARABONBA_PTR_FROM_JSON(EventId, eventId_);
           DARABONBA_PTR_FROM_JSON(EventImpact, eventImpact_);
           DARABONBA_PTR_FROM_JSON(EventName, eventName_);
           DARABONBA_PTR_FROM_JSON(EventReason, eventReason_);
+          DARABONBA_PTR_FROM_JSON(EventType, eventType_);
+          DARABONBA_PTR_FROM_JSON(ExceptionCallTime, exceptionCallTime_);
+          DARABONBA_PTR_FROM_JSON(ExceptionIp, exceptionIp_);
           DARABONBA_PTR_FROM_JSON(PunishTime, punishTime_);
           DARABONBA_PTR_FROM_JSON(Reinforcement, reinforcement_);
           DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
@@ -222,9 +230,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->actionCode_ == nullptr
-        && this->actionName_ == nullptr && this->antiPunishTime_ == nullptr && this->dateExtras_ == nullptr && this->eventId_ == nullptr && this->eventImpact_ == nullptr
-        && this->eventName_ == nullptr && this->eventReason_ == nullptr && this->punishTime_ == nullptr && this->reinforcement_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceType_ == nullptr && this->status_ == nullptr && this->tip_ == nullptr && this->userGuideName_ == nullptr && this->userGuideUrl_ == nullptr; };
+        && this->actionName_ == nullptr && this->antiPunishTime_ == nullptr && this->callApi_ == nullptr && this->dateExtras_ == nullptr && this->eventId_ == nullptr
+        && this->eventImpact_ == nullptr && this->eventName_ == nullptr && this->eventReason_ == nullptr && this->eventType_ == nullptr && this->exceptionCallTime_ == nullptr
+        && this->exceptionIp_ == nullptr && this->punishTime_ == nullptr && this->reinforcement_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
+        && this->status_ == nullptr && this->tip_ == nullptr && this->userGuideName_ == nullptr && this->userGuideUrl_ == nullptr; };
         // actionCode Field Functions 
         bool hasActionCode() const { return this->actionCode_ != nullptr;};
         void deleteActionCode() { this->actionCode_ = nullptr;};
@@ -244,6 +253,13 @@ namespace Models
         void deleteAntiPunishTime() { this->antiPunishTime_ = nullptr;};
         inline string getAntiPunishTime() const { DARABONBA_PTR_GET_DEFAULT(antiPunishTime_, "") };
         inline List& setAntiPunishTime(string antiPunishTime) { DARABONBA_PTR_SET_VALUE(antiPunishTime_, antiPunishTime) };
+
+
+        // callApi Field Functions 
+        bool hasCallApi() const { return this->callApi_ != nullptr;};
+        void deleteCallApi() { this->callApi_ = nullptr;};
+        inline string getCallApi() const { DARABONBA_PTR_GET_DEFAULT(callApi_, "") };
+        inline List& setCallApi(string callApi) { DARABONBA_PTR_SET_VALUE(callApi_, callApi) };
 
 
         // dateExtras Field Functions 
@@ -281,6 +297,27 @@ namespace Models
         void deleteEventReason() { this->eventReason_ = nullptr;};
         inline string getEventReason() const { DARABONBA_PTR_GET_DEFAULT(eventReason_, "") };
         inline List& setEventReason(string eventReason) { DARABONBA_PTR_SET_VALUE(eventReason_, eventReason) };
+
+
+        // eventType Field Functions 
+        bool hasEventType() const { return this->eventType_ != nullptr;};
+        void deleteEventType() { this->eventType_ = nullptr;};
+        inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+        inline List& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
+
+
+        // exceptionCallTime Field Functions 
+        bool hasExceptionCallTime() const { return this->exceptionCallTime_ != nullptr;};
+        void deleteExceptionCallTime() { this->exceptionCallTime_ = nullptr;};
+        inline string getExceptionCallTime() const { DARABONBA_PTR_GET_DEFAULT(exceptionCallTime_, "") };
+        inline List& setExceptionCallTime(string exceptionCallTime) { DARABONBA_PTR_SET_VALUE(exceptionCallTime_, exceptionCallTime) };
+
+
+        // exceptionIp Field Functions 
+        bool hasExceptionIp() const { return this->exceptionIp_ != nullptr;};
+        void deleteExceptionIp() { this->exceptionIp_ = nullptr;};
+        inline string getExceptionIp() const { DARABONBA_PTR_GET_DEFAULT(exceptionIp_, "") };
+        inline List& setExceptionIp(string exceptionIp) { DARABONBA_PTR_SET_VALUE(exceptionIp_, exceptionIp) };
 
 
         // punishTime Field Functions 
@@ -348,6 +385,7 @@ namespace Models
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> antiPunishTime_ {};
+        shared_ptr<string> callApi_ {};
         // The control action time information.
         shared_ptr<List::DateExtras> dateExtras_ {};
         // The event ID.
@@ -358,6 +396,9 @@ namespace Models
         shared_ptr<string> eventName_ {};
         // The event reason.
         shared_ptr<string> eventReason_ {};
+        shared_ptr<string> eventType_ {};
+        shared_ptr<string> exceptionCallTime_ {};
+        shared_ptr<string> exceptionIp_ {};
         // The start time of the control action.
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
