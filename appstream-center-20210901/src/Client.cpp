@@ -688,6 +688,10 @@ CreateImageByInstanceResponse Client::createImageByInstanceWithOptions(const Cre
     body["BizType"] = request.getBizType();
   }
 
+  if (!!request.hasCopyProfile()) {
+    body["CopyProfile"] = request.getCopyProfile();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }

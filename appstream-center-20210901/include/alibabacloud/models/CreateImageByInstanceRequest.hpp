@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateImageByInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoCleanUserdata, autoCleanUserdata_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(CopyProfile, copyProfile_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(ImageName, imageName_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateImageByInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoCleanUserdata, autoCleanUserdata_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(CopyProfile, copyProfile_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
@@ -91,8 +93,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoCleanUserdata_ == nullptr
-        && this->bizType_ == nullptr && this->description_ == nullptr && this->diskType_ == nullptr && this->imageName_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceType_ == nullptr && this->productType_ == nullptr && this->subInstanceId_ == nullptr && this->tagList_ == nullptr; };
+        && this->bizType_ == nullptr && this->copyProfile_ == nullptr && this->description_ == nullptr && this->diskType_ == nullptr && this->imageName_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->productType_ == nullptr && this->subInstanceId_ == nullptr && this->tagList_ == nullptr; };
     // autoCleanUserdata Field Functions 
     bool hasAutoCleanUserdata() const { return this->autoCleanUserdata_ != nullptr;};
     void deleteAutoCleanUserdata() { this->autoCleanUserdata_ = nullptr;};
@@ -105,6 +107,13 @@ namespace Models
     void deleteBizType() { this->bizType_ = nullptr;};
     inline int32_t getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, 0) };
     inline CreateImageByInstanceRequest& setBizType(int32_t bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // copyProfile Field Functions 
+    bool hasCopyProfile() const { return this->copyProfile_ != nullptr;};
+    void deleteCopyProfile() { this->copyProfile_ = nullptr;};
+    inline bool getCopyProfile() const { DARABONBA_PTR_GET_DEFAULT(copyProfile_, false) };
+    inline CreateImageByInstanceRequest& setCopyProfile(bool copyProfile) { DARABONBA_PTR_SET_VALUE(copyProfile_, copyProfile) };
 
 
     // description Field Functions 
@@ -166,10 +175,11 @@ namespace Models
 
 
   protected:
-    // This parameter applies only to Cloud Desktop instances. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
+    // This parameter applies only to Cloud Desktop scenarios. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
     shared_ptr<bool> autoCleanUserdata_ {};
     // This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
+    shared_ptr<bool> copyProfile_ {};
     // The image description.
     shared_ptr<string> description_ {};
     // The type of disk data included in the image. By default, both the system cloud disk and data cloud disk of the instance are included.
