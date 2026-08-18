@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of sessions that a single instance can handle through simultaneous processing. Valid values: 1 to 200.
     shared_ptr<int64_t> sessionConcurrencyPerInstance_ {};
+    // The SSE path.
     shared_ptr<string> sseEndpointPath_ {};
   };
 

@@ -58,6 +58,7 @@
 #include <alibabacloud/models/CreateLayerVersionInput.hpp>
 #include <alibabacloud/models/CreateSessionNetworkConfig.hpp>
 #include <alibabacloud/models/CreateSessionInput.hpp>
+#include <alibabacloud/models/CreateSnapshotInput.hpp>
 #include <alibabacloud/models/ElasticInterval.hpp>
 #include <alibabacloud/models/TimedPoolConfig.hpp>
 #include <alibabacloud/models/CreateTimedResidentResourcePoolApplicationInput.hpp>
@@ -125,6 +126,8 @@
 #include <alibabacloud/models/ListScalingConfigsOutput.hpp>
 #include <alibabacloud/models/Session.hpp>
 #include <alibabacloud/models/ListSessionsOutput.hpp>
+#include <alibabacloud/models/Snapshot.hpp>
+#include <alibabacloud/models/ListSnapshotsOutput.hpp>
 #include <alibabacloud/models/TagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesOutput.hpp>
 #include <alibabacloud/models/Resource.hpp>

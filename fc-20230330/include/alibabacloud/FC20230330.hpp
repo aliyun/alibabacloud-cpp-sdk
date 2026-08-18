@@ -85,7 +85,7 @@ namespace FC20230330
       /**
        * @summary Creates a function by calling the CreateFunction operation.
        *
-       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
+       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity such as authorization for oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
        *
        * @param request CreateFunctionRequest
        * @param headers map
@@ -97,7 +97,7 @@ namespace FC20230330
       /**
        * @summary Creates a function by calling the CreateFunction operation.
        *
-       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
+       * @description When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity such as authorization for oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
        *
        * @param request CreateFunctionRequest
        * @return CreateFunctionResponse
@@ -517,7 +517,7 @@ namespace FC20230330
       Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
 
       /**
-       * @summary Retrieves information about a function.
+       * @summary Retrieves function information.
        *
        * @param request GetFunctionRequest
        * @param headers map
@@ -527,7 +527,7 @@ namespace FC20230330
       Models::GetFunctionResponse getFunctionWithOptions(const string &functionName, const Models::GetFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a function.
+       * @summary Retrieves function information.
        *
        * @param request GetFunctionRequest
        * @return GetFunctionResponse
@@ -783,7 +783,7 @@ namespace FC20230330
       /**
        * @summary Retrieves a list of functions.
        *
-       * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+       * @description ListFunctions returns only a subset of function attribute fields. To retrieve more attribute fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
        * @param tmpReq ListFunctionsRequest
        * @param headers map
@@ -795,7 +795,7 @@ namespace FC20230330
       /**
        * @summary Retrieves a list of functions.
        *
-       * @description ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+       * @description ListFunctions returns only a subset of function attribute fields. To retrieve more attribute fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
        *
        * @param request ListFunctionsRequest
        * @return ListFunctionsResponse
@@ -1205,7 +1205,7 @@ namespace FC20230330
       Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
 
       /**
-       * @summary Updates a function\\"s configuration.
+       * @summary Updates function information.
        *
        * @param request UpdateFunctionRequest
        * @param headers map
@@ -1215,7 +1215,7 @@ namespace FC20230330
       Models::UpdateFunctionResponse updateFunctionWithOptions(const string &functionName, const Models::UpdateFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a function\\"s configuration.
+       * @summary Updates function information.
        *
        * @param request UpdateFunctionRequest
        * @return UpdateFunctionResponse

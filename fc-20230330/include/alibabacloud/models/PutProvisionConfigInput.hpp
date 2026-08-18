@@ -91,14 +91,22 @@ namespace Models
 
 
   protected:
+    // Specifies whether to always allocate CPU. Default value: true.
     shared_ptr<bool> alwaysAllocateCPU_ {};
+    // Specifies whether to always allocate GPU. Default value: true.
     shared_ptr<bool> alwaysAllocateGPU_ {};
-    // The number of target provisioned instances. Valid values: [0,10000].
+    // The default minimum number of provisioned instances. Valid values: 0 to 10000.
+    // > - If no metric-based auto elastic policy or scheduled elastic policy is configured, the current minimum number of instances equals the minimum number of instances you configured.
+    // > - If you configured multiple elastic policies for the minimum number of instances, the system calculates the minimum number of instances triggered by each policy and uses the maximum value among the elastic policies that are effective at the current time as the current minimum number of instances.
     shared_ptr<int64_t> defaultTarget_ {};
-    // public
+    // The scheduled scaling configuration.
     shared_ptr<vector<ScheduledAction>> scheduledActions_ {};
+    // >Notice: This parameter is no longer recommended. Use the defaultTarget parameter instead.</notice>
+    // The target number of provisioned resources. Valid values: 0 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> target_ {};
+    // The metric-based scaling policy configuration.
     shared_ptr<vector<TargetTrackingPolicy>> targetTrackingPolicies_ {};
   };
 

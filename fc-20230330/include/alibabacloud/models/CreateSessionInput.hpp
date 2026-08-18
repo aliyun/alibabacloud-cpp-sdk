@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
+      DARABONBA_PTR_TO_JSON(snapshotId, snapshotId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSessionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(allowInternetAccess, allowInternetAccess_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
+      DARABONBA_PTR_FROM_JSON(snapshotId, snapshotId_);
     };
     CreateSessionInput() = default ;
     CreateSessionInput(const CreateSessionInput &) = default ;
@@ -59,7 +61,7 @@ namespace Models
     virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
         && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr
         && this->network_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr
-        && this->sessionTTLInSeconds_ == nullptr; };
+        && this->sessionTTLInSeconds_ == nullptr && this->snapshotId_ == nullptr; };
     // allowInternetAccess Field Functions 
     bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
     void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
@@ -154,6 +156,13 @@ namespace Models
     inline CreateSessionInput& setSessionTTLInSeconds(int64_t sessionTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sessionTTLInSeconds_, sessionTTLInSeconds) };
 
 
+    // snapshotId Field Functions 
+    bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
+    void deleteSnapshotId() { this->snapshotId_ = nullptr;};
+    inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+    inline CreateSessionInput& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
+
+
   protected:
     shared_ptr<bool> allowInternetAccess_ {};
     // Default value: False. This indicates that after a session with a specific SessionID expires, you can send requests with the same SessionID. The system treats it as a new session and binds it to a new instance. If set to True, the SessionID cannot be reused after the session expires.
@@ -174,6 +183,7 @@ namespace Models
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
     // The session lifetime.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
+    shared_ptr<string> snapshotId_ {};
   };
 
   } // namespace Models

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The function configuration information.
+    // The function configuration.
     // 
     // This parameter is required.
     shared_ptr<CreateFunctionInput> body_ {};
