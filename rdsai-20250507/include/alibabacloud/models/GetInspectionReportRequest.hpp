@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The instance ID for the inspection. If this parameter is not specified, the entire report is returned. If this parameter is specified, only the content for the specified instance is returned.
+    // The instance ID. If this parameter is not specified, the entire report is returned. If this parameter is specified, only the content for the specified instance is returned.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> reportType_ {};
     // The inspection report ID.

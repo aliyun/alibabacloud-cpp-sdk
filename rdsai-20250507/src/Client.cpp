@@ -22,18 +22,18 @@ AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(confi
   this->_endpointMap = json({
     {"cn-wulanchabu" , "rdsai.aliyuncs.com"},
     {"cn-shenzhen" , "rdsai.aliyuncs.com"},
-    {"cn-shanghai" , "rdsai.aliyuncs.com"},
-    {"cn-hongkong" , "rdsai.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "rdsai.aliyuncs.com"},
-    {"cn-guangzhou" , "rdsai.aliyuncs.com"},
-    {"cn-chengdu" , "rdsai.cn-chengdu.aliyuncs.com"},
     {"cn-beijing" , "rdsai.aliyuncs.com"},
-    {"ap-southeast-5" , "rdsai.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "rdsai.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "rdsai.ap-southeast-1.aliyuncs.com"},
     {"ap-northeast-1" , "rdsai.ap-northeast-1.aliyuncs.com"},
-    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"},
-    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"}
+    {"cn-chengdu" , "rdsai.cn-chengdu.aliyuncs.com"},
+    {"cn-shanghai" , "rdsai.aliyuncs.com"},
+    {"cn-guangzhou" , "rdsai.aliyuncs.com"},
+    {"cn-hongkong" , "rdsai.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "rdsai.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "rdsai.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "rdsai.ap-southeast-5.aliyuncs.com"},
+    {"cn-hangzhou" , "rdsai.aliyuncs.com"},
+    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"},
+    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("rdsai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -276,6 +276,14 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 
   if (!!request.hasQuantity()) {
     query["Quantity"] = request.getQuantity();
+  }
+
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
   }
 
   if (!!request.hasTokenQuota()) {
@@ -896,8 +904,8 @@ CreateSandboxTemplateResponse Client::createSandboxTemplate(const CreateSandboxT
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related feature documentation
- * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -977,8 +985,8 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related feature documentation
- * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -1057,7 +1065,7 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
  * @summary Deletes a custom API key.
  *
  * @description ### Applicable engine
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DeleteApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1095,7 +1103,7 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const DeleteApiKeyRequest &
  * @summary Deletes a custom API key.
  *
  * @description ### Applicable engine
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DeleteApiKeyRequest
  * @return DeleteApiKeyResponse
@@ -2941,7 +2949,7 @@ GetModelOperatorOrderResponse Client::getModelOperatorOrder(const GetModelOperat
 }
 
 /**
- * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+ * @summary Queries the list of all instance IDs included in a specified scheduled inspection configuration.
  *
  * @param request GetScheduledInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2980,7 +2988,7 @@ GetScheduledInstancesResponse Client::getScheduledInstancesWithOptions(const Get
 }
 
 /**
- * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+ * @summary Queries the list of all instance IDs included in a specified scheduled inspection configuration.
  *
  * @param request GetScheduledInstancesRequest
  * @return GetScheduledInstancesResponse
@@ -2991,7 +2999,7 @@ GetScheduledInstancesResponse Client::getScheduledInstances(const GetScheduledIn
 }
 
 /**
- * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+ * @summary Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
  *
  * @param request GetScheduledReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3038,7 +3046,7 @@ GetScheduledReportsResponse Client::getScheduledReportsWithOptions(const GetSche
 }
 
 /**
- * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+ * @summary Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
  *
  * @param request GetScheduledReportsRequest
  * @return GetScheduledReportsResponse
@@ -3323,11 +3331,7 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembers(const List
 /**
  * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
  *
- * @description ## 请求说明
- * - 该API用于获取指定条件下的工作区列表。
- * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
- * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
- * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+ * @description 列出上下文数据库工作空间
  *
  * @param request ListContextDatabaseWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3372,11 +3376,7 @@ ListContextDatabaseWorkspacesResponse Client::listContextDatabaseWorkspacesWithO
 /**
  * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
  *
- * @description ## 请求说明
- * - 该API用于获取指定条件下的工作区列表。
- * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
- * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
- * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+ * @description 列出上下文数据库工作空间
  *
  * @param request ListContextDatabaseWorkspacesRequest
  * @return ListContextDatabaseWorkspacesResponse
@@ -4469,10 +4469,10 @@ ModifyWhitelistIpsResponse Client::modifyWhitelistIps(const ModifyWhitelistIpsRe
 }
 
 /**
- * @summary Renames an API key.
+ * @summary Renames a custom API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4493,6 +4493,14 @@ RenameApiKeyResponse Client::renameApiKeyWithOptions(const RenameApiKeyRequest &
     query["KeyName"] = request.getKeyName();
   }
 
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4511,10 +4519,10 @@ RenameApiKeyResponse Client::renameApiKeyWithOptions(const RenameApiKeyRequest &
 }
 
 /**
- * @summary Renames an API key.
+ * @summary Renames a custom API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
  * @return RenameApiKeyResponse

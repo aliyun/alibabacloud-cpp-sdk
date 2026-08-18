@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LimitRate, limitRate_);
       DARABONBA_PTR_TO_JSON(LimitType, limitType_);
       DARABONBA_PTR_TO_JSON(Quantity, quantity_);
+      DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_TO_JSON(RoleName, roleName_);
       DARABONBA_PTR_TO_JSON(TokenQuota, tokenQuota_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApiKeyRequest& obj) { 
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LimitRate, limitRate_);
       DARABONBA_PTR_FROM_JSON(LimitType, limitType_);
       DARABONBA_PTR_FROM_JSON(Quantity, quantity_);
+      DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
       DARABONBA_PTR_FROM_JSON(TokenQuota, tokenQuota_);
     };
     CreateApiKeyRequest() = default ;
@@ -43,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dailyTokenQuota_ == nullptr
         && this->instanceId_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->quantity_ == nullptr
-        && this->tokenQuota_ == nullptr; };
+        && this->roleArn_ == nullptr && this->roleName_ == nullptr && this->tokenQuota_ == nullptr; };
     // dailyTokenQuota Field Functions 
     bool hasDailyTokenQuota() const { return this->dailyTokenQuota_ != nullptr;};
     void deleteDailyTokenQuota() { this->dailyTokenQuota_ = nullptr;};
@@ -86,6 +90,20 @@ namespace Models
     inline CreateApiKeyRequest& setQuantity(int32_t quantity) { DARABONBA_PTR_SET_VALUE(quantity_, quantity) };
 
 
+    // roleArn Field Functions 
+    bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+    void deleteRoleArn() { this->roleArn_ = nullptr;};
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline CreateApiKeyRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
+    // roleName Field Functions 
+    bool hasRoleName() const { return this->roleName_ != nullptr;};
+    void deleteRoleName() { this->roleName_ = nullptr;};
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline CreateApiKeyRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
+
+
     // tokenQuota Field Functions 
     bool hasTokenQuota() const { return this->tokenQuota_ != nullptr;};
     void deleteTokenQuota() { this->tokenQuota_ = nullptr;};
@@ -94,21 +112,25 @@ namespace Models
 
 
   protected:
+    // The daily quota of the API key.
     shared_ptr<int64_t> dailyTokenQuota_ {};
     // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The name of the API key.
+    // The API key name.
     shared_ptr<string> keyName_ {};
     // The quota percentage.
     shared_ptr<double> limitRate_ {};
-    // The quota type. Valid values:
+    // The quota allocation method. Valid values:
+    // 
     // - ratio: by percentage.
     // - fixed: by fixed value.
     // - auto: automatic allocation.
     shared_ptr<string> limitType_ {};
     // The number of API keys to create. Default value: **1**.
     shared_ptr<int32_t> quantity_ {};
-    // The quota for the current key.
+    shared_ptr<string> roleArn_ {};
+    shared_ptr<string> roleName_ {};
+    // The quota limit for the current key.
     shared_ptr<int64_t> tokenQuota_ {};
   };
 

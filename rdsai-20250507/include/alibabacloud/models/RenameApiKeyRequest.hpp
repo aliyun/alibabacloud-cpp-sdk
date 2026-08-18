@@ -16,11 +16,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(KeyName, keyName_);
+      DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_TO_JSON(RoleName, roleName_);
     };
     friend void from_json(const Darabonba::Json& j, RenameApiKeyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(KeyName, keyName_);
+      DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
     };
     RenameApiKeyRequest() = default ;
     RenameApiKeyRequest(const RenameApiKeyRequest &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->instanceId_ == nullptr && this->keyName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->keyName_ == nullptr && this->roleArn_ == nullptr && this->roleName_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -56,17 +60,33 @@ namespace Models
     inline RenameApiKeyRequest& setKeyName(string keyName) { DARABONBA_PTR_SET_VALUE(keyName_, keyName) };
 
 
+    // roleArn Field Functions 
+    bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+    void deleteRoleArn() { this->roleArn_ = nullptr;};
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline RenameApiKeyRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
+    // roleName Field Functions 
+    bool hasRoleName() const { return this->roleName_ != nullptr;};
+    void deleteRoleName() { this->roleName_ = nullptr;};
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline RenameApiKeyRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
+
+
   protected:
-    // The API key to rename.
+    // API KEY
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The new name for the API key.
+    // The API key name.
     // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};
+    shared_ptr<string> roleArn_ {};
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

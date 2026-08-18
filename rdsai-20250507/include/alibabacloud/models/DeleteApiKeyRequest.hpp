@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The API key to delete.
+    // Api Key
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};

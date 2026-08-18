@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The end time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the current time.
+    // The end time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the end time of the last 24 hours.
     shared_ptr<string> endTime_ {};
     // The list of inspection items. Separate multiple values with commas (,). If this parameter is left empty or not specified, all inspection items are executed.
     // ### Available inspection items:
@@ -135,7 +135,7 @@ namespace Models
     shared_ptr<string> reportLanguage_ {};
     shared_ptr<string> reportRegionId_ {};
     shared_ptr<string> reportType_ {};
-    // The start time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: 24 hours before the current time.
+    // The start time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the start time of the last 24 hours.
     shared_ptr<string> startTime_ {};
     shared_ptr<string> templateId_ {};
   };

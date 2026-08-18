@@ -80,6 +80,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(KeyName, keyName_);
           DARABONBA_PTR_TO_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_TO_JSON(LimitType, limitType_);
+          DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
           DARABONBA_PTR_TO_JSON(ThresholdPercent, thresholdPercent_);
           DARABONBA_PTR_TO_JSON(TokenQuota, tokenQuota_);
         };
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(KeyName, keyName_);
           DARABONBA_PTR_FROM_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_FROM_JSON(LimitType, limitType_);
+          DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
           DARABONBA_PTR_FROM_JSON(ThresholdPercent, thresholdPercent_);
           DARABONBA_PTR_FROM_JSON(TokenQuota, tokenQuota_);
         };
@@ -106,7 +108,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->dailyTokenQuota_ == nullptr && this->isRateLimited_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr
-        && this->thresholdPercent_ == nullptr && this->tokenQuota_ == nullptr; };
+        && this->roleArn_ == nullptr && this->thresholdPercent_ == nullptr && this->tokenQuota_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -149,6 +151,13 @@ namespace Models
         inline CustomKeyList& setLimitType(string limitType) { DARABONBA_PTR_SET_VALUE(limitType_, limitType) };
 
 
+        // roleArn Field Functions 
+        bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+        void deleteRoleArn() { this->roleArn_ = nullptr;};
+        inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+        inline CustomKeyList& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
         // thresholdPercent Field Functions 
         bool hasThresholdPercent() const { return this->thresholdPercent_ != nullptr;};
         void deleteThresholdPercent() { this->thresholdPercent_ = nullptr;};
@@ -166,21 +175,24 @@ namespace Models
       protected:
         // API Key
         shared_ptr<string> apiKey_ {};
+        // The daily throttling quota.
         shared_ptr<int64_t> dailyTokenQuota_ {};
         // Indicates whether the key is throttled.
         shared_ptr<bool> isRateLimited_ {};
-        // The name of the API key.
+        // The API key name.
         shared_ptr<string> keyName_ {};
-        // The quota ratio.
+        // The quota limit ratio.
         shared_ptr<float> limitRate_ {};
-        // The quota type. Valid values:
-        // - **fixed**: fixed value.
-        // - **ratio**: percentage.
-        // - **auto**: automatic allocation.
+        // The quota limit method. Valid values:
+        // 
+        // - **fixed**: Fixed value.
+        // - **ratio**: Percentage.
+        // - **auto**: Automatic allocation.
         shared_ptr<string> limitType_ {};
-        // The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
+        shared_ptr<string> roleArn_ {};
+        // The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
         shared_ptr<int32_t> thresholdPercent_ {};
-        // The quota of the current key.
+        // The quota limit of the current key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -257,6 +269,7 @@ namespace Models
       shared_ptr<string> baseUrl_ {};
       // The list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
+      // The daily throttling quota for the system API key.
       shared_ptr<int64_t> dailyTokenQuota_ {};
       // Indicates whether the key is throttled.
       shared_ptr<bool> isRateLimited_ {};
@@ -266,7 +279,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // The system-generated key.
       shared_ptr<string> systemApiKey_ {};
-      // The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
+      // The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
       shared_ptr<int32_t> thresholdPercent_ {};
       // The total number of records.
       shared_ptr<int32_t> total_ {};

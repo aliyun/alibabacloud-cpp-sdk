@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates if the request succeeded.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

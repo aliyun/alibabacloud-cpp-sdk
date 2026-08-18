@@ -383,7 +383,7 @@ namespace Models
       // The level summary.
       shared_ptr<Data::LevelSummary> levelSummary_ {};
       // The Markdown text.
-      // * If the InstanceId parameter is not specified: the reports for all instances in the inspection report are returned, but the MarkdownText field is empty ("").
+      // * If the InstanceId parameter is not specified: the reports for all instances under this inspection report are returned, but the MarkdownText field is empty ("").
       // * If the InstanceId parameter is specified: the report for the specified instance is returned, and the MarkdownText field contains the specific content.
       shared_ptr<string> markdownText_ {};
       // The region information.

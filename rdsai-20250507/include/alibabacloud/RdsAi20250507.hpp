@@ -265,8 +265,8 @@ namespace RdsAi20250507
        *
        * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related feature documentation
-       * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+       * ### Related documentation
+       * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateScheduledTaskRequest
@@ -280,8 +280,8 @@ namespace RdsAi20250507
        *
        * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related feature documentation
-       * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+       * ### Related documentation
+       * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateScheduledTaskRequest
@@ -310,7 +310,7 @@ namespace RdsAi20250507
        * @summary Deletes a custom API key.
        *
        * @description ### Applicable engine
-       * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DeleteApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,7 +322,7 @@ namespace RdsAi20250507
        * @summary Deletes a custom API key.
        *
        * @description ### Applicable engine
-       * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DeleteApiKeyRequest
        * @return DeleteApiKeyResponse
@@ -1058,7 +1058,7 @@ namespace RdsAi20250507
       Models::GetModelOperatorOrderResponse getModelOperatorOrder(const Models::GetModelOperatorOrderRequest &request);
 
       /**
-       * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+       * @summary Queries the list of all instance IDs included in a specified scheduled inspection configuration.
        *
        * @param request GetScheduledInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1067,7 @@ namespace RdsAi20250507
       Models::GetScheduledInstancesResponse getScheduledInstancesWithOptions(const Models::GetScheduledInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+       * @summary Queries the list of all instance IDs included in a specified scheduled inspection configuration.
        *
        * @param request GetScheduledInstancesRequest
        * @return GetScheduledInstancesResponse
@@ -1075,7 +1075,7 @@ namespace RdsAi20250507
       Models::GetScheduledInstancesResponse getScheduledInstances(const Models::GetScheduledInstancesRequest &request);
 
       /**
-       * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+       * @summary Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
        *
        * @param request GetScheduledReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1084,7 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReportsWithOptions(const Models::GetScheduledReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+       * @summary Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
        *
        * @param request GetScheduledReportsRequest
        * @return GetScheduledReportsResponse
@@ -1193,11 +1193,7 @@ namespace RdsAi20250507
       /**
        * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
        *
-       * @description ## 请求说明
-       * - 该API用于获取指定条件下的工作区列表。
-       * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
-       * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
-       * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+       * @description 列出上下文数据库工作空间
        *
        * @param request ListContextDatabaseWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1208,11 +1204,7 @@ namespace RdsAi20250507
       /**
        * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
        *
-       * @description ## 请求说明
-       * - 该API用于获取指定条件下的工作区列表。
-       * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
-       * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
-       * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+       * @description 列出上下文数据库工作空间
        *
        * @param request ListContextDatabaseWorkspacesRequest
        * @return ListContextDatabaseWorkspacesResponse
@@ -1591,10 +1583,10 @@ namespace RdsAi20250507
       Models::ModifyWhitelistIpsResponse modifyWhitelistIps(const Models::ModifyWhitelistIpsRequest &request);
 
       /**
-       * @summary Renames an API key.
+       * @summary Renames a custom API key.
        *
-       * @description ### Applicable engines
-       * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request RenameApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1603,10 +1595,10 @@ namespace RdsAi20250507
       Models::RenameApiKeyResponse renameApiKeyWithOptions(const Models::RenameApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renames an API key.
+       * @summary Renames a custom API key.
        *
-       * @description ### Applicable engines
-       * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request RenameApiKeyRequest
        * @return RenameApiKeyResponse

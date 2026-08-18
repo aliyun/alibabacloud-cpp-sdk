@@ -113,9 +113,9 @@ namespace Models
       shared_ptr<string> instanceDesc_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The region in which the instance resides.
+      // The region where the instance resides.
       shared_ptr<string> region_ {};
-      // The status of the instance.
+      // The instance status.
       shared_ptr<string> status_ {};
     };
 
@@ -174,19 +174,19 @@ namespace Models
 
 
   protected:
-    // The list of instances included in the inspection configuration.
+    // The list of instances.
     shared_ptr<vector<GetScheduledInstancesResponseBody::Instances>> instances_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records on each page. Default value: 20. Maximum value: 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
-    // The total number of records that are returned.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

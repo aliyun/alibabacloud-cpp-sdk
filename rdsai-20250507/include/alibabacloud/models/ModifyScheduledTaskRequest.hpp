@@ -124,6 +124,7 @@ namespace Models
     // The new description of the inspection configuration.
     shared_ptr<string> description_ {};
     // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+    // 
     // * DAILY: every day
     // * Monday: Monday
     // * Tuesday: Tuesday
@@ -132,10 +133,11 @@ namespace Models
     // * Friday: Friday
     // * Saturday: Saturday
     // * Sunday: Sunday
+    // 
     // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
-    // The new list of associated instance IDs. Separate multiple values with commas (,).
+    // The new list of associated instances. Separate multiple values with commas (,).
     shared_ptr<string> instanceIds_ {};
     // The new name of the inspection configuration.
     shared_ptr<string> name_ {};
