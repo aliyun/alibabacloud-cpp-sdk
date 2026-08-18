@@ -178,6 +178,8 @@
 #include <alibabacloud/models/CreateLayerVersionResponse.hpp>
 #include <alibabacloud/models/CreateSessionRequest.hpp>
 #include <alibabacloud/models/CreateSessionResponse.hpp>
+#include <alibabacloud/models/CreateSnapshotRequest.hpp>
+#include <alibabacloud/models/CreateSnapshotResponse.hpp>
 #include <alibabacloud/models/CreateTriggerRequest.hpp>
 #include <alibabacloud/models/CreateTriggerResponse.hpp>
 #include <alibabacloud/models/CreateVpcBindingRequest.hpp>
@@ -196,6 +198,8 @@
 #include <alibabacloud/models/DeleteScalingConfigResponse.hpp>
 #include <alibabacloud/models/DeleteSessionRequest.hpp>
 #include <alibabacloud/models/DeleteSessionResponse.hpp>
+#include <alibabacloud/models/DeleteSnapshotRequest.hpp>
+#include <alibabacloud/models/DeleteSnapshotResponse.hpp>
 #include <alibabacloud/models/DeleteTriggerResponse.hpp>
 #include <alibabacloud/models/DeleteVpcBindingResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
@@ -224,6 +228,8 @@
 #include <alibabacloud/models/GetScalingConfigResponse.hpp>
 #include <alibabacloud/models/GetSessionRequest.hpp>
 #include <alibabacloud/models/GetSessionResponse.hpp>
+#include <alibabacloud/models/GetSnapshotRequest.hpp>
+#include <alibabacloud/models/GetSnapshotResponse.hpp>
 #include <alibabacloud/models/GetTriggerResponse.hpp>
 #include <alibabacloud/models/InvokeFunctionHeaders.hpp>
 #include <alibabacloud/models/InvokeFunctionRequest.hpp>
@@ -256,6 +262,8 @@
 #include <alibabacloud/models/ListScalingConfigsResponse.hpp>
 #include <alibabacloud/models/ListSessionsRequest.hpp>
 #include <alibabacloud/models/ListSessionsResponse.hpp>
+#include <alibabacloud/models/ListSnapshotsRequest.hpp>
+#include <alibabacloud/models/ListSnapshotsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>

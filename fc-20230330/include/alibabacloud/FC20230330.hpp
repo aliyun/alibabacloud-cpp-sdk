@@ -141,6 +141,36 @@ namespace FC20230330
       Models::CreateSessionResponse createSession(const string &functionName, const Models::CreateSessionRequest &request);
 
       /**
+       * @summary 从正常且未过期的微沙箱会话中创建用户快照。
+       *
+       * @description ## 请求说明
+       * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+       * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+       * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+       * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+       *
+       * @param request CreateSnapshotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSnapshotResponse
+       */
+      Models::CreateSnapshotResponse createSnapshotWithOptions(const string &functionName, const Models::CreateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从正常且未过期的微沙箱会话中创建用户快照。
+       *
+       * @description ## 请求说明
+       * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+       * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+       * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+       * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+       *
+       * @param request CreateSnapshotRequest
+       * @return CreateSnapshotResponse
+       */
+      Models::CreateSnapshotResponse createSnapshot(const string &functionName, const Models::CreateSnapshotRequest &request);
+
+      /**
        * @summary Creates a trigger.
        *
        * @param request CreateTriggerRequest
@@ -343,6 +373,36 @@ namespace FC20230330
        * @return DeleteSessionResponse
        */
       Models::DeleteSessionResponse deleteSession(const string &functionName, const string &sessionId, const Models::DeleteSessionRequest &request);
+
+      /**
+       * @summary 删除用户快照
+       *
+       * @description - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+       * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+       * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+       * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+       * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+       *
+       * @param request DeleteSnapshotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSnapshotResponse
+       */
+      Models::DeleteSnapshotResponse deleteSnapshotWithOptions(const string &functionName, const string &snapshotId, const Models::DeleteSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户快照
+       *
+       * @description - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+       * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+       * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+       * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+       * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+       *
+       * @param request DeleteSnapshotRequest
+       * @return DeleteSnapshotResponse
+       */
+      Models::DeleteSnapshotResponse deleteSnapshot(const string &functionName, const string &snapshotId, const Models::DeleteSnapshotRequest &request);
 
       /**
        * @summary Deletes the specified trigger.
@@ -639,6 +699,32 @@ namespace FC20230330
       Models::GetSessionResponse getSession(const string &functionName, const string &sessionId, const Models::GetSessionRequest &request);
 
       /**
+       * @summary 获取快照信息
+       *
+       * @description - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+       * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+       * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+       *
+       * @param request GetSnapshotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSnapshotResponse
+       */
+      Models::GetSnapshotResponse getSnapshotWithOptions(const string &functionName, const string &snapshotId, const Models::GetSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取快照信息
+       *
+       * @description - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+       * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+       * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+       *
+       * @param request GetSnapshotRequest
+       * @return GetSnapshotResponse
+       */
+      Models::GetSnapshotResponse getSnapshot(const string &functionName, const string &snapshotId, const Models::GetSnapshotRequest &request);
+
+      /**
        * @summary Retrieves the details of a specified trigger.
        *
        * @param headers map
@@ -909,6 +995,36 @@ namespace FC20230330
        * @return ListSessionsResponse
        */
       Models::ListSessionsResponse listSessions(const string &functionName, const Models::ListSessionsRequest &request);
+
+      /**
+       * @summary 列出快照信息
+       *
+       * @description - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+       * - 仅返回未过期且状态为 Available 的用户快照。
+       * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+       * - 结果按创建时间和快照 ID 稳定降序分页。
+       * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+       *
+       * @param request ListSnapshotsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSnapshotsResponse
+       */
+      Models::ListSnapshotsResponse listSnapshotsWithOptions(const Models::ListSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出快照信息
+       *
+       * @description - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+       * - 仅返回未过期且状态为 Available 的用户快照。
+       * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+       * - 结果按创建时间和快照 ID 稳定降序分页。
+       * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+       *
+       * @param request ListSnapshotsRequest
+       * @return ListSnapshotsResponse
+       */
+      Models::ListSnapshotsResponse listSnapshots(const Models::ListSnapshotsRequest &request);
 
       /**
        * @summary Lists all tagged resources.
