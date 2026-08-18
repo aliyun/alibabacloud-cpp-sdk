@@ -494,7 +494,7 @@ namespace ESA20240910
       Models::CheckSiteNameResponse checkSiteName(const Models::CheckSiteNameRequest &request);
 
       /**
-       * @summary Checks the name of a real-time log delivery task.
+       * @summary Checks the project name of a real-time log delivery task.
        *
        * @param request CheckSiteProjectNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -503,7 +503,7 @@ namespace ESA20240910
       Models::CheckSiteProjectNameResponse checkSiteProjectNameWithOptions(const Models::CheckSiteProjectNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the name of a real-time log delivery task.
+       * @summary Checks the project name of a real-time log delivery task.
        *
        * @param request CheckSiteProjectNameRequest
        * @return CheckSiteProjectNameResponse
@@ -1304,6 +1304,8 @@ namespace ESA20240910
       /**
        * @summary Creates a real-time log delivery task.
        *
+       * @description The site plan associated with SiteId must support real-time log delivery (such as the Standard plan). Call GetSiteLogDeliveryQuota to perform a pre-check, or verify the plan level by checking the PlanName field returned by ListSites.
+       *
        * @param tmpReq CreateSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSiteDeliveryTaskResponse
@@ -1312,6 +1314,8 @@ namespace ESA20240910
 
       /**
        * @summary Creates a real-time log delivery task.
+       *
+       * @description The site plan associated with SiteId must support real-time log delivery (such as the Standard plan). Call GetSiteLogDeliveryQuota to perform a pre-check, or verify the plan level by checking the PlanName field returned by ListSites.
        *
        * @param request CreateSiteDeliveryTaskRequest
        * @return CreateSiteDeliveryTaskResponse
@@ -1372,17 +1376,17 @@ namespace ESA20240910
       Models::CreateUrlObservationResponse createUrlObservation(const Models::CreateUrlObservationRequest &request);
 
       /**
-       * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
+       * @summary Creates a custom log delivery task to deliver logs to destinations such as SLS, HTTP, OSS, S3, or Kafka.
        *
-       * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
-       * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
-       * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
-       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
-       * ## Usage notes
-       * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
-       * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
-       * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
-       * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
+       * @description This operation allows you to create a delivery node for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to Simple Log Service (SLS), HTTP services, Alibaba Cloud Object Storage Service (OSS), S3-compatible storage, and Kafka MSMQ. You can customize the node name, select log fields, specify a data center, set the discard rate, select a delivery type, and configure the corresponding delivery details based on the selected type.
+       * - **Field selection**: Use `FieldName` to specify the log fields to deliver.
+       * - **Filter rules**: Use `FilterRules` to implement pre-processing and filtering of log data.
+       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka delivery methods, each with its own specific configuration parameters.
+       * ## Before you begin
+       * - Ensure that the provided credentials (such as AccessKey and SecretKey) have sufficient permissions to perform the delivery operation.
+       * - When you select a delivery method that requires encryption or authentication, correctly configure the related security parameters.
+       * - Verify the syntax of `FilterRules` to ensure that the filtering logic meets your expectations.
+       * - Adjust advanced parameters such as the maximum number of retries and timeout period as needed to optimize delivery efficiency and stability.
        *
        * @param tmpReq CreateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1391,17 +1395,17 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(const Models::CreateUserDeliveryTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
+       * @summary Creates a custom log delivery task to deliver logs to destinations such as SLS, HTTP, OSS, S3, or Kafka.
        *
-       * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
-       * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
-       * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
-       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
-       * ## Usage notes
-       * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
-       * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
-       * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
-       * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
+       * @description This operation allows you to create a delivery node for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to Simple Log Service (SLS), HTTP services, Alibaba Cloud Object Storage Service (OSS), S3-compatible storage, and Kafka MSMQ. You can customize the node name, select log fields, specify a data center, set the discard rate, select a delivery type, and configure the corresponding delivery details based on the selected type.
+       * - **Field selection**: Use `FieldName` to specify the log fields to deliver.
+       * - **Filter rules**: Use `FilterRules` to implement pre-processing and filtering of log data.
+       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka delivery methods, each with its own specific configuration parameters.
+       * ## Before you begin
+       * - Ensure that the provided credentials (such as AccessKey and SecretKey) have sufficient permissions to perform the delivery operation.
+       * - When you select a delivery method that requires encryption or authentication, correctly configure the related security parameters.
+       * - Verify the syntax of `FilterRules` to ensure that the filtering logic meets your expectations.
+       * - Adjust advanced parameters such as the maximum number of retries and timeout period as needed to optimize delivery efficiency and stability.
        *
        * @param request CreateUserDeliveryTaskRequest
        * @return CreateUserDeliveryTaskResponse
@@ -2248,6 +2252,31 @@ namespace ESA20240910
        * @return DeleteRoutineCodeVersionResponse
        */
       Models::DeleteRoutineCodeVersionResponse deleteRoutineCodeVersion(const Models::DeleteRoutineCodeVersionRequest &request);
+
+      /**
+       * @summary Deletes environment variables of a Routine.
+       *
+       * @description ## Operation description
+       * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+       * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+       *
+       * @param tmpReq DeleteRoutineEnvironmentVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRoutineEnvironmentVariablesResponse
+       */
+      Models::DeleteRoutineEnvironmentVariablesResponse deleteRoutineEnvironmentVariablesWithOptions(const Models::DeleteRoutineEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes environment variables of a Routine.
+       *
+       * @description ## Operation description
+       * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+       * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+       *
+       * @param request DeleteRoutineEnvironmentVariablesRequest
+       * @return DeleteRoutineEnvironmentVariablesResponse
+       */
+      Models::DeleteRoutineEnvironmentVariablesResponse deleteRoutineEnvironmentVariables(const Models::DeleteRoutineEnvironmentVariablesRequest &request);
 
       /**
        * @summary Deletes an association record of an Edge Routine.
@@ -3211,7 +3240,7 @@ namespace ESA20240910
       Models::DescribeUrlObservationDataResponse describeUrlObservationData(const Models::DescribeUrlObservationDataRequest &request);
 
       /**
-       * @summary Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+       * @summary Queries the resource plan information of the current user.
        *
        * @param request DescribeUserResourcePackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3220,7 +3249,7 @@ namespace ESA20240910
       Models::DescribeUserResourcePackageResponse describeUserResourcePackageWithOptions(const Models::DescribeUserResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+       * @summary Queries the resource plan information of the current user.
        *
        * @param request DescribeUserResourcePackageRequest
        * @return DescribeUserResourcePackageResponse
@@ -4470,7 +4499,7 @@ namespace ESA20240910
       Models::GetRedirectRuleResponse getRedirectRule(const Models::GetRedirectRuleRequest &request);
 
       /**
-       * @summary Queries the scheduled automatic release time.
+       * @summary Queries the scheduled release time.
        *
        * @param request GetReleaseTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4479,7 +4508,7 @@ namespace ESA20240910
       Models::GetReleaseTimeResponse getReleaseTimeWithOptions(const Models::GetReleaseTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scheduled automatic release time.
+       * @summary Queries the scheduled release time.
        *
        * @param request GetReleaseTimeRequest
        * @return GetReleaseTimeResponse
@@ -4986,9 +5015,9 @@ namespace ESA20240910
       Models::GetUserDeliveryTaskResponse getUserDeliveryTask(const Models::GetUserDeliveryTaskRequest &request);
 
       /**
-       * @summary Queries the remaining log delivery quota of each log category in your account.
+       * @summary Queries the remaining log delivery quota for each business type of a specified user.
        *
-       * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+       * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
        *
        * @param request GetUserLogDeliveryQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4997,9 +5026,9 @@ namespace ESA20240910
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuotaWithOptions(const Models::GetUserLogDeliveryQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the remaining log delivery quota of each log category in your account.
+       * @summary Queries the remaining log delivery quota for each business type of a specified user.
        *
-       * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+       * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
        *
        * @param request GetUserLogDeliveryQuotaRequest
        * @return GetUserLogDeliveryQuotaResponse
@@ -6175,6 +6204,27 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersions(const Models::ListRoutineCodeVersionsRequest &request);
 
       /**
+       * @summary Queries the environment variables of a Routine.
+       *
+       * @description This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+       *
+       * @param request ListRoutineEnvironmentVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRoutineEnvironmentVariablesResponse
+       */
+      Models::ListRoutineEnvironmentVariablesResponse listRoutineEnvironmentVariablesWithOptions(const Models::ListRoutineEnvironmentVariablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the environment variables of a Routine.
+       *
+       * @description This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+       *
+       * @param request ListRoutineEnvironmentVariablesRequest
+       * @return ListRoutineEnvironmentVariablesResponse
+       */
+      Models::ListRoutineEnvironmentVariablesResponse listRoutineEnvironmentVariables(const Models::ListRoutineEnvironmentVariablesRequest &request);
+
+      /**
        * @summary The records associated with the function.
        *
        * @description Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
@@ -6770,7 +6820,7 @@ namespace ESA20240910
       Models::OpenErServiceResponse openErService(const Models::OpenErServiceRequest &request);
 
       /**
-       * @summary Prefetches URLs to warm the cache.
+       * @summary Prefetches cache content.
        *
        * @param tmpReq PreloadCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6779,7 +6829,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCachesWithOptions(const Models::PreloadCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prefetches URLs to warm the cache.
+       * @summary Prefetches cache content.
        *
        * @param request PreloadCachesRequest
        * @return PreloadCachesResponse
@@ -7353,6 +7403,37 @@ namespace ESA20240910
       Models::SetOriginClientCertificateHostnamesResponse setOriginClientCertificateHostnames(const Models::SetOriginClientCertificateHostnamesRequest &request);
 
       /**
+       * @summary Sets environment variables for a Routine.
+       *
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+       *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+       *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+       *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+       *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+       *
+       * @param tmpReq SetRoutineEnvironmentVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetRoutineEnvironmentVariablesResponse
+       */
+      Models::SetRoutineEnvironmentVariablesResponse setRoutineEnvironmentVariablesWithOptions(const Models::SetRoutineEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets environment variables for a Routine.
+       *
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+       *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+       *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+       *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+       *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+       *
+       * @param request SetRoutineEnvironmentVariablesRequest
+       * @return SetRoutineEnvironmentVariablesResponse
+       */
+      Models::SetRoutineEnvironmentVariablesResponse setRoutineEnvironmentVariables(const Models::SetRoutineEnvironmentVariablesRequest &request);
+
+      /**
        * @summary Starts a scheduled prefetch based on the prefetch plan ID.
        *
        * @param request StartScheduledPreloadExecutionRequest
@@ -7457,6 +7538,27 @@ namespace ESA20240910
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
+       * @summary Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
+       *
+       * @description >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
+       *
+       * @param tmpReq TraceSiteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TraceSiteResponse
+       */
+      Models::TraceSiteResponse traceSiteWithOptions(const Models::TraceSiteRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
+       *
+       * @description >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
+       *
+       * @param request TraceSiteRequest
+       * @return TraceSiteResponse
+       */
+      Models::TraceSiteResponse traceSite(const Models::TraceSiteRequest &request);
+
+      /**
        * @summary Deletes a resource tag based on a specified resource ID.
        *
        * @param request UntagResourcesRequest
@@ -7472,6 +7574,23 @@ namespace ESA20240910
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Changes the specifications of a bot instance.
+       *
+       * @param request UpdateBotSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBotSpecResponse
+       */
+      Models::UpdateBotSpecResponse updateBotSpecWithOptions(const Models::UpdateBotSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the specifications of a bot instance.
+       *
+       * @param request UpdateBotSpecRequest
+       * @return UpdateBotSpecResponse
+       */
+      Models::UpdateBotSpecResponse updateBotSpec(const Models::UpdateBotSpecRequest &request);
 
       /**
        * @summary Modifies the cache reserve configuration of a site.
@@ -7667,6 +7786,23 @@ namespace ESA20240910
        * @return UpdateCustomScenePolicyResponse
        */
       Models::UpdateCustomScenePolicyResponse updateCustomScenePolicy(const Models::UpdateCustomScenePolicyRequest &request);
+
+      /**
+       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
+       * @param request UpdateDDoSSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDDoSSpecResponse
+       */
+      Models::UpdateDDoSSpecResponse updateDDoSSpecWithOptions(const Models::UpdateDDoSSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
+       * @param request UpdateDDoSSpecRequest
+       * @return UpdateDDoSSpecResponse
+       */
+      Models::UpdateDDoSSpecResponse updateDDoSSpec(const Models::UpdateDDoSSpecRequest &request);
 
       /**
        * @summary Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
@@ -8459,7 +8595,9 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservation(const Models::UpdateUrlObservationRequest &request);
 
       /**
-       * @summary Updates a delivery task configuration. You can modify the task name, selected fields, real-time log type, and discard rate.
+       * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+       *
+       * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8468,7 +8606,9 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskResponse updateUserDeliveryTaskWithOptions(const Models::UpdateUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a delivery task configuration. You can modify the task name, selected fields, real-time log type, and discard rate.
+       * @summary Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+       *
+       * @description Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @return UpdateUserDeliveryTaskResponse

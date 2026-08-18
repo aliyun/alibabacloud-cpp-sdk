@@ -67,7 +67,7 @@ namespace Models
 
   protected:
     // The data center. Valid values:
-    // - **cn**: Chinese mainland.
+    // - **cn**: the Chinese mainland.
     // - **sg**: global (excluding the Chinese mainland).
     shared_ptr<string> dataCenter_ {};
     // The request ID.

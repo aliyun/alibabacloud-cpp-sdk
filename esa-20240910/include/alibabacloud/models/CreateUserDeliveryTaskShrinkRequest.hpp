@@ -151,15 +151,13 @@ namespace Models
   protected:
     // The real-time log type. Valid values:
     // 
-    // - **dcdn_log_access_l1 (default)**: access logs.
-    // - **dcdn_log_er**: edge function logs.
-    // - **dcdn_log_waf**: security protection logs.
-    // - **dcdn_log_ipa**: Layer 4 acceleration logs.
+    // - **dcdn_log_er_pod**: edge container logs.
+    // - **dcdn_log_dns**: edge DNS logs.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
-    // - **cn**: Chinese mainland.
+    // - **cn**: the Chinese mainland.
     // - **sg**: global (excluding the Chinese mainland).
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
@@ -173,13 +171,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
+    // The list of Edge Routine (ER) pods to configure.
     shared_ptr<string> details_ {};
     // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The fields to be selected, separated by commas (,).
+    // The fields to deliver, separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The version of the filter rule.
+    // 
+    // > This parameter is used for backward compatibility with legacy filter rules. The default value is v1. New tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The HTTP delivery configuration parameters.
     shared_ptr<string> httpDeliveryShrink_ {};

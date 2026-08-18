@@ -16,6 +16,7 @@
 #include <alibabacloud/models/FieldContentValue.hpp>
 #include <alibabacloud/models/QuotaListItemsValue.hpp>
 #include <alibabacloud/models/QuotaPageContentTypesValue.hpp>
+#include <alibabacloud/models/EnvironmentVariablesValue.hpp>
 #include <alibabacloud/models/ActivateClientCertificateRequest.hpp>
 #include <alibabacloud/models/ActivateClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/ActivateClientCertificateResponse.hpp>
@@ -383,6 +384,10 @@
 #include <alibabacloud/models/DeleteRoutineCodeVersionRequest.hpp>
 #include <alibabacloud/models/DeleteRoutineCodeVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteRoutineCodeVersionResponse.hpp>
+#include <alibabacloud/models/DeleteRoutineEnvironmentVariablesRequest.hpp>
+#include <alibabacloud/models/DeleteRoutineEnvironmentVariablesShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteRoutineEnvironmentVariablesResponseBody.hpp>
+#include <alibabacloud/models/DeleteRoutineEnvironmentVariablesResponse.hpp>
 #include <alibabacloud/models/DeleteRoutineRelatedRecordRequest.hpp>
 #include <alibabacloud/models/DeleteRoutineRelatedRecordResponseBody.hpp>
 #include <alibabacloud/models/DeleteRoutineRelatedRecordResponse.hpp>
@@ -1039,6 +1044,9 @@
 #include <alibabacloud/models/ListRoutineCodeVersionsRequest.hpp>
 #include <alibabacloud/models/ListRoutineCodeVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListRoutineCodeVersionsResponse.hpp>
+#include <alibabacloud/models/ListRoutineEnvironmentVariablesRequest.hpp>
+#include <alibabacloud/models/ListRoutineEnvironmentVariablesResponseBody.hpp>
+#include <alibabacloud/models/ListRoutineEnvironmentVariablesResponse.hpp>
 #include <alibabacloud/models/ListRoutineRelatedRecordsRequest.hpp>
 #include <alibabacloud/models/ListRoutineRelatedRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListRoutineRelatedRecordsResponse.hpp>
@@ -1239,6 +1247,10 @@
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesShrinkRequest.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesResponseBody.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesResponse.hpp>
+#include <alibabacloud/models/SetRoutineEnvironmentVariablesRequest.hpp>
+#include <alibabacloud/models/SetRoutineEnvironmentVariablesShrinkRequest.hpp>
+#include <alibabacloud/models/SetRoutineEnvironmentVariablesResponseBody.hpp>
+#include <alibabacloud/models/SetRoutineEnvironmentVariablesResponse.hpp>
 #include <alibabacloud/models/StartScheduledPreloadExecutionRequest.hpp>
 #include <alibabacloud/models/StartScheduledPreloadExecutionResponseBody.hpp>
 #include <alibabacloud/models/StartScheduledPreloadExecutionResponse.hpp>
@@ -1257,9 +1269,16 @@
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/TraceSiteRequest.hpp>
+#include <alibabacloud/models/TraceSiteShrinkRequest.hpp>
+#include <alibabacloud/models/TraceSiteResponseBody.hpp>
+#include <alibabacloud/models/TraceSiteResponse.hpp>
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateBotSpecRequest.hpp>
+#include <alibabacloud/models/UpdateBotSpecResponseBody.hpp>
+#include <alibabacloud/models/UpdateBotSpecResponse.hpp>
 #include <alibabacloud/models/UpdateCacheReserveRequest.hpp>
 #include <alibabacloud/models/UpdateCacheReserveResponseBody.hpp>
 #include <alibabacloud/models/UpdateCacheReserveResponse.hpp>
@@ -1293,6 +1312,9 @@
 #include <alibabacloud/models/UpdateCustomScenePolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomScenePolicyResponse.hpp>
+#include <alibabacloud/models/UpdateDDoSSpecRequest.hpp>
+#include <alibabacloud/models/UpdateDDoSSpecResponseBody.hpp>
+#include <alibabacloud/models/UpdateDDoSSpecResponse.hpp>
 #include <alibabacloud/models/UpdateDevelopmentModeRequest.hpp>
 #include <alibabacloud/models/UpdateDevelopmentModeResponseBody.hpp>
 #include <alibabacloud/models/UpdateDevelopmentModeResponse.hpp>

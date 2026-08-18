@@ -1,3 +1,13 @@
+2026-08-18 Version: 3.14.0
+- Support API DeleteRoutineEnvironmentVariables.
+- Support API ListRoutineEnvironmentVariables.
+- Support API SetRoutineEnvironmentVariables.
+- Support API TraceSite.
+- Support API UpdateBotSpec.
+- Support API UpdateDDoSSpec.
+- Update API ListSiteFunctions: add response parameters Body.Configs.MarkdownForAgent.
+
+
 2026-07-31 Version: 3.13.0
 - Support API DescribeUserResourcePackage.
 - Support API GetReleaseTime.

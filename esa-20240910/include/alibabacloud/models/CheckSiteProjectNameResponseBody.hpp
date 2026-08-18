@@ -66,14 +66,14 @@ namespace Models
 
 
   protected:
-    // Indicates whether the task name is valid. Valid values:
+    // Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Can be added.
+    // - **false**: Cannot be added.
     shared_ptr<bool> check_ {};
     // The result description.
     shared_ptr<string> description_ {};
-    // The name of the real-time log delivery task.
+    // The real-time log project name.
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

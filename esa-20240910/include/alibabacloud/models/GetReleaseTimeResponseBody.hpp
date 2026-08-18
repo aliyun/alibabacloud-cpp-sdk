@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The scheduled release time.
+    // The scheduled release time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
     shared_ptr<string> releaseTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

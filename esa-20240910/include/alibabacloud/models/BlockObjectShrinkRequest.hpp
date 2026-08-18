@@ -78,8 +78,8 @@ namespace Models
     shared_ptr<int64_t> siteId_ {};
     // The type. Valid values:
     // 
-    // - **block**: blocks the URL.
-    // - **unblock**: unblocks the URL.
+    // - **block**: Block.
+    // - **unblock**: Unblock.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -207,7 +207,7 @@ namespace Models
       // The commodity code of the resource plan.
       shared_ptr<string> commodityCode_ {};
       // The current remaining capacity of the instance.
-      // - Unit for traffic plans: bytes.
+      // - Unit for traffic plans: Byte.
       // 
       // - Unit for request plans: count.
       shared_ptr<string> currCapacity_ {};
@@ -219,10 +219,10 @@ namespace Models
       shared_ptr<string> currCapacityShowValue_ {};
       // The name of the resource plan.
       shared_ptr<string> displayName_ {};
-      // The expiration time.
+      // The expiration time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> endTime_ {};
       // The total capacity of the resource plan.
-      // - Unit for traffic plans: bytes.
+      // - Unit for traffic plans: Byte.
       // 
       // - Unit for request plans: count.
       shared_ptr<string> initCapacity_ {};
@@ -232,11 +232,11 @@ namespace Models
       shared_ptr<string> initCapacityShowUnit_ {};
       // The display value of the total capacity of the resource plan.
       shared_ptr<string> initCapacityShowValue_ {};
-      // The resource plan instance ID.
+      // The instance ID of the resource plan.
       shared_ptr<string> instanceId_ {};
       // The region.
       shared_ptr<string> region_ {};
-      // The effective period.
+      // The effective period in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
       // The status of the resource plan.
       shared_ptr<string> status_ {};

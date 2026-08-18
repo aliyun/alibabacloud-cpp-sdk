@@ -163,10 +163,10 @@ namespace Models
     // - **oversea**: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
-    // - **sls**: Alibaba Cloud Simple Log Service.
+    // - **sls**: Simple Log Service.
     // - **http**: HTTP service.
     // - **aws3**: Amazon S3 service.
-    // - **oss**: Alibaba Cloud Object Storage Service.
+    // - **oss**: Object Storage Service (OSS).
     // - **kafka**: Kafka service.
     // - **aws3cmpt**: Amazon S3-compatible service.
     // 
@@ -176,11 +176,13 @@ namespace Models
     shared_ptr<float> discardRate_ {};
     // The selected log fields, separated by commas (,).
     // 
+    // > The field names must come from the FieldName values returned by the GetRealtimeDeliveryField operation, and the corresponding BusinessType must be specified.
+    // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     // The filter rule version.
     // 
-    // > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
+    // > For backward compatibility with legacy filter rules, the default value is v1. Newly created tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The HTTP delivery configuration parameters.
     shared_ptr<string> httpDeliveryShrink_ {};
@@ -188,13 +190,13 @@ namespace Models
     shared_ptr<string> kafkaDeliveryShrink_ {};
     // The OSS delivery configuration.
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The S3/S3-compatible delivery configuration parameters.
+    // The S3 or S3-compatible delivery configuration parameters.
     shared_ptr<string> s3DeliveryShrink_ {};
     // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The SLS delivery configuration.
+    // The Simple Log Service (SLS) delivery configuration.
     shared_ptr<string> slsDeliveryShrink_ {};
     // The task name.
     // 

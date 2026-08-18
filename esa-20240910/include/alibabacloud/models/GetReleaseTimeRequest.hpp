@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the security instance. This must be a DDoS security instance ID (in the format esa-ddos-), which you can obtain by calling the ListDDoSInstances operation. Site instance IDs (in the format esa-site-) are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The objects to prefetch.
+    // The prefetch objects.
     shared_ptr<string> contentShrink_ {};
-    // The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetching, use this parameter to customize the prefetch headers.
+    // The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetching, use this parameter to customize prefetch headers.
     shared_ptr<string> headersShrink_ {};
     // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     shared_ptr<int64_t> siteId_ {};

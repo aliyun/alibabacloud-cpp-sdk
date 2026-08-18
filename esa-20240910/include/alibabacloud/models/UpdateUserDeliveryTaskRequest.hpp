@@ -86,21 +86,22 @@ namespace Models
   protected:
     // The real-time log type. Valid values:
     // 
-    // - **dcdn_log_access_l1 (default)**: access log.
-    // 
-    // - **dcdn_log_er**: edge function log.
-    // 
-    // - **dcdn_log_waf**: WAF log.
-    // 
-    // - **dcdn_log_ipa**: layer 4 acceleration log.
+    // - **dcdn_log_access_l1 (default)**: access logs.
+    // - **dcdn_log_er**: Edge Routine function logs.
+    // - **dcdn_log_waf**: security protection logs.
+    // - **dcdn_log_ipa**: Layer 4 acceleration logs.
     shared_ptr<string> businessType_ {};
+    // The list of ER PODs to configure.
     shared_ptr<string> details_ {};
-    // The default value is 0.
+    // The discard rate. If not specified, the default value is 0.
     shared_ptr<float> discardRate_ {};
-    // The selected fields. Separate multiple fields with a comma.
+    // The selected fields, separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The version of the filter rule.
+    // 
+    // > Compatible with legacy filter rules. The default value is v1. Newly created tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The task name.
     // 

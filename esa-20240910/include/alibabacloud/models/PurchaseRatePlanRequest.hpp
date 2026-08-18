@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // - true: Auto-renewal is enabled.
-    // - false: Auto-renewal is not enabled.
+    // - false: Auto-renewal is disabled.
     shared_ptr<bool> autoRenew_ {};
     // The channel field.
     shared_ptr<string> channel_ {};
@@ -161,12 +161,13 @@ namespace Models
     // - global: global.
     // - overseas: global (excluding the Chinese mainland).
     shared_ptr<string> coverage_ {};
+    // The overage policy.
     shared_ptr<string> overagePolicy_ {};
     // The purchase period, in months. This parameter is required when you directly call this operation.
     shared_ptr<int32_t> period_ {};
     // The plan code.
     // 
-    // Chinese site
+    // China site
     // 
     // - Free Edition: entranceplan
     // - Basic: basicplan
@@ -181,7 +182,7 @@ namespace Models
     shared_ptr<string> planCode_ {};
     // The plan name.
     // 
-    // Chinese site
+    // China site
     // 
     // - Free Edition: entranceplan
     // - Basic: basic

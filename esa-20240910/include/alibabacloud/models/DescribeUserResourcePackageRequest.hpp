@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The resource plan instance ID.
+    // The instance ID of the resource plan.
     shared_ptr<string> instanceId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -104,8 +104,11 @@ namespace Models
     // The sorting field. Valid values:
     // - startTime: the effective period of the instance.
     // - endTime: the expiration time of the instance.
+    // - StartTime: the effective period of the instance.
+    // - EndTime: the expiration time of the instance.
+    // - default: no sorting field.
     shared_ptr<string> sortField_ {};
-    // The sorting collation. Default value: desc. Valid values:
+    // The sorting rule. Default value: desc. Valid values:
     // - asc
     // - desc
     shared_ptr<string> sortRule_ {};

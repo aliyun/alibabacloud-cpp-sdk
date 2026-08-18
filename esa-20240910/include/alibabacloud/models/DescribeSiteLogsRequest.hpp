@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The end time for retrieving logs.
+    // The end time for log retrieval.
     // 
     // The date is in ISO 8601 format and uses UTC+0 time in the format of yyyy-MM-ddTHH:mm:ssZ.
     // 
@@ -89,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The start time for retrieving logs.
+    // The start time for log retrieval.
     // 
     // The date is in ISO 8601 format and uses UTC+0 time in the format of yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};

@@ -180,17 +180,21 @@ namespace Models
 
       protected:
         // The end time.
+        // 
+        // > Date format example: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> endTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
         // The log path.
         // 
         // 
-        // > Pay attention to the Expires field (expiration timestamp) in the LogPath response parameter. After the expiration time, the log download link becomes invalid and must be obtained again.
+        // > Note the Expires field (expiration timestamp) in the LogPath response parameter. After the expiration time, the log download link becomes invalid and must be obtained again.
         shared_ptr<string> logPath_ {};
         // The log size, in bytes.
         shared_ptr<int32_t> logSize_ {};
         // The start time.
+        // 
+        // > Date format example: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
       };
 
@@ -236,7 +240,7 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned on the current page.
+      // The total number of entries returned on this page.
       shared_ptr<int32_t> logCount_ {};
       // The site log package information.
       shared_ptr<vector<SiteLogDetails::LogInfos>> logInfos_ {};

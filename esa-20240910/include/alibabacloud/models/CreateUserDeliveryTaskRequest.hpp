@@ -218,17 +218,23 @@ namespace Models
       shared_ptr<string> accessKey_ {};
       // The bucket storage path.
       shared_ptr<string> bucketPath_ {};
-      // The S3 endpoint URL.
+      // The S3 endpoint address.
       shared_ptr<string> endpoint_ {};
       // The storage path prefix.
       shared_ptr<string> prefixPath_ {};
       // The region where the service resides.
       shared_ptr<string> region_ {};
-      // Specifies whether the service is S3-compatible.
+      // Specifies whether the storage is S3-compatible.
       shared_ptr<bool> s3Cmpt_ {};
       // The SecretKey of the S3 account.
       shared_ptr<string> secretKey_ {};
+      // Specifies whether to enable S3 server-side encryption.
+      // 
+      // To configure server-side encryption for the S3 bucket, refer to OSS [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
       shared_ptr<bool> serverSideEncryption_ {};
+      // The key verification method for S3 delivery.
+      // 
+      // > The key configuration comes from the console or SDK. Keys from the console are encrypted during transmission. Keys from the SDK do not require encryption.
       shared_ptr<string> vertifyType_ {};
     };
 
@@ -406,7 +412,7 @@ namespace Models
       shared_ptr<string> balancer_ {};
       // The server array.
       shared_ptr<vector<string>> brokers_ {};
-      // The compression method. By default, no compression is used.
+      // The compression method. By default, no compression is applied.
       shared_ptr<string> compress_ {};
       // The encryption method.
       shared_ptr<string> machanismType_ {};
@@ -414,6 +420,9 @@ namespace Models
       shared_ptr<string> password_ {};
       // The Kafka message topic.
       shared_ptr<string> topic_ {};
+      // Specifies whether to enable SASL-encrypted transmission for Kafka delivery.
+      // 
+      // > The delivery address must be configured with a public certificate. Verification with a self-signed certificate will fail.
       shared_ptr<bool> useTLS_ {};
       // Specifies whether to enable user authentication.
       shared_ptr<bool> userAuth_ {};
@@ -515,7 +524,8 @@ namespace Models
 
 
       protected:
-        // The expiration time.
+        // The encryption timeout period.
+        // > The value must be greater than 0. A value of 300 or greater is recommended. Unit: seconds.
         shared_ptr<int32_t> expiredTime_ {};
         // The private key.
         shared_ptr<string> privateKey_ {};
@@ -641,23 +651,23 @@ namespace Models
     protected:
       // The compression method.
       shared_ptr<string> compress_ {};
-      // The HTTP server delivery URL.
+      // The HTTP server delivery address.
       shared_ptr<string> destUrl_ {};
-      // The custom headers.
+      // The Custom Header.
       shared_ptr<map<string, HttpDeliveryHeaderParamValue>> headerParam_ {};
-      // The trailing delimiter.
+      // The trailing separator.
       shared_ptr<bool> lastLogSplit_ {};
       // The prefix of the log delivery package.
       shared_ptr<string> logBodyPrefix_ {};
       // The suffix of the log delivery package.
       shared_ptr<string> logBodySuffix_ {};
-      // Specifies whether to enable log splitting. Default value: true.
+      // Specifies whether to enable log segmentation. Default value: true.
       shared_ptr<bool> logSplit_ {};
-      // The log delimiter.
+      // The log separator.
       shared_ptr<string> logSplitWords_ {};
-      // The maximum number of bytes per delivery. Unit: MB.
+      // The maximum size of a single delivery batch. Unit: MB.
       shared_ptr<int64_t> maxBatchMB_ {};
-      // The maximum number of entries per delivery.
+      // The maximum number of log entries per delivery batch.
       shared_ptr<int64_t> maxBatchSize_ {};
       // The maximum number of retries.
       shared_ptr<int64_t> maxRetry_ {};
@@ -779,15 +789,13 @@ namespace Models
   protected:
     // The real-time log type. Valid values:
     // 
-    // - **dcdn_log_access_l1 (default)**: access logs.
-    // - **dcdn_log_er**: edge function logs.
-    // - **dcdn_log_waf**: security protection logs.
-    // - **dcdn_log_ipa**: Layer 4 acceleration logs.
+    // - **dcdn_log_er_pod**: edge container logs.
+    // - **dcdn_log_dns**: edge DNS logs.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
-    // - **cn**: Chinese mainland.
+    // - **cn**: the Chinese mainland.
     // - **sg**: global (excluding the Chinese mainland).
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
@@ -801,13 +809,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
+    // The list of Edge Routine (ER) pods to configure.
     shared_ptr<string> details_ {};
     // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The fields to be selected, separated by commas (,).
+    // The fields to deliver, separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The version of the filter rule.
+    // 
+    // > This parameter is used for backward compatibility with legacy filter rules. The default value is v1. New tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The HTTP delivery configuration parameters.
     shared_ptr<CreateUserDeliveryTaskRequest::HttpDelivery> httpDelivery_ {};

@@ -106,10 +106,6 @@ namespace Models
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
     // The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
-    // - global: queries global configurations.
-    // - rule: queries rule configurations.
-    // 
-    // This parameter is optional. If not specified, both global and rule configurations are returned. This parameter takes effect only when the FunctionName parameter is specified.
     shared_ptr<string> configType_ {};
     // The function name of the feature.
     shared_ptr<string> functionName_ {};
@@ -117,7 +113,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 500. Default value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name. Returns the rule that matches the specified name. This parameter takes effect only when the FunctionName parameter is specified.
+    // The rule name. Filters the rule that matches the specified name. This parameter takes effect only when FunctionName is specified.
     shared_ptr<string> ruleName_ {};
     // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
