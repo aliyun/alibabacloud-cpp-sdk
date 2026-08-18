@@ -70,6 +70,7 @@ namespace Models
 
 
     protected:
+      // The collection of matched department IDs.
       shared_ptr<vector<int64_t>> matchedDeptIds_ {};
     };
 
@@ -120,11 +121,17 @@ namespace Models
 
 
   protected:
+    // The response data object.
     shared_ptr<ModelRouterSearchClientTreeResponseBody::Data> data_ {};
+    // The fault message code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

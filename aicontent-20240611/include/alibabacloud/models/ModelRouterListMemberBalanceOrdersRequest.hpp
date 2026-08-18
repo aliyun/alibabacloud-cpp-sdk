@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The balance type filter. Valid values: permanent and monthly.
     shared_ptr<string> balanceType_ {};
+    // The change direction filter. Valid values: in and out.
     shared_ptr<string> direction_ {};
+    // The change type filter.
     shared_ptr<string> orderType_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

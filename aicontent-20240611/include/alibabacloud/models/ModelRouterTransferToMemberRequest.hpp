@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The transfer amount.
     shared_ptr<double> amount_ {};
+    // The balance type. Valid values:
+    // 
+    // - permanent
+    // - monthly
+    // 
+    // Default value: permanent.
     shared_ptr<string> balanceType_ {};
+    // The idempotency key. UUID v4 format is recommended.
     shared_ptr<string> idempotencyKey_ {};
+    // The monthly refresh quota for monthly-type transfers.
     shared_ptr<double> monthlyQuota_ {};
+    // The remark for the transfer.
     shared_ptr<string> remark_ {};
   };
 

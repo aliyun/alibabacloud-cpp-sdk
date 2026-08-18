@@ -22,6 +22,8 @@
 #include <alibabacloud/models/MetricDefRespDTO.hpp>
 #include <alibabacloud/models/BillingCostBreakdownRowDTO.hpp>
 #include <alibabacloud/models/BillingCostBreakdownRespDTO.hpp>
+#include <alibabacloud/models/BillingDetailRowDTO.hpp>
+#include <alibabacloud/models/BillingDetailListRespDTO.hpp>
 #include <alibabacloud/models/ClientBalanceDTO.hpp>
 #include <alibabacloud/models/ClientBalanceLogDTO.hpp>
 #include <alibabacloud/models/ClientCreateCmd.hpp>
@@ -277,6 +279,9 @@
 #include <alibabacloud/models/ModelRouterExportMemberBalanceOrdersRequest.hpp>
 #include <alibabacloud/models/ModelRouterExportMemberBalanceOrdersResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterExportMemberBalanceOrdersResponse.hpp>
+#include <alibabacloud/models/ModelRouterGetBillingBillSummaryRequest.hpp>
+#include <alibabacloud/models/ModelRouterGetBillingBillSummaryResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterGetBillingBillSummaryResponse.hpp>
 #include <alibabacloud/models/ModelRouterGetClientBalanceRequest.hpp>
 #include <alibabacloud/models/ModelRouterGetClientBalanceResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterGetClientBalanceResponse.hpp>

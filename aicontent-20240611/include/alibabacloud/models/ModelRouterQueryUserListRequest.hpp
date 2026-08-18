@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(phone, phone_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryUserListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(phone, phone_);
     };
     ModelRouterQueryUserListRequest() = default ;
     ModelRouterQueryUserListRequest(const ModelRouterQueryUserListRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->phone_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline ModelRouterQueryUserListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // phone Field Functions 
+    bool hasPhone() const { return this->phone_ != nullptr;};
+    void deletePhone() { this->phone_ = nullptr;};
+    inline string getPhone() const { DARABONBA_PTR_GET_DEFAULT(phone_, "") };
+    inline ModelRouterQueryUserListRequest& setPhone(string phone) { DARABONBA_PTR_SET_VALUE(phone_, phone) };
+
+
   protected:
     // The search keyword.
     shared_ptr<string> keyword_ {};
@@ -63,6 +72,8 @@ namespace Models
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies the phone number for exact matching (not fuzzy). When specified together with keyword, the two conditions are combined with AND, meaning both must be satisfied. If not specified, no filtering by phone number is applied.
+    shared_ptr<string> phone_ {};
   };
 
   } // namespace Models

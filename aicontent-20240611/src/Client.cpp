@@ -21,10 +21,10 @@ namespace AiContent20240611
 AlibabaCloud::AiContent20240611::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"public" , "aicontent.aliyuncs.com"},
-    {"cn-shanghai" , "aicontent.aliyuncs.com"},
+    {"cn-beijing" , "aicontent.cn-beijing.aliyuncs.com"},
     {"cn-hangzhou" , "aicontent.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "aicontent.cn-beijing.aliyuncs.com"}
+    {"cn-shanghai" , "aicontent.aliyuncs.com"},
+    {"public" , "aicontent.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aicontent", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -2513,7 +2513,7 @@ ModelRouterBatchBindModelGroupResponse Client::modelRouterBatchBindModelGroup(co
 }
 
 /**
- * @summary Batch creates API keys for members under a department in organization management.
+ * @summary Creates API keys in batches for members under a department in organization management.
  *
  * @param request ModelRouterBatchCreateMemberApiKeysRequest
  * @param headers map
@@ -2554,7 +2554,7 @@ ModelRouterBatchCreateMemberApiKeysResponse Client::modelRouterBatchCreateMember
 }
 
 /**
- * @summary Batch creates API keys for members under a department in organization management.
+ * @summary Creates API keys in batches for members under a department in organization management.
  *
  * @param request ModelRouterBatchCreateMemberApiKeysRequest
  * @return ModelRouterBatchCreateMemberApiKeysResponse
@@ -2713,7 +2713,7 @@ ModelRouterBatchResetMemberAuthorizationResponse Client::modelRouterBatchResetMe
 }
 
 /**
- * @summary Sets authorization for multiple members under a department in batch.
+ * @summary Batch sets member authorization under a department.
  *
  * @param request ModelRouterBatchSetMemberAuthorizationRequest
  * @param headers map
@@ -2750,7 +2750,7 @@ ModelRouterBatchSetMemberAuthorizationResponse Client::modelRouterBatchSetMember
 }
 
 /**
- * @summary Sets authorization for multiple members under a department in batch.
+ * @summary Batch sets member authorization under a department.
  *
  * @param request ModelRouterBatchSetMemberAuthorizationRequest
  * @return ModelRouterBatchSetMemberAuthorizationResponse
@@ -2946,7 +2946,7 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
 }
 
 /**
- * @summary 组织管理/配置成员子钱包余额
+ * @summary Configures the sub-wallet balance of a member in an organization.
  *
  * @param request ModelRouterConfigureMemberBalanceRequest
  * @param headers map
@@ -2987,7 +2987,7 @@ ModelRouterConfigureMemberBalanceResponse Client::modelRouterConfigureMemberBala
 }
 
 /**
- * @summary 组织管理/配置成员子钱包余额
+ * @summary Configures the sub-wallet balance of a member in an organization.
  *
  * @param request ModelRouterConfigureMemberBalanceRequest
  * @return ModelRouterConfigureMemberBalanceResponse
@@ -3080,7 +3080,7 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKey(const ModelRoute
 }
 
 /**
- * @summary Creates a balance transaction for customer management.
+ * @summary Manages customers or creates a balance transaction.
  *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @param headers map
@@ -3129,7 +3129,7 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
 }
 
 /**
- * @summary Creates a balance transaction for customer management.
+ * @summary Manages customers or creates a balance transaction.
  *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @return ModelRouterCreateBalanceTransactionResponse
@@ -4034,6 +4034,87 @@ ModelRouterExportMemberBalanceOrdersResponse Client::modelRouterExportMemberBala
 }
 
 /**
+ * @summary Queries the total cost trend of bills in the Billing Center.
+ *
+ * @param request ModelRouterGetBillingBillSummaryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetBillingBillSummaryResponse
+ */
+ModelRouterGetBillingBillSummaryResponse Client::modelRouterGetBillingBillSummaryWithOptions(const ModelRouterGetBillingBillSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
+  }
+
+  if (!!request.hasModelId()) {
+    query["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetBillingBillSummary"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/bills/summary")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetBillingBillSummaryResponse>();
+}
+
+/**
+ * @summary Queries the total cost trend of bills in the Billing Center.
+ *
+ * @param request ModelRouterGetBillingBillSummaryRequest
+ * @return ModelRouterGetBillingBillSummaryResponse
+ */
+ModelRouterGetBillingBillSummaryResponse Client::modelRouterGetBillingBillSummary(const ModelRouterGetBillingBillSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetBillingBillSummaryWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Client Management/Get department balance
  *
  * @param request ModelRouterGetClientBalanceRequest
@@ -4134,7 +4215,7 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(
 }
 
 /**
- * @summary 组织管理/获取部门余额概览
+ * @summary Retrieves the balance overview of a department.
  *
  * @param request ModelRouterGetDeptBalanceSummaryRequest
  * @param headers map
@@ -4161,7 +4242,7 @@ ModelRouterGetDeptBalanceSummaryResponse Client::modelRouterGetDeptBalanceSummar
 }
 
 /**
- * @summary 组织管理/获取部门余额概览
+ * @summary Retrieves the balance overview of a department.
  *
  * @param request ModelRouterGetDeptBalanceSummaryRequest
  * @return ModelRouterGetDeptBalanceSummaryResponse
@@ -4226,7 +4307,7 @@ ModelRouterGetMemberApiKeysResponse Client::modelRouterGetMemberApiKeys(const st
 }
 
 /**
- * @summary 组织管理/获取成员子钱包余额
+ * @summary Retrieves the sub-wallet balance of a member in an organization.
  *
  * @param request ModelRouterGetMemberBalanceRequest
  * @param headers map
@@ -4253,7 +4334,7 @@ ModelRouterGetMemberBalanceResponse Client::modelRouterGetMemberBalanceWithOptio
 }
 
 /**
- * @summary 组织管理/获取成员子钱包余额
+ * @summary Retrieves the sub-wallet balance of a member in an organization.
  *
  * @param request ModelRouterGetMemberBalanceRequest
  * @return ModelRouterGetMemberBalanceResponse
@@ -4265,7 +4346,7 @@ ModelRouterGetMemberBalanceResponse Client::modelRouterGetMemberBalance(const st
 }
 
 /**
- * @summary 组织管理/获取成员余额变更日志
+ * @summary Retrieves the balance change logs of a member in an organization.
  *
  * @param request ModelRouterGetMemberBalanceLogsRequest
  * @param headers map
@@ -4310,7 +4391,7 @@ ModelRouterGetMemberBalanceLogsResponse Client::modelRouterGetMemberBalanceLogsW
 }
 
 /**
- * @summary 组织管理/获取成员余额变更日志
+ * @summary Retrieves the balance change logs of a member in an organization.
  *
  * @param request ModelRouterGetMemberBalanceLogsRequest
  * @return ModelRouterGetMemberBalanceLogsResponse
@@ -4438,7 +4519,7 @@ ModelRouterListBalanceOrdersResponse Client::modelRouterListBalanceOrders(const 
 }
 
 /**
- * @summary 组织管理/获取部门成员列表
+ * @summary Retrieves the list of members in a specified department.
  *
  * @param request ModelRouterListDeptMembersRequest
  * @param headers map
@@ -4495,7 +4576,7 @@ ModelRouterListDeptMembersResponse Client::modelRouterListDeptMembersWithOptions
 }
 
 /**
- * @summary 组织管理/获取部门成员列表
+ * @summary Retrieves the list of members in a specified department.
  *
  * @param request ModelRouterListDeptMembersRequest
  * @return ModelRouterListDeptMembersResponse
@@ -4507,7 +4588,7 @@ ModelRouterListDeptMembersResponse Client::modelRouterListDeptMembers(const stri
 }
 
 /**
- * @summary 组织管理/获取成员余额变更记录
+ * @summary Retrieves the balance change records of a member in the organization.
  *
  * @param request ModelRouterListMemberBalanceOrdersRequest
  * @param headers map
@@ -4556,7 +4637,7 @@ ModelRouterListMemberBalanceOrdersResponse Client::modelRouterListMemberBalanceO
 }
 
 /**
- * @summary 组织管理/获取成员余额变更记录
+ * @summary Retrieves the balance change records of a member in the organization.
  *
  * @param request ModelRouterListMemberBalanceOrdersRequest
  * @return ModelRouterListMemberBalanceOrdersResponse
@@ -4568,7 +4649,7 @@ ModelRouterListMemberBalanceOrdersResponse Client::modelRouterListMemberBalanceO
 }
 
 /**
- * @summary 组织管理/获取成员订阅列表
+ * @summary Retrieves the subscription list of a member in the organization.
  *
  * @param request ModelRouterListMemberSubscriptionsRequest
  * @param headers map
@@ -4595,7 +4676,7 @@ ModelRouterListMemberSubscriptionsResponse Client::modelRouterListMemberSubscrip
 }
 
 /**
- * @summary 组织管理/获取成员订阅列表
+ * @summary Retrieves the subscription list of a member in the organization.
  *
  * @param request ModelRouterListMemberSubscriptionsRequest
  * @return ModelRouterListMemberSubscriptionsResponse
@@ -4813,6 +4894,10 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -5263,7 +5348,7 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
 }
 
 /**
- * @summary Retrieves the usage details of a model for billing management.
+ * @summary Retrieves model usage details for billing management.
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @param headers map
@@ -5279,6 +5364,10 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailW
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -5336,7 +5425,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailW
 }
 
 /**
- * @summary Retrieves the usage details of a model for billing management.
+ * @summary Retrieves model usage details for billing management.
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @return ModelRouterQueryCostModelDetailResponse
@@ -5364,6 +5453,10 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -5447,6 +5540,10 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
     query["clientId"] = request.getClientId();
   }
 
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
+  }
+
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
   }
@@ -5522,6 +5619,10 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -6214,6 +6315,10 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
     query["clientId"] = request.getClientId();
   }
 
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
+  }
+
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
   }
@@ -6265,7 +6370,7 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary Retrieves a list of model observation logs.
+ * @summary Retrieves a list of observation logs for model monitoring.
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @param headers map
@@ -6281,6 +6386,10 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogsW
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -6354,7 +6463,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogsW
 }
 
 /**
- * @summary Retrieves a list of model observation logs.
+ * @summary Retrieves a list of observation logs for model monitoring.
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @return ModelRouterQueryObservationLogsResponse
@@ -6366,7 +6475,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogs(
 }
 
 /**
- * @summary Retrieves observability metric data for models.
+ * @summary Retrieves observability metric data for model API calls.
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @param headers map
@@ -6382,6 +6491,10 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -6455,7 +6568,7 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 }
 
 /**
- * @summary Retrieves observability metric data for models.
+ * @summary Retrieves observability metric data for model API calls.
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @return ModelRouterQueryObservationMetricsResponse
@@ -6483,6 +6596,10 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdownWit
 
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
   }
 
   if (!!request.hasEndTime()) {
@@ -6570,6 +6687,10 @@ ModelRouterQueryUserListResponse Client::modelRouterQueryUserListWithOptions(con
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPhone()) {
+    query["phone"] = request.getPhone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6701,7 +6822,7 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfig(const ModelR
 }
 
 /**
- * @summary 组织管理/部门树搜索定位
+ * @summary Searches and locates nodes in the department tree for organization management.
  *
  * @param request ModelRouterSearchClientTreeRequest
  * @param headers map
@@ -6734,7 +6855,7 @@ ModelRouterSearchClientTreeResponse Client::modelRouterSearchClientTreeWithOptio
 }
 
 /**
- * @summary 组织管理/部门树搜索定位
+ * @summary Searches and locates nodes in the department tree for organization management.
  *
  * @param request ModelRouterSearchClientTreeRequest
  * @return ModelRouterSearchClientTreeResponse
@@ -6934,7 +7055,7 @@ ModelRouterStopSubscriptionResponse Client::modelRouterStopSubscription(const st
 }
 
 /**
- * @summary 组织管理/部门向成员转账
+ * @summary Transfers funds from a department to a member within an organization.
  *
  * @param request ModelRouterTransferToMemberRequest
  * @param headers map
@@ -6983,7 +7104,7 @@ ModelRouterTransferToMemberResponse Client::modelRouterTransferToMemberWithOptio
 }
 
 /**
- * @summary 组织管理/部门向成员转账
+ * @summary Transfers funds from a department to a member within an organization.
  *
  * @param request ModelRouterTransferToMemberRequest
  * @return ModelRouterTransferToMemberResponse

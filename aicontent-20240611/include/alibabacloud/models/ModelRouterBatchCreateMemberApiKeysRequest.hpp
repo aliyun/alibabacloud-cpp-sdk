@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The expiration time in RFC 3339 format. This parameter is optional. If not specified, the key is permanently valid.
     shared_ptr<string> expireAt_ {};
+    // The key name. This parameter is optional.
     shared_ptr<string> name_ {};
+    // The list of member user IDs.
     shared_ptr<vector<int64_t>> userIds_ {};
   };
 

@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_MODELROUTERQUERYCOSTOVERVIEWMETRICSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_MODELROUTERQUERYCOSTOVERVIEWMETRICSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_MODELROUTERGETBILLINGBILLSUMMARYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_MODELROUTERGETBILLINGBILLSUMMARYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
-#include <alibabacloud/models/MetricValueDTO.hpp>
+#include <alibabacloud/models/BillingBillSummaryRespDTO.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,9 +11,9 @@ namespace AiContent20240611
 {
 namespace Models
 {
-  class ModelRouterQueryCostOverviewMetricsResponseBody : public Darabonba::Model {
+  class ModelRouterGetBillingBillSummaryResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ModelRouterQueryCostOverviewMetricsResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ModelRouterGetBillingBillSummaryResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(errCode, errCode_);
       DARABONBA_PTR_TO_JSON(errMessage, errMessage_);
@@ -24,7 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, ModelRouterQueryCostOverviewMetricsResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ModelRouterGetBillingBillSummaryResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(errCode, errCode_);
       DARABONBA_PTR_FROM_JSON(errMessage, errMessage_);
@@ -34,13 +33,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
     };
-    ModelRouterQueryCostOverviewMetricsResponseBody() = default ;
-    ModelRouterQueryCostOverviewMetricsResponseBody(const ModelRouterQueryCostOverviewMetricsResponseBody &) = default ;
-    ModelRouterQueryCostOverviewMetricsResponseBody(ModelRouterQueryCostOverviewMetricsResponseBody &&) = default ;
-    ModelRouterQueryCostOverviewMetricsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ModelRouterQueryCostOverviewMetricsResponseBody() = default ;
-    ModelRouterQueryCostOverviewMetricsResponseBody& operator=(const ModelRouterQueryCostOverviewMetricsResponseBody &) = default ;
-    ModelRouterQueryCostOverviewMetricsResponseBody& operator=(ModelRouterQueryCostOverviewMetricsResponseBody &&) = default ;
+    ModelRouterGetBillingBillSummaryResponseBody() = default ;
+    ModelRouterGetBillingBillSummaryResponseBody(const ModelRouterGetBillingBillSummaryResponseBody &) = default ;
+    ModelRouterGetBillingBillSummaryResponseBody(ModelRouterGetBillingBillSummaryResponseBody &&) = default ;
+    ModelRouterGetBillingBillSummaryResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModelRouterGetBillingBillSummaryResponseBody() = default ;
+    ModelRouterGetBillingBillSummaryResponseBody& operator=(const ModelRouterGetBillingBillSummaryResponseBody &) = default ;
+    ModelRouterGetBillingBillSummaryResponseBody& operator=(ModelRouterGetBillingBillSummaryResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -51,73 +50,71 @@ namespace Models
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<MetricValueDTO> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<MetricValueDTO>) };
-    inline vector<MetricValueDTO> getData() { DARABONBA_PTR_GET(data_, vector<MetricValueDTO>) };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setData(const vector<MetricValueDTO> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setData(vector<MetricValueDTO> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const BillingBillSummaryRespDTO & getData() const { DARABONBA_PTR_GET_CONST(data_, BillingBillSummaryRespDTO) };
+    inline BillingBillSummaryRespDTO getData() { DARABONBA_PTR_GET(data_, BillingBillSummaryRespDTO) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setData(const BillingBillSummaryRespDTO & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setData(BillingBillSummaryRespDTO && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
     inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
     inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
     inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline ModelRouterQueryCostOverviewMetricsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline ModelRouterGetBillingBillSummaryResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The data object.
-    shared_ptr<vector<MetricValueDTO>> data_ {};
-    // The fault information code.
+    shared_ptr<BillingBillSummaryRespDTO> data_ {};
+    // The fault code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

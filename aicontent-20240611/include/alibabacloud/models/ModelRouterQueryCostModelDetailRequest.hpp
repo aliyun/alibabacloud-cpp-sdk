@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryCostModelDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
+      DARABONBA_PTR_TO_JSON(clientIds, clientIds_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryCostModelDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(clientIds, clientIds_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr && this->modelId_ == nullptr
-        && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientIds_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->modelId_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr
+        && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -64,6 +67,13 @@ namespace Models
     void deleteClientId() { this->clientId_ = nullptr;};
     inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
     inline ModelRouterQueryCostModelDetailRequest& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientIds Field Functions 
+    bool hasClientIds() const { return this->clientIds_ != nullptr;};
+    void deleteClientIds() { this->clientIds_ = nullptr;};
+    inline string getClientIds() const { DARABONBA_PTR_GET_DEFAULT(clientIds_, "") };
+    inline ModelRouterQueryCostModelDetailRequest& setClientIds(string clientIds) { DARABONBA_PTR_SET_VALUE(clientIds_, clientIds) };
 
 
     // endTime Field Functions 
@@ -134,13 +144,15 @@ namespace Models
     shared_ptr<int64_t> apiKeyId_ {};
     // The department ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
+    // The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+    shared_ptr<string> clientIds_ {};
     // The end time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // maxResults
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Filters by member IDs. Separate multiple IDs with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    // Optional. Filters by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
     shared_ptr<string> memberUserIds_ {};
     // The model ID.
     // 

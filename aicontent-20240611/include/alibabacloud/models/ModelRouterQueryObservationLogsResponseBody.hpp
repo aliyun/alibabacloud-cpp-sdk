@@ -121,11 +121,17 @@ namespace Models
 
 
     protected:
+      // The list of log data.
       shared_ptr<vector<RequestLogDTO>> list_ {};
+      // maxResults
       shared_ptr<int32_t> maxResults_ {};
+      // The token for the next query.
       shared_ptr<int32_t> nextToken_ {};
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries returned per page. Default value: 10. Maximum value: 50.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -193,7 +199,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ModelRouterQueryObservationLogsResponseBody::Data> data_ {};
-    // The fault information code.
+    // The fault code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};

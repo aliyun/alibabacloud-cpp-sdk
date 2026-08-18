@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ClientBalanceDTO> data_ {};
-    // The error message code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryObservationLogsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
+      DARABONBA_PTR_TO_JSON(clientIds, clientIds_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
@@ -32,6 +33,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryObservationLogsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(clientIds, clientIds_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
@@ -58,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->groupBy_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
-        && this->modelId_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr
-        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientIds_ == nullptr && this->endTime_ == nullptr && this->groupBy_ == nullptr && this->maxResults_ == nullptr
+        && this->memberUserIds_ == nullptr && this->modelId_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
+        && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -73,6 +75,13 @@ namespace Models
     void deleteClientId() { this->clientId_ = nullptr;};
     inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
     inline ModelRouterQueryObservationLogsRequest& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientIds Field Functions 
+    bool hasClientIds() const { return this->clientIds_ != nullptr;};
+    void deleteClientIds() { this->clientIds_ = nullptr;};
+    inline string getClientIds() const { DARABONBA_PTR_GET_DEFAULT(clientIds_, "") };
+    inline ModelRouterQueryObservationLogsRequest& setClientIds(string clientIds) { DARABONBA_PTR_SET_VALUE(clientIds_, clientIds) };
 
 
     // endTime Field Functions 
@@ -167,18 +176,21 @@ namespace Models
 
 
   protected:
-    // The API key ID used to filter the results.
+    // The API key ID used to filter results.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The client ID used to filter the results.
+    // The client ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
+    // The list of department IDs, separated by commas. You can query data for multiple departments. This parameter is mutually exclusive with client_id.
+    shared_ptr<string> clientIds_ {};
     // The custom end time.
     shared_ptr<string> endTime_ {};
     // The field by which to group the results.
     shared_ptr<string> groupBy_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Optional. Filters results by member user IDs, separated by commas. If not specified, data for the department and all its members is returned. If an empty value is specified, only department data without member data is returned.
     shared_ptr<string> memberUserIds_ {};
-    // The model ID used to filter the results.
+    // The model ID used to filter results.
     shared_ptr<int64_t> modelId_ {};
     // Specifies whether to return the total count.
     shared_ptr<bool> needTotalCount_ {};
@@ -194,7 +206,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The custom start time.
     shared_ptr<string> startTime_ {};
-    // The time range for the query. Valid values: 1h, 6h, 24h, 7d, 30d.
+    // The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
     shared_ptr<string> timeRange_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The change type filter.
     shared_ptr<string> changeType_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> size_ {};
+    // Specifies whether to skip the total count calculation.
     shared_ptr<bool> skipTotal_ {};
   };
 

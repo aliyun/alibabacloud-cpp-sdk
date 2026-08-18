@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // The list of returned data.
       shared_ptr<vector<DeptMemberDTO>> list_ {};
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -152,11 +156,17 @@ namespace Models
 
 
   protected:
+    // The response data object.
     shared_ptr<ModelRouterListDeptMembersResponseBody::Data> data_ {};
+    // The fault code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

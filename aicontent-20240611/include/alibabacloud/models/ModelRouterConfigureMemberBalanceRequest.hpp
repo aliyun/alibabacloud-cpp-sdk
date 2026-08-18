@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The balance type. Valid values:
+    // - amount: monetary amount.
+    // - tokens: token count.
+    // 
+    // This parameter is required when balance throttling is enabled for the first time.
     shared_ptr<string> balanceType_ {};
+    // Specifies whether to enable balance throttling. Once enabled, it cannot be disabled.
     shared_ptr<bool> enableBalance_ {};
+    // The initial balance. This parameter takes effect only when balance throttling is enabled for the first time.
     shared_ptr<double> initialBalance_ {};
   };
 

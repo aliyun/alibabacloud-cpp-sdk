@@ -94,12 +94,22 @@ namespace Models
 
 
   protected:
+    // The authorization configuration filter. Valid values:
+    // - inherit: only members that inherit department settings.
+    // - custom: only members with custom settings.
+    // - Empty: all members.
     shared_ptr<string> authConfig_ {};
+    // Specifies whether to include the authorized models and the number of associated keys for the member.
     shared_ptr<bool> includeAuthorization_ {};
+    // Specifies whether to include the monthly and permanent balance of the member\\"s sub-wallet.
     shared_ptr<bool> includeBalance_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // Filters members by the authorized model ID.
     shared_ptr<string> model_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

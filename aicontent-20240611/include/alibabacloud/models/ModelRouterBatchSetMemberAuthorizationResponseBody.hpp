@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The data object. This object contains no business data. This operation uses all-or-nothing semantics. If the operation succeeds, all changes take effect.
     shared_ptr<bool> data_ {};
-    // The fault code.
+    // The fault information code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
