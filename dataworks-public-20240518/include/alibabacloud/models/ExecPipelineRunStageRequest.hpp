@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The code of the stage in the process. You can call the GetDeployment operation to query the code.
+    // The code of the publish flow stage. For the specific value, see the response of the GetPipelineRun operation.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The ID of the process.
+    // The unique identifier of the publish flow.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace settings page to obtain the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

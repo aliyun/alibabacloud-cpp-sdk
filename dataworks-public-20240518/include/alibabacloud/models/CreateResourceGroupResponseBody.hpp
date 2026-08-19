@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the general-purpose resource group.
+      // The unique identifier of the created common resource group.
       shared_ptr<string> id_ {};
-      // The ID of the resource group creation order.
+      // The order ID of the created common resource group.
       shared_ptr<int64_t> orderId_ {};
-      // The instance ID of the resource group creation order.
+      // The order instance ID of the created common resource group.
       shared_ptr<string> orderInstanceId_ {};
     };
 
@@ -114,9 +114,9 @@ namespace Models
 
 
   protected:
-    // The request ID. You can use this ID to locate logs and troubleshoot issues.
+    // The request ID, which is used for locating logs and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Information about the resource group creation order.
+    // The order information of the created common resource group.
     shared_ptr<CreateResourceGroupResponseBody::ResourceGroupOrder> resourceGroupOrder_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

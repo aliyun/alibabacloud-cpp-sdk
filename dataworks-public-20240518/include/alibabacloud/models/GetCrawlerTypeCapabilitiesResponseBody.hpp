@@ -140,10 +140,15 @@ namespace Models
 
 
       protected:
+        // The list of allowed values for the extension configuration item.
         shared_ptr<vector<string>> allowedValues_ {};
+        // The default value of the extension configuration item.
         shared_ptr<string> defaultValue_ {};
+        // The name of the extension configuration item.
         shared_ptr<string> key_ {};
+        // Indicates whether the extension configuration item is required.
         shared_ptr<bool> required_ {};
+        // The value type of the extension configuration item, such as BOOLEAN.
         shared_ptr<string> valueType_ {};
       };
 
@@ -203,9 +208,13 @@ namespace Models
 
 
       protected:
+        // Indicates whether the metadata entity level is optional.
         shared_ptr<bool> optional_ {};
+        // The parent-level metadata entity subtype.
         shared_ptr<string> parentSubType_ {};
+        // The metadata entity subtype.
         shared_ptr<string> subType_ {};
+        // The metadata entity type identifier.
         shared_ptr<string> type_ {};
       };
 
@@ -298,16 +307,27 @@ namespace Models
 
 
     protected:
+      // The default collection scope granularity.
       shared_ptr<string> defaultScopeUnit_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // Indicates whether a resource group must be specified when creating this type of crawler.
       shared_ptr<bool> requireResourceGroup_ {};
+      // Indicates whether AI metadata description is supported.
       shared_ptr<bool> supportAiComment_ {};
+      // Indicates whether schema or table exclusion regular expressions are supported.
       shared_ptr<bool> supportExcludeRegex_ {};
+      // Indicates whether periodic scheduling is supported.
       shared_ptr<bool> supportSchedule_ {};
+      // The list of supported data source types.
       shared_ptr<vector<string>> supportedDatasourceTypes_ {};
+      // The metadata entity levels that the crawler type supports for collection.
       shared_ptr<vector<CrawlerTypes::SupportedEntityTypes>> supportedEntityTypes_ {};
+      // The supported crawler extension configuration items.
       shared_ptr<vector<CrawlerTypes::SupportedOptionKeys>> supportedOptionKeys_ {};
+      // The list of supported collection scope granularities.
       shared_ptr<vector<string>> supportedScopeUnits_ {};
+      // The crawler type.
       shared_ptr<string> type_ {};
     };
 
@@ -337,8 +357,11 @@ namespace Models
 
 
   protected:
+    // The list of crawler types and capabilities supported in the current region.
     shared_ptr<vector<GetCrawlerTypeCapabilitiesResponseBody::CrawlerTypes>> crawlerTypes_ {};
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

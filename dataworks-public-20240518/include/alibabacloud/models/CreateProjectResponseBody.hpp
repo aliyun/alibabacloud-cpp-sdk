@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The workspace ID.
+    // The ID of the DataWorks workspace created by this operation.
     shared_ptr<int64_t> id_ {};
-    // The workspace ID. Note: This parameter is deprecated and is replaced by the Id parameter.
+    // The ID of the DataWorks workspace created by this operation.
+    // Note: This field is deprecated. Use the Id field instead.
     shared_ptr<int64_t> projectId_ {};
-    // The request ID.
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
   };
 

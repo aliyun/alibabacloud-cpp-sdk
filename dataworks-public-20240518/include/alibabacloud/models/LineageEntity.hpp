@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The additional properties.
+    // The other properties.
     shared_ptr<map<string, string>> attributes_ {};
     // The entity ID.
     shared_ptr<string> id_ {};

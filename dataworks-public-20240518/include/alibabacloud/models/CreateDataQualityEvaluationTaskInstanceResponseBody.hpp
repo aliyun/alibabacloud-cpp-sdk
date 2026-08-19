@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the data quality monitoring instance.
+    // The data quality monitoring instance ID.
     shared_ptr<int64_t> id_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

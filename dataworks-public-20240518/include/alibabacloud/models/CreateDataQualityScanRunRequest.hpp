@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // The number of compute units (CUs) to reserve from the resource group for the data quality scan.
+      // The CU configuration reserved for the resource group when running the data quality monitoring task.
       shared_ptr<float> cu_ {};
       // The resource group ID.
       shared_ptr<string> id_ {};
-      // The image configuration for running the data quality scan on the resource group.
+      // The image settings used when running the data quality monitoring task on the resource group.
       shared_ptr<string> image_ {};
     };
 
@@ -129,15 +129,13 @@ namespace Models
 
 
     protected:
-      // The name of the parameter. The only supported value is:
-      // 
+      // The parameter name. Currently supported parameter:
       // - triggerTime
       // 
-      // No other scheduling parameters are currently supported.
+      // Other scheduling parameters are not supported.
       shared_ptr<string> name_ {};
-      // The parameter value.
-      // 
-      // - If the parameter name is triggerTime, this value must be the trigger time as a timestamp.
+      // The parameter value:
+      // - If the parameter name is triggerTime, the value must be the timestamp of the scheduling time.
       shared_ptr<string> value_ {};
     };
 
@@ -176,13 +174,13 @@ namespace Models
 
 
   protected:
-    // The data quality scan ID.
+    // The ID of the data quality monitoring task.
     shared_ptr<int64_t> dataQualityScanId_ {};
-    // The parameters for the run. The `triggerTime` parameter is required.
+    // The parameter settings used during the actual run. The `triggerTime` parameter is required.
     shared_ptr<vector<CreateDataQualityScanRunRequest::Parameters>> parameters_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // Specifies the scheduling resource group used to run the data quality scan. This object uses the same data structure as the scheduling API.
+    // The schedule resource group used when the data quality monitoring task runs. This shares the same data structure as the scheduling API.
     shared_ptr<CreateDataQualityScanRunRequest::RuntimeResource> runtimeResource_ {};
   };
 

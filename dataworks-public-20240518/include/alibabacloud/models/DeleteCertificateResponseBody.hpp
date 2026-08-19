@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the certificate file was successfully deleted.
+    // Indicates whether the certificate file was deleted successfully.
     shared_ptr<bool> success_ {};
   };
 

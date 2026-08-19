@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // Indicates whether the rule is enabled.
+    // Specifies whether the alert rule is enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
-    // The name of the rule.
+    // The name of the custom rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The configuration for the alert notification.
+    // The alert notification configuration.
     shared_ptr<string> notificationShrink_ {};
-    // The ID of the Alibaba Cloud account used by the owner of the rule.
+    // The Alibaba Cloud UID of the owner of the custom rule.
     // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
-    // The alert triggering condition.
+    // The condition that triggers the alert.
     // 
     // This parameter is required.
     shared_ptr<string> triggerConditionShrink_ {};

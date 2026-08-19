@@ -75,29 +75,30 @@ namespace Models
 
 
   protected:
-    // The description for this dataset version. Maximum length: 1,024 characters.
+    // The description of the dataset version. The description can be up to 1024 characters in length.
     shared_ptr<string> comment_ {};
-    // The dataset ID. Currently supports DataWorks datasets only.
+    // The dataset ID. Currently, only DataWorks datasets are supported.
     // 
     // This parameter is required.
     shared_ptr<string> datasetId_ {};
-    // The storage import configuration for the dataset. Required configuration varies by storage type.
-    // 
-    // **NAS**
-    // 
-    // For valid values, see the response from the file storage API DescribeFileSystems.
+    // The storage import configuration for the dataset. The required configuration varies depending on the storage type.
+    // <details>
+    // <summary>NAS</summary>
+    // The values can be obtained from the response of the File Storage API DescribeFileSystems operation.
     // 
     // ```JSON
     // {
-    // "fileSystemId": "3b6XXX89c9", // The file system ID.
-    // "fileSystemStorageType":  "Performance" // The file system storage type.
-    // "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID for the mount point.
+    //   "fileSystemId": "3b6XXX89c9", // The file system ID.
+    //   "fileSystemStorageType": "Performance", // The storage specification of the file system.
+    //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount target.
     // }
     // ```
+    // 
+    // </details>
     shared_ptr<string> importInfoShrink_ {};
-    // The mount path, which must start with /mnt/. Default value: /mnt/data.
+    // The mount path. The path must start with /mnt/. Default value: /mnt/data.
     shared_ptr<string> mountPath_ {};
-    // URL
+    // The URL.
     // 
     // This parameter is required.
     shared_ptr<string> url_ {};

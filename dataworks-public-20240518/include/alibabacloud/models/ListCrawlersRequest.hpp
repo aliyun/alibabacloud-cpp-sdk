@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The list of data source IDs. Up to 10 IDs are supported.
     shared_ptr<vector<int64_t>> dataSourceIds_ {};
+    // The DataWorks environment type. Dev indicates the development environment. Prod indicates the production environment.
     shared_ptr<string> envType_ {};
+    // The metadata crawler name. Supports fuzzy match.
     shared_ptr<string> name_ {};
+    // The DataWorks user ID of the crawler owner.
     shared_ptr<string> owner_ {};
+    // The page number. Starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
+    // The crawler type. Call GetCrawlerTypeCapabilities to query the valid values supported in the current region.
     shared_ptr<string> type_ {};
   };
 

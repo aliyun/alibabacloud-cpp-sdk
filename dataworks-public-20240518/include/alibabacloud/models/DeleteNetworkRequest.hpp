@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the network that you want to delete.
+    // The ID of the network resource to delete.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

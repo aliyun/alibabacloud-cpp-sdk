@@ -152,27 +152,24 @@ namespace Models
       protected:
         // The timestamp when the deployment package was created.
         shared_ptr<int64_t> createTime_ {};
-        // The Alibaba Cloud account ID of the deployment package creator.
+        // The Alibaba Cloud user ID of the deployment package creator.
         shared_ptr<string> creator_ {};
-        // When the deployment package fails to execute, this parameter is used to record the error message.
+        // The error message recorded when the deployment package fails to be executed.
         shared_ptr<string> errorMessage_ {};
         // The timestamp when the deployment package was executed.
         shared_ptr<int64_t> executeTime_ {};
-        // The Alibaba Cloud account ID of the deployment package executor.
+        // The Alibaba Cloud user ID of the deployment package executor.
         shared_ptr<string> executor_ {};
-        // The ID of the deployment package. You can use this ID to call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to get the deployment package details.
+        // The ID of the deployment package. You can use this ID to call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to obtain the details of the deployment package.
         shared_ptr<int64_t> id_ {};
         // The name of the deployment package.
         shared_ptr<string> name_ {};
-        // The status of the deployment package. Valid values:
+        // The current status of the deployment package. Valid values:
         // 
-        // - 0: It is ready.
-        // 
-        // - 1: It was successfully deployed.
-        // 
-        // - 2: It failed to be deployed.
-        // 
-        // - 6: It was rejected.
+        // - 0: The deployment package is ready.
+        // - 1: The deployment package is published.
+        // - 2: The deployment package failed to be published.
+        // - 6: The deployment package is rejected.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -209,13 +206,13 @@ namespace Models
 
 
     protected:
-      // The returned list of deployment packages.
+      // The list of deployment packages.
       shared_ptr<vector<Data::Deployments>> deployments_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of records that meet the conditions.
+      // The total number of entries that meet the conditions.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -240,7 +237,7 @@ namespace Models
   protected:
     // The list of deployment packages that meet the query conditions.
     shared_ptr<ListDeploymentPackagesResponseBody::Data> data_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

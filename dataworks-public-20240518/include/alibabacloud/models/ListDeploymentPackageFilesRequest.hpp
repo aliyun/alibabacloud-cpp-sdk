@@ -143,39 +143,37 @@ namespace Models
 
 
   protected:
-    // The workflow ID. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the workflow ID by name.
+    // The ID of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the ID of the workflow by name.
     shared_ptr<int64_t> businessId_ {};
-    // The change type. Valid values:
-    // 
-    // - 0: addition
-    // 
-    // - 1: update
-    // 
-    // - 2: deletion
+    // The change type. Valid values: 
+    // - 0: added.
+    // - 1: updated.
+    // - 2: deleted.
     shared_ptr<int32_t> changeType_ {};
-    // The start date for committing. Specify the date in the yyyy-MM-dd format.
+    // The start date for the commit, in the format yyyy-MM-dd.
     shared_ptr<string> commitFrom_ {};
-    // The end date (included) for committing. Specify the date in the yyyy-MM-dd format.
+    // The end date for the commit (inclusive), in the format yyyy-MM-dd.
     shared_ptr<string> commitTo_ {};
-    // The ID of the user who commits the file.
+    // The user ID of the committer.
     shared_ptr<string> commitUserId_ {};
-    // The IDs of the files to be queried.
+    // The list of file IDs to query.
     shared_ptr<vector<string>> fileIds_ {};
     // The name of the file.
     shared_ptr<string> fileName_ {};
-    // The type of the code for the file.
+    // The code type of the file.
     // 
-    // The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html). You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
+    // Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+    // You can also call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the code type of a file.
     shared_ptr<int32_t> fileType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The solution ID.
+    // The Solutions ID.
     shared_ptr<int64_t> solutionId_ {};
   };
 

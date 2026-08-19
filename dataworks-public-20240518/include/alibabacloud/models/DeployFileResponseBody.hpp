@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The deployment package ID. You must specify this ID as a parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment.
+    // The ID of the deployment package. You must pass this ID as a parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to obtain the details of this deployment.
     shared_ptr<int64_t> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -96,9 +96,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
-    // - true: success.
-    // 
-    // - false: failure.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

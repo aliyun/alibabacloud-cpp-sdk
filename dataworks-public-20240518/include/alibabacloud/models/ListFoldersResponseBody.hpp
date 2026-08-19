@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // The folder ID.
+        // The ID of the folder.
         shared_ptr<string> folderId_ {};
-        // The folder path.
+        // The path of the folder.
         shared_ptr<string> folderPath_ {};
       };
 
@@ -144,11 +144,11 @@ namespace Models
     protected:
       // The list of folders.
       shared_ptr<vector<Data::Folders>> folders_ {};
-      // The current page number.
+      // The page number of the current page.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records that meet the query conditions.
+      // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -199,21 +199,20 @@ namespace Models
 
 
   protected:
-    // The list of folders that meet the conditions.
+    // The list of folders that meet the specified conditions.
     shared_ptr<ListFoldersResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message
+    // The error message.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. Used to troubleshoot errors.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true: success.
-    // 
-    // - false: failure.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

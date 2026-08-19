@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The file ID. You can call [ListFiles](https://help.aliyun.com/document_detail/173942.html) to query the file ID.
+    // The ID of the file. You can call [ListFiles](https://help.aliyun.com/document_detail/173942.html) to query the file ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
-    // The page number for pagination.
+    // The page number. Used for paging.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
+    // The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the storage management page and view the ID.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page.
     // 
-    // Either this parameter or ProjectId must be specified to identify the target DataWorks workspace for this API call.
+    // You must set either this parameter or ProjectId to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

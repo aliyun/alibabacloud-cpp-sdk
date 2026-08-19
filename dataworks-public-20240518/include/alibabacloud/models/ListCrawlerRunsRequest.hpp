@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The ID of the metadata crawler. You can call ListCrawlers to obtain the ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The lower bound of the run start time, in millisecond-level UNIX timestamp. The value must be within the last 30 days. If not specified, the default value is 30 days before the current time.
     shared_ptr<int64_t> startTimeFrom_ {};
+    // The upper bound of the run start time, in millisecond-level UNIX timestamp. The value must be within the last 30 days. If not specified, the default value is the current time.
     shared_ptr<int64_t> startTimeTo_ {};
+    // The run status. Valid values: WAITING, RUNNING, SUCCESS, ERROR, SHUTDOWN.
     shared_ptr<string> status_ {};
   };
 

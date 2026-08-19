@@ -133,11 +133,17 @@ namespace Models
 
 
       protected:
+        // The run duration, in seconds.
         shared_ptr<double> duration_ {};
+        // The end time, in millisecond-level UNIX timestamp.
         shared_ptr<int64_t> finishedTime_ {};
+        // The start time, in millisecond-level UNIX timestamp.
         shared_ptr<int64_t> startedTime_ {};
+        // The run status. Valid values: WAITING, RUNNING, SUCCESS, ERROR, SHUTDOWN.
         shared_ptr<string> status_ {};
+        // The DataWorks task instance ID associated with this run.
         shared_ptr<int64_t> taskInstanceId_ {};
+        // The total number of tables involved in this run.
         shared_ptr<int64_t> totalTableCount_ {};
       };
 
@@ -174,9 +180,13 @@ namespace Models
 
 
     protected:
+      // The list of metadata crawler run records.
       shared_ptr<vector<PagingInfo::CrawlerRuns>> crawlerRuns_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records that meet the query conditions.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -206,8 +216,11 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListCrawlerRunsResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

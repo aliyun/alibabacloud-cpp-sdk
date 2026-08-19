@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the updated metadata crawler.
     shared_ptr<int64_t> id_ {};
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,17 +84,18 @@ namespace Models
 
 
   protected:
-    // The creation source of the rule template. This parameter is required.
-    // - System: system template
-    // - UserDefined: user-defined template
+    // The creation source of the rule template. This parameter is required. Valid values:
+    // 
+    // - System: system template.
+    // - UserDefined: user-defined template.
     shared_ptr<string> creationSource_ {};
-    // The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1,024 characters in length and cannot contain whitespace characters or backslashes.
+    // The category directory where the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1024 characters in length and cannot contain whitespace characters or backslashes.
     shared_ptr<string> directoryPath_ {};
-    // The fuzzy match of the template rule name. For a system template, the internationalized name of the system template is fuzzy matched based on the language.
+    // The fuzzy match for the template rule name. If the template is a system template, the internationalized name of the system template is fuzzy matched based on the language.
     shared_ptr<string> name_ {};
-    // The number of entries per page in a paginated query. Default value: 10.
+    // The page size for the paging query. Default value: 10.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number of a paginated query. Default value: 1.
+    // The page number for the paging query. Default value: 1.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID.
     // 

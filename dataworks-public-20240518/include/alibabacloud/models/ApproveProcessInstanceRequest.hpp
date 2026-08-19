@@ -77,9 +77,9 @@ namespace Models
   protected:
     // The approval action. Valid values:
     // 
-    // - Agree: Approved.
+    // - Agree: approves the request.
     // 
-    // - Deny: Rejected.
+    // - Deny: rejects the request.
     // 
     // This parameter is required.
     shared_ptr<string> approvalAction_ {};
@@ -89,9 +89,9 @@ namespace Models
     shared_ptr<string> approvalComment_ {};
     // The idempotency token. We recommend that you use a UUID.
     shared_ptr<string> clientToken_ {};
-    // The new authorization expiration time. Unit: milliseconds (UNIX timestamp).
+    // The modified authorization expiration time. The value is a millisecond-level timestamp.
     shared_ptr<int64_t> newExpiration_ {};
-    // The process instance ID. Both new and legacy Security Center approval forms are supported.
+    // The flow instance ID. Both new and legacy Security Center approval orders are supported.
     // 
     // This parameter is required.
     shared_ptr<string> processInstanceId_ {};

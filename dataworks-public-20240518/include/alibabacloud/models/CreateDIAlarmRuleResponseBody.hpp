@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and is replaced by the Id parameter.
+    // **[Deprecated]** Use the Id parameter instead.
     shared_ptr<string> DIAlarmRuleId_ {};
     // The ID of the alert rule.
     shared_ptr<int64_t> id_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
   };
 

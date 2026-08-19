@@ -144,33 +144,37 @@ namespace Models
     shared_ptr<string> aliyunResourceGroupId_ {};
     // The list of Alibaba Cloud tags.
     shared_ptr<string> aliyunResourceTagsShrink_ {};
-    // Specifies whether to enable auto-renewal for the subscription.
+    // Specifies whether auto-renewal is enabled.
     shared_ptr<bool> autoRenewEnabled_ {};
-    // A client token to ensure the idempotence of the request.
+    // The client idempotency token that is used to ensure the idempotence of the create resource group operation.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The name of the general-purpose resource group. It must be up to 128 characters long, start with a letter, and contain only letters, digits, and underscores (_).
+    // The name of the common resource group. The name must start with a letter and can contain letters, digits, and underscores (_), up to 128 characters.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The subscription duration.
+    // The payment duration.
     shared_ptr<int32_t> paymentDuration_ {};
-    // The unit of the subscription duration. Valid values: `Month` and `Year`.
+    // The unit of the payment duration. Valid values:
+    // - Month: monthly subscription.
+    // - Year: yearly subscription.
     shared_ptr<string> paymentDurationUnit_ {};
-    // The billing method of the resource group. `PrePaid` indicates subscription, and `PostPaid` indicates pay-as-you-go.
+    // The payment type of the resource group. Valid values:
+    // - PrePaid: subscription.
+    // - PostPaid: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> paymentType_ {};
-    // The remark for the general-purpose resource group. It can be up to 128 characters long and can contain letters, Chinese characters, digits, and underscores (_).
+    // The remarks for the common resource group. The remarks can contain letters, Chinese characters, digits, and underscores (_), up to 128 characters.
     shared_ptr<string> remark_ {};
-    // The specification of the resource group, in CUs. This parameter is required when `PaymentType` is set to `PrePaid`.
+    // The resource group specification, in CUs. This parameter is required when the payment type is PrePaid.
     shared_ptr<int32_t> spec_ {};
-    // The ID of the VPC to be bound by default.
+    // The ID of the VPC to associate by default.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The ID of the vSwitch to be bound by default.
+    // The ID of the vSwitch to associate by default.
     // 
     // This parameter is required.
     shared_ptr<string> vswitchId_ {};

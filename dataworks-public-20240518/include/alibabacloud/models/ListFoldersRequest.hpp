@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The page number of the request. Used for pagination.
+    // The page number for pagination.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
@@ -87,9 +87,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> parentFolderPath_ {};
-    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
+    // The ID of the DataWorks workspace.
+    // 
+    // You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
+    // The name of the DataWorks workspace.
+    // 
+    // You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace name. You must specify either this parameter or ProjectId to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

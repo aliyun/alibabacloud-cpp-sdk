@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> comment_ {};
-    // The IDs of workflow instances.
+    // The list of workflow instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> ids_ {};

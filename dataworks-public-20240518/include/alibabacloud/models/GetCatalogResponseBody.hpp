@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // Catalog information.
+    // The data catalog information.
     shared_ptr<Catalog> catalog_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

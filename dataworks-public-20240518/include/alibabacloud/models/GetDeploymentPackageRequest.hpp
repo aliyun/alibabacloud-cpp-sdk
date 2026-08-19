@@ -57,15 +57,21 @@ namespace Models
 
 
   protected:
-    // The deployment package ID. This ID is generated when you call [SubmitFile](https://help.aliyun.com/document_detail/173944.html) or [DeployFile](https://help.aliyun.com/document_detail/173956.html).
+    // The ID of the deployment package.
+    // 
+    // A deployment package ID is generated when you call [SubmitFile](https://help.aliyun.com/document_detail/173944.html) or [DeployFile](https://help.aliyun.com/document_detail/173956.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> deploymentId_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID. This parameter identifies the DataWorks workspace for this API call.
-    shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace. This is the identifier shown in the workspace switcher at the top of the Data Studio page.
+    // The ID of the DataWorks workspace.
     // 
-    // Either this parameter or ProjectId must be specified to determine which DataWorks workspace this API call operates on.
+    // You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
+    // 
+    // This parameter specifies the DataWorks workspace for this API call.
+    shared_ptr<int64_t> projectId_ {};
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed at the top of the DataStudio page for switching workspaces.
+    // 
+    // You must specify either this parameter or ProjectId to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The data source ID.
+    // The data source ID, which is the unique identifier of the data source.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

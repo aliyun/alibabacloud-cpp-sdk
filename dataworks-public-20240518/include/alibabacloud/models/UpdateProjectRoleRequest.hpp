@@ -75,50 +75,29 @@ namespace Models
 
     protected:
       // The DataWorks module ID. Valid values:
-      // 
       // - 2: HoloStudio
-      // 
       // - 3: StreamStudio
-      // 
-      // - 4: Deployment Center
-      // 
-      // - 6: Data Security Guard
-      // 
+      // - 4: Deploy Management
+      // - 6: Data Protection Umbrella
       // - 7: Data Map
-      // 
-      // - 8: Data Service
-      // 
+      // - 8: DataService Studio
       // - 9: Data Integration
-      // 
       // - 10: Data Modeling (DataBlau DDM)
-      // 
-      // - 11: Data Studio
-      // 
+      // - 11: DataStudio
       // - 12: Data Quality
-      // 
-      // - 13: Data Governance
-      // 
+      // - 13: Data Governance Center
       // - 14: Operation Center
-      // 
       // - 15: Resource Optimization
-      // 
       // - 16: Migration Assistant
-      // 
-      // - 17: Data Analysis
-      // 
+      // - 17: Data Analytics
       // - 18: Approval Center
-      // 
       // - 19: Security Center
-      // 
       // - 20: Intelligent Data Modeling
       shared_ptr<int64_t> moduleId_ {};
       // The permission type. Valid values:
-      // 
-      // - Write: Read-only
-      // 
-      // - Read: Edit
-      // 
-      // - NotSet: Not controlled
+      // - Write: Edit.
+      // - Read: Read-only.
+      // - NotSet: Not controlled.
       shared_ptr<string> permissionType_ {};
     };
 
@@ -155,7 +134,7 @@ namespace Models
 
 
   protected:
-    // A reserved parameter.
+    // A reserved field.
     shared_ptr<string> clientToken_ {};
     // The unique identifier of the custom role.
     // 
@@ -165,9 +144,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateProjectRoleRequest::ModulePermissions>> modulePermissions_ {};
-    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the workspace management page to obtain the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Storage Management page to obtain the ID.
     // 
-    // This parameter specifies the DataWorks workspace on which the API operation is performed.
+    // This parameter specifies the DataWorks workspace for this API invocation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

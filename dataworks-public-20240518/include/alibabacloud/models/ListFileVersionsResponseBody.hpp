@@ -204,35 +204,34 @@ namespace Models
 
 
       protected:
-        // The change type for this file version. Valid values: CREATE, UPDATE, and DELETE.
+        // The change type of this file version. Valid values: CREATE, UPDATE, and DELETE.
         shared_ptr<string> changeType_ {};
         // The description of this file version.
         shared_ptr<string> comment_ {};
-        // The timestamp (in milliseconds) when the file version was created.
+        // The timestamp in milliseconds when the file version was generated.
         shared_ptr<int64_t> commitTime_ {};
-        // The Alibaba Cloud account ID of the user who created this file version.
+        // The Alibaba Cloud user ID that generated this file version.
         shared_ptr<string> commitUser_ {};
-        // The file code for this version.
+        // The file code that generated this file version.
         shared_ptr<string> fileContent_ {};
-        // The file name for this file version.
+        // The file name that generated this file version.
         shared_ptr<string> fileName_ {};
-        // The text information for this file version.
+        // The basic text information that generated this file version.
         shared_ptr<string> filePropertyContent_ {};
-        // The file version.
+        // The version of the file.
         shared_ptr<int32_t> fileVersion_ {};
         // Indicates whether this file version is the latest version in the production environment.
         // 
-        // - true
-        // 
-        // - false
+        // - true: The version is the latest version.
+        // - false: The version is not the latest version.
         shared_ptr<bool> isCurrentProd_ {};
-        // The scheduling configuration for this file version.
+        // The scheduling configuration that generated this file version.
         shared_ptr<string> nodeContent_ {};
-        // The scheduling task ID associated with this file version.
+        // The ID of the scheduling node associated with the file version.
         shared_ptr<int64_t> nodeId_ {};
         // The current status of the file version. Valid values: COMMITTING (committing), COMMITTED or CHECK_OK (committed), PACKAGED (ready for deployment), DEPLOYING (deploying), DEPLOYED (deployed), and CANCELLED (deployment canceled).
         shared_ptr<string> status_ {};
-        // The functional module to which the file belongs. Valid values: NORMAL (Data Studio), MANUAL (manual task), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in Data Studio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
+        // The functional module to which the file belongs. Valid values: NORMAL (DataStudio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in DataStudio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
         shared_ptr<string> useType_ {};
       };
 
@@ -271,11 +270,11 @@ namespace Models
     protected:
       // The list of file version details.
       shared_ptr<vector<Data::FileVersions>> fileVersions_ {};
-      // The current page number.
+      // The page number of the current page.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries on the current page.
+      // The size of the current page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -326,7 +325,7 @@ namespace Models
 
 
   protected:
-    // The list of file versions.
+    // The version list of the file.
     shared_ptr<ListFileVersionsResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -336,11 +335,10 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

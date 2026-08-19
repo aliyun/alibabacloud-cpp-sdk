@@ -144,7 +144,9 @@ namespace Models
 
 
         protected:
+          // The cron expression.
           shared_ptr<string> cronExpress_ {};
+          // The schedule type. Valid values: MANUAL, NORMAL.
           shared_ptr<string> type_ {};
         };
 
@@ -260,20 +262,35 @@ namespace Models
 
 
       protected:
+        // The creation time, expressed as a millisecond-precision UNIX timestamp.
         shared_ptr<int64_t> createTime_ {};
+        // The data source ID.
         shared_ptr<int64_t> dataSourceId_ {};
+        // The DataWorks environment type. Valid values: Dev, Prod.
         shared_ptr<string> envType_ {};
+        // The crawler ID.
         shared_ptr<int64_t> id_ {};
+        // The most recent run status. Valid values: WAITING, RUNNING, SUCCESS, ERROR, SHUTDOWN. This field may be empty if the crawler has not run yet.
         shared_ptr<string> lastRunStatus_ {};
+        // The meta entity ID associated with the crawler. You can use this ID to connect to metadata query APIs.
         shared_ptr<string> metaEntityId_ {};
+        // The modification time, expressed as a millisecond-precision UNIX timestamp.
         shared_ptr<int64_t> modifyTime_ {};
+        // The crawler name.
         shared_ptr<string> name_ {};
+        // The DataWorks user ID of the crawler owner.
         shared_ptr<string> owner_ {};
+        // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
+        // The ID of the Serverless 2.0 resource group used to run the crawl task.
         shared_ptr<string> resourceGroupId_ {};
+        // The schedule configuration.
         shared_ptr<Crawlers::ScheduleConfig> scheduleConfig_ {};
+        // The crawler status. The value is VALID when the crawler configuration is valid and the associated data source exists. Otherwise, the value is INVALID.
         shared_ptr<string> status_ {};
+        // The DataWorks scheduling node ID associated with the crawler. You can use this ID to call GetTask to query the node definition.
         shared_ptr<int64_t> taskId_ {};
+        // The crawler type.
         shared_ptr<string> type_ {};
       };
 
@@ -310,9 +327,13 @@ namespace Models
 
 
     protected:
+      // The list of metadata crawlers.
       shared_ptr<vector<PagingInfo::Crawlers>> crawlers_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records that match the query conditions.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -342,8 +363,11 @@ namespace Models
 
 
   protected:
+    // The pagination information.
     shared_ptr<ListCrawlersResponseBody::PagingInfo> pagingInfo_ {};
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

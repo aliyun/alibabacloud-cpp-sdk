@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The ID of the synchronization task with which the alert rule is associated.
+    // The task ID associated with the alert rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> DIJobId_ {};
@@ -113,17 +113,12 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to enable the alert rule. By default, the alert rule is disabled.
     shared_ptr<bool> enabled_ {};
-    // The metric type in the alert rule. Valid values:
-    // 
-    // - Heartbeat
-    // 
-    // - FailoverCount
-    // 
-    // - Delay
-    // 
-    // - DdlReport
-    // 
-    // - ResourceUtilization
+    // The alert metric type. Valid values:
+    // - Heartbeat: task status alert.
+    // - FailoverCount: failover count alert.
+    // - Delay: task latency alert.
+    // - DdlReport: DDL notification.
+    // - ResourceUtilization: resource group utilization.
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
@@ -135,7 +130,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> notificationSettingsShrink_ {};
-    // The conditions that can trigger the alert rule.
+    // The list of alert trigger conditions. Multiple conditions are supported.
     // 
     // This parameter is required.
     shared_ptr<string> triggerConditionsShrink_ {};

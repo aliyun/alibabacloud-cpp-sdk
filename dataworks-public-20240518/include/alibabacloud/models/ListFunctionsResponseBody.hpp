@@ -169,7 +169,7 @@ namespace Models
 
 
           protected:
-            // Command
+            // The command.
             shared_ptr<string> command_ {};
           };
 
@@ -199,13 +199,13 @@ namespace Models
 
 
         protected:
-          // The ID of the script.
+          // The script ID.
           // 
-          // > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
-          // Runtime
+          // The runtime.
           shared_ptr<Script::Runtime> runtime_ {};
         };
 
@@ -237,7 +237,7 @@ namespace Models
 
 
         protected:
-          // The runtime resource group ID.
+          // The ID of the runtime resource group.
           shared_ptr<string> resourceGroupId_ {};
         };
 
@@ -454,81 +454,73 @@ namespace Models
       protected:
         // The list of resource files for the ARM cluster.
         shared_ptr<string> armResource_ {};
-        // The fully qualified class name of the UDF.
+        // The fully qualified class name of the UDF function.
         shared_ptr<string> className_ {};
         // The command description.
         shared_ptr<string> commandDescription_ {};
-        // The timestamp when the UDF was created.
+        // The timestamp when the UDF function was created.
         shared_ptr<int64_t> createTime_ {};
-        // Data source information of the UDF.
+        // The data source information of the UDF function.
         shared_ptr<Functions::DataSource> dataSource_ {};
-        // The database name. This parameter is used only when the function type is EMR Function.
+        // The database name. This field is used only when the function type is EMR Function.
         shared_ptr<string> databaseName_ {};
-        // The general description of the function.
+        // The overall description of the function.
         shared_ptr<string> description_ {};
-        // Content of the nested function code
+        // The embedded function code content.
         shared_ptr<string> embeddedCode_ {};
-        // The nested code type.
+        // The embedded code type.
         // 
         // Valid values:
         // 
         // - Python2
-        // 
         // - Python3
-        // 
         // - Java8
-        // 
         // - Java11
-        // 
         // - Java17
         shared_ptr<string> embeddedCodeType_ {};
-        // The nested resource type.
+        // The embedded resource type.
         // 
         // Valid values:
         // 
-        // - File: General resource file.
-        // 
-        // - Embedded: Embedded resource.
+        // - File: common resource file
+        // - Embedded: embedded resource
         shared_ptr<string> embeddedResourceType_ {};
         // The example description.
         shared_ptr<string> exampleDescription_ {};
-        // The implementation code of the function and the list of resource files.
+        // The implementation code of the function. The list of resource files.
         shared_ptr<string> fileResource_ {};
-        // The unique identifier of the UDF.
+        // The unique identifier of the UDF function.
         // 
-        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
         shared_ptr<string> id_ {};
         // The modification time.
+        // 
+        // The value is a 13-digit number, such as `1655953028000`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The UDF name.
+        // The name of the UDF function.
         shared_ptr<string> name_ {};
-        // The owner of the UDF.
+        // The owner of the UDF function.
         shared_ptr<string> owner_ {};
         // The parameter description.
         shared_ptr<string> parameterDescription_ {};
-        // The ID of the project to which the UDF belongs.
+        // The ID of the project to which the UDF function belongs.
         shared_ptr<int64_t> projectId_ {};
         // The return value description.
         shared_ptr<string> returnValueDescription_ {};
         // The runtime resource group information.
         shared_ptr<Functions::RuntimeResource> runtimeResource_ {};
-        // Script information of the UDF.
+        // The script information of the UDF function.
         shared_ptr<Functions::Script> script_ {};
-        // The UDF type.
+        // The type of the UDF function.
         // 
         // Valid values:
         // 
-        // - Math: Mathematical operation functions
-        // 
-        // - Aggregate: Aggregation functions
-        // 
-        // - String: String processing functions
-        // 
-        // - Date: Date functions
-        // 
-        // - Analytic: Window functions
-        // 
-        // - Other: Other functions
+        // - Math: mathematical operation function
+        // - Aggregate: aggregate functions
+        // - String: character string processing function
+        // - Date: date function
+        // - Analytic: window function
+        // - Other: other function
         shared_ptr<string> type_ {};
       };
 
@@ -565,13 +557,13 @@ namespace Models
 
 
     protected:
-      // The function list.
+      // The list of functions.
       shared_ptr<vector<PagingInfo::Functions>> functions_ {};
-      // The page number.
+      // The page number of the returned data. Used for pagination.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the filter conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -596,7 +588,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListFunctionsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. Used for troubleshooting when an error occurs.
     shared_ptr<string> requestId_ {};
   };
 

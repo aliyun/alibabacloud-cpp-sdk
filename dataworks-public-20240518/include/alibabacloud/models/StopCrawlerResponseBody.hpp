@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the metadata crawler.
     shared_ptr<int64_t> id_ {};
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the stop request was accepted. A value of true indicates that the request was accepted. Call ListCrawlerRuns to confirm the final run status.
     shared_ptr<bool> stopAccepted_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

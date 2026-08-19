@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of results for the batch creation operation. This list provides the success status and any error messages for each individual entity in the request.
+    // The list of entity creation results. Each entry indicates whether the creation is successful and the failure reason.
     shared_ptr<vector<MetaEntityWriteResult>> results_ {};
-    // Indicates whether the request was successful. This parameter returns `true` even if creating some entities fails. To determine the outcome for each entity, check the `Success` and `ErrorMessage` fields in the `Results` array.
+    // Indicates whether the request is successful. If some entities fail, the value is still true. Check Results[].Success and Results[].ErrorMessage for individual results.
     shared_ptr<bool> success_ {};
   };
 

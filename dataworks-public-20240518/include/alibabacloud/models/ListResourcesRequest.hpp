@@ -84,30 +84,27 @@ namespace Models
 
 
   protected:
-    // The name of the file resource. Supports fuzzy search.
+    // The name of the file resource. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+    // The ID of the owner, which is the account UID of the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the account UID in the security management section of account management.
     shared_ptr<string> owner_ {};
-    // The page number of the data to retrieve, used for pagination.
+    // The page number of the request, used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number of the data to retrieve, used for pagination.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
     // 
-    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // This parameter specifies the DataWorks workspace for this API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The resource type. This parameter specifies a filter condition.
+    // The filter condition: resource file type.
     // 
     // Valid values:
     // 
     // - Python
-    // 
     // - Jar
-    // 
     // - Archive
-    // 
     // - File
     shared_ptr<string> type_ {};
   };

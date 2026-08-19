@@ -112,7 +112,7 @@ namespace Models
 
 
     protected:
-      // The ID passed by the requester. The value is returned as-is in the response.
+      // The ID passed in by the requester, returned as-is in the response.
       shared_ptr<string> id_ {};
       // The JSON-RPC version. Fixed value: 2.0.
       shared_ptr<string> jsonrpc_ {};
@@ -141,7 +141,7 @@ namespace Models
   protected:
     // The JSON-RPC response.
     shared_ptr<CancelAgentSessionResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

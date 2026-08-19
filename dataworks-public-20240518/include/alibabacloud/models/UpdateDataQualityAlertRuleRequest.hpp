@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The list of monitored target IDs. Currently, only one ID can be set.
+      // The list of monitoring target IDs. Currently, only one ID can be specified.
       shared_ptr<vector<int64_t>> ids_ {};
-      // The type of the monitored target. Only DataQualityScan is supported.
+      // The type of the monitored object. Only DataQualityScan is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -154,29 +154,21 @@ namespace Models
 
 
       protected:
-        // Additional configurations required for the alert recipients. When ReceiverType is DingdingUrl, you can set `{"atAll":true}` to mention all members.
+        // The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to @ all members.
         shared_ptr<string> extension_ {};
-        // The type of alert recipients.
-        // 
+        // The alerting accept object type. Valid values:
         // - AliUid
-        // 
         // - WebhookUrl
-        // 
         // - DingdingUrl
-        // 
         // - WeixinUrl
-        // 
         // - FeishuUrl
-        // 
         // - TaskOwner
-        // 
         // - DataQualityScanOwner
-        // 
         // - ShiftSchedule
         // 
         // This parameter is required.
         shared_ptr<string> receiverType_ {};
-        // The value of alert recipients.
+        // The values of the alert recipients.
         shared_ptr<vector<string>> receiverValues_ {};
       };
 
@@ -201,7 +193,7 @@ namespace Models
 
 
     protected:
-      // The list of alert channels. You can set both Email and Sms at the same time. In other cases, only one channel can be set.
+      // The list of notification channels. You can set both Email and Sms at the same time. In other cases, only one channel can be specified.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> channels_ {};
@@ -251,15 +243,15 @@ namespace Models
 
 
   protected:
-    // The alert condition of the data quality monitoring rule.
+    // The alert condition of the data quality monitoring alert rule.
     shared_ptr<string> condition_ {};
-    // The ID of the alert rule.
+    // The alert rule ID.
     shared_ptr<int64_t> id_ {};
-    // Alert notification configurations.
+    // The alert notification configuration.
     shared_ptr<UpdateDataQualityAlertRuleRequest::Notification> notification_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // The monitored target of the data quality monitoring rule.
+    // The monitoring target of the data quality monitoring alert rule.
     shared_ptr<UpdateDataQualityAlertRuleRequest::Target> target_ {};
   };
 

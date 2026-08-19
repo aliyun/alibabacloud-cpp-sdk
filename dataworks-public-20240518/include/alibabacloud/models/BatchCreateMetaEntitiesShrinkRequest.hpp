@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // An entity list. You can create up to five entities in a batch. All entities in the batch must have the same `EntityType`.
+    // The list of entities. A maximum of five entities are supported. All entities in the same batch must have the same entityType.
     // 
     // This parameter is required.
     shared_ptr<string> entitiesShrink_ {};

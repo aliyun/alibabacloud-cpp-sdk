@@ -176,57 +176,53 @@ namespace Models
 
 
   protected:
-    // The description of the job.
+    // The description of the task.
     shared_ptr<string> description_ {};
-    // Settings for the destination data sources.
+    // The list of destination data source settings.
     shared_ptr<string> destinationDataSourceSettingsShrink_ {};
-    // The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB for MySQL`, `Kafka`, and `Hive`.
+    // The type of the destination data source. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB_For_MySQL, Kafka, Hive.
     shared_ptr<string> destinationDataSourceType_ {};
-    // The code for a job created in script mode.
+    // The code content in script mode.
     shared_ptr<string> fileSpec_ {};
-    // This parameter is deprecated. Use the `Name` parameter instead.
+    // **[Deprecated]** Use the Name parameter instead.
     shared_ptr<string> jobName_ {};
-    // The settings for the synchronization job, including DDL processing policies, data type mappings between source and destination columns, and runtime parameters.
+    // The task-level settings, including DDL handling policies, source-to-destination column data type mapping policies, and task runtime parameters.
     shared_ptr<string> jobSettingsShrink_ {};
-    // The job type. Valid values:
+    // The task type. Valid values:
     // 
-    // - `DatabaseRealtimeMigration`: Synchronizes multiple tables from multiple source databases in real time (stream synchronization). This type supports full, incremental, or both full and incremental synchronization.
+    //  - DatabaseRealtimeMigration: real-time migration of entire databases. Performs streaming synchronization of multiple tables from multiple source databases. Supports full-only, incremental-only, or full and incremental synchronization.
     // 
-    // - `DatabaseOfflineMigration`: Synchronizes multiple tables from multiple source databases in batches. This type supports full, incremental, or both full and incremental synchronization.
+    //  - DatabaseOfflineMigration: offline migration of entire databases. Performs batch synchronization of multiple tables from multiple source databases. Supports full-only, incremental-only, or full and incremental synchronization.
     // 
-    // - `SingleTableRealtimeMigration`: Synchronizes a single source table in real time (stream synchronization).
+    //  - SingleTableRealtimeMigration: real-time migration of a single table. Performs streaming synchronization of a single source table.
     shared_ptr<string> jobType_ {};
     // The synchronization type. Valid values:
-    // 
-    // - `FullAndRealtimeIncremental`: Full and real-time incremental synchronization for an entire database.
-    // 
-    // - `RealtimeIncremental`: Real-time incremental synchronization for a single table.
-    // 
-    // - `Full`: Full batch synchronization for an entire database.
-    // 
-    // - `OfflineIncremental`: Incremental synchronization in batch mode.
-    // 
-    // - `FullAndOfflineIncremental`: Full and incremental batch synchronization for an entire database.
+    // - FullAndRealtimeIncremental: full and real-time incremental synchronization for entire databases in real time.
+    // - RealtimeIncremental: real-time incremental synchronization for single tables in real time.
+    // - Full: full synchronization for entire databases offline.
+    // - OfflineIncremental: offline incremental synchronization for entire databases offline.
+    // - FullAndOfflineIncremental: full and offline incremental synchronization for entire databases offline.
     shared_ptr<string> migrationType_ {};
-    // The name of the job.
+    // The name of the task.
     shared_ptr<string> name_ {};
-    // The job owner.
+    // The owner of the task.
     shared_ptr<string> owner_ {};
-    // The ID of the DataWorks workspace for this API call. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+    // 
+    // This parameter specifies the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
     // The resource settings.
     shared_ptr<string> resourceSettingsShrink_ {};
-    // Settings for the source data sources.
+    // The list of source data source settings.
     shared_ptr<string> sourceDataSourceSettingsShrink_ {};
-    // The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `Redshift`, `Hive`, `SQL Server`, `Doris`, and `ClickHouse`.
+    // The type of the source data source. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SQLServer, Doris, ClickHouse.
     shared_ptr<string> sourceDataSourceType_ {};
-    // Transformation mappings for the objects to be synchronized. Each mapping defines selection rules for a group of source objects and the transformation rules to apply to them.
+    // The list of synchronization object transformation mappings. Each element describes a group of source object selection rules and the transformation rules applied to that group.
     // 
     // > [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
     shared_ptr<string> tableMappingsShrink_ {};
-    // A list of transformation rules for the objects to be synchronized.
-    // 
-    // > [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{\\\\"expression\\\\":\\\\"${srcDatasoureName}_${srcDatabaseName}\\\\"}" } ]
+    // The list of synchronization object transformation rule definitions.
+    // >[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
     shared_ptr<string> transformationRulesShrink_ {};
   };
 

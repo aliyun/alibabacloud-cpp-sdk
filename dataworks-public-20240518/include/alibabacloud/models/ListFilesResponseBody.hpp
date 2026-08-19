@@ -287,69 +287,62 @@ namespace Models
 
 
       protected:
-        // The path to the folder where the file is located.
+        // The path of the folder where the file is stored.
         shared_ptr<string> absoluteFolderPath_ {};
-        // Specifies whether automatic parsing is enabled for the file. Valid values:
+        // Indicates whether the automatic parsing feature is enabled for the file. Valid values:
         // 
         // - true: The file automatically parses code.
-        // 
         // - false: The file does not automatically parse code.
         // 
-        // This parameter corresponds to Analyze Code when you set Dependencies to Same Cycle in the scheduling configuration of a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
+        // This parameter corresponds to the "Code Parsing" option when you select "Same Cycle" in "Scheduling Configuration > Scheduling Dependencies" for a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
         shared_ptr<bool> autoParsing_ {};
-        // The ID of the workflow to which the file belongs. This parameter is deprecated. Use the BusinessId parameter instead.
+        // **[Deprecated]** The ID of the workflow to which the file belongs. This field is deprecated. Use the BusinessId field instead.
         shared_ptr<int64_t> bizId_ {};
         // The ID of the workflow to which the file belongs.
         shared_ptr<int64_t> businessId_ {};
-        // The current commit status of the file. Valid values: 0 (the latest code is not committed) and 1 (the latest code is committed).
+        // The current commit status of the file. Valid values: 0 (the latest code has not been committed) and 1 (the latest code has been committed).
         shared_ptr<int32_t> commitStatus_ {};
-        // The data source name used by the task.
+        // The name of the data source used when the task corresponding to the file is executed.
         shared_ptr<string> connectionName_ {};
-        // This parameter is deprecated. You can call the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation to query this information.
+        // **[Deprecated]** This parameter is deprecated. You can call the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation to query file content.
         shared_ptr<string> content_ {};
-        // The timestamp (in milliseconds) when the file was created.
+        // The timestamp when the file was created, in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The Alibaba Cloud account ID of the file creator.
+        // The Alibaba Cloud user ID of the file creator.
         shared_ptr<string> createUser_ {};
         // The latest version of the file.
         shared_ptr<int32_t> currentVersion_ {};
         // The description of the file.
         shared_ptr<string> fileDescription_ {};
-        // The ID of the folder where the file is located.
+        // The ID of the folder where the file is stored.
         shared_ptr<string> fileFolderId_ {};
-        // The file ID.
+        // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
-        // The file name.
+        // The name of the file.
         shared_ptr<string> fileName_ {};
-        // The file type. Different file types have different code. For more information, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html).
+        // The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
         shared_ptr<int32_t> fileType_ {};
-        // If the current file is a MaxCompute resource file, this parameter specifies whether the resource file needs to be uploaded to MaxCompute.
+        // If the current file is a MaxCompute resource file, this field indicates whether the resource file needs to be uploaded to MaxCompute.
         // 
-        // You only need to configure this parameter when the file is a MaxCompute resource file.
+        // This parameter needs to be configured only when the file is a MaxCompute resource file.
         shared_ptr<bool> isMaxCompute_ {};
-        // The timestamp (in milliseconds) when the file was last modified.
+        // The timestamp of the last file edit, in milliseconds.
         shared_ptr<int64_t> lastEditTime_ {};
-        // The Alibaba Cloud account ID of the user who last updated the file.
+        // The Alibaba Cloud ID of the user who last updated the file.
         shared_ptr<string> lastEditUser_ {};
         // The ID of the scheduling task generated in the scheduling system after the file is committed.
         shared_ptr<int64_t> nodeId_ {};
-        // The Alibaba Cloud account ID of the file owner.
+        // The Alibaba Cloud user ID of the file owner.
         shared_ptr<string> owner_ {};
-        // If the current file is an internal file of a combined node, this parameter specifies the ID of the corresponding combined node file.
+        // If the current file is an internal file of a combined node, this field indicates the ID of the corresponding combined node file.
         shared_ptr<int64_t> parentId_ {};
         // The functional module to which the file belongs. Valid values:
-        // 
-        // - NORMAL: Data Studio
-        // 
-        // - MANUAL: Manually triggered node
-        // 
-        // - MANUAL_BIZ: Manually triggered workflow
-        // 
-        // - SKIP: Dry-run scheduling in Data Studio
-        // 
-        // - ADHOCQUERY: Ad hoc query
-        // 
-        // - COMPONENT: Component management
+        // - NORMAL: DataStudio.
+        // - MANUAL: manual node.
+        // - MANUAL_BIZ: manual workflow.
+        // - SKIP: dry-run scheduling in DataStudio.
+        // - ADHOCQUERY: ad hoc query.
+        // - COMPONENT: component management.
         shared_ptr<string> useType_ {};
       };
 
@@ -388,11 +381,11 @@ namespace Models
     protected:
       // The file details.
       shared_ptr<vector<Data::Files>> files_ {};
-      // The page number.
+      // The page number of the returned data.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -443,7 +436,7 @@ namespace Models
 
 
   protected:
-    // The response details.
+    // The returned data details.
     shared_ptr<ListFilesResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -451,13 +444,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. Use this ID to troubleshoot issues.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

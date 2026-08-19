@@ -151,7 +151,7 @@ namespace Models
         shared_ptr<int32_t> maxResults_ {};
         // The token for the next page. The value is null when the current page is the last page or no data is available.
         shared_ptr<string> nextToken_ {};
-        // The total number of agents that match the filter criteria.
+        // The total number of matched agents.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -181,11 +181,11 @@ namespace Models
 
 
     protected:
-      // The request ID passed in by the caller. The value is returned as-is in the response.
+      // The ID passed in by the requester. The value is returned as-is.
       shared_ptr<string> id_ {};
       // The JSON-RPC version. Fixed value: 2.0.
       shared_ptr<string> jsonrpc_ {};
-      // The paginated query result for agents.
+      // The paging query result for agents.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 

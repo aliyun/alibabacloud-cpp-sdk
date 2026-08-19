@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The workflow instance ID.
     shared_ptr<int64_t> workflowInstanceId_ {};

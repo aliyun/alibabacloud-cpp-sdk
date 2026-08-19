@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the alert rule was updated.
+    // Indicates whether the alert rule is updated.
     shared_ptr<bool> success_ {};
   };
 

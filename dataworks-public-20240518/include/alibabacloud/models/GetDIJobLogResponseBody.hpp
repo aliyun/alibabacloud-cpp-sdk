@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The log.
+    // The task logs.
     shared_ptr<string> log_ {};
-    // The request ID. You can use the ID to query logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

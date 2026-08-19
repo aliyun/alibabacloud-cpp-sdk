@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID passed by the caller. The value is returned as-is in the response.
+    // The ID passed in by the requester. The value is returned as-is.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};

@@ -113,17 +113,17 @@ namespace Models
 
 
     protected:
-      // The workflow ID.
+      // The ID of the business process.
       shared_ptr<int64_t> businessId_ {};
-      // The name of the workflow. Workflow names must be unique within the same workspace.
+      // The name of the business process. The name must be unique within the same workspace.
       shared_ptr<string> businessName_ {};
-      // The description of the workflow.
+      // The description of the business process.
       shared_ptr<string> description_ {};
-      // The Alibaba Cloud account ID of the workflow owner.
+      // The Alibaba Cloud user ID of the business process owner.
       shared_ptr<string> owner_ {};
-      // The ID of the workspace where the workflow resides.
+      // The ID of the DataWorks workspace to which the business process belongs.
       shared_ptr<string> projectId_ {};
-      // The functional module to which the workflow belongs. Valid values: NORMAL (Data Studio) and MANUAL_BIZ (Manually Triggered Workflow)
+      // The functional module to which the business process belongs. Valid values: NORMAL (DataStudio) and MANUAL_BIZ (manual business process).
       shared_ptr<string> useType_ {};
     };
 
@@ -174,7 +174,7 @@ namespace Models
 
 
   protected:
-    // Details of the workflow.
+    // The details of the business process.
     shared_ptr<GetBusinessResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -182,13 +182,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. Used for troubleshooting when an error occurs.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
-    // - true: success.
-    // 
-    // - false: failure.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

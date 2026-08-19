@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The rule ID.
+    // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
   };
 

@@ -87,11 +87,11 @@ namespace Models
     shared_ptr<int64_t> createTime_ {};
     // The destination entity.
     shared_ptr<LineageEntity> dstEntity_ {};
-    // The ID.
+    // ID
     shared_ptr<string> id_ {};
     // The source entity.
     shared_ptr<LineageEntity> srcEntity_ {};
-    // The task.
+    // The node.
     shared_ptr<LineageTask> task_ {};
   };
 

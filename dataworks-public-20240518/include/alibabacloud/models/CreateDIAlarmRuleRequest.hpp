@@ -113,25 +113,20 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated and replaced by the DdlTypes parameter.
+      // **[Deprecated]** Use the DdlTypes parameter instead.
       shared_ptr<vector<string>> ddlReportTags_ {};
-      // The types of DDL operations for which the alert rule takes effect.
+      // The list of DDL types that take effect. This parameter takes effect only when the metric type is DDL notification.
       shared_ptr<vector<string>> ddlTypes_ {};
-      // The time interval for alert calculation. Unit: minutes.
+      // The time window for alert calculation. Unit: minutes.
       shared_ptr<int64_t> duration_ {};
       // The severity level. Valid values:
-      // 
       // - Warning
-      // 
       // - Critical
       shared_ptr<string> severity_ {};
       // The alert threshold.
-      // 
-      // - If the alert rule is for task status, you do not need to specify a threshold.
-      // 
-      // - If the alert rule is for failovers, you must specify the number of failovers.
-      // 
-      // - If the alert rule is for latency, you must specify the latency duration, in seconds.
+      // - Task status alert: no threshold is required.
+      // - Failover count alert: the threshold is the number of failovers.
+      // - Task latency alert: the threshold is the latency duration. Unit: seconds.
       shared_ptr<int64_t> threshold_ {};
     };
 
@@ -200,13 +195,11 @@ namespace Models
 
 
       protected:
-        // The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+        // The receiver type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
         shared_ptr<string> receiverType_ {};
-        // The recipient.
-        // 
-        // - If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
-        // 
-        // - If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
+        // The receiver values.
+        // - If the receiver type is AliyunUid, the value is the Alibaba Cloud account ID.
+        // - If the receiver type is DingToken, the value is the DingTalk token.
         shared_ptr<vector<string>> receiverValues_ {};
       };
 
@@ -250,20 +243,14 @@ namespace Models
 
 
       protected:
-        // The alert notification method. Valid values:
-        // 
-        // - Mail
-        // 
-        // - Phone
-        // 
-        // - Sms
-        // 
-        // - Ding
+        // The notification channel. Valid values:
+        // - Mail: email.
+        // - Phone: phone call.
+        // - Sms: text message.
+        // - Ding: DingTalk.
         shared_ptr<vector<string>> channels_ {};
         // The severity level. Valid values:
-        // 
         // - Warning
-        // 
         // - Critical
         shared_ptr<string> severity_ {};
       };
@@ -303,13 +290,13 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated and replaced by the MuteInterval parameter.
+      // **[Deprecated]** Use the MuteInterval parameter instead.
       shared_ptr<int32_t> inhibitionInterval_ {};
-      // The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+      // The alert mute interval. Unit: minutes. Default value: 5.
       shared_ptr<int32_t> muteInterval_ {};
-      // The alert notification methods.
+      // The alert notification channels.
       shared_ptr<vector<NotificationSettings::NotificationChannels>> notificationChannels_ {};
-      // The settings of alert notification recipients.
+      // The alert notification receivers.
       shared_ptr<vector<NotificationSettings::NotificationReceivers>> notificationReceivers_ {};
     };
 
@@ -377,9 +364,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The ID of the synchronization task with which the alert rule is associated.
+    // The task ID associated with the alert rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> DIJobId_ {};
@@ -387,17 +374,12 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to enable the alert rule. By default, the alert rule is disabled.
     shared_ptr<bool> enabled_ {};
-    // The metric type in the alert rule. Valid values:
-    // 
-    // - Heartbeat
-    // 
-    // - FailoverCount
-    // 
-    // - Delay
-    // 
-    // - DdlReport
-    // 
-    // - ResourceUtilization
+    // The alert metric type. Valid values:
+    // - Heartbeat: task status alert.
+    // - FailoverCount: failover count alert.
+    // - Delay: task latency alert.
+    // - DdlReport: DDL notification.
+    // - ResourceUtilization: resource group utilization.
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
@@ -409,7 +391,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateDIAlarmRuleRequest::NotificationSettings> notificationSettings_ {};
-    // The conditions that can trigger the alert rule.
+    // The list of alert trigger conditions. Multiple conditions are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateDIAlarmRuleRequest::TriggerConditions>> triggerConditions_ {};

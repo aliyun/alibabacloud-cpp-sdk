@@ -172,29 +172,38 @@ namespace Models
 
 
       protected:
-        // The validation status of nodes in the deployment package. For packages deployed to the development environment (toEnviroment=1), you can only proceed to deploy to production if the package Status is 1 (succeeded) and CheckingStatus is empty (validation complete).
+        // The check status of the nodes involved in the deployment package. When the target environment is the development environment (toEnvironment=1), you can publish the file to the production environment only when the Status of the deployment package is 1 and CheckingStatus is empty.
         // 
-        // - 7: Validation failed
-        // 
-        // - 8: Validation in progress
+        // - 7: The check failed.
+        // - 8: The check is in progress.
         shared_ptr<int32_t> checkingStatus_ {};
-        // The timestamp (in milliseconds) when the deployment package was created.
+        // The timestamp when the deployment package was generated, in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The Alibaba Cloud account ID of the user who created the deployment package.
+        // The Alibaba Cloud user ID of the user who created the deployment package.
         shared_ptr<string> creatorId_ {};
-        // The detailed error message when the deployment package fails (status is 2).
+        // The error message recorded when the deployment package fails to run (status is 2).
         shared_ptr<string> errorMessage_ {};
-        // The timestamp (in milliseconds) when the deployment started.
+        // The timestamp when the deployment package started to run, in milliseconds.
         shared_ptr<int64_t> executeTime_ {};
-        // The environment where the deployment is executed. Valid values: 0 (local) and 1 (development).
+        // The environment from which the deployment is initiated. Valid values:
+        // 
+        // - 0: local
+        // - 1: development environment
         shared_ptr<int32_t> fromEnvironment_ {};
-        // The Alibaba Cloud account ID of the user who executed the deployment.
+        // The Alibaba Cloud user ID of the user who executed the deployment package.
         shared_ptr<string> handlerId_ {};
-        // The deployment package name, displayed on the Deploy Center > Deployment Packages page.
+        // The name of the deployment package, which is displayed on the Task Publish > Deployment Package List page.
         shared_ptr<string> name_ {};
-        // The current status of the deployment package. Valid values: 0 (ready), 1 (succeeded), and 2 (failed).
+        // The current status of the deployment package. Valid values:
+        // 
+        // - 0: ready
+        // - 1: successful
+        // - 2: failed
         shared_ptr<int32_t> status_ {};
-        // The target environment for the deployment. Valid values: 1 (development) and 2 (production).
+        // The target environment to which the file information is published. Valid values:
+        // 
+        // - 1: development environment
+        // - 2: production environment
         shared_ptr<int32_t> toEnvironment_ {};
       };
 
@@ -245,23 +254,19 @@ namespace Models
 
 
       protected:
-        // The file ID.
+        // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
-        // The file version.
+        // The version of the file.
         shared_ptr<int64_t> fileVersion_ {};
-        // - UNPUBLISHED(0)
+        // The status of the deployed item. Valid values:
         // 
-        // - SUCCESS(1)
-        // 
-        // - ERROR(2)
-        // 
-        // - CLONED(3)
-        // 
-        // - DEPLOY_ERROR(4)
-        // 
-        // - CLONING(5)
-        // 
-        // - REJECT(6)
+        // - UNPUBLISHED(0): not published
+        // - SUCCESS(1): published successfully
+        // - ERROR(2): publishing failed
+        // - CLONED(3): cloned successfully
+        // - DEPLOY_ERROR(4): publishing failed
+        // - CLONING(5): cloning in progress
+        // - REJECT(6): publishing rejected
         shared_ptr<int32_t> status_ {};
       };
 
@@ -286,9 +291,9 @@ namespace Models
 
 
     protected:
-      // The deployment item details.
+      // The details of the deployed items.
       shared_ptr<vector<Data::DeployedItems>> deployedItems_ {};
-      // The deployment package details.
+      // The details of the deployment package.
       shared_ptr<Data::Deployment> deployment_ {};
     };
 
@@ -339,7 +344,7 @@ namespace Models
 
 
   protected:
-    // The deployment package details.
+    // The details of the deployment package.
     shared_ptr<GetDeploymentPackageResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -347,13 +352,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -133,17 +133,17 @@ namespace Models
 
 
       protected:
-        // The creation time, which is a 64-bit timestamp.
+        // The creation time, represented as a 64-bit timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The destination CIDR block of the route.
+        // The destination CIDR of the route.
         shared_ptr<string> destinationCidr_ {};
         // The route ID.
         shared_ptr<int64_t> id_ {};
-        // The network resource ID.
+        // The ID of the network resource to which the route belongs.
         shared_ptr<int64_t> networkId_ {};
-        // The ID of the resource group.
+        // The unique identifier of the resource group to which the route belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the network resource.
+        // The unique identifier of the network resource.
         shared_ptr<string> resourceId_ {};
       };
 
@@ -184,9 +184,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The routes of the network resource.
+      // The list of network resource routes.
       shared_ptr<vector<PagingInfo::RouteList>> routeList_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -216,9 +216,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paging information.
     shared_ptr<ListRoutesResponseBody::PagingInfo> pagingInfo_ {};
-    // The ID of the request. It is used to locate logs and troubleshoot problems.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

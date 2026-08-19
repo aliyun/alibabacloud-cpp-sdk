@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the dataset acceleration component. To obtain the component ID, see [ListComponents](https://help.aliyun.com/document_detail/2979566.html).
+    // The component ID. For information about how to obtain the component ID, see [ListComponents](https://help.aliyun.com/document_detail/2979566.html).
     shared_ptr<string> componentId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

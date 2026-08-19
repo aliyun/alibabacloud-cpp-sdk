@@ -606,6 +606,9 @@
 #include <alibabacloud/models/GetSkillRequest.hpp>
 #include <alibabacloud/models/GetSkillResponseBody.hpp>
 #include <alibabacloud/models/GetSkillResponse.hpp>
+#include <alibabacloud/models/GetSnapshotRequest.hpp>
+#include <alibabacloud/models/GetSnapshotResponseBody.hpp>
+#include <alibabacloud/models/GetSnapshotResponse.hpp>
 #include <alibabacloud/models/GetTableRequest.hpp>
 #include <alibabacloud/models/GetTableResponseBody.hpp>
 #include <alibabacloud/models/GetTableResponse.hpp>
@@ -904,6 +907,9 @@
 #include <alibabacloud/models/ListSkillsShrinkRequest.hpp>
 #include <alibabacloud/models/ListSkillsResponseBody.hpp>
 #include <alibabacloud/models/ListSkillsResponse.hpp>
+#include <alibabacloud/models/ListSnapshotsRequest.hpp>
+#include <alibabacloud/models/ListSnapshotsResponseBody.hpp>
+#include <alibabacloud/models/ListSnapshotsResponse.hpp>
 #include <alibabacloud/models/ListTablesRequest.hpp>
 #include <alibabacloud/models/ListTablesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTablesResponseBody.hpp>

@@ -135,19 +135,16 @@ namespace Models
 
 
         protected:
-          // The nodes that are not to be monitored.
+          // The whitelist of monitored nodes.
           shared_ptr<vector<int64_t>> allowTasks_ {};
-          // The IDs of monitored objects.
+          // The list of monitored object IDs.
           shared_ptr<vector<int64_t>> ids_ {};
-          // The type of the monitored objects. Valid values:
+          // The monitored object type. Valid values:
           // 
-          // - Task: node
-          // 
-          // - Baseline: baseline
-          // 
-          // - project: workspace
-          // 
-          // - BizProcess: workflow
+          // - Task: node.
+          // - Baseline: baseline.
+          // - Project: workspace.
+          // - BizProcess: business process flow.
           shared_ptr<string> type_ {};
         };
 
@@ -210,7 +207,7 @@ namespace Models
 
 
           protected:
-            // The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+            // The not-completed time. Format: hh:mm. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
             shared_ptr<string> unFinishedTime_ {};
           };
 
@@ -242,7 +239,7 @@ namespace Models
 
 
           protected:
-            // The timeout period. Unit: minutes. Valid values: [1, 21600].
+            // The timeout duration, in minutes.
             shared_ptr<int32_t> timeoutInMinutes_ {};
           };
 
@@ -284,15 +281,13 @@ namespace Models
 
 
           protected:
-            // The maximum percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: [1-100].
+            // The fluctuation percentage. Valid values: 1 to 100.
             shared_ptr<int32_t> percentage_ {};
-            // The way in which the number of auto triggered node instances that are generated in your workspace fluctuates. Valid values:
+            // The fluctuation type. Valid values:
             // 
-            // - abs: the absolute value. The number of instances increases or decreases.
-            // 
-            // - increase: The number of instances increases.
-            // 
-            // - decrease: The number of instances decreases.
+            // - abs: absolute value.
+            // - increase: increase.
+            // - decrease: decrease.
             shared_ptr<string> trend_ {};
           };
 
@@ -324,7 +319,7 @@ namespace Models
 
 
           protected:
-            // The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
+            // The percentage of failed instances. Valid values: 1 to 100.
             shared_ptr<int32_t> percentage_ {};
           };
 
@@ -356,7 +351,7 @@ namespace Models
 
 
           protected:
-            // The maximum number of instances on which an error occurs. Valid values: [1,10000].
+            // The number of failed instances. Valid values: 1 to 10000.
             shared_ptr<int32_t> count_ {};
           };
 
@@ -400,9 +395,9 @@ namespace Models
 
 
           protected:
-            // Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+            // Specifies whether to generate an alert when a batch task is automatically rerun due to a failure.
             shared_ptr<bool> autoRerunAlertEnabled_ {};
-            // The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+            // The IDs of real-time computing nodes to monitor.
             shared_ptr<vector<int64_t>> streamTaskIds_ {};
           };
 
@@ -463,9 +458,9 @@ namespace Models
 
 
             protected:
-              // The ID of the scheduling cycle of the instance. Valid values: [1,288].
+              // The cycle ID. Valid values: 1 to 288.
               shared_ptr<int32_t> cycleId_ {};
-              // The latest completion time of the instance within the scheduling cycle. The time is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+              // The timeout time. Format: hh:mm. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
               shared_ptr<string> time_ {};
             };
 
@@ -480,7 +475,7 @@ namespace Models
 
 
           protected:
-            // The configurations of the scheduling cycle and timeout period of the instance.
+            // The list of cycle and time configurations.
             shared_ptr<vector<CycleUnfinished::CycleAndTime>> cycleAndTime_ {};
           };
 
@@ -551,19 +546,19 @@ namespace Models
 
 
         protected:
-          // The configuration for an alert of the CycleUnfinished type.
+          // The cycle-not-completed alert configuration.
           shared_ptr<Extension::CycleUnfinished> cycleUnfinished_ {};
-          // The configuration for an alert of the Error type.
+          // The error alert configuration.
           shared_ptr<Extension::Error> error_ {};
-          // The configuration for an alert of the InstanceErrorCount type.
+          // The instance error count alert configuration.
           shared_ptr<Extension::InstanceErrorCount> instanceErrorCount_ {};
-          // The configuration for an alert of the InstanceErrorPercentage type.
+          // The instance error percentage alert configuration.
           shared_ptr<Extension::InstanceErrorPercentage> instanceErrorPercentage_ {};
-          // The configuration for an alert of the InstanceTransferFluctuate type.
+          // The instance count fluctuation alert configuration.
           shared_ptr<Extension::InstanceTransferFluctuate> instanceTransferFluctuate_ {};
-          // The configuration for an alert of the Timeout type.
+          // The timeout alert configuration.
           shared_ptr<Extension::Timeout> timeout_ {};
-          // The configuration for an alert of the UnFinished type.
+          // The not-completed alert configuration.
           shared_ptr<Extension::UnFinished> unFinished_ {};
         };
 
@@ -595,37 +590,25 @@ namespace Models
 
 
       protected:
-        // The extended information about the rule. This parameter is required for specific types of alerts.
+        // The extension information. Required for certain trigger conditions.
         shared_ptr<TriggerCondition::Extension> extension_ {};
-        // The monitored objects.
+        // The monitored object.
         shared_ptr<TriggerCondition::Target> target_ {};
-        // The alert type. Valid values:
+        // The type of the alert trigger. Valid values:
         // 
-        // - Finished: An instance is successfully run.
-        // 
-        // - UnFinished: An instance does not finish running before a specified point in time.
-        // 
-        // - Error: An error occurs on an instance.
-        // 
-        // - CycleUnfinished: An instance does not finish running as expected within a specific cycle.
-        // 
-        // - Timeout: An instance times out.
-        // 
-        // - InstanceTransferComplete: An instance is generated by the auto triggered node.
-        // 
-        // - InstanceTransferFluctuate: The number of generated instances fluctuates.
-        // 
-        // - ExhaustedError: An error persists after an instance is automatically rerun.
-        // 
-        // - InstanceKeyword: An instance with errors contains specified keywords.
-        // 
-        // - InstanceErrorCount: The number of instances on which an error occurs reaches a specified threshold.
-        // 
-        // - InstanceErrorPercentage: The proportion of instances on which an error occurs in the workspace to the total number of instances reaches a specified threshold.
-        // 
-        // - ResourceGroupPercentage: The usage rate of the resource group reaches a specified threshold.
-        // 
-        // - ResourceGroupWaitCount: The number of instances that are waiting for resources in the resource group reaches a specified threshold.
+        // - Finished: instance completed.
+        // - UnFinished: instance not completed.
+        // - Error: instance failed.
+        // - CycleUnfinished: instance cycle not completed.
+        // - Timeout: instance timed out.
+        // - InstanceTransferComplete: node-to-instance conversion completed.
+        // - InstanceTransferFluctuate: instance count fluctuation.
+        // - ExhaustedError: instance still failed after automatic reruns.
+        // - InstanceKeyword: failed instance contains keyword.
+        // - InstanceErrorCount: number of failed instances.
+        // - InstanceErrorPercentage: percentage of failed instances.
+        // - ResourceGroupPercentage: schedule resource utilization.
+        // - ResourceGroupWaitCount: number of instances waiting for schedule resources.
         shared_ptr<string> type_ {};
       };
 
@@ -707,27 +690,20 @@ namespace Models
 
 
         protected:
-          // The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
+          // The additional configuration required by the alert recipient. If ReceiverType is DingdingUrl, you can set {"atAll":true} to @ all members.
           shared_ptr<string> extension_ {};
-          // The type of the alert recipient. Valid valves:
+          // The type of the alert recipient. Valid values:
           // 
-          // - AliUid: Alibaba Cloud account ID.
-          // 
-          // - Shift Schedules: the personnel in a shift schedule.
-          // 
-          // - TaskOwner: the task owner. The task owner can receive custom alerts and event alerts.
-          // 
-          // - Owner: the baseline owner. The baseline owner can receive baseline alerts.
-          // 
-          // - WebhookUrl: URL of a custom webhook.
-          // 
+          // - AliUid: Alibaba Cloud UID.
+          // - ShiftSchedule: shift schedule.
+          // - TaskOwner: node owner. Applicable to custom alerting and event alerting.
+          // - Owner: owner. Applicable to baseline alerting.
+          // - WebhookUrl: custom webhook URL.
           // - DingdingUrl: DingTalk webhook URL.
-          // 
           // - FeishuUrl: Lark webhook URL.
-          // 
-          // - WeixinUrl: WeCom webhook URL.
+          // - WeixinUrl: WeChat webhook URL.
           shared_ptr<string> receiverType_ {};
-          // The alert recipients.
+          // The values of the alert recipient.
           shared_ptr<vector<string>> receiverValues_ {};
         };
 
@@ -780,17 +756,17 @@ namespace Models
 
 
       protected:
-        // The alert notification channels.
+        // The list of alert channels.
         shared_ptr<vector<string>> channels_ {};
-        // The interval at which an alert notification is sent. Unit: minutes. Valid values: [5,10000].
+        // The alert interval, in minutes. Valid values: 5 to 10000.
         shared_ptr<int32_t> intervalInMinutes_ {};
-        // The maximum number of times an alert notification can be sent within a calendar day. Valid values: [1, 10000].
+        // The maximum number of alerts within a calendar day. Valid values: 1 to 10000.
         shared_ptr<int32_t> maximum_ {};
         // The alert recipients.
         shared_ptr<vector<Notification::Receivers>> receivers_ {};
-        // The end time for silence. The time is in the HH:mm:ss format.
+        // The end time of the mute period. Format: HH:mm:ss.
         shared_ptr<string> silenceEndTime_ {};
-        // The start time for silence. The time is in the HH:mm:ss format.
+        // The start time of the mute period. Format: HH:mm:ss.
         shared_ptr<string> silenceStartTime_ {};
       };
 
@@ -843,17 +819,17 @@ namespace Models
 
 
     protected:
-      // Indicates whether the rule is enabled.
+      // Indicates whether the alert rule is enabled.
       shared_ptr<bool> enabled_ {};
-      // The rule ID.
+      // The ID of the custom alert rule.
       shared_ptr<int64_t> id_ {};
-      // The name of the rule.
+      // The name of the custom alert rule.
       shared_ptr<string> name_ {};
-      // The configuration for the alert notification.
+      // The alert notification configuration.
       shared_ptr<AlertRule::Notification> notification_ {};
-      // The ID of the Alibaba Cloud account used by the owner of the rule.
+      // The Alibaba Cloud UID of the owner of the custom alert rule.
       shared_ptr<string> owner_ {};
-      // The alert triggering condition.
+      // The condition that triggers the alert.
       shared_ptr<AlertRule::TriggerCondition> triggerCondition_ {};
     };
 
@@ -876,9 +852,9 @@ namespace Models
 
 
   protected:
-    // The information about the rule.
+    // The details of the custom alert rule.
     shared_ptr<GetAlertRuleResponseBody::AlertRule> alertRule_ {};
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

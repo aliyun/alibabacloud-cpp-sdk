@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // A reserved field.
     shared_ptr<string> clientToken_ {};
-    // The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/2852607.html) operation to obtain the ID.
+    // The ID of the DataWorks workspace where the data source resides. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The FlowSpec information for this UDF function. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+    // The FlowSpec information that describes the workflow. For more information about the specification, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
     // 
     // This parameter is required.
     shared_ptr<string> spec_ {};

@@ -94,27 +94,19 @@ namespace Models
 
 
   protected:
-    // 注释。
+    // The comment.
     shared_ptr<string> comment_ {};
-    // 创建时间（毫秒级时间戳）。
+    // The creation time (millisecond-level timestamp).
     shared_ptr<int64_t> createTime_ {};
-    // ID，可参考[元数据实体相关概念说明](https://help.aliyun.com/document_detail/2880092.html)。
-    // 
-    // 格式为`${EntityType}:${实例ID或转义后的URL}:${数据目录名称}:${数据库名称}:${模式名称}`，对于不存在的层级置空。
-    // 
-    // > 对于MaxCompute类型，此处的实例ID即为主账号ID，数据库名称即为MaxCompute项目名称。
+    // ID
     shared_ptr<string> id_ {};
-    // 更新时间（毫秒级时间戳）。
+    // The update time (millisecond-level timestamp).
     shared_ptr<int64_t> modifyTime_ {};
-    // 名称。
+    // The name.
     shared_ptr<string> name_ {};
-    // 父层级元数据实体ID，父层级实体类型取值参考ListCrawlerTypes接口。
-    // 
-    // 格式为`${EntityType}:${实例ID或转义后的URL}:${数据目录名称}:${数据库名称}`，对于不存在的层级置空。
-    // 
-    // > 对于MaxCompute类型，此处的实例ID即为主账号ID，数据库名称即为MaxCompute项目名称。
+    // The parent metadata entity ID.
     shared_ptr<string> parentMetaEntityId_ {};
-    // 类型。
+    // The type.
     shared_ptr<string> type_ {};
   };
 

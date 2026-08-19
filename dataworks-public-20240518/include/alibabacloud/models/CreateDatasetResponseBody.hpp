@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> id_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the creation was successful.
+    // Indicates whether the dataset is created.
     shared_ptr<bool> success_ {};
   };
 

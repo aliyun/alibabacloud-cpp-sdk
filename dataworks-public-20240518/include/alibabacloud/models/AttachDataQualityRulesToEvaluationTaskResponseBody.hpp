@@ -51,8 +51,9 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the association is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // 
+    // - true: The call succeeded.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

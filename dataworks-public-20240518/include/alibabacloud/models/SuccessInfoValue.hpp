@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
     // The error message.
     shared_ptr<string> message_ {};

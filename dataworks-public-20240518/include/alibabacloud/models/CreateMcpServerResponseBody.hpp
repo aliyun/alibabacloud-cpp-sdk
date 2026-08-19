@@ -71,6 +71,8 @@ namespace Models
     protected:
       // The time when the MCP Server was created.
       // 
+      // The value is a 13-digit number, such as `1780555634000`.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
       // The name of the MCP Server.
@@ -96,9 +98,9 @@ namespace Models
 
 
   protected:
-    // The created MCP Server.
+    // The registered MCP Server.
     shared_ptr<CreateMcpServerResponseBody::McpServer> mcpServer_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

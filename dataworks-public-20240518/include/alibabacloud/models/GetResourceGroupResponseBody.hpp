@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The number of resources in the resource group.
+        // The resource count.
         shared_ptr<int32_t> amount_ {};
-        // The number of compute units (CUs) in the resource group.
+        // The specification details.
         shared_ptr<string> standard_ {};
       };
 
@@ -274,65 +274,54 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud resource group.
+      // The ID of the Alibaba Cloud resource group to which the resource group belongs.
       shared_ptr<string> aliyunResourceGroupId_ {};
-      // The tags.
+      // The list of Alibaba Cloud tags.
       shared_ptr<vector<ResourceGroup::AliyunResourceTags>> aliyunResourceTags_ {};
-      // The time when the resource group was created. The value is a 64-bit timestamp.
+      // The creation time, represented as a 64-bit timestamp.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the account that is used to create the resource group.
+      // The ID of the user who created the resource group.
       shared_ptr<string> createUser_ {};
-      // The ID of the virtual private cloud (VPC) with which the resource group is associated by default.
+      // The ID of the default VPC bound to the resource group.
       shared_ptr<string> defaultVpcId_ {};
-      // The ID of the vSwitch with which the resource group is associated by default.
+      // The ID of the default vSwitch bound to the resource group.
       shared_ptr<string> defaultVswitchId_ {};
-      // The ID of the resource group.
+      // The unique identifier of the resource group.
       shared_ptr<string> id_ {};
       // The name of the resource group.
       shared_ptr<string> name_ {};
-      // The instance ID of the order that is used to create the resource group.
+      // The order instance ID of the resource group.
       shared_ptr<string> orderInstanceId_ {};
-      // The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+      // The billing method of the resource group. Valid values:
+      // 
+      // - PrePaid: subscription.
+      // - PostPaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
-      // The description of the resource group.
+      // The remarks of the resource group.
       shared_ptr<string> remark_ {};
       // The type of the resource group. Valid values:
       // 
-      // - CommonV2: Serverless resource group.
-      // 
-      // - ExclusiveDataIntegration: Exclusive resource group for Data Integration.
-      // 
-      // - ExclusiveScheduler: Exclusive resource group for scheduling.
-      // 
-      // - ExclusiveDataService: Exclusive resource group for DataService Studio.
+      // - CommonV2: new-version resource group.
+      // - ExclusiveDataIntegration: exclusive data integration resource group.
+      // - ExclusiveScheduler: exclusive scheduling resource group.
+      // - ExclusiveDataService: exclusive data service resource group.
       shared_ptr<string> resourceGroupType_ {};
       // The specifications of the resource group.
       shared_ptr<ResourceGroup::Spec> spec_ {};
       // The status of the resource group. Valid values:
       // 
-      // - Normal: The resource group is running or in use.
-      // 
-      // - Stop: The resource group is expired.
-      // 
-      // - Deleted: The resource group is released or destroyed.
-      // 
-      // - Creating: The resource group is being created.
-      // 
-      // - CreateFailed: The resource group fails to be created.
-      // 
-      // - Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
-      // 
-      // - UpdateFailed: The resource group fails to be scaled out or upgraded.
-      // 
-      // - Deleting: The resource group is being released or destroyed.
-      // 
-      // - DeleteFailed: The resource group fails to be released or destroyed.
-      // 
-      // - Timeout: The operations that are performed on the resource group time out.
-      // 
-      // - Freezed: The resource group is frozen.
-      // 
-      // - Starting: The resource group is being started.
+      // - Normal: normal (running/in service).
+      // - Stop: frozen (expired).
+      // - Deleted: deleted (released/destroyed).
+      // - Creating: being created.
+      // - CreateFailed: creation failed.
+      // - Updating: being updated (scaling out/scaling in/specification change in progress).
+      // - UpdateFailed: update failed (scale-out failed/upgrade failed).
+      // - Deleting: being deleted (being released/being destroyed).
+      // - DeleteFailed: deletion failed (release failed/destruction failed).
+      // - Timeout: operation timed out.
+      // - Freezed: frozen.
+      // - Starting: starting.
       shared_ptr<string> status_ {};
     };
 
@@ -362,9 +351,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The details about the resource group.
+    // The detailed information of the resource group.
     shared_ptr<GetResourceGroupResponseBody::ResourceGroup> resourceGroup_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

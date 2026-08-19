@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The run ID.
+    // The run ID of the successfully triggered task.
     shared_ptr<int64_t> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

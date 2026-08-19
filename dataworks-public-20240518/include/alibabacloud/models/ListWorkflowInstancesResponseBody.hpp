@@ -298,22 +298,28 @@ namespace Models
 
       protected:
         // The business date.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> bizDate_ {};
         // The creation time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
         // The account ID of the user who created the instance.
         shared_ptr<string> createUser_ {};
-        // The project environment.
-        // 
+        // The project environment. Valid values:
         // - Prod (production)
-        // 
         // - Dev (development)
         shared_ptr<string> envType_ {};
-        // The time when the instance finished running.
+        // The finish time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> finishedTime_ {};
         // The unique identifier of the workflow instance.
         shared_ptr<int64_t> id_ {};
         // The modification time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
         // The account ID of the user who last modified the instance.
         shared_ptr<string> modifyUser_ {};
@@ -323,43 +329,31 @@ namespace Models
         shared_ptr<string> owner_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The time when the instance started running.
+        // The start time.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> startedTime_ {};
-        // The running status of the workflow instance.
-        // 
-        // - NotRun: Not run
-        // 
-        // - Running: Running
-        // 
-        // - WaitTime: Waiting for TriggerTime
-        // 
-        // - CheckingCondition: Checking branch conditions
-        // 
-        // - WaitResource: Waiting for resources
-        // 
-        // - Failure: Failed
-        // 
-        // - Success: Succeeded
-        // 
-        // - Checking: Submitted for Data Quality check
+        // The running status of the workflow instance. Valid values:
+        // - NotRun: not run
+        // - Running: running
+        // - WaitTime: waiting for TriggerTime
+        // - CheckingCondition: checking branch conditions
+        // - WaitResource: waiting for resources
+        // - Failure: failed
+        // - Success: succeeded
+        // - Checking: submitted for data quality check
         shared_ptr<string> status_ {};
-        // The task tags.
+        // The node tags.
         shared_ptr<vector<WorkflowInstances::Tags>> tags_ {};
-        // The type of the workflow instance.
-        // 
-        // - Normal: Periodic scheduling
-        // 
-        // - Manual: Manual task
-        // 
-        // - SmokeTest: Testing
-        // 
-        // - SupplementData: Backfill data
-        // 
-        // - ManualWorkflow: Manual workflow
-        // 
-        // - TriggerWorkflow: Trigger-based workflow
+        // The type of the workflow instance. Valid values:
+        // - Normal: periodic scheduling
+        // - Manual: manual task
+        // - SmokeTest: test
+        // - SupplementData: data backfill
+        // - ManualWorkflow: manual workflow
+        // - TriggerWorkflow: trigger-based workflow
         shared_ptr<string> type_ {};
-        // The unified workflow instance ID. All workflow instances within the same business date of a single trigger share the same value for this field.
+        // The unified workflow instance ID. All workflow instances within the same business date under a specific trigger share the same value for this field.
         shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
         // The ID of the workflow to which the instance belongs.
         shared_ptr<int64_t> workflowId_ {};

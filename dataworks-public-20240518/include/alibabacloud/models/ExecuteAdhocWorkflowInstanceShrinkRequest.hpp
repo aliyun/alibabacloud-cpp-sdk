@@ -84,15 +84,13 @@ namespace Models
 
 
   protected:
-    // The data timestamp.
+    // The business date. The value is a timestamp.
     shared_ptr<int64_t> bizDate_ {};
-    // The environment of the workspace. Valid values:
-    // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // The project environment. Valid values:
+    // - Prod: production
+    // - Dev: development
     shared_ptr<string> envType_ {};
-    // The name of the workflow instance.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -100,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
-    // The workspace ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The tasks.
+    // The list of tasks.
     // 
     // This parameter is required.
     shared_ptr<string> tasksShrink_ {};

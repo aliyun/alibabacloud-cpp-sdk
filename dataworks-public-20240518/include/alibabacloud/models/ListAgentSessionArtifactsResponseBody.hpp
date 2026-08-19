@@ -125,11 +125,11 @@ namespace Models
 
 
         protected:
-          // The name of the artifact.
+          // The name of the model artifact.
           shared_ptr<string> artifactName_ {};
-          // The path of the artifact.
+          // The path of the model artifact.
           shared_ptr<string> artifactPath_ {};
-          // The type of the artifact, which is typically the file extension.
+          // The type of the model artifact, typically a file extension.
           shared_ptr<string> artifactType_ {};
         };
 
@@ -159,11 +159,11 @@ namespace Models
 
 
       protected:
-        // The list of artifacts.
+        // The list of model artifacts.
         shared_ptr<vector<Result::Artifacts>> artifacts_ {};
-        // The actual number of entries returned per page.
+        // The actual number of entries per page.
         shared_ptr<int32_t> maxResults_ {};
-        // The token for the next page. The value is null if there are no more pages.
+        // The token for the next page. The value is null for the last page.
         shared_ptr<string> nextToken_ {};
       };
 
@@ -193,11 +193,11 @@ namespace Models
 
 
     protected:
-      // The ID passed by the caller. The value is returned as-is in the response.
+      // The ID passed in by the requester. The value is returned as-is.
       shared_ptr<string> id_ {};
       // The JSON-RPC version. Fixed value: 2.0.
       shared_ptr<string> jsonrpc_ {};
-      // The paginated information of artifacts.
+      // The pagination information of model artifacts.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -222,7 +222,7 @@ namespace Models
   protected:
     // The JSON-RPC response.
     shared_ptr<ListAgentSessionArtifactsResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

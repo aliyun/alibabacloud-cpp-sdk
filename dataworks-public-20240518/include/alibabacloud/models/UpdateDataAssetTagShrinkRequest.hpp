@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The description of the tag.
+    // The label description.
     shared_ptr<string> description_ {};
-    // The tag key.
+    // The label key.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The tag administrators.
+    // The list of label administrators.
     shared_ptr<string> managersShrink_ {};
-    // The tag values.
+    // The list of label values.
     shared_ptr<string> valuesShrink_ {};
   };
 

@@ -151,7 +151,7 @@ namespace Models
 
 
           protected:
-            // Command. This parameter indicates the file type.
+            // The command, which indicates the file type.
             shared_ptr<string> command_ {};
           };
 
@@ -181,13 +181,13 @@ namespace Models
 
 
         protected:
-          // The ID of the script.
+          // The script ID.
           // 
-          // > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
           shared_ptr<string> id_ {};
-          // The script path.
+          // The path of the script.
           shared_ptr<string> path_ {};
-          // Runtime
+          // The runtime.
           shared_ptr<Script::Runtime> runtime_ {};
         };
 
@@ -335,56 +335,50 @@ namespace Models
 
 
       protected:
-        // The time when the file resource was created. This value is a UNIX timestamp.
+        // The timestamp when the file resource was created.
         shared_ptr<int64_t> createTime_ {};
         // The data source.
         shared_ptr<Resources::DataSource> dataSource_ {};
         // The unique identifier of the file resource.
         // 
-        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
         shared_ptr<string> id_ {};
         // The timestamp when the file resource was last modified.
         shared_ptr<int64_t> modifyTime_ {};
-        // The resource name.
+        // The name of the resource.
         shared_ptr<string> name_ {};
         // The owner of the file resource.
         shared_ptr<string> owner_ {};
-        // The ID of the DataWorks workspace. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
+        // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
         shared_ptr<int64_t> projectId_ {};
         // The script information.
         shared_ptr<Resources::Script> script_ {};
-        // Source path of the file resource. This parameter is empty if the type is Local.
+        // The source path of the file resource. This field is empty when the type is Local.
         shared_ptr<string> sourcePath_ {};
         // The source storage type of the file resource.
         // 
         // Valid values:
         // 
-        // - Local
-        // 
-        // - OSS
+        // - Local: local storage.
+        // - Oss: Object Storage Service.
         shared_ptr<string> sourceType_ {};
-        // The destination storage path.
+        // The target storage path of the file resource.
         shared_ptr<string> targetPath_ {};
-        // The destination storage type.
+        // The target storage type of the file resource.
         // 
         // Valid values:
         // 
-        // - Gateway
-        // 
-        // - OSS
-        // 
-        // - HDFS
+        // - Gateway: gateway.
+        // - Oss: Object Storage Service.
+        // - Hdfs: HDFS file storage system.
         shared_ptr<string> targetType_ {};
-        // The resource type.
+        // The resource file type.
         // 
         // Valid values:
         // 
         // - Python
-        // 
         // - Jar
-        // 
         // - Archive
-        // 
         // - File
         shared_ptr<string> type_ {};
       };
@@ -422,13 +416,13 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the request, used for pagination.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The returned resource list.
+      // The list of resources returned by the query.
       shared_ptr<vector<PagingInfo::Resources>> resources_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the filter conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -453,7 +447,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListResourcesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The unique ID of this request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

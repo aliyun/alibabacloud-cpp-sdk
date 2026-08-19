@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the deletion succeeded.
+    // Indicates whether the dataset is deleted successfully.
     shared_ptr<bool> success_ {};
   };
 

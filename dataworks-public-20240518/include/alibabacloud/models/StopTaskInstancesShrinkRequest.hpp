@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Remarks.
+    // The remarks.
     shared_ptr<string> comment_ {};
-    // The ID list of the task instance.
+    // The list of instance IDs.
     shared_ptr<string> idsShrink_ {};
   };
 

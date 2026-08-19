@@ -242,87 +242,66 @@ namespace Models
 
 
       protected:
-        // The change type, which is an integer. Valid values:
-        // 
-        // - 0: addition
-        // 
-        // - 1: update
-        // 
-        // - 2: deletion
+        // The change type. Valid values: 
+        // - 0: added.
+        // - 1: updated.
+        // - 2: deleted.
         shared_ptr<int32_t> changeType_ {};
-        // The comment for committing.
+        // The comment provided at the time of commit.
         shared_ptr<string> comment_ {};
-        // The time for committing.
+        // The commit time.
+        // 
+        // The format is `yyyy-MM-dd HH:mm:ss`, for example, `2025-04-10 15:55:47`. This example does not include a time zone identifier.
         shared_ptr<string> commitTime_ {};
-        // The ID of the Alibaba Cloud account used by the user who committed the file.
+        // The Alibaba Cloud account ID of the committer.
         shared_ptr<string> commitUser_ {};
-        // The name of the Alibaba Cloud account used by the user who committed the file.
+        // The Alibaba Cloud account name of the committer.
         shared_ptr<string> commitUserName_ {};
-        // The file ID.
+        // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
-        // The name of the file of the current version.
+        // The name of the file that generated this file version.
         shared_ptr<string> fileName_ {};
-        // The file type. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+        // The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
         shared_ptr<int32_t> fileType_ {};
-        // The file version.
+        // The version number of the file.
         shared_ptr<int64_t> fileVersion_ {};
-        // The unique ID.
+        // The unique identifier.
         shared_ptr<int64_t> id_ {};
-        // Indicates whether the version is a version in the production environment of the scheduling system.
+        // Indicates whether this version is the same as the current production version in scheduling.
         shared_ptr<bool> isSameAsProductionVersion_ {};
-        // The scheduling property configurations of the node that corresponds to the file, which is a JSON string.
+        // The scheduling property configuration of the scheduling node to which this file belongs, stored as a JSON string.
         shared_ptr<string> nodeConfiguration_ {};
-        // The ID of the auto triggered node that corresponds to the file.
+        // The node ID in scheduling that corresponds to this file.
         shared_ptr<int64_t> nodeId_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // The test status in the development environment.
+        // The testing status in the development environment.
         shared_ptr<string> smokeTestStatus_ {};
-        // The status of the code file of the current version. Valid values:
-        // 
-        // - 2: Commit check in progress.
-        // 
-        // - 3: Commit check passed.
-        // 
-        // - 4: Commit check failed.
-        // 
-        // - 10: Committing.
-        // 
-        // - 11: Committed.
-        // 
-        // - 20: Approved.
-        // 
-        // - 21: Rejected.
-        // 
-        // - 22: Warning detected during checking.
-        // 
-        // - 23: Under code review.
-        // 
-        // - 24: Code review rejected.
-        // 
-        // - 80: Deployment package created.
-        // 
-        // - 100: Deploying.
-        // 
-        // - 101: Deployed to the production environment.
-        // 
-        // - 200: Cancelled.
+        // The status of the code file for this version. Valid values: 
+        // - 2: commit check in progress.
+        // - 3: commit check succeeded.
+        // - 4: commit check rejected.
+        // - 10: committing. 
+        // - 11: committed to the scheduling development environment. 
+        // - 20: review approved.
+        // - 21: review failed.
+        // - 22: check has warnings.
+        // - 23: code review in progress.
+        // - 24: code review rejected.
+        // - 80: deployment package created. 
+        // - 100: deploying. 
+        // - 101: deployed to production. 
+        // - 200: canceled.
         shared_ptr<int32_t> status_ {};
         // The DataWorks tenant ID.
         shared_ptr<int64_t> tenantId_ {};
-        // The module to which the file belongs. Valid values:
-        // 
-        // - NORMAL: The file is used for DataStudio.
-        // 
-        // - MANUAL: The file is used for a manually triggered node.
-        // 
-        // - MANUAL_BIZ: The file is used for a manually triggered workflow.
-        // 
-        // - SKIP: The file is used for a dry-run node in DataStudio.
-        // 
-        // - ADHOCQUERY: The file is used for an ad hoc query.
-        // 
-        // - COMPONENT: The file is used for a script template.
+        // The functional module to which the file belongs. Valid values:
+        // - NORMAL: data development.
+        // - MANUAL: manual task.
+        // - MANUAL_BIZ: manual workflow.
+        // - SKIP: dry-run scheduling in data development.
+        // - ADHOCQUERY: ad hoc query.
+        // - COMPONENT: component management.
         shared_ptr<string> useType_ {};
       };
 
@@ -359,13 +338,13 @@ namespace Models
 
 
     protected:
-      // The list of files pending deployment.
+      // The list of file versions pending deployment.
       shared_ptr<vector<PagingInfo::DeploymentPackageFiles>> deploymentPackageFiles_ {};
-      // The page number. Pages start from page 1.
+      // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page. Default value: 10.
+      // The page size. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -388,9 +367,9 @@ namespace Models
 
 
   protected:
-    // The pagination details.
+    // The pagination information.
     shared_ptr<ListDeploymentPackageFilesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

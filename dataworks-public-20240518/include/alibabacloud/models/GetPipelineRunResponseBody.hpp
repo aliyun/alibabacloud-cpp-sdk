@@ -162,47 +162,38 @@ namespace Models
 
 
       protected:
-        // The code that identifies the stage.
+        // The code of the deployment stage.
         shared_ptr<string> code_ {};
         // The description of the stage.
         shared_ptr<string> description_ {};
-        // Detailed information about the stage.
+        // The detailed information about the stage.
         Darabonba::Json detail_ {};
-        // The exception message returned if the stage fails.
+        // The exception message of the deployment stage.
         shared_ptr<string> message_ {};
         // The name of the stage.
         shared_ptr<string> name_ {};
-        // The status of the stage.
+        // The status of the deployment stage.
         // 
         // Valid values:
         // 
-        // - `Init`: The stage is being initialized.
-        // 
-        // - `Running`: The stage is in progress.
-        // 
-        // - `Success`: The stage succeeded.
-        // 
-        // - `Fail`: The stage failed.
-        // 
-        // - `Terminated`: The stage was terminated.
-        // 
-        // - `Canceled`: The stage was canceled.
+        // - Init: Initialization.
+        // - Running: Running.
+        // - Success: Succeeded.
+        // - Fail: Failed.
+        // - Termination: Terminated.
+        // - Cancel: Canceled.
         shared_ptr<string> status_ {};
-        // The sequence number of the stage within the pipeline.
+        // The step number of the deployment stage.
         shared_ptr<int32_t> step_ {};
-        // The type of the stage.
+        // The type of the deployment stage.
         // 
         // Valid values:
         // 
-        // - `Deploy`: A deployment operation.
-        // 
-        // - `Check`: A check operation.
-        // 
-        // - `Offline`: An offline operation.
-        // 
-        // - `Build`: A build operation.
-        // 
-        // - `Delete`: A delete operation.
+        // - Deploy: deploy operation
+        // - Check: check operation
+        // - Offline: offline operation
+        // - Build: build operation
+        // - Delete: delete operation
         shared_ptr<string> type_ {};
       };
 
@@ -275,37 +266,34 @@ namespace Models
 
 
     protected:
-      // The time when the pipeline run was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp when the deployment package was created.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the user who created the pipeline run.
+      // The creator of the deployment process.
       shared_ptr<string> creator_ {};
-      // The description of the pipeline run.
+      // The description of the deployment process.
       shared_ptr<string> description_ {};
-      // The ID of the pipeline run.
+      // The ID of the deployment process.
       shared_ptr<string> id_ {};
-      // The error message returned if the pipeline run fails.
+      // The error message returned when the deployment fails.
       shared_ptr<string> message_ {};
-      // The time when the pipeline run was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The modification time.
+      // 
+      // The value is a 13-digit number, such as `1724984066000`.
       shared_ptr<int64_t> modifyTime_ {};
       // The ID of the DataWorks workspace.
       shared_ptr<int64_t> projectId_ {};
-      // The stages in the pipeline run.
+      // The stage details.
       shared_ptr<vector<Pipeline::Stages>> stages_ {};
-      // The status of the pipeline run.
+      // The status of the deployment process.
       // 
       // Valid values:
       // 
-      // - `Init`: The pipeline run is being initialized.
-      // 
-      // - `Running`: The pipeline run is in progress.
-      // 
-      // - `Success`: The pipeline run succeeded.
-      // 
-      // - `Fail`: The pipeline run failed.
-      // 
-      // - `Terminated`: The pipeline run was terminated.
-      // 
-      // - `Canceled`: The pipeline run was canceled.
+      // - Init: Initialization.
+      // - Running: Running.
+      // - Success: Succeeded.
+      // - Fail: Failed.
+      // - Termination: Terminated.
+      // - Cancel: Canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -328,9 +316,9 @@ namespace Models
 
 
   protected:
-    // The details of the pipeline run.
+    // The information about the deployment process.
     shared_ptr<GetPipelineRunResponseBody::Pipeline> pipeline_ {};
-    // The ID of the request. You can use this ID to locate logs and troubleshoot issues.
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

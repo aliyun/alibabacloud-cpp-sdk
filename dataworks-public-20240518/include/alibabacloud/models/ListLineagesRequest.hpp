@@ -121,28 +121,26 @@ namespace Models
 
 
   protected:
-    // The ID of the destination entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
+    // The destination entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
     shared_ptr<string> dstEntityId_ {};
-    // The name of the destination entity. This parameter supports fuzzy matching.
+    // The destination entity name. Fuzzy match is supported.
     shared_ptr<string> dstEntityName_ {};
-    // Specifies whether to include lineage relationships. Default: false.
+    // Specifies whether to return lineage relationship information. Default value: false.
     shared_ptr<bool> needAttachRelationship_ {};
-    // The sort order. Default: `Asc`. Valid values:
-    // 
-    // - `Asc`: ascending
-    // 
-    // - `Desc`: descending
+    // The sort direction. Default value: Asc. Valid values:
+    // - Asc: ascending order.
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
-    // The page number to retrieve. Default: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default: 10. Maximum: 100.
+    // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> recentDays_ {};
-    // The field to sort the results by. The default is `Name`, which sorts by entity name.
+    // The sort field. Default value: Name, which sorts by lineage entity name.
     shared_ptr<string> sortBy_ {};
-    // The ID of the source entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
+    // The source entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
     shared_ptr<string> srcEntityId_ {};
-    // The name of the source entity. This parameter supports fuzzy matching.
+    // The source entity name. Fuzzy match is supported.
     shared_ptr<string> srcEntityName_ {};
   };
 

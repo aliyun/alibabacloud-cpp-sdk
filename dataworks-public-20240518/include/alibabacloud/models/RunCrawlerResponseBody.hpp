@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The ID of the metadata crawler.
     shared_ptr<int64_t> id_ {};
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the run request was accepted. A value of true indicates that the request was accepted, but does not indicate that the collection task is complete.
     shared_ptr<bool> runAccepted_ {};
+    // The initial run status after submission. The value is WAITING when the run request is successfully accepted. To query the final status, call ListCrawlerRuns.
     shared_ptr<string> runStatus_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The associated DataWorks task instance ID. This field may be empty. To query the final run record, call ListCrawlerRuns.
     shared_ptr<int64_t> taskInstanceId_ {};
   };
 

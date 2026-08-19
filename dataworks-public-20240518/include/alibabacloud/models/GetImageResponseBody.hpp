@@ -145,9 +145,8 @@ namespace Models
 
 
       protected:
-        // The supported module:
-        // 
-        // - Scheduler: Scheduling.
+        // The supported module. Valid values:
+        // - Scheduler: scheduling.
         shared_ptr<string> module_ {};
         // The list of supported task types.
         shared_ptr<vector<string>> taskTypes_ {};
@@ -212,7 +211,7 @@ namespace Models
 
 
         protected:
-          // The script content. If the content consists of package names, separate them with commas (,).
+          // The script content. If the content contains package names, separate them with commas (,).
           shared_ptr<string> content_ {};
           // The script type.
           shared_ptr<string> type_ {};
@@ -444,11 +443,9 @@ namespace Models
 
 
     protected:
-      // The image visibility:
-      // 
-      // - Public: Visible to all users.
-      // 
-      // - Private: Visible only to the creator.
+      // The image visibility. Valid values:
+      // - Public: visible to all users.
+      // - Private: visible only to the creator.
       shared_ptr<string> accessibility_ {};
       // The VPC ID associated with the ACR instance.
       shared_ptr<string> acrAssociatedVpcId_ {};
@@ -464,7 +461,7 @@ namespace Models
       shared_ptr<string> creator_ {};
       // The image description.
       shared_ptr<string> description_ {};
-      // Indicates whether synchronization to MaxCompute is enabled.
+      // Indicates whether synchronization with MaxCompute is enabled.
       shared_ptr<bool> enableSyncMaxCompute_ {};
       // The image ID.
       shared_ptr<string> id_ {};
@@ -486,55 +483,36 @@ namespace Models
       shared_ptr<string> namespace_ {};
       // Indicates whether the image is an official image.
       shared_ptr<bool> official_ {};
-      // The image ID assigned by the provider.
+      // The image ID from the image provider.
       shared_ptr<string> providerImageId_ {};
-      // The image provider type:
-      // 
+      // The image reference data type. Valid values:
       // - ACR: ACR image repository.
-      // 
       // - DataWorks: DataWorks official image.
       shared_ptr<string> providerType_ {};
-      // The publish stage:
-      // 
-      // - Untest: Not tested.
-      // 
-      // - Testing: Being tested.
-      // 
-      // - TestFailed: Test failed.
-      // 
-      // - Unpublished: Not published.
-      // 
-      // - Publishing: Being published.
-      // 
-      // - Published: Published.
-      // 
-      // - PublishFailed: Publish failed.
-      // 
-      // - Building: Being built.
-      // 
-      // - BuildSuccess: Build succeeded.
-      // 
-      // - BuildFailed: Build failed.
-      // 
-      // - Accelerating: Being accelerated.
-      // 
-      // - AccelerateSuccess: Acceleration succeeded.
-      // 
-      // - AccelerateFailed: Acceleration failed.
+      // The publish status. Valid values:
+      // - Untest: not tested.
+      // - Testing: being tested.
+      // - TestFailed: test failed.
+      // - Unpublished: not published.
+      // - Publishing: being published.
+      // - Published: published.
+      // - PublishFailed: publish failed.
+      // - Building: being built.
+      // - BuildSuccess: build succeeded.
+      // - BuildFailed: build failed.
+      // - Accelerating: being accelerated.
+      // - AccelerateSuccess: acceleration succeeded.
+      // - AccelerateFailed: acceleration failed.
       shared_ptr<string> publishStage_ {};
       // The repository name.
       shared_ptr<string> repositoryName_ {};
       // The image size.
       shared_ptr<string> size_ {};
-      // The image status:
-      // 
-      // - Disabled: The image is disabled.
-      // 
-      // - Expired: The image has expired.
-      // 
-      // - Available: The image is available.
-      // 
-      // - ReadOnly: The image is read-only.
+      // The image status. Valid values:
+      // - Disabled: disabled.
+      // - Expired: expired.
+      // - Available: active.
+      // - ReadOnly: read-only.
       shared_ptr<string> status_ {};
       // The supported modules and task types.
       shared_ptr<Image::Supported> supported_ {};

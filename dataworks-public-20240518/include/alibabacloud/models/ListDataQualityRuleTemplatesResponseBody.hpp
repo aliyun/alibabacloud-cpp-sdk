@@ -135,26 +135,27 @@ namespace Models
 
 
         protected:
-          // The name of the sampling metric.
-          // - Count: the number of table rows
-          // - Min: the minimum value of the field
-          // - Max: the maximum value of the field
-          // - Avg: the average value of the field
-          // - DistinctCount: the number of unique values of the field
-          // - DistinctPercent: the ratio of the number of unique values of the field to the number of data rows
-          // - DuplicatedCount: the number of duplicate values of the field
-          // - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows
-          // - TableSize: the size of the table
-          // - NullValueCount: the number of rows in which the field is null
-          // - NullValuePercent: the ratio of rows in which the field is null
-          // - GroupCount: each value and the corresponding number of data rows after aggregation by field value
-          // - CountNotIn: the number of rows in which the enumeration value does not match
-          // - CountDistinctNotIn: the number of unique values in which the enumeration value does not match
-          // - UserDefinedSql: collect samples by using custom SQL
+          // The metric name for sampling. Valid values:
+          // 
+          // - Count: table row count.
+          // - Min: minimum value of the field.
+          // - Max: maximum value of the field.
+          // - Avg: average value of the field.
+          // - DistinctCount: number of unique values in the field.
+          // - DistinctPercent: ratio of unique values to total rows.
+          // - DuplicatedCount: number of duplicate values in the field.
+          // - DuplicatedPercent: ratio of duplicate values to total rows.
+          // - TableSize: table size.
+          // - NullValueCount: number of rows where the field is null.
+          // - NullValuePercent: ratio of rows where the field is null.
+          // - GroupCount: row count for each value after aggregation by field value.
+          // - CountNotIn: number of rows with non-matching enumeration values.
+          // - CountDistinctNotIn: number of unique values with non-matching enumeration values.
+          // - UserDefinedSql: sample collection through custom SQL.
           shared_ptr<string> metric_ {};
           // The parameters required for sample collection.
           shared_ptr<string> metricParameters_ {};
-          // The runtime parameter setting statements that are inserted and executed before the sampling statement is executed. This parameter can be up to 1,000 characters in length. Currently, only MaxCompute is supported.
+          // The runtime parameter setting statements that are executed before the sampling statement. The value can be up to 1000 characters in length. Currently, only MaxCompute is supported.
           shared_ptr<string> settingConfig_ {};
         };
 
@@ -196,9 +197,10 @@ namespace Models
 
 
         protected:
-          // Some types of thresholds require reference samples to be queried, and then the values of the reference samples are aggregated to obtain the threshold for comparison. An expression is used here to indicate the query method of the reference samples.
+          // An expression that specifies how to query reference samples. Some threshold types require querying reference samples and then aggregating their values to derive the threshold for comparison.
           shared_ptr<string> referencedSamplesFilter_ {};
-          // The threshold calculation method.
+          // The threshold calculation method. Valid values:
+          // 
           // - Fixed
           // - Fluctation
           // - FluctationDiscreate
@@ -269,17 +271,18 @@ namespace Models
         shared_ptr<DataQualityRuleTemplates::CheckingConfig> checkingConfig_ {};
         // The code of the rule template.
         shared_ptr<string> code_ {};
-        // The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1,024 characters in length and cannot contain whitespace characters or slashes.
+        // The category directory where the custom template is stored. Levels are separated by forward slashes. Each level name can be up to 1024 characters in length and cannot contain whitespace characters or forward slashes.
         shared_ptr<string> directoryPath_ {};
-        // The name of the rule template. It can be a combination of digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 512 characters in length.
+        // The name of the rule template. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 512 characters in length.
         shared_ptr<string> name_ {};
         // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
         // The settings required for sample collection.
         shared_ptr<DataQualityRuleTemplates::SamplingConfig> samplingConfig_ {};
-        // The available scope of the template:
-        // - Tenant: available to all tenants
-        // - Project: available only in the current project
+        // The visibility scope of the template. Valid values:
+        // 
+        // - Tenant: available to the entire tenant.
+        // - Project: available only in the current project.
         shared_ptr<string> visibleScope_ {};
       };
 
@@ -320,7 +323,7 @@ namespace Models
       shared_ptr<vector<PagingInfo::DataQualityRuleTemplates>> dataQualityRuleTemplates_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -345,9 +348,9 @@ namespace Models
 
 
   protected:
-    // The paginated query result of data quality rule templates.
+    // The paging result of the data quality rule template paged query.
     shared_ptr<ListDataQualityRuleTemplatesResponseBody::PagingInfo> pagingInfo_ {};
-    // The API request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

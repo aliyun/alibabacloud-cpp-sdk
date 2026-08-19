@@ -90,8 +90,12 @@ namespace Models
 
 
     protected:
+      // The regular expression used to exclude objects from the collection scope. This parameter is supported only when SupportExcludeRegex returned by GetCrawlerTypeCapabilities is set to true.
       shared_ptr<string> excludeRegex_ {};
+      // The list of database names. This parameter is supported only when Unit is set to DATABASE. A maximum of 1,000 entries are allowed. Names cannot be empty or duplicate.
       shared_ptr<vector<string>> items_ {};
+      // The collection scope granularity. Valid values are determined by the SupportedScopeUnits returned by GetCrawlerTypeCapabilities.
+      // 
       // This parameter is required.
       shared_ptr<string> unit_ {};
     };
@@ -134,7 +138,10 @@ namespace Models
 
 
     protected:
+      // The six-field cron expression for periodic scheduling. This parameter is required when Type is set to NORMAL. The seconds field must be 0, and the scheduling frequency cannot exceed once per hour.
       shared_ptr<string> cronExpress_ {};
+      // The scheduling type. MANUAL indicates manual execution. NORMAL indicates periodic scheduling. Data sources in the development environment support only MANUAL. Whether NORMAL is available depends on the SupportSchedule value returned by GetCrawlerTypeCapabilities.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -190,12 +197,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable AI metadata description. This parameter is supported only when SupportAiComment returned by GetCrawlerTypeCapabilities is set to true. If this parameter is not specified, the existing value remains unchanged.
     shared_ptr<bool> enableAiComment_ {};
+    // The ID of the metadata crawler. You can call ListCrawlers to query crawler IDs.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The extension configurations for the crawler type. Only the specified configuration items are updated. Unspecified configuration items remain unchanged. The supported keys and values are determined by the SupportedOptionKeys returned by GetCrawlerTypeCapabilities.
     shared_ptr<map<string, string>> options_ {};
+    // The ID of the Serverless 2.0 resource group used to run the collection task. Whether this parameter is supported and whether it is required depend on the capabilities returned by GetCrawlerTypeCapabilities. If this parameter is not specified, the existing value remains unchanged.
     shared_ptr<string> resourceGroupId_ {};
+    // The scheduling configuration. If this parameter is specified, the scheduling method is updated. If this parameter is not specified, the existing value remains unchanged.
     shared_ptr<UpdateCrawlerRequest::ScheduleConfig> scheduleConfig_ {};
+    // The collection scope configuration. If this parameter is specified, the collection scope is updated. If this parameter is not specified, the existing value remains unchanged.
     shared_ptr<UpdateCrawlerRequest::Scope> scope_ {};
   };
 

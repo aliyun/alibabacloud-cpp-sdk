@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The rule ID.
+    // The ID of the custom rule.
     shared_ptr<int64_t> id_ {};
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

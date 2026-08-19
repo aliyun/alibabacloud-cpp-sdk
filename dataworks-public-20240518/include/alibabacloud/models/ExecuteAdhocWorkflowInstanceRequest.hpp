@@ -119,7 +119,7 @@ namespace Models
       protected:
         // The script content.
         shared_ptr<string> content_ {};
-        // The script parameters.
+        // The list of script parameters.
         shared_ptr<string> parameters_ {};
       };
 
@@ -170,11 +170,11 @@ namespace Models
 
 
       protected:
-        // The default number of compute units (CUs) configured for task running.
+        // The compute unit (CU) consumption configured for the task.
         shared_ptr<string> cu_ {};
-        // The ID of the image configured for task running.
+        // The image ID configured for the task.
         shared_ptr<string> image_ {};
-        // The ID of the resource group for scheduling configured for task running.
+        // The identifier of the schedule resource group configured for the task.
         // 
         // This parameter is required.
         shared_ptr<string> resourceGroupId_ {};
@@ -248,19 +248,15 @@ namespace Models
 
 
         protected:
-          // The name of the variable.
+          // The variable name.
           shared_ptr<string> name_ {};
           // The type. Valid values:
-          // 
           // - System
-          // 
           // - Constant
-          // 
           // - NodeOutput
-          // 
           // - PassThrough
           shared_ptr<string> type_ {};
-          // The value of the variable.
+          // The variable value.
           shared_ptr<string> value_ {};
         };
 
@@ -292,7 +288,7 @@ namespace Models
 
 
         protected:
-          // The identifier of the output.
+          // The output identifier.
           shared_ptr<string> output_ {};
         };
 
@@ -317,9 +313,9 @@ namespace Models
 
 
       protected:
-        // The task outputs.
+        // The list of task output definitions.
         shared_ptr<vector<Outputs::TaskOutputs>> taskOutputs_ {};
-        // The variables.
+        // The list of variable definitions.
         shared_ptr<vector<Outputs::Variables>> variables_ {};
       };
 
@@ -380,9 +376,9 @@ namespace Models
 
 
         protected:
-          // The name of the variable.
+          // The variable name.
           shared_ptr<string> name_ {};
-          // The value of the variable. You must configure this parameter in the `The ancestor output: The output variable name of the ancestor task` format.
+          // The variable value. Specify the value in the format of `Upstream task Output:Upstream task output variable name`.
           shared_ptr<string> value_ {};
         };
 
@@ -397,7 +393,7 @@ namespace Models
 
 
       protected:
-        // The variables.
+        // The list of variable definitions.
         shared_ptr<vector<Inputs::Variables>> variables_ {};
       };
 
@@ -429,7 +425,7 @@ namespace Models
 
 
       protected:
-        // The identifier of the output of the ancestor task.
+        // The output identifier of the dependent task.
         shared_ptr<string> upstreamOutput_ {};
       };
 
@@ -461,7 +457,7 @@ namespace Models
 
 
       protected:
-        // The name of the data source.
+        // The data source name.
         shared_ptr<string> name_ {};
       };
 
@@ -558,11 +554,11 @@ namespace Models
 
 
     protected:
-      // The unique code of the client. This code uniquely identifies a task.
+      // The client unique code of the task, which is used to uniquely identify a task.
       // 
       // This parameter is required.
       shared_ptr<string> clientUniqueCode_ {};
-      // The information about the associated data source.
+      // The associated data source information.
       shared_ptr<Tasks::DataSource> dataSource_ {};
       // The dependency information.
       shared_ptr<vector<Tasks::Dependencies>> dependencies_ {};
@@ -578,15 +574,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> owner_ {};
-      // The configurations of the runtime environment, such as the resource group information.
+      // The runtime environment configuration, such as resource group information.
       // 
       // This parameter is required.
       shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
-      // The script information.
+      // The script information for running the task.
       shared_ptr<Tasks::Script> script_ {};
-      // The timeout period of task running. Unit: seconds.
+      // The timeout period for task execution. Unit: seconds.
       shared_ptr<int32_t> timeout_ {};
-      // The type of the task.
+      // The task type.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -639,15 +635,13 @@ namespace Models
 
 
   protected:
-    // The data timestamp.
+    // The business date. The value is a timestamp.
     shared_ptr<int64_t> bizDate_ {};
-    // The environment of the workspace. Valid values:
-    // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // The project environment. Valid values:
+    // - Prod: production
+    // - Dev: development
     shared_ptr<string> envType_ {};
-    // The name of the workflow instance.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -655,11 +649,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
-    // The workspace ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The tasks.
+    // The list of tasks.
     // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAdhocWorkflowInstanceRequest::Tasks>> tasks_ {};

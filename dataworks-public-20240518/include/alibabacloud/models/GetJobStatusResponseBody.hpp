@@ -105,31 +105,31 @@ namespace Models
 
 
     protected:
-      // Indicates whether the asynchronous task is complete. Valid values: True False
+      // Indicates whether the operation is complete. Valid values:
+      // - True: The current job has been completed.
+      // - False: The current job is still running.
       shared_ptr<string> completed_ {};
-      // The time when the asynchronous task was created.
+      // The creation time.
+      // 
+      // The value is a 13-digit number, such as `1729063449802`.
       shared_ptr<string> createTime_ {};
-      // The error message returned if the asynchronous task fails.
+      // The task failure information.
       shared_ptr<string> error_ {};
-      // The ID of the asynchronous task.
+      // The asynchronous task ID.
       shared_ptr<string> jobId_ {};
-      // The type of the asynchronous task. Valid values:
+      // The task type.
       // 
-      // - **Create**: The asynchronous task is used to create an object.
+      // - **Create**: A creation task.
       // 
-      // - **Update**: The asynchronous task is used to update an object.
+      // - **Update**: An update task.
       // 
-      // - **Cancel**: The asynchronous task is used to cancel an operation.
+      // - **Cancel**: A cancellation task.
       shared_ptr<string> jobType_ {};
-      // The status of the asynchronous task. Valid values:
-      // 
-      // - **Success**
-      // 
-      // - **Fail**
-      // 
-      // - **Cancel**
-      // 
-      // - **Running**
+      // The task status. Valid values:
+      // - **Success**: succeeded.
+      // - **Fail**: failed.
+      // - **Cancel**: canceled.
+      // - **Running**: running.
       shared_ptr<string> status_ {};
     };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
   protected:
-    // The real-time status information of the asynchronous task.
+    // The real-time result of the task status.
     shared_ptr<GetJobStatusResponseBody::JobStatus> jobStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
