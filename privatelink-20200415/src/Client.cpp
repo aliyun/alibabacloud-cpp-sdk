@@ -18,6 +18,51 @@ namespace Privatelink20200415
 
 AlibabaCloud::Privatelink20200415::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "privatelink.cn-beijing.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "privatelink.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-heyuan" , "privatelink.cn-heyuan.aliyuncs.com"},
+    {"cn-zhangjiakou" , "privatelink.cn-zhangjiakou.aliyuncs.com"},
+    {"ap-northeast-2" , "privatelink.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "privatelink.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1" , "privatelink.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-2" , "privatelink.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-3" , "privatelink.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "privatelink.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "privatelink.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "privatelink.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-8" , "privatelink.ap-southeast-8.aliyuncs.com"},
+    {"cn-zhongwei" , "privatelink.cn-zhongwei.aliyuncs.com"},
+    {"cn-wulanchabu" , "privatelink.cn-wulanchabu.aliyuncs.com"},
+    {"cn-qingdao" , "privatelink.cn-qingdao.aliyuncs.com"},
+    {"cn-wuhan-lr" , "privatelink.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shanghai" , "privatelink.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "privatelink.cn-hongkong.aliyuncs.com"},
+    {"cn-shenzhen" , "privatelink.cn-shenzhen.aliyuncs.com"},
+    {"cn-nanjing" , "privatelink.cn-nanjing.aliyuncs.com"},
+    {"cn-fuzhou" , "privatelink.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "privatelink.cn-chengdu.aliyuncs.com"},
+    {"cn-guangzhou" , "privatelink.cn-guangzhou.aliyuncs.com"},
+    {"cn-huhehaote" , "privatelink.cn-huhehaote.aliyuncs.com"},
+    {"cn-hangzhou" , "privatelink.cn-hangzhou.aliyuncs.com"},
+    {"us-southeast-1" , "privatelink.us-southeast-1.aliyuncs.com"},
+    {"eu-west-1" , "privatelink.eu-west-1.aliyuncs.com"},
+    {"eu-west-2" , "privatelink.eu-west-2.aliyuncs.com"},
+    {"eu-central-1" , "privatelink.eu-central-1.aliyuncs.com"},
+    {"us-east-1" , "privatelink.us-east-1.aliyuncs.com"},
+    {"sa-east-1" , "privatelink.sa-east-1.aliyuncs.com"},
+    {"us-west-1" , "privatelink.us-west-1.aliyuncs.com"},
+    {"na-south-1" , "privatelink.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "privatelink.me-east-1.aliyuncs.com"},
+    {"ap-south-1" , "privatelink.ap-south-1.aliyuncs.com"},
+    {"me-central-1" , "privatelink.me-central-1.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "privatelink.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "privatelink.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "privatelink.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "privatelink.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "privatelink.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "privatelink.cn-north-2-gov-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("privatelink", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -424,9 +469,7 @@ CheckProductOpenResponse Client::checkProductOpen() {
 /**
  * @summary Creates an endpoint.
  *
- * @description **CreateVpcEndpoint** is an asynchronous operation. After you send the request, the system returns an instance ID and starts creating the endpoint in the background. You can call [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to check the endpoint\\"s creation status:
- * - **Creating**: The endpoint is being created.
- * - **Active**: The endpoint is available.
+ * @description **CreateVpcEndpoint** is an asynchronous operation. After you send a request, the system returns an instance ID, but the endpoint is not yet created. The background node is still in progress. You can invoke [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to query the creation status of the endpoint:
  *
  * @param request CreateVpcEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -539,9 +582,7 @@ CreateVpcEndpointResponse Client::createVpcEndpointWithOptions(const CreateVpcEn
 /**
  * @summary Creates an endpoint.
  *
- * @description **CreateVpcEndpoint** is an asynchronous operation. After you send the request, the system returns an instance ID and starts creating the endpoint in the background. You can call [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to check the endpoint\\"s creation status:
- * - **Creating**: The endpoint is being created.
- * - **Active**: The endpoint is available.
+ * @description **CreateVpcEndpoint** is an asynchronous operation. After you send a request, the system returns an instance ID, but the endpoint is not yet created. The background node is still in progress. You can invoke [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to query the creation status of the endpoint:
  *
  * @param request CreateVpcEndpointRequest
  * @return CreateVpcEndpointResponse
@@ -552,10 +593,10 @@ CreateVpcEndpointResponse Client::createVpcEndpoint(const CreateVpcEndpointReque
 }
 
 /**
- * @summary Creates an endpoint service by calling the CreateVpcEndpointService operation.
+ * @summary Calls the CreateVpcEndpointService operation to create an endpoint service.
  *
- * @description - Before you create an endpoint service, make sure that you have created a load balancer resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
- * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The endpoint service is not created at the time the request is returned. You can call [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
+ * @description - Before you create an endpoint service, make sure that you have created a load balancing resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
+ * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns an instance ID, but the endpoint service is not yet created. The background node is still running. You can invoke [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
  *      - If the endpoint service is in the **Creating** state, the endpoint service is being created.
  *      - If the endpoint service is in the **Active** state, the endpoint service is created.
  *
@@ -644,10 +685,10 @@ CreateVpcEndpointServiceResponse Client::createVpcEndpointServiceWithOptions(con
 }
 
 /**
- * @summary Creates an endpoint service by calling the CreateVpcEndpointService operation.
+ * @summary Calls the CreateVpcEndpointService operation to create an endpoint service.
  *
- * @description - Before you create an endpoint service, make sure that you have created a load balancer resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
- * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The endpoint service is not created at the time the request is returned. You can call [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
+ * @description - Before you create an endpoint service, make sure that you have created a load balancing resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
+ * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns an instance ID, but the endpoint service is not yet created. The background node is still running. You can invoke [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
  *      - If the endpoint service is in the **Creating** state, the endpoint service is being created.
  *      - If the endpoint service is in the **Active** state, the endpoint service is created.
  *
@@ -798,7 +839,7 @@ DeleteVpcEndpointServiceResponse Client::deleteVpcEndpointService(const DeleteVp
 }
 
 /**
- * @summary Calls the DescribeRegions operation to query the list of regions supported by PrivateLink.
+ * @summary Queries the regions that support PrivateLink.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -837,7 +878,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Calls the DescribeRegions operation to query the list of regions supported by PrivateLink.
+ * @summary Queries the regions that support PrivateLink.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -848,7 +889,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the zones supported by PrivateLink in a specified region. In cross-region scenarios, the supported zones on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
+ * @summary Queries the list of zones supported by PrivateLink in a specified region. In cross-region scenarios, the zones supported on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -895,7 +936,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the zones supported by PrivateLink in a specified region. In cross-region scenarios, the supported zones on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
+ * @summary Queries the list of zones supported by PrivateLink in a specified region. In cross-region scenarios, the zones supported on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -1366,7 +1407,7 @@ EnableVpcEndpointZoneConnectionResponse Client::enableVpcEndpointZoneConnection(
 }
 
 /**
- * @summary Use `GetVpcEndpointAttribute` to query the attributes of a specified endpoint.
+ * @summary Queries the attributes of an endpoint.
  *
  * @param request GetVpcEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1405,7 +1446,7 @@ GetVpcEndpointAttributeResponse Client::getVpcEndpointAttributeWithOptions(const
 }
 
 /**
- * @summary Use `GetVpcEndpointAttribute` to query the attributes of a specified endpoint.
+ * @summary Queries the attributes of an endpoint.
  *
  * @param request GetVpcEndpointAttributeRequest
  * @return GetVpcEndpointAttributeResponse
@@ -2040,7 +2081,7 @@ ListVpcEndpointZonesResponse Client::listVpcEndpointZones(const ListVpcEndpointZ
 }
 
 /**
- * @summary The `ListVpcEndpoints` operation lists endpoints.
+ * @summary Queries a list of endpoints.
  *
  * @param request ListVpcEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2127,7 +2168,7 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const ListVpcEndpoi
 }
 
 /**
- * @summary The `ListVpcEndpoints` operation lists endpoints.
+ * @summary Queries a list of endpoints.
  *
  * @param request ListVpcEndpointsRequest
  * @return ListVpcEndpointsResponse
@@ -2180,10 +2221,10 @@ OpenPrivateLinkServiceResponse Client::openPrivateLinkService(const OpenPrivateL
 }
 
 /**
- * @summary Removes an account ID from the whitelist of an endpoint service.
+ * @summary Calls the RemoveUserFromVpcEndpointService operation to remove a user account from the service whitelist of an endpoint service.
  *
- * @description - Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
- * - You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+ * @description - Before removing a user account from the service whitelist, make sure the endpoint service is in the **Active** state. You can invoke the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+ * - The **RemoveUserFromVpcEndpointService** operation does not support concurrent removal of user accounts from the service whitelist of the same endpoint service.
  *
  * @param request RemoveUserFromVpcEndpointServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2238,10 +2279,10 @@ RemoveUserFromVpcEndpointServiceResponse Client::removeUserFromVpcEndpointServic
 }
 
 /**
- * @summary Removes an account ID from the whitelist of an endpoint service.
+ * @summary Calls the RemoveUserFromVpcEndpointService operation to remove a user account from the service whitelist of an endpoint service.
  *
- * @description - Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
- * - You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+ * @description - Before removing a user account from the service whitelist, make sure the endpoint service is in the **Active** state. You can invoke the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+ * - The **RemoveUserFromVpcEndpointService** operation does not support concurrent removal of user accounts from the service whitelist of the same endpoint service.
  *
  * @param request RemoveUserFromVpcEndpointServiceRequest
  * @return RemoveUserFromVpcEndpointServiceResponse
@@ -2468,9 +2509,9 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary The `UpdateVpcEndpointAttribute` operation modifies the properties of an endpoint.
+ * @summary Modifies the attributes of an endpoint.
  *
- * @description The **UpdateVpcEndpointAttribute** operation cannot be called concurrently to modify endpoint properties for the same Alibaba Cloud main account.
+ * @description The **UpdateVpcEndpointAttribute** operation does not support concurrent modification of endpoint attributes within the same Alibaba Cloud account.
  *
  * @param request UpdateVpcEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2545,9 +2586,9 @@ UpdateVpcEndpointAttributeResponse Client::updateVpcEndpointAttributeWithOptions
 }
 
 /**
- * @summary The `UpdateVpcEndpointAttribute` operation modifies the properties of an endpoint.
+ * @summary Modifies the attributes of an endpoint.
  *
- * @description The **UpdateVpcEndpointAttribute** operation cannot be called concurrently to modify endpoint properties for the same Alibaba Cloud main account.
+ * @description The **UpdateVpcEndpointAttribute** operation does not support concurrent modification of endpoint attributes within the same Alibaba Cloud account.
  *
  * @param request UpdateVpcEndpointAttributeRequest
  * @return UpdateVpcEndpointAttributeResponse
@@ -2632,10 +2673,10 @@ UpdateVpcEndpointConnectionAttributeResponse Client::updateVpcEndpointConnection
 }
 
 /**
- * @summary The UpdateVpcEndpointServiceAttribute operation modifies the attributes of an endpoint service.
+ * @summary Calls the UpdateVpcEndpointServiceAttribute operation to modify the attributes of an endpoint service.
  *
- * @description - Before you modify the attributes of an endpoint service, ensure that the service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check the status of the endpoint service.
- * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modifications to the attributes of an endpoint service within the same Alibaba Cloud account (root user).
+ * @description - Before you modify the attributes of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+ * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modification of endpoint service attributes within the same Alibaba Cloud account.
  *
  * @param request UpdateVpcEndpointServiceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2714,10 +2755,10 @@ UpdateVpcEndpointServiceAttributeResponse Client::updateVpcEndpointServiceAttrib
 }
 
 /**
- * @summary The UpdateVpcEndpointServiceAttribute operation modifies the attributes of an endpoint service.
+ * @summary Calls the UpdateVpcEndpointServiceAttribute operation to modify the attributes of an endpoint service.
  *
- * @description - Before you modify the attributes of an endpoint service, ensure that the service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check the status of the endpoint service.
- * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modifications to the attributes of an endpoint service within the same Alibaba Cloud account (root user).
+ * @description - Before you modify the attributes of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+ * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modification of endpoint service attributes within the same Alibaba Cloud account.
  *
  * @param request UpdateVpcEndpointServiceAttributeRequest
  * @return UpdateVpcEndpointServiceAttributeResponse

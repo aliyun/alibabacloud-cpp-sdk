@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the endpoint.
+    // The ID of the endpoint whose attributes you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
-    // The region ID of the endpoint.
+    // The region ID of the endpoint whose attributes you want to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

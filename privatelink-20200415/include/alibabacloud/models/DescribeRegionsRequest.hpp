@@ -50,14 +50,14 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The regions in which PrivateLink is available vary based on the service resource type. When you query the regions in which PrivateLink is available, you can specify a service resource type. Valid values:
+    // The EPS resource type supported by PrivateLink. The available regions vary based on the service resource type. You can specify a service resource type when querying the regions where PrivateLink is available. Valid values:
     // 
-    // - **slb** (default): indicates that the service resource type is Classic Load Balancer (CLB).
-    // -  **alb**: indicates that the service resource type is Application Load Balancer (ALB).
-    // - **nlb**: indicates that the service resource type is Network Load Balancer (NLB).
-    // - **gwlb**: indicates that the service resource type is Gateway Load Balancer (GWLB).
+    // - **slb** (default): the service resource type is Classic Load Balancer (CLB).
+    // - **alb**: the service resource type is Application Load Balancer (ALB).
+    // - **nlb**: the service resource type is Network Load Balancer (NLB).
+    // - **gwlb**: the service resource type is Gateway Load Balancer (GWLB).
     // 
-    // - **ALL**: indicates all of the preceding service resource types.
+    // - **ALL**: all of the preceding types.
     shared_ptr<string> serviceResourceType_ {};
   };
 

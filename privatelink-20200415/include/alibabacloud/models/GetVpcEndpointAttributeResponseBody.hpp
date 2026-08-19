@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndpointType, endpointType_);
       DARABONBA_PTR_TO_JSON(Payer, payer_);
       DARABONBA_PTR_TO_JSON(PolicyDocument, policyDocument_);
+      DARABONBA_PTR_TO_JSON(ProtectedEnabled, protectedEnabled_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndpointType, endpointType_);
       DARABONBA_PTR_FROM_JSON(Payer, payer_);
       DARABONBA_PTR_FROM_JSON(PolicyDocument, policyDocument_);
+      DARABONBA_PTR_FROM_JSON(ProtectedEnabled, protectedEnabled_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -78,9 +80,9 @@ namespace Models
     virtual bool empty() const override { return this->addressIpVersion_ == nullptr
         && this->bandwidth_ == nullptr && this->connectionStatus_ == nullptr && this->createTime_ == nullptr && this->crossRegionBandwidth_ == nullptr && this->endpointBusinessStatus_ == nullptr
         && this->endpointDescription_ == nullptr && this->endpointDomain_ == nullptr && this->endpointId_ == nullptr && this->endpointName_ == nullptr && this->endpointStatus_ == nullptr
-        && this->endpointType_ == nullptr && this->payer_ == nullptr && this->policyDocument_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwner_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr && this->serviceRegionId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneAffinityEnabled_ == nullptr && this->zonePrivateIpAddressCount_ == nullptr; };
+        && this->endpointType_ == nullptr && this->payer_ == nullptr && this->policyDocument_ == nullptr && this->protectedEnabled_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwner_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr
+        && this->serviceRegionId_ == nullptr && this->vpcId_ == nullptr && this->zoneAffinityEnabled_ == nullptr && this->zonePrivateIpAddressCount_ == nullptr; };
     // addressIpVersion Field Functions 
     bool hasAddressIpVersion() const { return this->addressIpVersion_ != nullptr;};
     void deleteAddressIpVersion() { this->addressIpVersion_ = nullptr;};
@@ -179,6 +181,13 @@ namespace Models
     inline GetVpcEndpointAttributeResponseBody& setPolicyDocument(string policyDocument) { DARABONBA_PTR_SET_VALUE(policyDocument_, policyDocument) };
 
 
+    // protectedEnabled Field Functions 
+    bool hasProtectedEnabled() const { return this->protectedEnabled_ != nullptr;};
+    void deleteProtectedEnabled() { this->protectedEnabled_ = nullptr;};
+    inline bool getProtectedEnabled() const { DARABONBA_PTR_GET_DEFAULT(protectedEnabled_, false) };
+    inline GetVpcEndpointAttributeResponseBody& setProtectedEnabled(bool protectedEnabled) { DARABONBA_PTR_SET_VALUE(protectedEnabled_, protectedEnabled) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -250,43 +259,42 @@ namespace Models
 
 
   protected:
-    // The IP version. Valid values:
+    // The protocol version. Valid values:
     // 
-    // - **IPv4**: Supports IPv4 only.
-    // 
-    // - **DualStack**: Supports both IPv4 and IPv6.
+    // - **IPv4**: IPv4.
+    // - **DualStack**: dual-stack.
     shared_ptr<string> addressIpVersion_ {};
-    // The connection bandwidth of the endpoint, in Mbps.
+    // The bandwidth of the endpoint connection. Unit: Mbps.
     shared_ptr<int32_t> bandwidth_ {};
-    // The state of the endpoint connection. Valid values:
+    // The endpoint connection status. Valid values:
     // 
-    // - **Pending**: The connection is being modified.
+    // - **Pending**: being modified.
     // 
-    // - **Connecting**: The endpoint is connecting to the endpoint service.
+    // - **Connecting**: connecting.
     // 
-    // - **Connected**: The endpoint is connected to the endpoint service.
+    // - **Connected**: connected.
     // 
-    // - **Disconnecting**: The endpoint is disconnecting from the endpoint service.
+    // - **Disconnecting**: disconnecting.
     // 
-    // - **Disconnected**: The endpoint is not connected to the endpoint service.
+    // - **Disconnected**: disconnected.
     // 
-    // - **Deleting**: The endpoint is being deleted.
+    // - **Deleting**: being deleted.
     // 
-    // - **ServiceDeleted**: The associated endpoint service has been deleted.
+    // - **ServiceDeleted**: the corresponding endpoint service has been deleted.
     shared_ptr<string> connectionStatus_ {};
-    // The time the endpoint was created.
+    // The time when the endpoint was created.
     shared_ptr<string> createTime_ {};
-    // The cross-region bandwidth, in Mbps.
+    // The cross-region bandwidth of the endpoint. Unit: Mbps.
     shared_ptr<int32_t> crossRegionBandwidth_ {};
     // The business status of the endpoint. Valid values:
     // 
-    // - **Normal**: The endpoint is running as expected.
+    // - **Normal**: Normal.
     // 
-    // - **FinancialLocked**: The endpoint is locked due to an overdue payment.
+    // - **FinancialLocked**: Financial lock.
     shared_ptr<string> endpointBusinessStatus_ {};
     // The description of the endpoint.
     shared_ptr<string> endpointDescription_ {};
-    // The domain name of the endpoint.
+    // The endpoint domain name.
     shared_ptr<string> endpointDomain_ {};
     // The endpoint ID.
     shared_ptr<string> endpointId_ {};
@@ -294,21 +302,20 @@ namespace Models
     shared_ptr<string> endpointName_ {};
     // The status of the endpoint. Valid values:
     // 
-    // - **Creating**: The endpoint is being created.
+    // - **Creating**: being created.
     // 
-    // - **Active**: The endpoint is available.
+    // - **Active**: available.
     // 
-    // - **Pending**: The endpoint is being modified.
+    // - **Pending**: being modified.
     // 
-    // - **Deleting**: The endpoint is being deleted.
+    // - **Deleting**: being deleted.
     shared_ptr<string> endpointStatus_ {};
-    // The type of the endpoint. Valid values:
+    // The endpoint type. Valid values:
     // 
-    // - **Interface**: an interface endpoint.
+    // - **Interface**: interface endpoint.
     // 
-    // - **Reverse**: a reverse endpoint.
-    // 
-    // - **GatewayLoadBalancer**: a Gateway Load Balancer endpoint (GWLBe).
+    // - **Reverse**: reverse endpoint.
+    // - **GatewayLoadBalancer**: Gateway Load Balancer endpoint (GWLBe).
     shared_ptr<string> endpointType_ {};
     // The payer. Valid values:
     // 
@@ -316,9 +323,17 @@ namespace Models
     // 
     // - **EndpointService**: the service provider.
     shared_ptr<string> payer_ {};
-    // The RAM policy. For more information about policy elements, see [Basic elements of a policy](https://help.aliyun.com/document_detail/93738.html).
+    // The RAM access policy. For more information about the policy definition, see [Policy elements](https://help.aliyun.com/document_detail/93738.html).
     shared_ptr<string> policyDocument_ {};
-    // The ID of the region where the endpoint is located.
+    // Indicates whether managed protection is enabled. This parameter takes effect only when the STS calling method is used. Valid values:
+    // 
+    // **true**: enabled. After managed protection is enabled, only the same user who created the endpoint can modify or delete the endpoint by using STS.
+    // 
+    // **false**: disabled.
+    // 
+    // This parameter is required.
+    shared_ptr<bool> protectedEnabled_ {};
+    // The region ID of the endpoint.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -326,25 +341,25 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
     // 
-    // - **true**: Yes.
+    // - **true**: The endpoint and the endpoint service belong to the same account.
     // 
-    // - **false**: No.
+    // - **false**: The endpoint and the endpoint service belong to different accounts.
     shared_ptr<bool> resourceOwner_ {};
-    // The ID of the associated endpoint service.
+    // The ID of the endpoint service with which the endpoint is associated.
     shared_ptr<string> serviceId_ {};
-    // The name of the associated endpoint service.
+    // The name of the endpoint service with which the endpoint is associated.
     shared_ptr<string> serviceName_ {};
-    // The region ID of the associated endpoint service.
+    // The region ID of the endpoint service with which the endpoint is associated.
     shared_ptr<string> serviceRegionId_ {};
-    // The ID of the VPC to which the endpoint belongs.
+    // The ID of the virtual private cloud (VPC) to which the endpoint belongs.
     shared_ptr<string> vpcId_ {};
-    // Indicates whether the endpoint service\\"s domain name resolves to the endpoint\\"s IP address in the nearest zone. Valid values:
+    // Indicates whether zone affinity is enabled for the endpoint domain name to resolve to the connected service. Valid values:
     // 
-    // - **true**: Yes.
+    // - **true**: enabled.
     // 
-    // - **false**: No.
+    // - **false**: disabled.
     shared_ptr<bool> zoneAffinityEnabled_ {};
-    // The number of private IP addresses for the elastic network interface (ENI) in each zone. This value is always **1**.
+    // The number of private IP addresses assigned to the endpoint elastic network interface (ENI) in each zone. The value is fixed to **1**.
     shared_ptr<int64_t> zonePrivateIpAddressCount_ {};
   };
 

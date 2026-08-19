@@ -186,71 +186,39 @@ namespace Models
 
 
   protected:
-    // The IP version of the endpoint. Valid values:
-    // 
-    // - **IPv4**: IPv4 (default).
-    // 
-    // - **DualStack**: Dual-stack.
+    // The protocol version. Valid values:
     shared_ptr<string> addressIpVersion_ {};
-    // The bandwidth of the endpoint connection, in Mbps.
+    // The connection bandwidth of the endpoint. Unit: Mbps.
     shared_ptr<int64_t> bandwidth_ {};
-    // The connection status of the endpoint. Valid values:
-    // 
-    // - **Pending**: The endpoint is being modified.
-    // 
-    // - **Connecting**: The endpoint is being connected.
-    // 
-    // - **Connected**: The endpoint is connected.
-    // 
-    // - **Disconnecting**: The endpoint is being disconnected.
-    // 
-    // - **Disconnected**: The endpoint is disconnected.
-    // 
-    // - **Deleting**: The endpoint is being deleted.
+    // The endpoint connection status. Valid values:
     shared_ptr<string> connectionStatus_ {};
-    // The time the endpoint was created.
+    // The time when the endpoint was created.
     shared_ptr<string> createTime_ {};
-    // The cross-region bandwidth in Mbps. This parameter is returned only when the endpoint and the endpoint service are in different regions.
+    // The cross-region bandwidth value of the endpoint. This parameter is applicable only when the endpoint and the endpoint service are in different regions. Unit: Mbps.
     shared_ptr<int32_t> crossRegionBandwidth_ {};
     // The business status of the endpoint. Valid values:
-    // 
-    // - **Normal**: The endpoint is running as expected.
-    // 
-    // - **FinancialLocked**: The endpoint is locked due to overdue payments.
     shared_ptr<string> endpointBusinessStatus_ {};
     // The description of the endpoint.
     shared_ptr<string> endpointDescription_ {};
     // The endpoint domain name.
     shared_ptr<string> endpointDomain_ {};
-    // The ID of the endpoint.
+    // The endpoint ID.
     shared_ptr<string> endpointId_ {};
     // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
-    // The status of the endpoint. Valid values:
-    // 
-    // - **Creating**: The endpoint is being created.
-    // 
-    // - **Active**: The endpoint is available.
-    // 
-    // - **Pending**: The endpoint is being modified.
-    // 
-    // - **Deleting**: The endpoint is being deleted.
+    // The endpoint status. Valid values:
     shared_ptr<string> endpointStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the associated endpoint service.
+    // The ID of the endpoint service that is associated with the endpoint.
     shared_ptr<string> serviceId_ {};
-    // The name of the associated endpoint service.
+    // The name of the endpoint service that is associated with the endpoint.
     shared_ptr<string> serviceName_ {};
     // The region ID of the endpoint service.
     shared_ptr<string> serviceRegionId_ {};
-    // The ID of the VPC that contains the endpoint.
+    // The VPC to which the endpoint belongs.
     shared_ptr<string> vpcId_ {};
-    // Indicates whether zone affinity is enabled. Valid values:
-    // 
-    // - **true**: Zone affinity is enabled.
-    // 
-    // - **false**: Zone affinity is disabled.
+    // Specifies whether to support zone affinity for the endpoint domain name when connecting to the service. Valid values:
     shared_ptr<bool> zoneAffinityEnabled_ {};
   };
 

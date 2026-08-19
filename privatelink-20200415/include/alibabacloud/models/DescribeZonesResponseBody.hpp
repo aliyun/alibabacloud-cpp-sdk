@@ -126,7 +126,7 @@ namespace Models
 
 
   protected:
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };

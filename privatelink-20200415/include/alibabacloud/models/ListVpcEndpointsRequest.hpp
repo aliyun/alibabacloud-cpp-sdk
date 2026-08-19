@@ -94,11 +94,11 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
       // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the instance. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
       // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -209,73 +209,69 @@ namespace Models
 
 
   protected:
-    // The IP version. Valid values:
+    // The protocol version. Valid values:
     // 
-    // - **IPv4**: IPv4
-    // 
-    // - **DualStack**: dual stack
+    // - **IPv4**: IPv4.
+    // - **DualStack**: dual-stack.
     shared_ptr<string> addressIpVersion_ {};
-    // The connection state of the endpoint. Valid values:
+    // The endpoint connection status. Valid values:
     // 
-    // - **Pending**: The endpoint connection is being modified.
+    // - **Pending**: being modified.
     // 
-    // - **Connecting**: The endpoint is connecting.
+    // - **Connecting**: connecting.
     // 
-    // - **Connected**: The endpoint is connected.
+    // - **Connected**: connected.
     // 
-    // - **Disconnecting**: The endpoint is disconnecting.
+    // - **Disconnecting**: disconnecting.
     // 
-    // - **Disconnected**: The endpoint is disconnected.
+    // - **Disconnected**: disconnected.
     // 
-    // - **Deleting**: The endpoint is being deleted.
+    // - **Deleting**: being deleted.
     // 
-    // - **ServiceDeleted**: The endpoint service with which the endpoint is associated has been deleted.
+    // - **ServiceDeleted**: the corresponding endpoint service has been deleted.
     shared_ptr<string> connectionStatus_ {};
-    // The ID of the endpoint.
+    // The ID of the endpoint that you want to query.
     shared_ptr<string> endpointId_ {};
     // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
     // The status of the endpoint. Valid values:
     // 
-    // - **Creating**: The endpoint is being created.
+    // - **Creating**: being created.
     // 
-    // - **Active**: The endpoint is available.
+    // - **Active**: available.
     // 
-    // - **Pending**: The endpoint is being modified.
+    // - **Pending**: being modified.
     // 
-    // - **Deleting**: The endpoint is being deleted.
+    // - **Deleting**: being deleted.
     shared_ptr<string> endpointStatus_ {};
-    // The type of the endpoint. Valid values:
+    // The endpoint type. Valid values:
     // 
-    // - **Interface**: an interface endpoint
+    // - **Interface**: interface endpoint.
     // 
-    // - **Reverse**: a reverse endpoint
-    // 
-    // - **GatewayLoadBalancer**: a Gateway Load Balancer-type endpoint
+    // - **Reverse**: reverse endpoint.
+    // - **GatewayLoadBalancer**: Gateway Load Balancer endpoint (GWLBe). You can create a Gateway Load Balancer endpoint (GWLBe) to connect to a Gateway Load Balancer (GWLB) for load balancing.
     shared_ptr<string> endpointType_ {};
-    // The number of entries to return on each page. Valid values: **1** to **1000**. Default value: **50**.
+    // The number of entries per page. Valid values: **1** to **1000**. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
-    // 
-    // - If this is your first query or no next page is available, you do not need to specify this parameter.
-    // 
-    // - If a next page is available, set the value to the **NextToken** value that is returned from the previous call.
+    // Specifies whether to have a token for the next query. Valid values:
+    // - If this is the first query or there is no next query, you do not need to specify this parameter.
+    // - If a next query exists, set the value to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the endpoint is deployed.
+    // The region ID of the endpoints that you want to query.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The name of the endpoint service with which the endpoint is associated.
+    // The service name of the endpoint service associated with the endpoint that you want to query.
     shared_ptr<string> serviceName_ {};
-    // The ID of the region where the endpoint service is deployed.
+    // The region ID of the endpoint service.
     shared_ptr<string> serviceRegionId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListVpcEndpointsRequest::Tag>> tag_ {};
-    // The ID of the VPC to which the endpoint belongs.
+    // The ID of the virtual private cloud (VPC) to which the endpoint belongs.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -155,9 +155,7 @@ namespace Privatelink20200415
       /**
        * @summary Creates an endpoint.
        *
-       * @description **CreateVpcEndpoint** is an asynchronous operation. After you send the request, the system returns an instance ID and starts creating the endpoint in the background. You can call [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to check the endpoint\\"s creation status:
-       * - **Creating**: The endpoint is being created.
-       * - **Active**: The endpoint is available.
+       * @description **CreateVpcEndpoint** is an asynchronous operation. After you send a request, the system returns an instance ID, but the endpoint is not yet created. The background node is still in progress. You can invoke [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to query the creation status of the endpoint:
        *
        * @param request CreateVpcEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -168,9 +166,7 @@ namespace Privatelink20200415
       /**
        * @summary Creates an endpoint.
        *
-       * @description **CreateVpcEndpoint** is an asynchronous operation. After you send the request, the system returns an instance ID and starts creating the endpoint in the background. You can call [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to check the endpoint\\"s creation status:
-       * - **Creating**: The endpoint is being created.
-       * - **Active**: The endpoint is available.
+       * @description **CreateVpcEndpoint** is an asynchronous operation. After you send a request, the system returns an instance ID, but the endpoint is not yet created. The background node is still in progress. You can invoke [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/469349.html) to query the creation status of the endpoint:
        *
        * @param request CreateVpcEndpointRequest
        * @return CreateVpcEndpointResponse
@@ -178,10 +174,10 @@ namespace Privatelink20200415
       Models::CreateVpcEndpointResponse createVpcEndpoint(const Models::CreateVpcEndpointRequest &request);
 
       /**
-       * @summary Creates an endpoint service by calling the CreateVpcEndpointService operation.
+       * @summary Calls the CreateVpcEndpointService operation to create an endpoint service.
        *
-       * @description - Before you create an endpoint service, make sure that you have created a load balancer resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
-       * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The endpoint service is not created at the time the request is returned. You can call [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
+       * @description - Before you create an endpoint service, make sure that you have created a load balancing resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
+       * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns an instance ID, but the endpoint service is not yet created. The background node is still running. You can invoke [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
        *      - If the endpoint service is in the **Creating** state, the endpoint service is being created.
        *      - If the endpoint service is in the **Active** state, the endpoint service is created.
        *
@@ -192,10 +188,10 @@ namespace Privatelink20200415
       Models::CreateVpcEndpointServiceResponse createVpcEndpointServiceWithOptions(const Models::CreateVpcEndpointServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an endpoint service by calling the CreateVpcEndpointService operation.
+       * @summary Calls the CreateVpcEndpointService operation to create an endpoint service.
        *
-       * @description - Before you create an endpoint service, make sure that you have created a load balancer resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
-       * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The endpoint service is not created at the time the request is returned. You can call [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
+       * @description - Before you create an endpoint service, make sure that you have created a load balancing resource that supports PrivateLink. For more information, see [Create a load balancer instance](https://help.aliyun.com/document_detail/174064.html).
+       * - **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns an instance ID, but the endpoint service is not yet created. The background node is still running. You can invoke [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) to query the creation status of the endpoint service:
        *      - If the endpoint service is in the **Creating** state, the endpoint service is being created.
        *      - If the endpoint service is in the **Active** state, the endpoint service is created.
        *
@@ -261,7 +257,7 @@ namespace Privatelink20200415
       Models::DeleteVpcEndpointServiceResponse deleteVpcEndpointService(const Models::DeleteVpcEndpointServiceRequest &request);
 
       /**
-       * @summary Calls the DescribeRegions operation to query the list of regions supported by PrivateLink.
+       * @summary Queries the regions that support PrivateLink.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -270,7 +266,7 @@ namespace Privatelink20200415
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DescribeRegions operation to query the list of regions supported by PrivateLink.
+       * @summary Queries the regions that support PrivateLink.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -278,7 +274,7 @@ namespace Privatelink20200415
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the zones supported by PrivateLink in a specified region. In cross-region scenarios, the supported zones on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
+       * @summary Queries the list of zones supported by PrivateLink in a specified region. In cross-region scenarios, the zones supported on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
        *
        * @param request DescribeZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +283,7 @@ namespace Privatelink20200415
       Models::DescribeZonesResponse describeZonesWithOptions(const Models::DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the zones supported by PrivateLink in a specified region. In cross-region scenarios, the supported zones on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
+       * @summary Queries the list of zones supported by PrivateLink in a specified region. In cross-region scenarios, the zones supported on the endpoint side and the endpoint service side are independent of each other. This operation allows you to query the supported zones for the endpoint side and the endpoint service side separately.
        *
        * @param request DescribeZonesRequest
        * @return DescribeZonesResponse
@@ -457,7 +453,7 @@ namespace Privatelink20200415
       Models::EnableVpcEndpointZoneConnectionResponse enableVpcEndpointZoneConnection(const Models::EnableVpcEndpointZoneConnectionRequest &request);
 
       /**
-       * @summary Use `GetVpcEndpointAttribute` to query the attributes of a specified endpoint.
+       * @summary Queries the attributes of an endpoint.
        *
        * @param request GetVpcEndpointAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,7 +462,7 @@ namespace Privatelink20200415
       Models::GetVpcEndpointAttributeResponse getVpcEndpointAttributeWithOptions(const Models::GetVpcEndpointAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use `GetVpcEndpointAttribute` to query the attributes of a specified endpoint.
+       * @summary Queries the attributes of an endpoint.
        *
        * @param request GetVpcEndpointAttributeRequest
        * @return GetVpcEndpointAttributeResponse
@@ -637,7 +633,7 @@ namespace Privatelink20200415
       Models::ListVpcEndpointZonesResponse listVpcEndpointZones(const Models::ListVpcEndpointZonesRequest &request);
 
       /**
-       * @summary The `ListVpcEndpoints` operation lists endpoints.
+       * @summary Queries a list of endpoints.
        *
        * @param request ListVpcEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +642,7 @@ namespace Privatelink20200415
       Models::ListVpcEndpointsResponse listVpcEndpointsWithOptions(const Models::ListVpcEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The `ListVpcEndpoints` operation lists endpoints.
+       * @summary Queries a list of endpoints.
        *
        * @param request ListVpcEndpointsRequest
        * @return ListVpcEndpointsResponse
@@ -671,10 +667,10 @@ namespace Privatelink20200415
       Models::OpenPrivateLinkServiceResponse openPrivateLinkService(const Models::OpenPrivateLinkServiceRequest &request);
 
       /**
-       * @summary Removes an account ID from the whitelist of an endpoint service.
+       * @summary Calls the RemoveUserFromVpcEndpointService operation to remove a user account from the service whitelist of an endpoint service.
        *
-       * @description - Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-       * - You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+       * @description - Before removing a user account from the service whitelist, make sure the endpoint service is in the **Active** state. You can invoke the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+       * - The **RemoveUserFromVpcEndpointService** operation does not support concurrent removal of user accounts from the service whitelist of the same endpoint service.
        *
        * @param request RemoveUserFromVpcEndpointServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -683,10 +679,10 @@ namespace Privatelink20200415
       Models::RemoveUserFromVpcEndpointServiceResponse removeUserFromVpcEndpointServiceWithOptions(const Models::RemoveUserFromVpcEndpointServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes an account ID from the whitelist of an endpoint service.
+       * @summary Calls the RemoveUserFromVpcEndpointService operation to remove a user account from the service whitelist of an endpoint service.
        *
-       * @description - Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-       * - You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+       * @description - Before removing a user account from the service whitelist, make sure the endpoint service is in the **Active** state. You can invoke the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+       * - The **RemoveUserFromVpcEndpointService** operation does not support concurrent removal of user accounts from the service whitelist of the same endpoint service.
        *
        * @param request RemoveUserFromVpcEndpointServiceRequest
        * @return RemoveUserFromVpcEndpointServiceResponse
@@ -759,9 +755,9 @@ namespace Privatelink20200415
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary The `UpdateVpcEndpointAttribute` operation modifies the properties of an endpoint.
+       * @summary Modifies the attributes of an endpoint.
        *
-       * @description The **UpdateVpcEndpointAttribute** operation cannot be called concurrently to modify endpoint properties for the same Alibaba Cloud main account.
+       * @description The **UpdateVpcEndpointAttribute** operation does not support concurrent modification of endpoint attributes within the same Alibaba Cloud account.
        *
        * @param request UpdateVpcEndpointAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -770,9 +766,9 @@ namespace Privatelink20200415
       Models::UpdateVpcEndpointAttributeResponse updateVpcEndpointAttributeWithOptions(const Models::UpdateVpcEndpointAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The `UpdateVpcEndpointAttribute` operation modifies the properties of an endpoint.
+       * @summary Modifies the attributes of an endpoint.
        *
-       * @description The **UpdateVpcEndpointAttribute** operation cannot be called concurrently to modify endpoint properties for the same Alibaba Cloud main account.
+       * @description The **UpdateVpcEndpointAttribute** operation does not support concurrent modification of endpoint attributes within the same Alibaba Cloud account.
        *
        * @param request UpdateVpcEndpointAttributeRequest
        * @return UpdateVpcEndpointAttributeResponse
@@ -801,10 +797,10 @@ namespace Privatelink20200415
       Models::UpdateVpcEndpointConnectionAttributeResponse updateVpcEndpointConnectionAttribute(const Models::UpdateVpcEndpointConnectionAttributeRequest &request);
 
       /**
-       * @summary The UpdateVpcEndpointServiceAttribute operation modifies the attributes of an endpoint service.
+       * @summary Calls the UpdateVpcEndpointServiceAttribute operation to modify the attributes of an endpoint service.
        *
-       * @description - Before you modify the attributes of an endpoint service, ensure that the service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check the status of the endpoint service.
-       * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modifications to the attributes of an endpoint service within the same Alibaba Cloud account (root user).
+       * @description - Before you modify the attributes of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+       * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modification of endpoint service attributes within the same Alibaba Cloud account.
        *
        * @param request UpdateVpcEndpointServiceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -813,10 +809,10 @@ namespace Privatelink20200415
       Models::UpdateVpcEndpointServiceAttributeResponse updateVpcEndpointServiceAttributeWithOptions(const Models::UpdateVpcEndpointServiceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The UpdateVpcEndpointServiceAttribute operation modifies the attributes of an endpoint service.
+       * @summary Calls the UpdateVpcEndpointServiceAttribute operation to modify the attributes of an endpoint service.
        *
-       * @description - Before you modify the attributes of an endpoint service, ensure that the service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to check the status of the endpoint service.
-       * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modifications to the attributes of an endpoint service within the same Alibaba Cloud account (root user).
+       * @description - Before you modify the attributes of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the endpoint service status.
+       * - The **UpdateVpcEndpointServiceAttribute** operation does not support concurrent modification of endpoint service attributes within the same Alibaba Cloud account.
        *
        * @param request UpdateVpcEndpointServiceAttributeRequest
        * @return UpdateVpcEndpointServiceAttributeResponse

@@ -112,21 +112,21 @@ namespace Models
 
 
     protected:
-      // The business status of the region in which the endpoint service is available. Valid values:
+      // The business status of the region supported by the endpoint service. Valid values:
       // 
       // - **Normal**: normal.
-      // - **FinancialLocked**: locked due to overdue payments.
+      // - **FinancialLocked**: financial lock.
       shared_ptr<string> regionBusinessStatus_ {};
-      // The state of the region in which the endpoint service is available. Valid values:
+      // The status of the region supported by the endpoint service. Valid values:
       // 
-      // - **Pending**: changing.
+      // - **Pending**: being modified.
       // - **Available**: available.
       // - **Deleting**: being deleted.
       // - **Failed**: failed.
       // - **Closed**: closed.
       shared_ptr<string> regionServiceStatus_ {};
       shared_ptr<string> serviceRegionId_ {};
-      // The ID of a region in which the endpoint service is available.
+      // The ID of the region supported by the endpoint service.
       shared_ptr<string> supportedRegionId_ {};
     };
 
@@ -235,37 +235,37 @@ namespace Models
 
 
   protected:
-    // The IP version. Valid values:
+    // The protocol version. Valid values:
     // 
     // - **IPv4**: IPv4.
-    // - **DualStack**: dual stack.
+    // - **DualStack**: dual-stack.
     shared_ptr<string> addressIpVersion_ {};
-    // Indicates whether endpoint connection requests are automatically accepted. Valid values:
+    // Indicates whether the endpoint service is configured to automatically accept endpoint connections. Valid values:
     // 
-    // - **true**: automatically accepts endpoint connection requests.
-    // - **false**: does not automatically accept endpoint connection requests.
+    // - **true**: The endpoint service automatically accepts endpoint connections.
+    // - **false**: The endpoint service does not automatically accept endpoint connections.
     shared_ptr<bool> autoAcceptEnabled_ {};
     // The time when the endpoint service was created.
     shared_ptr<string> createTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The business status of the endpoint service. Valid values:
     // 
     // - **Normal**: normal.
     // 
-    // - **FinancialLocked**: locked due to overdue payments.
+    // - **FinancialLocked**: financial lock.
     shared_ptr<string> serviceBusinessStatus_ {};
     // The description of the endpoint service.
     shared_ptr<string> serviceDescription_ {};
-    // The domain name of the endpoint service.
+    // The service domain name of the endpoint service.
     shared_ptr<string> serviceDomain_ {};
     // The ID of the endpoint service.
     shared_ptr<string> serviceId_ {};
-    // The name of the endpoint service.
+    // The service name of the endpoint service.
     shared_ptr<string> serviceName_ {};
-    // The state of the endpoint service. Valid values:
+    // The endpoint service status. Valid values:
     // 
     // - **Creating**: being created.
     // 
@@ -277,16 +277,16 @@ namespace Models
     shared_ptr<string> serviceStatus_ {};
     // Indicates whether the endpoint service supports IPv6. Valid values:
     // 
-    // - **true**: yes.
+    // - **true**: supported.
     // 
-    // - **false**: no.
+    // - **false**: not supported.
     shared_ptr<bool> serviceSupportIPv6_ {};
-    // The list of regions in which the endpoint service is available. Service consumers can initiate endpoint connections from the regions in the list.
+    // The list of regions supported by the endpoint service. Service consumers can initiate endpoint connections from the regions in the list.
     shared_ptr<vector<CreateVpcEndpointServiceResponseBody::SupportedRegionSet>> supportedRegionSet_ {};
-    // Indicates whether zone affinity is enabled for endpoint domain name resolution. Valid values:
+    // Indicates whether zone affinity is supported for the endpoint domain name of the endpoint service. Valid values:
     // 
-    // - **true**: yes.
-    // - **false**: no.
+    // - **true**: supported.
+    // - **false**: not supported.
     shared_ptr<bool> zoneAffinityEnabled_ {};
   };
 
