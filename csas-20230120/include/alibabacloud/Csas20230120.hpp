@@ -55,6 +55,48 @@ namespace Csas20230120
       Models::AttachPolicy2ApprovalProcessResponse attachPolicy2ApprovalProcess(const Models::AttachPolicy2ApprovalProcessRequest &request);
 
       /**
+       * @summary Inserts domain name entries into a domain name list in batches.
+       *
+       * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+       *
+       * @param request BatchCreateDomainItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCreateDomainItemsResponse
+       */
+      Models::BatchCreateDomainItemsResponse batchCreateDomainItemsWithOptions(const Models::BatchCreateDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Inserts domain name entries into a domain name list in batches.
+       *
+       * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+       *
+       * @param request BatchCreateDomainItemsRequest
+       * @return BatchCreateDomainItemsResponse
+       */
+      Models::BatchCreateDomainItemsResponse batchCreateDomainItems(const Models::BatchCreateDomainItemsRequest &request);
+
+      /**
+       * @summary Batch deletes domain name entries from a domain name list.
+       *
+       * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+       *
+       * @param request BatchDeleteDomainItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeleteDomainItemsResponse
+       */
+      Models::BatchDeleteDomainItemsResponse batchDeleteDomainItemsWithOptions(const Models::BatchDeleteDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch deletes domain name entries from a domain name list.
+       *
+       * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+       *
+       * @param request BatchDeleteDomainItemsRequest
+       * @return BatchDeleteDomainItemsResponse
+       */
+      Models::BatchDeleteDomainItemsResponse batchDeleteDomainItems(const Models::BatchDeleteDomainItemsRequest &request);
+
+      /**
        * @summary Creates an approval process under the current Alibaba Cloud account.
        *
        * @param tmpReq CreateApprovalProcessRequest
@@ -746,7 +788,7 @@ namespace Csas20230120
       Models::GetActiveIdpConfigResponse getActiveIdpConfig();
 
       /**
-       * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
+       * @summary Queries the details of an approval instance under the current Alibaba Cloud account.
        *
        * @param request GetApprovalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -755,7 +797,7 @@ namespace Csas20230120
       Models::GetApprovalResponse getApprovalWithOptions(const Models::GetApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
+       * @summary Queries the details of an approval instance under the current Alibaba Cloud account.
        *
        * @param request GetApprovalRequest
        * @return GetApprovalResponse
@@ -1139,7 +1181,7 @@ namespace Csas20230120
       Models::ListApprovalSchemasForApprovalProcessesResponse listApprovalSchemasForApprovalProcesses(const Models::ListApprovalSchemasForApprovalProcessesRequest &request);
 
       /**
-       * @summary Lists approval instances for your Alibaba Cloud account.
+       * @summary Queries the list of approval instances under the current Alibaba Cloud account.
        *
        * @param request ListApprovalsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1148,7 +1190,7 @@ namespace Csas20230120
       Models::ListApprovalsResponse listApprovalsWithOptions(const Models::ListApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists approval instances for your Alibaba Cloud account.
+       * @summary Queries the list of approval instances under the current Alibaba Cloud account.
        *
        * @param request ListApprovalsRequest
        * @return ListApprovalsResponse
@@ -1190,9 +1232,9 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
 
       /**
-       * @summary 分页查询域名条目
+       * @summary Queries domain name entries in a domain name list by paging.
        *
-       * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+       * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
        *
        * @param request ListDomainItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1201,9 +1243,9 @@ namespace Csas20230120
       Models::ListDomainItemsResponse listDomainItemsWithOptions(const Models::ListDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询域名条目
+       * @summary Queries domain name entries in a domain name list by paging.
        *
-       * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+       * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
        *
        * @param request ListDomainItemsRequest
        * @return ListDomainItemsResponse

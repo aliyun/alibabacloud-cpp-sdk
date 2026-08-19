@@ -109,13 +109,23 @@ namespace Models
 
 
   protected:
+    // The logical relationship between rules at the same level. Valid values:
+    // - **AND**: All rules at the same level must be hit.
+    // - **OR**: Any one rule at the same level can be hit.
     shared_ptr<string> combinator_ {};
+    // The rule ID.
     shared_ptr<string> id_ {};
+    // The endpoint device attribute field to match. Required for leaf rules.
     shared_ptr<string> name_ {};
+    // The matching operator. Required for leaf rules.
     shared_ptr<string> operator_ {};
+    // The rule subtype.
     shared_ptr<string> ruleSubType_ {};
+    // The rule type.
     shared_ptr<string> ruleType_ {};
+    // The list of matching rules. At least one rule must be included.
     shared_ptr<vector<Rule>> rules_ {};
+    // The set of values to match. Required for leaf rules and cannot be empty.
     shared_ptr<vector<string>> values_ {};
   };
 

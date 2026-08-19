@@ -46,15 +46,18 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreatorDevTag, creatorDevTag_);
         DARABONBA_PTR_TO_JSON(CreatorUserId, creatorUserId_);
         DARABONBA_PTR_TO_JSON(CreatorUsername, creatorUsername_);
+        DARABONBA_PTR_TO_JSON(EffectStatus, effectStatus_);
         DARABONBA_PTR_TO_JSON(EndTimestamp, endTimestamp_);
         DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
         DARABONBA_PTR_TO_JSON(ProcessId, processId_);
         DARABONBA_PTR_TO_JSON(ProcessName, processName_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(ReportType, reportType_);
         DARABONBA_PTR_TO_JSON(SchemaContent, schemaContent_);
         DARABONBA_PTR_TO_JSON(SchemaId, schemaId_);
         DARABONBA_PTR_TO_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(ValidityType, validityType_);
       };
       friend void from_json(const Darabonba::Json& j, Approvals& obj) { 
         DARABONBA_PTR_FROM_JSON(ApprovalDetail, approvalDetail_);
@@ -66,15 +69,18 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreatorDevTag, creatorDevTag_);
         DARABONBA_PTR_FROM_JSON(CreatorUserId, creatorUserId_);
         DARABONBA_PTR_FROM_JSON(CreatorUsername, creatorUsername_);
+        DARABONBA_PTR_FROM_JSON(EffectStatus, effectStatus_);
         DARABONBA_PTR_FROM_JSON(EndTimestamp, endTimestamp_);
         DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
         DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
         DARABONBA_PTR_FROM_JSON(ProcessName, processName_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
         DARABONBA_PTR_FROM_JSON(SchemaContent, schemaContent_);
         DARABONBA_PTR_FROM_JSON(SchemaId, schemaId_);
         DARABONBA_PTR_FROM_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(ValidityType, validityType_);
       };
       Approvals() = default ;
       Approvals(const Approvals &) = default ;
@@ -154,9 +160,9 @@ namespace Models
 
 
         protected:
-          // ID of the operator for the approval progress node.
+          // The ID of the operator for the approval progress node.
           shared_ptr<string> saseUserId_ {};
-          // Username of the operator for the approval progress node.
+          // The username of the operator for the approval progress node.
           shared_ptr<string> username_ {};
         };
 
@@ -207,41 +213,29 @@ namespace Models
 
 
       protected:
-        // Action performed at the approval progress node. Valid values:
-        // 
-        // - **Approve**: Approve.
-        // 
-        // - **Reject**: Reject.
-        // 
-        // - **Revoke**: Revoke.
-        // 
-        // - **Comment**: Comment.
+        // The action performed on the approval progress node. Valid values:
+        // - **Approve**: Approved.
+        // - **Reject**: Rejected.
+        // - **Revoke**: Revoked.
+        // - **Comment**: Commented.
         shared_ptr<string> action_ {};
-        // Comment added at the approval progress node.
+        // The comment on the approval progress node.
         shared_ptr<string> comment_ {};
-        // ID of the executor for the approval progress node.
+        // The ID of the executor for the approval progress node.
         shared_ptr<string> executor_ {};
-        // List of operators for the approval progress node.
+        // The list of operators for the approval progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
-        // Status of the approval progress node. Valid values:
-        // 
-        // - **Pending**: Pending approval.
-        // 
-        // - **Approved**: Approved.
-        // 
-        // - **Rejected**: Rejected.
-        // 
-        // - **Revoked**: Revoked.
+        // The status of the approval progress node. Valid values:
         shared_ptr<string> status_ {};
-        // Time when the action was performed at the approval progress node, in seconds since the Unix epoch.
+        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
       virtual bool empty() const override { return this->approvalDetail_ == nullptr
         && this->approvalId_ == nullptr && this->approvalProgresses_ == nullptr && this->approvalType_ == nullptr && this->createTime_ == nullptr && this->creatorDepartment_ == nullptr
-        && this->creatorDevTag_ == nullptr && this->creatorUserId_ == nullptr && this->creatorUsername_ == nullptr && this->endTimestamp_ == nullptr && this->policyType_ == nullptr
-        && this->processId_ == nullptr && this->processName_ == nullptr && this->reason_ == nullptr && this->schemaContent_ == nullptr && this->schemaId_ == nullptr
-        && this->schemaName_ == nullptr && this->status_ == nullptr; };
+        && this->creatorDevTag_ == nullptr && this->creatorUserId_ == nullptr && this->creatorUsername_ == nullptr && this->effectStatus_ == nullptr && this->endTimestamp_ == nullptr
+        && this->policyType_ == nullptr && this->processId_ == nullptr && this->processName_ == nullptr && this->reason_ == nullptr && this->reportType_ == nullptr
+        && this->schemaContent_ == nullptr && this->schemaId_ == nullptr && this->schemaName_ == nullptr && this->status_ == nullptr && this->validityType_ == nullptr; };
       // approvalDetail Field Functions 
       bool hasApprovalDetail() const { return this->approvalDetail_ != nullptr;};
       void deleteApprovalDetail() { this->approvalDetail_ = nullptr;};
@@ -307,6 +301,13 @@ namespace Models
       inline Approvals& setCreatorUsername(string creatorUsername) { DARABONBA_PTR_SET_VALUE(creatorUsername_, creatorUsername) };
 
 
+      // effectStatus Field Functions 
+      bool hasEffectStatus() const { return this->effectStatus_ != nullptr;};
+      void deleteEffectStatus() { this->effectStatus_ = nullptr;};
+      inline string getEffectStatus() const { DARABONBA_PTR_GET_DEFAULT(effectStatus_, "") };
+      inline Approvals& setEffectStatus(string effectStatus) { DARABONBA_PTR_SET_VALUE(effectStatus_, effectStatus) };
+
+
       // endTimestamp Field Functions 
       bool hasEndTimestamp() const { return this->endTimestamp_ != nullptr;};
       void deleteEndTimestamp() { this->endTimestamp_ = nullptr;};
@@ -342,6 +343,13 @@ namespace Models
       inline Approvals& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
+      // reportType Field Functions 
+      bool hasReportType() const { return this->reportType_ != nullptr;};
+      void deleteReportType() { this->reportType_ = nullptr;};
+      inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+      inline Approvals& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+
+
       // schemaContent Field Functions 
       bool hasSchemaContent() const { return this->schemaContent_ != nullptr;};
       void deleteSchemaContent() { this->schemaContent_ = nullptr;};
@@ -370,64 +378,61 @@ namespace Models
       inline Approvals& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // validityType Field Functions 
+      bool hasValidityType() const { return this->validityType_ != nullptr;};
+      void deleteValidityType() { this->validityType_ = nullptr;};
+      inline string getValidityType() const { DARABONBA_PTR_GET_DEFAULT(validityType_, "") };
+      inline Approvals& setValidityType(string validityType) { DARABONBA_PTR_SET_VALUE(validityType_, validityType) };
+
+
     protected:
-      // Details of the approval instance.
+      // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // Approval instance ID.
+      // The instance ID of the approval.
       shared_ptr<string> approvalId_ {};
-      // List of approval progress nodes.
+      // The list of approval progress nodes.
       shared_ptr<vector<Approvals::ApprovalProgresses>> approvalProgresses_ {};
       shared_ptr<int32_t> approvalType_ {};
-      // Time when the approval instance was created.
+      // The time when the approval instance was created.
       shared_ptr<string> createTime_ {};
-      // Department of the user who created the approval instance.
+      // The department of the approval instance creator.
       shared_ptr<string> creatorDepartment_ {};
-      // ID of the device used to create the approval instance.
+      // The terminal device ID of the approval instance creator.
       shared_ptr<string> creatorDevTag_ {};
-      // ID of the user who created the approval instance.
+      // The ID of the approval instance creator.
       shared_ptr<string> creatorUserId_ {};
-      // Username of the user who created the approval instance.
+      // The username of the approval instance creator.
       shared_ptr<string> creatorUsername_ {};
-      // Expiration time of the approval instance, in seconds since the Unix epoch.
+      // The effective status of the report. Enabled indicates that the report is effective. Expired indicates that the report has expired.
+      shared_ptr<string> effectStatus_ {};
+      // The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTimestamp_ {};
-      // Policy type associated with the approval instance. Valid values:
-      // 
-      // - **DomainBlacklist**: Domain blacklist.
-      // 
-      // - **DomainWhitelist**: Domain whitelist.
-      // 
-      // - **SoftwareBlock**: Software blocking.
-      // 
-      // - **AppUninstall**: App uninstallation.
-      // 
-      // - **DlpSend**: File outbound transfer.
-      // 
-      // - **PeripheralBlock**: Peripheral control.
+      // The type of the policy associated with the approval instance. Valid values:
+      // - **DomainBlacklist**: domain name blacklist.
+      // - **DomainWhitelist**: domain name whitelist.
+      // - **SoftwareBlock**: software blocking.
+      // - **AppUninstall**: terminal uninstallation.
+      // - **DlpSend**: file outgoing.
+      // - **PeripheralBlock**: peripheral control.
       shared_ptr<string> policyType_ {};
-      // ID of the associated approval process.
+      // The ID of the process associated with the approval instance.
       shared_ptr<string> processId_ {};
-      // Name of the associated approval process.
+      // The name of the process associated with the approval instance.
       shared_ptr<string> processName_ {};
-      // Reason for creating the approval instance.
+      // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
-      // Content of the associated approval template.
+      // The report type. ApprovalReport indicates an approval report. BackendReport indicates a backend report.
+      shared_ptr<string> reportType_ {};
+      // The content of the template associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
-      // ID of the associated approval template.
+      // The ID of the template associated with the approval instance.
       shared_ptr<string> schemaId_ {};
-      // Name of the associated approval template.
+      // The name of the template associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // Status of the approval instance. Valid values:
-      // 
-      // - **Pending**: Pending approval.
-      // 
-      // - **Approved**: Approved.
-      // 
-      // - **Rejected**: Rejected.
-      // 
-      // - **Revoked**: Revoked.
-      // 
-      // - **Expired**: Expired.
+      // The approval instance status. Valid values:
       shared_ptr<string> status_ {};
+      // The validity duration type. When the value is Permanent, EndTimestamp returns 0.
+      shared_ptr<string> validityType_ {};
     };
 
     virtual bool empty() const override { return this->approvals_ == nullptr
@@ -456,11 +461,11 @@ namespace Models
 
 
   protected:
-    // List of approval instances.
+    // The list of approval instances.
     shared_ptr<vector<ListApprovalsResponseBody::Approvals>> approvals_ {};
-    // ID of the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of approval instances.
+    // The total number of approval instances.
     shared_ptr<string> totalNum_ {};
   };
 

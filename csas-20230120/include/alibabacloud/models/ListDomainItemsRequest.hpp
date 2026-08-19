@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The current page number in paging.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The domain name value filter. Fuzzy match is supported.
     shared_ptr<string> itemValue_ {};
+    // The list ID. This is a unique business identifier used for policy references and CRUD operations.
+    // 
     // This parameter is required.
     shared_ptr<string> listId_ {};
+    // The list type (Blacklist/Whitelist).
+    // 
     // This parameter is required.
     shared_ptr<string> listType_ {};
+    // The number of entries per page in paging. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

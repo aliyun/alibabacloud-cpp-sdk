@@ -45,6 +45,12 @@
 #include <alibabacloud/models/AttachPolicy2ApprovalProcessRequest.hpp>
 #include <alibabacloud/models/AttachPolicy2ApprovalProcessResponseBody.hpp>
 #include <alibabacloud/models/AttachPolicy2ApprovalProcessResponse.hpp>
+#include <alibabacloud/models/BatchCreateDomainItemsRequest.hpp>
+#include <alibabacloud/models/BatchCreateDomainItemsResponseBody.hpp>
+#include <alibabacloud/models/BatchCreateDomainItemsResponse.hpp>
+#include <alibabacloud/models/BatchDeleteDomainItemsRequest.hpp>
+#include <alibabacloud/models/BatchDeleteDomainItemsResponseBody.hpp>
+#include <alibabacloud/models/BatchDeleteDomainItemsResponse.hpp>
 #include <alibabacloud/models/CreateApprovalProcessRequest.hpp>
 #include <alibabacloud/models/CreateApprovalProcessShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApprovalProcessResponseBody.hpp>

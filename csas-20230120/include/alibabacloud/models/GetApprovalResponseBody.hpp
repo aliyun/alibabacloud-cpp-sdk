@@ -38,39 +38,51 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ApprovalDetail, approvalDetail_);
         DARABONBA_PTR_TO_JSON(ApprovalId, approvalId_);
         DARABONBA_PTR_TO_JSON(ApprovalProgresses, approvalProgresses_);
+        DARABONBA_PTR_TO_JSON(ApprovalType, approvalType_);
+        DARABONBA_PTR_TO_JSON(BackendReportDetail, backendReportDetail_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CreateTimeUnix, createTimeUnix_);
         DARABONBA_PTR_TO_JSON(CreatorDepartment, creatorDepartment_);
         DARABONBA_PTR_TO_JSON(CreatorDevTag, creatorDevTag_);
         DARABONBA_PTR_TO_JSON(CreatorUserId, creatorUserId_);
         DARABONBA_PTR_TO_JSON(CreatorUsername, creatorUsername_);
+        DARABONBA_PTR_TO_JSON(EffectStatus, effectStatus_);
         DARABONBA_PTR_TO_JSON(EndTimestamp, endTimestamp_);
         DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
         DARABONBA_PTR_TO_JSON(ProcessId, processId_);
         DARABONBA_PTR_TO_JSON(ProcessName, processName_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(ReportType, reportType_);
         DARABONBA_PTR_TO_JSON(SchemaContent, schemaContent_);
         DARABONBA_PTR_TO_JSON(SchemaId, schemaId_);
         DARABONBA_PTR_TO_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(ValidityType, validityType_);
       };
       friend void from_json(const Darabonba::Json& j, Approval& obj) { 
         DARABONBA_PTR_FROM_JSON(ApprovalDetail, approvalDetail_);
         DARABONBA_PTR_FROM_JSON(ApprovalId, approvalId_);
         DARABONBA_PTR_FROM_JSON(ApprovalProgresses, approvalProgresses_);
+        DARABONBA_PTR_FROM_JSON(ApprovalType, approvalType_);
+        DARABONBA_PTR_FROM_JSON(BackendReportDetail, backendReportDetail_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CreateTimeUnix, createTimeUnix_);
         DARABONBA_PTR_FROM_JSON(CreatorDepartment, creatorDepartment_);
         DARABONBA_PTR_FROM_JSON(CreatorDevTag, creatorDevTag_);
         DARABONBA_PTR_FROM_JSON(CreatorUserId, creatorUserId_);
         DARABONBA_PTR_FROM_JSON(CreatorUsername, creatorUsername_);
+        DARABONBA_PTR_FROM_JSON(EffectStatus, effectStatus_);
         DARABONBA_PTR_FROM_JSON(EndTimestamp, endTimestamp_);
         DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
         DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
         DARABONBA_PTR_FROM_JSON(ProcessName, processName_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
         DARABONBA_PTR_FROM_JSON(SchemaContent, schemaContent_);
         DARABONBA_PTR_FROM_JSON(SchemaId, schemaId_);
         DARABONBA_PTR_FROM_JSON(SchemaName, schemaName_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(ValidityType, validityType_);
       };
       Approval() = default ;
       Approval(const Approval &) = default ;
@@ -83,6 +95,124 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class BackendReportDetail : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BackendReportDetail& obj) { 
+          DARABONBA_PTR_TO_JSON(AssociatedPolicyName, associatedPolicyName_);
+          DARABONBA_PTR_TO_JSON(AssociatedPolicyType, associatedPolicyType_);
+          DARABONBA_PTR_TO_JSON(Remark, remark_);
+          DARABONBA_ANY_TO_JSON(ReportObject, reportObject_);
+          DARABONBA_PTR_TO_JSON(TargetUser, targetUser_);
+        };
+        friend void from_json(const Darabonba::Json& j, BackendReportDetail& obj) { 
+          DARABONBA_PTR_FROM_JSON(AssociatedPolicyName, associatedPolicyName_);
+          DARABONBA_PTR_FROM_JSON(AssociatedPolicyType, associatedPolicyType_);
+          DARABONBA_PTR_FROM_JSON(Remark, remark_);
+          DARABONBA_ANY_FROM_JSON(ReportObject, reportObject_);
+          DARABONBA_PTR_FROM_JSON(TargetUser, targetUser_);
+        };
+        BackendReportDetail() = default ;
+        BackendReportDetail(const BackendReportDetail &) = default ;
+        BackendReportDetail(BackendReportDetail &&) = default ;
+        BackendReportDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BackendReportDetail() = default ;
+        BackendReportDetail& operator=(const BackendReportDetail &) = default ;
+        BackendReportDetail& operator=(BackendReportDetail &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TargetUser : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TargetUser& obj) { 
+            DARABONBA_PTR_TO_JSON(UserId, userId_);
+            DARABONBA_PTR_TO_JSON(Username, username_);
+          };
+          friend void from_json(const Darabonba::Json& j, TargetUser& obj) { 
+            DARABONBA_PTR_FROM_JSON(UserId, userId_);
+            DARABONBA_PTR_FROM_JSON(Username, username_);
+          };
+          TargetUser() = default ;
+          TargetUser(const TargetUser &) = default ;
+          TargetUser(TargetUser &&) = default ;
+          TargetUser(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TargetUser() = default ;
+          TargetUser& operator=(const TargetUser &) = default ;
+          TargetUser& operator=(TargetUser &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->userId_ == nullptr
+        && this->username_ == nullptr; };
+          // userId Field Functions 
+          bool hasUserId() const { return this->userId_ != nullptr;};
+          void deleteUserId() { this->userId_ = nullptr;};
+          inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+          inline TargetUser& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+          // username Field Functions 
+          bool hasUsername() const { return this->username_ != nullptr;};
+          void deleteUsername() { this->username_ = nullptr;};
+          inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+          inline TargetUser& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
+
+
+        protected:
+          shared_ptr<string> userId_ {};
+          shared_ptr<string> username_ {};
+        };
+
+        virtual bool empty() const override { return this->associatedPolicyName_ == nullptr
+        && this->associatedPolicyType_ == nullptr && this->remark_ == nullptr && this->reportObject_ == nullptr && this->targetUser_ == nullptr; };
+        // associatedPolicyName Field Functions 
+        bool hasAssociatedPolicyName() const { return this->associatedPolicyName_ != nullptr;};
+        void deleteAssociatedPolicyName() { this->associatedPolicyName_ = nullptr;};
+        inline string getAssociatedPolicyName() const { DARABONBA_PTR_GET_DEFAULT(associatedPolicyName_, "") };
+        inline BackendReportDetail& setAssociatedPolicyName(string associatedPolicyName) { DARABONBA_PTR_SET_VALUE(associatedPolicyName_, associatedPolicyName) };
+
+
+        // associatedPolicyType Field Functions 
+        bool hasAssociatedPolicyType() const { return this->associatedPolicyType_ != nullptr;};
+        void deleteAssociatedPolicyType() { this->associatedPolicyType_ = nullptr;};
+        inline string getAssociatedPolicyType() const { DARABONBA_PTR_GET_DEFAULT(associatedPolicyType_, "") };
+        inline BackendReportDetail& setAssociatedPolicyType(string associatedPolicyType) { DARABONBA_PTR_SET_VALUE(associatedPolicyType_, associatedPolicyType) };
+
+
+        // remark Field Functions 
+        bool hasRemark() const { return this->remark_ != nullptr;};
+        void deleteRemark() { this->remark_ = nullptr;};
+        inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+        inline BackendReportDetail& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+        // reportObject Field Functions 
+        bool hasReportObject() const { return this->reportObject_ != nullptr;};
+        void deleteReportObject() { this->reportObject_ = nullptr;};
+        inline         const Darabonba::Json & getReportObject() const { DARABONBA_GET(reportObject_) };
+        Darabonba::Json & getReportObject() { DARABONBA_GET(reportObject_) };
+        inline BackendReportDetail& setReportObject(const Darabonba::Json & reportObject) { DARABONBA_SET_VALUE(reportObject_, reportObject) };
+        inline BackendReportDetail& setReportObject(Darabonba::Json && reportObject) { DARABONBA_SET_RVALUE(reportObject_, reportObject) };
+
+
+        // targetUser Field Functions 
+        bool hasTargetUser() const { return this->targetUser_ != nullptr;};
+        void deleteTargetUser() { this->targetUser_ = nullptr;};
+        inline const BackendReportDetail::TargetUser & getTargetUser() const { DARABONBA_PTR_GET_CONST(targetUser_, BackendReportDetail::TargetUser) };
+        inline BackendReportDetail::TargetUser getTargetUser() { DARABONBA_PTR_GET(targetUser_, BackendReportDetail::TargetUser) };
+        inline BackendReportDetail& setTargetUser(const BackendReportDetail::TargetUser & targetUser) { DARABONBA_PTR_SET_VALUE(targetUser_, targetUser) };
+        inline BackendReportDetail& setTargetUser(BackendReportDetail::TargetUser && targetUser) { DARABONBA_PTR_SET_RVALUE(targetUser_, targetUser) };
+
+
+      protected:
+        shared_ptr<string> associatedPolicyName_ {};
+        shared_ptr<string> associatedPolicyType_ {};
+        shared_ptr<string> remark_ {};
+        Darabonba::Json reportObject_ {};
+        shared_ptr<BackendReportDetail::TargetUser> targetUser_ {};
+      };
+
       class ApprovalProgresses : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ApprovalProgresses& obj) { 
@@ -150,9 +280,9 @@ namespace Models
 
 
         protected:
-          // The ID of the operator for the progress node.
+          // The ID of the operator for the approval progress node.
           shared_ptr<string> saseUserId_ {};
-          // The username of the operator for the progress node.
+          // The username of the operator for the approval progress node.
           shared_ptr<string> username_ {};
         };
 
@@ -203,41 +333,34 @@ namespace Models
 
 
       protected:
-        // The action performed on the progress node. Valid values:
-        // 
-        // - **Approve**: Approve
-        // 
-        // - **Reject**: Reject
-        // 
-        // - **Revoke**: Revoke
-        // 
-        // - **Comment**: Comment
+        // The action performed on the approval progress node. Valid values:
+        // - **Approve**: Approved.
+        // - **Reject**: Rejected.
+        // - **Revoke**: Revoked.
+        // - **Comment**: Commented.
         shared_ptr<string> action_ {};
-        // The comment for the action on the progress node.
+        // The comment on the approval progress node.
         shared_ptr<string> comment_ {};
-        // The ID of the executor for the progress node.
+        // The executor ID of the approval progress node.
         shared_ptr<string> executor_ {};
-        // A list of operators for the progress node.
+        // The list of operators for the approval progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
-        // The status of the progress node. Valid values:
-        // 
-        // - **Pending**: Pending
-        // 
-        // - **Approved**: Approved
-        // 
-        // - **Rejected**: Rejected
-        // 
-        // - **Revoked**: Revoked
+        // The status of the approval progress node. Valid values:
+        // - **Pending**: Pending approval.
+        // - **Approved**: Approved.
+        // - **Rejected**: Rejected.
+        // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
-        // The time when the action was performed on the progress node. This is a UNIX timestamp. Unit: seconds.
+        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
       virtual bool empty() const override { return this->approvalDetail_ == nullptr
-        && this->approvalId_ == nullptr && this->approvalProgresses_ == nullptr && this->createTime_ == nullptr && this->creatorDepartment_ == nullptr && this->creatorDevTag_ == nullptr
-        && this->creatorUserId_ == nullptr && this->creatorUsername_ == nullptr && this->endTimestamp_ == nullptr && this->policyType_ == nullptr && this->processId_ == nullptr
-        && this->processName_ == nullptr && this->reason_ == nullptr && this->schemaContent_ == nullptr && this->schemaId_ == nullptr && this->schemaName_ == nullptr
-        && this->status_ == nullptr; };
+        && this->approvalId_ == nullptr && this->approvalProgresses_ == nullptr && this->approvalType_ == nullptr && this->backendReportDetail_ == nullptr && this->createTime_ == nullptr
+        && this->createTimeUnix_ == nullptr && this->creatorDepartment_ == nullptr && this->creatorDevTag_ == nullptr && this->creatorUserId_ == nullptr && this->creatorUsername_ == nullptr
+        && this->effectStatus_ == nullptr && this->endTimestamp_ == nullptr && this->policyType_ == nullptr && this->processId_ == nullptr && this->processName_ == nullptr
+        && this->reason_ == nullptr && this->reportType_ == nullptr && this->schemaContent_ == nullptr && this->schemaId_ == nullptr && this->schemaName_ == nullptr
+        && this->status_ == nullptr && this->validityType_ == nullptr; };
       // approvalDetail Field Functions 
       bool hasApprovalDetail() const { return this->approvalDetail_ != nullptr;};
       void deleteApprovalDetail() { this->approvalDetail_ = nullptr;};
@@ -261,11 +384,34 @@ namespace Models
       inline Approval& setApprovalProgresses(vector<Approval::ApprovalProgresses> && approvalProgresses) { DARABONBA_PTR_SET_RVALUE(approvalProgresses_, approvalProgresses) };
 
 
+      // approvalType Field Functions 
+      bool hasApprovalType() const { return this->approvalType_ != nullptr;};
+      void deleteApprovalType() { this->approvalType_ = nullptr;};
+      inline int32_t getApprovalType() const { DARABONBA_PTR_GET_DEFAULT(approvalType_, 0) };
+      inline Approval& setApprovalType(int32_t approvalType) { DARABONBA_PTR_SET_VALUE(approvalType_, approvalType) };
+
+
+      // backendReportDetail Field Functions 
+      bool hasBackendReportDetail() const { return this->backendReportDetail_ != nullptr;};
+      void deleteBackendReportDetail() { this->backendReportDetail_ = nullptr;};
+      inline const Approval::BackendReportDetail & getBackendReportDetail() const { DARABONBA_PTR_GET_CONST(backendReportDetail_, Approval::BackendReportDetail) };
+      inline Approval::BackendReportDetail getBackendReportDetail() { DARABONBA_PTR_GET(backendReportDetail_, Approval::BackendReportDetail) };
+      inline Approval& setBackendReportDetail(const Approval::BackendReportDetail & backendReportDetail) { DARABONBA_PTR_SET_VALUE(backendReportDetail_, backendReportDetail) };
+      inline Approval& setBackendReportDetail(Approval::BackendReportDetail && backendReportDetail) { DARABONBA_PTR_SET_RVALUE(backendReportDetail_, backendReportDetail) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline Approval& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // createTimeUnix Field Functions 
+      bool hasCreateTimeUnix() const { return this->createTimeUnix_ != nullptr;};
+      void deleteCreateTimeUnix() { this->createTimeUnix_ = nullptr;};
+      inline int64_t getCreateTimeUnix() const { DARABONBA_PTR_GET_DEFAULT(createTimeUnix_, 0L) };
+      inline Approval& setCreateTimeUnix(int64_t createTimeUnix) { DARABONBA_PTR_SET_VALUE(createTimeUnix_, createTimeUnix) };
 
 
       // creatorDepartment Field Functions 
@@ -294,6 +440,13 @@ namespace Models
       void deleteCreatorUsername() { this->creatorUsername_ = nullptr;};
       inline string getCreatorUsername() const { DARABONBA_PTR_GET_DEFAULT(creatorUsername_, "") };
       inline Approval& setCreatorUsername(string creatorUsername) { DARABONBA_PTR_SET_VALUE(creatorUsername_, creatorUsername) };
+
+
+      // effectStatus Field Functions 
+      bool hasEffectStatus() const { return this->effectStatus_ != nullptr;};
+      void deleteEffectStatus() { this->effectStatus_ = nullptr;};
+      inline string getEffectStatus() const { DARABONBA_PTR_GET_DEFAULT(effectStatus_, "") };
+      inline Approval& setEffectStatus(string effectStatus) { DARABONBA_PTR_SET_VALUE(effectStatus_, effectStatus) };
 
 
       // endTimestamp Field Functions 
@@ -331,6 +484,13 @@ namespace Models
       inline Approval& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
+      // reportType Field Functions 
+      bool hasReportType() const { return this->reportType_ != nullptr;};
+      void deleteReportType() { this->reportType_ = nullptr;};
+      inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+      inline Approval& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+
+
       // schemaContent Field Functions 
       bool hasSchemaContent() const { return this->schemaContent_ != nullptr;};
       void deleteSchemaContent() { this->schemaContent_ = nullptr;};
@@ -359,63 +519,69 @@ namespace Models
       inline Approval& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // validityType Field Functions 
+      bool hasValidityType() const { return this->validityType_ != nullptr;};
+      void deleteValidityType() { this->validityType_ = nullptr;};
+      inline string getValidityType() const { DARABONBA_PTR_GET_DEFAULT(validityType_, "") };
+      inline Approval& setValidityType(string validityType) { DARABONBA_PTR_SET_VALUE(validityType_, validityType) };
+
+
     protected:
       // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // The ID of the approval instance.
+      // The approval instance ID.
       shared_ptr<string> approvalId_ {};
-      // A list of progress nodes for the approval instance.
+      // The list of approval progress nodes.
       shared_ptr<vector<Approval::ApprovalProgresses>> approvalProgresses_ {};
+      shared_ptr<int32_t> approvalType_ {};
+      // The backend report details. This parameter is returned only when ReportType is set to BackendReport.
+      shared_ptr<Approval::BackendReportDetail> backendReportDetail_ {};
       // The time when the approval instance was created.
       shared_ptr<string> createTime_ {};
+      shared_ptr<int64_t> createTimeUnix_ {};
       // The department of the user who created the approval instance.
       shared_ptr<string> creatorDepartment_ {};
-      // The ID of the client device from which the approval instance was created.
+      // The device ID of the terminal that created the approval instance.
       shared_ptr<string> creatorDevTag_ {};
       // The ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
       // The username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
-      // The expiration time of the approval instance. This is a UNIX timestamp. Unit: seconds.
+      // The effective status of the report. Enabled indicates that the report is active, and Expired indicates that the report has expired.
+      shared_ptr<string> effectStatus_ {};
+      // The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTimestamp_ {};
-      // The type of the associated policy. Valid values:
-      // 
-      // - **DomainBlacklist**: Domain blacklist
-      // 
-      // - **DomainWhitelist**: Domain whitelist
-      // 
-      // - **SoftwareBlock**: Software block
-      // 
-      // - **AppUninstall**: Client uninstall
-      // 
-      // - **DlpSend**: Outbound file transfer
-      // 
-      // - **PeripheralBlock**: Peripheral control
+      // The policy type associated with the approval instance. Valid values:
+      // - **DomainBlacklist**: Domain name blacklist.
+      // - **DomainWhitelist**: Domain name whitelist.
+      // - **SoftwareBlock**: Software blocking.
+      // - **AppUninstall**: Agent uninstallation.
+      // - **DlpSend**: File outbound transfer.
+      // - **PeripheralBlock**: Peripheral device control.
       shared_ptr<string> policyType_ {};
-      // The ID of the associated approval flow.
+      // The ID of the process associated with the approval instance.
       shared_ptr<string> processId_ {};
-      // The name of the associated approval flow.
+      // The name of the process associated with the approval instance.
       shared_ptr<string> processName_ {};
       // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
-      // The content of the associated template.
+      // The report type. ApprovalReport indicates an approval report, and BackendReport indicates a backend report.
+      shared_ptr<string> reportType_ {};
+      // The content of the template associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
-      // The ID of the associated template.
+      // The ID of the template associated with the approval instance.
       shared_ptr<string> schemaId_ {};
-      // The name of the associated template.
+      // The name of the template associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // The status of the approval instance. Valid values:
-      // 
-      // - **Pending**: Pending
-      // 
-      // - **Approved**: Approved
-      // 
-      // - **Rejected**: Rejected
-      // 
-      // - **Revoked**: Revoked
-      // 
-      // - **Expired**: Expired
+      // The instance status. Valid values:
+      // - **Pending**: Pending approval.
+      // - **Approved**: Approved.
+      // - **Rejected**: Denied.
+      // - **Revoked**: Revoked.
+      // - **Expired**: Expired.
       shared_ptr<string> status_ {};
+      // The validity duration type. When the value is Permanent, EndTimestamp returns 0.
+      shared_ptr<string> validityType_ {};
     };
 
     virtual bool empty() const override { return this->approval_ == nullptr
@@ -439,7 +605,7 @@ namespace Models
   protected:
     // The approval instance.
     shared_ptr<vector<GetApprovalResponseBody::Approval>> approval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -142,6 +142,122 @@ AttachPolicy2ApprovalProcessResponse Client::attachPolicy2ApprovalProcess(const 
 }
 
 /**
+ * @summary Inserts domain name entries into a domain name list in batches.
+ *
+ * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+ *
+ * @param request BatchCreateDomainItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateDomainItemsResponse
+ */
+BatchCreateDomainItemsResponse Client::batchCreateDomainItemsWithOptions(const BatchCreateDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDomainItems()) {
+    bodyFlat["DomainItems"] = request.getDomainItems();
+  }
+
+  if (!!request.hasListId()) {
+    body["ListId"] = request.getListId();
+  }
+
+  if (!!request.hasListType()) {
+    body["ListType"] = request.getListType();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchCreateDomainItems"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateDomainItemsResponse>();
+}
+
+/**
+ * @summary Inserts domain name entries into a domain name list in batches.
+ *
+ * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+ *
+ * @param request BatchCreateDomainItemsRequest
+ * @return BatchCreateDomainItemsResponse
+ */
+BatchCreateDomainItemsResponse Client::batchCreateDomainItems(const BatchCreateDomainItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateDomainItemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Batch deletes domain name entries from a domain name list.
+ *
+ * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+ *
+ * @param request BatchDeleteDomainItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeleteDomainItemsResponse
+ */
+BatchDeleteDomainItemsResponse Client::batchDeleteDomainItemsWithOptions(const BatchDeleteDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasItemIds()) {
+    bodyFlat["ItemIds"] = request.getItemIds();
+  }
+
+  if (!!request.hasListId()) {
+    body["ListId"] = request.getListId();
+  }
+
+  if (!!request.hasListType()) {
+    body["ListType"] = request.getListType();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchDeleteDomainItems"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeleteDomainItemsResponse>();
+}
+
+/**
+ * @summary Batch deletes domain name entries from a domain name list.
+ *
+ * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+ *
+ * @param request BatchDeleteDomainItemsRequest
+ * @return BatchDeleteDomainItemsResponse
+ */
+BatchDeleteDomainItemsResponse Client::batchDeleteDomainItems(const BatchDeleteDomainItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchDeleteDomainItemsWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an approval process under the current Alibaba Cloud account.
  *
  * @param tmpReq CreateApprovalProcessRequest
@@ -2430,7 +2546,7 @@ GetActiveIdpConfigResponse Client::getActiveIdpConfig() {
 }
 
 /**
- * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
+ * @summary Queries the details of an approval instance under the current Alibaba Cloud account.
  *
  * @param request GetApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2457,7 +2573,7 @@ GetApprovalResponse Client::getApprovalWithOptions(const GetApprovalRequest &req
 }
 
 /**
- * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
+ * @summary Queries the details of an approval instance under the current Alibaba Cloud account.
  *
  * @param request GetApprovalRequest
  * @return GetApprovalResponse
@@ -3307,7 +3423,7 @@ ListApprovalSchemasForApprovalProcessesResponse Client::listApprovalSchemasForAp
 }
 
 /**
- * @summary Lists approval instances for your Alibaba Cloud account.
+ * @summary Queries the list of approval instances under the current Alibaba Cloud account.
  *
  * @param request ListApprovalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3334,7 +3450,7 @@ ListApprovalsResponse Client::listApprovalsWithOptions(const ListApprovalsReques
 }
 
 /**
- * @summary Lists approval instances for your Alibaba Cloud account.
+ * @summary Queries the list of approval instances under the current Alibaba Cloud account.
  *
  * @param request ListApprovalsRequest
  * @return ListApprovalsResponse
@@ -3421,9 +3537,9 @@ ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &reque
 }
 
 /**
- * @summary 分页查询域名条目
+ * @summary Queries domain name entries in a domain name list by paging.
  *
- * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+ * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
  *
  * @param request ListDomainItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3470,9 +3586,9 @@ ListDomainItemsResponse Client::listDomainItemsWithOptions(const ListDomainItems
 }
 
 /**
- * @summary 分页查询域名条目
+ * @summary Queries domain name entries in a domain name list by paging.
  *
- * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+ * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
  *
  * @param request ListDomainItemsRequest
  * @return ListDomainItemsResponse

@@ -22,12 +22,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreatorUserId, creatorUserId_);
       DARABONBA_PTR_TO_JSON(CreatorUsername, creatorUsername_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(EffectStatuses, effectStatuses_);
       DARABONBA_PTR_TO_JSON(OperatorUserId, operatorUserId_);
       DARABONBA_PTR_TO_JSON(OperatorUsername, operatorUsername_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
       DARABONBA_PTR_TO_JSON(ProcessId, processId_);
       DARABONBA_PTR_TO_JSON(ProcessName, processName_);
+      DARABONBA_PTR_TO_JSON(ReportTypes, reportTypes_);
       DARABONBA_PTR_TO_JSON(SchemaId, schemaId_);
       DARABONBA_PTR_TO_JSON(SchemaName, schemaName_);
       DARABONBA_PTR_TO_JSON(Statuses, statuses_);
@@ -41,12 +43,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreatorUserId, creatorUserId_);
       DARABONBA_PTR_FROM_JSON(CreatorUsername, creatorUsername_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(EffectStatuses, effectStatuses_);
       DARABONBA_PTR_FROM_JSON(OperatorUserId, operatorUserId_);
       DARABONBA_PTR_FROM_JSON(OperatorUsername, operatorUsername_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
       DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
       DARABONBA_PTR_FROM_JSON(ProcessName, processName_);
+      DARABONBA_PTR_FROM_JSON(ReportTypes, reportTypes_);
       DARABONBA_PTR_FROM_JSON(SchemaId, schemaId_);
       DARABONBA_PTR_FROM_JSON(SchemaName, schemaName_);
       DARABONBA_PTR_FROM_JSON(Statuses, statuses_);
@@ -64,9 +68,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalIds_ == nullptr
         && this->createEndTime_ == nullptr && this->createStartTime_ == nullptr && this->creatorDepartment_ == nullptr && this->creatorDevTag_ == nullptr && this->creatorUserId_ == nullptr
-        && this->creatorUsername_ == nullptr && this->currentPage_ == nullptr && this->operatorUserId_ == nullptr && this->operatorUsername_ == nullptr && this->pageSize_ == nullptr
-        && this->policyType_ == nullptr && this->processId_ == nullptr && this->processName_ == nullptr && this->schemaId_ == nullptr && this->schemaName_ == nullptr
-        && this->statuses_ == nullptr; };
+        && this->creatorUsername_ == nullptr && this->currentPage_ == nullptr && this->effectStatuses_ == nullptr && this->operatorUserId_ == nullptr && this->operatorUsername_ == nullptr
+        && this->pageSize_ == nullptr && this->policyType_ == nullptr && this->processId_ == nullptr && this->processName_ == nullptr && this->reportTypes_ == nullptr
+        && this->schemaId_ == nullptr && this->schemaName_ == nullptr && this->statuses_ == nullptr; };
     // approvalIds Field Functions 
     bool hasApprovalIds() const { return this->approvalIds_ != nullptr;};
     void deleteApprovalIds() { this->approvalIds_ = nullptr;};
@@ -125,6 +129,15 @@ namespace Models
     inline ListApprovalsRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
+    // effectStatuses Field Functions 
+    bool hasEffectStatuses() const { return this->effectStatuses_ != nullptr;};
+    void deleteEffectStatuses() { this->effectStatuses_ = nullptr;};
+    inline const vector<string> & getEffectStatuses() const { DARABONBA_PTR_GET_CONST(effectStatuses_, vector<string>) };
+    inline vector<string> getEffectStatuses() { DARABONBA_PTR_GET(effectStatuses_, vector<string>) };
+    inline ListApprovalsRequest& setEffectStatuses(const vector<string> & effectStatuses) { DARABONBA_PTR_SET_VALUE(effectStatuses_, effectStatuses) };
+    inline ListApprovalsRequest& setEffectStatuses(vector<string> && effectStatuses) { DARABONBA_PTR_SET_RVALUE(effectStatuses_, effectStatuses) };
+
+
     // operatorUserId Field Functions 
     bool hasOperatorUserId() const { return this->operatorUserId_ != nullptr;};
     void deleteOperatorUserId() { this->operatorUserId_ = nullptr;};
@@ -167,6 +180,15 @@ namespace Models
     inline ListApprovalsRequest& setProcessName(string processName) { DARABONBA_PTR_SET_VALUE(processName_, processName) };
 
 
+    // reportTypes Field Functions 
+    bool hasReportTypes() const { return this->reportTypes_ != nullptr;};
+    void deleteReportTypes() { this->reportTypes_ = nullptr;};
+    inline const vector<string> & getReportTypes() const { DARABONBA_PTR_GET_CONST(reportTypes_, vector<string>) };
+    inline vector<string> getReportTypes() { DARABONBA_PTR_GET(reportTypes_, vector<string>) };
+    inline ListApprovalsRequest& setReportTypes(const vector<string> & reportTypes) { DARABONBA_PTR_SET_VALUE(reportTypes_, reportTypes) };
+    inline ListApprovalsRequest& setReportTypes(vector<string> && reportTypes) { DARABONBA_PTR_SET_RVALUE(reportTypes_, reportTypes) };
+
+
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
@@ -191,55 +213,47 @@ namespace Models
 
 
   protected:
-    // Collection of approval instance IDs.
+    // The collection of approval instance IDs.
     shared_ptr<vector<string>> approvalIds_ {};
-    // End time when the approval instance was created, in seconds since the Unix epoch.
+    // The end time for approval instance creation, in seconds-level timestamp.
     shared_ptr<int64_t> createEndTime_ {};
-    // Start time when the approval instance was created, in seconds since the Unix epoch.
+    // The start time for approval instance creation, in seconds-level timestamp.
     shared_ptr<int64_t> createStartTime_ {};
-    // Department of the user who created the approval instance.
+    // The department of the approval instance creator.
     shared_ptr<string> creatorDepartment_ {};
-    // ID of the device used to create the approval instance.
+    // The terminal device ID of the approval instance creator.
     shared_ptr<string> creatorDevTag_ {};
-    // ID of the user who created the approval instance.
+    // The ID of the approval instance creator.
     shared_ptr<string> creatorUserId_ {};
-    // Username of the user who created the approval instance.
+    // The username of the approval instance creator.
     shared_ptr<string> creatorUsername_ {};
-    // Page number for the current page in a paged query. Valid values: 1 to 10000.
+    // The page number of the current page in a paging query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // ID of the user who performed an operation on the approval instance.
+    // The list of report effective statuses. Valid values: Enabled, Expired.
+    shared_ptr<vector<string>> effectStatuses_ {};
+    // The ID of the approval instance operator.
     shared_ptr<string> operatorUserId_ {};
-    // Username of the user who performed an operation on the approval instance.
+    // The username of the approval instance operator.
     shared_ptr<string> operatorUsername_ {};
-    // Number of entries per page in a paged query. Valid values: 1 to 500.
+    // The number of entries per page in a paging query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // Policy type. Valid values:
-    // 
-    // - **DomainBlacklist**: Domain blacklist.
-    // 
-    // - **DomainWhitelist**: Domain whitelist.
-    // 
-    // - **SoftwareBlock**: Software blocking.
-    // 
-    // - **AppUninstall**: App uninstallation.
-    // 
-    // - **DlpSend**: File outbound transfer.
-    // 
-    // - **PeripheralBlock**: Peripheral control.
+    // The adaptation policy type. Valid values:
     shared_ptr<string> policyType_ {};
-    // ID of the associated approval process.
+    // The associated approval process ID.
     shared_ptr<string> processId_ {};
-    // Name of the associated approval process.
+    // The associated approval process name.
     shared_ptr<string> processName_ {};
-    // ID of the associated approval template.
+    // The list of report types. If not specified, only ApprovalReport is queried.
+    shared_ptr<vector<string>> reportTypes_ {};
+    // The associated approval template ID.
     shared_ptr<string> schemaId_ {};
-    // Name of the associated approval template.
+    // The associated approval template name.
     shared_ptr<string> schemaName_ {};
-    // Collection of approval instance statuses.
+    // The collection of approval instance statuses.
     shared_ptr<vector<string>> statuses_ {};
   };
 
