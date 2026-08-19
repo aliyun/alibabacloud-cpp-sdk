@@ -735,7 +735,7 @@ namespace AgentLoop20260520
       Models::GetPipelineStatsResponse getPipelineStats(const string &agentSpace, const string &pipelineName, const Models::GetPipelineStatsRequest &request);
 
       /**
-       * @summary Queries a list of AgentSpaces.
+       * @summary Queries the list of AgentSpaces.
        *
        * @param request ListAgentSpacesRequest
        * @param headers map
@@ -745,7 +745,7 @@ namespace AgentLoop20260520
       Models::ListAgentSpacesResponse listAgentSpacesWithOptions(const Models::ListAgentSpacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AgentSpaces.
+       * @summary Queries the list of AgentSpaces.
        *
        * @param request ListAgentSpacesRequest
        * @return ListAgentSpacesResponse
@@ -1209,7 +1209,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
        *
        * @param request UpdateExperimentPlanRequest
        * @param headers map
@@ -1221,7 +1221,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
        *
        * @param request UpdateExperimentPlanRequest
        * @return UpdateExperimentPlanResponse

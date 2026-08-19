@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The historical batch backfill policy. Backfill is enabled when the object exists and enabled is not explicitly set to false.
     shared_ptr<BackfillStrategy> backfill_ {};
+    // The continuous evaluation policy. Continuous evaluation is enabled when the object exists and enabled is not explicitly set to false.
     shared_ptr<ContinuousStrategy> continuous_ {};
   };
 

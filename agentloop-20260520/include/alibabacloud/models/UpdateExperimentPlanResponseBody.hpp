@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The update result. The value is updated if successful.
+    // The update result. The value is updated if the operation is successful.
     shared_ptr<string> status_ {};
   };
 

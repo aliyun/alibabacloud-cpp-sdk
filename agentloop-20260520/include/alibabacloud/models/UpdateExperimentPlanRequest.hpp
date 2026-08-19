@@ -147,11 +147,11 @@ namespace Models
     shared_ptr<string> datasetProject_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The evaluator list. Omitting this field means no modification. Passing an empty array clears the list.
+    // The evaluator list. Omitting this field indicates no modification. Passing an empty array clears the list.
     shared_ptr<vector<Evaluator>> evaluators_ {};
     // The experiment type.
     shared_ptr<string> experimentType_ {};
-    // The experiment configuration list. When passed, the entire list is replaced. The number of items must be 1 to 5.
+    // The experiment configuration list. When specified, the entire list is replaced. The number of items must be 1 to 5.
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};

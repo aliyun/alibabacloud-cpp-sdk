@@ -74,10 +74,12 @@ namespace Models
       class MseNamespace : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const MseNamespace& obj) { 
+          DARABONBA_PTR_TO_JSON(bindType, bindType_);
           DARABONBA_PTR_TO_JSON(namespaceId, namespaceId_);
           DARABONBA_PTR_TO_JSON(namespaceName, namespaceName_);
         };
         friend void from_json(const Darabonba::Json& j, MseNamespace& obj) { 
+          DARABONBA_PTR_FROM_JSON(bindType, bindType_);
           DARABONBA_PTR_FROM_JSON(namespaceId, namespaceId_);
           DARABONBA_PTR_FROM_JSON(namespaceName, namespaceName_);
         };
@@ -92,8 +94,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && this->namespaceName_ == nullptr; };
+        virtual bool empty() const override { return this->bindType_ == nullptr
+        && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr; };
+        // bindType Field Functions 
+        bool hasBindType() const { return this->bindType_ != nullptr;};
+        void deleteBindType() { this->bindType_ = nullptr;};
+        inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+        inline MseNamespace& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
+
+
         // namespaceId Field Functions 
         bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
         void deleteNamespaceId() { this->namespaceId_ = nullptr;};
@@ -109,6 +118,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> bindType_ {};
         // The MSE namespace ID.
         shared_ptr<string> namespaceId_ {};
         // The MSE namespace name.

@@ -50,10 +50,12 @@ namespace Models
     class MseNamespace : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MseNamespace& obj) { 
+        DARABONBA_PTR_TO_JSON(bindType, bindType_);
         DARABONBA_PTR_TO_JSON(namespaceId, namespaceId_);
         DARABONBA_PTR_TO_JSON(namespaceName, namespaceName_);
       };
       friend void from_json(const Darabonba::Json& j, MseNamespace& obj) { 
+        DARABONBA_PTR_FROM_JSON(bindType, bindType_);
         DARABONBA_PTR_FROM_JSON(namespaceId, namespaceId_);
         DARABONBA_PTR_FROM_JSON(namespaceName, namespaceName_);
       };
@@ -68,8 +70,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && this->namespaceName_ == nullptr; };
+      virtual bool empty() const override { return this->bindType_ == nullptr
+        && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr; };
+      // bindType Field Functions 
+      bool hasBindType() const { return this->bindType_ != nullptr;};
+      void deleteBindType() { this->bindType_ = nullptr;};
+      inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+      inline MseNamespace& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
+
+
       // namespaceId Field Functions 
       bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
       void deleteNamespaceId() { this->namespaceId_ = nullptr;};
@@ -85,6 +94,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> bindType_ {};
       // The ID of the MSE namespace.
       shared_ptr<string> namespaceId_ {};
       // The name of the MSE namespace.
@@ -173,13 +183,13 @@ namespace Models
     shared_ptr<string> cmsWorkspace_ {};
     // The binding type of the CloudMonitor 2.0 workspace.
     shared_ptr<string> cmsWorkspaceBindType_ {};
-    // The time when the AgentSpace was created.
+    // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The Microservices Engine (MSE) namespace.
+    // The MSE namespace.
     shared_ptr<GetAgentSpaceResponseBody::MseNamespace> mseNamespace_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -187,7 +197,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The name of the Simple Log Service project.
     shared_ptr<string> slsProject_ {};
-    // The time when the AgentSpace was last updated.
+    // The update time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};

@@ -20,15 +20,15 @@ namespace AgentLoop20260520
 AlibabaCloud::AgentLoop20260520::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-zhangjiakou" , "agentloop.cn-zhangjiakou.aliyuncs.com"},
     {"cn-shenzhen" , "agentloop.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "agentloop.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "agentloop.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "agentloop.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "agentloop.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "agentloop.cn-chengdu.aliyuncs.com"},
     {"cn-beijing" , "agentloop.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "agentloop.ap-southeast-1.aliyuncs.com"}
+    {"cn-shanghai" , "agentloop.cn-shanghai.aliyuncs.com"},
+    {"cn-guangzhou" , "agentloop.cn-guangzhou.aliyuncs.com"},
+    {"cn-hongkong" , "agentloop.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "agentloop.ap-southeast-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "agentloop.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "agentloop.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "agentloop.cn-chengdu.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agentloop", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -163,6 +163,10 @@ CreateAgentSpaceResponse Client::createAgentSpaceWithOptions(const CreateAgentSp
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasMseNamespaceId()) {
+    body["mseNamespaceId"] = request.getMseNamespaceId();
   }
 
   if (!!request.hasTrajectoryStoreEnabled()) {
@@ -2002,7 +2006,7 @@ GetPipelineStatsResponse Client::getPipelineStats(const string &agentSpace, cons
 }
 
 /**
- * @summary Queries a list of AgentSpaces.
+ * @summary Queries the list of AgentSpaces.
  *
  * @param request ListAgentSpacesRequest
  * @param headers map
@@ -2047,7 +2051,7 @@ ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpaces
 }
 
 /**
- * @summary Queries a list of AgentSpaces.
+ * @summary Queries the list of AgentSpaces.
  *
  * @param request ListAgentSpacesRequest
  * @return ListAgentSpacesResponse
@@ -3503,7 +3507,7 @@ UpdateEvaluatorSkillResponse Client::updateEvaluatorSkill(const string &name, co
 /**
  * @summary Updates an experiment plan.
  *
- * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+ * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
  *
  * @param request UpdateExperimentPlanRequest
  * @param headers map
@@ -3578,7 +3582,7 @@ UpdateExperimentPlanResponse Client::updateExperimentPlanWithOptions(const strin
 /**
  * @summary Updates an experiment plan.
  *
- * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+ * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
  *
  * @param request UpdateExperimentPlanRequest
  * @return UpdateExperimentPlanResponse
