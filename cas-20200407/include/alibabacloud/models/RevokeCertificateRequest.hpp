@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The ID of the certificate to revoke.
     shared_ptr<int64_t> certificateId_ {};
     // The ID of the instance.
     // 

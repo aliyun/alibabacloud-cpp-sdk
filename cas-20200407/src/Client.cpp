@@ -70,8 +70,13 @@ AlibabaCloud::Cas20200407::Client::Client(Config &config): OpenApiClient(config)
     {"rus-west-1-pop" , "cas.aliyuncs.com"},
     {"us-east-1" , "cas.aliyuncs.com"},
     {"us-west-1" , "cas.aliyuncs.com"},
+    {"ap-southeast-2" , "cas.ap-southeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "cas.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1" , "cas.ap-southeast-1.aliyuncs.com"},
     {"eu-central-1" , "cas.eu-central-1.aliyuncs.com"},
-    {"ap-southeast-1" , "cas.ap-southeast-1.aliyuncs.com"}
+    {"me-central-1" , "cas.me-central-1.aliyuncs.com"},
+    {"ap-south-1" , "cas.ap-south-1.aliyuncs.com"},
+    {"me-east-1" , "cas.me-east-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -2039,7 +2044,7 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuota() {
 }
 
 /**
- * @summary Retrieves certificate details, excluding the certificate body and private key.
+ * @summary Queries the details of a certificate without returning the certificate content or private key content.
  *
  * @param request GetCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2070,7 +2075,7 @@ GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCe
 }
 
 /**
- * @summary Retrieves certificate details, excluding the certificate body and private key.
+ * @summary Queries the details of a certificate without returning the certificate content or private key content.
  *
  * @param request GetCertificateDetailRequest
  * @return GetCertificateDetailResponse
@@ -2078,6 +2083,49 @@ GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCe
 GetCertificateDetailResponse Client::getCertificateDetail(const GetCertificateDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCertificateDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取证书资源包数量
+ *
+ * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+ * ## QPS限制
+ * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+ *
+ * @param request GetCertificatePackageCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCertificatePackageCountResponse
+ */
+GetCertificatePackageCountResponse Client::getCertificatePackageCountWithOptions(const GetCertificatePackageCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetCertificatePackageCount"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCertificatePackageCountResponse>();
+}
+
+/**
+ * @summary 获取证书资源包数量
+ *
+ * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+ * ## QPS限制
+ * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+ *
+ * @param request GetCertificatePackageCountRequest
+ * @return GetCertificatePackageCountResponse
+ */
+GetCertificatePackageCountResponse Client::getCertificatePackageCount(const GetCertificatePackageCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCertificatePackageCountWithOptions(request, runtime);
 }
 
 /**
@@ -3252,6 +3300,68 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of managed orders.
+ *
+ * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+ *
+ * @param request ListTrusteeOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTrusteeOrderResponse
+ */
+ListTrusteeOrderResponse Client::listTrusteeOrderWithOptions(const ListTrusteeOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertificateId()) {
+    query["CertificateId"] = request.getCertificateId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["OrderId"] = request.getOrderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTrusteeOrder"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTrusteeOrderResponse>();
+}
+
+/**
+ * @summary Retrieves the list of managed orders.
+ *
+ * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+ *
+ * @param request ListTrusteeOrderRequest
+ * @return ListTrusteeOrderResponse
+ */
+ListTrusteeOrderResponse Client::listTrusteeOrder(const ListTrusteeOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTrusteeOrderWithOptions(request, runtime);
 }
 
 /**

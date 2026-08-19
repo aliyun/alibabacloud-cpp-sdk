@@ -114,9 +114,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. You can specify 1 to 20 tag keys. The value cannot be an empty string.
+      // The tag key of the instance. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
       // 
-      // The value can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
       // The tag value.
       shared_ptr<string> tagValue_ {};
@@ -187,15 +187,15 @@ namespace Models
 
 
     protected:
-      // The issuer of the certificate chain.
+      // The issuer name in the certificate chain.
       shared_ptr<string> issuer_ {};
-      // The end of the validity period.
+      // The end time of the certificate validity period.
       shared_ptr<int64_t> notAfter_ {};
-      // The beginning of the validity period.
+      // The start time of the certificate validity period.
       shared_ptr<int64_t> notBefore_ {};
-      // The remaining validity period of the certificate chain.
+      // The remaining days of the certificate chain validity period.
       shared_ptr<int32_t> remainDay_ {};
-      // The common name of the certificate chain.
+      // The common name in the certificate chain.
       shared_ptr<string> subject_ {};
     };
 
@@ -384,78 +384,70 @@ namespace Models
   protected:
     // The certificate algorithm. Valid values:
     // 
-    // - **RSA**: The RSA algorithm.
-    // 
-    // - **ECC**: The ECC algorithm.
-    // 
-    // - **SM2**: The SM2 algorithm.
+    // - **RSA**: RSA algorithm.
+    // - **ECC**: ECC algorithm.
+    // - **SM2**: SM2 encryption algorithm.
     shared_ptr<string> algorithm_ {};
-    // The global ID of the certificate, which is used in various Alibaba Cloud services. The format of the ID is `<Certificate ID>-<Region ID>`. The region ID is `cn-hangzhou` for the China site and `ap-southeast-1` for the International site. For example, if a certificate ID is `123`, its `CertIdentifier` is `123-cn-hangzhou` for the China site and `123-ap-southeast-1` for the International site.
+    // The global certificate ID in the format of certificate ID + "-" + site region ID. This is commonly used across Alibaba Cloud services.
+    //   --For the China site, the format is certificate ID + "-cn-hangzhou".
+    // For the China site, the format is certificate ID + "-ap-southeast-1".
+    // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
     shared_ptr<string> certIdentifier_ {};
-    // The information about the certificate chain.
+    // The certificate chain information list.
     shared_ptr<vector<GetCertificateDetailResponseBody::CertificateChainList>> certificateChainList_ {};
     // The certificate ID.
     shared_ptr<int32_t> certificateId_ {};
     // The certificate name.
     shared_ptr<string> certificateName_ {};
-    // The source of the certificate. Valid values:
-    // 
-    // - **BUY**: a purchased certificate.
-    // 
-    // - **TEST**: a test certificate.
-    // 
-    // - Upload the certificate.
+    // The certificate source. Valid values:
+    // - BUY: purchased certificate.
+    // - TEST: test certificate.
+    // - UPLOAD: uploaded certificate.
     shared_ptr<string> certificateSource_ {};
-    // The status of the certificate. Valid values:
-    // 
-    // - **issued**: The certificate is issued.
-    // 
-    // - **revoked**: The certificate is revoked.
-    // 
-    // - **willExpire**: The certificate is about to expire.
-    // 
-    // - **expired**: The certificate has expired.
+    // The certificate status. Valid values:
+    // - **issued**: issued.
+    // - **revoked**: revoked.
+    // - **willExpire**: about to expire.
+    // - **expired**: expired.
     shared_ptr<string> certificateStatus_ {};
-    // The common name.
+    // The common domain name.
     shared_ptr<string> commonName_ {};
-    // The ID of the company profile that is associated with the certificate application. This parameter is empty for DV certificates.
+    // The company information ID associated with the certificate application. This field is empty for DV certificates.
     shared_ptr<int64_t> companyId_ {};
-    // The ID of the contact.
+    // The contact ID.
     shared_ptr<int64_t> contactId_ {};
+    // The certificate signing request (CSR) used to issue the certificate.
     shared_ptr<string> csr_ {};
-    // The domain names that are bound to the certificate. Multiple domain names are separated by commas (,).
+    // All domain names contained in the certificate. Multiple domain names are separated by commas.
     shared_ptr<string> domain_ {};
-    // Indicates whether a private key is available. Valid values:
+    // Indicates whether a private key exists on the backend for the current certificate. Valid values:
     // 
     // - **true**
-    // 
     // - **false**
     shared_ptr<bool> existPrivateKey_ {};
-    // The fingerprint of the public key.
+    // The public key fingerprint.
     shared_ptr<string> fingerPrint_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The issuer of the certificate.
+    // The entity that issued the certificate.
     shared_ptr<string> issuer_ {};
-    // The key size.
-    // 
-    // - For RSA algorithms, the key size is typically 2,048, 3,072, or 4,096 bits.
-    // 
-    // - For ECC and SM2 algorithms, the key size is typically 256 bits.
+    // The key algorithm length.
+    // - The RSA algorithm length is typically 2048, 3072, or 4096.
+    // - The ECC and SM2 algorithm length is typically 256.
     shared_ptr<int32_t> keySize_ {};
-    // The end of the validity period of the certificate.
+    // The end time of the certificate validity period.
     shared_ptr<int64_t> notAfter_ {};
-    // The beginning of the validity period of the certificate.
+    // The start time of the certificate validity period.
     shared_ptr<int64_t> notBefore_ {};
-    // The ID of the request.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The serial number of the certificate.
+    // The certificate serial number.
     shared_ptr<string> serial_ {};
-    // The subject alternative names (SANs) of the certificate.
+    // The list of Subject Alternative Names (SANs) of the certificate, returned in array format. This corresponds to the `Subject Alternative Name` field of the certificate.
     shared_ptr<vector<string>> subjectAlternativeNames_ {};
-    // The list of tags.
+    // The tag list.
     shared_ptr<vector<GetCertificateDetailResponseBody::Tags>> tags_ {};
-    // The list of cloud services in which the certificate is deployed.
+    // The list of cloud services to which the current certificate is deployed.
     shared_ptr<vector<string>> usingProductList_ {};
   };
 

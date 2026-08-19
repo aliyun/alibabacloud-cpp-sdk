@@ -749,7 +749,7 @@ namespace Cas20200407
       Models::GetCertWarehouseQuotaResponse getCertWarehouseQuota();
 
       /**
-       * @summary Retrieves certificate details, excluding the certificate body and private key.
+       * @summary Queries the details of a certificate without returning the certificate content or private key content.
        *
        * @param request GetCertificateDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,12 +758,37 @@ namespace Cas20200407
       Models::GetCertificateDetailResponse getCertificateDetailWithOptions(const Models::GetCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves certificate details, excluding the certificate body and private key.
+       * @summary Queries the details of a certificate without returning the certificate content or private key content.
        *
        * @param request GetCertificateDetailRequest
        * @return GetCertificateDetailResponse
        */
       Models::GetCertificateDetailResponse getCertificateDetail(const Models::GetCertificateDetailRequest &request);
+
+      /**
+       * @summary 获取证书资源包数量
+       *
+       * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+       * ## QPS限制
+       * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+       *
+       * @param request GetCertificatePackageCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCertificatePackageCountResponse
+       */
+      Models::GetCertificatePackageCountResponse getCertificatePackageCountWithOptions(const Models::GetCertificatePackageCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取证书资源包数量
+       *
+       * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+       * ## QPS限制
+       * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+       *
+       * @param request GetCertificatePackageCountRequest
+       * @return GetCertificatePackageCountResponse
+       */
+      Models::GetCertificatePackageCountResponse getCertificatePackageCount(const Models::GetCertificatePackageCountRequest &request);
 
       /**
        * @summary Retrieves the details of a company.
@@ -1178,6 +1203,31 @@ namespace Cas20200407
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
+
+      /**
+       * @summary Retrieves the list of managed orders.
+       *
+       * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+       *
+       * @param request ListTrusteeOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTrusteeOrderResponse
+       */
+      Models::ListTrusteeOrderResponse listTrusteeOrderWithOptions(const Models::ListTrusteeOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of managed orders.
+       *
+       * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+       *
+       * @param request ListTrusteeOrderRequest
+       * @return ListTrusteeOrderResponse
+       */
+      Models::ListTrusteeOrderResponse listTrusteeOrder(const Models::ListTrusteeOrderRequest &request);
 
       /**
        * @summary Queries the list of user certificates or orders.

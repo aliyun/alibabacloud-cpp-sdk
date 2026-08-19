@@ -111,6 +111,9 @@
 #include <alibabacloud/models/GetCertificateDetailRequest.hpp>
 #include <alibabacloud/models/GetCertificateDetailResponseBody.hpp>
 #include <alibabacloud/models/GetCertificateDetailResponse.hpp>
+#include <alibabacloud/models/GetCertificatePackageCountRequest.hpp>
+#include <alibabacloud/models/GetCertificatePackageCountResponseBody.hpp>
+#include <alibabacloud/models/GetCertificatePackageCountResponse.hpp>
 #include <alibabacloud/models/GetCompanyRequest.hpp>
 #include <alibabacloud/models/GetCompanyResponseBody.hpp>
 #include <alibabacloud/models/GetCompanyResponse.hpp>
@@ -177,6 +180,9 @@
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ListTrusteeOrderRequest.hpp>
+#include <alibabacloud/models/ListTrusteeOrderResponseBody.hpp>
+#include <alibabacloud/models/ListTrusteeOrderResponse.hpp>
 #include <alibabacloud/models/ListUserCertificateOrderRequest.hpp>
 #include <alibabacloud/models/ListUserCertificateOrderResponseBody.hpp>
 #include <alibabacloud/models/ListUserCertificateOrderResponse.hpp>
