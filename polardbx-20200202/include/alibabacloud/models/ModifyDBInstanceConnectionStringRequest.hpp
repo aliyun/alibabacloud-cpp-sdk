@@ -87,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> newPort_ {};
-    // The new connection string prefix.
+    // The new address prefix.
     // 
     // This parameter is required.
     shared_ptr<string> newPrefix_ {};

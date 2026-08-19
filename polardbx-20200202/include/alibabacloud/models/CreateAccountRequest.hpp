@@ -127,7 +127,7 @@ namespace Models
     // - ReadWrite
     // - ReadOnly
     // - DMLOnly
-    // - DDLOnly.
+    // - DDLOnly
     shared_ptr<string> accountPrivilege_ {};
     // The name of the instance.
     // 
@@ -135,17 +135,17 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The name of the database to be authorized.
     shared_ptr<string> DBName_ {};
-    // The region in which the instance resides.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The name of the security administrator account.
     // 
-    // > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+    // > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
     shared_ptr<string> securityAccountName_ {};
     // The password of the security administrator account.
     // 
-    // > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+    // > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
     shared_ptr<string> securityAccountPassword_ {};
   };
 

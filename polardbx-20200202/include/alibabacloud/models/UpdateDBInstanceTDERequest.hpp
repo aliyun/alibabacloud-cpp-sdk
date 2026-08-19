@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The global resource descriptor of the role, used to specify a specific role. For details, see RAM role overview.
+    // The global resource descriptor of the role. This parameter specifies the role to assume. For details, see RAM role overview.
     shared_ptr<string> roleArn_ {};
     // Enables TDE. Set this parameter to 1.
     // 

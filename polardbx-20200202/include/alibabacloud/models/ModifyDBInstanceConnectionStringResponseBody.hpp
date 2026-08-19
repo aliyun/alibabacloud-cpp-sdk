@@ -138,9 +138,9 @@ namespace Models
     shared_ptr<int64_t> code_ {};
     // The new connection string information.
     shared_ptr<ModifyDBInstanceConnectionStringResponseBody::Data> data_ {};
-    // The response message. This is typically an error message.
+    // The response message, which is typically an error message.
     shared_ptr<string> message_ {};
-    // The request ID. It is a unique identifier.
+    // The request ID, which is a unique identifier.
     shared_ptr<string> requestId_ {};
   };
 

@@ -111,20 +111,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The node names. Separate multiple node names with commas (,). You can specify up to 10 CDC nodes and compute nodes, or up to 1 data node at a time.
+    // The node names. Separate multiple names with commas (,). You can specify up to 10 CDC nodes or compute nodes at a time, and up to 1 data node at a time.
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeIds_ {};
     // The node role. Valid values:
     // - master: primary node.
-    // - slave: secondary node. This value applies to DN and GMS nodes.
-    // - standby: secondary node. This value applies to CN nodes.
+    // - slave: secondary node. Applies to DN and GMS nodes.
+    // - standby: secondary node. Applies to CN nodes.
     shared_ptr<string> DBNodeRole_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // The end time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The metric names. Separate multiple metric names with commas (,). You can specify up to 6 metrics. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/332726.html).
+    // The metric names. Separate multiple names with commas (,). You can specify up to 6 metrics. For more information, see [Performance metrics](https://help.aliyun.com/document_detail/332726.html).
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
@@ -132,7 +132,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

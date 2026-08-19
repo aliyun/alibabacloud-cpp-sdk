@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The name of the instance.
+    // The instance name.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};

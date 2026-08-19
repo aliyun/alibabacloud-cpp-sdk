@@ -87,7 +87,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The list of storage pool DNs.
     shared_ptr<string> storagePoolDNList_ {};
-    // The name of the storage pool.
+    // The storage pool name.
     shared_ptr<string> storagePoolName_ {};
   };
 

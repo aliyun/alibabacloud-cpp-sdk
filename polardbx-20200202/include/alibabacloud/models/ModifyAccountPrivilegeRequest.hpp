@@ -98,12 +98,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The account permissions. Valid values:
+    // The account permission. Valid values:
     // 
     // - **ReadWrite**
     // - **ReadOnly**
     // - **DMLOnly**
-    // - **DDLOnly**.
+    // - **DDLOnly**
     shared_ptr<string> accountPrivilege_ {};
     // The instance ID.
     // 

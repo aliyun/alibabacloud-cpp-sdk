@@ -102,11 +102,11 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<SkipCurrentStepResponseBody::Data> data_ {};
-    // The return message. This parameter is empty when the request succeeds. When the request fails, exception information such as error codes is returned.
+    // The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

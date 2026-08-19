@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<string> addDNSpec_ {};
     // The number of compute nodes.
     shared_ptr<int32_t> CNNodeCount_ {};
-    // The client token. You can set this parameter to any random string.
+    // The client token, which is an arbitrary random string.
     shared_ptr<string> clientToken_ {};
     // The instance name ID.
     // 

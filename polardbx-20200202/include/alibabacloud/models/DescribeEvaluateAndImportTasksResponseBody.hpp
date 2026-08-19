@@ -242,9 +242,9 @@ namespace Models
       shared_ptr<string> creator_ {};
       // Indicates whether the task is deleted.
       shared_ptr<bool> deleted_ {};
-      // The task creation timestamp, in milliseconds.
+      // The timestamp when the task was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreated_ {};
-      // The modification time of the metadata information.
+      // The time when the metadata information was last modified.
       shared_ptr<int64_t> gmtModified_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
@@ -331,9 +331,9 @@ namespace Models
 
 
   protected:
-    // The task details.
+    // The details of the restoration tasks.
     shared_ptr<vector<DescribeEvaluateAndImportTasksResponseBody::Data>> data_ {};
-    // The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information (such as error codes) is returned.
+    // The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

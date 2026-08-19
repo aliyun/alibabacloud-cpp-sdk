@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<ModifyEngineMigrationResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The additional information. The value success is returned if the request succeeds. Otherwise, an error code is returned.
+    // The additional information. The value success is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

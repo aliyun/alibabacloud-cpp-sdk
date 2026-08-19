@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including instance IDs.
+    // The instance ID. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including instance IDs.
     shared_ptr<string> DBInstanceName_ {};
     // The execution status of the target SQL import. Valid values: * **importing**: importing. * **success**: import succeeded. * **fail**: import failed.
     shared_ptr<string> dstDb_ {};
@@ -138,9 +138,9 @@ namespace Models
     shared_ptr<string> dstPassword_ {};
     // The migration task ID.
     shared_ptr<string> dstResId_ {};
-    // The username of the target.
+    // The username of the target instance.
     shared_ptr<string> dstUserName_ {};
-    // The region in which the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -148,13 +148,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
-    // The database information of the source when the source database is ApsaraDB RDS for MySQL. > The source database must be consistent with the target database.
+    // The database information of the migration source when the source database is ApsaraDB RDS for MySQL. > The source database must be consistent with the target database.
     shared_ptr<string> srcDb_ {};
-    // The read/write mode for executing the import task on the source. Valid values: * **rw**: read and write. * **ro**: read-only.
+    // The read/write mode for executing the import task on the source instance. Valid values: * **rw**: read/write. * **ro**: read-only.
     shared_ptr<string> srcPassword_ {};
-    // The ID of the source ApsaraDB RDS instance. > You can call the [DescribeDrivingAccess](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all source ApsaraDB RDS instances in the specified region, including instance IDs.
+    // The ID of the source ApsaraDB RDS instance. > You can call the [DescribeDrivingAccess](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all source ApsaraDB RDS instances in the target region, including instance IDs.
     shared_ptr<string> srcResId_ {};
-    // The username of the source.
+    // The username of the source instance.
     shared_ptr<string> srcUserName_ {};
   };
 

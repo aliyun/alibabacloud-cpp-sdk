@@ -153,7 +153,7 @@ namespace Models
         shared_ptr<string> stage_ {};
         // The task status.
         shared_ptr<string> status_ {};
-        // The timestamp of the most recent task update.
+        // The timestamp when the task was last updated.
         shared_ptr<int64_t> updateTime_ {};
       };
 

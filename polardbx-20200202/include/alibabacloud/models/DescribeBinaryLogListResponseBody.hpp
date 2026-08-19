@@ -162,30 +162,30 @@ namespace Models
       shared_ptr<string> beginTime_ {};
       // The creation time of the file.
       shared_ptr<string> createdTime_ {};
-      // The download link for the file. The link is valid for 2 days.
+      // The download link of the file. The link is valid for 2 days.
       shared_ptr<string> downloadLink_ {};
-      // The end time of the current binlog.
+      // The end time of the current binary log.
       shared_ptr<string> endTime_ {};
-      // The name of the binlog file.
+      // The name of the binary log file.
       shared_ptr<string> fileName_ {};
       // The unique ID of the current record.
       shared_ptr<int64_t> id_ {};
       // The size of the current log file.
       shared_ptr<int64_t> logSize_ {};
-      // The last modification time.
+      // The last modified time.
       shared_ptr<string> modifiedTime_ {};
       // The purge status. Valid values:
       // 
-      // - 0: Not deleted.
-      // - 1: Deleted.
+      // - 0: not deleted. 
+      // - 1: deleted.
       shared_ptr<int32_t> purgeStatus_ {};
       // The backup host.
       shared_ptr<string> uploadHost_ {};
       // The backup status. Valid values:
       // 
-      // - 0: Not backed up.
-      // - 1: Backing up.
-      // - 2: Backed up.
+      // - 0: not backed up. 
+      // - 1: being backed up. 
+      // - 2: backed up.
       shared_ptr<int32_t> uploadStatus_ {};
     };
 
@@ -229,15 +229,15 @@ namespace Models
 
 
   protected:
-    // The list of binlog files.
+    // The list of binary log files.
     shared_ptr<vector<DescribeBinaryLogListResponseBody::LogList>> logList_ {};
     // The page number of the current query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of binlog entries displayed on the current page.
+    // The number of binary logs displayed on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of binlog files found.
+    // The total number of binary log files returned.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

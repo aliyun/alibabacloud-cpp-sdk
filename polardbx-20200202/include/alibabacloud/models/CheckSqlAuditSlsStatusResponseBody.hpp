@@ -51,8 +51,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The enabling status of the SQL audit feature. Valid values:
-    // * enabled: Enabled.
-    // * disabled: Not enabled.
+    // * enabled: The feature is enabled.
+    // * disabled: The feature is disabled.
     shared_ptr<string> status_ {};
   };
 

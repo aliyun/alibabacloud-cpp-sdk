@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
-    // The ID of the VPC in which the endpoint resides.
+    // The ID of the VPC in which the access endpoint resides.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

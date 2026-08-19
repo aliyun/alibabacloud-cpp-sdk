@@ -81,7 +81,7 @@ namespace Models
       // - utf8mb4
       // - gbk
       // - latin1
-      // - utf8.
+      // - utf8
       shared_ptr<vector<string>> characterSet_ {};
       // The storage type of databases in the target instance. Currently, only polarx is supported.
       shared_ptr<string> engine_ {};

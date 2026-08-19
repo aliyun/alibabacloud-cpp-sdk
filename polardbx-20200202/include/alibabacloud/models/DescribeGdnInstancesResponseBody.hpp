@@ -312,9 +312,9 @@ namespace Models
 
 
         protected:
-          // The instance type.
+          // The instance specifications.
           shared_ptr<string> classCode_ {};
-          // The CN node specifications. Valid values:
+          // The CN node specifications.
           // 
           // - **polarx.x4.medium.2e**: 2 cores, 8 GB
           // - **polarx.x4.large.2e**: 4 cores, 16 GB
@@ -326,14 +326,14 @@ namespace Models
           // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
           // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
           // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-          // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
+          // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
           shared_ptr<string> cnNodeClassCode_ {};
           // The number of CN nodes.
           shared_ptr<string> cnNodeCount_ {};
           // The commodity code.
           shared_ptr<string> commodityCode_ {};
           shared_ptr<string> dataSyncStatus_ {};
-          // The DN node specifications. Valid values:
+          // The DN node specifications.
           // - **mysql.n2.medium.25**: 2 cores, 4 GB
           // - **mysql.n4.medium.25**: 2 cores, 8 GB
           // - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -348,7 +348,7 @@ namespace Models
           // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
           // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
           // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-          // - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
+          // - **mysql.st.12xlarge.25**: 90 cores, 720 GB
           shared_ptr<string> dnNodeClassCode_ {};
           // The number of DN nodes.
           shared_ptr<string> dnNodeCount_ {};
@@ -372,13 +372,13 @@ namespace Models
           shared_ptr<string> role_ {};
           // The secondary zone.
           shared_ptr<string> secondaryZone_ {};
-          // The data latency.
+          // The data replication lag.
           shared_ptr<string> secondsBehindMaster_ {};
           // The member status.
           shared_ptr<string> status_ {};
           // The switchover task status.
           shared_ptr<string> taskStatus_ {};
-          // The zone for Three-zone deployment. This zone is active only when three-zone deployment is enabled.
+          // The zone for three-zone deployment. This zone is active along with the primary and secondary zones.
           shared_ptr<string> tertiaryZone_ {};
           // The zone ID.
           shared_ptr<string> zoneId_ {};
@@ -474,7 +474,7 @@ namespace Models
         shared_ptr<string> gdnMode_ {};
         // The creation time.
         shared_ptr<string> gmtCreated_ {};
-        // The list of members.
+        // The member list.
         shared_ptr<vector<GdnInstanceList::MemberList>> memberList_ {};
         // The MySQL version supported by the instance.
         shared_ptr<string> mysqlVersion_ {};
@@ -483,7 +483,7 @@ namespace Models
         shared_ptr<bool> rplSyncDdl_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The switchover log.
+        // The switchover history.
         shared_ptr<string> switchHistory_ {};
       };
 
@@ -566,7 +566,7 @@ namespace Models
     // The list of instance details.
     shared_ptr<DescribeGdnInstancesResponseBody::Data> data_ {};
     // The response message.
-    // > This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+    // > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

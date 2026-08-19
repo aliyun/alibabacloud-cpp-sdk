@@ -314,44 +314,133 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable auto-renewal. Default value: true.
+    // 
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> autoRenew_ {};
+    // The backup set ID.
     shared_ptr<string> backupSetId_ {};
+    // The region where the backup set resides.
+    // 
     // This parameter is required.
     shared_ptr<string> backupSetRegion_ {};
+    // The number of compute nodes.
     shared_ptr<string> CNNodeCount_ {};
+    // The client token used to ensure the idempotence of the request. Use a different value for each request.
     shared_ptr<string> clientToken_ {};
+    // The name of the source instance.
+    // 
     // This parameter is required.
     shared_ptr<string> cloneInstanceName_ {};
+    // The compute node specifications. Valid values:
+    // 
+    // - polarx.x4.medium.2e: 2 cores, 8 GB
+    // - polarx.x4.large.2e: 4 cores, 16 GB
+    // - polarx.x8.large.2e: 4 cores, 32 GB
+    // - polarx.x4.xlarge.2e: 8 cores, 32 GB
+    // - polarx.x8.xlarge.2e: 8 cores, 64 GB
+    // - polarx.x4.2xlarge.2e: 16 cores, 64 GB
+    // - polarx.x8.2xlarge.2e: 16 cores, 128 GB
+    // - polarx.x4.4xlarge.2e: 32 cores, 128 GB
+    // - polarx.x8.4xlarge.2e: 32 cores, 256 GB
+    // - polarx.st.8xlarge.2e: 60 cores, 470 GB
+    // - polarx.st.12xlarge.2e: 90 cores, 720 GB
     shared_ptr<string> cnClass_ {};
+    // The node specifications. Valid values:
+    // 
+    // - polarx.x4.medium.2e: 2 cores, 8 GB
+    // - polarx.x4.large.2e: 4 cores, 16 GB
+    // - polarx.x8.large.2e: 4 cores, 32 GB
+    // - polarx.x4.xlarge.2e: 8 cores, 32 GB
+    // - polarx.x8.xlarge.2e: 8 cores, 64 GB
+    // - polarx.x4.2xlarge.2e: 16 cores, 64 GB
+    // - polarx.x8.2xlarge.2e: 16 cores, 128 GB
+    // - polarx.x4.4xlarge.2e: 32 cores, 128 GB
+    // - polarx.x8.4xlarge.2e: 32 cores, 256 GB
+    // - polarx.st.8xlarge.2e: 60 cores, 470 GB
+    // - polarx.st.12xlarge.2e: 90 cores, 720 GB
     shared_ptr<string> DBNodeClass_ {};
+    // The number of instance nodes. The minimum value is 2.
     shared_ptr<int32_t> DBNodeCount_ {};
+    // The number of storage nodes.
     shared_ptr<string> DNNodeCount_ {};
+    // The storage node specifications. Valid values:
+    // 
+    // - mysql.n4.medium.25: 2 cores, 8 GB
+    // - mysql.n4.large.25: 4 cores, 16 GB
+    // - mysql.x8.large.25: 4 cores, 32 GB
+    // - mysql.n4.xlarge.25: 8 cores, 32 GB
+    // - mysql.x8.xlarge.25: 8 cores, 64 GB
+    // - mysql.n4.2xlarge.25: 16 cores, 64 GB
+    // - mysql.x8.2xlarge.25: 16 cores, 128 GB
+    // - mysql.x4.4xlarge.25: 32 cores, 128 GB
+    // - mysql.x8.4xlarge.25: 32 cores, 256 GB
+    // - mysql.st.8xlarge.25: 60 cores, 470 GB
+    // - mysql.st.12xlarge.25: 90 cores, 720 GB
     shared_ptr<string> dnClass_ {};
+    // The MySQL DPI engine version. Valid values: 5.7 and 8.0.
+    // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
+    // The GDN role.
     shared_ptr<string> gdnRole_ {};
+    // The network type. Only VPC is supported.
     shared_ptr<string> networkType_ {};
+    // The billing method of the instance.
+    // 
+    // - PREPAY: subscription
+    // - POSTPAY: pay-as-you-go
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The billing cycle. Valid values for subscription: Year and Month. Default value for pay-as-you-go: Hour.
     shared_ptr<string> period_ {};
+    // The primary zone.
     shared_ptr<string> primaryZone_ {};
+    // The recovery type.
+    // 
     // This parameter is required.
     shared_ptr<string> recoveryTypeCode_ {};
+    // The region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID. This parameter can be left empty. This parameter is not supported.
     shared_ptr<string> resourceGroupId_ {};
+    // The point in time to which you want to restore the instance. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> restoreTime_ {};
+    // The secondary zone.
     shared_ptr<string> secondaryZone_ {};
+    // The instance series. Valid values:
+    // 
+    // - enterprise: Enterprise Edition.
+    // - standard: Standard Edition.
     shared_ptr<string> series_ {};
+    // The region where the source instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceInstanceRegion_ {};
+    // The storage type.
     shared_ptr<string> storageType_ {};
+    // The zone for Three-zone deployment.
     shared_ptr<string> tertiaryZone_ {};
+    // The topology type. Valid values:
+    // 
+    // - 3azones: three-zone deployment.
+    // - 1azone: single-zone deployment.
+    // 
     // This parameter is required.
     shared_ptr<string> topologyType_ {};
+    // The subscription duration. Specify the number of months or years.
+    // 
+    // > If Period is set to Year, valid values of this parameter are 1, 2, and 3.
     shared_ptr<int32_t> usedTime_ {};
+    // VPC ID。
     shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // The zone of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

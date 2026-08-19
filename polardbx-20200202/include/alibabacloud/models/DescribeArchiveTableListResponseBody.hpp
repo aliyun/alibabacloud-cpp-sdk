@@ -150,14 +150,14 @@ namespace Models
 
       protected:
         shared_ptr<string> archiveStatus_ {};
-        // The time when the table was created.
+        // The creation time.
         shared_ptr<int64_t> createdDate_ {};
         // The number of files.
         shared_ptr<int32_t> fileCount_ {};
         shared_ptr<int64_t> lastSuccessArchiveTime_ {};
         // The database name.
         shared_ptr<string> schemaName_ {};
-        // The space occupied by the table.
+        // The space size occupied by the table.
         shared_ptr<double> spaceSize_ {};
         // The table name.
         shared_ptr<string> tableName_ {};
@@ -225,7 +225,7 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page index.
       shared_ptr<int64_t> pageIndex_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
@@ -257,7 +257,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeArchiveTableListResponseBody::Data> data_ {};
     // requestId
     shared_ptr<string> requestId_ {};

@@ -202,13 +202,13 @@ namespace Models
 
 
   protected:
-    // The returned result set.
+    // The result set.
     shared_ptr<DescribeStructureImportTaskInfoResponseBody::Data> data_ {};
-    // The returned message. This parameter is empty if the request is successful. If the request fails, an error message is returned, such as an error code.
+    // The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

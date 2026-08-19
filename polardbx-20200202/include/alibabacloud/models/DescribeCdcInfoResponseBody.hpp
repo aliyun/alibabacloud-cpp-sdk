@@ -184,15 +184,15 @@ namespace Models
 
 
         protected:
-          // The zone in which the instance resides.
+          // The zone where the instance resides.
           shared_ptr<string> AZone_ {};
-          // The disk size. Unit: MB.
+          // The disk size, in MB.
           shared_ptr<int32_t> disk_ {};
           // The instance specifications.
           shared_ptr<string> nodeClass_ {};
           // The node ID.
           shared_ptr<string> nodeId_ {};
-          // The name of the node.
+          // The node name.
           shared_ptr<string> nodeName_ {};
           // The instance status.
           shared_ptr<string> status_ {};
@@ -257,15 +257,15 @@ namespace Models
       protected:
         // The cluster type.
         shared_ptr<string> clusterType_ {};
-        // The remarks on the instance type.
+        // The instance type remarks.
         shared_ptr<string> comment_ {};
-        // The name of the multi-stream group.
+        // The multi-stream group name.
         shared_ptr<string> groupName_ {};
         // The split level.
         shared_ptr<string> hashLevel_ {};
-        // The name of the instance.
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The array of nodes.
+        // The node array.
         shared_ptr<vector<InstanceTopologyList::PhysicalNodes>> physicalNodes_ {};
         // The number of splits.
         shared_ptr<int32_t> streamNum_ {};
@@ -335,7 +335,7 @@ namespace Models
     protected:
       // The number of days that binlogs are retained.
       shared_ptr<int32_t> binlogPersistTime_ {};
-      // The size of the binlog.
+      // The binlog size.
       // 
       // This parameter is required.
       shared_ptr<int32_t> binlogSize_ {};
@@ -343,11 +343,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> cdcNewVersion_ {};
-      // The checksum switch status.
+      // The checksum switch.
       shared_ptr<string> checkSumSwitch_ {};
       // Indicates whether bidirectional replication is supported.
       shared_ptr<bool> enableCyclicReplication_ {};
-      // The list of instances.
+      // The instance list.
       shared_ptr<vector<Data::InstanceTopologyList>> instanceTopologyList_ {};
       // server id
       // 
@@ -392,7 +392,7 @@ namespace Models
   protected:
     // The instance data.
     shared_ptr<DescribeCdcInfoResponseBody::Data> data_ {};
-    // The HTTP status code of the request.
+    // The HTTP status code.
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};

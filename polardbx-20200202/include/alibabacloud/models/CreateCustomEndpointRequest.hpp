@@ -111,16 +111,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Specifies whether a node automatically joins the cluster and starts providing services after the node is added or recovered.
+    // Specifies whether the node automatically joins the cluster and starts providing services after being added or recovered.
     // 
     // This parameter is required.
     shared_ptr<bool> nodeAutoEnter_ {};
-    // The IDs of the monitored nodes when RemindUnit (object type) is set to NODE (node). Separate multiple IDs with commas (,). A maximum of 50 nodes can be monitored per rule.
+    // The IDs of the monitored nodes when RemindUnit (object type) is set to NODE (node). Separate multiple IDs with commas (,). A maximum of 50 nodes can be monitored by a single rule.
     // 
     // This parameter is required.
     shared_ptr<string> nodeIds_ {};
-    // To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** and specify the **NodeId** parameter.
-    // >  In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
+    // To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, specify **READONLY** for this parameter along with the specific **NodeId**.
+    // >  In other cases, you do not need to specify this parameter or you can specify **MASTER**.
     shared_ptr<string> nodeRole_ {};
     // The region in which the instance resides.
     shared_ptr<string> regionId_ {};

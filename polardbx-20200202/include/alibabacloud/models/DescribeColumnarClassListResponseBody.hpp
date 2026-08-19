@@ -98,7 +98,7 @@ namespace Models
 
 
       protected:
-        // The instance specification.
+        // The instance type.
         shared_ptr<string> classCode_ {};
         // The number of CPU cores.
         shared_ptr<string> cpuCore_ {};

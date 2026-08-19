@@ -129,7 +129,7 @@ namespace Models
         shared_ptr<string> backupSetFile_ {};
         // The public download URL.
         shared_ptr<string> downloadLink_ {};
-        // The internal network download URL for the OSS file.
+        // The internal network OSS download URL.
         shared_ptr<string> intranetDownloadLink_ {};
         // The expiration time of the OSS file link.
         shared_ptr<string> linkExpiredTime_ {};
@@ -211,9 +211,9 @@ namespace Models
       // - **0**: Fast backup.
       // - **1**: Consistent backup.
       shared_ptr<int32_t> backupType_ {};
-      // The time when the backup started.
+      // The backup start time.
       shared_ptr<int64_t> beginTime_ {};
-      // The time when the backup ended.
+      // The backup end time.
       shared_ptr<int64_t> endTime_ {};
       // The list of OSS information for the backup set.
       shared_ptr<vector<Data::OSSList>> OSSList_ {};

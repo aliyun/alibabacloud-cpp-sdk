@@ -122,9 +122,9 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The database name.
     shared_ptr<string> DBName_ {};
-    // The node ID. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
+    // The node IDs. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
     shared_ptr<string> DBNodeIds_ {};
-    // The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -138,7 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+    // The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

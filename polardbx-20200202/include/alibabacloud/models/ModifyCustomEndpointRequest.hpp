@@ -102,15 +102,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The name of the custom endpoint.
+    // The name.
     shared_ptr<string> name_ {};
     // Specifies whether a node automatically joins the cluster and starts providing services after it is added or recovered.
     shared_ptr<bool> nodeAutoEnter_ {};
-    // The node IDs.
+    // node ids
     shared_ptr<string> nodeIds_ {};
     // The role of the node.
     shared_ptr<string> nodeRole_ {};
-    // The region ID of the instance.
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

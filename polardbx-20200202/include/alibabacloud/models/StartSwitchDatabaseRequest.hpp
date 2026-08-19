@@ -119,7 +119,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
-    // The endpoint of the primary node of the source instance, which is typically the internal or public endpoint of the instance.
+    // The endpoint of the primary node of the source instance. This is typically the internal or public endpoint of the instance.
     shared_ptr<string> srcMainConnectString_ {};
     // The port number of the primary node of the source instance.
     shared_ptr<string> srcMainPort_ {};

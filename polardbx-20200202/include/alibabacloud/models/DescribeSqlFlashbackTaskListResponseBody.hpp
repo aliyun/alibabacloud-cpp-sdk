@@ -268,8 +268,8 @@ namespace Models
         shared_ptr<string> recallStatus_ {};
         // The recall type. Valid values:
         // 
-        // - **0**: exact match.
-        // - **1**: fuzzy match.
+        // - **0**: Exact match.
+        // - **1**: Fuzzy match.
         shared_ptr<string> recallType_ {};
         // The end time specified when the SQL flashback task was submitted. Unit: ms.
         shared_ptr<string> searchEndTime_ {};

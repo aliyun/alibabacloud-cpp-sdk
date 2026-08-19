@@ -349,7 +349,7 @@ namespace Models
         shared_ptr<string> VPCId_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The internal cloud instance ID within the VPC. You can ignore this parameter.
+        // The internal CloudInstanceId within the VPC. This parameter can be ignored.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -679,7 +679,7 @@ namespace Models
       // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
       // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
       // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
+      // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
       shared_ptr<string> cnNodeClassCode_ {};
       // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
@@ -723,7 +723,7 @@ namespace Models
       // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
       // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
       // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
+      // - **mysql.st.12xlarge.25**: 90 cores, 720 GB
       shared_ptr<string> dnNodeClassCode_ {};
       // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
@@ -733,14 +733,14 @@ namespace Models
       shared_ptr<string> expireDate_ {};
       // Indicates whether the instance has expired. Valid values:
       // 
-      // - **true**: The instance has expired.
-      // - **false**: The instance is running normally.
+      // - **true**: Expired.
+      // - **false**: Not expired.
       shared_ptr<string> expired_ {};
       // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
       // The DPI engine version of the instance. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
-      // The Long-Term Support (LTS) version number.
+      // The LTS version numbers.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
@@ -752,8 +752,8 @@ namespace Models
       // - **ManualLock**: Manually locked.
       // - **LockByExpiration**: Automatically locked due to instance expiration.
       // - **LockByRestoration**: Automatically locked before instance rollback.
-      // - **LockByDiskQuota**: Automatically locked because the instance storage is full.
-      // - **LockReadInstanceByDiskQuota**: Automatically locked because the read-only instance storage is full.
+      // - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
+      // - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
       shared_ptr<string> lockMode_ {};
       // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
@@ -770,13 +770,13 @@ namespace Models
       shared_ptr<string> payType_ {};
       // The port of the instance endpoint.
       shared_ptr<string> port_ {};
-      // The names of the read-only instances.
+      // The names of read-only instances.
       shared_ptr<vector<string>> readDBInstances_ {};
       // The region where the instance resides.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The three-role mode status. Valid values:
+      // Indicates whether the three-role mode is enabled. Valid values:
       // 
       // - **false**: Disabled.
       // - **true**: Enabled.
@@ -786,7 +786,7 @@ namespace Models
       // - **disabled**: Disabled.
       // - **enabled**: Enabled.
       // - **processing**: Being processed.
-      // - **unknown**: Unknown. The instance may be disconnected.
+      // - **unknown**: Unknown. This may be caused by the instance being unreachable.
       shared_ptr<string> rightsSeparationStatus_ {};
       // The instance edition. Valid values:
       // 

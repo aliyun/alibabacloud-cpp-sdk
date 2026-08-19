@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The original task ID, used to match the response with the request.
+      // The original task ID, which is used to match the response with the request.
       shared_ptr<string> slinkTaskId_ {};
     };
 

@@ -115,7 +115,7 @@ namespace Models
       protected:
         // The account name.
         shared_ptr<string> accountName_ {};
-        // The time when the account was created.
+        // The creation time.
         shared_ptr<string> createdTime_ {};
         // The service account type.
         shared_ptr<string> serviceAccountType_ {};
@@ -138,7 +138,7 @@ namespace Models
 
 
     protected:
-      // The service account in the list.
+      // A service account in the list.
       shared_ptr<vector<Data::ServiceAccounts>> serviceAccounts_ {};
     };
 
@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<DescribeServiceAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The instance details.
     shared_ptr<DescribeServiceAccountResponseBody::Data> data_ {};
-    // The response message. "success" is returned if the request was successful. Otherwise, the corresponding error code is returned.
+    // The response message. "success" is returned if the request was successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

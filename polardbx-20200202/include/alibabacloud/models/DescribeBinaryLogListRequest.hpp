@@ -98,20 +98,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The end time for querying the binlog list.
+    // The end time of the query for the binary log list.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> instanceName_ {};
-    // The page number when paginating through the current binlog list. Default value: 1.
+    // The page number of the current binary log list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of binlog entries to return per page. Default value: 30.
+    // The number of binary logs to return on each page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time for querying the binlog list.
+    // The start time of the query for the binary log list.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -119,9 +119,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether valid binary log files exist. This value is used to determine whether operations such as flashback and synchronization can be performed.
+        // Indicates whether valid binary log files exist. This is used to determine whether flashback or synchronization operations can be performed.
         shared_ptr<bool> binlogExists_ {};
         // Indicates whether the recording of original SQL query events is enabled. Valid values:
+        // 
         // - **true**: Enabled.
         // - **false**: Disabled.
         shared_ptr<bool> binlogRowQueryEventEnabled_ {};
@@ -130,6 +131,7 @@ namespace Models
         // Indicates whether the table exists. Valid values: true and false.
         shared_ptr<bool> hasTable_ {};
         // Indicates whether log recording is supported. Valid values:
+        // 
         // - **true**: Supported.
         // - **false**: Not supported.
         shared_ptr<bool> supportBinlogRowQueryEvents_ {};
@@ -183,9 +185,9 @@ namespace Models
 
 
   protected:
-    // The result set.
+    // The returned result set.
     shared_ptr<PreCheckSqlFlashbackTaskResponseBody::Data> data_ {};
-    // The response message. This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+    // The response message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

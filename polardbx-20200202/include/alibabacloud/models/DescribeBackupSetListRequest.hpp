@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The region where the backup sets reside. If you specify this parameter, backup sets in the specified region are returned. You can specify only one region at a time.
+    // The region where the backup set resides. After you specify this parameter, backup sets in the specified region are returned. Only one region can be specified at a time.
     shared_ptr<string> destCrossRegion_ {};
-    // The end time. Specify a UNIX timestamp in milliseconds.
+    // The end time timestamp, in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The page number. The value starts from 1.
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
@@ -110,7 +110,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify a UNIX timestamp in milliseconds.
+    // The start time timestamp, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

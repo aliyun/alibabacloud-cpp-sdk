@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<string> slinkTaskDesc_ {};
     // The task ID for executing the target SQL statement. > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the IDs of target SQL statements supported by PolarDB-X.
     shared_ptr<string> slinkTaskId_ {};
-    // Specifies whether to enable the source ApsaraDB RDS instance. Valid values: ***enable**: enabled. ***disabled**: disabled.
+    // Specifies whether to enable the source ApsaraDB RDS instance. Valid values: **enable**: enables the source ApsaraDB RDS instance. **disabled**: disables the source ApsaraDB RDS instance.
     shared_ptr<string> srcDb_ {};
     // The port number of the source instance. Valid values: 3200 to 3999. > This parameter is available and required only when **DBEndpointInstanceType** is set to **polardb-o**.
     shared_ptr<string> srcPassword_ {};

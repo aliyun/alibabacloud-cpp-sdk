@@ -252,12 +252,12 @@ namespace Models
   protected:
     // The instance name.
     shared_ptr<string> DBInstanceName_ {};
-    // The end of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+    // The end time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeDBNodePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+    // The start time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> startTime_ {};
   };
 

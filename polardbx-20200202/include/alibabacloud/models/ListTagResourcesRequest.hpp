@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The label key.
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // The label value.
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -124,7 +124,7 @@ namespace Models
 
 
   protected:
-    // The token for the next query. If this parameter is empty, no more results exist.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 

@@ -156,9 +156,10 @@ namespace Models
         shared_ptr<string> parameterValue_ {};
         // Indicates whether the parameter can be modified. Valid values:
         // 
-        // - **0**: The parameter cannot be modified.
-        // - **1**: The parameter can be modified.
+        // - **0**: Cannot be modified.
+        // - **1**: Can be modified.
         shared_ptr<int32_t> revisable_ {};
+        // Indicates whether the parameter can be modified by the user.
         shared_ptr<int32_t> userChangable_ {};
       };
 

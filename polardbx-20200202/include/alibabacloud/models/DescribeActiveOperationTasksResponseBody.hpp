@@ -310,15 +310,15 @@ namespace Models
     protected:
       // Indicates whether cancellation is allowed. Valid values:
       // 
-      // - **0**: Not allowed.
-      // - **1**: Allowed.
+      // - **0**: not allowed.
+      // - **1**: allowed.
       shared_ptr<string> allowCancel_ {};
       // Indicates whether modification is allowed. Valid values:
       // 
-      // - **0**: Not allowed.
-      // - **1**: Allowed.
+      // - **0**: not allowed.
+      // - **1**: allowed.
       shared_ptr<string> allowChange_ {};
-      // The change level. This parameter can be ignored.
+      // The change level (can be ignored).
       shared_ptr<string> changeLevel_ {};
       // The change level in English.
       shared_ptr<string> changeLevelEn_ {};
@@ -336,11 +336,11 @@ namespace Models
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
-      // The impact. This parameter is not returned.
+      // The impact (not output).
       shared_ptr<string> impact_ {};
-      // The impact description in English.
+      // The impact in English.
       shared_ptr<string> impactEn_ {};
-      // The impact description in Chinese.
+      // The impact in Chinese.
       shared_ptr<string> impactZh_ {};
       // The description.
       shared_ptr<string> insComment_ {};
@@ -352,14 +352,14 @@ namespace Models
       shared_ptr<string> prepareInterval_ {};
       // The region.
       shared_ptr<string> region_ {};
-      // The result information. This parameter can be ignored.
+      // The result information (can be ignored).
       shared_ptr<string> resultInfo_ {};
       // The start time.
       shared_ptr<string> startTime_ {};
       // The status. Valid values:
       // 
-      // - **3**: Pending. 
-      // - **4**: Running.
+      // - **3**: pending. 
+      // - **4**: running.
       shared_ptr<int64_t> status_ {};
       // The list of child instances.
       shared_ptr<vector<string>> subInsNames_ {};
@@ -367,9 +367,9 @@ namespace Models
       shared_ptr<string> switchTime_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The task type in English. This parameter can be ignored.
+      // The task type in English (can be ignored).
       shared_ptr<string> taskTypeEn_ {};
-      // The task type in Chinese. This parameter can be ignored.
+      // The task type in Chinese (can be ignored).
       shared_ptr<string> taskTypeZh_ {};
     };
 

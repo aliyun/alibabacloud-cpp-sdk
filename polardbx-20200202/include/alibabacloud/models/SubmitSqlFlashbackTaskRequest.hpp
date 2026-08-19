@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The name of the database.
+    // The database name.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
@@ -142,14 +142,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> polardbxInstanceId_ {};
-    // The restoration type. Valid values:
+    // The restore type. Valid values:
     // 
-    // - **1**: Image-based restoration.
-    // - **0**: Reverse restoration.
+    // - **1**: image-based restore.
+    // - **0**: reverse restore.
     // 
     // This parameter is required.
     shared_ptr<string> recallRestoreType_ {};
-    // The matching mode. Valid values:
+    // The match type. Valid values:
     // 
     // - **0**: exact match.
     // - **1**: fuzzy match.
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The primary key of the flashback SQL.
     shared_ptr<string> sqlPk_ {};
-    // The type of SQL. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
+    // The type of SQL statement. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
     shared_ptr<string> sqlType_ {};
     // The start time for executing the flashback SQL.
     // 

@@ -146,7 +146,7 @@ namespace Models
       shared_ptr<int32_t> backupSetCount_ {};
       // The data size of valid backup sets.
       shared_ptr<double> backupSetSpaceSize_ {};
-      // The underlying storage cloud service.
+      // The underlying storage cloud product.
       shared_ptr<string> cloudProduct_ {};
       // The data size of cold storage.
       shared_ptr<double> currentSpaceSize_ {};

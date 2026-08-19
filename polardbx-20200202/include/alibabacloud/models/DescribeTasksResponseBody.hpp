@@ -164,18 +164,18 @@ namespace Models
       shared_ptr<string> DBName_ {};
       // The end time of the task, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
       shared_ptr<string> finishTime_ {};
-      // The task progress, in percentage.
+      // The task progress, in percentage (%).
       shared_ptr<string> progress_ {};
       // The detailed progress information of the task. This parameter is generally empty.
       shared_ptr<string> progressInfo_ {};
-      // The scale-out ID if the task is a scale-out task. This value serves as a unique key in the backend.
+      // The scale-out ID if the task is a scale-out task. This is a unique key in the backend.
       shared_ptr<string> scaleOutToken_ {};
       // The task status. Valid values:
       // 
       // - **RUNNING**: The task is running.
-      // - **FAILED**: The task failed.
+      // - **FAILED**: The task failed and was interrupted.
       shared_ptr<string> status_ {};
-      // The task action, which serves as the unique key for the backend task type.
+      // The task action, which is the unique key for the backend task type.
       shared_ptr<string> taskAction_ {};
       // The error code of the failed task.
       shared_ptr<string> taskErrorCode_ {};

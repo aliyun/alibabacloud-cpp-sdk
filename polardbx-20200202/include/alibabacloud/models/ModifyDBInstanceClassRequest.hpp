@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The client token. It can be any unique string.
+    // The client token that is used to ensure the idempotence of the request. You can use any unique string.
     shared_ptr<string> clientToken_ {};
     // **Target specifications for Enterprise Edition compute node specification changes**
     // 
@@ -164,7 +164,7 @@ namespace Models
     // - polarxro.x4.4xlarge.2e	32 cores, 128 GB (dedicated)
     // - polarxro.x8.4xlarge.2e	32 cores, 256 GB (dedicated)
     // - polarxro.st.8xlarge.2e	60 cores, 470 GB (dedicated physical machine)
-    // - polarxro.st.12xlarge.2e	90 cores, 720 GB (dedicated physical machine).
+    // - polarxro.st.12xlarge.2e	90 cores, 720 GB (dedicated physical machine)
     shared_ptr<string> cnClass_ {};
     // The instance ID.
     // 
@@ -204,7 +204,7 @@ namespace Models
     // - mysqlro.x4.4xlarge.1	32 cores, 128 GB (dedicated)
     // - mysqlro.x8.4xlarge.1	32 cores, 256 GB (dedicated)
     // - rds.mysql.st.h43	60 cores, 470 GB (dedicated physical machine)
-    // - rds.mysql.st.v52	90 cores, 720 GB (dedicated physical machine).
+    // - rds.mysql.st.v52	90 cores, 720 GB (dedicated physical machine)
     shared_ptr<string> dnClass_ {};
     // The target disk size for the specification change.
     // 
@@ -215,14 +215,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to change specifications for multiple DNs.
+    // Specifies whether to perform a multi-specification change for DN nodes.
     shared_ptr<bool> specifiedDNScale_ {};
-    // The target specifications for each DN when changing specifications for multiple DNs.
+    // The target specification for each DN node when performing a multi-specification DN change.
     shared_ptr<string> specifiedDNSpecMapJson_ {};
-    // The start time of the switch. The switch time range is [start time T, T+30m]. This parameter is not yet available.
+    // The switch start time. The switch time range is [start time T, T+30m]. This parameter is not yet available.
     shared_ptr<string> switchTime_ {};
     // The switch time. Valid values:
-    // - 0: immediately
+    // - 0: immediately.
     // - 1: within the O&M window.
     shared_ptr<string> switchTimeMode_ {};
     // **Target specifications for Standard Edition specification changes**
@@ -268,7 +268,7 @@ namespace Models
     // - mysqlro.x8.xlarge.1 	8 cores, 64 GB (dedicated) 
     // - mysqlro.x8.2xlarge.1 	16 cores, 128 GB (dedicated) 
     // - mysqlro.x4.4xlarge.1 	32 cores, 128 GB (dedicated) 
-    // - mysqlro.x8.4xlarge.1	32 cores, 256 GB (dedicated).
+    // - mysqlro.x8.4xlarge.1	32 cores, 256 GB (dedicated)
     shared_ptr<string> targetDBInstanceClass_ {};
   };
 

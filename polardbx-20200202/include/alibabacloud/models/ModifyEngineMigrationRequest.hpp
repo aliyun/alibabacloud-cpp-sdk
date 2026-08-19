@@ -84,8 +84,8 @@ namespace Models
 
 
   protected:
-    // The specific endpoints to switch. Set this parameter to a JSON string that contains the pairs of endpoints to swap.
-    // > This parameter takes effect only when SwapConnectionString is set to true.
+    // The specific endpoints to switch. The value is a JSON string that corresponds to the endpoint pairs to be swapped.
+    // >This parameter takes effect only when SwapConnectionString is set to true.
     shared_ptr<string> connectionStrings_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<string> sourceDBInstanceName_ {};
     // Specifies whether to automatically swap connection strings. Valid values:
     // 
-    // - true: The application does not need to modify its configuration. Connections are automatically directed to the new instance.
+    // - true: The application does not need to modify configurations. Connections are automatically directed to the new instance.
     // 
     // - false: You must manually update the application endpoint.
     shared_ptr<string> swapConnectionString_ {};

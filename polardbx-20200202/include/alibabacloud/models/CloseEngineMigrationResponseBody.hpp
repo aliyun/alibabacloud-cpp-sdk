@@ -132,7 +132,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The new endpoint information.
+    // The new endpoint connection string information.
     shared_ptr<CloseEngineMigrationResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};

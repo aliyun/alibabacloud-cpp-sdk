@@ -196,7 +196,7 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

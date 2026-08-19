@@ -80,12 +80,12 @@ namespace Models
     protected:
       // The domain name bound to the certificate.
       shared_ptr<string> certCommonName_ {};
-      // Indicates whether SSL is enabled for the instance:
+      // Indicates whether SSL is enabled for the instance. Valid values:
       // 
-      // - **true**: enabled
-      // - **false**: disabled
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> SSLEnabled_ {};
-      // The expiration time of the SSL certificate.
+      // The certificate expiration time.
       shared_ptr<string> SSLExpiredTime_ {};
     };
 
@@ -108,7 +108,7 @@ namespace Models
 
 
   protected:
-    // The data structure.
+    // The data struct.
     shared_ptr<DescribeDBInstanceSSLResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

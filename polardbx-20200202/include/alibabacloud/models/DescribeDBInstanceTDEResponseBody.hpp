@@ -61,8 +61,8 @@ namespace Models
     protected:
       // Indicates whether TDE is enabled. Valid values:
       // 
-      // - 0: TDE is disabled.
-      // - 1: TDE is enabled.
+      // - 0: Not enabled.
+      // - 1: Enabled.
       shared_ptr<string> TDEStatus_ {};
     };
 

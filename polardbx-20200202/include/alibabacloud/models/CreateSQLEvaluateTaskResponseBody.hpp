@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The Slink task ID.
+      // The slink task ID.
       shared_ptr<string> slinkTaskId_ {};
     };
 
@@ -102,7 +102,7 @@ namespace Models
   protected:
     // The returned result.
     shared_ptr<CreateSQLEvaluateTaskResponseBody::Data> data_ {};
-    // The returned message. > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+    // The response message. > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

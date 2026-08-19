@@ -150,11 +150,22 @@ namespace Models
 
 
         protected:
+          // Indicates whether the node is enabled. For the compute layer, only the primary zone node is enabled. After a primary/secondary switchover, the standby compute node becomes the primary node. All storage layer nodes are enabled.
           shared_ptr<bool> activated_ {};
+          // The instance specification type (specification code).
           shared_ptr<string> class_ {};
+          // The IP address.
           shared_ptr<string> ip_ {};
+          // The port number.
           shared_ptr<string> port_ {};
+          // The replica ID.
           shared_ptr<int64_t> replicaId_ {};
+          // The weight of the destination route.
+          // 
+          // - For VPN gateway instances that support the dual-tunnel mode for IPsec-VPN connections, the weight of the destination route is **100** by default and has no practical significance.
+          // - For VPN gateway instances that support the single-tunnel mode for IPsec-VPN connections, the weight represents the priority of the destination route:
+          //     - **100**: high priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this route serves as the active link.
+          //     - **0**: low priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this route serves as the standby link.
           shared_ptr<int64_t> weight_ {};
         };
 
@@ -334,22 +345,49 @@ namespace Models
 
 
         protected:
+          // The address.
           shared_ptr<string> address_ {};
+          // The instance specification type (specification code).
           shared_ptr<string> class_ {};
+          // The ID of the endpoint group to which the endpoint belongs.
           shared_ptr<int64_t> endpointGroupId_ {};
+          // The logical node ID.
           shared_ptr<int64_t> id_ {};
+          // Indicates whether this is the default vSwitch.
           shared_ptr<bool> isDefault_ {};
+          // The payload type. Valid values:
+          // - agentTurn: agent conversation.
+          // - systemEvent: system event.
           shared_ptr<string> kind_ {};
+          // The network type of the endpoint. Valid values:
+          // * **Public**: public endpoint.
+          // * **Private**: private endpoint.
+          // * **Inner**: private endpoint (classic network).
           shared_ptr<string> netType_ {};
+          // The read/write type. Valid values:
+          // - ReadWrite: row store read/write.
+          // - ColumnarRead: column store read-only.
           shared_ptr<string> readType_ {};
+          // The object name.
           shared_ptr<string> targetName_ {};
+          // The tunnel ID.
           shared_ptr<int64_t> tunnelId_ {};
+          // The instance type. Valid values:
+          // 
+          // - **ReadWrite**: primary instance.
+          // - **ReadOnly**: read-only instance.
           shared_ptr<string> type_ {};
+          // Indicates whether the endpoint is visible to the user.
           shared_ptr<bool> userVisible_ {};
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
+          // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
           shared_ptr<string> vip_ {};
+          // The ID of the VPC in which the endpoint resides.
           shared_ptr<string> vpcId_ {};
+          // The VIP port, such as 80, 8080, or 443.
           shared_ptr<int64_t> vport_ {};
+          // The zone ID.
           shared_ptr<string> zoneId_ {};
         };
 
@@ -374,7 +412,9 @@ namespace Models
 
 
       protected:
+        // The endpoint of the instance.
         shared_ptr<Items::Endpoint> endpoint_ {};
+        // The addresses of the origin server.
         shared_ptr<vector<Items::RealServer>> realServer_ {};
       };
 
@@ -389,6 +429,7 @@ namespace Models
 
 
     protected:
+      // The internal connection type. The value is fixed as 1, which indicates the classic network.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -425,9 +466,13 @@ namespace Models
 
 
   protected:
+    // The monitoring data.
     shared_ptr<DescribeDBInstanceEndpointResponseBody::Data> data_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The parameter details.
     shared_ptr<vector<DescribeAvailableCrossRegionsResponseBody::Data>> data_ {};
-    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+    // The additional information returned. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

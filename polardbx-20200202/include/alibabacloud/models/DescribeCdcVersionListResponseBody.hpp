@@ -85,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The data struct.
+    // The response struct.
     shared_ptr<DescribeCdcVersionListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

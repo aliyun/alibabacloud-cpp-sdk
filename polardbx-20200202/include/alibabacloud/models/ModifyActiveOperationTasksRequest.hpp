@@ -72,14 +72,14 @@ namespace Models
     shared_ptr<string> ids_ {};
     // Specifies whether to immediately execute the event. Valid values:
     // 
-    // - 1: immediately execute
-    // - 0: execute at the specified time.
+    // - 1: immediately executes the event.
+    // - 0: executes the event at the specified time.
     shared_ptr<int64_t> immediateStart_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The switchover start time in the YYYY-MM-DDThh:mm:ssZ format.
+    // The time when the switchover starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> switchTime_ {};
   };
 

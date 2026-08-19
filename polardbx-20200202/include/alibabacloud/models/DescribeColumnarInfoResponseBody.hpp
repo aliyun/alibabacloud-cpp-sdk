@@ -166,7 +166,7 @@ namespace Models
 
 
         protected:
-          // The zone in which the instance resides.
+          // The zone where the instance resides.
           shared_ptr<string> AZone_ {};
           // The disk size, in MB.
           shared_ptr<int32_t> disk_ {};
@@ -286,7 +286,7 @@ namespace Models
       shared_ptr<string> checkSumSwitch_ {};
       // The instance specifications.
       shared_ptr<string> classCode_ {};
-      // The new column store version.
+      // The new version of the column store.
       // 
       // This parameter is required.
       shared_ptr<string> columnarNewVersion_ {};

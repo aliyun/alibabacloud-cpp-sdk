@@ -103,7 +103,7 @@ namespace Models
     // The instance details.
     shared_ptr<CreateGdnInstanceResponseBody::Data> data_ {};
     // The returned message.
-    // > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+    // > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

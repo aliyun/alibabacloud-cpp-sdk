@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
-    // If configName is set to ENABLE_CONSISTENT_REPLICA_READ, the valid values are "true" and "false".
+    // If configName is set to ENABLE_CONSISTENT_REPLICA_READ, valid values are "true" and "false".
     // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};

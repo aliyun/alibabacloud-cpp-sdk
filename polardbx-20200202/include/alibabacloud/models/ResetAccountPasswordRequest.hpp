@@ -100,9 +100,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the security administrator account.
+    // The name of the cryptographic officer (CO) account.
     shared_ptr<string> securityAccountName_ {};
-    // The password of the security administrator account.
+    // The password of the cryptographic officer (CO) account.
     shared_ptr<string> securityAccountPassword_ {};
   };
 

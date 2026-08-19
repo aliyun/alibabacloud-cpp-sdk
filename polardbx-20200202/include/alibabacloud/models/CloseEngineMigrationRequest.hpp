@@ -64,9 +64,9 @@ namespace Models
     // 
     // Default value: **true**.
     // 
-    // > Disabling binlog restarts your PolarDB cluster.
+    // > Disabling binlog will restart your PolarDB cluster.
     shared_ptr<string> continueEnableBinlog_ {};
-    // The name of the instance.
+    // The instance name.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};

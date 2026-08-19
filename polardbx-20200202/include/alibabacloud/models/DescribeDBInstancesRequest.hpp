@@ -122,19 +122,15 @@ namespace Models
 
   protected:
     shared_ptr<string> dbVersion_ {};
-    // The description or remarks of the database.
+    // The description of the database.
     shared_ptr<string> description_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // Specifies whether the instance must have a log engine.
     shared_ptr<bool> mustHasCdc_ {};
-    // The page number. Starts from 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size. Valid values:
-    // 
-    // - 30
-    // - 50
-    // - 100.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the instance.
     // 
@@ -143,9 +139,6 @@ namespace Models
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The instance edition. Valid values:
-    // 
-    // - **enterprise**: Enterprise Edition.
-    // - **standard**: Standard Edition.
     shared_ptr<string> series_ {};
     // The list of tags.
     shared_ptr<string> tags_ {};

@@ -293,9 +293,9 @@ namespace Models
 
 
   protected:
-    // The details of the backup policy.
+    // The backup policy details.
     shared_ptr<UpdateBackupPolicyResponseBody::Data> data_ {};
-    // The response message. The value success is returned if the request is successful. Otherwise, the corresponding error code is returned.
+    // The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

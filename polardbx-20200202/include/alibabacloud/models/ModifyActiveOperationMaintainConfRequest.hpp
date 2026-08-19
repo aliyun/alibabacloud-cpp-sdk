@@ -88,7 +88,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cycleTime_ {};
-    // The cycle mode. Set this parameter to Week.
+    // The cycle mode. Valid values:
+    // 
+    // - Week: weekly.
     // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};

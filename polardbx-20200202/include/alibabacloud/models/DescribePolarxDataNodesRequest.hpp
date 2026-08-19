@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The keyword for filtering query results.
+    // The keyword for filtering results.
     shared_ptr<string> searchKey_ {};
   };
 

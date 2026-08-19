@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The policy details returned.
+    // The returned policy details.
     shared_ptr<ModifyColumnarClassResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -88,9 +88,9 @@ namespace Models
     shared_ptr<string> filterType_ {};
     // The filter value for querying resources.
     // 
-    // This parameter is used together with FilterKey.
+    // Used together with FilterKey.
     shared_ptr<string> filterValue_ {};
-    // The GDN ID.
+    // GDN ID。
     shared_ptr<string> GDNId_ {};
     // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<string> pageNum_ {};

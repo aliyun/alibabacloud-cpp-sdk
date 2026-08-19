@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether a pop-up notification is required. Valid values:
+    // Indicates whether a pop-up window is required. Valid values:
     // 
     // - 1: Required.
     // - 0: Not required.

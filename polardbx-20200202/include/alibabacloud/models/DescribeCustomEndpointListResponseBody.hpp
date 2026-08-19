@@ -179,24 +179,24 @@ namespace Models
         shared_ptr<vector<string>> cnNames_ {};
         // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
-        // The ID of the custom endpoint.
+        // The custom endpoint ID.
         shared_ptr<string> customEndpointId_ {};
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
-        // The name of the custom endpoint.
+        // The name.
         shared_ptr<string> name_ {};
-        // Indicates whether a node automatically joins the cluster and starts providing services after the node is added or recovered.
+        // Specifies whether the node automatically joins the cluster and starts providing services after being added or restored.
         shared_ptr<string> nodeAutoEnter_ {};
-        // To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** and specify the **NodeId** parameter.
-        // >  In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
+        // If you want to query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** along with the specific **NodeId**.
+        // >  In other cases, you do not need to specify this parameter (or set it to **MASTER**).
         shared_ptr<string> nodeRole_ {};
-        // The port used to connect to the instance.
+        // The connection port of the instance.
         shared_ptr<int32_t> port_ {};
-        // The status of the custom endpoint.
+        // The status.
         shared_ptr<string> status_ {};
-        // The ID of the vSwitch.
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the virtual private cloud (VPC) in which the endpoint resides.
+        // The ID of the VPC where the endpoint resides.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -221,7 +221,7 @@ namespace Models
     protected:
       // Indicates whether the node can be deleted.
       shared_ptr<int32_t> canDeleteCount_ {};
-      // The details of the endpoints.
+      // The endpoint details.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
     };
 

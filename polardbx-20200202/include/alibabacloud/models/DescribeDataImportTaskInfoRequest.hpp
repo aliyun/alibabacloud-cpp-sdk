@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The page number of failed records.
+    // The page number of the failed records.
     shared_ptr<int32_t> failPageNumber_ {};
     // The number of failed records to display per page.
     shared_ptr<int32_t> failPageSize_ {};
@@ -96,7 +96,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
-    // The page number of successful records.
+    // The page number of the successful records.
     shared_ptr<int64_t> successPageNumber_ {};
     // The number of successful records to display per page.
     shared_ptr<int64_t> successPageSize_ {};

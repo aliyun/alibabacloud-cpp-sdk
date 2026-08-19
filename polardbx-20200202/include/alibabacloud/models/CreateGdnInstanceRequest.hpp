@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The description of the instance.
+    // The description information.
     shared_ptr<string> description_ {};
     // The GDN mode.
     shared_ptr<string> gdnMode_ {};
-    // The region in which the instance resides.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

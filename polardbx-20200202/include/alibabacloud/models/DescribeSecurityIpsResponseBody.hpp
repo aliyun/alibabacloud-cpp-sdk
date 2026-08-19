@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> DBInstanceName_ {};
       // The list of whitelist groups.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
@@ -161,7 +161,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<DescribeSecurityIpsResponseBody::Data> data_ {};
-    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+    // The additional information returned. "success" is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

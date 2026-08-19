@@ -90,7 +90,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Set this parameter to PolarDBXInstance.
+    // The resource type. The value must be PolarDBXInstance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

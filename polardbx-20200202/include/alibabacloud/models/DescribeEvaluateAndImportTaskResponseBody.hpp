@@ -315,7 +315,7 @@ namespace Models
   protected:
     // The returned result.
     shared_ptr<DescribeEvaluateAndImportTaskResponseBody::Data> data_ {};
-    // The response message. This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+    // The response message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The additional information returned. The value success is returned if the request is successful. Otherwise, an error code is returned.
+    // The additional information returned. The value is success if the request is successful, or an error code if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

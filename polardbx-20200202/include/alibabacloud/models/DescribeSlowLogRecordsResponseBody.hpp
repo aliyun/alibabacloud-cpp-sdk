@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<string> fail_ {};
       // The number of rows fetched. This field is available only for CN.
       shared_ptr<string> frows_ {};
-      // The name and address of the client that connects to the database.
+      // The client name and address that connects to the database.
       shared_ptr<string> hostAddress_ {};
       // The instance name. This field is available only for DN.
       shared_ptr<string> insName_ {};
@@ -320,12 +320,12 @@ namespace Models
       shared_ptr<string> params_ {};
       // The number of rows scanned. This field is available only for DN.
       shared_ptr<string> parseRowCounts_ {};
-      // The timestamp in the YYYY-MM-ddTHH:mm.ss.SSSZ format (UTC).
+      // The timestamp. Format: YYYY-MM-ddTHH:mm.ss.SSSZ (UTC).
       // 
       // - In CN slow logs, this field indicates the execution start time.
       // - In DN slow logs, this field indicates the execution end time.
       shared_ptr<string> queryStartTime_ {};
-      // The execution duration of the SQL statement. Unit: seconds.
+      // The execution duration of the SQL statement. Unit: seconds (s).
       shared_ptr<string> queryTime_ {};
       // The execution duration of the SQL statement. Unit: milliseconds (ms).
       shared_ptr<string> queryTimeMS_ {};
@@ -335,7 +335,7 @@ namespace Models
       shared_ptr<string> rows_ {};
       // The number of physical SQL statements. This field is available only for CN.
       shared_ptr<string> SCNT_ {};
-      // The unique identifier of the SQL statement in slow query log statistics.
+      // The unique identity of the SQL statement in slow query log statistics.
       shared_ptr<string> SQLHash_ {};
       // The SQL statement.
       shared_ptr<string> SQLText_ {};

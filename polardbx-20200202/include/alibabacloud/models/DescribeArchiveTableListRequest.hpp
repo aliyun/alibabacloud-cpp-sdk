@@ -96,7 +96,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The page number. Pages start from 1.
+    // The page number, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageIndex_ {};

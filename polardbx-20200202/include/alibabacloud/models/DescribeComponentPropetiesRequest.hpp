@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
-    // The region in which the instance resides. > You can call the [describeregions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

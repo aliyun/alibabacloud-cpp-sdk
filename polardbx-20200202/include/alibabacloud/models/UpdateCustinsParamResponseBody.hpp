@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<UpdateCustinsParamResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

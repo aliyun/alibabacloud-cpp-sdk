@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The backup type. Currently, only "0" is supported, which indicates fast backup.
+    // The backup type. Currently, only "0" is supported, which indicates a fast backup.
     shared_ptr<string> backupType_ {};
     // The name of the instance.
     // 

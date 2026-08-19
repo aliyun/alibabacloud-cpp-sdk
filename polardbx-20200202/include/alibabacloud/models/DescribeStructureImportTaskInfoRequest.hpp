@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The region in which the instance resides.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the destination task.
+    // The ID of the target task.
     // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};

@@ -96,7 +96,7 @@ namespace Models
       shared_ptr<string> orderIndex_ {};
       // The commodity module.
       shared_ptr<string> propertyCode_ {};
-      // The label value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
 
 
   protected:
-    // The export parameters of the exception event.
+    // The export parameters of exception events.
     shared_ptr<vector<DescribeComponentPropetiesResponseBody::Properties>> properties_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

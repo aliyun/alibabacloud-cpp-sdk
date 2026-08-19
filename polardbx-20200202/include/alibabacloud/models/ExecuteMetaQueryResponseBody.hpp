@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<ExecuteMetaQueryResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The instance details.
+    // The list of instance details.
     shared_ptr<ExecuteMetaQueryResponseBody::Data> data_ {};
-    // The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+    // The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

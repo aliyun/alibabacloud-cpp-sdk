@@ -117,7 +117,7 @@ namespace Models
       shared_ptr<bool> alreadyExists_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The type of the service account.
+      // The service account type.
       shared_ptr<string> serviceAccountType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
