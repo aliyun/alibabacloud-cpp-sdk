@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteExecutorGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(DeleteJobs, deleteJobs_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Name, name_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteExecutorGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(DeleteJobs, deleteJobs_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->id_ == nullptr && this->name_ == nullptr; };
+        && this->deleteJobs_ == nullptr && this->id_ == nullptr && this->name_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
     inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DeleteExecutorGroupRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // deleteJobs Field Functions 
+    bool hasDeleteJobs() const { return this->deleteJobs_ != nullptr;};
+    void deleteDeleteJobs() { this->deleteJobs_ = nullptr;};
+    inline bool getDeleteJobs() const { DARABONBA_PTR_GET_DEFAULT(deleteJobs_, false) };
+    inline DeleteExecutorGroupRequest& setDeleteJobs(bool deleteJobs) { DARABONBA_PTR_SET_VALUE(deleteJobs_, deleteJobs) };
 
 
     // id Field Functions 
@@ -59,6 +68,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> deleteJobs_ {};
     // This parameter is required.
     shared_ptr<int32_t> id_ {};
     shared_ptr<string> name_ {};

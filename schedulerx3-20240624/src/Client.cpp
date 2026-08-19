@@ -1034,6 +1034,10 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroupWithOptions(const DeleteE
     body["ClusterId"] = request.getClusterId();
   }
 
+  if (!!request.hasDeleteJobs()) {
+    body["DeleteJobs"] = request.getDeleteJobs();
+  }
+
   if (!!request.hasId()) {
     body["Id"] = request.getId();
   }
