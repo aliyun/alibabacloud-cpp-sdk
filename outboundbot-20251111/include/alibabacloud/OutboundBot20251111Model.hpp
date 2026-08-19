@@ -64,9 +64,15 @@
 #include <alibabacloud/models/DisableSubscriptionRequest.hpp>
 #include <alibabacloud/models/DisableSubscriptionResponseBody.hpp>
 #include <alibabacloud/models/DisableSubscriptionResponse.hpp>
+#include <alibabacloud/models/GetCallDetailRecordRequest.hpp>
+#include <alibabacloud/models/GetCallDetailRecordResponseBody.hpp>
+#include <alibabacloud/models/GetCallDetailRecordResponse.hpp>
 #include <alibabacloud/models/GetCampaignRequest.hpp>
 #include <alibabacloud/models/GetCampaignResponseBody.hpp>
 #include <alibabacloud/models/GetCampaignResponse.hpp>
+#include <alibabacloud/models/GetCaseDetailRequest.hpp>
+#include <alibabacloud/models/GetCaseDetailResponseBody.hpp>
+#include <alibabacloud/models/GetCaseDetailResponse.hpp>
 #include <alibabacloud/models/GetInstanceRequest.hpp>
 #include <alibabacloud/models/GetInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResponse.hpp>
@@ -79,6 +85,10 @@
 #include <alibabacloud/models/ListCampaignsRequest.hpp>
 #include <alibabacloud/models/ListCampaignsResponseBody.hpp>
 #include <alibabacloud/models/ListCampaignsResponse.hpp>
+#include <alibabacloud/models/ListCasesRequest.hpp>
+#include <alibabacloud/models/ListCasesShrinkRequest.hpp>
+#include <alibabacloud/models/ListCasesResponseBody.hpp>
+#include <alibabacloud/models/ListCasesResponse.hpp>
 #include <alibabacloud/models/ListCloneVoiceModelsRequest.hpp>
 #include <alibabacloud/models/ListCloneVoiceModelsResponseBody.hpp>
 #include <alibabacloud/models/ListCloneVoiceModelsResponse.hpp>

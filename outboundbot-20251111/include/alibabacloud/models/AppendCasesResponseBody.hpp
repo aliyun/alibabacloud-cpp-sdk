@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The phone number.
       shared_ptr<string> phoneNumber_ {};
+      // The business ID.
       shared_ptr<string> referenceId_ {};
     };
 
@@ -143,6 +145,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
+    // The list of contacts that failed to be added.
     shared_ptr<vector<AppendCasesResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

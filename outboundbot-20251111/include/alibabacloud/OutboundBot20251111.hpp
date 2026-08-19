@@ -343,6 +343,27 @@ namespace OutboundBot20251111
       Models::DisableSubscriptionResponse disableSubscription(const Models::DisableSubscriptionRequest &request);
 
       /**
+       * @summary Retrieves the details of a call session.
+       *
+       * @description ****
+       *
+       * @param request GetCallDetailRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCallDetailRecordResponse
+       */
+      Models::GetCallDetailRecordResponse getCallDetailRecordWithOptions(const Models::GetCallDetailRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a call session.
+       *
+       * @description ****
+       *
+       * @param request GetCallDetailRecordRequest
+       * @return GetCallDetailRecordResponse
+       */
+      Models::GetCallDetailRecordResponse getCallDetailRecord(const Models::GetCallDetailRecordRequest &request);
+
+      /**
        * @summary Retrieves the details of an outbound campaign.
        *
        * @param request GetCampaignRequest
@@ -358,6 +379,27 @@ namespace OutboundBot20251111
        * @return GetCampaignResponse
        */
       Models::GetCampaignResponse getCampaign(const Models::GetCampaignRequest &request);
+
+      /**
+       * @summary Retrieves the details of a case.
+       *
+       * @description ****
+       *
+       * @param request GetCaseDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCaseDetailResponse
+       */
+      Models::GetCaseDetailResponse getCaseDetailWithOptions(const Models::GetCaseDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a case.
+       *
+       * @description ****
+       *
+       * @param request GetCaseDetailRequest
+       * @return GetCaseDetailResponse
+       */
+      Models::GetCaseDetailResponse getCaseDetail(const Models::GetCaseDetailRequest &request);
 
       /**
        * @summary Retrieves the details of an instance.
@@ -430,6 +472,27 @@ namespace OutboundBot20251111
        * @return ListCampaignsResponse
        */
       Models::ListCampaignsResponse listCampaigns(const Models::ListCampaignsRequest &request);
+
+      /**
+       * @summary Retrieves a list of cases.
+       *
+       * @description ****
+       *
+       * @param tmpReq ListCasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCasesResponse
+       */
+      Models::ListCasesResponse listCasesWithOptions(const Models::ListCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of cases.
+       *
+       * @description ****
+       *
+       * @param request ListCasesRequest
+       * @return ListCasesResponse
+       */
+      Models::ListCasesResponse listCases(const Models::ListCasesRequest &request);
 
       /**
        * @summary Retrieves the list of available models for voice cloning.

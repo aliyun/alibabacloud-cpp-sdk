@@ -1079,6 +1079,60 @@ DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptio
 }
 
 /**
+ * @summary Retrieves the details of a call session.
+ *
+ * @description ****
+ *
+ * @param request GetCallDetailRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCallDetailRecordResponse
+ */
+GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCallDetailRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCallDetailRecord"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCallDetailRecordResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a call session.
+ *
+ * @description ****
+ *
+ * @param request GetCallDetailRecordRequest
+ * @return GetCallDetailRecordResponse
+ */
+GetCallDetailRecordResponse Client::getCallDetailRecord(const GetCallDetailRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCallDetailRecordWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of an outbound campaign.
  *
  * @param request GetCampaignRequest
@@ -1122,6 +1176,60 @@ GetCampaignResponse Client::getCampaignWithOptions(const GetCampaignRequest &req
 GetCampaignResponse Client::getCampaign(const GetCampaignRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCampaignWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a case.
+ *
+ * @description ****
+ *
+ * @param request GetCaseDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCaseDetailResponse
+ */
+GetCaseDetailResponse Client::getCaseDetailWithOptions(const GetCaseDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCaseId()) {
+    query["CaseId"] = request.getCaseId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCaseDetail"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCaseDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a case.
+ *
+ * @description ****
+ *
+ * @param request GetCaseDetailRequest
+ * @return GetCaseDetailResponse
+ */
+GetCaseDetailResponse Client::getCaseDetail(const GetCaseDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCaseDetailWithOptions(request, runtime);
 }
 
 /**
@@ -1330,6 +1438,166 @@ ListCampaignsResponse Client::listCampaignsWithOptions(const ListCampaignsReques
 ListCampaignsResponse Client::listCampaigns(const ListCampaignsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCampaignsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a list of cases.
+ *
+ * @description ****
+ *
+ * @param tmpReq ListCasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCasesResponse
+ */
+ListCasesResponse Client::listCasesWithOptions(const ListCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCasesShrinkRequest request = ListCasesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCaseIds()) {
+    request.setCaseIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCaseIds(), "CaseIds", "json"));
+  }
+
+  if (!!tmpReq.hasDispositionCodes()) {
+    request.setDispositionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDispositionCodes(), "DispositionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasDispositionReasons()) {
+    request.setDispositionReasonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDispositionReasons(), "DispositionReasons", "json"));
+  }
+
+  if (!!tmpReq.hasLabelSearch()) {
+    request.setLabelSearchShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelSearch(), "LabelSearch", "json"));
+  }
+
+  if (!!tmpReq.hasStates()) {
+    request.setStatesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStates(), "States", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAccessChannelId()) {
+    query["AccessChannelId"] = request.getAccessChannelId();
+  }
+
+  if (!!request.hasAccessChannelType()) {
+    query["AccessChannelType"] = request.getAccessChannelType();
+  }
+
+  if (!!request.hasCaller()) {
+    query["Caller"] = request.getCaller();
+  }
+
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.getCampaignId();
+  }
+
+  if (!!request.hasCaseCompleted()) {
+    query["CaseCompleted"] = request.getCaseCompleted();
+  }
+
+  if (!!request.hasCaseIdsShrink()) {
+    query["CaseIds"] = request.getCaseIdsShrink();
+  }
+
+  if (!!request.hasDispositionCodesShrink()) {
+    query["DispositionCodes"] = request.getDispositionCodesShrink();
+  }
+
+  if (!!request.hasDispositionReasonsShrink()) {
+    query["DispositionReasons"] = request.getDispositionReasonsShrink();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLabelSearchShrink()) {
+    query["LabelSearch"] = request.getLabelSearchShrink();
+  }
+
+  if (!!request.hasMaxRingingDuration()) {
+    query["MaxRingingDuration"] = request.getMaxRingingDuration();
+  }
+
+  if (!!request.hasMaxTalkTime()) {
+    query["MaxTalkTime"] = request.getMaxTalkTime();
+  }
+
+  if (!!request.hasMaxTalkTurns()) {
+    query["MaxTalkTurns"] = request.getMaxTalkTurns();
+  }
+
+  if (!!request.hasMinRingingDuration()) {
+    query["MinRingingDuration"] = request.getMinRingingDuration();
+  }
+
+  if (!!request.hasMinTalkTime()) {
+    query["MinTalkTime"] = request.getMinTalkTime();
+  }
+
+  if (!!request.hasMinTalkTurns()) {
+    query["MinTalkTurns"] = request.getMinTalkTurns();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPhoneNumber()) {
+    query["PhoneNumber"] = request.getPhoneNumber();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatesShrink()) {
+    query["States"] = request.getStatesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCases"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCasesResponse>();
+}
+
+/**
+ * @summary Retrieves a list of cases.
+ *
+ * @description ****
+ *
+ * @param request ListCasesRequest
+ * @return ListCasesResponse
+ */
+ListCasesResponse Client::listCases(const ListCasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCasesWithOptions(request, runtime);
 }
 
 /**
