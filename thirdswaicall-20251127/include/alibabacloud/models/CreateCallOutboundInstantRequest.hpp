@@ -14,8 +14,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateCallOutboundInstantRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
+      DARABONBA_PTR_TO_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_TO_JSON(CallerUacAccountId, callerUacAccountId_);
       DARABONBA_PTR_TO_JSON(CurrentWorkspaceId, currentWorkspaceId_);
+      DARABONBA_PTR_TO_JSON(CustomerLineCode, customerLineCode_);
       DARABONBA_PTR_TO_JSON(CustomerName, customerName_);
       DARABONBA_PTR_TO_JSON(EncryptCall, encryptCall_);
       DARABONBA_PTR_TO_JSON(PromptVariables, promptVariables_);
@@ -23,8 +25,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateCallOutboundInstantRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
+      DARABONBA_PTR_FROM_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_FROM_JSON(CallerUacAccountId, callerUacAccountId_);
       DARABONBA_PTR_FROM_JSON(CurrentWorkspaceId, currentWorkspaceId_);
+      DARABONBA_PTR_FROM_JSON(CustomerLineCode, customerLineCode_);
       DARABONBA_PTR_FROM_JSON(CustomerName, customerName_);
       DARABONBA_PTR_FROM_JSON(EncryptCall, encryptCall_);
       DARABONBA_PTR_FROM_JSON(PromptVariables, promptVariables_);
@@ -42,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && this->callerUacAccountId_ == nullptr && this->currentWorkspaceId_ == nullptr && this->customerName_ == nullptr && this->encryptCall_ == nullptr && this->promptVariables_ == nullptr
-        && this->taskId_ == nullptr; };
+        && this->callerNumber_ == nullptr && this->callerUacAccountId_ == nullptr && this->currentWorkspaceId_ == nullptr && this->customerLineCode_ == nullptr && this->customerName_ == nullptr
+        && this->encryptCall_ == nullptr && this->promptVariables_ == nullptr && this->taskId_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
     inline string getCalledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
     inline CreateCallOutboundInstantRequest& setCalledNumber(string calledNumber) { DARABONBA_PTR_SET_VALUE(calledNumber_, calledNumber) };
+
+
+    // callerNumber Field Functions 
+    bool hasCallerNumber() const { return this->callerNumber_ != nullptr;};
+    void deleteCallerNumber() { this->callerNumber_ = nullptr;};
+    inline string getCallerNumber() const { DARABONBA_PTR_GET_DEFAULT(callerNumber_, "") };
+    inline CreateCallOutboundInstantRequest& setCallerNumber(string callerNumber) { DARABONBA_PTR_SET_VALUE(callerNumber_, callerNumber) };
 
 
     // callerUacAccountId Field Functions 
@@ -63,6 +74,13 @@ namespace Models
     void deleteCurrentWorkspaceId() { this->currentWorkspaceId_ = nullptr;};
     inline string getCurrentWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(currentWorkspaceId_, "") };
     inline CreateCallOutboundInstantRequest& setCurrentWorkspaceId(string currentWorkspaceId) { DARABONBA_PTR_SET_VALUE(currentWorkspaceId_, currentWorkspaceId) };
+
+
+    // customerLineCode Field Functions 
+    bool hasCustomerLineCode() const { return this->customerLineCode_ != nullptr;};
+    void deleteCustomerLineCode() { this->customerLineCode_ = nullptr;};
+    inline string getCustomerLineCode() const { DARABONBA_PTR_GET_DEFAULT(customerLineCode_, "") };
+    inline CreateCallOutboundInstantRequest& setCustomerLineCode(string customerLineCode) { DARABONBA_PTR_SET_VALUE(customerLineCode_, customerLineCode) };
 
 
     // customerName Field Functions 
@@ -95,8 +113,10 @@ namespace Models
 
   protected:
     shared_ptr<string> calledNumber_ {};
+    shared_ptr<string> callerNumber_ {};
     shared_ptr<string> callerUacAccountId_ {};
     shared_ptr<string> currentWorkspaceId_ {};
+    shared_ptr<string> customerLineCode_ {};
     shared_ptr<string> customerName_ {};
     shared_ptr<bool> encryptCall_ {};
     shared_ptr<string> promptVariables_ {};

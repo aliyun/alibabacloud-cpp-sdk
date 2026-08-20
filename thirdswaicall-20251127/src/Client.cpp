@@ -49,12 +49,20 @@ CreateCallOutboundInstantResponse Client::createCallOutboundInstantWithOptions(c
     body["CalledNumber"] = request.getCalledNumber();
   }
 
+  if (!!request.hasCallerNumber()) {
+    body["CallerNumber"] = request.getCallerNumber();
+  }
+
   if (!!request.hasCallerUacAccountId()) {
     body["CallerUacAccountId"] = request.getCallerUacAccountId();
   }
 
   if (!!request.hasCurrentWorkspaceId()) {
     body["CurrentWorkspaceId"] = request.getCurrentWorkspaceId();
+  }
+
+  if (!!request.hasCustomerLineCode()) {
+    body["CustomerLineCode"] = request.getCustomerLineCode();
   }
 
   if (!!request.hasCustomerName()) {
