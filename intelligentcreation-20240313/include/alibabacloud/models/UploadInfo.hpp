@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UploadInfo& obj) { 
       DARABONBA_PTR_TO_JSON(accessId, accessId_);
+      DARABONBA_PTR_TO_JSON(accessUrl, accessUrl_);
       DARABONBA_PTR_TO_JSON(host, host_);
       DARABONBA_PTR_TO_JSON(key, key_);
       DARABONBA_PTR_TO_JSON(policy, policy_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UploadInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(accessId, accessId_);
+      DARABONBA_PTR_FROM_JSON(accessUrl, accessUrl_);
       DARABONBA_PTR_FROM_JSON(host, host_);
       DARABONBA_PTR_FROM_JSON(key, key_);
       DARABONBA_PTR_FROM_JSON(policy, policy_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessId_ == nullptr
-        && this->host_ == nullptr && this->key_ == nullptr && this->policy_ == nullptr && this->policySignature_ == nullptr && this->url_ == nullptr; };
+        && this->accessUrl_ == nullptr && this->host_ == nullptr && this->key_ == nullptr && this->policy_ == nullptr && this->policySignature_ == nullptr
+        && this->url_ == nullptr; };
     // accessId Field Functions 
     bool hasAccessId() const { return this->accessId_ != nullptr;};
     void deleteAccessId() { this->accessId_ = nullptr;};
     inline string getAccessId() const { DARABONBA_PTR_GET_DEFAULT(accessId_, "") };
     inline UploadInfo& setAccessId(string accessId) { DARABONBA_PTR_SET_VALUE(accessId_, accessId) };
+
+
+    // accessUrl Field Functions 
+    bool hasAccessUrl() const { return this->accessUrl_ != nullptr;};
+    void deleteAccessUrl() { this->accessUrl_ = nullptr;};
+    inline string getAccessUrl() const { DARABONBA_PTR_GET_DEFAULT(accessUrl_, "") };
+    inline UploadInfo& setAccessUrl(string accessUrl) { DARABONBA_PTR_SET_VALUE(accessUrl_, accessUrl) };
 
 
     // host Field Functions 
@@ -86,6 +96,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> accessId_ {};
+    shared_ptr<string> accessUrl_ {};
     // This parameter is required.
     shared_ptr<string> host_ {};
     // This parameter is required.
