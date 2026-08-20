@@ -143,6 +143,26 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAsrLanguage()) {
+    query["AsrLanguage"] = request.getAsrLanguage();
+  }
+
+  if (!!request.hasAudioClipOutput()) {
+    query["AudioClipOutput"] = request.getAudioClipOutput();
+  }
+
+  if (!!request.hasAudioWindowSeconds()) {
+    query["AudioWindowSeconds"] = request.getAudioWindowSeconds();
+  }
+
+  if (!!request.hasChunkSummary()) {
+    query["ChunkSummary"] = request.getChunkSummary();
+  }
+
   if (!!request.hasFileFormat()) {
     query["FileFormat"] = request.getFileFormat();
   }
@@ -155,8 +175,40 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
     query["FileUrl"] = request.getFileUrl();
   }
 
+  if (!!request.hasFrameOutput()) {
+    query["FrameOutput"] = request.getFrameOutput();
+  }
+
+  if (!!request.hasGlobalSummary()) {
+    query["GlobalSummary"] = request.getGlobalSummary();
+  }
+
   if (!!request.hasImageMode()) {
     query["ImageMode"] = request.getImageMode();
+  }
+
+  if (!!request.hasImageUnderstanding()) {
+    query["ImageUnderstanding"] = request.getImageUnderstanding();
+  }
+
+  if (!!request.hasMediaChunkIntervalSeconds()) {
+    query["MediaChunkIntervalSeconds"] = request.getMediaChunkIntervalSeconds();
+  }
+
+  if (!!request.hasMediaChunkStrategy()) {
+    query["MediaChunkStrategy"] = request.getMediaChunkStrategy();
+  }
+
+  if (!!request.hasMediaFramesPerMinute()) {
+    query["MediaFramesPerMinute"] = request.getMediaFramesPerMinute();
+  }
+
+  if (!!request.hasMediaMaxFrameBudget()) {
+    query["MediaMaxFrameBudget"] = request.getMediaMaxFrameBudget();
+  }
+
+  if (!!request.hasMediaMinFrameBudget()) {
+    query["MediaMinFrameBudget"] = request.getMediaMinFrameBudget();
   }
 
   if (!!request.hasOssFileUrl()) {
@@ -167,8 +219,16 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
     query["OutputFormat"] = request.getOutputFormat();
   }
 
+  if (!!request.hasParseScene()) {
+    query["ParseScene"] = request.getParseScene();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseMode()) {
+    query["ResponseMode"] = request.getResponseMode();
   }
 
   if (!!request.hasResultType()) {
@@ -310,12 +370,20 @@ CreateDocParserJobResponse Client::createDocParserJobAdvance(const CreateDocPars
 DescribeDocParserJobResultResponse Client::describeDocParserJobResultWithOptions(const DescribeDocParserJobResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
   if (!!request.hasJobId()) {
     query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResultType()) {
+    query["ResultType"] = request.getResultType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -363,6 +431,10 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResult(const Desc
 DescribeDocParserJobStatusResponse Client::describeDocParserJobStatusWithOptions(const DescribeDocParserJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
   if (!!request.hasJobId()) {
     query["JobId"] = request.getJobId();
   }
@@ -415,6 +487,10 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatus(const Desc
 WebFetchResponse Client::webFetchWithOptions(const WebFetchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
   if (!!request.hasOutputFormat()) {
     query["OutputFormat"] = request.getOutputFormat();
   }
@@ -462,7 +538,7 @@ WebFetchResponse Client::webFetch(const WebFetchRequest &request) {
  * @summary Performs a web search.
  *
  * @description - Region: Only China (Beijing) and Singapore regions are supported.
- * - Fees: Free of charge during the public preview. No fees are charged.
+ * - Fees: Free during the public preview period. No fees are charged.
  *
  * @param request WebSearchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -471,6 +547,10 @@ WebFetchResponse Client::webFetch(const WebFetchRequest &request) {
 WebSearchResponse Client::webSearchWithOptions(const WebSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }
@@ -512,7 +592,7 @@ WebSearchResponse Client::webSearchWithOptions(const WebSearchRequest &request, 
  * @summary Performs a web search.
  *
  * @description - Region: Only China (Beijing) and Singapore regions are supported.
- * - Fees: Free of charge during the public preview. No fees are charged.
+ * - Fees: Free during the public preview period. No fees are charged.
  *
  * @param request WebSearchRequest
  * @return WebSearchResponse

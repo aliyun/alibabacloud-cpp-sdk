@@ -13,11 +13,13 @@ namespace Models
   class WebFetchRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const WebFetchRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentName, agentName_);
       DARABONBA_PTR_TO_JSON(OutputFormat, outputFormat_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Url, url_);
     };
     friend void from_json(const Darabonba::Json& j, WebFetchRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
       DARABONBA_PTR_FROM_JSON(OutputFormat, outputFormat_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Url, url_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->outputFormat_ == nullptr
-        && this->regionId_ == nullptr && this->url_ == nullptr; };
+    virtual bool empty() const override { return this->agentName_ == nullptr
+        && this->outputFormat_ == nullptr && this->regionId_ == nullptr && this->url_ == nullptr; };
+    // agentName Field Functions 
+    bool hasAgentName() const { return this->agentName_ != nullptr;};
+    void deleteAgentName() { this->agentName_ = nullptr;};
+    inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
+    inline WebFetchRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
     // outputFormat Field Functions 
     bool hasOutputFormat() const { return this->outputFormat_ != nullptr;};
     void deleteOutputFormat() { this->outputFormat_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> agentName_ {};
     // The output format. Valid values:
     // 
     // - **markdown**: Markdown format.

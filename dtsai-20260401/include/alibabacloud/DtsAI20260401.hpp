@@ -122,7 +122,7 @@ namespace DtsAI20260401
        * @summary Performs a web search.
        *
        * @description - Region: Only China (Beijing) and Singapore regions are supported.
-       * - Fees: Free of charge during the public preview. No fees are charged.
+       * - Fees: Free during the public preview period. No fees are charged.
        *
        * @param request WebSearchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -134,7 +134,7 @@ namespace DtsAI20260401
        * @summary Performs a web search.
        *
        * @description - Region: Only China (Beijing) and Singapore regions are supported.
-       * - Fees: Free of charge during the public preview. No fees are charged.
+       * - Fees: Free during the public preview period. No fees are charged.
        *
        * @param request WebSearchRequest
        * @return WebSearchResponse

@@ -91,7 +91,7 @@ namespace Models
 
 
     protected:
-      // The summary of the web page content.
+      // The snippet of the web page content.
       shared_ptr<string> snippet_ {};
       // The title of the web page.
       shared_ptr<string> title_ {};
@@ -171,7 +171,7 @@ namespace Models
     shared_ptr<string> query_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The search result list.
+    // The list of search results.
     shared_ptr<vector<WebSearchResponseBody::SearchResult>> searchResult_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
