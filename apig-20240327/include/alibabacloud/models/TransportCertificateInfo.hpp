@@ -135,16 +135,27 @@ namespace Models
 
 
   protected:
+    // The signature/key algorithm.
     shared_ptr<string> algorithm_ {};
+    // The certificate identifier (certificate ID under the APIG cloud account).
     shared_ptr<string> certIdentifier_ {};
+    // The certificate name.
     shared_ptr<string> certName_ {};
+    // The match status between the certificate and gateway instance domain names.
     shared_ptr<string> certificateMatchStatus_ {};
+    // The certificate Common Name (CN).
     shared_ptr<string> commonName_ {};
+    // The set of covered domain names parsed from CN and SAN (deduplicated in lowercase, may contain *. wildcards).
     shared_ptr<vector<string>> coveredDomains_ {};
+    // The certificate issuer.
     shared_ptr<string> issuer_ {};
+    // The gateway instance domain names matched by covered domains (ordered by instance domain name, deduplicated).
     shared_ptr<vector<string>> matchedDomains_ {};
+    // The expiration timestamp (Unix milliseconds, from the certificate afterDate).
     shared_ptr<int64_t> notAfterTimestamp_ {};
+    // The effective period UNIX timestamp (Unix milliseconds, from the certificate beforeDate).
     shared_ptr<int64_t> notBeforeTimestamp_ {};
+    // The raw SAN string (separated by commas, semicolons, or whitespace. Elements may have a DNS: prefix).
     shared_ptr<string> sans_ {};
   };
 

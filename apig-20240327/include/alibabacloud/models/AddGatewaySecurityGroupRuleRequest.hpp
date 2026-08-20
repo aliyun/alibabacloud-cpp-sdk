@@ -64,7 +64,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The port ranges.
     shared_ptr<vector<string>> portRanges_ {};
-    // The security group ID.
+    // The security group ID. This parameter is required. The specified security group must be different from the security group associated with the gateway. Otherwise, an error is returned.
     shared_ptr<string> securityGroupId_ {};
   };
 

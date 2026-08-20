@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tlsCipherSuitesConfig, tlsCipherSuitesConfig_);
       DARABONBA_PTR_TO_JSON(tlsMax, tlsMax_);
       DARABONBA_PTR_TO_JSON(tlsMin, tlsMin_);
+      DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDomainRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(caCertIdentifier, caCertIdentifier_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(tlsCipherSuitesConfig, tlsCipherSuitesConfig_);
       DARABONBA_PTR_FROM_JSON(tlsMax, tlsMax_);
       DARABONBA_PTR_FROM_JSON(tlsMin, tlsMin_);
+      DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
     };
     CreateDomainRequest() = default ;
     CreateDomainRequest(const CreateDomainRequest &) = default ;
@@ -59,7 +61,7 @@ namespace Models
     virtual bool empty() const override { return this->caCertIdentifier_ == nullptr
         && this->certIdentifier_ == nullptr && this->clientCACert_ == nullptr && this->domainScope_ == nullptr && this->forceHttps_ == nullptr && this->gatewayType_ == nullptr
         && this->http2Option_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
+        && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->dryRun_ == nullptr; };
     // caCertIdentifier Field Functions 
     bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
     void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
@@ -160,12 +162,19 @@ namespace Models
     inline CreateDomainRequest& setTlsMin(string tlsMin) { DARABONBA_PTR_SET_VALUE(tlsMin_, tlsMin) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateDomainRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
   protected:
-    // The CA certificate identifier. This parameter is optional for Dedicated with HTTPS. This parameter is not allowed for Serverless and is not validated for Dedicated with HTTP.
+    // The CA certificate identifier. This parameter is optional for Dedicated scope with HTTPS. It is not allowed for Serverless scope and is not validated for Dedicated scope with HTTP.
     shared_ptr<string> caCertIdentifier_ {};
-    // The certificate identifier. This parameter is required for Dedicated with HTTPS and must pass validation. This parameter is not allowed for Serverless and is not validated for Dedicated with HTTP.
+    // The certificate identifier. This parameter is required for Dedicated scope with HTTPS and must pass validation. It is not allowed for Serverless scope and is not validated for Dedicated scope with HTTP.
     shared_ptr<string> certIdentifier_ {};
-    // The client CA certificate. This parameter is conditionally required for Dedicated with HTTPS (when MTLSEnabled is set to true). This parameter is not allowed for Serverless and is not validated for Dedicated with HTTP.
+    // The client CA certificate. This parameter is conditionally required for Dedicated scope with HTTPS (required when MTLSEnabled is set to true). It is not allowed for Serverless scope and is not validated for Dedicated scope with HTTP.
     shared_ptr<string> clientCACert_ {};
     // The domain name scope. Valid values:
     // 
@@ -174,7 +183,7 @@ namespace Models
     // 
     // Default value: Dedicated.
     shared_ptr<string> domainScope_ {};
-    // Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated with HTTPS. This parameter is not validated for Dedicated with HTTP.
+    // Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless scope and for Dedicated scope with HTTPS. It is not validated for Dedicated scope with HTTP.
     shared_ptr<bool> forceHttps_ {};
     // The gateway type. If not specified, the default value is API.
     shared_ptr<string> gatewayType_ {};
@@ -186,22 +195,24 @@ namespace Models
     // 
     // Default value: GlobalConfig. This setting is supported only for HTTPS domain names in the Dedicated scope.
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mTLS mutual authentication. This parameter is optional for Dedicated with HTTPS. When set to true, ClientCACert is required. This parameter is not allowed for Serverless.
+    // Specifies whether to enable mTLS mutual authentication. This parameter is optional for Dedicated scope with HTTPS. When set to true, ClientCACert is required. This parameter is not allowed for Serverless scope.
     shared_ptr<bool> mTLSEnabled_ {};
-    // The domain name. The name must be 1 to 128 characters in length, such as abc.com.
+    // The domain name. The name must be 1 to 128 characters in length. Example: abc.com.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type used by the domain name. Valid values: HTTP and HTTPS. This parameter is required for the Dedicated scope and is not allowed for the Serverless scope.
+    // The protocol type used by the domain name. Valid values: HTTP, HTTPS. This parameter is required for the Dedicated scope and is not allowed for the Serverless scope.
     shared_ptr<string> protocol_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     // The TLS cipher suite configuration, including the configuration type, cipher suite names, and supported TLS versions. This configuration is supported only for HTTPS domain names in the Dedicated scope.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum TLS protocol version. This parameter is optional for Dedicated with HTTPS. If not specified, the value is derived from TlsMin. The value must be greater than or equal to TlsMin. This parameter is not allowed for Serverless.
+    // The maximum TLS protocol version. This parameter is optional for Dedicated scope with HTTPS. If not specified, the value is derived from TlsMin. The value must be greater than or equal to TlsMin. This parameter is not allowed for Serverless scope.
     shared_ptr<string> tlsMax_ {};
-    // The minimum TLS protocol version. This parameter is optional for Dedicated with HTTPS. If not specified, the default value is TLS 1.0. Valid values: TLS 1.0 to TLS 1.3, compatible with TLSv1.x. This parameter is not allowed for Serverless.
+    // The minimum TLS protocol version. This parameter is optional for Dedicated scope with HTTPS. If not specified, the default value is TLS 1.0. Valid values: TLS 1.0 to TLS 1.3 (compatible with TLSv1.x). This parameter is not allowed for Serverless scope.
     shared_ptr<string> tlsMin_ {};
+    // Specifies whether to perform only a dry run validation. If set to true, all synchronous validations identical to an actual creation are performed (including idempotency checks for existing test domain names), but no domain name is created and no side effects are produced. If not specified or set to false, the behavior is the same as the existing version.
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

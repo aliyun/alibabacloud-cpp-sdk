@@ -207,7 +207,7 @@ namespace Models
   protected:
     // The API key source configuration.
     shared_ptr<ApiKeyIdentityConfig::ApikeySource> apikeySource_ {};
-    // The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to AI gateway Header mode. Query String and non-AI gateway allow only a single source. When submitted together with apikeySource, the latter must be consistent with the compatible projection.
+    // The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to the AI gateway Header mode. Query String and non-AI gateway allow only a single source. If submitted together with apikeySource, the latter must be consistent with the compatible projection.
     shared_ptr<vector<ApiKeyIdentityConfig::ApikeySources>> apikeySources_ {};
     // The list of credentials.
     shared_ptr<vector<ApiKeyIdentityConfig::Credentials>> credentials_ {};

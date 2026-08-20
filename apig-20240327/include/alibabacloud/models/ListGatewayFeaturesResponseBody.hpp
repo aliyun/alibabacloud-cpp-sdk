@@ -163,7 +163,7 @@ namespace Models
 
 
           protected:
-            // The pass parameter key.
+            // The key used to pass the parameter.
             shared_ptr<string> key_ {};
             // The display value.
             shared_ptr<string> label_ {};
@@ -288,12 +288,12 @@ namespace Models
           // The display name of the parameter.
           shared_ptr<string> displayName_ {};
           // The parameter group. Valid values:
-          // - Telemetry: observability parameter.
-          // - Engine: engine parameter.
+          // - Telemetry: observability-related parameter.
+          // - Engine: engine-related parameter.
           shared_ptr<string> group_ {};
           // The input type of the parameter. Valid values:
           // - Trigger: toggle.
-          // - Input: input.
+          // - Input: text input.
           // - SingleSelect: single-select.
           // - MultiSelect: multi-select.
           shared_ptr<string> inputType_ {};
@@ -316,11 +316,11 @@ namespace Models
           // The type supported by the parameter value. Valid values:
           // - bool: Boolean.
           // - string: String.
-          // - int32: Integer.
-          // - int64: Long integer.
+          // - int32: 32-bit integer.
+          // - int64: 64-bit integer.
           // - json: JSON format.
           // - array: JSON array format.
-          // - float: Float.
+          // - float: Floating-point.
           shared_ptr<string> valueType_ {};
           // The unit.
           shared_ptr<string> valueUnit_ {};
@@ -354,6 +354,7 @@ namespace Models
 
 
         protected:
+          // The maximum body collection size per request in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
           shared_ptr<int32_t> bodyMaxSizeLimit_ {};
         };
 
@@ -385,6 +386,7 @@ namespace Models
 
 
       protected:
+        // The runtime constraints calculated based on the current gateway form. Only returned for certain features.
         shared_ptr<Items::Constraints> constraints_ {};
         // The parameter definition.
         shared_ptr<Items::Definition> definition_ {};

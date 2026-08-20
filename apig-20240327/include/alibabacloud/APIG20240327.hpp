@@ -59,7 +59,7 @@ namespace APIG20240327
       Models::AddGatewayQuotaRuleResponse addGatewayQuotaRule(const string &gatewayId, const Models::AddGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Authorizes a security group that allows a gateway to access services.
+       * @summary Authorizes a security group to allow gateway access to services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @param headers map
@@ -69,7 +69,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRuleWithOptions(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a security group that allows a gateway to access services.
+       * @summary Authorizes a security group to allow gateway access to services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @return AddGatewaySecurityGroupRuleResponse
@@ -789,18 +789,20 @@ namespace APIG20240327
       /**
        * @summary Deletes a specified HTTP API.
        *
+       * @param request DeleteHttpApiRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteHttpApiResponse
        */
-      Models::DeleteHttpApiResponse deleteHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteHttpApiResponse deleteHttpApiWithOptions(const string &httpApiId, const Models::DeleteHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a specified HTTP API.
        *
+       * @param request DeleteHttpApiRequest
        * @return DeleteHttpApiResponse
        */
-      Models::DeleteHttpApiResponse deleteHttpApi(const string &httpApiId);
+      Models::DeleteHttpApiResponse deleteHttpApi(const string &httpApiId, const Models::DeleteHttpApiRequest &request);
 
       /**
        * @summary Deletes a specified operation.
@@ -1275,7 +1277,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+       * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @param headers map
@@ -1287,7 +1289,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+       * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -1297,18 +1299,20 @@ namespace APIG20240327
       /**
        * @summary Retrieves HTTP API information.
        *
+       * @param request GetHttpApiRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetHttpApiResponse
        */
-      Models::GetHttpApiResponse getHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetHttpApiResponse getHttpApiWithOptions(const string &httpApiId, const Models::GetHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Retrieves HTTP API information.
        *
+       * @param request GetHttpApiRequest
        * @return GetHttpApiResponse
        */
-      Models::GetHttpApiResponse getHttpApi(const string &httpApiId);
+      Models::GetHttpApiResponse getHttpApi(const string &httpApiId, const Models::GetHttpApiRequest &request);
 
       /**
        * @summary Retrieves operation information.
@@ -1889,7 +1893,7 @@ namespace APIG20240327
       Models::ListHttpApisResponse listHttpApis(const Models::ListHttpApisRequest &request);
 
       /**
-       * @summary Retrieves a list of MCP servers.
+       * @summary Retrieves the list of MCP servers.
        *
        * @description The operation supports creating multiple services.
        *
@@ -1901,7 +1905,7 @@ namespace APIG20240327
       Models::ListMcpServersResponse listMcpServersWithOptions(const Models::ListMcpServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of MCP servers.
+       * @summary Retrieves the list of MCP servers.
        *
        * @description The operation supports creating multiple services.
        *
@@ -2619,7 +2623,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+       * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
        *
        * @param request UpdateMcpServerRequest
        * @param headers map
@@ -2631,7 +2635,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+       * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
        *
        * @param request UpdateMcpServerRequest
        * @return UpdateMcpServerResponse

@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The authentication type of the Agent access entry. Specify this parameter only when enabled is set to true.
       shared_ptr<string> authType_ {};
+      // Specifies whether to enable consumer authorization. If set to true, authType must be specified and at least one principal must be provided. If set to false, no principals can be specified.
+      // 
       // This parameter is required.
       shared_ptr<bool> enabled_ {};
+      // The list of consumers or consumer groups that are granted Agent access permissions. At least one principal must be specified when enabled is set to true.
       shared_ptr<vector<AgentAuthorizationPrincipal>> principals_ {};
     };
 
@@ -136,12 +140,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable AI request logging. Default value if omitted: true.
     shared_ptr<bool> aiRequestLogEnabled_ {};
+    // The consumer authorization configuration for Agent access. If omitted, consumer authorization is not enabled.
     shared_ptr<AgentAccessConfig::Authorization> authorization_ {};
+    // The base path of the Agent access entry. The path must start with a forward slash (/).
+    // 
     // This parameter is required.
     shared_ptr<string> basePath_ {};
+    // The list of domain name IDs bound to the Agent access entry. At least one domain name must be specified.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainIds_ {};
+    // Specifies whether to remove the base path when forwarding requests to the backend. Default value if omitted: false.
     shared_ptr<bool> removeBasePathOnForward_ {};
   };
 

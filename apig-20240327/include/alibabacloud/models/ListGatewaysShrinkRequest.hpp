@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The list of tags.
     shared_ptr<string> tagShrink_ {};
-    // The VPC ID.
+    // The virtual private cloud (VPC) ID.
     shared_ptr<string> vpcId_ {};
   };
 

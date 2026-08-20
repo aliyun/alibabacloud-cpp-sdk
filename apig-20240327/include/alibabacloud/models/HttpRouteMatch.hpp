@@ -87,11 +87,10 @@ namespace Models
     protected:
       // The parameter name.
       shared_ptr<string> name_ {};
-      // The match type. Valid values:
-      // 
-      // *   Exact: exact match
-      // *   Prefix: prefix match
-      // *   Regex: regular expression
+      // The query parameter matching type. Valid values:
+      // - Exact: exact match. 
+      // - Prefix: prefix match. 
+      // - Regex: regular expression match.
       shared_ptr<string> type_ {};
       // The parameter value.
       shared_ptr<string> value_ {};
@@ -135,11 +134,10 @@ namespace Models
 
 
     protected:
-      // The path matching type. Valid values:
-      // 
-      // *   Exact: exact match
-      // *   Prefix: prefix match
-      // *   Regex: regular expression
+      // The path matching rule. Valid values:
+      // - Exact: exact match.
+      // - Prefix: prefix match. 
+      // - Regex: regular expression match.
       shared_ptr<string> type_ {};
       // The path.
       shared_ptr<string> value_ {};
@@ -192,15 +190,14 @@ namespace Models
 
 
     protected:
-      // The header name.
+      // The name of the header.
       shared_ptr<string> name_ {};
-      // The match type. Valid values:
-      // 
-      // *   Exact: exact match
-      // *   Prefix: prefix match
-      // *   Regex: regular expression
+      // The header matching type. Valid values:
+      // - Exact: exact match.
+      // - Prefix: prefix match. 
+      // - Regex: regular expression match.
       shared_ptr<string> type_ {};
-      // The header value.
+      // The value of the header.
       shared_ptr<string> value_ {};
     };
 
@@ -250,15 +247,15 @@ namespace Models
 
 
   protected:
-    // The rules for matching based on HTTP request headers.
+    // The list of HTTP request header matching rules.
     shared_ptr<vector<HttpRouteMatch::Headers>> headers_ {};
     // Specifies whether the path is case-insensitive.
     shared_ptr<bool> ignoreUriCase_ {};
-    // The HTTP methods.
+    // The list of request methods.
     shared_ptr<vector<string>> methods_ {};
     // The path rule.
     shared_ptr<HttpRouteMatch::Path> path_ {};
-    // The rules for matching based on query parameters.
+    // The list of query request parameter matching rules.
     shared_ptr<vector<HttpRouteMatch::QueryParams>> queryParams_ {};
   };
 

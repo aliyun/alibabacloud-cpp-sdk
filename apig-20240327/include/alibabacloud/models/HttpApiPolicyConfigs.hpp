@@ -9,6 +9,7 @@
 #include <alibabacloud/models/AiStatisticsConfig.hpp>
 #include <alibabacloud/models/AiTokenRateLimitConfig.hpp>
 #include <alibabacloud/models/AiToolSelectionConfig.hpp>
+#include <alibabacloud/models/HttpApiPolicyReference.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(aiTokenRateLimitConfig, aiTokenRateLimitConfig_);
       DARABONBA_PTR_TO_JSON(aiToolSelectionConfig, aiToolSelectionConfig_);
       DARABONBA_PTR_TO_JSON(enable, enable_);
+      DARABONBA_PTR_TO_JSON(policyReference, policyReference_);
       DARABONBA_PTR_TO_JSON(semanticRouterConfig, semanticRouterConfig_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
@@ -40,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(aiTokenRateLimitConfig, aiTokenRateLimitConfig_);
       DARABONBA_PTR_FROM_JSON(aiToolSelectionConfig, aiToolSelectionConfig_);
       DARABONBA_PTR_FROM_JSON(enable, enable_);
+      DARABONBA_PTR_FROM_JSON(policyReference, policyReference_);
       DARABONBA_PTR_FROM_JSON(semanticRouterConfig, semanticRouterConfig_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -82,13 +85,13 @@ namespace Models
 
 
     protected:
-      // Timeout in milliseconds
+      // The timeout period, in milliseconds.
       shared_ptr<int32_t> timeoutMillisecond_ {};
     };
 
     virtual bool empty() const override { return this->aiCacheConfig_ == nullptr
         && this->aiFallbackConfig_ == nullptr && this->aiNetworkSearchConfig_ == nullptr && this->aiSecurityGuardConfig_ == nullptr && this->aiStatisticsConfig_ == nullptr && this->aiTokenRateLimitConfig_ == nullptr
-        && this->aiToolSelectionConfig_ == nullptr && this->enable_ == nullptr && this->semanticRouterConfig_ == nullptr && this->type_ == nullptr; };
+        && this->aiToolSelectionConfig_ == nullptr && this->enable_ == nullptr && this->policyReference_ == nullptr && this->semanticRouterConfig_ == nullptr && this->type_ == nullptr; };
     // aiCacheConfig Field Functions 
     bool hasAiCacheConfig() const { return this->aiCacheConfig_ != nullptr;};
     void deleteAiCacheConfig() { this->aiCacheConfig_ = nullptr;};
@@ -159,6 +162,15 @@ namespace Models
     inline HttpApiPolicyConfigs& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
+    // policyReference Field Functions 
+    bool hasPolicyReference() const { return this->policyReference_ != nullptr;};
+    void deletePolicyReference() { this->policyReference_ = nullptr;};
+    inline const HttpApiPolicyReference & getPolicyReference() const { DARABONBA_PTR_GET_CONST(policyReference_, HttpApiPolicyReference) };
+    inline HttpApiPolicyReference getPolicyReference() { DARABONBA_PTR_GET(policyReference_, HttpApiPolicyReference) };
+    inline HttpApiPolicyConfigs& setPolicyReference(const HttpApiPolicyReference & policyReference) { DARABONBA_PTR_SET_VALUE(policyReference_, policyReference) };
+    inline HttpApiPolicyConfigs& setPolicyReference(HttpApiPolicyReference && policyReference) { DARABONBA_PTR_SET_RVALUE(policyReference_, policyReference) };
+
+
     // semanticRouterConfig Field Functions 
     bool hasSemanticRouterConfig() const { return this->semanticRouterConfig_ != nullptr;};
     void deleteSemanticRouterConfig() { this->semanticRouterConfig_ = nullptr;};
@@ -176,25 +188,27 @@ namespace Models
 
 
   protected:
-    // AiCacheConfig
+    // The AI cache configuration.
     shared_ptr<AiCacheConfig> aiCacheConfig_ {};
-    // AiFallbackConfig
+    // The AI fallback configuration.
     shared_ptr<AiFallbackConfig> aiFallbackConfig_ {};
-    // AiNetworkSearchConfig
+    // The AI web search configuration.
     shared_ptr<AiNetworkSearchConfig> aiNetworkSearchConfig_ {};
-    // AiSecurityGuardConfig
+    // The AI security protection configuration.
     shared_ptr<AiSecurityGuardConfig> aiSecurityGuardConfig_ {};
-    // AiStatisticsConfig
+    // The AI statistics configuration.
     shared_ptr<AiStatisticsConfig> aiStatisticsConfig_ {};
-    // AiTokenRateLimitConfig
+    // The AI token rate limiting configuration.
     shared_ptr<AiTokenRateLimitConfig> aiTokenRateLimitConfig_ {};
-    // AiToolSelectionConfig
+    // The AI tool selection configuration.
     shared_ptr<AiToolSelectionConfig> aiToolSelectionConfig_ {};
-    // Policy Enable
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
-    // SemanticRouterConfig
+    // The read-only compatible reference. GetHttpApi returns policyId/policyAttachmentId for ModelAPI AiTokenRateLimit. This must be stripped before write path persistence and is not used as a bind/unbind instruction.
+    shared_ptr<HttpApiPolicyReference> policyReference_ {};
+    // The semantic routing configuration.
     shared_ptr<HttpApiPolicyConfigs::SemanticRouterConfig> semanticRouterConfig_ {};
-    // Policy Type
+    // The policy template type.
     shared_ptr<string> type_ {};
   };
 

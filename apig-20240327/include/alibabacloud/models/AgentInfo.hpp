@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // The list of consumer identity bindings maintained by the Agent domain. The Model API ID and the consumer IDs in this list together identify the Agent identity and take effect on all routes of the Model API. Consumer details and their Model API authorization details can be obtained through existing Consumer API and consumer authorization query interfaces.
       shared_ptr<vector<string>> consumerIds_ {};
+      // The Model API ID associated with the model access capability. Model Access does not distinguish routes. The frontend uses this ID to query the Model API basic information and all routes.
       shared_ptr<string> modelApiId_ {};
     };
 
@@ -124,6 +126,7 @@ namespace Models
 
 
     protected:
+      // The HTTP API ID associated with the Agent access capability. The frontend uses this ID to call existing HTTP API, route, consumer authorization, policy, and plugin query interfaces.
       shared_ptr<string> httpApiId_ {};
     };
 
@@ -222,17 +225,29 @@ namespace Models
 
 
   protected:
+    // The associated resource information for the Agent access capability. Returns null if the Agent access capability is not configured.
     shared_ptr<AgentInfo::AgentAccess> agentAccess_ {};
+    // Agent ID。
     shared_ptr<string> agentId_ {};
+    // The Agent type. DashScope (Bailian) allows only Agent access. Dify allows both Agent access and model access. ClaudeCode allows only model access. Custom allows both Agent access and model access.
     shared_ptr<string> agentType_ {};
+    // The list of capabilities that the current Agent type allows to be configured. This field does not indicate that the capabilities are already configured. To determine whether a capability is configured, check whether agentAccess or modelAccess is null.
     shared_ptr<vector<string>> allowedCapabilities_ {};
+    // The Agent creation time, in Unix millisecond timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The Agent description.
     shared_ptr<string> description_ {};
+    // The gateway ID to which the Agent belongs. When reading the associated API deployment configuration, select the configuration whose gatewayId matches this value.
     shared_ptr<string> gatewayId_ {};
+    // The associated resource information for the model access capability. Returns null if the model access capability is not configured.
     shared_ptr<AgentInfo::ModelAccess> modelAccess_ {};
+    // The Agent name.
     shared_ptr<string> name_ {};
+    // The resource group ID in which the Agent is saved.
     shared_ptr<string> resourceGroupId_ {};
+    // The Agent status. An Agent that is successfully created and queryable always returns Ready. Internal creation or compensation states are not returned externally.
     shared_ptr<string> status_ {};
+    // The Agent last update time, in Unix millisecond timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

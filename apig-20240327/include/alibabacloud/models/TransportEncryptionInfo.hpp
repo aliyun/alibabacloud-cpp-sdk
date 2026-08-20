@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The list of transport certificates added by the user.
     shared_ptr<vector<TransportCertificateInfo>> certificates_ {};
+    // The reason for the deployment failure.
     shared_ptr<string> deployError_ {};
+    // The submit status.
     shared_ptr<string> deployStatus_ {};
+    // Indicates whether HTTP/2 is enabled.
     shared_ptr<bool> http2Enabled_ {};
+    // The TLS cipher suite policy.
     shared_ptr<string> tlsPolicy_ {};
   };
 

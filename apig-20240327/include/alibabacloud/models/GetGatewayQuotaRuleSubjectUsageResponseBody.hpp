@@ -286,7 +286,7 @@ namespace Models
       shared_ptr<int64_t> inputAmount_ {};
       // The total output token consumption.
       shared_ptr<int64_t> outputAmount_ {};
-      // Indicates whether the quota limit is exceeded.
+      // Indicates whether the limit is exceeded.
       shared_ptr<bool> overLimit_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};

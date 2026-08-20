@@ -298,10 +298,15 @@ namespace Models
 
 
     protected:
+      // The base ejection duration in seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> baseEjectionTime_ {};
+      // Specifies whether to enable outlier detection.
       shared_ptr<bool> enable_ {};
+      // The minimum number of hosts. The value must be greater than or equal to 0.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
+      // The failure rate threshold in percentage. Valid values: 1 to 100.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
+      // The detection interval in seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> interval_ {};
     };
 
@@ -539,10 +544,11 @@ namespace Models
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
     // The time when the service was created.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The list of DNS servers.
     shared_ptr<vector<string>> dnsServers_ {};
     // The execution mode of CloudFlow.
     shared_ptr<string> expressType_ {};
-    // The gateway instance ID.
+    // The instance ID of the gateway.
     shared_ptr<string> gatewayId_ {};
     // The name of the service group.
     shared_ptr<string> groupName_ {};
@@ -550,14 +556,17 @@ namespace Models
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
     // The health check status. Valid values: Healthy and Unhealthy.
     shared_ptr<string> healthStatus_ {};
+    // The healthy panic threshold.
     shared_ptr<float> healthyPanicThreshold_ {};
     // The label information of the service.
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
+    // The resource ID of the model provider.
     shared_ptr<string> modelProviderId_ {};
     // The name of the service.
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
+    // The configuration for removing abnormal instances.
     shared_ptr<Service::OutlierDetection> outlierDetection_ {};
     // The circuit-broken endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
@@ -569,7 +578,9 @@ namespace Models
     shared_ptr<string> qualifier_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The masked error code of the runtime details.
     shared_ptr<string> runtimeDetailErrorCode_ {};
+    // The runtime detail status.
     shared_ptr<string> runtimeDetailStatus_ {};
     // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
@@ -577,7 +588,7 @@ namespace Models
     shared_ptr<string> sourceType_ {};
     // The unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The time when the service was updated.
+    // The time when the service was created.
     shared_ptr<int64_t> updateTimestamp_ {};
     // The list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};

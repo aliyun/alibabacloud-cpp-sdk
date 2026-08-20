@@ -276,7 +276,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable SLS log collection.
+        // Specifies whether to enable log collection.
         shared_ptr<bool> enable_ {};
       };
 
@@ -291,7 +291,7 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service (SLS) configuration, which controls gateway log collection.
+      // The Simple Log Service (SLS) configuration that controls gateway log collection.
       shared_ptr<LogConfig::Sls> sls_ {};
     };
 
@@ -392,7 +392,7 @@ namespace Models
 
 
   protected:
-    // The billing method.
+    // The billing method. Required for the Serverless edition and must be set to POSTPAY.
     shared_ptr<string> chargeType_ {};
     // The gateway instance edition. Valid values:
     // 
@@ -404,24 +404,25 @@ namespace Models
     // 
     // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
+    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only allowed when the gateway type is AI and the edition is MultiTenantServerless.
     shared_ptr<string> gatewayMode_ {};
-    // The gateway type.
+    // The gateway type. Must be explicitly set to AI for AI Serverless or multi-tenant editions.
     shared_ptr<string> gatewayType_ {};
     // The gateway log configuration.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
-    // The gateway name.
+    // The gateway name. Required for all editions.
     shared_ptr<string> name_ {};
     // The network access configuration.
     shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The node specifications.
+    // The node specifications. Required for the Serverless edition.
     shared_ptr<string> spec_ {};
     // The list of tags.
     shared_ptr<vector<CreateGatewayRequest::Tag>> tag_ {};
-    // The VPC ID.
+    // The VPC ID. Required for all editions.
     shared_ptr<string> vpcId_ {};
-    // The zone configuration.
+    // The zone configuration. Required for all editions.
     shared_ptr<CreateGatewayRequest::ZoneConfig> zoneConfig_ {};
   };
 

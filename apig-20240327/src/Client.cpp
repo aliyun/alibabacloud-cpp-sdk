@@ -173,7 +173,7 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary Authorizes a security group that allows a gateway to access services.
+ * @summary Authorizes a security group to allow gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -214,7 +214,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRuleWithOptio
 }
 
 /**
- * @summary Authorizes a security group that allows a gateway to access services.
+ * @summary Authorizes a security group to allow gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @return AddGatewaySecurityGroupRuleResponse
@@ -405,6 +405,10 @@ BatchImportHttpApisResponse Client::batchImportHttpApisWithOptions(const BatchIm
 
   if (!!request.hasResourceGroupId()) {
     body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSpecContentBase64()) {
+    body["specContentBase64"] = request.getSpecContentBase64();
   }
 
   if (!!request.hasSpecFileUrl()) {
@@ -1022,6 +1026,11 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
  */
 CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
   json body = {};
   if (!!request.hasCaCertIdentifier()) {
     body["caCertIdentifier"] = request.getCaCertIdentifier();
@@ -1081,6 +1090,7 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2501,13 +2511,21 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRule(co
 /**
  * @summary Deletes a specified HTTP API.
  *
+ * @param request DeleteHttpApiRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteHttpApiResponse
  */
-DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, const DeleteHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteHttpApi"},
@@ -2526,12 +2544,13 @@ DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, 
 /**
  * @summary Deletes a specified HTTP API.
  *
+ * @param request DeleteHttpApiRequest
  * @return DeleteHttpApiResponse
  */
-DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId) {
+DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId, const DeleteHttpApiRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteHttpApiWithOptions(httpApiId, headers, runtime);
+  return deleteHttpApiWithOptions(httpApiId, request, headers, runtime);
 }
 
 /**
@@ -3668,7 +3687,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+ * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -3711,7 +3730,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+ * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -3725,13 +3744,21 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
 /**
  * @summary Retrieves HTTP API information.
  *
+ * @param request GetHttpApiRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHttpApiResponse
  */
-GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const GetHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpandPolicyConfigs()) {
+    query["expandPolicyConfigs"] = request.getExpandPolicyConfigs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetHttpApi"},
@@ -3750,12 +3777,13 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
 /**
  * @summary Retrieves HTTP API information.
  *
+ * @param request GetHttpApiRequest
  * @return GetHttpApiResponse
  */
-GetHttpApiResponse Client::getHttpApi(const string &httpApiId) {
+GetHttpApiResponse Client::getHttpApi(const string &httpApiId, const GetHttpApiRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getHttpApiWithOptions(httpApiId, headers, runtime);
+  return getHttpApiWithOptions(httpApiId, request, headers, runtime);
 }
 
 /**
@@ -5568,7 +5596,7 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of MCP servers.
+ * @summary Retrieves the list of MCP servers.
  *
  * @description The operation supports creating multiple services.
  *
@@ -5627,7 +5655,7 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
 }
 
 /**
- * @summary Retrieves a list of MCP servers.
+ * @summary Retrieves the list of MCP servers.
  *
  * @description The operation supports creating multiple services.
  *
@@ -7681,6 +7709,11 @@ UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatus(const 
  */
 UpdateHttpApiResponse Client::updateHttpApiWithOptions(const string &httpApiId, const UpdateHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
   json body = {};
   if (!!request.hasAgentProtocols()) {
     body["agentProtocols"] = request.getAgentProtocols();
@@ -7736,6 +7769,7 @@ UpdateHttpApiResponse Client::updateHttpApiWithOptions(const string &httpApiId, 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -7881,7 +7915,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -7960,7 +7994,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse

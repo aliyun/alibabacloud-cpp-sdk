@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(specContentBase64, specContentBase64_);
       DARABONBA_PTR_TO_JSON(specFileUrl, specFileUrl_);
       DARABONBA_PTR_TO_JSON(specOssConfig, specOssConfig_);
       DARABONBA_PTR_TO_JSON(strategy, strategy_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(specContentBase64, specContentBase64_);
       DARABONBA_PTR_FROM_JSON(specFileUrl, specFileUrl_);
       DARABONBA_PTR_FROM_JSON(specOssConfig, specOssConfig_);
       DARABONBA_PTR_FROM_JSON(strategy, strategy_);
@@ -101,8 +103,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->allowUpdate_ == nullptr
-        && this->apiType_ == nullptr && this->dryRun_ == nullptr && this->gatewayId_ == nullptr && this->resourceGroupId_ == nullptr && this->specFileUrl_ == nullptr
-        && this->specOssConfig_ == nullptr && this->strategy_ == nullptr && this->withGatewayExtension_ == nullptr; };
+        && this->apiType_ == nullptr && this->dryRun_ == nullptr && this->gatewayId_ == nullptr && this->resourceGroupId_ == nullptr && this->specContentBase64_ == nullptr
+        && this->specFileUrl_ == nullptr && this->specOssConfig_ == nullptr && this->strategy_ == nullptr && this->withGatewayExtension_ == nullptr; };
     // allowUpdate Field Functions 
     bool hasAllowUpdate() const { return this->allowUpdate_ != nullptr;};
     void deleteAllowUpdate() { this->allowUpdate_ = nullptr;};
@@ -136,6 +138,13 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline BatchImportHttpApisRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // specContentBase64 Field Functions 
+    bool hasSpecContentBase64() const { return this->specContentBase64_ != nullptr;};
+    void deleteSpecContentBase64() { this->specContentBase64_ = nullptr;};
+    inline string getSpecContentBase64() const { DARABONBA_PTR_GET_DEFAULT(specContentBase64_, "") };
+    inline BatchImportHttpApisRequest& setSpecContentBase64(string specContentBase64) { DARABONBA_PTR_SET_VALUE(specContentBase64_, specContentBase64) };
 
 
     // specFileUrl Field Functions 
@@ -175,6 +184,7 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> gatewayId_ {};
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> specContentBase64_ {};
     shared_ptr<string> specFileUrl_ {};
     shared_ptr<BatchImportHttpApisRequest::SpecOssConfig> specOssConfig_ {};
     shared_ptr<string> strategy_ {};

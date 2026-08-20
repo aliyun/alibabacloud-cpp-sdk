@@ -60,6 +60,7 @@
 #include <alibabacloud/models/HiMarketProductRefConfig.hpp>
 #include <alibabacloud/models/HttpApiApiInfoDeployCntMapValue.hpp>
 #include <alibabacloud/models/HttpApiMockContract.hpp>
+#include <alibabacloud/models/HttpApiPolicyReference.hpp>
 #include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
 #include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/HttpApiVersionInfo.hpp>
@@ -214,6 +215,7 @@
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleResponse.hpp>
+#include <alibabacloud/models/DeleteHttpApiRequest.hpp>
 #include <alibabacloud/models/DeleteHttpApiResponseBody.hpp>
 #include <alibabacloud/models/DeleteHttpApiResponse.hpp>
 #include <alibabacloud/models/DeleteHttpApiOperationResponseBody.hpp>
@@ -287,6 +289,7 @@
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageRequest.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponse.hpp>
+#include <alibabacloud/models/GetHttpApiRequest.hpp>
 #include <alibabacloud/models/GetHttpApiResponseBody.hpp>
 #include <alibabacloud/models/GetHttpApiResponse.hpp>
 #include <alibabacloud/models/GetHttpApiOperationResponseBody.hpp>

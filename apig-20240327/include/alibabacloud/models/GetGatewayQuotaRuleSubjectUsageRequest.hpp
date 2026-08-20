@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to filter zero values.
     shared_ptr<bool> filterFailedRequests_ {};
     // The page number of the detailed consumption (request) records of the consumer within the cycle.
     shared_ptr<int32_t> pageNumber_ {};

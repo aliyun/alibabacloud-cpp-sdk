@@ -273,7 +273,7 @@ namespace Models
     protected:
       // The backend configuration.
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-      // The route match rule.
+      // The route match rules.
       shared_ptr<HttpRouteMatch> match_ {};
       // The route ID.
       shared_ptr<string> routeId_ {};
@@ -580,9 +580,9 @@ namespace Models
     shared_ptr<vector<string>> domainIds_ {};
     // The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
     shared_ptr<string> exposedUriPath_ {};
-    // The list of canary release MCP server route configurations.
+    // The list of canary release MCP server routing configurations.
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule.
+    // The route match rules.
     shared_ptr<HttpRouteMatch> match_ {};
     // The HTTP-to-MCP configuration.
     shared_ptr<UpdateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
@@ -592,7 +592,7 @@ namespace Models
     // - HTTP: HTTP protocol.
     // - HTTPS: HTTPS protocol.
     // - SSE: Server-Sent Events protocol.
-    // - StreamableHTTP: streamable HTTP protocol.
+    // - StreamableHTTP: Streamable HTTP protocol.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

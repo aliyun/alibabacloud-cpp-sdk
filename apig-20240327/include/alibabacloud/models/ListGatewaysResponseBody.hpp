@@ -740,10 +740,15 @@ namespace Models
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
+        // The running mode of the AI MultiTenantServerless gateway. Valid values:
+        // - ENTERPRISE: Enterprise Edition.
+        // - STANDARD: Standard Edition.
+        // 
+        // This parameter is returned only for AI MultiTenantServerless gateways.
         shared_ptr<string> gatewayMode_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // Indicates whether the gateway instance was created before AI gateway was released.
+        // Indicates whether the gateway instance was created before the AI gateway was released.
         shared_ptr<bool> legacy_ {};
         // The list of gateway entry addresses.
         shared_ptr<vector<Items::LoadBalancers>> loadBalancers_ {};
@@ -763,7 +768,7 @@ namespace Models
         shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
         // The list of tags.
         shared_ptr<vector<Items::Tags>> tags_ {};
-        // The target version of the gateway. If this value differs from the version, a version upgrade can be performed.
+        // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
         shared_ptr<string> targetVersion_ {};
         // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};

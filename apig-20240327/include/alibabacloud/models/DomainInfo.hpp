@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The SSL Certificates Service certificate identity.
+    // The certificate identity from SSL Certificates Service.
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
@@ -181,7 +181,7 @@ namespace Models
     shared_ptr<string> domainScope_ {};
     // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
     shared_ptr<bool> forceHttps_ {};
-    // Specifies whether to enable mTLS mutual authentication.
+    // Specifies whether to enable mutual TLS (mTLS) authentication.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     shared_ptr<string> name_ {};
@@ -194,7 +194,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The domain name status.
     shared_ptr<string> status_ {};
+    // The maximum TLS version. TLS 1.3 is the maximum supported version.
     shared_ptr<string> tlsMax_ {};
+    // The minimum TLS version. TLS 1.0 is the minimum supported version.
     shared_ptr<string> tlsMin_ {};
     // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};

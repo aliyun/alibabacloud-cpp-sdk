@@ -277,7 +277,7 @@ namespace Models
     protected:
       // The backend configuration.
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-      // The route match rule.
+      // The route matching rule.
       shared_ptr<HttpRouteMatch> match_ {};
       // The route ID.
       shared_ptr<string> routeId_ {};
@@ -375,7 +375,7 @@ namespace Models
         // - HTTP
         // - HTTPS
         shared_ptr<string> protocol_ {};
-        // The service ID.
+        // The service ID. The serviceId is the ID of a backend service registered under the gateway. You can call the ListServices operation (with gatewayId specified) to query available service IDs.
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
@@ -582,15 +582,15 @@ namespace Models
   protected:
     // The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
     shared_ptr<vector<CreateMcpServerRequest::AssembledSources>> assembledSources_ {};
-    // The backend service configuration of the route.
+    // The backend service configuration for the route. This parameter is required. You must provide the backend service configuration (including scene and services). If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
     shared_ptr<CreateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
     // 
-    // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion
-    // - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy
-    // - ApiGatewayAssembly: gateway MCP assembly
-    // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion
-    // - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy
+    // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+    // - ApiGatewayProxyMcpHosting: gateway-managed MCP direct proxy.
+    // - ApiGatewayAssembly: gateway MCP assembly.
+    // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+    // - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
     shared_ptr<string> createFromType_ {};
     // The description of the MCP server.
     shared_ptr<string> description_ {};
@@ -604,7 +604,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The canary release routing configurations.
     shared_ptr<vector<CreateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule.
+    // The route match rule. When type is set to RealMCP, the match parameter is required and you must provide a route matching rule.
     shared_ptr<HttpRouteMatch> match_ {};
     // The HTTP-to-MCP configuration.
     shared_ptr<CreateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
@@ -614,11 +614,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
+    // The protocol type. This parameter is required. You must explicitly specify the protocol type (HTTP/HTTPS/SSE/StreamableHTTP). If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
     shared_ptr<string> protocol_ {};
     // The type. Valid values:
     // 
-    // - RealMCP: standard MCP service
+    // - RealMCP: standard MCP service.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

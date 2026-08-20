@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The ID of the authorization principal. Specify a consumer ID or consumer group ID based on the value of principalType.
+    // 
     // This parameter is required.
     shared_ptr<string> principalId_ {};
+    // The type of the authorization principal. Valid values:
+    // 
+    // - Consumer: consumer.
+    // - ConsumerGroup: consumer group.
+    // 
     // This parameter is required.
     shared_ptr<string> principalType_ {};
   };

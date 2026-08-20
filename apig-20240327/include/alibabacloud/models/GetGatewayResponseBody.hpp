@@ -890,10 +890,14 @@ namespace Models
       shared_ptr<vector<Data::Environments>> environments_ {};
       // The subscription expiration timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // The gateway instance edition. Valid values:
+      // The edition of the gateway instance. Valid values:
+      // 
+      // - Professional: standard instance.
+      // - Serverless: Serverless.
       shared_ptr<string> gatewayEdition_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // The running mode of AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when AI + MultiTenantServerless is used.
       shared_ptr<string> gatewayMode_ {};
       // The gateway type. Valid values:
       shared_ptr<string> gatewayType_ {};
@@ -919,6 +923,7 @@ namespace Models
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
       shared_ptr<string> targetVersion_ {};
+      // The tenant ID returned in STANDARD mode.
       shared_ptr<string> tenantId_ {};
       // The update timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTimestamp_ {};

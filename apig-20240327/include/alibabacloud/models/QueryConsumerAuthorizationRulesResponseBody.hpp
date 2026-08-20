@@ -313,7 +313,7 @@ namespace Models
 
 
       protected:
-        // The API information.
+        // The API information details.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
         // The consumer authorization rule ID.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
@@ -323,7 +323,7 @@ namespace Models
         shared_ptr<ConsumerGroupInfo> consumerGroupInfo_ {};
         // The consumer ID.
         shared_ptr<string> consumerId_ {};
-        // The consumer information.
+        // The consumer information details.
         shared_ptr<ConsumerInfo> consumerInfo_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
@@ -345,7 +345,7 @@ namespace Models
         shared_ptr<string> principalType_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource information.
+        // The resource information details.
         shared_ptr<Items::ResourceInfo> resourceInfo_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
