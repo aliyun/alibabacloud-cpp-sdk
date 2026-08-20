@@ -156,6 +156,9 @@
 #include <alibabacloud/models/SourceConfig.hpp>
 #include <alibabacloud/models/SLSTriggerConfig.hpp>
 #include <alibabacloud/models/ScalingStatus.hpp>
+#include <alibabacloud/models/SessionNetworkHeaderValueReplacement.hpp>
+#include <alibabacloud/models/SessionNetworkRuleTransform.hpp>
+#include <alibabacloud/models/SessionNetworkRule.hpp>
 #include <alibabacloud/models/TagResourceInput.hpp>
 #include <alibabacloud/models/TagResourcesInput.hpp>
 #include <alibabacloud/models/TimerTriggerConfig.hpp>

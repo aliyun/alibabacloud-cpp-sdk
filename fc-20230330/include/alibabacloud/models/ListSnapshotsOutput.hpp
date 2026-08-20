@@ -52,7 +52,10 @@ namespace Models
 
 
   protected:
+    // The token used to retrieve the next page of results. This parameter is not returned if no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The list of snapshots.
+    // 
     // This parameter is required.
     shared_ptr<vector<Snapshot>> snapshots_ {};
   };

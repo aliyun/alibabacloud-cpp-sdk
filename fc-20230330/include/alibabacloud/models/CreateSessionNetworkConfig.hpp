@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_CREATESESSIONNETWORKCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
+#include <alibabacloud/models/SessionNetworkRule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,12 +20,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(allowPublicTraffic, allowPublicTraffic_);
       DARABONBA_PTR_TO_JSON(denyOut, denyOut_);
       DARABONBA_PTR_TO_JSON(maskRequestHost, maskRequestHost_);
+      DARABONBA_PTR_TO_JSON(rules, rules_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSessionNetworkConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(allowOut, allowOut_);
       DARABONBA_PTR_FROM_JSON(allowPublicTraffic, allowPublicTraffic_);
       DARABONBA_PTR_FROM_JSON(denyOut, denyOut_);
       DARABONBA_PTR_FROM_JSON(maskRequestHost, maskRequestHost_);
+      DARABONBA_PTR_FROM_JSON(rules, rules_);
     };
     CreateSessionNetworkConfig() = default ;
     CreateSessionNetworkConfig(const CreateSessionNetworkConfig &) = default ;
@@ -37,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowOut_ == nullptr
-        && this->allowPublicTraffic_ == nullptr && this->denyOut_ == nullptr && this->maskRequestHost_ == nullptr; };
+        && this->allowPublicTraffic_ == nullptr && this->denyOut_ == nullptr && this->maskRequestHost_ == nullptr && this->rules_ == nullptr; };
     // allowOut Field Functions 
     bool hasAllowOut() const { return this->allowOut_ != nullptr;};
     void deleteAllowOut() { this->allowOut_ = nullptr;};
@@ -70,11 +74,22 @@ namespace Models
     inline CreateSessionNetworkConfig& setMaskRequestHost(string maskRequestHost) { DARABONBA_PTR_SET_VALUE(maskRequestHost_, maskRequestHost) };
 
 
+    // rules Field Functions 
+    bool hasRules() const { return this->rules_ != nullptr;};
+    void deleteRules() { this->rules_ = nullptr;};
+    inline const map<string, vector<SessionNetworkRule>> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, map<string, vector<SessionNetworkRule>>) };
+    inline map<string, vector<SessionNetworkRule>> getRules() { DARABONBA_PTR_GET(rules_, map<string, vector<SessionNetworkRule>>) };
+    inline CreateSessionNetworkConfig& setRules(const map<string, vector<SessionNetworkRule>> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
+    inline CreateSessionNetworkConfig& setRules(map<string, vector<SessionNetworkRule>> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+
+
   protected:
     shared_ptr<vector<string>> allowOut_ {};
     shared_ptr<bool> allowPublicTraffic_ {};
     shared_ptr<vector<string>> denyOut_ {};
     shared_ptr<string> maskRequestHost_ {};
+    // The request transform rules configured by exact target host. Supports transform.headers and transform.headerValueReplacements.
+    shared_ptr<map<string, vector<SessionNetworkRule>>> rules_ {};
   };
 
   } // namespace Models

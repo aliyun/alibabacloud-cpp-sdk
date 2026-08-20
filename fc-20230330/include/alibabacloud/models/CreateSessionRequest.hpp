@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The session configuration.
+    // The session configuration for creating the session.
     shared_ptr<CreateSessionInput> body_ {};
     // The version or alias of the function to which the session belongs.
     shared_ptr<string> qualifier_ {};

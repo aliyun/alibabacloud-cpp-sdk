@@ -14,10 +14,7 @@ namespace Models
   class Snapshot : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Snapshot& obj) { 
-      DARABONBA_PTR_TO_JSON(artifactDiskTotalSizeInB, artifactDiskTotalSizeInB_);
       DARABONBA_PTR_TO_JSON(artifactDiskUsedSizeInB, artifactDiskUsedSizeInB_);
-      DARABONBA_PTR_TO_JSON(artifactMemCacheSizeInB, artifactMemCacheSizeInB_);
-      DARABONBA_PTR_TO_JSON(artifactMemTotalSizeInB, artifactMemTotalSizeInB_);
       DARABONBA_PTR_TO_JSON(artifactMemUsedSizeInB, artifactMemUsedSizeInB_);
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
@@ -39,10 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, Snapshot& obj) { 
-      DARABONBA_PTR_FROM_JSON(artifactDiskTotalSizeInB, artifactDiskTotalSizeInB_);
       DARABONBA_PTR_FROM_JSON(artifactDiskUsedSizeInB, artifactDiskUsedSizeInB_);
-      DARABONBA_PTR_FROM_JSON(artifactMemCacheSizeInB, artifactMemCacheSizeInB_);
-      DARABONBA_PTR_FROM_JSON(artifactMemTotalSizeInB, artifactMemTotalSizeInB_);
       DARABONBA_PTR_FROM_JSON(artifactMemUsedSizeInB, artifactMemUsedSizeInB_);
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
@@ -74,38 +68,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->artifactDiskTotalSizeInB_ == nullptr
-        && this->artifactDiskUsedSizeInB_ == nullptr && this->artifactMemCacheSizeInB_ == nullptr && this->artifactMemTotalSizeInB_ == nullptr && this->artifactMemUsedSizeInB_ == nullptr && this->cpu_ == nullptr
-        && this->createdTime_ == nullptr && this->description_ == nullptr && this->diskSizeMB_ == nullptr && this->envs_ == nullptr && this->expiredTime_ == nullptr
-        && this->functionName_ == nullptr && this->imageDigest_ == nullptr && this->imageRepository_ == nullptr && this->memoryMB_ == nullptr && this->osType_ == nullptr
-        && this->qualifier_ == nullptr && this->readyCommand_ == nullptr && this->resolvedVersion_ == nullptr && this->snapshotId_ == nullptr && this->sourceSessionId_ == nullptr
-        && this->startCommand_ == nullptr && this->status_ == nullptr; };
-    // artifactDiskTotalSizeInB Field Functions 
-    bool hasArtifactDiskTotalSizeInB() const { return this->artifactDiskTotalSizeInB_ != nullptr;};
-    void deleteArtifactDiskTotalSizeInB() { this->artifactDiskTotalSizeInB_ = nullptr;};
-    inline int64_t getArtifactDiskTotalSizeInB() const { DARABONBA_PTR_GET_DEFAULT(artifactDiskTotalSizeInB_, 0L) };
-    inline Snapshot& setArtifactDiskTotalSizeInB(int64_t artifactDiskTotalSizeInB) { DARABONBA_PTR_SET_VALUE(artifactDiskTotalSizeInB_, artifactDiskTotalSizeInB) };
-
-
+    virtual bool empty() const override { return this->artifactDiskUsedSizeInB_ == nullptr
+        && this->artifactMemUsedSizeInB_ == nullptr && this->cpu_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->diskSizeMB_ == nullptr
+        && this->envs_ == nullptr && this->expiredTime_ == nullptr && this->functionName_ == nullptr && this->imageDigest_ == nullptr && this->imageRepository_ == nullptr
+        && this->memoryMB_ == nullptr && this->osType_ == nullptr && this->qualifier_ == nullptr && this->readyCommand_ == nullptr && this->resolvedVersion_ == nullptr
+        && this->snapshotId_ == nullptr && this->sourceSessionId_ == nullptr && this->startCommand_ == nullptr && this->status_ == nullptr; };
     // artifactDiskUsedSizeInB Field Functions 
     bool hasArtifactDiskUsedSizeInB() const { return this->artifactDiskUsedSizeInB_ != nullptr;};
     void deleteArtifactDiskUsedSizeInB() { this->artifactDiskUsedSizeInB_ = nullptr;};
     inline int64_t getArtifactDiskUsedSizeInB() const { DARABONBA_PTR_GET_DEFAULT(artifactDiskUsedSizeInB_, 0L) };
     inline Snapshot& setArtifactDiskUsedSizeInB(int64_t artifactDiskUsedSizeInB) { DARABONBA_PTR_SET_VALUE(artifactDiskUsedSizeInB_, artifactDiskUsedSizeInB) };
-
-
-    // artifactMemCacheSizeInB Field Functions 
-    bool hasArtifactMemCacheSizeInB() const { return this->artifactMemCacheSizeInB_ != nullptr;};
-    void deleteArtifactMemCacheSizeInB() { this->artifactMemCacheSizeInB_ = nullptr;};
-    inline int64_t getArtifactMemCacheSizeInB() const { DARABONBA_PTR_GET_DEFAULT(artifactMemCacheSizeInB_, 0L) };
-    inline Snapshot& setArtifactMemCacheSizeInB(int64_t artifactMemCacheSizeInB) { DARABONBA_PTR_SET_VALUE(artifactMemCacheSizeInB_, artifactMemCacheSizeInB) };
-
-
-    // artifactMemTotalSizeInB Field Functions 
-    bool hasArtifactMemTotalSizeInB() const { return this->artifactMemTotalSizeInB_ != nullptr;};
-    void deleteArtifactMemTotalSizeInB() { this->artifactMemTotalSizeInB_ = nullptr;};
-    inline int64_t getArtifactMemTotalSizeInB() const { DARABONBA_PTR_GET_DEFAULT(artifactMemTotalSizeInB_, 0L) };
-    inline Snapshot& setArtifactMemTotalSizeInB(int64_t artifactMemTotalSizeInB) { DARABONBA_PTR_SET_VALUE(artifactMemTotalSizeInB_, artifactMemTotalSizeInB) };
 
 
     // artifactMemUsedSizeInB Field Functions 
@@ -244,49 +216,82 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
-    shared_ptr<int64_t> artifactDiskTotalSizeInB_ {};
+    // The used size of the disk snapshot, in bytes.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> artifactDiskUsedSizeInB_ {};
-    // This parameter is required.
-    shared_ptr<int64_t> artifactMemCacheSizeInB_ {};
-    // This parameter is required.
-    shared_ptr<int64_t> artifactMemTotalSizeInB_ {};
+    // The used size of the memory snapshot, in bytes.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> artifactMemUsedSizeInB_ {};
+    // The CPU specification.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> cpu_ {};
+    // The snapshot creation time in UTC RFC3339 format.
+    // 
     // This parameter is required.
     shared_ptr<string> createdTime_ {};
+    // The snapshot description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The disk specification, in MB.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> diskSizeMB_ {};
+    // The environment variables saved when creating the snapshot.
+    // 
     // This parameter is required.
     shared_ptr<map<string, string>> envs_ {};
+    // The snapshot expiration time in UTC RFC3339 format.
+    // 
     // This parameter is required.
     shared_ptr<string> expiredTime_ {};
+    // The function name.
+    // 
     // This parameter is required.
     shared_ptr<string> functionName_ {};
+    // The function image digest.
+    // 
     // This parameter is required.
     shared_ptr<string> imageDigest_ {};
+    // The function image repository address.
+    // 
     // This parameter is required.
     shared_ptr<string> imageRepository_ {};
+    // The memory specification, in MB.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> memoryMB_ {};
+    // The operating system type.
+    // 
     // This parameter is required.
     shared_ptr<string> osType_ {};
+    // The function alias or version used when creating the snapshot.
+    // 
     // This parameter is required.
     shared_ptr<string> qualifier_ {};
+    // The MicroSandbox readiness check command.
+    // 
     // This parameter is required.
     shared_ptr<string> readyCommand_ {};
+    // The specific function version resolved when creating the snapshot.
     shared_ptr<string> resolvedVersion_ {};
+    // The snapshot ID, a standard UUID string generated by the server.
+    // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};
+    // The source session ID used to create the snapshot.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceSessionId_ {};
+    // The MicroSandbox start command.
+    // 
     // This parameter is required.
     shared_ptr<string> startCommand_ {};
+    // The snapshot status. Currently, only Available is returned.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

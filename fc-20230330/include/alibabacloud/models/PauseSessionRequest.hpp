@@ -13,9 +13,11 @@ namespace Models
   class PauseSessionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PauseSessionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(fileSystemOnly, fileSystemOnly_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
     };
     friend void from_json(const Darabonba::Json& j, PauseSessionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(fileSystemOnly, fileSystemOnly_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
     };
     PauseSessionRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->qualifier_ == nullptr; };
+    virtual bool empty() const override { return this->fileSystemOnly_ == nullptr
+        && this->qualifier_ == nullptr; };
+    // fileSystemOnly Field Functions 
+    bool hasFileSystemOnly() const { return this->fileSystemOnly_ != nullptr;};
+    void deleteFileSystemOnly() { this->fileSystemOnly_ = nullptr;};
+    inline string getFileSystemOnly() const { DARABONBA_PTR_GET_DEFAULT(fileSystemOnly_, "") };
+    inline PauseSessionRequest& setFileSystemOnly(string fileSystemOnly) { DARABONBA_PTR_SET_VALUE(fileSystemOnly_, fileSystemOnly) };
+
+
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
@@ -38,7 +48,8 @@ namespace Models
 
 
   protected:
-    // The alias or version of the function associated with the session to save.
+    shared_ptr<string> fileSystemOnly_ {};
+    // The function alias or version associated with the session ID to save.
     shared_ptr<string> qualifier_ {};
   };
 

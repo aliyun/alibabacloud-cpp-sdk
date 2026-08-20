@@ -165,19 +165,20 @@ namespace Models
 
   protected:
     shared_ptr<bool> allowInternetAccess_ {};
-    // Default value: False. This indicates that after a session with a specific SessionID expires, you can send requests with the same SessionID. The system treats it as a new session and binds it to a new instance. If set to True, the SessionID cannot be reused after the session expires.
+    // Specifies whether to disable session ID reuse. Default value: False, which indicates that after a session expires, you can use the same SessionID to initiate requests. The system treats this as a new session and binds it to a new instance. If set to True, the SessionID cannot be reused after the session expires.
     shared_ptr<bool> disableSessionIdReuse_ {};
     shared_ptr<bool> enableAutoPause_ {};
     shared_ptr<bool> enableAutoResume_ {};
+    // The JuiceFs mount configuration.
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The NAS configuration. After this parameter is configured, instances associated with the session can access the specified NAS resources.
     shared_ptr<NASConfig> nasConfig_ {};
     shared_ptr<CreateSessionNetworkConfig> network_ {};
-    // The OSS mount configuration. After this parameter is configured, instances associated with the session can access the specified OSS resources.
+    // The OSS configuration. After this parameter is configured, instances associated with the session can access the specified OSS resources.
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     // The PolarFs configuration. After this parameter is configured, instances associated with the session can access the specified PolarFs resources.
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The custom session ID. If not specified, the server generates one. If specified, this value is used as the session ID. This parameter applies only to the HEADER_FIELD affinity mode. Format: the length is limited to [0,64]. The first character must be from **a-zA-Z0-9_**. Subsequent characters can be from **a-zA-Z0-9_-**.
+    // The custom session ID. If not configured, the server generates one. If configured, this value is used as the session ID. This parameter is applicable only to the HEADER_FIELD affinity mode. Format: The length is limited to [0,64]. The first character must be from **a-zA-Z0-9_**. Subsequent characters can be from **a-zA-Z0-9_-**.
     shared_ptr<string> sessionId_ {};
     // The session idle timeout.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};

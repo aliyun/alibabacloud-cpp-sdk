@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The function name.
     shared_ptr<string> functionName_ {};
+    // The maximum number of snapshots to return. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> limit_ {};
+    // The pagination token used to retrieve more results.
     shared_ptr<string> nextToken_ {};
+    // The function alias.
     shared_ptr<string> qualifier_ {};
+    // The source session ID from which the snapshot was created. When specified, functionName must also be specified.
     shared_ptr<string> sessionId_ {};
   };
 
