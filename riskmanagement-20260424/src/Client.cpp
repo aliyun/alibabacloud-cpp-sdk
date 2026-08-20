@@ -1336,13 +1336,35 @@ OpenTrialPackageResponse Client::openTrialPackage(const OpenTrialPackageRequest 
 /**
  * @summary Queries account security events.
  *
- * @param request QueryAccountSafetyIncidentRequest
+ * @param tmpReq QueryAccountSafetyIncidentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryAccountSafetyIncidentResponse
  */
-QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions(const QueryAccountSafetyIncidentRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions(const QueryAccountSafetyIncidentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryAccountSafetyIncidentShrinkRequest request = QueryAccountSafetyIncidentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasActionCodes()) {
+    request.setActionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionCodes(), "ActionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasCaseCodes()) {
+    request.setCaseCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCaseCodes(), "CaseCodes", "json"));
+  }
+
+  if (!!tmpReq.hasEventIds()) {
+    request.setEventIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventIds(), "EventIds", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
   json query = {};
+  if (!!request.hasActionCodesShrink()) {
+    query["ActionCodes"] = request.getActionCodesShrink();
+  }
+
   if (!!request.hasAliyunLang()) {
     query["AliyunLang"] = request.getAliyunLang();
   }
@@ -1351,12 +1373,20 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions
     query["CaseCode"] = request.getCaseCode();
   }
 
+  if (!!request.hasCaseCodesShrink()) {
+    query["CaseCodes"] = request.getCaseCodesShrink();
+  }
+
   if (!!request.hasCurrent()) {
     query["Current"] = request.getCurrent();
   }
 
   if (!!request.hasEventId()) {
     query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasEventIdsShrink()) {
+    query["EventIds"] = request.getEventIdsShrink();
   }
 
   if (!!request.hasPageSize()) {
@@ -1377,6 +1407,10 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions
 
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    query["Statuses"] = request.getStatusesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

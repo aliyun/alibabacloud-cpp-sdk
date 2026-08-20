@@ -95,6 +95,7 @@
 #include <alibabacloud/models/OpenTrialPackageResponseBody.hpp>
 #include <alibabacloud/models/OpenTrialPackageResponse.hpp>
 #include <alibabacloud/models/QueryAccountSafetyIncidentRequest.hpp>
+#include <alibabacloud/models/QueryAccountSafetyIncidentShrinkRequest.hpp>
 #include <alibabacloud/models/QueryAccountSafetyIncidentResponseBody.hpp>
 #include <alibabacloud/models/QueryAccountSafetyIncidentResponse.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusRequest.hpp>

@@ -465,11 +465,11 @@ namespace RiskManagement20260424
       /**
        * @summary Queries account security events.
        *
-       * @param request QueryAccountSafetyIncidentRequest
+       * @param tmpReq QueryAccountSafetyIncidentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryAccountSafetyIncidentResponse
        */
-      Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncidentWithOptions(const Models::QueryAccountSafetyIncidentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncidentWithOptions(const Models::QueryAccountSafetyIncidentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries account security events.
