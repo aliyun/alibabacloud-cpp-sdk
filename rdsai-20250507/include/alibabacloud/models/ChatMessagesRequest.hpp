@@ -124,14 +124,17 @@ namespace Models
 
 
     protected:
-      // The user-specific agent ID.
+      // The custom agent ID for the user.
       shared_ptr<string> customAgentId_ {};
+      // Specifies whether to enable deep thinking mode.
       shared_ptr<string> enableThinking_ {};
       // The conversation language.
       shared_ptr<string> language_ {};
+      // The model ID.
       shared_ptr<string> modelId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The thinking depth.
       shared_ptr<string> thinkEffort_ {};
       // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
