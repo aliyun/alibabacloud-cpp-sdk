@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // List of message IDs.
+    // The list of message IDs.
     shared_ptr<vector<string>> messageIds_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
