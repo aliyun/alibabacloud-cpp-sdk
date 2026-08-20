@@ -338,6 +338,9 @@
 #include <alibabacloud/models/ModifyAccountDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponse.hpp>
+#include <alibabacloud/models/ModifyAccountParameterRequest.hpp>
+#include <alibabacloud/models/ModifyAccountParameterResponseBody.hpp>
+#include <alibabacloud/models/ModifyAccountParameterResponse.hpp>
 #include <alibabacloud/models/ModifyAccountPasswordRequest.hpp>
 #include <alibabacloud/models/ModifyAccountPasswordResponseBody.hpp>
 #include <alibabacloud/models/ModifyAccountPasswordResponse.hpp>

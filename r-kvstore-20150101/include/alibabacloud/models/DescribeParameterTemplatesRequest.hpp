@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(ParameterCategory, parameterCategory_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(ParameterCategory, parameterCategory_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->characterType_ == nullptr
         && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
+        && this->parameterCategory_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
     // characterType Field Functions 
     bool hasCharacterType() const { return this->characterType_ != nullptr;};
     void deleteCharacterType() { this->characterType_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     inline DescribeParameterTemplatesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // parameterCategory Field Functions 
+    bool hasParameterCategory() const { return this->parameterCategory_ != nullptr;};
+    void deleteParameterCategory() { this->parameterCategory_ = nullptr;};
+    inline string getParameterCategory() const { DARABONBA_PTR_GET_DEFAULT(parameterCategory_, "") };
+    inline DescribeParameterTemplatesRequest& setParameterCategory(string parameterCategory) { DARABONBA_PTR_SET_VALUE(parameterCategory_, parameterCategory) };
+
+
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
@@ -121,14 +130,16 @@ namespace Models
 
 
   protected:
-    // The architecture of the instance. For more information, see [Overview](https://help.aliyun.com/document_detail/86132.html). Valid values:
+    // The architecture of the instance. For more information, see [Architecture overview](https://help.aliyun.com/document_detail/86132.html). Valid values:
     // 
-    // *   **logic**: The instance is a cluster master-replica instance or a read/write splitting instance.
-    // *   **normal**: The instance is a standard master-replica instance.
+    // * **logic**: cluster or read/write splitting architecture.
+    // * **normal**: standard architecture (primary/secondary).
+    // 
+    // <props="china">If **EngineVersion** is set to **6.0**, this parameter does not support the value **logic**.
     // 
     // This parameter is required.
     shared_ptr<string> characterType_ {};
-    // The database engine that is run on the instance. Set the value to **Redis**.
+    // The database type. Set the value to **Redis**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
@@ -136,13 +147,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the IDs of instances.
+    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
-    // 
-    // >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The parameter category.
+    shared_ptr<string> parameterCategory_ {};
+    // The resource group ID. You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the resource group ID.
+    // > You can also obtain the resource group ID in the console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

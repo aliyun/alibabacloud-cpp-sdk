@@ -161,12 +161,12 @@ namespace RKvstore20150101
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorized(const Models::CheckCloudResourceAuthorizedRequest &request);
 
       /**
-       * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+       * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
        *
-       * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
-       * * The instance must be in the running status to use this API.  
-       * * You can create up to 18 accounts for an instance.  
-       * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+       * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
+       *  * The instance status must be Running when you call this API operation. 
+       *  * You can create up to 18 accounts for each instance.
+       * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
        *
        * @param request CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,12 +175,12 @@ namespace RKvstore20150101
       Models::CreateAccountResponse createAccountWithOptions(const Models::CreateAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+       * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
        *
-       * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
-       * * The instance must be in the running status to use this API.  
-       * * You can create up to 18 accounts for an instance.  
-       * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+       * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
+       *  * The instance status must be Running when you call this API operation. 
+       *  * You can create up to 18 accounts for each instance.
+       * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
        *
        * @param request CreateAccountRequest
        * @return CreateAccountResponse
@@ -668,7 +668,7 @@ namespace RKvstore20150101
       Models::DeleteShardingNodeResponse deleteShardingNode(const Models::DeleteShardingNodeRequest &request);
 
       /**
-       * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+       * @summary Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
        * @param request DescribeAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +677,7 @@ namespace RKvstore20150101
       Models::DescribeAccountsResponse describeAccountsWithOptions(const Models::DescribeAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+       * @summary Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
        * @param request DescribeAccountsRequest
        * @return DescribeAccountsResponse
@@ -1657,9 +1657,9 @@ namespace RKvstore20150101
       Models::DescribeParameterModificationHistoryResponse describeParameterModificationHistory(const Models::DescribeParameterModificationHistoryRequest &request);
 
       /**
-       * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+       * @summary Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
        *
-       * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+       * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
        *
        * @param request DescribeParameterTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1668,9 +1668,9 @@ namespace RKvstore20150101
       Models::DescribeParameterTemplatesResponse describeParameterTemplatesWithOptions(const Models::DescribeParameterTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+       * @summary Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
        *
-       * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+       * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
        *
        * @param request DescribeParameterTemplatesRequest
        * @return DescribeParameterTemplatesResponse
@@ -2317,6 +2317,27 @@ namespace RKvstore20150101
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
+       * @summary 修改账号参数
+       *
+       * @description 目前仅支持Tair Serverless KV实例。
+       *
+       * @param request ModifyAccountParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAccountParameterResponse
+       */
+      Models::ModifyAccountParameterResponse modifyAccountParameterWithOptions(const Models::ModifyAccountParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改账号参数
+       *
+       * @description 目前仅支持Tair Serverless KV实例。
+       *
+       * @param request ModifyAccountParameterRequest
+       * @return ModifyAccountParameterResponse
+       */
+      Models::ModifyAccountParameterResponse modifyAccountParameter(const Models::ModifyAccountParameterRequest &request);
+
+      /**
        * @summary Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
        *
        * @param request ModifyAccountPasswordRequest
@@ -2804,9 +2825,9 @@ namespace RKvstore20150101
       Models::ModifyInstanceSSLResponse modifyInstanceSSL(const Models::ModifyInstanceSSLRequest &request);
 
       /**
-       * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+       * @summary Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
-       * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+       * @description > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
        *
        * @param request ModifyInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2815,9 +2836,9 @@ namespace RKvstore20150101
       Models::ModifyInstanceSpecResponse modifyInstanceSpecWithOptions(const Models::ModifyInstanceSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+       * @summary Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
        *
-       * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+       * @description > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
        *
        * @param request ModifyInstanceSpecRequest
        * @return ModifyInstanceSpecResponse

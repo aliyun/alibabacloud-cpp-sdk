@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The account name.
     shared_ptr<string> accountName_ {};
-    // The name of the account.
+    // **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> acountName_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

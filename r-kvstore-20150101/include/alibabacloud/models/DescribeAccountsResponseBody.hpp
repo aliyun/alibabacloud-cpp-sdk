@@ -15,11 +15,17 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAccountsResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Accounts, accounts_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAccountsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accounts, accounts_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeAccountsResponseBody() = default ;
     DescribeAccountsResponseBody(const DescribeAccountsResponseBody &) = default ;
@@ -60,6 +66,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AccountType, accountType_);
           DARABONBA_PTR_TO_JSON(DatabasePrivileges, databasePrivileges_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(Parameters, parameters_);
         };
         friend void from_json(const Darabonba::Json& j, Account& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountDescription, accountDescription_);
@@ -68,6 +75,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
           DARABONBA_PTR_FROM_JSON(DatabasePrivileges, databasePrivileges_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
         };
         Account() = default ;
         Account(const Account &) = default ;
@@ -145,7 +153,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->databasePrivileges_ == nullptr && this->instanceId_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->databasePrivileges_ == nullptr && this->instanceId_ == nullptr
+        && this->parameters_ == nullptr; };
         // accountDescription Field Functions 
         bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
         void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -190,6 +199,13 @@ namespace Models
         inline Account& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+        // parameters Field Functions 
+        bool hasParameters() const { return this->parameters_ != nullptr;};
+        void deleteParameters() { this->parameters_ = nullptr;};
+        inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+        inline Account& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
+
+
       protected:
         shared_ptr<string> accountDescription_ {};
         shared_ptr<string> accountName_ {};
@@ -197,6 +213,7 @@ namespace Models
         shared_ptr<string> accountType_ {};
         shared_ptr<Account::DatabasePrivileges> databasePrivileges_ {};
         shared_ptr<string> instanceId_ {};
+        shared_ptr<string> parameters_ {};
       };
 
       virtual bool empty() const override { return this->account_ == nullptr; };
@@ -214,7 +231,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accounts_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // accounts Field Functions 
     bool hasAccounts() const { return this->accounts_ != nullptr;};
     void deleteAccounts() { this->accounts_ = nullptr;};
@@ -224,6 +241,20 @@ namespace Models
     inline DescribeAccountsResponseBody& setAccounts(DescribeAccountsResponseBody::Accounts && accounts) { DARABONBA_PTR_SET_RVALUE(accounts_, accounts) };
 
 
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeAccountsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeAccountsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -231,10 +262,23 @@ namespace Models
     inline DescribeAccountsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline DescribeAccountsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
+    // The page number.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
+    shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

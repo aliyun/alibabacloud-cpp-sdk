@@ -56,40 +56,38 @@ AlibabaCloud::RKvstore20150101::Client::Client(Config &config): OpenApiClient(co
     {"cn-zhengzhou-nebula-1" , "r-kvstore.aliyuncs.com"},
     {"eu-west-1-oxs" , "r-kvstore.aliyuncs.com"},
     {"rus-west-1-pop" , "r-kvstore.aliyuncs.com"},
-    {"us-west-1" , "r-kvstore.us-west-1.aliyuncs.com"},
-    {"us-southeast-1" , "r-kvstore.us-southeast-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "r-kvstore.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-wuhan-lr" , "r-kvstore.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-hongkong" , "r-kvstore.cn-hongkong.aliyuncs.com"},
+    {"cn-zhangjiakou" , "r-kvstore.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "r-kvstore.cn-shenzhen.aliyuncs.com"},
+    {"cn-nanjing" , "r-kvstore.cn-nanjing.aliyuncs.com"},
+    {"ap-northeast-2" , "r-kvstore.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "r-kvstore.ap-northeast-1.aliyuncs.com"},
+    {"cn-fuzhou" , "r-kvstore.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "r-kvstore.cn-chengdu.aliyuncs.com"},
+    {"cn-guangzhou" , "r-kvstore.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-1" , "r-kvstore.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-2" , "r-kvstore.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-3" , "r-kvstore.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "r-kvstore.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "r-kvstore.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "r-kvstore.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "r-kvstore.ap-southeast-7.aliyuncs.com"},
     {"us-east-1" , "r-kvstore.us-east-1.aliyuncs.com"},
+    {"us-southeast-1" , "r-kvstore.us-southeast-1.aliyuncs.com"},
+    {"eu-west-1" , "r-kvstore.eu-west-1.aliyuncs.com"},
+    {"us-west-1" , "r-kvstore.us-west-1.aliyuncs.com"},
+    {"eu-central-1" , "r-kvstore.eu-central-1.aliyuncs.com"},
     {"na-south-1" , "r-kvstore.na-south-1.aliyuncs.com"},
     {"me-east-1" , "r-kvstore.me-east-1.aliyuncs.com"},
     {"me-central-1" , "r-kvstore.me-central-1.aliyuncs.com"},
-    {"eu-west-2" , "r-kvstore.eu-west-2.aliyuncs.com"},
-    {"eu-west-1" , "r-kvstore.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "r-kvstore.eu-central-1.aliyuncs.com"},
-    {"cn-zhongwei" , "r-kvstore.cn-zhongwei.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "r-kvstore.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "r-kvstore.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wuhan-lr" , "r-kvstore.cn-wuhan-lr.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "r-kvstore.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "r-kvstore.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "r-kvstore.cn-north-2-gov-1.aliyuncs.com"},
-    {"cn-nanjing" , "r-kvstore.cn-nanjing.aliyuncs.com"},
-    {"cn-huhehaote" , "r-kvstore.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "r-kvstore.cn-hongkong.aliyuncs.com"},
+    {"ap-south-1" , "r-kvstore.ap-south-1.aliyuncs.com"},
     {"cn-heyuan-acdr-1" , "r-kvstore.cn-heyuan-acdr-1.aliyuncs.com"},
-    {"cn-guangzhou" , "r-kvstore.cn-guangzhou.aliyuncs.com"},
-    {"cn-fuzhou" , "r-kvstore.cn-fuzhou.aliyuncs.com"},
-    {"cn-chengdu" , "r-kvstore.cn-chengdu.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com"},
     {"cn-beijing-finance-1" , "r-kvstore.cn-beijing-finance-1.aliyuncs.com"},
-    {"ap-southeast-8" , "r-kvstore.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "r-kvstore.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "r-kvstore.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "r-kvstore.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "r-kvstore.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "r-kvstore.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "r-kvstore.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "r-kvstore.ap-northeast-1.aliyuncs.com"}
+    {"cn-shanghai-finance-1" , "r-kvstore.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("r-kvstore", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -555,12 +553,12 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorized(const 
 }
 
 /**
- * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+ * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
- * * The instance must be in the running status to use this API.  
- * * You can create up to 18 accounts for an instance.  
- * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+ * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
+ *  * The instance status must be Running when you call this API operation. 
+ *  * You can create up to 18 accounts for each instance.
+ * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
  *
  * @param request CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -601,6 +599,10 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
@@ -635,12 +637,12 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 }
 
 /**
- * @summary Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+ * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description * This API supports only instances compatible with Redis 4.0 or later versions.  
- * * The instance must be in the running status to use this API.  
- * * You can create up to 18 accounts for an instance.  
- * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+ * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
+ *  * The instance status must be Running when you call this API operation. 
+ *  * You can create up to 18 accounts for each instance.
+ * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -2829,7 +2831,7 @@ DeleteShardingNodeResponse Client::deleteShardingNode(const DeleteShardingNodeRe
 }
 
 /**
- * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+ * @summary Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2854,12 +2856,24 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSearchAccountName()) {
+    query["SearchAccountName"] = request.getSearchAccountName();
   }
 
   if (!!request.hasSecurityToken()) {
@@ -2884,7 +2898,7 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
 }
 
 /**
- * @summary Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+ * @summary Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeAccountsRequest
  * @return DescribeAccountsResponse
@@ -6725,9 +6739,9 @@ DescribeParameterModificationHistoryResponse Client::describeParameterModificati
 }
 
 /**
- * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+ * @summary Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
  *
- * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+ * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
  *
  * @param request DescribeParameterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6758,6 +6772,10 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasParameterCategory()) {
+    query["ParameterCategory"] = request.getParameterCategory();
   }
 
   if (!!request.hasResourceGroupId()) {
@@ -6794,9 +6812,9 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 }
 
 /**
- * @summary Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+ * @summary Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
  *
- * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+ * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
  *
  * @param request DescribeParameterTemplatesRequest
  * @return DescribeParameterTemplatesResponse
@@ -9013,6 +9031,64 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
+ * @summary 修改账号参数
+ *
+ * @description 目前仅支持Tair Serverless KV实例。
+ *
+ * @param request ModifyAccountParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAccountParameterResponse
+ */
+ModifyAccountParameterResponse Client::modifyAccountParameterWithOptions(const ModifyAccountParameterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAccountParameter"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAccountParameterResponse>();
+}
+
+/**
+ * @summary 修改账号参数
+ *
+ * @description 目前仅支持Tair Serverless KV实例。
+ *
+ * @param request ModifyAccountParameterRequest
+ * @return ModifyAccountParameterResponse
+ */
+ModifyAccountParameterResponse Client::modifyAccountParameter(const ModifyAccountParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAccountParameterWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
  *
  * @param request ModifyAccountPasswordRequest
@@ -10877,9 +10953,9 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLReque
 }
 
 /**
- * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+ * @summary Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+ * @description > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
  *
  * @param request ModifyInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11014,9 +11090,9 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyIns
 }
 
 /**
- * @summary Changes the configurations of a Tair (Redis OSS-compatible) instance.
+ * @summary Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+ * @description > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
  *
  * @param request ModifyInstanceSpecRequest
  * @return ModifyInstanceSpecResponse

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountDescription_ == nullptr
         && this->accountName_ == nullptr && this->accountPassword_ == nullptr && this->accountPrivilege_ == nullptr && this->accountType_ == nullptr && this->instanceId_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr
-        && this->sourceBiz_ == nullptr; };
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameters_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->securityToken_ == nullptr && this->sourceBiz_ == nullptr; };
     // accountDescription Field Functions 
     bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
     void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     inline CreateAccountRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // parameters Field Functions 
+    bool hasParameters() const { return this->parameters_ != nullptr;};
+    void deleteParameters() { this->parameters_ = nullptr;};
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline CreateAccountRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -141,36 +150,35 @@ namespace Models
 
   protected:
     // The description of the account.
-    // 
-    // *   The description must start with a letter, and cannot start with `http://` or `https://`.
-    // *   The description can contain letters, digits, underscores (_), and hyphens (-).
-    // *   The description must be 2 to 256 characters in length.
+    // * Must start with a Chinese character or an English letter. Cannot start with `http://` or `https://`.
+    // * Can contain Chinese characters, English letters, digits, underscores (_), and hyphens (-). 
+    // * Must be 2 to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
-    // The name of the account. The name must meet the following requirements:
-    // 
-    // *   The name must start with a lowercase letter and can contain lowercase letters, digits, and underscores (_).
-    // *   The name can be up to 100 characters in length.
-    // *   The name cannot be one of the reserved words listed in the [Reserved words for Redis account names](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3) section.
+    // The account name. The name must meet the following requirements:
+    // * Starts with a lowercase letter and contains only lowercase letters, digits, or underscores (_).
+    // * Contains up to 100 characters.
+    // * Cannot be a <props="china">[Redis reserved account name](https://www.alibabacloud.com/help/en/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3)<props="intl">[Redis reserved account name](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3).
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The password of the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // The password of the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. The following special characters are supported: `!@#$%^&*()_+-=`.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
     // The permissions of the account. Valid values:
-    // 
-    // *   **RoleReadOnly**: The account has read-only permissions.
-    // *   **RoleReadWrite**: The account has read and write permissions.
+    // * **RoleReadOnly**: read-only permissions.
+    // * **RoleReadWrite**: read and write permissions. This is the default value.
     shared_ptr<string> accountPrivilege_ {};
-    // The type of the account. Set the value to **Normal**, which indicates that the account is a standard account.
+    // The account type. Set the value to **Normal** (standard account).
     shared_ptr<string> accountType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The account parameters to modify in JSON format. The new values overwrite the original values.
+    shared_ptr<string> parameters_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
