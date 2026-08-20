@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(mock, mock_);
       DARABONBA_PTR_TO_JSON(policyConfigs, policyConfigs_);
+      DARABONBA_PTR_TO_JSON(restApiRouteMode, restApiRouteMode_);
       DARABONBA_PTR_TO_JSON(routeBackend, routeBackend_);
       DARABONBA_PTR_TO_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_TO_JSON(subDomains, subDomains_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(mock, mock_);
       DARABONBA_PTR_FROM_JSON(policyConfigs, policyConfigs_);
+      DARABONBA_PTR_FROM_JSON(restApiRouteMode, restApiRouteMode_);
       DARABONBA_PTR_FROM_JSON(routeBackend, routeBackend_);
       DARABONBA_PTR_FROM_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_FROM_JSON(subDomains, subDomains_);
@@ -472,8 +474,8 @@ namespace Models
     virtual bool empty() const override { return this->autoDeploy_ == nullptr
         && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->enableSystemModels_ == nullptr
         && this->envDomainIds_ == nullptr && this->envDomainInfos_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr
-        && this->gatewayType_ == nullptr && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->routeBackend_ == nullptr && this->serviceConfigs_ == nullptr
-        && this->subDomains_ == nullptr; };
+        && this->gatewayType_ == nullptr && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->restApiRouteMode_ == nullptr && this->routeBackend_ == nullptr
+        && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr; };
     // autoDeploy Field Functions 
     bool hasAutoDeploy() const { return this->autoDeploy_ != nullptr;};
     void deleteAutoDeploy() { this->autoDeploy_ = nullptr;};
@@ -588,6 +590,13 @@ namespace Models
     inline HttpApiDeployConfig& setPolicyConfigs(vector<HttpApiPolicyConfigs> && policyConfigs) { DARABONBA_PTR_SET_RVALUE(policyConfigs_, policyConfigs) };
 
 
+    // restApiRouteMode Field Functions 
+    bool hasRestApiRouteMode() const { return this->restApiRouteMode_ != nullptr;};
+    void deleteRestApiRouteMode() { this->restApiRouteMode_ = nullptr;};
+    inline string getRestApiRouteMode() const { DARABONBA_PTR_GET_DEFAULT(restApiRouteMode_, "") };
+    inline HttpApiDeployConfig& setRestApiRouteMode(string restApiRouteMode) { DARABONBA_PTR_SET_VALUE(restApiRouteMode_, restApiRouteMode) };
+
+
     // routeBackend Field Functions 
     bool hasRouteBackend() const { return this->routeBackend_ != nullptr;};
     void deleteRouteBackend() { this->routeBackend_ = nullptr;};
@@ -644,11 +653,13 @@ namespace Models
     shared_ptr<HttpApiMockContract> mock_ {};
     // The list of policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
+    // The current online routing mode of the REST API. ordinary indicates per-Operation routing. compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+    shared_ptr<string> restApiRouteMode_ {};
     // The backend service information.
     shared_ptr<Backend> routeBackend_ {};
     // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The subdomain content list.
+    // The list of subdomain contents.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

@@ -39,6 +39,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RestApiConfig& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(enableRouteCompression, enableRouteCompression_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(operationDeployments, operationDeployments_);
@@ -47,6 +48,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, RestApiConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(enableRouteCompression, enableRouteCompression_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(operationDeployments, operationDeployments_);
@@ -213,7 +215,7 @@ namespace Models
           shared_ptr<HttpApiBackendMatchConditions> match_ {};
           // The service port. Do not specify this parameter for dynamic ports.
           shared_ptr<int32_t> port_ {};
-          // The Terms of Service. Valid values:
+          // The service protocol:
           // - HTTP.
           // - HTTPS.
           shared_ptr<string> protocol_ {};
@@ -260,23 +262,31 @@ namespace Models
 
 
       protected:
-        // The API publish scenario. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
+        // The API publish scenario. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
         shared_ptr<string> backendScene_ {};
         // The list of custom domain names.
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
+        // The existing service configurations. In the single service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->environment_ == nullptr && this->gatewayId_ == nullptr && this->operationDeployments_ == nullptr && this->operationIds_ == nullptr && this->revisionId_ == nullptr; };
+        && this->enableRouteCompression_ == nullptr && this->environment_ == nullptr && this->gatewayId_ == nullptr && this->operationDeployments_ == nullptr && this->operationIds_ == nullptr
+        && this->revisionId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline RestApiConfig& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // enableRouteCompression Field Functions 
+      bool hasEnableRouteCompression() const { return this->enableRouteCompression_ != nullptr;};
+      void deleteEnableRouteCompression() { this->enableRouteCompression_ = nullptr;};
+      inline bool getEnableRouteCompression() const { DARABONBA_PTR_GET_DEFAULT(enableRouteCompression_, false) };
+      inline RestApiConfig& setEnableRouteCompression(bool enableRouteCompression) { DARABONBA_PTR_SET_VALUE(enableRouteCompression_, enableRouteCompression) };
 
 
       // environment Field Functions 
@@ -323,11 +333,13 @@ namespace Models
     protected:
       // The publish description.
       shared_ptr<string> description_ {};
+      // Specifies whether to enable REST API route compression. If omitted or set to false, operations are published individually. If set to true, the API is published as a single prefix route. This parameter is ignored for historical version publishing, which uses the routing mode saved in the historical version.
+      shared_ptr<bool> enableRouteCompression_ {};
       // The publish environment configuration.
       shared_ptr<RestApiConfig::Environment> environment_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // The operation-level publish control list.
+      // The operation-level deployment control list.
       shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
       // The operation IDs.
       shared_ptr<vector<string>> operationIds_ {};
