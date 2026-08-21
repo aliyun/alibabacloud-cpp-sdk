@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ChargeModules& obj) { 
         DARABONBA_PTR_TO_JSON(ChargeMode, chargeMode_);
         DARABONBA_PTR_TO_JSON(ChargeModeDetails, chargeModeDetails_);
+        DARABONBA_PTR_TO_JSON(ChargeUnit, chargeUnit_);
         DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_TO_JSON(PeriodType, periodType_);
         DARABONBA_PTR_TO_JSON(UsageType, usageType_);
@@ -45,6 +46,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ChargeModules& obj) { 
         DARABONBA_PTR_FROM_JSON(ChargeMode, chargeMode_);
         DARABONBA_PTR_FROM_JSON(ChargeModeDetails, chargeModeDetails_);
+        DARABONBA_PTR_FROM_JSON(ChargeUnit, chargeUnit_);
         DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_FROM_JSON(PeriodType, periodType_);
         DARABONBA_PTR_FROM_JSON(UsageType, usageType_);
@@ -62,7 +64,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->chargeMode_ == nullptr
-        && this->chargeModeDetails_ == nullptr && this->moduleCode_ == nullptr && this->periodType_ == nullptr && this->usageType_ == nullptr && this->usageUnitFactor_ == nullptr; };
+        && this->chargeModeDetails_ == nullptr && this->chargeUnit_ == nullptr && this->moduleCode_ == nullptr && this->periodType_ == nullptr && this->usageType_ == nullptr
+        && this->usageUnitFactor_ == nullptr; };
       // chargeMode Field Functions 
       bool hasChargeMode() const { return this->chargeMode_ != nullptr;};
       void deleteChargeMode() { this->chargeMode_ = nullptr;};
@@ -77,6 +80,13 @@ namespace Models
       inline vector<string> getChargeModeDetails() { DARABONBA_PTR_GET(chargeModeDetails_, vector<string>) };
       inline ChargeModules& setChargeModeDetails(const vector<string> & chargeModeDetails) { DARABONBA_PTR_SET_VALUE(chargeModeDetails_, chargeModeDetails) };
       inline ChargeModules& setChargeModeDetails(vector<string> && chargeModeDetails) { DARABONBA_PTR_SET_RVALUE(chargeModeDetails_, chargeModeDetails) };
+
+
+      // chargeUnit Field Functions 
+      bool hasChargeUnit() const { return this->chargeUnit_ != nullptr;};
+      void deleteChargeUnit() { this->chargeUnit_ = nullptr;};
+      inline string getChargeUnit() const { DARABONBA_PTR_GET_DEFAULT(chargeUnit_, "") };
+      inline ChargeModules& setChargeUnit(string chargeUnit) { DARABONBA_PTR_SET_VALUE(chargeUnit_, chargeUnit) };
 
 
       // moduleCode Field Functions 
@@ -108,103 +118,63 @@ namespace Models
 
 
     protected:
-      // The pricing model of the billing module. Valid values:
-      // 
-      // - **NORMAL_PRICE**: tiered pricing.
-      // 
+      // The pricing mode of the pricing module. Valid values:
+      // - **NORMAL_PRICE**: standard pricing.
       // - **STEP_ACCUMULATION**: tiered pricing.
       shared_ptr<string> chargeMode_ {};
-      // The detailed pricing information for the billing module.
+      // The pricing details of the pricing module.
       shared_ptr<vector<string>> chargeModeDetails_ {};
-      // The code of the billing module. Valid values:
-      // 
-      // - **domainCount**: the number of domain names added to WAF in CNAME record mode.
-      // 
-      // - **qps**: the peak queries per second (QPS).
-      // 
+      // The pricing unit.
+      shared_ptr<string> chargeUnit_ {};
+      // The pricing module identity. Valid values:
+      // - **domainCount**: the number of CNAME-connected domain names.
+      // - **qps**: the peak QPS.
       // - **request**: the basic traffic fee.
-      // 
       // - **ipBlacklistRuleCount**: the number of IP blacklist rules.
-      // 
-      // - **customAclBaseRuleCount**: the number of basic rules in custom protection rules.
-      // 
-      // - **customAclAdvanceRuleCount**: the number of advanced rules in custom protection rules.
-      // 
+      // - **customAclBaseRuleCount**: the number of Basic Policies in custom rules.
+      // - **customAclAdvanceRuleCount**: the number of advanced rules in custom rules.
       // - **antiScanRuleCount**: the number of scan protection rules.
-      // 
       // - **customResponseRuleCount**: the number of custom response rules.
-      // 
-      // - **ipv6**: IPv6 protection.
-      // 
+      // - **ipv6**: IPv6.
       // - **gslb**: intelligent load balancing.
-      // 
       // - **exclusiveIpCount**: the number of exclusive IP addresses.
-      // 
-      // - **ccRuleCount**: the number of HTTP flood protection rules.
-      // 
-      // - **regionBlockRuleCount**: the number of rules in the region blacklist.
-      // 
-      // - **tamperproofRuleCount**: the number of web tamper-proofing rules.
-      // 
-      // - **dlpRuleCount**: the number of data leakage prevention rules.
-      // 
-      // - **botTraffic**: the traffic fee for bot management.
-      // 
+      // - **ccRuleCount**: the number of HTTP flood mitigation rules.
+      // - **regionBlockRuleCount**: the number of Location Blacklist rules.
+      // - **tamperproofRuleCount**: the number of web tamper proofing rules.
+      // - **dlpRuleCount**: the number of information leak prevention rules.
+      // - **botTraffic**: the Bot management traffic fee.
       // - **aiWhiteListTemplateCount**: the number of intelligent whitelist templates.
-      // 
-      // - **apisecResourceCount**: the number of protected objects for which API security is enabled.
-      // 
-      // - **apisecTraffic**: the traffic fee for API security.
-      // 
+      // - **apisecResourceCount**: the number of protected objects with API security enabled.
+      // - **apisecTraffic**: the API security traffic fee.
       // - **compliance**: the number of protocol compliance templates.
-      // 
-      // - **riskTraffic**: the number of times that risk identification in bot management is matched.
-      // 
-      // - **assetStatus**: asset center.
-      // 
-      // - **nonPort**: custom ports protection.
-      // 
-      // - **customAclCaptcha**: the number of times that sliders are used for custom protection rules.
-      // 
-      // - **wafBaseTemplateCount**: the number of core web protection rules.
-      // 
+      // - **riskTraffic**: the number of risk identification hits in Bot management.
+      // - **assetStatus**: the asset center.
+      // - **nonPort**: non-standard ports.
+      // - **customAclCaptcha**: the number of custom rule slider verification attempts.
+      // - **wafBaseTemplateCount**: the number of web core protection rules.
       // - **instanceFee**: the WAF instance fee.
-      // 
       // - **spikeThrottleRuleCount**: the number of peak traffic throttling rules.
-      // 
-      // - **botWebTemplateCount**: the number of web protection templates in bot management.
-      // 
-      // - **botAppTemplateCount**: the number of app protection templates in bot management.
-      // 
-      // - **customAclBotRuleCount**: the number of advanced custom rules in bot management.
+      // - **botWebTemplateCount**: the number of web protection templates in Bot management.
+      // - **botAppTemplateCount**: the number of app protection templates in Bot management.
+      // - **customAclBotRuleCount**: the number of advanced custom rules in Bot management.
       shared_ptr<string> moduleCode_ {};
-      // The billing cycle of the billing module. Valid values:
-      // 
+      // The billing period type of the pricing module. Valid values:
       // - **Hour**: hourly billing.
       shared_ptr<string> periodType_ {};
-      // The usage type of the billing module. Valid values:
-      // 
+      // The usage type of the pricing module. Valid values:
       // - **template**: template.
-      // 
       // - **qps**: QPS.
-      // 
       // - **domain**: domain name.
-      // 
       // - **rule**: rule.
-      // 
       // - **ip**: IP address.
-      // 
       // - **resource**: protected object.
-      // 
-      // - **request**: request.
-      // 
+      // - **reqest**: request.
       // - **function**: feature enablement.
-      // 
       // - **time**: number of times.
       shared_ptr<string> usageType_ {};
-      // The billing unit coefficient of the billing module.
+      // The billing unit factor of the pricing module.
       // 
-      // > The usage unit for the module is determined by multiplying the **UsageUnitFactor** by the **UsageType**.
+      // > The billing unit factor **UsageUnitFactor** multiplied by the usage type **UsageType** forms the billing unit of the module.
       shared_ptr<int32_t> usageUnitFactor_ {};
     };
 
@@ -227,7 +197,7 @@ namespace Models
 
 
   protected:
-    // A list of billing modules for WAF.
+    // The list of WAF pricing module information.
     shared_ptr<vector<DescribeChargeModuleResponseBody::ChargeModules>> chargeModules_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

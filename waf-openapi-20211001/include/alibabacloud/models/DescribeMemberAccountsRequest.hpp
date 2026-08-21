@@ -75,29 +75,29 @@ namespace Models
 
 
   protected:
-    // The status of the member accounts that you want to query. Valid values:
+    // The status of the member accounts to query. You can set this parameter to query member accounts in a specific status. Valid values:
     // 
-    // - **enabled**: The member account is being managed.
+    // - **enabled**: The member account is managed.
     // 
-    // - **disabled**: The member account is not being managed.
+    // - **disabled**: The member account is not managed.
     // 
-    // - **disabling**: The member account is being removed from management.
+    // - **disabling**: The member account is being removed.
     shared_ptr<string> accountStatus_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: a region outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The source IP address. You do not need to specify this parameter. It is automatically obtained by the system.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
   };
 

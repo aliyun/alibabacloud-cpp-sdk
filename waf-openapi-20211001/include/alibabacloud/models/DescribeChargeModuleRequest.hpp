@@ -13,11 +13,13 @@ namespace Models
   class DescribeChargeModuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeChargeModuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChargeUnit, chargeUnit_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeChargeModuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChargeUnit, chargeUnit_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->payType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
+    virtual bool empty() const override { return this->chargeUnit_ == nullptr
+        && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
+    // chargeUnit Field Functions 
+    bool hasChargeUnit() const { return this->chargeUnit_ != nullptr;};
+    void deleteChargeUnit() { this->chargeUnit_ = nullptr;};
+    inline string getChargeUnit() const { DARABONBA_PTR_GET_DEFAULT(chargeUnit_, "") };
+    inline DescribeChargeModuleRequest& setChargeUnit(string chargeUnit) { DARABONBA_PTR_SET_VALUE(chargeUnit_, chargeUnit) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -57,9 +66,10 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. Valid values:
-    // 
-    // - **POSTPAY**: a pay-as-you-go WAF instance.
+    // The pricing unit.
+    shared_ptr<string> chargeUnit_ {};
+    // The billing type of the instance. Valid values:
+    // - **POSTPAY**: pay-as-you-go WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
@@ -69,7 +79,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

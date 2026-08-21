@@ -156,7 +156,7 @@ namespace Models
     // 
     // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
     // 
-    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must be completed.
+    // > If the value is **share**, or if the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must also be completed.
     shared_ptr<string> accessType_ {};
     // The domain name to query.
     // 
@@ -167,7 +167,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listening configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
@@ -179,7 +179,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<CreateDomainShrinkRequest::Tag>> tag_ {};

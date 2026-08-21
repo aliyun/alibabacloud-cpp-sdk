@@ -195,7 +195,7 @@ namespace Models
 
 
       protected:
-        // The specified custom request header field.
+        // The custom request header field.
         shared_ptr<string> key_ {};
         // The value set for the custom request header field.
         shared_ptr<string> value_ {};
@@ -248,15 +248,11 @@ namespace Models
 
 
       protected:
-        // The origin server port.
+        // The back-to-origin port.
         shared_ptr<int32_t> backendPort_ {};
         // The listening port.
         shared_ptr<int32_t> listenPort_ {};
-        // The protocol of the listener port. Valid values:
-        // 
-        // - **http**: The protocol of the listener port is HTTP.
-        // 
-        // - **https**: The protocol of the listener port is HTTPS.
+        // The protocol of the listening port. Valid values:
         shared_ptr<string> protocol_ {};
       };
 
@@ -459,35 +455,29 @@ namespace Models
     protected:
       // The custom port configuration.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
-      // The IP addresses or back-to-origin domain names of the origin server for the domain name.
+      // The IP addresses or domain names of the origin servers that correspond to the domain name.
       shared_ptr<vector<string>> backends_ {};
-      // The IP addresses or back-to-origin domain names of the secondary origin server for the domain name.
+      // The IP addresses or domain names of the secondary origin servers that correspond to the domain name.
       shared_ptr<vector<string>> backupBackends_ {};
       // Specifies whether to enable public cloud disaster recovery. Valid values:
+      // 
+      // - **true**: Public cloud disaster recovery is enabled.
+      // 
+      // - **false** (default): Public cloud disaster recovery is not enabled.
       shared_ptr<bool> cnameEnabled_ {};
       // The connection timeout period. Unit: seconds.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
-      // 
-      // - **true**: Forced HTTP back-to-origin is enabled.
-      // 
-      // - **false**: Forced HTTP back-to-origin is not enabled.
+      // Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       shared_ptr<bool> focusHttpBackend_ {};
-      // Specifies whether to enable origin fetch over HTTP/2. Valid values:
-      // 
-      // - **true**: Enables origin fetch over HTTP/2.
-      // 
-      // - **false**: Disables origin fetch over HTTP/2.
+      // Specifies whether to enable HTTP/2 back-to-origin. Valid values:
       shared_ptr<bool> http2Origin_ {};
       // The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 128.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
       // Specifies whether to enable persistent connections. Valid values:
       shared_ptr<bool> keepalive_ {};
-      // The number of requests that can reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
-      // 
-      // > After persistent connections are enabled, this parameter specifies how many requests can reuse a persistent connection.
+      // The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+      // The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
       shared_ptr<int32_t> keepaliveTimeout_ {};
       // The load balancing algorithm used for back-to-origin requests. Valid values:
       // 
@@ -495,7 +485,7 @@ namespace Models
       // 
       // - **roundRobin**: round-robin algorithm.
       // 
-      // - **leastTime**: Least Time algorithm. This value is available only when **ProtectionResource** is set to **gslb**, which indicates that the protection resource type uses intelligent load balancing of the shared cluster.
+      // - **leastTime**: Least Time algorithm. This value is available only when **ProtectionResource** is set to **gslb** (indicating that the protection resource type uses intelligent load balancing of the shared cluster).
       // 
       // This parameter is required.
       shared_ptr<string> loadbalance_ {};
@@ -507,29 +497,20 @@ namespace Models
       shared_ptr<bool> proxyProtocol_ {};
       // The read timeout period. Unit: seconds.
       shared_ptr<int32_t> readTimeout_ {};
-      // The traffic tag fields and values for the domain name, used to mark traffic processed by WAF.
+      // The traffic mark header fields and values for the domain name, used to mark traffic processed by WAF.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
       // Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
-      // 
-      // - **true** (default): Retry.
-      // 
-      // - **false**: Do not retry.
       shared_ptr<bool> retry_ {};
       // The hybrid cloud forwarding rules. The value is a string converted from a JSON array. Each element in the JSON array is a struct that contains the following fields:
       shared_ptr<string> routingRules_ {};
-      // Specifies whether to enable back-to-origin SNI. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       shared_ptr<bool> sniEnabled_ {};
       // The value of the custom SNI extension field. If you do not set this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-      // 
-      // In most cases, you do not need to customize the SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests (that is, the custom SNI set here).
+      // In most cases, you do not need to customize SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests (that is, the custom SNI set here).
       // 
       // > This parameter is required only when **SniEnabled** is set to **true** (indicating that back-to-origin SNI is enabled).
       shared_ptr<string> sniHost_ {};
-      // Specifies whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
-      // 
-      // - **true** (default): WAF is allowed to overwrite the header.
-      // 
-      // - **false**: WAF is not allowed to overwrite the header.
+      // Specifies whether to allow WAF to overwrite WL-Proxy-Client-IP. Valid values:
       shared_ptr<bool> WLProxyClientIp_ {};
       // Specifies whether to allow WAF to overwrite Web-Server-Type. Valid values:
       shared_ptr<bool> webServerType_ {};
@@ -756,15 +737,9 @@ namespace Models
     protected:
       // The ID of the certificate to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS.
       shared_ptr<string> certId_ {};
-      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
-      // 
-      // - **1**: adds all cipher suites.
-      // 
-      // - **2**: adds strong cipher suites. This value is available only when **TLSVersion** is set to **tlsv1.2**.
-      // 
-      // - **99**: adds custom cipher suites. This value is available only when **TLSVersion** is not set to **tlsv1.3**.
+      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       shared_ptr<int32_t> cipherSuite_ {};
-      // The specific custom cipher suites to add.
+      // The custom cipher suites to add.
       shared_ptr<vector<string>> customCiphers_ {};
       // Specifies whether to support TLS 1.3. Valid values:
       shared_ptr<bool> enableTLSv3_ {};
@@ -773,10 +748,6 @@ namespace Models
       // Specifies whether to enable forced HTTPS redirect. This parameter is used only when HttpsPorts is not empty (which indicates that the domain name uses HTTPS) and HttpPorts is empty (which indicates that the domain name does not use HTTP). Valid values:
       shared_ptr<bool> focusHttps_ {};
       // Specifies whether HSTS includes subdomains. Valid values:
-      // 
-      // - **true**: Enabled.
-      // 
-      // - **false**: Not enabled.
       shared_ptr<bool> hstsIncludeSubDomain_ {};
       // The HSTS expiration time. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
@@ -792,17 +763,21 @@ namespace Models
       shared_ptr<bool> IPv6Enabled_ {};
       // The type of protection resource to use. Valid values:
       shared_ptr<string> protectionResource_ {};
-      // Specifies whether only China SM client access is allowed. This parameter is used only when SM2Enabled is set to true.
+      // Specifies whether to allow only SM2 client access. This parameter is used only when SM2Enabled is set to true.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the China SM certificate to add. This parameter is used only when SM2Enabled is set to true.
+      // The ID of the SM2 certificate to add. This parameter is used only when SM2Enabled is set to true.
       shared_ptr<string> SM2CertId_ {};
-      // Specifies whether to enable China Encryption (China SM) certificates.
+      // Specifies whether to enable SM2 certificates.
       shared_ptr<bool> SM2Enabled_ {};
-      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
+      // - **tlsv1**: Supports TLS 1.0 and later. Highest compatibility and lowest security.
+      // - **tlsv1.1**: Supports TLS 1.1 and later. Good compatibility and good security.
+      // - **tlsv1.2**: Supports TLS 1.2 and later. Good compatibility and highest security.
+      // - **tlsv1.3**: Supports only TLS 1.3. Highest security and lowest compatibility.
       shared_ptr<string> TLSVersion_ {};
       // The method that WAF uses to obtain the originating IP address of the client. Valid values:
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The list of custom header fields used to obtain the client IP address.
+      // The custom header fields used to obtain the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
     };
 
@@ -878,7 +853,7 @@ namespace Models
     // 
     // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
     // 
-    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must be completed.
+    // > If the value is **share**, or if the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must also be completed.
     shared_ptr<string> accessType_ {};
     // The domain name to query.
     // 
@@ -889,7 +864,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listening configuration.
     // 
     // This parameter is required.
     shared_ptr<CreateDomainRequest::Listen> listen_ {};
@@ -901,7 +876,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<CreateDomainRequest::Tag>> tag_ {};

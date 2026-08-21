@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The description of the member account. The description must be 1 to 256 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), hyphens (-), and asterisks (\\*).
+    // The description of the WAF member accounts. The value is 1 to 256 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and asterisks (*).
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the member account that is managed by the WAF multi-account management feature.
+    // The ID of the managed WAF member accounts.
     // 
     // This parameter is required.
     shared_ptr<string> memberAccountId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The source IP address of the request.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
   };
 

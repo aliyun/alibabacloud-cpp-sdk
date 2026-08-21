@@ -155,7 +155,7 @@ namespace Models
     shared_ptr<string> ownerUserId_ {};
     // The forwarding configuration.
     shared_ptr<string> redirectShrink_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

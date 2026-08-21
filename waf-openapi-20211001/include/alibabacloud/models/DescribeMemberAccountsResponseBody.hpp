@@ -97,21 +97,21 @@ namespace Models
 
 
     protected:
-      // The ID of the member account.
+      // The ID of the member accounts.
       shared_ptr<string> accountId_ {};
-      // The name of the member account.
+      // The name of the member accounts.
       shared_ptr<string> accountName_ {};
-      // The status of the member account. Valid values:
+      // The status of the member accounts. Valid values:
       // 
-      // - **enabled**: The member account is being managed.
+      // - **enabled**: The member accounts is managed.
       // 
-      // - **disabled**: The member account is not being managed.
+      // - **disabled**: The member accounts is not managed.
       // 
-      // - **disabling**: The member account is being removed from management.
+      // - **disabling**: The member accounts is being deleted.
       shared_ptr<string> accountStatus_ {};
-      // The description of the member account.
+      // The description of the member accounts.
       shared_ptr<string> description_ {};
-      // The time when the member account was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the member accounts was added.
       shared_ptr<int64_t> gmtCreate_ {};
     };
 

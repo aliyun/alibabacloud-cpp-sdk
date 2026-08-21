@@ -100,7 +100,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -114,7 +114,7 @@ namespace Models
     // 
     // > You must specify at least one of **Resources** and **ResourceGroups**.
     shared_ptr<string> resourceGroups_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the protected object.
     // 
