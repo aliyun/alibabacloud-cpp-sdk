@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_TO_JSON(creator, creator_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
+      DARABONBA_PTR_TO_JSON(groupByState, groupByState_);
       DARABONBA_PTR_TO_JSON(isWorkflow, isWorkflow_);
       DARABONBA_PTR_TO_JSON(jobRunDeploymentId, jobRunDeploymentId_);
       DARABONBA_PTR_TO_JSON(jobRunId, jobRunId_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(applicationConfigs, applicationConfigs_);
       DARABONBA_PTR_FROM_JSON(creator, creator_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(groupByState, groupByState_);
       DARABONBA_PTR_FROM_JSON(isWorkflow, isWorkflow_);
       DARABONBA_PTR_FROM_JSON(jobRunDeploymentId, jobRunDeploymentId_);
       DARABONBA_PTR_FROM_JSON(jobRunId, jobRunId_);
@@ -142,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The end of the time range.
+      // The end of the start time range.
       shared_ptr<int64_t> endTime_ {};
-      // The start of the time range.
+      // The beginning of the start time range.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -186,16 +188,17 @@ namespace Models
 
 
     protected:
-      // The end of the time range.
+      // The end of the end time range.
       shared_ptr<int64_t> endTime_ {};
-      // The start of the time range.
+      // The beginning of the end time range.
       shared_ptr<int64_t> startTime_ {};
     };
 
     virtual bool empty() const override { return this->applicationConfigs_ == nullptr
-        && this->creator_ == nullptr && this->endTime_ == nullptr && this->isWorkflow_ == nullptr && this->jobRunDeploymentId_ == nullptr && this->jobRunId_ == nullptr
-        && this->maxResults_ == nullptr && this->minDuration_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr
-        && this->resourceQueueId_ == nullptr && this->runtimeConfigs_ == nullptr && this->startTime_ == nullptr && this->states_ == nullptr && this->tags_ == nullptr; };
+        && this->creator_ == nullptr && this->endTime_ == nullptr && this->groupByState_ == nullptr && this->isWorkflow_ == nullptr && this->jobRunDeploymentId_ == nullptr
+        && this->jobRunId_ == nullptr && this->maxResults_ == nullptr && this->minDuration_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr
+        && this->regionId_ == nullptr && this->resourceQueueId_ == nullptr && this->runtimeConfigs_ == nullptr && this->startTime_ == nullptr && this->states_ == nullptr
+        && this->tags_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};
@@ -217,6 +220,13 @@ namespace Models
     inline ListJobRunsRequest::EndTime getEndTime() { DARABONBA_PTR_GET(endTime_, ListJobRunsRequest::EndTime) };
     inline ListJobRunsRequest& setEndTime(const ListJobRunsRequest::EndTime & endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
     inline ListJobRunsRequest& setEndTime(ListJobRunsRequest::EndTime && endTime) { DARABONBA_PTR_SET_RVALUE(endTime_, endTime) };
+
+
+    // groupByState Field Functions 
+    bool hasGroupByState() const { return this->groupByState_ != nullptr;};
+    void deleteGroupByState() { this->groupByState_ = nullptr;};
+    inline bool getGroupByState() const { DARABONBA_PTR_GET_DEFAULT(groupByState_, false) };
+    inline ListJobRunsRequest& setGroupByState(bool groupByState) { DARABONBA_PTR_SET_VALUE(groupByState_, groupByState) };
 
 
     // isWorkflow Field Functions 
@@ -321,31 +331,32 @@ namespace Models
     shared_ptr<string> applicationConfigs_ {};
     // The UID of the user who created the job.
     shared_ptr<string> creator_ {};
-    // The time range when the job run ended.
+    // The end time range of the job.
     shared_ptr<ListJobRunsRequest::EndTime> endTime_ {};
-    // Specifies whether the job is a workflow task.
+    shared_ptr<bool> groupByState_ {};
+    // Specifies whether the job is a workflow job.
     shared_ptr<string> isWorkflow_ {};
-    // The deployment ID of the streaming job.
+    // The job ID of the streaming job deployment.
     shared_ptr<string> jobRunDeploymentId_ {};
-    // The job run ID.
+    // The job ID.
     shared_ptr<string> jobRunId_ {};
-    // The maximum number of entries to return. The maximum value is 100.
+    // The maximum number of records to retrieve in a single request. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The minimum runtime of the job run, in milliseconds.
+    // The minimum execution duration of the job, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
     // The job name.
     shared_ptr<string> name_ {};
-    // The token that specifies the position from which to start the next read.
+    // The pagination token that marks the position from which to start reading.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource queue on which the Spark job runs.
+    // The name of the resource queue on which the Spark job runs.
     shared_ptr<string> resourceQueueId_ {};
     // The runtime configurations.
     shared_ptr<string> runtimeConfigs_ {};
-    // The time range when the job run started.
+    // The start time range of the job.
     shared_ptr<ListJobRunsRequest::StartTime> startTime_ {};
-    // The job run states.
+    // The job states.
     shared_ptr<vector<string>> states_ {};
     // The list of tags.
     shared_ptr<vector<ListJobRunsRequest::Tags>> tags_ {};

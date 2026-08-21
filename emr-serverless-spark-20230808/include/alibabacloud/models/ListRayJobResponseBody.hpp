@@ -164,17 +164,41 @@ namespace Models
 
 
     protected:
+      // The status of the corresponding Ray cluster. Valid values:
+      // - Deleted: deleted.
+      // - Submitted: submitted but not yet being created.
+      // - Pending: being created.
+      // - Running: running.
       shared_ptr<string> clusterState_ {};
+      // The nickname of the creator.
       shared_ptr<string> creatorName_ {};
+      // The number of compute units (CUs) consumed during the job execution cycle. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
+      // The URL of the Ray cluster dashboard. When the Ray cluster is in the Running state, the URL points to the Runtime UI. After the cluster is in the Deleted state, the URL points to the History UI. The History UI is supported only in err-1.2.0 and later versions.
       shared_ptr<string> dashboardUrl_ {};
+      // The execution duration of the job. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
+      // The time when the job ended.
       shared_ptr<int64_t> endTime_ {};
+      // The name of the Ray Job.
       shared_ptr<string> name_ {};
+      // The Ray DPI engine version.
       shared_ptr<string> resourceQueue_ {};
+      // The time when the job was started.
       shared_ptr<int64_t> startTime_ {};
+      // The job status. Valid values:
+      // - Submitted: submitted.
+      // - Pending: the cluster is being created.
+      // - Running: the job is running.
+      // - Succeeded: the job succeeded.
+      // - Failed: the job failed.
+      // - Cancelling: the job is being canceled.
+      // - Cancelled: the job is canceled.
+      // - Timeout: the job timed out and was canceled.
       shared_ptr<string> status_ {};
+      // The ID of the Ray Job.
       shared_ptr<string> submissionId_ {};
+      // The time when the job was submitted.
       shared_ptr<int64_t> submitTime_ {};
     };
 
@@ -204,8 +228,11 @@ namespace Models
 
 
   protected:
+    // The list of Ray Jobs.
     shared_ptr<vector<ListRayJobResponseBody::RayJobs>> rayJobs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

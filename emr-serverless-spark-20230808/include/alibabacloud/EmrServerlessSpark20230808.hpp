@@ -93,7 +93,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplication(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request);
 
       /**
-       * @summary 停止RayJob
+       * @summary Stops a RayJob.
        *
        * @param request CancelRayJobRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace EmrServerlessSpark20230808
       Models::CancelRayJobResponse cancelRayJobWithOptions(const string &workspaceId, const string &submissionId, const Models::CancelRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止RayJob
+       * @summary Stops a RayJob.
        *
        * @param request CancelRayJobRequest
        * @return CancelRayJobResponse
@@ -395,7 +395,25 @@ namespace EmrServerlessSpark20230808
       Models::DeleteRayClusterResponse deleteRayCluster(const string &workspaceId, const string &clusterId);
 
       /**
-       * @summary Updates a Workspace Queue.
+       * @summary Deletes a workspace queue.
+       *
+       * @param request DeleteWorkspaceQueueRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkspaceQueueResponse
+       */
+      Models::DeleteWorkspaceQueueResponse deleteWorkspaceQueueWithOptions(const string &workspaceId, const string &workspaceQueueName, const Models::DeleteWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a workspace queue.
+       *
+       * @param request DeleteWorkspaceQueueRequest
+       * @return DeleteWorkspaceQueueResponse
+       */
+      Models::DeleteWorkspaceQueueResponse deleteWorkspaceQueue(const string &workspaceId, const string &workspaceQueueName, const Models::DeleteWorkspaceQueueRequest &request);
+
+      /**
+       * @summary Modifies a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @param headers map
@@ -405,7 +423,7 @@ namespace EmrServerlessSpark20230808
       Models::EditWorkspaceQueueResponse editWorkspaceQueueWithOptions(const Models::EditWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a Workspace Queue.
+       * @summary Modifies a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @return EditWorkspaceQueueResponse
@@ -607,7 +625,7 @@ namespace EmrServerlessSpark20230808
       Models::GetRayClusterResponse getRayCluster(const string &workspaceId, const string &clusterId);
 
       /**
-       * @summary 获取Ray集群
+       * @summary Retrieves Ray Job information.
        *
        * @param request GetRayJobRequest
        * @param headers map
@@ -617,7 +635,7 @@ namespace EmrServerlessSpark20230808
       Models::GetRayJobResponse getRayJobWithOptions(const string &workspaceId, const string &submissionId, const Models::GetRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Ray集群
+       * @summary Retrieves Ray Job information.
        *
        * @param request GetRayJobRequest
        * @return GetRayJobResponse
@@ -787,7 +805,7 @@ namespace EmrServerlessSpark20230808
       Models::ListJobExecutorsResponse listJobExecutors(const string &workspaceId, const string &jobRunId, const Models::ListJobExecutorsRequest &request);
 
       /**
-       * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
+       * @summary Queries a list of Spark jobs.
        *
        * @param tmpReq ListJobRunsRequest
        * @param headers map
@@ -797,7 +815,7 @@ namespace EmrServerlessSpark20230808
       Models::ListJobRunsResponse listJobRunsWithOptions(const string &workspaceId, const Models::ListJobRunsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
+       * @summary Queries a list of Spark jobs.
        *
        * @param request ListJobRunsRequest
        * @return ListJobRunsResponse
@@ -893,7 +911,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeSessionsResponse listLivyComputeSessions(const string &workspaceId, const string &livyComputeId, const Models::ListLivyComputeSessionsRequest &request);
 
       /**
-       * @summary Lists Livy Gateway tokens.
+       * @summary Lists the tokens of a Livy Gateway.
        *
        * @param request ListLivyComputeTokenRequest
        * @param headers map
@@ -903,7 +921,7 @@ namespace EmrServerlessSpark20230808
       Models::ListLivyComputeTokenResponse listLivyComputeTokenWithOptions(const string &workspaceBizId, const string &livyComputeId, const Models::ListLivyComputeTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists Livy Gateway tokens.
+       * @summary Lists the tokens of a Livy Gateway.
        *
        * @param request ListLivyComputeTokenRequest
        * @return ListLivyComputeTokenResponse
@@ -983,7 +1001,7 @@ namespace EmrServerlessSpark20230808
       Models::ListRayClusterResponse listRayCluster(const string &workspaceId, const Models::ListRayClusterRequest &request);
 
       /**
-       * @summary 列出RayJob
+       * @summary Lists Ray Job information.
        *
        * @param tmpReq ListRayJobRequest
        * @param headers map
@@ -993,7 +1011,7 @@ namespace EmrServerlessSpark20230808
       Models::ListRayJobResponse listRayJobWithOptions(const string &workspaceId, const Models::ListRayJobRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出RayJob
+       * @summary Lists Ray Job information.
        *
        * @param request ListRayJobRequest
        * @return ListRayJobResponse
@@ -1091,7 +1109,7 @@ namespace EmrServerlessSpark20230808
       Models::ListTemplateResponse listTemplate(const string &workspaceBizId, const Models::ListTemplateRequest &request);
 
       /**
-       * @summary Lists the queues in a workspace.
+       * @summary Queries the list of queues in a workspace.
        *
        * @param request ListWorkspaceQueuesRequest
        * @param headers map
@@ -1101,7 +1119,7 @@ namespace EmrServerlessSpark20230808
       Models::ListWorkspaceQueuesResponse listWorkspaceQueuesWithOptions(const string &workspaceId, const Models::ListWorkspaceQueuesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the queues in a workspace.
+       * @summary Queries the list of queues in a workspace.
        *
        * @param request ListWorkspaceQueuesRequest
        * @return ListWorkspaceQueuesResponse
@@ -1109,7 +1127,7 @@ namespace EmrServerlessSpark20230808
       Models::ListWorkspaceQueuesResponse listWorkspaceQueues(const string &workspaceId, const Models::ListWorkspaceQueuesRequest &request);
 
       /**
-       * @summary Call `ListWorkspaces` to get a list of workspaces.
+       * @summary Queries a list of workspaces.
        *
        * @param tmpReq ListWorkspacesRequest
        * @param headers map
@@ -1119,7 +1137,7 @@ namespace EmrServerlessSpark20230808
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call `ListWorkspaces` to get a list of workspaces.
+       * @summary Queries a list of workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -1357,7 +1375,7 @@ namespace EmrServerlessSpark20230808
       Models::StopSessionClusterResponse stopSessionCluster(const string &workspaceId, const Models::StopSessionClusterRequest &request);
 
       /**
-       * @summary 提交Ray Job
+       * @summary Submits a Ray job.
        *
        * @param request SubmitRayJobRequest
        * @param headers map
@@ -1367,7 +1385,7 @@ namespace EmrServerlessSpark20230808
       Models::SubmitRayJobResponse submitRayJobWithOptions(const string &workspaceId, const Models::SubmitRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交Ray Job
+       * @summary Submits a Ray job.
        *
        * @param request SubmitRayJobRequest
        * @return SubmitRayJobResponse
@@ -1483,7 +1501,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateRayClusterResponse updateRayCluster(const string &workspaceId, const string &clusterId, const Models::UpdateRayClusterRequest &request);
 
       /**
-       * @summary Update workspace properties
+       * @summary Updates the properties of a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @param headers map
@@ -1493,7 +1511,7 @@ namespace EmrServerlessSpark20230808
       Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const Models::UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update workspace properties
+       * @summary Updates the properties of a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @return UpdateWorkspaceResponse

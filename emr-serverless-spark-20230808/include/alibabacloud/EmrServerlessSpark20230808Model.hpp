@@ -83,6 +83,9 @@
 #include <alibabacloud/models/DeleteLivyComputeTokenResponse.hpp>
 #include <alibabacloud/models/DeleteRayClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteRayClusterResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceQueueRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceQueueResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceQueueResponse.hpp>
 #include <alibabacloud/models/EditWorkspaceQueueRequest.hpp>
 #include <alibabacloud/models/EditWorkspaceQueueResponseBody.hpp>
 #include <alibabacloud/models/EditWorkspaceQueueResponse.hpp>

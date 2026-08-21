@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cu, cu_);
       DARABONBA_PTR_TO_JSON(gpu, gpu_);
       DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
+      DARABONBA_PTR_TO_JSON(gpuSubscription, gpuSubscription_);
       DARABONBA_PTR_TO_JSON(ipWhiteList, ipWhiteList_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(subscription, subscription_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cu, cu_);
       DARABONBA_PTR_FROM_JSON(gpu, gpu_);
       DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
+      DARABONBA_PTR_FROM_JSON(gpuSubscription, gpuSubscription_);
       DARABONBA_PTR_FROM_JSON(ipWhiteList, ipWhiteList_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(subscription, subscription_);
@@ -132,25 +134,118 @@ namespace Models
 
 
     protected:
-      // Indicates whether to enable auto-renewal. Required for subscription plans.
+      // Specifies whether to enable auto-renewal. This parameter is required for the pre-paid billing type.
       shared_ptr<string> autoRenew_ {};
-      // The auto-renewal duration. Required for subscription plans.
+      // The auto-renewal duration. This parameter is required for the pre-paid billing type.
       shared_ptr<string> autoRenewPeriod_ {};
-      // The unit for the auto-renewal duration. Required for subscription plans.
+      // The auto-renewal period unit. This parameter is required for the pre-paid billing type.
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // A unique, case-sensitive token to ensure request idempotence.
+      // The idempotency token.
       shared_ptr<string> clientToken_ {};
-      // The subscription duration. This parameter is required for subscription plans.
+      // The number of subscription periods. This parameter is required for the pre-paid billing type.
       shared_ptr<string> duration_ {};
-      // The unit of the subscription period.
+      // The subscription period unit.
       shared_ptr<string> paymentDurationUnit_ {};
-      // The queues to convert to the subscription plan.
+      // The list of running queues to be converted.
       shared_ptr<vector<string>> queue_ {};
     };
 
+    class GpuSubscription : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const GpuSubscription& obj) { 
+        DARABONBA_PTR_TO_JSON(autoRenew, autoRenew_);
+        DARABONBA_PTR_TO_JSON(duration, duration_);
+        DARABONBA_PTR_TO_JSON(gpuMachineNum, gpuMachineNum_);
+        DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(instanceTypeId, instanceTypeId_);
+        DARABONBA_PTR_TO_JSON(operation, operation_);
+        DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
+      };
+      friend void from_json(const Darabonba::Json& j, GpuSubscription& obj) { 
+        DARABONBA_PTR_FROM_JSON(autoRenew, autoRenew_);
+        DARABONBA_PTR_FROM_JSON(duration, duration_);
+        DARABONBA_PTR_FROM_JSON(gpuMachineNum, gpuMachineNum_);
+        DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(instanceTypeId, instanceTypeId_);
+        DARABONBA_PTR_FROM_JSON(operation, operation_);
+        DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
+      };
+      GpuSubscription() = default ;
+      GpuSubscription(const GpuSubscription &) = default ;
+      GpuSubscription(GpuSubscription &&) = default ;
+      GpuSubscription(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~GpuSubscription() = default ;
+      GpuSubscription& operator=(const GpuSubscription &) = default ;
+      GpuSubscription& operator=(GpuSubscription &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && this->duration_ == nullptr && this->gpuMachineNum_ == nullptr && this->instanceId_ == nullptr && this->instanceTypeId_ == nullptr && this->operation_ == nullptr
+        && this->paymentDurationUnit_ == nullptr; };
+      // autoRenew Field Functions 
+      bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+      void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+      inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+      inline GpuSubscription& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+      // duration Field Functions 
+      bool hasDuration() const { return this->duration_ != nullptr;};
+      void deleteDuration() { this->duration_ = nullptr;};
+      inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+      inline GpuSubscription& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+      // gpuMachineNum Field Functions 
+      bool hasGpuMachineNum() const { return this->gpuMachineNum_ != nullptr;};
+      void deleteGpuMachineNum() { this->gpuMachineNum_ = nullptr;};
+      inline int32_t getGpuMachineNum() const { DARABONBA_PTR_GET_DEFAULT(gpuMachineNum_, 0) };
+      inline GpuSubscription& setGpuMachineNum(int32_t gpuMachineNum) { DARABONBA_PTR_SET_VALUE(gpuMachineNum_, gpuMachineNum) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline GpuSubscription& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // instanceTypeId Field Functions 
+      bool hasInstanceTypeId() const { return this->instanceTypeId_ != nullptr;};
+      void deleteInstanceTypeId() { this->instanceTypeId_ = nullptr;};
+      inline string getInstanceTypeId() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeId_, "") };
+      inline GpuSubscription& setInstanceTypeId(string instanceTypeId) { DARABONBA_PTR_SET_VALUE(instanceTypeId_, instanceTypeId) };
+
+
+      // operation Field Functions 
+      bool hasOperation() const { return this->operation_ != nullptr;};
+      void deleteOperation() { this->operation_ = nullptr;};
+      inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+      inline GpuSubscription& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
+
+
+      // paymentDurationUnit Field Functions 
+      bool hasPaymentDurationUnit() const { return this->paymentDurationUnit_ != nullptr;};
+      void deletePaymentDurationUnit() { this->paymentDurationUnit_ = nullptr;};
+      inline string getPaymentDurationUnit() const { DARABONBA_PTR_GET_DEFAULT(paymentDurationUnit_, "") };
+      inline GpuSubscription& setPaymentDurationUnit(string paymentDurationUnit) { DARABONBA_PTR_SET_VALUE(paymentDurationUnit_, paymentDurationUnit) };
+
+
+    protected:
+      shared_ptr<bool> autoRenew_ {};
+      shared_ptr<int32_t> duration_ {};
+      shared_ptr<int32_t> gpuMachineNum_ {};
+      shared_ptr<string> instanceId_ {};
+      shared_ptr<string> instanceTypeId_ {};
+      shared_ptr<string> operation_ {};
+      shared_ptr<string> paymentDurationUnit_ {};
+    };
+
     virtual bool empty() const override { return this->cu_ == nullptr
-        && this->gpu_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr && this->resourceGroupId_ == nullptr && this->subscription_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
+        && this->gpu_ == nullptr && this->gpuSpec_ == nullptr && this->gpuSubscription_ == nullptr && this->ipWhiteList_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->subscription_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
     // cu Field Functions 
     bool hasCu() const { return this->cu_ != nullptr;};
     void deleteCu() { this->cu_ = nullptr;};
@@ -172,6 +267,15 @@ namespace Models
     inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
     inline UpdateWorkspaceRequest& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
     inline UpdateWorkspaceRequest& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
+
+
+    // gpuSubscription Field Functions 
+    bool hasGpuSubscription() const { return this->gpuSubscription_ != nullptr;};
+    void deleteGpuSubscription() { this->gpuSubscription_ = nullptr;};
+    inline const UpdateWorkspaceRequest::GpuSubscription & getGpuSubscription() const { DARABONBA_PTR_GET_CONST(gpuSubscription_, UpdateWorkspaceRequest::GpuSubscription) };
+    inline UpdateWorkspaceRequest::GpuSubscription getGpuSubscription() { DARABONBA_PTR_GET(gpuSubscription_, UpdateWorkspaceRequest::GpuSubscription) };
+    inline UpdateWorkspaceRequest& setGpuSubscription(const UpdateWorkspaceRequest::GpuSubscription & gpuSubscription) { DARABONBA_PTR_SET_VALUE(gpuSubscription_, gpuSubscription) };
+    inline UpdateWorkspaceRequest& setGpuSubscription(UpdateWorkspaceRequest::GpuSubscription && gpuSubscription) { DARABONBA_PTR_SET_RVALUE(gpuSubscription_, gpuSubscription) };
 
 
     // ipWhiteList Field Functions 
@@ -221,17 +325,17 @@ namespace Models
 
 
   protected:
-    // The resource cap for the workspace.
+    // The upper limit of workspace resources.
     shared_ptr<int32_t> cu_ {};
-    // The number of GPUs.
+    // The number of GPU cards.
     shared_ptr<int32_t> gpu_ {};
-    // The GPU specifications.
+    // The GPU instance type.
     shared_ptr<vector<string>> gpuSpec_ {};
-    // The IP whitelist.
+    shared_ptr<UpdateWorkspaceRequest::GpuSubscription> gpuSubscription_ {};
     shared_ptr<vector<string>> ipWhiteList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Details for converting a pay-as-you-go workspace to a subscription plan.
+    // The information for converting from pay-as-you-go to subscription.
     shared_ptr<UpdateWorkspaceRequest::Subscription> subscription_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

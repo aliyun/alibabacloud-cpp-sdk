@@ -170,14 +170,23 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
+      // The worker group name.
       shared_ptr<string> groupName_ {};
+      // The maximum number of workers after automatic scaling is enabled.
       shared_ptr<int32_t> maxReplica_ {};
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The minimum number of workers after automatic scaling is enabled.
       shared_ptr<int32_t> minReplica_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
+      // The number of workers.
       shared_ptr<int32_t> replica_ {};
+      // The worker type.
       shared_ptr<string> workerType_ {};
     };
 
@@ -219,7 +228,9 @@ namespace Models
 
 
     protected:
+      // The key.
       shared_ptr<string> key_ {};
+      // The value.
       shared_ptr<string> value_ {};
     };
 
@@ -297,11 +308,17 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // Specifies whether to enable automatic worker scaling.
       shared_ptr<bool> enableAutoScaling_ {};
+      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
+      // The worker idle timeout period after automatic scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
     };
 
@@ -459,25 +476,45 @@ namespace Models
 
 
   protected:
+    // The timeout period of the job, which includes the cluster creation time and job runtime. The job is canceled if this period is exceeded.
     shared_ptr<int32_t> activeDeadlineSeconds_ {};
+    // The Ray DPI engine version number.
     shared_ptr<string> displayReleaseVersion_ {};
+    // The startup command.
     shared_ptr<string> entrypoint_ {};
+    // The memory size requested by the entrypoint task.
     shared_ptr<string> entrypointMemory_ {};
+    // The number of CPUs requested by the entrypoint task.
     shared_ptr<string> entrypointNumCpus_ {};
+    // The number of GPUs requested by the entrypoint task.
     shared_ptr<string> entrypointNumGpus_ {};
+    // The custom resource request JSON string for the entrypoint task.
     shared_ptr<string> entrypointResources_ {};
+    // The extra parameter JSON string.
     shared_ptr<string> extraParam_ {};
+    // The Ray cluster head node parameters.
     shared_ptr<SubmitRayJobRequest::HeadSpec> headSpec_ {};
+    // The job metadata JSON string.
     shared_ptr<string> metadataJson_ {};
+    // The job name.
     shared_ptr<string> name_ {};
+    // The network connectivity name.
     shared_ptr<string> networkServiceName_ {};
+    // The Ray runtime environment JSON string.
     shared_ptr<string> runtimeEnvJson_ {};
+    // Specifies whether to automatically destroy the temporary cluster after the job is completed. Default value: true.
     shared_ptr<bool> shutdownAfterJobFinishes_ {};
+    // The job submission mode.
     shared_ptr<string> submissionMode_ {};
+    // The tags.
     shared_ptr<vector<SubmitRayJobRequest::Tags>> tags_ {};
+    // The number of seconds to wait before destroying the cluster. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
     shared_ptr<int32_t> ttlSecondsAfterFinished_ {};
+    // The list of mount volume IDs.
     shared_ptr<vector<string>> volumeIds_ {};
+    // The Ray cluster worker node parameters.
     shared_ptr<vector<SubmitRayJobRequest::WorkerSpec>> workerSpec_ {};
+    // The URL of the job code working directory.
     shared_ptr<string> workingDir_ {};
   };
 

@@ -7,6 +7,7 @@
 #include <alibabacloud/models/JobDriver.hpp>
 #include <alibabacloud/models/RunLog.hpp>
 #include <alibabacloud/models/Tag.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
   class ListJobRunsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListJobRunsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(aggregations, aggregations_);
       DARABONBA_PTR_TO_JSON(jobRuns, jobRuns_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
@@ -25,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobRunsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(aggregations, aggregations_);
       DARABONBA_PTR_FROM_JSON(jobRuns, jobRuns_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
@@ -179,7 +182,7 @@ namespace Models
 
 
       protected:
-        // A list of Spark configurations.
+        // The list of Spark configurations.
         shared_ptr<vector<Configuration>> configurations_ {};
       };
 
@@ -361,60 +364,69 @@ namespace Models
 
 
     protected:
-      // The code type of the job. Valid values:
+      // The job code type. Valid values:
       // 
       // SQL
       // 
       // JAR
       // 
-      // PYTHON
+      // PYTHON.
       shared_ptr<string> codeType_ {};
-      // The advanced Spark configurations. This parameter is not returned by the ListJobRuns operation.
+      // The Spark advanced configurations. This parameter is not returned by the List operation.
       shared_ptr<JobRuns::ConfigurationOverrides> configurationOverrides_ {};
       // The UID of the user who created the job.
       shared_ptr<string> creator_ {};
-      // The number of CUs consumed by the job run. This is an estimated value. The actual value is reflected in your bill.
+      // The number of compute units (CUs) consumed during the job run cycle. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The display version of the Spark engine that is used to run the job.
+      // The version of the Spark DPI engine used to run the job.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The time when the job ended.
+      // The job end time.
       shared_ptr<int64_t> endTime_ {};
-      // The timeout period for the job execution, in seconds.
+      // The execution timeout period, in seconds.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether the Fusion engine is enabled for acceleration.
+      // Indicates whether the Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The information about the Spark driver. This parameter is not returned by the ListJobRuns operation.
+      // The Spark Driver information. This parameter is not returned by the List operation.
       shared_ptr<JobDriver> jobDriver_ {};
-      // The job run ID.
+      // The job ID.
       shared_ptr<string> jobRunId_ {};
       // The path of the run log.
       shared_ptr<RunLog> log_ {};
-      // The total memory in MB allocated to the job run, multiplied by the runtime in seconds.
+      // The total amount of allocated memory multiplied by the number of seconds the job has been running.
       shared_ptr<int64_t> mbSeconds_ {};
       // The job name.
       shared_ptr<string> name_ {};
       shared_ptr<string> priority_ {};
-      // The version of the Spark engine that is used to run the job.
+      // The version of the Spark DPI engine used to run the job.
       shared_ptr<string> releaseVersion_ {};
       shared_ptr<string> resourceQueueId_ {};
-      // The state of the job run.
+      // The job states.
       shared_ptr<string> state_ {};
       // The reason for the state change.
       shared_ptr<JobRuns::StateChangeReason> stateChangeReason_ {};
-      // The time when the job was submitted.
+      // The job submission time.
       shared_ptr<int64_t> submitTime_ {};
       // The tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // The total number of vCores allocated to the job run, multiplied by the runtime in seconds.
+      // The total number of allocated vcores multiplied by the number of seconds the job has been running.
       shared_ptr<int64_t> vcoreSeconds_ {};
-      // The web UI of the job.
+      // The job Web UI.
       shared_ptr<string> webUI_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
-    virtual bool empty() const override { return this->jobRuns_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+    virtual bool empty() const override { return this->aggregations_ == nullptr
+        && this->jobRuns_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+    // aggregations Field Functions 
+    bool hasAggregations() const { return this->aggregations_ != nullptr;};
+    void deleteAggregations() { this->aggregations_ = nullptr;};
+    inline const map<string, string> & getAggregations() const { DARABONBA_PTR_GET_CONST(aggregations_, map<string, string>) };
+    inline map<string, string> getAggregations() { DARABONBA_PTR_GET(aggregations_, map<string, string>) };
+    inline ListJobRunsResponseBody& setAggregations(const map<string, string> & aggregations) { DARABONBA_PTR_SET_VALUE(aggregations_, aggregations) };
+    inline ListJobRunsResponseBody& setAggregations(map<string, string> && aggregations) { DARABONBA_PTR_SET_RVALUE(aggregations_, aggregations) };
+
+
     // jobRuns Field Functions 
     bool hasJobRuns() const { return this->jobRuns_ != nullptr;};
     void deleteJobRuns() { this->jobRuns_ = nullptr;};
@@ -453,15 +465,16 @@ namespace Models
 
 
   protected:
-    // A list of Spark jobs.
+    shared_ptr<map<string, string>> aggregations_ {};
+    // The list of Spark jobs.
     shared_ptr<vector<ListJobRunsResponseBody::JobRuns>> jobRuns_ {};
-    // The maximum number of entries returned for the current request.
+    // The maximum number of records returned in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The position from which the data was read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the filter criteria.
+    // The total number of records that match the request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

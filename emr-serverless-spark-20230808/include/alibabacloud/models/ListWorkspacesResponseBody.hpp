@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
         DARABONBA_PTR_TO_JSON(prePaidQuota, prePaidQuota_);
+        DARABONBA_PTR_TO_JSON(prePaidQuotaGpu, prePaidQuotaGpu_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(releaseType, releaseType_);
         DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -83,6 +84,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
         DARABONBA_PTR_FROM_JSON(prePaidQuota, prePaidQuota_);
+        DARABONBA_PTR_FROM_JSON(prePaidQuotaGpu, prePaidQuotaGpu_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(releaseType, releaseType_);
         DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -143,9 +145,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -187,10 +187,184 @@ namespace Models
 
 
       protected:
-        // Error code.
+        // The error code.
         shared_ptr<string> code_ {};
-        // Error message.
+        // The error message.
         shared_ptr<string> message_ {};
+      };
+
+      class PrePaidQuotaGpu : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PrePaidQuotaGpu& obj) { 
+          DARABONBA_PTR_TO_JSON(autoRenewal, autoRenewal_);
+          DARABONBA_PTR_TO_JSON(cpuCoreCount, cpuCoreCount_);
+          DARABONBA_PTR_TO_JSON(createTime, createTime_);
+          DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
+          DARABONBA_PTR_TO_JSON(gpuAmount, gpuAmount_);
+          DARABONBA_PTR_TO_JSON(gpuMachineNum, gpuMachineNum_);
+          DARABONBA_PTR_TO_JSON(gpuMemorySize, gpuMemorySize_);
+          DARABONBA_PTR_TO_JSON(gpuNum, gpuNum_);
+          DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
+          DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(instanceTypeFamily, instanceTypeFamily_);
+          DARABONBA_PTR_TO_JSON(instanceTypeId, instanceTypeId_);
+          DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
+          DARABONBA_PTR_TO_JSON(orderId, orderId_);
+          DARABONBA_PTR_TO_JSON(paymentStatus, paymentStatus_);
+        };
+        friend void from_json(const Darabonba::Json& j, PrePaidQuotaGpu& obj) { 
+          DARABONBA_PTR_FROM_JSON(autoRenewal, autoRenewal_);
+          DARABONBA_PTR_FROM_JSON(cpuCoreCount, cpuCoreCount_);
+          DARABONBA_PTR_FROM_JSON(createTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
+          DARABONBA_PTR_FROM_JSON(gpuAmount, gpuAmount_);
+          DARABONBA_PTR_FROM_JSON(gpuMachineNum, gpuMachineNum_);
+          DARABONBA_PTR_FROM_JSON(gpuMemorySize, gpuMemorySize_);
+          DARABONBA_PTR_FROM_JSON(gpuNum, gpuNum_);
+          DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
+          DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(instanceTypeFamily, instanceTypeFamily_);
+          DARABONBA_PTR_FROM_JSON(instanceTypeId, instanceTypeId_);
+          DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
+          DARABONBA_PTR_FROM_JSON(orderId, orderId_);
+          DARABONBA_PTR_FROM_JSON(paymentStatus, paymentStatus_);
+        };
+        PrePaidQuotaGpu() = default ;
+        PrePaidQuotaGpu(const PrePaidQuotaGpu &) = default ;
+        PrePaidQuotaGpu(PrePaidQuotaGpu &&) = default ;
+        PrePaidQuotaGpu(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PrePaidQuotaGpu() = default ;
+        PrePaidQuotaGpu& operator=(const PrePaidQuotaGpu &) = default ;
+        PrePaidQuotaGpu& operator=(PrePaidQuotaGpu &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->autoRenewal_ == nullptr
+        && this->cpuCoreCount_ == nullptr && this->createTime_ == nullptr && this->expireTime_ == nullptr && this->gpuAmount_ == nullptr && this->gpuMachineNum_ == nullptr
+        && this->gpuMemorySize_ == nullptr && this->gpuNum_ == nullptr && this->gpuSpec_ == nullptr && this->instanceId_ == nullptr && this->instanceTypeFamily_ == nullptr
+        && this->instanceTypeId_ == nullptr && this->memorySize_ == nullptr && this->orderId_ == nullptr && this->paymentStatus_ == nullptr; };
+        // autoRenewal Field Functions 
+        bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
+        void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
+        inline bool getAutoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, false) };
+        inline PrePaidQuotaGpu& setAutoRenewal(bool autoRenewal) { DARABONBA_PTR_SET_VALUE(autoRenewal_, autoRenewal) };
+
+
+        // cpuCoreCount Field Functions 
+        bool hasCpuCoreCount() const { return this->cpuCoreCount_ != nullptr;};
+        void deleteCpuCoreCount() { this->cpuCoreCount_ = nullptr;};
+        inline string getCpuCoreCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCoreCount_, "") };
+        inline PrePaidQuotaGpu& setCpuCoreCount(string cpuCoreCount) { DARABONBA_PTR_SET_VALUE(cpuCoreCount_, cpuCoreCount) };
+
+
+        // createTime Field Functions 
+        bool hasCreateTime() const { return this->createTime_ != nullptr;};
+        void deleteCreateTime() { this->createTime_ = nullptr;};
+        inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+        inline PrePaidQuotaGpu& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // expireTime Field Functions 
+        bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+        void deleteExpireTime() { this->expireTime_ = nullptr;};
+        inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+        inline PrePaidQuotaGpu& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+        // gpuAmount Field Functions 
+        bool hasGpuAmount() const { return this->gpuAmount_ != nullptr;};
+        void deleteGpuAmount() { this->gpuAmount_ = nullptr;};
+        inline int32_t getGpuAmount() const { DARABONBA_PTR_GET_DEFAULT(gpuAmount_, 0) };
+        inline PrePaidQuotaGpu& setGpuAmount(int32_t gpuAmount) { DARABONBA_PTR_SET_VALUE(gpuAmount_, gpuAmount) };
+
+
+        // gpuMachineNum Field Functions 
+        bool hasGpuMachineNum() const { return this->gpuMachineNum_ != nullptr;};
+        void deleteGpuMachineNum() { this->gpuMachineNum_ = nullptr;};
+        inline int32_t getGpuMachineNum() const { DARABONBA_PTR_GET_DEFAULT(gpuMachineNum_, 0) };
+        inline PrePaidQuotaGpu& setGpuMachineNum(int32_t gpuMachineNum) { DARABONBA_PTR_SET_VALUE(gpuMachineNum_, gpuMachineNum) };
+
+
+        // gpuMemorySize Field Functions 
+        bool hasGpuMemorySize() const { return this->gpuMemorySize_ != nullptr;};
+        void deleteGpuMemorySize() { this->gpuMemorySize_ = nullptr;};
+        inline int64_t getGpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(gpuMemorySize_, 0L) };
+        inline PrePaidQuotaGpu& setGpuMemorySize(int64_t gpuMemorySize) { DARABONBA_PTR_SET_VALUE(gpuMemorySize_, gpuMemorySize) };
+
+
+        // gpuNum Field Functions 
+        bool hasGpuNum() const { return this->gpuNum_ != nullptr;};
+        void deleteGpuNum() { this->gpuNum_ = nullptr;};
+        inline int32_t getGpuNum() const { DARABONBA_PTR_GET_DEFAULT(gpuNum_, 0) };
+        inline PrePaidQuotaGpu& setGpuNum(int32_t gpuNum) { DARABONBA_PTR_SET_VALUE(gpuNum_, gpuNum) };
+
+
+        // gpuSpec Field Functions 
+        bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+        void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+        inline string getGpuSpec() const { DARABONBA_PTR_GET_DEFAULT(gpuSpec_, "") };
+        inline PrePaidQuotaGpu& setGpuSpec(string gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline PrePaidQuotaGpu& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // instanceTypeFamily Field Functions 
+        bool hasInstanceTypeFamily() const { return this->instanceTypeFamily_ != nullptr;};
+        void deleteInstanceTypeFamily() { this->instanceTypeFamily_ = nullptr;};
+        inline string getInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
+        inline PrePaidQuotaGpu& setInstanceTypeFamily(string instanceTypeFamily) { DARABONBA_PTR_SET_VALUE(instanceTypeFamily_, instanceTypeFamily) };
+
+
+        // instanceTypeId Field Functions 
+        bool hasInstanceTypeId() const { return this->instanceTypeId_ != nullptr;};
+        void deleteInstanceTypeId() { this->instanceTypeId_ = nullptr;};
+        inline string getInstanceTypeId() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeId_, "") };
+        inline PrePaidQuotaGpu& setInstanceTypeId(string instanceTypeId) { DARABONBA_PTR_SET_VALUE(instanceTypeId_, instanceTypeId) };
+
+
+        // memorySize Field Functions 
+        bool hasMemorySize() const { return this->memorySize_ != nullptr;};
+        void deleteMemorySize() { this->memorySize_ = nullptr;};
+        inline string getMemorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, "") };
+        inline PrePaidQuotaGpu& setMemorySize(string memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
+
+
+        // orderId Field Functions 
+        bool hasOrderId() const { return this->orderId_ != nullptr;};
+        void deleteOrderId() { this->orderId_ = nullptr;};
+        inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+        inline PrePaidQuotaGpu& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
+        // paymentStatus Field Functions 
+        bool hasPaymentStatus() const { return this->paymentStatus_ != nullptr;};
+        void deletePaymentStatus() { this->paymentStatus_ = nullptr;};
+        inline string getPaymentStatus() const { DARABONBA_PTR_GET_DEFAULT(paymentStatus_, "") };
+        inline PrePaidQuotaGpu& setPaymentStatus(string paymentStatus) { DARABONBA_PTR_SET_VALUE(paymentStatus_, paymentStatus) };
+
+
+      protected:
+        shared_ptr<bool> autoRenewal_ {};
+        shared_ptr<string> cpuCoreCount_ {};
+        shared_ptr<int64_t> createTime_ {};
+        shared_ptr<int64_t> expireTime_ {};
+        shared_ptr<int32_t> gpuAmount_ {};
+        shared_ptr<int32_t> gpuMachineNum_ {};
+        shared_ptr<int64_t> gpuMemorySize_ {};
+        shared_ptr<int32_t> gpuNum_ {};
+        shared_ptr<string> gpuSpec_ {};
+        shared_ptr<string> instanceId_ {};
+        shared_ptr<string> instanceTypeFamily_ {};
+        shared_ptr<string> instanceTypeId_ {};
+        shared_ptr<string> memorySize_ {};
+        shared_ptr<string> orderId_ {};
+        shared_ptr<string> paymentStatus_ {};
       };
 
       class PrePaidQuota : public Darabonba::Model {
@@ -295,42 +469,37 @@ namespace Models
 
 
       protected:
-        // The amount of resources that are currently allocated.
+        // The amount of resources currently allocated.
         shared_ptr<string> allocatedResource_ {};
-        // Whether auto-renewal is enabled for the resource.
+        // Indicates whether auto-renewal is enabled for the resource. Valid values:
         // 
-        // - true: Enables auto-renewal. The resource is automatically renewed after it expires.
-        // 
-        // - false: Auto-renewal is disabled. The resource is stopped upon expiration.
+        // - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
+        // - false: Auto-renewal is not enabled. The resource stops being available upon expiration.
         shared_ptr<bool> autoRenewal_ {};
-        // The creation time of the resource quota.
+        // The time when the resource quota was created.
         shared_ptr<int64_t> createTime_ {};
-        // The expiration time of the resource quota.
+        // The time when the resource quota expires.
         shared_ptr<int64_t> expireTime_ {};
-        // The resource instance ID that is associated with the quota.
+        // The instance ID of the resource associated with the quota.
         shared_ptr<string> instanceId_ {};
-        // The maximum amount of resources.
+        // The maximum amount of resources available.
         shared_ptr<string> maxResource_ {};
-        // The order ID.
         shared_ptr<string> orderId_ {};
-        // The payment status of the current resource. The possible values are as follows:
-        // 
+        // The payment status of the current resource. Valid values:
         // - NORMAL: Active.
-        // 
-        // - WAIT_FOR_EXPIRE: Will expire.
-        // 
-        // - EXPIRED: The item has expired.
+        // - WAIT_FOR_EXPIRE: About to expire.
+        // - EXPIRED: Expired.
         shared_ptr<string> paymentStatus_ {};
-        // The amount of resources currently in use.
+        // The amount of resources currently used.
         shared_ptr<string> usedResource_ {};
       };
 
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
         && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr
-        && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr
-        && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr
-        && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->prePaidQuotaGpu_ == nullptr
+        && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr
+        && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -442,6 +611,15 @@ namespace Models
       inline Workspaces& setPrePaidQuota(Workspaces::PrePaidQuota && prePaidQuota) { DARABONBA_PTR_SET_RVALUE(prePaidQuota_, prePaidQuota) };
 
 
+      // prePaidQuotaGpu Field Functions 
+      bool hasPrePaidQuotaGpu() const { return this->prePaidQuotaGpu_ != nullptr;};
+      void deletePrePaidQuotaGpu() { this->prePaidQuotaGpu_ = nullptr;};
+      inline const vector<Workspaces::PrePaidQuotaGpu> & getPrePaidQuotaGpu() const { DARABONBA_PTR_GET_CONST(prePaidQuotaGpu_, vector<Workspaces::PrePaidQuotaGpu>) };
+      inline vector<Workspaces::PrePaidQuotaGpu> getPrePaidQuotaGpu() { DARABONBA_PTR_GET(prePaidQuotaGpu_, vector<Workspaces::PrePaidQuotaGpu>) };
+      inline Workspaces& setPrePaidQuotaGpu(const vector<Workspaces::PrePaidQuotaGpu> & prePaidQuotaGpu) { DARABONBA_PTR_SET_VALUE(prePaidQuotaGpu_, prePaidQuotaGpu) };
+      inline Workspaces& setPrePaidQuotaGpu(vector<Workspaces::PrePaidQuotaGpu> && prePaidQuotaGpu) { DARABONBA_PTR_SET_RVALUE(prePaidQuotaGpu_, prePaidQuotaGpu) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -517,54 +695,52 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable auto-renewal (required for the prepaid billing method).
+      // Indicates whether auto-renewal is enabled. This parameter is required for the prepaid type.
       shared_ptr<bool> autoRenew_ {};
-      // Auto-renewal duration (Required for the prepaid billing method).
+      // The auto-renewal duration. This parameter is required for the prepaid type.
       shared_ptr<int32_t> autoRenewPeriod_ {};
-      // Auto-renewal period (Required for the prepaid billing method).
+      // The auto-renewal epoch unit. This parameter is required for the prepaid type.
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // Workspace creation time.
+      // The time when the workspace was created.
       shared_ptr<int64_t> createTime_ {};
-      // DLF Catalog information.
+      // The DLF Catalog information.
       shared_ptr<string> dlfCatalogId_ {};
-      // Bind a dlf type.
+      // The DLF binding type.
       shared_ptr<string> dlfType_ {};
-      // The subscription period quantity is required for the prepaid billing method.
+      // The subscription period quantity. This parameter is required for the prepaid type.
       shared_ptr<int32_t> duration_ {};
-      // Workspace release time.
+      // The time when the workspace was released.
       shared_ptr<int64_t> endTime_ {};
-      // Failure reason.
+      // The failure reason.
       shared_ptr<string> failReason_ {};
-      // The GPU specifications.
       shared_ptr<vector<string>> gpuSpec_ {};
       shared_ptr<vector<string>> ipWhiteList_ {};
-      // Subscription period (Required for the prepaid billing method).
+      // The subscription period unit. This parameter is required for the prepaid type.
       shared_ptr<string> paymentDurationUnit_ {};
-      // Payment status.
+      // The payment status.
       shared_ptr<string> paymentStatus_ {};
-      // Billing method.
+      // The payment type.
       shared_ptr<string> paymentType_ {};
-      // Information about prepaid resource quotas.
+      // The prepaid resource quota information.
       shared_ptr<Workspaces::PrePaidQuota> prePaidQuota_ {};
-      // Region ID.
+      shared_ptr<vector<Workspaces::PrePaidQuotaGpu>> prePaidQuotaGpu_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Workspace release reason.
+      // The reason why the workspace was released.
       shared_ptr<string> releaseType_ {};
-      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Resource specification.
+      // The resource specification.
       shared_ptr<string> resourceSpec_ {};
-      // Information about changes to the workspace status.
+      // The state change information of the workspace.
       shared_ptr<Workspaces::StateChangeReason> stateChangeReason_ {};
-      // OSS path.
+      // The OSS path.
       shared_ptr<string> storage_ {};
-      // The tags of the workspace.
       shared_ptr<vector<Workspaces::Tags>> tags_ {};
-      // Workspace ID.
+      // Workspace ID。
       shared_ptr<string> workspaceId_ {};
-      // Workspace name.
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
-      // Workspace status.
+      // The workspace status.
       shared_ptr<string> workspaceStatus_ {};
     };
 
@@ -608,15 +784,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to retrieve at one time.
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // Next page token.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Workspace list.
+    // The list of workspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};
   };
 

@@ -198,13 +198,21 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // The GPU type.
       shared_ptr<string> gpuSpec_ {};
+      // The worker node group name.
       shared_ptr<string> groupName_ {};
+      // The maximum number of workers.
       shared_ptr<int32_t> maxReplica_ {};
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
+      // The minimum number of workers.
       shared_ptr<int32_t> minReplica_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
+      // The number of worker nodes.
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -292,12 +300,19 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // Indicates whether auto scaling is enabled for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
+      // The GPU type.
       shared_ptr<string> gpuSpec_ {};
+      // The idle timeout in seconds for worker nodes when auto scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
+      // The number of nodes.
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -339,7 +354,9 @@ namespace Models
 
 
     protected:
+      // The consumed GPU hours.
       shared_ptr<double> gpuHours_ {};
+      // The GPU type.
       shared_ptr<string> gpuSpec_ {};
     };
 
@@ -631,43 +648,93 @@ namespace Models
 
 
   protected:
+    // The timeout period.
     shared_ptr<int32_t> activeDeadlineSeconds_ {};
+    // The number of failure retries. Currently fixed at 0.
     shared_ptr<int32_t> backoffLimit_ {};
+    // The status of the corresponding Ray cluster. Valid values:
+    // - Deleted: Deleted.
+    // - Submitted: Submitted but not yet created.
+    // - Pending: Being created.
+    // - Running: Running.
     shared_ptr<string> clusterState_ {};
+    // The nickname of the creator.
     shared_ptr<string> creatorName_ {};
+    // The consumed CU resources. This value is returned 10 minutes after the cluster is released.
     shared_ptr<double> cuHours_ {};
+    // The Ray cluster dashboard URL. When the Ray cluster is in Running state, this is the Runtime UI. After the cluster is deleted, this is the History UI. History UI is supported only in err-1.2.0 and later versions.
     shared_ptr<string> dashboardUrl_ {};
+    // The extra dashboard UI URLs. Currently empty.
     shared_ptr<vector<string>> dashboardUrlExtra_ {};
+    // The Ray DPI engine version.
     shared_ptr<string> displayReleaseVersion_ {};
+    // The job duration, in seconds.
     shared_ptr<int64_t> duration_ {};
+    // The job end time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The startup command.
     shared_ptr<string> entrypoint_ {};
+    // The memory size requested by the entrypoint task.
     shared_ptr<string> entrypointMemory_ {};
+    // The number of CPUs requested by the entrypoint task.
     shared_ptr<string> entrypointNumCpus_ {};
+    // The number of GPUs requested by the entrypoint task.
     shared_ptr<string> entrypointNumGpus_ {};
+    // The custom resource request JSON string for the entrypoint task.
     shared_ptr<string> entrypointResources_ {};
+    // The extra parameters in JSON format.
     shared_ptr<string> extraParam_ {};
+    // The consumed GPU hours. Currently empty.
     shared_ptr<GetRayJobResponseBody::GuHours> guHours_ {};
+    // The Ray cluster head node parameters.
     shared_ptr<GetRayJobResponseBody::HeadSpec> headSpec_ {};
+    // The name of the bucket that stores logs.
     shared_ptr<string> logBucketName_ {};
+    // The path where logs are stored.
     shared_ptr<string> logPath_ {};
+    // The execution message.
     shared_ptr<string> message_ {};
+    // The job metadata JSON string.
     shared_ptr<string> metadataJson_ {};
+    // The Ray cluster name.
     shared_ptr<string> name_ {};
+    // The network connectivity name.
     shared_ptr<string> networkServiceName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Ray runtime environment JSON string.
     shared_ptr<string> runtimeEnvJson_ {};
+    // Specifies whether to automatically destroy the temporary cluster after the job finishes. Default value: true.
     shared_ptr<bool> shutdownAfterJobFinishes_ {};
+    // The start time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The job status. Valid values:
+    // - Submitted: Submitted.
+    // - Pending: The cluster is being created.
+    // - Running: The job is running.
+    // - Succeeded: The job succeeded.
+    // - Failed: The job failed.
+    // - Cancelling: Cancelling.
+    // - Cancelled: Cancelled.
+    // - Timeout: Timed out and cancelled.
     shared_ptr<string> status_ {};
+    // The ID of the Ray Job.
     shared_ptr<string> submissionId_ {};
+    // The job submission mode.
     shared_ptr<string> submissionMode_ {};
+    // The job submission time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> submitTime_ {};
+    // The tags.
     shared_ptr<vector<Tag>> tags_ {};
+    // The data development task ID.
     shared_ptr<string> taskBizId_ {};
+    // The number of seconds to wait before destroying the cluster. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
     shared_ptr<int32_t> ttlSecondsAfterFinished_ {};
+    // The list of managed file IDs.
     shared_ptr<vector<string>> volumeIds_ {};
+    // The Ray cluster worker node information.
     shared_ptr<vector<GetRayJobResponseBody::WorkerSpecs>> workerSpecs_ {};
+    // The URL of the job code working directory.
     shared_ptr<string> workingDir_ {};
   };
 

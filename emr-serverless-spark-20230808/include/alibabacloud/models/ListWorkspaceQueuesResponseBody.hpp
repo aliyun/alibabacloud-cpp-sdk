@@ -45,7 +45,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
         DARABONBA_PTR_TO_JSON(environments, environments_);
+        DARABONBA_PTR_TO_JSON(gpuMachineNum, gpuMachineNum_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
+        DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(maxResource, maxResource_);
         DARABONBA_PTR_TO_JSON(minResource, minResource_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -65,7 +67,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
         DARABONBA_PTR_FROM_JSON(environments, environments_);
+        DARABONBA_PTR_FROM_JSON(gpuMachineNum, gpuMachineNum_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
+        DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(maxResource, maxResource_);
         DARABONBA_PTR_FROM_JSON(minResource, minResource_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -158,7 +162,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the behavior.
+        // The action ARN.
         shared_ptr<string> actionArn_ {};
         // The permission name.
         shared_ptr<string> actionName_ {};
@@ -171,10 +175,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->allowActions_ == nullptr
-        && this->createTime_ == nullptr && this->creator_ == nullptr && this->environments_ == nullptr && this->gpuSpec_ == nullptr && this->maxResource_ == nullptr
-        && this->minResource_ == nullptr && this->paymentType_ == nullptr && this->preheat_ == nullptr && this->properties_ == nullptr && this->queueCategory_ == nullptr
-        && this->queueName_ == nullptr && this->queueScope_ == nullptr && this->queueStatus_ == nullptr && this->queueType_ == nullptr && this->regionId_ == nullptr
-        && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->environments_ == nullptr && this->gpuMachineNum_ == nullptr && this->gpuSpec_ == nullptr
+        && this->instanceId_ == nullptr && this->maxResource_ == nullptr && this->minResource_ == nullptr && this->paymentType_ == nullptr && this->preheat_ == nullptr
+        && this->properties_ == nullptr && this->queueCategory_ == nullptr && this->queueName_ == nullptr && this->queueScope_ == nullptr && this->queueStatus_ == nullptr
+        && this->queueType_ == nullptr && this->regionId_ == nullptr && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
       // allowActions Field Functions 
       bool hasAllowActions() const { return this->allowActions_ != nullptr;};
       void deleteAllowActions() { this->allowActions_ = nullptr;};
@@ -207,6 +211,13 @@ namespace Models
       inline Queues& setEnvironments(vector<string> && environments) { DARABONBA_PTR_SET_RVALUE(environments_, environments) };
 
 
+      // gpuMachineNum Field Functions 
+      bool hasGpuMachineNum() const { return this->gpuMachineNum_ != nullptr;};
+      void deleteGpuMachineNum() { this->gpuMachineNum_ = nullptr;};
+      inline int32_t getGpuMachineNum() const { DARABONBA_PTR_GET_DEFAULT(gpuMachineNum_, 0) };
+      inline Queues& setGpuMachineNum(int32_t gpuMachineNum) { DARABONBA_PTR_SET_VALUE(gpuMachineNum_, gpuMachineNum) };
+
+
       // gpuSpec Field Functions 
       bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
       void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
@@ -214,6 +225,13 @@ namespace Models
       inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
       inline Queues& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
       inline Queues& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Queues& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
       // maxResource Field Functions 
@@ -308,15 +326,17 @@ namespace Models
 
 
     protected:
-      // The list of allowed operations for the queue.
+      // The list of allowed actions on the queue.
       shared_ptr<vector<Queues::AllowActions>> allowActions_ {};
-      // The creation time of the workspace.
+      // The time when the workspace was created.
       shared_ptr<int64_t> createTime_ {};
       // The UID of the user who created the queue.
       shared_ptr<string> creator_ {};
-      // The list of environment types for the queue.
+      // The list of queue environment types.
       shared_ptr<vector<string>> environments_ {};
+      shared_ptr<int32_t> gpuMachineNum_ {};
       shared_ptr<vector<string>> gpuSpec_ {};
+      shared_ptr<string> instanceId_ {};
       // The maximum resource capacity of the queue.
       shared_ptr<string> maxResource_ {};
       // The minimum resource capacity of the queue.
@@ -324,7 +344,6 @@ namespace Models
       // The billing method. Valid values:
       // 
       // - PayAsYouGo: pay-as-you-go
-      // 
       // - Pre: subscription
       shared_ptr<string> paymentType_ {};
       shared_ptr<bool> preheat_ {};
@@ -333,15 +352,14 @@ namespace Models
       shared_ptr<string> queueCategory_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
-      // The queue architecture.
+      // The queue scope.
       shared_ptr<string> queueScope_ {};
       // The queue status.
       shared_ptr<string> queueStatus_ {};
       // The queue type. Valid values:
       // 
-      // - instance: A queue for a single task.
-      // 
-      // - instanceChildren: A queue for a parent task.
+      // - instance: single task type
+      // - instanceChildren: parent task type
       shared_ptr<string> queueType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -391,9 +409,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in a single request.
+    // The maximum number of records returned at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The list of queues.
     shared_ptr<vector<ListWorkspaceQueuesResponseBody::Queues>> queues_ {};

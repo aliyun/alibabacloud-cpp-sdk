@@ -20,21 +20,21 @@ namespace EmrServerlessSpark20230808
 AlibabaCloud::EmrServerlessSpark20230808::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "emr-serverless-spark.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "emr-serverless-spark.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "emr-serverless-spark.na-south-1.aliyuncs.com"},
-    {"eu-central-1" , "emr-serverless-spark.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "emr-serverless-spark.cn-wulanchabu.aliyuncs.com"},
     {"cn-shenzhen" , "emr-serverless-spark.cn-shenzhen.aliyuncs.com"},
+    {"cn-wulanchabu" , "emr-serverless-spark.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "emr-serverless-spark.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "emr-serverless-spark.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "emr-serverless-spark.cn-chengdu.aliyuncs.com"},
     {"cn-shanghai" , "emr-serverless-spark.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "emr-serverless-spark.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "emr-serverless-spark.cn-hangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "emr-serverless-spark.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "emr-serverless-spark.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "emr-serverless-spark.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-1" , "emr-serverless-spark.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "emr-serverless-spark.ap-northeast-1.aliyuncs.com"}
+    {"ap-southeast-5" , "emr-serverless-spark.ap-southeast-5.aliyuncs.com"},
+    {"cn-zhangjiakou" , "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "emr-serverless-spark.cn-hangzhou.aliyuncs.com"},
+    {"us-west-1" , "emr-serverless-spark.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "emr-serverless-spark.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "emr-serverless-spark.eu-central-1.aliyuncs.com"},
+    {"na-south-1" , "emr-serverless-spark.na-south-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("emr-serverless-spark", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -238,7 +238,7 @@ CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplication(const 
 }
 
 /**
- * @summary 停止RayJob
+ * @summary Stops a RayJob.
  *
  * @param request CancelRayJobRequest
  * @param headers map
@@ -265,7 +265,7 @@ CancelRayJobResponse Client::cancelRayJobWithOptions(const string &workspaceId, 
 }
 
 /**
- * @summary 停止RayJob
+ * @summary Stops a RayJob.
  *
  * @param request CancelRayJobRequest
  * @return CancelRayJobResponse
@@ -1411,7 +1411,52 @@ DeleteRayClusterResponse Client::deleteRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Updates a Workspace Queue.
+ * @summary Deletes a workspace queue.
+ *
+ * @param request DeleteWorkspaceQueueRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceQueueResponse
+ */
+DeleteWorkspaceQueueResponse Client::deleteWorkspaceQueueWithOptions(const string &workspaceId, const string &workspaceQueueName, const DeleteWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspaceQueue"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/queues/" , Darabonba::Encode::Encoder::percentEncode(workspaceQueueName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceQueueResponse>();
+}
+
+/**
+ * @summary Deletes a workspace queue.
+ *
+ * @param request DeleteWorkspaceQueueRequest
+ * @return DeleteWorkspaceQueueResponse
+ */
+DeleteWorkspaceQueueResponse Client::deleteWorkspaceQueue(const string &workspaceId, const string &workspaceQueueName, const DeleteWorkspaceQueueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkspaceQueueWithOptions(workspaceId, workspaceQueueName, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies a workspace queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @param headers map
@@ -1432,6 +1477,10 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
 
   if (!!request.hasGpuSpec()) {
     body["gpuSpec"] = request.getGpuSpec();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasResourceSpec()) {
@@ -1466,7 +1515,7 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
 }
 
 /**
- * @summary Updates a Workspace Queue.
+ * @summary Modifies a workspace queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @return EditWorkspaceQueueResponse
@@ -1969,7 +2018,7 @@ GetRayClusterResponse Client::getRayCluster(const string &workspaceId, const str
 }
 
 /**
- * @summary 获取Ray集群
+ * @summary Retrieves Ray Job information.
  *
  * @param request GetRayJobRequest
  * @param headers map
@@ -1996,7 +2045,7 @@ GetRayJobResponse Client::getRayJobWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary 获取Ray集群
+ * @summary Retrieves Ray Job information.
  *
  * @param request GetRayJobRequest
  * @return GetRayJobResponse
@@ -2467,7 +2516,7 @@ ListJobExecutorsResponse Client::listJobExecutors(const string &workspaceId, con
 }
 
 /**
- * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
+ * @summary Queries a list of Spark jobs.
  *
  * @param tmpReq ListJobRunsRequest
  * @param headers map
@@ -2505,6 +2554,10 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
 
   if (!!request.hasEndTimeShrink()) {
     query["endTime"] = request.getEndTimeShrink();
+  }
+
+  if (!!request.hasGroupByState()) {
+    query["groupByState"] = request.getGroupByState();
   }
 
   if (!!request.hasIsWorkflow()) {
@@ -2578,7 +2631,7 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
+ * @summary Queries a list of Spark jobs.
  *
  * @param request ListJobRunsRequest
  * @return ListJobRunsResponse
@@ -2876,7 +2929,7 @@ ListLivyComputeSessionsResponse Client::listLivyComputeSessions(const string &wo
 }
 
 /**
- * @summary Lists Livy Gateway tokens.
+ * @summary Lists the tokens of a Livy Gateway.
  *
  * @param request ListLivyComputeTokenRequest
  * @param headers map
@@ -2909,7 +2962,7 @@ ListLivyComputeTokenResponse Client::listLivyComputeTokenWithOptions(const strin
 }
 
 /**
- * @summary Lists Livy Gateway tokens.
+ * @summary Lists the tokens of a Livy Gateway.
  *
  * @param request ListLivyComputeTokenRequest
  * @return ListLivyComputeTokenResponse
@@ -3125,7 +3178,7 @@ ListRayClusterResponse Client::listRayCluster(const string &workspaceId, const L
 }
 
 /**
- * @summary 列出RayJob
+ * @summary Lists Ray Job information.
  *
  * @param tmpReq ListRayJobRequest
  * @param headers map
@@ -3184,7 +3237,7 @@ ListRayJobResponse Client::listRayJobWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 列出RayJob
+ * @summary Lists Ray Job information.
  *
  * @param request ListRayJobRequest
  * @return ListRayJobResponse
@@ -3485,7 +3538,7 @@ ListTemplateResponse Client::listTemplate(const string &workspaceBizId, const Li
 }
 
 /**
- * @summary Lists the queues in a workspace.
+ * @summary Queries the list of queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @param headers map
@@ -3522,7 +3575,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueuesWithOptions(const string 
 }
 
 /**
- * @summary Lists the queues in a workspace.
+ * @summary Queries the list of queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @return ListWorkspaceQueuesResponse
@@ -3534,7 +3587,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueues(const string &workspaceI
 }
 
 /**
- * @summary Call `ListWorkspaces` to get a list of workspaces.
+ * @summary Queries a list of workspaces.
  *
  * @param tmpReq ListWorkspacesRequest
  * @param headers map
@@ -3597,7 +3650,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Call `ListWorkspaces` to get a list of workspaces.
+ * @summary Queries a list of workspaces.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -4300,7 +4353,7 @@ StopSessionClusterResponse Client::stopSessionCluster(const string &workspaceId,
 }
 
 /**
- * @summary 提交Ray Job
+ * @summary Submits a Ray job.
  *
  * @param request SubmitRayJobRequest
  * @param headers map
@@ -4409,7 +4462,7 @@ SubmitRayJobResponse Client::submitRayJobWithOptions(const string &workspaceId, 
 }
 
 /**
- * @summary 提交Ray Job
+ * @summary Submits a Ray job.
  *
  * @param request SubmitRayJobRequest
  * @return SubmitRayJobResponse
@@ -4929,7 +4982,7 @@ UpdateRayClusterResponse Client::updateRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Update workspace properties
+ * @summary Updates the properties of a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @param headers map
@@ -4954,6 +5007,10 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 
   if (!!request.hasGpuSpec()) {
     body["gpuSpec"] = request.getGpuSpec();
+  }
+
+  if (!!request.hasGpuSubscription()) {
+    body["gpuSubscription"] = request.getGpuSubscription();
   }
 
   if (!!request.hasIpWhiteList()) {
@@ -4996,7 +5053,7 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 }
 
 /**
- * @summary Update workspace properties
+ * @summary Updates the properties of a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse

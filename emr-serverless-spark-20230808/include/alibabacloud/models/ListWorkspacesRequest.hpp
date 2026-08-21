@@ -80,9 +80,7 @@ namespace Models
 
 
     protected:
-      // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -141,19 +139,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of results per page.
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the workspace. Fuzzy search is supported.
+    // The name of the workspace. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The token for the next page of results.
+    // The pagination token that marks the current read position.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The state of the workspace.
+    // The workspace status.
     shared_ptr<string> state_ {};
-    // Filters the results by one or more tags.
     shared_ptr<vector<ListWorkspacesRequest::Tag>> tag_ {};
   };
 

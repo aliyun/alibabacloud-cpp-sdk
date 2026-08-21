@@ -445,7 +445,7 @@ namespace Models
 
 
     protected:
-      // The AccessKey ID.
+      // access id
       shared_ptr<string> accessId_ {};
       // The access URL.
       shared_ptr<string> accessUrl_ {};
@@ -455,9 +455,9 @@ namespace Models
       shared_ptr<string> host_ {};
       // The path.
       shared_ptr<string> path_ {};
-      // The policy.
+      // policy
       shared_ptr<string> policy_ {};
-      // The security token.
+      // security token
       shared_ptr<string> securityToken_ {};
       // The signature.
       shared_ptr<string> signature_ {};
@@ -945,27 +945,27 @@ namespace Models
   protected:
     // The --archives parameter.
     shared_ptr<vector<string>> archives_ {};
-    // The temporary URL to access the resource file.
+    // The temporary URL for accessing the resource file.
     shared_ptr<string> artifactUrl_ {};
     // The business ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The business ID of the folder.
+    // The folder business ID.
     shared_ptr<string> categoryBizId_ {};
-    // The content of the Spark job.
+    // The Spark job content.
     shared_ptr<string> content_ {};
     // The UID of the creator.
     // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // The information for directly uploading files to Object Storage Service (OSS).
+    // The OSS direct upload credentials.
     shared_ptr<Task::Credential> credential_ {};
     // The default catalog ID.
     shared_ptr<string> defaultCatalogId_ {};
     // The default database.
     shared_ptr<string> defaultDatabase_ {};
-    // The default queue ID for the task.
+    // The default queue ID of the task.
     shared_ptr<string> defaultResourceQueueId_ {};
     // The default SQL session ID.
     shared_ptr<string> defaultSqlComputeId_ {};
@@ -975,23 +975,23 @@ namespace Models
     shared_ptr<string> environmentId_ {};
     // The IDs of extra Spark resources.
     shared_ptr<vector<string>> extraArtifactIds_ {};
-    // The custom parameters for the spark-submit command.
+    // The custom Spark submit configuration parameters.
     shared_ptr<string> extraSparkSubmitParams_ {};
     // The --files parameter.
     shared_ptr<vector<string>> files_ {};
-    // Indicates whether to enable fusion.
+    // Indicates whether the fusion switch is enabled.
     shared_ptr<bool> fusion_ {};
-    // The time when the task was created.
+    // The creation time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // The time when the task was last modified.
+    // The last modification time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
-    // Indicates whether the task has been changed since the last commit.
+    // Indicates whether the task has been changed since the last submission.
     shared_ptr<bool> hasChanged_ {};
-    // Indicates whether the task has been committed.
+    // Indicates whether the task has been submitted.
     // 
     // This parameter is required.
     shared_ptr<bool> hasCommited_ {};
@@ -1000,9 +1000,9 @@ namespace Models
     // The --jars parameter.
     shared_ptr<vector<string>> jars_ {};
     shared_ptr<string> kernelId_ {};
-    // The ID of the resource queue that was used for the last run.
+    // The ID of the resource queue used in the last run.
     shared_ptr<string> lastRunResourceQueueId_ {};
-    // The UID of the user who last updated the task.
+    // The UID of the last modifier.
     // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
@@ -1011,7 +1011,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<map<string, string>> params_ {};
-    // The PySpark dependency pyfiles.
+    // The Spark PySpark dependency pyfiles.
     shared_ptr<vector<string>> pyFiles_ {};
     shared_ptr<int64_t> rayActiveDeadlineSeconds_ {};
     shared_ptr<int32_t> rayBackoffLimit_ {};
@@ -1037,25 +1037,25 @@ namespace Models
     shared_ptr<string> sparkArgs_ {};
     // The list of Spark configurations.
     shared_ptr<vector<SparkConf>> sparkConf_ {};
-    // The number of cores for the Spark driver.
+    // The number of Spark driver cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkDriverCores_ {};
-    // The memory of the Spark driver.
+    // The Spark driver memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
-    // The entrypoint of the Spark main class.
+    // The Spark main class entry point.
     shared_ptr<string> sparkEntrypoint_ {};
-    // The number of cores for the Spark executor.
+    // The number of Spark executor cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkExecutorCores_ {};
-    // The memory of the Spark executor.
+    // The Spark executor memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkExecutorMemory_ {};
-    // The log level for Spark.
+    // The Spark log level.
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogLevel_ {};
@@ -1063,15 +1063,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
-    // The spark-submit statement.
+    // The Spark submit task submission statement.
     shared_ptr<string> sparkSubmitClause_ {};
     // The Spark version.
     // 
     // This parameter is required.
     shared_ptr<string> sparkVersion_ {};
-    // The task tags.
+    // The task labels.
     shared_ptr<map<string, string>> tags_ {};
-    // The task timeout duration.
+    // The task timeout period.
     shared_ptr<int32_t> timeout_ {};
     // The task type.
     // 
