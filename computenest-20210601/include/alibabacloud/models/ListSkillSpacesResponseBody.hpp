@@ -103,15 +103,15 @@ namespace Models
 
 
     protected:
-      // The time when the SkillSpace was created. The time is in UTC.
+      // The time when the SkillSpace was created.
       shared_ptr<string> createTime_ {};
-      // The SkillSpace description.
+      // The description of the SkillSpace.
       shared_ptr<string> skillSpaceDescription_ {};
-      // The SkillSpace ID.
+      // SkillSpace ID
       shared_ptr<string> skillSpaceId_ {};
-      // The SkillSpace name.
+      // The name of the SkillSpace.
       shared_ptr<string> skillSpaceName_ {};
-      // The time when the SkillSpace was last updated. The time is in UTC.
+      // The time when the SkillSpace was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -155,11 +155,11 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. If this parameter is not returned, no more results are available.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of SkillSpaces.
     shared_ptr<vector<ListSkillSpacesResponseBody::SkillSpaces>> skillSpaces_ {};

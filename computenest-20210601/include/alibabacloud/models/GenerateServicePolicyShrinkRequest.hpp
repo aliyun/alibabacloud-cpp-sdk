@@ -99,6 +99,7 @@ namespace Models
   protected:
     // The operation types for which policy information needs to be generated.
     shared_ptr<vector<string>> operationTypes_ {};
+    // The parameters required to check the deployment permissions of the service instance.
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
     // 

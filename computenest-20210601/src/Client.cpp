@@ -571,7 +571,7 @@ CreateServiceUsageResponse Client::createServiceUsage(const CreateServiceUsageRe
  * @summary Creates a Skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -582,6 +582,10 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &req
   json query = {};
   if (!!request.hasOssUrl()) {
     query["OssUrl"] = request.getOssUrl();
+  }
+
+  if (!!request.hasRequiredConnections()) {
+    query["RequiredConnections"] = request.getRequiredConnections();
   }
 
   if (!!request.hasSkillDescription()) {
@@ -639,7 +643,7 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &req
  * @summary Creates a Skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -652,8 +656,8 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
 /**
  * @summary Creates a Skill file detection task.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillFileDetectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -696,8 +700,8 @@ CreateSkillFileDetectResponse Client::createSkillFileDetectWithOptions(const Cre
 /**
  * @summary Creates a Skill file detection task.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillFileDetectRequest
  * @return CreateSkillFileDetectResponse
@@ -766,10 +770,10 @@ CreateSkillHubConfigResponse Client::createSkillHubConfig(const CreateSkillHubCo
 }
 
 /**
- * @summary Creates a skill space.
+ * @summary Creates a SkillSpace.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+ * @description ### Before you begin
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -810,10 +814,10 @@ CreateSkillSpaceResponse Client::createSkillSpaceWithOptions(const CreateSkillSp
 }
 
 /**
- * @summary Creates a skill space.
+ * @summary Creates a SkillSpace.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+ * @description ### Before you begin
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request CreateSkillSpaceRequest
  * @return CreateSkillSpaceResponse
@@ -922,10 +926,10 @@ DeleteServiceInstancesResponse Client::deleteServiceInstances(const DeleteServic
 }
 
 /**
- * @summary Deletes a skill.
+ * @summary Deletes a Skill.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request DeleteSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -962,10 +966,10 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
 }
 
 /**
- * @summary Deletes a skill.
+ * @summary Deletes a Skill.
  *
- * @description ### Prerequisites
- * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request DeleteSkillRequest
  * @return DeleteSkillResponse
@@ -976,10 +980,10 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 }
 
 /**
- * @summary Deletes a SkillSpace.
+ * @summary Deletes a Skill workspace.
  *
- * @description ### Prerequisites
- * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+ * @description ### Before you begin
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request DeleteSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1016,10 +1020,10 @@ DeleteSkillSpaceResponse Client::deleteSkillSpaceWithOptions(const DeleteSkillSp
 }
 
 /**
- * @summary Deletes a SkillSpace.
+ * @summary Deletes a Skill workspace.
  *
- * @description ### Prerequisites
- * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+ * @description ### Before you begin
+ * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
  *
  * @param request DeleteSkillSpaceRequest
  * @return DeleteSkillSpaceResponse
@@ -1741,7 +1745,7 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
  * @summary Queries the details of a Skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1775,7 +1779,7 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
  * @summary Queries the details of a Skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -1879,10 +1883,10 @@ GetSkillHubConfigResponse Client::getSkillHubConfig(const GetSkillHubConfigReque
 }
 
 /**
- * @summary Retrieves the details of a SkillSpace.
+ * @summary Queries the details of a SkillSpace.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
  *
  * @param request GetSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1913,10 +1917,10 @@ GetSkillSpaceResponse Client::getSkillSpaceWithOptions(const GetSkillSpaceReques
 }
 
 /**
- * @summary Retrieves the details of a SkillSpace.
+ * @summary Queries the details of a SkillSpace.
  *
- * @description ### Prerequisites
- * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
  *
  * @param request GetSkillSpaceRequest
  * @return GetSkillSpaceResponse
@@ -2078,7 +2082,7 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
  * @summary Queries the list of public skills.
  *
  * @description ### Before you begin
- * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListPublicSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2124,7 +2128,7 @@ ListPublicSkillsResponse Client::listPublicSkillsWithOptions(const ListPublicSki
  * @summary Queries the list of public skills.
  *
  * @description ### Before you begin
- * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListPublicSkillsRequest
  * @return ListPublicSkillsResponse
@@ -2665,10 +2669,10 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary Lists the files of a specified Skill.
+ * @summary Retrieves the list of skill files.
  *
- * @description ### Prerequisites
- * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2711,10 +2715,10 @@ ListSkillFilesResponse Client::listSkillFilesWithOptions(const ListSkillFilesReq
 }
 
 /**
- * @summary Lists the files of a specified Skill.
+ * @summary Retrieves the list of skill files.
  *
- * @description ### Prerequisites
- * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillFilesRequest
  * @return ListSkillFilesResponse
@@ -2727,8 +2731,8 @@ ListSkillFilesResponse Client::listSkillFiles(const ListSkillFilesRequest &reque
 /**
  * @summary Queries a list of SkillSpaces.
  *
- * @description ### Prerequisites
- * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillSpacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2769,8 +2773,8 @@ ListSkillSpacesResponse Client::listSkillSpacesWithOptions(const ListSkillSpaces
 /**
  * @summary Queries a list of SkillSpaces.
  *
- * @description ### Prerequisites
- * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+ * @description ### Before you begin
+ * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillSpacesRequest
  * @return ListSkillSpacesResponse
@@ -2781,10 +2785,10 @@ ListSkillSpacesResponse Client::listSkillSpaces(const ListSkillSpacesRequest &re
 }
 
 /**
- * @summary Queries a list of skills.
+ * @summary Queries a list of Skills.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2827,10 +2831,10 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
 }
 
 /**
- * @summary Queries a list of skills.
+ * @summary Queries a list of Skills.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request ListSkillsRequest
  * @return ListSkillsResponse
@@ -3640,7 +3644,7 @@ UpdateServiceUsageResponse Client::updateServiceUsage(const UpdateServiceUsageRe
  * @summary Updates a skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3651,6 +3655,10 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &req
   json query = {};
   if (!!request.hasOssUrl()) {
     query["OssUrl"] = request.getOssUrl();
+  }
+
+  if (!!request.hasRequiredConnections()) {
+    query["RequiredConnections"] = request.getRequiredConnections();
   }
 
   if (!!request.hasSkillDescription()) {
@@ -3708,7 +3716,7 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &req
  * @summary Updates a skill.
  *
  * @description ### Before you begin
- * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+ * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse

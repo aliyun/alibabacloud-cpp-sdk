@@ -84,7 +84,7 @@ namespace Models
       // 
       // - MatchType: the match type that controls how SkillName is matched. Valid values: exact, prefix, and fuzzy.
       // 
-      // - Keyword: keyword match for the skill name or skill description. Fuzzy match.
+      // - Keyword: keyword match against the skill name or skill description. Fuzzy match.
       // 
       // - SkillLabels: the skill label set. Fuzzy match.
       shared_ptr<string> name_ {};
@@ -129,7 +129,7 @@ namespace Models
     shared_ptr<vector<ListPublicSkillsRequest::Filter>> filter_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to include the download URL of the skill package.
+    // Specifies whether to include the download URL for the skill package.
     shared_ptr<bool> needDownloadUrl_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

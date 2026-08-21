@@ -176,7 +176,7 @@ namespace ComputeNest20210601
        * @summary Creates a Skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -188,7 +188,7 @@ namespace ComputeNest20210601
        * @summary Creates a Skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillRequest
        * @return CreateSkillResponse
@@ -198,8 +198,8 @@ namespace ComputeNest20210601
       /**
        * @summary Creates a Skill file detection task.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillFileDetectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -210,8 +210,8 @@ namespace ComputeNest20210601
       /**
        * @summary Creates a Skill file detection task.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillFileDetectRequest
        * @return CreateSkillFileDetectResponse
@@ -242,10 +242,10 @@ namespace ComputeNest20210601
       Models::CreateSkillHubConfigResponse createSkillHubConfig(const Models::CreateSkillHubConfigRequest &request);
 
       /**
-       * @summary Creates a skill space.
+       * @summary Creates a SkillSpace.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+       * @description ### Before you begin
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillSpaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -254,10 +254,10 @@ namespace ComputeNest20210601
       Models::CreateSkillSpaceResponse createSkillSpaceWithOptions(const Models::CreateSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a skill space.
+       * @summary Creates a SkillSpace.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+       * @description ### Before you begin
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request CreateSkillSpaceRequest
        * @return CreateSkillSpaceResponse
@@ -305,10 +305,10 @@ namespace ComputeNest20210601
       Models::DeleteServiceInstancesResponse deleteServiceInstances(const Models::DeleteServiceInstancesRequest &request);
 
       /**
-       * @summary Deletes a skill.
+       * @summary Deletes a Skill.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request DeleteSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -317,10 +317,10 @@ namespace ComputeNest20210601
       Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a skill.
+       * @summary Deletes a Skill.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request DeleteSkillRequest
        * @return DeleteSkillResponse
@@ -328,10 +328,10 @@ namespace ComputeNest20210601
       Models::DeleteSkillResponse deleteSkill(const Models::DeleteSkillRequest &request);
 
       /**
-       * @summary Deletes a SkillSpace.
+       * @summary Deletes a Skill workspace.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+       * @description ### Before you begin
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request DeleteSkillSpaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -340,10 +340,10 @@ namespace ComputeNest20210601
       Models::DeleteSkillSpaceResponse deleteSkillSpaceWithOptions(const Models::DeleteSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a SkillSpace.
+       * @summary Deletes a Skill workspace.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+       * @description ### Before you begin
+       * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
        *
        * @param request DeleteSkillSpaceRequest
        * @return DeleteSkillSpaceResponse
@@ -553,7 +553,7 @@ namespace ComputeNest20210601
        * @summary Queries the details of a Skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request GetSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,7 +565,7 @@ namespace ComputeNest20210601
        * @summary Queries the details of a Skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request GetSkillRequest
        * @return GetSkillResponse
@@ -619,10 +619,10 @@ namespace ComputeNest20210601
       Models::GetSkillHubConfigResponse getSkillHubConfig(const Models::GetSkillHubConfigRequest &request);
 
       /**
-       * @summary Retrieves the details of a SkillSpace.
+       * @summary Queries the details of a SkillSpace.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
        *
        * @param request GetSkillSpaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -631,10 +631,10 @@ namespace ComputeNest20210601
       Models::GetSkillSpaceResponse getSkillSpaceWithOptions(const Models::GetSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a SkillSpace.
+       * @summary Queries the details of a SkillSpace.
        *
-       * @description ### Prerequisites
-       * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
        *
        * @param request GetSkillSpaceRequest
        * @return GetSkillSpaceResponse
@@ -702,7 +702,7 @@ namespace ComputeNest20210601
        * @summary Queries the list of public skills.
        *
        * @description ### Before you begin
-       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListPublicSkillsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -714,7 +714,7 @@ namespace ComputeNest20210601
        * @summary Queries the list of public skills.
        *
        * @description ### Before you begin
-       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListPublicSkillsRequest
        * @return ListPublicSkillsResponse
@@ -879,10 +879,10 @@ namespace ComputeNest20210601
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
 
       /**
-       * @summary Lists the files of a specified Skill.
+       * @summary Retrieves the list of skill files.
        *
-       * @description ### Prerequisites
-       * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -891,10 +891,10 @@ namespace ComputeNest20210601
       Models::ListSkillFilesResponse listSkillFilesWithOptions(const Models::ListSkillFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the files of a specified Skill.
+       * @summary Retrieves the list of skill files.
        *
-       * @description ### Prerequisites
-       * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillFilesRequest
        * @return ListSkillFilesResponse
@@ -904,8 +904,8 @@ namespace ComputeNest20210601
       /**
        * @summary Queries a list of SkillSpaces.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillSpacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -916,8 +916,8 @@ namespace ComputeNest20210601
       /**
        * @summary Queries a list of SkillSpaces.
        *
-       * @description ### Prerequisites
-       * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+       * @description ### Before you begin
+       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillSpacesRequest
        * @return ListSkillSpacesResponse
@@ -925,10 +925,10 @@ namespace ComputeNest20210601
       Models::ListSkillSpacesResponse listSkillSpaces(const Models::ListSkillSpacesRequest &request);
 
       /**
-       * @summary Queries a list of skills.
+       * @summary Queries a list of Skills.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -937,10 +937,10 @@ namespace ComputeNest20210601
       Models::ListSkillsResponse listSkillsWithOptions(const Models::ListSkillsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of skills.
+       * @summary Queries a list of Skills.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request ListSkillsRequest
        * @return ListSkillsResponse
@@ -1213,7 +1213,7 @@ namespace ComputeNest20210601
        * @summary Updates a skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request UpdateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1225,7 +1225,7 @@ namespace ComputeNest20210601
        * @summary Updates a skill.
        *
        * @description ### Before you begin
-       * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+       * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
        *
        * @param request UpdateSkillRequest
        * @return UpdateSkillResponse

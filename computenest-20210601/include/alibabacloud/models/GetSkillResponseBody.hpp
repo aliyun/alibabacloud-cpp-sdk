@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(Locales, locales_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(RequiredConnections, requiredConnections_);
+      DARABONBA_PTR_TO_JSON(SecurityScanStatus, securityScanStatus_);
       DARABONBA_PTR_TO_JSON(SkillDescription, skillDescription_);
       DARABONBA_PTR_TO_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
@@ -29,6 +31,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(Locales, locales_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(RequiredConnections, requiredConnections_);
+      DARABONBA_PTR_FROM_JSON(SecurityScanStatus, securityScanStatus_);
       DARABONBA_PTR_FROM_JSON(SkillDescription, skillDescription_);
       DARABONBA_PTR_FROM_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
@@ -101,8 +105,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->locales_ == nullptr && this->requestId_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillId_ == nullptr
-        && this->skillLabels_ == nullptr && this->skillName_ == nullptr && this->skillSpaceId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->locales_ == nullptr && this->requestId_ == nullptr && this->requiredConnections_ == nullptr && this->securityScanStatus_ == nullptr && this->skillDescription_ == nullptr
+        && this->skillDisplayName_ == nullptr && this->skillId_ == nullptr && this->skillLabels_ == nullptr && this->skillName_ == nullptr && this->skillSpaceId_ == nullptr
+        && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -124,6 +129,22 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSkillResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // requiredConnections Field Functions 
+    bool hasRequiredConnections() const { return this->requiredConnections_ != nullptr;};
+    void deleteRequiredConnections() { this->requiredConnections_ = nullptr;};
+    inline const vector<string> & getRequiredConnections() const { DARABONBA_PTR_GET_CONST(requiredConnections_, vector<string>) };
+    inline vector<string> getRequiredConnections() { DARABONBA_PTR_GET(requiredConnections_, vector<string>) };
+    inline GetSkillResponseBody& setRequiredConnections(const vector<string> & requiredConnections) { DARABONBA_PTR_SET_VALUE(requiredConnections_, requiredConnections) };
+    inline GetSkillResponseBody& setRequiredConnections(vector<string> && requiredConnections) { DARABONBA_PTR_SET_RVALUE(requiredConnections_, requiredConnections) };
+
+
+    // securityScanStatus Field Functions 
+    bool hasSecurityScanStatus() const { return this->securityScanStatus_ != nullptr;};
+    void deleteSecurityScanStatus() { this->securityScanStatus_ = nullptr;};
+    inline string getSecurityScanStatus() const { DARABONBA_PTR_GET_DEFAULT(securityScanStatus_, "") };
+    inline GetSkillResponseBody& setSecurityScanStatus(string securityScanStatus) { DARABONBA_PTR_SET_VALUE(securityScanStatus_, securityScanStatus) };
 
 
     // skillDescription Field Functions 
@@ -178,23 +199,28 @@ namespace Models
 
 
   protected:
-    // The time when the Skill was created.
+    // The creation time.
     shared_ptr<string> createTime_ {};
     shared_ptr<vector<GetSkillResponseBody::Locales>> locales_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The set of connection types required by the Skill.
+    shared_ptr<vector<string>> requiredConnections_ {};
+    // The security scan status of the source file.
+    shared_ptr<string> securityScanStatus_ {};
     // The Skill description.
     shared_ptr<string> skillDescription_ {};
+    // The Skill display name.
     shared_ptr<string> skillDisplayName_ {};
     // Skill ID
     shared_ptr<string> skillId_ {};
-    // The Skill labels.
+    // The set of Skill labels.
     shared_ptr<vector<string>> skillLabels_ {};
     // The Skill name.
     shared_ptr<string> skillName_ {};
     // The ID of the SkillSpace to which the Skill belongs.
     shared_ptr<string> skillSpaceId_ {};
-    // The time when the Skill was last updated.
+    // The update time.
     shared_ptr<string> updateTime_ {};
   };
 

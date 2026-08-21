@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateSkillRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(OssUrl, ossUrl_);
+      DARABONBA_PTR_TO_JSON(RequiredConnections, requiredConnections_);
       DARABONBA_PTR_TO_JSON(SkillDescription, skillDescription_);
       DARABONBA_PTR_TO_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_TO_JSON(SkillLabels, skillLabels_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateSkillRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(OssUrl, ossUrl_);
+      DARABONBA_PTR_FROM_JSON(RequiredConnections, requiredConnections_);
       DARABONBA_PTR_FROM_JSON(SkillDescription, skillDescription_);
       DARABONBA_PTR_FROM_JSON(SkillDisplayName, skillDisplayName_);
       DARABONBA_PTR_FROM_JSON(SkillLabels, skillLabels_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->ossUrl_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillLabels_ == nullptr && this->skillName_ == nullptr
-        && this->skillSpaceId_ == nullptr && this->sourceSkillId_ == nullptr && this->sourceType_ == nullptr; };
+        && this->ossUrl_ == nullptr && this->requiredConnections_ == nullptr && this->skillDescription_ == nullptr && this->skillDisplayName_ == nullptr && this->skillLabels_ == nullptr
+        && this->skillName_ == nullptr && this->skillSpaceId_ == nullptr && this->sourceSkillId_ == nullptr && this->sourceType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -61,6 +63,15 @@ namespace Models
     void deleteOssUrl() { this->ossUrl_ = nullptr;};
     inline string getOssUrl() const { DARABONBA_PTR_GET_DEFAULT(ossUrl_, "") };
     inline CreateSkillRequest& setOssUrl(string ossUrl) { DARABONBA_PTR_SET_VALUE(ossUrl_, ossUrl) };
+
+
+    // requiredConnections Field Functions 
+    bool hasRequiredConnections() const { return this->requiredConnections_ != nullptr;};
+    void deleteRequiredConnections() { this->requiredConnections_ = nullptr;};
+    inline const vector<string> & getRequiredConnections() const { DARABONBA_PTR_GET_CONST(requiredConnections_, vector<string>) };
+    inline vector<string> getRequiredConnections() { DARABONBA_PTR_GET(requiredConnections_, vector<string>) };
+    inline CreateSkillRequest& setRequiredConnections(const vector<string> & requiredConnections) { DARABONBA_PTR_SET_VALUE(requiredConnections_, requiredConnections) };
+    inline CreateSkillRequest& setRequiredConnections(vector<string> && requiredConnections) { DARABONBA_PTR_SET_RVALUE(requiredConnections_, requiredConnections) };
 
 
     // skillDescription Field Functions 
@@ -119,10 +130,12 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The OSS URL of the Skill package to upload. This parameter is required when SourceType is set to UPLOAD.
     shared_ptr<string> ossUrl_ {};
+    // The set of connection types that the Skill depends on.
+    shared_ptr<vector<string>> requiredConnections_ {};
     // The Skill description.
     shared_ptr<string> skillDescription_ {};
     shared_ptr<string> skillDisplayName_ {};
-    // The Skill labels.
+    // The set of Skill labels.
     shared_ptr<vector<string>> skillLabels_ {};
     // The Skill name.
     shared_ptr<string> skillName_ {};
@@ -132,7 +145,7 @@ namespace Models
     shared_ptr<string> skillSpaceId_ {};
     // The public Skill ID. This parameter is required when SourceType is set to COPY.
     shared_ptr<string> sourceSkillId_ {};
-    // The source type used when creating the Skill.
+    // The source type for creating the Skill.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};

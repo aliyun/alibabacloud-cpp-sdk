@@ -86,13 +86,13 @@ namespace Models
   protected:
     // The time when the SkillSpace was created.
     shared_ptr<string> createTime_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The description of the SkillSpace.
+    // The SkillSpace description.
     shared_ptr<string> skillSpaceDescription_ {};
-    // The ID of the SkillSpace.
+    // SkillSpace ID
     shared_ptr<string> skillSpaceId_ {};
-    // The name of the SkillSpace.
+    // The SkillSpace name.
     shared_ptr<string> skillSpaceName_ {};
     // The time when the SkillSpace was last updated.
     shared_ptr<string> updateTime_ {};

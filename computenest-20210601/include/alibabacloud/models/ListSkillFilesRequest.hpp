@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // No filter names are currently supported.
+      // No supported filter names are available.
       shared_ptr<string> name_ {};
-      // The filter values. You can specify 1 to 10 values.
+      // The list of filter values. Valid values of N: 1 to 10.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -115,13 +115,13 @@ namespace Models
 
 
   protected:
-    // The filter conditions.
+    // The filter.
     shared_ptr<vector<ListSkillFilesRequest::Filter>> filter_ {};
-    // The maximum number of entries to return per page. Valid values: 1 to 100. Default: 20.
+    // The number of entries per page in a paging query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that was returned from a previous call to this operation. Use this token to retrieve the next page of results.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the Skill.
+    // Skill ID
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};

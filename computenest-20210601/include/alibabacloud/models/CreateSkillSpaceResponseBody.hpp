@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the skill space.
+    // SkillSpace ID
     shared_ptr<string> skillSpaceId_ {};
   };
 

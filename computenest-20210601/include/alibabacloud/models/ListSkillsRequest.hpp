@@ -78,19 +78,19 @@ namespace Models
     protected:
       // The filter name. You can specify one or more names for the query. Valid values:
       // 
-      // - SkillId: the skill ID. Exact match.
+      // - SkillId: the Skill ID. Exact match.
       // 
       // - SkillSpaceId: the SkillSpace ID. Exact match.
       // 
-      // - SkillName: the skill name.
+      // - SkillName: the Skill name.
       // 
       // - MatchType: the match type that controls how SkillName is matched. Valid values: exact, prefix, and fuzzy.
       // 
-      // - SkillType: the skill type. Valid values: official and custom.
+      // - SkillType: the Skill type. Valid values: official and custom.
       // 
-      // - Keyword: keyword match for the skill name or skill description. Fuzzy match.
+      // - Keyword: keyword match for the Skill name or Skill description. Fuzzy match.
       // 
-      // - SkillLabels: the skill labels. Fuzzy match.
+      // - SkillLabels: the Skill labels. Fuzzy match.
       shared_ptr<string> name_ {};
       // The list of filter values. Valid values of N: 1 to 10.
       shared_ptr<vector<string>> value_ {};
@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<vector<ListSkillsRequest::Filter>> filter_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to include the download URL of the skill package.
+    // Specifies whether to include the download URL for the Skill package.
     shared_ptr<bool> needDownloadUrl_ {};
     // NextToken
     shared_ptr<string> nextToken_ {};
