@@ -214,30 +214,30 @@ namespace Models
     protected:
       // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The Agent service configuration. This parameter is required when sourceType is set to AGENT.
+      // The Agent service configuration. Required when sourceType is AGENT.
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
-      // The AI service configuration. This parameter is required when sourceType is set to AI.
+      // The AI service configuration. Required when sourceType is AI.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
       // The list of DNS server addresses.
       shared_ptr<vector<string>> dnsServers_ {};
       // The service expression type that identifies the special type or mode of the service.
       shared_ptr<string> expressType_ {};
-      // The service group name. This parameter is required when sourceType is set to MSE_NACOS.
+      // The service group name. Required when sourceType is MSE_NACOS.
       shared_ptr<string> groupName_ {};
       // The model provider ID. This parameter is applicable only to AI services.
       shared_ptr<string> modelProviderId_ {};
-      // The service name. This parameter is required when sourceType is set to FC3.
+      // The service name. Required when sourceType is FC3.
       shared_ptr<string> name_ {};
-      // The namespace of the service.
+      // The namespace of the service:
       // 
-      // - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
-      // - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
+      // - If sourceType is K8S, this indicates the namespace of the Kubernetes service.
+      // - If sourceType is MSE_NACOS, this indicates the namespace in Nacos.
       // 
-      // This parameter is required when sourceType is set to K8S or MSE_NACOS.
+      // Required when sourceType is K8S or MSE_NACOS.
       shared_ptr<string> namespace_ {};
       // The function version or alias.
       shared_ptr<string> qualifier_ {};
-      // The service source ID. This parameter is required in multi-Nacos instance scenarios.
+      // The service source ID. Required in multi-Nacos instance scenarios.
       shared_ptr<string> sourceId_ {};
       // The validation options for service verification configuration.
       shared_ptr<ServiceConfigs::ValidationOptions> validationOptions_ {};
@@ -289,7 +289,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The list of service configurations. At least one service configuration is required.
     shared_ptr<vector<CreateServiceRequest::ServiceConfigs>> serviceConfigs_ {};
-    // The service source type. Valid values:
+    // The service source. Valid values:
     // - MSE_NACOS: a service in MSE Nacos.
     // - K8S: a service in a Kubernetes cluster of Container Service.
     // - VIP: a fixed address service.

@@ -1027,6 +1027,10 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
 CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDryRun()) {
     query["dryRun"] = request.getDryRun();
   }
