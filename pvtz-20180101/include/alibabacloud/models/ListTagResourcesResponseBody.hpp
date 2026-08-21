@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The resource ID, which is a zone ID.
+      // The resource ID. In this case, the zone ID.
       shared_ptr<string> resourceId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The key of tag N added to the resource.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of tag N added to the resource.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token for the next query. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The tags added to the resources.
+    // The list of tagged resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

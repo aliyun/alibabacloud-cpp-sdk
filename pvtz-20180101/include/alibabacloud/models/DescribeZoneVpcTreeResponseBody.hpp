@@ -375,7 +375,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeZoneVpcTreeResponseBody::Zones> zones_ {};
   };

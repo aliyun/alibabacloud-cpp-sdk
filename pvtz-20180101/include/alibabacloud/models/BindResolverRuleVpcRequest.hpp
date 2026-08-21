@@ -87,8 +87,9 @@ namespace Models
       shared_ptr<string> vpcId_ {};
       // The VPC type. Valid values:
       // 
-      // *   STANDARD: standard VPC
-      // *   EDS: Elastic Desktop Service (EDS) workspace VPC
+      // - STANDARD: standard VPC.
+      // 
+      // - EDS: Elastic Desktop Service workspace VPC.
       shared_ptr<string> vpcType_ {};
     };
 
@@ -120,16 +121,17 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The ID of the forwarding rule.
+    // The forwarding rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
-    // The VPCs that you want to associate with the forwarding rule.
+    // The VPCs to associate.
     shared_ptr<vector<BindResolverRuleVpcRequest::Vpc>> vpc_ {};
   };
 

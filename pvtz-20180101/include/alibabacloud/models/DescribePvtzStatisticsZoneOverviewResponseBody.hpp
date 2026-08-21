@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The number of domains with refused responses.
       shared_ptr<int64_t> refusedDomainCount_ {};
+      // The number of domains with a sudden drop in QPS.
       shared_ptr<int64_t> suddenDropDomainCount_ {};
+      // The number of domains with a sudden increase in QPS.
       shared_ptr<int64_t> suddenIncreaseDomainCount_ {};
     };
 
@@ -102,8 +105,9 @@ namespace Models
 
 
   protected:
+    // The statistical results.
     shared_ptr<DescribePvtzStatisticsZoneOverviewResponseBody::Data> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

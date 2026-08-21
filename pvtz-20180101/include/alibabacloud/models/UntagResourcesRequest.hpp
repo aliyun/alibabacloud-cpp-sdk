@@ -80,29 +80,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags of the specified zones. Valid values:
+    // Specifies whether to remove all tags. Valid values:
     // 
-    // *   true: removes all tags of the specified zones.
-    // *   false: removes only the tags with the specified tag keys.
+    // - true: Removes all tags from the specified zones.
+    // 
+    // - false: Removes only the tags that have the specified tag keys (TagKey.N).
     // 
     // Default value: false.
     shared_ptr<bool> all_ {};
-    // The language of the response. Valid values:
+    // The language of the return value. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+    // A list of resource IDs, which are the zone IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. The value of ResourceType can only be ZONE.
+    // The resource type. Set the value to ZONE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The keys of tags that you want to remove. You can specify up to 20 tag keys.
+    // A list of tag keys. You can specify up to 20 tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

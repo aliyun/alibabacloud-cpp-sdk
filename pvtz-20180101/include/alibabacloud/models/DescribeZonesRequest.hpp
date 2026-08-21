@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the zone.
+      // The key of the resource tag.
       shared_ptr<string> key_ {};
-      // The value of tag N added to the zone.
+      // The value of the resource tag.
       shared_ptr<string> value_ {};
     };
 
@@ -179,40 +179,43 @@ namespace Models
 
 
   protected:
-    // The keyword of the zone name. The value is not case-sensitive. You can set SearchMode to LIKE or EXACT. The default value of SearchMode is LIKE.
+    // The keyword of the zone name. The search is not case-sensitive. You can set the SearchMode parameter to switch between exact search and fuzzy search. The default mode is fuzzy search.
     shared_ptr<string> keyword_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+    // The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the virtual private cloud (VPC) associated with the zone.
+    // The region ID of the VPC that is associated with the zone.
     shared_ptr<string> queryRegionId_ {};
-    // The ID of the VPC associated with the zone.
+    // The ID of the VPC that is associated with the zone.
     shared_ptr<string> queryVpcId_ {};
     // The ID of the resource group to which the zone belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags added to the zone.
+    // The resource tags that are added to the zone.
     shared_ptr<vector<DescribeZonesRequest::ResourceTag>> resourceTag_ {};
-    // The search mode. The value of Keyword is the search scope. Valid values:
+    // The search mode. This parameter takes effect only when the Keyword parameter is specified. Valid values:
     // 
-    // *   **LIKE** (default): fuzzy search
-    // *   **EXACT**: exact search
+    // - **LIKE**: fuzzy search (default)
+    // 
+    // - **EXACT**: exact search
     // 
     // Default value: **LIKE**.
     shared_ptr<string> searchMode_ {};
-    // The types of cloud services.
+    // The list of cloud service types.
     shared_ptr<vector<string>> zoneTag_ {};
-    // The zone type. Valid values:
+    // The type of the zones to query. Valid values:
     // 
-    // *   **AUTH_ZONE**: authoritative zone
-    // *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
+    // - **AUTH_ZONE**: authoritative zones.
+    // 
+    // - **CLOUD_PRODUCT_ZONE**: zones for cloud services.
     // 
     // Default value: **AUTH_ZONE**.
     shared_ptr<string> zoneType_ {};

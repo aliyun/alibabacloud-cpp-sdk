@@ -114,10 +114,17 @@ namespace Models
 
 
     protected:
+      // The ID of the region where the VPC is deployed.
       shared_ptr<string> regionId_ {};
-      // VPC ID。
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The ID of the Alibaba Cloud account that owns the VPC.
       shared_ptr<string> vpcOwner_ {};
+      // The type of the VPC.
+      // 
+      // - STANDARD: A standard VPC.
+      // 
+      // - EDS: A VPC for Elastic Desktop Service (EDS).
       shared_ptr<string> vpcType_ {};
     };
 
@@ -233,20 +240,35 @@ namespace Models
 
 
   protected:
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> direction_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The end of the time range to query, specified as a UNIX timestamp in milliseconds.
     shared_ptr<string> endTimestamp_ {};
+    // Specifies the type of change in request volume to report. Valid values: up (request spikes) and down (request drops).
     shared_ptr<string> growType_ {};
+    // The statistics module. Valid values: AUTHORITY, AUTH_FAST, AUTH_SLOW, GLOBAL, CACHE, FORWARD, and RECURSION.
     shared_ptr<string> module_ {};
+    // The network parameters.
     shared_ptr<vector<DescribePvtzStatisticsSummaryRequest::NetworkParams>> networkParams_ {};
+    // The field by which to sort the results. To sort by fluctuation ratio, set this parameter to fluctuation_ratio.
     shared_ptr<string> orderBy_ {};
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The time granularity for the statistics.
     shared_ptr<string> period_ {};
+    // The DNS response code.
     shared_ptr<string> rcode_ {};
+    // The region.
     shared_ptr<string> serverRegion_ {};
+    // The beginning of the time range to query, specified as a UNIX timestamp in milliseconds.
     shared_ptr<string> startTimestamp_ {};
+    // The type of statistics to collect. Valid values: QTYPE_RATIO: The ratio of DNS request record types. NEGATIVE_RCODE: Statistics on negative DNS responses. RCODE_DOMAIN: The top domain names that receive negative responses. RCODE_SOURCE_IP: The top source IP addresses for requests to a specified domain name that receive negative responses. REQUEST_ZONE: The top zones by request volume. REQUEST_DOMAIN: The top subdomains by request volume. VPC_RATIO: The ratio of request sources. SOURCE_VPC: Analysis of high-traffic source networks. SOURCE_IP: Statistics on source IP addresses. LINE_RATIO: The percentage of traffic per resolution line. LINE_HIT: Details about resolution line hits.
     shared_ptr<string> statisticalType_ {};
+    // The zone name.
     shared_ptr<string> zoneName_ {};
   };
 

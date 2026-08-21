@@ -68,16 +68,17 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The start value is 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum number: 1. Default value: 20.
+    // The number of entries per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource type. Valid value: ZONE.
+    // The resource type. Set the value to ZONE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

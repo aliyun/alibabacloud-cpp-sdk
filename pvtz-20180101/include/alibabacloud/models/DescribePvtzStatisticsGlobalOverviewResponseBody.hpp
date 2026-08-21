@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The average resolution latency for all VPCs with traffic analysis enabled. The average resolution latency is the average time from when an Alibaba Cloud DNS server receives a DNS query to when it returns a response.
       shared_ptr<int64_t> avgResolveLatency_ {};
+      // The trend in the average resolution latency for all VPCs with traffic analysis enabled.
       shared_ptr<int64_t> avgResolveLatencyTrend_ {};
+      // The average resolution success rate for all VPCs with traffic analysis enabled.
       shared_ptr<int64_t> avgSuccessRatio_ {};
+      // The trend in the average resolution success rate for all VPCs with traffic analysis enabled.
       shared_ptr<int64_t> avgSuccessRatioTrend_ {};
+      // The total number of resolutions for all VPCs with traffic analysis enabled.
       shared_ptr<int64_t> totalResolveCount_ {};
+      // The trend in the resolution volume for all VPCs with traffic analysis enabled.
       shared_ptr<int64_t> totalResolveCountTrend_ {};
     };
 
@@ -132,8 +138,9 @@ namespace Models
 
 
   protected:
+    // The statistical results.
     shared_ptr<DescribePvtzStatisticsGlobalOverviewResponseBody::Data> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

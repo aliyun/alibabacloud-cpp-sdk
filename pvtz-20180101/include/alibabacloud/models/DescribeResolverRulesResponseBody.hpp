@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // The IP address of the destination server.
+        // The destination IP address.
         shared_ptr<string> ip_ {};
-        // The port of the destination server.
+        // The port of the destination IP address.
         shared_ptr<int32_t> port_ {};
       };
 
@@ -279,20 +279,21 @@ namespace Models
 
 
       protected:
-        // The region ID of the VPC.
+        // The ID of the region where the VPC resides.
         shared_ptr<string> regionId_ {};
-        // The name of the region to which the VPC belongs.
+        // The name of the region where the VPC resides.
         shared_ptr<string> regionName_ {};
-        // The VPC ID. This ID uniquely identifies the VPC.
+        // The unique ID of the VPC.
         shared_ptr<string> vpcId_ {};
-        // The VPC name.
+        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
-        // The VPC type. Valid values:
+        // The type of the VPC. Valid values:
         // 
-        // *   STANDARD: standard VPC
-        // *   EDS: Elastic Desktop Service (EDS) workspace VPC
+        // - STANDARD: a standard VPC.
+        // 
+        // - EDS: a workspace VPC of Elastic Desktop Service (EDS).
         shared_ptr<string> vpcType_ {};
-        // The user ID to which the VPC belongs.
+        // The user ID (UID) of the account to which the VPC belongs.
         shared_ptr<string> vpcUserId_ {};
       };
 
@@ -460,32 +461,32 @@ namespace Models
 
     protected:
       shared_ptr<vector<Rules::BindEdgeDnsClusters>> bindEdgeDnsClusters_ {};
-      // The VPCs associated with the forwarding rule.
+      // The list of associated VPCs.
       shared_ptr<vector<Rules::BindVpcs>> bindVpcs_ {};
-      // The time when the forwarding was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the rule was created.
       shared_ptr<string> createTime_ {};
-      // The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The UNIX timestamp when the rule was created.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The endpoint ID.
+      // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
-      // The endpoint name.
+      // The name of the endpoint.
       shared_ptr<string> endpointName_ {};
-      // The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded.
+      // The IP addresses and ports of the destination servers in an external DNS system. DNS query traffic is forwarded to these servers.
       shared_ptr<vector<Rules::ForwardIps>> forwardIps_ {};
       // The ID of the forwarding rule.
       shared_ptr<string> id_ {};
       // The name of the forwarding rule.
       shared_ptr<string> name_ {};
       shared_ptr<vector<Rules::PriorityForwardConfigs>> priorityForwardConfigs_ {};
-      // The type of the forwarding rule.
+      // The type of the forwarding rule. Currently, only forwarding to an external IP address is supported. Valid value:
       // 
-      // The parameter value can only be OUTBOUND, which indicates that Domain Name System (DNS) requests are forwarded to one or more external IP addresses.
+      // OUTBOUND: Forwards DNS requests to an external IP address.
       shared_ptr<string> type_ {};
-      // The time when the forwarding rule was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the rule was last updated.
       shared_ptr<string> updateTime_ {};
-      // The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The UNIX timestamp when the rule was last updated.
       shared_ptr<int64_t> updateTimestamp_ {};
-      // The zone for which you want to forward DNS requests.
+      // The domain name (zone) for which DNS requests are forwarded.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -536,17 +537,17 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The forwarding rules.
+    // The list of forwarding rules.
     shared_ptr<vector<DescribeResolverRulesResponseBody::Rules>> rules_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

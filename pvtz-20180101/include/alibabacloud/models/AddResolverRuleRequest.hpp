@@ -146,11 +146,11 @@ namespace Models
     protected:
       // The IP address of the destination server.
       // 
-      // >  The following CIDR blocks are reserved by the system: 100.100.2.136 to 100.100.2.138 and 100.100.2.116 to 100.100.2.118. You cannot specify the IP addresses within these CIDR blocks for the external DNS servers.
+      // > The IP addresses in the following ranges are reserved by the system and cannot be used as the IP addresses of external DNS systems: 100.100.2.136 to 100.100.2.138 and 100.100.2.116 to 100.100.2.118.
       // 
       // This parameter is required.
       shared_ptr<string> ip_ {};
-      // The port of the destination server.
+      // The port number of the destination server.
       // 
       // This parameter is required.
       shared_ptr<int32_t> port_ {};
@@ -254,31 +254,32 @@ namespace Models
 
   protected:
     shared_ptr<vector<AddResolverRuleRequest::EdgeDnsClusters>> edgeDnsClusters_ {};
-    // The outbound endpoint ID. The outbound endpoint is used to forward the DNS requests to the specified destination IP addresses.
+    // The ID of the outbound endpoint. The outbound endpoint forwards DNS queries to the specified destination IP addresses.
     shared_ptr<string> endpointId_ {};
-    // The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded. You can enter up to **six** IP addresses and ports. Both private and public IP addresses are supported.
+    // The IP addresses and ports of the destination servers in the external DNS system to which DNS queries are forwarded. You can specify up to **6** destination servers. Both private and public IP addresses are supported.
     // 
-    // >  If you specify public IP addresses as the IP addresses of the external DNS servers and Elastic Compute Service (ECS) instances in the outbound VPC are not assigned public IP addresses, you need to activate NAT Gateway for the VPC and create and manage SNAT entries on a NAT gateway.
+    // > If you specify public IP addresses for the external DNS servers, and the Elastic Compute Service (ECS) instances in the VPC of the outbound endpoint do not have public IP addresses, enable a NAT Gateway and configure SNAT entries.
     // 
     // This parameter is required.
     shared_ptr<vector<AddResolverRuleRequest::ForwardIp>> forwardIp_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The name of the forwarding rule. You can name the rule based on your business requirements.
+    // The name of the forwarding rule. Name the rule as needed.
     shared_ptr<string> name_ {};
-    // The type of the forwarding rule. The parameter value can only be OUTBOUND, which indicates that DNS requests are forwarded to one or more external IP addresses.
+    // The type of the forwarding rule. The only valid value is OUTBOUND. This value indicates that DNS queries are forwarded to an external IP address.
     // 
-    // >  You cannot change the value of Type after you create the forwarding rule.
+    // > You cannot change this value after the forwarding rule is created.
     shared_ptr<string> type_ {};
     shared_ptr<vector<AddResolverRuleRequest::Vpcs>> vpcs_ {};
-    // The zone for which you want to forward DNS requests.
+    // The domain name (zone) for which you want to forward DNS queries.
     // 
-    // >  You cannot change the value of ZoneName after you create the forwarding rule.
+    // > You cannot change this value after the forwarding rule is created.
     // 
     // This parameter is required.
     shared_ptr<string> zoneName_ {};

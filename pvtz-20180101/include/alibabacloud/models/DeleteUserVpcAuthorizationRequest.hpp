@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The authorization scope. Valid values:
+    // The authorization type. Valid values:
     // 
-    // *   NORMAL: general authorization
-    // *   NORMAL: cloud service-related authorization
+    // - NORMAL: Standard authorization.
     // 
-    // Default value: NORMAL.
+    // - CLOUD_PRODUCT: Cloud product authorization.
+    // 
+    // Default value: NORMAL
     shared_ptr<string> authType_ {};
-    // The ID of the Alibaba Cloud account.
+    // The ID of the Alibaba Cloud account that owns the authorized resources.
     // 
     // This parameter is required.
     shared_ptr<int64_t> authorizedUserId_ {};

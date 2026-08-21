@@ -271,9 +271,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of requests from yesterday.
     shared_ptr<int64_t> totalCount_ {};
     shared_ptr<DescribeStatisticSummaryResponseBody::VpcRequestTops> vpcRequestTops_ {};
     shared_ptr<DescribeStatisticSummaryResponseBody::ZoneRequestTops> zoneRequestTops_ {};

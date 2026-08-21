@@ -96,10 +96,17 @@ namespace Models
 
 
     protected:
+      // The region ID of the VPC.
       shared_ptr<string> regionId_ {};
-      // VPC ID。
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The ID of the Alibaba Cloud account to which the VPC belongs.
       shared_ptr<string> vpcOwner_ {};
+      // The type of the VPC. Valid values:
+      // 
+      // - `STANDARD`: standard VPC
+      // 
+      // - `EDS`: Elastic Desktop Service (EDS) VPC
       shared_ptr<string> vpcType_ {};
     };
 
@@ -150,11 +157,25 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values:
+    // 
+    // - `zh-CN`: Chinese
+    // 
+    // - `en-US`: English
+    // 
+    // Default value: `en-US`.
+    // 
+    // > This parameter takes precedence over the `Lang` parameter.
     shared_ptr<string> acceptLanguage_ {};
+    // A client token to ensure request idempotence. Your client must generate a unique token for each request. The token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The statistical module.
     shared_ptr<string> module_ {};
+    // The network parameters.
     shared_ptr<vector<DescribePvtzStatisticsZoneOverviewRequest::NetworkParams>> networkParams_ {};
+    // The statistical period.
     shared_ptr<string> overviewPeriod_ {};
+    // The region ID.
     shared_ptr<string> serverRegion_ {};
   };
 

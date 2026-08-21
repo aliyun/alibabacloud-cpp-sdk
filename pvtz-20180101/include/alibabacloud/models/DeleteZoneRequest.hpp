@@ -66,20 +66,21 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The token must contain only ASCII characters and be no more than 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default: en.
     shared_ptr<string> lang_ {};
     // The IP address of the client.
     shared_ptr<string> userClientIp_ {};
-    // The zone ID. This ID uniquely identifies the zone.
+    // The unique ID of the zone.
     // 
-    // >  If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
+    // > You must dissociate a built-in authoritative domain name from its scope before you delete it.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

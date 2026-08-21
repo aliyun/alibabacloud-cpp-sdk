@@ -50,12 +50,13 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // The zone ID. This ID uniquely identifies the zone.
+    // The unique ID of the zone.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

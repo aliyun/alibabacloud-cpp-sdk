@@ -176,38 +176,39 @@ namespace Models
 
 
   protected:
-    // The time when the DNS record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the record was created.
     shared_ptr<string> createTime_ {};
-    // The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the record was created.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The resolution line.
+    // The DNS resolution line.
     shared_ptr<string> line_ {};
-    // The priority of the mail exchanger (MX) record.
+    // The priority of the mail exchange (MX) record.
     shared_ptr<int32_t> priority_ {};
     // The ID of the DNS record.
     shared_ptr<int64_t> recordId_ {};
-    // The description of the DNS record.
+    // The remarks.
     shared_ptr<string> remark_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The hostname.
+    // The host record.
     shared_ptr<string> rr_ {};
-    // The state of the DNS record. Valid values:
+    // The status of the DNS record. Valid values:
     // 
-    // *   **ENABLE**: The DNS record is enabled.
-    // *   **DISABLE**: The DNS record is disabled.
+    // - **ENABLE**: The DNS record is enabled.
+    // 
+    // - **DISABLE**: The DNS record is paused.
     shared_ptr<string> status_ {};
-    // The time to live (TTL) of the DNS record.
+    // The time to live (TTL).
     shared_ptr<int32_t> ttl_ {};
     // The type of the DNS record.
     shared_ptr<string> type_ {};
-    // The time when the DNS record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the record was last updated.
     shared_ptr<string> updateTime_ {};
-    // The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the record was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
     // The record value.
     shared_ptr<string> value_ {};
-    // The weight value of the DNS record.
+    // The weight of the DNS record.
     shared_ptr<int32_t> weight_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

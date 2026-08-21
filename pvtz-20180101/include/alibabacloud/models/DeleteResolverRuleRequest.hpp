@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The language.
     shared_ptr<string> lang_ {};
-    // The forwarding rule ID.
+    // The ID of the forwarding rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};

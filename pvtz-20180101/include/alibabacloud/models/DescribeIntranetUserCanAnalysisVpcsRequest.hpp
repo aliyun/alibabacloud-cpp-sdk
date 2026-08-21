@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The network type.
     shared_ptr<string> networkType_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The level in the query hierarchy. For example, you can query for VPCs that belong to a specific cloud account.
     shared_ptr<int32_t> queryTreeLevel_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The owner of the VPC.
     shared_ptr<int64_t> vpcOwner_ {};
+    // The VPC type.
     shared_ptr<string> vpcType_ {};
   };
 

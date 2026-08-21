@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The endpoint ID.
     shared_ptr<string> endpointId_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

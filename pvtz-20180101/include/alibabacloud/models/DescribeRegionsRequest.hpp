@@ -86,36 +86,41 @@ namespace Models
   protected:
     // The supported language. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US: English
+    // - zh-CN: Chinese
+    // 
+    // - en-US: English
     // 
     // Default value: en-US.
     // 
-    // >  AcceptLanguage has a higher priority than Lang.
+    // > This parameter has a higher priority than Lang.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+    // The ID of the Alibaba Cloud account to which the authorized resources belong.
     shared_ptr<int64_t> authorizedUserId_ {};
     // The language of the response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     // 
     // Default value: **en**.
     // 
-    // >  Lang has a lower priority than AcceptLanguage.
+    // > This parameter has a lower priority than AcceptLanguage.
     shared_ptr<string> lang_ {};
     // The scenario. Valid values:
     // 
-    // *   AUTH: the built-in authoritative module
-    // *   FWD: the forward module
-    // *   RA: the traffic analysis module
-    shared_ptr<string> scene_ {};
-    // The IP address of the client.
-    shared_ptr<string> userClientIp_ {};
-    // The VPC type. Valid values:
+    // - AUTH: built-in authoritative server
     // 
-    // *   STANDARD: standard VPC
-    // *   EDS: Elastic Desktop Service (EDS) workspace VPC
+    // - FWD: forwarding management
+    // 
+    // - RA: traffic analysis
+    shared_ptr<string> scene_ {};
+    // The IP address of the user.
+    shared_ptr<string> userClientIp_ {};
+    // The type of the VPC. Valid values:
+    // 
+    // - STANDARD: standard VPC.
+    // 
+    // - EDS: Elastic Desktop Service (EDS) VPC.
     shared_ptr<string> vpcType_ {};
   };
 

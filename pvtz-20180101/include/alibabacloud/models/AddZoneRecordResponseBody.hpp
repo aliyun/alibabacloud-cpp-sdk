@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the DNS record.
     shared_ptr<int64_t> recordId_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

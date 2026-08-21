@@ -102,9 +102,17 @@ namespace Models
 
 
     protected:
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The ID of the VPC owner.
       shared_ptr<string> vpcOwner_ {};
+      // The VPC type. Valid values:
+      // 
+      // - `STANDARD`: Standard VPC.
+      // 
+      // - `EDS`: Elastic Desktop Service VPC.
       shared_ptr<string> vpcType_ {};
     };
 
@@ -177,14 +185,23 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The end of the query time range. This value is a UNIX timestamp in milliseconds.
     shared_ptr<string> endTimestamp_ {};
+    // The statistics module.
     shared_ptr<string> module_ {};
+    // The network parameters.
     shared_ptr<vector<DescribePvtzStatisticsHistoryRequest::NetworkParams>> networkParams_ {};
+    // The DNS response code.
     shared_ptr<string> rcode_ {};
+    // The service region.
     shared_ptr<string> serverRegion_ {};
+    // The start of the query time range. This value is a UNIX timestamp in milliseconds.
     shared_ptr<string> startTimestamp_ {};
+    // The type of statistics to collect.
     shared_ptr<string> statisticalType_ {};
+    // The zone name.
     shared_ptr<string> zoneName_ {};
   };
 

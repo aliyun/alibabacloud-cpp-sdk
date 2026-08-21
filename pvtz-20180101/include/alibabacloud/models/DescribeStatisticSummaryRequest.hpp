@@ -50,12 +50,13 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The IP address of the client.
+    // The user\\"s IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

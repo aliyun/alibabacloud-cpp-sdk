@@ -84,31 +84,37 @@ namespace Models
 
 
   protected:
-    // The keyword of the endpoint name, which is used for fuzzy searches.
+    // The keyword for the endpoint name. A fuzzy search is performed.
     shared_ptr<string> keyword_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number for a paged query. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The state of the endpoint that you want to query. Valid values:
+    // The status of the endpoint. Valid values:
     // 
-    // *   SUCCESS: The endpoint works as expected.
-    // *   INIT: The endpoint is being created.
-    // *   FAILED: The endpoint failed to be created.
-    // *   CHANGE_INIT: The endpoint is being modified.
-    // *   CHANGE_FAILED: The endpoint failed to be modified.
-    // *   EXCEPTION: The endpoint encountered an exception.
+    // - SUCCESS: The endpoint is working as expected.
     // 
-    // >  If you do not specify this parameter, endpoints in all states are returned.
+    // - INIT: The endpoint is being created.
+    // 
+    // - FAILED: The endpoint failed to be created.
+    // 
+    // - CHANGE_INIT: The endpoint is being modified.
+    // 
+    // - CHANGE_FAILED: The endpoint failed to be modified.
+    // 
+    // - EXCEPTION: The endpoint is not working as expected.
+    // 
+    // > If you do not specify this parameter, endpoints in all states are returned. If you specify this parameter, only endpoints in the specified state are returned.
     shared_ptr<string> status_ {};
-    // The region ID of the outbound virtual private cloud (VPC).
+    // The ID of the region where the outbound virtual private cloud (VPC) is located.
     shared_ptr<string> vpcRegionId_ {};
   };
 

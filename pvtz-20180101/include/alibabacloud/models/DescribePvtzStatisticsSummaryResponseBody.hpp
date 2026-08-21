@@ -225,24 +225,45 @@ namespace Models
 
 
     protected:
+      // The UNIX timestamp for the start of the current statistical period, rounded down to the minute.
       shared_ptr<int64_t> aggrTimestamp_ {};
+      // The total number of requests.
       shared_ptr<int64_t> count_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The fluctuation rate.
       shared_ptr<int32_t> fluctuationValue_ {};
+      // The average resolution latency, in milliseconds (ms).
       shared_ptr<int64_t> latency_ {};
+      // The resolution line.
       shared_ptr<string> line_ {};
+      // The statistics module.
       shared_ptr<string> module_ {};
+      // The value from the previous statistical period.
       shared_ptr<int64_t> previousCount_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
+      // The DNS query type.
       shared_ptr<string> qtype_ {};
+      // The success rate.
       shared_ptr<int64_t> ratio_ {};
+      // The DNS response code.
       shared_ptr<string> rcode_ {};
+      // The source IP address of the request.
       shared_ptr<string> sourceIp_ {};
+      // The source ISP of the request.
       shared_ptr<string> sourceIsp_ {};
+      // The source region of the request.
       shared_ptr<string> sourceRegion_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The ID of the zone. The operation\\"s behavior depends on whether you specify this parameter:
+      // 
+      // - If you specify a ZoneId, the operation returns the change log of DNS records for that zone.<br>
+      // 
+      // - If you omit ZoneId, the operation returns the change log of all zone operations and DNS resolution changes for all zones in your account.
       shared_ptr<string> zoneId_ {};
+      // The zone name.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -293,12 +314,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> curPage_ {};
+    // A list of statistical entries for the current page.
     shared_ptr<vector<DescribePvtzStatisticsSummaryResponseBody::PageData>> pageData_ {};
+    // The number of entries per page. The maximum value is **100**. The default value is **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

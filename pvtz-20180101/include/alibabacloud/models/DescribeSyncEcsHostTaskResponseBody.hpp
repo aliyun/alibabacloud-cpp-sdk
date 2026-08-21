@@ -234,19 +234,21 @@ namespace Models
   protected:
     shared_ptr<DescribeSyncEcsHostTaskResponseBody::EcsRegions> ecsRegions_ {};
     shared_ptr<DescribeSyncEcsHostTaskResponseBody::Regions> regions_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether hostname automatic synchronization is enabled. Valid values:
+    // The status of the automatic hostname synchronization feature. Valid values:
     // 
-    // *   ON: Hostname automatic synchronization is enabled. After this feature is enabled, the system automatically reads the hostnames of the Elastic Compute Service (ECS) instances in the specified regions and updates Domain Name System (DNS) records at an interval of 1 minute.
-    // *   OFF: Hostname automatic synchronization is disabled.
+    // - ON: Enabled. The system reads the hostnames of ECS instances in the selected region and updates the DNS records every minute.
+    // 
+    // - OFF: Disabled.
     shared_ptr<string> status_ {};
-    // Indicates whether the task was successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   True
-    // *   False
+    // - True
+    // 
+    // - False
     shared_ptr<bool> success_ {};
-    // The zone ID. This ID uniquely identifies the zone.
+    // The unique ID of the zone.
     shared_ptr<string> zoneId_ {};
   };
 

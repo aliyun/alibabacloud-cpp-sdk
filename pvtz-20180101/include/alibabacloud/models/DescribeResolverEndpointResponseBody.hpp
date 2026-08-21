@@ -112,11 +112,11 @@ namespace Models
 
 
     protected:
-      // The ID of the zone to which the vSwitch belongs.
+      // The ID of the zone where the vSwitch is located.
       shared_ptr<string> azId_ {};
       // The IPv4 CIDR block of the vSwitch.
       shared_ptr<string> cidrBlock_ {};
-      // The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If this parameter is left empty, the system automatically allocates an IP address.
+      // An IP address within the specified CIDR block. If you leave this parameter empty, the system automatically assigns an IP address.
       shared_ptr<string> ip_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -229,38 +229,43 @@ namespace Models
   protected:
     // The time when the endpoint was created.
     shared_ptr<string> createTime_ {};
-    // The time when the endpoint was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the endpoint was created. This is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The endpoint ID. This ID uniquely identifies the endpoint.
+    // The ID of the endpoint.
     shared_ptr<string> id_ {};
-    // The configurations of the source IP addresses for outbound traffic.
+    // A list of IP address configurations for the outbound traffic source.
     shared_ptr<vector<DescribeResolverEndpointResponseBody::IpConfigs>> ipConfigs_ {};
     // The name of the endpoint.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the security group. The security group rules are applied to the outbound virtual private cloud (VPC).
+    // The ID of the security group. The rules in the security group are applied to the outbound VPC.
     shared_ptr<string> securityGroupId_ {};
-    // The state of the endpoint. Valid values:
+    // The status of the endpoint. Valid values:
     // 
-    // *   SUCCESS: The endpoint works as expected.
-    // *   INIT: The endpoint is being created.
-    // *   FAILED: The endpoint failed to be created.
-    // *   CHANGE_INIT: The endpoint is being modified.
-    // *   CHANGE_FAILED: The endpoint failed to be modified.
-    // *   EXCEPTION: The endpoint encountered an exception.
+    // - SUCCESS: The endpoint works as expected.
+    // 
+    // - INIT: The endpoint is being created.
+    // 
+    // - FAILED: The endpoint failed to be created.
+    // 
+    // - CHANGE_INIT: The endpoint is being modified.
+    // 
+    // - CHANGE_FAILED: The endpoint failed to be modified.
+    // 
+    // - EXCEPTION: An exception occurred on the endpoint.
     shared_ptr<string> status_ {};
-    // The time when the endpoint was updated.
+    // The time when the endpoint was last updated.
     shared_ptr<string> updateTime_ {};
-    // The time when the endpoint was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the endpoint was last updated. This is a UNIX timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
-    // The ID of the outbound VPC. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
+    // The ID of the outbound virtual private cloud (VPC). All outbound DNS query traffic from the Resolver is forwarded through this VPC.
     shared_ptr<string> vpcId_ {};
     // The name of the outbound VPC.
     shared_ptr<string> vpcName_ {};
-    // The region ID of the outbound VPC.
+    // The ID of the region where the outbound VPC is located.
     shared_ptr<string> vpcRegionId_ {};
-    // The name of the region where the outbound VPC resides.
+    // The name of the region where the outbound VPC is located.
     shared_ptr<string> vpcRegionName_ {};
   };
 

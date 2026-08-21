@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATESYNCECSHOSTTASKRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_UPDATESYNCECSHOSTTASKRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_SETZONELBASTATUSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_SETZONELBASTATUSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Pvtz20180101
 {
 namespace Models
 {
-  class UpdateSyncEcsHostTaskResponseBody : public Darabonba::Model {
+  class SetZoneLbaStatusResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateSyncEcsHostTaskResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const SetZoneLbaStatusResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateSyncEcsHostTaskResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, SetZoneLbaStatusResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    UpdateSyncEcsHostTaskResponseBody() = default ;
-    UpdateSyncEcsHostTaskResponseBody(const UpdateSyncEcsHostTaskResponseBody &) = default ;
-    UpdateSyncEcsHostTaskResponseBody(UpdateSyncEcsHostTaskResponseBody &&) = default ;
-    UpdateSyncEcsHostTaskResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateSyncEcsHostTaskResponseBody() = default ;
-    UpdateSyncEcsHostTaskResponseBody& operator=(const UpdateSyncEcsHostTaskResponseBody &) = default ;
-    UpdateSyncEcsHostTaskResponseBody& operator=(UpdateSyncEcsHostTaskResponseBody &&) = default ;
+    SetZoneLbaStatusResponseBody() = default ;
+    SetZoneLbaStatusResponseBody(const SetZoneLbaStatusResponseBody &) = default ;
+    SetZoneLbaStatusResponseBody(SetZoneLbaStatusResponseBody &&) = default ;
+    SetZoneLbaStatusResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SetZoneLbaStatusResponseBody() = default ;
+    SetZoneLbaStatusResponseBody& operator=(const SetZoneLbaStatusResponseBody &) = default ;
+    SetZoneLbaStatusResponseBody& operator=(SetZoneLbaStatusResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,24 +37,20 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline UpdateSyncEcsHostTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline SetZoneLbaStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline UpdateSyncEcsHostTaskResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline SetZoneLbaStatusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - True: The request succeeded.
-    // 
-    // - False: The request failed.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

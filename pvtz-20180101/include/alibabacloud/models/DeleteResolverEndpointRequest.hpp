@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The endpoint ID. This ID uniquely identifies the endpoint.
+    // The unique ID of the endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};

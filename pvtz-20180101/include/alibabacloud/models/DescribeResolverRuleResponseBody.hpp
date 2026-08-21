@@ -96,7 +96,7 @@ namespace Models
     protected:
       // The destination IP address.
       shared_ptr<string> ip_ {};
-      // The port number.
+      // The destination port.
       shared_ptr<int32_t> port_ {};
     };
 
@@ -176,16 +176,17 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The region name.
+      // The name of the region.
       shared_ptr<string> regionName_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The VPC name.
       shared_ptr<string> vpcName_ {};
-      // The VPC type. Valid values:
+      // The type of the VPC. Valid values:
       // 
-      // *   STANDARD: standard VPC
-      // *   EDS: Elastic Desktop Service (EDS) workspace VPC
+      // - STANDARD: A standard VPC.
+      // 
+      // - EDS: An Elastic Desktop Service (EDS) workspace VPC.
       shared_ptr<string> vpcType_ {};
       // The ID of the user to which the VPC belongs.
       shared_ptr<string> vpcUserId_ {};
@@ -353,33 +354,33 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeResolverRuleResponseBody::BindEdgeDnsClusters>> bindEdgeDnsClusters_ {};
-    // The virtual private clouds (VPCs) that are associated with the forwarding rule.
+    // A list of Virtual Private Clouds (VPCs) that are associated with the forwarding rule.
     shared_ptr<vector<DescribeResolverRuleResponseBody::BindVpcs>> bindVpcs_ {};
-    // The time when the forwarding rule was created.
+    // The time when the rule was created.
     shared_ptr<string> createTime_ {};
-    // The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the rule was created.
     shared_ptr<int64_t> createTimestamp_ {};
     // The endpoint ID.
     shared_ptr<string> endpointId_ {};
-    // The endpoint name.
+    // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
-    // The destination IP addresses.
+    // A list of destination IP addresses.
     shared_ptr<vector<DescribeResolverRuleResponseBody::ForwardIps>> forwardIps_ {};
-    // The ID of the forwarding rule.
+    // The forwarding rule ID.
     shared_ptr<string> id_ {};
     // The name of the forwarding rule.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the forwarding rule. Valid value:
+    // The type of the forwarding rule. The only valid value is OUTBOUND, which indicates that traffic is forwarded to an external IP address.
     // 
-    // OUTBOUND: outbound forwarding rule. This type of rule forwards Domain Name System (DNS) requests to one or more external IP addresses.
+    // OUTBOUND: Forwards to an external IP.
     shared_ptr<string> type_ {};
-    // The time when the forwarding rule was updated.
+    // The time when the rule was last updated.
     shared_ptr<string> updateTime_ {};
-    // The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the rule was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
-    // The name of the forward zone.
+    // The name of the forwarding zone.
     shared_ptr<string> zoneName_ {};
   };
 

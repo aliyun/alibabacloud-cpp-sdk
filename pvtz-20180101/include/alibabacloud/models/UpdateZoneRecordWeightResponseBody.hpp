@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETEZONERECORDRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETEZONERECORDRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATEZONERECORDWEIGHTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEZONERECORDWEIGHTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Pvtz20180101
 {
 namespace Models
 {
-  class DeleteZoneRecordResponseBody : public Darabonba::Model {
+  class UpdateZoneRecordWeightResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteZoneRecordResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateZoneRecordWeightResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RecordId, recordId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteZoneRecordResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateZoneRecordWeightResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RecordId, recordId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    DeleteZoneRecordResponseBody() = default ;
-    DeleteZoneRecordResponseBody(const DeleteZoneRecordResponseBody &) = default ;
-    DeleteZoneRecordResponseBody(DeleteZoneRecordResponseBody &&) = default ;
-    DeleteZoneRecordResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteZoneRecordResponseBody() = default ;
-    DeleteZoneRecordResponseBody& operator=(const DeleteZoneRecordResponseBody &) = default ;
-    DeleteZoneRecordResponseBody& operator=(DeleteZoneRecordResponseBody &&) = default ;
+    UpdateZoneRecordWeightResponseBody() = default ;
+    UpdateZoneRecordWeightResponseBody(const UpdateZoneRecordWeightResponseBody &) = default ;
+    UpdateZoneRecordWeightResponseBody(UpdateZoneRecordWeightResponseBody &&) = default ;
+    UpdateZoneRecordWeightResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateZoneRecordWeightResponseBody() = default ;
+    UpdateZoneRecordWeightResponseBody& operator=(const UpdateZoneRecordWeightResponseBody &) = default ;
+    UpdateZoneRecordWeightResponseBody& operator=(UpdateZoneRecordWeightResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,20 @@ namespace Models
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
     inline int64_t getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, 0L) };
-    inline DeleteZoneRecordResponseBody& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
+    inline UpdateZoneRecordWeightResponseBody& setRecordId(int64_t recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteZoneRecordResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline UpdateZoneRecordWeightResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the DNS record.
     shared_ptr<int64_t> recordId_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

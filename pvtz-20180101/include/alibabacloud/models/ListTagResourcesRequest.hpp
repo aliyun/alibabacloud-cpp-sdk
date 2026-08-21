@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the resource.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of tag N added to the resource.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -135,22 +135,23 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to start the next query. It is returned in the response to the previous query.
     shared_ptr<string> nextToken_ {};
-    // The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+    // A list of resource IDs. In this case, a list of zone IDs. You can specify up to 50 IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Valid value: ZONE.
+    // The resource type. Set the value to ZONE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The number of entries per page. Maximum value: 200. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 200. Default value: 20.
     shared_ptr<int32_t> size_ {};
-    // The tags added to the resources.
+    // A list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

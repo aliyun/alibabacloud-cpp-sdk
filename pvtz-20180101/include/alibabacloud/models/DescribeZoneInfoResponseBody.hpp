@@ -429,61 +429,67 @@ namespace Models
   protected:
     shared_ptr<DescribeZoneInfoResponseBody::BindEdgeDnsClusters> bindEdgeDnsClusters_ {};
     shared_ptr<DescribeZoneInfoResponseBody::BindVpcs> bindVpcs_ {};
-    // The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the zone was created.
     shared_ptr<string> createTime_ {};
-    // The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the zone was created.
     shared_ptr<int64_t> createTimestamp_ {};
     // The creator of the zone.
     shared_ptr<string> creator_ {};
     // The type of the creator.
     shared_ptr<string> creatorType_ {};
-    // The logical location type of the built-in authoritative module in which the zone is added. Valid values:
+    // The DNS group. Valid values:
     // 
-    // *   **NORMAL_ZONE**: regular module
-    // *   **FAST_ZONE**: acceleration module
+    // - **NORMAL_ZONE**: Regular group
+    // 
+    // - **FAST_ZONE**: Fast group
     shared_ptr<string> dnsGroup_ {};
-    // Indicates whether the zone is being removed to another logical location. Valid values:
+    // The status of switching the DNS group for the zone. You can switch a zone between the regular and fast groups. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The DNS group is being switched.
+    // 
+    // - false: The DNS group is not being switched.
     shared_ptr<bool> dnsGroupChanging_ {};
     // Indicates whether the zone is a reverse lookup zone. Valid values:
     // 
-    // *   true
-    // *   false
-    shared_ptr<bool> isPtr_ {};
-    // Indicates whether the recursive resolution proxy for subdomain names is enabled. Valid values:
+    // - true: The zone is a reverse lookup zone.
     // 
-    // *   ZONE: The recursive resolution proxy for subdomain names is disabled. In this case, NXDOMAIN is returned if the queried domain name does not exist in the zone.
-    // *   RECORD: The recursive resolution proxy for subdomain names is enabled. In this case, if the queried domain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
+    // - false: The zone is not a reverse lookup zone.
+    shared_ptr<bool> isPtr_ {};
+    // Indicates whether the recursive proxy for subdomains is enabled.
+    // 
+    // - ZONE: Disabled. If a non-existent subdomain is resolved, an NXDOMAIN response is returned to indicate that the subdomain does not exist.
+    // 
+    // - RECORD: Enabled. If a non-existent subdomain is resolved, the system queries the forwarding and recursion modules in sequence and uses the final result to respond to the DNS query.
     shared_ptr<string> proxyPattern_ {};
-    // The total number of DNS records added in the zone.
+    // The total number of DNS records in the zone.
     shared_ptr<int32_t> recordCount_ {};
-    // The description of the zone.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the zone belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // Indicates whether the secondary Domain Name System (DNS) feature is enabled for the zone. Valid values:
+    // Indicates whether secondary DNS is enabled. Valid values:
     // 
-    // *   **true**: The secondary DNS feature is enabled.
-    // *   **false**: The secondary DNS feature is disabled.
+    // - **true**: Enabled
+    // 
+    // - **false**: Disabled
     shared_ptr<bool> slaveDns_ {};
-    // The time when the zone was last updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the zone was last updated.
     shared_ptr<string> updateTime_ {};
-    // The time when the zone was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp that indicates when the zone was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
-    // The zone ID. This ID uniquely identifies the zone.
+    // The unique ID of the zone.
     shared_ptr<string> zoneId_ {};
-    // The zone name.
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
-    // The tag added to the zone.
+    // The tag of the zone.
     shared_ptr<string> zoneTag_ {};
-    // The zone type. Valid values:
+    // The type of the zone. Valid values:
     // 
-    // *   **AUTH_ZONE**: authoritative zone
-    // *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
+    // - **AUTH_ZONE**: Authoritative zone.
+    // 
+    // - **CLOUD_PRODUCT_ZONE**: Authoritative zone for a cloud product.
     shared_ptr<string> zoneType_ {};
   };
 

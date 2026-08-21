@@ -289,15 +289,15 @@ namespace Models
 
   protected:
     shared_ptr<SearchCustomLinesResponseBody::CustomLines> customLines_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+    // The number of entries per page for a paged query. The maximum value is **100**. The default value is **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

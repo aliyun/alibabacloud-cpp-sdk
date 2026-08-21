@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The ID of the zone to which the vSwitch belongs.
+      // The ID of the zone where the vSwitch resides.
       // 
       // This parameter is required.
       shared_ptr<string> azId_ {};
@@ -104,7 +104,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> cidrBlock_ {};
-      // The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically allocates an IP address.
+      // The IP address. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically assigns an IP address.
       shared_ptr<string> ip_ {};
       // The vSwitch ID.
       // 
@@ -159,36 +159,37 @@ namespace Models
 
 
   protected:
-    // The source IP addresses of outbound traffic. You must add two to six source IP addresses.
+    // The list of source IP addresses for outbound traffic. You must add at least two IP addresses. You can add up to six IP addresses.
     // 
-    // >  You must add at least two source IP addresses for outbound traffic to ensure high availability. We recommend that you add two IP addresses that reside in different zones. You can add up to six source IP addresses.
+    // > To ensure high availability (HA), add at least two source IP addresses for the outbound endpoint. We recommend that you allocate these IP addresses in different zones. You can add a maximum of six source IP addresses.
     // 
     // This parameter is required.
     shared_ptr<vector<AddResolverEndpointRequest::IpConfig>> ipConfig_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // The endpoint name. The name can be up to 20 characters in length. If the upper limit is exceeded, an error message is returned.
+    // The name of the endpoint. The name can be up to 20 characters long. An error is reported if the limit is exceeded.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the security group. The security group rules are applied to the outbound VPC.
+    // The ID of the security group. The rules in the security group are applied to the outbound VPC.
     // 
-    // >  After you create the outbound endpoint, you cannot change the value of SecurityGroupId. This prevents the forwarding of DNS requests from being interrupted due to misoperations.
+    // > To prevent service interruptions, you cannot change this value after you create the outbound endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
-    // The outbound VPC ID. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
+    // The ID of the outbound virtual private cloud (VPC). All outbound DNS query traffic from the Resolver is forwarded through this VPC.
     // 
-    // >  After you create the outbound endpoint, you cannot change the value of VpcId. This prevents the forwarding of DNS requests from being interrupted due to misoperations.
+    // > To prevent service interruptions, you cannot change this value after you create the outbound endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The region ID of the outbound virtual private cloud (VPC).
+    // The region ID of the outbound VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcRegionId_ {};

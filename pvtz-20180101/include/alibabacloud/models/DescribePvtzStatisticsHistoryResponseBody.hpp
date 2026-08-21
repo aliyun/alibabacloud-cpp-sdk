@@ -134,14 +134,23 @@ namespace Models
 
 
     protected:
+      // The number of requests.
       shared_ptr<int64_t> count_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The number of failed requests.
       shared_ptr<int64_t> failCount_ {};
+      // The protocol.
       shared_ptr<string> protocol_ {};
+      // The query type.
       shared_ptr<string> qtype_ {};
+      // The success rate.
       shared_ptr<int64_t> ratio_ {};
+      // The number of successful requests.
       shared_ptr<int64_t> successCount_ {};
+      // The timestamp of the data point. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
+      // The name of the zone.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -164,8 +173,9 @@ namespace Models
 
 
   protected:
+    // The statistical data.
     shared_ptr<vector<DescribePvtzStatisticsHistoryResponseBody::Data>> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

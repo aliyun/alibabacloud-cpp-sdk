@@ -105,18 +105,19 @@ namespace Models
 
 
     protected:
-      // The authorization scope. Valid values:
+      // The authorization type. Valid values:
       // 
-      // *   NORMAL: general authorization
-      // *   CLOUD_PRODUCT: cloud service-related authorization
+      // - NORMAL: A regular authorization.
+      // 
+      // - CLOUD_PRODUCT: An authorization for an Alibaba Cloud service.
       shared_ptr<string> authType_ {};
-      // The name of the Alibaba Cloud account to which the permissions on the resources are granted.
+      // The name of the Alibaba Cloud account that owns the authorized resources.
       shared_ptr<string> authorizedAliyunId_ {};
-      // The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+      // The ID of the Alibaba Cloud account that owns the authorized resources.
       shared_ptr<int64_t> authorizedUserId_ {};
-      // The time when the authorization was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the authorization was created.
       shared_ptr<string> createTime_ {};
-      // The time when the authorization was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the authorization was created.
       shared_ptr<int64_t> createTimestamp_ {};
     };
 
@@ -167,17 +168,17 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of authorizations.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of returned pages.
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};
-    // The Alibaba Cloud accounts to which the permissions on the resources are granted.
+    // The information about the Alibaba Cloud accounts that own the authorized resources.
     shared_ptr<vector<DescribeUserVpcAuthorizationsResponseBody::Users>> users_ {};
   };
 

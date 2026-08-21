@@ -78,9 +78,9 @@ namespace Models
 
 
   protected:
-    // This parameter is not available. You can ignore it.
+    // This parameter is not available to users. You do not need to specify this parameter.
     shared_ptr<string> dnsCategory_ {};
-    // The IPv4 CIDR blocks.
+    // The list of IPv4 address segments.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ipv4s_ {};
@@ -90,7 +90,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // This parameter is not available. You can ignore it.
+    // This parameter is not available to users. You do not need to specify this parameter.
     shared_ptr<string> shareScope_ {};
   };
 

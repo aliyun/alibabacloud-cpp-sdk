@@ -75,27 +75,29 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that is used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // The default value is en.
     shared_ptr<string> lang_ {};
     // The ID of the DNS record.
     // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // The state of the DNS record. Valid values:
+    // The status of the DNS record. Valid values:
     // 
-    // *   ENABLE: enables the DNS record.
-    // *   DISABLE: suspends the DNS record.
+    // - ENABLE: Enables DNS resolution.
+    // 
+    // - DISABLE: Pauses DNS resolution.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The IP address of the client.
+    // The client IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

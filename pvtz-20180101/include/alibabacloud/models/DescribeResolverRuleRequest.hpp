@@ -50,12 +50,13 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
+    // 
+    // - en: English.
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};
-    // The ID of the forwarding rule.
+    // The forwarding rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};

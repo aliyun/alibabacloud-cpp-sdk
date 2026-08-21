@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The global ID of the zone.
     shared_ptr<string> zoneId_ {};

@@ -137,7 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRequestGraphResponseBody::RequestDetails> requestDetails_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

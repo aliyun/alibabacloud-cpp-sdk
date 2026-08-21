@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the zone name can be added. Valid values:
+    // The result of the check. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The zone name can be added.
+    // 
+    // - **false**: The zone name cannot be added.
     shared_ptr<bool> check_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+      // The ID of the user who owns the region. This parameter is used for cross-account synchronization.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -115,23 +115,25 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // The regions to be synchronized.
+    // The regions for synchronization.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateSyncEcsHostTaskRequest::Region>> region_ {};
-    // The state of the hostname synchronization task. Valid values:
+    // The status of the ECS hostname sync task. Valid values:
     // 
-    // *   ON: The task is started.
-    // *   OFF: The task is ended.
+    // - ON: enables the task.
+    // 
+    // - OFF: disables the task.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The zone ID. This ID uniquely identifies the zone.
+    // The unique ID of the zone.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

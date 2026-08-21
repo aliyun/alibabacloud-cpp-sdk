@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The authorization scope. Valid values:
+    // The authorization type. Valid values:
     // 
-    // *   NORMAL: general authorization
-    // *   CLOUD_PRODUCT: cloud service-related authorization
+    // - NORMAL: A regular authorization.
+    // 
+    // - CLOUD_PRODUCT: An authorization for an Alibaba Cloud service.
     shared_ptr<string> authType_ {};
-    // The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+    // The ID of the Alibaba Cloud account that owns the authorized resources.
     shared_ptr<int64_t> authorizedUserId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

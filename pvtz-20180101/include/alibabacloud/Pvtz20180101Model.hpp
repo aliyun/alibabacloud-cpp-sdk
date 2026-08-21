@@ -137,6 +137,9 @@
 #include <alibabacloud/models/SetProxyPatternRequest.hpp>
 #include <alibabacloud/models/SetProxyPatternResponseBody.hpp>
 #include <alibabacloud/models/SetProxyPatternResponse.hpp>
+#include <alibabacloud/models/SetZoneLbaStatusRequest.hpp>
+#include <alibabacloud/models/SetZoneLbaStatusResponseBody.hpp>
+#include <alibabacloud/models/SetZoneLbaStatusResponse.hpp>
 #include <alibabacloud/models/SetZoneRecordStatusRequest.hpp>
 #include <alibabacloud/models/SetZoneRecordStatusResponseBody.hpp>
 #include <alibabacloud/models/SetZoneRecordStatusResponse.hpp>
@@ -164,6 +167,9 @@
 #include <alibabacloud/models/UpdateZoneRecordRequest.hpp>
 #include <alibabacloud/models/UpdateZoneRecordResponseBody.hpp>
 #include <alibabacloud/models/UpdateZoneRecordResponse.hpp>
+#include <alibabacloud/models/UpdateZoneRecordWeightRequest.hpp>
+#include <alibabacloud/models/UpdateZoneRecordWeightResponseBody.hpp>
+#include <alibabacloud/models/UpdateZoneRecordWeightResponse.hpp>
 #include <alibabacloud/models/UpdateZoneRemarkRequest.hpp>
 #include <alibabacloud/models/UpdateZoneRemarkResponseBody.hpp>
 #include <alibabacloud/models/UpdateZoneRemarkResponse.hpp>

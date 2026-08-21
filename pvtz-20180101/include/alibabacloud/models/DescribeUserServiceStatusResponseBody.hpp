@@ -48,14 +48,17 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Current user\\"s service status:
+    // The service status of the current user:
     // 
-    // *  **CLOSED**: Not activated
-    // *  **OPENED**: Activated
-    // *  **IN_DEBT**: Overdue payment
-    // *  **IN_DEBT_OVER_DUE**: Payment overdue
+    // - **CLOSED**: The service is not activated.
+    // 
+    // - **OPENED**: The service is activated.
+    // 
+    // - **IN_DEBT**: The service has an overdue payment.
+    // 
+    // - **IN_DEBT_OVER_DUE**: The service is suspended due to an overdue payment.
     shared_ptr<string> status_ {};
   };
 

@@ -59,12 +59,13 @@ namespace Models
   protected:
     // The ID of the DNS record.
     shared_ptr<int64_t> recordId_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The state of the DNS record. Valid values:
+    // The status of the DNS record. Valid values:
     // 
-    // *   ENABLE: The DNS record is enabled.
-    // *   DISABLE: The DNS record is disabled.
+    // - ENABLE: DNS resolution is enabled.
+    // 
+    // - DISABLE: DNS resolution is paused.
     shared_ptr<string> status_ {};
   };
 

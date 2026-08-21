@@ -275,13 +275,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeChangeLogsResponseBody::ChangeLogs> changeLogs_ {};
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of logs.
     shared_ptr<int32_t> totalItems_ {};
     // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};

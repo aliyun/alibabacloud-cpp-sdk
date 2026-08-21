@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the DNS record.
     shared_ptr<int64_t> recordId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

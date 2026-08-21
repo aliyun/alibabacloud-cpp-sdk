@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the resources.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the resources.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -126,25 +126,27 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese.
     // 
-    // Default value: en.
+    // - en: English.
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
-    // Specifies whether to replace the original tags added to the resources. Valid values:
+    // Specifies whether to modify the tag list. Valid values:
     // 
-    // *   True: replaces the original tags.
-    // *   False (default): appends the specified one or more tags to the original tags. If a new tag has the same key but a different value from an original tag, the new tag replaces the original tag.
+    // - True: Overwrites the existing tag list.
+    // 
+    // - False (default): Appends tags to the existing list. If a tag key already exists, its value is updated.
     shared_ptr<bool> overWrite_ {};
-    // The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+    // The list of resource IDs. These are the IDs of the zones. You can specify up to 50 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Valid value: ZONE.
+    // The resource type. The value must be ZONE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags to add to the resources.
+    // The list of tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

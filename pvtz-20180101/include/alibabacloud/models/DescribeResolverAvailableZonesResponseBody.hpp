@@ -72,10 +72,11 @@ namespace Models
     protected:
       // The zone ID.
       shared_ptr<string> azId_ {};
-      // The state of resources in the zone. Valid values:
+      // The status of resources in the zone. Valid values:
       // 
-      // *   NORMAL: The resources are in the normal state.
-      // *   SOLD_OUT: The resources are sold out.
+      // - NORMAL: Normal
+      // 
+      // - SOLD_OUT: Sold out
       shared_ptr<string> status_ {};
     };
 
@@ -98,9 +99,9 @@ namespace Models
 
 
   protected:
-    // The queried zones.
+    // A list of zones and their resource statuses.
     shared_ptr<vector<DescribeResolverAvailableZonesResponseBody::AvailableZones>> availableZones_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

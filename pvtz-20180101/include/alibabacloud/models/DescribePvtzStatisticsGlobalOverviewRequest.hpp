@@ -90,10 +90,17 @@ namespace Models
 
 
     protected:
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The ID of the Alibaba Cloud account to which the VPC belongs.
       shared_ptr<string> vpcOwner_ {};
+      // The type of the VPC. Valid values:
+      // 
+      // - **STANDARD**: standard VPC
+      // 
+      // - **EDS**: Elastic Desktop Service (EDS) VPC
       shared_ptr<string> vpcType_ {};
     };
 
@@ -123,8 +130,11 @@ namespace Models
 
 
   protected:
+    // The network parameters.
     shared_ptr<vector<DescribePvtzStatisticsGlobalOverviewRequest::NetworkParams>> networkParams_ {};
+    // The statistical period. Valid values: `DAY`, `WEEK`, and `MONTH`.
     shared_ptr<string> overviewPeriod_ {};
+    // The region.
     shared_ptr<string> serverRegion_ {};
   };
 

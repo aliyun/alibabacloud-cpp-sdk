@@ -213,11 +213,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> curPage_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalSize_ {};
+    // A list of VPCs that the user can analyze.
     shared_ptr<DescribeIntranetUserCanAnalysisVpcsResponseBody::UserCanAnalysisVpcsPopResults> userCanAnalysisVpcsPopResults_ {};
   };
 

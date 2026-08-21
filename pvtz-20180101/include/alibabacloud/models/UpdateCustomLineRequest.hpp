@@ -79,11 +79,11 @@ namespace Models
 
   protected:
     shared_ptr<string> dnsCategory_ {};
-    // The IPv4 CIDR blocks.
+    // An array of IPv4 address ranges for the custom line. Specify each range in the `StartIP-EndIP` format.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ipv4s_ {};
-    // The language.
+    // The language of the response. Valid values: `en` and `zh`. Default value: `en`.
     shared_ptr<string> lang_ {};
     // The unique ID of the custom line.
     // 
