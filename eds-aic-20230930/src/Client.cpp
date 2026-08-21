@@ -618,7 +618,7 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNode(const ChangeCloudPhone
 }
 
 /**
- * @summary Checks the inventory of Cloud Phone resources. Before you create an instance, call this operation to check whether resources are available in the target region. Create the instance only after you confirm that resources are available.
+ * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
  *
  * @param request CheckResourceStockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -665,7 +665,7 @@ CheckResourceStockResponse Client::checkResourceStockWithOptions(const CheckReso
 }
 
 /**
- * @summary Checks the inventory of Cloud Phone resources. Before you create an instance, call this operation to check whether resources are available in the target region. Create the instance only after you confirm that resources are available.
+ * @summary Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
  *
  * @param request CheckResourceStockRequest
  * @return CheckResourceStockResponse
@@ -1348,9 +1348,9 @@ CreateCustomImageResponse Client::createCustomImage(const CreateCustomImageReque
 }
 
 /**
- * @summary Places an order to purchase an edge smart gateway agent package.
+ * @summary Places an order to purchase an edge agent package.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
  *
  * @param request CreateEdgeMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,9 +1413,9 @@ CreateEdgeMobileAgentPackageResponse Client::createEdgeMobileAgentPackageWithOpt
 }
 
 /**
- * @summary Places an order to purchase an edge smart gateway agent package.
+ * @summary Places an order to purchase an edge agent package.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
  *
  * @param request CreateEdgeMobileAgentPackageRequest
  * @return CreateEdgeMobileAgentPackageResponse

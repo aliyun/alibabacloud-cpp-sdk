@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the instance type.
+    // The specification ID.
     shared_ptr<string> acpSpecId_ {};
-    // The number of Cloud Phone instances.
+    // The number of cloud phone instances.
     shared_ptr<int32_t> amount_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     // Specifies whether to enable GPU acceleration.
     shared_ptr<bool> gpuAcceleration_ {};
-    // The zone where the resource resides.
+    // The zone to which the resource belongs.
     shared_ptr<string> zoneId_ {};
   };
 

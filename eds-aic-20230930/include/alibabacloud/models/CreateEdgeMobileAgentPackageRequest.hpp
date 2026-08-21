@@ -114,19 +114,19 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: enables automatic payment. Make sure that your account balance is sufficient.
-    // - **false** (default): generates the order without charging the account.
+    // - **true**: Enable automatic payment. Make sure that your account balance is sufficient.
+    // - **false** (default): Generate the order without making a payment.
     // 
     // 
     // 
     // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can then log on to the Cloud Phone console to complete the payment.
+    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // * **true**: enables auto-renewal.
-    // * **false** (default): disables auto-renewal.
+    // * **true**: Enable auto-renewal.
+    // * **false** (default): Disable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
     // The region where the agent is located.
     // 
@@ -135,19 +135,22 @@ namespace Models
     // The idempotency token.
     shared_ptr<string> clientToken_ {};
     // The device form factor.
+    // 
+    // This parameter is required.
     shared_ptr<string> deviceClass_ {};
-    // The subscription duration of the resource. The unit is specified by PeriodUnit.
+    // The subscription duration of the resource. The unit is specified by `PeriodUnit`.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration. Valid values:
+    // The unit of the subscription duration.
     // 
+    // Valid values:
     // - **Month**: month.
     // - **Year**: year.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the promotional activity.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
     // The number of packages.
     // 
