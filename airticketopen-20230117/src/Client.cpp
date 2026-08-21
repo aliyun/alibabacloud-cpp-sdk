@@ -1692,6 +1692,717 @@ StandardSearchResponse Client::standardSearch(const StandardSearchRequest &reque
 }
 
 /**
+ * @summary 申请退款。
+ *
+ * @param request TicketApplyRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketApplyRefundResponse
+ */
+TicketApplyRefundResponse Client::ticketApplyRefundWithOptions(const TicketApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  if (!!request.hasRefundReason()) {
+    body["RefundReason"] = request.getRefundReason();
+  }
+
+  if (!!request.hasRefundRemark()) {
+    body["RefundRemark"] = request.getRefundRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketApplyRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketApplyRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketApplyRefundResponse>();
+}
+
+/**
+ * @summary 申请退款。
+ *
+ * @param request TicketApplyRefundRequest
+ * @return TicketApplyRefundResponse
+ */
+TicketApplyRefundResponse Client::ticketApplyRefund(const TicketApplyRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketApplyRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 取消订单。
+ *
+ * @param request TicketCancelOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketCancelOrderResponse
+ */
+TicketCancelOrderResponse Client::ticketCancelOrderWithOptions(const TicketCancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketCancelOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketCancelOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketCancelOrderResponse>();
+}
+
+/**
+ * @summary 取消订单。
+ *
+ * @param request TicketCancelOrderRequest
+ * @return TicketCancelOrderResponse
+ */
+TicketCancelOrderResponse Client::ticketCancelOrder(const TicketCancelOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketCancelOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 检查退款。
+ *
+ * @param request TicketCheckRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketCheckRefundResponse
+ */
+TicketCheckRefundResponse Client::ticketCheckRefundWithOptions(const TicketCheckRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  if (!!request.hasRefundReason()) {
+    body["RefundReason"] = request.getRefundReason();
+  }
+
+  if (!!request.hasRefundRemark()) {
+    body["RefundRemark"] = request.getRefundRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketCheckRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketCheckRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketCheckRefundResponse>();
+}
+
+/**
+ * @summary 检查退款。
+ *
+ * @param request TicketCheckRefundRequest
+ * @return TicketCheckRefundResponse
+ */
+TicketCheckRefundResponse Client::ticketCheckRefund(const TicketCheckRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketCheckRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建订单。
+ *
+ * @param tmpReq TicketCreateOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketCreateOrderResponse
+ */
+TicketCreateOrderResponse Client::ticketCreateOrderWithOptions(const TicketCreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TicketCreateOrderShrinkRequest request = TicketCreateOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContact()) {
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "Contact", "json"));
+  }
+
+  if (!!tmpReq.hasOrderProduct()) {
+    request.setOrderProductShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrderProduct(), "OrderProduct", "json"));
+  }
+
+  if (!!tmpReq.hasTotalDistributionPrice()) {
+    request.setTotalDistributionPriceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTotalDistributionPrice(), "TotalDistributionPrice", "json"));
+  }
+
+  if (!!tmpReq.hasTravelers()) {
+    request.setTravelersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelers(), "Travelers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasContactShrink()) {
+    body["Contact"] = request.getContactShrink();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  if (!!request.hasOrderProductShrink()) {
+    body["OrderProduct"] = request.getOrderProductShrink();
+  }
+
+  if (!!request.hasQuantity()) {
+    body["Quantity"] = request.getQuantity();
+  }
+
+  if (!!request.hasTotalDistributionPriceShrink()) {
+    body["TotalDistributionPrice"] = request.getTotalDistributionPriceShrink();
+  }
+
+  if (!!request.hasTravelersShrink()) {
+    body["Travelers"] = request.getTravelersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketCreateOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketCreateOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketCreateOrderResponse>();
+}
+
+/**
+ * @summary 创建订单。
+ *
+ * @param request TicketCreateOrderRequest
+ * @return TicketCreateOrderResponse
+ */
+TicketCreateOrderResponse Client::ticketCreateOrder(const TicketCreateOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketCreateOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页查询门票产品。
+ *
+ * @param request TicketPageQueryProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketPageQueryProductResponse
+ */
+TicketPageQueryProductResponse Client::ticketPageQueryProductWithOptions(const TicketPageQueryProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScenicId()) {
+    body["ScenicId"] = request.getScenicId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketPageQueryProduct"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketPageQueryProduct")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketPageQueryProductResponse>();
+}
+
+/**
+ * @summary 分页查询门票产品。
+ *
+ * @param request TicketPageQueryProductRequest
+ * @return TicketPageQueryProductResponse
+ */
+TicketPageQueryProductResponse Client::ticketPageQueryProduct(const TicketPageQueryProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketPageQueryProductWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页查询景区。
+ *
+ * @param request TicketPageQueryScenicRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketPageQueryScenicResponse
+ */
+TicketPageQueryScenicResponse Client::ticketPageQueryScenicWithOptions(const TicketPageQueryScenicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketPageQueryScenic"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketPageQueryScenic")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketPageQueryScenicResponse>();
+}
+
+/**
+ * @summary 分页查询景区。
+ *
+ * @param request TicketPageQueryScenicRequest
+ * @return TicketPageQueryScenicResponse
+ */
+TicketPageQueryScenicResponse Client::ticketPageQueryScenic(const TicketPageQueryScenicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketPageQueryScenicWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 支付订单。
+ *
+ * @param request TicketPayOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketPayOrderResponse
+ */
+TicketPayOrderResponse Client::ticketPayOrderWithOptions(const TicketPayOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketPayOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketPayOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketPayOrderResponse>();
+}
+
+/**
+ * @summary 支付订单。
+ *
+ * @param request TicketPayOrderRequest
+ * @return TicketPayOrderResponse
+ */
+TicketPayOrderResponse Client::ticketPayOrder(const TicketPayOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketPayOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询订单。
+ *
+ * @param request TicketQueryOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryOrderResponse
+ */
+TicketQueryOrderResponse Client::ticketQueryOrderWithOptions(const TicketQueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryOrderResponse>();
+}
+
+/**
+ * @summary 查询订单。
+ *
+ * @param request TicketQueryOrderRequest
+ * @return TicketQueryOrderResponse
+ */
+TicketQueryOrderResponse Client::ticketQueryOrder(const TicketQueryOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询门票价库。
+ *
+ * @param request TicketQueryPriceStockRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryPriceStockResponse
+ */
+TicketQueryPriceStockResponse Client::ticketQueryPriceStockWithOptions(const TicketQueryPriceStockRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProductId()) {
+    body["ProductId"] = request.getProductId();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryPriceStock"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryPriceStock")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryPriceStockResponse>();
+}
+
+/**
+ * @summary 查询门票价库。
+ *
+ * @param request TicketQueryPriceStockRequest
+ * @return TicketQueryPriceStockResponse
+ */
+TicketQueryPriceStockResponse Client::ticketQueryPriceStock(const TicketQueryPriceStockRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryPriceStockWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询门票产品。
+ *
+ * @param request TicketQueryProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryProductResponse
+ */
+TicketQueryProductResponse Client::ticketQueryProductWithOptions(const TicketQueryProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasProductId()) {
+    body["ProductId"] = request.getProductId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryProduct"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryProduct")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryProductResponse>();
+}
+
+/**
+ * @summary 查询门票产品。
+ *
+ * @param request TicketQueryProductRequest
+ * @return TicketQueryProductResponse
+ */
+TicketQueryProductResponse Client::ticketQueryProduct(const TicketQueryProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryProductWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询退款单。
+ *
+ * @param request TicketQueryRefundOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryRefundOrderResponse
+ */
+TicketQueryRefundOrderResponse Client::ticketQueryRefundOrderWithOptions(const TicketQueryRefundOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasDistributorOrderId()) {
+    body["DistributorOrderId"] = request.getDistributorOrderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryRefundOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryRefundOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryRefundOrderResponse>();
+}
+
+/**
+ * @summary 查询退款单。
+ *
+ * @param request TicketQueryRefundOrderRequest
+ * @return TicketQueryRefundOrderResponse
+ */
+TicketQueryRefundOrderResponse Client::ticketQueryRefundOrder(const TicketQueryRefundOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryRefundOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询门票景区。
+ *
+ * @param request TicketQueryScenicRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryScenicResponse
+ */
+TicketQueryScenicResponse Client::ticketQueryScenicWithOptions(const TicketQueryScenicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasScenicId()) {
+    body["ScenicId"] = request.getScenicId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryScenic"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryScenic")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryScenicResponse>();
+}
+
+/**
+ * @summary 查询门票景区。
+ *
+ * @param request TicketQueryScenicRequest
+ * @return TicketQueryScenicResponse
+ */
+TicketQueryScenicResponse Client::ticketQueryScenic(const TicketQueryScenicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryScenicWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询货架。
+ *
+ * @param request TicketQueryShelfRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TicketQueryShelfResponse
+ */
+TicketQueryShelfResponse Client::ticketQueryShelfWithOptions(const TicketQueryShelfRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasScenicId()) {
+    body["ScenicId"] = request.getScenicId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TicketQueryShelf"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/TicketQueryShelf")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TicketQueryShelfResponse>();
+}
+
+/**
+ * @summary 查询货架。
+ *
+ * @param request TicketQueryShelfRequest
+ * @return TicketQueryShelfResponse
+ */
+TicketQueryShelfResponse Client::ticketQueryShelf(const TicketQueryShelfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return ticketQueryShelfWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Pays for and issues a ticket.
  *
  * @param request TicketingRequest

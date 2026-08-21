@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
-    // The external order number. You must specify at least one of ExternalOrderNo and OrderNo.
+    // The external order number. At least one of ExternalOrderNo and OrderNo is required.
     shared_ptr<string> externalOrderNo_ {};
-    // The sales order number. You must specify at least one of OrderNo and ExternalOrderNo.
+    // The sales order number. At least one of OrderNo and ExternalOrderNo is required.
     shared_ptr<string> orderNo_ {};
     // TracerId
     shared_ptr<string> tracerId_ {};

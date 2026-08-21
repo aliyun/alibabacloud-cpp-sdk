@@ -339,15 +339,15 @@ namespace Models
 
 
         protected:
-          // The effective start time (UTC millisecond timestamp).
+          // The effective start time as a UTC millisecond timestamp.
           shared_ptr<string> start_ {};
-          // The effective end time (UTC millisecond timestamp).
+          // The effective end time as a UTC millisecond timestamp.
           shared_ptr<string> end_ {};
           // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
           shared_ptr<string> penaltyType_ {};
           // The penalty value (percentage/amount/nights).
           shared_ptr<string> penaltyValue_ {};
-          // The currency code. This field has a value only when the penalty type is AMOUNT.
+          // The currency code. This field is present only when the penalty type is AMOUNT.
           shared_ptr<string> currency_ {};
           // TraceId
           shared_ptr<string> tracerId_ {};

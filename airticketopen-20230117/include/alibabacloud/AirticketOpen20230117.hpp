@@ -465,6 +465,240 @@ namespace AirticketOpen20230117
       Models::StandardSearchResponse standardSearch(const Models::StandardSearchRequest &request);
 
       /**
+       * @summary 申请退款。
+       *
+       * @param request TicketApplyRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketApplyRefundResponse
+       */
+      Models::TicketApplyRefundResponse ticketApplyRefundWithOptions(const Models::TicketApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请退款。
+       *
+       * @param request TicketApplyRefundRequest
+       * @return TicketApplyRefundResponse
+       */
+      Models::TicketApplyRefundResponse ticketApplyRefund(const Models::TicketApplyRefundRequest &request);
+
+      /**
+       * @summary 取消订单。
+       *
+       * @param request TicketCancelOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketCancelOrderResponse
+       */
+      Models::TicketCancelOrderResponse ticketCancelOrderWithOptions(const Models::TicketCancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消订单。
+       *
+       * @param request TicketCancelOrderRequest
+       * @return TicketCancelOrderResponse
+       */
+      Models::TicketCancelOrderResponse ticketCancelOrder(const Models::TicketCancelOrderRequest &request);
+
+      /**
+       * @summary 检查退款。
+       *
+       * @param request TicketCheckRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketCheckRefundResponse
+       */
+      Models::TicketCheckRefundResponse ticketCheckRefundWithOptions(const Models::TicketCheckRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查退款。
+       *
+       * @param request TicketCheckRefundRequest
+       * @return TicketCheckRefundResponse
+       */
+      Models::TicketCheckRefundResponse ticketCheckRefund(const Models::TicketCheckRefundRequest &request);
+
+      /**
+       * @summary 创建订单。
+       *
+       * @param tmpReq TicketCreateOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketCreateOrderResponse
+       */
+      Models::TicketCreateOrderResponse ticketCreateOrderWithOptions(const Models::TicketCreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建订单。
+       *
+       * @param request TicketCreateOrderRequest
+       * @return TicketCreateOrderResponse
+       */
+      Models::TicketCreateOrderResponse ticketCreateOrder(const Models::TicketCreateOrderRequest &request);
+
+      /**
+       * @summary 分页查询门票产品。
+       *
+       * @param request TicketPageQueryProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketPageQueryProductResponse
+       */
+      Models::TicketPageQueryProductResponse ticketPageQueryProductWithOptions(const Models::TicketPageQueryProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询门票产品。
+       *
+       * @param request TicketPageQueryProductRequest
+       * @return TicketPageQueryProductResponse
+       */
+      Models::TicketPageQueryProductResponse ticketPageQueryProduct(const Models::TicketPageQueryProductRequest &request);
+
+      /**
+       * @summary 分页查询景区。
+       *
+       * @param request TicketPageQueryScenicRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketPageQueryScenicResponse
+       */
+      Models::TicketPageQueryScenicResponse ticketPageQueryScenicWithOptions(const Models::TicketPageQueryScenicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询景区。
+       *
+       * @param request TicketPageQueryScenicRequest
+       * @return TicketPageQueryScenicResponse
+       */
+      Models::TicketPageQueryScenicResponse ticketPageQueryScenic(const Models::TicketPageQueryScenicRequest &request);
+
+      /**
+       * @summary 支付订单。
+       *
+       * @param request TicketPayOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketPayOrderResponse
+       */
+      Models::TicketPayOrderResponse ticketPayOrderWithOptions(const Models::TicketPayOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 支付订单。
+       *
+       * @param request TicketPayOrderRequest
+       * @return TicketPayOrderResponse
+       */
+      Models::TicketPayOrderResponse ticketPayOrder(const Models::TicketPayOrderRequest &request);
+
+      /**
+       * @summary 查询订单。
+       *
+       * @param request TicketQueryOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryOrderResponse
+       */
+      Models::TicketQueryOrderResponse ticketQueryOrderWithOptions(const Models::TicketQueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询订单。
+       *
+       * @param request TicketQueryOrderRequest
+       * @return TicketQueryOrderResponse
+       */
+      Models::TicketQueryOrderResponse ticketQueryOrder(const Models::TicketQueryOrderRequest &request);
+
+      /**
+       * @summary 查询门票价库。
+       *
+       * @param request TicketQueryPriceStockRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryPriceStockResponse
+       */
+      Models::TicketQueryPriceStockResponse ticketQueryPriceStockWithOptions(const Models::TicketQueryPriceStockRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询门票价库。
+       *
+       * @param request TicketQueryPriceStockRequest
+       * @return TicketQueryPriceStockResponse
+       */
+      Models::TicketQueryPriceStockResponse ticketQueryPriceStock(const Models::TicketQueryPriceStockRequest &request);
+
+      /**
+       * @summary 查询门票产品。
+       *
+       * @param request TicketQueryProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryProductResponse
+       */
+      Models::TicketQueryProductResponse ticketQueryProductWithOptions(const Models::TicketQueryProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询门票产品。
+       *
+       * @param request TicketQueryProductRequest
+       * @return TicketQueryProductResponse
+       */
+      Models::TicketQueryProductResponse ticketQueryProduct(const Models::TicketQueryProductRequest &request);
+
+      /**
+       * @summary 查询退款单。
+       *
+       * @param request TicketQueryRefundOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryRefundOrderResponse
+       */
+      Models::TicketQueryRefundOrderResponse ticketQueryRefundOrderWithOptions(const Models::TicketQueryRefundOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询退款单。
+       *
+       * @param request TicketQueryRefundOrderRequest
+       * @return TicketQueryRefundOrderResponse
+       */
+      Models::TicketQueryRefundOrderResponse ticketQueryRefundOrder(const Models::TicketQueryRefundOrderRequest &request);
+
+      /**
+       * @summary 查询门票景区。
+       *
+       * @param request TicketQueryScenicRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryScenicResponse
+       */
+      Models::TicketQueryScenicResponse ticketQueryScenicWithOptions(const Models::TicketQueryScenicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询门票景区。
+       *
+       * @param request TicketQueryScenicRequest
+       * @return TicketQueryScenicResponse
+       */
+      Models::TicketQueryScenicResponse ticketQueryScenic(const Models::TicketQueryScenicRequest &request);
+
+      /**
+       * @summary 查询货架。
+       *
+       * @param request TicketQueryShelfRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TicketQueryShelfResponse
+       */
+      Models::TicketQueryShelfResponse ticketQueryShelfWithOptions(const Models::TicketQueryShelfRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询货架。
+       *
+       * @param request TicketQueryShelfRequest
+       * @return TicketQueryShelfResponse
+       */
+      Models::TicketQueryShelfResponse ticketQueryShelf(const Models::TicketQueryShelfRequest &request);
+
+      /**
        * @summary Pays for and issues a ticket.
        *
        * @param request TicketingRequest

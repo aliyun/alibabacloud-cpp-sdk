@@ -209,10 +209,11 @@ namespace Models
 
 
     protected:
+      // The after-sales refund order number. This parameter is returned when an after-sales refund is processed and can be used for polling the refund status. This parameter is null when a cancellation is processed.
       shared_ptr<string> refundOrderNo_ {};
-      // The total penalty amount on the sales side.
+      // The total penalty amount on the sales side. This parameter is returned when an after-sales refund is processed.
       shared_ptr<Data::TotalPenaltyAmount> totalPenaltyAmount_ {};
-      // The total refund amount.
+      // The total refund amount. This parameter is returned when an after-sales refund is processed. The value equals the total sales price minus the total penalty amount.
       shared_ptr<Data::TotalRefundAmount> totalRefundAmount_ {};
       // TraceId
       shared_ptr<string> tracerId_ {};
@@ -273,7 +274,7 @@ namespace Models
     shared_ptr<string> errorMsg_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
     // TraceId
     shared_ptr<string> tracerId_ {};

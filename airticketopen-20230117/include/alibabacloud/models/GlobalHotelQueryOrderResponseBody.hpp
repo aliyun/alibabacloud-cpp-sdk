@@ -891,13 +891,13 @@ namespace Models
 
 
           protected:
-            // The currency code (present only for AMOUNT type penalties).
+            // The currency code (present only for AMOUNT type).
             shared_ptr<string> currency_ {};
             // The effective end time (UTC millisecond timestamp).
             shared_ptr<string> end_ {};
             // The penalty type.
             shared_ptr<string> penaltyType_ {};
-            // The penalty value (percentage, amount, or number of nights).
+            // The penalty value (percentage/amount/number of nights).
             shared_ptr<string> penaltyValue_ {};
             // The effective start time (UTC millisecond timestamp).
             shared_ptr<string> start_ {};
