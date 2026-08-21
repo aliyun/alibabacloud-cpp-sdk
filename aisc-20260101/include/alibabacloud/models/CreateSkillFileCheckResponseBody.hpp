@@ -122,7 +122,7 @@ namespace Models
 
 
       protected:
-        // The error message returned when the file fails to be uploaded.
+        // The error message returned when the file upload fails.
         shared_ptr<string> errorMsg_ {};
         // The SHA256 value of the uploaded file.
         shared_ptr<string> fileHash_ {};
@@ -171,9 +171,9 @@ namespace Models
     protected:
       // The number of files that failed to be uploaded.
       shared_ptr<int32_t> failCount_ {};
-      // The ID of the root task returned after the task is submitted.
+      // The root task ID returned after the task is submitted.
       shared_ptr<string> rootTaskId_ {};
-      // The number of files that are uploaded.
+      // The number of files that are uploaded successfully.
       shared_ptr<int32_t> successCount_ {};
       // The upload results.
       shared_ptr<vector<Data::UploadResults>> uploadResults_ {};

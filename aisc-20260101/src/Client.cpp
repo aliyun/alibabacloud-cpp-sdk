@@ -76,6 +76,10 @@ CreateSkillFileCheckResponse Client::createSkillFileCheckWithOptions(const Creat
     query["Files"] = request.getFiles();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -148,6 +152,14 @@ ListAIAgentEventResponse Client::listAIAgentEventWithOptions(const ListAIAgentEv
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasPageSize()) {

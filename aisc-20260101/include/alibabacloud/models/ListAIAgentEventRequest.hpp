@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InfraName, infraName_);
       DARABONBA_PTR_TO_JSON(InfraRegionId, infraRegionId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(Order, order_);
+      DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(RiskName, riskName_);
@@ -41,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InfraName, infraName_);
       DARABONBA_PTR_FROM_JSON(InfraRegionId, infraRegionId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(Order, order_);
+      DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(RiskName, riskName_);
@@ -62,8 +66,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && this->appName_ == nullptr && this->assetName_ == nullptr && this->assetType_ == nullptr && this->currentPage_ == nullptr && this->infraInstanceId_ == nullptr
-        && this->infraName_ == nullptr && this->infraRegionId_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->riskLevel_ == nullptr
-        && this->riskName_ == nullptr && this->source_ == nullptr && this->status_ == nullptr && this->statusList_ == nullptr && this->vendor_ == nullptr; };
+        && this->infraName_ == nullptr && this->infraRegionId_ == nullptr && this->lang_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr
+        && this->pageSize_ == nullptr && this->riskLevel_ == nullptr && this->riskName_ == nullptr && this->source_ == nullptr && this->status_ == nullptr
+        && this->statusList_ == nullptr && this->vendor_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -125,6 +130,20 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ListAIAgentEventRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // order Field Functions 
+    bool hasOrder() const { return this->order_ != nullptr;};
+    void deleteOrder() { this->order_ = nullptr;};
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline ListAIAgentEventRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
+
+
+    // orderBy Field Functions 
+    bool hasOrderBy() const { return this->orderBy_ != nullptr;};
+    void deleteOrderBy() { this->orderBy_ = nullptr;};
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline ListAIAgentEventRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageSize Field Functions 
@@ -208,6 +227,10 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    // Sort direction
+    shared_ptr<string> order_ {};
+    // Sort field, currently supports CheckTime
+    shared_ptr<string> orderBy_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The risk level of the check item to query. Valid values:

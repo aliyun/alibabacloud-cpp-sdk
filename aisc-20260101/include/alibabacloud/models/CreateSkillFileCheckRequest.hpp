@@ -15,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSkillFileCheckRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Files, files_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSkillFileCheckRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Files, files_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
     };
     CreateSkillFileCheckRequest() = default ;
     CreateSkillFileCheckRequest(const CreateSkillFileCheckRequest &) = default ;
@@ -35,10 +37,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Files& obj) { 
         DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
+        DARABONBA_PTR_TO_JSON(UploadKey, uploadKey_);
       };
       friend void from_json(const Darabonba::Json& j, Files& obj) { 
         DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
+        DARABONBA_PTR_FROM_JSON(UploadKey, uploadKey_);
       };
       Files() = default ;
       Files(const Files &) = default ;
@@ -52,7 +56,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->downloadUrl_ == nullptr
-        && this->fileName_ == nullptr; };
+        && this->fileName_ == nullptr && this->uploadKey_ == nullptr; };
       // downloadUrl Field Functions 
       bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
       void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
@@ -67,14 +71,24 @@ namespace Models
       inline Files& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
+      // uploadKey Field Functions 
+      bool hasUploadKey() const { return this->uploadKey_ != nullptr;};
+      void deleteUploadKey() { this->uploadKey_ = nullptr;};
+      inline string getUploadKey() const { DARABONBA_PTR_GET_DEFAULT(uploadKey_, "") };
+      inline Files& setUploadKey(string uploadKey) { DARABONBA_PTR_SET_VALUE(uploadKey_, uploadKey) };
+
+
     protected:
       // The public URL for downloading the file. The downloaded file must be a compressed package in tar.gz or zip format.
       shared_ptr<string> downloadUrl_ {};
-      // The file name. If this parameter is not specified, the file name is parsed from DownloadUrl.
+      // The file name. If not specified, the file name is parsed from DownloadUrl.
       shared_ptr<string> fileName_ {};
+      // The tenant-isolated OSS temporary object key returned by GenerateSkillOssUploadCredential. Specify either this parameter or DownloadUrl.
+      shared_ptr<string> uploadKey_ {};
     };
 
-    virtual bool empty() const override { return this->files_ == nullptr; };
+    virtual bool empty() const override { return this->files_ == nullptr
+        && this->source_ == nullptr; };
     // files Field Functions 
     bool hasFiles() const { return this->files_ != nullptr;};
     void deleteFiles() { this->files_ = nullptr;};
@@ -84,9 +98,18 @@ namespace Models
     inline CreateSkillFileCheckRequest& setFiles(vector<CreateSkillFileCheckRequest::Files> && files) { DARABONBA_PTR_SET_RVALUE(files_, files) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline CreateSkillFileCheckRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
   protected:
     // The file information.
     shared_ptr<vector<CreateSkillFileCheckRequest::Files>> files_ {};
+    // The upload source. If left empty, the default value is user_upload. Use sec_ops_agent for the security operations agent.
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models
