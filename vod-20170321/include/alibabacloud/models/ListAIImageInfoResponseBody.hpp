@@ -125,21 +125,21 @@ namespace Models
 
 
     protected:
-      // The ID of the image information.
+      // The ID of the image data information.
       shared_ptr<string> AIImageInfoId_ {};
-      // The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the data was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The URL of the image file.
+      // The URL of the AI image file.
       shared_ptr<string> fileURL_ {};
-      // The format of the image. Valid values: **gif** and **png**.
+      // The image format. Valid values: **gif** and **png**.
       shared_ptr<string> format_ {};
-      // The ID of the image AI processing job.
+      // The ID of the AI image processing job.
       shared_ptr<string> jobId_ {};
-      // The score of the image.
+      // The image score.
       shared_ptr<string> score_ {};
       // The data version ID.
       shared_ptr<string> version_ {};
-      // The ID of the video.
+      // The video ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -162,9 +162,9 @@ namespace Models
 
 
   protected:
-    // The image files that are uploaded for AI processing.
+    // The list of AI image files.
     shared_ptr<vector<ListAIImageInfoResponseBody::AIImageInfoList>> AIImageInfoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the transcoding template group.
+    // The transcoding template group ID.
     // 
     // This parameter is required.
     shared_ptr<string> transcodeTemplateGroupId_ {};

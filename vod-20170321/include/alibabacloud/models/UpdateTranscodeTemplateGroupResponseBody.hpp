@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the transcoding template group.
     shared_ptr<string> transcodeTemplateGroupId_ {};

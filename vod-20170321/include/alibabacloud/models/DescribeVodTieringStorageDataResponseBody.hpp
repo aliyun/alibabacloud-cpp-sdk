@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The data that is stored less than a month. Unit: bytes.
+      // The size of data stored for less than one month. Unit: bytes.
       shared_ptr<int64_t> lessthanMonthDatasize_ {};
-      // The region in which data is queried.
+      // The storage region.
       shared_ptr<string> region_ {};
-      // The storage type.
+      // The storage class.
       shared_ptr<string> storageClass_ {};
       // The storage usage. Unit: bytes.
       shared_ptr<int64_t> storageUtilization_ {};
-      // The timestamp of the data returned. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start time of the time interval. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The storage usage data returned.
+    // The storage usage data.
     shared_ptr<vector<DescribeVodTieringStorageDataResponseBody::StorageData>> storageData_ {};
   };
 

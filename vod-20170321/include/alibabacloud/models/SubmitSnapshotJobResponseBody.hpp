@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the snapshot job.
+      // The snapshot job ID.
       shared_ptr<string> jobId_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the snapshot job.
+    // The snapshot job information.
     shared_ptr<SubmitSnapshotJobResponseBody::SnapshotJob> snapshotJob_ {};
   };
 

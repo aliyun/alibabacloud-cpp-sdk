@@ -57,7 +57,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query healthy VIPs. Valid values:
+    // 
+    // - **on**: Healthy VIPs.
+    // - **off**: All VIPs.
     shared_ptr<string> available_ {};
+    // The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};

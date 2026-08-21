@@ -143,36 +143,33 @@ namespace Models
 
 
     protected:
-      // The Object Storage Service (OSS) URL of the image file.
-      // 
-      // > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImageInfo](~~ListAIImageInfo~~) operation to obtain the image information.
+      // The OSS URL of the AI image.
+      // >This is the task result. The URL does not contain complete authentication information. To obtain authentication information, generate it yourself or call the [ListAIImage](https://help.aliyun.com/document_detail/186924.html) operation to retrieve the media asset result.
       shared_ptr<string> AIImageResult_ {};
       // The error code.
       shared_ptr<string> code_ {};
-      // The time when the image AI processing job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the AI image processing task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The ID of the image AI processing job.
+      // The ID of the AI image processing task.
       shared_ptr<string> jobId_ {};
       // The error message.
       shared_ptr<string> message_ {};
-      // The status of the job. Valid values:
-      // 
-      // *   **success**
-      // *   **fail**
+      // The task status. Valid values:
+      // - **success**: The task is successful.
+      // - **fail**: The task failed.
       shared_ptr<string> status_ {};
-      // The configurations of the AI template that was used to submit the job.
+      // The snapshot of the configuration information of the specified template when the task was submitted.
       shared_ptr<string> templateConfig_ {};
-      // The ID of the AI template.
+      // The AI template ID.
       shared_ptr<string> templateId_ {};
-      // The user data.
+      // The custom settings.
+      // - The value must be a JSON string.
+      // - The value must contain the MessageCallback or Extend parameter.
+      // - The maximum length is 512 bytes.
       // 
-      // *   The value must be a JSON string.
-      // *   The MessageCallback or Extend parameter is returned.
-      // *   The value contains a maximum of 512 bytes.
-      // 
-      // For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
+      // For more information about the parameter structure, see [UserData](https://help.aliyun.com/document_detail/86952.html).
       shared_ptr<string> userData_ {};
-      // The ID of the video.
+      // The video ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -195,9 +192,9 @@ namespace Models
 
 
   protected:
-    // The image AI processing jobs.
+    // The list of AI image processing tasks.
     shared_ptr<vector<GetAIImageJobsResponseBody::AIImageJobList>> AIImageJobList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

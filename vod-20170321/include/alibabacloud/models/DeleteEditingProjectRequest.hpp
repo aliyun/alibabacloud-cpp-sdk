@@ -77,7 +77,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the online editing project. Separate multiple IDs with commas (,).
+    // The online editing project IDs. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> projectIds_ {};

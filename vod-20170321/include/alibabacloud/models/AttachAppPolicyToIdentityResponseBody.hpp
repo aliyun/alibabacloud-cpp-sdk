@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The names of the policies that failed to be granted to the RAM user or RAM role.
+    // The policy names that failed to be attached.
     shared_ptr<vector<string>> failedPolicyNames_ {};
-    // The names of the policies that were not found.
+    // The list of policy names that do not exist.
     shared_ptr<vector<string>> nonExistPolicyNames_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The IDs of the media files that cannot be operated on. In most cases, media files cannot be operated on because you are not authorized to perform the operations. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+    // The list of audio or video IDs that are forbidden. This is typically because you do not have multi-application permissions. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> forbiddenMediaIds_ {};
     // The ID of the refresh or prefetch task.
     shared_ptr<string> mediaRefreshJobId_ {};
-    // The IDs of the media files that do not exist.
+    // The list of audio or video IDs that do not exist.
     shared_ptr<string> nonExistMediaIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

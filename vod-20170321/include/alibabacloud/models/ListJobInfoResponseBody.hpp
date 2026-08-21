@@ -101,15 +101,15 @@ namespace Models
 
 
     protected:
-      // The time when the task was complete.
+      // The time when the task was completed.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
       shared_ptr<string> createTime_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The status of the task.
+      // The task status.
       shared_ptr<string> status_ {};
-      // The ID of the user who submitted the task.
+      // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -146,15 +146,17 @@ namespace Models
 
 
   protected:
-    // The historical tasks of the last 6 months.
+    // The historical task list within the last 6 months.
     shared_ptr<vector<ListJobInfoResponseBody::JobInfoList>> jobInfoList_ {};
-    // The type of the task. Valid values:
+    // The task type. Valid values:
     // 
-    // *   transcode
-    // *   snapshot
-    // *   ai
+    // - transcode
+    // 
+    // - snapshot
+    // 
+    // - ai
     shared_ptr<string> jobType_ {};
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

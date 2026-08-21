@@ -181,9 +181,9 @@ namespace Models
   protected:
     shared_ptr<RestoreMediaResponseBody::ForbiddenList> forbiddenList_ {};
     shared_ptr<RestoreMediaResponseBody::IgnoredList> ignoredList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

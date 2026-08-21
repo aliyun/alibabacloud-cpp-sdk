@@ -38,10 +38,9 @@ namespace Models
 
 
   protected:
-    // The IDs of applications. You can obtain application IDs from the response to the [CreateAppInfo](https://help.aliyun.com/document_detail/113266.html) or [ListAppInfo](https://help.aliyun.com/document_detail/114000.html) operation.
-    // 
-    // *   You can specify a maximum of 10 application IDs.
-    // *   Separate application IDs with commas (,).
+    // The list of application IDs. The list consists of one or more application IDs. An application ID is the value of the AppId parameter returned by the [CreateAppInfo](https://help.aliyun.com/document_detail/113266.html) or [GetAppInfos](https://help.aliyun.com/document_detail/114000.html) operation.
+    // - A maximum of 10 IDs are supported.
+    // - Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> appIds_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The key file for secure download.
+    // The generated secure download key.
     shared_ptr<string> appEncryptKey_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

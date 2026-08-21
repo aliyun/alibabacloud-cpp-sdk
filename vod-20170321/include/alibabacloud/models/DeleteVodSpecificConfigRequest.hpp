@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration.
+    // The configuration ID.
     // 
     // This parameter is required.
     shared_ptr<string> configId_ {};
-    // The accelerated domain name.
+    // The accelerated domain name for ApsaraVideo VOD.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The environment from which the domain name configurations are deleted. Valid values:
-    // 
-    // *   online: production environment
-    // *   gray: simulation environment
+    // The environment from which you want to delete the configuration. Valid values:
+    // - online: production environment
+    // - gray: canary release environment
     shared_ptr<string> env_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};

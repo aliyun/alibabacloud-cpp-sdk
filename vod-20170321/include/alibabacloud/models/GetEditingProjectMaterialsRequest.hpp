@@ -94,27 +94,26 @@ namespace Models
 
 
   protected:
-    // The type of the material. Valid values:
+    // The material type. Valid values:
     // 
-    // *   **video**
-    // *   **audio**
-    // *   **image**
+    // - **video**: video
+    // - **audio**: audio-only
+    // - **image**: image
     shared_ptr<string> materialType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the online editing project. You can use one of the following methods to obtain the ID of the online editing project:
-    // 
-    // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Production Center** > **Video Editing** to obtain the ID of the specified online editing project.
-    // *   Call the **AddEditingProject** operation. The value of the response parameter ProjectId is the ID of the specified online editing project.
+    // The online editing project ID. You can obtain the ID by using one of the following methods:
+    // - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Production Center** > **Video Editing** to view the ID.
+    // - Obtain the value of the ProjectId response parameter when you create a project by calling the **CreateEditingProject** operation.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<string> resourceOwnerId_ {};
-    // The type of the material. Valid values:
+    // The material type. Valid values:
     // 
-    // *   **video**
-    // *   **audio**
+    // - **video**: video
+    // - **audio**: audio-only
     shared_ptr<string> type_ {};
   };
 

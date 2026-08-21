@@ -204,7 +204,7 @@ namespace Models
 
 
         protected:
-          // The start time and duration of the matched video.
+          // The start time and duration of the video in the library.
           shared_ptr<Detail::Duplication> duplication_ {};
           // The start time and duration of the input video.
           shared_ptr<Detail::Input> input_ {};
@@ -236,11 +236,11 @@ namespace Models
 
 
       protected:
-        // The details of the matched video. Information such as the location and duration of the video is returned.
+        // The details of the similar video, including the position and duration.
         shared_ptr<vector<VideoDNA::Detail>> detail_ {};
-        // The ID of the video that has a similar fingerprint.
+        // The ID of the similar video.
         shared_ptr<string> primaryKey_ {};
-        // The similarity between the fingerprints of the input video and the matched video. 1 indicates that the fingerprints of the two videos are the same.
+        // The similarity of the video. A similarity value of 1 indicates 100% similarity.
         shared_ptr<string> similarity_ {};
       };
 
@@ -255,7 +255,7 @@ namespace Models
 
 
     protected:
-      // The video fingerprint recognition result.
+      // The media fingerprint recognition results.
       shared_ptr<vector<DNAResult::VideoDNA>> videoDNA_ {};
     };
 
@@ -278,9 +278,9 @@ namespace Models
 
 
   protected:
-    // The media fingerprinting results.
+    // The media fingerprint result.
     shared_ptr<GetMediaDNAResultResponseBody::DNAResult> DNAResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

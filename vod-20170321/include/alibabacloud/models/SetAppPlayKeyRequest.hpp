@@ -75,8 +75,12 @@ namespace Models
 
 
   protected:
+    // The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The playback key.
+    // - Only uppercase letters, lowercase letters, and digits are supported. The length must be 8 to 20 characters.
+    // - UTF-8 encoding.
     shared_ptr<string> playKey_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

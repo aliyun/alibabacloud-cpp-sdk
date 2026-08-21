@@ -222,39 +222,39 @@ namespace Models
 
 
       protected:
-        // The average bitrate of the output video. Unit: Kbit/s.
+        // The average bitrate of the transcoded video output. Unit: Kbps.
         shared_ptr<string> bitrate_ {};
-        // The time when the transcoding job was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the transcoding job was complete. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
         shared_ptr<string> completeTime_ {};
-        // The time when the transcoding job was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
         shared_ptr<string> creationTime_ {};
-        // The duration of the output video. Unit: seconds.
+        // The duration of the transcoded video output. Unit: seconds.
         shared_ptr<string> duration_ {};
         // The error code returned when the transcoding job failed.
         shared_ptr<string> errorCode_ {};
         // The error message returned when the transcoding job failed.
         shared_ptr<string> errorMessage_ {};
-        // The size of the output video. Unit: bytes.
+        // The file size of the transcoded video output. Unit: bytes.
         shared_ptr<int64_t> filesize_ {};
-        // The container format of the output video.
+        // The container format of the transcoded video output.
         shared_ptr<string> format_ {};
-        // The frame rate of the output video. Unit: frames per second.
+        // The frame rate of the transcoded video output. Unit: frames per second.
         shared_ptr<string> fps_ {};
-        // The height of the output video. Unit: pixels.
+        // The height of the transcoded video output. Unit: px.
         shared_ptr<string> height_ {};
         // The status of the transcoding job. Valid values:
         // 
-        // *   **Transcoding**: Transcoding is in process.
-        // *   **TranscodeSuccess**: The job was successful.
-        // *   **TranscodeFail**: The job failed.
+        // - **Transcoding**: The transcoding job is in progress.
+        // - **TranscodeSuccess**: The transcoding job is successful.
+        // - **TranscodeFail**: The transcoding job failed.
         shared_ptr<string> transcodeJobStatus_ {};
-        // The transcoding progress. Valid values: `[0,100]`.
+        // The transcoding progress. Value range: `[0,100]`.
         shared_ptr<int64_t> transcodeProgress_ {};
-        // The ID of the transcoding template.
+        // The ID of the transcoding template used.
         shared_ptr<string> transcodeTemplateId_ {};
-        // The IDs of the watermarks that are applied to the output video.
+        // The list of watermarks used for transcoding.
         shared_ptr<vector<string>> watermarkIdList_ {};
-        // The width of the output video. Unit: pixels.
+        // The width of the transcoded video output. Unit: px.
         shared_ptr<string> width_ {};
       };
 
@@ -305,23 +305,23 @@ namespace Models
 
 
     protected:
-      // The time when the transcoding task was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the transcoding task was complete. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> completeTime_ {};
-      // The time when the transcoding task was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the transcoding task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The summaries of transcoding jobs.
+      // The list of transcoding job summaries.
       shared_ptr<vector<TranscodeSummaryList::TranscodeJobInfoSummaryList>> transcodeJobInfoSummaryList_ {};
-      // The status of the transcoding task. Valid values:
+      // The transcoding status. Valid values:
       // 
-      // *   **Processing**: Transcoding is in process.
-      // *   **Partial**: Some transcoding jobs were complete.
-      // *   **CompleteAllSucc**: All transcoding jobs were successful.
-      // *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
-      // *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
+      // - **Processing**: The transcoding task is in progress.
+      // - **Partial**: The transcoding task is partially complete.
+      // - **CompleteAllSucc**: All transcoding jobs are complete and successful.
+      // - **CompleteAllFail**: All transcoding jobs are complete but all failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
+      // - **CompletePartialSucc**: All transcoding jobs are complete but only some are successful.
       shared_ptr<string> transcodeStatus_ {};
-      // The ID of the transcoding template group.
+      // The ID of the transcoding template group used for transcoding.
       shared_ptr<string> transcodeTemplateGroupId_ {};
-      // The ID of the audio or video file.
+      // The audio or video ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -353,11 +353,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the audio or video files that do not exist.
+    // The IDs of audio or video files that do not exist.
     shared_ptr<vector<string>> nonExistVideoIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The transcoding summary of the file.
+    // The video transcoding summary list of audio or video files.
     shared_ptr<vector<GetTranscodeSummaryResponseBody::TranscodeSummaryList>> transcodeSummaryList_ {};
   };
 

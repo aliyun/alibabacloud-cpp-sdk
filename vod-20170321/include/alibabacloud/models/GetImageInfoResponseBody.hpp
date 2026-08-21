@@ -139,15 +139,15 @@ namespace Models
 
 
       protected:
-        // The size of the image. Unit: bytes.
+        // The file size. Unit: bytes.
         shared_ptr<string> fileSize_ {};
         // The OSS URL of the image file.
         shared_ptr<string> fileURL_ {};
-        // The height of the image. Unit: pixels.
+        // The image height. Unit: pixel.
         shared_ptr<int32_t> height_ {};
-        // The URL of the source file.
+        // The address of the uploaded source image file.
         shared_ptr<string> originalFileName_ {};
-        // The width of the image. Unit: pixels.
+        // The image width. Unit: pixel.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -249,41 +249,38 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the category.
+      // The category ID.
       shared_ptr<int64_t> cateId_ {};
-      // The name of the category.
+      // The category name.
       shared_ptr<string> cateName_ {};
-      // The time when the image was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the image was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The description of the image.
+      // The image description.
       shared_ptr<string> description_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The type of the image. Valid values:
+      // The image type. Valid values:
       // 
-      // *   **CoverSnapshot**: thumbnail snapshot.
-      // *   **NormalSnapshot**: normal snapshot.
-      // *   **SpriteSnapshot**: sprite snapshot.
-      // *   **SpriteOriginSnapshot**: sprite source snapshot.
-      // *   **All**: images of all the preceding types. Multiple types other than All can return for this parameter. Multiple types are separated by commas (,).
+      // - **default**: regular image.
+      // - **cover**: video thumbnail.
       shared_ptr<string> imageType_ {};
-      // The source information about the image.
+      // The mezzanine information of the image.
       shared_ptr<ImageInfo::Mezzanine> mezzanine_ {};
-      // The status of the image. Valid values:
+      // The image status. Valid values:
       // 
-      // *   **Uploading**: The image is being uploaded. This is the initial status.
-      // *   **Normal**: The image is uploaded.
-      // *   **UploadFail**: The image fails to be uploaded.
+      // - **Uploading**: The image is being uploaded. This is the initial status.
+      // - **Normal**: The image is uploaded.
+      // - **UploadFail**: The image failed to be uploaded.
       shared_ptr<string> status_ {};
-      // The bucket in which the image is stored.
+      // The storage address of the image file.
       shared_ptr<string> storageLocation_ {};
-      // The tags of the image. Multiple tags are separated by commas (,).
+      // The image tags. Multiple tags are separated by commas (,).
       shared_ptr<string> tags_ {};
-      // The title of the image.
+      // The image title.
       shared_ptr<string> title_ {};
-      // The image URL. If a domain name for CDN is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+      // The image access URL. If a CDN domain name is configured, the CDN URL is returned. Otherwise, the OSS URL is returned.
       shared_ptr<string> URL_ {};
     };
 
@@ -306,9 +303,9 @@ namespace Models
 
 
   protected:
-    // The information about the image.
+    // The image information.
     shared_ptr<GetImageInfoResponseBody::ImageInfo> imageInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -319,6 +319,9 @@
 #include <alibabacloud/models/GetJobDetailRequest.hpp>
 #include <alibabacloud/models/GetJobDetailResponseBody.hpp>
 #include <alibabacloud/models/GetJobDetailResponse.hpp>
+#include <alibabacloud/models/GetMediaAiAnalysisRequest.hpp>
+#include <alibabacloud/models/GetMediaAiAnalysisResponseBody.hpp>
+#include <alibabacloud/models/GetMediaAiAnalysisResponse.hpp>
 #include <alibabacloud/models/GetMediaAuditAudioResultDetailRequest.hpp>
 #include <alibabacloud/models/GetMediaAuditAudioResultDetailResponseBody.hpp>
 #include <alibabacloud/models/GetMediaAuditAudioResultDetailResponse.hpp>
@@ -379,6 +382,9 @@
 #include <alibabacloud/models/GetWatermarkRequest.hpp>
 #include <alibabacloud/models/GetWatermarkResponseBody.hpp>
 #include <alibabacloud/models/GetWatermarkResponse.hpp>
+#include <alibabacloud/models/GetWorkflowTaskRequest.hpp>
+#include <alibabacloud/models/GetWorkflowTaskResponseBody.hpp>
+#include <alibabacloud/models/GetWorkflowTaskResponse.hpp>
 #include <alibabacloud/models/ListAIImageInfoRequest.hpp>
 #include <alibabacloud/models/ListAIImageInfoResponseBody.hpp>
 #include <alibabacloud/models/ListAIImageInfoResponse.hpp>

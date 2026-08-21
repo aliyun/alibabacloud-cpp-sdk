@@ -217,11 +217,11 @@ namespace Models
 
     protected:
       shared_ptr<CertificateListModel::CertList> certList_ {};
-      // The number of certificates that are returned.
+      // The number of certificates.
       shared_ptr<int32_t> count_ {};
-      // The page number. Pages start from page 1. Default value: 1.
+      // The current page number. The start value is 1. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page. Valid values: integers from 1 to 1000.
+      // The page size. Valid values: any integer from 1 to 1000.
       shared_ptr<int64_t> pageSize_ {};
     };
 
@@ -244,9 +244,9 @@ namespace Models
 
 
   protected:
-    // The information about certificates.
+    // The certificate list information.
     shared_ptr<DescribeVodSSLCertificateListResponseBody::CertificateListModel> certificateListModel_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

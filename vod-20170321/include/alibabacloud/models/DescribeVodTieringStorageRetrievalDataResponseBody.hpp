@@ -116,19 +116,19 @@ namespace Models
 
 
     protected:
-      // The retrieved Cold Archive data in the bulk mode.
+      // The Cold Archive bulk retrieval data.
       shared_ptr<int64_t> CABulkRetrievalData_ {};
-      // The retrieved Cold Archive data in the expedited mode.
+      // The Cold Archive high-priority retrieval data.
       shared_ptr<int64_t> CAHighPriorRetrievalData_ {};
-      // The retrieved Cold Archive data in the standard mode.
+      // The Cold Archive standard retrieval data.
       shared_ptr<int64_t> CAStdRetrievalData_ {};
       // The storage region.
       shared_ptr<string> region_ {};
-      // The data retrieval information.
+      // The retrieval data.
       shared_ptr<int64_t> retrievalData_ {};
-      // The storage type.
+      // The media asset storage class.
       shared_ptr<string> storageClass_ {};
-      // The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start time of the time interval. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The data retrieval information.
+    // The retrieval data.
     shared_ptr<vector<DescribeVodTieringStorageRetrievalDataResponseBody::RetrievalData>> retrievalData_ {};
   };
 

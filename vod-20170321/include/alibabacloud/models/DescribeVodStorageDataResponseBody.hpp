@@ -145,12 +145,12 @@ namespace Models
 
 
   protected:
-    // The time granularity at which the data was queried. Valid values:
+    // The time granularity of the returned data. Valid values:
     // 
-    // *   **hour**
-    // *   **day**
+    // - **hour**: hourly data.
+    // - **day**: daily data.
     shared_ptr<string> dataInterval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeVodStorageDataResponseBody::StorageData> storageData_ {};
   };

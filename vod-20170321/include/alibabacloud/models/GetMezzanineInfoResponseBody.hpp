@@ -329,31 +329,31 @@ namespace Models
       protected:
         // The average frame rate.
         shared_ptr<string> avgFPS_ {};
-        // The bitrate. Unit: Kbit/s.
+        // The file bitrate. Unit: Kbps.
         shared_ptr<string> bitrate_ {};
-        // The full name of the encoding format.
+        // The full name of the codec.
         shared_ptr<string> codecLongName_ {};
-        // The short name of the encoding format.
+        // The short name of the codec.
         shared_ptr<string> codecName_ {};
-        // The tag of the encoding format.
+        // The codec tag.
         shared_ptr<string> codecTag_ {};
-        // The tag string of the encoding format.
+        // The codec tag string.
         shared_ptr<string> codecTagString_ {};
         // The codec time base.
         shared_ptr<string> codecTimeBase_ {};
-        // The display aspect ratio (DAR) of the video stream.
+        // The display aspect ratio.
         shared_ptr<string> dar_ {};
-        // The duration of the audio file.
+        // The duration.
         shared_ptr<string> duration_ {};
-        // The frame rate of the output file.
+        // The target frame rate.
         shared_ptr<string> fps_ {};
         // The HDR type of the video stream.
         shared_ptr<string> HDRType_ {};
         // Indicates whether the video stream contains B-frames.
         shared_ptr<string> hasBFrames_ {};
-        // The height of the video stream.
+        // The height of the video resolution.
         shared_ptr<string> height_ {};
-        // The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+        // The sequence number of the video stream, which identifies the position of the video stream in the overall media stream.
         shared_ptr<string> index_ {};
         // The language.
         shared_ptr<string> lang_ {};
@@ -365,15 +365,15 @@ namespace Models
         shared_ptr<string> pixFmt_ {};
         // The codec profile.
         shared_ptr<string> profile_ {};
-        // The rotation angle of the video. Valid values: **[0,360)**.
+        // The video rotation angle. Value range: **[0, 360)**.
         shared_ptr<string> rotate_ {};
-        // The sample aspect ratio (SAR) of the video stream.
+        // The sample aspect ratio.
         shared_ptr<string> sar_ {};
-        // The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
         shared_ptr<string> startTime_ {};
-        // The time base of the audio stream.
+        // The time base.
         shared_ptr<string> timebase_ {};
-        // The width of the video in pixels.
+        // The width of the video resolution.
         shared_ptr<string> width_ {};
       };
 
@@ -545,38 +545,38 @@ namespace Models
       protected:
         // The bitrate.
         shared_ptr<string> bitrate_ {};
-        // The output layout of the sound channels. Valid values:
+        // The channel layout. Valid values:
         // 
-        // *   **mono**
-        // *   **stereo**
+        // - **mono**: mono.
+        // - **stereo**: stereo.
         shared_ptr<string> channelLayout_ {};
         // The number of sound channels.
         shared_ptr<string> channels_ {};
-        // The full name of the encoding format.
+        // The full name of the codec.
         shared_ptr<string> codecLongName_ {};
-        // The short name of the encoding format.
+        // The short name of the codec.
         shared_ptr<string> codecName_ {};
-        // The tag of the encoding format.
+        // The codec tag.
         shared_ptr<string> codecTag_ {};
-        // The tag string of the encoding format.
+        // The codec tag string.
         shared_ptr<string> codecTagString_ {};
         // The codec time base.
         shared_ptr<string> codecTimeBase_ {};
-        // The duration of the audio file.
+        // The duration.
         shared_ptr<string> duration_ {};
-        // The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+        // The sequence number of the audio stream, which identifies the position of the audio stream in the overall media stream.
         shared_ptr<string> index_ {};
         // The language.
         shared_ptr<string> lang_ {};
         // The total number of frames.
         shared_ptr<string> numFrames_ {};
-        // The sampling format.
+        // The sample format.
         shared_ptr<string> sampleFmt_ {};
-        // The sampling rate of the audio stream.
+        // The sample rate.
         shared_ptr<string> sampleRate_ {};
-        // The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
         shared_ptr<string> startTime_ {};
-        // The time base of the audio stream.
+        // The time base.
         shared_ptr<string> timebase_ {};
       };
 
@@ -723,66 +723,70 @@ namespace Models
 
 
     protected:
-      // The codec time base.
+      // The audio stream information.
       shared_ptr<vector<Mezzanine::AudioStreamList>> audioStreamList_ {};
-      // The bitrate of the file. Unit: Kbit/s.
+      // The file bitrate. Unit: Kbps.
       shared_ptr<string> bitrate_ {};
-      // The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the file was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The duration of the file. Unit: seconds.
+      // The file duration. Unit: seconds.
       shared_ptr<string> duration_ {};
       shared_ptr<string> fileMD5_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The URL of the file.
+      // The source file URL.
       shared_ptr<string> fileURL_ {};
-      // The frame rate of the file. Unit: frames per second.
+      // The file frame rate, in frames per second.
       shared_ptr<string> fps_ {};
-      // The height of the file. Unit: pixel.
+      // The file height. Unit: px.
       shared_ptr<int64_t> height_ {};
-      // The type of the mezzanine file URL. Valid values:
+      // The type of the output URL. Valid values:
       // 
-      // - **oss**: OSS URL
-      // - **cdn** (default): CDN URL
+      // - **oss**: back-to-origin URL.
+      // - **cdn** (default): CDN URL.
       // 
-      // > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
+      // > Only OSS URLs in the MP4 playback format are supported.
       shared_ptr<string> outputType_ {};
-      // The preprocess status od the media.
+      // The preprocessing status. Valid values:
+      // 
+      // - **UnPreprocess**: Not preprocessed.
+      // - **Preprocessing**: Being preprocessed.
+      // - **PreprocessSucceed**: Preprocessed.
+      // - **PreprocessFailed**: Failed to be preprocessed.
       shared_ptr<string> preprocessStatus_ {};
-      // The period of time in which the object remains in the restored state.
+      // The expiration time of the media asset restore.
       shared_ptr<string> restoreExpiration_ {};
-      // The restoration status of the audio or video file. Valid values:
-      // 
-      // *   **Processing**
-      // *   **Success**
-      // *   **Failed**
+      // The restore status of the media asset. Valid values:
+      // - **Processing**: Being restored.
+      // - **Success**: Restored.
+      // - **Failed**: Failed to be restored.
       shared_ptr<string> restoreStatus_ {};
-      // The size of the file. Unit: byte.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The status of the file. Valid values:
+      // The file status. Valid values:
       // 
-      // *   **Uploading**: The file is being uploaded. This is the initial status.
-      // *   **Normal**: The file is uploaded.
-      // *   **UploadFail**: The file fails to be uploaded.
-      // *   **Deleted**: The file is deleted.
+      // - **Uploading**: The file is being uploaded. This is the initial status.
+      // - **Normal**: The file is uploaded.
+      // - **UploadFail**: The file failed to be uploaded.
+      // - **Deleted**: The file is deleted.
       shared_ptr<string> status_ {};
-      // The storage class of the audio file. Valid values:
+      // The storage class of the media asset. Valid values:
       // 
-      // *   **Standard**: All media resources are stored as Standard objects.
-      // *   **IA**: All media resources are stored as IA objects.
-      // *   **Archive**: All media resources are stored as Archive objects.
-      // *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-      // *   **SourceIA**: Only the source files are IA objects.
-      // *   **SourceArchive**: Only the source files are Archive objects.
-      // *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-      // *   **Changing**: The storage class of the audio file is being changed.
-      // *   **SourceChanging**: The storage class of the source file is being changed.
+      // - **Standard**: Standard.
+      // - **IA**: Infrequent Access for media assets.
+      // - **Archive**: Archive for media assets.
+      // - **ColdArchive**: Cold Archive for media assets.
+      // - **SourceIA**: Infrequent Access for source files.
+      // - **SourceArchive**: Archive for source files.
+      // - **SourceColdArchive**: Cold Archive for source files.
+      // - **Changing**: The storage class of the media asset is being changed.
+      // - **SourceChanging**: The storage class of the source file is being changed.
       shared_ptr<string> storageClass_ {};
-      // The ID of the video.
+      // The video ID.
       shared_ptr<string> videoId_ {};
-      // The HDR type of the video stream.
+      // The video stream information.
       shared_ptr<vector<Mezzanine::VideoStreamList>> videoStreamList_ {};
-      // The width of the file. Unit: pixel.
+      // The file width. Unit: px.
       shared_ptr<int64_t> width_ {};
     };
 
@@ -805,9 +809,9 @@ namespace Models
 
 
   protected:
-    // The information about the source file.
+    // The file information.
     shared_ptr<GetMezzanineInfoResponseBody::Mezzanine> mezzanine_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

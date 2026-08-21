@@ -103,24 +103,24 @@ namespace Models
 
 
   protected:
-    // The name of the application that was used to record the live stream.
+    // The name of the application used during recording.
     shared_ptr<string> appName_ {};
-    // The domain name of the recorded live stream.
+    // The domain name used during recording.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The query is performed based on the time range during which the required live streams were recorded. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time of the recording operation (when the live stream recording begins). The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> endTime_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+    // The number of entries per page. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The sorting rule of the results. Valid values:
+    // The sorting method for results. Valid values:
     // 
-    // *   **CreationTime:Desc**: The results are sorted in reverse chronological order based on the creation time.
-    // *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
+    // - **CreationTime:Desc** (default): sorted by creation time in descending order.
+    // - **CreationTime:Asc**: sorted by creation time in ascending order.
     shared_ptr<string> sortBy_ {};
-    // The beginning of the time range to query. The query is performed based on the time range during which the required live streams were recorded. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time of the recording operation (when the live stream recording begins). Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> startTime_ {};
-    // The name of the recorded live stream.
+    // The name of the live stream used during recording.
     shared_ptr<string> streamName_ {};
   };
 

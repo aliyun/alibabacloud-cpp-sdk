@@ -75,12 +75,41 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The dimension type. Valid values:
+    // 
+    // - Os: operating system.
+    // - AppVersion: application version.
+    // - SdkVersion: SDK version.
+    // - Codec: codec.
+    // - VideoType: video format.
+    // - Network: network type.
+    // - Isp: Internet service provider.
+    // - VideoDefinition: resolution.
+    // - Domain: domain name.
+    // - Country: country.
+    // - Province: province.
+    // - ErrorCode: error code.
+    // - IsHw: whether hardware decoding is used.
+    // 
     // This parameter is required.
     shared_ptr<string> dimension_ {};
+    // The end time of the query. Specify the time in the yyyy-mm-ddthh:mm:ssz format (UTC).
     shared_ptr<string> endTime_ {};
+    // The region filter used when querying the Province or Isp dimension metadata. Valid values:
+    // 
+    // - ALL (default): all regions.
+    // - CN: China.
+    // - OVERSEAS: outside China.
     shared_ptr<string> region_ {};
+    // The start time of the query. Specify the time in the <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z format (UTC).
+    // > 
+    // > - Playback data from the last year is supported.
+    // > - The time range for a single query cannot exceed 31 days.
+    // > - The time interval is left-closed and right-open [StartTime, EndTime).
     shared_ptr<string> startTime_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of transcoding templates that were not found.
+    // The IDs of transcoding templates that do not exist when you delete transcoding templates by specifying template IDs.
     shared_ptr<vector<string>> nonExistTranscodeTemplateIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -124,30 +124,28 @@ namespace Models
 
 
     protected:
-      // The time when the AI template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the AI template was created. The time is displayed in ISO 8601 format in UTC. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the template is the default AI template. Valid values:
-      // 
-      // *   **Default**
-      // *   **NotDefault**
+      // Indicates whether the AI template is the default template. Valid values:
+      // - **Default**: The template is the default template.
+      // - **NotDefault**: The template is not the default template.
       shared_ptr<string> isDefault_ {};
-      // The time when the AI template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the AI template was last modified. The time is displayed in ISO 8601 format in UTC. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
       shared_ptr<string> modifyTime_ {};
       // The source of the AI template. Valid values:
-      // 
-      // *   **System**
-      // *   **Custom**
+      // - **System**: system.
+      // - **Custom**: custom.
       shared_ptr<string> source_ {};
-      // The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
+      // The detailed configuration of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
       shared_ptr<string> templateConfig_ {};
-      // The ID of the AI template.
+      // The AI template ID.
       shared_ptr<string> templateId_ {};
       // The name of the AI template.
       shared_ptr<string> templateName_ {};
-      // The type of the AI template. Valid values:
+      // The templatetype of the AI template. Valid values:
       // 
-      // *   **AIMediaAudit**: automated review
-      // *   **AIImage**: smart thumbnail
+      // - **AIMediaAudit**: automated review.
+      // - **AIImage**: smart thumbnail.
       shared_ptr<string> templateType_ {};
     };
 
@@ -170,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The information about the AI template.
     shared_ptr<GetAITemplateResponseBody::TemplateInfo> templateInfo_ {};

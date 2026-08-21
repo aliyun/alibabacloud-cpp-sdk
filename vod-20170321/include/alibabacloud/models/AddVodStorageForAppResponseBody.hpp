@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The address of the VOD bucket.
+    // The storage address of the created VOD system bucket.
     shared_ptr<string> storageLocation_ {};
   };
 

@@ -124,10 +124,10 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<SubmitTranscodeJobsResponseBody::TranscodeJobs> transcodeJobs_ {};
-    // The ID of the transcoding task that was submitted.
+    // The ID of the submitted transcoding task.
     shared_ptr<string> transcodeTaskId_ {};
   };
 

@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The audio or video duration. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
+      // The region.
       shared_ptr<string> region_ {};
+      // The output specification.
       shared_ptr<string> specification_ {};
+      // The start time of the time interval. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The usage data.
     shared_ptr<vector<DescribeVodEditingUsageDataResponseBody::EditingData>> editingData_ {};
+    // The end of the time range to query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> endTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range to query. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

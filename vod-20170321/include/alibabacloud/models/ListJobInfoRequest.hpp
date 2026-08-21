@@ -48,15 +48,17 @@ namespace Models
 
 
   protected:
-    // The type of the task. Valid values:
+    // The task type. Valid values:
     // 
-    // *   transcode
-    // *   snapshot
-    // *   ai
+    // - transcode
+    // 
+    // - snapshot
+    // 
+    // - ai
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The ID of the media asset.
+    // The media asset ID.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};

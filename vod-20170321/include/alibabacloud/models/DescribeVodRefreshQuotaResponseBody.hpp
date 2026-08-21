@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The maximum number of Object Storage Service (OSS) buckets that can be refreshed each day.
+    // The maximum number of storage purge operations per day.
     shared_ptr<string> blockQuota_ {};
-    // The maximum number of directories of files that can be refreshed each day.
+    // The maximum number of directory purge operations per day.
     shared_ptr<string> dirQuota_ {};
-    // The remaining number of directories of files that can be refreshed on the current day.
+    // The remaining number of directory purge operations for the current day.
     shared_ptr<string> dirRemain_ {};
-    // The maximum number of URLs of files that can be prefetched each day.
+    // The maximum number of prefetch operations per day.
     shared_ptr<string> preloadQuota_ {};
-    // The remaining number of URLs of files that can be prefetched on the current day.
+    // The remaining number of prefetch operations for the current day.
     shared_ptr<string> preloadRemain_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The maximum number of URLs of files that can be refreshed each day.
+    // The maximum number of URL purge operations per day.
     shared_ptr<string> urlQuota_ {};
-    // The remaining number of URLs of files that can be refreshed on the current day.
+    // The remaining number of URL purge operations for the current day.
     shared_ptr<string> urlRemain_ {};
-    // The remaining number of OSS buckets that can be refreshed on the current day.
+    // The remaining number of storage purge operations for the current day.
     shared_ptr<string> blockRemain_ {};
   };
 

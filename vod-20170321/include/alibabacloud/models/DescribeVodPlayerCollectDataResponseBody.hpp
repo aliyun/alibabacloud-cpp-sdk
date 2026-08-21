@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The returned data metric.
       shared_ptr<string> metric_ {};
+      // The value of the returned data metric.
       shared_ptr<double> value_ {};
+      // The period-over-period percentage.
       shared_ptr<double> valueRatio_ {};
+      // The period-over-period value of the returned data metric.
       shared_ptr<double> valueRefer_ {};
     };
 
@@ -113,6 +117,7 @@ namespace Models
 
 
   protected:
+    // The returned data list.
     shared_ptr<vector<DescribeVodPlayerCollectDataResponseBody::DataList>> dataList_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

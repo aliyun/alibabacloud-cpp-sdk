@@ -146,9 +146,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval> bpsDataInterval_ {};
-    // The time interval between the entries returned. Unit: seconds.
+    // The time interval between each record, which is the time granularity of the data. Unit: seconds.
     shared_ptr<int32_t> dataInterval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

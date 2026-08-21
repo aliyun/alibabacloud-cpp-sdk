@@ -77,7 +77,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the online editing project.
+    // The online editing project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

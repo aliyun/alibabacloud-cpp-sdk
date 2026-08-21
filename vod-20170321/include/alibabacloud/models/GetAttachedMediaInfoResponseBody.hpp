@@ -131,11 +131,11 @@ namespace Models
 
 
       protected:
-        // The ID of the category.
+        // The category ID.
         shared_ptr<int64_t> cateId_ {};
-        // The name of the category.
+        // The category name.
         shared_ptr<string> cateName_ {};
-        // The level of the category.
+        // The category level.
         shared_ptr<int64_t> level_ {};
         // The ID of the parent category.
         shared_ptr<int64_t> parentId_ {};
@@ -232,43 +232,40 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The categories.
+      // The list of categories.
       shared_ptr<vector<AttachedMediaList::Categories>> categories_ {};
-      // The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the auxiliary media asset was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The description of the auxiliary media asset.
-      // 
-      // >  This parameter is returned only when a description is specified for the auxiliary media asset.
+      // The description.
+      // >This parameter is returned only if the auxiliary media asset has a description.
       shared_ptr<string> description_ {};
-      // The ID of the auxiliary media asset.
+      // The auxiliary media asset ID.
       shared_ptr<string> mediaId_ {};
-      // The time when the auxiliary media asset was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the auxiliary media asset was last updated. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modificationTime_ {};
       // The status of the auxiliary media asset. Valid values:
-      // 
-      // *   **Uploading**
-      // *   **Normal**
-      // *   **UploadFail**
+      // - **Uploading**: uploading.
+      // - **Normal**: Normal.
+      // - **UploadFail**: upload failed.
       shared_ptr<string> status_ {};
       // The storage address of the auxiliary media asset.
       shared_ptr<string> storageLocation_ {};
-      // The tags of the auxiliary media asset.
-      // 
-      // >  This parameter is returned only when tags are specified for the auxiliary media asset.
+      // The tags.
+      // >This parameter is returned only if the auxiliary media asset has tag information.
       shared_ptr<string> tags_ {};
-      // The title of the auxiliary media asset.
+      // The title.
       shared_ptr<string> title_ {};
-      // The type of the auxiliary media asset.
+      // The type of the auxiliary media asset. Valid values:
       // 
-      // *   **watermark**
-      // *   **subtitle**
-      // *   **material**
+      // - **watermark**: watermark.
+      // - **subtitle**: subtitle.
+      // - **material**: material.
       shared_ptr<string> type_ {};
-      // The URL of the auxiliary media asset.
+      // The access URL of the auxiliary media asset.
       // 
-      // >  If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+      // > If a CDN domain name is configured in ApsaraVideo VOD, the CDN URL is returned. Otherwise, the OSS URL is returned.
       shared_ptr<string> URL_ {};
     };
 
@@ -300,11 +297,11 @@ namespace Models
 
 
   protected:
-    // The information about the media assets.
+    // The information about the auxiliary media assets.
     shared_ptr<vector<GetAttachedMediaInfoResponseBody::AttachedMediaList>> attachedMediaList_ {};
     // The IDs of the auxiliary media assets that do not exist.
     shared_ptr<vector<string>> nonExistMediaIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,10 +38,9 @@ namespace Models
 
 
   protected:
-    // The type of the AI template. Valid values:
-    // 
-    // *   **AIMediaAudit**: automated review
-    // *   **AIImage**: smart thumbnail
+    // The templatetype of the AI template. Valid values:
+    // - **AIMediaAudit**: automated review.
+    // - **AIImage**: smart thumbnail.
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};

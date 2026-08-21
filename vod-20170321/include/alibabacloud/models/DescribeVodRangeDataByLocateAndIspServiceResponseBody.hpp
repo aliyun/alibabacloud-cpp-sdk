@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The returned result. The value is in the JSON format. These parameters indicate the following information in sequence: UNIX time, region, ISP, distribution of HTTP status codes, response time, bandwidth (bit/s), average response rate, page views, cache hit ratio, and request hit ratio.
+    // The result in JSON format. From left to right, the fields are: UNIX timestamp, region, ISP, HTTP status code distribution, response duration, bandwidth (unit: bit/s), average response rate, page views, cache hit ratio, and request hit ratio.
     shared_ptr<string> jsonResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

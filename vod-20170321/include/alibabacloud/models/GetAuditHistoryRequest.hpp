@@ -66,15 +66,16 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+    // The number of entries per page. Default value: **10**. Maximum value: **100**.
     shared_ptr<int64_t> pageSize_ {};
-    // The sorting rule of the results. Valid values:
-    // *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-    // *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+    // The sorting method for results. Valid values:
+    // 
+    // - **CreationTime:Desc** (default): sorts results by creation time in descending order.
+    // - **CreationTime:Asc**: sorts results by creation time in ascending order.
     shared_ptr<string> sortBy_ {};
-    // The ID of the video.
+    // The video ID.
     // 
     // This parameter is required.
     shared_ptr<string> videoId_ {};

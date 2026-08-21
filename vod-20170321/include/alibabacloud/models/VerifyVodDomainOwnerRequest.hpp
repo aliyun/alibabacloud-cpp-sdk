@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
+    // The domain name to verify. Only a single domain name can be verified at a time.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The verification method. Valid values:
+    // The domain name ownership verification method. Valid values:
     // 
-    // *   **dnsCheck**: uses a Domain Name System (DNS) record
-    // *   **fileCheck**: uses a verification file
+    // - **dnsCheck**: DNS resolution verification.
+    // - **fileCheck**: File verification.
     // 
     // This parameter is required.
     shared_ptr<string> verifyType_ {};

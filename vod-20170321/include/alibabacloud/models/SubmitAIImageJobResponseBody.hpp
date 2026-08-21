@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the image AI processing job.
+    // The AI image processing task ID.
     shared_ptr<string> jobId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

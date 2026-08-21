@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The latest time with data points within the specified time range. Format: yyyy-mm-ddthh:mm:ssz (UTC).
       shared_ptr<string> actualEndTime_ {};
+      // The earliest time with data points within the specified time range. Format: yyyy-mm-ddthh:mm:ssz (UTC).
       shared_ptr<string> actualStartTime_ {};
+      // The time granularity of the queried data, in seconds (s).
       shared_ptr<int64_t> intervalSeconds_ {};
     };
 
@@ -350,31 +353,57 @@ namespace Models
 
 
     protected:
+      // The average completion plays per user.
       shared_ptr<double> avgPerCompletionVv_ {};
+      // The average play duration per user, in milliseconds (ms).
       shared_ptr<double> avgPerPlayDuration_ {};
+      // The average plays per user.
       shared_ptr<double> avgPerVv_ {};
+      // The average playback bitrate, in bps.
       shared_ptr<double> avgPlayBitrate_ {};
+      // The average play duration, in milliseconds (ms).
       shared_ptr<double> avgPlayDuration_ {};
+      // The average start bitrate, in bps.
       shared_ptr<double> avgStartBitrate_ {};
+      // The average video duration, in milliseconds (ms).
       shared_ptr<double> avgVideoDuration_ {};
+      // The completion rate.
       shared_ptr<double> completionRate_ {};
+      // The completion count.
       shared_ptr<double> completionVv_ {};
+      // The dimension.
       shared_ptr<string> dimension_ {};
+      // The error count per 100 seconds.
       shared_ptr<double> errorCount100s_ {};
+      // The first frame time, in milliseconds (ms).
       shared_ptr<double> firstFrame_ {};
+      // The 5-second bounce rate.
       shared_ptr<double> jumpRate5s_ {};
+      // The play failure rate.
       shared_ptr<double> playFailRate_ {};
+      // The actual play count.
       shared_ptr<double> realVv_ {};
+      // The instant play rate.
       shared_ptr<double> secondPlayRate_ {};
+      // The non-play rate.
       shared_ptr<double> seedFailRate_ {};
+      // The seek duration, in milliseconds (ms).
       shared_ptr<double> seekDuration_ {};
+      // The slow play rate.
       shared_ptr<double> slowPlayRate_ {};
+      // The stuttering count per 100 seconds.
       shared_ptr<string> stuckCount100s_ {};
+      // The stuttering rate by count.
       shared_ptr<double> stuckCountRate_ {};
+      // The stuttering duration per 100 seconds, in milliseconds (ms).
       shared_ptr<double> stuckDuration100s_ {};
+      // The timestamp of the data. Format: yyyy-mm-ddthh:mm:ssz (UTC).
       shared_ptr<string> timeStamp_ {};
+      // The total play duration, in milliseconds (ms).
       shared_ptr<double> totalPlayDuration_ {};
+      // The number of playback users.
       shared_ptr<double> uv_ {};
+      // The play count.
       shared_ptr<double> vv_ {};
     };
 
@@ -427,12 +456,17 @@ namespace Models
 
 
   protected:
+    // The list of returned data.
     shared_ptr<vector<DescribeVodPlayerMetricDataResponseBody::DataList>> dataList_ {};
+    // The extended information.
     shared_ptr<DescribeVodPlayerMetricDataResponseBody::Extend> extend_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of data points.
     shared_ptr<int64_t> totalCnt_ {};
   };
 

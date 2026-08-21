@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The domain name for CDN.
+    // The VOD acceleration domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

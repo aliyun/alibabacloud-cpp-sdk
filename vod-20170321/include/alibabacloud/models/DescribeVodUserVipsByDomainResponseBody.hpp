@@ -93,7 +93,9 @@ namespace Models
 
 
   protected:
+    // The accelerated domain name for ApsaraVideo VOD.
     shared_ptr<string> domainName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeVodUserVipsByDomainResponseBody::Vips> vips_ {};
   };

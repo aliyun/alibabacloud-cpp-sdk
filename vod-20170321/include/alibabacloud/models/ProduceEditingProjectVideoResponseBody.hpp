@@ -58,13 +58,12 @@ namespace Models
 
   protected:
     // The ID of the produced video.
-    // 
-    // > *   This parameter is returned for each request.
-    // > *   If a value is returned for this parameter, the video production task is being asynchronously processed.
+    // > - The video production operation synchronously returns the ID of the produced video.
+    // > - When MediaId is returned, the video production has entered the asynchronous processing phase.
     shared_ptr<string> mediaId_ {};
-    // The ID of the online editing project.
+    // The online editing project ID.
     shared_ptr<string> projectId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

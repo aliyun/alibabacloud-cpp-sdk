@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // The returned data list.
     shared_ptr<vector<string>> dataList_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -217,9 +217,9 @@ namespace Models
 
   protected:
     shared_ptr<SearchEditingProjectResponseBody::ProjectList> projectList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of online editing projects returned.
+    // The total number of online editing projects.
     shared_ptr<int32_t> total_ {};
   };
 

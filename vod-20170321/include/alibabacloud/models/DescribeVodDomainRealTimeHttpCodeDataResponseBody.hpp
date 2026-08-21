@@ -249,18 +249,18 @@ namespace Models
 
 
   protected:
-    // The time interval at which data is returned. Unit: seconds.
+    // The time interval between data entries. Unit: seconds.
     // 
-    // The returned value varies based on the time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600 (1 hour). For more information, see the **Time granularity** section in the **API documentation**.
+    // Based on the time range per query, this parameter returns a fixed value of 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see **Time granularity of returned data** in the **operation description**.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range.
+    // The end of the time range for the returned data.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVodDomainRealTimeHttpCodeDataResponseBody::RealTimeHttpCodeData> realTimeHttpCodeData_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range.
+    // The beginning of the time range for the returned data.
     shared_ptr<string> startTime_ {};
   };
 

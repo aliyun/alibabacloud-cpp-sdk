@@ -116,25 +116,24 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the template group was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
       // Indicates whether the template group is the default one. Valid values:
       // 
-      // *   **Default**: The template group is the default one.
-      // *   **NotDefault**: The template group is not the default one.
+      // - **Default**: The template group is the default one.
+      // - **NotDefault**: The template group is not the default one.
       shared_ptr<string> isDefault_ {};
       // The lock status of the transcoding template group. Valid values:
-      // 
-      // *   **Disabled**: The template group is not locked.
-      // *   **Enabled**: The template group is locked.
+      // - **Disabled**: unlocked
+      // - **Enabled**: locked
       shared_ptr<string> locked_ {};
-      // The time when the template group was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the template group was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modifyTime_ {};
       // The name of the template group.
       shared_ptr<string> name_ {};
-      // The ID of the transcoding template group.
+      // The transcoding template group ID.
       shared_ptr<string> transcodeTemplateGroupId_ {};
     };
 
@@ -157,9 +156,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The transcoding template groups.
+    // The list of transcoding template group data.
     shared_ptr<vector<ListTranscodeTemplateGroupResponseBody::TranscodeTemplateGroupList>> transcodeTemplateGroupList_ {};
   };
 

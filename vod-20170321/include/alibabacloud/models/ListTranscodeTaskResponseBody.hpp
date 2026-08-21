@@ -116,26 +116,28 @@ namespace Models
 
 
     protected:
-      // The time when the transcoding task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the transcoding task was complete. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> completeTime_ {};
-      // The time when the transcoding task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the transcoding task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The status of the transcoding task. Valid values:
-      // *   **Processing**: In progress.
-      // *   **Partial**: Some transcoding jobs were complete.
-      // *   **CompleteAllSucc**: All transcoding jobs were successful.
-      // *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
-      // *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
+      // The status of the transcoding task.
+      // 
+      // - **Processing**: in progress.
+      // - **Partial**: partially completed.
+      // - **CompleteAllSucc**: all transcoding jobs are complete and successful.
+      // - **CompleteAllFail**: all transcoding jobs are complete but all failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
+      // - **CompletePartialSucc**: all transcoding jobs are complete but only some are successful.
       shared_ptr<string> taskStatus_ {};
-      // The ID of the transcoding task.
+      // The transcoding task ID.
       shared_ptr<string> transcodeTaskId_ {};
-      // The ID of the transcoding template group.
+      // The ID of the transcoding template group used for transcoding.
       shared_ptr<string> transcodeTemplateGroupId_ {};
-      // The mode in which the transcoding task is triggered. Valid values:
-      // *   **Auto**: The transcoding task is automatically triggered when the video is uploaded.
-      // *   **Manual**: The transcoding task is triggered by calling the SubmitTranscodeJobs operation.
+      // The trigger type. Valid values:
+      // 
+      // - **Auto**: automatically triggered after a video is uploaded.
+      // - **Manual**: triggered by calling the SubmitTranscodeJobs operation.
       shared_ptr<string> trigger_ {};
-      // The ID of the audio or video file.
+      // The audio or video ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -158,9 +160,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about transcoding tasks.
+    // The list of transcoding task information.
     shared_ptr<vector<ListTranscodeTaskResponseBody::TranscodeTaskList>> transcodeTaskList_ {};
   };
 

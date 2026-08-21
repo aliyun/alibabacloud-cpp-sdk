@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The accelerated domain name. Separate multiple domain names with commas (,).
+    // The accelerated domain names for ApsaraVideo VOD. Separate multiple domain names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> domainNames_ {};

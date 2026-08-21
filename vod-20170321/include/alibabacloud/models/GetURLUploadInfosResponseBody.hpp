@@ -154,28 +154,28 @@ namespace Models
 
 
     protected:
-      // The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> completeTime_ {};
-      // The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The error code returned.
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // The error message returned.
+      // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The size of the uploaded media file. Unit: byte.
+      // The file size. Unit: bytes.
       shared_ptr<string> fileSize_ {};
-      // The ID of the upload job.
+      // The upload task ID.
       shared_ptr<string> jobId_ {};
-      // The ID of the uploaded media file.
+      // The media ID.
       shared_ptr<string> mediaId_ {};
       shared_ptr<string> registeredMediaId_ {};
-      // The status of the URL-based upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+      // The status of the URL-based upload task. For more information about the status values and descriptions, see [Status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> status_ {};
-      // The upload URL of the source file.
+      // The URL of the source video file.
       // 
-      // > A maximum of 100 URLs can be returned.
+      // > A maximum of 100 records can be returned.
       shared_ptr<string> uploadURL_ {};
-      // The custom configurations. The value is a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
+      // The custom settings. The value is a JSON string. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
       shared_ptr<string> userData_ {};
     };
 
@@ -207,11 +207,11 @@ namespace Models
 
 
   protected:
-    // The job IDs or upload URLs that do not exist.
+    // The list of upload task IDs or URLs that do not exist.
     shared_ptr<vector<string>> nonExists_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about URL-based upload jobs. For more information, see the "URLUploadInfo: the information about a URL-based upload job" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+    // The list of URL upload information. For more information about the fields and descriptions, see [URLUploadInfo](https://help.aliyun.com/document_detail/52839.html).
     shared_ptr<vector<GetURLUploadInfosResponseBody::URLUploadInfoList>> URLUploadInfoList_ {};
   };
 

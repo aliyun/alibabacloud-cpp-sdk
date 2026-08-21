@@ -111,20 +111,24 @@ namespace Models
 
 
       protected:
-        // The end time of the audio that failed the review. Unit: seconds.
+        // The end time of the problematic audio segment. Unit: seconds.
         shared_ptr<int64_t> endTime_ {};
-        // The review results. Valid values:
-        // *   **spam**
-        // *   **ad**
-        // *   **abuse**
-        // *   **flood**
-        // *   **contraband**
-        // *   **meaningless**
-        // *   **normal**
+        // The category of the audio review result. Valid values:
+        // 
+        // - **normal**: Normal.
+        // - **spam**: Contains spam.
+        // - **ad**: Advertisement.
+        // - **politics**: Political content.
+        // - **terrorism**: Terrorist content.
+        // - **abuse**: Abusive content.
+        // - **porn**: Pornographic content.
+        // - **flood**: Junk content.
+        // - **contraband**: Prohibited content.
+        // - **meaningless**: Meaningless content.
         shared_ptr<string> label_ {};
-        // The start time of the audio that failed the review. Unit: seconds.
+        // The start time of the problematic audio segment. Unit: seconds.
         shared_ptr<int64_t> startTime_ {};
-        // The text that corresponds to the audio.
+        // The text content corresponding to the audio.
         shared_ptr<string> text_ {};
       };
 
@@ -154,11 +158,11 @@ namespace Models
 
 
     protected:
-      // The list of results.
+      // The result list.
       shared_ptr<vector<MediaAuditAudioResultDetail::List>> list_ {};
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageTotal_ {};
-      // The total number of pages returned.
+      // The total number of pages.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -181,9 +185,9 @@ namespace Models
 
 
   protected:
-    // Details of review results.
+    // The review results.
     shared_ptr<GetMediaAuditAudioResultDetailResponseBody::MediaAuditAudioResultDetail> mediaAuditAudioResultDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

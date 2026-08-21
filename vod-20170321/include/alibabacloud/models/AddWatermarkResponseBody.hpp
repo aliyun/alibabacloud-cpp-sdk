@@ -115,27 +115,24 @@ namespace Models
 
 
     protected:
-      // The time when the watermark template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the watermark template was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The URL of the watermark file. The URL is an Object Storage Service (OSS) URL or an Alibaba Cloud CDN URL.
-      // 
-      // >  This parameter is returned only for image watermark templates.
+      // The URL of the watermark file (OSS URL or CDN URL).
+      // > This parameter is returned only for image watermark templates.
       shared_ptr<string> fileUrl_ {};
-      // Indicates whether the watermark template is the default one. Valid values:
-      // 
-      // *   **Default**
-      // *   **NotDefault**
+      // Indicates whether the watermark template is the default template. Valid values:
+      // - **Default**: the default watermark template.
+      // - **NotDefault**: not the default watermark template.
       shared_ptr<string> isDefault_ {};
       // The name of the watermark template.
       shared_ptr<string> name_ {};
-      // The type of the watermark template.
-      // 
-      // *   **Image**: image watermark template
-      // *   **Text**: text watermark template
+      // The type of the watermark template. Valid values:
+      // - **Image**: image watermark template.
+      // - **Text**: text watermark template.
       shared_ptr<string> type_ {};
-      // The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+      // The configuration information of the watermark (JSON string), including the display position and effect of the watermark. The configuration parameters differ between image watermarks and text watermarks. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
       shared_ptr<string> watermarkConfig_ {};
-      // The ID of the watermark template.
+      // The ID of the watermark template. You can use this watermark template ID to associate the template with a transcoding template group, or to query, modify, delete, or set the template as the default watermark template.
       shared_ptr<string> watermarkId_ {};
     };
 
@@ -158,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the watermark template.
+    // The watermark template information.
     shared_ptr<AddWatermarkResponseBody::WatermarkInfo> watermarkInfo_ {};
   };
 

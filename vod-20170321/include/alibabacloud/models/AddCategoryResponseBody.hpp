@@ -96,22 +96,21 @@ namespace Models
 
 
     protected:
-      // The ID of the category. You can use the value of this parameter when you call the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
+      // The category ID. This ID can be used as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
       shared_ptr<int64_t> cateId_ {};
-      // The name of the category.
+      // The category name.
       shared_ptr<string> cateName_ {};
-      // The level of the category. Valid values:
-      // 
-      // *   **0**: level 1 category
-      // *   **1**: level 2 category
-      // *   **1**: level 3 category
+      // The category level. Valid values:
+      // - **0**: level-0 category.
+      // - **1**: level-1 category.
+      // - **2**: level-2 category.
       shared_ptr<int64_t> level_ {};
-      // The ID of the parent category.
+      // The parent category ID.
       shared_ptr<int64_t> parentId_ {};
-      // The type of the category. Valid values:
+      // The category type. Valid values:
       // 
-      // *   **default**: audio, video, and image files
-      // *   **material**: short video materials
+      // - **default**: audio/video/image category.
+      // - **material**: short video material category.
       shared_ptr<string> type_ {};
     };
 
@@ -134,9 +133,9 @@ namespace Models
 
 
   protected:
-    // The information about the category.
+    // The media asset category information.
     shared_ptr<AddCategoryResponseBody::Category> category_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

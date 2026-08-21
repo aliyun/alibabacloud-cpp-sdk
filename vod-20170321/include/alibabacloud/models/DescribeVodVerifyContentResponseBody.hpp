@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The verification content.
     shared_ptr<string> content_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

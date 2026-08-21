@@ -156,12 +156,22 @@ namespace Models
 
 
       protected:
+        // The application ID.
         shared_ptr<string> appId_ {};
+        // The time when the workflow was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
         shared_ptr<string> createTime_ {};
+        // The time when the workflow was last modified.
         shared_ptr<string> modifiedTime_ {};
+        // The workflow name.
         shared_ptr<string> name_ {};
+        // The workflow status. Valid values:
+        // - Active: activated.
+        // - Inactive: not activated.
+        // - Deleted: deleted.
         shared_ptr<string> status_ {};
+        // The workflow type. Not populated by default.
         shared_ptr<string> type_ {};
+        // The workflow ID.
         shared_ptr<string> workflowId_ {};
       };
 
@@ -227,13 +237,28 @@ namespace Models
 
 
     protected:
+      // The processing results of each workflow node, in JSON format.
       shared_ptr<string> activityResults_ {};
+      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
       shared_ptr<string> createTime_ {};
+      // The time when the task was completed.
       shared_ptr<string> finishTime_ {};
+      // The task status. Valid values:
+      // 
+      // - Init: started.
+      // - Processing: processing in progress.
+      // - Succeed: succeeded.
+      // - Failed: failed.
+      // - Canceled: canceled.
+      // - Skip: skipped.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The media asset information.
       shared_ptr<string> taskInput_ {};
+      // The custom settings. The value is a JSON string that supports message callback, upload acceleration, and other settings.
       shared_ptr<string> userData_ {};
+      // The workflow details.
       shared_ptr<WorkflowTaskDetail::Workflow> workflow_ {};
     };
 
@@ -330,27 +355,27 @@ namespace Models
 
 
     protected:
-      // The time when the task was complete.
+      // The time when the task was completed.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
       shared_ptr<string> createTime_ {};
       // The definition.
       shared_ptr<string> definition_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The status of the task. Valid values:
+      // The task status. Valid values:
       // 
-      // *   Submitted
-      // *   Transcoding
-      // *   TranscodeSuccess
-      // *   TranscodeFail
-      // *   TranscodeCancelled
+      // - Submitted: submitted.
+      // - Transcoding: transcoding in progress.
+      // - TranscodeSuccess: transcoding succeeded.
+      // - TranscodeFail: transcoding failed.
+      // - TranscodeCancelled: transcoding canceled.
       shared_ptr<string> status_ {};
-      // The ID of the template.
+      // The template ID.
       shared_ptr<string> templateId_ {};
-      // The ID of the user who submitted the task.
+      // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -456,30 +481,30 @@ namespace Models
 
 
     protected:
-      // The time when the task was complete.
+      // The time when the task was completed.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
       shared_ptr<string> createTime_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // Configuration of normal snapshots.
+      // The normal snapshot configuration.
       shared_ptr<string> normalConfig_ {};
       // The sprite configuration.
       shared_ptr<string> spriteConfig_ {};
-      // The status of the task. Valid values:
+      // The task status. Valid values:
       // 
-      // *   Processing
-      // *   Fail
-      // *   Success
+      // - Processing: processing in progress.
+      // - Fail: task failed.
+      // - Success: task succeeded.
       shared_ptr<string> status_ {};
-      // The trigger mode. Valid values:
+      // The trigger method. Valid values:
       // 
-      // *   Auto
-      // *   Manual
+      // - Auto: automatically triggered by a workflow.
+      // - Manual: manually submitted.
       shared_ptr<string> trigger_ {};
-      // The ID of the user who submitted the task.
+      // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -585,33 +610,32 @@ namespace Models
 
 
     protected:
-      // The end time of the task.
+      // The time when the task was completed.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
       shared_ptr<string> createTime_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The type of the AI task.
+      // The AI task type.
       shared_ptr<string> jobType_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
-      // The status of the task. Valid values:
-      // 
-      // *   reserved
-      // *   init
-      // *   success
-      // *   fail
-      // *   processing
-      // *   analysing
+      // The task status. Valid values:
+      // - reserved: submitted.
+      // - init: started.
+      // - success: execution succeeded.
+      // - fail: execution failed.
+      // - processing: processing in progress.
+      // - analysing: analysis in progress.
       shared_ptr<string> status_ {};
       // The template configuration.
       shared_ptr<string> templateConfig_ {};
-      // The trigger mode. Valid values:
+      // The trigger method. Valid values:
       // 
-      // *   Auto
-      // *   Manual
+      // - Auto: automatically triggered by a workflow.
+      // - Manual: manually submitted.
       shared_ptr<string> trigger_ {};
-      // The ID of the user who submitted the task.
+      // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -668,16 +692,17 @@ namespace Models
 
 
   protected:
-    // The details of the AI task. This parameter takes effect only when the TaskType parameter is set to AI.
+    // The details of the AI task. This field has a value only when TaskType is AI.
     shared_ptr<GetJobDetailResponseBody::AIJobDetail> AIJobDetail_ {};
-    // The type of the task. Valid values:
+    // The task type.
     shared_ptr<string> jobType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the snapshot task. This parameter takes effect only when the jobType parameter is set to Snapshot.
+    // The details of the snapshot task. This field has a value only when jobType is Snapshot.
     shared_ptr<GetJobDetailResponseBody::SnapshotJobDetail> snapshotJobDetail_ {};
-    // The details of the transcoding task. This parameter takes effect only when the jobType parameter is set to Transcode.
+    // The details of the transcoding task. This field has a value only when jobType is Transcode.
     shared_ptr<GetJobDetailResponseBody::TranscodeJobDetail> transcodeJobDetail_ {};
+    // The details of the workflow task. This field has a value only when TaskType is Workflow.
     shared_ptr<GetJobDetailResponseBody::WorkflowTaskDetail> workflowTaskDetail_ {};
   };
 

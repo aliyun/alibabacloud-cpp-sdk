@@ -213,12 +213,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVodAIDataResponseBody::AIData> AIData_ {};
-    // The time granularity at which the data was queried. Valid values:
-    // 
-    // *   **hour**
-    // *   **day**
+    // The time granularity of the returned data. Valid values:
+    // - **hour**: hourly data.
+    // - **day**: daily data.
     shared_ptr<string> dataInterval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

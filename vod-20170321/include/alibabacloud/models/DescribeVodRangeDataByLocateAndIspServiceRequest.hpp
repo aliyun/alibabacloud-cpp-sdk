@@ -84,20 +84,24 @@ namespace Models
 
 
   protected:
-    // The accelerated domain name.
+    // The accelerated domain name to query.
+    // 
+    // You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
+    // > The end time must be later than the start time. The maximum time range between the start time and end time is 1 hour.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The name of the ISP. If you leave this parameter empty, all ISPs are queried.
+    // The ISP name in English. If you do not specify this parameter, data of all ISPs is queried. You can specify only one ISP for each request.
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region. If you leave this parameter empty, data in all regions is queried.
+    // The region name in English. If you do not specify this parameter, data of all regions is queried. Separate multiple region names with commas (,).
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

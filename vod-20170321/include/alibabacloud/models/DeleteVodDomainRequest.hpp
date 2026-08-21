@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The domain name for CDN that you want to delete.
+    // The accelerated domain name for ApsaraVideo VOD that you want to delete.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

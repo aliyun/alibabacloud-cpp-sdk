@@ -172,16 +172,16 @@ namespace Models
 
 
   protected:
-    // The time interval at which data is returned, which is the time granularity. Unit: seconds.
+    // The time interval between data entries, which is the time granularity of the data. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range.
+    // The end of the time range for the returned data.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVodDomainHitRateDataResponseBody::HitRateInterval> hitRateInterval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range.
+    // The beginning of the time range for the returned data.
     shared_ptr<string> startTime_ {};
   };
 

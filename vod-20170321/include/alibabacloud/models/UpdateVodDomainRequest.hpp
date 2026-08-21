@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The domain name.
+    // The accelerated domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The information about the addresses of origin servers.
+    // The addresses of the origin server. For more information about the Sources parameter, see the **Sources** section.
     shared_ptr<string> sources_ {};
     // The top-level domain.
     shared_ptr<string> topLevelDomain_ {};

@@ -129,27 +129,25 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The time when the application was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time in UTC. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The description of the application.
+      // The application description.
       shared_ptr<string> description_ {};
-      // The last time when the application was modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The modification time in UTC. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the application. Valid values:
-      // 
-      // *   **Normal**
-      // *   **Disable**
+      // The application status. Valid values:
+      // - **Normal**: normal.
+      // - **Disable**: disabled.
       shared_ptr<string> status_ {};
-      // The type of the application. Valid values:
-      // 
-      // *   **System**
-      // *   **Custom**
+      // The application type. Valid values:
+      // - **System**: system default.
+      // - **Custom**: user-created.
       shared_ptr<string> type_ {};
     };
 
@@ -188,13 +186,13 @@ namespace Models
 
 
   protected:
-    // The details of applications.
+    // The list of application information.
     shared_ptr<vector<GetAppInfosResponseBody::AppInfoList>> appInfoList_ {};
-    // The HTTP status code that is returned.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The IDs of applications that do not exist.
+    // The list of application IDs that do not exist.
     shared_ptr<vector<string>> nonExistAppIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

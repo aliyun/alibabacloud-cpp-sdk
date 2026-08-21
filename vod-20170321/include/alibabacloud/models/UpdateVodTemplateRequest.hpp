@@ -59,10 +59,10 @@ namespace Models
   protected:
     // The name of the template.
     // 
-    // *   The name can be up to 128 bytes in length.
-    // *   The value must be encoded in UTF-8.
+    // - The name can be up to 128 bytes in length.
+    // - The name must be encoded in UTF-8.
     shared_ptr<string> name_ {};
-    // The configurations of the snapshot template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](https://help.aliyun.com/document_detail/98618.html) topic.
+    // The configurations of the snapshot template in JSON format. For more information about the parameter structure, see [SnapshotTemplateConfig](https://help.aliyun.com/document_detail/98618.html).
     shared_ptr<string> templateConfig_ {};
     // The ID of the snapshot template.
     // 

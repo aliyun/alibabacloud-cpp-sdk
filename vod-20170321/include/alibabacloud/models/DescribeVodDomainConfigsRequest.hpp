@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The domain name for CDN.
+    // The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried at a time.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The feature name. Separate multiple names with commas (,). For more information, see **Feature description**.
+    // The feature names. You can query multiple feature configurations in a single request. Separate multiple feature names with commas (,). For the features supported by accelerated domain names for ApsaraVideo VOD and their names, see [Feature functions for domain name configuration](https://help.aliyun.com/document_detail/2411639.html).
     // 
     // This parameter is required.
     shared_ptr<string> functionNames_ {};

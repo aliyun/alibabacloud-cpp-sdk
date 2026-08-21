@@ -136,29 +136,27 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The time when the application was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the application was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The description of the application.
+      // The application description.
       shared_ptr<string> description_ {};
-      // The last time when the application was modified. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+      // The time when the application was last modified. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
       shared_ptr<string> modificationTime_ {};
       // The region.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the application. Valid values:
-      // 
-      // *   **Normal**
-      // *   **Disable**
+      // The application status. Valid values:
+      // - **Normal**
+      // - **Disable**
       shared_ptr<string> status_ {};
-      // The type of the application. Valid values:
-      // 
-      // *   **System**
-      // *   **Custom**
+      // The application type. Valid values:
+      // - **System**: system default.
+      // - **Custom**: user-created.
       shared_ptr<string> type_ {};
     };
 
@@ -188,11 +186,11 @@ namespace Models
 
 
   protected:
-    // The details of applications.
+    // The list of application information.
     shared_ptr<vector<ListAppInfoResponseBody::AppInfoList>> appInfoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

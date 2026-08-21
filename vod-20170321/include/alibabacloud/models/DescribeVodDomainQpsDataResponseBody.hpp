@@ -274,16 +274,16 @@ namespace Models
 
 
   protected:
-    // The time interval between the data entries returned. Unit: seconds.
+    // The time interval between entries. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+    // The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVodDomainQpsDataResponseBody::QpsDataInterval> qpsDataInterval_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+    // The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

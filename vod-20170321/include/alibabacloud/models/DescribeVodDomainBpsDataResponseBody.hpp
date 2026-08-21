@@ -233,19 +233,19 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVodDomainBpsDataResponseBody::BpsDataPerInterval> bpsDataPerInterval_ {};
-    // The time interval between the returned entries. Unit: seconds.
+    // The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
-    // The domain name for CDN.
+    // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end of the time range for the returned data.
     shared_ptr<string> endTime_ {};
-    // The name of the ISP. By default, the data of all ISPs is returned.
+    // The name of the ISP in English.
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region. By default, the data in all regions is returned.
+    // The name of the region in English.
     shared_ptr<string> locationNameEn_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The beginning of the time range for the returned data.
     shared_ptr<string> startTime_ {};
   };
 

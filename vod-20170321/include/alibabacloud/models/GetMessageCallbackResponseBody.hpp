@@ -124,27 +124,25 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The cryptographic key. This parameter is returned only for HTTP callbacks.
+      // The authentication key when the callback method is set to HTTP.
       shared_ptr<string> authKey_ {};
-      // Indicates whether callback authentication is enabled. This parameter is returned only for HTTP callbacks. Valid values:
-      // 
-      // *   **on**
-      // *   **off**
+      // The callback authentication switch when the callback method is set to HTTP. Valid values:
+      // - **on**: enabled.
+      // - **off**: disabled.
       shared_ptr<string> authSwitch_ {};
       // The callback method. Valid values:
-      // 
-      // *   **HTTP**
-      // *   **MNS**
+      // - **HTTP**
+      // - **MNS**
       shared_ptr<string> callbackType_ {};
-      // The callback URL. This parameter is returned only for HTTP callbacks.
+      // The callback URL when the callback method is set to HTTP.
       shared_ptr<string> callbackURL_ {};
-      // The type of the callback event.
+      // The callback event types.
       shared_ptr<string> eventTypeList_ {};
-      // The public endpoint of MNS. This parameter is returned only for MNS callbacks.
+      // The public endpoint of the MSMQ when the callback method is set to MNS.
       shared_ptr<string> mnsEndpoint_ {};
-      // The name of the Message Service (MNS) queue. This parameter is returned only for MNS callbacks.
+      // The name of the MSMQ when the callback method is set to MNS.
       shared_ptr<string> mnsQueueName_ {};
     };
 
@@ -167,9 +165,9 @@ namespace Models
 
 
   protected:
-    // The configuration of the event notification.
+    // The event notification configuration.
     shared_ptr<GetMessageCallbackResponseBody::MessageCallback> messageCallback_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

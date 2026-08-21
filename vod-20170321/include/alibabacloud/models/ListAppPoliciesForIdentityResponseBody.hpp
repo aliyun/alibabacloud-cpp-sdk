@@ -116,22 +116,21 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the application policy was granted to the role. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> creationTime_ {};
-      // The description of the policy.
+      // The policy description.
       shared_ptr<string> description_ {};
-      // The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the application policy granted to the role was last modified. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> modificationTime_ {};
-      // The name of the policy.
+      // The policy name.
       shared_ptr<string> policyName_ {};
-      // The type of the policy. Valid values:
-      // 
-      // *   **System**
-      // *   **Custom**
+      // The policy type. Valid values:
+      // - **System**: system policy.
+      // - **Custom**: user-defined policy.
       shared_ptr<string> policyType_ {};
-      // The content of the policy.
+      // The policy value.
       shared_ptr<string> policyValue_ {};
     };
 
@@ -154,11 +153,11 @@ namespace Models
 
 
   protected:
-    // The details of each policy.
+    // The list of access policy names.
     // 
-    // > A maximum of 100 entries can be returned.
+    // > A maximum of 100 entries are returned.
     shared_ptr<vector<ListAppPoliciesForIdentityResponseBody::AppPolicyList>> appPolicyList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

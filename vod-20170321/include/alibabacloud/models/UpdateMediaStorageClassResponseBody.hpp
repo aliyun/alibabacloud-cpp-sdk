@@ -181,12 +181,12 @@ namespace Models
   protected:
     shared_ptr<UpdateMediaStorageClassResponseBody::ForbiddenList> forbiddenList_ {};
     shared_ptr<UpdateMediaStorageClassResponseBody::IgnoredList> ignoredList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the task. Valid values:
+    // The task status. Valid values:
     // 
-    // *   **Processing**
-    // *   **Failed**
+    // - **Processing**: Processing.
+    // - **Failed**: Failed.
     shared_ptr<string> status_ {};
   };
 

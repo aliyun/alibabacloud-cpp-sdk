@@ -202,15 +202,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVodDomainMax95BpsDataResponseBody::DetailData> detailData_ {};
-    // The domain name for CDN.
+    // The accelerated domain name information.
     shared_ptr<string> domainName_ {};
     // The 95th percentile bandwidth in the Chinese mainland.
     shared_ptr<string> domesticMax95Bps_ {};
-    // The end of the time range to query.
-    // 
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // 
-    // >  The end time must be later than the start time.
+    // The end time of the data.
     shared_ptr<string> endTime_ {};
     // The 95th percentile bandwidth.
     shared_ptr<string> max95Bps_ {};
@@ -218,9 +214,7 @@ namespace Models
     shared_ptr<string> overseasMax95Bps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query.
-    // 
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the data.
     shared_ptr<string> startTime_ {};
   };
 

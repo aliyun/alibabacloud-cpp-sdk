@@ -181,22 +181,21 @@ namespace Models
 
 
   protected:
-    // The billable region where the data was collected.
+    // The usage region.
     shared_ptr<string> area_ {};
-    // The time interval between the entries returned. Unit: seconds.
+    // The time interval between records. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
-    // The accelerated domain name.
+    // The accelerated domain name information.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> endTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> startTime_ {};
-    // The type of the data. Valid values:
-    // 
-    // *   **bps**: bandwidth
-    // *   **traf**: traffic
+    // The data type. Valid values:
+    // - **bps**: bandwidth.
+    //  - **traf**: traffic.
     shared_ptr<string> type_ {};
     shared_ptr<DescribeVodDomainUsageDataResponseBody::UsageDataPerInterval> usageDataPerInterval_ {};
   };

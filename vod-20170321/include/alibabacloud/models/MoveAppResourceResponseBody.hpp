@@ -62,9 +62,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the resources that failed to be migrated.
+    // The IDs of resources that failed to be migrated.
     shared_ptr<vector<string>> failedResourceIds_ {};
-    // The IDs of the resources that were not found.
+    // The IDs of resources that do not exist.
     shared_ptr<vector<string>> nonExistResourceIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

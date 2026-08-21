@@ -73,12 +73,13 @@ namespace Models
 
 
   protected:
-    // The IDs of the videos that cannot be modified. Generally, videos cannot be modified if you do not have required [permissions](https://help.aliyun.com/document_detail/113600.html).
+    // The IDs of the audio and video files that cannot be operated on. This is typically caused by insufficient [permissions](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<vector<string>> forbiddenVideoIds_ {};
+    // The list of custom IDs that do not exist.
     shared_ptr<vector<string>> nonExistReferenceIds_ {};
-    // The IDs of the videos that do not exist.
+    // The IDs of the audio and video files that do not exist.
     shared_ptr<vector<string>> nonExistVideoIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

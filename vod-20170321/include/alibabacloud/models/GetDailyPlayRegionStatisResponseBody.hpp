@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The playback date, in days. Format: yyyy-MM-dd.
       shared_ptr<string> date_ {};
+      // The download URL of the CSV file.
       shared_ptr<string> fileUrl_ {};
     };
 
@@ -115,9 +117,13 @@ namespace Models
 
 
   protected:
+    // The CSV file information returned.
     shared_ptr<vector<GetDailyPlayRegionStatisResponseBody::DailyPlayRegionStatisList>> dailyPlayRegionStatisList_ {};
+    // If no playback data exists on a specific day, the date is displayed in this field.
     shared_ptr<vector<string>> emptyDates_ {};
+    // If the playback data export fails on a specific day, the date is displayed in this field.
     shared_ptr<vector<string>> failDates_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

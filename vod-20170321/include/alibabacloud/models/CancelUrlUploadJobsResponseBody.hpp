@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The IDs of canceled jobs.
+    // The list of tasks that were successfully canceled.
     shared_ptr<vector<string>> canceledJobs_ {};
-    // The jobs that do not exist.
+    // The list of tasks that do not exist.
     shared_ptr<vector<string>> nonExists_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

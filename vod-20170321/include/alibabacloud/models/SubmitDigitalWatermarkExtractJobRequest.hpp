@@ -84,17 +84,16 @@ namespace Models
 
 
   protected:
-    // The type of the watermark that you want to extract. Valid values:
+    // The type of watermark extraction. Valid values:
     // 
-    // *   **TraceMark**: user-tracing watermark
-    // *   **CopyrightMark**: copyright watermark
+    // - **TraceMark**: tracing watermark.
+    // - **CopyrightMark**: copyright watermark.
     // 
     // This parameter is required.
     shared_ptr<string> extractType_ {};
-    // The ID of the video from which you want to extract the watermark. You can specify only one ID. You can use one of the following methods to obtain the ID:
-    // 
-    // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video** to view the video ID.
-    // *   Obtain the VideoId from the response to the [SearchMedia](~~SearchMedia~~) operation.
+    // The video ID of the video from which you want to extract the watermark. Only a single video ID is supported. You can obtain the video ID by using the following methods:
+    // - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the video ID.
+    // - Call the [SearchMedia](https://help.aliyun.com/document_detail/436559.html) operation. The video ID (VideoId) is returned in the response.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};

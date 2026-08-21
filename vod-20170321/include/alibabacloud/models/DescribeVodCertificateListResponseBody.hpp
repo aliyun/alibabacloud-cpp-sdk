@@ -260,7 +260,7 @@ namespace Models
 
     protected:
       shared_ptr<CertificateListModel::CertList> certList_ {};
-      // The number of certificates that are returned.
+      // The number of certificates.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -283,9 +283,9 @@ namespace Models
 
 
   protected:
-    // The information about each certificate.
+    // The certificate list information.
     shared_ptr<DescribeVodCertificateListResponseBody::CertificateListModel> certificateListModel_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

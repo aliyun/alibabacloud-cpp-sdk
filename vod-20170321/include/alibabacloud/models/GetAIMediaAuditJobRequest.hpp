@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the intelligent review job.
+    // The ID of the automated review job.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

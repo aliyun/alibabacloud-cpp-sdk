@@ -57,13 +57,18 @@ namespace Models
 
 
   protected:
-    // The IDs of applications. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) or [ListAppInfo](~~ListAppInfo~~) operation.
+    // The application ID. The application ID is the value of the `AppId` parameter returned by the [CreateAppInfo](~~CreateAppInfo~~) or [ListAppInfo](~~ListAppInfo~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The address of an Object Storage Service (OSS) bucket. This parameter does not take effect. You can call this operation to add only VOD buckets.
+    // The OSS bucket address. This parameter is required when StorageType is set to user_oss_bucket.
     shared_ptr<string> storageLocation_ {};
-    // The storage class. Default value: **vod_oss_bucket**.
+    // The storage type. Valid values:
+    // 
+    // - vod_oss_bucket
+    // - user_oss_bucket
+    // 
+    // Default value: **vod_oss_bucket**.
     shared_ptr<string> storageType_ {};
   };
 

@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
-    // 
-    // *   **domestic**: Chinese mainland
-    // *   **overseas**: outside the Chinese mainland
+    // The prefetch region. Valid values: **domestic**, **overseas**.
     shared_ptr<string> area_ {};
-    // Specifies whether to prefetch content to POPs. Valid values:
+    // Specifies whether to directly prefetch content to L2 nodes. Valid values:
     // 
-    // *   **true**: prefetches content to nodes that include L2 DCDN nodes.
-    // *   **false**: prefetches content to L2 POPs or L3 POPs.
+    // - **true**: The prefetch node level must include L2 nodes.
+    // 
+    // - **false**: Only back-to-origin layer nodes are prefetched. This is the **default value**. The back-to-origin layer node may be an L2 node or an L3 node.
     shared_ptr<bool> l2Preload_ {};
-    // The URL of the file to be prefetched. Separate multiple URLs with line breaks (\\n or \\r\\n).
+    // The URL of the file to prefetch. Separate multiple URLs with line breaks (
+    //  or 
+    // ).
     // 
     // This parameter is required.
     shared_ptr<string> objectPath_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The custom header for prefetch in the JSON format.
+    // The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetch, use this parameter to customize prefetch headers. Submit the value in JSON format.
     shared_ptr<string> withHeader_ {};
   };
 

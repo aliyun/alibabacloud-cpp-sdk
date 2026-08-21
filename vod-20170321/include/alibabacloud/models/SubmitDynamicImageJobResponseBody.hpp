@@ -84,7 +84,7 @@ namespace Models
   protected:
     // The information about the animated image job.
     shared_ptr<SubmitDynamicImageJobResponseBody::DynamicImageJob> dynamicImageJob_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

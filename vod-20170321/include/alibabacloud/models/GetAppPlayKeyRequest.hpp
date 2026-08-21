@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

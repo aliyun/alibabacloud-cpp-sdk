@@ -183,70 +183,67 @@ namespace Models
 
 
       protected:
-        // The category of the review result. Valid values:
-        // 
-        // *   **normal**: normal content.
-        // *   **ad**: other ads.
-        // *   **politics**: political content in text.
-        // *   **porn**: pornographic content in text.
-        // *   **abuse**: verbal abuse in text.
-        // *   **terrorism**: terrorist content in text.
-        // *   **contraband**: prohibited content in text.
-        // *   **spam**: spam content in text.
-        // *   **npx**: illegal ad
-        // *   **qrcode**: QR code.
-        // *   **programCode**: mini program code.
+        // The classification of the ad review result. Valid values:
+        // - **normal**: Normal.
+        // - **ad**: Other ads.
+        // - **politics**: Text contains politically sensitive content.
+        // - **porn**: Text contains pornographic content.
+        // - **abuse**: Text contains abusive content.
+        // - **terrorism**: Text contains terrorism-related content.
+        // - **contraband**: Text contains prohibited content.
+        // - **spam**: Text contains other spam content.
+        // - **npx**: Psoriasis ads.
+        // - **qrcode**: Contains a QR code.
+        // - **programCode**: Contains a mini program code.
         shared_ptr<string> adLabel_ {};
-        // The score of the video snapshot in the ad review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+        // The hit score of the video screenshot for the ad review result. Value range: `[0-100]`, with a precision of 10 decimal places. The hit result indicates the probability of the corresponding classification label. A higher value indicates higher accuracy.
         shared_ptr<string> adScore_ {};
-        // The category of the review result. Valid values:
-        // 
-        // *   **normal**: normal content.
-        // *   **meaningless**: meaningless content, such as a black or white screen.
-        // *   **PIP**: picture-in-picture.
-        // *   **smoking**: smoking.
-        // *   **drivelive**: live broadcasting in a running vehicle.
+        // The classification of the undesirable scene review result. Valid values:
+        // - **normal**: Normal.
+        // - **meaningless**: The image has no content (for example, a black screen or white screen).
+        // - **PIP**: Picture-in-Picture (PiP).
+        // - **smoking**: Smoking.
+        // - **drivelive**: In-car live streaming.
         shared_ptr<string> liveLabel_ {};
-        // The score of the video snapshot in the undesirable content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+        // The hit score of the video screenshot for the undesirable scene review result. Value range: `[0-100]`, with a precision of 10 decimal places. The hit result indicates the probability of the corresponding classification label. A higher value indicates higher accuracy.
         shared_ptr<string> liveScore_ {};
-        // The category of the review result. Valid values:
-        // 
-        // *   **normal**: normal content.
-        // *   **TV**: controlled TV station logo.
-        // *   **trademark**: trademark.
+        // The classification of the logo review result. Valid values:
+        // - **normal**: Normal.
+        // - **TV**: Contains a regulated logo.
+        // - **trademark**: Contains a trademark.
         shared_ptr<string> logoLabel_ {};
-        // The score of the video snapshot in the logo review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+        // The hit score of the video screenshot for the logo review result. Value range: `[0-100]`, with a precision of 10 decimal places. The hit result indicates the probability of the corresponding classification label. A higher value indicates higher accuracy.
         shared_ptr<string> logoScore_ {};
-        // The category of the review result. Valid values:
+        // The classification of the pornography review result. Valid values:
         // 
-        // *   **normal**
-        // *   **porn**
-        // *   **sexy**
+        // - **normal**: Normal.
+        // - **porn**: Pornographic.
+        // - **sexy**: Sexy.
         shared_ptr<string> pornLabel_ {};
-        // The score of the video snapshot in the pornographic content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+        // The hit score of the video screenshot for the pornography review result. Value range: `[0-100]`, with a precision of 10 decimal places. The hit result indicates the probability of the corresponding classification label. A higher value indicates higher accuracy.
         shared_ptr<string> pornScore_ {};
-        // The category of the review result. Valid values:
+        // The classification of the terrorism review result. Valid values:
         // 
-        // *   **normal**
-        // *   **bloody**
-        // *   **explosion**
-        // *   **outfit**
-        // *   **logo**
-        // *   **weapon**
-        // *   **politics**
-        // *   **violence**
-        // *   **crowd**
-        // *   **parade**
-        // *   **carcrash**
-        // *   **flag**
-        // *   **location**
-        // *   **others**
+        // - **normal**: Normal.
+        // - **bloody**: Bloody.
+        // - **explosion**: Explosion and smoke.
+        // - **outfit**: Special attire.
+        // - **logo**: Special logo.
+        // - **weapon**: Weapon.
+        // - **politics**: Politically sensitive.
+        // - **violence**: Fighting.
+        // - **crowd**: Crowd gathering.
+        // - **parade**: Parade.
+        // - **carcrash**: Car crash scene.
+        // - **flag**: Flag.
+        // - **location**: Landmark.
+        // - **others**: Others.
         shared_ptr<string> terrorismLabel_ {};
-        // The score of the video snapshot in the terrorist content review result. Valid values: `[0,100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+        // The hit score of the video screenshot for the terrorism review result. Value range: `[0-100]`, with a precision of 10 decimal places. The hit result indicates the probability of the corresponding classification label. A higher value indicates higher accuracy.
         shared_ptr<string> terrorismScore_ {};
-        // The timestamp of the snapshot in the video. Unit: milliseconds.
+        // The position of the video screenshot in the video. Unit: milliseconds.
         shared_ptr<string> timestamp_ {};
-        // The URL of the video snapshot.
+        // The URL of the video screenshot.
         shared_ptr<string> url_ {};
       };
 
@@ -269,9 +266,9 @@ namespace Models
 
 
     protected:
-      // The review results returned.
+      // The list of video review result details.
       shared_ptr<vector<MediaAuditResultDetail::List>> list_ {};
-      // The total number of snapshots returned.
+      // The total number of video review result screenshots.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -294,9 +291,9 @@ namespace Models
 
 
   protected:
-    // Details about review results.
+    // The details of the review results.
     shared_ptr<GetMediaAuditResultDetailResponseBody::MediaAuditResultDetail> mediaAuditResultDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

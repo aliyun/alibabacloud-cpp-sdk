@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The time when the watermark extraction job was created.
       shared_ptr<string> createTime_ {};
-      // The error message.
+      // The error message. This parameter is returned only when the watermark extraction job fails (the value of `Status` is `Failed`).
       shared_ptr<string> errorMessage_ {};
       // The ID of the watermark extraction job.
       shared_ptr<string> jobId_ {};
@@ -116,11 +116,11 @@ namespace Models
       shared_ptr<string> modifyTime_ {};
       // The status of the watermark extraction job. Valid values:
       // 
-      // *   **Success**
-      // *   **Failed**
-      // *   **Processing**
+      // - **Success**: The job succeeded.	
+      // - **Failed**: The job failed.
+      // - **Processing**: The job is being processed.
       shared_ptr<string> status_ {};
-      // The extracted watermark content.
+      // The extracted watermark text.
       shared_ptr<string> waterMarkText_ {};
     };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
   protected:
-    // The details of the watermark extraction job.
+    // The details of the watermark extraction jobs.
     shared_ptr<vector<GetDigitalWatermarkExtractResultResponseBody::AiExtractResultList>> aiExtractResultList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

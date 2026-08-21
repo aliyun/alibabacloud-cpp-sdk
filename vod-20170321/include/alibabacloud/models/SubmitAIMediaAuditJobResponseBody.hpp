@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the job.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // The ID of the media file.
+    // The audio or video ID.
     shared_ptr<string> mediaId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -260,73 +260,72 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the category.
+      // The category ID.
       shared_ptr<int64_t> cateId_ {};
-      // The name of the category.
+      // The category name.
       shared_ptr<string> cateName_ {};
       // The thumbnail URL of the audio or video file.
       shared_ptr<string> coverURL_ {};
-      // The time when the media file was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the audio or video file was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The description of the audio or video file.
       shared_ptr<string> description_ {};
-      // Indicates whether the offline download feature is enabled. If you enable the offline download feature, users can download and play videos by using the ApsaraVideo Player on a local PC. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html). Valid values:
+      // The status of the offline download switch. If the offline download feature is enabled, mobile users can cache videos to their local devices for offline viewing by using ApsaraVideo Player. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
       // 
-      // *   **on**: the offline download feature is enabled.
-      // *   **off**: the offline download feature is not enabled.
+      // - **on**: enabled. Offline download is allowed.
+      // - **off**: disabled. Offline download is not allowed.
       shared_ptr<string> downloadSwitch_ {};
       // The duration of the audio or video file. Unit: seconds.
       shared_ptr<float> duration_ {};
-      // The time when the audio or video file was last updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The last time when the audio or video file was updated. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
+      // The custom ID. The value can contain only lowercase letters, uppercase letters, digits, hyphens (-), and underscores (_), and must be 6 to 64 characters in length. The value is unique at the user level.
       shared_ptr<string> referenceId_ {};
-      // The period of time in which the audio file remains in the restored state.
+      // The expiration time of the media asset restoration.
       shared_ptr<string> restoreExpiration_ {};
-      // The restoration status of the audio file. Valid values:
-      // 
-      // *   **Processing**
-      // *   **Success**
-      // *   **Failed**
+      // The restoration status of the media asset. Valid values:
+      // - **Processing**: The media asset is being restored.
+      // - **Success**: The media asset is restored.
+      // - **Failed**: The media asset failed to be restored.
       shared_ptr<string> restoreStatus_ {};
-      // The size of the source file. Unit: bytes.
+      // The size of the audio or video source file. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The video snapshot URLs.
+      // The array of video snapshot URLs.
       shared_ptr<vector<string>> snapshots_ {};
-      // The status of the video. Valid values:
+      // The video status. Valid values:
       // 
-      // *   **Uploading**
-      // *   **UploadFail**
-      // *   **UploadSucc**
-      // *   **Transcoding**
-      // *   **TranscodeFail**
-      // *   **Blocked**
-      // *   **Normal**
+      // - **Uploading**: The video is being uploaded.
+      // - **UploadFail**: The video failed to be uploaded.
+      // - **UploadSucc**: The video has been uploaded.
+      // - **Transcoding**: The video is being transcoded.
+      // - **TranscodeFail**: The video failed to be transcoded.
+      // - **Blocked**: The video is blocked.
+      // - **Normal**: The video is in a normal state.
       shared_ptr<string> status_ {};
-      // The storage class of the audio file. Valid values:
-      // 
-      // *   **Standard**: All media resources are stored as Standard objects.
-      // *   **IA**: All media resources are stored as IA objects.
-      // *   **Archive**: All media resources are stored as Archive objects.
-      // *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-      // *   **SourceIA**: Only the source files are IA objects.
-      // *   **SourceArchive**: Only the source files are Archive objects.
-      // *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
-      // *   **Changing**: The storage class of the video file is being changed.
-      // *   **SourceChanging**: The storage class of the source file is being changed.
+      // The storage class of the media asset. Valid values:
+      // - **Standard**: standard.
+      // - **IA**: media asset Infrequent Access.
+      // - **Archive**: media asset Archive.
+      // - **ColdArchive**: media asset Cold Archive.
+      // - **SourceIA**: source file Infrequent Access.
+      // - **SourceArchive**: source file Archive.
+      // - **SourceColdArchive**: source file Cold Archive.
+      // - **Changing**: the media asset storage class is being changed.
+      // - **SourceChanging**: the source file storage class is being changed.
       shared_ptr<string> storageClass_ {};
       // The storage address of the audio or video file.
       shared_ptr<string> storageLocation_ {};
       // The tags of the audio or video file. Multiple tags are separated by commas (,).
       shared_ptr<string> tags_ {};
-      // The ID of the transcoding template group.
+      // The transcoding template group ID.
       shared_ptr<string> templateGroupId_ {};
       // The title of the audio or video file.
       shared_ptr<string> title_ {};
-      // Custom settings. This is a JSON string that supports settings such as message callbacks and upload acceleration. For more information, please refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
+      // The custom settings. The value is a JSON string that supports settings such as message callbacks and upload acceleration. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
       shared_ptr<string> userData_ {};
-      // The ID of the audio or video file.
+      // The audio or video ID.
       shared_ptr<string> videoId_ {};
     };
 
@@ -367,12 +366,13 @@ namespace Models
 
 
   protected:
+    // The list of custom IDs that do not exist.
     shared_ptr<vector<string>> nonExistReferenceIds_ {};
-    // The IDs of the videos that do not exist.
+    // The list of audio or video IDs that do not exist.
     shared_ptr<vector<string>> nonExistVideoIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the audio or video files.
+    // The information about the audio and video files.
     shared_ptr<vector<GetVideoInfosResponseBody::VideoList>> videoList_ {};
   };
 

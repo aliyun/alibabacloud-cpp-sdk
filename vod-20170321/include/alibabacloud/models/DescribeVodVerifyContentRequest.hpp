@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The domain name for which you want to verify the ownership. You can specify only one domain name in each call.
+    // The domain name to be verified. Only a single domain name is supported.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

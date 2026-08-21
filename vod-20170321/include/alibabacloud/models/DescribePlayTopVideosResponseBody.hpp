@@ -187,10 +187,10 @@ namespace Models
     shared_ptr<int64_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribePlayTopVideosResponseBody::TopPlayVideos> topPlayVideos_ {};
-    // The total number of entries that were collected in playback statistics on top videos.
+    // The total number of top videos.
     shared_ptr<int64_t> totalNum_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The domain name for CDN.
+    // The accelerated domain name for ApsaraVideo VOD.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};

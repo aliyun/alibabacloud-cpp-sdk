@@ -152,27 +152,29 @@ namespace Models
 
 
     protected:
-      // The time when the animated sticker was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the animated image was created. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> creationTime_ {};
-      // The duration of the animated sticker. Unit: seconds.
+      // The duration of the animated image. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The ID of the animated sticker.
+      // The animated image ID.
       shared_ptr<string> dynamicImageId_ {};
-      // The size of the animated sticker file. Unit: byte.
+      // The size of the animated image file. Unit: bytes.
       shared_ptr<string> fileSize_ {};
-      // The URL of the animated sticker file.
+      // The URL of the animated image file.
       shared_ptr<string> fileURL_ {};
-      // The format of the animated sticker. Valid values: gif and webp.
+      // The format of the animated image. Valid values:
+      // - **gif**
+      // - **webp**
       shared_ptr<string> format_ {};
-      // The frame rate of the animated sticker. Unit: frames per second.
+      // The frame rate of the animated image. Unit: frames per second.
       shared_ptr<string> fps_ {};
-      // The height of the animated sticker. Unit: pixel.
+      // The height of the animated image. Unit: px.
       shared_ptr<string> height_ {};
-      // The job ID for creating the animated sticker.
+      // The animated image job ID.
       shared_ptr<string> jobId_ {};
-      // The ID of the video.
+      // The video ID.
       shared_ptr<string> videoId_ {};
-      // The width of the animated sticker. Unit: pixel.
+      // The width of the animated image. Unit: px.
       shared_ptr<string> width_ {};
     };
 
@@ -195,9 +197,9 @@ namespace Models
 
 
   protected:
-    // The list of animated stickers.
+    // The animated image results.
     shared_ptr<vector<ListDynamicImageResponseBody::DynamicImageList>> dynamicImageList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

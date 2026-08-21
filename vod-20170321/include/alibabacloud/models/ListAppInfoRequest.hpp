@@ -70,12 +70,11 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: **10**. Maximum value: **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID to which the instance belongs.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the application. You can specify the status of the applications that you want to query. After an application is created, it enters the **Normal** state. Valid values:
-    // 
-    // *   **Normal**
-    // *   **Disable**
+    // The application status. You can query applications in a specified status. After an application is created, the status is **Normal** by default. Valid values:
+    // - **Normal**
+    // - **Disable**
     shared_ptr<string> status_ {};
   };
 

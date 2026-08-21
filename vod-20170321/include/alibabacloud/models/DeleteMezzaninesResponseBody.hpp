@@ -73,14 +73,15 @@ namespace Models
 
 
   protected:
+    // The list of custom IDs that do not exist.
     shared_ptr<vector<string>> nonExistReferenceIds_ {};
-    // The IDs of the audio or video files that do not exist.
+    // The list of audio or video IDs that do not exist.
     shared_ptr<vector<string>> nonExistVideoIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the audio or video files whose source files cannot be deleted.
+    // The list of audio or video IDs that cannot be deleted.
     // 
-    // >  In most cases, source files cannot be deleted if they are used for original-quality playback or you do not have required permissions to delete them. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+    // > This is typically because the source file is used as the original stream (if the video transcoding pattern is no transcoding or asynchronous transcoding, the source file is used as the original stream for playback and cannot be deleted by default) or because of insufficient [permissions](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<vector<string>> unRemoveableVideoIds_ {};
   };
 

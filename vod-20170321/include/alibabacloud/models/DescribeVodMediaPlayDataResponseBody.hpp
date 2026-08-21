@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // The number of visits to the audio or video per day.
+      // The number of unique visitors for the audio or video file.
       shared_ptr<float> DAU_ {};
-      // The ID of the media file (VideoId).
+      // The media ID, which is the audio or video ID (VideoId).
       shared_ptr<string> mediaId_ {};
-      // The total playback duration of the audio or video. Unit: seconds.
+      // The total play duration for the audio or video file. Unit: seconds.
       shared_ptr<float> playDuration_ {};
-      // The average playback duration of the audio or video per viewer. Unit: seconds.
+      // The average play duration per user for the audio or video file. Unit: seconds.
       shared_ptr<float> playDurationPerUv_ {};
-      // The average number of times that the audio or video was played per viewer.
+      // The average number of plays per user for the audio or video file.
       shared_ptr<float> playPerVv_ {};
-      // The total number of times the audio or video has been played.
+      // The total number of plays for the audio or video file.
       shared_ptr<float> playSuccessVv_ {};
       // The duration of the audio or video file. Unit: seconds.
       shared_ptr<float> videoDuration_ {};
-      // The name of the audio or video file.
+      // The title of the audio or video file.
       shared_ptr<string> videoTitle_ {};
     };
 
@@ -189,13 +189,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int64_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The data returned.
+    // The list of returned data.
     shared_ptr<vector<DescribeVodMediaPlayDataResponseBody::QoeInfoList>> qoeInfoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

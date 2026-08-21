@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The query is performed based on the time range during which the required online editing projects were created. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
@@ -140,17 +140,19 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<string> resourceOwnerId_ {};
-    // The sorting rule of results. Valid values:
-    // *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-    // *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+    // The sorting method of the results. Valid values:
+    // 
+    // - **desc** (default): sorts the results in reverse chronological order based on creation time.
+    // - **asc**: sorts the results in chronological order based on creation time.
     shared_ptr<string> sortBy_ {};
-    // The beginning of the time range to query. The query is performed based on the time range during which the required online editing projects were created. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> startTime_ {};
-    // The status of the online editing project. Separate multiple states with commas (,). By default, all online editing projects are queried. Valid values:
-    // *   **Normal**: indicates that the online editing project is in draft.
-    // *   **Producing**: indicates that the video is being produced.
-    // *   **Produced**: indicates that the video was produced.
-    // *   **ProduceFailed**: indicates that the video failed to be produced.
+    // The status of the online editing project. Separate multiple statuses with commas (,). By default, all online editing projects are returned. Valid values:
+    // 
+    // - **Normal**: Draft.
+    // - **Producing**: Being produced.
+    // - **Produced**: Produced.
+    // - **ProduceFailed**: Failed to be produced.
     shared_ptr<string> status_ {};
     // The title of the online editing project.
     shared_ptr<string> title_ {};

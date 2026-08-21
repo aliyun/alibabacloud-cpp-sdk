@@ -38,8 +38,11 @@ namespace Models
 
 
   protected:
-    // The review content. You can specify up to **100** audio or video files in a request. The value must be converted to a string.\\
-    // For more information about this parameter, see the **AuditContent** section of this topic.
+    // The array of review content.
+    // 
+    // A maximum of **100** audio or video entries can be reviewed at a time. Convert the array to a string before passing it as the parameter value.
+    // 
+    // For the specific parameter structure, see the **AuditContent** table below.
     // 
     // This parameter is required.
     shared_ptr<string> auditContent_ {};

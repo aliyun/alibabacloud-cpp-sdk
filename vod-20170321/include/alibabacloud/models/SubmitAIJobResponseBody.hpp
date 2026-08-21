@@ -137,7 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<SubmitAIJobResponseBody::AIJobList> AIJobList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

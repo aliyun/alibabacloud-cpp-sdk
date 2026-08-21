@@ -174,11 +174,11 @@ namespace Models
 
 
     protected:
-      // The time when the snapshot job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the snapshot job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The ID of the snapshot job.
+      // The snapshot job ID.
       shared_ptr<string> jobId_ {};
-      // The rule used to generate snapshot URLs.
+      // The rule for generating snapshot URLs.
       shared_ptr<string> regular_ {};
       shared_ptr<MediaSnapshot::Snapshots> snapshots_ {};
       // The total number of snapshots.
@@ -204,9 +204,9 @@ namespace Models
 
 
   protected:
-    // The information about the snapshot.
+    // The video snapshot data.
     shared_ptr<ListSnapshotsResponseBody::MediaSnapshot> mediaSnapshot_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

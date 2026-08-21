@@ -322,11 +322,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVodUserDomainsResponseBody::Domains> domains_ {};
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

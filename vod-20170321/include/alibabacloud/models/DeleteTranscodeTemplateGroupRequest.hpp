@@ -57,10 +57,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to forcibly delete the transcoding template group. Valid values:
+    // Indicates whether to force delete the entire transcoding template group. Valid values:
     // 
-    // *   **true**: deletes the transcoding template group and all the transcoding templates in the group.
-    // *   **false** (default): deletes only the specified transcoding templates from the transcoding template group.
+    // - **true**: Force deletes the entire template group and all its transcoding templates.
+    // - **false** (default): Deletes only the specified transcoding templates.
     shared_ptr<string> forceDelGroup_ {};
     // The ID of the transcoding template group.
     // 
@@ -68,9 +68,9 @@ namespace Models
     shared_ptr<string> transcodeTemplateGroupId_ {};
     // The IDs of the transcoding templates that you want to delete.
     // 
-    // *   Separate multiple IDs with commas (,).
-    // *   You can specify a maximum of 10 IDs.
-    // *   This parameter is required if you set ForceDelGroup to false or leave ForceDelGroup empty.
+    // - Separate multiple IDs with commas (,).
+    // - A maximum of 10 template IDs are supported.
+    // - This parameter is required if the ForceDelGroup parameter is empty or set to false.
     shared_ptr<string> transcodeTemplateIds_ {};
   };
 

@@ -388,7 +388,7 @@ namespace Models
 
   protected:
     shared_ptr<ListLiveRecordVideoResponseBody::LiveRecordVideoList> liveRecordVideoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of videos.
     shared_ptr<int32_t> total_ {};

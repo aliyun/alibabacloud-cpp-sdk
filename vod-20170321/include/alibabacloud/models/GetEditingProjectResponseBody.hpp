@@ -144,26 +144,25 @@ namespace Models
     protected:
       // The thumbnail URL of the online editing project.
       shared_ptr<string> coverURL_ {};
-      // The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the online editing project was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
       // The description of the online editing project.
       shared_ptr<string> description_ {};
-      // The last time when the online editing project was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the online editing project was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modifiedTime_ {};
-      // The ID of the online editing project.
+      // The online editing project ID.
       shared_ptr<string> projectId_ {};
-      // The region where the online editing project was created.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The status of the online editing project. Separate multiple states with commas (,). By default, all online editing projects were queried. Valid values:
+      // The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are returned. Valid values:
       // 
-      // *   **Normal**: indicates that the online editing project is in draft.
-      // *   **Producing**: indicates that the video is being produced.
-      // *   **Produced**: indicates that the video was produced.
-      // *   **ProduceFailed**: indicates that the video failed to be produced.
+      // - **Normal**: draft.
+      // - **Producing**: being produced.
+      // - **Produced**: produced.
+      // - **ProduceFailed**: failed to be produced.
       shared_ptr<string> status_ {};
-      // The path of the Object Storage Service (OSS) bucket where the online editing project is stored.
-      // 
-      // > To view the path of the OSS bucket, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored), and choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, you can view the path of the OSS bucket.
+      // The storage address.
+      // > You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored) and choose **Configuration Management** > **Media Asset Management Configuration** > **Storage Management** to view the storage address.
       shared_ptr<string> storageLocation_ {};
       // The timeline of the online editing project.
       shared_ptr<string> timeline_ {};
@@ -190,9 +189,9 @@ namespace Models
 
 
   protected:
-    // The information about the online editing project.
+    // The online editing project.
     shared_ptr<GetEditingProjectResponseBody::Project> project_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

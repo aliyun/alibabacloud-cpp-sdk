@@ -243,7 +243,7 @@ namespace Models
   protected:
     shared_ptr<ListAIJobResponseBody::AIJobList> AIJobList_ {};
     shared_ptr<ListAIJobResponseBody::NonExistAIJobIds> nonExistAIJobIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

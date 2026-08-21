@@ -72,7 +72,7 @@ namespace Models
     protected:
       // The ID of the upload job.
       shared_ptr<string> jobId_ {};
-      // The URL of the source file that is uploaded in the upload job.
+      // The source file URL of the upload job.
       shared_ptr<string> sourceURL_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the upload job.
+    // The list of upload jobs.
     shared_ptr<vector<UploadMediaByURLResponseBody::UploadJobs>> uploadJobs_ {};
   };
 

@@ -130,39 +130,42 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<int64_t> certId_ {};
-    // The name of the certificate.
+    // The certificate name.
     shared_ptr<string> certName_ {};
-    // The region of the certificate. Valid values:
+    // The certificate region. Valid values:
+    // - **ap-southeast-1** (Singapore)
+    // - **cn-hangzhou** (Hangzhou)
     // 
-    // *   **ap-southeast-1**: Singapore
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // 
-    // Default value: **cn-hangzhou**
+    // Default value: **cn-hangzhou**.
     shared_ptr<string> certRegion_ {};
-    // The type of the certificate.
+    // The certificate type. Valid values:
     // 
-    // *   **upload**: a user-uploaded SSL certificate.
-    // *   **cas**: a certificate that is acquired through Certificate Management Service.
+    // - **upload**: an uploaded certificate.
+    // - **cas**: a certificate from SSL Certificates Service.
     shared_ptr<string> certType_ {};
-    // VOD acceleration domain.
+    // The accelerated domain name for ApsaraVideo VOD.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Specifies whether the certificate is issued in canary releases. If you set this parameter to **staging**, the certificate is issued in canary releases. If you do not specify this parameter or set this parameter to other values, the certificate is officially issued.
+    // Specifies whether to distribute the certificate in a canary release environment. Valid values:
+    // 
+    // - **staging**: distributes the certificate in a canary release environment.
+    // 
+    // If this parameter is not specified or set to any other value, the certificate is formally distributed.
     shared_ptr<string> env_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The private key. This parameter is required only if you enable the certificate.
+    // The content of the private key. If you do not enable the certificate, you do not need to specify this parameter. If you configure a certificate, enter the private key content.
     shared_ptr<string> SSLPri_ {};
-    // Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+    // Specifies whether to enable the HTTPS certificate. Valid values:
     // 
-    // *   **on**
-    // *   **off**
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> SSLProtocol_ {};
-    // The content of the certificate. This parameter is required only if you enable the SSL certificate.
+    // The content of the security certificate. If you do not enable the certificate, you do not need to specify this parameter. If you configure a certificate, enter the certificate content.
     shared_ptr<string> SSLPub_ {};
     shared_ptr<string> securityToken_ {};
   };

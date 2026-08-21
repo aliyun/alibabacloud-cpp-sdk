@@ -73,14 +73,15 @@ namespace Models
 
 
   protected:
-    // The IDs of the videos that cannot be deleted.
-    // > Generally, videos cannot be deleted if you do not have the required [permissions](https://help.aliyun.com/document_detail/113600.html).
+    // The list of video IDs for which the operation is forbidden.
+    // 
+    // > This is typically caused by insufficient [permissions](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<vector<string>> forbiddenVideoIds_ {};
+    // The list of custom IDs that do not exist.
     shared_ptr<vector<string>> nonExistReferenceIds_ {};
-    // The IDs of the videos that do not exist.
-    // > If the list of videos to be deleted contains one or more videos that do not exist, the IDs of these non-existing videos are returned. If none of the videos in the list exists, a 404 error is returned.
+    // The list of video IDs that do not exist.
     shared_ptr<vector<string>> nonExistVideoIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

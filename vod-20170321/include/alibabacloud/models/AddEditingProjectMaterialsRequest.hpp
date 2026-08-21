@@ -94,23 +94,21 @@ namespace Models
 
 
   protected:
-    // Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
-    // 
-    // >  If you specify multiple materials, make sure that the materials are of the same type as specified in MaterialType.
+    // The material IDs. Separate multiple IDs with commas (,). A maximum of 10 material IDs are supported.
+    // >  When you associate multiple materials, ensure that all materials are of the same type and correspond to the MaterialType value.
     // 
     // This parameter is required.
     shared_ptr<string> materialIds_ {};
-    // The type of the material. Valid values:
-    // 
-    // *   **video**
-    // *   **audio**
-    // *   **image**
+    // The material type. Valid values:
+    // - **video**: video.
+    // - **audio**: audio-only.
+    // - **image**: image.
     // 
     // This parameter is required.
     shared_ptr<string> materialType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the online editing project.
+    // The online editing project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

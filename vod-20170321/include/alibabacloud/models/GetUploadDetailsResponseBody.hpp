@@ -175,31 +175,31 @@ namespace Models
 
 
     protected:
-      // The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> completionTime_ {};
-      // The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
       // The device model.
       shared_ptr<string> deviceModel_ {};
-      // The size of the uploaded file. Unit: byte.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
-      // The ID of the uploaded audio or video.
+      // The ID of the uploaded audio or video file.
       shared_ptr<string> mediaId_ {};
-      // The time when the information about the media file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The modification time. The time is in the _yyyy-MM-ddTHH:mm:ssZ_ format (UTC).
       shared_ptr<string> modificationTime_ {};
-      // The status of the video. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+      // The video status. For the valid values and descriptions of video statuses, see the value list in [Status: video status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> status_ {};
-      // The title of the media file.
+      // The title.
       shared_ptr<string> title_ {};
-      // The IP address of the server that uploads the media file.
+      // The upload IP address.
       shared_ptr<string> uploadIP_ {};
       // The upload ratio.
       shared_ptr<float> uploadRatio_ {};
-      // The upload size. Unit: byte.
+      // The upload size. Unit: bytes.
       shared_ptr<int64_t> uploadSize_ {};
-      // The method that is used to upload the media file.
+      // The upload source.
       shared_ptr<string> uploadSource_ {};
-      // The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+      // The upload task status. For the valid values and descriptions of upload statuses, see the value list in [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> uploadStatus_ {};
     };
 
@@ -240,11 +240,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the media files that cannot be accessed.
+    // The IDs of media files that cannot be accessed.
     shared_ptr<vector<string>> forbiddenMediaIds_ {};
-    // The IDs of the media files that do not exist.
+    // The IDs of media files that do not exist.
     shared_ptr<vector<string>> nonExistMediaIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The upload details.
     shared_ptr<vector<GetUploadDetailsResponseBody::UploadDetails>> uploadDetails_ {};

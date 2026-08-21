@@ -212,47 +212,47 @@ namespace Models
 
 
     protected:
-      // The ID of the category.
+      // The category ID.
       shared_ptr<int32_t> cateId_ {};
-      // The category name of the material.
+      // The material category name.
       shared_ptr<string> cateName_ {};
-      // The thumbnail URL.
+      // The thumbnail URL of the material.
       shared_ptr<string> coverURL_ {};
-      // The time when the material was created. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+      // The time when the material was created. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
       shared_ptr<string> createTime_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<int64_t> customerId_ {};
-      // The description of the material.
+      // The material description.
       shared_ptr<string> description_ {};
-      // The duration of the material. Unit: seconds. The value is accurate to four decimal places.
+      // The material duration. Unit: seconds. The value is accurate to four decimal places.
       shared_ptr<float> duration_ {};
-      // The ID of the material.
+      // The material ID.
       shared_ptr<string> materialId_ {};
-      // The type of the material. Valid values:
+      // The material type. Valid values:
       // 
-      // *   **video**
-      // *   **audio**
-      // *   **image**
+      // - **video**: video.
+      // - **audio**: audio-only.
+      // - **image**: image.
       shared_ptr<string> materialType_ {};
-      // The time when the material was last updated. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+      // The time when the material was last modified. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
       shared_ptr<string> modifyTime_ {};
-      // The size of the material.
+      // The file size.
       shared_ptr<int64_t> size_ {};
-      // The URLs of snapshots.
+      // The array of snapshot URLs for the material.
       shared_ptr<vector<string>> snapshots_ {};
-      // The configuration of the sprite snapshot.
+      // The sprite configuration.
       shared_ptr<string> spriteConfig_ {};
-      // The URLs of sprite snapshots.
+      // The array of sprite URLs for the material.
       shared_ptr<vector<string>> sprites_ {};
-      // The status of the material. Valid values:
+      // The material status. Valid values:
       // 
-      // *   **Normal**
-      // *   **Uploading**
-      // *   **UploadFail**
+      // - **Normal**: Normal.
+      // - **Uploading**: Uploading.
+      // - **UploadFail**: Upload failed.
       shared_ptr<string> status_ {};
-      // The tag of the material. Multiple tags are separated by commas (,).
+      // The material tags. Multiple tags are separated by commas (,).
       shared_ptr<string> tags_ {};
-      // The title of the material.
+      // The material title.
       shared_ptr<string> title_ {};
     };
 
@@ -275,9 +275,9 @@ namespace Models
 
 
   protected:
-    // The materials.
+    // The list of materials.
     shared_ptr<vector<AddEditingProjectMaterialsResponseBody::MaterialList>> materialList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

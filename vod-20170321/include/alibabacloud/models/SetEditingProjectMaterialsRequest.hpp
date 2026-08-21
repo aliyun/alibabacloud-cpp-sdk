@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset. You can specify IDs of media assets such as videos, images, or auxiliary media assets. Separate multiple IDs with commas (,).
+    // The material IDs, which are media asset IDs such as video VideoId, image ImageId, and auxiliary media asset MediaId. Separate multiple material IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> materialIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the online editing project.
+    // The online editing project ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

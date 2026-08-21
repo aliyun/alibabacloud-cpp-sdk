@@ -353,9 +353,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of media files returned.
+    // The total number of audio and video files.
     shared_ptr<int32_t> total_ {};
     shared_ptr<GetVideoListResponseBody::VideoList> videoList_ {};
   };

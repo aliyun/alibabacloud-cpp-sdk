@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the prefetch task. Separate multiple task IDs with commas (,).
+    // The task ID returned for the prefetch operation. Multiple task IDs are separated by commas (,).
     shared_ptr<string> preloadTaskId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

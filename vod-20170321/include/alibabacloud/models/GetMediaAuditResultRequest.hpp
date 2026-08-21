@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the video or image.
+    // The video ID or image ID to query.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};

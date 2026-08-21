@@ -87,9 +87,15 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The time when the playback key was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
+      // The time when the playback key was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modificationTime_ {};
+      // The playback key.
+      // - Only uppercase letters, lowercase letters, and digits are supported. The length must be 8 to 20 characters.
+      // - UTF-8 encoding.
       shared_ptr<string> playKey_ {};
     };
 
@@ -112,7 +118,9 @@ namespace Models
 
 
   protected:
+    // The application playback key information.
     shared_ptr<GetAppPlayKeyResponseBody::AppPlayKey> appPlayKey_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

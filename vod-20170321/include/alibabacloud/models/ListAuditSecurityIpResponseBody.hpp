@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The time when the review security group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the security IP group was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
-      // The IP addresses in the review security group.
+      // The list of security IPs.
       shared_ptr<string> ips_ {};
-      // The time when the review security group was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the security IP group was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modificationTime_ {};
-      // The name of the review security group.
+      // The name of the security IP group.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the review security group.
+    // The details of the review security IPs.
     shared_ptr<vector<ListAuditSecurityIpResponseBody::SecurityIpList>> securityIpList_ {};
   };
 

@@ -182,16 +182,16 @@ namespace Models
 
 
   protected:
-    // The time interval between the entries returned. Unit: seconds.
+    // The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end of the time range for the returned data.
     shared_ptr<string> endTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeVodDomainSrcTrafficDataResponseBody::SrcTrafficDataPerInterval> srcTrafficDataPerInterval_ {};
-    // The start of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The beginning of the time range for the returned data.
     shared_ptr<string> startTime_ {};
     // The total traffic. Unit: bytes.
     shared_ptr<string> totalTraffic_ {};

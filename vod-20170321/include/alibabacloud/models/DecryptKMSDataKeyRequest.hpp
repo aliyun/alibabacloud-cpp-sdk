@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ciphertext to be decrypted.
+    // The ciphertext to decrypt.
     // 
     // This parameter is required.
     shared_ptr<string> cipherText_ {};

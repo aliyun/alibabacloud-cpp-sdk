@@ -66,23 +66,20 @@ namespace Models
 
 
   protected:
-    // The application ID. Default value: **app-1000000**. For more information, see [Use the multi-application service](https://help.aliyun.com/document_detail/113600.html).
+    // The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> appId_ {};
     // The name of the transcoding template group.
     // 
-    // *   The name can be up to 128 bytes in length.
-    // *   The value must be encoded in UTF-8.
-    // 
-    // > You must specify TranscodeTemplateGroupId or Name in the request.
+    // - The name can be up to 128 bytes in length.
+    // - The value is encoded in UTF-8.
+    // > You must specify either TranscodeTemplateGroupId or Name.
     shared_ptr<string> name_ {};
-    // The ID of the transcoding template group. If a transcoding template group ID is specified, you can add transcoding templates to the template group.
-    // 
-    // > You must specify TranscodeTemplateGroupId or Name in the request.
+    // The ID of the transcoding template group. If you specify the ID of a transcoding template group, new transcoding templates are added to the specified template group.
+    // > You must specify either TranscodeTemplateGroupId or Name.
     shared_ptr<string> transcodeTemplateGroupId_ {};
-    // The configurations of the transcoding template. The value is a string in JSON format. For more information about the data structure, see [TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html).
-    // 
-    // > *   If you do not specify this parameter, the transcoding job cannot be automatically created after you upload a video.
-    // > *   If you do not need to set Width or Height, do not specify the corresponding parameter. You cannot set the value to an empty string, such as "Height":"".
+    // The transcoding template configurations in the JSON format. For more information about the parameter structure, see [TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html).
+    // >- If you do not specify this parameter, the transcoding process is not created and video uploads do not trigger transcoding.
+    // >- If you do not need to set the Width or Height property, do not specify the corresponding property. Do not set it to an empty string, such as "Height":"".
     shared_ptr<string> transcodeTemplateList_ {};
   };
 

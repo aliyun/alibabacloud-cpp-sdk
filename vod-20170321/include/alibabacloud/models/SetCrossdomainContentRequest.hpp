@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The content of the cross-domain policy file. The file must be in the XML format and can contain up to 2,048 characters.
+    // The content of the cross-domain file. The content is in XML format and cannot exceed 2,048 characters.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> resourceOwnerId_ {};
     // The ID of the resource owner.
     shared_ptr<string> resourceRealOwnerId_ {};
-    // The URL of the Object Storage Service (OSS) bucket.
+    // The OSS storage address.
     // 
     // This parameter is required.
     shared_ptr<string> storageLocation_ {};
