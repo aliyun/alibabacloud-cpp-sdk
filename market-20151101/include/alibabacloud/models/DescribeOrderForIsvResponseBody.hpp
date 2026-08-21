@@ -218,26 +218,70 @@ namespace Models
 
 
   protected:
+    // The number of accounts.
     shared_ptr<int64_t> accountQuantity_ {};
+    // The unique identifier of the Alibaba Cloud user (aliyunPK).
     shared_ptr<int64_t> aliUid_ {};
+    // The order module information. The metric description for the parameters in the example is as follows:
+    // - package_quantity: the number of usage times (a module specific to API products)
+    // - package_version: the version
+    // - ord_time: the duration
+    // - order_num: the quantity
+    // - code: the module code
+    // - globarKey: the module key
+    // - name: the module name
+    // - value: the module value.
     Darabonba::Json components_ {};
+    // The amount of vouchers used, in CNY.
     shared_ptr<float> couponPrice_ {};
+    // The time when the order was placed.
     shared_ptr<int64_t> createdOn_ {};
     // List
     shared_ptr<vector<string>> instanceIds_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The order status. Valid values:
+    // - NORMAL: Normal.
+    // - REFUND: Refunded.
+    // - DELETE: Voided.
     shared_ptr<string> orderStatus_ {};
+    // The order type. Valid values:
+    // - NEW: New purchase order.
+    // - RENEW: Renewal order.
+    // - TRIAL: Trial order.
+    // - UPGRADE: Upgrade order.
+    // - DOWNGRADE: Downgrade order.
+    // - PURCHASE: Conversion order.
     shared_ptr<string> orderType_ {};
+    // The original price of the order, in CNY.
     shared_ptr<float> originalPrice_ {};
+    // The payment time.
     shared_ptr<int64_t> paidOn_ {};
+    // The payment status. Valid values:
+    // - PAID: Paid.
+    // - UNPAID: Unpaid.
     shared_ptr<string> payStatus_ {};
+    // The actual payment amount, in CNY.
     shared_ptr<float> paymentPrice_ {};
+    // The time unit for prepaid orders. Valid values:
+    // - MONTH: one month
+    // - SEASON: one quarter
+    // - HALFYEAR: half a year
+    // - YEAR: one year
+    // - TWOYEARS: two years
+    // - ONCE: one-time.
     shared_ptr<string> periodType_ {};
+    // The commodity code.
     shared_ptr<string> productCode_ {};
+    // The name of the subscribed product.
     shared_ptr<string> productName_ {};
+    // The SKU code of the subscribed product.
     shared_ptr<string> productSkuCode_ {};
+    // The quantity of the order.
     shared_ptr<int32_t> quantity_ {};
+    // The request ID. This ID is used for troubleshooting when an error occurs.
     shared_ptr<string> requestId_ {};
+    // The total receivable amount of the order, in CNY.
     shared_ptr<float> totalPrice_ {};
   };
 

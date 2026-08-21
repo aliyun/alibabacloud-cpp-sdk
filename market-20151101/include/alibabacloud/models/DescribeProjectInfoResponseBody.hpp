@@ -209,22 +209,51 @@ namespace Models
 
 
     protected:
+      // The current step in the process.
       shared_ptr<int32_t> currentStepNo_ {};
+      // The Alibaba Cloud UID of the customer.
       shared_ptr<int64_t> customerAliUid_ {};
+      // The sequence number of the last step.
       shared_ptr<int32_t> finalStepNo_ {};
+      // The completion method of the project. Valid values:
+      // 
+      // - null: The default value for unfinished projects.
+      // - CustomerConfirm: Manually confirmed by the customer.
+      // - SystemAutoConfirm: Automatically confirmed by the system due to timeout.
       shared_ptr<string> finishType_ {};
+      // The creation time of the project. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The expiration time of the project. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtExpired_ {};
+      // The completion time of the project. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtFinished_ {};
+      // The business instance ID in Cloud Marketplace.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
+      // The name of the Cloud Marketplace product.
       shared_ptr<string> productName_ {};
+      // The code of the Cloud Marketplace product SKU.
       shared_ptr<string> productSkuCode_ {};
+      // The name of the Cloud Marketplace product SKU.
       shared_ptr<string> productSkuName_ {};
+      // The execution status of the project. Valid values:
+      // 
+      // - Starting: In progress.
+      // - Cancel: Canceled.
+      // - Pause: Paused.
+      // - Finish: Completed.
       shared_ptr<string> projectStatus_ {};
+      // The UID of the supplier to which the project belongs.
       shared_ptr<int64_t> supplierAliUid_ {};
+      // The ID of the process template to which the project belongs.
       shared_ptr<int64_t> templateId_ {};
+      // The template type of the project. Valid values:
+      // 
+      // - Public: Public template.
+      // - Private: Private template.
       shared_ptr<string> templateType_ {};
     };
 
@@ -254,8 +283,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<DescribeProjectInfoResponseBody::Result> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

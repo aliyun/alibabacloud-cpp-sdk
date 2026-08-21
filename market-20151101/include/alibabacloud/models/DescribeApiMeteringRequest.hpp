@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // The commodity code.
     shared_ptr<string> productCode_ {};
+    // The type. Valid values:
+    // - 1: subscription package.
+    // - 2: resource plan.
     shared_ptr<int32_t> type_ {};
   };
 

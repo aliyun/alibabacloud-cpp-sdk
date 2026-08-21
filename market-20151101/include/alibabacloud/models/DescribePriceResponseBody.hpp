@@ -355,17 +355,36 @@ namespace Models
 
   protected:
     shared_ptr<DescribePriceResponseBody::Coupons> coupons_ {};
+    // Currency
+    // 
+    // CNY: Chinese Yuan
+    // USD: US Dollar
+    // JPY: Japanese Yen
     shared_ptr<string> currency_ {};
+    // Indicates whether a promotion is available
     shared_ptr<bool> cuxiao_ {};
+    // Cycle unit
+    // 
+    // DAY: Day
+    // MONTH: Month
+    // YEAR: Year
     shared_ptr<string> cycle_ {};
+    // Discount amount (original price minus trade price), in CNY
     shared_ptr<float> discountPrice_ {};
+    // Number of cycles, such as 1, 2, 3...
     shared_ptr<int32_t> duration_ {};
+    // Purchase restriction code
     shared_ptr<string> expressionCode_ {};
+    // Purchase restriction description
     shared_ptr<string> expressionMessage_ {};
+    // Promotion name
     shared_ptr<string> infoTitle_ {};
+    // Original price, in CNY
     shared_ptr<float> originalPrice_ {};
+    // Product code
     shared_ptr<string> productCode_ {};
     shared_ptr<DescribePriceResponseBody::PromotionRules> promotionRules_ {};
+    // Trade price (actual price), in CNY
     shared_ptr<float> tradePrice_ {};
   };
 

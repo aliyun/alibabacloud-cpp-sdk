@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Token returned upon successful cross-account role authorization.
     shared_ptr<string> token_ {};
   };
 

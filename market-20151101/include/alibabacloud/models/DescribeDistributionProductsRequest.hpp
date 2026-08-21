@@ -72,8 +72,20 @@ namespace Models
 
 
     protected:
+      // The search label category. Valid values:
+      // 
+      // - code: the commodity code of the promotional product
+      // - name: the name of the promotional product
+      // - supplierName: the name of the promotion service provider.
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The search tag value:
+      // 
+      // - code: the product code to search for
+      // - name: the product name to search for
+      // - supplierName: the supplier name to search for.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -104,9 +116,14 @@ namespace Models
 
 
   protected:
+    // The list of filter conditions.
     shared_ptr<vector<DescribeDistributionProductsRequest::Filter>> filter_ {};
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of promotional products per page.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
   };

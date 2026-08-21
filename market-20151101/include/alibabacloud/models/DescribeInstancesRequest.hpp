@@ -75,12 +75,27 @@ namespace Models
 
 
   protected:
+    // The commodity codes. Separate multiple codes with commas (,).
     shared_ptr<string> codes_ {};
+    // The commodity codes to exclude. This parameter cannot be specified together with the Codes parameter. Separate multiple codes with commas (,).
     shared_ptr<string> exceptCodes_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The commodity type. Valid values:
+    // - APP: application
+    // - SERVICE: service
+    // - MIRROR: image
+    // - DOWNLOAD: download
+    // - API_SERVICE: API
+    // - ROS: resource orchestration
+    // - DOCKER: container
+    // - IOT: IoT.
     shared_ptr<string> productType_ {};
   };
 

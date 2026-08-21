@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // Authorized roles.
       shared_ptr<vector<string>> authRoles_ {};
+      // Authorization time.
       shared_ptr<int64_t> authTime_ {};
+      // User display name.
       shared_ptr<string> name_ {};
+      // User Alibaba Cloud UID.
       shared_ptr<string> uid_ {};
     };
 
@@ -142,11 +146,15 @@ namespace Models
 
 
   protected:
+    // Status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // Error message.
     shared_ptr<string> message_ {};
-    // RequestId
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Response result object.
     shared_ptr<CrossAccountVerifyTokenResponseBody::Result> result_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

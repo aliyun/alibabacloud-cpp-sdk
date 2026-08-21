@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of instances per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

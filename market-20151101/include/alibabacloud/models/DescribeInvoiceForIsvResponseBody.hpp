@@ -181,21 +181,36 @@ namespace Models
 
 
       protected:
+        // The recipient.
         shared_ptr<string> addressee_ {};
+        // The Alibaba Cloud user ID of the customer.
         shared_ptr<string> aliyunPk_ {};
+        // Deprecated.
         shared_ptr<string> bizType_ {};
+        // The delivery address.
         shared_ptr<string> deliveryAddress_ {};
+        // The email address.
         shared_ptr<string> emails_ {};
+        // The phone number.
         shared_ptr<string> phone_ {};
+        // The postal code.
         shared_ptr<string> postalCode_ {};
       };
 
       class ReceiptUserInfoDto : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ReceiptUserInfoDto& obj) { 
+          DARABONBA_PTR_TO_JSON(BankAccount, bankAccount_);
+          DARABONBA_PTR_TO_JSON(BankName, bankName_);
+          DARABONBA_PTR_TO_JSON(RegAddress, regAddress_);
+          DARABONBA_PTR_TO_JSON(RegPhone, regPhone_);
           DARABONBA_PTR_TO_JSON(TaxNumber, taxNumber_);
         };
         friend void from_json(const Darabonba::Json& j, ReceiptUserInfoDto& obj) { 
+          DARABONBA_PTR_FROM_JSON(BankAccount, bankAccount_);
+          DARABONBA_PTR_FROM_JSON(BankName, bankName_);
+          DARABONBA_PTR_FROM_JSON(RegAddress, regAddress_);
+          DARABONBA_PTR_FROM_JSON(RegPhone, regPhone_);
           DARABONBA_PTR_FROM_JSON(TaxNumber, taxNumber_);
         };
         ReceiptUserInfoDto() = default ;
@@ -209,7 +224,36 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->taxNumber_ == nullptr; };
+        virtual bool empty() const override { return this->bankAccount_ == nullptr
+        && this->bankName_ == nullptr && this->regAddress_ == nullptr && this->regPhone_ == nullptr && this->taxNumber_ == nullptr; };
+        // bankAccount Field Functions 
+        bool hasBankAccount() const { return this->bankAccount_ != nullptr;};
+        void deleteBankAccount() { this->bankAccount_ = nullptr;};
+        inline string getBankAccount() const { DARABONBA_PTR_GET_DEFAULT(bankAccount_, "") };
+        inline ReceiptUserInfoDto& setBankAccount(string bankAccount) { DARABONBA_PTR_SET_VALUE(bankAccount_, bankAccount) };
+
+
+        // bankName Field Functions 
+        bool hasBankName() const { return this->bankName_ != nullptr;};
+        void deleteBankName() { this->bankName_ = nullptr;};
+        inline string getBankName() const { DARABONBA_PTR_GET_DEFAULT(bankName_, "") };
+        inline ReceiptUserInfoDto& setBankName(string bankName) { DARABONBA_PTR_SET_VALUE(bankName_, bankName) };
+
+
+        // regAddress Field Functions 
+        bool hasRegAddress() const { return this->regAddress_ != nullptr;};
+        void deleteRegAddress() { this->regAddress_ = nullptr;};
+        inline string getRegAddress() const { DARABONBA_PTR_GET_DEFAULT(regAddress_, "") };
+        inline ReceiptUserInfoDto& setRegAddress(string regAddress) { DARABONBA_PTR_SET_VALUE(regAddress_, regAddress) };
+
+
+        // regPhone Field Functions 
+        bool hasRegPhone() const { return this->regPhone_ != nullptr;};
+        void deleteRegPhone() { this->regPhone_ = nullptr;};
+        inline string getRegPhone() const { DARABONBA_PTR_GET_DEFAULT(regPhone_, "") };
+        inline ReceiptUserInfoDto& setRegPhone(string regPhone) { DARABONBA_PTR_SET_VALUE(regPhone_, regPhone) };
+
+
         // taxNumber Field Functions 
         bool hasTaxNumber() const { return this->taxNumber_ != nullptr;};
         void deleteTaxNumber() { this->taxNumber_ = nullptr;};
@@ -218,6 +262,15 @@ namespace Models
 
 
       protected:
+        // The bank account number.
+        shared_ptr<string> bankAccount_ {};
+        // The bank name.
+        shared_ptr<string> bankName_ {};
+        // The registered address.
+        shared_ptr<string> regAddress_ {};
+        // The registered phone number.
+        shared_ptr<string> regPhone_ {};
+        // The unified social credit code of the enterprise.
         shared_ptr<string> taxNumber_ {};
       };
 
@@ -259,7 +312,9 @@ namespace Models
 
 
       protected:
+        // The invoice object ID.
         shared_ptr<string> id_ {};
+        // The invoicing amount applied for. Unit: CNY.
         shared_ptr<string> invoiceAmount_ {};
       };
 
@@ -374,15 +429,29 @@ namespace Models
 
 
       protected:
+        // Indicates whether invoicing is performed by an agent.
         shared_ptr<bool> agent_ {};
+        // The amount. Unit: CNY.
         shared_ptr<string> amount_ {};
+        // The time when the business transaction occurred.
         shared_ptr<string> bizTimeStr_ {};
+        // The invoicing object ID.
         shared_ptr<string> id_ {};
+        // The order or bill type. Valid values:
+        // 
+        // - 0: order
+        // 
+        // - 1: bill
         shared_ptr<string> orderType_ {};
+        // The order ID.
         shared_ptr<string> outBizId_ {};
+        // The commodity code.
         shared_ptr<string> productCode_ {};
+        // The product name. (Deprecated.)
         shared_ptr<string> productName_ {};
+        // The account ID.
         shared_ptr<string> realAliyunId_ {};
+        // The account to which the order belongs.
         shared_ptr<string> realAliyunPk_ {};
       };
 
@@ -519,22 +588,43 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud user ID of the customer.
       shared_ptr<string> aliyunPk_ {};
+      // The supplier invoice remarks.
       shared_ptr<string> checkNotice_ {};
+      // The creation time.
       shared_ptr<string> createTimeStr_ {};
+      // The order, bill, or contract numbers.
       shared_ptr<vector<Result::EvaluateList>> evaluateList_ {};
+      // The invoice application ID. This corresponds to the InvoiceId parameter used when calling the ModifyInvoiceForIsv operation.
       shared_ptr<string> id_ {};
+      // The invoice object ID.
       shared_ptr<string> invoiceId_ {};
+      // The invoice sub-collection. (Deprecated.)
       shared_ptr<vector<Result::InvoiceList>> invoiceList_ {};
+      // The invoice issuance type. Valid values:
+      // - 0: paper
+      // - 1: electronic
       shared_ptr<string> materialType_ {};
+      // The time when the order status was modified (GMT).
       shared_ptr<string> modifiedTime_ {};
+      // The invoice modification time.
       shared_ptr<string> modifiedTimeStr_ {};
+      // The total invoice amount. Unit: CNY.
       shared_ptr<string> price_ {};
+      // The invoice applicant user information.
       shared_ptr<Result::ReceiptUserInfoDto> receiptUserInfoDto_ {};
+      // The invoice status. Valid values: 0: pending invoicing. 1: invoiced.
       shared_ptr<string> status_ {};
+      // The invoice title.
       shared_ptr<string> title_ {};
+      // The invoice type. Valid values:
+      // - 2: general digital electronic invoice
+      // - 3: special digital electronic invoice
       shared_ptr<string> type_ {};
+      // The address information.
       shared_ptr<Result::UserAddressDto> userAddressDto_ {};
+      // The user invoice remarks.
       shared_ptr<string> userNotice_ {};
     };
 
@@ -607,14 +697,23 @@ namespace Models
 
 
   protected:
+    // The commodity code corresponding to the product.
     shared_ptr<string> code_ {};
+    // The total count.
     shared_ptr<string> count_ {};
+    // The maximum number of entries per page for a paged query. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of instances per page.
     shared_ptr<string> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The process node information upon success.
     shared_ptr<vector<DescribeInvoiceForIsvResponseBody::Result>> result_ {};
+    // The result indicator.
     shared_ptr<bool> success_ {};
   };
 

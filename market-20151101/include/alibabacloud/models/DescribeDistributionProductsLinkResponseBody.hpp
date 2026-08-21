@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The code of the promoted product.
       shared_ptr<string> code_ {};
+      // The name of the promoted product.
       shared_ptr<string> name_ {};
+      // The promotion link for the product. Note: The sample link is a test product link.
       shared_ptr<string> url_ {};
     };
 
@@ -123,8 +126,11 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The promotion link information for the promoted products.
     shared_ptr<vector<DescribeDistributionProductsLinkResponseBody::Result>> result_ {};
+    // The success status indicator.
     shared_ptr<bool> success_ {};
+    // The total number of promoted products.
     shared_ptr<int64_t> totalCount_ {};
   };
 

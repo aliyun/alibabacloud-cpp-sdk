@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The identity information for activation. Set this parameter to the Alibaba Cloud account ID (aliyunUid) of the user.
     shared_ptr<string> identification_ {};
+    // The authorization code.
+    // 
     // This parameter is required.
     shared_ptr<string> licenseCode_ {};
   };

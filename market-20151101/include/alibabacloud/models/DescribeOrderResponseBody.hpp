@@ -305,27 +305,74 @@ namespace Models
 
 
   protected:
+    // The number of accounts.
     shared_ptr<int64_t> accountQuantity_ {};
+    // The unique identifier of the Alibaba Cloud user (aliyunPK).
     shared_ptr<int64_t> aliUid_ {};
+    // The order component information. The metric description for the parameters in the example is as follows:
+    // 
+    // - package_quantity: the number of usage times (a component specific to API products)
+    // - package_version: the version
+    // - ord_time: the duration
+    // - order_num: the quantity
+    // - code: the component code
+    // - globarKey: the component key
+    // - name: the component name
+    // - value: the component value.
     Darabonba::Json components_ {};
+    // The amount of vouchers used, in CNY.
     shared_ptr<float> couponPrice_ {};
+    // The time when the order was placed.
     shared_ptr<int64_t> createdOn_ {};
     shared_ptr<DescribeOrderResponseBody::InstanceIds> instanceIds_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The order status. Valid values:
+    // 
+    // - NORMAL: Normal.
+    // - REFUND: Refunded.
+    // - DELETE: Voided.
     shared_ptr<string> orderStatus_ {};
+    // The order type. Valid values:
+    // 
+    // - NEW: New purchase order.
+    // - RENEW: Renewal order.
+    // - TRIAL: Trial order.
     shared_ptr<string> orderType_ {};
+    // The original price of the order, in CNY.
     shared_ptr<float> originalPrice_ {};
+    // The payment time.
     shared_ptr<int64_t> paidOn_ {};
+    // The payment status. Valid values:
+    // 
+    // - PAID: Paid.
+    // - UNPAID: Unpaid.
     shared_ptr<string> payStatus_ {};
+    // The actual payment amount, in CNY.
     shared_ptr<float> paymentPrice_ {};
+    // The time unit for prepaid orders. Valid values:
+    // 
+    // - MONTH: one month
+    // - SEASON: one quarter
+    // - HALFYEAR: half a year
+    // - YEAR: one year
+    // - TWOYEARS: two years
+    // - ONCE: one-time.
     shared_ptr<string> periodType_ {};
+    // The commodity code.
     shared_ptr<string> productCode_ {};
+    // The name of the subscribed product.
     shared_ptr<string> productName_ {};
+    // The specification code of the subscribed product.
     shared_ptr<string> productSkuCode_ {};
+    // The quantity of the subscribed product.
     shared_ptr<int32_t> quantity_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The company name of the seller.
     shared_ptr<string> supplierCompanyName_ {};
     shared_ptr<DescribeOrderResponseBody::SupplierTelephones> supplierTelephones_ {};
+    // The total payable amount of the order, in CNY.
     shared_ptr<float> totalPrice_ {};
   };
 

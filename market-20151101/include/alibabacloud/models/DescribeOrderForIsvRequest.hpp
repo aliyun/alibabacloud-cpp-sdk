@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The order ID.
+    // 
     // This parameter is required.
     shared_ptr<string> orderId_ {};
   };

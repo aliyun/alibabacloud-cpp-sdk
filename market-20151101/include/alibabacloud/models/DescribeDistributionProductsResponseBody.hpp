@@ -186,19 +186,57 @@ namespace Models
 
 
     protected:
+      // The product code.
       shared_ptr<string> code_ {};
+      // The first-level category name of the product.
       shared_ptr<string> firstCategoryName_ {};
+      // The URL of the product main image.
       shared_ptr<string> imageUrl_ {};
+      // The product name.
       shared_ptr<string> name_ {};
+      // The price of the default product specification. For example, 100 indicates CNY 100.
       shared_ptr<string> price_ {};
+      // The user rating of the product.
       shared_ptr<string> score_ {};
+      // The second-level category name of the product.
       shared_ptr<string> secondCategoryName_ {};
+      // The brief description of the product.
       shared_ptr<string> shortDescription_ {};
+      // The commission rebate ratio for the product. For example, 30 indicates 30%.
       shared_ptr<string> submissionRadio_ {};
+      // The name of the promotion service provider.
       shared_ptr<string> supplierName_ {};
+      // The Alibaba Cloud UID of the promotion service provider (product supplier).
       shared_ptr<string> supplierUId_ {};
+      // The number of transactions for the product in the last 180 days.
       shared_ptr<string> tradeCount_ {};
+      // The product type. Valid values:
+      //         APP: application
+      //         SERVICE: service
+      //         CHENGPIN_SITE: ready-made website
+      //         SITE_CUSTOM_SERVICE: custom website
+      //         SITE_PROMOTION_RUN: website promotion and operations
+      //         ENT_APP_SOFT: application software
+      //         CLOUD_SERVICE: cloud service
+      //         EIF: enterprise information
+      //         BASIC_TOOLS: basic tools
+      //         BASIC_SERVICES: basic services
+      //         JIANZHAN_XITONG: website building system
+      //         APP_COUPLES: application companion
+      //         MIRRORS_MARKET: image marketplace
+      //         MIRRORS_MARKET_BASIC_ENVIRONMENT: basic environment
+      //         MIRRORS_MARKET_APPLICATION_SOFTWARE: application software
+      //         MIRROR: image
+      //         DINGDING: DingTalk
+      //         DOWNLOAD: download
+      //         EXTENDED: unknown
+      //         API_SERVICE: API
+      //         ROS: resource orchestration
+      //         DOCKER: container
+      //         LICENSE: license key
+      //         SAAS_WUYING: application software - Wuying application.
       shared_ptr<string> type_ {};
+      // The number of buyer comments for the product.
       shared_ptr<string> userCommentCount_ {};
     };
 
@@ -242,10 +280,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of promotional products per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The promotional product information.
     shared_ptr<vector<DescribeDistributionProductsResponseBody::Results>> results_ {};
+    // The total number of promotional products that match the search conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

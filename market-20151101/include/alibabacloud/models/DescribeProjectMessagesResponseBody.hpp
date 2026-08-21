@@ -101,10 +101,19 @@ namespace Models
 
 
     protected:
+      // The content of the message.
       shared_ptr<string> content_ {};
+      // The time when the message was created, in UNIX timestamp format.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The Alibaba Cloud UID of the user who left the message.
       shared_ptr<int64_t> operator_ {};
+      // The name of the user who left the message.
       shared_ptr<string> operatorName_ {};
+      // The role of the operator. Valid values:
+      // 
+      // - System: system.
+      // - Custom: customer.
+      // - Provider: service provider.
       shared_ptr<string> operatorRole_ {};
     };
 
@@ -141,9 +150,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<DescribeProjectMessagesResponseBody::Result>> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of messages.
     shared_ptr<int64_t> totalCount_ {};
   };
 

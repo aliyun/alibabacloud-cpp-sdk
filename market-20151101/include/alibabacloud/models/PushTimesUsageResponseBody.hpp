@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The authentication error message.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The fatal error.
     shared_ptr<bool> forceFatal_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStateCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<bool> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

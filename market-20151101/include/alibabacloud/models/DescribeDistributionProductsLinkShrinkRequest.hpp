@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The collection of product codes. The collection cannot be empty and can contain up to 50 entries.
+    // 
     // This parameter is required.
     shared_ptr<string> codesShrink_ {};
   };

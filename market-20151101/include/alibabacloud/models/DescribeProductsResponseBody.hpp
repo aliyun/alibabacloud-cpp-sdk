@@ -295,10 +295,14 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of products displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribeProductsResponseBody::ProductItems> productItems_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of products that match the search conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

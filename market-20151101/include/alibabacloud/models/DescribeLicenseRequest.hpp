@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The activation code.
+    // 
     // This parameter is required.
     shared_ptr<string> licenseCode_ {};
   };

@@ -132,12 +132,18 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud primary key.
       shared_ptr<int64_t> aliyunPk_ {};
+      // The commodity code.
       shared_ptr<string> productCode_ {};
+      // The commodity name.
       shared_ptr<string> productName_ {};
       shared_ptr<int64_t> totalCapacity_ {};
+      // The remaining quota.
       shared_ptr<int64_t> totalQuota_ {};
+      // The usage.
       shared_ptr<int64_t> totalUsage_ {};
+      // The unit.
       shared_ptr<string> unit_ {};
     };
 
@@ -217,16 +223,25 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The total count.
     shared_ptr<int64_t> count_ {};
     // fatal
     shared_ptr<bool> fatal_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<DescribeApiMeteringResponseBody::Result>> result_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
+    // The version.
     shared_ptr<string> version_ {};
   };
 

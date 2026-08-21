@@ -129,9 +129,13 @@ namespace Models
 
 
       protected:
+        // The account information.
         shared_ptr<int64_t> accountQuantity_ {};
+        // The Alibaba Cloud UID.
         shared_ptr<int64_t> aliUid_ {};
+        // The email address.
         shared_ptr<string> email_ {};
+        // The mobile phone number.
         shared_ptr<string> mobile_ {};
       };
 
@@ -303,17 +307,30 @@ namespace Models
 
 
     protected:
+      // The activation time.
       shared_ptr<string> activateTime_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The expiration time.
       shared_ptr<string> expiredTime_ {};
       shared_ptr<License::ExtendArray> extendArray_ {};
+      // The extended information.
       shared_ptr<License::ExtendInfo> extendInfo_ {};
+      // The business instance ID.
       shared_ptr<string> instanceId_ {};
+      // The activation code.
       shared_ptr<string> licenseCode_ {};
+      // The license status.
+      // - ACTIVATED
+      // - INACTIVATED
       shared_ptr<string> licenseStatus_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
+      // The product name.
       shared_ptr<string> productName_ {};
+      // The product SKU ID.
       shared_ptr<string> productSkuId_ {};
+      // The supplier name.
       shared_ptr<string> supplierName_ {};
     };
 
@@ -336,7 +353,9 @@ namespace Models
 
 
   protected:
+    // The license object.
     shared_ptr<DescribeLicenseResponseBody::License> license_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

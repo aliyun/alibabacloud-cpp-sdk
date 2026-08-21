@@ -200,21 +200,45 @@ namespace Models
 
 
     protected:
+      // Indicates whether rollback to the previous flow node is allowed.
       shared_ptr<bool> allowRollbackNode_ {};
+      // Indicates whether the node automatically completes upon timeout.
       shared_ptr<bool> autoFinishNode_ {};
+      // The sequence number of the final flow node.
       shared_ptr<int32_t> finalStepNo_ {};
+      // The timeout time of the flow node (UNIX timestamp).
       shared_ptr<int64_t> gmtExpired_ {};
+      // The completion time of the flow node (UNIX timestamp).
       shared_ptr<int64_t> gmtFinished_ {};
+      // The start time of the flow node (UNIX timestamp).
       shared_ptr<int64_t> gmtStart_ {};
+      // Indicates whether uploading an attachment is mandatory.
       shared_ptr<bool> needAttachment_ {};
+      // The ID of the next flow node.
       shared_ptr<int64_t> nextNodeId_ {};
+      // The flow node ID.
       shared_ptr<int64_t> nodeId_ {};
+      // The node name.
       shared_ptr<string> nodeName_ {};
+      // The execution status of the node. Valid values:
+      // - NotStart: not started.
+      // - Starting: in progress.
+      // - Cancel: canceled.
+      // - Finish: completed.
       shared_ptr<string> nodeStatus_ {};
+      // The role of the operator. Valid values:
+      // 
+      // - System: system.
+      // - Custom: customer.
+      // - Provider: service provider.
       shared_ptr<string> operatorRole_ {};
+      // The ID of the parent flow node.
       shared_ptr<int64_t> parentNodeId_ {};
+      // The ID of the previous flow node.
       shared_ptr<int64_t> previousNodeId_ {};
+      // The sequence number of the flow node.
       shared_ptr<int32_t> stepNo_ {};
+      // The form content of the flow node.
       shared_ptr<string> templateForm_ {};
     };
 
@@ -244,8 +268,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // None.
     shared_ptr<vector<DescribeProjectNodesResponseBody::Result>> result_ {};
+    // The success status identifier.
     shared_ptr<bool> success_ {};
   };
 

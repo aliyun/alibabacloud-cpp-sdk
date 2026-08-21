@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // The remarks on the invoice from the service provider.
     shared_ptr<string> checkNotice_ {};
+    // The electronic invoicing URL, used for customers to download the invoice.
     shared_ptr<string> electronUrl_ {};
+    // The invoice application ID. This corresponds to the Result.Id field in the response of the DescribeInvoiceForIsv operation.
     shared_ptr<int64_t> invoiceId_ {};
+    // The invoice number.
     shared_ptr<string> number_ {};
+    // The operation to perform on the current invoice. Valid values:
+    // - 0: issue the invoice.
+    // - 1: reject the invoice.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> operateType_ {};
+    // The type of the current invoice. Valid values:
+    // - 2: digital electronic general invoice.
+    // - 3: digital electronic special invoice.
     shared_ptr<int32_t> type_ {};
   };
 

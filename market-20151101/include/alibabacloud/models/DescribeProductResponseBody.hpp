@@ -245,8 +245,11 @@ namespace Models
 
 
     protected:
+      // The email address.
       shared_ptr<string> emails_ {};
+      // The shop ID.
       shared_ptr<int64_t> id_ {};
+      // The shop name.
       shared_ptr<string> name_ {};
       shared_ptr<ShopInfo::Telephones> telephones_ {};
       shared_ptr<ShopInfo::WangWangs> wangWangs_ {};
@@ -1044,25 +1047,57 @@ namespace Models
 
 
   protected:
+    // The reason for the audit failure. This parameter is returned when QueryDraft is set to true.
     shared_ptr<string> auditFailMsg_ {};
+    // The audit status. This parameter is returned when QueryDraft is set to true. Valid values:
+    // - draft: not submitted
+    // - security_ing: security audit in progress
+    // - security_fail: security audit failed
+    // - function_ing: functional audit in progress
+    // - function_fail: functional audit failed
+    // - info_ing: product information audit in progress
+    // - info_fail: product information audit failed
+    // - success: succeeded.
     shared_ptr<string> auditStatus_ {};
+    // The audit time. This parameter is returned when QueryDraft is set to true.
     shared_ptr<int64_t> auditTime_ {};
+    // The commodity code of the product.
     shared_ptr<string> code_ {};
+    // The detailed description of the product. HTML is supported.
     shared_ptr<string> description_ {};
+    // The product category ID.
     shared_ptr<int64_t> frontCategoryId_ {};
+    // The time when the product was created.
     shared_ptr<int64_t> gmtCreated_ {};
+    // The time when the product was last modified.
     shared_ptr<int64_t> gmtModified_ {};
+    // The product name.
     shared_ptr<string> name_ {};
+    // The URL of the product image.
     shared_ptr<string> picUrl_ {};
     shared_ptr<DescribeProductResponseBody::ProductExtras> productExtras_ {};
     shared_ptr<DescribeProductResponseBody::ProductSkus> productSkus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The product rating.
     shared_ptr<float> score_ {};
+    // The shop information.
     shared_ptr<DescribeProductResponseBody::ShopInfo> shopInfo_ {};
+    // The short description of the product.
     shared_ptr<string> shortDescription_ {};
+    // Deprecated.
     shared_ptr<string> status_ {};
+    // The UID of the service provider.
     shared_ptr<int64_t> supplierPk_ {};
+    // The product type. Valid values:
+    // 
+    // * APP: application
+    // * DOWNLOAD: download
+    // * MIRROR: image
+    // * SERVICE: service
+    // * API_SERVICE: API service.
     shared_ptr<string> type_ {};
+    // The usage count.
     shared_ptr<int64_t> useCount_ {};
   };
 

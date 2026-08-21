@@ -99,6 +99,12 @@ namespace Models
 
 
     protected:
+      // The service status. Valid values:
+      // *   READYING: not started.
+      // *   STARTED: in service.
+      // *   CONFIRM: completed.
+      // *   EXPIRED: expired.
+      // *   CLOSED: released.
       shared_ptr<string> serviceStatus_ {};
     };
 
@@ -265,27 +271,91 @@ namespace Models
 
 
   protected:
+    // The activation URL.
     shared_ptr<string> activeAddress_ {};
+    // The application information. The metric description of the parameters in the example is as follows:
+    // 
+    // username: the username.
+    // passowrd: the password.
+    // frontEndUrl: the frontend URL.
+    // adminUrl: the administration URL.
     shared_ptr<string> appJson_ {};
+    // The automatic payment information for epoch-based products. A non-empty value indicates that you enable auto-renewal.
+    // autoRenewCycle: Day, Month, or Year.
+    // autoRenewDuration: the renewal epoch.
     shared_ptr<string> autoRenewal_ {};
+    // The time when the instance was activated (timestamp).
     shared_ptr<int64_t> beganOn_ {};
+    // The business module. The metric description of the parameters in the example is as follows:
+    // *   package_version: the version.
     shared_ptr<string> componentJson_ {};
+    // The creation time (timestamp).
     shared_ptr<int64_t> createdOn_ {};
+    // The expiration time (timestamp).
     shared_ptr<int64_t> endOn_ {};
+    // The extended information.
     shared_ptr<string> extendJson_ {};
+    // The host information. The metric description of the parameters in the example is as follows:
+    // 
+    // username: the username.
+    // passowrd: the password.
+    // ip: the host IP address.
+    // innerIp: the internal network IP address of the host.
     shared_ptr<string> hostJson_ {};
+    // The image instance information.
+    // imageId: the image ID.
+    // instanceId: the instance ID.
+    // ecsInstanceId: the ECS instance ID.
     shared_ptr<string> imageJson_ {};
+    // The instance ID.
     shared_ptr<int64_t> instanceId_ {};
+    // Indicates whether the instance is a trial instance.
     shared_ptr<bool> isTrial_ {};
+    // The activation code.
     shared_ptr<string> licenseCode_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The commodity code.
     shared_ptr<string> productCode_ {};
+    // The product name.
     shared_ptr<string> productName_ {};
+    // The SKU code.
     shared_ptr<string> productSkuCode_ {};
+    // The product type. Valid values:
+    // *   APP: application.
+    // *   SERVIC: service.
+    // *   MIRROR: image.
+    // *   DOWNLOAD: download.
+    // *   API_SERVICE: API.
+    // *   DOCKER: Docker.
     shared_ptr<string> productType_ {};
+    // The relational information.
     shared_ptr<DescribeInstanceForIsvResponseBody::RelationalData> relationalData_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The business status. Different values are set based on the product type.
+    // 
+    // When ProductType is set to MIRROR:
+    // *   PRODUCE: being provisioned.
+    // *   USING: in use.
+    // *   UNUSED: not in use.
+    // *   EXPIRED: expired.
+    // *   CLOSED: released.
+    // 
+    // When ProductType is set to SERVICE:
+    // *   READYING: not started.
+    // *   STARTED: in service.
+    // *   CONFIRM: completed.
+    // *   EXPIRED: expired.
+    // *   CLOSED: released.
+    // 
+    // When ProductType is set to APP, DOWNLOAD, API_SERVICE, or DOCKER:
+    // *   OPENING: being activated.
+    // *   OPENED: activated.
+    // *   EXPIRED: expired.
+    // *   CLOSED: released.
     shared_ptr<string> status_ {};
+    // The service provider name.
     shared_ptr<string> supplierName_ {};
   };
 

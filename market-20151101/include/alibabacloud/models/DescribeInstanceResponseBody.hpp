@@ -100,6 +100,13 @@ namespace Models
 
 
     protected:
+      // The service status. Valid values:
+      // 
+      // - READYING: not started.
+      // - STARTED: in service.
+      // - CONFIRM: completed.
+      // - EXPIRED: expired.
+      // - CLOSED: released.
       shared_ptr<string> serviceStatus_ {};
     };
 
@@ -599,26 +606,85 @@ namespace Models
 
   protected:
     shared_ptr<string> activeAddress_ {};
+    // The application information. The metric description of the parameters in the example is as follows:
+    // 
+    // - username: the username.
+    // - passowrd: the password.
+    // - frontEndUrl: the frontend URL.
+    // - adminUrl: the management URL.
     shared_ptr<string> appJson_ {};
     shared_ptr<string> autoRenewal_ {};
+    // The time when the instance was activated (timestamp).
     shared_ptr<int64_t> beganOn_ {};
+    // The business module.
+    // 
+    // The metric description of the parameters in the example is as follows:
+    // 
+    // - package_version: the version.
     shared_ptr<string> componentJson_ {};
+    // This parameter is deprecated.
     shared_ptr<string> constraints_ {};
+    // The creation time (timestamp).
     shared_ptr<int64_t> createdOn_ {};
+    // The expiration time (timestamp).
     shared_ptr<int64_t> endOn_ {};
+    // The extended information.
     shared_ptr<string> extendJson_ {};
+    // The host information. The metric description of the parameters in the example is as follows:
+    // 
+    // - username: the username.
+    // - passowrd: the password.
+    // - ip: the host IP address.
+    // - innerIp: the internal network IP address of the host.
     shared_ptr<string> hostJson_ {};
+    // The instance ID.
     shared_ptr<int64_t> instanceId_ {};
+    // Indicates whether the instance is a trial instance.
     shared_ptr<bool> isTrial_ {};
     shared_ptr<string> licenseCode_ {};
     shared_ptr<DescribeInstanceResponseBody::Modules> modules_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The commodity code.
     shared_ptr<string> productCode_ {};
+    // The product name.
     shared_ptr<string> productName_ {};
+    // The SKU code.
     shared_ptr<string> productSkuCode_ {};
+    // The product type. Valid values:
+    // 
+    // - APP: application.
+    // - SERVIC: service.
+    // - MIRROR: image.
+    // - DOWNLOAD: download.
+    // - API_SERVICE: API.
+    // - DOCKER: Docker.
     shared_ptr<string> productType_ {};
+    // The relational information.
     shared_ptr<DescribeInstanceResponseBody::RelationalData> relationalData_ {};
+    // The business status. The value varies based on the product type.
+    // 
+    // If ProductType is set to MIRROR:
+    // - PRODUCE: being provisioned.
+    // - USING: in use.
+    // - UNUSED: not used.
+    // - EXPIRED: expired.
+    // - CLOSED: released.
+    // 
+    // If ProductType is set to SERVICE:
+    // - READYING: not started.
+    // - STARTED: in service.
+    // - CONFIRM: completed.
+    // - EXPIRED: expired.
+    // - CLOSED: released.
+    // 
+    // If ProductType is set to APP, DOWNLOAD, API_SERVICE, or DOCKER:
+    // - OPENING: being activated.
+    // - OPENED: activated.
+    // - EXPIRED: expired.
+    // - CLOSED: released.
     shared_ptr<string> status_ {};
+    // The service provider name.
     shared_ptr<string> supplierName_ {};
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The business instance ID in Cloud Marketplace.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

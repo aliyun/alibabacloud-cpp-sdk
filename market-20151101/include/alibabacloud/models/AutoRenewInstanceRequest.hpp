@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The cycle unit. This parameter is required when enabling auto-renewal. Valid values:
+    // - Day: day.
+    // - Month: month.
+    // - Year: year.
     shared_ptr<string> autoRenewCycle_ {};
+    // The renewal cycle. This parameter is required when enabling auto-renewal.
     shared_ptr<int32_t> autoRenewDuration_ {};
+    // The Alibaba Cloud Marketplace instance ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> orderBizId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The operation type. Valid values:
+    // - open: enables auto-renewal.
+    // - close: disables auto-renewal.
+    // 
+    // This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

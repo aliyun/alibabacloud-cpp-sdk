@@ -99,10 +99,18 @@ namespace Models
 
 
     protected:
+      // The description of the operation.
       shared_ptr<string> description_ {};
+      // The operation time (UNIX timestamp).
       shared_ptr<int64_t> gmtCreate_ {};
+      // The Alibaba Cloud UID of the operator.
       shared_ptr<int64_t> operator_ {};
+      // The name of the operator.
       shared_ptr<string> operatorName_ {};
+      // The role of the operator. Valid values:
+      // - System: system.
+      // - Custom: customer.
+      // - Provider: service provider.
       shared_ptr<string> operatorRole_ {};
     };
 
@@ -132,8 +140,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned result.
     shared_ptr<vector<DescribeProjectOperateLogsResponseBody::Result>> result_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

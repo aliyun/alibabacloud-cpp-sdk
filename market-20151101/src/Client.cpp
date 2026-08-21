@@ -41,7 +41,8 @@ AlibabaCloud::Market20151101::Client::Client(Config &config): OpenApiClient(conf
     {"cn-hangzhou-finance" , "market.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "market.aliyuncs.com"},
     {"cn-shanghai-finance-1" , "market.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "market.aliyuncs.com"}
+    {"cn-north-2-gov-1" , "market.aliyuncs.com"},
+    {"ap-southeast-1" , "market.ap-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("market", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -61,7 +62,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 增加STS支持
+ * @summary Activates an authorization code by calling ActivateLicense.
  *
  * @param request ActivateLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -96,7 +97,7 @@ ActivateLicenseResponse Client::activateLicenseWithOptions(const ActivateLicense
 }
 
 /**
- * @summary 增加STS支持
+ * @summary Activates an authorization code by calling ActivateLicense.
  *
  * @param request ActivateLicenseRequest
  * @return ActivateLicenseResponse
@@ -107,7 +108,7 @@ ActivateLicenseResponse Client::activateLicense(const ActivateLicenseRequest &re
 }
 
 /**
- * @summary 设置自动续费
+ * @summary Sets auto-renewal.
  *
  * @param request AutoRenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -154,7 +155,7 @@ AutoRenewInstanceResponse Client::autoRenewInstanceWithOptions(const AutoRenewIn
 }
 
 /**
- * @summary 设置自动续费
+ * @summary Sets auto-renewal.
  *
  * @param request AutoRenewInstanceRequest
  * @return AutoRenewInstanceResponse
@@ -165,7 +166,10 @@ AutoRenewInstanceResponse Client::autoRenewInstance(const AutoRenewInstanceReque
 }
 
 /**
- * @summary 确认查收订阅通知
+ * @summary Confirms that the merchant has received and processed a notification message. After this call, the message will no longer be returned in subsequent queries.
+ *
+ * @description Confirms the receipt of a subscription notification failure message.
+ * - After a successful call, the message will no longer be returned in subsequent queries. The platform considers that the merchant has correctly processed the message.
  *
  * @param request ConfirmNotificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -196,7 +200,10 @@ ConfirmNotificationResponse Client::confirmNotificationWithOptions(const Confirm
 }
 
 /**
- * @summary 确认查收订阅通知
+ * @summary Confirms that the merchant has received and processed a notification message. After this call, the message will no longer be returned in subsequent queries.
+ *
+ * @description Confirms the receipt of a subscription notification failure message.
+ * - After a successful call, the message will no longer be returned in subsequent queries. The platform considers that the merchant has correctly processed the message.
  *
  * @param request ConfirmNotificationRequest
  * @return ConfirmNotificationResponse
@@ -207,7 +214,12 @@ ConfirmNotificationResponse Client::confirmNotification(const ConfirmNotificatio
 }
 
 /**
- * @summary 创建订单
+ * @summary Calls the CreateOrder operation to create an order.
+ * Before calling this operation, make sure that you fully understand the billing method and pricing of Alibaba Cloud Marketplace products.
+ * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
+ *
+ * @description Before calling this operation, make sure that you fully understand the billing method and [pricing](https://market.aliyun.com/) of Alibaba Cloud Marketplace products.
+ * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
  *
  * @param request CreateOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -258,7 +270,12 @@ CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &req
 }
 
 /**
- * @summary 创建订单
+ * @summary Calls the CreateOrder operation to create an order.
+ * Before calling this operation, make sure that you fully understand the billing method and pricing of Alibaba Cloud Marketplace products.
+ * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
+ *
+ * @description Before calling this operation, make sure that you fully understand the billing method and [pricing](https://market.aliyun.com/) of Alibaba Cloud Marketplace products.
+ * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
  *
  * @param request CreateOrderRequest
  * @return CreateOrderResponse
@@ -269,7 +286,7 @@ CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
 }
 
 /**
- * @summary 跨账号角色授权，根据token获取用户信息
+ * @summary Query cross-account role authorization information, including the authorized user\\"s Alibaba Cloud account UID, name, authorization time, and authorized role name.
  *
  * @param request CrossAccountVerifyTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -300,7 +317,7 @@ CrossAccountVerifyTokenResponse Client::crossAccountVerifyTokenWithOptions(const
 }
 
 /**
- * @summary 跨账号角色授权，根据token获取用户信息
+ * @summary Query cross-account role authorization information, including the authorized user\\"s Alibaba Cloud account UID, name, authorization time, and authorized role name.
  *
  * @param request CrossAccountVerifyTokenRequest
  * @return CrossAccountVerifyTokenResponse
@@ -311,7 +328,9 @@ CrossAccountVerifyTokenResponse Client::crossAccountVerifyToken(const CrossAccou
 }
 
 /**
- * @summary 查询API用量
+ * @summary Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+ *
+ * @description ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
  *
  * @param request DescribeApiMeteringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -338,7 +357,9 @@ DescribeApiMeteringResponse Client::describeApiMeteringWithOptions(const Describ
 }
 
 /**
- * @summary 查询API用量
+ * @summary Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+ *
+ * @description ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
  *
  * @param request DescribeApiMeteringRequest
  * @return DescribeApiMeteringResponse
@@ -349,7 +370,10 @@ DescribeApiMeteringResponse Client::describeApiMetering(const DescribeApiMeterin
 }
 
 /**
- * @summary 工作流当前节点信息
+ * @summary Calls DescribeCurrentNodeInfo to retrieve the process information of the current node.
+ *
+ * @description **
+ * **.
  *
  * @param request DescribeCurrentNodeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -380,7 +404,10 @@ DescribeCurrentNodeInfoResponse Client::describeCurrentNodeInfoWithOptions(const
 }
 
 /**
- * @summary 工作流当前节点信息
+ * @summary Calls DescribeCurrentNodeInfo to retrieve the process information of the current node.
+ *
+ * @description **
+ * **.
  *
  * @param request DescribeCurrentNodeInfoRequest
  * @return DescribeCurrentNodeInfoResponse
@@ -391,7 +418,9 @@ DescribeCurrentNodeInfoResponse Client::describeCurrentNodeInfo(const DescribeCu
 }
 
 /**
- * @summary 分页获取推广商品
+ * @summary Retrieves a paginated list of promotional products with detailed information.
+ *
+ * @description Call this operation by using a promotion service provider account.
  *
  * @param request DescribeDistributionProductsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -418,7 +447,9 @@ DescribeDistributionProductsResponse Client::describeDistributionProductsWithOpt
 }
 
 /**
- * @summary 分页获取推广商品
+ * @summary Retrieves a paginated list of promotional products with detailed information.
+ *
+ * @description Call this operation by using a promotion service provider account.
  *
  * @param request DescribeDistributionProductsRequest
  * @return DescribeDistributionProductsResponse
@@ -429,7 +460,9 @@ DescribeDistributionProductsResponse Client::describeDistributionProducts(const 
 }
 
 /**
- * @summary 获取并生成推广商品-链接
+ * @summary Retrieves promotion links for promoted products.
+ *
+ * @description Call this operation by using a promotion service provider account. Calls from non-promotion service provider accounts will fail.
  *
  * @param tmpReq DescribeDistributionProductsLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -466,7 +499,9 @@ DescribeDistributionProductsLinkResponse Client::describeDistributionProductsLin
 }
 
 /**
- * @summary 获取并生成推广商品-链接
+ * @summary Retrieves promotion links for promoted products.
+ *
+ * @description Call this operation by using a promotion service provider account. Calls from non-promotion service provider accounts will fail.
  *
  * @param request DescribeDistributionProductsLinkRequest
  * @return DescribeDistributionProductsLinkResponse
@@ -477,7 +512,10 @@ DescribeDistributionProductsLinkResponse Client::describeDistributionProductsLin
 }
 
 /**
- * @summary 查询订阅通知失败列表
+ * @summary Queries the list of failed subscription notifications. After Alibaba Cloud Marketplace fails to call a service provider\\"s message SPI, the service provider can use this operation to proactively query the failed notification information.
+ *
+ * @description Queries the information about failed subscription notifications for a service provider.
+ * - If no unconfirmed failed notifications exist, TotalCount returns 0.
  *
  * @param request DescribeFailedNotificationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -512,7 +550,10 @@ DescribeFailedNotificationsResponse Client::describeFailedNotificationsWithOptio
 }
 
 /**
- * @summary 查询订阅通知失败列表
+ * @summary Queries the list of failed subscription notifications. After Alibaba Cloud Marketplace fails to call a service provider\\"s message SPI, the service provider can use this operation to proactively query the failed notification information.
+ *
+ * @description Queries the information about failed subscription notifications for a service provider.
+ * - If no unconfirmed failed notifications exist, TotalCount returns 0.
  *
  * @param request DescribeFailedNotificationsRequest
  * @return DescribeFailedNotificationsResponse
@@ -569,7 +610,7 @@ DescribeImageInstanceForIsvResponse Client::describeImageInstanceForIsv(const De
 }
 
 /**
- * @summary 查询实例
+ * @summary Calls the DescribeInstance operation to query instance information.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +649,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary 查询实例
+ * @summary Calls the DescribeInstance operation to query instance information.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -619,7 +660,7 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
- * @summary 服务商侧查询实例信息
+ * @summary Queries instance information from the service provider side.
  *
  * @param request DescribeInstanceForIsvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -650,7 +691,7 @@ DescribeInstanceForIsvResponse Client::describeInstanceForIsvWithOptions(const D
 }
 
 /**
- * @summary 服务商侧查询实例信息
+ * @summary Queries instance information from the service provider side.
  *
  * @param request DescribeInstanceForIsvRequest
  * @return DescribeInstanceForIsvResponse
@@ -661,7 +702,7 @@ DescribeInstanceForIsvResponse Client::describeInstanceForIsv(const DescribeInst
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries the list of services purchased by the user.
  *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -708,7 +749,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries the list of services purchased by the user.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -719,7 +760,11 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary 查询供应商下的发票信息
+ * @summary Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+ *
+ * @description Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+ * - If the authorization code is invalid, an error message is returned.
+ * - If the authorization code is valid, the authorization information is returned.
  *
  * @param request DescribeInvoiceForIsvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -786,7 +831,11 @@ DescribeInvoiceForIsvResponse Client::describeInvoiceForIsvWithOptions(const Des
 }
 
 /**
- * @summary 查询供应商下的发票信息
+ * @summary Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+ *
+ * @description Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+ * - If the authorization code is invalid, an error message is returned.
+ * - If the authorization code is valid, the authorization information is returned.
  *
  * @param request DescribeInvoiceForIsvRequest
  * @return DescribeInvoiceForIsvResponse
@@ -797,7 +846,7 @@ DescribeInvoiceForIsvResponse Client::describeInvoiceForIsv(const DescribeInvoic
 }
 
 /**
- * @summary 获取License
+ * @summary Calls DescribeLicense to query license information.
  *
  * @param request DescribeLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -828,7 +877,7 @@ DescribeLicenseResponse Client::describeLicenseWithOptions(const DescribeLicense
 }
 
 /**
- * @summary 获取License
+ * @summary Calls DescribeLicense to query license information.
  *
  * @param request DescribeLicenseRequest
  * @return DescribeLicenseResponse
@@ -839,7 +888,7 @@ DescribeLicenseResponse Client::describeLicense(const DescribeLicenseRequest &re
 }
 
 /**
- * @summary 查询订单
+ * @summary Queries the details of a specified order.
  *
  * @param request DescribeOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -870,7 +919,7 @@ DescribeOrderResponse Client::describeOrderWithOptions(const DescribeOrderReques
 }
 
 /**
- * @summary 查询订单
+ * @summary Queries the details of a specified order.
  *
  * @param request DescribeOrderRequest
  * @return DescribeOrderResponse
@@ -881,7 +930,7 @@ DescribeOrderResponse Client::describeOrder(const DescribeOrderRequest &request)
 }
 
 /**
- * @summary 服务商侧查询订单详情
+ * @summary Queries order details from the service provider side.
  *
  * @param request DescribeOrderForIsvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +961,7 @@ DescribeOrderForIsvResponse Client::describeOrderForIsvWithOptions(const Describ
 }
 
 /**
- * @summary 服务商侧查询订单详情
+ * @summary Queries order details from the service provider side.
  *
  * @param request DescribeOrderForIsvRequest
  * @return DescribeOrderForIsvResponse
@@ -923,7 +972,7 @@ DescribeOrderForIsvResponse Client::describeOrderForIsv(const DescribeOrderForIs
 }
 
 /**
- * @summary 查询价格
+ * @summary Calls DescribePrice to query the price information of the corresponding product.
  *
  * @param request DescribePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -958,7 +1007,7 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
 }
 
 /**
- * @summary 查询价格
+ * @summary Calls DescribePrice to query the price information of the corresponding product.
  *
  * @param request DescribePriceRequest
  * @return DescribePriceResponse
@@ -969,6 +1018,8 @@ DescribePriceResponse Client::describePrice(const DescribePriceRequest &request)
 }
 
 /**
+ * @summary Queries the details of a specified product by calling DescribeProduct.
+ *
  * @param request DescribeProductRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProductResponse
@@ -1006,6 +1057,8 @@ DescribeProductResponse Client::describeProductWithOptions(const DescribeProduct
 }
 
 /**
+ * @summary Queries the details of a specified product by calling DescribeProduct.
+ *
  * @param request DescribeProductRequest
  * @return DescribeProductResponse
  */
@@ -1015,6 +1068,8 @@ DescribeProductResponse Client::describeProduct(const DescribeProductRequest &re
 }
 
 /**
+ * @summary Retrieves a list of products that meet the specified conditions along with their details.
+ *
  * @param request DescribeProductsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProductsResponse
@@ -1056,6 +1111,8 @@ DescribeProductsResponse Client::describeProductsWithOptions(const DescribeProdu
 }
 
 /**
+ * @summary Retrieves a list of products that meet the specified conditions along with their details.
+ *
  * @param request DescribeProductsRequest
  * @return DescribeProductsResponse
  */
@@ -1065,7 +1122,7 @@ DescribeProductsResponse Client::describeProducts(const DescribeProductsRequest 
 }
 
 /**
- * @summary 附件信息
+ * @summary Calls DescribeProjectAttachments to retrieve the list of project attachments.
  *
  * @param request DescribeProjectAttachmentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1153,7 @@ DescribeProjectAttachmentsResponse Client::describeProjectAttachmentsWithOptions
 }
 
 /**
- * @summary 附件信息
+ * @summary Calls DescribeProjectAttachments to retrieve the list of project attachments.
  *
  * @param request DescribeProjectAttachmentsRequest
  * @return DescribeProjectAttachmentsResponse
@@ -1107,7 +1164,7 @@ DescribeProjectAttachmentsResponse Client::describeProjectAttachments(const Desc
 }
 
 /**
- * @summary 项目信息
+ * @summary Calls DescribeProjectInfo to query project information.
  *
  * @param request DescribeProjectInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1195,7 @@ DescribeProjectInfoResponse Client::describeProjectInfoWithOptions(const Describ
 }
 
 /**
- * @summary 项目信息
+ * @summary Calls DescribeProjectInfo to query project information.
  *
  * @param request DescribeProjectInfoRequest
  * @return DescribeProjectInfoResponse
@@ -1149,7 +1206,7 @@ DescribeProjectInfoResponse Client::describeProjectInfo(const DescribeProjectInf
 }
 
 /**
- * @summary 查询项目留言信息
+ * @summary Calls DescribeProjectMessages to retrieve the list of project workflow messages.
  *
  * @param request DescribeProjectMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1184,7 +1241,7 @@ DescribeProjectMessagesResponse Client::describeProjectMessagesWithOptions(const
 }
 
 /**
- * @summary 查询项目留言信息
+ * @summary Calls DescribeProjectMessages to retrieve the list of project workflow messages.
  *
  * @param request DescribeProjectMessagesRequest
  * @return DescribeProjectMessagesResponse
@@ -1195,10 +1252,10 @@ DescribeProjectMessagesResponse Client::describeProjectMessages(const DescribePr
 }
 
 /**
- * @summary 查询项目流程节点list
+ * @summary Queries the list of project flow nodes by calling DescribeProjectNodes.
  *
  * @description **
- * **
+ * **.
  *
  * @param request DescribeProjectNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1229,10 +1286,10 @@ DescribeProjectNodesResponse Client::describeProjectNodesWithOptions(const Descr
 }
 
 /**
- * @summary 查询项目流程节点list
+ * @summary Queries the list of project flow nodes by calling DescribeProjectNodes.
  *
  * @description **
- * **
+ * **.
  *
  * @param request DescribeProjectNodesRequest
  * @return DescribeProjectNodesResponse
@@ -1243,7 +1300,10 @@ DescribeProjectNodesResponse Client::describeProjectNodes(const DescribeProjectN
 }
 
 /**
- * @summary 查询项目操作记录列表
+ * @summary Calls DescribeProjectOperateLogs to retrieve the operation logs of a project flow.
+ *
+ * @description **
+ * **.
  *
  * @param request DescribeProjectOperateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1334,10 @@ DescribeProjectOperateLogsResponse Client::describeProjectOperateLogsWithOptions
 }
 
 /**
- * @summary 查询项目操作记录列表
+ * @summary Calls DescribeProjectOperateLogs to retrieve the operation logs of a project flow.
+ *
+ * @description **
+ * **.
  *
  * @param request DescribeProjectOperateLogsRequest
  * @return DescribeProjectOperateLogsResponse
@@ -1285,7 +1348,10 @@ DescribeProjectOperateLogsResponse Client::describeProjectOperateLogs(const Desc
 }
 
 /**
- * @summary 完成当前流程节点
+ * @summary Completes the current process by calling FinishCurrentProjectNode.
+ *
+ * @description **
+ * **.
  *
  * @param request FinishCurrentProjectNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1328,7 +1394,10 @@ FinishCurrentProjectNodeResponse Client::finishCurrentProjectNodeWithOptions(con
 }
 
 /**
- * @summary 完成当前流程节点
+ * @summary Completes the current process by calling FinishCurrentProjectNode.
+ *
+ * @description **
+ * **.
  *
  * @param request FinishCurrentProjectNodeRequest
  * @return FinishCurrentProjectNodeResponse
@@ -1339,7 +1408,10 @@ FinishCurrentProjectNodeResponse Client::finishCurrentProjectNode(const FinishCu
 }
 
 /**
- * @summary 发票受理接口
+ * @summary Processes invoice acceptance requests.
+ *
+ * @description Queries information about failed subscription notifications for merchants.
+ * - If no unconfirmed notification failure information exists, TotalCount returns 0.
  *
  * @param request ModifyInvoiceForIsvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1462,10 @@ ModifyInvoiceForIsvResponse Client::modifyInvoiceForIsvWithOptions(const ModifyI
 }
 
 /**
- * @summary 发票受理接口
+ * @summary Processes invoice acceptance requests.
+ *
+ * @description Queries information about failed subscription notifications for merchants.
+ * - If no unconfirmed notification failure information exists, TotalCount returns 0.
  *
  * @param request ModifyInvoiceForIsvRequest
  * @return ModifyInvoiceForIsvResponse
@@ -1401,7 +1476,10 @@ ModifyInvoiceForIsvResponse Client::modifyInvoiceForIsv(const ModifyInvoiceForIs
 }
 
 /**
- * @summary 暂停项目
+ * @summary Calls PauseProject to pause a project.
+ *
+ * @description **
+ * **.
  *
  * @param request PauseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1440,7 +1518,10 @@ PauseProjectResponse Client::pauseProjectWithOptions(const PauseProjectRequest &
 }
 
 /**
- * @summary 暂停项目
+ * @summary Calls PauseProject to pause a project.
+ *
+ * @description **
+ * **.
  *
  * @param request PauseProjectRequest
  * @return PauseProjectResponse
@@ -1451,7 +1532,27 @@ PauseProjectResponse Client::pauseProject(const PauseProjectRequest &request) {
 }
 
 /**
- * @summary 云市场计量推送接口
+ * @summary Call PushMeteringData to push metering data.
+ *
+ * @description ### Encoding and Format Requirements
+ * - All request parameters must be URLEncoded.
+ * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
+ * ### Request Frequency and Single Write Volume Limits
+ * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
+ * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
+ * ### Batch Push Limits for Metering Data
+ * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
+ * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
+ * ### Time Requirements for Metering Data Push
+ * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
+ * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
+ * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
+ * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
+ * ### Timeliness of Pushing and Billing
+ * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
+ * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+ * ### Amount Rounding to Zero
+ * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
  *
  * @param request PushMeteringDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1482,7 +1583,27 @@ PushMeteringDataResponse Client::pushMeteringDataWithOptions(const PushMeteringD
 }
 
 /**
- * @summary 云市场计量推送接口
+ * @summary Call PushMeteringData to push metering data.
+ *
+ * @description ### Encoding and Format Requirements
+ * - All request parameters must be URLEncoded.
+ * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
+ * ### Request Frequency and Single Write Volume Limits
+ * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
+ * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
+ * ### Batch Push Limits for Metering Data
+ * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
+ * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
+ * ### Time Requirements for Metering Data Push
+ * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
+ * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
+ * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
+ * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
+ * ### Timeliness of Pushing and Billing
+ * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
+ * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+ * ### Amount Rounding to Zero
+ * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
  *
  * @param request PushMeteringDataRequest
  * @return PushMeteringDataResponse
@@ -1493,7 +1614,18 @@ PushMeteringDataResponse Client::pushMeteringData(const PushMeteringDataRequest 
 }
 
 /**
- * @summary 按次售卖按量计费
+ * @summary Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+ *
+ * @description ## Operation description
+ * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
+ * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+ * - All request parameters must be URL-encoded.
+ * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
+ * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
+ * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+ * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+ * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
+ * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
  *
  * @param request PushTimesUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1502,12 +1634,24 @@ PushMeteringDataResponse Client::pushMeteringData(const PushMeteringDataRequest 
 PushTimesUsageResponse Client::pushTimesUsageWithOptions(const PushTimesUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdjust()) {
+    query["Adjust"] = request.getAdjust();
+  }
+
+  if (!!request.hasAdjustDate()) {
+    query["AdjustDate"] = request.getAdjustDate();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMark()) {
+    query["Mark"] = request.getMark();
   }
 
   if (!!request.hasTimes()) {
@@ -1532,7 +1676,18 @@ PushTimesUsageResponse Client::pushTimesUsageWithOptions(const PushTimesUsageReq
 }
 
 /**
- * @summary 按次售卖按量计费
+ * @summary Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+ *
+ * @description ## Operation description
+ * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
+ * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+ * - All request parameters must be URL-encoded.
+ * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
+ * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
+ * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+ * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+ * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
+ * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
  *
  * @param request PushTimesUsageRequest
  * @return PushTimesUsageResponse
@@ -1543,7 +1698,10 @@ PushTimesUsageResponse Client::pushTimesUsage(const PushTimesUsageRequest &reque
 }
 
 /**
- * @summary 恢复已暂停的项目
+ * @summary Calls ResumeProject to resume a paused project.
+ *
+ * @description **
+ * **.
  *
  * @param request ResumeProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1582,7 +1740,10 @@ ResumeProjectResponse Client::resumeProjectWithOptions(const ResumeProjectReques
 }
 
 /**
- * @summary 恢复已暂停的项目
+ * @summary Calls ResumeProject to resume a paused project.
+ *
+ * @description **
+ * **.
  *
  * @param request ResumeProjectRequest
  * @return ResumeProjectResponse
@@ -1593,7 +1754,10 @@ ResumeProjectResponse Client::resumeProject(const ResumeProjectRequest &request)
 }
 
 /**
- * @summary 当前流程节点回滚到上一步
+ * @summary Triggers a rejection of the current process node by calling RollbackCurrentProjectNode.
+ *
+ * @description **
+ * **.
  *
  * @param request RollbackCurrentProjectNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1632,7 +1796,10 @@ RollbackCurrentProjectNodeResponse Client::rollbackCurrentProjectNodeWithOptions
 }
 
 /**
- * @summary 当前流程节点回滚到上一步
+ * @summary Triggers a rejection of the current process node by calling RollbackCurrentProjectNode.
+ *
+ * @description **
+ * **.
  *
  * @param request RollbackCurrentProjectNodeRequest
  * @return RollbackCurrentProjectNodeResponse

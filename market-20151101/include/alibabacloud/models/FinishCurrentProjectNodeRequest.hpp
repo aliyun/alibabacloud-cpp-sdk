@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The instance ID of the Alibaba Cloud Marketplace order.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the process node.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The form content to submit, in JSON format. Example: {"TFD0":"mr.go","TFD1":"1330010xxxx","TFD2":"Chaoyang District, Wangjing Street, Block x, No. y"}.
     shared_ptr<string> templateForm_ {};
   };
 

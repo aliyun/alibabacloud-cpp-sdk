@@ -121,15 +121,29 @@ namespace Models
 
 
   protected:
+    // The end time. The time 23:59:59 is appended to the date by default.
     shared_ptr<string> createTimeEnd_ {};
+    // The start time. The time 00:00:00 is appended to the date by default.
     shared_ptr<string> createTimeStart_ {};
+    // The invoice application ID. This corresponds to the Result.Id field in the response of the DescribeInvoiceForIsv operation.
     shared_ptr<int64_t> invoiceId_ {};
+    // The maximum number of entries per page for a paged query. Maximum value: 50. Default value: 10. (This parameter is not enabled.)
     shared_ptr<int32_t> maxResults_ {};
+    // The query token returned by this call. (This parameter is not enabled.)
     shared_ptr<string> nextToken_ {};
+    // The page number. Pages start from page 1.
     shared_ptr<int64_t> pageIndex_ {};
+    // The number of instances per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The current invoice status. Valid values:
+    // - 0: processing
+    // - 1: completed
     shared_ptr<int64_t> status_ {};
+    // The invoice type. If this parameter is left empty, all types are queried by default. Valid values:
+    // - 2: general digital electronic invoice
+    // - 3: special digital electronic invoice
     shared_ptr<int64_t> type_ {};
+    // The Alibaba Cloud user ID of the customer.
     shared_ptr<int64_t> userId_ {};
   };
 

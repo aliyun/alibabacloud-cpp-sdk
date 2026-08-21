@@ -57,10 +57,13 @@ namespace Models
 
 
   protected:
-    // AliUid
+    // AliUid.
     shared_ptr<string> aliUid_ {};
+    // The commodity code of the product.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // Specifies whether to query the product draft. In most cases, you do not need to query the product draft. Product drafts are used to query product information before the product is officially listed for sale.
     shared_ptr<bool> queryDraft_ {};
   };
 

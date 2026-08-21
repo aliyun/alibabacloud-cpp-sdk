@@ -199,21 +199,45 @@ namespace Models
 
 
     protected:
+      // Indicates whether rollback to the previous process node is allowed.
       shared_ptr<bool> allowRollbackNode_ {};
+      // Indicates whether the node is automatically completed.
       shared_ptr<bool> autoFinishNode_ {};
+      // The sequence number of the last node.
       shared_ptr<int32_t> finalStepNo_ {};
+      // The timeout of the process node. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtExpired_ {};
+      // The completion time of the process node. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtFinished_ {};
+      // The start time of the process node. The value is a UNIX timestamp.
       shared_ptr<int64_t> gmtStart_ {};
+      // Indicates whether uploading an attachment is mandatory.
       shared_ptr<bool> needAttachment_ {};
+      // The ID of the next process node.
       shared_ptr<int64_t> nextNodeId_ {};
+      // The ID of the process node.
       shared_ptr<int64_t> nodeId_ {};
+      // The name of the node.
       shared_ptr<string> nodeName_ {};
+      // The execution status of the node. Valid values:
+      // - NotStart: not started.
+      // - Starting: in progress.
+      // - Cancel: canceled.
+      // - Finish: completed.
       shared_ptr<string> nodeStatus_ {};
+      // The role of the operator for the process node. Valid values:
+      // - system: system.
+      // - custom: user.
       shared_ptr<string> operatorRole_ {};
+      // The ID of the parent process node.
       shared_ptr<int64_t> parentNodeId_ {};
+      // The ID of the previous process node.
       shared_ptr<int64_t> previousNodeId_ {};
+      // The sequence number of the process node.
       shared_ptr<int32_t> stepNo_ {};
+      // The form content of the process node in JSON format.
+      // Sample code:
+      // `[ { "fieldKey": "TFD0", //form key "isRequired": true, //whether the field is required "maxLength": 50, //maximum length "placeHolder": "姓名", //form value description "stepNum": 0, //sort value (ascending) "title": "收货人姓名", //form title "type": "text" //form type }, { "fieldKey": "TFD1", "isRequired": true, "maxLength": 50, "placeHolder": "手机号码", "stepNum": 1, "title": "收货人电话", "type": "text" }, { "fieldKey": "TFD2", "isRequired": true, "maxLength": 50, "placeHolder": "省市区街道门牌号码", "stepNum": 2, "title": "详细收货地址", "type": "textarea" } ]`.
       shared_ptr<string> templateForm_ {};
     };
 
@@ -243,8 +267,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The process node information returned upon success.
     shared_ptr<DescribeCurrentNodeInfoResponseBody::Result> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

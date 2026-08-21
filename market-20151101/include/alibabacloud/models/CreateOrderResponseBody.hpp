@@ -94,7 +94,9 @@ namespace Models
 
   protected:
     shared_ptr<CreateOrderResponseBody::InstanceIds> instanceIds_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
