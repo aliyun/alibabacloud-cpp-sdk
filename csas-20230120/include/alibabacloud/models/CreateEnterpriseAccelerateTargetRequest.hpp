@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> eapId_ {};
-    // A list of enterprise acceleration addresses.
+    // The list of enterprise acceleration addresses.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> target_ {};

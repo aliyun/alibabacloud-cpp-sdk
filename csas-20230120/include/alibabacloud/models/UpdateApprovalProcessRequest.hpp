@@ -1453,18 +1453,18 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> approvalType_ {};
-    // The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+    // The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
     shared_ptr<string> eventLabel_ {};
     shared_ptr<string> externalConfig_ {};
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemaConfigs> matchSchemaConfigs_ {};
     // The matched approval templates.
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
-    // The ID of the approval flow.
+    // The ID of the approval process.
     // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
-    // The name of the approval flow. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The name of the approval process. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
     shared_ptr<string> processName_ {};
     // The list of approval nodes. You can define up to 5 approval nodes.
     shared_ptr<vector<vector<string>>> processNodes_ {};

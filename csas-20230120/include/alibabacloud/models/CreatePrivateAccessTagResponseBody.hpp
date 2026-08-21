@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The private access tag ID.
+    // The ID of the internal-facing access tag.
     shared_ptr<string> tagId_ {};
   };
 

@@ -236,17 +236,21 @@ namespace Models
 
 
   protected:
+    // The application address groups. This parameter can be specified when ConfigMode is set to Precise. This parameter cannot be specified when ConfigMode is an empty string.
     shared_ptr<vector<AddressGroup>> addressGroups_ {};
-    // The addresses of the internal-facing access application. You can specify up to 1000 addresses.
+    // The addresses of the private access application. You can specify up to 1000 addresses.
     shared_ptr<vector<string>> addresses_ {};
-    // The ID of the internal-facing access application. You can obtain the value from the following operations:
-    // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): lists internal-facing access applications.
-    // - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal-facing access application.
+    // The ID of the private access application. You can obtain the value from:
+    // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+    // - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The configuration mode. Valid values:
+    // * Empty string: default mode.
+    // * Precise: precise mode.
     shared_ptr<string> configMode_ {};
-    // The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+    // The description of the private access application. The description must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
     // The browser access mode parameter: the Layer 7 application configuration.
     shared_ptr<PAL7Config> l7Config_ {};
@@ -256,24 +260,26 @@ namespace Models
     shared_ptr<string> l7ProxyDomainCustom_ {};
     // The browser access mode parameter: the private proxy domain name.
     shared_ptr<string> l7ProxyDomainPrivate_ {};
-    // The modification type of the internal-facing access application. Valid values:
+    // The modification type of the private access application. Valid values:
     // - **Cover** (default): overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
-    // - **Append**: adds the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
+    // - **Append**: appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
     shared_ptr<string> modifyType_ {};
+    // The application name.
     shared_ptr<string> name_ {};
-    // The port ranges of the internal-facing access application. You can specify up to 65535 port ranges. Multiple port ranges cannot be duplicate or overlap.
+    // The port ranges of the private access application. You can specify up to 65535 port ranges. Multiple port ranges cannot overlap.
     shared_ptr<vector<UpdatePrivateAccessApplicationRequest::PortRanges>> portRanges_ {};
-    // The protocol of the internal-facing access application. Valid values:
+    // The protocol of the private access application. Valid values:
     // - **All**: all protocols.
     // - **TCP**
     // - **UDP**
     shared_ptr<string> protocol_ {};
-    // The status of the internal-facing access application. Valid values:
+    // The status of the private access application. Valid values:
     // - **Enabled**: enabled.
     // - **Disabled**: disabled.
     shared_ptr<string> status_ {};
-    // The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
+    // The IDs of private access tags. A private access application can be associated with up to 6 custom private access tags.
     shared_ptr<vector<string>> tagIds_ {};
+    // The configuration for unauthorized application access requests.
     shared_ptr<PAApplicationUnauthorizedAccessConfig> unauthorizedAccessConfig_ {};
   };
 

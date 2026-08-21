@@ -1436,9 +1436,9 @@ namespace Models
       // The list of policies associated with terminal uninstall.
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
       shared_ptr<int32_t> approvalType_ {};
-      // The time when the approval flow was created.
+      // The time when the approval process was created.
       shared_ptr<string> createTime_ {};
-      // The description of the approval flow.
+      // The description of the approval process.
       shared_ptr<string> description_ {};
       // The list of policies associated with device registration.
       shared_ptr<Process::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
@@ -1454,9 +1454,9 @@ namespace Models
       // The list of policies associated with peripheral control.
       shared_ptr<Process::PeripheraBlockPolicies> peripheraBlockPolicies_ {};
       shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
-      // The ID of the approval flow.
+      // The ID of the approval process.
       shared_ptr<string> processId_ {};
-      // The name of the approval flow.
+      // The name of the approval process.
       shared_ptr<string> processName_ {};
       // The list of approval nodes.
       shared_ptr<vector<vector<Process::ProcessNodes>>> processNodes_ {};
@@ -1484,7 +1484,7 @@ namespace Models
 
 
   protected:
-    // The approval flow.
+    // The approval process.
     shared_ptr<UpdateApprovalProcessResponseBody::Process> process_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

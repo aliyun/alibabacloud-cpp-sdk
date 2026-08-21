@@ -171,49 +171,40 @@ namespace Models
 
 
     protected:
-      // Uninstall request ID.
+      // The uninstall application ID.
       shared_ptr<string> applicationId_ {};
-      // Time when the uninstall request was created.
+      // The time when the uninstall application was created.
       shared_ptr<string> createTime_ {};
-      // Department to which the user belongs.
+      // The department to which the user belongs.
       shared_ptr<string> department_ {};
-      // Endpoint device ID.
+      // The ID of the endpoint device.
       shared_ptr<string> devTag_ {};
-      // Operating system type of the endpoint device. Valid values:
-      // 
-      // - **Windows**: Windows operating system.
-      // 
-      // - **macOS**: macOS operating system.
-      // 
-      // - **Linux**: Linux operating system.
-      // 
-      // - **Android**: Android operating system.
-      // 
-      // - **iOS**: iOS operating system.
-      // 
-      // - **Windows_Wuying**: Alibaba Cloud Desktop operating system.
+      // The operating system type of the endpoint device. Valid values:
+      // - **Windows**: Windows.
+      // - **macOS**: macOS.
+      // - **Linux**: Linux.
+      // - **Android**: Android.
+      // - **iOS**: iOS.
+      // - **Windows_Wuying**: WUYING Workspace.
       shared_ptr<string> devType_ {};
-      // Device name of the endpoint.
+      // The name of the endpoint device.
       shared_ptr<string> hostname_ {};
-      // Name of the user identity source.
+      // The name of the identity provider.
       shared_ptr<string> idpName_ {};
-      // Indicates whether the uninstall has been executed.
+      // Indicates whether the uninstallation has been performed.
       shared_ptr<bool> isUninstall_ {};
-      // MAC address of the endpoint device.
+      // The MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
-      // Reason for the request.
+      // The reason for the application.
       shared_ptr<string> reason_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
-      // Status of the uninstall request. Valid values:
-      // 
+      // The status of the uninstall application. Valid values:
       // - **Pending**: Pending.
-      // 
       // - **Approved**: Approved.
-      // 
       // - **Rejected**: Rejected.
       shared_ptr<string> status_ {};
-      // Username.
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -236,9 +227,9 @@ namespace Models
 
 
   protected:
-    // List of uninstall requests.
+    // The list of uninstall applications.
     shared_ptr<vector<UpdateUninstallApplicationsStatusResponseBody::Applications>> applications_ {};
-    // The ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

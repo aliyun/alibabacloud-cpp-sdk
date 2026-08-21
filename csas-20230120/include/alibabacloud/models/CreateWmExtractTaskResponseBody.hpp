@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The task ID. You can use task IDs to query task results.
+      // The task ID, which is used to query the task result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The information about the watermark extraction task.
+    // The watermark extraction task information.
     shared_ptr<CreateWmExtractTaskResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

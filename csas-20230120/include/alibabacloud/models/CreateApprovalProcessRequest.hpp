@@ -151,7 +151,7 @@ namespace Models
       shared_ptr<string> appUninstallSchemaId_ {};
       // The ID of the device registration approval template.
       shared_ptr<string> deviceRegistrationSchemaId_ {};
-      // The ID of the file outbound transfer approval template.
+      // The ID of the file outbound approval template.
       shared_ptr<string> dlpSendSchemaId_ {};
       // The ID of the domain name blacklist approval template.
       shared_ptr<string> domainBlacklistSchemaId_ {};
@@ -201,11 +201,11 @@ namespace Models
 
 
   protected:
-    // The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+    // The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
     // The matched approval templates.
     shared_ptr<CreateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
-    // The process name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The flow name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
     // 
     // This parameter is required.
     shared_ptr<string> processName_ {};

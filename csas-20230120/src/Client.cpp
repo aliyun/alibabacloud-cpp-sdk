@@ -40,6 +40,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Appends associated terminal devices to a static device label in batches.
+ *
+ * @param request AddDeviceGroupMatchDevicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDeviceGroupMatchDevicesResponse
+ */
+AddDeviceGroupMatchDevicesResponse Client::addDeviceGroupMatchDevicesWithOptions(const AddDeviceGroupMatchDevicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDevTags()) {
+    bodyFlat["DevTags"] = request.getDevTags();
+  }
+
+  if (!!request.hasDeviceGroupId()) {
+    body["DeviceGroupId"] = request.getDeviceGroupId();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AddDeviceGroupMatchDevices"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDeviceGroupMatchDevicesResponse>();
+}
+
+/**
+ * @summary Appends associated terminal devices to a static device label in batches.
+ *
+ * @param request AddDeviceGroupMatchDevicesRequest
+ * @return AddDeviceGroupMatchDevicesResponse
+ */
+AddDeviceGroupMatchDevicesResponse Client::addDeviceGroupMatchDevices(const AddDeviceGroupMatchDevicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDeviceGroupMatchDevicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
  *
  * @param tmpReq AttachApplication2ConnectorRequest
@@ -258,7 +308,107 @@ BatchDeleteDomainItemsResponse Client::batchDeleteDomainItems(const BatchDeleteD
 }
 
 /**
- * @summary Creates an approval process under the current Alibaba Cloud account.
+ * @summary Deletes internal-facing applications in batches.
+ *
+ * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+ * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+ *
+ * @param request BatchDeletePrivateAccessApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeletePrivateAccessApplicationResponse
+ */
+BatchDeletePrivateAccessApplicationResponse Client::batchDeletePrivateAccessApplicationWithOptions(const BatchDeletePrivateAccessApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasApplicationIds()) {
+    bodyFlat["ApplicationIds"] = request.getApplicationIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchDeletePrivateAccessApplication"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeletePrivateAccessApplicationResponse>();
+}
+
+/**
+ * @summary Deletes internal-facing applications in batches.
+ *
+ * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+ * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+ *
+ * @param request BatchDeletePrivateAccessApplicationRequest
+ * @return BatchDeletePrivateAccessApplicationResponse
+ */
+BatchDeletePrivateAccessApplicationResponse Client::batchDeletePrivateAccessApplication(const BatchDeletePrivateAccessApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchDeletePrivateAccessApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes internal network access policies in batches.
+ *
+ * @param request BatchDeletePrivateAccessPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeletePrivateAccessPolicyResponse
+ */
+BatchDeletePrivateAccessPolicyResponse Client::batchDeletePrivateAccessPolicyWithOptions(const BatchDeletePrivateAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasPolicyIds()) {
+    bodyFlat["PolicyIds"] = request.getPolicyIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchDeletePrivateAccessPolicy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeletePrivateAccessPolicyResponse>();
+}
+
+/**
+ * @summary Deletes internal network access policies in batches.
+ *
+ * @param request BatchDeletePrivateAccessPolicyRequest
+ * @return BatchDeletePrivateAccessPolicyResponse
+ */
+BatchDeletePrivateAccessPolicyResponse Client::batchDeletePrivateAccessPolicy(const BatchDeletePrivateAccessPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchDeletePrivateAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an approval flow under the current Alibaba Cloud account.
  *
  * @param tmpReq CreateApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +461,7 @@ CreateApprovalProcessResponse Client::createApprovalProcessWithOptions(const Cre
 }
 
 /**
- * @summary Creates an approval process under the current Alibaba Cloud account.
+ * @summary Creates an approval flow under the current Alibaba Cloud account.
  *
  * @param request CreateApprovalProcessRequest
  * @return CreateApprovalProcessResponse
@@ -385,6 +535,124 @@ CreateClientUserResponse Client::createClientUserWithOptions(const CreateClientU
 CreateClientUserResponse Client::createClientUser(const CreateClientUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createClientUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a connector.
+ *
+ * @param request CreateConnectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateConnectorResponse
+ */
+CreateConnectorResponse Client::createConnectorWithOptions(const CreateConnectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBandwidth()) {
+    body["Bandwidth"] = request.getBandwidth();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  if (!!request.hasSwitchStatus()) {
+    body["SwitchStatus"] = request.getSwitchStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateConnector"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateConnectorResponse>();
+}
+
+/**
+ * @summary Creates a connector.
+ *
+ * @param request CreateConnectorRequest
+ * @return CreateConnectorResponse
+ */
+CreateConnectorResponse Client::createConnector(const CreateConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createConnectorWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a device label.
+ *
+ * @param tmpReq CreateDeviceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDeviceGroupResponse
+ */
+CreateDeviceGroupResponse Client::createDeviceGroupWithOptions(const CreateDeviceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDeviceGroupShrinkRequest request = CreateDeviceGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDynamicRule()) {
+    request.setDynamicRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDynamicRule(), "DynamicRule", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDynamicOperator()) {
+    body["DynamicOperator"] = request.getDynamicOperator();
+  }
+
+  if (!!request.hasDynamicRuleShrink()) {
+    body["DynamicRule"] = request.getDynamicRuleShrink();
+  }
+
+  if (!!request.hasGroupType()) {
+    body["GroupType"] = request.getGroupType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDeviceGroup"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDeviceGroupResponse>();
+}
+
+/**
+ * @summary Creates a device label.
+ *
+ * @param request CreateDeviceGroupRequest
+ * @return CreateDeviceGroupResponse
+ */
+CreateDeviceGroupResponse Client::createDeviceGroup(const CreateDeviceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDeviceGroupWithOptions(request, runtime);
 }
 
 /**
@@ -524,7 +792,7 @@ CreateDynamicRouteResponse Client::createDynamicRoute(const CreateDynamicRouteRe
 }
 
 /**
- * @summary Creates an enterprise accelerate policy.
+ * @summary Creates an enterprise acceleration policy.
  *
  * @param request CreateEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -587,7 +855,7 @@ CreateEnterpriseAcceleratePolicyResponse Client::createEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Creates an enterprise accelerate policy.
+ * @summary Creates an enterprise acceleration policy.
  *
  * @param request CreateEnterpriseAcceleratePolicyRequest
  * @return CreateEnterpriseAcceleratePolicyResponse
@@ -598,7 +866,7 @@ CreateEnterpriseAcceleratePolicyResponse Client::createEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Creates enterprise acceleration addresses.
+ * @summary Creates an enterprise acceleration address.
  *
  * @param request CreateEnterpriseAccelerateTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +905,7 @@ CreateEnterpriseAccelerateTargetResponse Client::createEnterpriseAccelerateTarge
 }
 
 /**
- * @summary Creates enterprise acceleration addresses.
+ * @summary Creates an enterprise acceleration address.
  *
  * @param request CreateEnterpriseAccelerateTargetRequest
  * @return CreateEnterpriseAccelerateTargetResponse
@@ -645,6 +913,68 @@ CreateEnterpriseAccelerateTargetResponse Client::createEnterpriseAccelerateTarge
 CreateEnterpriseAccelerateTargetResponse Client::createEnterpriseAccelerateTarget(const CreateEnterpriseAccelerateTargetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createEnterpriseAccelerateTargetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a traffic forwarding rule.
+ *
+ * @param request CreateForwardStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateForwardStrategyResponse
+ */
+CreateForwardStrategyResponse Client::createForwardStrategyWithOptions(const CreateForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDestinationId()) {
+    body["DestinationId"] = request.getDestinationId();
+  }
+
+  if (!!request.hasDestinationType()) {
+    body["DestinationType"] = request.getDestinationType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateForwardStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateForwardStrategyResponse>();
+}
+
+/**
+ * @summary Creates a traffic forwarding rule.
+ *
+ * @param request CreateForwardStrategyRequest
+ * @return CreateForwardStrategyResponse
+ */
+CreateForwardStrategyResponse Client::createForwardStrategy(const CreateForwardStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createForwardStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -1016,9 +1346,9 @@ CreatePrivateAccessPolicyResponse Client::createPrivateAccessPolicy(const Create
 }
 
 /**
- * @summary Creates a private access tag for the current Alibaba Cloud account.
+ * @summary Creates an internal-facing access tag under the current Alibaba Cloud account.
  *
- * @description By default, you can create up to 500 private access tags.
+ * @description You can create up to 500 internal-facing access tags by default.
  *
  * @param request CreatePrivateAccessTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1053,9 +1383,9 @@ CreatePrivateAccessTagResponse Client::createPrivateAccessTagWithOptions(const C
 }
 
 /**
- * @summary Creates a private access tag for the current Alibaba Cloud account.
+ * @summary Creates an internal-facing access tag under the current Alibaba Cloud account.
  *
- * @description By default, you can create up to 500 private access tags.
+ * @description You can create up to 500 internal-facing access tags by default.
  *
  * @param request CreatePrivateAccessTagRequest
  * @return CreatePrivateAccessTagResponse
@@ -1063,6 +1393,244 @@ CreatePrivateAccessTagResponse Client::createPrivateAccessTagWithOptions(const C
 CreatePrivateAccessTagResponse Client::createPrivateAccessTag(const CreatePrivateAccessTagRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createPrivateAccessTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a software ban policy.
+ *
+ * @param request CreateProhibitedPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProhibitedPolicyResponse
+ */
+CreateProhibitedPolicyResponse Client::createProhibitedPolicyWithOptions(const CreateProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowReport()) {
+    body["AllowReport"] = request.getAllowReport();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasForceKill()) {
+    body["ForceKill"] = request.getForceKill();
+  }
+
+  if (!!request.hasMainButtonTextCh()) {
+    body["MainButtonTextCh"] = request.getMainButtonTextCh();
+  }
+
+  if (!!request.hasMainButtonTextEn()) {
+    body["MainButtonTextEn"] = request.getMainButtonTextEn();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMinorButtonTextCh()) {
+    body["MinorButtonTextCh"] = request.getMinorButtonTextCh();
+  }
+
+  if (!!request.hasMinorButtonTextEn()) {
+    body["MinorButtonTextEn"] = request.getMinorButtonTextEn();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasObjectType()) {
+    body["ObjectType"] = request.getObjectType();
+  }
+
+  if (!!request.hasPolicyType()) {
+    body["PolicyType"] = request.getPolicyType();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasPromptCh()) {
+    body["PromptCh"] = request.getPromptCh();
+  }
+
+  if (!!request.hasPromptEn()) {
+    body["PromptEn"] = request.getPromptEn();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasSoftwareIds()) {
+    bodyFlat["SoftwareIds"] = request.getSoftwareIds();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  if (!!request.hasTitleCh()) {
+    body["TitleCh"] = request.getTitleCh();
+  }
+
+  if (!!request.hasTitleEn()) {
+    body["TitleEn"] = request.getTitleEn();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateProhibitedPolicy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProhibitedPolicyResponse>();
+}
+
+/**
+ * @summary Creates a software ban policy.
+ *
+ * @param request CreateProhibitedPolicyRequest
+ * @return CreateProhibitedPolicyResponse
+ */
+CreateProhibitedPolicyResponse Client::createProhibitedPolicy(const CreateProhibitedPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProhibitedPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a custom disabled software entry.
+ *
+ * @param request CreateProhibitedSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProhibitedSoftwareResponse
+ */
+CreateProhibitedSoftwareResponse Client::createProhibitedSoftwareWithOptions(const CreateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasLinuxProcesses()) {
+    bodyFlat["LinuxProcesses"] = request.getLinuxProcesses();
+  }
+
+  if (!!request.hasMacOSProcesses()) {
+    bodyFlat["MacOSProcesses"] = request.getMacOSProcesses();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  if (!!request.hasWindowsProcesses()) {
+    bodyFlat["WindowsProcesses"] = request.getWindowsProcesses();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateProhibitedSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProhibitedSoftwareResponse>();
+}
+
+/**
+ * @summary Creates a custom disabled software entry.
+ *
+ * @param request CreateProhibitedSoftwareRequest
+ * @return CreateProhibitedSoftwareResponse
+ */
+CreateProhibitedSoftwareResponse Client::createProhibitedSoftware(const CreateProhibitedSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProhibitedSoftwareWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a custom disabled software tag.
+ *
+ * @param request CreateProhibitedTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProhibitedTagResponse
+ */
+CreateProhibitedTagResponse Client::createProhibitedTagWithOptions(const CreateProhibitedTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateProhibitedTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProhibitedTagResponse>();
+}
+
+/**
+ * @summary Creates a custom disabled software tag.
+ *
+ * @param request CreateProhibitedTagRequest
+ * @return CreateProhibitedTagResponse
+ */
+CreateProhibitedTagResponse Client::createProhibitedTag(const CreateProhibitedTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProhibitedTagWithOptions(request, runtime);
 }
 
 /**
@@ -1220,7 +1788,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary Generates a transparent base image for web, screen, or app watermarks.
+ * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
  *
  * @param tmpReq CreateWmBaseImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1295,7 +1863,7 @@ CreateWmBaseImageResponse Client::createWmBaseImageWithOptions(const CreateWmBas
 }
 
 /**
- * @summary Generates a transparent base image for web, screen, or app watermarks.
+ * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
  *
  * @param request CreateWmBaseImageRequest
  * @return CreateWmBaseImageResponse
@@ -1306,9 +1874,9 @@ CreateWmBaseImageResponse Client::createWmBaseImage(const CreateWmBaseImageReque
 }
 
 /**
- * @summary Create a digital watermarking embedding Job.
+ * @summary Creates a digital watermarking embedding task.
  *
- * @description By default, you can create up to 500 groups.
+ * @description You can create a maximum of 500 user groups by default.
  *
  * @param tmpReq CreateWmEmbedTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1421,9 +1989,9 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
 }
 
 /**
- * @summary Create a digital watermarking embedding Job.
+ * @summary Creates a digital watermarking embedding task.
  *
- * @description By default, you can create up to 500 groups.
+ * @description You can create a maximum of 500 user groups by default.
  *
  * @param request CreateWmEmbedTaskRequest
  * @return CreateWmEmbedTaskResponse
@@ -1434,7 +2002,7 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTask(const CreateWmEmbedTaskReque
 }
 
 /**
- * @summary Create a digital watermarking fetch job.
+ * @summary Creates a digital watermarking extraction task.
  *
  * @param tmpReq CreateWmExtractTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +2081,7 @@ CreateWmExtractTaskResponse Client::createWmExtractTaskWithOptions(const CreateW
 }
 
 /**
- * @summary Create a digital watermarking fetch job.
+ * @summary Creates a digital watermarking extraction task.
  *
  * @param request CreateWmExtractTaskRequest
  * @return CreateWmExtractTaskResponse
@@ -1662,9 +2230,143 @@ DeleteClientUserResponse Client::deleteClientUser(const DeleteClientUserRequest 
 }
 
 /**
+ * @summary Deletes a connector.
+ *
+ * @param request DeleteConnectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConnectorResponse
+ */
+DeleteConnectorResponse Client::deleteConnectorWithOptions(const DeleteConnectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteConnector"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConnectorResponse>();
+}
+
+/**
+ * @summary Deletes a connector.
+ *
+ * @param request DeleteConnectorRequest
+ * @return DeleteConnectorResponse
+ */
+DeleteConnectorResponse Client::deleteConnector(const DeleteConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteConnectorWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a ConnectorClient under the current Alibaba Cloud account.
+ *
+ * @param request DeleteConnectorClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConnectorClientResponse
+ */
+DeleteConnectorClientResponse Client::deleteConnectorClientWithOptions(const DeleteConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteConnectorClient"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConnectorClientResponse>();
+}
+
+/**
+ * @summary Deletes a ConnectorClient under the current Alibaba Cloud account.
+ *
+ * @param request DeleteConnectorClientRequest
+ * @return DeleteConnectorClientResponse
+ */
+DeleteConnectorClientResponse Client::deleteConnectorClient(const DeleteConnectorClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteConnectorClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes instance tags in batches.
+ *
+ * @param request DeleteDeviceGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDeviceGroupsResponse
+ */
+DeleteDeviceGroupsResponse Client::deleteDeviceGroupsWithOptions(const DeleteDeviceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDeviceGroupIds()) {
+    bodyFlat["DeviceGroupIds"] = request.getDeviceGroupIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDeviceGroups"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDeviceGroupsResponse>();
+}
+
+/**
+ * @summary Deletes instance tags in batches.
+ *
+ * @param request DeleteDeviceGroupsRequest
+ * @return DeleteDeviceGroupsResponse
+ */
+DeleteDeviceGroupsResponse Client::deleteDeviceGroups(const DeleteDeviceGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDeviceGroupsWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a domain name list.
  *
- * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+ * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
  *
  * @param request DeleteDomainMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1701,7 +2403,7 @@ DeleteDomainMetaResponse Client::deleteDomainMetaWithOptions(const DeleteDomainM
 /**
  * @summary Deletes a domain name list.
  *
- * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+ * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
  *
  * @param request DeleteDomainMetaRequest
  * @return DeleteDomainMetaResponse
@@ -1796,7 +2498,7 @@ DeleteEnterpriseAcceleratePolicyResponse Client::deleteEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Deletes an enterprise acceleration address.
+ * @summary Deletes enterprise acceleration addresses.
  *
  * @param request DeleteEnterpriseAccelerateTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1835,7 +2537,7 @@ DeleteEnterpriseAccelerateTargetResponse Client::deleteEnterpriseAccelerateTarge
 }
 
 /**
- * @summary Deletes an enterprise acceleration address.
+ * @summary Deletes enterprise acceleration addresses.
  *
  * @param request DeleteEnterpriseAccelerateTargetRequest
  * @return DeleteEnterpriseAccelerateTargetResponse
@@ -1843,6 +2545,48 @@ DeleteEnterpriseAccelerateTargetResponse Client::deleteEnterpriseAccelerateTarge
 DeleteEnterpriseAccelerateTargetResponse Client::deleteEnterpriseAccelerateTarget(const DeleteEnterpriseAccelerateTargetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEnterpriseAccelerateTargetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a forwarding rule.
+ *
+ * @param request DeleteForwardStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteForwardStrategyResponse
+ */
+DeleteForwardStrategyResponse Client::deleteForwardStrategyWithOptions(const DeleteForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasForwardId()) {
+    body["ForwardId"] = request.getForwardId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteForwardStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteForwardStrategyResponse>();
+}
+
+/**
+ * @summary Deletes a forwarding rule.
+ *
+ * @param request DeleteForwardStrategyRequest
+ * @return DeleteForwardStrategyResponse
+ */
+DeleteForwardStrategyResponse Client::deleteForwardStrategy(const DeleteForwardStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteForwardStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -2075,6 +2819,144 @@ DeletePrivateAccessTagResponse Client::deletePrivateAccessTagWithOptions(const D
 DeletePrivateAccessTagResponse Client::deletePrivateAccessTag(const DeletePrivateAccessTagRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePrivateAccessTagWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes software prohibition policies in batches.
+ *
+ * @param request DeleteProhibitedPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProhibitedPoliciesResponse
+ */
+DeleteProhibitedPoliciesResponse Client::deleteProhibitedPoliciesWithOptions(const DeleteProhibitedPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasPolicyIds()) {
+    bodyFlat["PolicyIds"] = request.getPolicyIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteProhibitedPolicies"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProhibitedPoliciesResponse>();
+}
+
+/**
+ * @summary Deletes software prohibition policies in batches.
+ *
+ * @param request DeleteProhibitedPoliciesRequest
+ * @return DeleteProhibitedPoliciesResponse
+ */
+DeleteProhibitedPoliciesResponse Client::deleteProhibitedPolicies(const DeleteProhibitedPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProhibitedPoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes custom prohibited software in batches.
+ *
+ * @param request DeleteProhibitedSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProhibitedSoftwareResponse
+ */
+DeleteProhibitedSoftwareResponse Client::deleteProhibitedSoftwareWithOptions(const DeleteProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasSoftwareIds()) {
+    bodyFlat["SoftwareIds"] = request.getSoftwareIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteProhibitedSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProhibitedSoftwareResponse>();
+}
+
+/**
+ * @summary Deletes custom prohibited software in batches.
+ *
+ * @param request DeleteProhibitedSoftwareRequest
+ * @return DeleteProhibitedSoftwareResponse
+ */
+DeleteProhibitedSoftwareResponse Client::deleteProhibitedSoftware(const DeleteProhibitedSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProhibitedSoftwareWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除自定义标签
+ *
+ * @param request DeleteProhibitedTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProhibitedTagsResponse
+ */
+DeleteProhibitedTagsResponse Client::deleteProhibitedTagsWithOptions(const DeleteProhibitedTagsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteProhibitedTags"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProhibitedTagsResponse>();
+}
+
+/**
+ * @summary 批量删除自定义标签
+ *
+ * @param request DeleteProhibitedTagsRequest
+ * @return DeleteProhibitedTagsResponse
+ */
+DeleteProhibitedTagsResponse Client::deleteProhibitedTags(const DeleteProhibitedTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProhibitedTagsWithOptions(request, runtime);
 }
 
 /**
@@ -2584,7 +3466,7 @@ GetApprovalResponse Client::getApproval(const GetApprovalRequest &request) {
 }
 
 /**
- * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
+ * @summary Queries the details of an approval process under the current Alibaba Cloud account.
  *
  * @param request GetApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2611,7 +3493,7 @@ GetApprovalProcessResponse Client::getApprovalProcessWithOptions(const GetApprov
 }
 
 /**
- * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
+ * @summary Queries the details of an approval process under the current Alibaba Cloud account.
  *
  * @param request GetApprovalProcessRequest
  * @return GetApprovalProcessResponse
@@ -2660,7 +3542,7 @@ GetApprovalSchemaResponse Client::getApprovalSchema(const GetApprovalSchemaReque
 }
 
 /**
- * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBootAndAntiUninstallPolicyResponse
@@ -2682,7 +3564,7 @@ GetBootAndAntiUninstallPolicyResponse Client::getBootAndAntiUninstallPolicyWithO
 }
 
 /**
- * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
  *
  * @return GetBootAndAntiUninstallPolicyResponse
  */
@@ -2730,6 +3612,174 @@ GetClientUserResponse Client::getClientUser(const GetClientUserRequest &request)
 }
 
 /**
+ * @summary Queries the details of a connector.
+ *
+ * @param request GetConnectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConnectorResponse
+ */
+GetConnectorResponse Client::getConnectorWithOptions(const GetConnectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConnector"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConnectorResponse>();
+}
+
+/**
+ * @summary Queries the details of a connector.
+ *
+ * @param request GetConnectorRequest
+ * @return GetConnectorResponse
+ */
+GetConnectorResponse Client::getConnector(const GetConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getConnectorWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a ConnectorClient.
+ *
+ * @param request GetConnectorClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConnectorClientResponse
+ */
+GetConnectorClientResponse Client::getConnectorClientWithOptions(const GetConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConnectorClient"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConnectorClientResponse>();
+}
+
+/**
+ * @summary Queries the details of a ConnectorClient.
+ *
+ * @param request GetConnectorClientRequest
+ * @return GetConnectorClientResponse
+ */
+GetConnectorClientResponse Client::getConnectorClient(const GetConnectorClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getConnectorClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified device label.
+ *
+ * @param request GetDeviceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeviceGroupResponse
+ */
+GetDeviceGroupResponse Client::getDeviceGroupWithOptions(const GetDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceGroupId()) {
+    query["DeviceGroupId"] = request.getDeviceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeviceGroup"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeviceGroupResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified device label.
+ *
+ * @param request GetDeviceGroupRequest
+ * @return GetDeviceGroupResponse
+ */
+GetDeviceGroupResponse Client::getDeviceGroup(const GetDeviceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDeviceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+ *
+ * @param request GetDeviceOnlineHeatmapRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeviceOnlineHeatmapResponse
+ */
+GetDeviceOnlineHeatmapResponse Client::getDeviceOnlineHeatmapWithOptions(const GetDeviceOnlineHeatmapRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDate()) {
+    query["Date"] = request.getDate();
+  }
+
+  if (!!request.hasDevTag()) {
+    query["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasSaseUserId()) {
+    query["SaseUserId"] = request.getSaseUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeviceOnlineHeatmap"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeviceOnlineHeatmapResponse>();
+}
+
+/**
+ * @summary Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+ *
+ * @param request GetDeviceOnlineHeatmapRequest
+ * @return GetDeviceOnlineHeatmapResponse
+ */
+GetDeviceOnlineHeatmapResponse Client::getDeviceOnlineHeatmap(const GetDeviceOnlineHeatmapRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDeviceOnlineHeatmapWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves details about a dynamic route in your Alibaba Cloud account.
  *
  * @param request GetDynamicRouteRequest
@@ -2765,6 +3815,48 @@ GetDynamicRouteResponse Client::getDynamicRouteWithOptions(const GetDynamicRoute
 GetDynamicRouteResponse Client::getDynamicRoute(const GetDynamicRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDynamicRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a forwarding rule.
+ *
+ * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+ *
+ * @param request GetForwardStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetForwardStrategyResponse
+ */
+GetForwardStrategyResponse Client::getForwardStrategyWithOptions(const GetForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetForwardStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetForwardStrategyResponse>();
+}
+
+/**
+ * @summary Queries the details of a forwarding rule.
+ *
+ * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+ *
+ * @param request GetForwardStrategyRequest
+ * @return GetForwardStrategyResponse
+ */
+GetForwardStrategyResponse Client::getForwardStrategy(const GetForwardStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getForwardStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -2959,6 +4051,88 @@ GetPrivateAccessPolicyResponse Client::getPrivateAccessPolicy(const GetPrivateAc
 }
 
 /**
+ * @summary Queries the details of a specified software prohibition policy.
+ *
+ * @param request GetProhibitedPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProhibitedPolicyResponse
+ */
+GetProhibitedPolicyResponse Client::getProhibitedPolicyWithOptions(const GetProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProhibitedPolicy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProhibitedPolicyResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified software prohibition policy.
+ *
+ * @param request GetProhibitedPolicyRequest
+ * @return GetProhibitedPolicyResponse
+ */
+GetProhibitedPolicyResponse Client::getProhibitedPolicy(const GetProhibitedPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getProhibitedPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified prohibited software.
+ *
+ * @param tmpReq GetProhibitedSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProhibitedSoftwareResponse
+ */
+GetProhibitedSoftwareResponse Client::getProhibitedSoftwareWithOptions(const GetProhibitedSoftwareRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetProhibitedSoftwareShrinkRequest request = GetProhibitedSoftwareShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSoftwareId()) {
+    request.setSoftwareIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSoftwareId(), "SoftwareId", "json"));
+  }
+
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProhibitedSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProhibitedSoftwareResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified prohibited software.
+ *
+ * @param request GetProhibitedSoftwareRequest
+ * @return GetProhibitedSoftwareResponse
+ */
+GetProhibitedSoftwareResponse Client::getProhibitedSoftware(const GetProhibitedSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getProhibitedSoftwareWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
  *
  * @param request GetRegistrationPolicyRequest
@@ -3032,6 +4206,60 @@ GetUserDeviceResponse Client::getUserDeviceWithOptions(const GetUserDeviceReques
 GetUserDeviceResponse Client::getUserDevice(const GetUserDeviceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserDeviceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the workload usage trends of a specified endpoint device.
+ *
+ * @param request GetUserDeviceWorkloadTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserDeviceWorkloadTrendResponse
+ */
+GetUserDeviceWorkloadTrendResponse Client::getUserDeviceWorkloadTrendWithOptions(const GetUserDeviceWorkloadTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceTag()) {
+    query["DeviceTag"] = request.getDeviceTag();
+  }
+
+  if (!!request.hasFrom()) {
+    query["From"] = request.getFrom();
+  }
+
+  if (!!request.hasTo()) {
+    query["To"] = request.getTo();
+  }
+
+  if (!!request.hasWorkloadType()) {
+    query["WorkloadType"] = request.getWorkloadType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserDeviceWorkloadTrend"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserDeviceWorkloadTrendResponse>();
+}
+
+/**
+ * @summary Queries the workload usage trends of a specified endpoint device.
+ *
+ * @param request GetUserDeviceWorkloadTrendRequest
+ * @return GetUserDeviceWorkloadTrendResponse
+ */
+GetUserDeviceWorkloadTrendResponse Client::getUserDeviceWorkloadTrend(const GetUserDeviceWorkloadTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserDeviceWorkloadTrendWithOptions(request, runtime);
 }
 
 /**
@@ -3149,7 +4377,7 @@ GetWmExtractTaskResponse Client::getWmExtractTask(const GetWmExtractTaskRequest 
 }
 
 /**
- * @summary Batch import acceleration addresses.
+ * @summary Imports acceleration addresses in batches.
  *
  * @param request ImportEnterpriseAccelerateTargetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3184,7 +4412,7 @@ ImportEnterpriseAccelerateTargetsResponse Client::importEnterpriseAccelerateTarg
 }
 
 /**
- * @summary Batch import acceleration addresses.
+ * @summary Imports acceleration addresses in batches.
  *
  * @param request ImportEnterpriseAccelerateTargetsRequest
  * @return ImportEnterpriseAccelerateTargetsResponse
@@ -3534,6 +4762,60 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listConnectorsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+ *
+ * @param request ListDeviceGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDeviceGroupsResponse
+ */
+ListDeviceGroupsResponse Client::listDeviceGroupsWithOptions(const ListDeviceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDeviceGroupIds()) {
+    query["DeviceGroupIds"] = request.getDeviceGroupIds();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDeviceGroups"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDeviceGroupsResponse>();
+}
+
+/**
+ * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+ *
+ * @param request ListDeviceGroupsRequest
+ * @return ListDeviceGroupsResponse
+ */
+ListDeviceGroupsResponse Client::listDeviceGroups(const ListDeviceGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDeviceGroupsWithOptions(request, runtime);
 }
 
 /**
@@ -4295,6 +5577,44 @@ ListPopTrafficStatisticsResponse Client::listPopTrafficStatistics(const ListPopT
 }
 
 /**
+ * @summary Queries the Layer 7 switches of internal-facing applications in batches.
+ *
+ * @param request ListPrivateAccessApplicationL7SwitchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrivateAccessApplicationL7SwitchesResponse
+ */
+ListPrivateAccessApplicationL7SwitchesResponse Client::listPrivateAccessApplicationL7SwitchesWithOptions(const ListPrivateAccessApplicationL7SwitchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrivateAccessApplicationL7Switches"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrivateAccessApplicationL7SwitchesResponse>();
+}
+
+/**
+ * @summary Queries the Layer 7 switches of internal-facing applications in batches.
+ *
+ * @param request ListPrivateAccessApplicationL7SwitchesRequest
+ * @return ListPrivateAccessApplicationL7SwitchesResponse
+ */
+ListPrivateAccessApplicationL7SwitchesResponse Client::listPrivateAccessApplicationL7Switches(const ListPrivateAccessApplicationL7SwitchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPrivateAccessApplicationL7SwitchesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsRequest
@@ -4525,6 +5845,162 @@ ListPrivateAccessTagsForDynamicRouteResponse Client::listPrivateAccessTagsForDyn
 }
 
 /**
+ * @summary Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+ *
+ * @param tmpReq ListProhibitedPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProhibitedPoliciesResponse
+ */
+ListProhibitedPoliciesResponse Client::listProhibitedPoliciesWithOptions(const ListProhibitedPoliciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListProhibitedPoliciesShrinkRequest request = ListProhibitedPoliciesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSoftwareId()) {
+    request.setSoftwareIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSoftwareId(), "SoftwareId", "json"));
+  }
+
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProhibitedPolicies"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProhibitedPoliciesResponse>();
+}
+
+/**
+ * @summary Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+ *
+ * @param request ListProhibitedPoliciesRequest
+ * @return ListProhibitedPoliciesResponse
+ */
+ListProhibitedPoliciesResponse Client::listProhibitedPolicies(const ListProhibitedPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProhibitedPoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+ *
+ * @param tmpReq ListProhibitedSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProhibitedSoftwareResponse
+ */
+ListProhibitedSoftwareResponse Client::listProhibitedSoftwareWithOptions(const ListProhibitedSoftwareRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListProhibitedSoftwareShrinkRequest request = ListProhibitedSoftwareShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagId()) {
+    request.setTagIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagId(), "TagId", "json"));
+  }
+
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProhibitedSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProhibitedSoftwareResponse>();
+}
+
+/**
+ * @summary Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+ *
+ * @param request ListProhibitedSoftwareRequest
+ * @return ListProhibitedSoftwareResponse
+ */
+ListProhibitedSoftwareResponse Client::listProhibitedSoftware(const ListProhibitedSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProhibitedSoftwareWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+ *
+ * @param tmpReq ListProhibitedTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProhibitedTagsResponse
+ */
+ListProhibitedTagsResponse Client::listProhibitedTagsWithOptions(const ListProhibitedTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListProhibitedTagsShrinkRequest request = ListProhibitedTagsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSoftwareId()) {
+    request.setSoftwareIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSoftwareId(), "SoftwareId", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasSoftwareIdShrink()) {
+    query["SoftwareId"] = request.getSoftwareIdShrink();
+  }
+
+  if (!!request.hasTagIds()) {
+    query["TagIds"] = request.getTagIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProhibitedTags"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProhibitedTagsResponse>();
+}
+
+/**
+ * @summary Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+ *
+ * @param request ListProhibitedTagsRequest
+ * @return ListProhibitedTagsResponse
+ */
+ListProhibitedTagsResponse Client::listProhibitedTags(const ListProhibitedTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProhibitedTagsWithOptions(request, runtime);
+}
+
+/**
  * @summary Query the list of device registration policies for your Alibaba Cloud account.
  *
  * @param request ListRegistrationPoliciesRequest
@@ -4604,12 +6080,12 @@ ListRegistrationPoliciesForUserGroupResponse Client::listRegistrationPoliciesFor
  * @summary Queries the list of risk events under the current Alibaba Cloud account.
  *
  * @description ## Operation description
- * - This operation performs paging query of risk events based on specified conditional criteria.
+ * - This operation is used for paging query of risk events that meet specified conditional criteria.
  * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
  * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
  * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
- * - Fuzzy matching is supported for `PolicyName` and `Username`.
- * - The response includes the total number of risk events that match the query conditions and their details.
+ * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+ * - The response includes the total number of risk events that meet the query conditions and their details.
  *
  * @param request ListRiskItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4679,12 +6155,12 @@ ListRiskItemsResponse Client::listRiskItemsWithOptions(const ListRiskItemsReques
  * @summary Queries the list of risk events under the current Alibaba Cloud account.
  *
  * @description ## Operation description
- * - This operation performs paging query of risk events based on specified conditional criteria.
+ * - This operation is used for paging query of risk events that meet specified conditional criteria.
  * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
  * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
  * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
- * - Fuzzy matching is supported for `PolicyName` and `Username`.
- * - The response includes the total number of risk events that match the query conditions and their details.
+ * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+ * - The response includes the total number of risk events that meet the query conditions and their details.
  *
  * @param request ListRiskItemsRequest
  * @return ListRiskItemsResponse
@@ -4695,7 +6171,7 @@ ListRiskItemsResponse Client::listRiskItems(const ListRiskItemsRequest &request)
 }
 
 /**
- * @summary Lists the software installed on a user device.
+ * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListSoftwareForUserDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4722,7 +6198,7 @@ ListSoftwareForUserDeviceResponse Client::listSoftwareForUserDeviceWithOptions(c
 }
 
 /**
- * @summary Lists the software installed on a user device.
+ * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListSoftwareForUserDeviceRequest
  * @return ListSoftwareForUserDeviceResponse
@@ -4809,7 +6285,7 @@ ListTagsForPrivateAccessPolicyResponse Client::listTagsForPrivateAccessPolicy(co
 }
 
 /**
- * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+ * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
  *
  * @param request ListUninstallApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4836,7 +6312,7 @@ ListUninstallApplicationsResponse Client::listUninstallApplicationsWithOptions(c
 }
 
 /**
- * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+ * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
  *
  * @param request ListUninstallApplicationsRequest
  * @return ListUninstallApplicationsResponse
@@ -5333,6 +6809,178 @@ ModifyEnterpriseAcceleratePolicyResponse Client::modifyEnterpriseAcceleratePolic
 }
 
 /**
+ * @summary Modifies a forwarding rule.
+ *
+ * @param request ModifyForwardStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyForwardStrategyResponse
+ */
+ModifyForwardStrategyResponse Client::modifyForwardStrategyWithOptions(const ModifyForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDestinationId()) {
+    body["DestinationId"] = request.getDestinationId();
+  }
+
+  if (!!request.hasDestinationType()) {
+    body["DestinationType"] = request.getDestinationType();
+  }
+
+  if (!!request.hasForwardId()) {
+    body["ForwardId"] = request.getForwardId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyForwardStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyForwardStrategyResponse>();
+}
+
+/**
+ * @summary Modifies a forwarding rule.
+ *
+ * @param request ModifyForwardStrategyRequest
+ * @return ModifyForwardStrategyResponse
+ */
+ModifyForwardStrategyResponse Client::modifyForwardStrategy(const ModifyForwardStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyForwardStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the binding items of a forwarding rule.
+ *
+ * @param request ModifyForwardStrategyBindingItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyForwardStrategyBindingItemsResponse
+ */
+ModifyForwardStrategyBindingItemsResponse Client::modifyForwardStrategyBindingItemsWithOptions(const ModifyForwardStrategyBindingItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasItemIds()) {
+    query["ItemIds"] = request.getItemIds();
+  }
+
+  if (!!request.hasMatchMode()) {
+    query["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasModifyType()) {
+    query["ModifyType"] = request.getModifyType();
+  }
+
+  json body = {};
+  if (!!request.hasForwardId()) {
+    body["ForwardId"] = request.getForwardId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyForwardStrategyBindingItems"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyForwardStrategyBindingItemsResponse>();
+}
+
+/**
+ * @summary Modifies the binding items of a forwarding rule.
+ *
+ * @param request ModifyForwardStrategyBindingItemsRequest
+ * @return ModifyForwardStrategyBindingItemsResponse
+ */
+ModifyForwardStrategyBindingItemsResponse Client::modifyForwardStrategyBindingItems(const ModifyForwardStrategyBindingItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyForwardStrategyBindingItemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes associated terminal devices from a static device label in batches.
+ *
+ * @param request RemoveDeviceGroupMatchDevicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveDeviceGroupMatchDevicesResponse
+ */
+RemoveDeviceGroupMatchDevicesResponse Client::removeDeviceGroupMatchDevicesWithOptions(const RemoveDeviceGroupMatchDevicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDevTags()) {
+    bodyFlat["DevTags"] = request.getDevTags();
+  }
+
+  if (!!request.hasDeviceGroupId()) {
+    body["DeviceGroupId"] = request.getDeviceGroupId();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveDeviceGroupMatchDevices"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveDeviceGroupMatchDevicesResponse>();
+}
+
+/**
+ * @summary Removes associated terminal devices from a static device label in batches.
+ *
+ * @param request RemoveDeviceGroupMatchDevicesRequest
+ * @return RemoveDeviceGroupMatchDevicesResponse
+ */
+RemoveDeviceGroupMatchDevicesResponse Client::removeDeviceGroupMatchDevices(const RemoveDeviceGroupMatchDevicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeDeviceGroupMatchDevicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
@@ -5429,7 +7077,7 @@ RevokeUserSessionResponse Client::revokeUserSession(const RevokeUserSessionReque
 }
 
 /**
- * @summary Updates an approval flow under the current Alibaba Cloud account.
+ * @summary Updates an approval process under the current Alibaba Cloud account.
  *
  * @param tmpReq UpdateApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5508,7 +7156,7 @@ UpdateApprovalProcessResponse Client::updateApprovalProcessWithOptions(const Upd
 }
 
 /**
- * @summary Updates an approval flow under the current Alibaba Cloud account.
+ * @summary Updates an approval process under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalProcessRequest
  * @return UpdateApprovalProcessResponse
@@ -5519,7 +7167,7 @@ UpdateApprovalProcessResponse Client::updateApprovalProcess(const UpdateApproval
 }
 
 /**
- * @summary Updates the status of an approval instance under your Alibaba Cloud account.
+ * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5554,7 +7202,7 @@ UpdateApprovalStatusResponse Client::updateApprovalStatusWithOptions(const Updat
 }
 
 /**
- * @summary Updates the status of an approval instance under your Alibaba Cloud account.
+ * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @return UpdateApprovalStatusResponse
@@ -5788,6 +7436,168 @@ UpdateClientUserStatusResponse Client::updateClientUserStatusWithOptions(const U
 UpdateClientUserStatusResponse Client::updateClientUserStatus(const UpdateClientUserStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateClientUserStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+ *
+ * @param request UpdateConnectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnectorWithOptions(const UpdateConnectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccelerateStatus()) {
+    body["AccelerateStatus"] = request.getAccelerateStatus();
+  }
+
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSwitchStatus()) {
+    body["SwitchStatus"] = request.getSwitchStatus();
+  }
+
+  if (!!request.hasVipCidr()) {
+    body["VipCidr"] = request.getVipCidr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateConnector"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConnectorResponse>();
+}
+
+/**
+ * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+ *
+ * @param request UpdateConnectorRequest
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnector(const UpdateConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateConnectorWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies a ConnectorClient under the current Alibaba Cloud account.
+ *
+ * @param request UpdateConnectorClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConnectorClientResponse
+ */
+UpdateConnectorClientResponse Client::updateConnectorClientWithOptions(const UpdateConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateConnectorClient"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConnectorClientResponse>();
+}
+
+/**
+ * @summary Modifies a ConnectorClient under the current Alibaba Cloud account.
+ *
+ * @param request UpdateConnectorClientRequest
+ * @return UpdateConnectorClientResponse
+ */
+UpdateConnectorClientResponse Client::updateConnectorClient(const UpdateConnectorClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateConnectorClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a device label.
+ *
+ * @param request UpdateDeviceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDeviceGroupResponse
+ */
+UpdateDeviceGroupResponse Client::updateDeviceGroupWithOptions(const UpdateDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDeviceGroupId()) {
+    body["DeviceGroupId"] = request.getDeviceGroupId();
+  }
+
+  if (!!request.hasDynamicOperator()) {
+    body["DynamicOperator"] = request.getDynamicOperator();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDeviceGroup"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDeviceGroupResponse>();
+}
+
+/**
+ * @summary Updates a device label.
+ *
+ * @param request UpdateDeviceGroupRequest
+ * @return UpdateDeviceGroupResponse
+ */
+UpdateDeviceGroupResponse Client::updateDeviceGroup(const UpdateDeviceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDeviceGroupWithOptions(request, runtime);
 }
 
 /**
@@ -6131,7 +7941,7 @@ UpdateNacUserCertStatusResponse Client::updateNacUserCertStatus(const UpdateNacU
 }
 
 /**
- * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Modifies a private access application under the current Alibaba Cloud account.
  *
  * @param tmpReq UpdatePrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6236,7 +8046,7 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
 }
 
 /**
- * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Modifies a private access application under the current Alibaba Cloud account.
  *
  * @param request UpdatePrivateAccessApplicationRequest
  * @return UpdatePrivateAccessApplicationResponse
@@ -6244,6 +8054,84 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
 UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplication(const UpdatePrivateAccessApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePrivateAccessApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the Layer 7 access switch for an internal-facing application.
+ *
+ * @param request UpdatePrivateAccessApplicationL7SwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePrivateAccessApplicationL7SwitchResponse
+ */
+UpdatePrivateAccessApplicationL7SwitchResponse Client::updatePrivateAccessApplicationL7SwitchWithOptions(const UpdatePrivateAccessApplicationL7SwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApplicationId()) {
+    body["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDevTagMarkStatus()) {
+    body["DevTagMarkStatus"] = request.getDevTagMarkStatus();
+  }
+
+  if (!!request.hasDownloadAuditStatus()) {
+    body["DownloadAuditStatus"] = request.getDownloadAuditStatus();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasPortRanges()) {
+    bodyFlat["PortRanges"] = request.getPortRanges();
+  }
+
+  if (!!request.hasSrcIpMarkStatus()) {
+    body["SrcIpMarkStatus"] = request.getSrcIpMarkStatus();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTimeoutSec()) {
+    body["TimeoutSec"] = request.getTimeoutSec();
+  }
+
+  if (!!request.hasUserMarkStatus()) {
+    body["UserMarkStatus"] = request.getUserMarkStatus();
+  }
+
+  if (!!request.hasZeroTrustStatus()) {
+    body["ZeroTrustStatus"] = request.getZeroTrustStatus();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdatePrivateAccessApplicationL7Switch"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePrivateAccessApplicationL7SwitchResponse>();
+}
+
+/**
+ * @summary Updates the Layer 7 access switch for an internal-facing application.
+ *
+ * @param request UpdatePrivateAccessApplicationL7SwitchRequest
+ * @return UpdatePrivateAccessApplicationL7SwitchResponse
+ */
+UpdatePrivateAccessApplicationL7SwitchResponse Client::updatePrivateAccessApplicationL7Switch(const UpdatePrivateAccessApplicationL7SwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePrivateAccessApplicationL7SwitchWithOptions(request, runtime);
 }
 
 /**
@@ -6377,6 +8265,256 @@ UpdatePrivateAccessPolicyResponse Client::updatePrivateAccessPolicy(const Update
 }
 
 /**
+ * @summary Updates a software prohibition policy.
+ *
+ * @param request UpdateProhibitedPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProhibitedPolicyResponse
+ */
+UpdateProhibitedPolicyResponse Client::updateProhibitedPolicyWithOptions(const UpdateProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowReport()) {
+    body["AllowReport"] = request.getAllowReport();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasForceKill()) {
+    body["ForceKill"] = request.getForceKill();
+  }
+
+  if (!!request.hasMainButtonTextCh()) {
+    body["MainButtonTextCh"] = request.getMainButtonTextCh();
+  }
+
+  if (!!request.hasMainButtonTextEn()) {
+    body["MainButtonTextEn"] = request.getMainButtonTextEn();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMinorButtonTextCh()) {
+    body["MinorButtonTextCh"] = request.getMinorButtonTextCh();
+  }
+
+  if (!!request.hasMinorButtonTextEn()) {
+    body["MinorButtonTextEn"] = request.getMinorButtonTextEn();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasObjectType()) {
+    body["ObjectType"] = request.getObjectType();
+  }
+
+  if (!!request.hasPolicyId()) {
+    body["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasPolicyType()) {
+    body["PolicyType"] = request.getPolicyType();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasPromptCh()) {
+    body["PromptCh"] = request.getPromptCh();
+  }
+
+  if (!!request.hasPromptEn()) {
+    body["PromptEn"] = request.getPromptEn();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasSoftwareIds()) {
+    bodyFlat["SoftwareIds"] = request.getSoftwareIds();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  if (!!request.hasTitleCh()) {
+    body["TitleCh"] = request.getTitleCh();
+  }
+
+  if (!!request.hasTitleEn()) {
+    body["TitleEn"] = request.getTitleEn();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateProhibitedPolicy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProhibitedPolicyResponse>();
+}
+
+/**
+ * @summary Updates a software prohibition policy.
+ *
+ * @param request UpdateProhibitedPolicyRequest
+ * @return UpdateProhibitedPolicyResponse
+ */
+UpdateProhibitedPolicyResponse Client::updateProhibitedPolicy(const UpdateProhibitedPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProhibitedPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a custom prohibited software entry.
+ *
+ * @param request UpdateProhibitedSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProhibitedSoftwareResponse
+ */
+UpdateProhibitedSoftwareResponse Client::updateProhibitedSoftwareWithOptions(const UpdateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasLinuxProcesses()) {
+    bodyFlat["LinuxProcesses"] = request.getLinuxProcesses();
+  }
+
+  if (!!request.hasMacOSProcesses()) {
+    bodyFlat["MacOSProcesses"] = request.getMacOSProcesses();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSoftwareId()) {
+    body["SoftwareId"] = request.getSoftwareId();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  if (!!request.hasWindowsProcesses()) {
+    bodyFlat["WindowsProcesses"] = request.getWindowsProcesses();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateProhibitedSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProhibitedSoftwareResponse>();
+}
+
+/**
+ * @summary Updates a custom prohibited software entry.
+ *
+ * @param request UpdateProhibitedSoftwareRequest
+ * @return UpdateProhibitedSoftwareResponse
+ */
+UpdateProhibitedSoftwareResponse Client::updateProhibitedSoftware(const UpdateProhibitedSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProhibitedSoftwareWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a custom prohibited software tag.
+ *
+ * @param request UpdateProhibitedTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProhibitedTagResponse
+ */
+UpdateProhibitedTagResponse Client::updateProhibitedTagWithOptions(const UpdateProhibitedTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasTagId()) {
+    body["TagId"] = request.getTagId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateProhibitedTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProhibitedTagResponse>();
+}
+
+/**
+ * @summary Updates a custom prohibited software tag.
+ *
+ * @param request UpdateProhibitedTagRequest
+ * @return UpdateProhibitedTagResponse
+ */
+UpdateProhibitedTagResponse Client::updateProhibitedTag(const UpdateProhibitedTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProhibitedTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies a device registration policy for your Alibaba Cloud account.
  *
  * @param tmpReq UpdateRegistrationPolicyRequest
@@ -6477,14 +8615,14 @@ UpdateRegistrationPolicyResponse Client::updateRegistrationPolicy(const UpdateRe
 }
 
 /**
- * @summary Updates the current handling status and conclusion of a specified risk event.
+ * @summary Updates the current processing status and conclusion of a specified risk event.
  *
  * @description ## Request description
- * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+ * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
  * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
  * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
  * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
- * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+ * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
  *
  * @param request UpdateRiskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6531,14 +8669,14 @@ UpdateRiskStatusResponse Client::updateRiskStatusWithOptions(const UpdateRiskSta
 }
 
 /**
- * @summary Updates the current handling status and conclusion of a specified risk event.
+ * @summary Updates the current processing status and conclusion of a specified risk event.
  *
  * @description ## Request description
- * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+ * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
  * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
  * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
  * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
- * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+ * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
  *
  * @param request UpdateRiskStatusRequest
  * @return UpdateRiskStatusResponse
@@ -6549,7 +8687,7 @@ UpdateRiskStatusResponse Client::updateRiskStatus(const UpdateRiskStatusRequest 
 }
 
 /**
- * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
+ * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6588,7 +8726,7 @@ UpdateUninstallApplicationsStatusResponse Client::updateUninstallApplicationsSta
 }
 
 /**
- * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
+ * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @return UpdateUninstallApplicationsStatusResponse

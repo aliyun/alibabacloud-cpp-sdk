@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> eapId_ {};
-    // ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

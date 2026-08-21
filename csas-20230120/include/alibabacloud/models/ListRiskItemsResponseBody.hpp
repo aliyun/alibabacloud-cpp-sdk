@@ -310,7 +310,7 @@ namespace Models
       shared_ptr<string> agentName_ {};
       // The AI risk analysis conclusion.
       shared_ptr<string> aiConclusion_ {};
-      // The risk judgment provided by AI. An empty string is returned if no AI analysis result exists. Valid values:
+      // The risk judgment provided by AI. An empty string is returned if no AI analysis results exist. Valid values:
       // * `Risk`: determined as risky.
       // * `Ignore`: determined as not risky.
       shared_ptr<string> aiRiskConfirm_ {};
@@ -335,7 +335,7 @@ namespace Models
       // - `access_safe`: access security.
       // - `ai_agent_safe`: Agent security.
       shared_ptr<string> riskCategory_ {};
-      // The manually confirmed risk conclusion. An empty string is returned if the event has not been confirmed. Valid values:
+      // The manually confirmed risk conclusion. An empty string is returned if not confirmed. Valid values:
       // * `Risk`: confirmed as risky.
       // * `Ignore`: confirmed as not risky.
       // * `Invalid`: confirmed as a false positive.
@@ -361,7 +361,7 @@ namespace Models
       // - `account_share`: account sharing.
       // - `account_stolen`: account theft.
       // - `device_share`: device sharing.
-      // - `remote_logon`: remote logon.
+      // - `remote_logon`: remote logon from an unusual location.
       // - `sensitive_data_leakage`: sensitive data exfiltration.
       // - `lateral_scanning`: lateral scanning.
       // - `ai_skill_malware`: malicious Skill.
@@ -419,7 +419,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of risk events.
     shared_ptr<vector<ListRiskItemsResponseBody::RiskItems>> riskItems_ {};
-    // The total number of risk events that match the query conditions.
+    // The total number of risk events that meet the query conditions.
     shared_ptr<int32_t> totalNum_ {};
   };
 

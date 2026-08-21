@@ -80,7 +80,7 @@ namespace Models
     // * `Ignore`: Confirmed as not risky.
     // * `Invalid`: Confirmed as a false positive.
     shared_ptr<string> riskConfirm_ {};
-    // The description of the risk event handling. The length must be 1 to 128 characters.
+    // The description of the risk event processing decision. The value must be 1 to 128 characters in length.
     shared_ptr<string> riskConfirmDesc_ {};
     // The risk event ID. You can obtain the value from the following operation:
     // * `ListRiskItems`: Queries the list of risk events.
@@ -91,12 +91,13 @@ namespace Models
     // * device_share: Device sharing.
     // * remote_logon: Remote logon.
     // * sensitive_data_leakage: Sensitive data leakage.
+    // * `compressed_archive_exfil`: Internal network data compression and exfiltration.
     // * lateral_scanning: Lateral scanning.
     // * ai_skill_malware: Malicious skill.
     // * ai_config_check: AI configuration check.
     // * openclaw_vulnerability: OpenClaw vulnerability.
     shared_ptr<string> riskScene_ {};
-    // The handling status of the risk event. Valid values:
+    // The processing status of the risk event. Valid values:
     // * `Unprocess`: Unprocessed.
     // * `Processing`: Being processed.
     // * `Processed`: Processed.

@@ -21,6 +21,23 @@ namespace Csas20230120
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Appends associated terminal devices to a static device label in batches.
+       *
+       * @param request AddDeviceGroupMatchDevicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDeviceGroupMatchDevicesResponse
+       */
+      Models::AddDeviceGroupMatchDevicesResponse addDeviceGroupMatchDevicesWithOptions(const Models::AddDeviceGroupMatchDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Appends associated terminal devices to a static device label in batches.
+       *
+       * @param request AddDeviceGroupMatchDevicesRequest
+       * @return AddDeviceGroupMatchDevicesResponse
+       */
+      Models::AddDeviceGroupMatchDevicesResponse addDeviceGroupMatchDevices(const Models::AddDeviceGroupMatchDevicesRequest &request);
+
+      /**
        * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
        *
        * @param tmpReq AttachApplication2ConnectorRequest
@@ -97,7 +114,49 @@ namespace Csas20230120
       Models::BatchDeleteDomainItemsResponse batchDeleteDomainItems(const Models::BatchDeleteDomainItemsRequest &request);
 
       /**
-       * @summary Creates an approval process under the current Alibaba Cloud account.
+       * @summary Deletes internal-facing applications in batches.
+       *
+       * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
+       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+       *
+       * @param request BatchDeletePrivateAccessApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeletePrivateAccessApplicationResponse
+       */
+      Models::BatchDeletePrivateAccessApplicationResponse batchDeletePrivateAccessApplicationWithOptions(const Models::BatchDeletePrivateAccessApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes internal-facing applications in batches.
+       *
+       * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
+       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+       *
+       * @param request BatchDeletePrivateAccessApplicationRequest
+       * @return BatchDeletePrivateAccessApplicationResponse
+       */
+      Models::BatchDeletePrivateAccessApplicationResponse batchDeletePrivateAccessApplication(const Models::BatchDeletePrivateAccessApplicationRequest &request);
+
+      /**
+       * @summary Deletes internal network access policies in batches.
+       *
+       * @param request BatchDeletePrivateAccessPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeletePrivateAccessPolicyResponse
+       */
+      Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicyWithOptions(const Models::BatchDeletePrivateAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes internal network access policies in batches.
+       *
+       * @param request BatchDeletePrivateAccessPolicyRequest
+       * @return BatchDeletePrivateAccessPolicyResponse
+       */
+      Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicy(const Models::BatchDeletePrivateAccessPolicyRequest &request);
+
+      /**
+       * @summary Creates an approval flow under the current Alibaba Cloud account.
        *
        * @param tmpReq CreateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,7 +165,7 @@ namespace Csas20230120
       Models::CreateApprovalProcessResponse createApprovalProcessWithOptions(const Models::CreateApprovalProcessRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an approval process under the current Alibaba Cloud account.
+       * @summary Creates an approval flow under the current Alibaba Cloud account.
        *
        * @param request CreateApprovalProcessRequest
        * @return CreateApprovalProcessResponse
@@ -129,6 +188,40 @@ namespace Csas20230120
        * @return CreateClientUserResponse
        */
       Models::CreateClientUserResponse createClientUser(const Models::CreateClientUserRequest &request);
+
+      /**
+       * @summary Creates a connector.
+       *
+       * @param request CreateConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateConnectorResponse
+       */
+      Models::CreateConnectorResponse createConnectorWithOptions(const Models::CreateConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a connector.
+       *
+       * @param request CreateConnectorRequest
+       * @return CreateConnectorResponse
+       */
+      Models::CreateConnectorResponse createConnector(const Models::CreateConnectorRequest &request);
+
+      /**
+       * @summary Creates a device label.
+       *
+       * @param tmpReq CreateDeviceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDeviceGroupResponse
+       */
+      Models::CreateDeviceGroupResponse createDeviceGroupWithOptions(const Models::CreateDeviceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a device label.
+       *
+       * @param request CreateDeviceGroupRequest
+       * @return CreateDeviceGroupResponse
+       */
+      Models::CreateDeviceGroupResponse createDeviceGroup(const Models::CreateDeviceGroupRequest &request);
 
       /**
        * @summary Creates a domain name list.
@@ -173,7 +266,7 @@ namespace Csas20230120
       Models::CreateDynamicRouteResponse createDynamicRoute(const Models::CreateDynamicRouteRequest &request);
 
       /**
-       * @summary Creates an enterprise accelerate policy.
+       * @summary Creates an enterprise acceleration policy.
        *
        * @param request CreateEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -182,7 +275,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicyWithOptions(const Models::CreateEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an enterprise accelerate policy.
+       * @summary Creates an enterprise acceleration policy.
        *
        * @param request CreateEnterpriseAcceleratePolicyRequest
        * @return CreateEnterpriseAcceleratePolicyResponse
@@ -190,7 +283,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicy(const Models::CreateEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary Creates enterprise acceleration addresses.
+       * @summary Creates an enterprise acceleration address.
        *
        * @param request CreateEnterpriseAccelerateTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -199,12 +292,29 @@ namespace Csas20230120
       Models::CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTargetWithOptions(const Models::CreateEnterpriseAccelerateTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates enterprise acceleration addresses.
+       * @summary Creates an enterprise acceleration address.
        *
        * @param request CreateEnterpriseAccelerateTargetRequest
        * @return CreateEnterpriseAccelerateTargetResponse
        */
       Models::CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTarget(const Models::CreateEnterpriseAccelerateTargetRequest &request);
+
+      /**
+       * @summary Creates a traffic forwarding rule.
+       *
+       * @param request CreateForwardStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateForwardStrategyResponse
+       */
+      Models::CreateForwardStrategyResponse createForwardStrategyWithOptions(const Models::CreateForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a traffic forwarding rule.
+       *
+       * @param request CreateForwardStrategyRequest
+       * @return CreateForwardStrategyResponse
+       */
+      Models::CreateForwardStrategyResponse createForwardStrategy(const Models::CreateForwardStrategyRequest &request);
 
       /**
        * @summary Creates a department for a custom identity source in the current Alibaba Cloud account.
@@ -283,9 +393,9 @@ namespace Csas20230120
       Models::CreatePrivateAccessPolicyResponse createPrivateAccessPolicy(const Models::CreatePrivateAccessPolicyRequest &request);
 
       /**
-       * @summary Creates a private access tag for the current Alibaba Cloud account.
+       * @summary Creates an internal-facing access tag under the current Alibaba Cloud account.
        *
-       * @description By default, you can create up to 500 private access tags.
+       * @description You can create up to 500 internal-facing access tags by default.
        *
        * @param request CreatePrivateAccessTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,14 +404,65 @@ namespace Csas20230120
       Models::CreatePrivateAccessTagResponse createPrivateAccessTagWithOptions(const Models::CreatePrivateAccessTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a private access tag for the current Alibaba Cloud account.
+       * @summary Creates an internal-facing access tag under the current Alibaba Cloud account.
        *
-       * @description By default, you can create up to 500 private access tags.
+       * @description You can create up to 500 internal-facing access tags by default.
        *
        * @param request CreatePrivateAccessTagRequest
        * @return CreatePrivateAccessTagResponse
        */
       Models::CreatePrivateAccessTagResponse createPrivateAccessTag(const Models::CreatePrivateAccessTagRequest &request);
+
+      /**
+       * @summary Creates a software ban policy.
+       *
+       * @param request CreateProhibitedPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProhibitedPolicyResponse
+       */
+      Models::CreateProhibitedPolicyResponse createProhibitedPolicyWithOptions(const Models::CreateProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a software ban policy.
+       *
+       * @param request CreateProhibitedPolicyRequest
+       * @return CreateProhibitedPolicyResponse
+       */
+      Models::CreateProhibitedPolicyResponse createProhibitedPolicy(const Models::CreateProhibitedPolicyRequest &request);
+
+      /**
+       * @summary Creates a custom disabled software entry.
+       *
+       * @param request CreateProhibitedSoftwareRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProhibitedSoftwareResponse
+       */
+      Models::CreateProhibitedSoftwareResponse createProhibitedSoftwareWithOptions(const Models::CreateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom disabled software entry.
+       *
+       * @param request CreateProhibitedSoftwareRequest
+       * @return CreateProhibitedSoftwareResponse
+       */
+      Models::CreateProhibitedSoftwareResponse createProhibitedSoftware(const Models::CreateProhibitedSoftwareRequest &request);
+
+      /**
+       * @summary Creates a custom disabled software tag.
+       *
+       * @param request CreateProhibitedTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProhibitedTagResponse
+       */
+      Models::CreateProhibitedTagResponse createProhibitedTagWithOptions(const Models::CreateProhibitedTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom disabled software tag.
+       *
+       * @param request CreateProhibitedTagRequest
+       * @return CreateProhibitedTagResponse
+       */
+      Models::CreateProhibitedTagResponse createProhibitedTag(const Models::CreateProhibitedTagRequest &request);
 
       /**
        * @summary Create a device registration policy for your Alibaba Cloud account.
@@ -342,7 +503,7 @@ namespace Csas20230120
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
-       * @summary Generates a transparent base image for web, screen, or app watermarks.
+       * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
        *
        * @param tmpReq CreateWmBaseImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -351,7 +512,7 @@ namespace Csas20230120
       Models::CreateWmBaseImageResponse createWmBaseImageWithOptions(const Models::CreateWmBaseImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a transparent base image for web, screen, or app watermarks.
+       * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
        *
        * @param request CreateWmBaseImageRequest
        * @return CreateWmBaseImageResponse
@@ -359,9 +520,9 @@ namespace Csas20230120
       Models::CreateWmBaseImageResponse createWmBaseImage(const Models::CreateWmBaseImageRequest &request);
 
       /**
-       * @summary Create a digital watermarking embedding Job.
+       * @summary Creates a digital watermarking embedding task.
        *
-       * @description By default, you can create up to 500 groups.
+       * @description You can create a maximum of 500 user groups by default.
        *
        * @param tmpReq CreateWmEmbedTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,9 +531,9 @@ namespace Csas20230120
       Models::CreateWmEmbedTaskResponse createWmEmbedTaskWithOptions(const Models::CreateWmEmbedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a digital watermarking embedding Job.
+       * @summary Creates a digital watermarking embedding task.
        *
-       * @description By default, you can create up to 500 groups.
+       * @description You can create a maximum of 500 user groups by default.
        *
        * @param request CreateWmEmbedTaskRequest
        * @return CreateWmEmbedTaskResponse
@@ -380,7 +541,7 @@ namespace Csas20230120
       Models::CreateWmEmbedTaskResponse createWmEmbedTask(const Models::CreateWmEmbedTaskRequest &request);
 
       /**
-       * @summary Create a digital watermarking fetch job.
+       * @summary Creates a digital watermarking extraction task.
        *
        * @param tmpReq CreateWmExtractTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -389,7 +550,7 @@ namespace Csas20230120
       Models::CreateWmExtractTaskResponse createWmExtractTaskWithOptions(const Models::CreateWmExtractTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a digital watermarking fetch job.
+       * @summary Creates a digital watermarking extraction task.
        *
        * @param request CreateWmExtractTaskRequest
        * @return CreateWmExtractTaskResponse
@@ -448,9 +609,60 @@ namespace Csas20230120
       Models::DeleteClientUserResponse deleteClientUser(const Models::DeleteClientUserRequest &request);
 
       /**
+       * @summary Deletes a connector.
+       *
+       * @param request DeleteConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConnectorResponse
+       */
+      Models::DeleteConnectorResponse deleteConnectorWithOptions(const Models::DeleteConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a connector.
+       *
+       * @param request DeleteConnectorRequest
+       * @return DeleteConnectorResponse
+       */
+      Models::DeleteConnectorResponse deleteConnector(const Models::DeleteConnectorRequest &request);
+
+      /**
+       * @summary Deletes a ConnectorClient under the current Alibaba Cloud account.
+       *
+       * @param request DeleteConnectorClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConnectorClientResponse
+       */
+      Models::DeleteConnectorClientResponse deleteConnectorClientWithOptions(const Models::DeleteConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a ConnectorClient under the current Alibaba Cloud account.
+       *
+       * @param request DeleteConnectorClientRequest
+       * @return DeleteConnectorClientResponse
+       */
+      Models::DeleteConnectorClientResponse deleteConnectorClient(const Models::DeleteConnectorClientRequest &request);
+
+      /**
+       * @summary Deletes instance tags in batches.
+       *
+       * @param request DeleteDeviceGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDeviceGroupsResponse
+       */
+      Models::DeleteDeviceGroupsResponse deleteDeviceGroupsWithOptions(const Models::DeleteDeviceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes instance tags in batches.
+       *
+       * @param request DeleteDeviceGroupsRequest
+       * @return DeleteDeviceGroupsResponse
+       */
+      Models::DeleteDeviceGroupsResponse deleteDeviceGroups(const Models::DeleteDeviceGroupsRequest &request);
+
+      /**
        * @summary Deletes a domain name list.
        *
-       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
        *
        * @param request DeleteDomainMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +673,7 @@ namespace Csas20230120
       /**
        * @summary Deletes a domain name list.
        *
-       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
        *
        * @param request DeleteDomainMetaRequest
        * @return DeleteDomainMetaResponse
@@ -503,7 +715,7 @@ namespace Csas20230120
       Models::DeleteEnterpriseAcceleratePolicyResponse deleteEnterpriseAcceleratePolicy(const Models::DeleteEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary Deletes an enterprise acceleration address.
+       * @summary Deletes enterprise acceleration addresses.
        *
        * @param request DeleteEnterpriseAccelerateTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,12 +724,29 @@ namespace Csas20230120
       Models::DeleteEnterpriseAccelerateTargetResponse deleteEnterpriseAccelerateTargetWithOptions(const Models::DeleteEnterpriseAccelerateTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an enterprise acceleration address.
+       * @summary Deletes enterprise acceleration addresses.
        *
        * @param request DeleteEnterpriseAccelerateTargetRequest
        * @return DeleteEnterpriseAccelerateTargetResponse
        */
       Models::DeleteEnterpriseAccelerateTargetResponse deleteEnterpriseAccelerateTarget(const Models::DeleteEnterpriseAccelerateTargetRequest &request);
+
+      /**
+       * @summary Deletes a forwarding rule.
+       *
+       * @param request DeleteForwardStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteForwardStrategyResponse
+       */
+      Models::DeleteForwardStrategyResponse deleteForwardStrategyWithOptions(const Models::DeleteForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a forwarding rule.
+       *
+       * @param request DeleteForwardStrategyRequest
+       * @return DeleteForwardStrategyResponse
+       */
+      Models::DeleteForwardStrategyResponse deleteForwardStrategy(const Models::DeleteForwardStrategyRequest &request);
 
       /**
        * @summary Delete a department from a custom identity provider in your Alibaba Cloud account.
@@ -621,6 +850,57 @@ namespace Csas20230120
        * @return DeletePrivateAccessTagResponse
        */
       Models::DeletePrivateAccessTagResponse deletePrivateAccessTag(const Models::DeletePrivateAccessTagRequest &request);
+
+      /**
+       * @summary Deletes software prohibition policies in batches.
+       *
+       * @param request DeleteProhibitedPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProhibitedPoliciesResponse
+       */
+      Models::DeleteProhibitedPoliciesResponse deleteProhibitedPoliciesWithOptions(const Models::DeleteProhibitedPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes software prohibition policies in batches.
+       *
+       * @param request DeleteProhibitedPoliciesRequest
+       * @return DeleteProhibitedPoliciesResponse
+       */
+      Models::DeleteProhibitedPoliciesResponse deleteProhibitedPolicies(const Models::DeleteProhibitedPoliciesRequest &request);
+
+      /**
+       * @summary Deletes custom prohibited software in batches.
+       *
+       * @param request DeleteProhibitedSoftwareRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProhibitedSoftwareResponse
+       */
+      Models::DeleteProhibitedSoftwareResponse deleteProhibitedSoftwareWithOptions(const Models::DeleteProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes custom prohibited software in batches.
+       *
+       * @param request DeleteProhibitedSoftwareRequest
+       * @return DeleteProhibitedSoftwareResponse
+       */
+      Models::DeleteProhibitedSoftwareResponse deleteProhibitedSoftware(const Models::DeleteProhibitedSoftwareRequest &request);
+
+      /**
+       * @summary 批量删除自定义标签
+       *
+       * @param request DeleteProhibitedTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProhibitedTagsResponse
+       */
+      Models::DeleteProhibitedTagsResponse deleteProhibitedTagsWithOptions(const Models::DeleteProhibitedTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除自定义标签
+       *
+       * @param request DeleteProhibitedTagsRequest
+       * @return DeleteProhibitedTagsResponse
+       */
+      Models::DeleteProhibitedTagsResponse deleteProhibitedTags(const Models::DeleteProhibitedTagsRequest &request);
 
       /**
        * @summary Batch delete device registration policies under your Alibaba Cloud account.
@@ -805,7 +1085,7 @@ namespace Csas20230120
       Models::GetApprovalResponse getApproval(const Models::GetApprovalRequest &request);
 
       /**
-       * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
+       * @summary Queries the details of an approval process under the current Alibaba Cloud account.
        *
        * @param request GetApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,7 +1094,7 @@ namespace Csas20230120
       Models::GetApprovalProcessResponse getApprovalProcessWithOptions(const Models::GetApprovalProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
+       * @summary Queries the details of an approval process under the current Alibaba Cloud account.
        *
        * @param request GetApprovalProcessRequest
        * @return GetApprovalProcessResponse
@@ -839,7 +1119,7 @@ namespace Csas20230120
       Models::GetApprovalSchemaResponse getApprovalSchema(const Models::GetApprovalSchemaRequest &request);
 
       /**
-       * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+       * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBootAndAntiUninstallPolicyResponse
@@ -847,7 +1127,7 @@ namespace Csas20230120
       Models::GetBootAndAntiUninstallPolicyResponse getBootAndAntiUninstallPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+       * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
        *
        * @return GetBootAndAntiUninstallPolicyResponse
        */
@@ -871,6 +1151,74 @@ namespace Csas20230120
       Models::GetClientUserResponse getClientUser(const Models::GetClientUserRequest &request);
 
       /**
+       * @summary Queries the details of a connector.
+       *
+       * @param request GetConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConnectorResponse
+       */
+      Models::GetConnectorResponse getConnectorWithOptions(const Models::GetConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a connector.
+       *
+       * @param request GetConnectorRequest
+       * @return GetConnectorResponse
+       */
+      Models::GetConnectorResponse getConnector(const Models::GetConnectorRequest &request);
+
+      /**
+       * @summary Queries the details of a ConnectorClient.
+       *
+       * @param request GetConnectorClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConnectorClientResponse
+       */
+      Models::GetConnectorClientResponse getConnectorClientWithOptions(const Models::GetConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a ConnectorClient.
+       *
+       * @param request GetConnectorClientRequest
+       * @return GetConnectorClientResponse
+       */
+      Models::GetConnectorClientResponse getConnectorClient(const Models::GetConnectorClientRequest &request);
+
+      /**
+       * @summary Queries the details of a specified device label.
+       *
+       * @param request GetDeviceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeviceGroupResponse
+       */
+      Models::GetDeviceGroupResponse getDeviceGroupWithOptions(const Models::GetDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified device label.
+       *
+       * @param request GetDeviceGroupRequest
+       * @return GetDeviceGroupResponse
+       */
+      Models::GetDeviceGroupResponse getDeviceGroup(const Models::GetDeviceGroupRequest &request);
+
+      /**
+       * @summary Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+       *
+       * @param request GetDeviceOnlineHeatmapRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeviceOnlineHeatmapResponse
+       */
+      Models::GetDeviceOnlineHeatmapResponse getDeviceOnlineHeatmapWithOptions(const Models::GetDeviceOnlineHeatmapRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+       *
+       * @param request GetDeviceOnlineHeatmapRequest
+       * @return GetDeviceOnlineHeatmapResponse
+       */
+      Models::GetDeviceOnlineHeatmapResponse getDeviceOnlineHeatmap(const Models::GetDeviceOnlineHeatmapRequest &request);
+
+      /**
        * @summary Retrieves details about a dynamic route in your Alibaba Cloud account.
        *
        * @param request GetDynamicRouteRequest
@@ -886,6 +1234,27 @@ namespace Csas20230120
        * @return GetDynamicRouteResponse
        */
       Models::GetDynamicRouteResponse getDynamicRoute(const Models::GetDynamicRouteRequest &request);
+
+      /**
+       * @summary Queries the details of a forwarding rule.
+       *
+       * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+       *
+       * @param request GetForwardStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetForwardStrategyResponse
+       */
+      Models::GetForwardStrategyResponse getForwardStrategyWithOptions(const Models::GetForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a forwarding rule.
+       *
+       * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+       *
+       * @param request GetForwardStrategyRequest
+       * @return GetForwardStrategyResponse
+       */
+      Models::GetForwardStrategyResponse getForwardStrategy(const Models::GetForwardStrategyRequest &request);
 
       /**
        * @summary Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
@@ -977,6 +1346,40 @@ namespace Csas20230120
       Models::GetPrivateAccessPolicyResponse getPrivateAccessPolicy(const Models::GetPrivateAccessPolicyRequest &request);
 
       /**
+       * @summary Queries the details of a specified software prohibition policy.
+       *
+       * @param request GetProhibitedPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProhibitedPolicyResponse
+       */
+      Models::GetProhibitedPolicyResponse getProhibitedPolicyWithOptions(const Models::GetProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified software prohibition policy.
+       *
+       * @param request GetProhibitedPolicyRequest
+       * @return GetProhibitedPolicyResponse
+       */
+      Models::GetProhibitedPolicyResponse getProhibitedPolicy(const Models::GetProhibitedPolicyRequest &request);
+
+      /**
+       * @summary Queries the details of a specified prohibited software.
+       *
+       * @param tmpReq GetProhibitedSoftwareRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProhibitedSoftwareResponse
+       */
+      Models::GetProhibitedSoftwareResponse getProhibitedSoftwareWithOptions(const Models::GetProhibitedSoftwareRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified prohibited software.
+       *
+       * @param request GetProhibitedSoftwareRequest
+       * @return GetProhibitedSoftwareResponse
+       */
+      Models::GetProhibitedSoftwareResponse getProhibitedSoftware(const Models::GetProhibitedSoftwareRequest &request);
+
+      /**
        * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
        *
        * @param request GetRegistrationPolicyRequest
@@ -1009,6 +1412,23 @@ namespace Csas20230120
        * @return GetUserDeviceResponse
        */
       Models::GetUserDeviceResponse getUserDevice(const Models::GetUserDeviceRequest &request);
+
+      /**
+       * @summary Queries the workload usage trends of a specified endpoint device.
+       *
+       * @param request GetUserDeviceWorkloadTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserDeviceWorkloadTrendResponse
+       */
+      Models::GetUserDeviceWorkloadTrendResponse getUserDeviceWorkloadTrendWithOptions(const Models::GetUserDeviceWorkloadTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the workload usage trends of a specified endpoint device.
+       *
+       * @param request GetUserDeviceWorkloadTrendRequest
+       * @return GetUserDeviceWorkloadTrendResponse
+       */
+      Models::GetUserDeviceWorkloadTrendResponse getUserDeviceWorkloadTrend(const Models::GetUserDeviceWorkloadTrendRequest &request);
 
       /**
        * @summary Queries the details of a user group in the current Alibaba Cloud account.
@@ -1062,7 +1482,7 @@ namespace Csas20230120
       Models::GetWmExtractTaskResponse getWmExtractTask(const Models::GetWmExtractTaskRequest &request);
 
       /**
-       * @summary Batch import acceleration addresses.
+       * @summary Imports acceleration addresses in batches.
        *
        * @param request ImportEnterpriseAccelerateTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1071,7 +1491,7 @@ namespace Csas20230120
       Models::ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargetsWithOptions(const Models::ImportEnterpriseAccelerateTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch import acceleration addresses.
+       * @summary Imports acceleration addresses in batches.
        *
        * @param request ImportEnterpriseAccelerateTargetsRequest
        * @return ImportEnterpriseAccelerateTargetsResponse
@@ -1230,6 +1650,23 @@ namespace Csas20230120
        * @return ListConnectorsResponse
        */
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
+
+      /**
+       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+       *
+       * @param request ListDeviceGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDeviceGroupsResponse
+       */
+      Models::ListDeviceGroupsResponse listDeviceGroupsWithOptions(const Models::ListDeviceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+       *
+       * @param request ListDeviceGroupsRequest
+       * @return ListDeviceGroupsResponse
+       */
+      Models::ListDeviceGroupsResponse listDeviceGroups(const Models::ListDeviceGroupsRequest &request);
 
       /**
        * @summary Queries domain name entries in a domain name list by paging.
@@ -1544,6 +1981,23 @@ namespace Csas20230120
       Models::ListPopTrafficStatisticsResponse listPopTrafficStatistics(const Models::ListPopTrafficStatisticsRequest &request);
 
       /**
+       * @summary Queries the Layer 7 switches of internal-facing applications in batches.
+       *
+       * @param request ListPrivateAccessApplicationL7SwitchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrivateAccessApplicationL7SwitchesResponse
+       */
+      Models::ListPrivateAccessApplicationL7SwitchesResponse listPrivateAccessApplicationL7SwitchesWithOptions(const Models::ListPrivateAccessApplicationL7SwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Layer 7 switches of internal-facing applications in batches.
+       *
+       * @param request ListPrivateAccessApplicationL7SwitchesRequest
+       * @return ListPrivateAccessApplicationL7SwitchesResponse
+       */
+      Models::ListPrivateAccessApplicationL7SwitchesResponse listPrivateAccessApplicationL7Switches(const Models::ListPrivateAccessApplicationL7SwitchesRequest &request);
+
+      /**
        * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessApplicationsRequest
@@ -1629,6 +2083,57 @@ namespace Csas20230120
       Models::ListPrivateAccessTagsForDynamicRouteResponse listPrivateAccessTagsForDynamicRoute(const Models::ListPrivateAccessTagsForDynamicRouteRequest &request);
 
       /**
+       * @summary Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+       *
+       * @param tmpReq ListProhibitedPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProhibitedPoliciesResponse
+       */
+      Models::ListProhibitedPoliciesResponse listProhibitedPoliciesWithOptions(const Models::ListProhibitedPoliciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+       *
+       * @param request ListProhibitedPoliciesRequest
+       * @return ListProhibitedPoliciesResponse
+       */
+      Models::ListProhibitedPoliciesResponse listProhibitedPolicies(const Models::ListProhibitedPoliciesRequest &request);
+
+      /**
+       * @summary Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+       *
+       * @param tmpReq ListProhibitedSoftwareRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProhibitedSoftwareResponse
+       */
+      Models::ListProhibitedSoftwareResponse listProhibitedSoftwareWithOptions(const Models::ListProhibitedSoftwareRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+       *
+       * @param request ListProhibitedSoftwareRequest
+       * @return ListProhibitedSoftwareResponse
+       */
+      Models::ListProhibitedSoftwareResponse listProhibitedSoftware(const Models::ListProhibitedSoftwareRequest &request);
+
+      /**
+       * @summary Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+       *
+       * @param tmpReq ListProhibitedTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProhibitedTagsResponse
+       */
+      Models::ListProhibitedTagsResponse listProhibitedTagsWithOptions(const Models::ListProhibitedTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+       *
+       * @param request ListProhibitedTagsRequest
+       * @return ListProhibitedTagsResponse
+       */
+      Models::ListProhibitedTagsResponse listProhibitedTags(const Models::ListProhibitedTagsRequest &request);
+
+      /**
        * @summary Query the list of device registration policies for your Alibaba Cloud account.
        *
        * @param request ListRegistrationPoliciesRequest
@@ -1666,12 +2171,12 @@ namespace Csas20230120
        * @summary Queries the list of risk events under the current Alibaba Cloud account.
        *
        * @description ## Operation description
-       * - This operation performs paging query of risk events based on specified conditional criteria.
+       * - This operation is used for paging query of risk events that meet specified conditional criteria.
        * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
        * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
        * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-       * - Fuzzy matching is supported for `PolicyName` and `Username`.
-       * - The response includes the total number of risk events that match the query conditions and their details.
+       * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+       * - The response includes the total number of risk events that meet the query conditions and their details.
        *
        * @param request ListRiskItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1683,12 +2188,12 @@ namespace Csas20230120
        * @summary Queries the list of risk events under the current Alibaba Cloud account.
        *
        * @description ## Operation description
-       * - This operation performs paging query of risk events based on specified conditional criteria.
+       * - This operation is used for paging query of risk events that meet specified conditional criteria.
        * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
        * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
        * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-       * - Fuzzy matching is supported for `PolicyName` and `Username`.
-       * - The response includes the total number of risk events that match the query conditions and their details.
+       * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+       * - The response includes the total number of risk events that meet the query conditions and their details.
        *
        * @param request ListRiskItemsRequest
        * @return ListRiskItemsResponse
@@ -1696,7 +2201,7 @@ namespace Csas20230120
       Models::ListRiskItemsResponse listRiskItems(const Models::ListRiskItemsRequest &request);
 
       /**
-       * @summary Lists the software installed on a user device.
+       * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
        *
        * @param request ListSoftwareForUserDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1705,7 +2210,7 @@ namespace Csas20230120
       Models::ListSoftwareForUserDeviceResponse listSoftwareForUserDeviceWithOptions(const Models::ListSoftwareForUserDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the software installed on a user device.
+       * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
        *
        * @param request ListSoftwareForUserDeviceRequest
        * @return ListSoftwareForUserDeviceResponse
@@ -1747,7 +2252,7 @@ namespace Csas20230120
       Models::ListTagsForPrivateAccessPolicyResponse listTagsForPrivateAccessPolicy(const Models::ListTagsForPrivateAccessPolicyRequest &request);
 
       /**
-       * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+       * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
        *
        * @param request ListUninstallApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1756,7 +2261,7 @@ namespace Csas20230120
       Models::ListUninstallApplicationsResponse listUninstallApplicationsWithOptions(const Models::ListUninstallApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+       * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
        *
        * @param request ListUninstallApplicationsRequest
        * @return ListUninstallApplicationsResponse
@@ -1917,6 +2422,57 @@ namespace Csas20230120
       Models::ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicy(const Models::ModifyEnterpriseAcceleratePolicyRequest &request);
 
       /**
+       * @summary Modifies a forwarding rule.
+       *
+       * @param request ModifyForwardStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyForwardStrategyResponse
+       */
+      Models::ModifyForwardStrategyResponse modifyForwardStrategyWithOptions(const Models::ModifyForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a forwarding rule.
+       *
+       * @param request ModifyForwardStrategyRequest
+       * @return ModifyForwardStrategyResponse
+       */
+      Models::ModifyForwardStrategyResponse modifyForwardStrategy(const Models::ModifyForwardStrategyRequest &request);
+
+      /**
+       * @summary Modifies the binding items of a forwarding rule.
+       *
+       * @param request ModifyForwardStrategyBindingItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyForwardStrategyBindingItemsResponse
+       */
+      Models::ModifyForwardStrategyBindingItemsResponse modifyForwardStrategyBindingItemsWithOptions(const Models::ModifyForwardStrategyBindingItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the binding items of a forwarding rule.
+       *
+       * @param request ModifyForwardStrategyBindingItemsRequest
+       * @return ModifyForwardStrategyBindingItemsResponse
+       */
+      Models::ModifyForwardStrategyBindingItemsResponse modifyForwardStrategyBindingItems(const Models::ModifyForwardStrategyBindingItemsRequest &request);
+
+      /**
+       * @summary Removes associated terminal devices from a static device label in batches.
+       *
+       * @param request RemoveDeviceGroupMatchDevicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveDeviceGroupMatchDevicesResponse
+       */
+      Models::RemoveDeviceGroupMatchDevicesResponse removeDeviceGroupMatchDevicesWithOptions(const Models::RemoveDeviceGroupMatchDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes associated terminal devices from a static device label in batches.
+       *
+       * @param request RemoveDeviceGroupMatchDevicesRequest
+       * @return RemoveDeviceGroupMatchDevicesResponse
+       */
+      Models::RemoveDeviceGroupMatchDevicesResponse removeDeviceGroupMatchDevices(const Models::RemoveDeviceGroupMatchDevicesRequest &request);
+
+      /**
        * @summary Revokes a user device session.
        *
        * @param request RevokeUserDeviceSessionRequest
@@ -1955,7 +2511,7 @@ namespace Csas20230120
       Models::RevokeUserSessionResponse revokeUserSession(const Models::RevokeUserSessionRequest &request);
 
       /**
-       * @summary Updates an approval flow under the current Alibaba Cloud account.
+       * @summary Updates an approval process under the current Alibaba Cloud account.
        *
        * @param tmpReq UpdateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1964,7 +2520,7 @@ namespace Csas20230120
       Models::UpdateApprovalProcessResponse updateApprovalProcessWithOptions(const Models::UpdateApprovalProcessRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an approval flow under the current Alibaba Cloud account.
+       * @summary Updates an approval process under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalProcessRequest
        * @return UpdateApprovalProcessResponse
@@ -1972,7 +2528,7 @@ namespace Csas20230120
       Models::UpdateApprovalProcessResponse updateApprovalProcess(const Models::UpdateApprovalProcessRequest &request);
 
       /**
-       * @summary Updates the status of an approval instance under your Alibaba Cloud account.
+       * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1981,7 +2537,7 @@ namespace Csas20230120
       Models::UpdateApprovalStatusResponse updateApprovalStatusWithOptions(const Models::UpdateApprovalStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the status of an approval instance under your Alibaba Cloud account.
+       * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @return UpdateApprovalStatusResponse
@@ -2055,6 +2611,57 @@ namespace Csas20230120
        * @return UpdateClientUserStatusResponse
        */
       Models::UpdateClientUserStatusResponse updateClientUserStatus(const Models::UpdateClientUserStatusRequest &request);
+
+      /**
+       * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+       *
+       * @param request UpdateConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnectorWithOptions(const Models::UpdateConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+       *
+       * @param request UpdateConnectorRequest
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnector(const Models::UpdateConnectorRequest &request);
+
+      /**
+       * @summary Modifies a ConnectorClient under the current Alibaba Cloud account.
+       *
+       * @param request UpdateConnectorClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConnectorClientResponse
+       */
+      Models::UpdateConnectorClientResponse updateConnectorClientWithOptions(const Models::UpdateConnectorClientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a ConnectorClient under the current Alibaba Cloud account.
+       *
+       * @param request UpdateConnectorClientRequest
+       * @return UpdateConnectorClientResponse
+       */
+      Models::UpdateConnectorClientResponse updateConnectorClient(const Models::UpdateConnectorClientRequest &request);
+
+      /**
+       * @summary Updates a device label.
+       *
+       * @param request UpdateDeviceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDeviceGroupResponse
+       */
+      Models::UpdateDeviceGroupResponse updateDeviceGroupWithOptions(const Models::UpdateDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a device label.
+       *
+       * @param request UpdateDeviceGroupRequest
+       * @return UpdateDeviceGroupResponse
+       */
+      Models::UpdateDeviceGroupResponse updateDeviceGroup(const Models::UpdateDeviceGroupRequest &request);
 
       /**
        * @summary Updates the name of a domain name list.
@@ -2167,7 +2774,7 @@ namespace Csas20230120
       Models::UpdateNacUserCertStatusResponse updateNacUserCertStatus(const Models::UpdateNacUserCertStatusRequest &request);
 
       /**
-       * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Modifies a private access application under the current Alibaba Cloud account.
        *
        * @param tmpReq UpdatePrivateAccessApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2176,12 +2783,29 @@ namespace Csas20230120
       Models::UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(const Models::UpdatePrivateAccessApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Modifies a private access application under the current Alibaba Cloud account.
        *
        * @param request UpdatePrivateAccessApplicationRequest
        * @return UpdatePrivateAccessApplicationResponse
        */
       Models::UpdatePrivateAccessApplicationResponse updatePrivateAccessApplication(const Models::UpdatePrivateAccessApplicationRequest &request);
+
+      /**
+       * @summary Updates the Layer 7 access switch for an internal-facing application.
+       *
+       * @param request UpdatePrivateAccessApplicationL7SwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePrivateAccessApplicationL7SwitchResponse
+       */
+      Models::UpdatePrivateAccessApplicationL7SwitchResponse updatePrivateAccessApplicationL7SwitchWithOptions(const Models::UpdatePrivateAccessApplicationL7SwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the Layer 7 access switch for an internal-facing application.
+       *
+       * @param request UpdatePrivateAccessApplicationL7SwitchRequest
+       * @return UpdatePrivateAccessApplicationL7SwitchResponse
+       */
+      Models::UpdatePrivateAccessApplicationL7SwitchResponse updatePrivateAccessApplicationL7Switch(const Models::UpdatePrivateAccessApplicationL7SwitchRequest &request);
 
       /**
        * @summary Update an internal network access policy for your Alibaba Cloud account.
@@ -2201,6 +2825,57 @@ namespace Csas20230120
       Models::UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicy(const Models::UpdatePrivateAccessPolicyRequest &request);
 
       /**
+       * @summary Updates a software prohibition policy.
+       *
+       * @param request UpdateProhibitedPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProhibitedPolicyResponse
+       */
+      Models::UpdateProhibitedPolicyResponse updateProhibitedPolicyWithOptions(const Models::UpdateProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a software prohibition policy.
+       *
+       * @param request UpdateProhibitedPolicyRequest
+       * @return UpdateProhibitedPolicyResponse
+       */
+      Models::UpdateProhibitedPolicyResponse updateProhibitedPolicy(const Models::UpdateProhibitedPolicyRequest &request);
+
+      /**
+       * @summary Updates a custom prohibited software entry.
+       *
+       * @param request UpdateProhibitedSoftwareRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProhibitedSoftwareResponse
+       */
+      Models::UpdateProhibitedSoftwareResponse updateProhibitedSoftwareWithOptions(const Models::UpdateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a custom prohibited software entry.
+       *
+       * @param request UpdateProhibitedSoftwareRequest
+       * @return UpdateProhibitedSoftwareResponse
+       */
+      Models::UpdateProhibitedSoftwareResponse updateProhibitedSoftware(const Models::UpdateProhibitedSoftwareRequest &request);
+
+      /**
+       * @summary Updates a custom prohibited software tag.
+       *
+       * @param request UpdateProhibitedTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProhibitedTagResponse
+       */
+      Models::UpdateProhibitedTagResponse updateProhibitedTagWithOptions(const Models::UpdateProhibitedTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a custom prohibited software tag.
+       *
+       * @param request UpdateProhibitedTagRequest
+       * @return UpdateProhibitedTagResponse
+       */
+      Models::UpdateProhibitedTagResponse updateProhibitedTag(const Models::UpdateProhibitedTagRequest &request);
+
+      /**
        * @summary Modifies a device registration policy for your Alibaba Cloud account.
        *
        * @param tmpReq UpdateRegistrationPolicyRequest
@@ -2218,14 +2893,14 @@ namespace Csas20230120
       Models::UpdateRegistrationPolicyResponse updateRegistrationPolicy(const Models::UpdateRegistrationPolicyRequest &request);
 
       /**
-       * @summary Updates the current handling status and conclusion of a specified risk event.
+       * @summary Updates the current processing status and conclusion of a specified risk event.
        *
        * @description ## Request description
-       * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+       * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
        * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
        * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
        * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
        *
        * @param request UpdateRiskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2234,14 +2909,14 @@ namespace Csas20230120
       Models::UpdateRiskStatusResponse updateRiskStatusWithOptions(const Models::UpdateRiskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the current handling status and conclusion of a specified risk event.
+       * @summary Updates the current processing status and conclusion of a specified risk event.
        *
        * @description ## Request description
-       * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+       * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
        * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
        * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
        * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
        *
        * @param request UpdateRiskStatusRequest
        * @return UpdateRiskStatusResponse
@@ -2249,7 +2924,7 @@ namespace Csas20230120
       Models::UpdateRiskStatusResponse updateRiskStatus(const Models::UpdateRiskStatusRequest &request);
 
       /**
-       * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
+       * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2258,7 +2933,7 @@ namespace Csas20230120
       Models::UpdateUninstallApplicationsStatusResponse updateUninstallApplicationsStatusWithOptions(const Models::UpdateUninstallApplicationsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
+       * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @return UpdateUninstallApplicationsStatusResponse

@@ -222,13 +222,17 @@ namespace Models
 
 
   protected:
+    // The application address groups. Required when ConfigMode is set to Precise. Not allowed when ConfigMode is an empty string.
     shared_ptr<vector<AddressGroup>> addressGroups_ {};
-    // The addresses of the internal-facing access application. You can specify up to 1,000 addresses.
+    // The collection of internal-facing access application addresses. You can specify up to 1000 addresses.
     shared_ptr<vector<string>> addresses_ {};
-    // The browser access status of the internal-facing access application. After this feature is enabled, you can access internal applications without a client. Default value: **Disabled**. Valid values:
+    // The browser access status of the internal-facing access application. After this feature is enabled, you can access internal applications in a clientless manner. Default value: **Disabled**. Valid values:
     // - **Enabled**: enabled.
     // - **Disabled**: disabled.
     shared_ptr<string> browserAccessStatus_ {};
+    // The configuration mode. Valid values:
+    // * Empty string: default mode.
+    // * Precise: precise mode.
     shared_ptr<string> configMode_ {};
     // The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
@@ -242,12 +246,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The port ranges of the internal-facing access application. You can specify up to 65,535 port ranges. Port ranges cannot be duplicate or overlapping.
+    // The collection of port ranges for the internal-facing access application. You can specify up to 65535 port ranges. Port ranges cannot overlap or be duplicated.
     shared_ptr<vector<CreatePrivateAccessApplicationRequest::PortRanges>> portRanges_ {};
     // The protocol of the internal-facing access application. Valid values:
     // - **All**: all protocols.
     // - **TCP**
-    // - **UDP**.
+    // - **UDP**
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
@@ -257,7 +261,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
+    // The collection of internal-facing access tag IDs. You can associate up to 6 custom-type internal-facing access tags with each application.
     shared_ptr<vector<string>> tagIds_ {};
     shared_ptr<PAApplicationUnauthorizedAccessConfig> unauthorizedAccessConfig_ {};
   };

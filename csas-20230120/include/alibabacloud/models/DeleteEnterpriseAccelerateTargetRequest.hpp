@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // Enterprise acceleration policy ID.
+    // The ID of the enterprise acceleration policy.
     // 
     // This parameter is required.
     shared_ptr<string> eapId_ {};
-    // List of enterprise acceleration targets.
+    // The list of enterprise acceleration addresses.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> target_ {};

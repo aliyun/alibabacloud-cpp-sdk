@@ -199,33 +199,25 @@ namespace Models
 
 
       protected:
-        // The operation performed on the approval progress node. Valid values:
-        // 
+        // The action performed on the approval progress node. Valid values:
         // - **Approve**: Approve.
-        // 
         // - **Reject**: Reject.
-        // 
         // - **Revoke**: Revoke.
-        // 
         // - **Comment**: Comment.
         shared_ptr<string> action_ {};
-        // The comment for the approval progress node operation.
+        // The comment on the approval progress node.
         shared_ptr<string> comment_ {};
         // The ID of the executor for the approval progress node.
         shared_ptr<string> executor_ {};
         // The list of operators for the approval progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
         // The status of the approval progress node. Valid values:
-        // 
         // - **Pending**: Pending approval.
-        // 
         // - **Approved**: Approved.
-        // 
         // - **Rejected**: Rejected.
-        // 
         // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
-        // The execution time of the approval progress node, in seconds as a UNIX timestamp.
+        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -343,30 +335,24 @@ namespace Models
     protected:
       // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // The ID of the approval instance.
+      // The approval instance ID.
       shared_ptr<string> approvalId_ {};
-      // The list of approval progress nodes for the approval instance.
+      // The list of approval progress nodes.
       shared_ptr<vector<Approval::ApprovalProgresses>> approvalProgresses_ {};
-      // The creation time of the approval instance.
+      // The time when the approval instance was created.
       shared_ptr<string> createTime_ {};
-      // The ID of the terminal device that created the approval instance.
+      // The ID of the terminal device from which the approval instance was created.
       shared_ptr<string> creatorDevTag_ {};
       // The ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
-      // The expiration time of the approval instance, in seconds as a UNIX timestamp.
+      // The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTimestamp_ {};
       // The policy type associated with the approval instance. Valid values:
-      // 
-      // - **DomainBlacklist**: Domain blacklist.
-      // 
-      // - **DomainWhitelist**: Domain whitelist.
-      // 
-      // - **SoftwareBlock**: Software disablement.
-      // 
-      // - **AppUninstall**: Terminal uninstall.
-      // 
-      // - **DlpSend**: File outbound.
-      // 
+      // - **DomainBlacklist**: Domain name blacklist.
+      // - **DomainWhitelist**: Domain name whitelist.
+      // - **SoftwareBlock**: Software blocking.
+      // - **AppUninstall**: Terminal uninstallation.
+      // - **DlpSend**: File outbound transfer.
       // - **PeripheralBlock**: Peripheral control.
       shared_ptr<string> policyType_ {};
       // The ID of the process associated with the approval instance.
@@ -381,16 +367,11 @@ namespace Models
       shared_ptr<string> schemaId_ {};
       // The name of the template associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // The status of the approval instance. Valid values:
-      // 
+      // The instance status of the approval. Valid values:
       // - **Pending**: Pending approval.
-      // 
       // - **Approved**: Approved.
-      // 
-      // - **Rejected**: Rejected.
-      // 
+      // - **Rejected**: Deny.
       // - **Revoked**: Revoked.
-      // 
       // - **Expired**: Expired.
       shared_ptr<string> status_ {};
     };
@@ -416,7 +397,7 @@ namespace Models
   protected:
     // The approval instance.
     shared_ptr<vector<UpdateApprovalStatusResponseBody::Approval>> approval_ {};
-    // The ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

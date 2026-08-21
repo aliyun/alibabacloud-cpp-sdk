@@ -188,45 +188,36 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The time when the uninstall application was created.
       shared_ptr<string> createTime_ {};
-      // The user\\"s department.
+      // The department to which the user belongs.
       shared_ptr<string> department_ {};
-      // The device ID.
+      // The ID of the terminal device.
       shared_ptr<string> devTag_ {};
-      // The operating system of the device. Valid values:
-      // 
-      // - **Windows**
-      // 
-      // - **macOS**
-      // 
-      // - **Linux**
-      // 
-      // - **Android**
-      // 
-      // - **iOS**
-      // 
-      // - **Windows_Wuying**: Elastic Desktop Service.
+      // The operating system type of the terminal device. Valid values:
+      // - **Windows**: Windows.
+      // - **macOS**: macOS.
+      // - **Linux**: Linux.
+      // - **Android**: Android.
+      // - **iOS**: iOS.
+      // - **Windows_Wuying**: WUYING Workspace.
       shared_ptr<string> devType_ {};
       // The list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
-      // The hostname of the device.
+      // The name of the terminal device.
       shared_ptr<string> hostname_ {};
-      // The name of the Identity Provider (IdP).
+      // The name of the user identity source.
       shared_ptr<string> idpName_ {};
-      // Indicates whether the application has been uninstalled.
+      // Indicates whether the uninstallation has been performed.
       shared_ptr<bool> isUninstall_ {};
-      // The MAC address of the device.
+      // The MAC address of the terminal device.
       shared_ptr<string> mac_ {};
       // The reason for the application.
       shared_ptr<string> reason_ {};
       // The user ID.
       shared_ptr<string> saseUserId_ {};
-      // The status of the uninstall application. Valid values:
-      // 
-      // - **Pending**
-      // 
-      // - **Approved**
-      // 
-      // - **Rejected**
+      // The uninstall application status. Valid values:
+      // - **Pending**: Pending processing.
+      // - **Approved**: Approved.
+      // - **Rejected**: Rejected.
       shared_ptr<string> status_ {};
       // The username.
       shared_ptr<string> username_ {};
@@ -260,7 +251,7 @@ namespace Models
   protected:
     // The list of uninstall applications.
     shared_ptr<vector<ListUninstallApplicationsResponseBody::Applications>> applications_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of uninstall applications.
     shared_ptr<int64_t> totalNum_ {};

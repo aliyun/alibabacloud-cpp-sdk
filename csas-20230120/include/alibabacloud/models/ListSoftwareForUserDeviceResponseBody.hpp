@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The publisher of the software.
+      // The software publisher.
       shared_ptr<string> inc_ {};
-      // The time when the software was installed.
+      // The software installation time.
       shared_ptr<string> installTime_ {};
-      // The name of the software.
+      // The software name.
       shared_ptr<string> name_ {};
-      // The versions of the software.
+      // The collection of software versions.
       shared_ptr<vector<string>> versions_ {};
     };
 
@@ -130,9 +130,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of software applications.
+    // The list of software installed on the endpoint device.
     shared_ptr<vector<ListSoftwareForUserDeviceResponseBody::Software>> software_ {};
-    // The total number of software applications.
+    // The total number of software installed on the endpoint device.
     shared_ptr<int64_t> totalNum_ {};
   };
 
