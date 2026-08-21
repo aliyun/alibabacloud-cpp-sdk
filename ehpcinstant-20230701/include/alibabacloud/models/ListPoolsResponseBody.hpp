@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, PoolList& obj) { 
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       PoolList() = default ;
@@ -71,9 +73,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->isDefault_ == nullptr && this->maxExecutorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr && this->schedulingPolicyId_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->status_ == nullptr && this->tags_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -123,6 +167,15 @@ namespace Models
       inline PoolList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<PoolList::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<PoolList::Tags>) };
+      inline vector<PoolList::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<PoolList::Tags>) };
+      inline PoolList& setTags(const vector<PoolList::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline PoolList& setTags(vector<PoolList::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -167,6 +220,7 @@ namespace Models
       // 
       // - Deleted: The resource pool has been deleted.
       shared_ptr<string> status_ {};
+      shared_ptr<vector<PoolList::Tags>> tags_ {};
       // The time when the resource pool was last updated.
       shared_ptr<string> updateTime_ {};
     };

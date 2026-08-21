@@ -60,12 +60,11 @@ namespace Models
     // The exit code of the command.
     // 
     // - For Linux instances, this is the exit code of the shell command.
-    // 
-    // - For Windows instances, this is the exit code of the batch or PowerShell command.
+    // - For Windows instances, this is the exit code of the Bat or PowerShell command.
     shared_ptr<int64_t> exitCode_ {};
-    // The output of the command. If ContentEncoding is set to PlainText, the original output is returned. If ContentEncoding is set to Base64, the Base64-encoded output is returned.
+    // The output of the command execution. If ContentEncoding is set to PlainText, the original output is returned. If ContentEncoding is set to Base64, the Base64-encoded output is returned.
     shared_ptr<string> output_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

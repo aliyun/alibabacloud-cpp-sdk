@@ -150,18 +150,18 @@ namespace Models
 
 
         protected:
-          // The list of volume mount parameters. Passed as key-value pairs in JSON format.
+          // The list of volume mount parameters. Specified in key-value format and passed as JSON.
           // - Reference format for mounting NAS: {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
-          // > server specifies the mount target address of the NAS file system. path specifies a subdirectory under the NAS path, starting with /, and the directory must already exist. vers specifies the NFS protocol version for mounting NAS. Version 3 is recommended. options specifies custom parameters for mounting NAS, in the format "xxx,xxx,xxx".
+          // > server specifies the mount point address of the NAS file system. path specifies a subdirectory under the NAS path, which must start with / and the directory must already exist. vers specifies the NFS protocol version for mounting NAS. Version 3 is recommended. options specifies custom parameters for mounting NAS, in the format "xxx,xxx,xxx".
           // 
           // - Reference format for mounting OSS: {"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
-          // > bucket specifies the name of the OSS bucket. url specifies the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the overview page of the target bucket. path specifies the directory structure relative to the root of the bucket when mounting. The default value is /. The directory must already exist. akId specifies the AccessKey ID used for direct authorization with an AccessKey pair. akSecret specifies the AccessKey secret used for direct authorization with an AccessKey pair.
+          // > bucket specifies the name of the OSS bucket. url specifies the endpoint of the OSS bucket. You can obtain this value from the overview page of the target bucket in the OSS console. path specifies the directory structure relative to the bucket root for mounting. The default value is /. The directory must already exist. akId specifies the AccessKey ID used for direct AccessKey authorization. akSecret specifies the AccessKey Secret used for direct AccessKey authorization.
           shared_ptr<string> mountOptions_ {};
           // The directory where the data volume is mounted to the task.
           shared_ptr<string> mountPath_ {};
           // Specifies whether the data volume is read-only. Default value: false.
           shared_ptr<bool> readOnly_ {};
-          // The supported data volume type. Valid values:
+          // The supported volume type. Valid values:
           // - alicloud/nas: mounts a NAS file system.
           // - alicloud/oss: mounts an OSS bucket.
           shared_ptr<string> volumeDriver_ {};
@@ -313,13 +313,13 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> image_ {};
-            // The logon password for the virtual machine environment. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters are:
+            // The logon password for the virtual machine environment. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
             // 
             // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
             // 
             // For Windows environments, the password cannot start with a forward slash (/).
             // 
-            // > If you specify the Password parameter, use HTTPS to send the request to prevent password leakage.
+            // > If you specify the Password parameter, use HTTPS to send the request to avoid password leaks.
             shared_ptr<string> password_ {};
             // The pre-processing script. The script must be Base64-encoded.
             shared_ptr<string> prologScript_ {};
@@ -465,9 +465,7 @@ namespace Models
             shared_ptr<string> appId_ {};
             // The arguments for the container startup command. A maximum of 10 arguments are supported.
             shared_ptr<vector<string>> arg_ {};
-            // The list of container startup commands. A maximum of 20 commands are supported. Each command can contain up to 256 characters.
-            // > 1. If a startup command contains spaces (for example, `sleep 60s`), pass the JSON parameter as `["sleep", "60s"]`.
-            // > 2. If a startup command is complex, use a combination of `Command: ["/bin/bash"]` and `Arg:["-c", "<customized command>"]`, where `<customized command>` is a user-defined command that can contain spaces and other characters.
+            // The list of container startup commands. A maximum of 20 commands are supported, and each command can be up to 256 characters in length.
             shared_ptr<vector<string>> command_ {};
             // The environment variables of the container. A maximum of 20 environment variables are supported.
             shared_ptr<vector<Container::EnvironmentVars>> environmentVars_ {};
@@ -475,7 +473,7 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> image_ {};
-            // The list of mount parameters for a self-managed image registry. The parameters are in key-value format and passed as a JSON string.
+            // The list of mount parameters for a self-managed image registry. The parameters are in key-value format and passed as JSON.
             // 
             // - Reference format: {"ImageRegistryType":"https","ImageRegistryServer":"xxx","ImageRegistryUserName":"xxx","ImageRegistryPassword":"xxx"}
             shared_ptr<string> imageRegistryOptions_ {};
@@ -569,11 +567,7 @@ namespace Models
 
 
           protected:
-            // The next action for the node. Valid values:
-            // 
-            // - Retry: When a specific exit code is matched, the job starts a new retry.
-            // 
-            // - Exit: When a specific exit code is matched, the job exits.
+            // The next action for the task.
             // 
             // This parameter is required.
             shared_ptr<string> action_ {};
@@ -737,10 +731,6 @@ namespace Models
           // Specifies whether hyper-threading is enabled in the runtime environment. Default value: true.
           shared_ptr<bool> enableHT_ {};
           // The hostname prefix of the runtime environment. The following limits apply:
-          // 
-          // - A period (.) and a hyphen (-) cannot be used as the first or last character, or consecutively.
-          // - Windows environment: The value can be up to 10 characters in length, cannot contain periods (.), and cannot consist of digits only. Uppercase and lowercase letters, digits, and hyphens (-) are allowed.
-          // - Linux environment: The value can be up to 32 characters in length and can contain multiple periods (.). The hostname is divided into segments by periods. Each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
           shared_ptr<string> hostNamePrefix_ {};
           // The instance types of the runtime environment. A maximum of 5 instance types are supported.
           shared_ptr<vector<string>> instanceTypes_ {};
@@ -787,7 +777,7 @@ namespace Models
 
 
       protected:
-        // The resource information of the runtime environment.
+        // The runtime environment resource information.
         shared_ptr<TaskSpec::Resource> resource_ {};
         // The task retry policy.
         shared_ptr<TaskSpec::RetryPolicy> retryPolicy_ {};
@@ -795,7 +785,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<vector<TaskSpec::TaskExecutor>> taskExecutor_ {};
-        // The list of data volumes mounted to the task. A maximum of 10 data volumes are supported.
+        // The list of data volumes mounted to the task. A maximum of 10 volumes are supported.
         shared_ptr<vector<TaskSpec::VolumeMount>> volumeMount_ {};
       };
 
@@ -871,8 +861,8 @@ namespace Models
           shared_ptr<int32_t> indexEnd_ {};
           // The start value of the array job index. Valid values: 0 to 4999.
           shared_ptr<int32_t> indexStart_ {};
-          // The interval between indexes in an array job.
-          // > If the array job has the properties IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three sub-jobs with indexes 1, 3, and 5. Your application can access these indexes through environment variables.
+          // The step size of the array job index.
+          // > If the array job properties are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three child jobs with index values of 1, 3, and 5. Your application can access these values through environment variables.
           shared_ptr<int32_t> indexStep_ {};
         };
 
@@ -895,19 +885,18 @@ namespace Models
 
 
       protected:
-        // The array job details. Sub-job index values are passed to the runtime environment through environment variables, which can be referenced by user applications. The environment variables include:
-        // - EHPC_JOB_NAME: the job name, corresponding to the JobName parameter.
-        // - EHPC_JOB_ID: the job ID.
-        // - EHPC_TASK_NAME: the task name, corresponding to the TaskName parameter.
-        // - EHPC_EXECUTOR_ID: the executor ID.
-        // - EHPC_ARRAY_TASK_ID: the sub-job index value.
-        // - EHPC_ARRAY_TASK_COUNT: the total number of sub-jobs.
-        // - EHPC_ARRAY_TASK_MAX: the maximum sub-job index value, corresponding to the IndexStart parameter.
-        // - EHPC_ARRAY_TASK_MIN: the minimum sub-job index value, corresponding to the IndexEnd parameter.
-        // - EHPC_ARRAY_TASK_STEP: the sub-job index step, corresponding to the IndexStep parameter.
+        // The details of the array job. The sub-job index values are passed to the runtime environment through environment variables, which can be referenced by user applications. The environment variables include:
+        // - EHPC_JOB_NAME: The job name, corresponding to the JobName parameter.
+        // - EHPC_JOB_ID: The job ID.
+        // - EHPC_TASK_NAME: The task name, corresponding to the TaskName parameter.
+        // - EHPC_EXECUTOR_ID: The executor ID.
+        // - EHPC_ARRAY_TASK_ID: The sub-job index value.
+        // - EHPC_ARRAY_TASK_COUNT: The total number of sub-jobs.
+        // - EHPC_ARRAY_TASK_MAX: The maximum sub-job index value, corresponding to the IndexStart parameter.
+        // - EHPC_ARRAY_TASK_MIN: The minimum sub-job index value, corresponding to the IndexEnd parameter.
+        // - EHPC_ARRAY_TASK_STEP: The sub-job index step, corresponding to the IndexStep parameter.
         shared_ptr<ExecutorPolicy::ArraySpec> arraySpec_ {};
         // The maximum number of nodes for the job.
-        // > The value must comply with the following formula: `MaxCount = (IndexEnd - IndexStart) / IndexStep + 1`
         shared_ptr<int32_t> maxCount_ {};
       };
 
@@ -952,9 +941,10 @@ namespace Models
       shared_ptr<string> taskName_ {};
       // The task specification details.
       shared_ptr<Tasks::TaskSpec> taskSpec_ {};
-      // Specifies whether the job is a long-running job. Valid values:
-      // - true: background service job.
-      // - false: batch job.
+      // Specifies whether the job is long-running. Valid values:
+      // 
+      // - true: The job is a backend service job.
+      // - false: The job is a batch job.
       // 
       // Default value: false.
       shared_ptr<bool> taskSustainable_ {};
@@ -1009,7 +999,7 @@ namespace Models
 
 
       protected:
-        // The array of security group IDs.
+        // The security group ID array.
         shared_ptr<vector<string>> securityGroupIds_ {};
       };
 
@@ -1200,9 +1190,10 @@ namespace Models
     protected:
       // The resource type.
       shared_ptr<string> allocationSpec_ {};
-      // The computing power level. This parameter is valid only when the resource type is economy. Valid values:
+      // The computing power level. This parameter takes effect only when the resource type is economy. Valid values:
+      // 
       // - General: general-purpose.
-      // - Performance: compute-optimized.
+      // - Performance: compute-optimized instance.
       // 
       // Default value: General
       shared_ptr<string> level_ {};
@@ -1278,13 +1269,6 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> jobId_ {};
         // The dependency type. Valid values:
-        // 
-        // - AfterSucceeded: **All tasks** in the dependent job or array job run successfully (exit code 0).
-        // - AfterFailed: **Any task** in the dependent job or array job fails (exit code is not 0).
-        // - AfterAny: The dependent job finishes running (succeeded or failed).
-        // - AfterCorresponding: The corresponding task in the dependent array job runs successfully (exit code 0).
-        // 
-        // Default value: AfterSucceeded.
         shared_ptr<string> type_ {};
       };
 

@@ -323,6 +323,10 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
     request.setResourceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceLimits(), "ResourceLimits", "json"));
   }
 
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasPoolName()) {
     query["PoolName"] = request.getPoolName();
@@ -338,6 +342,10 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
 
   if (!!request.hasSchedulingPolicyId()) {
     query["SchedulingPolicyId"] = request.getSchedulingPolicyId();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -417,7 +425,7 @@ DeleteActionPlanResponse Client::deleteActionPlan(const DeleteActionPlanRequest 
 }
 
 /**
- * @summary Deletes one or more job records that are in the final state from a specified cluster.
+ * @summary Deletes one or more job records in the desired state from a specified cluster.
  *
  * @param tmpReq DeleteJobRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -454,7 +462,7 @@ DeleteJobRecordsResponse Client::deleteJobRecordsWithOptions(const DeleteJobReco
 }
 
 /**
- * @summary Deletes one or more job records that are in the final state from a specified cluster.
+ * @summary Deletes one or more job records in the desired state from a specified cluster.
  *
  * @param request DeleteJobRecordsRequest
  * @return DeleteJobRecordsResponse
@@ -525,7 +533,7 @@ DeleteJobsResponse Client::deleteJobs(const DeleteJobsRequest &request) {
 }
 
 /**
- * @summary You can execute this statement to delete a resource pool.
+ * @summary Deletes a resource pool.
  *
  * @param request DeletePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +564,7 @@ DeletePoolResponse Client::deletePoolWithOptions(const DeletePoolRequest &reques
 }
 
 /**
- * @summary You can execute this statement to delete a resource pool.
+ * @summary Deletes a resource pool.
  *
  * @param request DeletePoolRequest
  * @return DeletePoolResponse
@@ -683,7 +691,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMet
 }
 
 /**
- * @summary Retrieves the logs for a job.
+ * @summary Queries job logs.
  *
  * @param request DescribeJobResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +742,7 @@ DescribeJobResultsResponse Client::describeJobResultsWithOptions(const DescribeJ
 }
 
 /**
- * @summary Retrieves the logs for a job.
+ * @summary Queries job logs.
  *
  * @param request DescribeJobResultsRequest
  * @return DescribeJobResultsResponse
@@ -905,7 +913,7 @@ GetImageResponse Client::getImage(const GetImageRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of an execution job.
+ * @summary Retrieves the details of a job.
  *
  * @param request GetJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -936,7 +944,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 }
 
 /**
- * @summary Retrieves the details of an execution job.
+ * @summary Retrieves the details of a job.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -982,7 +990,7 @@ GetJobRecordDurationResponse Client::getJobRecordDuration(const GetJobRecordDura
 }
 
 /**
- * @summary Retrieves the details of a specified resource pool.
+ * @summary Retrieves the details of a resource pool.
  *
  * @param request GetPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1013,7 +1021,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
 }
 
 /**
- * @summary Retrieves the details of a specified resource pool.
+ * @summary Retrieves the details of a resource pool.
  *
  * @param request GetPoolRequest
  * @return GetPoolResponse
@@ -1130,9 +1138,9 @@ ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &re
 }
 
 /**
- * @summary Queries the running event list of one or more executers.
+ * @summary Queries the runtime event list of one or more Executors.
  *
- * @description Queries job executor information.
+ * @description Queries the Executor information of a job.
  *
  * @param tmpReq ListExecutorEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1177,9 +1185,9 @@ ListExecutorEventsResponse Client::listExecutorEventsWithOptions(const ListExecu
 }
 
 /**
- * @summary Queries the running event list of one or more executers.
+ * @summary Queries the runtime event list of one or more Executors.
  *
- * @description Queries job executor information.
+ * @description Queries the Executor information of a job.
  *
  * @param request ListExecutorEventsRequest
  * @return ListExecutorEventsResponse
@@ -1322,9 +1330,9 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Retrieves information about job executors.
+ * @summary Queries the executor information of a job.
  *
- * @description Retrieves information about job executors.
+ * @description Queries the executor information of a job.
  *
  * @param request ListJobExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1367,9 +1375,9 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
 }
 
 /**
- * @summary Retrieves information about job executors.
+ * @summary Queries the executor information of a job.
  *
- * @description Retrieves information about job executors.
+ * @description Queries the executor information of a job.
  *
  * @param request ListJobExecutorsRequest
  * @return ListJobExecutorsResponse
@@ -1706,7 +1714,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
+ * @summary Unbinds tags from a list of Instant resources in a unified manner. After a tag is unbound, if it is not bound to any other resources, the tag is automatically deleted.
  *
  * @param request UnTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1749,7 +1757,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
+ * @summary Unbinds tags from a list of Instant resources in a unified manner. After a tag is unbound, if it is not bound to any other resources, the tag is automatically deleted.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse

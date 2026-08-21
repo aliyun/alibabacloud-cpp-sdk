@@ -101,19 +101,18 @@ namespace Models
 
 
     protected:
-      // The list of executor IDs. A maximum of 100 IDs are supported.
+      // The list of Executor IDs. A maximum of 100 entries are supported.
       shared_ptr<vector<string>> executorIds_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The level of the running event. Valid value:
-      // 
-      // *   Normal
-      // *   Warning
-      // *   Error
+      // The runtime event level. Valid values:
+      // - Normal
+      // - Warning
+      // - Error
       shared_ptr<string> level_ {};
-      // For jobs submitted after this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+      // Events that occurred after this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
       shared_ptr<int64_t> timeAfter_ {};
-      // For jobs submitted before this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+      // Events that occurred before this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
       shared_ptr<int64_t> timeBefore_ {};
     };
 
@@ -143,13 +142,13 @@ namespace Models
 
 
   protected:
-    // Queries the Executor filter conditions.
+    // The filter conditions for querying Executors.
     shared_ptr<ListExecutorEventsRequest::Filter> filter_ {};
-    // The current page number.\\
-    // Starting value: 1\\
-    // Default value: 1
+    // The page number.    
+    // Minimum value: 1.    
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page. Default value: 50. Maximum value: 100.
+    // The number of entries per page for paging. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

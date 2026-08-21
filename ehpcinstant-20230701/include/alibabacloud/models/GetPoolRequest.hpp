@@ -38,11 +38,9 @@ namespace Models
 
 
   protected:
-    // The name of the resource pool.
-    // 
-    // - The name can be up to 15 characters long.
-    // 
-    // - The name can contain letters, digits, underscores (_), and periods (.).
+    // The resource pool name.
+    // - The name can be up to 15 characters in length.
+    // - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
     // 
     // This parameter is required.
     shared_ptr<string> poolName_ {};

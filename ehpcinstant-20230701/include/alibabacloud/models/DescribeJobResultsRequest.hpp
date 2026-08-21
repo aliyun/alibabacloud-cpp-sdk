@@ -84,21 +84,20 @@ namespace Models
 
 
   protected:
-    // The executor number.
+    // The executor index.
     shared_ptr<int32_t> arrayIndex_ {};
-    // The encoding format for the `CommandContent` and `Output` fields in the response. Valid values:
+    // The encoding method for the CommandContent and Output fields in the response. Valid values:
     // 
-    // - PlainText: Returns the original script content and output.
+    // - PlainText: returns the original script content and output.
+    // - Base64: returns Base64-encoded script content and output.
     // 
-    // - Base64: Returns the Base64-encoded script content and output.
-    // 
-    // The default value is Base64.
+    // Default value: Base64.
     shared_ptr<string> contentEncoding_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The maximum size of the log in bytes. The value must be between 1 and 1,048,576 (1 MB).
+    // The maximum size of the log. Unit: bytes. Valid values: 1 to 1048576 (1 MB).
     shared_ptr<string> limitBytes_ {};
-    // The time in UTC, formatted according to RFC 3339.
+    // The start time in UTC, in RFC 3339 format.
     shared_ptr<string> startTime_ {};
     // The task name.
     shared_ptr<string> taskName_ {};

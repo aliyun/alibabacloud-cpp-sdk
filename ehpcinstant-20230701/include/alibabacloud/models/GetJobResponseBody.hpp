@@ -247,7 +247,7 @@ namespace Models
             protected:
               // The image ID.
               shared_ptr<string> image_ {};
-              // The preprocessing script. The script must be Base64-encoded.
+              // The pre-processing script. The script must be Base64-encoded.
               shared_ptr<string> prologScript_ {};
               // The job execution script. The script must be Base64-encoded.
               shared_ptr<string> script_ {};
@@ -779,7 +779,7 @@ namespace Models
         shared_ptr<string> taskName_ {};
         // The task specification details.
         shared_ptr<Tasks::TaskSpec> taskSpec_ {};
-        // Indicates whether the job is long-running.
+        // Indicates whether the job is a long-running job.
         shared_ptr<bool> taskSustainable_ {};
       };
 
@@ -1036,13 +1036,15 @@ namespace Models
         shared_ptr<string> allocationSpec_ {};
         // The computing power level. Valid values:
         // - General: general-purpose.
-        // - Performance: compute-optimized.
+        // - Performance: performance-optimized.
         // 
         // Default value: General.
         shared_ptr<string> level_ {};
         // The network configuration.
         shared_ptr<DeploymentPolicy::Network> network_ {};
+        // The resource pool.
         shared_ptr<string> pool_ {};
+        // The priority.
         shared_ptr<int32_t> priority_ {};
         // The job tag list.
         shared_ptr<vector<DeploymentPolicy::Tags>> tags_ {};
@@ -1248,17 +1250,17 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The job status. Valid values:
       // 
-      // - Pending: the job is queued.
-      // - Initing: the job is being initialized.
-      // - Succeed: the job succeeded.
-      // - Failed: the job failed.
-      // - Running: the job is running.
-      // - Exception: a scheduling exception occurred.
-      // - Retrying: the job is being retried.
-      // - Expired: the job timed out.
-      // - Deleted: the job is deleted.
-      // - Suspended: the job is suspended.
-      // - Restarting: the job is being restarted.
+      // - Pending: The job is queued.
+      // - Initing: The job is being initialized.
+      // - Succeed: The job ran successfully.
+      // - Failed: The job failed.
+      // - Running: The job is running.
+      // - Exception: A scheduling exception occurred.
+      // - Retrying: The job is being retried.
+      // - Expired: The job timed out.
+      // - Deleted: The job has been deleted.
+      // - Suspended: The job is in hibernation.
+      // - Restarting: The job is being restarted.
       shared_ptr<string> status_ {};
       // The task list. Currently, only one task is supported.
       shared_ptr<vector<JobInfo::Tasks>> tasks_ {};

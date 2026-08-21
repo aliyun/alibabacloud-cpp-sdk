@@ -95,6 +95,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(JobIds, jobIds_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
         DARABONBA_PTR_TO_JSON(JobTemplateId, jobTemplateId_);
+        DARABONBA_PTR_TO_JSON(PoolName, poolName_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tag, tag_);
         DARABONBA_PTR_TO_JSON(TimeCreatedAfter, timeCreatedAfter_);
@@ -105,6 +106,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(JobIds, jobIds_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
         DARABONBA_PTR_FROM_JSON(JobTemplateId, jobTemplateId_);
+        DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tag, tag_);
         DARABONBA_PTR_FROM_JSON(TimeCreatedAfter, timeCreatedAfter_);
@@ -164,8 +166,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->jobId_ == nullptr
-        && this->jobIds_ == nullptr && this->jobName_ == nullptr && this->jobTemplateId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr
-        && this->timeCreatedAfter_ == nullptr && this->timeCreatedBefore_ == nullptr; };
+        && this->jobIds_ == nullptr && this->jobName_ == nullptr && this->jobTemplateId_ == nullptr && this->poolName_ == nullptr && this->status_ == nullptr
+        && this->tag_ == nullptr && this->timeCreatedAfter_ == nullptr && this->timeCreatedBefore_ == nullptr; };
       // jobId Field Functions 
       bool hasJobId() const { return this->jobId_ != nullptr;};
       void deleteJobId() { this->jobId_ = nullptr;};
@@ -194,6 +196,13 @@ namespace Models
       void deleteJobTemplateId() { this->jobTemplateId_ = nullptr;};
       inline string getJobTemplateId() const { DARABONBA_PTR_GET_DEFAULT(jobTemplateId_, "") };
       inline Filter& setJobTemplateId(string jobTemplateId) { DARABONBA_PTR_SET_VALUE(jobTemplateId_, jobTemplateId) };
+
+
+      // poolName Field Functions 
+      bool hasPoolName() const { return this->poolName_ != nullptr;};
+      void deletePoolName() { this->poolName_ = nullptr;};
+      inline string getPoolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
+      inline Filter& setPoolName(string poolName) { DARABONBA_PTR_SET_VALUE(poolName_, poolName) };
 
 
       // status Field Functions 
@@ -233,6 +242,7 @@ namespace Models
       // The name of the job. Fuzzy search is supported.
       shared_ptr<string> jobName_ {};
       shared_ptr<string> jobTemplateId_ {};
+      shared_ptr<string> poolName_ {};
       // The status of the job. Valid values:
       // 
       // - Pending: The job is in the queue.

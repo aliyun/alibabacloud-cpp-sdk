@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IpAddresses, ipAddresses_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
         DARABONBA_PTR_TO_JSON(JobTemplateId, jobTemplateId_);
+        DARABONBA_PTR_TO_JSON(PoolName, poolName_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TimeCreatedAfter, timeCreatedAfter_);
         DARABONBA_PTR_TO_JSON(TimeCreatedBefore, timeCreatedBefore_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IpAddresses, ipAddresses_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
         DARABONBA_PTR_FROM_JSON(JobTemplateId, jobTemplateId_);
+        DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TimeCreatedAfter, timeCreatedAfter_);
         DARABONBA_PTR_FROM_JSON(TimeCreatedBefore, timeCreatedBefore_);
@@ -72,8 +74,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->executorIds_ == nullptr
-        && this->image_ == nullptr && this->ipAddresses_ == nullptr && this->jobName_ == nullptr && this->jobTemplateId_ == nullptr && this->status_ == nullptr
-        && this->timeCreatedAfter_ == nullptr && this->timeCreatedBefore_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
+        && this->image_ == nullptr && this->ipAddresses_ == nullptr && this->jobName_ == nullptr && this->jobTemplateId_ == nullptr && this->poolName_ == nullptr
+        && this->status_ == nullptr && this->timeCreatedAfter_ == nullptr && this->timeCreatedBefore_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr; };
       // executorIds Field Functions 
       bool hasExecutorIds() const { return this->executorIds_ != nullptr;};
       void deleteExecutorIds() { this->executorIds_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
       void deleteJobTemplateId() { this->jobTemplateId_ = nullptr;};
       inline string getJobTemplateId() const { DARABONBA_PTR_GET_DEFAULT(jobTemplateId_, "") };
       inline Filter& setJobTemplateId(string jobTemplateId) { DARABONBA_PTR_SET_VALUE(jobTemplateId_, jobTemplateId) };
+
+
+      // poolName Field Functions 
+      bool hasPoolName() const { return this->poolName_ != nullptr;};
+      void deletePoolName() { this->poolName_ = nullptr;};
+      inline string getPoolName() const { DARABONBA_PTR_GET_DEFAULT(poolName_, "") };
+      inline Filter& setPoolName(string poolName) { DARABONBA_PTR_SET_VALUE(poolName_, poolName) };
 
 
       // status Field Functions 
@@ -160,6 +169,7 @@ namespace Models
       // The job name. Fuzzy queries are supported.
       shared_ptr<string> jobName_ {};
       shared_ptr<string> jobTemplateId_ {};
+      shared_ptr<string> poolName_ {};
       // A list of executor statuses.
       shared_ptr<vector<string>> status_ {};
       // The jobs submitted after this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.

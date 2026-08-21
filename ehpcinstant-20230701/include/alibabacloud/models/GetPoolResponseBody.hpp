@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETPOOLRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPOOLRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,6 +36,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PoolInfo& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(Creator, creator_);
         DARABONBA_PTR_TO_JSON(ExecutorUsage, executorUsage_);
         DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
         DARABONBA_PTR_TO_JSON(MaxExecutorNum, maxExecutorNum_);
@@ -43,10 +45,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, PoolInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(Creator, creator_);
         DARABONBA_PTR_FROM_JSON(ExecutorUsage, executorUsage_);
         DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
         DARABONBA_PTR_FROM_JSON(MaxExecutorNum, maxExecutorNum_);
@@ -55,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       PoolInfo() = default ;
@@ -68,14 +73,66 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        shared_ptr<string> key_ {};
+        // The tag value.
+        shared_ptr<string> value_ {};
+      };
+
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->executorUsage_ == nullptr && this->isDefault_ == nullptr && this->maxExecutorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr
-        && this->reason_ == nullptr && this->schedulingPolicyId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->creator_ == nullptr && this->executorUsage_ == nullptr && this->isDefault_ == nullptr && this->maxExecutorNum_ == nullptr && this->poolName_ == nullptr
+        && this->priority_ == nullptr && this->reason_ == nullptr && this->schedulingPolicyId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline PoolInfo& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // creator Field Functions 
+      bool hasCreator() const { return this->creator_ != nullptr;};
+      void deleteCreator() { this->creator_ = nullptr;};
+      inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+      inline PoolInfo& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
       // executorUsage Field Functions 
@@ -134,6 +191,15 @@ namespace Models
       inline PoolInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<PoolInfo::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<PoolInfo::Tags>) };
+      inline vector<PoolInfo::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<PoolInfo::Tags>) };
+      inline PoolInfo& setTags(const vector<PoolInfo::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline PoolInfo& setTags(vector<PoolInfo::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -144,44 +210,40 @@ namespace Models
     protected:
       // The time when the resource pool was created.
       shared_ptr<string> createTime_ {};
-      // The number of executors that are in use in the resource pool.
+      // The ID of the resource pool creator.
+      shared_ptr<string> creator_ {};
+      // The number of executor nodes that are currently running in the resource pool.
       shared_ptr<int32_t> executorUsage_ {};
       // Indicates whether the resource pool is the default resource pool. Valid values:
       // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> isDefault_ {};
-      // The maximum number of concurrent executors per user in the resource pool.
+      // The maximum number of executor nodes that can run concurrently in the resource pool.
       shared_ptr<int32_t> maxExecutorNum_ {};
-      // The name of the resource pool.
-      // 
-      // - The name can be up to 15 characters long.
-      // 
-      // - The name can contain letters, digits, underscores (_), and periods (.).
+      // The resource pool name.
+      // - The name can be up to 15 characters in length.
+      // - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
       shared_ptr<string> poolName_ {};
       // The priority of the resource pool.
       // 
-      // - Valid values: 1 to 99. A larger value indicates a higher priority. Default value: 1.
-      // 
-      // - Jobs in a resource pool with a higher priority are scheduled before pending jobs in a resource pool with a lower priority. The priority of the resource pool takes precedence over the priority of a job.
+      // - Valid values: 1 to 99. Default value: 1, which indicates the lowest priority.
+      // - Jobs submitted to a resource pool with a higher priority value are scheduled before pending jobs in a resource pool with a lower priority value. The resource pool priority takes precedence over the job priority.
       shared_ptr<int32_t> priority_ {};
-      // The reason for the error.
+      // The error reason.
       shared_ptr<string> reason_ {};
-      // The ID of the scheduling policy.
+      // The scheduling policy ID.
       shared_ptr<string> schedulingPolicyId_ {};
-      // The status of the resource pool. Valid values:
+      // The resource pool status. Valid values:
       // 
-      // - `Creating`: The resource pool is being created.
-      // 
-      // - `Updating`: The resource pool is being updated.
-      // 
-      // - `Deleting`: The resource pool is being deleted.
-      // 
-      // - `Working`: The resource pool is active.
-      // 
-      // - `Deleted`: The resource pool has been deleted.
+      // - Creating: The resource pool is being created.
+      // - Updating: The resource pool is being updated.
+      // - Deleting: The resource pool is being deleted.
+      // - Working: The resource pool is running.
+      // - Deleted: The resource pool has been deleted.
       shared_ptr<string> status_ {};
+      // The tag information.
+      shared_ptr<vector<PoolInfo::Tags>> tags_ {};
       // The time when the resource pool was last updated.
       shared_ptr<string> updateTime_ {};
     };
@@ -205,9 +267,9 @@ namespace Models
 
 
   protected:
-    // The details of the resource pool.
+    // The resource pool information.
     shared_ptr<GetPoolResponseBody::PoolInfo> poolInfo_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

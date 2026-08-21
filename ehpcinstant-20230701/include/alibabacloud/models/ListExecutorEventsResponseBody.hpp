@@ -103,19 +103,18 @@ namespace Models
 
 
     protected:
-      // The content of the running event.
+      // The content of the runtime event.
       shared_ptr<string> content_ {};
-      // The ID of the executor. The format is JobId-TaskName-ArrayIndex.
+      // The Executor ID. Format: JobId-TaskName-ArrayIndex.
       shared_ptr<string> executorId_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The level of the running event. Valid values:
-      // 
-      // *   Normal
-      // *   Warning
-      // *   Error
+      // The runtime event level. Valid values:
+      // - Normal
+      // - Warning
+      // - Error
       shared_ptr<string> level_ {};
-      // The event of the running event.
+      // The time when the runtime event occurred.
       shared_ptr<string> time_ {};
     };
 
@@ -159,15 +158,15 @@ namespace Models
 
 
   protected:
-    // The list of the running event.
+    // The list of runtime events.
     shared_ptr<vector<ListExecutorEventsResponseBody::ExecutorEventList>> executorEventList_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 
