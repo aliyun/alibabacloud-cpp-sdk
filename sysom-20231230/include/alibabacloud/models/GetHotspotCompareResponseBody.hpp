@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // Field name list
+        // The list of field names.
         shared_ptr<vector<string>> columns_ {};
-        // Hotspot time series data list
+        // The list of hot spot time series data.
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
       protected:
-        // Field name list
+        // The list of field names.
         shared_ptr<vector<string>> columns_ {};
-        // Hotspot time series data list
+        // The list of hot spot time series data.
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // Field name list
+        // The list of field names.
         shared_ptr<vector<string>> columns_ {};
-        // Flame graph data list
+        // The list of flame graph data.
         shared_ptr<vector<vector<string>>> values_ {};
       };
 
@@ -235,11 +235,11 @@ namespace Models
 
 
     protected:
-      // Differential flame graph data
+      // The differential flame graph data.
       shared_ptr<Data::Flame> flame_ {};
-      // Hotspot time series 1
+      // The hot spot time series 1.
       shared_ptr<Data::SeriesInstance1> seriesInstance1_ {};
-      // Hotspot time series 2
+      // The hot spot time series 2.
       shared_ptr<Data::SeriesInstance2> seriesInstance2_ {};
     };
 
@@ -283,15 +283,17 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Response data
+    // The returned data.
     shared_ptr<GetHotspotCompareResponseBody::Data> data_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // true: API call succeeded; false: API call failed
+    // Indicates whether the API call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

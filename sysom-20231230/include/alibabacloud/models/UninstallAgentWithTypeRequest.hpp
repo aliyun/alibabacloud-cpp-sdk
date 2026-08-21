@@ -14,16 +14,20 @@ namespace Models
   class UninstallAgentWithTypeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UninstallAgentWithTypeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(agentId, agentId_);
       DARABONBA_PTR_TO_JSON(agentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(instances, instances_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, UninstallAgentWithTypeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(agentId, agentId_);
       DARABONBA_PTR_FROM_JSON(agentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(instances, instances_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     UninstallAgentWithTypeRequest() = default ;
     UninstallAgentWithTypeRequest(const UninstallAgentWithTypeRequest &) = default ;
@@ -84,8 +88,15 @@ namespace Models
       shared_ptr<string> region_ {};
     };
 
-    virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentVersion_ == nullptr && this->instanceType_ == nullptr && this->instances_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->agentId_ == nullptr && this->agentVersion_ == nullptr && this->instanceType_ == nullptr && this->instances_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline UninstallAgentWithTypeRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -116,7 +127,15 @@ namespace Models
     inline UninstallAgentWithTypeRequest& setInstances(vector<UninstallAgentWithTypeRequest::Instances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline UninstallAgentWithTypeRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The ID of the component to uninstall.
     // 
     // This parameter is required.
@@ -131,6 +150,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<UninstallAgentWithTypeRequest::Instances>> instances_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

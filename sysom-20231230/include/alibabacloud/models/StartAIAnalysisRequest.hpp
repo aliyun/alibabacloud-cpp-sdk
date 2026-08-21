@@ -14,6 +14,7 @@ namespace Models
   class StartAIAnalysisRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StartAIAnalysisRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(analysisTool, analysisTool_);
       DARABONBA_PTR_TO_JSON(analysis_params, analysisParams_);
       DARABONBA_PTR_TO_JSON(channel, channel_);
@@ -28,8 +29,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(region, region_);
       DARABONBA_PTR_TO_JSON(timeout, timeout_);
       DARABONBA_PTR_TO_JSON(uid, uid_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, StartAIAnalysisRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(analysisTool, analysisTool_);
       DARABONBA_PTR_FROM_JSON(analysis_params, analysisParams_);
       DARABONBA_PTR_FROM_JSON(channel, channel_);
@@ -44,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(region, region_);
       DARABONBA_PTR_FROM_JSON(timeout, timeout_);
       DARABONBA_PTR_FROM_JSON(uid, uid_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     StartAIAnalysisRequest() = default ;
     StartAIAnalysisRequest(const StartAIAnalysisRequest &) = default ;
@@ -56,10 +60,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->analysisTool_ == nullptr
-        && this->analysisParams_ == nullptr && this->channel_ == nullptr && this->comms_ == nullptr && this->createdBy_ == nullptr && this->instance_ == nullptr
-        && this->instanceType_ == nullptr && this->iterationFunc_ == nullptr && this->iterationMod_ == nullptr && this->iterationRange_ == nullptr && this->pids_ == nullptr
-        && this->region_ == nullptr && this->timeout_ == nullptr && this->uid_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->analysisTool_ == nullptr && this->analysisParams_ == nullptr && this->channel_ == nullptr && this->comms_ == nullptr && this->createdBy_ == nullptr
+        && this->instance_ == nullptr && this->instanceType_ == nullptr && this->iterationFunc_ == nullptr && this->iterationMod_ == nullptr && this->iterationRange_ == nullptr
+        && this->pids_ == nullptr && this->region_ == nullptr && this->timeout_ == nullptr && this->uid_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline StartAIAnalysisRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // analysisTool Field Functions 
     bool hasAnalysisTool() const { return this->analysisTool_ != nullptr;};
     void deleteAnalysisTool() { this->analysisTool_ = nullptr;};
@@ -162,37 +173,44 @@ namespace Models
     inline StartAIAnalysisRequest& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline StartAIAnalysisRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // Analysis tool. Not required for OpenAPI access.
+    shared_ptr<string> xDebugId_ {};
+    // The analysis tool. This parameter does not need to be specified when you use OpenAPI.
     shared_ptr<string> analysisTool_ {};
-    // Data richness
+    // The data richness level.
     shared_ptr<vector<string>> analysisParams_ {};
-    // Channel name
+    // The channel name.
     shared_ptr<string> channel_ {};
-    // Process name, optional parameter
+    // The process name. This parameter is optional.
     shared_ptr<string> comms_ {};
-    // Creator. Not required for OpenAPI access.
+    // The creator. This parameter does not need to be specified when you use OpenAPI.
     shared_ptr<string> createdBy_ {};
-    // Instance ID
+    // The instance ID.
     shared_ptr<string> instance_ {};
-    // Instance type. Not required for OpenAPI access.
+    // The instance type. This parameter does not need to be specified when you use OpenAPI.
     shared_ptr<string> instanceType_ {};
-    // Iteration entry function. Required only in iteration mode. Can be left blank.
+    // The iteration entry function. This parameter is required only in iteration mode and can be left empty.
     shared_ptr<string> iterationFunc_ {};
-    // Iteration entry module. Required only in iteration mode. Can be left blank.
+    // The iteration entry module. This parameter is required only in iteration mode and can be left empty.
     shared_ptr<string> iterationMod_ {};
-    // Iteration range (iteration count: refers to the number of iterations when the data collection module is activated, independent of the AI job\\"s iteration count)
+    // The iteration range. The iteration count refers to the number of iterations when the data collection module is activated, which is independent of the AI job iteration count.
     shared_ptr<vector<int32_t>> iterationRange_ {};
-    // AI job process PIDs. Supports batch input, separated by commas.
+    // The process IDs (PIDs) of the AI job. Multiple PIDs are supported, separated by commas.
     shared_ptr<string> pids_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> region_ {};
-    // AI Infra analysis time;
-    // Unit: milliseconds;
-    // Default value: 2000;
+    // The AI Infra analysis duration. Unit: milliseconds. Default value: 2000.
     shared_ptr<int32_t> timeout_ {};
-    // Alibaba Cloud user ID. Not required for OpenAPI access.
+    // The Alibaba Cloud user ID. This parameter does not need to be specified when you use OpenAPI.
     shared_ptr<string> uid_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

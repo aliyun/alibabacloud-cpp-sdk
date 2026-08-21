@@ -13,6 +13,7 @@ namespace Models
   class GetHotspotCompareRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetHotspotCompareRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(beg1_end, beg1End_);
       DARABONBA_PTR_TO_JSON(beg1_start, beg1Start_);
       DARABONBA_PTR_TO_JSON(beg2_end, beg2End_);
@@ -23,8 +24,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pid1, pid1_);
       DARABONBA_PTR_TO_JSON(pid2, pid2_);
       DARABONBA_PTR_TO_JSON(table, table_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GetHotspotCompareRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(beg1_end, beg1End_);
       DARABONBA_PTR_FROM_JSON(beg1_start, beg1Start_);
       DARABONBA_PTR_FROM_JSON(beg2_end, beg2End_);
@@ -35,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pid1, pid1_);
       DARABONBA_PTR_FROM_JSON(pid2, pid2_);
       DARABONBA_PTR_FROM_JSON(table, table_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GetHotspotCompareRequest() = default ;
     GetHotspotCompareRequest(const GetHotspotCompareRequest &) = default ;
@@ -47,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->beg1End_ == nullptr
-        && this->beg1Start_ == nullptr && this->beg2End_ == nullptr && this->beg2Start_ == nullptr && this->hotType_ == nullptr && this->instance1_ == nullptr
-        && this->instance2_ == nullptr && this->pid1_ == nullptr && this->pid2_ == nullptr && this->table_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->beg1End_ == nullptr && this->beg1Start_ == nullptr && this->beg2End_ == nullptr && this->beg2Start_ == nullptr && this->hotType_ == nullptr
+        && this->instance1_ == nullptr && this->instance2_ == nullptr && this->pid1_ == nullptr && this->pid2_ == nullptr && this->table_ == nullptr
+        && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline GetHotspotCompareRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // beg1End Field Functions 
     bool hasBeg1End() const { return this->beg1End_ != nullptr;};
     void deleteBeg1End() { this->beg1End_ = nullptr;};
@@ -120,41 +132,50 @@ namespace Models
     inline GetHotspotCompareRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline GetHotspotCompareRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // End time 1
+    shared_ptr<string> xDebugId_ {};
+    // The end time 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beg1End_ {};
-    // Start time 1
+    // The start time 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beg1Start_ {};
-    // End time 2
+    // The end time 2.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beg2End_ {};
-    // Start time 2
+    // The start time 2.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beg2Start_ {};
-    // Hotspot type
+    // The hot spot type.
     shared_ptr<string> hotType_ {};
-    // Instance 1
+    // The instance 1.
     // 
     // This parameter is required.
     shared_ptr<string> instance1_ {};
-    // Instance 2
+    // The instance 2.
     // 
     // This parameter is required.
     shared_ptr<string> instance2_ {};
-    // Instance 1 process
+    // The process of instance 1.
     shared_ptr<int64_t> pid1_ {};
-    // Instance 2 process
+    // The process of instance 2.
     shared_ptr<int64_t> pid2_ {};
-    // Query table name
+    // The name of the table to query.
     // 
     // This parameter is required.
     shared_ptr<string> table_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

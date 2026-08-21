@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Field names
+      // The field names.
       shared_ptr<vector<string>> columns_ {};
-      // Instance list
+      // The instance list.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -117,11 +117,11 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The returned data.
     shared_ptr<GetHotspotInstanceListResponseBody::Data> data_ {};
-    // Description
+    // The description.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

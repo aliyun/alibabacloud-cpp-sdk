@@ -13,20 +13,24 @@ namespace Models
   class GetHotspotAnalysisRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetHotspotAnalysisRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(appType, appType_);
       DARABONBA_PTR_TO_JSON(beg_end, begEnd_);
       DARABONBA_PTR_TO_JSON(beg_start, begStart_);
       DARABONBA_PTR_TO_JSON(instance, instance_);
       DARABONBA_PTR_TO_JSON(pid, pid_);
       DARABONBA_PTR_TO_JSON(table, table_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GetHotspotAnalysisRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(appType, appType_);
       DARABONBA_PTR_FROM_JSON(beg_end, begEnd_);
       DARABONBA_PTR_FROM_JSON(beg_start, begStart_);
       DARABONBA_PTR_FROM_JSON(instance, instance_);
       DARABONBA_PTR_FROM_JSON(pid, pid_);
       DARABONBA_PTR_FROM_JSON(table, table_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GetHotspotAnalysisRequest() = default ;
     GetHotspotAnalysisRequest(const GetHotspotAnalysisRequest &) = default ;
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appType_ == nullptr
-        && this->begEnd_ == nullptr && this->begStart_ == nullptr && this->instance_ == nullptr && this->pid_ == nullptr && this->table_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->appType_ == nullptr && this->begEnd_ == nullptr && this->begStart_ == nullptr && this->instance_ == nullptr && this->pid_ == nullptr
+        && this->table_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline GetHotspotAnalysisRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
@@ -83,7 +95,15 @@ namespace Models
     inline GetHotspotAnalysisRequest& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline GetHotspotAnalysisRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The application type.
     // 
     // This parameter is required.
@@ -100,10 +120,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instance_ {};
-    // The process ID (PID).
+    // The process PID.
     shared_ptr<int64_t> pid_ {};
     // The name of the table to query.
     shared_ptr<string> table_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

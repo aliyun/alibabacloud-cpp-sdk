@@ -143,17 +143,17 @@ namespace Models
 
 
       protected:
-        // Agent version creation time
+        // The time when the agent version was created.
         shared_ptr<string> createdAt_ {};
-        // Installation script for this agent version
+        // The installation script for this agent version.
         shared_ptr<string> installScript_ {};
-        // Uninstallation script for this agent version
+        // The uninstallation script for this agent version.
         shared_ptr<string> uninstallScript_ {};
-        // Agent version update time
+        // The time when the agent version was last updated.
         shared_ptr<string> updatedAt_ {};
-        // Upgrade script for this agent version
+        // The update script for this agent version.
         shared_ptr<string> upgradeScript_ {};
-        // Agent version number
+        // The agent version number.
         shared_ptr<string> version_ {};
       };
 
@@ -219,21 +219,21 @@ namespace Models
 
 
     protected:
-      // Agent creation time
+      // The time when the component was created.
       shared_ptr<string> createdAt_ {};
-      // Agent description
+      // The component description.
       shared_ptr<string> description_ {};
-      // Agent ID
+      // The component ID.
       shared_ptr<string> id_ {};
-      // Agent name
+      // The component name.
       shared_ptr<string> name_ {};
-      // Supported architectures
+      // The supported architectures.
       shared_ptr<string> supportArch_ {};
-      // Agent type
+      // The agent type.
       shared_ptr<string> type_ {};
-      // Update time
+      // The time when the component was last updated.
       shared_ptr<string> updatedAt_ {};
-      // Agent version information
+      // The component version information.
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -270,17 +270,17 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnostics
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code
-    // - `code == Success` indicates the authorization is successful;
-    // - Other status codes indicate authorization failure. Check the `message` field for detailed error information when authorization fails;
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The returned data.
     shared_ptr<GetAgentResponseBody::Data> data_ {};
-    // Error message
-    // - If `code == Success`, this field is empty;
-    // - Otherwise, this field contains the request error message.
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
   };
 

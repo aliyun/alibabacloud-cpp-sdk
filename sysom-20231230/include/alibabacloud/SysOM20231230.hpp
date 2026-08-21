@@ -21,13 +21,13 @@ namespace SysOM20231230
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
+       * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
        *
-       * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-       * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
-       * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
-       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-       * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
+       * @description >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+       * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+       * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
+       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+       * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
        *
        * @param request AuthDiagnosisRequest
        * @param headers map
@@ -37,13 +37,13 @@ namespace SysOM20231230
       Models::AuthDiagnosisResponse authDiagnosisWithOptions(const Models::AuthDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
+       * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
        *
-       * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-       * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
-       * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
-       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-       * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
+       * @description >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+       * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+       * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
+       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+       * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
        *
        * @param request AuthDiagnosisRequest
        * @return AuthDiagnosisResponse
@@ -73,7 +73,7 @@ namespace SysOM20231230
       Models::CheckInstanceSupportResponse checkInstanceSupport(const Models::CheckInstanceSupportRequest &request);
 
       /**
-       * @summary Calls the CPU High Agent streaming SSE interface.
+       * @summary Invokes the CPU high agent streaming SSE interface.
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @param headers map
@@ -83,7 +83,7 @@ namespace SysOM20231230
       FutureGenerator<Models::CpuHighAgentStreamResponseResponse> cpuHighAgentStreamResponseWithSSE(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CPU High Agent streaming SSE interface.
+       * @summary Invokes the CPU high agent streaming SSE interface.
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @param headers map
@@ -93,7 +93,7 @@ namespace SysOM20231230
       Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponseWithOptions(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CPU High Agent streaming SSE interface.
+       * @summary Invokes the CPU high agent streaming SSE interface.
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @return CpuHighAgentStreamResponseResponse
@@ -119,7 +119,7 @@ namespace SysOM20231230
       Models::CreateAlertDestinationResponse createAlertDestination(const Models::CreateAlertDestinationRequest &request);
 
       /**
-       * @summary Creates an alert push strategy.
+       * @summary Creates an alert policy for push notifications.
        *
        * @param request CreateAlertStrategyRequest
        * @param headers map
@@ -129,7 +129,7 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategyWithOptions(const Models::CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an alert push strategy.
+       * @summary Creates an alert policy for push notifications.
        *
        * @param request CreateAlertStrategyRequest
        * @return CreateAlertStrategyResponse
@@ -140,8 +140,8 @@ namespace SysOM20231230
        * @summary Creates a VPC endpoint connection for a cluster.
        *
        * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-       * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-       * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
+       * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @param headers map
@@ -154,8 +154,8 @@ namespace SysOM20231230
        * @summary Creates a VPC endpoint connection for a cluster.
        *
        * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-       * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-       * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
+       * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @return CreateClusterVpcEndpointConnectionResponse
@@ -181,7 +181,7 @@ namespace SysOM20231230
       Models::CreateInstanceInspectionResponse createInstanceInspection(const Models::CreateInstanceInspectionRequest &request);
 
       /**
-       * @summary Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
+       * @summary Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
        *
        * @param request CreateVmcoreDiagnosisTaskRequest
        * @param headers map
@@ -191,7 +191,7 @@ namespace SysOM20231230
       Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTaskWithOptions(const Models::CreateVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
+       * @summary Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
        *
        * @param request CreateVmcoreDiagnosisTaskRequest
        * @return CreateVmcoreDiagnosisTaskResponse
@@ -237,7 +237,7 @@ namespace SysOM20231230
       /**
        * @summary Queries metric data.
        *
-       * @description The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+       * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
        * @param request DescribeMetricListRequest
        * @param headers map
@@ -249,7 +249,7 @@ namespace SysOM20231230
       /**
        * @summary Queries metric data.
        *
-       * @description The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+       * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
        * @param request DescribeMetricListRequest
        * @return DescribeMetricListResponse
@@ -281,11 +281,11 @@ namespace SysOM20231230
       Models::GenerateCopilotResponseResponse generateCopilotResponse(const Models::GenerateCopilotResponseRequest &request);
 
       /**
-       * @summary Calls the streaming SSE endpoint of the OS Copilot service.
+       * @summary Calls the streaming SSE interface of the OS Copilot service.
        *
-       * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-       * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-       * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+       * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+       * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @param headers map
@@ -295,11 +295,11 @@ namespace SysOM20231230
       FutureGenerator<Models::GenerateCopilotStreamResponseResponse> generateCopilotStreamResponseWithSSE(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the streaming SSE endpoint of the OS Copilot service.
+       * @summary Calls the streaming SSE interface of the OS Copilot service.
        *
-       * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-       * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-       * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+       * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+       * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @param headers map
@@ -309,11 +309,11 @@ namespace SysOM20231230
       Models::GenerateCopilotStreamResponseResponse generateCopilotStreamResponseWithOptions(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the streaming SSE endpoint of the OS Copilot service.
+       * @summary Calls the streaming SSE interface of the OS Copilot service.
        *
-       * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-       * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-       * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+       * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+       * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @return GenerateCopilotStreamResponseResponse
@@ -339,7 +339,7 @@ namespace SysOM20231230
       Models::GetAIQueryResultResponse getAIQueryResult(const Models::GetAIQueryResultRequest &request);
 
       /**
-       * @summary Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
+       * @summary Retrieves the number of unprocessed (undiagnosed) abnormal events at different severity levels for a node or pod.
        *
        * @param request GetAbnormalEventsCountRequest
        * @param headers map
@@ -349,7 +349,7 @@ namespace SysOM20231230
       Models::GetAbnormalEventsCountResponse getAbnormalEventsCountWithOptions(const Models::GetAbnormalEventsCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
+       * @summary Retrieves the number of unprocessed (undiagnosed) abnormal events at different severity levels for a node or pod.
        *
        * @param request GetAbnormalEventsCountRequest
        * @return GetAbnormalEventsCountResponse
@@ -357,7 +357,7 @@ namespace SysOM20231230
       Models::GetAbnormalEventsCountResponse getAbnormalEventsCount(const Models::GetAbnormalEventsCountRequest &request);
 
       /**
-       * @summary Get details of a specific agent
+       * @summary Retrieves the details of a specified component.
        *
        * @param request GetAgentRequest
        * @param headers map
@@ -367,7 +367,7 @@ namespace SysOM20231230
       Models::GetAgentResponse getAgentWithOptions(const Models::GetAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get details of a specific agent
+       * @summary Retrieves the details of a specified component.
        *
        * @param request GetAgentRequest
        * @return GetAgentResponse
@@ -429,6 +429,24 @@ namespace SysOM20231230
       Models::GetAlertStrategyResponse getAlertStrategy(const Models::GetAlertStrategyRequest &request);
 
       /**
+       * @summary Retrieves configuration information by configuration name.
+       *
+       * @param request GetConfigByNameRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConfigByNameResponse
+       */
+      Models::GetConfigByNameResponse getConfigByNameWithOptions(const Models::GetConfigByNameRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves configuration information by configuration name.
+       *
+       * @param request GetConfigByNameRequest
+       * @return GetConfigByNameResponse
+       */
+      Models::GetConfigByNameResponse getConfigByName(const Models::GetConfigByNameRequest &request);
+
+      /**
        * @summary Retrieves the chat history of Copilot.
        *
        * @param request GetCopilotHistoryRequest
@@ -469,7 +487,7 @@ namespace SysOM20231230
       Models::GetDiagnosisResultResponse getDiagnosisResult(const Models::GetDiagnosisResultRequest &request);
 
       /**
-       * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
+       * @summary Retrieves the health status distribution of nodes or Pods within a specified time period.
        *
        * @param request GetHealthPercentageRequest
        * @param headers map
@@ -479,7 +497,7 @@ namespace SysOM20231230
       Models::GetHealthPercentageResponse getHealthPercentageWithOptions(const Models::GetHealthPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
+       * @summary Retrieves the health status distribution of nodes or Pods within a specified time period.
        *
        * @param request GetHealthPercentageRequest
        * @return GetHealthPercentageResponse
@@ -487,7 +505,7 @@ namespace SysOM20231230
       Models::GetHealthPercentageResponse getHealthPercentage(const Models::GetHealthPercentageRequest &request);
 
       /**
-       * @summary Retrieves the number of nodes or the number of Pods on nodes in a cluster.
+       * @summary Retrieves the number of cluster nodes or the number of Pods on a node.
        *
        * @param request GetHostCountRequest
        * @param headers map
@@ -497,7 +515,7 @@ namespace SysOM20231230
       Models::GetHostCountResponse getHostCountWithOptions(const Models::GetHostCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the number of nodes or the number of Pods on nodes in a cluster.
+       * @summary Retrieves the number of cluster nodes or the number of Pods on a node.
        *
        * @param request GetHostCountRequest
        * @return GetHostCountResponse
@@ -505,7 +523,7 @@ namespace SysOM20231230
       Models::GetHostCountResponse getHostCount(const Models::GetHostCountRequest &request);
 
       /**
-       * @summary Get the list of a specific field under an instance.
+       * @summary Retrieves the list of a specific field under an instance.
        *
        * @param request GetHotSpotUniqListRequest
        * @param headers map
@@ -515,7 +533,7 @@ namespace SysOM20231230
       Models::GetHotSpotUniqListResponse getHotSpotUniqListWithOptions(const Models::GetHotSpotUniqListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the list of a specific field under an instance.
+       * @summary Retrieves the list of a specific field under an instance.
        *
        * @param request GetHotSpotUniqListRequest
        * @return GetHotSpotUniqListResponse
@@ -541,7 +559,7 @@ namespace SysOM20231230
       Models::GetHotspotAnalysisResponse getHotspotAnalysis(const Models::GetHotspotAnalysisRequest &request);
 
       /**
-       * @summary Get Hotspot Comparison Tracing Results
+       * @summary Retrieves the hot spot comparison and tracing results.
        *
        * @param request GetHotspotCompareRequest
        * @param headers map
@@ -551,7 +569,7 @@ namespace SysOM20231230
       Models::GetHotspotCompareResponse getHotspotCompareWithOptions(const Models::GetHotspotCompareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Hotspot Comparison Tracing Results
+       * @summary Retrieves the hot spot comparison and tracing results.
        *
        * @param request GetHotspotCompareRequest
        * @return GetHotspotCompareResponse
@@ -559,7 +577,7 @@ namespace SysOM20231230
       Models::GetHotspotCompareResponse getHotspotCompare(const Models::GetHotspotCompareRequest &request);
 
       /**
-       * @summary Get Hotspot Instance List
+       * @summary Retrieves the list of hot spot instances.
        *
        * @param request GetHotspotInstanceListRequest
        * @param headers map
@@ -569,7 +587,7 @@ namespace SysOM20231230
       Models::GetHotspotInstanceListResponse getHotspotInstanceListWithOptions(const Models::GetHotspotInstanceListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Hotspot Instance List
+       * @summary Retrieves the list of hot spot instances.
        *
        * @param request GetHotspotInstanceListRequest
        * @return GetHotspotInstanceListResponse
@@ -631,7 +649,7 @@ namespace SysOM20231230
       Models::GetInspectionReportResponse getInspectionReport(const Models::GetInspectionReportRequest &request);
 
       /**
-       * @summary Get real-time cluster/node health score
+       * @summary Retrieves the real-time health score of a cluster or node.
        *
        * @param request GetInstantScoreRequest
        * @param headers map
@@ -641,7 +659,7 @@ namespace SysOM20231230
       Models::GetInstantScoreResponse getInstantScoreWithOptions(const Models::GetInstantScoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get real-time cluster/node health score
+       * @summary Retrieves the real-time health score of a cluster or node.
        *
        * @param request GetInstantScoreRequest
        * @return GetInstantScoreResponse
@@ -649,7 +667,7 @@ namespace SysOM20231230
       Models::GetInstantScoreResponse getInstantScore(const Models::GetInstantScoreRequest &request);
 
       /**
-       * @summary Retrieves a list of AI Infra analysis records.
+       * @summary Retrieves the list of AI Infra analysis records.
        *
        * @param request GetListRecordRequest
        * @param headers map
@@ -659,7 +677,7 @@ namespace SysOM20231230
       Models::GetListRecordResponse getListRecordWithOptions(const Models::GetListRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of AI Infra analysis records.
+       * @summary Retrieves the list of AI Infra analysis records.
        *
        * @param request GetListRecordRequest
        * @return GetListRecordResponse
@@ -667,7 +685,7 @@ namespace SysOM20231230
       Models::GetListRecordResponse getListRecord(const Models::GetListRecordRequest &request);
 
       /**
-       * @summary Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
+       * @summary Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
        *
        * @param request GetProblemPercentageRequest
        * @param headers map
@@ -677,7 +695,7 @@ namespace SysOM20231230
       Models::GetProblemPercentageResponse getProblemPercentageWithOptions(const Models::GetProblemPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
+       * @summary Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
        *
        * @param request GetProblemPercentageRequest
        * @return GetProblemPercentageResponse
@@ -761,12 +779,12 @@ namespace SysOM20231230
       Models::GetVmcoreDiagnosisTaskResponse getVmcoreDiagnosisTask(const Models::GetVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary Initializes SysOM to ensure that the service-linked role exists.
+       * @summary Initializes SysOM and ensures that the service-linked role exists.
        *
        * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-       * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+       * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
        * > 
-       * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+       * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
        *
        * @param request InitialSysomRequest
        * @param headers map
@@ -776,12 +794,12 @@ namespace SysOM20231230
       Models::InitialSysomResponse initialSysomWithOptions(const Models::InitialSysomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initializes SysOM to ensure that the service-linked role exists.
+       * @summary Initializes SysOM and ensures that the service-linked role exists.
        *
        * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-       * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+       * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
        * > 
-       * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+       * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
        *
        * @param request InitialSysomRequest
        * @return InitialSysomResponse
@@ -791,7 +809,7 @@ namespace SysOM20231230
       /**
        * @summary Installs an Agent on a specified instance.
        *
-       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
        *
        * @param request InstallAgentRequest
        * @param headers map
@@ -803,7 +821,7 @@ namespace SysOM20231230
       /**
        * @summary Installs an Agent on a specified instance.
        *
-       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+       * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
        *
        * @param request InstallAgentRequest
        * @return InstallAgentResponse
@@ -811,11 +829,11 @@ namespace SysOM20231230
       Models::InstallAgentResponse installAgent(const Models::InstallAgentRequest &request);
 
       /**
-       * @summary Install component for cluster
+       * @summary Installs a component on an ACK cluster.
        *
-       * @description After installing a component for the target ACK cluster:
-       * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
-       * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
+       * @description After you install a component on the target ACK cluster:
+       * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
+       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request InstallAgentForClusterRequest
        * @param headers map
@@ -825,11 +843,11 @@ namespace SysOM20231230
       Models::InstallAgentForClusterResponse installAgentForClusterWithOptions(const Models::InstallAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Install component for cluster
+       * @summary Installs a component on an ACK cluster.
        *
-       * @description After installing a component for the target ACK cluster:
-       * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
-       * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
+       * @description After you install a component on the target ACK cluster:
+       * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
+       * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
        *
        * @param request InstallAgentForClusterRequest
        * @return InstallAgentForClusterResponse
@@ -877,13 +895,13 @@ namespace SysOM20231230
       Models::InvokeAnomalyDiagnosisResponse invokeAnomalyDiagnosis(const Models::InvokeAnomalyDiagnosisRequest &request);
 
       /**
-       * @summary Initiate Diagnosis.
+       * @summary Initiates a diagnostic task.
        *
-       * @description The following requirements must be met to diagnose a target ECS instance:
-       * - The target ECS instance must be in the Running state.
-       * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-       * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
-       * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
+       * @description The following requirements apply when diagnosing a target ECS instance:
+       * - The target ECS instance status must be Running.
+       * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
+       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @param headers map
@@ -893,13 +911,13 @@ namespace SysOM20231230
       Models::InvokeDiagnosisResponse invokeDiagnosisWithOptions(const Models::InvokeDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiate Diagnosis.
+       * @summary Initiates a diagnostic task.
        *
-       * @description The following requirements must be met to diagnose a target ECS instance:
-       * - The target ECS instance must be in the Running state.
-       * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-       * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
-       * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
+       * @description The following requirements apply when diagnosing a target ECS instance:
+       * - The target ECS instance status must be Running.
+       * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
+       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @return InvokeDiagnosisResponse
@@ -943,7 +961,7 @@ namespace SysOM20231230
       Models::ListAgentInstallRecordsResponse listAgentInstallRecords(const Models::ListAgentInstallRecordsRequest &request);
 
       /**
-       * @summary Retrieves a list of agents.
+       * @summary Retrieves a list of Agents.
        *
        * @param request ListAgentsRequest
        * @param headers map
@@ -953,7 +971,7 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgentsWithOptions(const Models::ListAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of agents.
+       * @summary Retrieves a list of Agents.
        *
        * @param request ListAgentsRequest
        * @return ListAgentsResponse
@@ -961,7 +979,7 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
-       * @summary This API is used to get the list of alert contacts
+       * @summary Retrieves the list of alert contacts.
        *
        * @param request ListAlertDestinationsRequest
        * @param headers map
@@ -971,7 +989,7 @@ namespace SysOM20231230
       Models::ListAlertDestinationsResponse listAlertDestinationsWithOptions(const Models::ListAlertDestinationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API is used to get the list of alert contacts
+       * @summary Retrieves the list of alert contacts.
        *
        * @param request ListAlertDestinationsRequest
        * @return ListAlertDestinationsResponse
@@ -1013,7 +1031,7 @@ namespace SysOM20231230
       Models::ListAlertStrategiesResponse listAlertStrategies(const Models::ListAlertStrategiesRequest &request);
 
       /**
-       * @summary This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
+       * @summary Retrieves a list of managed or unmanaged instances along with their instance information.
        *
        * @param request ListAllInstancesRequest
        * @param headers map
@@ -1023,7 +1041,7 @@ namespace SysOM20231230
       Models::ListAllInstancesResponse listAllInstancesWithOptions(const Models::ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
+       * @summary Retrieves a list of managed or unmanaged instances along with their instance information.
        *
        * @param request ListAllInstancesRequest
        * @return ListAllInstancesResponse
@@ -1031,7 +1049,7 @@ namespace SysOM20231230
       Models::ListAllInstancesResponse listAllInstances(const Models::ListAllInstancesRequest &request);
 
       /**
-       * @summary Get cluster component installation records
+       * @summary Retrieves the component installation records of a cluster.
        *
        * @param request ListClusterAgentInstallRecordsRequest
        * @param headers map
@@ -1041,7 +1059,7 @@ namespace SysOM20231230
       Models::ListClusterAgentInstallRecordsResponse listClusterAgentInstallRecordsWithOptions(const Models::ListClusterAgentInstallRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get cluster component installation records
+       * @summary Retrieves the component installation records of a cluster.
        *
        * @param request ListClusterAgentInstallRecordsRequest
        * @return ListClusterAgentInstallRecordsResponse
@@ -1049,7 +1067,7 @@ namespace SysOM20231230
       Models::ListClusterAgentInstallRecordsResponse listClusterAgentInstallRecords(const Models::ListClusterAgentInstallRecordsRequest &request);
 
       /**
-       * @summary Retrieve all managed clusters of the current user
+       * @summary Retrieves all managed clusters for the current user.
        *
        * @param request ListClustersRequest
        * @param headers map
@@ -1059,7 +1077,7 @@ namespace SysOM20231230
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve all managed clusters of the current user
+       * @summary Retrieves all managed clusters for the current user.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -1067,7 +1085,7 @@ namespace SysOM20231230
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
 
       /**
-       * @summary Obtain the list of diagnostic history.
+       * @summary Retrieves a list of diagnostic history records.
        *
        * @param request ListDiagnosisRequest
        * @param headers map
@@ -1077,7 +1095,7 @@ namespace SysOM20231230
       Models::ListDiagnosisResponse listDiagnosisWithOptions(const Models::ListDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the list of diagnostic history.
+       * @summary Retrieves a list of diagnostic history records.
        *
        * @param request ListDiagnosisRequest
        * @return ListDiagnosisResponse
@@ -1101,6 +1119,24 @@ namespace SysOM20231230
        * @return ListInstanceHealthResponse
        */
       Models::ListInstanceHealthResponse listInstanceHealth(const Models::ListInstanceHealthRequest &request);
+
+      /**
+       * @summary 此接口用于获取某类型实例信息的所有值
+       *
+       * @param request ListInstanceInfoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceInfoResponse
+       */
+      Models::ListInstanceInfoResponse listInstanceInfoWithOptions(const Models::ListInstanceInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 此接口用于获取某类型实例信息的所有值
+       *
+       * @param request ListInstanceInfoRequest
+       * @return ListInstanceInfoResponse
+       */
+      Models::ListInstanceInfoResponse listInstanceInfo(const Models::ListInstanceInfoRequest &request);
 
       /**
        * @summary Retrieves instance statuses.
@@ -1147,7 +1183,7 @@ namespace SysOM20231230
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
+       * @summary Retrieves ECS information lists for instances, such as tag lists and public IP address lists.
        *
        * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
@@ -1159,7 +1195,7 @@ namespace SysOM20231230
       Models::ListInstancesEcsInfoListResponse listInstancesEcsInfoListWithOptions(const Models::ListInstancesEcsInfoListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
+       * @summary Retrieves ECS information lists for instances, such as tag lists and public IP address lists.
        *
        * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
@@ -1191,7 +1227,7 @@ namespace SysOM20231230
       Models::ListInstancesWithEcsInfoResponse listInstancesWithEcsInfo(const Models::ListInstancesWithEcsInfoRequest &request);
 
       /**
-       * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
+       * @summary Retrieves the list of instances for plugin installation, update, or uninstallation.
        *
        * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
@@ -1203,7 +1239,7 @@ namespace SysOM20231230
       Models::ListPluginsInstancesResponse listPluginsInstancesWithOptions(const Models::ListPluginsInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
+       * @summary Retrieves the list of instances for plugin installation, update, or uninstallation.
        *
        * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
@@ -1251,7 +1287,7 @@ namespace SysOM20231230
       Models::ListRegionsResponse listRegions();
 
       /**
-       * @summary Query the historical crash diagnosis task list.
+       * @summary Queries the list of historical down diagnosis tasks.
        *
        * @param request ListVmcoreDiagnosisTaskRequest
        * @param headers map
@@ -1261,7 +1297,7 @@ namespace SysOM20231230
       Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTaskWithOptions(const Models::ListVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the historical crash diagnosis task list.
+       * @summary Queries the list of historical down diagnosis tasks.
        *
        * @param request ListVmcoreDiagnosisTaskRequest
        * @return ListVmcoreDiagnosisTaskResponse
@@ -1269,7 +1305,7 @@ namespace SysOM20231230
       Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTask(const Models::ListVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary Start AI job analysis.
+       * @summary Starts AI job analysis.
        *
        * @param request StartAIAnalysisRequest
        * @param headers map
@@ -1279,7 +1315,7 @@ namespace SysOM20231230
       Models::StartAIAnalysisResponse startAIAnalysisWithOptions(const Models::StartAIAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start AI job analysis.
+       * @summary Starts AI job analysis.
        *
        * @param request StartAIAnalysisRequest
        * @return StartAIAnalysisResponse
@@ -1311,7 +1347,7 @@ namespace SysOM20231230
       /**
        * @summary Uninstalls a specified version of a component.
        *
-       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UninstallAgentRequest
        * @param headers map
@@ -1323,7 +1359,7 @@ namespace SysOM20231230
       /**
        * @summary Uninstalls a specified version of a component.
        *
-       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+       * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UninstallAgentRequest
        * @return UninstallAgentResponse
@@ -1373,7 +1409,7 @@ namespace SysOM20231230
       /**
        * @summary Updates an alert contact.
        *
-       * @description .
+       * @description 、
        *
        * @param request UpdateAlertDestinationRequest
        * @param headers map
@@ -1385,7 +1421,7 @@ namespace SysOM20231230
       /**
        * @summary Updates an alert contact.
        *
-       * @description .
+       * @description 、
        *
        * @param request UpdateAlertDestinationRequest
        * @return UpdateAlertDestinationResponse
@@ -1471,9 +1507,9 @@ namespace SysOM20231230
       Models::UpdateFuncSwitchRecordResponse updateFuncSwitchRecord(const Models::UpdateFuncSwitchRecordRequest &request);
 
       /**
-       * @summary Updates an installed component to a specified version.
+       * @summary Updates the version of an installed component to a specified version.
        *
-       * @description Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
+       * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UpgradeAgentRequest
        * @param headers map
@@ -1483,9 +1519,9 @@ namespace SysOM20231230
       Models::UpgradeAgentResponse upgradeAgentWithOptions(const Models::UpgradeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an installed component to a specified version.
+       * @summary Updates the version of an installed component to a specified version.
        *
-       * @description Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
+       * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
        *
        * @param request UpgradeAgentRequest
        * @return UpgradeAgentResponse
@@ -1493,7 +1529,7 @@ namespace SysOM20231230
       Models::UpgradeAgentResponse upgradeAgent(const Models::UpgradeAgentRequest &request);
 
       /**
-       * @summary Updates components for a cluster.
+       * @summary Updates a component for an ACK cluster.
        *
        * @param request UpgradeAgentForClusterRequest
        * @param headers map
@@ -1503,7 +1539,7 @@ namespace SysOM20231230
       Models::UpgradeAgentForClusterResponse upgradeAgentForClusterWithOptions(const Models::UpgradeAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates components for a cluster.
+       * @summary Updates a component for an ACK cluster.
        *
        * @param request UpgradeAgentForClusterRequest
        * @return UpgradeAgentForClusterResponse

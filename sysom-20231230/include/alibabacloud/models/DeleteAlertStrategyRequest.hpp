@@ -13,10 +13,14 @@ namespace Models
   class DeleteAlertStrategyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteAlertStrategyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteAlertStrategyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     DeleteAlertStrategyRequest() = default ;
     DeleteAlertStrategyRequest(const DeleteAlertStrategyRequest &) = default ;
@@ -29,7 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->id_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->id_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline DeleteAlertStrategyRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -37,11 +49,20 @@ namespace Models
     inline DeleteAlertStrategyRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline DeleteAlertStrategyRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The ID of the alert policy.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

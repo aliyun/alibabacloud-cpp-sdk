@@ -133,19 +133,19 @@ namespace Models
     protected:
       shared_ptr<string> agentConfigId_ {};
       shared_ptr<string> agentConfigName_ {};
-      // Cluster ID.
+      // The cluster ID.
       // 
       // > This cluster ID is not the ACK cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Canary release configuration.
+      // The canary release environment.
       shared_ptr<string> grayscaleConfig_ {};
-      // Component ID.
+      // The component ID.
       shared_ptr<string> pluginId_ {};
-      // Plugin version.
+      // The plug-in version.
       shared_ptr<string> pluginVersion_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -189,19 +189,19 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for end-to-end diagnostics.
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code.
+    // The status code.
     // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Response results.
+    // The returned result.
     shared_ptr<vector<ListClusterAgentInstallRecordsResponseBody::Data>> data_ {};
-    // Error message.
+    // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // Total number of query results.
+    // The total number of query results.
     shared_ptr<int64_t> total_ {};
   };
 

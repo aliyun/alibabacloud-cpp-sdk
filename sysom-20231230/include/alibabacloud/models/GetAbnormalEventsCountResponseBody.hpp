@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // List of abnormal events.
+      // The list of abnormal events.
       shared_ptr<vector<string>> eventList_ {};
-      // Abnormal event type.
+      // The type of the abnormal event.
       shared_ptr<string> type_ {};
-      // Count of abnormal event type.
+      // The number of abnormal events of this type.
       shared_ptr<int64_t> value_ {};
     };
 
@@ -117,11 +117,11 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The returned data.
     shared_ptr<vector<GetAbnormalEventsCountResponseBody::Data>> data_ {};
-    // When success is false, this value is not empty, indicating a business error message.
+    // The business error message. This parameter is not empty when success is false.
     shared_ptr<string> message_ {};
   };
 

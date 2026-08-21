@@ -59,6 +59,9 @@
 #include <alibabacloud/models/GetAlertStrategyRequest.hpp>
 #include <alibabacloud/models/GetAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/GetAlertStrategyResponse.hpp>
+#include <alibabacloud/models/GetConfigByNameRequest.hpp>
+#include <alibabacloud/models/GetConfigByNameResponseBody.hpp>
+#include <alibabacloud/models/GetConfigByNameResponse.hpp>
 #include <alibabacloud/models/GetCopilotHistoryRequest.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponseBody.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponse.hpp>
@@ -164,6 +167,9 @@
 #include <alibabacloud/models/ListInstanceHealthRequest.hpp>
 #include <alibabacloud/models/ListInstanceHealthResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceHealthResponse.hpp>
+#include <alibabacloud/models/ListInstanceInfoRequest.hpp>
+#include <alibabacloud/models/ListInstanceInfoResponseBody.hpp>
+#include <alibabacloud/models/ListInstanceInfoResponse.hpp>
 #include <alibabacloud/models/ListInstanceStatusRequest.hpp>
 #include <alibabacloud/models/ListInstanceStatusResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceStatusResponse.hpp>

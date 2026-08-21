@@ -13,10 +13,14 @@ namespace Models
   class ListVmcoreDiagnosisTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListVmcoreDiagnosisTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(days, days_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListVmcoreDiagnosisTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(days, days_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListVmcoreDiagnosisTaskRequest() = default ;
     ListVmcoreDiagnosisTaskRequest(const ListVmcoreDiagnosisTaskRequest &) = default ;
@@ -29,7 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->days_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->days_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListVmcoreDiagnosisTaskRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // days Field Functions 
     bool hasDays() const { return this->days_ != nullptr;};
     void deleteDays() { this->days_ = nullptr;};
@@ -37,11 +49,20 @@ namespace Models
     inline ListVmcoreDiagnosisTaskRequest& setDays(int64_t days) { DARABONBA_PTR_SET_VALUE(days_, days) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListVmcoreDiagnosisTaskRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // Specifies the tasks from the past number of days, up to a maximum of 30 days
+    shared_ptr<string> xDebugId_ {};
+    // The number of past days to query tasks for, up to a maximum of 30 days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> days_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

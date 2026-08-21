@@ -14,14 +14,18 @@ namespace Models
   class AuthDiagnosisRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AuthDiagnosisRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(autoCreateRole, autoCreateRole_);
       DARABONBA_PTR_TO_JSON(autoInstallAgent, autoInstallAgent_);
       DARABONBA_PTR_TO_JSON(instances, instances_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, AuthDiagnosisRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(autoCreateRole, autoCreateRole_);
       DARABONBA_PTR_FROM_JSON(autoInstallAgent, autoInstallAgent_);
       DARABONBA_PTR_FROM_JSON(instances, instances_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     AuthDiagnosisRequest() = default ;
     AuthDiagnosisRequest(const AuthDiagnosisRequest &) = default ;
@@ -78,8 +82,15 @@ namespace Models
       shared_ptr<string> region_ {};
     };
 
-    virtual bool empty() const override { return this->autoCreateRole_ == nullptr
-        && this->autoInstallAgent_ == nullptr && this->instances_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->autoCreateRole_ == nullptr && this->autoInstallAgent_ == nullptr && this->instances_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline AuthDiagnosisRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // autoCreateRole Field Functions 
     bool hasAutoCreateRole() const { return this->autoCreateRole_ != nullptr;};
     void deleteAutoCreateRole() { this->autoCreateRole_ = nullptr;};
@@ -103,13 +114,22 @@ namespace Models
     inline AuthDiagnosisRequest& setInstances(vector<AuthDiagnosisRequest::Instances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline AuthDiagnosisRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // Specifies whether to enable automatic creation of the service-linked role.
     shared_ptr<bool> autoCreateRole_ {};
-    // Specifies whether to automatically install the agent.
+    // Specifies whether to automatically install the latest version of the agent if it is not installed.
     shared_ptr<bool> autoInstallAgent_ {};
-    // The list of instances to authorize for diagnostics.
+    // The list of instances authorized for diagnosis.
     shared_ptr<vector<AuthDiagnosisRequest::Instances>> instances_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

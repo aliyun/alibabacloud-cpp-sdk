@@ -164,32 +164,33 @@ namespace Models
 
 
     protected:
-      // Diagnostic error code. 0 indicates no error.
+      // The diagnostic error code. A value of 0 indicates no error.
       shared_ptr<int32_t> code_ {};
-      // Diagnostic command
+      // The diagnostic command.
       Darabonba::Json command_ {};
-      // Creation time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // Error message
+      // The error message.
       shared_ptr<string> errMsg_ {};
-      // Diagnostic parameters
+      // The diagnostic parameters.
       Darabonba::Json params_ {};
-      // Diagnostic result
+      // The diagnostic result.
       Darabonba::Json result_ {};
-      // Diagnostic type
+      // The diagnostic type.
       shared_ptr<string> serviceName_ {};
-      // Execution status of the diagnostic task.
+      // The execution status of the diagnostic task.
+      // 
       // Valid values:
-      // - **Ready**: Ready
-      // - **Running**: Running
-      // - **Success**: Execution succeeded
-      // - **Fail**: Execution failed
+      // - **Ready**: Ready.
+      // - **Running**: Running.
+      // - **Success**: Succeeded.
+      // - **Fail**: Failed.
       shared_ptr<string> status_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Update time
+      // The update time.
       shared_ptr<string> updatedAt_ {};
-      // URL for diagnostic details
+      // The URL of the diagnostic details.
       shared_ptr<string> url_ {};
     };
 
@@ -233,21 +234,21 @@ namespace Models
 
 
   protected:
-    // Request ID, which can be used for full-link diagnostics
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
-    // Status code
-    // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
+    // The status code.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<vector<ListDiagnosisResponseBody::Data>> data_ {};
-    // Error message
+    // The error message.
     // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // Total
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

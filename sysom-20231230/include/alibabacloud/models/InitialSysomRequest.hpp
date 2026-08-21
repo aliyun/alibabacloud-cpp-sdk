@@ -13,12 +13,16 @@ namespace Models
   class InitialSysomRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InitialSysomRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(check_only, checkOnly_);
       DARABONBA_PTR_TO_JSON(source, source_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, InitialSysomRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(check_only, checkOnly_);
       DARABONBA_PTR_FROM_JSON(source, source_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     InitialSysomRequest() = default ;
     InitialSysomRequest(const InitialSysomRequest &) = default ;
@@ -31,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->checkOnly_ == nullptr
-        && this->source_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->checkOnly_ == nullptr && this->source_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline InitialSysomRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // checkOnly Field Functions 
     bool hasCheckOnly() const { return this->checkOnly_ != nullptr;};
     void deleteCheckOnly() { this->checkOnly_ = nullptr;};
@@ -47,11 +58,20 @@ namespace Models
     inline InitialSysomRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline InitialSysomRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // Specifies whether to only check whether the service-linked role exists.
+    shared_ptr<string> xDebugId_ {};
+    // Specifies whether to only check if the service-linked role exists.
     shared_ptr<bool> checkOnly_ {};
     // The source. Set this parameter to console.
     shared_ptr<string> source_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

@@ -65,7 +65,7 @@ namespace Models
     protected:
       // The task ID.
       // 
-      // You can use this task ID to call the GetAgentTask operation to query the task execution status.
+      // You can use this task ID to call the GetAgentTask operation to check the execution status of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -105,14 +105,14 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate authorization failure. In this case, check the `message` field for detailed error information.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<UpgradeAgentForClusterResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
   };
 

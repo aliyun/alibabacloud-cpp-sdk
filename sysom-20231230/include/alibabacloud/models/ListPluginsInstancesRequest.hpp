@@ -13,6 +13,7 @@ namespace Models
   class ListPluginsInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListPluginsInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(instance_id_name, instanceIdName_);
       DARABONBA_PTR_TO_JSON(instance_tag, instanceTag_);
@@ -20,8 +21,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_TO_JSON(region, region_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListPluginsInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(instance_id_name, instanceIdName_);
       DARABONBA_PTR_FROM_JSON(instance_tag, instanceTag_);
@@ -29,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_FROM_JSON(region, region_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListPluginsInstancesRequest() = default ;
     ListPluginsInstancesRequest(const ListPluginsInstancesRequest &) = default ;
@@ -41,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->current_ == nullptr
-        && this->instanceIdName_ == nullptr && this->instanceTag_ == nullptr && this->operationType_ == nullptr && this->pageSize_ == nullptr && this->pluginId_ == nullptr
-        && this->region_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->current_ == nullptr && this->instanceIdName_ == nullptr && this->instanceTag_ == nullptr && this->operationType_ == nullptr && this->pageSize_ == nullptr
+        && this->pluginId_ == nullptr && this->region_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListPluginsInstancesRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -93,20 +104,28 @@ namespace Models
     inline ListPluginsInstancesRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListPluginsInstancesRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // The current page number. This field is present when pagination is used.
+    shared_ptr<string> xDebugId_ {};
+    // The page number for pagination. This field indicates the current page.
     shared_ptr<int64_t> current_ {};
     // Filters instances by instance ID or instance name. Fuzzy match is supported.
     shared_ptr<string> instanceIdName_ {};
     // Filters instances by instance tag.
     shared_ptr<string> instanceTag_ {};
-    // Filters instances by plug-in installation status.
+    // Filters instances by plugin installation status.
     // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Filters the instance list by the specified agent. If this parameter is specified, only instances associated with the specified agent are returned.
+    // Specifies the agent ID to filter the instance list for the specified agent.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
@@ -114,6 +133,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

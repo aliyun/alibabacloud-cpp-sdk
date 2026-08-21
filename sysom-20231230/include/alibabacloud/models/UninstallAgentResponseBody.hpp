@@ -103,13 +103,13 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - If code is Success, the authorization is successful.
-    // - Other status codes indicate that the authorization has failed. Check the message field for the detailed fault information.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<UninstallAgentResponseBody::Data> data_ {};
     // The error message.
-    // - If code is Success, this field is empty.
+    // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
   };

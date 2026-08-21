@@ -13,6 +13,7 @@ namespace Models
   class ListClustersRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListClustersRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_TO_JSON(cluster_status, clusterStatus_);
       DARABONBA_PTR_TO_JSON(cluster_type, clusterType_);
@@ -20,8 +21,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListClustersRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_FROM_JSON(cluster_status, clusterStatus_);
       DARABONBA_PTR_FROM_JSON(cluster_type, clusterType_);
@@ -29,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListClustersRequest() = default ;
     ListClustersRequest(const ListClustersRequest &) = default ;
@@ -41,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->clusterStatus_ == nullptr && this->clusterType_ == nullptr && this->current_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
-        && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->clusterId_ == nullptr && this->clusterStatus_ == nullptr && this->clusterType_ == nullptr && this->current_ == nullptr && this->id_ == nullptr
+        && this->name_ == nullptr && this->pageSize_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListClustersRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -93,28 +104,37 @@ namespace Models
     inline ListClustersRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListClustersRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // Filter by cluster ID.
+    shared_ptr<string> xDebugId_ {};
+    // Filters by cluster ID.
     // 
-    // > This cluster ID is not the ACK cluster ID, but the `id` field in the data returned by this API.
+    // > This cluster ID is not the ACK cluster ID. It is the `id` field returned by this operation.
     shared_ptr<string> clusterId_ {};
     // - `Running`: The cluster is managed normally.
-    // - `Installing`: The cluster has an installation task in progress.
-    // - `Uninstalling`: The cluster has an uninstallation task in progress.
-    // - `Upgrading`: The cluster has an upgrade task in progress.
+    // - `Installing`: An installation task is in progress for the cluster.
+    // - `Uninstalling`: An uninstallation task is in progress for the cluster.
+    // - `Upgrading`: An update task is in progress for the cluster.
     // - `Offline`: The cluster is offline and management is abnormal.
     shared_ptr<string> clusterStatus_ {};
     // - `ACK`: ACK cluster.
-    // - `CUSTOM`: Custom cluster (the default cluster belongs to custom clusters).
+    // - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
     shared_ptr<string> clusterType_ {};
-    // Current page number (starting from page 1)
+    // The current page number (starting from page 1).
     shared_ptr<int64_t> current_ {};
-    // This field is deprecated. Use the cluster_id field to filter instead.
+    // **[Deprecated]** Use the cluster_id parameter to filter instead.
     shared_ptr<string> id_ {};
-    // Filter by plugin name
+    // Filters plugins by plugin name.
     shared_ptr<string> name_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

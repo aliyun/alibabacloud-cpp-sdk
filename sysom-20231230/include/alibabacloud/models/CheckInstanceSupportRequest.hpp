@@ -14,12 +14,16 @@ namespace Models
   class CheckInstanceSupportRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CheckInstanceSupportRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(instances, instances_);
       DARABONBA_PTR_TO_JSON(region, region_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, CheckInstanceSupportRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(instances, instances_);
       DARABONBA_PTR_FROM_JSON(region, region_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     CheckInstanceSupportRequest() = default ;
     CheckInstanceSupportRequest(const CheckInstanceSupportRequest &) = default ;
@@ -32,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instances_ == nullptr
-        && this->region_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->instances_ == nullptr && this->region_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline CheckInstanceSupportRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
@@ -50,11 +61,20 @@ namespace Models
     inline CheckInstanceSupportRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline CheckInstanceSupportRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The list of instance IDs to check.
     shared_ptr<vector<string>> instances_ {};
     // The region to which the instances belong. All instance IDs specified in instances must belong to the same region.
     shared_ptr<string> region_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

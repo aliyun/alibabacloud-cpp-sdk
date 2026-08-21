@@ -14,20 +14,24 @@ namespace Models
   class InstallAgentWithTypeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const InstallAgentWithTypeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(agentId, agentId_);
       DARABONBA_PTR_TO_JSON(agentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(configId, configId_);
       DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(instances, instances_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, InstallAgentWithTypeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(agentId, agentId_);
       DARABONBA_PTR_FROM_JSON(agentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(configId, configId_);
       DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(instances, instances_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     InstallAgentWithTypeRequest() = default ;
     InstallAgentWithTypeRequest(const InstallAgentWithTypeRequest &) = default ;
@@ -130,8 +134,16 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->tag_ == nullptr
-        && this->agentId_ == nullptr && this->agentVersion_ == nullptr && this->configId_ == nullptr && this->instanceType_ == nullptr && this->instances_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->tag_ == nullptr && this->agentId_ == nullptr && this->agentVersion_ == nullptr && this->configId_ == nullptr && this->instanceType_ == nullptr
+        && this->instances_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline InstallAgentWithTypeRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -178,7 +190,15 @@ namespace Models
     inline InstallAgentWithTypeRequest& setInstances(vector<InstallAgentWithTypeRequest::Instances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline InstallAgentWithTypeRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     shared_ptr<vector<InstallAgentWithTypeRequest::Tag>> tag_ {};
     // The ID of the component to install.
     // 
@@ -198,6 +218,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<InstallAgentWithTypeRequest::Instances>> instances_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

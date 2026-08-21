@@ -103,7 +103,7 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - `code == Success`: The authorization is successful.
+    // - `code == Success` indicates that the authorization is successful.
     // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.

@@ -127,14 +127,14 @@ namespace Models
 
   protected:
     // The status code.
-    // - If `code == Success`, the authorization is successful.
+    // - `code == Success` indicates that the authorization is successful.
     // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<DescribeMetricListResponseBody::Data>> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

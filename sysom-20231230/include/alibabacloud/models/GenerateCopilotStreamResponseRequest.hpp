@@ -13,10 +13,14 @@ namespace Models
   class GenerateCopilotStreamResponseRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GenerateCopilotStreamResponseRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(llmParamString, llmParamString_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateCopilotStreamResponseRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(llmParamString, llmParamString_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GenerateCopilotStreamResponseRequest() = default ;
     GenerateCopilotStreamResponseRequest(const GenerateCopilotStreamResponseRequest &) = default ;
@@ -29,7 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->llmParamString_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->llmParamString_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline GenerateCopilotStreamResponseRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // llmParamString Field Functions 
     bool hasLlmParamString() const { return this->llmParamString_ != nullptr;};
     void deleteLlmParamString() { this->llmParamString_ = nullptr;};
@@ -37,9 +49,18 @@ namespace Models
     inline GenerateCopilotStreamResponseRequest& setLlmParamString(string llmParamString) { DARABONBA_PTR_SET_VALUE(llmParamString_, llmParamString) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline GenerateCopilotStreamResponseRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // The input parameter for the Copilot LLM service. Refer to the standard LLM operation input parameter dictionary. Convert the dictionary to a string and pass it in llmParamString.
+    shared_ptr<string> xDebugId_ {};
+    // The input parameter for the Copilot LLM service. Refer to the standard LLM interface input parameter dict. Convert it to a string and pass it to llmParamString.
     shared_ptr<string> llmParamString_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

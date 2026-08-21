@@ -140,7 +140,7 @@ namespace Models
       Darabonba::Json params_ {};
       // The configuration source.
       shared_ptr<string> source_ {};
-      // The alert notification target. Currently, only DingTalk chatbots are supported.
+      // The alert push target. Currently, only DingTalk chatbots are supported.
       shared_ptr<string> target_ {};
       // The user ID.
       shared_ptr<string> uid_ {};
@@ -182,8 +182,8 @@ namespace Models
 
   protected:
     // The status code.
-    // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetAlertDestinationResponseBody::Data> data_ {};

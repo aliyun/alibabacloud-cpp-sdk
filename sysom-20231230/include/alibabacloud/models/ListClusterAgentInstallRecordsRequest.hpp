@@ -13,20 +13,24 @@ namespace Models
   class ListClusterAgentInstallRecordsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListClusterAgentInstallRecordsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(agent_config_id, agentConfigId_);
       DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_TO_JSON(plugin_version, pluginVersion_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListClusterAgentInstallRecordsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(agent_config_id, agentConfigId_);
       DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_FROM_JSON(plugin_version, pluginVersion_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListClusterAgentInstallRecordsRequest() = default ;
     ListClusterAgentInstallRecordsRequest(const ListClusterAgentInstallRecordsRequest &) = default ;
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->agentConfigId_ == nullptr
-        && this->clusterId_ == nullptr && this->current_ == nullptr && this->pageSize_ == nullptr && this->pluginId_ == nullptr && this->pluginVersion_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->agentConfigId_ == nullptr && this->clusterId_ == nullptr && this->current_ == nullptr && this->pageSize_ == nullptr && this->pluginId_ == nullptr
+        && this->pluginVersion_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListClusterAgentInstallRecordsRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // agentConfigId Field Functions 
     bool hasAgentConfigId() const { return this->agentConfigId_ != nullptr;};
     void deleteAgentConfigId() { this->agentConfigId_ = nullptr;};
@@ -83,20 +95,29 @@ namespace Models
     inline ListClusterAgentInstallRecordsRequest& setPluginVersion(string pluginVersion) { DARABONBA_PTR_SET_VALUE(pluginVersion_, pluginVersion) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListClusterAgentInstallRecordsRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     shared_ptr<string> agentConfigId_ {};
-    // Filter by cluster ID.
+    // Filters by cluster ID.
     // 
-    // > This cluster ID is not the ACK cluster ID, but the `cluster_id` field in the data returned by this API, or the `id` field in the data returned by the ListCluster API.
+    // > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field in the data returned by this operation, or the `id` field in the data returned by the ListCluster operation.
     shared_ptr<string> clusterId_ {};
-    // Current page number (starting from 1)
+    // The current page number (starting from 1).
     shared_ptr<int64_t> current_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Specify this parameter to filter the installation list for a specific agent. Can be used in combination with the plugin_version parameter.
+    // Specifies the agent ID to filter the installation list for the specified agent. This parameter can be used together with the plugin_version parameter.
     shared_ptr<string> pluginId_ {};
-    // Cannot be used alone. Use in combination with plugin_id to filter the installation list for a specific agent version.
+    // Cannot be used alone. Use this parameter together with plugin_id to filter the installation list for a specified version of the specified agent.
     shared_ptr<string> pluginVersion_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

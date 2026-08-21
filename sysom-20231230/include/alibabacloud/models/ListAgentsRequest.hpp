@@ -13,16 +13,20 @@ namespace Models
   class ListAgentsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListAgentsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListAgentsRequest() = default ;
     ListAgentsRequest(const ListAgentsRequest &) = default ;
@@ -35,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->current_ == nullptr
-        && this->name_ == nullptr && this->pageSize_ == nullptr && this->type_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->current_ == nullptr && this->name_ == nullptr && this->pageSize_ == nullptr && this->type_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListAgentsRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -65,15 +76,24 @@ namespace Models
     inline ListAgentsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListAgentsRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // The current page number. Pages start from page 1.
+    shared_ptr<string> xDebugId_ {};
+    // The current page number (starting from page 1).
     shared_ptr<int64_t> current_ {};
     // Filters plug-ins by plug-in name.
     shared_ptr<string> name_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The agent type used to filter the list. For example, set this parameter to control to retrieve all agents of the control type.
+    // Filters the list by Agent type. For example, pass control to retrieve all Agents of the control type.
     shared_ptr<string> type_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETEALERTDESTINATIONRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETEALERTDESTINATIONRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETCONFIGBYNAMERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETCONFIGBYNAMERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace SysOM20231230
 {
 namespace Models
 {
-  class DeleteAlertDestinationResponseBody : public Darabonba::Model {
+  class GetConfigByNameResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteAlertDestinationResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetConfigByNameResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
-      DARABONBA_ANY_TO_JSON(data, data_);
+      DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteAlertDestinationResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetConfigByNameResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
-      DARABONBA_ANY_FROM_JSON(data, data_);
+      DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
-    DeleteAlertDestinationResponseBody() = default ;
-    DeleteAlertDestinationResponseBody(const DeleteAlertDestinationResponseBody &) = default ;
-    DeleteAlertDestinationResponseBody(DeleteAlertDestinationResponseBody &&) = default ;
-    DeleteAlertDestinationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteAlertDestinationResponseBody() = default ;
-    DeleteAlertDestinationResponseBody& operator=(const DeleteAlertDestinationResponseBody &) = default ;
-    DeleteAlertDestinationResponseBody& operator=(DeleteAlertDestinationResponseBody &&) = default ;
+    GetConfigByNameResponseBody() = default ;
+    GetConfigByNameResponseBody(const GetConfigByNameResponseBody &) = default ;
+    GetConfigByNameResponseBody(GetConfigByNameResponseBody &&) = default ;
+    GetConfigByNameResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetConfigByNameResponseBody() = default ;
+    GetConfigByNameResponseBody& operator=(const GetConfigByNameResponseBody &) = default ;
+    GetConfigByNameResponseBody& operator=(GetConfigByNameResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -41,44 +41,42 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline DeleteAlertDestinationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline GetConfigByNameResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
-    Darabonba::Json & getData() { DARABONBA_GET(data_) };
-    inline DeleteAlertDestinationResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline DeleteAlertDestinationResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline GetConfigByNameResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline DeleteAlertDestinationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline GetConfigByNameResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteAlertDestinationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetConfigByNameResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The status code.
     // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed error message.
     shared_ptr<string> code_ {};
-    // The returned data.
-    Darabonba::Json data_ {};
+    // The response data.
+    shared_ptr<string> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error information of the request.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

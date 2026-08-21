@@ -190,7 +190,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The component instance name.
       shared_ptr<string> instanceName_ {};
-      // The instance tag.
+      // The instance tags.
       shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
       // The operating system name of the instance.
       shared_ptr<string> osName_ {};
@@ -256,7 +256,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -13,14 +13,18 @@ namespace Models
   class GetServiceFuncStatusRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetServiceFuncStatusRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(channel, channel_);
       DARABONBA_PTR_TO_JSON(params, params_);
       DARABONBA_PTR_TO_JSON(service_name, serviceName_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GetServiceFuncStatusRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(channel, channel_);
       DARABONBA_PTR_FROM_JSON(params, params_);
       DARABONBA_PTR_FROM_JSON(service_name, serviceName_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GetServiceFuncStatusRequest() = default ;
     GetServiceFuncStatusRequest(const GetServiceFuncStatusRequest &) = default ;
@@ -90,8 +94,15 @@ namespace Models
       shared_ptr<string> uid_ {};
     };
 
-    virtual bool empty() const override { return this->channel_ == nullptr
-        && this->params_ == nullptr && this->serviceName_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->channel_ == nullptr && this->params_ == nullptr && this->serviceName_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline GetServiceFuncStatusRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
@@ -115,7 +126,15 @@ namespace Models
     inline GetServiceFuncStatusRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline GetServiceFuncStatusRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The channel name.
     // 
     // This parameter is required.
@@ -128,6 +147,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

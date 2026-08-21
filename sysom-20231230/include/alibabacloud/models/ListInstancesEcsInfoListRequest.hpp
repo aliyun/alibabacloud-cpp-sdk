@@ -13,18 +13,22 @@ namespace Models
   class ListInstancesEcsInfoListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesEcsInfoListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(info_type, infoType_);
       DARABONBA_PTR_TO_JSON(instance_id, instanceId_);
       DARABONBA_PTR_TO_JSON(managed_type, managedType_);
       DARABONBA_PTR_TO_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_TO_JSON(region, region_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesEcsInfoListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(info_type, infoType_);
       DARABONBA_PTR_FROM_JSON(instance_id, instanceId_);
       DARABONBA_PTR_FROM_JSON(managed_type, managedType_);
       DARABONBA_PTR_FROM_JSON(plugin_id, pluginId_);
       DARABONBA_PTR_FROM_JSON(region, region_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListInstancesEcsInfoListRequest() = default ;
     ListInstancesEcsInfoListRequest(const ListInstancesEcsInfoListRequest &) = default ;
@@ -37,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->infoType_ == nullptr
-        && this->instanceId_ == nullptr && this->managedType_ == nullptr && this->pluginId_ == nullptr && this->region_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->infoType_ == nullptr && this->instanceId_ == nullptr && this->managedType_ == nullptr && this->pluginId_ == nullptr && this->region_ == nullptr
+        && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListInstancesEcsInfoListRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // infoType Field Functions 
     bool hasInfoType() const { return this->infoType_ != nullptr;};
     void deleteInfoType() { this->infoType_ = nullptr;};
@@ -74,21 +86,30 @@ namespace Models
     inline ListInstancesEcsInfoListRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListInstancesEcsInfoListRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The type of information to retrieve.
     // 
     // This parameter is required.
     shared_ptr<string> infoType_ {};
-    // Specifies the instance ID to filter and return the Agent installation status of the specified instance.
+    // Specifies the instance ID to filter the Agent installation status of the specified instance.
     shared_ptr<string> instanceId_ {};
     // The management status of the instance.
     shared_ptr<string> managedType_ {};
-    // Specifies the component ID to filter and return the instance information list for the corresponding component.
+    // Specifies the component ID to filter the instance information list for the corresponding component.
     shared_ptr<string> pluginId_ {};
     // The region used to filter instances.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

@@ -13,6 +13,7 @@ namespace Models
   class ListInstancesWithEcsInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesWithEcsInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(health_status, healthStatus_);
       DARABONBA_PTR_TO_JSON(instance_id, instanceId_);
@@ -28,8 +29,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(resource_group_id_name, resourceGroupIdName_);
       DARABONBA_PTR_TO_JSON(resource_group_name, resourceGroupName_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesWithEcsInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(health_status, healthStatus_);
       DARABONBA_PTR_FROM_JSON(instance_id, instanceId_);
@@ -45,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(resource_group_id_name, resourceGroupIdName_);
       DARABONBA_PTR_FROM_JSON(resource_group_name, resourceGroupName_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListInstancesWithEcsInfoRequest() = default ;
     ListInstancesWithEcsInfoRequest(const ListInstancesWithEcsInfoRequest &) = default ;
@@ -101,10 +105,18 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->current_ == nullptr
-        && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->instanceIdName_ == nullptr && this->instanceName_ == nullptr && this->instanceTag_ == nullptr
-        && this->isManaged_ == nullptr && this->osName_ == nullptr && this->pageSize_ == nullptr && this->privateIp_ == nullptr && this->publicIp_ == nullptr
-        && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdName_ == nullptr && this->resourceGroupName_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->current_ == nullptr && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->instanceIdName_ == nullptr && this->instanceName_ == nullptr
+        && this->instanceTag_ == nullptr && this->isManaged_ == nullptr && this->osName_ == nullptr && this->pageSize_ == nullptr && this->privateIp_ == nullptr
+        && this->publicIp_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdName_ == nullptr && this->resourceGroupName_ == nullptr
+        && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline ListInstancesWithEcsInfoRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -212,7 +224,15 @@ namespace Models
     inline ListInstancesWithEcsInfoRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline ListInstancesWithEcsInfoRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The page number for pagination. This parameter specifies the current page.
     shared_ptr<int32_t> current_ {};
     // Filters instances by health status.
@@ -245,6 +265,7 @@ namespace Models
     shared_ptr<string> resourceGroupIdName_ {};
     // Filters instances by resource group name.
     shared_ptr<string> resourceGroupName_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

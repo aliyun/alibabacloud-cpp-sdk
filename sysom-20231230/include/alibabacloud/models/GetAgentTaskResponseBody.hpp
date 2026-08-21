@@ -154,7 +154,7 @@ namespace Models
 
 
       protected:
-        // The cause of the task failure. This field is returned only when the task fails.
+        // The reason that caused the task to fail. This field is returned only when the task execution fails.
         shared_ptr<string> error_ {};
         // The error code of the subtask failure. Valid values:
         // * Empty: The task is executed normally.
@@ -168,13 +168,13 @@ namespace Models
         // * AGENT_SAME_VERSION: The version is the same.
         // * HAS_RUNNING_JOB: A running task exists.
         // * RPM_LOCK_HELD: The RPM lock is held.
-        // * DISK_SPACE_INSUFFICIENT: Insufficient disk space.
+        // * DISK_SPACE_INSUFFICIENT: The disk space is insufficient.
         // * NODE_LOAD_HIGH: The node load is high.
-        // * COMMAND_FAILED: Command execution failed.
+        // * COMMAND_FAILED: The command execution failed.
         // * CLIENT_NOT_RUNNING: The Cloud Assistant Agent is not running.
         // * CLIENT_NOT_RESPONSE: The Cloud Assistant Agent is not responding.
-        // * DELIVERY_TIMEOUT: Command delivery timed out.
-        // * EXECUTION_TIMEOUT: Command execution timed out.
+        // * DELIVERY_TIMEOUT: The command delivery timed out.
+        // * EXECUTION_TIMEOUT: The command execution timed out.
         // * TASK_CONCURRENCY_LIMIT: The task concurrency limit is reached.
         shared_ptr<string> errorCode_ {};
         // The detailed description of the subtask failure. Valid values:
@@ -188,13 +188,13 @@ namespace Models
         // * The Agent version is the same. No upgrade is required.
         // * A running task exists. Try again later.
         // * The RPM lock is held. Try again later.
-        // * Insufficient disk space.
+        // * The disk space is insufficient.
         // * The node load is too high. Try again later.
-        // * Command execution failed. Try again later.
+        // * The command execution failed. Try again later.
         // * The Cloud Assistant Agent is not running.
         // * The Cloud Assistant Agent is not responding.
-        // * Command delivery timed out.
-        // * Command execution timed out.
+        // * The command delivery timed out.
+        // * The command execution timed out.
         // * The task concurrency limit is reached.
         shared_ptr<string> errorMessage_ {};
         // The instance ID.
@@ -206,10 +206,10 @@ namespace Models
         // The subtask execution result.
         shared_ptr<string> result_ {};
         // The subtask status. Valid values:
-        // - Created: Created.
-        // - Running: Running.
-        // - Success: The task succeeded.
-        // - Fail: The task failed.
+        // - Created: The subtask is created.
+        // - Running: The subtask is running.
+        // - Success: The subtask succeeded.
+        // - Fail: The subtask failed.
         shared_ptr<string> status_ {};
       };
 
@@ -283,13 +283,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code.
     // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetAgentTaskResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
   };
 

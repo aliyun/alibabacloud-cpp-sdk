@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<CreateAlertDestinationResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error message of the request.
+    // - Otherwise, this field contains the error message for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

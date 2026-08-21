@@ -151,7 +151,7 @@ namespace Models
         shared_ptr<string> installScript_ {};
         // The uninstallation script of the component.
         shared_ptr<string> uninstallScript_ {};
-        // The time when the component version was last updated.
+        // The time when the component version was updated.
         shared_ptr<string> updatedAt_ {};
         // The update script of the component.
         shared_ptr<string> upgradeScript_ {};
@@ -229,13 +229,13 @@ namespace Models
       shared_ptr<string> id_ {};
       // The component name.
       shared_ptr<string> name_ {};
-      // The supported architectures. Multiple architectures are separated by commas.
+      // The supported architectures (multiple architectures are separated by commas).
       shared_ptr<string> supportArch_ {};
       // The type of the component. Valid values:
       // - Control: control-type component.
       // - AI: AI component.
       shared_ptr<string> type_ {};
-      // The time when the component was last updated.
+      // The time when the component was updated.
       shared_ptr<string> updatedAt_ {};
       // The list of component versions.
       shared_ptr<vector<Data::Versions>> versions_ {};
@@ -284,14 +284,14 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - If code is Success, the authorization is successful.
-    // - Other status codes indicate authorization failed. Check the message field for the detailed fault information.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<ListAgentsResponseBody::Data>> data_ {};
     // The error message.
-    // - If code is Success, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

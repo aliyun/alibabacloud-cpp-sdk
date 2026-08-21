@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The returned results. The data volume can be large.
+    // The returned result. The data volume is large.
     shared_ptr<string> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

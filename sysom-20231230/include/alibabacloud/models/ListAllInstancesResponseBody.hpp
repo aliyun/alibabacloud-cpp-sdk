@@ -150,11 +150,11 @@ namespace Models
 
 
       protected:
-        // Information key.
+        // The information key.
         shared_ptr<string> infoKey_ {};
-        // Information type.
+        // The information type.
         shared_ptr<string> infoType_ {};
-        // Information value.
+        // The information value.
         shared_ptr<string> infoValue_ {};
       };
 
@@ -321,55 +321,55 @@ namespace Models
 
 
     protected:
-      // Agent configuration ID.
+      // The agent configuration ID.
       shared_ptr<string> agentConfigId_ {};
-      // Agent configuration name.
+      // The agent configuration name.
       shared_ptr<string> agentConfigName_ {};
-      // Extended information.
+      // The extended information.
       shared_ptr<vector<Data::Attributes>> attributes_ {};
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Cluster name.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // Image ID.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // Installation level.
+      // The installation level.
       shared_ptr<string> installLevel_ {};
-      // Installation type.
+      // The installation type.
       shared_ptr<string> installType_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Instance name.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // Instance type.
+      // The instance type.
       shared_ptr<string> instanceType_ {};
-      // Kernel version.
+      // The kernel version.
       shared_ptr<string> kernelVersion_ {};
-      // Management level.
+      // The management level.
       shared_ptr<string> manageLevel_ {};
-      // Management type.
+      // The management type.
       shared_ptr<string> manageType_ {};
-      // Operating system architecture.
+      // The operating system architecture.
       shared_ptr<string> osArch_ {};
-      // Operating system health score.
+      // The operating system health score.
       shared_ptr<int32_t> osHealthScore_ {};
-      // Operating system name.
+      // The operating system name.
       shared_ptr<string> osName_ {};
-      // Private IP address.
+      // The private IP address.
       shared_ptr<string> privateIp_ {};
-      // Public IP address.
+      // The public IP address.
       shared_ptr<string> publicIp_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Resource group name.
+      // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // Running status of the instance. Valid values:
+      // The running status of the instance. Valid values:
       // - **Running**: The instance is running.
       // - **Offline**: The instance is offline.
       // 
       // 
       // 
-      // > An instance in the Offline status indicates that the heartbeat from the node to the SysOM server is lost. It does not necessarily mean that the corresponding ECS instance is not running.
+      // > An instance in the Offline state indicates that the heartbeat from the node to the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -428,23 +428,23 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<ListAllInstancesResponseBody::Data>> data_ {};
-    // Maximum number of results returned.
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
-    // Error message.
+    // The error message.
     // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
-    // Pagination token.
+    // The pagination token.
     // 
     // > A non-empty value indicates that more data is available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Total number of query results.
+    // The total number of query results.
     shared_ptr<int64_t> total_ {};
   };
 

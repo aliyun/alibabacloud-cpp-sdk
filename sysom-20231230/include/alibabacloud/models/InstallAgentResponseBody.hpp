@@ -65,7 +65,7 @@ namespace Models
     protected:
       // The task ID.
       // 
-      // You can use this task ID to call the GetAgentTask operation to retrieve the task execution status.
+      // You can use this task ID to call the GetAgentTask operation to query the task execution status.
       shared_ptr<string> taskId_ {};
     };
 
@@ -105,12 +105,14 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
+    // 
     // - If `code == Success`, the authorization is successful.
     // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<InstallAgentResponseBody::Data> data_ {};
     // The error message.
+    // 
     // - If `code == Success`, this field is empty.
     // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};

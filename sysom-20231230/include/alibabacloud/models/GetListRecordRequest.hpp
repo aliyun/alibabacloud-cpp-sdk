@@ -13,18 +13,22 @@ namespace Models
   class GetListRecordRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetListRecordRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(analysisId, analysisId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(customId, customId_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(region, region_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GetListRecordRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(analysisId, analysisId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(customId, customId_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(region, region_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GetListRecordRequest() = default ;
     GetListRecordRequest(const GetListRecordRequest &) = default ;
@@ -37,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->analysisId_ == nullptr
-        && this->current_ == nullptr && this->customId_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->analysisId_ == nullptr && this->current_ == nullptr && this->customId_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr
+        && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline GetListRecordRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // analysisId Field Functions 
     bool hasAnalysisId() const { return this->analysisId_ != nullptr;};
     void deleteAnalysisId() { this->analysisId_ = nullptr;};
@@ -74,7 +86,15 @@ namespace Models
     inline GetListRecordRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline GetListRecordRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
+    shared_ptr<string> xDebugId_ {};
     // The ID of the analysis record to query the status of.
     shared_ptr<string> analysisId_ {};
     // The current page number.
@@ -84,6 +104,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

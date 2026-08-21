@@ -13,18 +13,22 @@ namespace Models
   class CreateVmcoreDiagnosisTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateVmcoreDiagnosisTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(debuginfoCommonUrl, debuginfoCommonUrl_);
       DARABONBA_PTR_TO_JSON(debuginfoUrl, debuginfoUrl_);
       DARABONBA_PTR_TO_JSON(dmesgUrl, dmesgUrl_);
       DARABONBA_PTR_TO_JSON(taskType, taskType_);
       DARABONBA_PTR_TO_JSON(vmcoreUrl, vmcoreUrl_);
+      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, CreateVmcoreDiagnosisTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(debuginfoCommonUrl, debuginfoCommonUrl_);
       DARABONBA_PTR_FROM_JSON(debuginfoUrl, debuginfoUrl_);
       DARABONBA_PTR_FROM_JSON(dmesgUrl, dmesgUrl_);
       DARABONBA_PTR_FROM_JSON(taskType, taskType_);
       DARABONBA_PTR_FROM_JSON(vmcoreUrl, vmcoreUrl_);
+      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     CreateVmcoreDiagnosisTaskRequest() = default ;
     CreateVmcoreDiagnosisTaskRequest(const CreateVmcoreDiagnosisTaskRequest &) = default ;
@@ -37,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->debuginfoCommonUrl_ == nullptr
-        && this->debuginfoUrl_ == nullptr && this->dmesgUrl_ == nullptr && this->taskType_ == nullptr && this->vmcoreUrl_ == nullptr; };
+    virtual bool empty() const override { return this->xDebugId_ == nullptr
+        && this->debuginfoCommonUrl_ == nullptr && this->debuginfoUrl_ == nullptr && this->dmesgUrl_ == nullptr && this->taskType_ == nullptr && this->vmcoreUrl_ == nullptr
+        && this->xSysomInvokeSource_ == nullptr; };
+    // xDebugId Field Functions 
+    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
+    void deleteXDebugId() { this->xDebugId_ = nullptr;};
+    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
+    inline CreateVmcoreDiagnosisTaskRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
+
+
     // debuginfoCommonUrl Field Functions 
     bool hasDebuginfoCommonUrl() const { return this->debuginfoCommonUrl_ != nullptr;};
     void deleteDebuginfoCommonUrl() { this->debuginfoCommonUrl_ = nullptr;};
@@ -74,16 +86,24 @@ namespace Models
     inline CreateVmcoreDiagnosisTaskRequest& setVmcoreUrl(string vmcoreUrl) { DARABONBA_PTR_SET_VALUE(vmcoreUrl_, vmcoreUrl) };
 
 
+    // xSysomInvokeSource Field Functions 
+    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
+    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
+    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
+    inline CreateVmcoreDiagnosisTaskRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
+
+
   protected:
-    // The download URL of the debuginfo-common file. This parameter is optional when the diagnostic type is vmcore.
+    shared_ptr<string> xDebugId_ {};
+    // The download URL of the debuginfo-common file. This parameter is optional when the diagnosis type is vmcore.
     // 
-    // For CentOS or Alinux kernels, the corresponding debuginfo-common file is automatically downloaded, and you do not need to specify this parameter. For other distribution kernels, manually provide the download URL of the debuginfo-common file that corresponds to the kernel version.
+    // For CentOS or Alinux kernel diagnostics, the corresponding debuginfo-common file is automatically downloaded, so this parameter is not required. For other distribution kernels, manually provide the download URL of the debuginfo-common file that corresponds to the kernel version.
     shared_ptr<string> debuginfoCommonUrl_ {};
-    // The download URL of the debuginfo file. This parameter is optional when the diagnostic type is vmcore.
+    // The download URL of the debuginfo file. This parameter is optional when the diagnosis type is vmcore.
     // 
-    // For CentOS or Alinux kernels, the corresponding debuginfo file is automatically downloaded, and you do not need to specify this parameter. For other distribution kernels, manually provide the download URL of the debuginfo file that corresponds to the kernel version.
+    // For CentOS or Alinux kernel diagnostics, the corresponding debuginfo file is automatically downloaded, so this parameter is not required. For other distribution kernels, manually provide the download URL of the debuginfo file that corresponds to the kernel version.
     shared_ptr<string> debuginfoUrl_ {};
-    // The download URL of the dmesg log file. This parameter is required when the diagnostic type is dmesg.
+    // The download URL of the dmesg log file. This parameter is required when the diagnosis type is dmesg.
     shared_ptr<string> dmesgUrl_ {};
     // The task type. Valid values:
     // 
@@ -92,8 +112,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};
-    // The download URL of the vmcore file. This parameter is required when the diagnostic type is vmcore.
+    // The download URL of the vmcore file. This parameter is required when the diagnosis type is vmcore.
     shared_ptr<string> vmcoreUrl_ {};
+    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models
