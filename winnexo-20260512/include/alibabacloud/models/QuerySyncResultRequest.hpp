@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 同步任务 ID（由 syncOrgStructure 返回）
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

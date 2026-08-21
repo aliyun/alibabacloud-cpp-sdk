@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // 租户ID
+        // The tenant ID.
         shared_ptr<int64_t> tenantId_ {};
-        // 租户名称
+        // The tenant name.
         shared_ptr<string> tenantName_ {};
       };
 
@@ -239,34 +239,35 @@ namespace Models
 
 
     protected:
-      // 用户头像URL
+      // The user profile picture URL.
       shared_ptr<string> avatar_ {};
-      // 是否为超级管理员
+      // Indicates whether the user is a super administrator.
       shared_ptr<bool> isAdmin_ {};
-      // 当前登录租户是否为系统租户
+      // Indicates whether the current logged-in tenant is a system tenant.
       shared_ptr<bool> isSystemTenant_ {};
-      // 用户语言偏好
+      // The user language preference.
       shared_ptr<string> languagePreference_ {};
-      // 文件名
+      // The username.
       shared_ptr<string> name_ {};
-      // 用户服务描述
+      // The user service description.
       shared_ptr<string> offering_ {};
-      // 用户服务解析结果（JSON格式）
+      // The parsed user service result in JSON format.
       shared_ptr<string> parsedOffering_ {};
-      // 用户角色
+      // The user role.
       shared_ptr<string> profileRole_ {};
-      // 用户角色描述
+      // The user role description.
       shared_ptr<string> profileRoleInfo_ {};
-      // 用户自我介绍
+      // The user self-introduction.
       shared_ptr<string> selfIntroduction_ {};
-      // 当前租户ID
+      // The current tenant ID.
       shared_ptr<int64_t> tenantId_ {};
+      // The list of tenants to which the user belongs.
       shared_ptr<vector<User::TenantList>> tenantList_ {};
-      // 当前租户名称
+      // The current tenant name.
       shared_ptr<string> tenantName_ {};
-      // 用户代码
+      // The user code.
       shared_ptr<string> userCode_ {};
-      // 用户ID
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -303,12 +304,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user information.
     shared_ptr<UpdateUserInfoResponseBody::User> user_ {};
   };
 

@@ -112,23 +112,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The error details.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The updated filter view name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The export scope. Valid values:
+    // - ALL: all.
+    // - SELECT: selected rows.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The source ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态
+    // The status.
     shared_ptr<string> status_ {};
   };
 

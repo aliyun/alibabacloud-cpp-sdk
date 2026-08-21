@@ -121,29 +121,29 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The pipeline description.
     shared_ptr<string> description_ {};
-    // 目标个人目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前用户在当前数字员工下的已有个人目录
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 文件后缀名（可选，如 pdf、docx）
+    // The file extension (optional, such as pdf or docx).
     shared_ptr<string> fileExt_ {};
-    // 原始文件名（可选，含后缀）
+    // The file name.
     shared_ptr<string> fileName_ {};
-    // 文件 OSS 持久化地址（必填，对应 settings.file_path）
+    // The file path.
     // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
-    // 文件公开访问 URL（可选，带签名，对应 settings.file_public_url）
+    // The publicly accessible URL of the Alibaba DingTalk online document.
     shared_ptr<string> filePublicUrl_ {};
-    // 文件记录 ID（可选，对应 settings.file_record_id）
+    // The file record ID (optional, corresponding to settings.file_record_id).
     shared_ptr<string> fileRecordId_ {};
-    // 资源显示名称
+    // The pipeline name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -94,19 +94,23 @@ namespace Models
 
 
   protected:
-    // 目录唯一标识；不传或传 root 时查询知识库根目录列表
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries per page. Default value: 100. Maximum value: 500.
     shared_ptr<int64_t> pageSize_ {};
-    // 排序字段
+    // The field by which the results are sorted. Valid values:
+    // 
+    // - event_time: the event creation time.
+    // - event_execute_start_time: the event execution time.
+    // - event_execute_finish_time: the event completion time.
     shared_ptr<string> sortField_ {};
-    // 排序方向
+    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
     shared_ptr<string> sortOrder_ {};
-    // 资源类型过滤，多个类型使用逗号分隔；传入后只返回资源
+    // The list of source types.
     shared_ptr<string> sourceTypes_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

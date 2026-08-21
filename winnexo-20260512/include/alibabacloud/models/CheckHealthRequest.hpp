@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

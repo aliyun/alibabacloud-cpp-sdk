@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(triggerConfig, triggerConfigShrink_);
+      DARABONBA_PTR_TO_JSON(visibility, visibility_);
+      DARABONBA_PTR_TO_JSON(visibleMemberUserIds, visibleMemberUserIdsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, CreateScheduledTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
@@ -35,6 +37,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetailShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(triggerConfig, triggerConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(visibility, visibility_);
+      DARABONBA_PTR_FROM_JSON(visibleMemberUserIds, visibleMemberUserIdsShrink_);
     };
     CreateScheduledTaskShrinkRequest() = default ;
     CreateScheduledTaskShrinkRequest(const CreateScheduledTaskShrinkRequest &) = default ;
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
         && this->descriptionShrink_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->segmentsShrink_ == nullptr && this->taskDetailShrink_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr; };
+        && this->segmentsShrink_ == nullptr && this->taskDetailShrink_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr && this->visibility_ == nullptr
+        && this->visibleMemberUserIdsShrink_ == nullptr; };
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -120,25 +125,56 @@ namespace Models
     inline CreateScheduledTaskShrinkRequest& setTriggerConfigShrink(string triggerConfigShrink) { DARABONBA_PTR_SET_VALUE(triggerConfigShrink_, triggerConfigShrink) };
 
 
+    // visibility Field Functions 
+    bool hasVisibility() const { return this->visibility_ != nullptr;};
+    void deleteVisibility() { this->visibility_ = nullptr;};
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline CreateScheduledTaskShrinkRequest& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
+    // visibleMemberUserIdsShrink Field Functions 
+    bool hasVisibleMemberUserIdsShrink() const { return this->visibleMemberUserIdsShrink_ != nullptr;};
+    void deleteVisibleMemberUserIdsShrink() { this->visibleMemberUserIdsShrink_ = nullptr;};
+    inline string getVisibleMemberUserIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(visibleMemberUserIdsShrink_, "") };
+    inline CreateScheduledTaskShrinkRequest& setVisibleMemberUserIdsShrink(string visibleMemberUserIdsShrink) { DARABONBA_PTR_SET_VALUE(visibleMemberUserIdsShrink_, visibleMemberUserIdsShrink) };
+
+
   protected:
-    // 所属协作群组 ID（如 cg_101）；传入时创建群空间任务（调用者需为有效群成员），为空创建个人任务
+    // The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
+    // The description of the to-do card type.
     shared_ptr<string> descriptionShrink_ {};
-    // 数字员工名称列表
+    // The name of the current effective digital employee. This parameter is empty if not configured.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
-    // 是否公开访问
+    // Specifies whether public access is enabled.
     shared_ptr<bool> isOpen_ {};
-    // 执行模型档位，不传默认 standard
+    // The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
-    // 文件名
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The site ID.
     shared_ptr<string> segmentsShrink_ {};
+    // The task details.
     shared_ptr<string> taskDetailShrink_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
+    // The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
+    // 
+    //   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
+    //   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
+    //   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
+    //   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
+    //   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
+    //   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
+    //   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
+    //   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
     shared_ptr<string> triggerConfigShrink_ {};
+    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+    shared_ptr<string> visibility_ {};
+    // The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+    shared_ptr<string> visibleMemberUserIdsShrink_ {};
   };
 
   } // namespace Models

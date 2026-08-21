@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 数字员工名称（运营对象 name）
+    // The name of the digital employee (operating object name).
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

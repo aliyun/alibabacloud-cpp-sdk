@@ -78,23 +78,26 @@ namespace Models
 
 
   protected:
-    // 操作：add-关注，remove-取消关注
+    // The operation type. Valid values:
+    // 
+    // - **1**: Add to whitelist.
+    // - **2**: Remove from whitelist.
     // 
     // This parameter is required.
     shared_ptr<string> action_ {};
-    // 主对象业务ID列表
+    // The list of primary object business IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> objectIds_ {};
-    // 对象类型（如 customer、project）
+    // The object type, such as customer. This parameter has a value when type is set to mention.
     // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
-    // 运营对象名称（如 customer_1）
+    // The name of the digital employee (operating object name, optional).
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -71,15 +71,15 @@ namespace Models
 
 
   protected:
-    // 数字员工名称
+    // The name of the digital human.
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 被撤销的用户组 ID 列表（16位 hex 字符串）
+    // The list of user group IDs to be revoked (16-character hex strings).
     shared_ptr<vector<string>> userGroupIds_ {};
-    // 被撤销的用户 ID 列表
+    // The list of user IDs to be revoked.
     shared_ptr<vector<string>> userIds_ {};
   };
 

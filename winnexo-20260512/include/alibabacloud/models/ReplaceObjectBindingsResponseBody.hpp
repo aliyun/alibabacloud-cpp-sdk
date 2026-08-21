@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // 绑定对象归属的语义图谱名（object_id 在该 graph 下唯一，必填）
+      // The semantic graph name to which the binding object belongs (object_id is unique within this graph. Required).
       shared_ptr<string> graphName_ {};
-      // 绑定对象 ID
+      // The binding object ID.
       shared_ptr<string> objectId_ {};
-      // 绑定对象类型（如 customer / project）
+      // The binding object type (such as customer or project).
       shared_ptr<string> objectType_ {};
     };
 
@@ -133,14 +133,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The object binding.
     shared_ptr<vector<ReplaceObjectBindingsResponseBody::ObjectBindings>> objectBindings_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 数据源 ID
+    // The ID of the personal FILE data source to be replaced (unique within the tenant).
     shared_ptr<string> sourceId_ {};
   };
 

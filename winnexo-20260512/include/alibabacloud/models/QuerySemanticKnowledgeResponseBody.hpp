@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 与 query 相关的语义知识文本
+    // The semantic knowledge text related to the query.
     // 
     // This parameter is required.
     shared_ptr<string> schemaKnowledge_ {};

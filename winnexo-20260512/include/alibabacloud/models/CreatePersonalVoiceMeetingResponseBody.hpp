@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response code.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID（请求体传入时 echo 回；缺省走默认根目录时为 null）
+    // The bound directory ID. This value echoes the directoryId provided in the request body. If no directoryId is specified, the value is null because the default root directory is used.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The knowledge base name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The resource scope. The value is fixed to PERSONAL.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The unique identifier on the business system side, that is, the business ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态（创建链路初始多为 PENDING；on_create 失败则为 FAILED）
+    // The resource status. The initial status during the creation process is typically PENDING. If the on_create process fails, the status is FAILED.
     shared_ptr<string> status_ {};
   };
 

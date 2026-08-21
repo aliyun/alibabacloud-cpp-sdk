@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 图谱名称，可先调用 listGraphs 获取
+    // The knowledge graph name. Call listGraphs to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The effective tenant ID.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

@@ -15,15 +15,23 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetScheduledTaskExecutionRecordsResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(hasMore, hasMore_);
       DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(page, page_);
+      DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(tasks, tasks_);
+      DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, GetScheduledTaskExecutionRecordsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(hasMore, hasMore_);
       DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(page, page_);
+      DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(tasks, tasks_);
+      DARABONBA_PTR_FROM_JSON(total, total_);
     };
     GetScheduledTaskExecutionRecordsResponseBody() = default ;
     GetScheduledTaskExecutionRecordsResponseBody(const GetScheduledTaskExecutionRecordsResponseBody &) = default ;
@@ -39,9 +47,11 @@ namespace Models
     class Tasks : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Tasks& obj) { 
+        DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
         DARABONBA_PTR_TO_JSON(cronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
+        DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(taskId, taskId_);
         DARABONBA_PTR_TO_JSON(timeline, timeline_);
@@ -49,9 +59,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(triggerType, triggerType_);
       };
       friend void from_json(const Darabonba::Json& j, Tasks& obj) { 
+        DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
         DARABONBA_PTR_FROM_JSON(cronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
+        DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(taskId, taskId_);
         DARABONBA_PTR_FROM_JSON(timeline, timeline_);
@@ -76,6 +88,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(displayName, displayName_);
           DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
           DARABONBA_PTR_TO_JSON(executionId, executionId_);
+          DARABONBA_PTR_TO_JSON(isExpired, isExpired_);
           DARABONBA_PTR_TO_JSON(outputContent, outputContent_);
           DARABONBA_PTR_TO_JSON(scheduledTime, scheduledTime_);
           DARABONBA_PTR_TO_JSON(status, status_);
@@ -85,6 +98,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(displayName, displayName_);
           DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
           DARABONBA_PTR_FROM_JSON(executionId, executionId_);
+          DARABONBA_PTR_FROM_JSON(isExpired, isExpired_);
           DARABONBA_PTR_FROM_JSON(outputContent, outputContent_);
           DARABONBA_PTR_FROM_JSON(scheduledTime, scheduledTime_);
           DARABONBA_PTR_FROM_JSON(status, status_);
@@ -101,8 +115,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->actualTime_ == nullptr
-        && this->displayName_ == nullptr && this->errorMessage_ == nullptr && this->executionId_ == nullptr && this->outputContent_ == nullptr && this->scheduledTime_ == nullptr
-        && this->status_ == nullptr; };
+        && this->displayName_ == nullptr && this->errorMessage_ == nullptr && this->executionId_ == nullptr && this->isExpired_ == nullptr && this->outputContent_ == nullptr
+        && this->scheduledTime_ == nullptr && this->status_ == nullptr; };
         // actualTime Field Functions 
         bool hasActualTime() const { return this->actualTime_ != nullptr;};
         void deleteActualTime() { this->actualTime_ = nullptr;};
@@ -131,6 +145,13 @@ namespace Models
         inline Timeline& setExecutionId(string executionId) { DARABONBA_PTR_SET_VALUE(executionId_, executionId) };
 
 
+        // isExpired Field Functions 
+        bool hasIsExpired() const { return this->isExpired_ != nullptr;};
+        void deleteIsExpired() { this->isExpired_ = nullptr;};
+        inline bool getIsExpired() const { DARABONBA_PTR_GET_DEFAULT(isExpired_, false) };
+        inline Timeline& setIsExpired(bool isExpired) { DARABONBA_PTR_SET_VALUE(isExpired_, isExpired) };
+
+
         // outputContent Field Functions 
         bool hasOutputContent() const { return this->outputContent_ != nullptr;};
         void deleteOutputContent() { this->outputContent_ = nullptr;};
@@ -153,25 +174,34 @@ namespace Models
 
 
       protected:
-        // 实际执行时间（仅历史记录）
+        // The actual working hours, in hours.
         shared_ptr<string> actualTime_ {};
-        // 执行记录展示名称
+        // The name of the schedule location.
         shared_ptr<string> displayName_ {};
-        // 错误信息（仅失败记录）
+        // The error message.
         shared_ptr<string> errorMessage_ {};
-        // 执行记录 ID（历史记录才有）
+        // The execution record ID.
         shared_ptr<string> executionId_ {};
-        // 执行输出内容（仅历史记录）
+        // Indicates whether the execution record has been archived due to expiration.
+        shared_ptr<bool> isExpired_ {};
+        // The execution output content (historical records only).
         shared_ptr<string> outputContent_ {};
-        // 计划执行时间 ISO8601
+        // The timed scheduling time.
         shared_ptr<string> scheduledTime_ {};
-        // 状态：PENDING/RUNNING/SUCCESS/FAILED/SCHEDULED
+        // The final status of the message.
         shared_ptr<string> status_ {};
       };
 
-      virtual bool empty() const override { return this->cronExpression_ == nullptr
-        && this->description_ == nullptr && this->isOpen_ == nullptr && this->name_ == nullptr && this->taskId_ == nullptr && this->timeline_ == nullptr
-        && this->timezone_ == nullptr && this->triggerType_ == nullptr; };
+      virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
+        && this->cronExpression_ == nullptr && this->description_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
+        && this->taskId_ == nullptr && this->timeline_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr; };
+      // collaborationGroupId Field Functions 
+      bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
+      void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
+      inline string getCollaborationGroupId() const { DARABONBA_PTR_GET_DEFAULT(collaborationGroupId_, "") };
+      inline Tasks& setCollaborationGroupId(string collaborationGroupId) { DARABONBA_PTR_SET_VALUE(collaborationGroupId_, collaborationGroupId) };
+
+
       // cronExpression Field Functions 
       bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
       void deleteCronExpression() { this->cronExpression_ = nullptr;};
@@ -191,6 +221,13 @@ namespace Models
       void deleteIsOpen() { this->isOpen_ = nullptr;};
       inline bool getIsOpen() const { DARABONBA_PTR_GET_DEFAULT(isOpen_, false) };
       inline Tasks& setIsOpen(bool isOpen) { DARABONBA_PTR_SET_VALUE(isOpen_, isOpen) };
+
+
+      // model Field Functions 
+      bool hasModel() const { return this->model_ != nullptr;};
+      void deleteModel() { this->model_ = nullptr;};
+      inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+      inline Tasks& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
       // name Field Functions 
@@ -231,25 +268,38 @@ namespace Models
 
 
     protected:
-      // Cron 表达式
+      // The ID of the collaboration group to which the task belongs. If empty, the task is a personal task.
+      shared_ptr<string> collaborationGroupId_ {};
+      // The cron expression.
       shared_ptr<string> cronExpression_ {};
-      // 任务简述
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 是否公开
+      // Indicates whether public access is enabled.
       shared_ptr<bool> isOpen_ {};
-      // 文件名
+      // The execution model tier. Valid values:
+      // - flagship: flagship.
+      // - standard: standard.
+      // - quick: lightweight.
+      shared_ptr<string> model_ {};
+      // The name.
       shared_ptr<string> name_ {};
-      // 任务 ID
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The timeline.
       shared_ptr<vector<Tasks::Timeline>> timeline_ {};
-      // 时区
+      // The time zone.
+      // 
+      // > Default value: UTC+8.
       shared_ptr<string> timezone_ {};
-      // 触发类型 cron/manual/event
+      // The trigger type. Valid values:
+      // - Manual: manually executed.
+      // - Cron: triggered by a schedule.
       shared_ptr<string> triggerType_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->message_ == nullptr && this->requestId_ == nullptr && this->tasks_ == nullptr; };
+        && this->hasMore_ == nullptr && this->message_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
+        && this->tasks_ == nullptr && this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -257,11 +307,32 @@ namespace Models
     inline GetScheduledTaskExecutionRecordsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
+    // hasMore Field Functions 
+    bool hasHasMore() const { return this->hasMore_ != nullptr;};
+    void deleteHasMore() { this->hasMore_ = nullptr;};
+    inline bool getHasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
+    inline GetScheduledTaskExecutionRecordsResponseBody& setHasMore(bool hasMore) { DARABONBA_PTR_SET_VALUE(hasMore_, hasMore) };
+
+
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetScheduledTaskExecutionRecordsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // page Field Functions 
+    bool hasPage() const { return this->page_ != nullptr;};
+    void deletePage() { this->page_ = nullptr;};
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline GetScheduledTaskExecutionRecordsResponseBody& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline GetScheduledTaskExecutionRecordsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
@@ -280,14 +351,30 @@ namespace Models
     inline GetScheduledTaskExecutionRecordsResponseBody& setTasks(vector<GetScheduledTaskExecutionRecordsResponseBody::Tasks> && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
 
 
+    // total Field Functions 
+    bool hasTotal() const { return this->total_ != nullptr;};
+    void deleteTotal() { this->total_ = nullptr;};
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline GetScheduledTaskExecutionRecordsResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // Indicates whether more data is available.
+    shared_ptr<bool> hasMore_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The current page number.
+    shared_ptr<int32_t> page_ {};
+    // The number of tasks per page.
+    shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task list.
     shared_ptr<vector<GetScheduledTaskExecutionRecordsResponseBody::Tasks>> tasks_ {};
+    // The total number of tasks.
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

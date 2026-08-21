@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // 目标知识库 ID
+    // Not supported. This parameter is ignored.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeId_ {};
-    // 源目录 ID（资源当前所在的企业知识库目录）
+    // The source directory ID. This is the enterprise knowledge base directory where the resource currently resides.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDirectoryId_ {};
-    // 待移动的资源 ID
+    // The data source ID.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 目标目录 ID（资源即将移动到的企业知识库目录）
+    // The target directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetDirectoryId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -112,23 +112,31 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID（请求体传入时 echo 回；缺省走默认根目录时为 null）
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The updated filter view name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The travel scale of the integration partner.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The source ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态（创建链路初始多为 PENDING；on_create 失败则为 FAILED）
+    // The filter status.
+    // 
+    // - 0: All
+    // 
+    // - 1: Unconfirmed
+    // 
+    // - 3: Ignored
+    // 
+    // - 4: Rejected
     shared_ptr<string> status_ {};
   };
 

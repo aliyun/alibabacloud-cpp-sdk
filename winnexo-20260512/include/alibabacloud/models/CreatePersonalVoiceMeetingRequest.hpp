@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The pipeline description.
     shared_ptr<string> description_ {};
-    // 目标个人目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前用户在当前数字员工下的已有个人目录
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 离线会议音频文件 URL（必填）
+    // The Yida attachment URL.
     // 
     // This parameter is required.
     shared_ptr<string> fileUrl_ {};
-    // 资源显示名称
+    // The image name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

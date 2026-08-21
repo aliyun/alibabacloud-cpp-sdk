@@ -24,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(triggerConfig, triggerConfig_);
+      DARABONBA_PTR_TO_JSON(visibility, visibility_);
+      DARABONBA_PTR_TO_JSON(visibleMemberUserIds, visibleMemberUserIds_);
     };
     friend void from_json(const Darabonba::Json& j, CreateScheduledTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
@@ -36,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(taskDetail, taskDetail_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(triggerConfig, triggerConfig_);
+      DARABONBA_PTR_FROM_JSON(visibility, visibility_);
+      DARABONBA_PTR_FROM_JSON(visibleMemberUserIds, visibleMemberUserIds_);
     };
     CreateScheduledTaskRequest() = default ;
     CreateScheduledTaskRequest(const CreateScheduledTaskRequest &) = default ;
@@ -159,19 +163,35 @@ namespace Models
 
 
       protected:
-        // 推送渠道
+        // The notification method. Valid values:
+        // 
+        // - **hdm_alarm_sms**: SMS.
+        // - **dingtalk**: DingTalk chatbot.
+        // - **hdm_alarm_sms_and_email**: SMS and email.
+        // - **hdm_alarm_sms,dingtalk**: SMS and DingTalk chatbot.
         shared_ptr<string> channelType_ {};
-        // 推送内容范围，默认 all_replies
+        // The push content scope. Default value: all_replies.
         shared_ptr<string> contentScope_ {};
-        // 推送方式，默认 channel_bot
+        // The push method. Default value: channel_bot.
         shared_ptr<string> deliveryMethod_ {};
-        // 是否推送该频道，默认关闭
+        // Specifies whether the credential is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> enabled_ {};
-        // 产出文件推送格式，默认 file
+        // The file format. Valid values: Excel and CSV.
         shared_ptr<string> fileFormat_ {};
-        // 发送机器人所属数字员工，必传且不可为空
+        // The digital employee name (operating object name, optional).
         shared_ptr<string> operatingObjectName_ {};
-        // 接收人，当前仅支持 self
+        // The file receiver type. Valid values:
+        // 
+        // - 0: One-on-one chat.
+        // 
+        // - 1: Group chat.
+        // 
+        // - 2: DingTalk Drive.
+        // 
+        // - 3: Document.
         shared_ptr<string> receiverType_ {};
       };
 
@@ -215,15 +235,28 @@ namespace Models
 
 
     protected:
-      // Cron 表达式，trigger_mode=scheduled 时必填，如 \"00 09 * * *\"
+      // The periodic training information in cron syntax (Minutes Hours DayofMonth Month DayofWeek). An empty value indicates that periodic training is not performed (default). In DayofWeek, 0 indicates Sunday.
       shared_ptr<string> cron_ {};
-      // 语言如 zh-CN|en-US，由服务端自动注入
+      // The language. Valid values:
+      // 
+      // - zh_CN: Chinese (default)
+      // - en_US: English
       shared_ptr<string> language_ {};
-      // 任务推送频道列表；为空或无启用频道时不推送
+      // The list of task push channels. No push is performed if the list is empty or no channel is enabled.
       shared_ptr<vector<TriggerConfig::PushConfig>> pushConfig_ {};
-      // 时区如 Asia/Shanghai，由服务端自动注入
+      // The time zone.
       shared_ptr<string> timezone_ {};
-      // 触发模式：manual|scheduled
+      // The trigger mode.
+      //  
+      //   1: Manual trigger
+      //    
+      //   2: Scheduled trigger 
+      // 
+      //   3: Code commit trigger
+      //  
+      //   5: Pipeline trigger
+      // 
+      //   6: WEBHOOK trigger
       shared_ptr<string> triggerMode_ {};
     };
 
@@ -310,11 +343,11 @@ namespace Models
 
 
       protected:
-        // 技能展示名称
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // 文件名
+        // The name.
         shared_ptr<string> name_ {};
-        // 技能代码
+        // The skill code.
         shared_ptr<string> skillCode_ {};
         // sourceIds
         shared_ptr<vector<string>> sourceIds_ {};
@@ -358,9 +391,9 @@ namespace Models
 
 
       protected:
-        // 语义属性（JSON 字符串），用于语义检索时过滤
+        // The file extension information.
         shared_ptr<string> attributes_ {};
-        // 语义实体名，如客户/机会
+        // The semantic entity name, such as customer or opportunity.
         shared_ptr<string> entity_ {};
       };
 
@@ -420,13 +453,19 @@ namespace Models
 
 
       protected:
-        // 提及类型，如 objects
+        // The mention type, such as objects.
         shared_ptr<string> mentionType_ {};
-        // 文件名
+        // The name.
         shared_ptr<string> name_ {};
-        // 对象 ID（@指定时有值）
+        // The object ID. Pass the project task ID.
+        // 
+        // - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+        // 
+        // - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
         shared_ptr<string> objectId_ {};
-        // 对象类型，如 customer、company
+        // The relationship type. Valid values:
+        // - crm_customer: enterprise customer.
+        // - crm_customer_personal: individual customer.
         shared_ptr<string> objectType_ {};
       };
 
@@ -467,10 +506,13 @@ namespace Models
 
 
     protected:
+      // The related objects.
       shared_ptr<vector<TaskDetail::RelatedObjects>> relatedObjects_ {};
+      // The related semantics.
       shared_ptr<vector<TaskDetail::RelatedSemantics>> relatedSemantics_ {};
+      // The related skills.
       shared_ptr<vector<TaskDetail::RelatedSkills>> relatedSkills_ {};
-      // LLM 润色后的任务理解描述
+      // The task understanding description polished by the LLM.
       shared_ptr<string> taskUnderstand_ {};
     };
 
@@ -558,19 +600,19 @@ namespace Models
 
 
     protected:
-      // 文本内容，type=text 时必填
+      // The card callback content.
       shared_ptr<string> content_ {};
-      // 功能开关，type=web_search 时可选
+      // Specifies whether to enable this feature.
       shared_ptr<bool> enabled_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
-      // 对象 ID，type=mention 时有值
+      // The ID of the recommended item, which can be a **feedId** or a micro-application ID.
       shared_ptr<string> objectId_ {};
-      // 对象类型如 customer，type=mention 时有值
+      // The customer type to save.
       shared_ptr<string> objectType_ {};
-      // 技能编码，type=skill 时有值
+      // The skill code. This parameter has a value when type is set to skill.
       shared_ptr<string> skillCode_ {};
-      // 元素类型：text|web_search|mention|skill
+      // The billing type. Only fixed is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -658,25 +700,30 @@ namespace Models
 
 
     protected:
-      // 文本内容，type=text 时必填
+      // The streaming output message.
       shared_ptr<string> content_ {};
-      // 功能开关，type=web_search 时可选
+      // Specifies whether the throttling rule is enabled. A value of true indicates enabled, and a value of false indicates disabled.
       shared_ptr<bool> enabled_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
-      // 对象 ID，type=mention 时有值
+      // The object ID. Pass the project task ID.
+      // 
+      // - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+      // 
+      // - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
       shared_ptr<string> objectId_ {};
-      // 对象类型如 customer，type=mention 时有值
+      // The object type. Fixed value: task, indicating a project task.
       shared_ptr<string> objectType_ {};
-      // 技能编码，type=skill 时有值
+      // The skill code. This parameter has a value when type is set to skill.
       shared_ptr<string> skillCode_ {};
-      // 元素类型：text|web_search|mention|skill
+      // The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (Agent proxy API).
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
         && this->description_ == nullptr && this->digitalEmployeeName_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->segments_ == nullptr && this->taskDetail_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr; };
+        && this->segments_ == nullptr && this->taskDetail_ == nullptr && this->tenantId_ == nullptr && this->triggerConfig_ == nullptr && this->visibility_ == nullptr
+        && this->visibleMemberUserIds_ == nullptr; };
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -757,25 +804,58 @@ namespace Models
     inline CreateScheduledTaskRequest& setTriggerConfig(CreateScheduledTaskRequest::TriggerConfig && triggerConfig) { DARABONBA_PTR_SET_RVALUE(triggerConfig_, triggerConfig) };
 
 
+    // visibility Field Functions 
+    bool hasVisibility() const { return this->visibility_ != nullptr;};
+    void deleteVisibility() { this->visibility_ = nullptr;};
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline CreateScheduledTaskRequest& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
+    // visibleMemberUserIds Field Functions 
+    bool hasVisibleMemberUserIds() const { return this->visibleMemberUserIds_ != nullptr;};
+    void deleteVisibleMemberUserIds() { this->visibleMemberUserIds_ = nullptr;};
+    inline const vector<string> & getVisibleMemberUserIds() const { DARABONBA_PTR_GET_CONST(visibleMemberUserIds_, vector<string>) };
+    inline vector<string> getVisibleMemberUserIds() { DARABONBA_PTR_GET(visibleMemberUserIds_, vector<string>) };
+    inline CreateScheduledTaskRequest& setVisibleMemberUserIds(const vector<string> & visibleMemberUserIds) { DARABONBA_PTR_SET_VALUE(visibleMemberUserIds_, visibleMemberUserIds) };
+    inline CreateScheduledTaskRequest& setVisibleMemberUserIds(vector<string> && visibleMemberUserIds) { DARABONBA_PTR_SET_RVALUE(visibleMemberUserIds_, visibleMemberUserIds) };
+
+
   protected:
-    // 所属协作群组 ID（如 cg_101）；传入时创建群空间任务（调用者需为有效群成员），为空创建个人任务
+    // The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
+    // The description of the to-do card type.
     shared_ptr<vector<CreateScheduledTaskRequest::Description>> description_ {};
-    // 数字员工名称列表
+    // The name of the current effective digital employee. This parameter is empty if not configured.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
-    // 是否公开访问
+    // Specifies whether public access is enabled.
     shared_ptr<bool> isOpen_ {};
-    // 执行模型档位，不传默认 standard
+    // The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
     shared_ptr<string> model_ {};
-    // 文件名
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The site ID.
     shared_ptr<vector<CreateScheduledTaskRequest::Segments>> segments_ {};
+    // The task details.
     shared_ptr<CreateScheduledTaskRequest::TaskDetail> taskDetail_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
+    // The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
+    // 
+    //   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
+    //   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
+    //   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
+    //   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
+    //   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
+    //   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
+    //   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
+    //   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
     shared_ptr<CreateScheduledTaskRequest::TriggerConfig> triggerConfig_ {};
+    // The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+    shared_ptr<string> visibility_ {};
+    // The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+    shared_ptr<vector<string>> visibleMemberUserIds_ {};
   };
 
   } // namespace Models

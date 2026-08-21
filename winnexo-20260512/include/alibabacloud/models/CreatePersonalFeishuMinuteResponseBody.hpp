@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The operation message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The resource name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The permission scope.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The original project ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态
+    // The status.
     shared_ptr<string> status_ {};
   };
 

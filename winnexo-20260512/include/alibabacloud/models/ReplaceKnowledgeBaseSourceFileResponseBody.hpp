@@ -121,25 +121,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 替换后的文件 OSS 持久化地址
+    // The OSS persistent storage address of the replacement file.
     shared_ptr<string> filePath_ {};
-    // 替换后的文件公开访问 URL
+    // The OSS persistent storage address of the replacement file.
     shared_ptr<string> filePublicUrl_ {};
-    // 替换后的文件记录 ID
+    // The file record ID of the replacement file.
     shared_ptr<string> fileRecordId_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The file name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 数据源 ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 数据源类型，固定为 FILE
+    // The data source type.
     shared_ptr<string> sourceType_ {};
-    // 重新解析后的数据源状态
+    // The task status. The value Running is returned upon submission.
     shared_ptr<string> status_ {};
   };
 

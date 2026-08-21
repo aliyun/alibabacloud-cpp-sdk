@@ -101,15 +101,15 @@ namespace Models
 
 
     protected:
-      // 企业标识（wecom=corpId, saml=idpEntityId, oauth2=clientId, custom=客户自定义）。注意：OAuth2 多 IdP 配置使用相同 clientId 时，需在 syncOrgStructure 中显式传 ssoSettingsId
+      // The enterprise ID.
       shared_ptr<string> corpId_ {};
-      // 企业展示名称
+      // The organization name.
       shared_ptr<string> corpName_ {};
-      // 平台类型: wecom / saml / oauth2 / custom
+      // The platform type.
       shared_ptr<string> platformType_ {};
-      // SSO 配置 ID（仅 SAML/OAuth2/WeCom 有值，custom 为 null）
+      // The SSO configuration ID. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
       shared_ptr<string> ssoSettingsId_ {};
-      // SSO 配置名称（仅 SAML/OAuth2/WeCom 有值，custom 为 null）
+      // The SSO configuration name. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
       shared_ptr<string> ssoSettingsName_ {};
     };
 
@@ -146,13 +146,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 可用的组织同步配置列表
+    // The list of queried Logtail configurations.
     shared_ptr<vector<ListAvailableConfigsResponseBody::Configs>> configs_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

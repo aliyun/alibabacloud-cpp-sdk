@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 最近修改时间，ISO8601 格式
+    // The last modified time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The file name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 数据源 ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 数据源状态
+    // The data source status.
     shared_ptr<string> status_ {};
   };
 

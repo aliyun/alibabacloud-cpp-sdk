@@ -222,39 +222,39 @@ namespace Models
 
 
     protected:
-      // 账单业务ID
+      // The billing ID.
       shared_ptr<string> billingId_ {};
-      // 业务来源ID
+      // The file ID.
       shared_ptr<string> bizId_ {};
-      // 业务来源类型
+      // The business type.
       shared_ptr<string> bizType_ {};
       // costSource
       shared_ptr<vector<string>> costSource_ {};
       // costSourceDisplayName
       shared_ptr<vector<string>> costSourceDisplayName_ {};
-      // 结束时间
+      // The end timestamp, in milliseconds.
       shared_ptr<string> endTime_ {};
-      // 入口对象ID
+      // The entry object ID.
       shared_ptr<string> entryObjectId_ {};
-      // 入口对象类型
+      // The entry object type.
       shared_ptr<string> entryObjectType_ {};
-      // 是否影子账单
+      // Indicates whether the bill is a shadow bill.
       shared_ptr<bool> isShadow_ {};
-      // 操作类型
+      // The operation type.
       shared_ptr<string> operation_ {};
-      // 操作类型展示名称
+      // The display name of the operation.
       shared_ptr<string> operationDisplayName_ {};
-      // 开始时间
+      // The start timestamp, in milliseconds.
       shared_ptr<string> startTime_ {};
-      // 状态
+      // The task status. Running is returned upon submission.
       shared_ptr<string> status_ {};
-      // 状态展示名称
+      // The display name of the status.
       shared_ptr<string> statusDisplayName_ {};
-      // 租户ID
+      // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
       shared_ptr<int64_t> tenantId_ {};
-      // 汇总 credit 消耗
+      // The total credit consumption.
       shared_ptr<string> totalCreditCost_ {};
-      // WINNEXO 平台用户ID
+      // The WINNEXO platform user ID.
       shared_ptr<string> wnUserId_ {};
     };
 
@@ -313,18 +313,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The details of the list.
     shared_ptr<vector<ListBillingResponseBody::List>> list_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 页码
+    // The page number.
     shared_ptr<int64_t> page_ {};
-    // 每页条数
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 总数
+    // The total number of bills.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // 源目录 ID（资源当前所在的个人目录）
+    // The source directory ID, which is the personal directory where the resource currently resides.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDirectoryId_ {};
-    // 待移动的资源 ID
+    // The ID of the resource to be moved.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 目标目录 ID（资源即将移动到的个人目录）
+    // The target directory ID, which is the personal directory to which the resource will be moved.
     // 
     // This parameter is required.
     shared_ptr<string> targetDirectoryId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
     shared_ptr<string> tenantId_ {};
   };
 

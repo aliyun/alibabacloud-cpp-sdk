@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of resources to return. If not specified, the default value is 20. The maximum value is 100. The actual number of returned results may be less than the specified value but will not exceed it.
     shared_ptr<int32_t> limit_ {};
-    // 会话ID
+    // The SessionId value to filter by. If specified, all Active/Expired status information associated with this session is returned.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

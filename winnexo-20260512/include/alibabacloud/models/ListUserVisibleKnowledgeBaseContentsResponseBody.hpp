@@ -187,19 +187,19 @@ namespace Models
 
 
       protected:
-        // 知识库提交审批单 ID
+        // The Ray Job ID.
         shared_ptr<string> submissionId_ {};
-        // 提交人用户 ID
+        // The user ID of the submitter.
         shared_ptr<int64_t> submitterId_ {};
-        // 提交人名称
+        // The submitter name.
         shared_ptr<string> submitterName_ {};
-        // 目标目录 ID
+        // The target directory ID.
         shared_ptr<string> targetDirectoryId_ {};
-        // 目标目录名称
+        // The target directory name.
         shared_ptr<string> targetDirectoryName_ {};
-        // 目标企业知识库根目录 ID
+        // The root directory ID of the target enterprise knowledge base.
         shared_ptr<string> targetKbRootDirectoryId_ {};
-        // 目标企业知识库名称
+        // The name of the target enterprise knowledge base.
         shared_ptr<string> targetKbRootDirectoryName_ {};
       };
 
@@ -368,47 +368,49 @@ namespace Models
 
 
     protected:
-      // 创建人名称
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // 知识库描述
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 目录归属类型
+      // The directory type.
       shared_ptr<string> directoryKind_ {};
-      // 目录类型
+      // The directory type.
       shared_ptr<string> directoryType_ {};
-      // 创建时间戳（毫秒）
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳（毫秒）
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 目录 ID 或资源 ID
+      // The item ID.
       shared_ptr<string> itemId_ {};
-      // 内容类型：directory 或 resource
+      // The item type.
       shared_ptr<string> itemType_ {};
-      // 资源是否存在待审批的知识库提交记录
+      // Indicates whether the resource has a pending knowledge base submission record.
       shared_ptr<bool> kbSubmissionPending_ {};
-      // 更新人名称
+      // The name of the modifier.
       shared_ptr<string> modifierName_ {};
-      // 目录或资源名称
+      // The name.
       shared_ptr<string> name_ {};
+      // The object bindings.
       shared_ptr<vector<Darabonba::Json>> objectBindings_ {};
-      // 知识库对数字员工的可见模式
+      // The visibility mode of the knowledge base to digital employees.
       shared_ptr<string> ooVisibilityMode_ {};
-      // 是否为只读关联内容
+      // Indicates whether the item is read-only.
       shared_ptr<bool> readOnly_ {};
+      // The sharing information.
       shared_ptr<vector<Items::ShareInfos>> shareInfos_ {};
-      // 是否已直接共享到企业知识库
+      // Indicates whether shared access is allowed.
       shared_ptr<bool> shared_ {};
-      // 目录 FAILED 资源数
+      // The number of resources in FAILED status. Returned only when listing top-level KB directories.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // 资源归属类型
+      // The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // 目录 READY 资源数
+      // The number of resources in READY status. Returned only when listing top-level KB directories.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // 资源状态；本接口只返回 READY 资源
+      // The resource status. This field has a value only when itemType is resource.
       shared_ptr<string> sourceStatus_ {};
-      // 目录资源总数
+      // The total number of resources under the directory and its subdirectories. Returned only when listing top-level KB directories.
       shared_ptr<int64_t> sourceTotalCount_ {};
-      // 资源类型，目录项为空
+      // The data source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -467,18 +469,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
+    // The list of skill cards.
     shared_ptr<vector<ListUserVisibleKnowledgeBaseContentsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The page number. Default value: 1. Pages start from page 1.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 命中总数
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

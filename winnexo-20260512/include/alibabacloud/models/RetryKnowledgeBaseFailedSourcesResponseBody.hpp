@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // 文件名
+      // The file name.
       shared_ptr<string> name_ {};
-      // 数据源 ID
+      // The data source ID.
       shared_ptr<string> sourceId_ {};
-      // 数据源类型
+      // The data source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -172,22 +172,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 企业知识库目录 ID
+    // The enterprise knowledge base directory ID.
     shared_ptr<string> directoryId_ {};
-    // 成功入队重试的数量
+    // The number of resources successfully enqueued for retry.
     shared_ptr<int64_t> enqueuedCount_ {};
-    // enqueuedIds
+    // enqueuedIds。
     shared_ptr<vector<string>> enqueuedIds_ {};
-    // 目录下失败资源总数
+    // The total number of failed resources under the directory.
     shared_ptr<int64_t> failedCount_ {};
+    // The list of failed data sources.
     shared_ptr<vector<RetryKnowledgeBaseFailedSourcesResponseBody::FailedSources>> failedSources_ {};
-    // 错误描述，成功时为空
+    // The error description. This value is empty on success.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 跳过（非 FAILED 状态）的数量
+    // The number of resources skipped because they are not in FAILED status.
     shared_ptr<int64_t> skippedCount_ {};
   };
 

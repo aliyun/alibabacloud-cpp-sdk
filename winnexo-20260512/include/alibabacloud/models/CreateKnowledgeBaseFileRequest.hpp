@@ -140,33 +140,33 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The description of the alias.
     shared_ptr<string> description_ {};
-    // 目标企业知识库目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前租户下已有的企业知识库目录
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 文件后缀名（可选，如 pdf、docx）
+    // The file name extension. This parameter is optional. Examples: pdf and docx.
     shared_ptr<string> fileExt_ {};
-    // 原始文件名（可选，含后缀）
+    // The file name.
     shared_ptr<string> fileName_ {};
-    // 文件 OSS 持久化地址（必填，对应 settings.file_path）
+    // The file path.
     // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
-    // 文件公开访问 URL（可选，带签名，对应 settings.file_public_url）
+    // The publicly accessible URL of the DingTalk online document.
     shared_ptr<string> filePublicUrl_ {};
-    // 文件记录 ID（可选，对应 settings.file_record_id）
+    // The file record ID. This parameter is optional and corresponds to settings.file_record_id.
     shared_ptr<string> fileRecordId_ {};
-    // 知识库 ID（可选，透传给 document_agent）
+    // Not supported. Ignore this parameter.
     shared_ptr<string> knowledgeId_ {};
-    // 资源显示名称
+    // The name of the AI assistant.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 数字员工名称（运营对象 name，可选）
+    // The name of the digital employee (operating object name). This parameter is optional.
     shared_ptr<string> operatingObjectName_ {};
-    // 资源标签（可选，JSON 字符串列表，如 ["tagA","tagB"]）
+    // The resource labels. This parameter is optional. Specify a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

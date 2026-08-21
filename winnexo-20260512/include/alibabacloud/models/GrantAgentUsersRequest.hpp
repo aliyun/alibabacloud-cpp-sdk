@@ -91,19 +91,19 @@ namespace Models
 
 
   protected:
-    // 授权截止时间戳（毫秒），不传表示永不过期
+    // The authorization expiration timestamp in milliseconds. If this parameter is not specified, the authorization never expires.
     shared_ptr<int64_t> expireDate_ {};
-    // 数字员工名称
+    // The name of the digital human.
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 权限列表：USE（使用权限）和/或 MANAGE（管理权限），不传时默认仅 USE；不得为空列表
+    // The permission items.
     shared_ptr<vector<string>> permissions_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
-    // 被授权的用户组 ID 列表（16位 hex 字符串）
+    // The list of user group IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // 被授权的用户 ID 列表
+    // The list of user IDs to be authorized.
     shared_ptr<vector<string>> userIds_ {};
   };
 

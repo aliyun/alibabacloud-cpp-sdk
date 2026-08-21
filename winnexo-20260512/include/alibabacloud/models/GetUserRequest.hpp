@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
-    // WINNEXO 登录账号（与 wnUserId 二选一）
+    // The WINNEXO logon account. This is a unique identifier and cannot be empty.
     shared_ptr<string> wnAccountId_ {};
-    // WINNEXO 平台用户ID（与 accountId 二选一）
+    // The WINNEXO platform user ID. Specify either this parameter or accountId.
     shared_ptr<string> wnUserId_ {};
   };
 

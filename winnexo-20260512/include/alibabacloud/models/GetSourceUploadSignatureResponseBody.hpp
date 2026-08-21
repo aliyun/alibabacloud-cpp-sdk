@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 文件 Content-Type
+    // The content type. Valid values: Text and Markdown.
     shared_ptr<string> contentType_ {};
-    // 签名 URL 有效时长（秒）
+    // The validity period of the task, in seconds.
     shared_ptr<int64_t> expiresIn_ {};
-    // 文件公开访问 URL
+    // The publicly accessible URL of the DingTalk online document.
     shared_ptr<string> filePublicUrl_ {};
-    // 文件记录 ID
+    // The file record ID. This parameter is optional and corresponds to settings.file_record_id.
     shared_ptr<string> fileRecordId_ {};
-    // 文件 OSS 内部 URL
+    // The Yida attachment URL.
     shared_ptr<string> fileUrl_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 上传 HTTP 方法（固定为 PUT）
+    // The method.
     shared_ptr<string> method_ {};
-    // OSS 对象名
+    // The object name.
     shared_ptr<string> objectName_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 签名上传 URL（PUT 方式）
+    // The signed URL.
     shared_ptr<string> uploadSignatureUrl_ {};
   };
 

@@ -106,21 +106,24 @@ namespace Models
 
 
   protected:
-    // 绑定状态：BOUND(已绑定) / UNBOUND(未绑定的全局技能)；必须与 operatingObjectName 同时传入
+    // The binding status. Valid values: BOUND (bound) and UNBOUND (unbound global skills). Must be specified together with operatingObjectName.
     shared_ptr<string> bindStatus_ {};
-    // 技能筛选维度：ALL/BUILTIN/CUSTOM/DRAFT/ALL_WITH_DRAFTS
+    // The filter expression type.
+    // 
+    // - SQL: SQL-based filtering.
+    // - TAG: Tag-based filtering.
     shared_ptr<string> filterType_ {};
-    // 按技能名称或描述模糊匹配
+    // The search keyword. Supports fuzzy search by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // 数字员工名称；必须与 bindStatus 同时传入
+    // The digital employee name. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
     shared_ptr<string> operatingObjectName_ {};
-    // 页码，从 1 开始
+    // The current page number.
     shared_ptr<int32_t> page_ {};
-    // 每页数量，范围 1-100
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 按标签过滤，数组任一命中即匹配
+    // The tag filtering parameter.
     shared_ptr<vector<string>> tags_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

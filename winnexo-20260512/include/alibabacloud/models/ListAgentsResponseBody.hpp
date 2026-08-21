@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // 使用权限授权模式：SPECIFIED_USERS=指定用户 / ALL_USERS=所有用户；未设置时为 null
+      // The authentication mode.
       shared_ptr<string> authMode_ {};
-      // 数字员工显示名称
+      // The display name of the tool.
       shared_ptr<string> displayName_ {};
-      // 启用/停用状态
+      // Indicates whether the account is activated.
       shared_ptr<bool> isActive_ {};
-      // 数字员工名称（唯一标识）
+      // The name of the digital employee.
       shared_ptr<string> operatingObjectName_ {};
     };
 
@@ -135,13 +135,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 租户全量数字员工列表（含停用，按名称字母序）
+    // The list of skill cards.
     shared_ptr<vector<ListAgentsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

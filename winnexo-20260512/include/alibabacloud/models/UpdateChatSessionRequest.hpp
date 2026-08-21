@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // 抽象模型名（模型档位）；不传则不修改会话当前模型
+    // The abstract model name (model tier). If not specified, the current model of the session is not modified.
     shared_ptr<string> model_ {};
-    // 会话 ID
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 新的会话标题
+    // The new session title.
     shared_ptr<string> title_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The error description. Empty when the request is successful.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 任务 ID（回显）
+    // The task ID (echoed back).
     shared_ptr<string> taskId_ {};
-    // 是否实际产生更新
+    // Indicates whether an actual update was made.
     shared_ptr<bool> updated_ {};
   };
 

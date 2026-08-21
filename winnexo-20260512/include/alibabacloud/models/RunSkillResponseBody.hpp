@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 任务创建时间，ISO8601 UTC 格式
+    // The task creation time in ISO 8601 UTC format.
     shared_ptr<string> createdAt_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 异步任务 ID，用于 getSkillRun 查询
+    // The asynchronous task ID, used for querying with getSkillRun.
     shared_ptr<string> runId_ {};
-    // 实际执行的技能编码
+    // The skill code that was actually executed.
     shared_ptr<string> skillCode_ {};
-    // 技能名称
+    // The skill name.
     shared_ptr<string> skillName_ {};
-    // 任务状态：提交即返回 Running
+    // The task status. Returns Running immediately upon submission.
     shared_ptr<string> status_ {};
   };
 

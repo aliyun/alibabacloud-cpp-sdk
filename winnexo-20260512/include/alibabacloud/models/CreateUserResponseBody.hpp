@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // WINNEXO 登录账号
+    // The ID of your Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 用户显示名称
+    // The cluster name.
     shared_ptr<string> displayName_ {};
-    // 是否为新创建的用户（false 表示已有用户加入租户）
+    // Indicates whether the user is newly created. A value of false indicates that an existing user is added to the tenant.
     shared_ptr<bool> isNewUser_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // WINNEXO 平台用户ID
+    // The WINNEXO platform user ID.
     shared_ptr<string> wnUserId_ {};
   };
 

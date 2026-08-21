@@ -130,27 +130,32 @@ namespace Models
 
 
   protected:
-    // 业务来源ID（可选筛选）
+    // The unique business identifier. When bizType is set to LibraryChat, bizId refers to the document library ID.
     shared_ptr<string> bizId_ {};
-    // 业务来源类型（可选筛选）
+    // The business type. Currently supported values: model Q&A (LlmChat) and document library Q&A (LibraryChat).
     shared_ptr<string> bizType_ {};
-    // 结束时间范围，ISO-8601 字符串，如 2026-08-05T16:30:00.000Z
+    // The actual end timestamp of the live stream, in milliseconds.
     shared_ptr<string> endTime_ {};
-    // 是否过滤 credit 消耗为 0 的账单，默认 true（过滤）
+    // Specifies whether to filter out bills with zero credit consumption. Default value: true (filtered).
     shared_ptr<bool> ignoreZero_ {};
-    // 操作类型（可选筛选）
+    // The operation type. Valid values:
+    // 
+    // - start: indicates node creation. This is the default value and does not need to be explicitly set in most cases.
+    // - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. Set this to stop after the meeting ends to trigger the call. This is used in real-time meeting scenarios.
+    // 
+    // Note: When ending a real-time recording, you must set this parameter to stop.
     shared_ptr<string> operation_ {};
-    // 页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页条数
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int64_t> pageSize_ {};
-    // 开始时间范围，ISO-8601 字符串，如 2026-08-05T16:30:00.000Z
+    // The query start time. This is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
-    // 状态（可选筛选）
+    // The task status. Running is returned upon submission.
     shared_ptr<string> status_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};
-    // 用户ID（WINNEXO 平台用户ID，可选筛选）
+    // The user ID (WINNEXO platform user ID, optional filter).
     shared_ptr<string> wnUserId_ {};
   };
 

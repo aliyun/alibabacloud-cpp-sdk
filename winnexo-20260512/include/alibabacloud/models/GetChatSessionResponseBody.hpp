@@ -153,24 +153,25 @@ namespace Models
 
 
     protected:
-      // 创建时间
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // 消息ID
+      // The message ID.
       shared_ptr<string> id_ {};
-      // 创建时间是否超过30天
+      // Indicates whether the creation time exceeds 30 days.
       shared_ptr<bool> isExpired_ {};
-      // 关联对象ID
+      // The session metadata.
       Darabonba::Json metadata_ {};
-      // 会话使用的抽象模型名（quick/standard/flagship）
+      // The abstract model name used by the session (quick/standard/flagship).
       shared_ptr<string> model_ {};
-      // 类型
+      // The type.
       shared_ptr<string> object_ {};
+      // The associated object ID.
       shared_ptr<string> objectId_ {};
-      // operatingObjectName
+      // The list of digital employee names.
       shared_ptr<vector<string>> operatingObjectName_ {};
-      // 标题
+      // The title.
       shared_ptr<string> title_ {};
-      // 更新时间
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -306,28 +307,29 @@ namespace Models
 
 
     protected:
-      // 消息内容
+      // The message content.
       shared_ptr<string> content_ {};
-      // 该消息之后 LLM 上下文是否已清空
+      // Indicates whether the LLM context has been cleared after this message.
       shared_ptr<bool> contextCleared_ {};
-      // 是否来自分享续聊复制的消息
+      // Indicates whether the message is copied from a shared conversation.
       shared_ptr<bool> fromShare_ {};
-      // 消息ID
+      // The message ID.
       shared_ptr<string> id_ {};
-      // 更新时间
+      // The message metadata.
       Darabonba::Json metadata_ {};
-      // 类型
+      // The type.
       shared_ptr<string> object_ {};
-      // 角色
+      // The role.
       shared_ptr<string> role_ {};
-      // 分享来源用户名称
+      // The username of the sharing source. This parameter has a value only when from_share=True.
       shared_ptr<string> shareUserName_ {};
-      // 消息状态
+      // The message status.
       shared_ptr<string> status_ {};
-      // 追踪ID
+      // The trace ID.
       shared_ptr<string> traceId_ {};
+      // The update time.
       shared_ptr<int64_t> updateAt_ {};
-      // 用户反馈类型
+      // The user feedback type: LIKE | DISLIKE | CANCEL.
       shared_ptr<string> userFeedback_ {};
     };
 
@@ -373,13 +375,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
+    // The message data detail structure.
     shared_ptr<vector<GetChatSessionResponseBody::Messages>> messages_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The session ID.
     shared_ptr<GetChatSessionResponseBody::Session> session_ {};
   };
 

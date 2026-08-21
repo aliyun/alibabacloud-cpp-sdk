@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 实际使用的删除模式
+    // The deletion mode that is actually used.
     shared_ptr<string> deleteMode_ {};
-    // 已删除的目录唯一标识
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

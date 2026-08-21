@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 会话元数据，可含 model 等透传字段（model 需为合法抽象模型名，否则回退默认）
+    // A reserved field.
     shared_ptr<string> metadata_ {};
-    // 关联业务对象ID
+    // The primary key ID of the associated variable.
     shared_ptr<string> objectId_ {};
-    // operatingObjectName
+    // The operating object name.
     shared_ptr<string> operatingObjectNameShrink_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

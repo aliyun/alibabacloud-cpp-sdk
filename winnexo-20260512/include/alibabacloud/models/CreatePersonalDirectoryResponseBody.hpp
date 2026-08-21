@@ -140,29 +140,29 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
-    // 目录描述
+    // The description.
     shared_ptr<string> description_ {};
-    // 新建目录 ID
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 目录 KB 归属类型：normal / aliding_kb_root / aliding_kb_internal
+    // The folder type.
     shared_ptr<string> directoryKind_ {};
-    // 创建时间戳（毫秒）
+    // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // 修改时间戳（毫秒）
+    // The last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name of the worksheet.
     shared_ptr<string> name_ {};
-    // 所属数字员工名称
+    // The name of the digital human (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 父目录 ID（service 若回填默认根目录，这里返回回填后的父目录 ID）
+    // The folder ID.
     shared_ptr<string> parentDirectoryId_ {};
-    // 文件 OSS URL
+    // The path.
     shared_ptr<string> path_ {};
-    // 请求追踪 ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

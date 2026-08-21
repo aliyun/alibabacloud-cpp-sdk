@@ -140,23 +140,23 @@ namespace Models
 
 
     protected:
-      // 知识库创建人用户 ID
+      // The user ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
-      // 知识库创建人名称
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // 知识库描述
+      // The description of the knowledge base.
       shared_ptr<string> description_ {};
-      // 知识库根目录唯一标识
+      // The directory ID of the enterprise knowledge base.
       shared_ptr<string> directoryId_ {};
-      // 目录归属类型
+      // The directory type.
       shared_ptr<string> directoryKind_ {};
-      // 目录类型
+      // The directory type.
       shared_ptr<string> directoryType_ {};
-      // 创建时间戳（毫秒）
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳（毫秒）
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 知识库名称
+      // The file name.
       shared_ptr<string> name_ {};
     };
 
@@ -200,14 +200,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
+    // The result list.
+    // Maximum size:
+    // 	50
     shared_ptr<vector<ListUserVisibleKnowledgeBasesResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 知识库总数
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

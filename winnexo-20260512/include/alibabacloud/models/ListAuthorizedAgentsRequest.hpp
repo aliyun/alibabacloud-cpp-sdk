@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 权限类型：USE=使用权限, MANAGE=管理权限，默认 USE
+    // The userId of the responsible user.
     shared_ptr<string> permission_ {};
-    // 目标用户 ID，管理员代查指定用户可用的数字员工时传入（需 APPLICATION_AGENT_VIEW 权限）；不传则查询调用方自身
+    // The target user ID.
     shared_ptr<int64_t> targetUserId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

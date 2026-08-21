@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 注册成功的组织标识
+    // The enterprise ID.
     shared_ptr<string> corpId_ {};
-    // 组织展示名称
+    // The organization name.
     shared_ptr<string> corpName_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 平台类型，固定为 custom
+    // The platform type.
     shared_ptr<string> platformType_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

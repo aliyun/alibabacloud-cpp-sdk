@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 知识 ID（数据源唯一标识）
+    // The data source ID, which is unique within the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

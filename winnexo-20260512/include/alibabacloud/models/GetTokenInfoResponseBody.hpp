@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // Token 是否开启（存在 ACTIVE 状态的 Token）
+    // Indicates whether the token is enabled.
     shared_ptr<bool> enabled_ {};
-    // Token 创建时间（ISO 8601）
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 脱敏后的 Token 值
+    // The masked token value.
     shared_ptr<string> tokenMasked_ {};
   };
 

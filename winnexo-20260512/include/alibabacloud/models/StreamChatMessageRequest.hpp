@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 上次接收到的 SSE event id，用于断线续推；不传则从头全量回放
+    // The last received SSE event ID, used for resuming delivery after a disconnection. If not specified, the full stream is replayed from the beginning.
     shared_ptr<string> lastEventId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 用户头像 URL
+    // The profile picture URL.
     shared_ptr<string> avatar_ {};
-    // 语言偏好: zh-CN, en-US
+    // The language preference: zh-CN, en-US.
     shared_ptr<string> languagePreference_ {};
-    // 文件名
+    // The name.
     shared_ptr<string> name_ {};
-    // 用户服务描述，最多1000字符
+    // The user service description. Maximum length: 1000 characters.
     shared_ptr<string> offering_ {};
-    // 用户角色描述（当profileRole为Others时使用），最多100字符
+    // The user role description (used when profileRole is set to Others). Maximum length: 100 characters.
     shared_ptr<string> profileRoleInfo_ {};
-    // 用户自我介绍，最多1000字符
+    // The user self-introduction. Maximum length: 1000 characters.
     shared_ptr<string> selfIntroduction_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

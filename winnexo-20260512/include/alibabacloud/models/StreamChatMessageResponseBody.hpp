@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // SSE 事件流负载；成功时响应为 text/event-stream 原始帧，需按流式方式逐帧消费
+    // The SSE event stream payload. On success, the response is in text/event-stream raw frames and must be consumed frame by frame in a streaming manner.
     Darabonba::Json data_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

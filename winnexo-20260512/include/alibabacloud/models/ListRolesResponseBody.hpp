@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // 角色说明（按请求 Accept-Language 国际化）
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 角色标识码，用于 createUser/updateUser 的 roleCodes 参数
+      // The role code.
       shared_ptr<string> roleCode_ {};
-      // 角色显示名称（按请求 Accept-Language 国际化）
+      // The role name.
       shared_ptr<string> roleName_ {};
-      // 是否允许启用/停用操作（超级管理员和应用用户不可切换）
+      // Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be switched.
       shared_ptr<bool> toggleable_ {};
     };
 
@@ -135,13 +135,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 系统内置角色列表（固定 7 个）
+    // The MCP card list.
     shared_ptr<vector<ListRolesResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
   };
 

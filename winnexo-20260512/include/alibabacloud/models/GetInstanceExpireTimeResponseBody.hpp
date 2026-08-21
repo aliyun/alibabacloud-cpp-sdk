@@ -103,21 +103,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 是否找到标准包实例
+    // Indicates whether a standard package instance is found.
     shared_ptr<bool> found_ {};
-    // 实例过期时间（ISO格式）
+    // The expiration time of the instance in ISO format.
     shared_ptr<string> instanceExpireTime_ {};
-    // 实例ID
+    // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 实例状态
+    // The instance status. Valid values:
+    // - RUNNING: Running.
+    // - TERMINATED: Terminated.
+    // - COMPLETED: Completed.
+    // - ERROR: Error.
     shared_ptr<string> instanceStatus_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 系统租户ID
+    // The effective tenant ID.
     shared_ptr<int64_t> tenantId_ {};
   };
 

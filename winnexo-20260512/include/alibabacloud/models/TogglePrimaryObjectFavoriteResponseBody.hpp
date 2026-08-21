@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // 操作后是否已关注
+      // Indicates whether the object is followed after the operation.
       shared_ptr<bool> isFavorited_ {};
-      // 失败原因（成功时为 null）
+      // The description of the status code.
       shared_ptr<string> message_ {};
-      // 主对象业务ID
+      // The ID of the aligned object: target ID or KR ID.
       shared_ptr<string> objectId_ {};
-      // 操作是否成功
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -144,14 +144,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 该用户的关注总数（针对该对象类型）
+    // The total number of follows by the user for the specified object type.
     shared_ptr<int64_t> favoriteCount_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<TogglePrimaryObjectFavoriteResponseBody::Results>> results_ {};
   };
 

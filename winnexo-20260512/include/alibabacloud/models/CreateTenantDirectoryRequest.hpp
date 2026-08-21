@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 目录描述
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 文件名
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 父目录内部主键；不传表示创建企业知识库根目录
+    // The ID of the parent node.
     shared_ptr<int64_t> parentId_ {};
-    // 文件 OSS URL
+    // The path of the node.
     shared_ptr<string> path_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

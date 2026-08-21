@@ -112,23 +112,26 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 新建知识库根目录 ID
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // 知识库 URL（echo 回入参，便于调用方对齐）
+    // The knowledge base URL (echoed from the request parameter for caller alignment).
     shared_ptr<string> kbUrl_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name of the AI assistant.
     shared_ptr<string> name_ {};
-    // 所属数字员工名称（echo 回入参，可为 null）
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 知识库根目录状态（创建后为 RUNNING；后台同步完成后转 READY 或 FAILED）
+    // The status. Valid values:
+    // 
+    // - 200: Success.
+    // - 500: Failure.
     shared_ptr<string> status_ {};
   };
 

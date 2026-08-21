@@ -183,31 +183,31 @@ namespace Models
 
 
     protected:
-      // 创建时间，ISO8601 格式
+      // The creation time.
       shared_ptr<string> createdTime_ {};
-      // 技能描述（已 i18n 解析）
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 执行模式：CODE_AGENT / SYSTEM 等
+      // The execution mode, such as CODE_AGENT or SYSTEM.
       shared_ptr<string> executeMode_ {};
-      // 是否全局可访问
+      // Indicates whether the skill is globally accessible.
       shared_ptr<bool> globalAccess_ {};
-      // 是否存在未发布的草稿修改
+      // Indicates whether unpublished draft modifications exist.
       shared_ptr<bool> hasDraftChanges_ {};
-      // 技能名称（已 i18n 解析）
+      // The file name.
       shared_ptr<string> name_ {};
-      // 技能编码（全局唯一）
+      // The actual skill code for execution.
       shared_ptr<string> skillCode_ {};
-      // 技能定义 ID
+      // The skill definition ID.
       shared_ptr<int64_t> skillHubDefinitionId_ {};
-      // 来源类型：BUILTIN / CUSTOM
+      // The data source type. Fixed value: FILE.
       shared_ptr<string> sourceType_ {};
-      // 技能状态：ACTIVE / DRAFT
+      // The task status. Returns Running upon submission.
       shared_ptr<string> status_ {};
-      // 标签列表（已 i18n 解析）
+      // The keys.
       shared_ptr<vector<string>> tags_ {};
-      // 修改时间，ISO8601 格式
+      // The update timestamp, in milliseconds.
       shared_ptr<string> updatedTime_ {};
-      // 版本号
+      // The workflow definition version number.
       shared_ptr<string> versionNumber_ {};
     };
 
@@ -266,19 +266,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 技能列表
+    // The list of skill cards.
     shared_ptr<vector<ListSkillsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The page number.
     shared_ptr<int32_t> page_ {};
-    // 每页数量
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 符合条件的技能总数
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

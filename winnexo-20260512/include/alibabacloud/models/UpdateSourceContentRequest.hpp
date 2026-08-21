@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // 更新后的完整正文；允许空字符串
+    // The returned content.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // 是否同步等待重新解析完成；默认 false，异步入队
+    // Specifies whether to force synchronous processing.
     shared_ptr<bool> forceSync_ {};
-    // 数据源 ID（租户内唯一）
+    // The ID of the data source.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

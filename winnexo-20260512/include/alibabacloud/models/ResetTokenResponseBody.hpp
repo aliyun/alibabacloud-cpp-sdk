@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 新 Token 明文（仅本次返回，请妥善保管）
+    // The new token in plaintext. This value is returned only in this response. Store it securely.
     shared_ptr<string> token_ {};
-    // 脱敏后的新 Token 值
+    // The masked token value.
     shared_ptr<string> tokenMasked_ {};
   };
 

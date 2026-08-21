@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 源目录 ID（echo 回入参）
+    // The source directory ID, which echoes the input parameter.
     shared_ptr<string> sourceDirectoryId_ {};
-    // 资源 ID（echo 回入参）
+    // The resource ID, which echoes the input parameter.
     shared_ptr<string> sourceId_ {};
-    // 操作是否成功
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // 目标目录 ID（echo 回入参）
+    // The target directory ID.
     shared_ptr<string> targetDirectoryId_ {};
   };
 

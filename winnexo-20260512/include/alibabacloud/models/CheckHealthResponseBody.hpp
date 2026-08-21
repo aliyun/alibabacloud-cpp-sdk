@@ -103,20 +103,21 @@ namespace Models
 
 
   protected:
-    // 认证来源: bearer / aliyun_gateway
+    // The authentication source: bearer / aliyun_gateway.
     shared_ptr<string> authSource_ {};
+    // The caller type: user / aliyun_main / aliyun_ram / service.
     shared_ptr<string> callerType_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 当前请求生效的数字员工名（运营对象）；未传且租户下无数字员工时为空
+    // The name of the currently effective digital employee. This value is empty if not configured.
     shared_ptr<string> digitalEmployeeName_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 生效租户ID
+    // The effective tenant ID.
     shared_ptr<int64_t> tenantId_ {};
-    // 平台用户ID
+    // The platform user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

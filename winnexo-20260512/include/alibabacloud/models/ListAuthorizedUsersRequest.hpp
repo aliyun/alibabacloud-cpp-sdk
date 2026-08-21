@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 筛选类型：USER / USER_GROUP / 不传则返回全部
+    // The filter type. Valid values: USER, USER_GROUP. If not specified, all types are returned.
     shared_ptr<string> granteeType_ {};
-    // 搜索关键词，按用户名或组名模糊匹配
+    // The search keyword.
     shared_ptr<string> keyword_ {};
-    // 数字员工名称
+    // The name of the digital employee.
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 权限类型过滤：USE=使用权限 / MANAGE=管理权限
+    // Permission
     shared_ptr<string> permission_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

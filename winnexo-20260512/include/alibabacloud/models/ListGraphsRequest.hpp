@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The ID of the tenant to which the node belongs.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

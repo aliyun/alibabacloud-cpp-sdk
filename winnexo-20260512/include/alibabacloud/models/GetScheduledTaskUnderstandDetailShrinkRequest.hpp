@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // 所属协作群组 ID（如 cg_101）；群任务理解时传入（调用者需为有效群成员），候选技能额外并入群绑定技能
+    // The ID of the collaboration group to which the task belongs (such as cg_101). If this parameter is specified, a group space task is created (the caller must be a valid group member). If this parameter is left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
-    // 数字员工名称列表，用于过滤可用技能；必传（传空列表表示仅用租户 global 技能）
+    // The name of the current effective digital employee. This parameter is empty if not configured.
     // 
     // This parameter is required.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
+    // The segments.
     shared_ptr<string> segmentsShrink_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
-    // 自然语言任务描述
-    // 
-    // This parameter is required.
+    // The natural language task description.
     shared_ptr<string> userInput_ {};
   };
 

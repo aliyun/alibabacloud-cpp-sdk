@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 会话ID
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

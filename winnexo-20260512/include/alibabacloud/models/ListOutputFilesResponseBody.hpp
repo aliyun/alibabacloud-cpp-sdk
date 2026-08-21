@@ -184,13 +184,13 @@ namespace Models
 
 
         protected:
-          // 已完成幻灯片数
+          // The number of completed slides.
           shared_ptr<int64_t> completedSlides_ {};
           // PPT ID
           shared_ptr<string> pptId_ {};
-          // PPT 名称
+          // The PPT name.
           shared_ptr<string> pptName_ {};
-          // 总幻灯片数
+          // The total number of slides.
           shared_ptr<int64_t> totalSlides_ {};
         };
 
@@ -250,13 +250,13 @@ namespace Models
 
 
         protected:
-          // 文件描述
+          // The file description.
           shared_ptr<string> description_ {};
-          // 文件名
+          // The file name.
           shared_ptr<string> name_ {};
-          // 文件 OSS URL
+          // The file path (OSS object key).
           shared_ptr<string> path_ {};
-          // 文件类型，如 .pdf, .md
+          // The file type, such as .pdf or .md.
           shared_ptr<string> type_ {};
         };
 
@@ -318,13 +318,13 @@ namespace Models
 
 
         protected:
-          // 邮件内容
+          // The email body.
           shared_ptr<string> body_ {};
-          // 内容类型，如 MARKDOWN/JSONML/HTML
+          // The content type, such as MARKDOWN/JSONML/HTML.
           shared_ptr<string> contentType_ {};
-          // recipients
+          // The recipient list.
           shared_ptr<vector<string>> recipients_ {};
-          // 邮件主题
+          // The email subject.
           shared_ptr<string> subject_ {};
         };
 
@@ -444,32 +444,35 @@ namespace Models
 
 
       protected:
-        // 创建时间(ISO8601)
+        // The creation time in ISO 8601 format.
         shared_ptr<string> createTime_ {};
+        // The email information. This field is present when the output type is email.
         shared_ptr<OutputItems::EmailInfo> emailInfo_ {};
+        // The file information. This field is present when the output type is file.
         shared_ptr<OutputItems::FileInfo> fileInfo_ {};
-        // 数据库创建时间(ISO8601)
+        // The database creation time in ISO 8601 format.
         shared_ptr<string> gmtCreate_ {};
-        // 数据库更新时间(ISO8601)
+        // The database update time in ISO 8601 format.
         shared_ptr<string> gmtModified_ {};
-        // 产出名称
+        // The output name.
         shared_ptr<string> itemName_ {};
-        // 产出明细类型: ppt/html/document/picture/slides/video/audio/email/others
+        // The type of the output item. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
         shared_ptr<string> itemType_ {};
-        // 产出明细类型国际化展示名称
+        // The internationalized display name of the output detail type.
         shared_ptr<string> itemTypeDisplayName_ {};
-        // 助手消息ID，由 sendAsyncChatMessage 返回；不属于当前租户时返回 404
+        // The message ID.
         shared_ptr<string> messageId_ {};
-        // 产出明细 ID
+        // The output detail ID.
         shared_ptr<string> outputItemId_ {};
-        // 是否开启分享
+        // Indicates whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // 分享令牌
+        // The share token, which is present when sharing is enabled. You can use this token to access the public share preview API.
         shared_ptr<string> shareToken_ {};
-        // 技能产出 ID
+        // The skill output ID.
         shared_ptr<string> skillOutputId_ {};
+        // The slides information. This field is present when the output type is slides.
         shared_ptr<OutputItems::SlidesInfo> slidesInfo_ {};
-        // 任务执行 ID
+        // The task execution ID.
         shared_ptr<string> taskExecutionId_ {};
       };
 
@@ -556,26 +559,27 @@ namespace Models
 
 
     protected:
-      // 会话 ID
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // 创建时间(ISO8601)
+      // The creation time in ISO 8601 format.
       shared_ptr<string> gmtCreate_ {};
-      // 更新时间(ISO8601)
+      // The update time in ISO 8601 format.
       shared_ptr<string> gmtModified_ {};
-      // 文件名
+      // The output name.
       shared_ptr<string> name_ {};
-      // 数字员工（运营对象）名称
+      // The name of the digital employee (operating object).
       shared_ptr<string> operatingObjectName_ {};
-      // 产出 ID
+      // The output ID.
       shared_ptr<string> outputId_ {};
+      // The output detail list.
       shared_ptr<vector<Items::OutputItems>> outputItems_ {};
-      // 产出类型: conversation/skill/task
+      // The output type: `conversation/skill/task`.
       shared_ptr<string> outputType_ {};
-      // 产出类型国际化展示名称
+      // The internationalized display name of the output type.
       shared_ptr<string> outputTypeDisplayName_ {};
-      // 技能产出 ID
+      // The skill output ID.
       shared_ptr<string> skillOutputId_ {};
-      // 任务 ID
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -634,18 +638,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The output list.
     shared_ptr<vector<ListOutputFilesResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 符合条件的产出总数
+    // The total number of outputs that match the specified conditions.
     shared_ptr<int64_t> total_ {};
   };
 

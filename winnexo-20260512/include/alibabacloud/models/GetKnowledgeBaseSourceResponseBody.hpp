@@ -167,35 +167,43 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 知识描述
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 所属分类 ID
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 所属分类完整路径
+    // The full path of the category to which the knowledge item belongs.
     shared_ptr<string> directoryPath_ {};
-    // 创建时间戳（毫秒）
+    // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // 修改时间戳（毫秒）
+    // The last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 知识 ID
+    // The unique identifier on the business system side, that is, the business ID.
     shared_ptr<string> sourceId_ {};
-    // 知识 KB 归属类型：aliding_kb_doc（阿里钉知识库文档）/ normal（普通知识）
+    // The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
     shared_ptr<string> sourceKind_ {};
-    // 知识标签（JSON 字符串列表）
+    // The resource tags. This is optional and is a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // 知识类型（TEXT / FILE / ONLINE_DOC 等）
+    // The type of the resource source. Valid values:
+    // 
+    // - ExportTaskId: the resource export ID.
+    // 
+    // - TaskId: the Module execution task ID.
+    // 
+    // - StatePath: the OSS path where the resource state is stored.
     shared_ptr<string> sourceType_ {};
-    // 处理状态（READY / RUNNING / FAILED 等）
+    // The data source status. Valid values:
+    // - **1**: online.
+    // - **0**: offline.
     shared_ptr<string> status_ {};
-    // 状态附加信息（如失败原因）
+    // The status message.
     shared_ptr<string> statusMessage_ {};
   };
 

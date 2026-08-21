@@ -121,25 +121,36 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 文件 MIME 类型
+    // The content type of the file. Valid values:
+    // 
+    // - **image**: image
+    // - **document**: general document
+    // - **alidoc**: Alibaba document
+    // - **text**: text
+    // - **video**: video
+    // - **audio**: audio
+    // - **archive**: archive
+    // - **app**: application
+    // - **link**: shortcut
+    // - **other**: other
     shared_ptr<string> contentType_ {};
-    // 文件名
+    // The full path name of the file.
     shared_ptr<string> fileName_ {};
-    // 文件公开访问 URL（有效期 1 小时）
+    // The publicly accessible URL of the online document.
     shared_ptr<string> filePublicUrl_ {};
-    // 文件记录 ID
+    // The file record ID (optional, corresponding to settings.file_record_id).
     shared_ptr<string> fileRecordId_ {};
-    // 文件 remote_url（入库路径）
+    // The attachment address.
     shared_ptr<string> fileUrl_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // OSS 对象路径
+    // The object name.
     shared_ptr<string> objectName_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 签名上传 URL（本接口为后端直传，该字段为空）
+    // The signature URL.
     shared_ptr<string> uploadSignatureUrl_ {};
   };
 

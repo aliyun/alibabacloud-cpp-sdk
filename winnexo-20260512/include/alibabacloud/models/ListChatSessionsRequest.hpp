@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
-    // 数字员工名称筛选（逗号分隔，如 sales_agent,service_agent）
+    // The list of digital employee names. A single string can be passed for backward compatibility with the legacy format.
     shared_ptr<string> digitalEmployeeName_ {};
-    // 标题模糊搜索
+    // The rule name keyword for fuzzy match.
     shared_ptr<string> keyword_ {};
-    // 页码，从 1 开始
+    // The page number. Default value: 1. Pages start from page 1.
     shared_ptr<int32_t> page_ {};
+    // The maximum number of data records to read in this request.
     shared_ptr<int32_t> pageSize_ {};
-    // 租户ID
+    // The tenant ID to which the task belongs.
     shared_ptr<string> tenantId_ {};
   };
 

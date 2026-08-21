@@ -12,6 +12,10 @@
 #include <alibabacloud/models/CreateCustomOrgRequest.hpp>
 #include <alibabacloud/models/CreateCustomOrgResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomOrgResponse.hpp>
+#include <alibabacloud/models/CreateGroupAliDingChatRequest.hpp>
+#include <alibabacloud/models/CreateGroupAliDingChatShrinkRequest.hpp>
+#include <alibabacloud/models/CreateGroupAliDingChatResponseBody.hpp>
+#include <alibabacloud/models/CreateGroupAliDingChatResponse.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseAliDingDocRequest.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseAliDingDocResponseBody.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseAliDingDocResponse.hpp>
@@ -24,6 +28,10 @@
 #include <alibabacloud/models/CreateKnowledgeBaseTextRequest.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseTextResponseBody.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseTextResponse.hpp>
+#include <alibabacloud/models/CreatePersonalAliDingChatRequest.hpp>
+#include <alibabacloud/models/CreatePersonalAliDingChatShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePersonalAliDingChatResponseBody.hpp>
+#include <alibabacloud/models/CreatePersonalAliDingChatResponse.hpp>
 #include <alibabacloud/models/CreatePersonalAliDingMeetingRequest.hpp>
 #include <alibabacloud/models/CreatePersonalAliDingMeetingResponseBody.hpp>
 #include <alibabacloud/models/CreatePersonalAliDingMeetingResponse.hpp>
@@ -37,9 +45,16 @@
 #include <alibabacloud/models/CreatePersonalDingtalkMeetingRequest.hpp>
 #include <alibabacloud/models/CreatePersonalDingtalkMeetingResponseBody.hpp>
 #include <alibabacloud/models/CreatePersonalDingtalkMeetingResponse.hpp>
+#include <alibabacloud/models/CreatePersonalDingtalkMinutesRequest.hpp>
+#include <alibabacloud/models/CreatePersonalDingtalkMinutesResponseBody.hpp>
+#include <alibabacloud/models/CreatePersonalDingtalkMinutesResponse.hpp>
 #include <alibabacloud/models/CreatePersonalDirectoryRequest.hpp>
 #include <alibabacloud/models/CreatePersonalDirectoryResponseBody.hpp>
 #include <alibabacloud/models/CreatePersonalDirectoryResponse.hpp>
+#include <alibabacloud/models/CreatePersonalFeishuChatRequest.hpp>
+#include <alibabacloud/models/CreatePersonalFeishuChatShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePersonalFeishuChatResponseBody.hpp>
+#include <alibabacloud/models/CreatePersonalFeishuChatResponse.hpp>
 #include <alibabacloud/models/CreatePersonalFeishuMinuteRequest.hpp>
 #include <alibabacloud/models/CreatePersonalFeishuMinuteResponseBody.hpp>
 #include <alibabacloud/models/CreatePersonalFeishuMinuteResponse.hpp>
@@ -168,6 +183,7 @@
 #include <alibabacloud/models/ListRolesResponseBody.hpp>
 #include <alibabacloud/models/ListRolesResponse.hpp>
 #include <alibabacloud/models/ListScheduledTasksRequest.hpp>
+#include <alibabacloud/models/ListScheduledTasksShrinkRequest.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponseBody.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponse.hpp>
 #include <alibabacloud/models/ListSkillsRequest.hpp>
@@ -217,6 +233,9 @@
 #include <alibabacloud/models/QuerySyncResultRequest.hpp>
 #include <alibabacloud/models/QuerySyncResultResponseBody.hpp>
 #include <alibabacloud/models/QuerySyncResultResponse.hpp>
+#include <alibabacloud/models/RecommendNextActionsRequest.hpp>
+#include <alibabacloud/models/RecommendNextActionsResponseBody.hpp>
+#include <alibabacloud/models/RecommendNextActionsResponse.hpp>
 #include <alibabacloud/models/RemoveUserRequest.hpp>
 #include <alibabacloud/models/RemoveUserResponseBody.hpp>
 #include <alibabacloud/models/RemoveUserResponse.hpp>

@@ -193,36 +193,39 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 任务创建时间，ISO8601
+    // The task creation time in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 错误码，仅 Failed 时返回
+    // The error code. This parameter is returned only when the status is Failed.
     shared_ptr<string> errorCode_ {};
-    // 错误描述，仅 Failed 时返回
+    // The error description. This parameter is returned only when the status is Failed.
     shared_ptr<string> errorMessage_ {};
-    // 任务结束时间，ISO8601；仅终态（Succeeded/Failed/Cancelled）有值
+    // The task end time in ISO 8601 format. This parameter has a value only in desired states (Succeeded, Failed, or Cancelled).
     shared_ptr<string> finishedAt_ {};
+    // The execution log list. This parameter is returned only when IncludeLogs is set to true.
     shared_ptr<vector<Darabonba::Json>> logs_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 进度百分比（仅 Running 时有意义）
+    // The progress percentage. This parameter is meaningful only when the status is Running.
     shared_ptr<int64_t> progress_ {};
-    // 进度描述
+    // The progress description.
     shared_ptr<string> progressMessage_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The execution result. This parameter is returned only when the status is Succeeded. It contains a content list.
     Darabonba::Json result_ {};
-    // 异步任务 ID
+    // The asynchronous task ID.
     shared_ptr<string> runId_ {};
-    // 技能编码
+    // The skill code.
     shared_ptr<string> skillCode_ {};
-    // 技能名称
+    // The skill name.
     shared_ptr<string> skillName_ {};
-    // 任务开始执行时间，ISO8601
+    // The task execution start time in ISO 8601 format.
     shared_ptr<string> startedAt_ {};
-    // 执行状态：Running / Succeeded / Failed / Cancelled
+    // The execution status. Valid values: Running, Succeeded, Failed, and Cancelled.
     shared_ptr<string> status_ {};
+    // The LLM token usage statistics. This parameter is returned only when the status is Succeeded.
     Darabonba::Json usage_ {};
   };
 

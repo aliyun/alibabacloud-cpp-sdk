@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The description of the AI assistant.
     shared_ptr<string> description_ {};
-    // 目标个人目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前用户在当前数字员工下的已有个人目录
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 资源显示名称
+    // The name of the image-trained digital human.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 会议笔记内容（可选），会参与辅助分析
+    // The meeting notes (optional). The notes are used for auxiliary analysis.
     shared_ptr<string> notes_ {};
-    // 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 原始的闪记链接（必填）
+    // The original Shanji link (required).
     // 
     // This parameter is required.
     shared_ptr<string> shanjiUrl_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

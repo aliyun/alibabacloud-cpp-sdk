@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(taskId, taskId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(triggerConfig, triggerConfigShrink_);
+      DARABONBA_PTR_TO_JSON(visibility, visibility_);
+      DARABONBA_PTR_TO_JSON(visibleMemberUserIds, visibleMemberUserIdsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateScheduledTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(description, descriptionShrink_);
@@ -35,6 +37,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(taskId, taskId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(triggerConfig, triggerConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(visibility, visibility_);
+      DARABONBA_PTR_FROM_JSON(visibleMemberUserIds, visibleMemberUserIdsShrink_);
     };
     UpdateScheduledTaskShrinkRequest() = default ;
     UpdateScheduledTaskShrinkRequest(const UpdateScheduledTaskShrinkRequest &) = default ;
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->descriptionShrink_ == nullptr
         && this->digitalEmployeeNameShrink_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->segmentsShrink_ == nullptr
-        && this->taskDetailShrink_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr; };
+        && this->taskDetailShrink_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->triggerConfigShrink_ == nullptr && this->visibility_ == nullptr
+        && this->visibleMemberUserIdsShrink_ == nullptr; };
     // descriptionShrink Field Functions 
     bool hasDescriptionShrink() const { return this->descriptionShrink_ != nullptr;};
     void deleteDescriptionShrink() { this->descriptionShrink_ = nullptr;};
@@ -120,25 +125,47 @@ namespace Models
     inline UpdateScheduledTaskShrinkRequest& setTriggerConfigShrink(string triggerConfigShrink) { DARABONBA_PTR_SET_VALUE(triggerConfigShrink_, triggerConfigShrink) };
 
 
+    // visibility Field Functions 
+    bool hasVisibility() const { return this->visibility_ != nullptr;};
+    void deleteVisibility() { this->visibility_ = nullptr;};
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline UpdateScheduledTaskShrinkRequest& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
+    // visibleMemberUserIdsShrink Field Functions 
+    bool hasVisibleMemberUserIdsShrink() const { return this->visibleMemberUserIdsShrink_ != nullptr;};
+    void deleteVisibleMemberUserIdsShrink() { this->visibleMemberUserIdsShrink_ = nullptr;};
+    inline string getVisibleMemberUserIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(visibleMemberUserIdsShrink_, "") };
+    inline UpdateScheduledTaskShrinkRequest& setVisibleMemberUserIdsShrink(string visibleMemberUserIdsShrink) { DARABONBA_PTR_SET_VALUE(visibleMemberUserIdsShrink_, visibleMemberUserIdsShrink) };
+
+
   protected:
+    // The description information.
     shared_ptr<string> descriptionShrink_ {};
-    // 数字员工名称列表
+    // The list of digital human names.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
-    // 是否公开访问
+    // Specifies whether the task is publicly accessible.
     shared_ptr<bool> isOpen_ {};
-    // 执行模型档位；不传则不更新
+    // The execution model tier. If not specified, the model tier is not updated.
     shared_ptr<string> model_ {};
-    // 文件名
+    // The file name.
     shared_ptr<string> name_ {};
+    // The segments.
     shared_ptr<string> segmentsShrink_ {};
+    // The task details.
     shared_ptr<string> taskDetailShrink_ {};
-    // 任务 ID
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
+    // The trigger configuration. The configuration varies depending on the trigger type.
     shared_ptr<string> triggerConfigShrink_ {};
+    // The visibility scope for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If not specified, the visibility is not updated. This parameter is ignored for personal tasks.
+    shared_ptr<string> visibility_ {};
+    // The full replacement list of collaborator member user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. The list is cleared when switching away from the COLLABORATIVE tier. A maximum of 1000 members are supported. If not specified, the member list is not updated. The task creator and group creator do not need to be included because they are covered by the authentication layer. This parameter is ignored for personal tasks.
+    shared_ptr<string> visibleMemberUserIdsShrink_ {};
   };
 
   } // namespace Models

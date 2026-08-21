@@ -151,24 +151,25 @@ namespace Models
 
 
     protected:
-      // 创建时间
+      // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // 消息ID
+      // The message ID.
       shared_ptr<string> id_ {};
-      // 创建时间是否超过30天
+      // Indicates whether the creation time exceeds 30 days.
       shared_ptr<bool> isExpired_ {};
-      // 关联对象ID
+      // The associated object ID.
       Darabonba::Json metadata_ {};
-      // 会话使用的抽象模型名（quick/standard/flagship）
+      // The abstract model name used by the session (quick/standard/flagship).
       shared_ptr<string> model_ {};
-      // 类型
+      // The type.
       shared_ptr<string> object_ {};
+      // The associated object ID.
       shared_ptr<string> objectId_ {};
-      // operatingObjectName
+      // The operating object name.
       shared_ptr<vector<string>> operatingObjectName_ {};
-      // 标题
+      // The title.
       shared_ptr<string> title_ {};
-      // 更新时间
+      // The update time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -205,12 +206,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The error description. This is empty when the request is successful.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
+    // The session ID.
     shared_ptr<UpdateChatSessionResponseBody::Session> session_ {};
   };
 

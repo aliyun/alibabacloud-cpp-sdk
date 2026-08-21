@@ -96,18 +96,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 新建会话ID
+    // Id of the request
     shared_ptr<string> conversationId_ {};
-    // 会话创建时间戳（秒）
+    // The time when the share was created.
     shared_ptr<string> createdAt_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
+    // A reserved field for extension use.
     Darabonba::Json metadata_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 会话标题（已按调用方语言国际化）
+    // The appointment title.
     shared_ptr<string> title_ {};
   };
 

@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 文本内容（CONTENT类型使用）
+    // The text content. This is used for the CONTENT type.
     shared_ptr<string> content_ {};
-    // 文件扩展名（OSS_IMM类型使用）
+    // The file name extension. This is used for the OSS_IMM type.
     shared_ptr<string> fileExt_ {};
-    // 文件名（OSS_IMM类型使用）
+    // The file name. This is used for the OSS_IMM type.
     shared_ptr<string> fileName_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 预览类型：OSS_IMM / IMAGE / AUDIO / VIDEO / HTML / DING_TALK / VOICE_MEETING / CONTENT
+    // The preview type. Valid values: OSS_IMM, IMAGE, AUDIO, VIDEO, HTML, DING_TALK, VOICE_MEETING, CONTENT.
     shared_ptr<string> previewType_ {};
-    // 预览URL（OSS_IMM、DING_TALK、VOICE_MEETING使用）
+    // The preview URL. This is used for the OSS_IMM, DING_TALK, and VOICE_MEETING types.
     shared_ptr<string> previewUrl_ {};
-    // 公开下载URL（可供下载的文件URL）
+    // The public download URL of the file.
     shared_ptr<string> publicUrl_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
   };
 

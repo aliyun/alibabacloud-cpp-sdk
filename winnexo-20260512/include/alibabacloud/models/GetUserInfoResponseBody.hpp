@@ -124,13 +124,16 @@ namespace Models
 
 
     protected:
-      // CRM 类型
+      // The CRM type.
       shared_ptr<string> crmType_ {};
-      // 租户ID
+      // The ID of the tenant to which the task belongs.
       shared_ptr<int64_t> tenantId_ {};
-      // 租户名称
+      // The tenant name.
       shared_ptr<string> tenantName_ {};
-      // 租户类型
+      // The tenant type. Valid values:
+      // - user: individual.
+      // - org: enterprise.
+      // - group: group.
       shared_ptr<string> tenantType_ {};
     };
 
@@ -282,44 +285,48 @@ namespace Models
 
 
   protected:
-    // 用户头像URL
+    // The profile picture URL.
     shared_ptr<string> avatar_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // CRM 类型
+    // The CRM type.
     shared_ptr<string> crmType_ {};
-    // 是否为超级管理员
+    // Indicates whether the user is an enterprise administrator.
     shared_ptr<bool> isAdmin_ {};
-    // 当前登录租户是否为系统租户（tenantId=10000）
+    // Indicates whether the current logon tenant is the system tenant (tenantId=10000).
     shared_ptr<bool> isSystemTenant_ {};
-    // 用户语言偏好
+    // The language preference.
     shared_ptr<string> languagePreference_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The username.
     shared_ptr<string> name_ {};
-    // 用户服务描述
+    // The user service description. Maximum length: 1000 characters.
     shared_ptr<string> offering_ {};
-    // 用户服务解析结果（JSON格式）
+    // The parsed result of the user service (JSON format).
     shared_ptr<string> parsedOffering_ {};
-    // 用户角色
+    // The user role.
     shared_ptr<string> profileRole_ {};
-    // 用户角色描述（当profileRole为Others时使用）
+    // The personal profile.
     shared_ptr<string> profileRoleInfo_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 用户自我介绍
+    // The user self-introduction. Maximum length: 1000 characters.
     shared_ptr<string> selfIntroduction_ {};
-    // 当前租户ID
+    // The effective tenant ID.
     shared_ptr<int64_t> tenantId_ {};
+    // The tenant list.
     shared_ptr<vector<GetUserInfoResponseBody::TenantList>> tenantList_ {};
-    // 当前租户名称
+    // The current tenant name.
     shared_ptr<string> tenantName_ {};
-    // 租户类型
+    // The tenant type. Valid values:
+    // - user: individual.
+    // - org: enterprise.
+    // - group: group.
     shared_ptr<string> tenantType_ {};
-    // 用户代码
+    // The user code.
     shared_ptr<string> userCode_ {};
-    // 用户ID
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

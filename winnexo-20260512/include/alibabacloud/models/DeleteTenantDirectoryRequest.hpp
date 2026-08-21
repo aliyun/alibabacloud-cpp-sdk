@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 删除模式：reject / recursive / move_to_root
+    // The deletion mode: reject / recursive / move_to_root.
     shared_ptr<string> deleteMode_ {};
-    // 目录唯一标识
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID that takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The error description. This is empty when the call succeeds.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 本次成功撤销的记录数
+    // The number of records successfully revoked in this call.
     shared_ptr<int64_t> revokedCount_ {};
   };
 

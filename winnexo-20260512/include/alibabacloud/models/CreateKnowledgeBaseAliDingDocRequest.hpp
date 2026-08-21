@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The description of the alias.
     shared_ptr<string> description_ {};
-    // 目标企业知识库目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前租户下已有的企业知识库目录
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 阿里钉在线文档的可公开访问 URL
+    // The publicly accessible URL of the AliDing online document.
     // 
     // This parameter is required.
     shared_ptr<string> filePublicUrl_ {};
-    // 知识库 ID（可选，透传给 document_agent）
+    // Not supported. This parameter is ignored.
     shared_ptr<string> knowledgeId_ {};
-    // 资源显示名称（建议传入钉钉文档标题）
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 数字员工名称（运营对象 name，可选）
+    // The digital employee name (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 资源标签（可选，JSON 字符串列表，如 ["tagA","tagB"]）
+    // The resource tags (optional, a JSON string list, such as ["tagA","tagB"]).
     shared_ptr<string> sourceTags_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

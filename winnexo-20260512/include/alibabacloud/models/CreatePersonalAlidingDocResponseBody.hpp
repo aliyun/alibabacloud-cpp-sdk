@@ -121,25 +121,29 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response code.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID（请求体传入时 echo 回；缺省走默认根目录时为 null）
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 文档公开 URL（echo 回入参，便于调用方对齐）
+    // The publicly accessible URL of the AliDing online document.
     shared_ptr<string> filePublicUrl_ {};
-    // 创建时间 ISO8601
+    // The timestamp when the customer group was created. Unit: milliseconds.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The pipeline name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The permission scope.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The unique identifier on the business system side, that is, the business ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态（创建链路初始多为 PENDING；on_create 失败则为 FAILED）
+    // The call status. Valid values:
+    // - **PENDING**: Waiting for receipt.
+    // - **SUCCESS**: Succeeded.
+    // - **FAILED**: Failed.
+    // - **TIMEOUT**: Timed out.
     shared_ptr<string> status_ {};
   };
 

@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 数据源 ID
+    // The unique identifier on the business system side, that is, the business ID.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 数据源类型
+    // The data source type.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // 重新解析后的数据源状态
+    // The task running status.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 绑定的目录 ID
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间 ISO8601
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The response message.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The skill name.
     shared_ptr<string> name_ {};
-    // 请求追踪 ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // 资源 scope，固定为 PERSONAL
+    // The permission scope.
     shared_ptr<string> scope_ {};
-    // 新建资源 ID
+    // The unique identifier on the business system side, which is the business ID.
     shared_ptr<string> sourceId_ {};
-    // 资源状态
+    // The task running status.
     shared_ptr<string> status_ {};
   };
 

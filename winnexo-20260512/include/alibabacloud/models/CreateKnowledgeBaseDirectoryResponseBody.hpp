@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 分类描述
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 新建分类 ID
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // 目录 KB 归属类型：normal / aliding_kb_root / aliding_kb_internal
+    // The directory type.
     shared_ptr<string> directoryKind_ {};
-    // 创建时间戳（毫秒）
+    // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // 修改时间戳（毫秒）
+    // The last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name.
     shared_ptr<string> name_ {};
-    // 父分类 ID；新分类挂在租户根目录下时返回 null
+    // The directory ID.
     shared_ptr<string> parentDirectoryId_ {};
-    // 文件 OSS URL
+    // The path of the node.
     shared_ptr<string> path_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

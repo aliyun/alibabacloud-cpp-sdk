@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 目标用户 ID（WINNEXO 平台用户ID，空则操作自身，管理员可传入他人 ID 代操作）
+    // The ID of the target user on the WINNEXO platform. If this parameter is left empty, the operation is performed on the caller. Administrators can specify the ID of another user to perform the operation on behalf of that user.
     shared_ptr<string> wnUserId_ {};
   };
 

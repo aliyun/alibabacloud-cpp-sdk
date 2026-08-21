@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 是否删除成功
+    // Indicates whether the session is deleted.
     shared_ptr<bool> deleted_ {};
-    // 是否硬删除
+    // Indicates whether the session is hard-deleted.
     shared_ptr<bool> hardDelete_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 会话 ID
+    // The unique identifier of the function session.
     shared_ptr<string> sessionId_ {};
   };
 

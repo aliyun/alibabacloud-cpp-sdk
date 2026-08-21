@@ -145,13 +145,13 @@ namespace Models
 
 
       protected:
-        // 对象唯一 ID
+        // The bound object ID.
         shared_ptr<string> objectId_ {};
-        // 对象显示名（如客户名称），由图谱 schema 解析；缓存缺失时为 null
+        // The object name.
         shared_ptr<string> objectName_ {};
-        // 对象类型（如 customer / opportunity），对应图谱 schema 中的 object_type
+        // The bound object type, such as customer or project.
         shared_ptr<string> objectType_ {};
-        // 对象类型显示名（如"客户"），由图谱 schema 解析；缓存缺失时为 null
+        // The display name of the object type, such as "Customer". This value is resolved from the graph schema. The value is null when the cache is missed.
         shared_ptr<string> objectTypeName_ {};
       };
 
@@ -267,34 +267,35 @@ namespace Models
 
 
     protected:
-      // 目录创建者姓名（仅 directoryId=\"root\" 列表时返回）
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // 知识库描述（仅 directoryId=\"root\" 列表时返回）
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 目录 KB 归属类型（itemType=directory 时有值）：aliding_kb_root / aliding_kb_internal / normal
+      // The directory type.
       shared_ptr<string> directoryKind_ {};
-      // 创建时间戳（毫秒）
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳（毫秒）
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 唯一标识（目录为 directoryId，资源为 sourceId）
+      // The signing record ID.
       shared_ptr<string> itemId_ {};
-      // 类型: directory 或 resource
+      // The item type.
       shared_ptr<string> itemType_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
+      // The object bindings.
       shared_ptr<vector<Items::ObjectBindings>> objectBindings_ {};
-      // 目录下失败资源数（含子目录，仅 directoryId=\"root\" 列表时返回）
+      // The number of resources in the FAILED state. This field is returned only when the top-level KB directory list is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // Source KB 归属类型（itemType=resource 时有值）：aliding_kb_doc / normal
+      // The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // 目录下成功资源数（含子目录，仅 directoryId=\"root\" 列表时返回）
+      // The number of resources in the READY state. This field is returned only when the top-level KB directory list is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // 资源状态（itemType=resource 时有值）
+      // The resource status. This field has a value only when itemType is resource.
       shared_ptr<string> sourceStatus_ {};
-      // 目录下资源总数（含子目录，仅 directoryId=\"root\" 列表时返回）
+      // The total number of resources under the directory and its subdirectories. This field is returned only when the top-level KB directory list is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
-      // 资源类型（itemType=resource 时有值；产出保存类资源会被反刷为 OUTPUT）
+      // The data source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -353,18 +354,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
+    // The file information.
     shared_ptr<vector<ListPersonalDirectoryContentsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries returned per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 总数（不分页前的命中行数）
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

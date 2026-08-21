@@ -149,25 +149,25 @@ namespace Models
 
 
     protected:
-      // 目录创建者姓名（来自 rbj_user_tenant_mapping.user_display_name）
+      // The creator.
       shared_ptr<string> creatorName_ {};
-      // 目录描述
+      // The description.
       shared_ptr<string> description_ {};
-      // 目录唯一标识（租户内唯一）
+      // The directory ID. You can obtain this value by calling the API operation for retrieving the knowledge base directory.
       shared_ptr<string> directoryId_ {};
-      // 创建时间戳（毫秒）
+      // The creation time. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳（毫秒）
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 文件名
+      // The skill name.
       shared_ptr<string> name_ {};
-      // 文件 OSS URL
+      // The file directory information.
       shared_ptr<string> path_ {};
-      // 目录及子目录下状态为 FAILED 的资源数
+      // The number of resources in the FAILED state. This parameter is returned only when listing top-level knowledge base directories.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // 目录及子目录下状态为 READY 的资源数
+      // The number of resources in the READY state. This parameter is returned only when listing top-level knowledge base directories.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // 目录及子目录下的资源总数
+      // The total number of resources in the directory and its subdirectories. This parameter is returned only when listing top-level knowledge base directories.
       shared_ptr<int64_t> sourceTotalCount_ {};
     };
 
@@ -211,14 +211,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The file information.
     shared_ptr<vector<ListVisibleKnowledgeBasesResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // 返回条数（不分页，等于 len(items)）
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

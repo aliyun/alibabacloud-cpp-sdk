@@ -181,31 +181,41 @@ namespace Models
 
 
     protected:
-      // 授权截止时间戳（毫秒）
+      // The authorization expiration timestamp in milliseconds. If not specified, the authorization never expires.
       shared_ptr<int64_t> expireDate_ {};
-      // 创建时间
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // 最后修改时间
+      // The last update time.
       shared_ptr<string> gmtModified_ {};
-      // 授权人用户 ID
+      // The user ID of the person who granted the authorization.
       shared_ptr<int64_t> grantedBy_ {};
-      // 被授权对象 ID
+      // The ID of the authorized object.
       shared_ptr<string> granteeId_ {};
-      // 被授权对象类型：USER / USER_GROUP
+      // The authorization object type. Valid values: USER, USER_GROUP.
       shared_ptr<string> granteeType_ {};
-      // 授权记录 ID
+      // The Operation logs ID.
       shared_ptr<int64_t> id_ {};
-      // 用户组成员数
+      // The number of members.
       shared_ptr<int64_t> memberCount_ {};
-      // 已授权的权限列表
+      // The permission member type. Valid values:
+      // 
+      // - **ORG**: Enterprise.
+      // 
+      // - **DEPT**: Department.
+      // 
+      // - **TAG**: Custom tag.
+      // 
+      // - **CONVERSATION**: Conversation.
+      // 
+      // - **USER**: User.
       shared_ptr<vector<string>> permissions_ {};
-      // 用户组 ID（granteeType=USER_GROUP 时有值）
+      // The user group ID. This parameter has a value only when granteeType is set to USER_GROUP.
       shared_ptr<string> userGroupId_ {};
-      // 用户组名
+      // The user group name.
       shared_ptr<string> userGroupName_ {};
-      // 用户 ID（granteeType=USER 时有值）
+      // The user ID. This parameter has a value only when granteeType is set to USER.
       shared_ptr<int64_t> userId_ {};
-      // 用户名
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -256,17 +266,17 @@ namespace Models
 
 
   protected:
-    // 授权模式：SPECIFIED_USERS / ALL_USERS
+    // The authentication mode.
     shared_ptr<string> authMode_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 已授权对象列表
+    // The details.
     shared_ptr<vector<ListAuthorizedUsersResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 授权记录总数
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // 是否附带执行日志（默认 false，仅在排查问题时建议开启）
+    // Specifies whether to include execution logs. Default value: false. Enable this parameter only for troubleshooting.
     shared_ptr<bool> includeLogs_ {};
-    // runSkill 返回的异步任务 ID
+    // The evaluation run ID.
     // 
     // This parameter is required.
     shared_ptr<string> runId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID to which the task belongs.
     shared_ptr<string> tenantId_ {};
   };
 

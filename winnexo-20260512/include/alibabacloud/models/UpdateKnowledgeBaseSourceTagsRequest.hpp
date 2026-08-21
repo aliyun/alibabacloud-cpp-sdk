@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // 数据源 ID（租户内唯一）
+    // The unique identifier on the business system side, that is, the business ID.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 资源标签（JSON 字符串列表，如 ["tagA","tagB"]；传 null 表示清空标签）
+    // The resource tags. This is an optional parameter that accepts a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

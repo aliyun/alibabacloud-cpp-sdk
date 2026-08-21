@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 目录描述（可选）
+    // The workspace description.
     shared_ptr<string> description_ {};
-    // 目录名称
+    // The name of the digital human.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+    // The name of the digital human (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 父目录 ID；不传时新目录挂在用户的默认根目录下，传入时必须是当前用户的已有个人目录
+    // The folder ID.
     shared_ptr<string> parentDirectoryId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

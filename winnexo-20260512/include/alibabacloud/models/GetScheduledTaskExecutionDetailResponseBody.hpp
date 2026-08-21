@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(title, title_);
       DARABONBA_PTR_TO_JSON(triggerInfo, triggerInfo_);
       DARABONBA_PTR_TO_JSON(triggerType, triggerType_);
+      DARABONBA_PTR_TO_JSON(visibility, visibility_);
     };
     friend void from_json(const Darabonba::Json& j, GetScheduledTaskExecutionDetailResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(title, title_);
       DARABONBA_PTR_FROM_JSON(triggerInfo, triggerInfo_);
       DARABONBA_PTR_FROM_JSON(triggerType, triggerType_);
+      DARABONBA_PTR_FROM_JSON(visibility, visibility_);
     };
     GetScheduledTaskExecutionDetailResponseBody() = default ;
     GetScheduledTaskExecutionDetailResponseBody(const GetScheduledTaskExecutionDetailResponseBody &) = default ;
@@ -98,7 +100,7 @@ namespace Models
 
 
     protected:
-      // 触发执行的用户标识
+      // The user identifier that triggered the execution.
       shared_ptr<string> triggeredBy_ {};
     };
 
@@ -142,9 +144,9 @@ namespace Models
 
 
     protected:
-      // 会话 ID
+      // The session ID.
       shared_ptr<string> sessionId_ {};
-      // 执行结果推送状态（多频道时为列表）
+      // The token usage information.
       Darabonba::Json usage_ {};
     };
 
@@ -186,9 +188,9 @@ namespace Models
 
 
     protected:
-      // 文件名
+      // The file name.
       shared_ptr<string> name_ {};
-      // 文件 OSS URL
+      // The OSS URL of the file.
       shared_ptr<string> path_ {};
     };
 
@@ -196,7 +198,8 @@ namespace Models
         && this->completedAt_ == nullptr && this->content_ == nullptr && this->creator_ == nullptr && this->digitalEmployeeName_ == nullptr && this->errorMessage_ == nullptr
         && this->executionId_ == nullptr && this->files_ == nullptr && this->gmtCreate_ == nullptr && this->message_ == nullptr && this->metadata_ == nullptr
         && this->outputContent_ == nullptr && this->pushResult_ == nullptr && this->requestId_ == nullptr && this->skillCodes_ == nullptr && this->startedAt_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->title_ == nullptr && this->triggerInfo_ == nullptr && this->triggerType_ == nullptr; };
+        && this->status_ == nullptr && this->taskId_ == nullptr && this->title_ == nullptr && this->triggerInfo_ == nullptr && this->triggerType_ == nullptr
+        && this->visibility_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -354,45 +357,58 @@ namespace Models
     inline GetScheduledTaskExecutionDetailResponseBody& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
+    // visibility Field Functions 
+    bool hasVisibility() const { return this->visibility_ != nullptr;};
+    void deleteVisibility() { this->visibility_ = nullptr;};
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline GetScheduledTaskExecutionDetailResponseBody& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 完成时间 ISO8601
+    // The completion time in ISO 8601 format.
     shared_ptr<string> completedAt_ {};
-    // 执行完整内容
+    // The full execution content.
     shared_ptr<string> content_ {};
-    // 创建人
+    // The creator.
     shared_ptr<string> creator_ {};
-    // digitalEmployeeName
+    // The list of digital employee names.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // 执行 ID
+    // The execution ID.
     shared_ptr<string> executionId_ {};
+    // The list of output files.
     shared_ptr<vector<GetScheduledTaskExecutionDetailResponseBody::Files>> files_ {};
-    // 创建时间 ISO8601
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
+    // The extended metadata.
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::Metadata> metadata_ {};
-    // 结构化输出内容
+    // The structured output content.
     shared_ptr<string> outputContent_ {};
+    // The push status of the execution result.
     shared_ptr<string> pushResult_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // skillCodes
+    // The list of associated skill codes.
     shared_ptr<vector<string>> skillCodes_ {};
-    // 开始时间 ISO8601
+    // The start time in ISO 8601 format.
     shared_ptr<string> startedAt_ {};
-    // 执行状态
+    // The execution status.
     shared_ptr<string> status_ {};
-    // 任务 ID
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // 执行结果标题
+    // The execution result title.
     shared_ptr<string> title_ {};
+    // The trigger information.
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::TriggerInfo> triggerInfo_ {};
-    // 触发类型
+    // The trigger type.
     shared_ptr<string> triggerType_ {};
+    // The visibility scope of the execution record, which is always equal to the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This field is empty for personal task executions.
+    shared_ptr<string> visibility_ {};
   };
 
   } // namespace Models

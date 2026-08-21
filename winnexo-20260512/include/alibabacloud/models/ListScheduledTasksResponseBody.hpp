@@ -51,28 +51,52 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(abnormalReason, abnormalReason_);
+        DARABONBA_PTR_TO_JSON(canDelete, canDelete_);
+        DARABONBA_PTR_TO_JSON(canEdit, canEdit_);
+        DARABONBA_PTR_TO_JSON(canExecute, canExecute_);
+        DARABONBA_PTR_TO_JSON(canToggle, canToggle_);
+        DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
+        DARABONBA_PTR_TO_JSON(creatorName, creatorName_);
         DARABONBA_PTR_TO_JSON(cronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_TO_JSON(executionCount, executionCount_);
         DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(isOpen, isOpen_);
+        DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(taskId, taskId_);
         DARABONBA_PTR_TO_JSON(triggerType, triggerType_);
+        DARABONBA_PTR_TO_JSON(visibility, visibility_);
+        DARABONBA_PTR_TO_JSON(visibleMemberUserIds, visibleMemberUserIds_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(abnormalReason, abnormalReason_);
+        DARABONBA_PTR_FROM_JSON(canDelete, canDelete_);
+        DARABONBA_PTR_FROM_JSON(canEdit, canEdit_);
+        DARABONBA_PTR_FROM_JSON(canExecute, canExecute_);
+        DARABONBA_PTR_FROM_JSON(canToggle, canToggle_);
+        DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
+        DARABONBA_PTR_FROM_JSON(creatorName, creatorName_);
         DARABONBA_PTR_FROM_JSON(cronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
         DARABONBA_PTR_FROM_JSON(executionCount, executionCount_);
         DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(isOpen, isOpen_);
+        DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(taskId, taskId_);
         DARABONBA_PTR_FROM_JSON(triggerType, triggerType_);
+        DARABONBA_PTR_FROM_JSON(visibility, visibility_);
+        DARABONBA_PTR_FROM_JSON(visibleMemberUserIds, visibleMemberUserIds_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -85,14 +109,66 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->creator_ == nullptr
-        && this->cronExpression_ == nullptr && this->description_ == nullptr && this->executionCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->isOpen_ == nullptr && this->name_ == nullptr && this->taskId_ == nullptr && this->triggerType_ == nullptr; };
+      virtual bool empty() const override { return this->abnormalReason_ == nullptr
+        && this->canDelete_ == nullptr && this->canEdit_ == nullptr && this->canExecute_ == nullptr && this->canToggle_ == nullptr && this->collaborationGroupId_ == nullptr
+        && this->creator_ == nullptr && this->creatorName_ == nullptr && this->cronExpression_ == nullptr && this->description_ == nullptr && this->digitalEmployeeName_ == nullptr
+        && this->executionCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr
+        && this->name_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->triggerType_ == nullptr && this->visibility_ == nullptr
+        && this->visibleMemberUserIds_ == nullptr; };
+      // abnormalReason Field Functions 
+      bool hasAbnormalReason() const { return this->abnormalReason_ != nullptr;};
+      void deleteAbnormalReason() { this->abnormalReason_ = nullptr;};
+      inline string getAbnormalReason() const { DARABONBA_PTR_GET_DEFAULT(abnormalReason_, "") };
+      inline Items& setAbnormalReason(string abnormalReason) { DARABONBA_PTR_SET_VALUE(abnormalReason_, abnormalReason) };
+
+
+      // canDelete Field Functions 
+      bool hasCanDelete() const { return this->canDelete_ != nullptr;};
+      void deleteCanDelete() { this->canDelete_ = nullptr;};
+      inline bool getCanDelete() const { DARABONBA_PTR_GET_DEFAULT(canDelete_, false) };
+      inline Items& setCanDelete(bool canDelete) { DARABONBA_PTR_SET_VALUE(canDelete_, canDelete) };
+
+
+      // canEdit Field Functions 
+      bool hasCanEdit() const { return this->canEdit_ != nullptr;};
+      void deleteCanEdit() { this->canEdit_ = nullptr;};
+      inline bool getCanEdit() const { DARABONBA_PTR_GET_DEFAULT(canEdit_, false) };
+      inline Items& setCanEdit(bool canEdit) { DARABONBA_PTR_SET_VALUE(canEdit_, canEdit) };
+
+
+      // canExecute Field Functions 
+      bool hasCanExecute() const { return this->canExecute_ != nullptr;};
+      void deleteCanExecute() { this->canExecute_ = nullptr;};
+      inline bool getCanExecute() const { DARABONBA_PTR_GET_DEFAULT(canExecute_, false) };
+      inline Items& setCanExecute(bool canExecute) { DARABONBA_PTR_SET_VALUE(canExecute_, canExecute) };
+
+
+      // canToggle Field Functions 
+      bool hasCanToggle() const { return this->canToggle_ != nullptr;};
+      void deleteCanToggle() { this->canToggle_ = nullptr;};
+      inline bool getCanToggle() const { DARABONBA_PTR_GET_DEFAULT(canToggle_, false) };
+      inline Items& setCanToggle(bool canToggle) { DARABONBA_PTR_SET_VALUE(canToggle_, canToggle) };
+
+
+      // collaborationGroupId Field Functions 
+      bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
+      void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
+      inline string getCollaborationGroupId() const { DARABONBA_PTR_GET_DEFAULT(collaborationGroupId_, "") };
+      inline Items& setCollaborationGroupId(string collaborationGroupId) { DARABONBA_PTR_SET_VALUE(collaborationGroupId_, collaborationGroupId) };
+
+
       // creator Field Functions 
       bool hasCreator() const { return this->creator_ != nullptr;};
       void deleteCreator() { this->creator_ = nullptr;};
       inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
       inline Items& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+      // creatorName Field Functions 
+      bool hasCreatorName() const { return this->creatorName_ != nullptr;};
+      void deleteCreatorName() { this->creatorName_ = nullptr;};
+      inline string getCreatorName() const { DARABONBA_PTR_GET_DEFAULT(creatorName_, "") };
+      inline Items& setCreatorName(string creatorName) { DARABONBA_PTR_SET_VALUE(creatorName_, creatorName) };
 
 
       // cronExpression Field Functions 
@@ -107,6 +183,15 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // digitalEmployeeName Field Functions 
+      bool hasDigitalEmployeeName() const { return this->digitalEmployeeName_ != nullptr;};
+      void deleteDigitalEmployeeName() { this->digitalEmployeeName_ = nullptr;};
+      inline const vector<string> & getDigitalEmployeeName() const { DARABONBA_PTR_GET_CONST(digitalEmployeeName_, vector<string>) };
+      inline vector<string> getDigitalEmployeeName() { DARABONBA_PTR_GET(digitalEmployeeName_, vector<string>) };
+      inline Items& setDigitalEmployeeName(const vector<string> & digitalEmployeeName) { DARABONBA_PTR_SET_VALUE(digitalEmployeeName_, digitalEmployeeName) };
+      inline Items& setDigitalEmployeeName(vector<string> && digitalEmployeeName) { DARABONBA_PTR_SET_RVALUE(digitalEmployeeName_, digitalEmployeeName) };
 
 
       // executionCount Field Functions 
@@ -137,11 +222,25 @@ namespace Models
       inline Items& setIsOpen(bool isOpen) { DARABONBA_PTR_SET_VALUE(isOpen_, isOpen) };
 
 
+      // model Field Functions 
+      bool hasModel() const { return this->model_ != nullptr;};
+      void deleteModel() { this->model_ = nullptr;};
+      inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+      inline Items& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline Items& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Items& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
       // taskId Field Functions 
@@ -158,27 +257,72 @@ namespace Models
       inline Items& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
+      // visibility Field Functions 
+      bool hasVisibility() const { return this->visibility_ != nullptr;};
+      void deleteVisibility() { this->visibility_ = nullptr;};
+      inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+      inline Items& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
+      // visibleMemberUserIds Field Functions 
+      bool hasVisibleMemberUserIds() const { return this->visibleMemberUserIds_ != nullptr;};
+      void deleteVisibleMemberUserIds() { this->visibleMemberUserIds_ = nullptr;};
+      inline const vector<string> & getVisibleMemberUserIds() const { DARABONBA_PTR_GET_CONST(visibleMemberUserIds_, vector<string>) };
+      inline vector<string> getVisibleMemberUserIds() { DARABONBA_PTR_GET(visibleMemberUserIds_, vector<string>) };
+      inline Items& setVisibleMemberUserIds(const vector<string> & visibleMemberUserIds) { DARABONBA_PTR_SET_VALUE(visibleMemberUserIds_, visibleMemberUserIds) };
+      inline Items& setVisibleMemberUserIds(vector<string> && visibleMemberUserIds) { DARABONBA_PTR_SET_RVALUE(visibleMemberUserIds_, visibleMemberUserIds) };
+
+
     protected:
-      // 创建人
+      // The reason for the abnormality. This field has a value only when status is abnormal.
+      shared_ptr<string> abnormalReason_ {};
+      // Indicates whether the current caller can delete the task (only the task creator and group owner can do so). Always returns true for personal tasks.
+      shared_ptr<bool> canDelete_ {};
+      // Indicates whether the task can be edited or deleted.
+      shared_ptr<bool> canEdit_ {};
+      // Indicates whether the current caller can immediately execute the task (anyone with visibility can operate. Returns false for abnormal tasks). Always returns true for personal tasks.
+      shared_ptr<bool> canExecute_ {};
+      // Indicates whether the current caller can start or stop the task (only the task creator and group owner can do so. Returns false for abnormal tasks). Always returns true for personal tasks.
+      shared_ptr<bool> canToggle_ {};
+      // The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
+      shared_ptr<string> collaborationGroupId_ {};
+      // The creator.
       shared_ptr<string> creator_ {};
-      // Cron 表达式
+      // The creator.
+      shared_ptr<string> creatorName_ {};
+      // The cron expression.
       shared_ptr<string> cronExpression_ {};
-      // 任务简述
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 累计执行次数
+      // The list of digital employee names.
+      shared_ptr<vector<string>> digitalEmployeeName_ {};
+      // The cumulative number of executions.
       shared_ptr<int64_t> executionCount_ {};
-      // 创建时间 ISO8601
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // 修改时间 ISO8601
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // 是否公开
+      // Indicates whether public access is enabled.
       shared_ptr<bool> isOpen_ {};
-      // 文件名
+      // The execution model tier. If not specified, the value is not updated.
+      shared_ptr<string> model_ {};
+      // The name.
       shared_ptr<string> name_ {};
-      // 任务 ID
+      // The task status. Running is returned upon submission.
+      shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // 触发类型（manual/cron/event）
+      // The trigger type.
       shared_ptr<string> triggerType_ {};
+      // The visibility of the group task. Valid values:
+      // - PRIVATE: visible only to the creator and group owner.
+      // - COLLABORATIVE: visible to specified collaborators.
+      // - PUBLIC: visible to all group members.
+      // 
+      // If not specified for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
+      shared_ptr<string> visibility_ {};
+      // The list of collaborator user IDs (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
+      shared_ptr<vector<string>> visibleMemberUserIds_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -257,24 +401,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 是否有更多数据
+    // Indicates whether more data is available. Valid values:
+    // - true: More data is available.
+    // - false: No more data is available.
     shared_ptr<bool> hasMore_ {};
+    // The list of skill cards.
     shared_ptr<vector<ListScheduledTasksResponseBody::Items>> items_ {};
-    // 本次实际生效的单页最大返回数量
+    // The maximum number of entries returned in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 下一页翻页令牌，原样回传即可取下一页；无更多数据时为空字符串
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // 当前页码（实际生效值）
+    // The page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // 每页条数（实际生效值）
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 满足条件的总数
+    // The total number of tasks.
     shared_ptr<int64_t> total_ {};
   };
 

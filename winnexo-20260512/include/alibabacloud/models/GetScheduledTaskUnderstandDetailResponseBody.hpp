@@ -100,11 +100,11 @@ namespace Models
 
 
     protected:
-      // 技能展示名称
+      // The display name of the MCP service.
       shared_ptr<string> displayName_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
-      // 技能代码
+      // The skill code.
       shared_ptr<string> skillCode_ {};
       // sourceIds
       shared_ptr<vector<string>> sourceIds_ {};
@@ -148,9 +148,9 @@ namespace Models
 
 
     protected:
-      // 语义属性（JSON 字符串），用于语义检索时过滤
+      // The information type.
       shared_ptr<string> attributes_ {};
-      // 语义实体名，如客户/机会
+      // The semantic entity name, such as customer or opportunity.
       shared_ptr<string> entity_ {};
     };
 
@@ -210,13 +210,17 @@ namespace Models
 
 
     protected:
-      // 提及类型
+      // The mention type, such as objects.
       shared_ptr<string> mentionType_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
-      // 对象 ID
+      // The object ID. Pass the project task ID.
+      // 
+      // - For internal enterprise applications, this is the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+      // 
+      // - For third-party enterprise applications, this is the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
       shared_ptr<string> objectId_ {};
-      // 对象类型
+      // The object type, such as customer. This parameter has a value when type is set to mention.
       shared_ptr<string> objectType_ {};
     };
 
@@ -279,16 +283,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The related objects.
     shared_ptr<vector<GetScheduledTaskUnderstandDetailResponseBody::RelatedObjects>> relatedObjects_ {};
+    // The related semantics.
     shared_ptr<vector<GetScheduledTaskUnderstandDetailResponseBody::RelatedSemantics>> relatedSemantics_ {};
+    // The related skills.
     shared_ptr<vector<GetScheduledTaskUnderstandDetailResponseBody::RelatedSkills>> relatedSkills_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 润色后的任务理解
+    // The task understanding description polished by the LLM.
     shared_ptr<string> taskUnderstand_ {};
   };
 

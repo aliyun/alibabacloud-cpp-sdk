@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // 是否同步等待重新解析完成；默认 false，异步入队
+    // Specifies whether to synchronously wait for the re-parsing to complete. Default value: false, which indicates asynchronous queuing.
     shared_ptr<bool> forceSync_ {};
-    // 待重新解析的数据源 ID（租户内唯一）
+    // The ID of the data source to re-parse. This ID is unique within the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

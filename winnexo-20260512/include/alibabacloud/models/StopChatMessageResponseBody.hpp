@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 结束原因
+    // The reason for stopping.
     shared_ptr<string> finishReason_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 助手消息ID，由 sendAsyncChatMessage 返回；不属于当前租户时返回 404
+    // The message ID.
     shared_ptr<string> messageId_ {};
-    // 已生成的部分内容
+    // The partially generated content.
     shared_ptr<string> partialContent_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 会话 ID
+    // The session ID.
     shared_ptr<string> sessionId_ {};
-    // 消息最终状态
+    // The final status of the message.
     shared_ptr<string> status_ {};
   };
 

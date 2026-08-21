@@ -183,30 +183,31 @@ namespace Models
 
 
     protected:
-      // 创建人名称
+      // The nickname of the creator.
       shared_ptr<string> creatorName_ {};
-      // 目录描述
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 创建时间戳
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 目录 ID 或资源 ID
+      // The signing record ID.
       shared_ptr<string> itemId_ {};
-      // 内容类型：directory 或 resource
+      // The data type (group, user, or role).
       shared_ptr<string> itemType_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
+      // The object bindings.
       shared_ptr<vector<Darabonba::Json>> objectBindings_ {};
-      // 根知识库下失败资源数
+      // The number of resources with the FAILED status. This field is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // 根知识库下成功资源数
+      // The number of resources with the READY status. This field is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // 资源解析状态
+      // The resource status. This field has a value only when itemType is set to resource.
       shared_ptr<string> sourceStatus_ {};
-      // 根知识库下资源总数
+      // The total number of resources in the directory and its subdirectories. This field is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
-      // 资源类型
+      // The data source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -265,18 +266,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
+    // The file information.
     shared_ptr<vector<ListTenantDirectoryResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries per page. Default value: 100. Maximum value: 500.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 内容总数
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -154,15 +154,15 @@ namespace Models
 
 
       protected:
-        // 对象归属的语义图谱名（object_id 在该 graph 下唯一）
+        // The semantic graph name to which the object belongs. The object_id is unique within this graph.
         shared_ptr<string> graphName_ {};
-        // 对象唯一 ID
+        // The ID of the recommended item, which can be a feedId or a micro-application ID.
         shared_ptr<string> objectId_ {};
-        // 对象显示名（如客户名称），由图谱 schema 解析；缓存缺失时为 null
+        // The object name.
         shared_ptr<string> objectName_ {};
-        // 对象类型（如 customer / opportunity），对应图谱 schema 中的 object_type
+        // The object type, such as customer. This field has a value only when type is mention.
         shared_ptr<string> objectType_ {};
-        // 对象类型显示名（如"客户"），由图谱 schema 解析；缓存缺失时为 null
+        // The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
         shared_ptr<string> objectTypeName_ {};
       };
 
@@ -278,34 +278,35 @@ namespace Models
 
 
     protected:
-      // 目录创建者姓名（仅 KB 顶层目录列表时返回）
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // 描述（仅 KB 顶层目录列表时返回）
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // 目录归属类型（itemType=directory 时有值）：normal / aliding_kb_root / aliding_kb_internal
+      // The directory type.
       shared_ptr<string> directoryKind_ {};
-      // 创建时间戳（毫秒）
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // 修改时间戳（毫秒）
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // 唯一标识（itemType=directory 时为 directory_id；itemType=resource 时为 source_id）
+      // The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The maximum length is 128 characters.
       shared_ptr<string> itemId_ {};
-      // 类型：directory / resource
+      // The data type (group, user, or role).
       shared_ptr<string> itemType_ {};
-      // 文件名
+      // The name.
       shared_ptr<string> name_ {};
+      // The object bindings.
       shared_ptr<vector<Items::ObjectBindings>> objectBindings_ {};
-      // 状态为 FAILED 的资源数（仅 KB 顶层目录列表时返回）
+      // The number of resources with FAILED status. This field is returned only for the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // 资源归属类型（itemType=resource 时有值）：aliding_kb_doc / normal
+      // The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // 状态为 READY 的资源数（仅 KB 顶层目录列表时返回）
+      // The number of resources with READY status. This field is returned only for the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // 资源状态（itemType=resource 时有值）
+      // The resource status. This field has a value only when itemType is resource.
       shared_ptr<string> sourceStatus_ {};
-      // 目录及子目录下资源总数（仅 KB 顶层目录列表时返回）
+      // The total number of resources in the directory and its subdirectories. This field is returned only for the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceTotalCount_ {};
-      // 资源类型（itemType=resource 时有值）
+      // The source type.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -364,18 +365,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
+    // The list of MCP cards.
     shared_ptr<vector<ListAdminKnowledgeBasesResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 符合条件的总数（应用 keyword/sourceTypes 后，分页前）
+    // The maximum number of records returned in this request.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -101,15 +101,15 @@ namespace Models
 
 
     protected:
-      // 失败时返回业务错误码（i18n key）
+      // The business error code (i18n key). Returned on failure.
       shared_ptr<string> errorCode_ {};
-      // 失败时返回错误描述（已按请求 locale 国际化）
+      // The error description, localized based on the request Accept-Language header. Returned on failure.
       shared_ptr<string> errorMessage_ {};
-      // 产出明细 ID
+      // The output detail ID.
       shared_ptr<string> itemId_ {};
-      // 成功时返回新建的资源 sourceId
+      // The sourceId of the newly created resource. Returned on success.
       shared_ptr<string> sourceId_ {};
-      // 操作是否成功
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -146,12 +146,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The error description. This value is empty on success.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
+    // The per-record results in the same order as the input itemIds. A single record failure does not affect other records.
     shared_ptr<vector<SaveOutputFileToResourceResponseBody::Results>> results_ {};
   };
 

@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // 用户显示名称（租户内唯一，不可为空，最多100字）
+    // The cluster name.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // RSA-OAEP-SHA256 加密后的 base64 密码密文（必填，不可为空）
+    // The base64-encoded password ciphertext encrypted by RSA-OAEP-SHA256 (required).
     // 
     // This parameter is required.
     shared_ptr<string> passwordEncrypted_ {};
-    // 系统角色 code 列表，可选值: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER。不传默认 APPLICATION_USER
+    // The list of new system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<vector<string>> roleCodes_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The ID of the tenant in which the operation takes effect.
     shared_ptr<string> tenantId_ {};
-    // WINNEXO 登录账号（唯一标识，不可为空）
+    // The WINNEXO logon account (unique identifier, required).
     // 
     // This parameter is required.
     shared_ptr<string> wnAccountId_ {};

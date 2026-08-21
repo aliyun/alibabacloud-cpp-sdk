@@ -98,18 +98,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
+    // The incremental information list.
     shared_ptr<vector<map<string, string>>> items_ {};
-    // 错误描述，成功时为空
+    // The error description. This value is empty when the request succeeds.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 总数
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

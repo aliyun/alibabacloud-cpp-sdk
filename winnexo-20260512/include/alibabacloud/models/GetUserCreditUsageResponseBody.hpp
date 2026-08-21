@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 用户 credit 限额
+    // The credit limit of the user.
     shared_ptr<string> creditLimit_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 剩余 credit（实时，来自 Redis）
+    // The remaining credits in real time.
     shared_ptr<string> remainingCredits_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 影子 credit 限额
+    // The shadow credit limit.
     shared_ptr<string> shadowCreditLimit_ {};
-    // 剩余影子 credit（实时，来自 Redis）
+    // The remaining shadow credits in real time.
     shared_ptr<string> shadowRemainingCredits_ {};
-    // 已消耗影子 credit（实时，来自 Redis）
+    // The consumed shadow credits in real time.
     shared_ptr<string> shadowUsedCredits_ {};
-    // 租户ID
+    // The ID of the tenant to which the task belongs.
     shared_ptr<int64_t> tenantId_ {};
-    // 已消耗 credit（实时，来自 Redis）
+    // The consumed credits in real time.
     shared_ptr<string> usedCredits_ {};
-    // 用户ID
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

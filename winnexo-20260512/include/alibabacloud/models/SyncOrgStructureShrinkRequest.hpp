@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // 企业标识（必须与 listAvailableConfigs 返回的 corpId 一致）
+    // The enterprise identifier. This value must match the corpId returned by listAvailableConfigs.
     // 
     // This parameter is required.
     shared_ptr<string> corpId_ {};
-    // 部门列表（至少包含一个根部门）
+    // The department list. At least one root department must be included.
     // 
     // This parameter is required.
     shared_ptr<string> departmentsShrink_ {};
-    // 成员列表（syncMembers=true 时必须提供）
+    // The member list. This parameter is required when syncMembers is set to true.
     shared_ptr<string> membersShrink_ {};
-    // 平台类型: saml / oauth2 / custom
+    // The platform type. Valid values: saml, oauth2, or custom.
     // 
     // This parameter is required.
     shared_ptr<string> platformType_ {};
-    // SSO 配置 ID（SAML/OAuth2 可选：不传时按 corpId 自动推导；若存在多个 IdP 使用相同 corpId 则必须显式传入，否则报 AMBIGUOUS 错误；custom 不需要）
+    // The SSO configuration ID. For SAML/OAuth2, this parameter is optional. If not specified, the value is automatically derived based on corpId. If multiple IdPs use the same corpId, you must explicitly specify this parameter. Otherwise, an AMBIGUOUS error is returned. This parameter is not required for custom.
     shared_ptr<string> ssoSettingsId_ {};
-    // 是否同步成员关系（custom 模式强制为 false）
+    // Specifies whether to synchronize member relationships. In custom mode, this parameter is forced to false.
     shared_ptr<bool> syncMembers_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

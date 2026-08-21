@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // 自定义组织标识，格式：^[a-z0-9][a-z0-9\-]{2,63}$
+    // The corpId of the activated enterprise.
     // 
     // This parameter is required.
     shared_ptr<string> corpId_ {};
-    // 组织展示名称（可选，不传则与 corpId 相同）
+    // The organization name.
     shared_ptr<string> corpName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

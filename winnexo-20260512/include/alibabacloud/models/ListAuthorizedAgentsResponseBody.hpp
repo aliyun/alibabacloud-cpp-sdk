@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // 有指定权限的数字员工名称列表
+    // The agent names.
     shared_ptr<vector<string>> agentNames_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -156,17 +156,19 @@ namespace Models
 
 
     protected:
-      // DocumentAgent 解析完成时间，ISO8601 格式
+      // The completion time, in milliseconds.
       shared_ptr<string> completionTime_ {};
-      // 文件名
+      // The file name, including the file name extension.
       shared_ptr<string> fileName_ {};
-      // 文件记录 ID
+      // The file record ID (optional, corresponding to settings.file_record_id).
       shared_ptr<string> fileRecordId_ {};
-      // 文件类型
+      // The file type. Valid values:
+      // - **file**: file.
+      // - **folder**: folder.
       shared_ptr<string> fileType_ {};
-      // OSS 远程 URL
+      // The session analysis result in OSS URL format. The URL expires in one hour.
       shared_ptr<string> ossUrl_ {};
-      // DocumentAgent 语义 ID
+      // The DocumentAgent semantic ID.
       shared_ptr<string> semanticsId_ {};
     };
 
@@ -217,11 +219,11 @@ namespace Models
 
 
     protected:
-      // 对象归属的语义图谱名
+      // The semantic graph name to which the object belongs.
       shared_ptr<string> graphName_ {};
-      // 对象 ID
+      // The ID of the recommended item, which can be a **feedId** or a micro-application ID.
       shared_ptr<string> objectId_ {};
-      // 对象类型
+      // The object type, such as customer. This field has a value when type is set to mention.
       shared_ptr<string> objectType_ {};
     };
 
@@ -430,56 +432,61 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // DocumentAgent 解析完成时间，ISO8601 格式
+    // The completion time, in milliseconds.
     shared_ptr<string> completionTime_ {};
-    // 数据源描述
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 创建时间，ISO8601 格式
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 修改时间，ISO8601 格式
+    // The last modification time.
     shared_ptr<string> gmtModified_ {};
-    // 是否存在备注
+    // Indicates whether notes exist.
     shared_ptr<bool> hasNotes_ {};
-    // 是否存在 settings 配置
+    // Indicates whether settings configuration exists.
     shared_ptr<bool> hasSettings_ {};
-    // 是否存在结构化表
+    // Indicates whether structured tables exist.
     shared_ptr<bool> hasStructuredTables_ {};
-    // 是否存在非结构化文档
+    // Indicates whether unstructured documents exist.
     shared_ptr<bool> hasUnstructuredDocs_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The username.
     shared_ptr<string> name_ {};
-    // 备注（仅 includeDetails=True）
+    // The meeting notes content (optional), which participates in auxiliary analysis.
     shared_ptr<string> notes_ {};
+    // The object bindings.
     shared_ptr<vector<GetSourceResponseBody::ObjectBindings>> objectBindings_ {};
-    // 主对象 ID（兼容字段）
+    // The associated variable ID.
     shared_ptr<string> objectId_ {};
-    // 主对象类型（兼容字段）
+    // The object type, such as customer. This field has a value when type is set to mention.
     shared_ptr<string> objectType_ {};
-    // 运营对象名称
+    // The digital employee name (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 可见范围：PERSONAL / TENANT
+    // The task scope.
     shared_ptr<string> scope_ {};
+    // The user profile card settings.
     Darabonba::Json settings_ {};
-    // 技能产出 ID（由产出保存为资源时携带）
+    // The skill output ID (carried when the output is saved as a resource).
     shared_ptr<string> skillOutputId_ {};
-    // 数据源 ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 数据源归属类型：normal / aliding_kb_doc
+    // The knowledge base affiliation type. Valid values:
+    // - aliding_kb_doc: DingTalk knowledge base document.
+    // - normal: common knowledge.
     shared_ptr<string> sourceKind_ {};
-    // 资源标签 JSON 字符串
+    // The resource tags (optional, a JSON string list such as ["tagA","tagB"]).
     shared_ptr<string> sourceTags_ {};
-    // 数据源类型
+    // The resource type.
     shared_ptr<string> sourceType_ {};
-    // 数据源状态
+    // The final status of the message.
     shared_ptr<string> status_ {};
     // structuredTables
     shared_ptr<vector<string>> structuredTables_ {};
+    // The unstructured documents.
     shared_ptr<vector<GetSourceResponseBody::UnstructuredDocs>> unstructuredDocs_ {};
   };
 

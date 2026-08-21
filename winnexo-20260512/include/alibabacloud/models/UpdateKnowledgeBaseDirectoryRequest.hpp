@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 新分类描述；不传表示不更新
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 待修改的分类 ID（必传）
+    // The directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // 新分类名称；不传表示不更新
+    // The name.
     shared_ptr<string> name_ {};
-    // 新父分类 ID；不传表示不移动，传入时必须是当前租户下已存在的企业知识库目录 ID
+    // The directory ID.
     shared_ptr<string> parentDirectoryId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID to take effect.
     shared_ptr<string> tenantId_ {};
   };
 

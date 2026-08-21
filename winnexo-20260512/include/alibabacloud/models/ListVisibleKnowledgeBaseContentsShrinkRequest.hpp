@@ -103,25 +103,29 @@ namespace Models
 
 
   protected:
-    // 目录 ID（必传非空，必须在数字员工 linked_directories 及其子目录范围内）
+    // The directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // 数字员工名称（运营对象 name）
+    // The name of the digital employee (operating object name).
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // 页码（从 1 开始）
+    // The page number of the results to return. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int64_t> page_ {};
-    // 每页数量，范围 1-100
+    // The page size. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // 排序字段，可选 name / gmt_create / gmt_modified
+    // The field by which to sort the results. Valid values:
+    // 
+    // - event_time: event creation time
+    // - event_execute_start_time: event execution time
+    // - event_execute_finish_time: event completion time
     shared_ptr<string> sortField_ {};
-    // 排序方向，可选 asc / desc
+    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
     shared_ptr<string> sortOrder_ {};
-    // 资源类型筛选列表（有值时仅返回资源，不包含子目录）
+    // The list of service source types.
     shared_ptr<string> sourceTypesShrink_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

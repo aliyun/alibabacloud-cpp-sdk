@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // 新目录描述；缺省表示不更新
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 目录唯一标识（业务 ID，非主键 ID）
+    // The directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // 新目录名称；缺省表示不更新
+    // The name.
     shared_ptr<string> name_ {};
-    // 新父目录主键 ID；缺省表示不更新父目录
+    // The ID of the parent node.
     shared_ptr<int64_t> parentId_ {};
-    // 新目录路径；传入时会级联更新当前目录及全部子目录的 path
+    // The path of the node.
     shared_ptr<string> path_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -128,19 +128,22 @@ namespace Models
 
 
     protected:
-      // WINNEXO 登录账号
+      // The account ID.
       shared_ptr<string> accountId_ {};
-      // 用户显示名称
+      // The display name of the tool.
       shared_ptr<string> displayName_ {};
-      // 加入租户时间
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // 启用/停用状态
+      // Indicates whether the account is activated:
+      // 
+      // - 1: Activated.
+      // - 0: Not activated.
       shared_ptr<bool> isActive_ {};
-      // 最后登录时间
+      // The last logon time.
       shared_ptr<string> lastLoginTime_ {};
-      // 用户拥有的系统角色 code 列表
+      // The list of new system role codes (full replacement, at least one role must be included). Valid values: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER.
       shared_ptr<vector<string>> roleCodes_ {};
-      // 用户ID
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -199,19 +202,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 成员列表
+    // The user information.
     shared_ptr<vector<ListUsersResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 每页数量
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 符合条件的总记录数
+    // The total number of data entries in the project.
     shared_ptr<int64_t> total_ {};
   };
 

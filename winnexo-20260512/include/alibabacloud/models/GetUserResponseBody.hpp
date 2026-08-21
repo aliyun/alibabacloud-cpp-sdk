@@ -135,27 +135,29 @@ namespace Models
 
 
   protected:
-    // WINNEXO 登录账号
+    // The account ID.
     shared_ptr<string> accountId_ {};
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The error code.
     shared_ptr<string> code_ {};
-    // 用户显示名称
+    // The display name of the account.
     shared_ptr<string> displayName_ {};
-    // 加入租户时间
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // 启用/停用状态
+    // Indicates whether the account is activated. Valid values:
+    //  - **true**: Activated.
+    // - **false**: Not activated.
     shared_ptr<bool> isActive_ {};
-    // 最后登录时间
+    // The last logon time.
     shared_ptr<string> lastLoginTime_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 用户拥有的系统角色 code 列表
+    // The list of system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<vector<string>> roleCodes_ {};
-    // 用户所属用户组ID列表
+    // The list of user group IDs to which the user belongs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // WINNEXO 平台用户ID
+    // The WINNEXO platform user ID.
     shared_ptr<string> wnUserId_ {};
   };
 

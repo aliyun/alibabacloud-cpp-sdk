@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // 请求追踪 ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

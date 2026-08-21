@@ -122,15 +122,15 @@ namespace Models
 
 
     protected:
-      // 失败的成员数
+      // The number of failed members.
       shared_ptr<int64_t> failed_ {};
-      // 新增的成员关系数
+      // The number of added member relationships.
       shared_ptr<int64_t> relationshipAdded_ {};
-      // 移除的成员关系数
+      // The number of removed member relationships.
       shared_ptr<int64_t> relationshipRemoved_ {};
-      // 外部成员总数
+      // The total number of external members.
       shared_ptr<int64_t> totalExternal_ {};
-      // 未变更的成员关系数
+      // The number of unchanged member relationships.
       shared_ptr<int64_t> unchanged_ {};
     };
 
@@ -208,17 +208,17 @@ namespace Models
 
 
     protected:
-      // 新增的用户组数
+      // The total number of external departments.
       shared_ptr<int64_t> created_ {};
-      // 标记删除的用户组数
+      // The number of user groups marked for deletion.
       shared_ptr<int64_t> deleted_ {};
-      // 移动的用户组数
+      // The number of moved user groups.
       shared_ptr<int64_t> moved_ {};
-      // 更名的用户组数
+      // The number of renamed user groups.
       shared_ptr<int64_t> renamed_ {};
-      // 跳过的用户组数
+      // The number of skipped user groups.
       shared_ptr<int64_t> skipped_ {};
-      // 外部部门总数
+      // The total number of external departments.
       shared_ptr<int64_t> totalExternal_ {};
     };
 
@@ -336,35 +336,35 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 任务完成时间（ISO 8601）
+    // The time when the task was completed (ISO 8601 format).
     shared_ptr<string> completedAt_ {};
-    // 企业标识
+    // The enterprise identifier.
     shared_ptr<string> corpId_ {};
-    // 部门同步统计（完成时有值）
+    // The department synchronization statistics. This field has a value when the task is completed.
     shared_ptr<QuerySyncResultResponseBody::DeptStats> deptStats_ {};
-    // 执行时长（秒）
+    // The execution duration, in seconds.
     shared_ptr<int64_t> durationSeconds_ {};
-    // 错误信息（失败时有值）
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // 成员同步统计（syncMembers=true 且完成时有值）
+    // The member synchronization statistics. This field has a value when syncMembers is set to true and the task is completed.
     shared_ptr<QuerySyncResultResponseBody::MemberStats> memberStats_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 平台类型
+    // The platform type.
     shared_ptr<string> platformType_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 任务开始执行时间（ISO 8601）
+    // The time when the task started (ISO 8601 format).
     shared_ptr<string> startedAt_ {};
-    // 任务状态: PENDING / RUNNING / COMPLETED / FAILED / TIMEOUT / CANCELED
+    // The task status. Valid values: PENDING, RUNNING, COMPLETED, FAILED, TIMEOUT, and CANCELED.
     shared_ptr<string> status_ {};
-    // 任务提交时间（ISO 8601）
+    // The time when the task was submitted (ISO 8601 format).
     shared_ptr<string> submittedAt_ {};
-    // 执行摘要（人可读）
+    // The intelligent meeting summary content.
     shared_ptr<string> summary_ {};
-    // 任务 ID
+    // The task ID.
     shared_ptr<int64_t> taskId_ {};
   };
 

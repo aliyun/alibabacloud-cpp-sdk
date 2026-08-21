@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // 资源描述（可选）
+    // The pipeline description.
     shared_ptr<string> description_ {};
-    // 目标个人目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时绑定到该目录（必须是当前用户在当前数字员工下的已有个人目录）
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 阿里钉在线文档的可公开访问 URL
+    // The publicly accessible URL of the AliDing online document.
     // 
     // This parameter is required.
     shared_ptr<string> filePublicUrl_ {};
-    // 文件名
+    // The customer group name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Agent 命名空间标识，可选
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

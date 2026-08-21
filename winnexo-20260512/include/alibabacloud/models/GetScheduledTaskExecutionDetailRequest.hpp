@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 执行记录 ID
+    // The execution record ID.
     // 
     // This parameter is required.
     shared_ptr<string> executionId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID that takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

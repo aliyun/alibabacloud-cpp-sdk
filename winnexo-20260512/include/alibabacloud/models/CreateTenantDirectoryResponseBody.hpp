@@ -158,43 +158,43 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 目录描述
+    // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // 目录唯一标识
+    // The directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // 创建时间戳
+    // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // 修改时间戳
+    // The last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // 目录内部主键
+    // Id of the request
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 文件名
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // 历史运营对象名称
+    // The name of the digital employee (the operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 父目录内部主键
+    // The ID of the parent node.
     shared_ptr<int64_t> parentId_ {};
-    // 文件 OSS URL
+    // The path of the node.
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 租户 ID
+    // The ID of the effective tenant.
     // 
     // This parameter is required.
     shared_ptr<int64_t> tenantId_ {};
-    // 创建人用户 ID
+    // The user ID of the creator.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

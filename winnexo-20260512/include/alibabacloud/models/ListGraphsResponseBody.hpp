@@ -92,19 +92,19 @@ namespace Models
 
 
     protected:
-      // 图谱业务说明，未配置时为空字符串
+      // The business description of the knowledge graph. An empty string is returned if not configured.
       // 
       // This parameter is required.
       shared_ptr<string> businessProfile_ {};
-      // 图谱显示名称
+      // The tool display name.
       // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
-      // 图谱名称，传给 querySemanticKnowledge.graphName
+      // The knowledge graph name.
       // 
       // This parameter is required.
       shared_ptr<string> graphName_ {};
-      // 是否为租户默认图谱
+      // Indicates whether this is the default group.
       // 
       // This parameter is required.
       shared_ptr<bool> isDefault_ {};
@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 租户下可用于语义查询的已发布图谱列表
+    // The list of MCP cards.
     // 
     // This parameter is required.
     shared_ptr<vector<ListGraphsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

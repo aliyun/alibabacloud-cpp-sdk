@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The response status code.
     shared_ptr<string> code_ {};
-    // 图谱名称
+    // The knowledge graph name.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 当前 active Graph Schema 版本
+    // The version.
     // 
     // This parameter is required.
     shared_ptr<string> schemaVersion_ {};
-    // 按 READ 权限裁剪的 Graph Schema 原始 YAML 文本，保留授权子图内的 $ref
+    // The raw YAML text of the Graph Schema trimmed by READ permissions, retaining $ref references within the authorized subgraph.
     // 
     // This parameter is required.
     shared_ptr<string> yamlEdit_ {};
