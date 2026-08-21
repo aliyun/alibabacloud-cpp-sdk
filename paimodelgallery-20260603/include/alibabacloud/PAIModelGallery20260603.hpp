@@ -21,6 +21,60 @@ namespace PAIModelGallery20260603
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 获取模型部署方案匹配资源
+       *
+       * @param request GetModelDeploymentResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelDeploymentResourcesResponse
+       */
+      Models::GetModelDeploymentResourcesResponse getModelDeploymentResourcesWithOptions(const string &ModelId, const Models::GetModelDeploymentResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型部署方案匹配资源
+       *
+       * @param request GetModelDeploymentResourcesRequest
+       * @return GetModelDeploymentResourcesResponse
+       */
+      Models::GetModelDeploymentResourcesResponse getModelDeploymentResources(const string &ModelId, const Models::GetModelDeploymentResourcesRequest &request);
+
+      /**
+       * @summary 生成模型部署配置
+       *
+       * @param request GetModelDeploymentSpecRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelDeploymentSpecResponse
+       */
+      Models::GetModelDeploymentSpecResponse getModelDeploymentSpecWithOptions(const string &ModelId, const Models::GetModelDeploymentSpecRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成模型部署配置
+       *
+       * @param request GetModelDeploymentSpecRequest
+       * @return GetModelDeploymentSpecResponse
+       */
+      Models::GetModelDeploymentSpecResponse getModelDeploymentSpec(const string &ModelId, const Models::GetModelDeploymentSpecRequest &request);
+
+      /**
+       * @summary 获取模型部署方案列表
+       *
+       * @param request ListModelDeploymentProfilesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelDeploymentProfilesResponse
+       */
+      Models::ListModelDeploymentProfilesResponse listModelDeploymentProfilesWithOptions(const string &ModelId, const Models::ListModelDeploymentProfilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模型部署方案列表
+       *
+       * @param request ListModelDeploymentProfilesRequest
+       * @return ListModelDeploymentProfilesResponse
+       */
+      Models::ListModelDeploymentProfilesResponse listModelDeploymentProfiles(const string &ModelId, const Models::ListModelDeploymentProfilesRequest &request);
+
+      /**
        * @summary 获取ModelGallery模型列表
        *
        * @param tmpReq ListModelGalleryModelsRequest
