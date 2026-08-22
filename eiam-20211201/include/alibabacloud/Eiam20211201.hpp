@@ -730,7 +730,7 @@ namespace Eiam20211201
       Models::CreateIdentityProviderStatusCheckJobResponse createIdentityProviderStatusCheckJob(const Models::CreateIdentityProviderStatusCheckJobRequest &request);
 
       /**
-       * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+       * @summary Creates an instance. All EIAM product capabilities are provided based on instances.
        *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -739,7 +739,7 @@ namespace Eiam20211201
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+       * @summary Creates an instance. All EIAM product capabilities are provided based on instances.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -2338,6 +2338,23 @@ namespace Eiam20211201
       Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolution(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request);
 
       /**
+       * @summary Performs a disaster recovery switchover.
+       *
+       * @param request ExecuteInstanceFailoverRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteInstanceFailoverResponse
+       */
+      Models::ExecuteInstanceFailoverResponse executeInstanceFailoverWithOptions(const Models::ExecuteInstanceFailoverRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a disaster recovery switchover.
+       *
+       * @param request ExecuteInstanceFailoverRequest
+       * @return ExecuteInstanceFailoverResponse
+       */
+      Models::ExecuteInstanceFailoverResponse executeInstanceFailover(const Models::ExecuteInstanceFailoverRequest &request);
+
+      /**
        * @summary Generates a download URL for file import results.
        *
        * @param request GenerateDownloadUrlForSynchronizationJobRequest
@@ -2593,7 +2610,7 @@ namespace Eiam20211201
       Models::GetApplicationTemplateResponse getApplicationTemplate(const Models::GetApplicationTemplateRequest &request);
 
       /**
-       * @summary Queries information about an authorized resource.
+       * @summary Queries the information of an authorization resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2602,7 +2619,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResourceWithOptions(const Models::GetAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an authorized resource.
+       * @summary Queries the information of an authorization resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @return GetAuthorizationResourceResponse
@@ -2610,7 +2627,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResource(const Models::GetAuthorizationResourceRequest &request);
 
       /**
-       * @summary Query information about an authorization rule.
+       * @summary Queries the information about an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2619,7 +2636,7 @@ namespace Eiam20211201
       Models::GetAuthorizationRuleResponse getAuthorizationRuleWithOptions(const Models::GetAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query information about an authorization rule.
+       * @summary Queries the information about an authorization rule.
        *
        * @param request GetAuthorizationRuleRequest
        * @return GetAuthorizationRuleResponse
@@ -3022,9 +3039,9 @@ namespace Eiam20211201
       Models::GetInstanceGlobalizationConfigResponse getInstanceGlobalizationConfig(const Models::GetInstanceGlobalizationConfigRequest &request);
 
       /**
-       * @summary Queries the active license information for an instance.
+       * @summary Queries the license information that is currently effective for an instance.
        *
-       * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+       * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
        *
        * @param request GetInstanceLicenseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3033,9 +3050,9 @@ namespace Eiam20211201
       Models::GetInstanceLicenseResponse getInstanceLicenseWithOptions(const Models::GetInstanceLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the active license information for an instance.
+       * @summary Queries the license information that is currently effective for an instance.
        *
-       * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+       * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
        *
        * @param request GetInstanceLicenseRequest
        * @return GetInstanceLicenseResponse
@@ -3748,7 +3765,7 @@ namespace Eiam20211201
       Models::ListCloudAccountRolesResponse listCloudAccountRoles(const Models::ListCloudAccountRolesRequest &request);
 
       /**
-       * @summary Queries information about one or more cloud accounts by using paging.
+       * @summary Queries one or more cloud accounts by using paging.
        *
        * @param request ListCloudAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3757,7 +3774,7 @@ namespace Eiam20211201
       Models::ListCloudAccountsResponse listCloudAccountsWithOptions(const Models::ListCloudAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about one or more cloud accounts by using paging.
+       * @summary Queries one or more cloud accounts by using paging.
        *
        * @param request ListCloudAccountsRequest
        * @return ListCloudAccountsResponse
@@ -4609,7 +4626,7 @@ namespace Eiam20211201
       Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrand(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request);
 
       /**
-       * @summary Removes an application from an authorization rule.
+       * @summary Removes a group from an authorization rule.
        *
        * @param request RemoveGroupFromAuthorizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4618,7 +4635,7 @@ namespace Eiam20211201
       Models::RemoveGroupFromAuthorizationRuleResponse removeGroupFromAuthorizationRuleWithOptions(const Models::RemoveGroupFromAuthorizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes an application from an authorization rule.
+       * @summary Removes a group from an authorization rule.
        *
        * @param request RemoveGroupFromAuthorizationRuleRequest
        * @return RemoveGroupFromAuthorizationRuleResponse

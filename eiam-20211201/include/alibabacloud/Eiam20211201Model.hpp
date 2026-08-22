@@ -401,6 +401,9 @@
 #include <alibabacloud/models/ExecIdentityProviderMetadataUrlResolutionRequest.hpp>
 #include <alibabacloud/models/ExecIdentityProviderMetadataUrlResolutionResponseBody.hpp>
 #include <alibabacloud/models/ExecIdentityProviderMetadataUrlResolutionResponse.hpp>
+#include <alibabacloud/models/ExecuteInstanceFailoverRequest.hpp>
+#include <alibabacloud/models/ExecuteInstanceFailoverResponseBody.hpp>
+#include <alibabacloud/models/ExecuteInstanceFailoverResponse.hpp>
 #include <alibabacloud/models/GenerateDownloadUrlForSynchronizationJobRequest.hpp>
 #include <alibabacloud/models/GenerateDownloadUrlForSynchronizationJobResponseBody.hpp>
 #include <alibabacloud/models/GenerateDownloadUrlForSynchronizationJobResponse.hpp>

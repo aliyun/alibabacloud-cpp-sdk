@@ -46,7 +46,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthorizationResourceId, authorizationResourceId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_TO_JSON(CloudAccountId, cloudAccountId_);
+        DARABONBA_PTR_TO_JSON(Condition, condition_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, AuthorizationResources& obj) { 
         DARABONBA_PTR_FROM_JSON(AuthorizationResourceEntityId, authorizationResourceEntityId_);
@@ -54,7 +57,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthorizationResourceId, authorizationResourceId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_FROM_JSON(CloudAccountId, cloudAccountId_);
+        DARABONBA_PTR_FROM_JSON(Condition, condition_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       AuthorizationResources() = default ;
       AuthorizationResources(const AuthorizationResources &) = default ;
@@ -67,8 +73,75 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Condition : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Condition& obj) { 
+          DARABONBA_PTR_TO_JSON(CredentialCondition, credentialCondition_);
+        };
+        friend void from_json(const Darabonba::Json& j, Condition& obj) { 
+          DARABONBA_PTR_FROM_JSON(CredentialCondition, credentialCondition_);
+        };
+        Condition() = default ;
+        Condition(const Condition &) = default ;
+        Condition(Condition &&) = default ;
+        Condition(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Condition() = default ;
+        Condition& operator=(const Condition &) = default ;
+        Condition& operator=(Condition &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class CredentialCondition : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CredentialCondition& obj) { 
+            DARABONBA_PTR_TO_JSON(AllowSameNameIdentity, allowSameNameIdentity_);
+          };
+          friend void from_json(const Darabonba::Json& j, CredentialCondition& obj) { 
+            DARABONBA_PTR_FROM_JSON(AllowSameNameIdentity, allowSameNameIdentity_);
+          };
+          CredentialCondition() = default ;
+          CredentialCondition(const CredentialCondition &) = default ;
+          CredentialCondition(CredentialCondition &&) = default ;
+          CredentialCondition(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CredentialCondition() = default ;
+          CredentialCondition& operator=(const CredentialCondition &) = default ;
+          CredentialCondition& operator=(CredentialCondition &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->allowSameNameIdentity_ == nullptr; };
+          // allowSameNameIdentity Field Functions 
+          bool hasAllowSameNameIdentity() const { return this->allowSameNameIdentity_ != nullptr;};
+          void deleteAllowSameNameIdentity() { this->allowSameNameIdentity_ = nullptr;};
+          inline bool getAllowSameNameIdentity() const { DARABONBA_PTR_GET_DEFAULT(allowSameNameIdentity_, false) };
+          inline CredentialCondition& setAllowSameNameIdentity(bool allowSameNameIdentity) { DARABONBA_PTR_SET_VALUE(allowSameNameIdentity_, allowSameNameIdentity) };
+
+
+        protected:
+          // Specifies whether same-name identity accounts are supported.
+          shared_ptr<bool> allowSameNameIdentity_ {};
+        };
+
+        virtual bool empty() const override { return this->credentialCondition_ == nullptr; };
+        // credentialCondition Field Functions 
+        bool hasCredentialCondition() const { return this->credentialCondition_ != nullptr;};
+        void deleteCredentialCondition() { this->credentialCondition_ = nullptr;};
+        inline const Condition::CredentialCondition & getCredentialCondition() const { DARABONBA_PTR_GET_CONST(credentialCondition_, Condition::CredentialCondition) };
+        inline Condition::CredentialCondition getCredentialCondition() { DARABONBA_PTR_GET(credentialCondition_, Condition::CredentialCondition) };
+        inline Condition& setCredentialCondition(const Condition::CredentialCondition & credentialCondition) { DARABONBA_PTR_SET_VALUE(credentialCondition_, credentialCondition) };
+        inline Condition& setCredentialCondition(Condition::CredentialCondition && credentialCondition) { DARABONBA_PTR_SET_RVALUE(credentialCondition_, credentialCondition) };
+
+
+      protected:
+        // The effective condition when used as a credential.
+        shared_ptr<Condition::CredentialCondition> credentialCondition_ {};
+      };
+
       virtual bool empty() const override { return this->authorizationResourceEntityId_ == nullptr
-        && this->authorizationResourceEntityType_ == nullptr && this->authorizationResourceId_ == nullptr && this->authorizationRuleId_ == nullptr && this->cloudAccountId_ == nullptr && this->instanceId_ == nullptr; };
+        && this->authorizationResourceEntityType_ == nullptr && this->authorizationResourceId_ == nullptr && this->authorizationRuleId_ == nullptr && this->cloudAccountId_ == nullptr && this->condition_ == nullptr
+        && this->createTime_ == nullptr && this->instanceId_ == nullptr && this->updateTime_ == nullptr; };
       // authorizationResourceEntityId Field Functions 
       bool hasAuthorizationResourceEntityId() const { return this->authorizationResourceEntityId_ != nullptr;};
       void deleteAuthorizationResourceEntityId() { this->authorizationResourceEntityId_ = nullptr;};
@@ -104,6 +177,22 @@ namespace Models
       inline AuthorizationResources& setCloudAccountId(string cloudAccountId) { DARABONBA_PTR_SET_VALUE(cloudAccountId_, cloudAccountId) };
 
 
+      // condition Field Functions 
+      bool hasCondition() const { return this->condition_ != nullptr;};
+      void deleteCondition() { this->condition_ = nullptr;};
+      inline const AuthorizationResources::Condition & getCondition() const { DARABONBA_PTR_GET_CONST(condition_, AuthorizationResources::Condition) };
+      inline AuthorizationResources::Condition getCondition() { DARABONBA_PTR_GET(condition_, AuthorizationResources::Condition) };
+      inline AuthorizationResources& setCondition(const AuthorizationResources::Condition & condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
+      inline AuthorizationResources& setCondition(AuthorizationResources::Condition && condition) { DARABONBA_PTR_SET_RVALUE(condition_, condition) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+      inline AuthorizationResources& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
       // instanceId Field Functions 
       bool hasInstanceId() const { return this->instanceId_ != nullptr;};
       void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -111,10 +200,17 @@ namespace Models
       inline AuthorizationResources& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // updateTime Field Functions 
+      bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+      void deleteUpdateTime() { this->updateTime_ = nullptr;};
+      inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+      inline AuthorizationResources& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
     protected:
-      // The resource entity ID associated with the authorization resource.
+      // The ID of the resource entity associated with the authorization resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // The resource entity type associated with the authorization resource. Valid values:
+      // The type of the resource entity associated with the authorization resource. Valid values:
       // - cloud_account_role: cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
       // The authorization resource ID.
@@ -123,8 +219,14 @@ namespace Models
       shared_ptr<string> authorizationRuleId_ {};
       // The cloud account ID to which the resource entity associated with the authorization resource belongs.
       shared_ptr<string> cloudAccountId_ {};
+      // The effective condition.
+      shared_ptr<AuthorizationResources::Condition> condition_ {};
+      // The creation time.
+      shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The update time.
+      shared_ptr<int64_t> updateTime_ {};
     };
 
     virtual bool empty() const override { return this->authorizationResources_ == nullptr
@@ -169,13 +271,13 @@ namespace Models
   protected:
     // The list of authorization resources.
     shared_ptr<vector<ListAuthorizationResourcesResponseBody::AuthorizationResources>> authorizationResources_ {};
-    // The number of entries per page in the paged query. This is the paging size.
+    // The number of entries per page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call. Use this token for the next page query.
+    // The token returned for the next page query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

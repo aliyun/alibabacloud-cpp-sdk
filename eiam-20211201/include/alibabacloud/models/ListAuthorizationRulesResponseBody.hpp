@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_TO_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
@@ -82,9 +84,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->authorizationResourceScope_ == nullptr
-        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->authorizationRuleSubjectId_ == nullptr && this->authorizationRuleSubjectScope_ == nullptr
-        && this->authorizationRuleSubjectType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->authorizationRuleScenarioLabel_ == nullptr && this->authorizationRuleSubjectId_ == nullptr
+        && this->authorizationRuleSubjectScope_ == nullptr && this->authorizationRuleSubjectType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
+        && this->projectId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // authorizationResourceScope Field Functions 
       bool hasAuthorizationResourceScope() const { return this->authorizationResourceScope_ != nullptr;};
       void deleteAuthorizationResourceScope() { this->authorizationResourceScope_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
       void deleteAuthorizationRuleName() { this->authorizationRuleName_ = nullptr;};
       inline string getAuthorizationRuleName() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleName_, "") };
       inline AuthorizationRules& setAuthorizationRuleName(string authorizationRuleName) { DARABONBA_PTR_SET_VALUE(authorizationRuleName_, authorizationRuleName) };
+
+
+      // authorizationRuleScenarioLabel Field Functions 
+      bool hasAuthorizationRuleScenarioLabel() const { return this->authorizationRuleScenarioLabel_ != nullptr;};
+      void deleteAuthorizationRuleScenarioLabel() { this->authorizationRuleScenarioLabel_ = nullptr;};
+      inline string getAuthorizationRuleScenarioLabel() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleScenarioLabel_, "") };
+      inline AuthorizationRules& setAuthorizationRuleScenarioLabel(string authorizationRuleScenarioLabel) { DARABONBA_PTR_SET_VALUE(authorizationRuleScenarioLabel_, authorizationRuleScenarioLabel) };
 
 
       // authorizationRuleSubjectId Field Functions 
@@ -177,51 +186,43 @@ namespace Models
 
 
     protected:
-      // The scope of resources to authorize. Valid values:
-      // 
-      // - global: global resources in the project
-      // 
-      // - custom: resources in a specific project
+      // The authorization resource scope. Valid values:
+      // - global: all resources under the project
+      // - custom: specified resources under the project
       shared_ptr<string> authorizationResourceScope_ {};
-      // The type of authorization rule creation. Valid values:
-      // 
+      // The creation type of the authorization rule. Valid values:
       // - system_init: created by the system
-      // 
-      // - user_custom: created by a user
+      // - user_custom: created by the user
       shared_ptr<string> authorizationRuleCreationType_ {};
-      // The ID of the authorization rule.
+      // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The name of the authorization rule.
+      // The authorization rule name.
       shared_ptr<string> authorizationRuleName_ {};
-      // The ID of the subject associated with the authorization rule.
+      // The scenario label of the authorization rule.
+      shared_ptr<string> authorizationRuleScenarioLabel_ {};
+      // The subject ID associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
-      // The scope of subjects for the authorization rule. Valid values:
-      // 
-      // - shared: applies to all subjects, such as accounts and applications
-      // 
-      // - exclusive: applies only to a specific subject
+      // The subject scope of the authorization rule. Valid values:
+      // - shared: supports all subjects, including accounts and applications
+      // - exclusive: exclusive type
       shared_ptr<string> authorizationRuleSubjectScope_ {};
-      // The type of subject associated with the authorization rule. This parameter takes effect only when AuthorizationRuleSubjectScope is exclusive. Valid values:
-      // 
-      // - application
-      // 
-      // - user
+      // The subject type associated with the authorization rule. This parameter takes effect only when the subject scope is exclusive. Valid values:
+      // - application: application
+      // - user: account
       shared_ptr<string> authorizationRuleSubjectType_ {};
-      // The time when the authorization rule was created, in Unix timestamp format. Unit: milliseconds.
+      // The creation time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the authorization rule.
       shared_ptr<string> description_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the project associated with the authorization rule.
+      // The project ID associated with the authorization rule.
       shared_ptr<string> projectId_ {};
-      // The status of the authorization rule. Valid values:
-      // 
-      // - enabled
-      // 
-      // - disabled
+      // The authorization rule status. Valid values:
+      // - enabled: enabled
+      // - disabled: disabled
       shared_ptr<string> status_ {};
-      // The time when the authorization rule was last updated, in Unix timestamp format. Unit: milliseconds.
+      // The last update time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -267,13 +268,13 @@ namespace Models
   protected:
     // The list of authorization rules.
     shared_ptr<vector<ListAuthorizationRulesResponseBody::AuthorizationRules>> authorizationRules_ {};
-    // The number of entries per page.
+    // The number of entries per page in the paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned by this call. Use it in the next call to retrieve the next page of results.
+    // The token returned for the next page query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

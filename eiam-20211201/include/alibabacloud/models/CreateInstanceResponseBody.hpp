@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance that is created.
+    // The ID of the instance created by this API call.
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

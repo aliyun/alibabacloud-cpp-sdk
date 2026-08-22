@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const CloudAccountRoles& obj) { 
         DARABONBA_PTR_TO_JSON(CloudAccountId, cloudAccountId_);
+        DARABONBA_PTR_TO_JSON(CloudAccountRoleCreationType, cloudAccountRoleCreationType_);
         DARABONBA_PTR_TO_JSON(CloudAccountRoleExternalId, cloudAccountRoleExternalId_);
         DARABONBA_PTR_TO_JSON(CloudAccountRoleHealth, cloudAccountRoleHealth_);
         DARABONBA_PTR_TO_JSON(CloudAccountRoleHealthCheckResult, cloudAccountRoleHealthCheckResult_);
@@ -57,6 +58,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, CloudAccountRoles& obj) { 
         DARABONBA_PTR_FROM_JSON(CloudAccountId, cloudAccountId_);
+        DARABONBA_PTR_FROM_JSON(CloudAccountRoleCreationType, cloudAccountRoleCreationType_);
         DARABONBA_PTR_FROM_JSON(CloudAccountRoleExternalId, cloudAccountRoleExternalId_);
         DARABONBA_PTR_FROM_JSON(CloudAccountRoleHealth, cloudAccountRoleHealth_);
         DARABONBA_PTR_FROM_JSON(CloudAccountRoleHealthCheckResult, cloudAccountRoleHealthCheckResult_);
@@ -144,7 +146,7 @@ namespace Models
         protected:
           // The error code.
           shared_ptr<string> errorCode_ {};
-          // The error description.
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -176,23 +178,30 @@ namespace Models
       protected:
         // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountRoleHealthCheckResult::ErrorReason> errorReason_ {};
-        // The last check time, in UNIX timestamp format. Unit: milliseconds.
+        // The time of the last health check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
         // The health check result of the cloud role. Valid values:
-        // - success: succeeded.
-        // - failed: failed.
+        // - success: Success.
+        // - failed: Failed.
         shared_ptr<string> result_ {};
       };
 
       virtual bool empty() const override { return this->cloudAccountId_ == nullptr
-        && this->cloudAccountRoleExternalId_ == nullptr && this->cloudAccountRoleHealth_ == nullptr && this->cloudAccountRoleHealthCheckResult_ == nullptr && this->cloudAccountRoleId_ == nullptr && this->cloudAccountRoleName_ == nullptr
-        && this->cloudAccountRoleType_ == nullptr && this->cloudAccountRoleUsageType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->cloudAccountRoleCreationType_ == nullptr && this->cloudAccountRoleExternalId_ == nullptr && this->cloudAccountRoleHealth_ == nullptr && this->cloudAccountRoleHealthCheckResult_ == nullptr && this->cloudAccountRoleId_ == nullptr
+        && this->cloudAccountRoleName_ == nullptr && this->cloudAccountRoleType_ == nullptr && this->cloudAccountRoleUsageType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
+        && this->instanceId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // cloudAccountId Field Functions 
       bool hasCloudAccountId() const { return this->cloudAccountId_ != nullptr;};
       void deleteCloudAccountId() { this->cloudAccountId_ = nullptr;};
       inline string getCloudAccountId() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountId_, "") };
       inline CloudAccountRoles& setCloudAccountId(string cloudAccountId) { DARABONBA_PTR_SET_VALUE(cloudAccountId_, cloudAccountId) };
+
+
+      // cloudAccountRoleCreationType Field Functions 
+      bool hasCloudAccountRoleCreationType() const { return this->cloudAccountRoleCreationType_ != nullptr;};
+      void deleteCloudAccountRoleCreationType() { this->cloudAccountRoleCreationType_ = nullptr;};
+      inline string getCloudAccountRoleCreationType() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountRoleCreationType_, "") };
+      inline CloudAccountRoles& setCloudAccountRoleCreationType(string cloudAccountRoleCreationType) { DARABONBA_PTR_SET_VALUE(cloudAccountRoleCreationType_, cloudAccountRoleCreationType) };
 
 
       // cloudAccountRoleExternalId Field Functions 
@@ -284,12 +293,13 @@ namespace Models
     protected:
       // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
+      shared_ptr<string> cloudAccountRoleCreationType_ {};
       // The cloud role identifier.
       shared_ptr<string> cloudAccountRoleExternalId_ {};
       // The health status of the cloud role. Valid values:
-      // - healthy: healthy.
-      // - unhealthy: unhealthy.
-      // - unknown: unknown.
+      // - healthy: Healthy.
+      // - unhealthy: Unhealthy.
+      // - unknown: Unknown.
       shared_ptr<string> cloudAccountRoleHealth_ {};
       // The health check result of the cloud role.
       shared_ptr<CloudAccountRoles::CloudAccountRoleHealthCheckResult> cloudAccountRoleHealthCheckResult_ {};
@@ -305,17 +315,17 @@ namespace Models
       // - system: system.
       // - user: user.
       shared_ptr<string> cloudAccountRoleUsageType_ {};
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the cloud role was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The cloud role description.
+      // The description of the cloud role.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The cloud role status. Valid values:
-      // - enabled: enabled.
-      // - disable: disabled.
+      // The status of the cloud role. Valid values:
+      // - enabled: Enabled.
+      // - disable: Disabled.
       shared_ptr<string> status_ {};
-      // The last update time, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the cloud role was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -361,13 +371,13 @@ namespace Models
   protected:
     // The list of cloud roles.
     shared_ptr<vector<ListCloudAccountRolesResponseBody::CloudAccountRoles>> cloudAccountRoles_ {};
-    // The number of rows per page in the paging query.
+    // The maximum number of rows per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call.
+    // The token returned for the current request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

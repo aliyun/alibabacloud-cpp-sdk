@@ -146,7 +146,7 @@ namespace Models
         shared_ptr<string> primaryInstanceId_ {};
         // The region ID of the primary instance.
         shared_ptr<string> primaryInstanceRegionId_ {};
-        // The creation time of the disaster recovery data replication, in UNIX timestamp format. Unit: milliseconds.
+        // The time when the disaster recovery data replication was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> replicationCreateTime_ {};
       };
 
@@ -281,7 +281,7 @@ namespace Models
 
 
     protected:
-      // The instance creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
       shared_ptr<string> crossRegionReplication_ {};
@@ -295,11 +295,11 @@ namespace Models
       shared_ptr<string> instanceFailoverStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The service code of the Alibaba Cloud service that manages the instance.
+      // The service code of the cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
       // The replication configuration. This parameter is returned only when CrossRegionReplication is set to enabled.
       shared_ptr<Instances::ReplicationConfiguration> replicationConfiguration_ {};
-      // Indicates whether the instance is managed by an Alibaba Cloud service.
+      // Indicates whether the instance is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
       // The instance status. Valid values:
       // - creating: Being created.

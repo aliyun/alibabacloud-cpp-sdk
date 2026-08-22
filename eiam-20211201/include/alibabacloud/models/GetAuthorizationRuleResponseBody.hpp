@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_TO_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
         DARABONBA_PTR_TO_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleCreationType, authorizationRuleCreationType_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleId, authorizationRuleId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleName, authorizationRuleName_);
+        DARABONBA_PTR_FROM_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectId, authorizationRuleSubjectId_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectScope, authorizationRuleSubjectScope_);
         DARABONBA_PTR_FROM_JSON(AuthorizationRuleSubjectType, authorizationRuleSubjectType_);
@@ -75,9 +77,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->authorizationResourceScope_ == nullptr
-        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->authorizationRuleSubjectId_ == nullptr && this->authorizationRuleSubjectScope_ == nullptr
-        && this->authorizationRuleSubjectType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->authorizationRuleCreationType_ == nullptr && this->authorizationRuleId_ == nullptr && this->authorizationRuleName_ == nullptr && this->authorizationRuleScenarioLabel_ == nullptr && this->authorizationRuleSubjectId_ == nullptr
+        && this->authorizationRuleSubjectScope_ == nullptr && this->authorizationRuleSubjectType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
+        && this->projectId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // authorizationResourceScope Field Functions 
       bool hasAuthorizationResourceScope() const { return this->authorizationResourceScope_ != nullptr;};
       void deleteAuthorizationResourceScope() { this->authorizationResourceScope_ = nullptr;};
@@ -104,6 +106,13 @@ namespace Models
       void deleteAuthorizationRuleName() { this->authorizationRuleName_ = nullptr;};
       inline string getAuthorizationRuleName() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleName_, "") };
       inline AuthorizationRule& setAuthorizationRuleName(string authorizationRuleName) { DARABONBA_PTR_SET_VALUE(authorizationRuleName_, authorizationRuleName) };
+
+
+      // authorizationRuleScenarioLabel Field Functions 
+      bool hasAuthorizationRuleScenarioLabel() const { return this->authorizationRuleScenarioLabel_ != nullptr;};
+      void deleteAuthorizationRuleScenarioLabel() { this->authorizationRuleScenarioLabel_ = nullptr;};
+      inline string getAuthorizationRuleScenarioLabel() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleScenarioLabel_, "") };
+      inline AuthorizationRule& setAuthorizationRuleScenarioLabel(string authorizationRuleScenarioLabel) { DARABONBA_PTR_SET_VALUE(authorizationRuleScenarioLabel_, authorizationRuleScenarioLabel) };
 
 
       // authorizationRuleSubjectId Field Functions 
@@ -170,51 +179,43 @@ namespace Models
 
 
     protected:
-      // Authorization resource scope. Valid values:
-      // 
-      // - global: Global resources under the project
-      // 
-      // - custom: Resources within the specified project scope
+      // The authorization resource scope. Valid values:
+      // - global: All resources under the project.
+      // - custom: Specified resources within the project scope.
       shared_ptr<string> authorizationResourceScope_ {};
-      // Authorization rule creation type. Valid values:
-      // 
-      // - system_init: System created
-      // 
-      // - user_custom: User created
+      // The creation type of the authorization rule. Valid values:
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> authorizationRuleCreationType_ {};
-      // Authorization rule ID.
+      // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // Authorization rule name.
+      // The authorization rule name.
       shared_ptr<string> authorizationRuleName_ {};
-      // Subject ID associated with the authorization rule.
+      // The scenario label of the authorization rule.
+      shared_ptr<string> authorizationRuleScenarioLabel_ {};
+      // The subject ID associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
-      // Authorization rule subject scope. Valid values:
-      // 
-      // - shared: Shared type, supports all subjects, including accounts and applications
-      // 
-      // - exclusive: Exclusive type
+      // The subject scope of the authorization rule. Valid values:
+      // - shared: Shared type, which supports all subjects, including accounts and applications.
+      // - exclusive: Exclusive type.
       shared_ptr<string> authorizationRuleSubjectScope_ {};
-      // Subject type associated with the authorization rule. Valid when the authorization rule subject scope is exclusive. Valid values:
-      // 
-      // - application: Application
-      // 
-      // - user: Account
+      // The subject type associated with the authorization rule. This parameter is valid only when the authorization rule subject scope is exclusive. Valid values:
+      // - application: Application.
+      // - user: Account.
       shared_ptr<string> authorizationRuleSubjectType_ {};
-      // Creation time, in UNIX timestamp format, in milliseconds.
+      // The creation time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Authorization rule description.
+      // The description of the authorization rule.
       shared_ptr<string> description_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Project ID associated with the authorization rule.
+      // The project ID associated with the authorization rule.
       shared_ptr<string> projectId_ {};
-      // Authorization rule status. Valid values:
-      // 
-      // - enabled: Enabled
-      // 
-      // - disabled: Disabled
+      // The authorization rule status. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // Last update time, in UNIX timestamp format, in milliseconds.
+      // The last update time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -237,9 +238,9 @@ namespace Models
 
 
   protected:
-    // Authorization rule object.
+    // The authorization rule object.
     shared_ptr<GetAuthorizationRuleResponseBody::AuthorizationRule> authorizationRule_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

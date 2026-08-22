@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETCLOUDACCOUNTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETCLOUDACCOUNTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,11 +42,16 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_TO_JSON(CloudAccountProviderConfig, cloudAccountProviderConfig_);
         DARABONBA_PTR_TO_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_TO_JSON(CloudAccountRoleCreationType, cloudAccountRoleCreationType_);
         DARABONBA_PTR_TO_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_TO_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(PrivilegeApplicationIds, privilegeApplicationIds_);
+        DARABONBA_PTR_TO_JSON(PrivilegeHostingError, privilegeHostingError_);
+        DARABONBA_PTR_TO_JSON(PrivilegeHostingState, privilegeHostingState_);
+        DARABONBA_PTR_TO_JSON(PrivilegeStatus, privilegeStatus_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, CloudAccount& obj) { 
@@ -56,11 +62,16 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CloudAccountName, cloudAccountName_);
         DARABONBA_PTR_FROM_JSON(CloudAccountProviderConfig, cloudAccountProviderConfig_);
         DARABONBA_PTR_FROM_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+        DARABONBA_PTR_FROM_JSON(CloudAccountRoleCreationType, cloudAccountRoleCreationType_);
         DARABONBA_PTR_FROM_JSON(CloudAccountSite, cloudAccountSite_);
         DARABONBA_PTR_FROM_JSON(CloudAccountVendorType, cloudAccountVendorType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(PrivilegeApplicationIds, privilegeApplicationIds_);
+        DARABONBA_PTR_FROM_JSON(PrivilegeHostingError, privilegeHostingError_);
+        DARABONBA_PTR_FROM_JSON(PrivilegeHostingState, privilegeHostingState_);
+        DARABONBA_PTR_FROM_JSON(PrivilegeStatus, privilegeStatus_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       CloudAccount() = default ;
@@ -74,6 +85,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PrivilegeHostingError : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PrivilegeHostingError& obj) { 
+          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+        };
+        friend void from_json(const Darabonba::Json& j, PrivilegeHostingError& obj) { 
+          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+        };
+        PrivilegeHostingError() = default ;
+        PrivilegeHostingError(const PrivilegeHostingError &) = default ;
+        PrivilegeHostingError(PrivilegeHostingError &&) = default ;
+        PrivilegeHostingError(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PrivilegeHostingError() = default ;
+        PrivilegeHostingError& operator=(const PrivilegeHostingError &) = default ;
+        PrivilegeHostingError& operator=(PrivilegeHostingError &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->errorCode_ == nullptr
+        && this->errorMessage_ == nullptr; };
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline PrivilegeHostingError& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // errorMessage Field Functions 
+        bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+        void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+        inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+        inline PrivilegeHostingError& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+      protected:
+        // The failure error code.
+        shared_ptr<string> errorCode_ {};
+        // The failure message.
+        shared_ptr<string> errorMessage_ {};
+      };
+
       class CloudAccountProviderConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const CloudAccountProviderConfig& obj) { 
@@ -246,8 +301,9 @@ namespace Models
 
       virtual bool empty() const override { return this->cloudAccountExternalId_ == nullptr
         && this->cloudAccountHealth_ == nullptr && this->cloudAccountHealthCheckResult_ == nullptr && this->cloudAccountId_ == nullptr && this->cloudAccountName_ == nullptr && this->cloudAccountProviderConfig_ == nullptr
-        && this->cloudAccountProviderName_ == nullptr && this->cloudAccountSite_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
-        && this->instanceId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->cloudAccountProviderName_ == nullptr && this->cloudAccountRoleCreationType_ == nullptr && this->cloudAccountSite_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->createTime_ == nullptr
+        && this->description_ == nullptr && this->instanceId_ == nullptr && this->privilegeApplicationIds_ == nullptr && this->privilegeHostingError_ == nullptr && this->privilegeHostingState_ == nullptr
+        && this->privilegeStatus_ == nullptr && this->updateTime_ == nullptr; };
       // cloudAccountExternalId Field Functions 
       bool hasCloudAccountExternalId() const { return this->cloudAccountExternalId_ != nullptr;};
       void deleteCloudAccountExternalId() { this->cloudAccountExternalId_ = nullptr;};
@@ -301,6 +357,13 @@ namespace Models
       inline CloudAccount& setCloudAccountProviderName(string cloudAccountProviderName) { DARABONBA_PTR_SET_VALUE(cloudAccountProviderName_, cloudAccountProviderName) };
 
 
+      // cloudAccountRoleCreationType Field Functions 
+      bool hasCloudAccountRoleCreationType() const { return this->cloudAccountRoleCreationType_ != nullptr;};
+      void deleteCloudAccountRoleCreationType() { this->cloudAccountRoleCreationType_ = nullptr;};
+      inline string getCloudAccountRoleCreationType() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountRoleCreationType_, "") };
+      inline CloudAccount& setCloudAccountRoleCreationType(string cloudAccountRoleCreationType) { DARABONBA_PTR_SET_VALUE(cloudAccountRoleCreationType_, cloudAccountRoleCreationType) };
+
+
       // cloudAccountSite Field Functions 
       bool hasCloudAccountSite() const { return this->cloudAccountSite_ != nullptr;};
       void deleteCloudAccountSite() { this->cloudAccountSite_ = nullptr;};
@@ -336,6 +399,38 @@ namespace Models
       inline CloudAccount& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // privilegeApplicationIds Field Functions 
+      bool hasPrivilegeApplicationIds() const { return this->privilegeApplicationIds_ != nullptr;};
+      void deletePrivilegeApplicationIds() { this->privilegeApplicationIds_ = nullptr;};
+      inline const vector<string> & getPrivilegeApplicationIds() const { DARABONBA_PTR_GET_CONST(privilegeApplicationIds_, vector<string>) };
+      inline vector<string> getPrivilegeApplicationIds() { DARABONBA_PTR_GET(privilegeApplicationIds_, vector<string>) };
+      inline CloudAccount& setPrivilegeApplicationIds(const vector<string> & privilegeApplicationIds) { DARABONBA_PTR_SET_VALUE(privilegeApplicationIds_, privilegeApplicationIds) };
+      inline CloudAccount& setPrivilegeApplicationIds(vector<string> && privilegeApplicationIds) { DARABONBA_PTR_SET_RVALUE(privilegeApplicationIds_, privilegeApplicationIds) };
+
+
+      // privilegeHostingError Field Functions 
+      bool hasPrivilegeHostingError() const { return this->privilegeHostingError_ != nullptr;};
+      void deletePrivilegeHostingError() { this->privilegeHostingError_ = nullptr;};
+      inline const CloudAccount::PrivilegeHostingError & getPrivilegeHostingError() const { DARABONBA_PTR_GET_CONST(privilegeHostingError_, CloudAccount::PrivilegeHostingError) };
+      inline CloudAccount::PrivilegeHostingError getPrivilegeHostingError() { DARABONBA_PTR_GET(privilegeHostingError_, CloudAccount::PrivilegeHostingError) };
+      inline CloudAccount& setPrivilegeHostingError(const CloudAccount::PrivilegeHostingError & privilegeHostingError) { DARABONBA_PTR_SET_VALUE(privilegeHostingError_, privilegeHostingError) };
+      inline CloudAccount& setPrivilegeHostingError(CloudAccount::PrivilegeHostingError && privilegeHostingError) { DARABONBA_PTR_SET_RVALUE(privilegeHostingError_, privilegeHostingError) };
+
+
+      // privilegeHostingState Field Functions 
+      bool hasPrivilegeHostingState() const { return this->privilegeHostingState_ != nullptr;};
+      void deletePrivilegeHostingState() { this->privilegeHostingState_ = nullptr;};
+      inline string getPrivilegeHostingState() const { DARABONBA_PTR_GET_DEFAULT(privilegeHostingState_, "") };
+      inline CloudAccount& setPrivilegeHostingState(string privilegeHostingState) { DARABONBA_PTR_SET_VALUE(privilegeHostingState_, privilegeHostingState) };
+
+
+      // privilegeStatus Field Functions 
+      bool hasPrivilegeStatus() const { return this->privilegeStatus_ != nullptr;};
+      void deletePrivilegeStatus() { this->privilegeStatus_ = nullptr;};
+      inline string getPrivilegeStatus() const { DARABONBA_PTR_GET_DEFAULT(privilegeStatus_, "") };
+      inline CloudAccount& setPrivilegeStatus(string privilegeStatus) { DARABONBA_PTR_SET_VALUE(privilegeStatus_, privilegeStatus) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -361,6 +456,8 @@ namespace Models
       shared_ptr<CloudAccount::CloudAccountProviderConfig> cloudAccountProviderConfig_ {};
       // The identity provider name.
       shared_ptr<string> cloudAccountProviderName_ {};
+      shared_ptr<string> cloudAccountRoleCreationType_ {};
+      // The cloud account site.
       shared_ptr<string> cloudAccountSite_ {};
       // The cloud account type. Valid values:
       // 
@@ -372,6 +469,14 @@ namespace Models
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The list of associated privilege application IDs.
+      shared_ptr<vector<string>> privilegeApplicationIds_ {};
+      // The reason for the privilege hosting or removal failure.
+      shared_ptr<CloudAccount::PrivilegeHostingError> privilegeHostingError_ {};
+      // The privilege hosting state, which indicates whether the privilege capability is available.
+      shared_ptr<string> privilegeHostingState_ {};
+      // The privilege switch status, which indicates whether the privilege capability is enabled.
+      shared_ptr<string> privilegeStatus_ {};
       // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAuthorizationRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AuthorizationResourceScope, authorizationResourceScope_);
       DARABONBA_PTR_TO_JSON(AuthorizationRuleName, authorizationRuleName_);
+      DARABONBA_PTR_TO_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateAuthorizationRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthorizationResourceScope, authorizationResourceScope_);
       DARABONBA_PTR_FROM_JSON(AuthorizationRuleName, authorizationRuleName_);
+      DARABONBA_PTR_FROM_JSON(AuthorizationRuleScenarioLabel, authorizationRuleScenarioLabel_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationResourceScope_ == nullptr
-        && this->authorizationRuleName_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->projectId_ == nullptr; };
+        && this->authorizationRuleName_ == nullptr && this->authorizationRuleScenarioLabel_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr
+        && this->projectId_ == nullptr; };
     // authorizationResourceScope Field Functions 
     bool hasAuthorizationResourceScope() const { return this->authorizationResourceScope_ != nullptr;};
     void deleteAuthorizationResourceScope() { this->authorizationResourceScope_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteAuthorizationRuleName() { this->authorizationRuleName_ = nullptr;};
     inline string getAuthorizationRuleName() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleName_, "") };
     inline CreateAuthorizationRuleRequest& setAuthorizationRuleName(string authorizationRuleName) { DARABONBA_PTR_SET_VALUE(authorizationRuleName_, authorizationRuleName) };
+
+
+    // authorizationRuleScenarioLabel Field Functions 
+    bool hasAuthorizationRuleScenarioLabel() const { return this->authorizationRuleScenarioLabel_ != nullptr;};
+    void deleteAuthorizationRuleScenarioLabel() { this->authorizationRuleScenarioLabel_ = nullptr;};
+    inline string getAuthorizationRuleScenarioLabel() const { DARABONBA_PTR_GET_DEFAULT(authorizationRuleScenarioLabel_, "") };
+    inline CreateAuthorizationRuleRequest& setAuthorizationRuleScenarioLabel(string authorizationRuleScenarioLabel) { DARABONBA_PTR_SET_VALUE(authorizationRuleScenarioLabel_, authorizationRuleScenarioLabel) };
 
 
     // clientToken Field Functions 
@@ -84,7 +94,8 @@ namespace Models
 
 
   protected:
-    // The scope of authorized resources. Valid values:
+    // The authorization resource scope. Valid values:
+    // 
     // - global: all resources under the project.
     // - custom: specified resources under the project.
     shared_ptr<string> authorizationResourceScope_ {};
@@ -92,7 +103,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleName_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // The scenario label of the authorization rule. The label can be up to 64 characters in length.
+    shared_ptr<string> authorizationRuleScenarioLabel_ {};
+    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};

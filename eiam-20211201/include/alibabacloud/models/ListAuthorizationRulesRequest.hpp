@@ -76,13 +76,12 @@ namespace Models
 
 
     protected:
-      // The name of the field to filter. Valid values:
+      // The name of the filter field. Valid values:
       // 
-      // - AuthorizationRuleId: the ID of the authorization rule.
-      // 
-      // - AuthorizationRuleNameStartWith: the leftmost characters of the authorization rule name.
+      // - AuthorizationRuleId: the authorization rule ID.
+      // - AuthorizationRuleNameStartWith: the prefix of the authorization rule name for fuzzy match.
       shared_ptr<string> name_ {};
-      // The list of values for the field to filter.
+      // The values of the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -121,19 +120,19 @@ namespace Models
   protected:
     // The filter conditions.
     shared_ptr<vector<ListAuthorizationRulesRequest::Filter>> filter_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of records per page.
     // 
-    // - If you do not specify this parameter, the default value is 20.
+    // - If this parameter is not specified, the default value is 20.
     // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that identifies the start of the next page of results.
+    // The token that marks the starting position of the next page.
     // 
-    // - If you do not specify this parameter, the system returns the first page of results.
+    // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
   };
 

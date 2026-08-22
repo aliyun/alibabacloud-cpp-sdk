@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CrossRegionReplication, crossRegionReplication_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(ManagedServiceCode, managedServiceCode_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CrossRegionReplication, crossRegionReplication_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(ManagedServiceCode, managedServiceCode_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crossRegionReplication_ == nullptr
-        && this->edition_ == nullptr && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->serviceManaged_ == nullptr
-        && this->status_ == nullptr; };
+        && this->edition_ == nullptr && this->instanceIds_ == nullptr && this->managedServiceCode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->serviceManaged_ == nullptr && this->status_ == nullptr; };
     // crossRegionReplication Field Functions 
     bool hasCrossRegionReplication() const { return this->crossRegionReplication_ != nullptr;};
     void deleteCrossRegionReplication() { this->crossRegionReplication_ = nullptr;};
@@ -66,6 +68,13 @@ namespace Models
     inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline ListInstancesRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline ListInstancesRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // managedServiceCode Field Functions 
+    bool hasManagedServiceCode() const { return this->managedServiceCode_ != nullptr;};
+    void deleteManagedServiceCode() { this->managedServiceCode_ = nullptr;};
+    inline string getManagedServiceCode() const { DARABONBA_PTR_GET_DEFAULT(managedServiceCode_, "") };
+    inline ListInstancesRequest& setManagedServiceCode(string managedServiceCode) { DARABONBA_PTR_SET_VALUE(managedServiceCode_, managedServiceCode) };
 
 
     // pageNumber Field Functions 
@@ -108,10 +117,13 @@ namespace Models
     shared_ptr<string> edition_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The service code of the managing cloud service.
+    shared_ptr<string> managedServiceCode_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // Indicates whether the instance is managed by a cloud service.
     shared_ptr<bool> serviceManaged_ {};
     // The instance status. Valid values:
     // - creating: Being created.

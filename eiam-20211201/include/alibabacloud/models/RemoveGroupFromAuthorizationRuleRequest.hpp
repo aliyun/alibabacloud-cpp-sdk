@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the authorization rule.
+    // The authorization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};

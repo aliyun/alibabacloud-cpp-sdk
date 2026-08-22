@@ -19,13 +19,13 @@ namespace Eiam20211201
 AlibabaCloud::Eiam20211201::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"eu-central-1" , "eiam.eu-central-1.aliyuncs.com"},
     {"cn-hongkong" , "eiam.cn-hongkong.aliyuncs.com"},
+    {"ap-northeast-2" , "eiam.ap-northeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "eiam.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-5" , "eiam.ap-southeast-5.aliyuncs.com"},
     {"cn-hangzhou" , "eiam.cn-hangzhou.aliyuncs.com"},
     {"cn-beijing" , "eiam.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "eiam.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "eiam.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "eiam.ap-northeast-2.aliyuncs.com"}
+    {"eu-central-1" , "eiam.eu-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eiam", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1436,6 +1436,10 @@ CreateAuthorizationResourceResponse Client::createAuthorizationResourceWithOptio
     query["AuthorizationRuleId"] = request.getAuthorizationRuleId();
   }
 
+  if (!!request.hasCondition()) {
+    query["Condition"] = request.getCondition();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -1490,6 +1494,10 @@ CreateAuthorizationRuleResponse Client::createAuthorizationRuleWithOptions(const
 
   if (!!request.hasAuthorizationRuleName()) {
     query["AuthorizationRuleName"] = request.getAuthorizationRuleName();
+  }
+
+  if (!!request.hasAuthorizationRuleScenarioLabel()) {
+    query["AuthorizationRuleScenarioLabel"] = request.getAuthorizationRuleScenarioLabel();
   }
 
   if (!!request.hasDescription()) {
@@ -2553,7 +2561,7 @@ CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatu
 }
 
 /**
- * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+ * @summary Creates an instance. All EIAM product capabilities are provided based on instances.
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2562,6 +2570,10 @@ CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatu
 CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
@@ -2584,7 +2596,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+ * @summary Creates an instance. All EIAM product capabilities are provided based on instances.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -7069,6 +7081,52 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
 }
 
 /**
+ * @summary Performs a disaster recovery switchover.
+ *
+ * @param request ExecuteInstanceFailoverRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteInstanceFailoverResponse
+ */
+ExecuteInstanceFailoverResponse Client::executeInstanceFailoverWithOptions(const ExecuteInstanceFailoverRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceFailoverStatus()) {
+    query["InstanceFailoverStatus"] = request.getInstanceFailoverStatus();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExecuteInstanceFailover"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteInstanceFailoverResponse>();
+}
+
+/**
+ * @summary Performs a disaster recovery switchover.
+ *
+ * @param request ExecuteInstanceFailoverRequest
+ * @return ExecuteInstanceFailoverResponse
+ */
+ExecuteInstanceFailoverResponse Client::executeInstanceFailover(const ExecuteInstanceFailoverRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeInstanceFailoverWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates a download URL for file import results.
  *
  * @param request GenerateDownloadUrlForSynchronizationJobRequest
@@ -7795,7 +7853,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicati
 }
 
 /**
- * @summary Queries information about an authorized resource.
+ * @summary Queries the information of an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7834,7 +7892,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResourceWithOptions(con
 }
 
 /**
- * @summary Queries information about an authorized resource.
+ * @summary Queries the information of an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @return GetAuthorizationResourceResponse
@@ -7845,7 +7903,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResource(const GetAutho
 }
 
 /**
- * @summary Query information about an authorization rule.
+ * @summary Queries the information about an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7880,7 +7938,7 @@ GetAuthorizationRuleResponse Client::getAuthorizationRuleWithOptions(const GetAu
 }
 
 /**
- * @summary Query information about an authorization rule.
+ * @summary Queries the information about an authorization rule.
  *
  * @param request GetAuthorizationRuleRequest
  * @return GetAuthorizationRuleResponse
@@ -8953,9 +9011,9 @@ GetInstanceGlobalizationConfigResponse Client::getInstanceGlobalizationConfig(co
 }
 
 /**
- * @summary Queries the active license information for an instance.
+ * @summary Queries the license information that is currently effective for an instance.
  *
- * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+ * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8986,9 +9044,9 @@ GetInstanceLicenseResponse Client::getInstanceLicenseWithOptions(const GetInstan
 }
 
 /**
- * @summary Queries the active license information for an instance.
+ * @summary Queries the license information that is currently effective for an instance.
  *
- * @description Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+ * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @return GetInstanceLicenseResponse
@@ -11137,7 +11195,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRoles(const ListCloudAccou
 }
 
 /**
- * @summary Queries information about one or more cloud accounts by using paging.
+ * @summary Queries one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11180,7 +11238,7 @@ ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAc
 }
 
 /**
- * @summary Queries information about one or more cloud accounts by using paging.
+ * @summary Queries one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @return ListCloudAccountsResponse
@@ -12354,6 +12412,10 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasManagedServiceCode()) {
+    query["ManagedServiceCode"] = request.getManagedServiceCode();
   }
 
   if (!!request.hasPageNumber()) {
@@ -13919,7 +13981,7 @@ RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPolicies
 }
 
 /**
- * @summary Removes an application from an authorization rule.
+ * @summary Removes a group from an authorization rule.
  *
  * @param request RemoveGroupFromAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13958,7 +14020,7 @@ RemoveGroupFromAuthorizationRuleResponse Client::removeGroupFromAuthorizationRul
 }
 
 /**
- * @summary Removes an application from an authorization rule.
+ * @summary Removes a group from an authorization rule.
  *
  * @param request RemoveGroupFromAuthorizationRuleRequest
  * @return RemoveGroupFromAuthorizationRuleResponse
