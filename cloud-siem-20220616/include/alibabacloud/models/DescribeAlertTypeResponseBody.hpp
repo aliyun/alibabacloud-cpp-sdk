@@ -42,11 +42,21 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AlertType, alertType_);
+        DARABONBA_PTR_TO_JSON(AlertTypeCategory, alertTypeCategory_);
+        DARABONBA_PTR_TO_JSON(AlertTypeCategoryMds, alertTypeCategoryMds_);
+        DARABONBA_PTR_TO_JSON(AlertTypeCategoryOrder, alertTypeCategoryOrder_);
         DARABONBA_PTR_TO_JSON(AlertTypeMds, alertTypeMds_);
+        DARABONBA_PTR_TO_JSON(AlertTypeNameEn, alertTypeNameEn_);
+        DARABONBA_PTR_TO_JSON(AlertTypeNameZh, alertTypeNameZh_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AlertType, alertType_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeCategory, alertTypeCategory_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeCategoryMds, alertTypeCategoryMds_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeCategoryOrder, alertTypeCategoryOrder_);
         DARABONBA_PTR_FROM_JSON(AlertTypeMds, alertTypeMds_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeNameEn, alertTypeNameEn_);
+        DARABONBA_PTR_FROM_JSON(AlertTypeNameZh, alertTypeNameZh_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -60,12 +70,34 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->alertType_ == nullptr
-        && this->alertTypeMds_ == nullptr; };
+        && this->alertTypeCategory_ == nullptr && this->alertTypeCategoryMds_ == nullptr && this->alertTypeCategoryOrder_ == nullptr && this->alertTypeMds_ == nullptr && this->alertTypeNameEn_ == nullptr
+        && this->alertTypeNameZh_ == nullptr; };
       // alertType Field Functions 
       bool hasAlertType() const { return this->alertType_ != nullptr;};
       void deleteAlertType() { this->alertType_ = nullptr;};
       inline string getAlertType() const { DARABONBA_PTR_GET_DEFAULT(alertType_, "") };
       inline Data& setAlertType(string alertType) { DARABONBA_PTR_SET_VALUE(alertType_, alertType) };
+
+
+      // alertTypeCategory Field Functions 
+      bool hasAlertTypeCategory() const { return this->alertTypeCategory_ != nullptr;};
+      void deleteAlertTypeCategory() { this->alertTypeCategory_ = nullptr;};
+      inline string getAlertTypeCategory() const { DARABONBA_PTR_GET_DEFAULT(alertTypeCategory_, "") };
+      inline Data& setAlertTypeCategory(string alertTypeCategory) { DARABONBA_PTR_SET_VALUE(alertTypeCategory_, alertTypeCategory) };
+
+
+      // alertTypeCategoryMds Field Functions 
+      bool hasAlertTypeCategoryMds() const { return this->alertTypeCategoryMds_ != nullptr;};
+      void deleteAlertTypeCategoryMds() { this->alertTypeCategoryMds_ = nullptr;};
+      inline string getAlertTypeCategoryMds() const { DARABONBA_PTR_GET_DEFAULT(alertTypeCategoryMds_, "") };
+      inline Data& setAlertTypeCategoryMds(string alertTypeCategoryMds) { DARABONBA_PTR_SET_VALUE(alertTypeCategoryMds_, alertTypeCategoryMds) };
+
+
+      // alertTypeCategoryOrder Field Functions 
+      bool hasAlertTypeCategoryOrder() const { return this->alertTypeCategoryOrder_ != nullptr;};
+      void deleteAlertTypeCategoryOrder() { this->alertTypeCategoryOrder_ = nullptr;};
+      inline int32_t getAlertTypeCategoryOrder() const { DARABONBA_PTR_GET_DEFAULT(alertTypeCategoryOrder_, 0) };
+      inline Data& setAlertTypeCategoryOrder(int32_t alertTypeCategoryOrder) { DARABONBA_PTR_SET_VALUE(alertTypeCategoryOrder_, alertTypeCategoryOrder) };
 
 
       // alertTypeMds Field Functions 
@@ -75,11 +107,35 @@ namespace Models
       inline Data& setAlertTypeMds(string alertTypeMds) { DARABONBA_PTR_SET_VALUE(alertTypeMds_, alertTypeMds) };
 
 
+      // alertTypeNameEn Field Functions 
+      bool hasAlertTypeNameEn() const { return this->alertTypeNameEn_ != nullptr;};
+      void deleteAlertTypeNameEn() { this->alertTypeNameEn_ = nullptr;};
+      inline string getAlertTypeNameEn() const { DARABONBA_PTR_GET_DEFAULT(alertTypeNameEn_, "") };
+      inline Data& setAlertTypeNameEn(string alertTypeNameEn) { DARABONBA_PTR_SET_VALUE(alertTypeNameEn_, alertTypeNameEn) };
+
+
+      // alertTypeNameZh Field Functions 
+      bool hasAlertTypeNameZh() const { return this->alertTypeNameZh_ != nullptr;};
+      void deleteAlertTypeNameZh() { this->alertTypeNameZh_ = nullptr;};
+      inline string getAlertTypeNameZh() const { DARABONBA_PTR_GET_DEFAULT(alertTypeNameZh_, "") };
+      inline Data& setAlertTypeNameZh(string alertTypeNameZh) { DARABONBA_PTR_SET_VALUE(alertTypeNameZh_, alertTypeNameZh) };
+
+
     protected:
       // The threat type.
       shared_ptr<string> alertType_ {};
+      // The threat type category identifier.
+      shared_ptr<string> alertTypeCategory_ {};
+      // The threat type category name in the language of the current request. Empty if no translation is available.
+      shared_ptr<string> alertTypeCategoryMds_ {};
+      // The display order of the threat type category.
+      shared_ptr<int32_t> alertTypeCategoryOrder_ {};
       // The Medusa code of the threat type.
       shared_ptr<string> alertTypeMds_ {};
+      // The English name of the threat type. Empty if no translation is available.
+      shared_ptr<string> alertTypeNameEn_ {};
+      // The Chinese name of the threat type. Empty if no translation is available.
+      shared_ptr<string> alertTypeNameZh_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -124,17 +180,15 @@ namespace Models
   protected:
     // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<vector<DescribeAlertTypeResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: successful.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

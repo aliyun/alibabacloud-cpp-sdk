@@ -968,7 +968,7 @@ DescribeAlertSourceWithEventResponse Client::describeAlertSourceWithEvent(const 
 }
 
 /**
- * @summary Retrieves a list of threat types for custom rules.
+ * @summary Retrieves the list of available threat types for custom rules.
  *
  * @param request DescribeAlertTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1011,7 +1011,7 @@ DescribeAlertTypeResponse Client::describeAlertTypeWithOptions(const DescribeAle
 }
 
 /**
- * @summary Retrieves a list of threat types for custom rules.
+ * @summary Retrieves the list of available threat types for custom rules.
  *
  * @param request DescribeAlertTypeRequest
  * @return DescribeAlertTypeResponse

@@ -293,7 +293,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertSourceWithEventResponse describeAlertSourceWithEvent(const Models::DescribeAlertSourceWithEventRequest &request);
 
       /**
-       * @summary Retrieves a list of threat types for custom rules.
+       * @summary Retrieves the list of available threat types for custom rules.
        *
        * @param request DescribeAlertTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertTypeResponse describeAlertTypeWithOptions(const Models::DescribeAlertTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of threat types for custom rules.
+       * @summary Retrieves the list of available threat types for custom rules.
        *
        * @param request DescribeAlertTypeRequest
        * @return DescribeAlertTypeResponse
