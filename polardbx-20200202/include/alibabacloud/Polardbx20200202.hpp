@@ -51,6 +51,27 @@ namespace Polardbx20200202
       Models::AllocateColdDataVolumeResponse allocateColdDataVolume(const Models::AllocateColdDataVolumeRequest &request);
 
       /**
+       * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       *
+       * @param request AllocateContext0PublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AllocateContext0PublicConnectionResponse
+       */
+      Models::AllocateContext0PublicConnectionResponse allocateContext0PublicConnectionWithOptions(const Models::AllocateContext0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       *
+       * @param request AllocateContext0PublicConnectionRequest
+       * @return AllocateContext0PublicConnectionResponse
+       */
+      Models::AllocateContext0PublicConnectionResponse allocateContext0PublicConnection(const Models::AllocateContext0PublicConnectionRequest &request);
+
+      /**
        * @summary Enables a public network connection for a ContextDB-X service ReplicaSet.
        *
        * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
@@ -298,6 +319,27 @@ namespace Polardbx20200202
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
+       * @summary Creates a context service.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateContext0Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContext0Response
+       */
+      Models::CreateContext0Response createContext0WithOptions(const Models::CreateContext0Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a context service.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateContext0Request
+       * @return CreateContext0Response
+       */
+      Models::CreateContext0Response createContext0(const Models::CreateContext0Request &request);
+
+      /**
        * @summary Creates a ContextDB-X instance.
        *
        * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -477,6 +519,69 @@ namespace Polardbx20200202
        * @return CreateMem0Response
        */
       Models::CreateMem0Response createMem0(const Models::CreateMem0Request &request);
+
+      /**
+       * @summary Creates a PolarDBX Search instance.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateOpenSearchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpenSearchResponse
+       */
+      Models::CreateOpenSearchResponse createOpenSearchWithOptions(const Models::CreateOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a PolarDBX Search instance.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateOpenSearchRequest
+       * @return CreateOpenSearchResponse
+       */
+      Models::CreateOpenSearchResponse createOpenSearch(const Models::CreateOpenSearchRequest &request);
+
+      /**
+       * @summary 创建OpenSearch实例账号
+       *
+       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       *
+       * @param request CreateOpenSearchAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpenSearchAccountResponse
+       */
+      Models::CreateOpenSearchAccountResponse createOpenSearchAccountWithOptions(const Models::CreateOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建OpenSearch实例账号
+       *
+       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       *
+       * @param request CreateOpenSearchAccountRequest
+       * @return CreateOpenSearchAccountResponse
+       */
+      Models::CreateOpenSearchAccountResponse createOpenSearchAccount(const Models::CreateOpenSearchAccountRequest &request);
+
+      /**
+       * @summary Creates a whitelist group for PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateOpenSearchWhitelistGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOpenSearchWhitelistGroupResponse
+       */
+      Models::CreateOpenSearchWhitelistGroupResponse createOpenSearchWhitelistGroupWithOptions(const Models::CreateOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a whitelist group for PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateOpenSearchWhitelistGroupRequest
+       * @return CreateOpenSearchWhitelistGroupResponse
+       */
+      Models::CreateOpenSearchWhitelistGroupResponse createOpenSearchWhitelistGroup(const Models::CreateOpenSearchWhitelistGroupRequest &request);
 
       /**
        * @summary Creates a Supabase instance.
@@ -707,6 +812,27 @@ namespace Polardbx20200202
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
+       * @summary Deletes a context service.
+       *
+       * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+       *
+       * @param request DeleteContext0Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContext0Response
+       */
+      Models::DeleteContext0Response deleteContext0WithOptions(const Models::DeleteContext0Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a context service.
+       *
+       * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+       *
+       * @param request DeleteContext0Request
+       * @return DeleteContext0Response
+       */
+      Models::DeleteContext0Response deleteContext0(const Models::DeleteContext0Request &request);
+
+      /**
        * @summary Deletes a ContextDB-X.
        *
        * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
@@ -840,6 +966,73 @@ namespace Polardbx20200202
        * @return DeleteMem0Response
        */
       Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
+
+      /**
+       * @summary 释放OpenSearch实例
+       *
+       * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+       *
+       * @param request DeleteOpenSearchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOpenSearchResponse
+       */
+      Models::DeleteOpenSearchResponse deleteOpenSearchWithOptions(const Models::DeleteOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 释放OpenSearch实例
+       *
+       * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+       *
+       * @param request DeleteOpenSearchRequest
+       * @return DeleteOpenSearchResponse
+       */
+      Models::DeleteOpenSearchResponse deleteOpenSearch(const Models::DeleteOpenSearchRequest &request);
+
+      /**
+       * @summary 删除OpenSearch实例账号
+       *
+       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       *
+       * @param request DeleteOpenSearchAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOpenSearchAccountResponse
+       */
+      Models::DeleteOpenSearchAccountResponse deleteOpenSearchAccountWithOptions(const Models::DeleteOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除OpenSearch实例账号
+       *
+       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       *
+       * @param request DeleteOpenSearchAccountRequest
+       * @return DeleteOpenSearchAccountResponse
+       */
+      Models::DeleteOpenSearchAccountResponse deleteOpenSearchAccount(const Models::DeleteOpenSearchAccountRequest &request);
+
+      /**
+       * @summary 删除OpenSearch实例白名单分组
+       *
+       * @description - binlog文件默认保存15天。
+       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       *
+       * @param request DeleteOpenSearchWhitelistGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOpenSearchWhitelistGroupResponse
+       */
+      Models::DeleteOpenSearchWhitelistGroupResponse deleteOpenSearchWhitelistGroupWithOptions(const Models::DeleteOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除OpenSearch实例白名单分组
+       *
+       * @description - binlog文件默认保存15天。
+       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       *
+       * @param request DeleteOpenSearchWhitelistGroupRequest
+       * @return DeleteOpenSearchWhitelistGroupResponse
+       */
+      Models::DeleteOpenSearchWhitelistGroupResponse deleteOpenSearchWhitelistGroup(const Models::DeleteOpenSearchWhitelistGroupRequest &request);
 
       /**
        * @summary Deletes a Supabase instance.
@@ -1300,6 +1493,69 @@ namespace Polardbx20200202
        * @return DescribeComponentPropetiesResponse
        */
       Models::DescribeComponentPropetiesResponse describeComponentPropeties(const Models::DescribeComponentPropetiesRequest &request);
+
+      /**
+       * @summary 查询Context0管理凭证
+       *
+       * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+       *
+       * @param request DescribeContext0ConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeContext0ConfigResponse
+       */
+      Models::DescribeContext0ConfigResponse describeContext0ConfigWithOptions(const Models::DescribeContext0ConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Context0管理凭证
+       *
+       * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+       *
+       * @param request DescribeContext0ConfigRequest
+       * @return DescribeContext0ConfigResponse
+       */
+      Models::DescribeContext0ConfigResponse describeContext0Config(const Models::DescribeContext0ConfigRequest &request);
+
+      /**
+       * @summary Queries the information about a context service instance.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeContext0InfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeContext0InfoResponse
+       */
+      Models::DescribeContext0InfoResponse describeContext0InfoWithOptions(const Models::DescribeContext0InfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the information about a context service instance.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeContext0InfoRequest
+       * @return DescribeContext0InfoResponse
+       */
+      Models::DescribeContext0InfoResponse describeContext0Info(const Models::DescribeContext0InfoRequest &request);
+
+      /**
+       * @summary Queries the whitelist of the context service.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeContext0SecurityIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeContext0SecurityIpsResponse
+       */
+      Models::DescribeContext0SecurityIpsResponse describeContext0SecurityIpsWithOptions(const Models::DescribeContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the whitelist of the context service.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeContext0SecurityIpsRequest
+       * @return DescribeContext0SecurityIpsResponse
+       */
+      Models::DescribeContext0SecurityIpsResponse describeContext0SecurityIps(const Models::DescribeContext0SecurityIpsRequest &request);
 
       /**
        * @summary Queries the management credentials of ContextDB-X.
@@ -1765,6 +2021,182 @@ namespace Polardbx20200202
        * @return DescribeOpenBackupSetResponse
        */
       Models::DescribeOpenBackupSetResponse describeOpenBackupSet(const Models::DescribeOpenBackupSetRequest &request);
+
+      /**
+       * @summary Queries the account information of PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeOpenSearchAccountInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchAccountInfoResponse
+       */
+      Models::DescribeOpenSearchAccountInfoResponse describeOpenSearchAccountInfoWithOptions(const Models::DescribeOpenSearchAccountInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the account information of PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeOpenSearchAccountInfoRequest
+       * @return DescribeOpenSearchAccountInfoResponse
+       */
+      Models::DescribeOpenSearchAccountInfoResponse describeOpenSearchAccountInfo(const Models::DescribeOpenSearchAccountInfoRequest &request);
+
+      /**
+       * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+       *
+       * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+       *
+       * @param request DescribeOpenSearchConnectionInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchConnectionInfoResponse
+       */
+      Models::DescribeOpenSearchConnectionInfoResponse describeOpenSearchConnectionInfoWithOptions(const Models::DescribeOpenSearchConnectionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+       *
+       * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+       *
+       * @param request DescribeOpenSearchConnectionInfoRequest
+       * @return DescribeOpenSearchConnectionInfoResponse
+       */
+      Models::DescribeOpenSearchConnectionInfoResponse describeOpenSearchConnectionInfo(const Models::DescribeOpenSearchConnectionInfoRequest &request);
+
+      /**
+       * @summary Queries the information about a PolarDB-X Search instance.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeOpenSearchInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchInfoResponse
+       */
+      Models::DescribeOpenSearchInfoResponse describeOpenSearchInfoWithOptions(const Models::DescribeOpenSearchInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the information about a PolarDB-X Search instance.
+       *
+       * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+       *
+       * @param request DescribeOpenSearchInfoRequest
+       * @return DescribeOpenSearchInfoResponse
+       */
+      Models::DescribeOpenSearchInfoResponse describeOpenSearchInfo(const Models::DescribeOpenSearchInfoRequest &request);
+
+      /**
+       * @summary 查询OpenSearch实例列表
+       *
+       * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+       *
+       * @param request DescribeOpenSearchInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchInstancesResponse
+       */
+      Models::DescribeOpenSearchInstancesResponse describeOpenSearchInstancesWithOptions(const Models::DescribeOpenSearchInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询OpenSearch实例列表
+       *
+       * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+       *
+       * @param request DescribeOpenSearchInstancesRequest
+       * @return DescribeOpenSearchInstancesResponse
+       */
+      Models::DescribeOpenSearchInstancesResponse describeOpenSearchInstances(const Models::DescribeOpenSearchInstancesRequest &request);
+
+      /**
+       * @summary Queries the list of PolarDB-X Search nodes.
+       *
+       * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+       *
+       * @param request DescribeOpenSearchNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchNodesResponse
+       */
+      Models::DescribeOpenSearchNodesResponse describeOpenSearchNodesWithOptions(const Models::DescribeOpenSearchNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of PolarDB-X Search nodes.
+       *
+       * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+       *
+       * @param request DescribeOpenSearchNodesRequest
+       * @return DescribeOpenSearchNodesResponse
+       */
+      Models::DescribeOpenSearchNodesResponse describeOpenSearchNodes(const Models::DescribeOpenSearchNodesRequest &request);
+
+      /**
+       * @summary Queries the resource usage of a PolarDB-X Search cluster.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeOpenSearchResourceUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchResourceUsageResponse
+       */
+      Models::DescribeOpenSearchResourceUsageResponse describeOpenSearchResourceUsageWithOptions(const Models::DescribeOpenSearchResourceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the resource usage of a PolarDB-X Search cluster.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeOpenSearchResourceUsageRequest
+       * @return DescribeOpenSearchResourceUsageResponse
+       */
+      Models::DescribeOpenSearchResourceUsageResponse describeOpenSearchResourceUsage(const Models::DescribeOpenSearchResourceUsageRequest &request);
+
+      /**
+       * @summary 查询OpenSearch实例拓扑
+       *
+       * @description - binlog文件默认保存15天。
+       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       *
+       * @param request DescribeOpenSearchTopologyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchTopologyResponse
+       */
+      Models::DescribeOpenSearchTopologyResponse describeOpenSearchTopologyWithOptions(const Models::DescribeOpenSearchTopologyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询OpenSearch实例拓扑
+       *
+       * @description - binlog文件默认保存15天。
+       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       *
+       * @param request DescribeOpenSearchTopologyRequest
+       * @return DescribeOpenSearchTopologyResponse
+       */
+      Models::DescribeOpenSearchTopologyResponse describeOpenSearchTopology(const Models::DescribeOpenSearchTopologyRequest &request);
+
+      /**
+       * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeOpenSearchWhitelistsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOpenSearchWhitelistsResponse
+       */
+      Models::DescribeOpenSearchWhitelistsResponse describeOpenSearchWhitelistsWithOptions(const Models::DescribeOpenSearchWhitelistsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+       *
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+       *
+       * @param request DescribeOpenSearchWhitelistsRequest
+       * @return DescribeOpenSearchWhitelistsResponse
+       */
+      Models::DescribeOpenSearchWhitelistsResponse describeOpenSearchWhitelists(const Models::DescribeOpenSearchWhitelistsRequest &request);
 
       /**
        * @summary Queries the list of database parameter templates created by users or supported by the system, including basic information, associated engine types, and modification times of each parameter template.
@@ -2280,6 +2712,27 @@ namespace Polardbx20200202
       Models::DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyList(const Models::DescribeUserEncryptionKeyListRequest &request);
 
       /**
+       * @summary Disables public network access for PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DisableOpenSearchPublicEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableOpenSearchPublicEndpointResponse
+       */
+      Models::DisableOpenSearchPublicEndpointResponse disableOpenSearchPublicEndpointWithOptions(const Models::DisableOpenSearchPublicEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables public network access for PolarDB-X Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DisableOpenSearchPublicEndpointRequest
+       * @return DisableOpenSearchPublicEndpointResponse
+       */
+      Models::DisableOpenSearchPublicEndpointResponse disableOpenSearchPublicEndpoint(const Models::DisableOpenSearchPublicEndpointRequest &request);
+
+      /**
        * @summary Disables three-role mode.
        *
        * @param request DisableRightsSeparationRequest
@@ -2316,6 +2769,27 @@ namespace Polardbx20200202
        * @return DisableSqlAuditResponse
        */
       Models::DisableSqlAuditResponse disableSqlAudit(const Models::DisableSqlAuditRequest &request);
+
+      /**
+       * @summary Enables public network access for PolarDBX Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request EnableOpenSearchPublicEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableOpenSearchPublicEndpointResponse
+       */
+      Models::EnableOpenSearchPublicEndpointResponse enableOpenSearchPublicEndpointWithOptions(const Models::EnableOpenSearchPublicEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables public network access for PolarDBX Search.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request EnableOpenSearchPublicEndpointRequest
+       * @return EnableOpenSearchPublicEndpointResponse
+       */
+      Models::EnableOpenSearchPublicEndpointResponse enableOpenSearchPublicEndpoint(const Models::EnableOpenSearchPublicEndpointRequest &request);
 
       /**
        * @summary Enables three-role mode.
@@ -2519,6 +2993,27 @@ namespace Polardbx20200202
        * @return ModifyColumnarClassResponse
        */
       Models::ModifyColumnarClassResponse modifyColumnarClass(const Models::ModifyColumnarClassRequest &request);
+
+      /**
+       * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+       *
+       * @description ****
+       *
+       * @param request ModifyContext0SecurityIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyContext0SecurityIpsResponse
+       */
+      Models::ModifyContext0SecurityIpsResponse modifyContext0SecurityIpsWithOptions(const Models::ModifyContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+       *
+       * @description ****
+       *
+       * @param request ModifyContext0SecurityIpsRequest
+       * @return ModifyContext0SecurityIpsResponse
+       */
+      Models::ModifyContext0SecurityIpsResponse modifyContext0SecurityIps(const Models::ModifyContext0SecurityIpsRequest &request);
 
       /**
        * @summary Modifies the whitelist of a ContextDB-X service ReplicaSet.
@@ -2753,6 +3248,69 @@ namespace Polardbx20200202
       Models::ModifyMem0SecurityIpsResponse modifyMem0SecurityIps(const Models::ModifyMem0SecurityIpsRequest &request);
 
       /**
+       * @summary Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchAccessProtocolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyOpenSearchAccessProtocolResponse
+       */
+      Models::ModifyOpenSearchAccessProtocolResponse modifyOpenSearchAccessProtocolWithOptions(const Models::ModifyOpenSearchAccessProtocolRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchAccessProtocolRequest
+       * @return ModifyOpenSearchAccessProtocolResponse
+       */
+      Models::ModifyOpenSearchAccessProtocolResponse modifyOpenSearchAccessProtocol(const Models::ModifyOpenSearchAccessProtocolRequest &request);
+
+      /**
+       * @summary Changes the specifications of a PolarDB-X Search instance.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchClassRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyOpenSearchClassResponse
+       */
+      Models::ModifyOpenSearchClassResponse modifyOpenSearchClassWithOptions(const Models::ModifyOpenSearchClassRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the specifications of a PolarDB-X Search instance.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchClassRequest
+       * @return ModifyOpenSearchClassResponse
+       */
+      Models::ModifyOpenSearchClassResponse modifyOpenSearchClass(const Models::ModifyOpenSearchClassRequest &request);
+
+      /**
+       * @summary Modifies a PolarDB-X Search whitelist group.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchWhitelistGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyOpenSearchWhitelistGroupResponse
+       */
+      Models::ModifyOpenSearchWhitelistGroupResponse modifyOpenSearchWhitelistGroupWithOptions(const Models::ModifyOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a PolarDB-X Search whitelist group.
+       *
+       * @description ****
+       *
+       * @param request ModifyOpenSearchWhitelistGroupRequest
+       * @return ModifyOpenSearchWhitelistGroupResponse
+       */
+      Models::ModifyOpenSearchWhitelistGroupResponse modifyOpenSearchWhitelistGroup(const Models::ModifyOpenSearchWhitelistGroupRequest &request);
+
+      /**
        * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
        *
        * @param request ModifyParameterRequest
@@ -2901,6 +3459,27 @@ namespace Polardbx20200202
       Models::ReleaseColdDataVolumeResponse releaseColdDataVolume(const Models::ReleaseColdDataVolumeRequest &request);
 
       /**
+       * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       *
+       * @param request ReleaseContext0PublicConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReleaseContext0PublicConnectionResponse
+       */
+      Models::ReleaseContext0PublicConnectionResponse releaseContext0PublicConnectionWithOptions(const Models::ReleaseContext0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+       *
+       * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+       *
+       * @param request ReleaseContext0PublicConnectionRequest
+       * @return ReleaseContext0PublicConnectionResponse
+       */
+      Models::ReleaseContext0PublicConnectionResponse releaseContext0PublicConnection(const Models::ReleaseContext0PublicConnectionRequest &request);
+
+      /**
        * @summary Shuts down the public network connection for a ContextDB-X service ReplicaSet.
        *
        * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
@@ -3019,6 +3598,27 @@ namespace Polardbx20200202
       Models::ResetMem0AccountPasswordResponse resetMem0AccountPassword(const Models::ResetMem0AccountPasswordRequest &request);
 
       /**
+       * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+       *
+       * @description ****
+       *
+       * @param request ResetOpenSearchPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetOpenSearchPasswordResponse
+       */
+      Models::ResetOpenSearchPasswordResponse resetOpenSearchPasswordWithOptions(const Models::ResetOpenSearchPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+       *
+       * @description ****
+       *
+       * @param request ResetOpenSearchPasswordRequest
+       * @return ResetOpenSearchPasswordResponse
+       */
+      Models::ResetOpenSearchPasswordResponse resetOpenSearchPassword(const Models::ResetOpenSearchPasswordRequest &request);
+
+      /**
        * @summary Restarts an instance by calling the RestartDBInstance operation.
        *
        * @param request RestartDBInstanceRequest
@@ -3051,6 +3651,27 @@ namespace Polardbx20200202
        * @return RestartDataImportTaskResponse
        */
       Models::RestartDataImportTaskResponse restartDataImportTask(const Models::RestartDataImportTaskRequest &request);
+
+      /**
+       * @summary 重启OpenSearch实例
+       *
+       * @description ****
+       *
+       * @param request RestartOpenSearchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartOpenSearchResponse
+       */
+      Models::RestartOpenSearchResponse restartOpenSearchWithOptions(const Models::RestartOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重启OpenSearch实例
+       *
+       * @description ****
+       *
+       * @param request RestartOpenSearchRequest
+       * @return RestartOpenSearchResponse
+       */
+      Models::RestartOpenSearchResponse restartOpenSearch(const Models::RestartOpenSearchRequest &request);
 
       /**
        * @summary Restarts a Supabase instance.
@@ -3093,6 +3714,48 @@ namespace Polardbx20200202
        * @return RestoreDBInstanceResponse
        */
       Models::RestoreDBInstanceResponse restoreDBInstance(const Models::RestoreDBInstanceRequest &request);
+
+      /**
+       * @summary Scales in nodes of a PolarDB-X Search cluster.
+       *
+       * @description ****
+       *
+       * @param request ScaleInOpenSearchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScaleInOpenSearchResponse
+       */
+      Models::ScaleInOpenSearchResponse scaleInOpenSearchWithOptions(const Models::ScaleInOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Scales in nodes of a PolarDB-X Search cluster.
+       *
+       * @description ****
+       *
+       * @param request ScaleInOpenSearchRequest
+       * @return ScaleInOpenSearchResponse
+       */
+      Models::ScaleInOpenSearchResponse scaleInOpenSearch(const Models::ScaleInOpenSearchRequest &request);
+
+      /**
+       * @summary Scales out nodes in a PolarDB-X Search cluster.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request ScaleOutOpenSearchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScaleOutOpenSearchResponse
+       */
+      Models::ScaleOutOpenSearchResponse scaleOutOpenSearchWithOptions(const Models::ScaleOutOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Scales out nodes in a PolarDB-X Search cluster.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request ScaleOutOpenSearchRequest
+       * @return ScaleOutOpenSearchResponse
+       */
+      Models::ScaleOutOpenSearchResponse scaleOutOpenSearch(const Models::ScaleOutOpenSearchRequest &request);
 
       /**
        * @summary Skips the current step.

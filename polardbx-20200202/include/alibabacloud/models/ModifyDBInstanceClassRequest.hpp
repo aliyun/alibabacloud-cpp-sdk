@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBInstanceClassRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceClassRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlignStoragePrimaryAzone, alignStoragePrimaryAzone_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CnClass, cnClass_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
@@ -21,11 +22,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SpecifiedDNScale, specifiedDNScale_);
       DARABONBA_PTR_TO_JSON(SpecifiedDNSpecMapJson, specifiedDNSpecMapJson_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(SwitchTime, switchTime_);
       DARABONBA_PTR_TO_JSON(SwitchTimeMode, switchTimeMode_);
       DARABONBA_PTR_TO_JSON(TargetDBInstanceClass, targetDBInstanceClass_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceClassRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlignStoragePrimaryAzone, alignStoragePrimaryAzone_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CnClass, cnClass_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
@@ -34,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SpecifiedDNScale, specifiedDNScale_);
       DARABONBA_PTR_FROM_JSON(SpecifiedDNSpecMapJson, specifiedDNSpecMapJson_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(SwitchTime, switchTime_);
       DARABONBA_PTR_FROM_JSON(SwitchTimeMode, switchTimeMode_);
       DARABONBA_PTR_FROM_JSON(TargetDBInstanceClass, targetDBInstanceClass_);
@@ -49,9 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->cnClass_ == nullptr && this->DBInstanceName_ == nullptr && this->dnClass_ == nullptr && this->dnStorageSpace_ == nullptr && this->regionId_ == nullptr
-        && this->specifiedDNScale_ == nullptr && this->specifiedDNSpecMapJson_ == nullptr && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr && this->targetDBInstanceClass_ == nullptr; };
+    virtual bool empty() const override { return this->alignStoragePrimaryAzone_ == nullptr
+        && this->clientToken_ == nullptr && this->cnClass_ == nullptr && this->DBInstanceName_ == nullptr && this->dnClass_ == nullptr && this->dnStorageSpace_ == nullptr
+        && this->regionId_ == nullptr && this->specifiedDNScale_ == nullptr && this->specifiedDNSpecMapJson_ == nullptr && this->storageType_ == nullptr && this->switchTime_ == nullptr
+        && this->switchTimeMode_ == nullptr && this->targetDBInstanceClass_ == nullptr; };
+    // alignStoragePrimaryAzone Field Functions 
+    bool hasAlignStoragePrimaryAzone() const { return this->alignStoragePrimaryAzone_ != nullptr;};
+    void deleteAlignStoragePrimaryAzone() { this->alignStoragePrimaryAzone_ = nullptr;};
+    inline bool getAlignStoragePrimaryAzone() const { DARABONBA_PTR_GET_DEFAULT(alignStoragePrimaryAzone_, false) };
+    inline ModifyDBInstanceClassRequest& setAlignStoragePrimaryAzone(bool alignStoragePrimaryAzone) { DARABONBA_PTR_SET_VALUE(alignStoragePrimaryAzone_, alignStoragePrimaryAzone) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -108,6 +120,13 @@ namespace Models
     inline ModifyDBInstanceClassRequest& setSpecifiedDNSpecMapJson(string specifiedDNSpecMapJson) { DARABONBA_PTR_SET_VALUE(specifiedDNSpecMapJson_, specifiedDNSpecMapJson) };
 
 
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline ModifyDBInstanceClassRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
     // switchTime Field Functions 
     bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
     void deleteSwitchTime() { this->switchTime_ = nullptr;};
@@ -130,17 +149,18 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use any unique string.
+    shared_ptr<bool> alignStoragePrimaryAzone_ {};
+    // The client token. This parameter is used to ensure the idempotence of the request. You can use any unique string.
     shared_ptr<string> clientToken_ {};
     // **Target specifications for Enterprise Edition compute node specification changes**
     // 
-    // **Primary instance compute node specifications (Enterprise Edition CN) general-purpose**	
+    // **Primary instance compute node specifications (Enterprise Edition CN) General-purpose**	
     // - polarx.x4.medium.2e	2 cores, 8 GB (general-purpose)
     // - polarx.x4.large.2e	4 cores, 16 GB (general-purpose)
     // - polarx.x4.xlarge.2e	8 cores, 32 GB (general-purpose)
     // - polarx.x4.2xlarge.2e 16 cores, 64 GB (general-purpose)
     // 
-    // **Primary instance compute node specifications (Enterprise Edition CN) dedicated**	
+    // **Primary instance compute node specifications (Enterprise Edition CN) Dedicated**	
     // - polarx.x8.large.2e	4 cores, 32 GB (dedicated)
     // - polarx.x8.xlarge.2e	8 cores, 64 GB (dedicated)
     // - polarx.x8.2xlarge.2e	16 cores, 128 GB (dedicated)
@@ -149,14 +169,14 @@ namespace Models
     // - polarx.st.8xlarge.2e	60 cores, 470 GB (dedicated)
     // - polarx.st.12xlarge.2e	90 cores, 720 GB (dedicated)
     // 
-    // **Read-only instance compute node specifications (Enterprise Edition CN) general-purpose**	
+    // **Read-only instance compute node specifications (Enterprise Edition CN) General-purpose**	
     // 
     // - polarxro.x4.medium.2e	2 cores, 8 GB (general-purpose)
     // - polarxro.x4.large.2e	4 cores, 16 GB (general-purpose)
     // - polarxro.x4.xlarge.2e	8 cores, 32 GB (general-purpose)
     // - polarxro.x4.2xlarge.2e	16 cores, 64 GB (general-purpose)
     // 
-    // **Read-only instance compute node specifications (Enterprise Edition CN) dedicated**	
+    // **Read-only instance compute node specifications (Enterprise Edition CN) Dedicated**	
     // 
     // - polarxro.x8.large.2e	4 cores, 32 GB (dedicated)
     // - polarxro.x8.xlarge.2e	8 cores, 64 GB (dedicated)
@@ -172,14 +192,14 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // **Target specifications for Enterprise Edition storage node specification changes**
     // 
-    // **Storage node specifications (Enterprise Edition DN) general-purpose**	
+    // **Storage node specifications (Enterprise Edition DN) General-purpose**	
     // 
     // - mysql.n4.medium.25	2 cores, 8 GB (general-purpose)
     // - mysql.n4.large.25	4 cores, 16 GB (general-purpose)
     // - mysql.n4.xlarge.25	8 cores, 32 GB (general-purpose)
     // - mysql.n4.2xlarge.25	16 cores, 64 GB (general-purpose)
     // 
-    // **Storage node specifications (Enterprise Edition DN) dedicated**	
+    // **Storage node specifications (Enterprise Edition DN) Dedicated**	
     // 
     // - mysql.x8.large.25	4 cores, 32 GB (dedicated)
     // - mysql.x8.xlarge.25	8 cores, 64 GB (dedicated)
@@ -189,14 +209,14 @@ namespace Models
     // - mysql.st.8xlarge.25	60 cores, 470 GB (dedicated)
     // - mysql.st.12xlarge.25	90 cores, 720 GB (dedicated)
     // 
-    // **Read-only instance storage node specifications (Enterprise Edition DN) general-purpose**	
+    // **Read-only instance storage node specifications (Enterprise Edition DN) General-purpose**	
     // 
     // - rds.mysql.s2.xlarge	2 cores, 8 GB (general-purpose)
     // - mysqlro.x4.large.1	4 cores, 16 GB (general-purpose)
     // - mysqlro.x4.xlarge.1	8 cores, 32 GB (general-purpose)
     // - mysqlro.x4.2xlarge.1	16 cores, 64 GB (general-purpose)
     // 
-    // **Read-only instance storage node specifications (Enterprise Edition DN) dedicated**	
+    // **Read-only instance storage node specifications (Enterprise Edition DN) Dedicated**	
     // 
     // - mysqlro.x8.large.1	4 cores, 32 GB (dedicated)
     // - mysqlro.x8.xlarge.1	8 cores, 64 GB (dedicated)
@@ -219,15 +239,17 @@ namespace Models
     shared_ptr<bool> specifiedDNScale_ {};
     // The target specification for each DN node when performing a multi-specification DN change.
     shared_ptr<string> specifiedDNSpecMapJson_ {};
-    // The switch start time. The switch time range is [start time T, T+30m]. This parameter is not yet available.
+    // Set this parameter to cloud_auto when migrating from local disks to cloud disks. If this parameter is not specified, the storage type remains unchanged.
+    shared_ptr<string> storageType_ {};
+    // The switchover start time. The switchover time range is [start time T, T+30m]. This parameter is not yet available.
     shared_ptr<string> switchTime_ {};
-    // The switch time. Valid values:
+    // The switchover time. Valid values:
     // - 0: immediately.
     // - 1: within the O&M window.
     shared_ptr<string> switchTimeMode_ {};
     // **Target specifications for Standard Edition specification changes**
     // 
-    // **Primary instance node specifications (for Standard Edition) (general-purpose):**
+    // **Primary instance node specifications (Standard Edition) (General-purpose):**
     // - mysql.n2.medium.25	2 cores, 4 GB (general-purpose)
     // - mysql.n4.medium.25	2 cores, 8 GB (general-purpose)
     // - mysql.n8.medium.25	2 cores, 16 GB (general-purpose)
@@ -241,7 +263,7 @@ namespace Models
     // - mysql.n4.2xlarge.25	16 cores, 64 GB (general-purpose)
     // - mysql.n8.2xlarge.25	16 cores, 128 GB (general-purpose)
     // 
-    // **Primary instance node specifications (for Standard Edition) (dedicated):**
+    // **Primary instance node specifications (Standard Edition) (Dedicated):**
     // - mysql.x2.medium.25	2 cores, 4 GB (dedicated)
     // - mysql.x4.medium.25	2 cores, 8 GB (dedicated)
     // - mysql.x8.medium.25	2 cores, 16 GB (dedicated)
@@ -255,14 +277,14 @@ namespace Models
     // - mysql.x4.2xlarge.25	16 cores, 64 GB (dedicated)
     // - mysql.x8.2xlarge.25	16 cores, 128 GB (dedicated)
     // 
-    // **Read-only instance node specifications (for Standard Edition) general-purpose**	
+    // **Read-only instance node specifications (Standard Edition) General-purpose**	
     // 
     // - rds.mysql.s2.xlarge 	2 cores, 8 GB (general-purpose)
     // - mysqlro.x4.large.1 	4 cores, 16 GB (general-purpose)
     // - mysqlro.x4.xlarge.1 	8 cores, 32 GB (general-purpose)
     // - mysqlro.x4.2xlarge.1 	16 cores, 64 GB (general-purpose) 
     // 
-    // **Read-only instance node specifications (for Standard Edition) dedicated**	
+    // **Read-only instance node specifications (Standard Edition) Dedicated**	
     // 
     // - mysqlro.x8.large.1 	4 cores, 32 GB (dedicated) 
     // - mysqlro.x8.xlarge.1 	8 cores, 64 GB (dedicated) 

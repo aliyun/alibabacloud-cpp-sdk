@@ -195,6 +195,68 @@ AllocateColdDataVolumeResponse Client::allocateColdDataVolume(const AllocateCold
 }
 
 /**
+ * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ *
+ * @param request AllocateContext0PublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AllocateContext0PublicConnectionResponse
+ */
+AllocateContext0PublicConnectionResponse Client::allocateContext0PublicConnectionWithOptions(const AllocateContext0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionStringPrefix()) {
+    query["ConnectionStringPrefix"] = request.getConnectionStringPrefix();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AllocateContext0PublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AllocateContext0PublicConnectionResponse>();
+}
+
+/**
+ * @summary Enables a public network connection for a specified physical ReplicaSet of the context service.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ *
+ * @param request AllocateContext0PublicConnectionRequest
+ * @return AllocateContext0PublicConnectionResponse
+ */
+AllocateContext0PublicConnectionResponse Client::allocateContext0PublicConnection(const AllocateContext0PublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return allocateContext0PublicConnectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables a public network connection for a ContextDB-X service ReplicaSet.
  *
  * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
@@ -893,6 +955,60 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createBackupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a context service.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateContext0Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContext0Response
+ */
+CreateContext0Response Client::createContext0WithOptions(const CreateContext0Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasOpenSearchInstanceName()) {
+    query["OpenSearchInstanceName"] = request.getOpenSearchInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContext0"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContext0Response>();
+}
+
+/**
+ * @summary Creates a context service.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateContext0Request
+ * @return CreateContext0Response
+ */
+CreateContext0Response Client::createContext0(const CreateContext0Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContext0WithOptions(request, runtime);
 }
 
 /**
@@ -1668,6 +1784,248 @@ CreateMem0Response Client::createMem0(const CreateMem0Request &request) {
 }
 
 /**
+ * @summary Creates a PolarDBX Search instance.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateOpenSearchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpenSearchResponse
+ */
+CreateOpenSearchResponse Client::createOpenSearchWithOptions(const CreateOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDBInstanceDescription()) {
+    query["DBInstanceDescription"] = request.getDBInstanceDescription();
+  }
+
+  if (!!request.hasDBNodeClass()) {
+    query["DBNodeClass"] = request.getDBNodeClass();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasInstanceSpec()) {
+    query["InstanceSpec"] = request.getInstanceSpec();
+  }
+
+  if (!!request.hasNodeCount()) {
+    query["NodeCount"] = request.getNodeCount();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasStorageSpace()) {
+    query["StorageSpace"] = request.getStorageSpace();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTopologyType()) {
+    query["TopologyType"] = request.getTopologyType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZone2()) {
+    query["Zone2"] = request.getZone2();
+  }
+
+  if (!!request.hasZone3()) {
+    query["Zone3"] = request.getZone3();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpenSearch"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpenSearchResponse>();
+}
+
+/**
+ * @summary Creates a PolarDBX Search instance.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateOpenSearchRequest
+ * @return CreateOpenSearchResponse
+ */
+CreateOpenSearchResponse Client::createOpenSearch(const CreateOpenSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpenSearchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建OpenSearch实例账号
+ *
+ * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ *
+ * @param request CreateOpenSearchAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpenSearchAccountResponse
+ */
+CreateOpenSearchAccountResponse Client::createOpenSearchAccountWithOptions(const CreateOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasAccountPassword()) {
+    query["AccountPassword"] = request.getAccountPassword();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpenSearchAccount"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpenSearchAccountResponse>();
+}
+
+/**
+ * @summary 创建OpenSearch实例账号
+ *
+ * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ *
+ * @param request CreateOpenSearchAccountRequest
+ * @return CreateOpenSearchAccountResponse
+ */
+CreateOpenSearchAccountResponse Client::createOpenSearchAccount(const CreateOpenSearchAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpenSearchAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a whitelist group for PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateOpenSearchWhitelistGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOpenSearchWhitelistGroupResponse
+ */
+CreateOpenSearchWhitelistGroupResponse Client::createOpenSearchWhitelistGroupWithOptions(const CreateOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasIPs()) {
+    query["IPs"] = request.getIPs();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOpenSearchWhitelistGroup"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOpenSearchWhitelistGroupResponse>();
+}
+
+/**
+ * @summary Creates a whitelist group for PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateOpenSearchWhitelistGroupRequest
+ * @return CreateOpenSearchWhitelistGroupResponse
+ */
+CreateOpenSearchWhitelistGroupResponse Client::createOpenSearchWhitelistGroup(const CreateOpenSearchWhitelistGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOpenSearchWhitelistGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Supabase instance.
  *
  * @description ****
@@ -2430,6 +2788,56 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
+ * @summary Deletes a context service.
+ *
+ * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ *
+ * @param request DeleteContext0Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContext0Response
+ */
+DeleteContext0Response Client::deleteContext0WithOptions(const DeleteContext0Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContext0"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContext0Response>();
+}
+
+/**
+ * @summary Deletes a context service.
+ *
+ * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ *
+ * @param request DeleteContext0Request
+ * @return DeleteContext0Response
+ */
+DeleteContext0Response Client::deleteContext0(const DeleteContext0Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContext0WithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a ContextDB-X.
  *
  * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
@@ -2773,6 +3181,168 @@ DeleteMem0Response Client::deleteMem0WithOptions(const DeleteMem0Request &reques
 DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMem0WithOptions(request, runtime);
+}
+
+/**
+ * @summary 释放OpenSearch实例
+ *
+ * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+ *
+ * @param request DeleteOpenSearchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOpenSearchResponse
+ */
+DeleteOpenSearchResponse Client::deleteOpenSearchWithOptions(const DeleteOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOpenSearch"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOpenSearchResponse>();
+}
+
+/**
+ * @summary 释放OpenSearch实例
+ *
+ * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+ *
+ * @param request DeleteOpenSearchRequest
+ * @return DeleteOpenSearchResponse
+ */
+DeleteOpenSearchResponse Client::deleteOpenSearch(const DeleteOpenSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOpenSearchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除OpenSearch实例账号
+ *
+ * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ *
+ * @param request DeleteOpenSearchAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOpenSearchAccountResponse
+ */
+DeleteOpenSearchAccountResponse Client::deleteOpenSearchAccountWithOptions(const DeleteOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOpenSearchAccount"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOpenSearchAccountResponse>();
+}
+
+/**
+ * @summary 删除OpenSearch实例账号
+ *
+ * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ *
+ * @param request DeleteOpenSearchAccountRequest
+ * @return DeleteOpenSearchAccountResponse
+ */
+DeleteOpenSearchAccountResponse Client::deleteOpenSearchAccount(const DeleteOpenSearchAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOpenSearchAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除OpenSearch实例白名单分组
+ *
+ * @description - binlog文件默认保存15天。
+ * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+ * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ *
+ * @param request DeleteOpenSearchWhitelistGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOpenSearchWhitelistGroupResponse
+ */
+DeleteOpenSearchWhitelistGroupResponse Client::deleteOpenSearchWhitelistGroupWithOptions(const DeleteOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOpenSearchWhitelistGroup"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOpenSearchWhitelistGroupResponse>();
+}
+
+/**
+ * @summary 删除OpenSearch实例白名单分组
+ *
+ * @description - binlog文件默认保存15天。
+ * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+ * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ *
+ * @param request DeleteOpenSearchWhitelistGroupRequest
+ * @return DeleteOpenSearchWhitelistGroupResponse
+ */
+DeleteOpenSearchWhitelistGroupResponse Client::deleteOpenSearchWhitelistGroup(const DeleteOpenSearchWhitelistGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOpenSearchWhitelistGroupWithOptions(request, runtime);
 }
 
 /**
@@ -3977,6 +4547,156 @@ DescribeComponentPropetiesResponse Client::describeComponentPropetiesWithOptions
 DescribeComponentPropetiesResponse Client::describeComponentPropeties(const DescribeComponentPropetiesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeComponentPropetiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Context0管理凭证
+ *
+ * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+ *
+ * @param request DescribeContext0ConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeContext0ConfigResponse
+ */
+DescribeContext0ConfigResponse Client::describeContext0ConfigWithOptions(const DescribeContext0ConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeContext0Config"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeContext0ConfigResponse>();
+}
+
+/**
+ * @summary 查询Context0管理凭证
+ *
+ * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+ *
+ * @param request DescribeContext0ConfigRequest
+ * @return DescribeContext0ConfigResponse
+ */
+DescribeContext0ConfigResponse Client::describeContext0Config(const DescribeContext0ConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeContext0ConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the information about a context service instance.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeContext0InfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeContext0InfoResponse
+ */
+DescribeContext0InfoResponse Client::describeContext0InfoWithOptions(const DescribeContext0InfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeContext0Info"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeContext0InfoResponse>();
+}
+
+/**
+ * @summary Queries the information about a context service instance.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeContext0InfoRequest
+ * @return DescribeContext0InfoResponse
+ */
+DescribeContext0InfoResponse Client::describeContext0Info(const DescribeContext0InfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeContext0InfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the whitelist of the context service.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeContext0SecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeContext0SecurityIpsResponse
+ */
+DescribeContext0SecurityIpsResponse Client::describeContext0SecurityIpsWithOptions(const DescribeContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeContext0SecurityIps"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeContext0SecurityIpsResponse>();
+}
+
+/**
+ * @summary Queries the whitelist of the context service.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeContext0SecurityIpsRequest
+ * @return DescribeContext0SecurityIpsResponse
+ */
+DescribeContext0SecurityIpsResponse Client::describeContext0SecurityIps(const DescribeContext0SecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeContext0SecurityIpsWithOptions(request, runtime);
 }
 
 /**
@@ -5299,6 +6019,430 @@ DescribeOpenBackupSetResponse Client::describeOpenBackupSetWithOptions(const Des
 DescribeOpenBackupSetResponse Client::describeOpenBackupSet(const DescribeOpenBackupSetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeOpenBackupSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the account information of PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeOpenSearchAccountInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchAccountInfoResponse
+ */
+DescribeOpenSearchAccountInfoResponse Client::describeOpenSearchAccountInfoWithOptions(const DescribeOpenSearchAccountInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchAccountInfo"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchAccountInfoResponse>();
+}
+
+/**
+ * @summary Queries the account information of PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeOpenSearchAccountInfoRequest
+ * @return DescribeOpenSearchAccountInfoResponse
+ */
+DescribeOpenSearchAccountInfoResponse Client::describeOpenSearchAccountInfo(const DescribeOpenSearchAccountInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchAccountInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+ *
+ * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+ *
+ * @param request DescribeOpenSearchConnectionInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchConnectionInfoResponse
+ */
+DescribeOpenSearchConnectionInfoResponse Client::describeOpenSearchConnectionInfoWithOptions(const DescribeOpenSearchConnectionInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchConnectionInfo"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchConnectionInfoResponse>();
+}
+
+/**
+ * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+ *
+ * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+ *
+ * @param request DescribeOpenSearchConnectionInfoRequest
+ * @return DescribeOpenSearchConnectionInfoResponse
+ */
+DescribeOpenSearchConnectionInfoResponse Client::describeOpenSearchConnectionInfo(const DescribeOpenSearchConnectionInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchConnectionInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the information about a PolarDB-X Search instance.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeOpenSearchInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchInfoResponse
+ */
+DescribeOpenSearchInfoResponse Client::describeOpenSearchInfoWithOptions(const DescribeOpenSearchInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchInfo"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchInfoResponse>();
+}
+
+/**
+ * @summary Queries the information about a PolarDB-X Search instance.
+ *
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ *
+ * @param request DescribeOpenSearchInfoRequest
+ * @return DescribeOpenSearchInfoResponse
+ */
+DescribeOpenSearchInfoResponse Client::describeOpenSearchInfo(const DescribeOpenSearchInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询OpenSearch实例列表
+ *
+ * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+ *
+ * @param request DescribeOpenSearchInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchInstancesResponse
+ */
+DescribeOpenSearchInstancesResponse Client::describeOpenSearchInstancesWithOptions(const DescribeOpenSearchInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchInstances"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchInstancesResponse>();
+}
+
+/**
+ * @summary 查询OpenSearch实例列表
+ *
+ * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+ *
+ * @param request DescribeOpenSearchInstancesRequest
+ * @return DescribeOpenSearchInstancesResponse
+ */
+DescribeOpenSearchInstancesResponse Client::describeOpenSearchInstances(const DescribeOpenSearchInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of PolarDB-X Search nodes.
+ *
+ * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ *
+ * @param request DescribeOpenSearchNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchNodesResponse
+ */
+DescribeOpenSearchNodesResponse Client::describeOpenSearchNodesWithOptions(const DescribeOpenSearchNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchNodes"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchNodesResponse>();
+}
+
+/**
+ * @summary Queries the list of PolarDB-X Search nodes.
+ *
+ * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ *
+ * @param request DescribeOpenSearchNodesRequest
+ * @return DescribeOpenSearchNodesResponse
+ */
+DescribeOpenSearchNodesResponse Client::describeOpenSearchNodes(const DescribeOpenSearchNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the resource usage of a PolarDB-X Search cluster.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeOpenSearchResourceUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchResourceUsageResponse
+ */
+DescribeOpenSearchResourceUsageResponse Client::describeOpenSearchResourceUsageWithOptions(const DescribeOpenSearchResourceUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchResourceUsage"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchResourceUsageResponse>();
+}
+
+/**
+ * @summary Queries the resource usage of a PolarDB-X Search cluster.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeOpenSearchResourceUsageRequest
+ * @return DescribeOpenSearchResourceUsageResponse
+ */
+DescribeOpenSearchResourceUsageResponse Client::describeOpenSearchResourceUsage(const DescribeOpenSearchResourceUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchResourceUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询OpenSearch实例拓扑
+ *
+ * @description - binlog文件默认保存15天。
+ * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+ * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ *
+ * @param request DescribeOpenSearchTopologyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchTopologyResponse
+ */
+DescribeOpenSearchTopologyResponse Client::describeOpenSearchTopologyWithOptions(const DescribeOpenSearchTopologyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchTopology"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchTopologyResponse>();
+}
+
+/**
+ * @summary 查询OpenSearch实例拓扑
+ *
+ * @description - binlog文件默认保存15天。
+ * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+ * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ *
+ * @param request DescribeOpenSearchTopologyRequest
+ * @return DescribeOpenSearchTopologyResponse
+ */
+DescribeOpenSearchTopologyResponse Client::describeOpenSearchTopology(const DescribeOpenSearchTopologyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchTopologyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeOpenSearchWhitelistsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOpenSearchWhitelistsResponse
+ */
+DescribeOpenSearchWhitelistsResponse Client::describeOpenSearchWhitelistsWithOptions(const DescribeOpenSearchWhitelistsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOpenSearchWhitelists"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOpenSearchWhitelistsResponse>();
+}
+
+/**
+ * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+ *
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ *
+ * @param request DescribeOpenSearchWhitelistsRequest
+ * @return DescribeOpenSearchWhitelistsResponse
+ */
+DescribeOpenSearchWhitelistsResponse Client::describeOpenSearchWhitelists(const DescribeOpenSearchWhitelistsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOpenSearchWhitelistsWithOptions(request, runtime);
 }
 
 /**
@@ -6746,6 +7890,60 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyList(cons
 }
 
 /**
+ * @summary Disables public network access for PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DisableOpenSearchPublicEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableOpenSearchPublicEndpointResponse
+ */
+DisableOpenSearchPublicEndpointResponse Client::disableOpenSearchPublicEndpointWithOptions(const DisableOpenSearchPublicEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableOpenSearchPublicEndpoint"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableOpenSearchPublicEndpointResponse>();
+}
+
+/**
+ * @summary Disables public network access for PolarDB-X Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DisableOpenSearchPublicEndpointRequest
+ * @return DisableOpenSearchPublicEndpointResponse
+ */
+DisableOpenSearchPublicEndpointResponse Client::disableOpenSearchPublicEndpoint(const DisableOpenSearchPublicEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableOpenSearchPublicEndpointWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables three-role mode.
  *
  * @param request DisableRightsSeparationRequest
@@ -6855,6 +8053,60 @@ DisableSqlAuditResponse Client::disableSqlAuditWithOptions(const DisableSqlAudit
 DisableSqlAuditResponse Client::disableSqlAudit(const DisableSqlAuditRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableSqlAuditWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables public network access for PolarDBX Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request EnableOpenSearchPublicEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableOpenSearchPublicEndpointResponse
+ */
+EnableOpenSearchPublicEndpointResponse Client::enableOpenSearchPublicEndpointWithOptions(const EnableOpenSearchPublicEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableOpenSearchPublicEndpoint"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableOpenSearchPublicEndpointResponse>();
+}
+
+/**
+ * @summary Enables public network access for PolarDBX Search.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request EnableOpenSearchPublicEndpointRequest
+ * @return EnableOpenSearchPublicEndpointResponse
+ */
+EnableOpenSearchPublicEndpointResponse Client::enableOpenSearchPublicEndpoint(const EnableOpenSearchPublicEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableOpenSearchPublicEndpointWithOptions(request, runtime);
 }
 
 /**
@@ -7516,6 +8768,68 @@ ModifyColumnarClassResponse Client::modifyColumnarClass(const ModifyColumnarClas
 }
 
 /**
+ * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+ *
+ * @description ****
+ *
+ * @param request ModifyContext0SecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyContext0SecurityIpsResponse
+ */
+ModifyContext0SecurityIpsResponse Client::modifyContext0SecurityIpsWithOptions(const ModifyContext0SecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.getModifyMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyContext0SecurityIps"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyContext0SecurityIpsResponse>();
+}
+
+/**
+ * @summary Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+ *
+ * @description ****
+ *
+ * @param request ModifyContext0SecurityIpsRequest
+ * @return ModifyContext0SecurityIpsResponse
+ */
+ModifyContext0SecurityIpsResponse Client::modifyContext0SecurityIps(const ModifyContext0SecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyContext0SecurityIpsWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the whitelist of a ContextDB-X service ReplicaSet.
  *
  * @description ****
@@ -7727,6 +9041,10 @@ ModifyCustomEndpointNetResponse Client::modifyCustomEndpointNet(const ModifyCust
 ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const ModifyDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlignStoragePrimaryAzone()) {
+    query["AlignStoragePrimaryAzone"] = request.getAlignStoragePrimaryAzone();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -7757,6 +9075,10 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const Mod
 
   if (!!request.hasSpecifiedDNSpecMapJson()) {
     query["SpecifiedDNSpecMapJson"] = request.getSpecifiedDNSpecMapJson();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasSwitchTime()) {
@@ -8264,6 +9586,180 @@ ModifyMem0SecurityIpsResponse Client::modifyMem0SecurityIps(const ModifyMem0Secu
 }
 
 /**
+ * @summary Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchAccessProtocolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyOpenSearchAccessProtocolResponse
+ */
+ModifyOpenSearchAccessProtocolResponse Client::modifyOpenSearchAccessProtocolWithOptions(const ModifyOpenSearchAccessProtocolRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyOpenSearchAccessProtocol"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyOpenSearchAccessProtocolResponse>();
+}
+
+/**
+ * @summary Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchAccessProtocolRequest
+ * @return ModifyOpenSearchAccessProtocolResponse
+ */
+ModifyOpenSearchAccessProtocolResponse Client::modifyOpenSearchAccessProtocol(const ModifyOpenSearchAccessProtocolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyOpenSearchAccessProtocolWithOptions(request, runtime);
+}
+
+/**
+ * @summary Changes the specifications of a PolarDB-X Search instance.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchClassRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyOpenSearchClassResponse
+ */
+ModifyOpenSearchClassResponse Client::modifyOpenSearchClassWithOptions(const ModifyOpenSearchClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceDiskSize()) {
+    query["DBInstanceDiskSize"] = request.getDBInstanceDiskSize();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchClassCode()) {
+    query["SearchClassCode"] = request.getSearchClassCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyOpenSearchClass"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyOpenSearchClassResponse>();
+}
+
+/**
+ * @summary Changes the specifications of a PolarDB-X Search instance.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchClassRequest
+ * @return ModifyOpenSearchClassResponse
+ */
+ModifyOpenSearchClassResponse Client::modifyOpenSearchClass(const ModifyOpenSearchClassRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyOpenSearchClassWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies a PolarDB-X Search whitelist group.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchWhitelistGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyOpenSearchWhitelistGroupResponse
+ */
+ModifyOpenSearchWhitelistGroupResponse Client::modifyOpenSearchWhitelistGroupWithOptions(const ModifyOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasIPs()) {
+    query["IPs"] = request.getIPs();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyOpenSearchWhitelistGroup"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyOpenSearchWhitelistGroupResponse>();
+}
+
+/**
+ * @summary Modifies a PolarDB-X Search whitelist group.
+ *
+ * @description ****
+ *
+ * @param request ModifyOpenSearchWhitelistGroupRequest
+ * @return ModifyOpenSearchWhitelistGroupResponse
+ */
+ModifyOpenSearchWhitelistGroupResponse Client::modifyOpenSearchWhitelistGroup(const ModifyOpenSearchWhitelistGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyOpenSearchWhitelistGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies instance parameters, including parameters at the compute layer and storage layer.
  *
  * @param request ModifyParameterRequest
@@ -8716,6 +10212,64 @@ ReleaseColdDataVolumeResponse Client::releaseColdDataVolume(const ReleaseColdDat
 }
 
 /**
+ * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ *
+ * @param request ReleaseContext0PublicConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReleaseContext0PublicConnectionResponse
+ */
+ReleaseContext0PublicConnectionResponse Client::releaseContext0PublicConnectionWithOptions(const ReleaseContext0PublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentConnectionString()) {
+    query["CurrentConnectionString"] = request.getCurrentConnectionString();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReleaseContext0PublicConnection"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReleaseContext0PublicConnectionResponse>();
+}
+
+/**
+ * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+ *
+ * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ *
+ * @param request ReleaseContext0PublicConnectionRequest
+ * @return ReleaseContext0PublicConnectionResponse
+ */
+ReleaseContext0PublicConnectionResponse Client::releaseContext0PublicConnection(const ReleaseContext0PublicConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return releaseContext0PublicConnectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Shuts down the public network connection for a ContextDB-X service ReplicaSet.
  *
  * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
@@ -9060,6 +10614,64 @@ ResetMem0AccountPasswordResponse Client::resetMem0AccountPassword(const ResetMem
 }
 
 /**
+ * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+ *
+ * @description ****
+ *
+ * @param request ResetOpenSearchPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetOpenSearchPasswordResponse
+ */
+ResetOpenSearchPasswordResponse Client::resetOpenSearchPasswordWithOptions(const ResetOpenSearchPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountName()) {
+    query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasAccountPassword()) {
+    query["AccountPassword"] = request.getAccountPassword();
+  }
+
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetOpenSearchPassword"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetOpenSearchPasswordResponse>();
+}
+
+/**
+ * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+ *
+ * @description ****
+ *
+ * @param request ResetOpenSearchPasswordRequest
+ * @return ResetOpenSearchPasswordResponse
+ */
+ResetOpenSearchPasswordResponse Client::resetOpenSearchPassword(const ResetOpenSearchPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetOpenSearchPasswordWithOptions(request, runtime);
+}
+
+/**
  * @summary Restarts an instance by calling the RestartDBInstance operation.
  *
  * @param request RestartDBInstanceRequest
@@ -9157,6 +10769,56 @@ RestartDataImportTaskResponse Client::restartDataImportTaskWithOptions(const Res
 RestartDataImportTaskResponse Client::restartDataImportTask(const RestartDataImportTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartDataImportTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重启OpenSearch实例
+ *
+ * @description ****
+ *
+ * @param request RestartOpenSearchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartOpenSearchResponse
+ */
+RestartOpenSearchResponse Client::restartOpenSearchWithOptions(const RestartOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartOpenSearch"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartOpenSearchResponse>();
+}
+
+/**
+ * @summary 重启OpenSearch实例
+ *
+ * @description ****
+ *
+ * @param request RestartOpenSearchRequest
+ * @return RestartOpenSearchResponse
+ */
+RestartOpenSearchResponse Client::restartOpenSearch(const RestartOpenSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartOpenSearchWithOptions(request, runtime);
 }
 
 /**
@@ -9373,6 +11035,114 @@ RestoreDBInstanceResponse Client::restoreDBInstanceWithOptions(const RestoreDBIn
 RestoreDBInstanceResponse Client::restoreDBInstance(const RestoreDBInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restoreDBInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Scales in nodes of a PolarDB-X Search cluster.
+ *
+ * @description ****
+ *
+ * @param request ScaleInOpenSearchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScaleInOpenSearchResponse
+ */
+ScaleInOpenSearchResponse Client::scaleInOpenSearchWithOptions(const ScaleInOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchNodeCount()) {
+    query["SearchNodeCount"] = request.getSearchNodeCount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ScaleInOpenSearch"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScaleInOpenSearchResponse>();
+}
+
+/**
+ * @summary Scales in nodes of a PolarDB-X Search cluster.
+ *
+ * @description ****
+ *
+ * @param request ScaleInOpenSearchRequest
+ * @return ScaleInOpenSearchResponse
+ */
+ScaleInOpenSearchResponse Client::scaleInOpenSearch(const ScaleInOpenSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return scaleInOpenSearchWithOptions(request, runtime);
+}
+
+/**
+ * @summary Scales out nodes in a PolarDB-X Search cluster.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request ScaleOutOpenSearchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScaleOutOpenSearchResponse
+ */
+ScaleOutOpenSearchResponse Client::scaleOutOpenSearchWithOptions(const ScaleOutOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchNodeCount()) {
+    query["SearchNodeCount"] = request.getSearchNodeCount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ScaleOutOpenSearch"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScaleOutOpenSearchResponse>();
+}
+
+/**
+ * @summary Scales out nodes in a PolarDB-X Search cluster.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request ScaleOutOpenSearchRequest
+ * @return ScaleOutOpenSearchResponse
+ */
+ScaleOutOpenSearchResponse Client::scaleOutOpenSearch(const ScaleOutOpenSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return scaleOutOpenSearchWithOptions(request, runtime);
 }
 
 /**

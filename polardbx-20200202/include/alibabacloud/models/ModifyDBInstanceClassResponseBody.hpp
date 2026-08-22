@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceClassResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceClassResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     ModifyDBInstanceClassResponseBody() = default ;
     ModifyDBInstanceClassResponseBody(const ModifyDBInstanceClassResponseBody &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderId_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskId_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline ModifyDBInstanceClassResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline int32_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0) };
+    inline ModifyDBInstanceClassResponseBody& setTaskId(int32_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
   protected:
     // The order ID. An order is generated when you upgrade, downgrade, or change the instance specifications.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> taskId_ {};
   };
 
   } // namespace Models
