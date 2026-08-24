@@ -191,12 +191,17 @@ namespace Models
         shared_ptr<string> dbSchema_ {};
         // The database engine. Valid values:
         // 
-        // * **MySQL**
-        // * **PostgreSQL**
-        // * **SQLServer**
-        // * **PolarDBMySQL**
-        // * **PolarDBOracle**
-        // * **MongoDB**
+        // - **MySQL**
+        // 
+        // - **PostgreSQL**
+        // 
+        // - **SQLServer**
+        // 
+        // - **PolarDBMySQL**
+        // 
+        // - **PolarDBOracle**
+        // 
+        // - **MongoDB**
         shared_ptr<string> engine_ {};
         // The time when the SQL diagnostics task was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<string> gmtCreate_ {};
@@ -208,50 +213,73 @@ namespace Models
         shared_ptr<string> param_ {};
         // The result of the SQL diagnostics task. The result includes the following information:
         // 
-        // * **endTime**: the end time of the SQL diagnostics task.
-        // * **errorCode**: indicates whether the SQL diagnostics task is complete. Valid values:
-        //   * **0001**: The SQL diagnostics task is complete.
-        //   * **0003**: The SQL diagnostics task failed.
+        // - **endTime**: the end time of the SQL diagnostics task.
         // 
-        // * **errorMessage**: the error message.
-        // * **estimateCost**: the estimated cost.
-        //   * **cpu**: the estimated CPU utilization of the index.
-        //   * **io**: the estimated I/O usage of the index.
-        //   * **rows**: the estimated values of the rows returned for the index.
-        // * **improvement**: the performance improvement ratio.
-        // * **indexAdvices**: the index recommendations, which include the following information:
-        //   * **columns**: the index columns.
-        //   * **ddlAddIndex**: the DDL statement for the index.
-        //   * **indexName**: the name of the index.
-        //   * **schemaName**: the name of the database.
-        //   * **tableName**: the name of the table.
-        //   * **unique**: indicates whether the index is unique.
+        // - **errorCode**: indicates whether the SQL diagnostics task is complete. Valid values:
         // 
-        // * **ip**: the IP address of the instance.
-        // * **messageId**: the ID of the diagnostics task.
-        // * **port**: the port used to connect to the instance.
-        // * **sqlTag**: the SQL tag.
-        // * **startTime**: the start time of the SQL diagnostics task.
-        // * **success**: indicates whether the request was successful.
-        // * **support**: indicates whether the SQL statement can be diagnosed. Valid values:
-        //   * **true**: The SQL statement can be diagnosed.
-        //   * **false**: The SQL statement cannot be diagnosed.
+        //   - **0001**: The SQL diagnostics task is complete.
         // 
-        // * **tuningAdvices**: the SQL rewrite suggestions.
+        //   - **0003**: The SQL diagnostics task failed.
+        // 
+        // - **errorMessage**: the error message.
+        // 
+        // - **estimateCost**: the estimated cost.
+        // 
+        //   - **cpu**: the estimated CPU utilization of the index.
+        // 
+        //   - **io**: the estimated I/O usage of the index.
+        // 
+        //   - **rows**: the estimated values of the rows returned for the index.
+        // 
+        // - **improvement**: the performance improvement ratio.
+        // 
+        // - **indexAdvices**: the index recommendations, which include the following information:
+        // 
+        //   - **columns**: the index columns.
+        // 
+        //   - **ddlAddIndex**: the DDL statement for the index.
+        // 
+        //   - **indexName**: the name of the index.
+        // 
+        //   - **schemaName**: the name of the database.
+        // 
+        //   - **tableName**: the name of the table.
+        // 
+        //   - **unique**: indicates whether the index is unique.
+        // 
+        // - **ip**: the IP address of the instance.
+        // 
+        // - **messageId**: the ID of the diagnostics task.
+        // 
+        // - **port**: the port used to connect to the instance.
+        // 
+        // - **sqlTag**: the SQL tag.
+        // 
+        // - **startTime**: the start time of the SQL diagnostics task.
+        // 
+        // - **success**: indicates whether the request was successful.
+        // 
+        // - **support**: indicates whether the SQL statement can be diagnosed. Valid values:
+        // 
+        //   - **true**: The SQL statement can be diagnosed.
+        // 
+        //   - **false**: The SQL statement cannot be diagnosed.
+        // 
+        // - **tuningAdvices**: the SQL rewrite suggestions.
         shared_ptr<string> result_ {};
         // The SQL template ID.
         shared_ptr<string> sqlId_ {};
         // The status of the diagnostics task. Valid values:
         // 
-        // * **0**: The diagnostics task is in progress.
+        // - **0**: The diagnostics task is in progress.
         // 
-        // * **1**: A diagnostics error occurred.
+        // - **1**: A diagnostics error occurred.
         // 
-        // * **2**: The diagnostics task is complete.
+        // - **2**: The diagnostics task is complete.
         // 
-        // * **3**: An SQL error occurred.
+        // - **3**: An SQL error occurred.
         // 
-        // * **4**: An engine error occurred.
+        // - **4**: An engine error occurred.
         shared_ptr<int32_t> state_ {};
         // The unique ID of the diagnostics instance.
         shared_ptr<string> uuid_ {};
@@ -355,14 +383,15 @@ namespace Models
     shared_ptr<GetRequestDiagnosisPageResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
+    // > If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

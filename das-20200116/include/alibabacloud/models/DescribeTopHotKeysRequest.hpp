@@ -75,27 +75,25 @@ namespace Models
 
 
   protected:
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> consoleContext_ {};
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end of the query time range, specified as a UNIX timestamp in milliseconds.
     // 
-    // > 
-    // 
-    // *   The end time must be later than the start time.
-    // 
-    // *   Only data within the last four days can be queried.
-    // 
-    // *   The maximum interval between the **start time** and the** end time** is 3 hours.
+    // > - The end time must be later than the start time.
+    // >
+    // > - You can query data within the last four days.
+    // >
+    // > - The maximum time interval between **StartTime** and **EndTime** is three hours.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the ApsaraDB for Redis instance.
+    // The ID of the Redis instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the data shard on the ApsaraDB for Redis instance.
+    // The ID of the data shard of the Redis instance.
     shared_ptr<string> nodeId_ {};
-    // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start of the query time range, specified as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

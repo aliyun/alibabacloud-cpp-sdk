@@ -88,22 +88,27 @@ namespace Models
     shared_ptr<string> code_ {};
     // The information of the diagnostics reports. Valid values:
     // 
-    // *   **total**: the number of diagnostics reports.
-    // *   **score**: the health score.
-    // *   **diagnosticTime**: the time when the diagnostics report was generated. The time is displayed in UTC.
-    // *   **startTime**: the start time of the query. The time is displayed in UTC.
-    // *   **endTime**: the end time of the query. The time is displayed in UTC.
+    // - **total**: the number of diagnostics reports.
+    // 
+    // - **score**: the health score.
+    // 
+    // - **diagnosticTime**: the time when the diagnostics report was generated. The time is displayed in UTC.
+    // 
+    // - **startTime**: the start time of the query. The time is displayed in UTC.
+    // 
+    // - **endTime**: the end time of the query. The time is displayed in UTC.
     shared_ptr<string> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
     // The reserved parameter.
     shared_ptr<string> synchro_ {};

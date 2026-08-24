@@ -224,17 +224,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The response code.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeTopHotKeysResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

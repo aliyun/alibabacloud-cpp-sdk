@@ -251,9 +251,11 @@ namespace Models
 
 
         protected:
+          // The remarks.
           shared_ptr<string> comments_ {};
           // sqlid。
           shared_ptr<string> sqlId_ {};
+          // Multiple tags separated by commas.
           shared_ptr<string> tags_ {};
         };
 
@@ -664,61 +666,136 @@ namespace Models
 
 
       protected:
+        // The username.
         shared_ptr<string> accountName_ {};
+        // The application name.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<string> applicationName_ {};
+        // The CPU query time.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<double> CPUTime_ {};
+        // The CPU query time, in seconds.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<double> CPUTimeSeconds_ {};
         shared_ptr<string> clientIp_ {};
         shared_ptr<string> cmd_ {};
+        // The slow query statement.
+        // > Only ApsaraDB for Tair (Redis® OSS-Compatible) database instances are supported.
         shared_ptr<string> command_ {};
+        // The database name.
         shared_ptr<string> DBName_ {};
         shared_ptr<string> dbId_ {};
+        // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
+        // The number of documents scanned during the MongoDB operation.
         shared_ptr<string> docsExamined_ {};
         shared_ptr<string> extText_ {};
         shared_ptr<string> fail_ {};
+        // The number of rows fetched by the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<int64_t> frows_ {};
+        // The source host address.
         shared_ptr<string> hostAddress_ {};
+        // The number of I/O writes.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<int64_t> IOWrites_ {};
+        // The instance name.
         shared_ptr<string> insName_ {};
+        // The number of index rows scanned in MongoDB.
         shared_ptr<string> keysExamined_ {};
+        // The number of rows affected by the last statement.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<int64_t> lastRowsCountAffected_ {};
+        // The lock wait time.
         shared_ptr<double> lockTime_ {};
+        // The lock wait time, in seconds.
         shared_ptr<double> lockTimeSeconds_ {};
+        // The number of logical reads.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<int64_t> logicalIOReads_ {};
+        // The namespace.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> namespace_ {};
         shared_ptr<string> nodeId_ {};
         shared_ptr<string> opType_ {};
         shared_ptr<string> originTime_ {};
         shared_ptr<string> params_ {};
+        // The number of physical reads.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<int64_t> physicalIOReads_ {};
+        // The SQL template.
         shared_ptr<string> psql_ {};
+        // The query ID.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> queryId_ {};
+        // The time when the query started. Format: yyyy-MM-dd hh:mm:ss (UTC).
         shared_ptr<string> queryStartTime_ {};
+        // The query duration.
         shared_ptr<int64_t> queryTime_ {};
+        // The query duration, in seconds.
         shared_ptr<double> queryTimeSeconds_ {};
         shared_ptr<string> reason_ {};
         shared_ptr<string> reqId_ {};
         shared_ptr<int64_t> requestSize_ {};
         shared_ptr<int64_t> responseSize_ {};
+        // The number of returned items.
         shared_ptr<string> returnItemNumbers_ {};
+        // The number of rows returned.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> returnNum_ {};
+        // The total number of rows updated or returned by the compute nodes of the ApsaraDB PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<int64_t> rows_ {};
+        // The number of rows affected.
+        // 
+        // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<int64_t> rowsCountAffected_ {};
+        // The number of rows scanned.
         shared_ptr<int64_t> rowsExamined_ {};
+        // The number of rows returned.
         shared_ptr<int64_t> rowsSent_ {};
         shared_ptr<int64_t> rt_ {};
+        // The SQL text.
         shared_ptr<string> SQLText_ {};
+        // The data schema.
         shared_ptr<string> scheme_ {};
+        // The number of DN requests from the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<int64_t> scnt_ {};
+        // The SQL template ID.
         shared_ptr<string> sqlId_ {};
+        // The tag.
         shared_ptr<Logs::SqlTag> sqlTag_ {};
+        // The SQL statement type. Valid values:
+        // - **SELECT**
+        // - **UPDATE**
+        // - **DELETE**
         shared_ptr<string> sqlType_ {};
+        // The child instance ID.
         shared_ptr<string> subInstanceId_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
+        // The template ID of the ApsaraDB PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<string> templateId_ {};
+        // The thread ID.
         shared_ptr<string> threadId_ {};
+        // The timestamp.
         shared_ptr<int64_t> timestamp_ {};
+        // The trace ID of PolarDB-X 2.0, which is the execute ID of the SQL statement on the ApsaraDB PolarDB-X 2.0 database node.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<string> traceId_ {};
       };
 
@@ -798,15 +875,25 @@ namespace Models
 
 
     protected:
+      // The numeric ID of the instance.
       shared_ptr<int64_t> dbInstanceId_ {};
+      // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
+      // The end time.
       shared_ptr<string> endTime_ {};
+      // The number of items in the query log list on the current page.
       shared_ptr<int64_t> itemsNumbers_ {};
+      // The returned data.
       shared_ptr<vector<Data::Logs>> logs_ {};
+      // The maximum number of records per page for the paged query. Valid values: 5 to 100.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
+      // The node ID.
       shared_ptr<string> nodeId_ {};
+      // The page number for the paged query. Pages start from page 1. Default value: 1.
       shared_ptr<int32_t> pageNumbers_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -850,11 +937,20 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     shared_ptr<string> code_ {};
     // DBLogRecords<SlowLogItem>
     shared_ptr<DescribeSlowLogRecordsResponseBody::Data> data_ {};
+    // The message returned for the request.
+    // >  This parameter returns **Successful** when the request succeeds. If the request fails, an exception message is returned, such as an error code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
+    // 
+    // - **true**: successful.
+    // 
+    // - **false**: failed.
     shared_ptr<string> success_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The database account that has the permissions to terminate sessions.
+    // The database account that has the permission to terminate sessions.
     // 
     // This parameter is required.
     shared_ptr<string> dbUser_ {};
@@ -102,9 +102,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbUserPassword_ {};
-    // The account whose sessions do not need to be terminated.
+    // The list of accounts whose sessions will not be terminated.
     // 
-    // >  Set this parameter to a JSON array. Separate database accounts with commas (,). Example: [\\"Database account 1\\",\\"Database account 2\\"].
+    // > The data is in JSONArray format, such as [\\"DatabaseAccount1\\",\\"DatabaseAccount2\\"\\]. Separate multiple database accounts with commas (,).
     shared_ptr<string> ignoredUsers_ {};
     // The instance ID.
     // 
@@ -112,20 +112,21 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Specifies whether to terminate all sessions.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
     // 
-    // >  If you set this parameter to **true**, sessions of the accounts that are specified by **IgnoredUsers**, sessions of internal O\\&M accounts of Alibaba Cloud, and **Binlog Dump** sessions are not terminated.
+    // - **false**: No.
+    // 
+    // > When this parameter is set to **true**, sessions of accounts specified in the **IgnoredUsers** request parameter, sessions of Alibaba Cloud internal operations accounts, and **Binlog Dump** sessions are not terminated.
     // 
     // This parameter is required.
     shared_ptr<bool> killAllSessions_ {};
     // The node ID.
     // 
-    // >  This parameter must be specified if the database instance is a PolarDB for MySQL cluster. If you do not specify a node ID and set **KillAllSessions** to **true**, the system traverses all nodes in the PolarDB for MySQL cluster and terminates the active sessions on each node.
+    // > For PolarDB for MySQL instances, provide the node ID. If no node ID is provided and the **KillAllSessions** request parameter is set to **true** (terminate all sessions), the system traverses all nodes of the PolarDB for MySQL instance and terminates ongoing sessions on each node.
     shared_ptr<string> nodeId_ {};
-    // The IDs of sessions that need to be terminated.
+    // The list of session IDs to be terminated.
     // 
-    // >  Set this parameter to a JSON array. Separate session IDs with commas (,). Example: [\\"Session ID1\\",\\"Session ID2\\"]. If **KillAllSessions** is set to **true**, this parameter does not take effect.
+    // > The data is in JSONArray format, such as [SessionID1,SessionID2\\]. Separate multiple session IDs with commas (,). If the **KillAllSessions** request parameter is set to **true** (terminate all sessions), this list is ignored.
     shared_ptr<string> sessionIds_ {};
   };
 

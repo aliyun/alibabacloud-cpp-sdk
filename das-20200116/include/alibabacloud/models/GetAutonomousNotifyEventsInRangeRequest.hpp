@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The end time must be later than the start time.
+    // > The end time must be later than the start time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -133,21 +133,27 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The urgency level of the events. If you specify this parameter, the MinLevel parameter does not take effect. Valid values:
     // 
-    // *   **Notice**: events for which the system sends notifications.
-    // *   **Optimization**: events that need to be optimized.
-    // *   **Warn**: events for which the system sends warnings.
-    // *   **Critical**: critical events.
+    // - **Notice**: events for which the system sends notifications.
+    // 
+    // - **Optimization**: events that need to be optimized.
+    // 
+    // - **Warn**: events for which the system sends warnings.
+    // 
+    // - **Critical**: critical events.
     shared_ptr<string> level_ {};
     // The minimum urgency level of the events. Valid values:
     // 
-    // *   **Notice**: events for which the system sends notifications.
-    // *   **Optimization**: events that need to be optimized.
-    // *   **Warn**: events for which the system sends warnings.
-    // *   **Critical**: critical events.
+    // - **Notice**: events for which the system sends notifications.
+    // 
+    // - **Optimization**: events that need to be optimized.
+    // 
+    // - **Warn**: events for which the system sends warnings.
+    // 
+    // - **Critical**: critical events.
     shared_ptr<string> minLevel_ {};
     // The ID of the node in a PolarDB for MySQL cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the node ID returned by the DBNodeId response parameter.
     // 
-    // >  You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
+    // > You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
     shared_ptr<string> nodeId_ {};
     // The page number. The value must be a positive integer. Default value: 1.
     shared_ptr<string> pageOffset_ {};

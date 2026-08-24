@@ -151,15 +151,23 @@ namespace Models
   protected:
     // The database engine. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PostgreSQL**
-    // *   **SQLServer**
-    // *   **PolarDBMySQL**
-    // *   **PolarDBPostgreSQL**
-    // *   **Redis**
-    // *   **MongoDB**
-    // *   **PolarDBOracle**
-    // *   **PolarDBX**
+    // - **MySQL**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **SQLServer**
+    // 
+    // - **PolarDBMySQL**
+    // 
+    // - **PolarDBPostgreSQL**
+    // 
+    // - **Redis**
+    // 
+    // - **MongoDB**
+    // 
+    // - **PolarDBOracle**
+    // 
+    // - **PolarDBX**
     shared_ptr<string> engine_ {};
     // The reserved parameter.
     shared_ptr<string> flushAccount_ {};
@@ -167,11 +175,13 @@ namespace Models
     shared_ptr<string> instanceAlias_ {};
     // The type of the instance on which the database is deployed. Valid values:
     // 
-    // *   **RDS**: an Alibaba Cloud database instance.
-    // *   **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
-    // *   **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+    // - **RDS**: an Alibaba Cloud database instance.
     // 
-    // >  IDC refers to your data center.
+    // - **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
+    // 
+    // - **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+    // 
+    // > IDC refers to your data center.
     // 
     // This parameter is required.
     shared_ptr<string> instanceArea_ {};

@@ -426,7 +426,7 @@ namespace Models
           shared_ptr<int64_t> avgSqlCount_ {};
           // The average number of updated rows.
           // 
-          //  > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
+          // > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
           shared_ptr<int64_t> avgUpdatedRows_ {};
           // The total number of executions.
           shared_ptr<int64_t> count_ {};
@@ -550,13 +550,15 @@ namespace Models
     protected:
       // Indicates whether the asynchronous request failed. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> fail_ {};
       // Indicates whether the asynchronous request was complete. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isFinish_ {};
       // The returned full request data.
       shared_ptr<Data::Result> result_ {};
@@ -564,9 +566,11 @@ namespace Models
       shared_ptr<string> resultId_ {};
       // The state of the asynchronous request. Valid values:
       // 
-      // *   **RUNNING**
-      // *   **SUCCESS**
-      // *   **FAIL**
+      // - **RUNNING**
+      // 
+      // - **SUCCESS**
+      // 
+      // - **FAIL**
       shared_ptr<string> state_ {};
       // The time when the asynchronous request was sent. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> timestamp_ {};
@@ -618,14 +622,15 @@ namespace Models
     shared_ptr<GetFullRequestStatResultByInstanceIdResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

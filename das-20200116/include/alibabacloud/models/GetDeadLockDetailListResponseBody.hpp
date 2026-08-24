@@ -322,8 +322,9 @@ namespace Models
           shared_ptr<string> status_ {};
           // Indicates whether the session is the victim of the deadlock. Valid values:
           // 
-          // *   **0**: no.
-          // *   **1**: yes.
+          // - **0**: no.
+          // 
+          // - **1**: yes.
           shared_ptr<int64_t> victim_ {};
           // The lock mode requested by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
           shared_ptr<string> waitMode_ {};
@@ -506,8 +507,9 @@ namespace Models
         shared_ptr<string> status_ {};
         // Indicates whether the session is the victim of the deadlock. Valid values:
         // 
-        // *   **0**: no.
-        // *   **1**: yes.
+        // - **0**: no.
+        // 
+        // - **1**: yes.
         shared_ptr<int64_t> victim_ {};
         // The lock mode requested by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
         shared_ptr<string> waitMode_ {};
@@ -606,14 +608,15 @@ namespace Models
     shared_ptr<GetDeadLockDetailListResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

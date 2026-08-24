@@ -611,14 +611,16 @@ namespace Models
 
 
     protected:
-      // The reason why the large key failed to be queried.
+      // The reason why the big keys sorted by the number of child elements failed to be retrieved.
       shared_ptr<string> bigKeyMsg_ {};
       shared_ptr<Data::BigKeys> bigKeys_ {};
+      // The reason why the hot keys sorted by traffic failed to be retrieved.
       shared_ptr<string> highTrafficKeyMsg_ {};
       shared_ptr<Data::HighTrafficKeys> highTrafficKeys_ {};
-      // The reason why the hot key failed to be queried.
+      // The reason why the hot keys sorted by QPS failed to be retrieved.
       shared_ptr<string> hotKeyMsg_ {};
       shared_ptr<Data::HotKeys> hotKeys_ {};
+      // The reason why the big keys sorted by memory usage failed to be retrieved.
       shared_ptr<string> largeKeyMsg_ {};
       shared_ptr<Data::LargeKeys> largeKeys_ {};
     };
@@ -663,9 +665,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The list of hot keys and large keys.
+    // The details.
     shared_ptr<DescribeHotBigKeysResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -673,8 +675,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

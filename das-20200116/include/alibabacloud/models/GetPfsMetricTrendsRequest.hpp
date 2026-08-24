@@ -77,20 +77,23 @@ namespace Models
   protected:
     // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
+    // > The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
     shared_ptr<int64_t> endTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The metric whose trend you want to query. Valid values:
     // 
-    // *   **count**: the number of executions.
-    // *   **avgRt**: the average execution duration.
-    // *   **rtRate**: the execution duration percentage.
-    // *   **rowsExamined**: the total number of scanned rows.
+    // - **count**: the number of executions.
+    // 
+    // - **avgRt**: the average execution duration.
+    // 
+    // - **rtRate**: the execution duration percentage.
+    // 
+    // - **rowsExamined**: the total number of scanned rows.
     shared_ptr<string> metric_ {};
     // The node ID.
     // 
-    // >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
+    // > This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
     shared_ptr<string> nodeId_ {};
     // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> startTime_ {};

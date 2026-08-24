@@ -332,8 +332,9 @@ namespace Models
       protected:
         // Indicates whether the operation is active. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> active_ {};
         // The IP address of the client.
         shared_ptr<string> client_ {};
@@ -349,8 +350,9 @@ namespace Models
         shared_ptr<string> host_ {};
         // Indicates whether the operation is marked as terminated.
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> killPending_ {};
         // The namespace.
         shared_ptr<string> ns_ {};
@@ -372,7 +374,7 @@ namespace Models
         shared_ptr<int64_t> secsRunning_ {};
         // The ID of the data shard.
         // 
-        // >  This parameter is returned for sharded cluster instances.
+        // > This parameter is returned for sharded cluster instances.
         shared_ptr<string> shard_ {};
       };
 
@@ -458,14 +460,15 @@ namespace Models
     shared_ptr<GetMongoDBCurrentOpResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

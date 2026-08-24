@@ -213,39 +213,39 @@ namespace Models
 
 
     protected:
-      // The path in which the files are archived.
+      // The path of archived objects.
       shared_ptr<string> archiveFolder_ {};
-      // The command that was run to start the stress testing task.
+      // The stress testing command.
       shared_ptr<string> benchCmd_ {};
-      // The path to the JAR file that is used for stress testing.
+      // The path of the stress testing JAR package.
       shared_ptr<string> clientJarPath_ {};
-      // The path to the JAR file that is stored in OSS. The JAR file is used for stress testing.
+      // The path of the stress testing JAR package in OSS.
       shared_ptr<string> jarOnOss_ {};
-      // The command that was run to preload the file that stores the analysis result of full SQL statistics.
+      // The command for preloading the SQL file.
       shared_ptr<string> loadCmd_ {};
       // The name of the metadata file.
       shared_ptr<string> metaFileName_ {};
-      // The name of the metadata file stored in Object Storage Service (OSS).
+      // The name of the metadata file in OSS.
       shared_ptr<string> metaFileOnOss_ {};
-      // The path to the metadata file.
+      // The path of the metadata file.
       shared_ptr<string> metaFilePath_ {};
-      // The command that was run to parse the file that stores the analysis result of full SQL statistics.
+      // The command for parsing the SQL file.
       shared_ptr<string> parseCmd_ {};
-      // The path to the file that is parsed. The file stores the analysis result of full SQL statistics.
+      // The path of the parsed SQL file.
       shared_ptr<string> parseFilePath_ {};
-      // The location where the RocksDB storage system is deployed in the stress testing client.
+      // The location of the RocksDB storage system in the stress testing machine.
       shared_ptr<string> rocksDbPath_ {};
-      // The name of the file that stores the analysis result of full SQL statistics.
+      // The name of the full SQL file.
       shared_ptr<string> sqlFileName_ {};
-      // The name of the file that stores the analysis result of full SQL statistics and that is stored in OSS.
+      // The name of the full SQL file in OSS.
       shared_ptr<string> sqlFileOnOss_ {};
-      // The path to the file that stores the analysis result of full SQL statistics.
+      // The path of the SQL file.
       shared_ptr<string> sqlFilePath_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> userId_ {};
-      // The path of the temporary directory that is generated for stress testing.
+      // The temporary directory generated for stress testing.
       shared_ptr<string> workDir_ {};
     };
 
@@ -289,20 +289,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The detailed information, including the error codes and the number of entries that are returned.
+    // The list of detailed information, including the total number of information items, error codes, and other details.
     shared_ptr<DescribeCloudbenchTaskConfigResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > When the request is successful, this parameter returns **Successful**. When the request fails, this parameter returns exception information (such as error codes).
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request is successful.
+    // 
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

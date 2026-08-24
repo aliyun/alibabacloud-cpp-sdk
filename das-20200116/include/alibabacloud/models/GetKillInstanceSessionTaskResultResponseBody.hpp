@@ -211,14 +211,21 @@ namespace Models
         shared_ptr<string> info_ {};
         // The description of the session when the session was terminated.
         // 
-        // *   **SESSION_KILLED**: The session is terminated.
-        // *   **SESSION_EXPIRED**: The session has expired.
-        // *   **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
-        // *   **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is invalid.
-        // *   **SESSION_IGNORED_USER**: The session of the account does not need to be terminated.
-        // *   **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\\&M account.
-        // *   **SESSION_KILL_TASK_TIMEOUT**: Timeout occurs when the session is terminated.
-        // *   **SESSION_OTHER_ERROR**: Other errors occurred.
+        // - **SESSION_KILLED**: The session is terminated.
+        // 
+        // - **SESSION_EXPIRED**: The session has expired.
+        // 
+        // - **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
+        // 
+        // - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is invalid.
+        // 
+        // - **SESSION_IGNORED_USER**: The session of the account does not need to be terminated.
+        // 
+        // - **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\\&M account.
+        // 
+        // - **SESSION_KILL_TASK_TIMEOUT**: Timeout occurs when the session is terminated.
+        // 
+        // - **SESSION_OTHER_ERROR**: Other errors occurred.
         shared_ptr<string> reason_ {};
         // The status of the session.
         shared_ptr<string> state_ {};
@@ -318,22 +325,25 @@ namespace Models
       shared_ptr<int64_t> killSuccessCount_ {};
       // The node ID.
       // 
-      // >  This parameter is returned only if the instance is a PolarDB for MySQL cluster.
+      // > This parameter is returned only if the instance is a PolarDB for MySQL cluster.
       shared_ptr<string> nodeId_ {};
       // The details of the task that terminated sessions.
       shared_ptr<vector<Data::Result>> result_ {};
       // The session IDs.
       // 
-      // >  If all sessions are terminated, the IDs of all sessions on the instance or node are returned.
+      // > If all sessions are terminated, the IDs of all sessions on the instance or node are returned.
       shared_ptr<vector<int64_t>> sessions_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The state of the task that terminates sessions.
       // 
-      // *   **RUNNING**: The task is in progress.
-      // *   **SUCCESS**: The task is successful.
-      // *   **FAILURE**: The task failed.
-      // *   **ERROR**: Other errors occur.
+      // - **RUNNING**: The task is in progress.
+      // 
+      // - **SUCCESS**: The task is successful.
+      // 
+      // - **FAILURE**: The task failed.
+      // 
+      // - **ERROR**: Other errors occur.
       shared_ptr<string> taskState_ {};
       // The ID of the Alibaba Cloud account.
       shared_ptr<string> userId_ {};
@@ -385,14 +395,15 @@ namespace Models
     shared_ptr<GetKillInstanceSessionTaskResultResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

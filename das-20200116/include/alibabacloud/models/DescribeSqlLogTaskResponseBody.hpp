@@ -487,87 +487,101 @@ namespace Models
       protected:
         // The database account.
         shared_ptr<string> accountName_ {};
+        // The affected columns.
         shared_ptr<string> affectColumns_ {};
+        // The client IP address.
         shared_ptr<string> clientIp_ {};
+        // The client port.
         shared_ptr<int64_t> clientPort_ {};
+        // This parameter is reserved.
         shared_ptr<string> collection_ {};
+        // The connection ID.
         shared_ptr<string> connectionId_ {};
-        // The execution duration. Unit: millisecond.
+        // The execution duration. Unit: milliseconds.
         shared_ptr<int64_t> consume_ {};
-        // The CPU execution time. Unit: microsecond.
+        // The CPU execution time. Unit: microseconds.
         shared_ptr<int64_t> cpuTime_ {};
         // The database name.
         shared_ptr<string> DBName_ {};
-        // The execution time. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+        // The time when the SQL statement was executed. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> executeTime_ {};
-        // The extended information. This parameter is a reserved parameter.
+        // Reserved for future use.
         shared_ptr<string> ext_ {};
-        // The number of rows pulled by the CNs of the PolarDB-X 2.0 instance.
+        // The number of rows that are fetched by the compute nodes of a PolarDB-X 2.0 instance.
         shared_ptr<int64_t> frows_ {};
-        // The IP address of the client.
+        // The client IP address.
         shared_ptr<string> hostAddress_ {};
-        // The lock wait time. Unit: millisecond.
+        // The lock wait time. Unit: milliseconds.
         shared_ptr<int64_t> lockTime_ {};
         // The number of logical reads.
         shared_ptr<int64_t> logicRead_ {};
-        // The ID of the child node.
+        // The node ID.
         shared_ptr<string> nodeId_ {};
-        // The execution timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The time when the SQL statement was executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> originTime_ {};
-        // The wait time of parallel queries in the queue in the PolarDB for MySQL instance. Unit: millisecond.
+        // The degree of parallelism (DOP) for the PolarDB for MySQL instance.
         shared_ptr<string> parallelDegree_ {};
-        // The degree of parallelism (DOP) value of the PolarDB for MySQL instance.
+        // The parallel queuing time for the PolarDB for MySQL instance. Unit: milliseconds.
         shared_ptr<string> parallelQueueTime_ {};
+        // The query parameters.
         shared_ptr<string> params_ {};
         // The number of physical asynchronous reads.
         shared_ptr<int64_t> physicAsyncRead_ {};
-        // The total number of physical reads.
+        // The number of physical reads.
         shared_ptr<int64_t> physicRead_ {};
         // The number of physical synchronous reads.
         shared_ptr<int64_t> physicSyncRead_ {};
+        // Indicates whether the query is protected.
         shared_ptr<string> protected_ {};
-        // The number of rows returned.
+        // The number of returned rows.
         shared_ptr<int64_t> returnRows_ {};
+        // The row key.
         shared_ptr<string> rowKey_ {};
-        // The total number of rows updated or returned by the CNs of the PolarDB-X 2.0 instance.
+        // The total number of rows that are updated or returned by the compute nodes of a PolarDB-X 2.0 instance.
         shared_ptr<int64_t> rows_ {};
-        // The number of rows scanned.
+        // The number of scanned rows.
         shared_ptr<int64_t> scanRows_ {};
-        // The number of requests from the compute nodes (CNs) to the data nodes (DNs) in the PolarDB-X 2.0 instance.
+        // The number of requests that are sent from compute nodes (CNs) to data nodes (DNs) for a PolarDB-X 2.0 instance.
         shared_ptr<int64_t> scnt_ {};
+        // The SQL command in the query.
         shared_ptr<int64_t> sqlCommand_ {};
-        // The ID of the SQL statement.
+        // The SQL ID.
         shared_ptr<string> sqlId_ {};
-        // The queried SQL statement.
+        // The SQL statement.
         shared_ptr<string> sqlText_ {};
         // The type of the SQL statement. Valid values:
         // 
-        // *   **SELECT**
-        // *   **UPDATE**
-        // *   **DELETE**
-        shared_ptr<string> sqlType_ {};
-        // The execution result of the SQL statement. Valid values:
+        // - **SELECT**
         // 
-        // *   **0**: The execution was successful.
-        // *   **1**: The execution failed.
+        // - **UPDATE**
+        // 
+        // - **DELETE**
+        shared_ptr<string> sqlType_ {};
+        // The execution state. Valid values:
+        // 
+        // - **0**: The execution was successful.
+        // 
+        // - **1**: The execution failed.
         shared_ptr<string> state_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
         // The thread ID.
         shared_ptr<int64_t> threadId_ {};
-        // The trace ID of the PolarDB-X 2.0 instance, which is the execution ID of the SQL statement on the DN.
+        // The trace ID of a PolarDB-X 2.0 instance. The trace ID is the execution ID of the SQL statement on data nodes.
         shared_ptr<string> traceId_ {};
         // The transaction ID.
         shared_ptr<string> trxId_ {};
-        // The number of rows updated.
+        // The number of updated rows.
         shared_ptr<int64_t> updateRows_ {};
-        // Indicates whether the PolarDB for MySQL instance uses In-Memory Column Indexes (IMCIs). Valid values:
+        // Indicates whether an In-Memory Column Index (IMCI) is used for the PolarDB for MySQL instance. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<string> useImciEngine_ {};
-        // The IP address to which the endpoint used for query is resolved.
+        // The IP address that the query endpoint resolves to.
         shared_ptr<string> vip_ {};
-        // The number of writes to the ApsaraDB RDS for SQL Server instance.
+        // The number of writes for the ApsaraDB RDS for SQL Server instance.
         shared_ptr<int64_t> writes_ {};
       };
 
@@ -613,7 +627,7 @@ namespace Models
       protected:
         // The name of the filter parameter.
         // 
-        // >  For more information about the filter parameters, see the **Valid values of Key** section of this topic.
+        // > For more information about the supported filter parameters and their valid values, see the "Additional information about response parameters" section.
         shared_ptr<string> key_ {};
         // The value of the filter parameter.
         Darabonba::Json value_ {};
@@ -712,41 +726,47 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the task was created, which is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The end of the query time range, which is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> end_ {};
       // Indicates whether the task has expired. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The task has expired.
+      // 
+      // - **false**: The task has not expired.
       shared_ptr<bool> expire_ {};
-      // The download URL of the export task.
+      // The download URL of the exported file. This parameter is returned only if the value of `TaskType` is `Export`.
       shared_ptr<string> export_ {};
-      // The filter parameters.
+      // The filter conditions.
       shared_ptr<vector<Data::Filters>> filters_ {};
       // The task name.
       shared_ptr<string> name_ {};
-      // The results of the offline querying task.
+      // The results of the offline query task. This parameter is returned only if the value of `TaskType` is `Query`.
       shared_ptr<vector<Data::Queries>> queries_ {};
-      // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The beginning of the query time range, which is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> start_ {};
-      // The task state. Valid values:
+      // The task status. Valid values:
       // 
-      // *   **INIT**: The task is to be scheduled.
-      // *   **RUNNING**: The task is running.
-      // *   **FAILED**: The task failed.
-      // *   **CANCELED**: The task is canceled.
-      // *   **COMPLETED**: The task is complete.
+      // - **INIT**: The task is pending.
       // 
-      // >  If a task is in the **COMPLETED** state, you can view the results of the task.
+      // - **RUNNING**: The task is running.
+      // 
+      // - **FAILED**: The task failed.
+      // 
+      // - **CANCELED**: The task was canceled.
+      // 
+      // - **COMPLETED**: The task is complete.
+      // 
+      // > The results of an offline task are available only when the status is **COMPLETED**.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The task type. Valid values:
       // 
-      // *   **Export**
-      // *   **Query**
+      // - **Export**: an export task.
+      // 
+      // - **Query**: a query task.
       shared_ptr<string> taskType_ {};
       // The total number of tasks.
       shared_ptr<int64_t> total_ {};
@@ -792,20 +812,21 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The returned HTTP status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeSqlLogTaskResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

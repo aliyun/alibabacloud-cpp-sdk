@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the IP whitelist template.
+    // 
     // This parameter is required.
     shared_ptr<string> globalSecurityGroupId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionName_ {};
   };

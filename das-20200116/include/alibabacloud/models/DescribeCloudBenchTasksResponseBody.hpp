@@ -582,9 +582,9 @@ namespace Models
       shared_ptr<Data::List> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNo_ {};
-      // The number of entries per page.
+      // The maximum number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -628,20 +628,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The detailed information, including the error codes and the number of entries that are returned.
+    // The detailed information list, including the total number of entries and error codes.
     shared_ptr<DescribeCloudBenchTasksResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

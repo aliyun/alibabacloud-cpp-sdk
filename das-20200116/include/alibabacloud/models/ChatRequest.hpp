@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Optional. The agent ID. You can use the ID of an agent that is automatically generated when you enable DAS Agent, or the ID of a custom agent. If this parameter is omitted, the default agent is used.
     shared_ptr<string> agentId_ {};
+    // The message object.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // Optional. The session ID, which must be a UUID. If unspecified, a new session is created. To maintain conversational context, use the same session ID for all subsequent requests.
     shared_ptr<string> sessionId_ {};
+    // Specifies whether to return summary information.
     shared_ptr<string> summary_ {};
   };
 

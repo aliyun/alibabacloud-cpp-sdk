@@ -390,8 +390,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

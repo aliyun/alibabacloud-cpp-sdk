@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The stress testing task ID. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to query the task ID.
+    // The ID of the stress testing task. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to obtain the task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

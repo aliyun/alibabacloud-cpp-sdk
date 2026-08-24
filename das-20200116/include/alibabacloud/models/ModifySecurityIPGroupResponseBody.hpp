@@ -131,11 +131,21 @@ namespace Models
 
 
       protected:
+        // The IP addresses in the whitelist template.
+        // 
+        // > Separate multiple IP addresses with commas. All IP address whitelists support a combined total of 1,000 IP addresses or address segments.
         shared_ptr<string> GIpList_ {};
+        // The name of the IP address whitelist template.
         shared_ptr<string> globalIgName_ {};
+        // The ID of the IP address whitelist template.
         shared_ptr<string> globalSecurityGroupId_ {};
+        // The region ID.
+        // 
+        // Example: cn-hangzhou
         shared_ptr<string> regionId_ {};
+        // The IP type.
         shared_ptr<string> securityIpType_ {};
+        // The network type of the whitelist.
         shared_ptr<string> whitelistNetType_ {};
       };
 
@@ -150,6 +160,7 @@ namespace Models
 
 
     protected:
+      // The information about the cross-product whitelist template.
       shared_ptr<vector<Data::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
     };
 
@@ -193,11 +204,21 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
-    // ListResult<InstanceSSL>
+    // The returned data.
     shared_ptr<ModifySecurityIPGroupResponseBody::Data> data_ {};
+    // The returned message.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

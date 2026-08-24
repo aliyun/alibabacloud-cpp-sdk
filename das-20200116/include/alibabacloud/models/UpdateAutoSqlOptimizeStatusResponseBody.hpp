@@ -86,15 +86,17 @@ namespace Models
     protected:
       // The error code. Valid values:
       // 
-      // *   **-1001**: indicates that the specified parameter is invalid.
-      // *   **-91029**: indicates that a system error occurred.
+      // - **-1001**: indicates that the specified parameter is invalid.
+      // 
+      // - **-91029**: indicates that a system error occurred.
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMsg_ {};
       // Indicates whether the request initiated to configure the automatic SQL optimization feature was successful. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<string> success_ {};
     };
 
@@ -144,14 +146,15 @@ namespace Models
     shared_ptr<UpdateAutoSqlOptimizeStatusResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

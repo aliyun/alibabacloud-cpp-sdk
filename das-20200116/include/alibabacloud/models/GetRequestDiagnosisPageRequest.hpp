@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  You must specify the node ID if your database instance is a PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB instance.
+    // > You must specify the node ID if your database instance is a PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB instance.
     shared_ptr<string> nodeId_ {};
     // The page number. The value must be a positive integer. Default value: 1.
     // 

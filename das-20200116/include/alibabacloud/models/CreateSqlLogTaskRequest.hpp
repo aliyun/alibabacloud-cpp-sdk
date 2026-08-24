@@ -84,7 +84,7 @@ namespace Models
     protected:
       // The name of the filter parameter.
       // 
-      // >  For more information about the supported filter parameters and their valid values, see the following **supplement about the Key parameter**.
+      // > For the supported filter parameters and values, see **Request parameters description**.
       shared_ptr<string> key_ {};
       // The value of the filter parameter.
       shared_ptr<string> value_ {};
@@ -152,34 +152,34 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // The end time of the task. Specify the value as a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The filter conditions.
+    // The list of filter conditions.
     shared_ptr<vector<CreateSqlLogTaskRequest::Filters>> filters_ {};
-    // The ID of the database instance.
+    // The database instance ID.
     shared_ptr<string> instanceId_ {};
-    // The name of the task.
+    // The task name.
     shared_ptr<string> name_ {};
     // The node ID.
-    // 
-    // >  This parameter is available only for instances that run in a cluster architecture. You can specify this parameter to query the offline tasks of a specific node. By default, if this parameter is not specified, the information about the offline tasks of the primary node is returned.
+    // >This parameter is applicable only to cluster instances. You can specify this parameter to query the batch task of a specific node. If you do not specify this parameter, the batch task of the primary node is returned by default.
     shared_ptr<string> nodeId_ {};
-    // The role of the node of the PolarDB-X 2.0 database instance. Valid values:
+    // The node information of the PolarDB-X 2.0 database instance.
     // 
-    // *   **polarx_cn**: compute node
-    // *   **polarx_dn**: data node
+    // - **polarx_cn**: compute node.
+    // 
+    // - **polarx_dn**: data node.
     shared_ptr<string> role_ {};
-    // The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // The start time of the task. Specify the value as a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The type of the task. Valid values:
+    // The task type.
     // 
-    // *   **Export**
-    // *   **Query**
-    // *   **Insight**
+    // - **Export**: export task.
+    // > For the filter parameters and values supported by **Export**, see **Request parameters description**.
+    // - **Query**: query task.
     shared_ptr<string> type_ {};
   };
 

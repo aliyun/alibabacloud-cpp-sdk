@@ -253,22 +253,20 @@ namespace Models
       shared_ptr<Data::BigKeys> bigKeys_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the cache analysis task.
-      // 
-      // >  This parameter can be used to query a specific cache analysis task. When you call the CreateCacheAnalysisJob operation, it takes some time to create a cache analysis task. As a result, the analysis results cannot be immediately returned. You can call the [DescribeCacheAnalysisJob](https://help.aliyun.com/document_detail/180983.html) operation to query the analysis results of the specified cache analysis task.
+      // The ID of query cache analysis task.
+      // >You can use this parameter to query query cache analysis task. Because creating a cache analysis task takes some time, the analysis result is not immediately returned when you call this operation. Use this parameter together with the [DescribeCacheAnalysisJob](https://help.aliyun.com/document_detail/180983.html) operation to query the analysis result.
       shared_ptr<string> jobId_ {};
       // The returned message.
-      // 
-      // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+      // >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
       shared_ptr<string> message_ {};
-      // The ID of the data node on the instance.
+      // The ID of the data node in the instance.
       shared_ptr<string> nodeId_ {};
-      // The state of the cache analysis task. Valid values:
+      // The status of the cache analysis task. Valid values:
       // 
-      // *   **BACKUP**: The data is being backed up.
-      // *   **ANALYZING**: The data is being analyzed.
-      // *   **FINISHED**: The data is analyzed.
-      // *   **FAILED**: An error occurred.
+      // - **BACKUP**: The system is performing a backup.
+      // - **ANALYZING**: The system is analyzing the backup file.
+      // - **FINISHED**: The analysis is complete.
+      // - **FAILED**: An error occurred.
       shared_ptr<string> taskState_ {};
     };
 
@@ -312,20 +310,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The detailed information.
+    // The details.
     shared_ptr<CreateCacheAnalysisJobResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

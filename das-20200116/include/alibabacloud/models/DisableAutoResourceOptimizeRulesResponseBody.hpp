@@ -105,9 +105,9 @@ namespace Models
       protected:
         // Indicates whether the automatic tablespace fragment recycling feature is disabled. Valid values:
         // 
-        // * **true**
+        // - **true**
         // 
-        // * **false**
+        // - **false**
         shared_ptr<bool> configSuccess_ {};
         // The database instance ID.
         shared_ptr<string> instanceId_ {};
@@ -162,9 +162,9 @@ namespace Models
       protected:
         // Indicates whether the automatic tablespace fragment recycling feature is disabled. Valid values:
         // 
-        // * **true**
+        // - **true**
         // 
-        // * **false**
+        // - **false**
         shared_ptr<bool> configSuccess_ {};
         // The error message returned if the request failed.
         shared_ptr<string> errorMessage_ {};
@@ -272,14 +272,15 @@ namespace Models
     shared_ptr<DisableAutoResourceOptimizeRulesResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

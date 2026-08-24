@@ -66,25 +66,24 @@ namespace Models
 
 
   protected:
-    // The type of the auto scaling task that you want to query. Set the value to **SPEC**, which indicates that you can query the history of only automatic performance scaling tasks.
+    // The type of elastic scaling task to query. Currently, only **SPEC** is supported, which indicates querying the automatic performance scaling history.
     // 
     // This parameter is required.
     shared_ptr<string> autoScalingTaskType_ {};
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    // 
+    // The end time of the query task. Specify the value as a UNIX timestamp. Unit: milliseconds.
     // > The end time must be later than the start time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The instance ID.
     // 
-    // > Only ApsaraDB RDS for MySQL instances are supported.
+    // > Currently, only ApsaraDB RDS for MySQL instances are supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query task. Specify the value as a UNIX timestamp. Unit: milliseconds.
     // 
-    // > The maximum time range that can be specified is 45 days.
+    // > The start time cannot be earlier than 45 days before the current time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

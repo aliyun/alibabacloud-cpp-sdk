@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // 
+    // > For PolarDB for MySQL instances, you must specify the node ID.
     shared_ptr<string> nodeId_ {};
   };
 

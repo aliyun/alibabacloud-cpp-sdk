@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The end of the time range to create the diagnostic report. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The start time must be later than the end time.
+    // > The start time must be later than the end time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};

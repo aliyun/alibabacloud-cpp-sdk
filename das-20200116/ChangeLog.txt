@@ -1,3 +1,12 @@
+2026-08-24 Version: 2.0.1
+- Update API DescribeAuditLogs: add request parameters LogQueryOpJson.
+- Update API DescribeSqlLogConfig: add response parameters Body.Data.Enable.
+- Update API DescribeSqlLogConfig: add response parameters Body.Data.SupportSecurityAudit.
+- Update API GetInstanceGroupInspectReportDetail: add request parameters ReportType.
+- Update API GetInstanceGroupInspectReportList: add request parameters ReportType.
+- Update API GetYaoChiAgent: add request parameters ImageKeys.
+
+
 2026-06-10 Version: 2.0.0
 - Support API Chat.
 - Support API DescribeAuditLogs.

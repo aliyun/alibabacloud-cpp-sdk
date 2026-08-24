@@ -149,13 +149,15 @@ namespace Models
       protected:
         // Indicates whether the automatic fragment recycling feature is enabled. Valid values:
         // 
-        // *   **true**:
-        // *   **false**
+        // - **true**:
+        // 
+        // - **false**
         shared_ptr<bool> autoDefragment_ {};
         // Indicates whether DAS Enterprise Edition is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> dasProOn_ {};
         // The database instance ID.
         shared_ptr<string> instanceId_ {};
@@ -243,13 +245,15 @@ namespace Models
       protected:
         // Indicates whether the automatic fragment recycling feature is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> autoDefragment_ {};
         // Indicates whether DAS Enterprise Edition is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> dasProOn_ {};
         // The database instance ID.
         shared_ptr<string> instanceId_ {};
@@ -337,13 +341,15 @@ namespace Models
       protected:
         // Indicates whether the automatic fragment recycling feature is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> autoDefragment_ {};
         // Indicates whether DAS Enterprise Edition is enabled. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> dasProOn_ {};
         // The database instance ID.
         shared_ptr<string> instanceId_ {};
@@ -438,11 +444,11 @@ namespace Models
       shared_ptr<int64_t> hasEnableRuleButNotDasProCount_ {};
       // The database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
       // 
-      // >  Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
+      // > Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
       shared_ptr<vector<Data::HasEnableRuleButNotDasProList>> hasEnableRuleButNotDasProList_ {};
       // The number of database instances that do not exist or for which the automatic fragment recycling feature has never been enabled.
       // 
-      // >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+      // > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
       shared_ptr<int64_t> neverEnableAutoResourceOptimizeOrReleasedInstanceCount_ {};
       // The database instances that do not exist or for which the automatic fragment recycling feature has never been enabled.
       shared_ptr<vector<string>> neverEnableAutoResourceOptimizeOrReleasedInstanceIdList_ {};
@@ -500,14 +506,15 @@ namespace Models
     shared_ptr<GetAutoResourceOptimizeRulesResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ColdRetention, coldRetention_);
         DARABONBA_PTR_TO_JSON(ColdStartTime, coldStartTime_);
         DARABONBA_PTR_TO_JSON(CollectorVersion, collectorVersion_);
+        DARABONBA_PTR_TO_JSON(Enable, enable_);
         DARABONBA_PTR_TO_JSON(HotEnable, hotEnable_);
         DARABONBA_PTR_TO_JSON(HotRetention, hotRetention_);
         DARABONBA_PTR_TO_JSON(HotStartTime, hotStartTime_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SqlLogState, sqlLogState_);
         DARABONBA_PTR_TO_JSON(SqlLogVisibleTime, sqlLogVisibleTime_);
         DARABONBA_PTR_TO_JSON(SupportMigration, supportMigration_);
+        DARABONBA_PTR_TO_JSON(SupportSecurityAudit, supportSecurityAudit_);
         DARABONBA_PTR_TO_JSON(SupportVersion, supportVersion_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
@@ -65,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ColdRetention, coldRetention_);
         DARABONBA_PTR_FROM_JSON(ColdStartTime, coldStartTime_);
         DARABONBA_PTR_FROM_JSON(CollectorVersion, collectorVersion_);
+        DARABONBA_PTR_FROM_JSON(Enable, enable_);
         DARABONBA_PTR_FROM_JSON(HotEnable, hotEnable_);
         DARABONBA_PTR_FROM_JSON(HotRetention, hotRetention_);
         DARABONBA_PTR_FROM_JSON(HotStartTime, hotStartTime_);
@@ -78,6 +81,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SqlLogState, sqlLogState_);
         DARABONBA_PTR_FROM_JSON(SqlLogVisibleTime, sqlLogVisibleTime_);
         DARABONBA_PTR_FROM_JSON(SupportMigration, supportMigration_);
+        DARABONBA_PTR_FROM_JSON(SupportSecurityAudit, supportSecurityAudit_);
         DARABONBA_PTR_FROM_JSON(SupportVersion, supportVersion_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
@@ -93,10 +97,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->coldEnable_ == nullptr
-        && this->coldRetention_ == nullptr && this->coldStartTime_ == nullptr && this->collectorVersion_ == nullptr && this->hotEnable_ == nullptr && this->hotRetention_ == nullptr
-        && this->hotStartTime_ == nullptr && this->logFilter_ == nullptr && this->requestEnable_ == nullptr && this->requestStartTime_ == nullptr && this->requestStopTime_ == nullptr
-        && this->retention_ == nullptr && this->sqlLogEnable_ == nullptr && this->sqlLogSource_ == nullptr && this->sqlLogState_ == nullptr && this->sqlLogVisibleTime_ == nullptr
-        && this->supportMigration_ == nullptr && this->supportVersion_ == nullptr && this->version_ == nullptr; };
+        && this->coldRetention_ == nullptr && this->coldStartTime_ == nullptr && this->collectorVersion_ == nullptr && this->enable_ == nullptr && this->hotEnable_ == nullptr
+        && this->hotRetention_ == nullptr && this->hotStartTime_ == nullptr && this->logFilter_ == nullptr && this->requestEnable_ == nullptr && this->requestStartTime_ == nullptr
+        && this->requestStopTime_ == nullptr && this->retention_ == nullptr && this->sqlLogEnable_ == nullptr && this->sqlLogSource_ == nullptr && this->sqlLogState_ == nullptr
+        && this->sqlLogVisibleTime_ == nullptr && this->supportMigration_ == nullptr && this->supportSecurityAudit_ == nullptr && this->supportVersion_ == nullptr && this->version_ == nullptr; };
       // coldEnable Field Functions 
       bool hasColdEnable() const { return this->coldEnable_ != nullptr;};
       void deleteColdEnable() { this->coldEnable_ = nullptr;};
@@ -123,6 +127,13 @@ namespace Models
       void deleteCollectorVersion() { this->collectorVersion_ = nullptr;};
       inline string getCollectorVersion() const { DARABONBA_PTR_GET_DEFAULT(collectorVersion_, "") };
       inline Data& setCollectorVersion(string collectorVersion) { DARABONBA_PTR_SET_VALUE(collectorVersion_, collectorVersion) };
+
+
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline Data& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
       // hotEnable Field Functions 
@@ -216,6 +227,13 @@ namespace Models
       inline Data& setSupportMigration(bool supportMigration) { DARABONBA_PTR_SET_VALUE(supportMigration_, supportMigration) };
 
 
+      // supportSecurityAudit Field Functions 
+      bool hasSupportSecurityAudit() const { return this->supportSecurityAudit_ != nullptr;};
+      void deleteSupportSecurityAudit() { this->supportSecurityAudit_ = nullptr;};
+      inline bool getSupportSecurityAudit() const { DARABONBA_PTR_GET_DEFAULT(supportSecurityAudit_, false) };
+      inline Data& setSupportSecurityAudit(bool supportSecurityAudit) { DARABONBA_PTR_SET_VALUE(supportSecurityAudit_, supportSecurityAudit) };
+
+
       // supportVersion Field Functions 
       bool hasSupportVersion() const { return this->supportVersion_ != nullptr;};
       void deleteSupportVersion() { this->supportVersion_ = nullptr;};
@@ -231,81 +249,77 @@ namespace Models
 
 
     protected:
-      // Indicates whether the cold data storage is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether cold data storage is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> coldEnable_ {};
-      // The number of days for which the SQL Explorer and Audit data is stored in cold storage.
+      // The cold data storage duration. Unit: days.
       shared_ptr<int32_t> coldRetention_ {};
-      // The time when the cold data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time of cold data storage. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> coldStartTime_ {};
       // The collector version. Valid values:
       // 
-      // *   **MYSQL_V0**
-      // *   **MYSQL_V1**
-      // *   **MYSQL_V2**
-      // *   **MYSQL_V3**
-      // *   **PG_V1**
-      // *   **rdspg_v1**
-      // *   **polarpg_v1**
+      // - **MYSQL_V0**: MySQL V0.
+      // - **MYSQL_V1**: MySQL V1.
+      // - **MYSQL_V2**: MySQL V2.
+      // - **MYSQL_V3**: MySQL V3.
+      // - **PG_V1**: PostgreSQL V1.
+      // - **rdspg_v1**: ApsaraDB RDS for PostgreSQL V1.
+      // - **polarpg_v1**: PolarDB for PostgreSQL V1.
       shared_ptr<string> collectorVersion_ {};
-      // Indicates whether the hot data storage is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      shared_ptr<bool> enable_ {};
+      // Indicates whether hot data storage is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> hotEnable_ {};
-      // The number of days for which the SQL Explorer and Audit data is stored in hot storage.
+      // The hot data storage duration. Unit: days.
       shared_ptr<int32_t> hotRetention_ {};
-      // The time when the hot data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time of hot data storage. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> hotStartTime_ {};
       // A reserved parameter.
       shared_ptr<string> logFilter_ {};
-      // Indicates whether the SQL Explorer feature is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether SQL Explorer is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> requestEnable_ {};
-      // The time when the SQL Explorer feature was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when SQL Explorer was enabled. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> requestStartTime_ {};
-      // The time when DAS Enterprise Edition V1 expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The expiration time of DAS Enterprise Edition V1. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> requestStopTime_ {};
-      // The total storage duration of the SQL Explorer and Audit data. The value of this parameter is the sum of the values of **HotRetention** and **ColdRetention**. Unit: day.
+      // The total data storage duration, which is the sum of **HotRetention** and **ColdRetention**. Unit: days.
       shared_ptr<int32_t> retention_ {};
       // Indicates whether DAS Enterprise Edition is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> sqlLogEnable_ {};
       // A reserved parameter.
       shared_ptr<string> sqlLogSource_ {};
-      // The state of data migration. Valid values:
+      // The data migration status. Valid values:
       // 
-      // *   **FINISH**: The historical data is migrated.
-      // *   **RUNNING**: The historical data is being migrated.
-      // *   **FAILURE**: The historical data fails to be migrated.
+      // - **FINISH**: Historical data migration is complete.
+      // - **RUNNING**: Historical data migration is in progress.
+      // - **FAILURE**: Historical data migration failed.
       shared_ptr<string> sqlLogState_ {};
-      // The time when DAS Enterprise Edition was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when DAS Enterprise Edition was enabled. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> sqlLogVisibleTime_ {};
       // A reserved parameter.
       shared_ptr<bool> supportMigration_ {};
-      // The latest version of DAS Enterprise Edition that supports the database instance. Valid values:
-      // 
-      // *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
-      // *   **SQL_LOG_V1**: DAS Enterprise version V1.
-      // *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
-      // *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
-      // *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
-      // *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
+      shared_ptr<bool> supportSecurityAudit_ {};
+      // The latest DAS Enterprise Edition version supported by the instance. Valid values:
+      // - **SQL_LOG_V0**: Enterprise Edition V0.
+      // - **SQL_LOG_V1**: Enterprise Edition V1.
+      // - **SQL_LOG_V2**: Enterprise Edition V2.
+      // - **SQL_LOG_V3**: Enterprise Edition V3.
+      // - **SQL_LOG_NOT_ENABLE**: Enterprise Edition is not enabled.
+      // - **SQL_LOG_NOT_SUPPORT**: Enterprise Edition is not supported.
       shared_ptr<string> supportVersion_ {};
-      // The version of DAS Enterprise Edition that is enabled for the database instance. Valid values:
-      // 
-      // *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
-      // *   **SQL_LOG_V1**: DAS Enterprise version V1.
-      // *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
-      // *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
-      // *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
-      // *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
+      // The current DAS Enterprise Edition version that is enabled. Valid values:
+      // - **SQL_LOG_V0**: Enterprise Edition V0.
+      // - **SQL_LOG_V1**: Enterprise Edition V1.
+      // - **SQL_LOG_V2**: Enterprise Edition V2.
+      // - **SQL_LOG_V3**: Enterprise Edition V3.
+      // - **SQL_LOG_NOT_ENABLE**: Enterprise Edition is not enabled.
+      // - **SQL_LOG_NOT_SUPPORT**: Enterprise Edition is not supported.
       shared_ptr<string> version_ {};
     };
 
@@ -349,20 +363,18 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The data that is returned.
+    // The returned data.
     shared_ptr<DescribeSqlLogConfigResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // * **true**: The request was successful.
+    // * **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

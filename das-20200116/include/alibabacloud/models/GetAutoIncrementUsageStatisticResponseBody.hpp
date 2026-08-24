@@ -199,15 +199,19 @@ namespace Models
       shared_ptr<string> errorInfo_ {};
       // Indicates whether the task is complete. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> finish_ {};
       // The task status. Valid values:
       // 
-      // *   **INIT**: The task is being initialized.
-      // *   **RUNNING**: The task is being executed.
-      // *   **SUCCESS**: The task succeeds.
-      // *   **FAIL**: The task fails.
+      // - **INIT**: The task is being initialized.
+      // 
+      // - **RUNNING**: The task is being executed.
+      // 
+      // - **SUCCESS**: The task succeeds.
+      // 
+      // - **FAIL**: The task fails.
       shared_ptr<string> taskStatus_ {};
       // The time when the request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> timestamp_ {};
@@ -259,14 +263,15 @@ namespace Models
     shared_ptr<GetAutoIncrementUsageStatisticResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

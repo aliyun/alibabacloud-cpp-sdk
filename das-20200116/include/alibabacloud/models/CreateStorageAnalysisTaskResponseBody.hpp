@@ -86,8 +86,9 @@ namespace Models
     protected:
       // Indicates whether the task is created. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> createTaskSuccess_ {};
       // The error message returned.
       shared_ptr<string> errorMessage_ {};
@@ -141,14 +142,15 @@ namespace Models
     shared_ptr<CreateStorageAnalysisTaskResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The database name. If you specify a database, the operation queries the usage of auto-increment table IDs in the specified database. Otherwise, the operation queries the usage of auto-increment table IDs in all databases on the instance.
     // 
-    // >  Specify the parameter value as a JSON array, such as [\\"db1\\",\\"db2\\"]. Separate multiple database names with commas (,).
+    // > Specify the parameter value as a JSON array, such as [\\"db1\\",\\"db2\\"]. Separate multiple database names with commas (,).
     shared_ptr<string> dbNames_ {};
     // The instance ID.
     // 
@@ -80,8 +80,9 @@ namespace Models
     shared_ptr<double> ratioFilter_ {};
     // Specifies whether to query real-time data. Valid values:
     // 
-    // *   **true**: queries data in real time except for data generated in the last 10 minutes.****
-    // *   **false**: queries data generated in the last 2 hours. If no such data exists, queries the latest data.
+    // - **true**: queries data in real time except for data generated in the last 10 minutes.\\*\\*\\*\\*
+    // 
+    // - **false**: queries data generated in the last 2 hours. If no such data exists, queries the latest data.
     // 
     // This parameter is required.
     shared_ptr<bool> realTime_ {};

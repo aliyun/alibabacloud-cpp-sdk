@@ -666,148 +666,152 @@ namespace Models
 
 
       protected:
-        // The average execution latency. Unit: millisecond.
+        // Average SQL execution duration, in milliseconds.
         shared_ptr<double> avgLatency_ {};
-        // The total number of executions.
+        // Total number of executions.
         shared_ptr<int64_t> count_ {};
-        // The percentage of the number of executions.
+        // Percentage of total executions.
         shared_ptr<double> countRate_ {};
-        // The ratio of the CPU execution duration to the total execution duration of the SQL statement.
+        // Ratio of CPU execution time to total SQL execution time.
         shared_ptr<double> cpuRate_ {};
-        // The CPU execution duration. Unit: millisecond.
+        // CPU runtime, in milliseconds.
         shared_ptr<double> cpuTime_ {};
-        // The data read duration. Unit: millisecond.
+        // Data read time, in milliseconds.
         shared_ptr<double> dataReadTime_ {};
-        // The number of nodes from which data can be read.
+        // Number of readable data nodes.
         shared_ptr<int32_t> dataReads_ {};
-        // The data write duration. Unit: millisecond.
+        // Data write time, in milliseconds.
         shared_ptr<double> dataWriteTime_ {};
-        // The number of nodes to which data can be written.
+        // Number of writable data nodes.
         shared_ptr<int32_t> dataWrites_ {};
-        // The name of the database.
+        // Database name.
         shared_ptr<string> db_ {};
-        // The execution duration. Unit: millisecond.
+        // Actual runtime, in milliseconds.
         shared_ptr<double> elapsedTime_ {};
-        // The number of errors.
+        // Number of errors.
         shared_ptr<int64_t> errCount_ {};
-        // The time when the SQL statement was executed for the first time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // First execution time, in Unix time format, in milliseconds.
         shared_ptr<int64_t> firstTime_ {};
-        // Indicates whether full table scan was enabled. Valid values:
+        // Indicates whether a full table scan occurred. Valid values:
         // 
-        // * **true**
-        // * **false**
+        // - **true**: Yes.
+        // 
+        // - **false**: No.
         shared_ptr<bool> fullScan_ {};
-        // The primary key ID.
+        // Primary key ID.
         shared_ptr<int64_t> id_ {};
-        // The instance ID.
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
-        // The time when the SQL statement was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // Last update time, in Unix time format, in milliseconds.
         shared_ptr<int64_t> lastTime_ {};
-        // The average lock wait latency. Unit: millisecond.
+        // Average lock wait time, in milliseconds.
         shared_ptr<double> lockLatencyAvg_ {};
-        // The logical database ID.
+        // Logical database ID.
         shared_ptr<int64_t> logicId_ {};
-        // The number of logical nodes.
+        // Number of logical nodes.
         shared_ptr<int64_t> logicReads_ {};
-        // The maximum execution latency. Unit: millisecond.
+        // Maximum execution duration, in milliseconds.
         shared_ptr<double> maxLatency_ {};
-        // The number of mutex spins.
+        // Number of mutex spins.
         shared_ptr<int32_t> mutexSpins_ {};
-        // The number of mutex waits.
+        // Number of mutex waits.
         shared_ptr<int32_t> mutexWaits_ {};
-        // The node ID.
+        // Node ID.
         // 
-        // >  This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+        // > This parameter is returned for ApsaraDB RDS for MySQL Cluster Edition or PolarDB for MySQL database instances.
         shared_ptr<string> nodeId_ {};
-        // The number of physical asynchronous nodes.
+        // Number of physical asynchronous nodes.
         shared_ptr<int64_t> physicalAsyncReads_ {};
-        // The number of physical nodes.
+        // Number of physical nodes.
         shared_ptr<int64_t> physicalReads_ {};
-        // The SQL template.
+        // SQL template.
         shared_ptr<string> psql_ {};
-        // The number of redo nodes.
+        // Number of redo nodes.
         shared_ptr<int64_t> redoWrites_ {};
-        // The number of rows that are affected by the SQL statement.
+        // Number of rows affected.
         shared_ptr<int64_t> rowsAffected_ {};
-        // The average number of rows affected by the SQL statement.
+        // Average number of rows affected.
         shared_ptr<double> rowsAffectedAvg_ {};
-        // The total number of scanned rows.
+        // Total number of rows scanned.
         shared_ptr<int64_t> rowsExamined_ {};
-        // The average number of scanned rows.
+        // Average number of rows scanned.
         shared_ptr<double> rowsExaminedAvg_ {};
-        // The average number of returned rows.
+        // Average number of rows sent.
         shared_ptr<double> rowsSendAvg_ {};
-        // The number of rows returned by the SQL statement.
+        // Number of rows returned.
         shared_ptr<int64_t> rowsSent_ {};
-        // The average number of rows returned for the SQL statement.
+        // Average number of rows returned per SQL statement.
         shared_ptr<double> rowsSentAvg_ {};
-        // The number of sorted rows.
+        // Number of rows sorted.
         shared_ptr<int64_t> rowsSorted_ {};
-        // The execution duration percentage.
+        // Percentage of total execution duration.
         shared_ptr<double> rtRate_ {};
-        // Indicates whether read/write splitting was enabled. Valid values:
+        // Indicates whether read/write splitting is enabled. Valid values:
         // 
-        // * **0:** Read/write splitting was disabled.
-        // * **1:** Read/write splitting was enabled.
+        // - **0**: Disabled.
+        // 
+        // - **1**: Enabled.
         shared_ptr<int32_t> rwlockOsWaits_ {};
-        // The read/write splitting parameters.
+        // Read/write splitting parameter.
         shared_ptr<int32_t> rwlockSpinRounds_ {};
-        // Indices whether multi-index scanning was enabled. Valid values:
+        // Indicates whether multiple index scans are enabled. Valid values:
         // 
-        // * **0:** Multi-index scanning was disabled.
-        // * **1:** Multi-index scanning was enabled.
+        // - **0**: Disabled.
+        // 
+        // - **1**: Enabled.
         shared_ptr<int32_t> rwlockSpinWaits_ {};
-        // The average number of joins that performed table scans without using indexes.
-        // 
-        // > If the value of this parameter is not 0, check the table indexes.
+        // The average number of connections that perform table scans without using an index.
+        // >Notice: If this parameter value is not 0, carefully check the indexes of the table.
         shared_ptr<double> selectFullJoinAvg_ {};
-        // The average number of joins that selected a range.
+        // Average number of range joins.
         shared_ptr<double> selectFullRangeJoinAvg_ {};
-        // The average selected range.
+        // Average range selection.
         shared_ptr<double> selectRangeAvg_ {};
-        // The average number of scanned rows.
+        // Average number of scans.
         shared_ptr<double> selectScanAvg_ {};
-        // The semi-synchronous replication latency. Unit: millisecond.
+        // Semi-synchronous replication delay, in milliseconds.
         shared_ptr<double> semisyncDelayTime_ {};
-        // The amount of time consumed for locking the server. Unit: millisecond.
+        // Server lock time, in milliseconds.
         shared_ptr<double> serverLockTime_ {};
-        // The number of merges that the sorting algorithm must perform.
+        // Number of merge passes required by the sort algorithm.
         shared_ptr<int64_t> sortMergePasses_ {};
-        // The average number of sorts that were performed by using a range.
+        // Average number of range-based sorts.
         shared_ptr<double> sortRangeAvg_ {};
-        // The average number of sorted rows.
+        // Average number of sorted rows.
         shared_ptr<double> sortRowsAvg_ {};
-        // The average number of sorts that were performed during table scans.
+        // Average number of sorted scans.
         shared_ptr<double> sortScanAvg_ {};
-        // The SQL template ID.
+        // SQL template ID.
         shared_ptr<string> sqlId_ {};
-        // The type of the SQL statement. Valid values:
+        // SQL type. Valid values:
         // 
-        // * **SELECT**
-        // * **UPDATE**
-        // * **DELETE**
+        // - **SELECT**
+        // 
+        // - **UPDATE**
+        // 
+        // - **DELETE**
         shared_ptr<string> sqlType_ {};
-        // The names of tables in the database.
+        // Database table names.
         shared_ptr<vector<string>> tables_ {};
-        // The reserved parameter.
+        // Reserved parameter.
         shared_ptr<double> timerWaitAvg_ {};
-        // The data timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // Data timestamp in Unix time format, in milliseconds.
         shared_ptr<int64_t> timestamp_ {};
-        // The number of on-disk temporary tables.
+        // Number of temporary disk tables.
         shared_ptr<int64_t> tmpDiskTables_ {};
-        // The average number of on-disk temporary tables.
+        // Average number of temporary disk tables.
         shared_ptr<double> tmpDiskTablesAvg_ {};
-        // The number of temporary tables.
+        // Number of temporary tables.
         shared_ptr<int64_t> tmpTables_ {};
-        // The average number of temporary tables.
+        // Average number of temporary tables.
         shared_ptr<double> tmpTablesAvg_ {};
-        // The execution latency. Unit: millisecond.
+        // Total execution duration, in milliseconds.
         shared_ptr<double> totalLatency_ {};
-        // The amount of time consumed for locking the storage transaction. Unit: millisecond.
+        // Transaction lock time, in milliseconds.
         shared_ptr<double> transactionLockTime_ {};
-        // The user ID.
+        // User ID.
         shared_ptr<string> userId_ {};
-        // The number of warnings.
+        // Number of warnings.
         shared_ptr<int64_t> warnCount_ {};
       };
 
@@ -853,15 +857,15 @@ namespace Models
 
 
     protected:
-      // The reserved parameter.
+      // Reserved parameter.
       Darabonba::Json extra_ {};
-      // The details of the data returned.
+      // Detailed information list.
       shared_ptr<vector<Data::List>> list_ {};
-      // The page number.
+      // Page number.
       shared_ptr<int64_t> pageNo_ {};
-      // The number of entries per page.
+      // Maximum number of records per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // Total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -905,20 +909,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // Response status code.
     shared_ptr<int64_t> code_ {};
-    // The returned data.
+    // Response data.
     shared_ptr<GetPfsSqlSummariesResponseBody::Data> data_ {};
-    // The returned message.
+    // Response message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request succeeds, this parameter returns **Successful**. If it fails, it returns error details such as an error code.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Succeeded.
+    // 
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

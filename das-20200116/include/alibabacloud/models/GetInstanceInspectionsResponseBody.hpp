@@ -272,16 +272,19 @@ namespace Models
           shared_ptr<string> accountId_ {};
           // The connection mode of the instance. Valid values:
           // 
-          // *   **standard**: standard mode.
-          // *   **safe**: database proxy mode.
+          // - **standard**: standard mode.
+          // 
+          // - **safe**: database proxy mode.
           shared_ptr<string> category_ {};
           // The CPU specification of the instance. For example, if a value of 8 is returned, the instance has eight CPU cores.
           shared_ptr<string> cpu_ {};
           // The database engine. Valid values:
           // 
-          // *   **MySQL**
-          // *   **Redis**
-          // *   **PolarDBMySQL**
+          // - **MySQL**
+          // 
+          // - **Redis**
+          // 
+          // - **PolarDBMySQL**
           shared_ptr<string> engine_ {};
           // The version number of the database engine.
           shared_ptr<string> engineVersion_ {};
@@ -289,11 +292,13 @@ namespace Models
           shared_ptr<string> instanceAlias_ {};
           // The type of the instance on which the database is deployed. Valid values:
           // 
-          // *   **RDS**: an Alibaba Cloud database instance.
-          // *   **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
-          // *   **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+          // - **RDS**: an Alibaba Cloud database instance.
           // 
-          // >  The value IDC indicates that the instance is deployed in a data center.
+          // - **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
+          // 
+          // - **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+          // 
+          // > The value IDC indicates that the instance is deployed in a data center.
           shared_ptr<string> instanceArea_ {};
           // The instance type.
           shared_ptr<string> instanceClass_ {};
@@ -382,33 +387,43 @@ namespace Models
         protected:
           // Indicates whether the feature of automatically creating and deleting indexes is enabled. Valid values:
           // 
-          // *   **0**: disabled.
-          // *   **1**: enabled.
-          // *   **2**: not supported.
+          // - **0**: disabled.
+          // 
+          // - **1**: enabled.
+          // 
+          // - **2**: not supported.
           shared_ptr<int32_t> autoIndex_ {};
           // Indicates whether the automatic throttling feature is enabled. Valid values:
           // 
-          // *   **0**: disabled.
-          // *   **1**: enabled.
-          // *   **2**: not supported.
+          // - **0**: disabled.
+          // 
+          // - **1**: enabled.
+          // 
+          // - **2**: not supported.
           shared_ptr<int32_t> autoLimitedSql_ {};
           // Indicates whether the automatic fragment recycling feature is enabled. Valid values:
           // 
-          // *   **0**: disabled.
-          // *   **1**: enabled.
-          // *   **2**: not supported.
+          // - **0**: disabled.
+          // 
+          // - **1**: enabled.
+          // 
+          // - **2**: not supported.
           shared_ptr<int32_t> autoResourceOptimize_ {};
           // Indicates whether the auto scaling feature is enabled. Valid values:
           // 
-          // *   **0**: disabled.
-          // *   **1**: enabled.
-          // *   **2**: not supported.
+          // - **0**: disabled.
+          // 
+          // - **1**: enabled.
+          // 
+          // - **2**: not supported.
           shared_ptr<int32_t> autoScale_ {};
           // Indicates whether the event subscription feature is enabled. Valid values:
           // 
-          // *   **0**: disabled.
-          // *   **1**: enabled.
-          // *   **2**: not supported.
+          // - **0**: disabled.
+          // 
+          // - **1**: enabled.
+          // 
+          // - **2**: not supported.
           shared_ptr<int32_t> eventSubscription_ {};
         };
 
@@ -507,13 +522,15 @@ namespace Models
         Darabonba::Json data_ {};
         // Indicates whether DAS Enterprise Edition is enabled. Valid values:
         // 
-        // *   **0**: disabled.
-        // *   **1**: enabled.
-        // *   **2**: not supported.
+        // - **0**: disabled.
+        // 
+        // - **1**: enabled.
+        // 
+        // - **2**: not supported.
         shared_ptr<int32_t> enableDasPro_ {};
         // The end time of the inspection and scoring task. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         // 
-        // >  The end time must be later than the start time.
+        // > The end time must be later than the start time.
         shared_ptr<int64_t> endTime_ {};
         // The time when the task was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> gmtCreate_ {};
@@ -527,14 +544,17 @@ namespace Models
         shared_ptr<int64_t> startTime_ {};
         // The state of the inspection and scoring task. Valid values:
         // 
-        // *   **0**: The task is waiting for execution.
-        // *   **1**: The task is in progress.
-        // *   **2**: The task is complete.
+        // - **0**: The task is waiting for execution.
+        // 
+        // - **1**: The task is in progress.
+        // 
+        // - **2**: The task is complete.
         shared_ptr<int32_t> state_ {};
         // The mode in which the inspection and scoring task was initiated. Valid values:
         // 
-        // *   **0**: automatic mode.
-        // *   **1**: manual mode.
+        // - **0**: automatic mode.
+        // 
+        // - **1**: manual mode.
         shared_ptr<int32_t> taskType_ {};
       };
 
@@ -627,14 +647,15 @@ namespace Models
     shared_ptr<GetInstanceInspectionsResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

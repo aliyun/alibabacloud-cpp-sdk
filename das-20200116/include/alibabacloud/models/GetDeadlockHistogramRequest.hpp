@@ -75,13 +75,28 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The format is a UNIX timestamp in milliseconds.
+    // >Notice: The value is of the Long type. Precision loss may occur during the serialization/deserialization procedure. The value must not be greater than 9007199254740991.</notice>
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // 
+    // > For PolarDB for MySQL instances, you must specify the node ID.
     shared_ptr<string> nodeId_ {};
+    // The beginning of the time range to query. The format is a UNIX timestamp in milliseconds.
+    // 
+    // > The start time can be at most 7 days earlier than the end time.
+    // 
+    // >Notice: The value is of the Long type. Precision loss may occur during the serialization/deserialization procedure. The value must not be greater than 9007199254740991.</notice>
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // The analysis status of the task.
     shared_ptr<string> status_ {};
   };
 

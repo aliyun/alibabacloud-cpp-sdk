@@ -178,36 +178,34 @@ namespace Models
 
 
       protected:
-        // The error code returned by the scaling task. Valid values:
+        // The error code returned by the internal scaling task. Valid values:
         // 
-        // *   **Insufficient_Balance**: The account has insufficient balance or an unpaid order.
-        // *   **REACH_SPEC_UPPERBOUND**: The instance type reaches the upper limit.
-        // *   **Control_Error_Timeout_Msg**: The management task timed out.
-        // *   **Invoke_Rds_Api_Error_Msg**: Failed to call the ApsaraDB RDS API.
+        // - **Insufficient_Balance**: The account balance is insufficient or there are unpaid orders.
+        // - **REACH_SPEC_UPPERBOUND**: The upper limit of the instance specification has been reached.
+        // - **Control_Error_Timeout_Msg**: The control task timed out.
+        // - **Invoke_Rds_Api_Error_Msg**: Failed to call the RDS API.
         shared_ptr<string> errorCode_ {};
-        // The original number of CPU cores of the instance.
+        // The number of CPU cores of the original instance.
         shared_ptr<int32_t> originCore_ {};
         // The original instance type.
         shared_ptr<string> originInstanceClass_ {};
-        // The original memory size of the instance. Unit: GB.
+        // The memory size of the original instance. Unit: GB.
         shared_ptr<double> originMemory_ {};
-        // The type of the automatic performance scaling task. Valid values:
-        // 
-        // *   **SCALE_UP**: automatic instance type scale-up task.
-        // *   **SCALE_DOWN**: automatic instance type scale-down task.
+        // The type of the automatic performance extension task. Valid values:
+        // - **SCALE_UP**: Automatic specification extension.
+        // - **SCALE_DOWN**: Automatic specification scale-down.
         shared_ptr<string> scaleType_ {};
-        // The destination number of CPU cores of the instance.
+        // The number of CPU cores of the target instance.
         shared_ptr<int32_t> targetCore_ {};
-        // The destination instance type.
+        // The target instance type.
         shared_ptr<string> targetInstanceClass_ {};
-        // The destination memory size of the instance. Unit: GB.
+        // The memory size of the target instance. Unit: GB.
         shared_ptr<double> targetMemory_ {};
-        // The status of the task. Valid values:
-        // 
-        // *   **true**: The task was successful.
-        // *   **false**: The task failed.
+        // The task execution status. Valid values:
+        // - **true**: The task was executed successfully.
+        // - **false**: The task failed.
         shared_ptr<bool> taskExcuteStatus_ {};
-        // The time when the task was run. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The task execution time. The value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> taskTime_ {};
       };
 
@@ -266,17 +264,17 @@ namespace Models
 
 
     protected:
-      // The history of automatic bandwidth scaling of ApsaraDB for Redis instances. This feature is not supported.
+      // The Redis bandwidth elastic scaling history records. This parameter is not supported.
       shared_ptr<vector<Darabonba::Json>> bandwidth_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The history of resource scale-out of ApsaraDB for Redis instances. This feature is not supported.
+      // The Redis resource scaling history records. This parameter is not supported.
       shared_ptr<vector<Darabonba::Json>> resource_ {};
-      // The history of automatic shard scale-out of ApsaraDB for Redis instances. This feature is not supported.
+      // The Redis automatic shard scaling history records. This parameter is not supported.
       shared_ptr<vector<Darabonba::Json>> shard_ {};
-      // The history of automatic performance scaling.
+      // The automatic performance extension history records.
       shared_ptr<vector<Data::SpecHistory>> specHistory_ {};
-      // The history of storage expansion. This feature is not supported.
+      // The storage expansion history records. This parameter is not supported.
       shared_ptr<vector<Darabonba::Json>> storage_ {};
     };
 
@@ -320,20 +318,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The history of auto scaling.
+    // The elastic scaling history records.
     shared_ptr<DescribeAutoScalingHistoryResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // > If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

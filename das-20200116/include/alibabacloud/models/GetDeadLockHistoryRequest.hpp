@@ -94,14 +94,42 @@ namespace Models
 
 
   protected:
+    // The end time of the query. This value is a UNIX timestamp. Unit: milliseconds.
+    // 
+    // >Notice: 
+    // 
+    // This parameter is a Long value. To prevent precision loss during serialization and deserialization, make sure that the value does not exceed 9007199254740991.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // 
+    // > Specify the node ID for a PolarDB for MySQL instance.
     shared_ptr<string> nodeId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. The maximum value is **100**.
     shared_ptr<int32_t> pageSize_ {};
+    // The source of the task:
+    // 
+    // - **MANUAL** or unspecified: queries tasks for recent deadlock analysis.
+    // 
+    // - **AUTO**: queries tasks for full deadlock analysis.
+    // 
+    // >Notice: 
+    // 
+    // If you set this parameter to AUTO to query tasks for full deadlock analysis, the start time can be a maximum of seven days earlier than the end time.
     shared_ptr<string> source_ {};
+    // The start time of the query. This value is a UNIX timestamp. Unit: milliseconds.
+    // 
+    // >Notice: 
+    // 
+    // This parameter is a Long value. To prevent precision loss during serialization and deserialization, make sure that the value does not exceed 9007199254740991.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

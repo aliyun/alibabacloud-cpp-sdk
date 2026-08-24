@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_TO_JSON(LogQueryOpJson, logQueryOpJson_);
       DARABONBA_PTR_TO_JSON(LogSource, logSource_);
       DARABONBA_PTR_TO_JSON(OperateType, operateType_);
       DARABONBA_PTR_TO_JSON(OssObjectKey, ossObjectKey_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_FROM_JSON(LogQueryOpJson, logQueryOpJson_);
       DARABONBA_PTR_FROM_JSON(LogSource, logSource_);
       DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
       DARABONBA_PTR_FROM_JSON(OssObjectKey, ossObjectKey_);
@@ -82,9 +84,10 @@ namespace Models
     virtual bool empty() const override { return this->asyncRequestId_ == nullptr
         && this->clientIp_ == nullptr && this->clientUa_ == nullptr && this->currentPage_ == nullptr && this->databaseName_ == nullptr && this->effectRowRange_ == nullptr
         && this->endTime_ == nullptr && this->executeTimeRange_ == nullptr && this->instanceName_ == nullptr && this->ipType_ == nullptr && this->lang_ == nullptr
-        && this->loadWhiteList_ == nullptr && this->logSource_ == nullptr && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr && this->pageSize_ == nullptr
-        && this->productCode_ == nullptr && this->productId_ == nullptr && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr && this->ruleID_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->startTime_ == nullptr && this->userName_ == nullptr; };
+        && this->loadWhiteList_ == nullptr && this->logQueryOpJson_ == nullptr && this->logSource_ == nullptr && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr
+        && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr
+        && this->ruleID_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->startTime_ == nullptr
+        && this->userName_ == nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
@@ -167,6 +170,13 @@ namespace Models
     void deleteLoadWhiteList() { this->loadWhiteList_ = nullptr;};
     inline bool getLoadWhiteList() const { DARABONBA_PTR_GET_DEFAULT(loadWhiteList_, false) };
     inline DescribeAuditLogsRequest& setLoadWhiteList(bool loadWhiteList) { DARABONBA_PTR_SET_VALUE(loadWhiteList_, loadWhiteList) };
+
+
+    // logQueryOpJson Field Functions 
+    bool hasLogQueryOpJson() const { return this->logQueryOpJson_ != nullptr;};
+    void deleteLogQueryOpJson() { this->logQueryOpJson_ = nullptr;};
+    inline string getLogQueryOpJson() const { DARABONBA_PTR_GET_DEFAULT(logQueryOpJson_, "") };
+    inline DescribeAuditLogsRequest& setLogQueryOpJson(string logQueryOpJson) { DARABONBA_PTR_SET_VALUE(logQueryOpJson_, logQueryOpJson) };
 
 
     // logSource Field Functions 
@@ -268,31 +278,73 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> asyncRequestId_ {};
+    // The IP address of the request client.
     shared_ptr<string> clientIp_ {};
+    // The client type.
     shared_ptr<string> clientUa_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the database.
     shared_ptr<string> databaseName_ {};
+    // The range of affected rows.
     shared_ptr<string> effectRowRange_ {};
+    // The end time of the alert log. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The range of execution time.
     shared_ptr<string> executeTimeRange_ {};
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
+    // The network type. Valid values:
+    // 
+    // - **default** (default): non-Alibaba Cloud service.
+    // 
+    // - **aliyun**: Alibaba Cloud service.
     shared_ptr<string> ipType_ {};
+    // The language type for sending and receiving messages. Default value: zh_cn. Valid values:
+    // 
+    // - zh_cn: Chinese.
+    // - en_us: English.
     shared_ptr<string> lang_ {};
+    // Specifies whether to load the whitelist status.
     shared_ptr<bool> loadWhiteList_ {};
+    shared_ptr<string> logQueryOpJson_ {};
+    // The data source.
     shared_ptr<string> logSource_ {};
+    // The operation type.
     shared_ptr<string> operateType_ {};
+    // The key of the OSS storage object.
     shared_ptr<string> ossObjectKey_ {};
+    // The maximum number of records per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the product to which the data asset belongs. Valid values: **RDS, PolarDB, PolarDB-X 2.0**, and others.
     shared_ptr<string> productCode_ {};
+    // The ID that corresponds to the product name to which the data object belongs. Valid values:
+    // 
+    // - 3: ADB-MYSQL
+    // - 5: RDS
+    // - 7: PolarDB-X
+    // - 8: PolarDB
+    // - 9: ADB-PG
+    // - 11: MongoDB
+    // - 25: Redis
     shared_ptr<int64_t> productId_ {};
+    // Specifies whether to perform an aggregate query.
     shared_ptr<bool> ruleAggQuery_ {};
+    // The rule type.
     shared_ptr<string> ruleCategory_ {};
+    // The ID of the audit policy.
     shared_ptr<string> ruleID_ {};
+    // The rule ID.
     shared_ptr<string> ruleId_ {};
+    // The name of the audit policy.
     shared_ptr<string> ruleName_ {};
+    // The content of the SQL statement.
     shared_ptr<string> sqlText_ {};
+    // The start time of the alert log, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

@@ -924,16 +924,19 @@ namespace Models
       shared_ptr<Data::KeyPrefixes> keyPrefixes_ {};
       // The message that is returned for the request.
       // 
-      // >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+      // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
       shared_ptr<string> message_ {};
       // The ID of the data node on the instance.
       shared_ptr<string> nodeId_ {};
       // The state of the cache analysis task. Valid values:
       // 
-      // *   **BACKUP**: The data is being backed up.
-      // *   **ANALYZING**: The data is being analyzed.
-      // *   **FINISHED**: The data is analyzed.
-      // *   **FAILED**: An error occurred.
+      // - **BACKUP**: The data is being backed up.
+      // 
+      // - **ANALYZING**: The data is being analyzed.
+      // 
+      // - **FINISHED**: The data is analyzed.
+      // 
+      // - **FAILED**: An error occurred.
       shared_ptr<string> taskState_ {};
       shared_ptr<Data::UnexBigKeysOfBytes> unexBigKeysOfBytes_ {};
       shared_ptr<Data::UnexBigKeysOfNum> unexBigKeysOfNum_ {};
@@ -985,14 +988,15 @@ namespace Models
     shared_ptr<DescribeCacheAnalysisJobResponseBody::Data> data_ {};
     // The message that is returned for the request.
     // 
-    // >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

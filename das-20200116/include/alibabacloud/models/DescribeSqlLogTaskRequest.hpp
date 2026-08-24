@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the database instance.
+    // The database instance ID.
     shared_ptr<string> instanceId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages are numbered starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Default value: 10.
+    // The page size. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

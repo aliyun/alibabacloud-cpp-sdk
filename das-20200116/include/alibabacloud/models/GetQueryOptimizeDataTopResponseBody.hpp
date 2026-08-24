@@ -116,8 +116,9 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The metric name. Valid values:
         // 
-        // * **sqlExecuteCount**: the number of slow SQL executions.
-        // * **optimizedSqlExecuteCount**: the number of slow SQL executions that need to be optimized.
+        // - **sqlExecuteCount**: the number of slow SQL executions.
+        // 
+        // - **optimizedSqlExecuteCount**: the number of slow SQL executions that need to be optimized.
         shared_ptr<string> type_ {};
         // The metric value.
         shared_ptr<double> value_ {};
@@ -225,8 +226,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

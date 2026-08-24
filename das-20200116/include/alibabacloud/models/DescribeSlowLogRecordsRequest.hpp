@@ -84,7 +84,11 @@ namespace Models
 
 
     protected:
+      // The filter parameter.
+      // 
+      // > For more information, refer to the supplementary description.
       shared_ptr<string> key_ {};
+      // The value of the filter parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -157,16 +161,46 @@ namespace Models
 
 
   protected:
+    // Specifies whether to sort results in ascending order. Default value: **true**.
+    // 
+    // - **true**: ascending order.
+    // - **false**: descending order.
     shared_ptr<bool> asc_ {};
+    // The end time.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The list of filter conditions.
     shared_ptr<vector<DescribeSlowLogRecordsRequest::Filters>> filters_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
     shared_ptr<string> nodeId_ {};
+    // - **MySQL** 
+    //   - QueryTimeSeconds: query duration in seconds.
+    //   - LockTimeSeconds: lock time in seconds.
+    //   - RowsSent: rows sent.
+    //   - RowsExamined: rows examined.
+    // - **Redis**
+    //   - QueryTime: query duration.
+    //   - Timestamp: execution end time.
+    // - **MongoDB**
+    //   - QueryTime: query duration.
+    //   - Timestamp: execution end time.
+    //   - KeysExamined: keys examined.
+    //   - DocExamined: documents examined.
+    //   - ReturnNum: rows returned.
+    // 
+    // <notice>RDS PostgreSQL, PolarDB for PostgreSQL, and SQL Server do not support sorting.</notice>
     shared_ptr<string> orderBy_ {};
+    // The page number. Pages start from page 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

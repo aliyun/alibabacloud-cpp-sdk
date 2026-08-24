@@ -76,7 +76,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  This parameter must be specified for PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), and ApsaraDB for MongoDB instances.
+    // > This parameter must be specified for PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), and ApsaraDB for MongoDB instances.
     shared_ptr<string> nodeId_ {};
     // The SQL statement that you want to diagnose.
     // 

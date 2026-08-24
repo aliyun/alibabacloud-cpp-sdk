@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The SQL template ID.
     shared_ptr<string> sqlId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The number of errors.
     shared_ptr<int32_t> count_ {};
   };
 

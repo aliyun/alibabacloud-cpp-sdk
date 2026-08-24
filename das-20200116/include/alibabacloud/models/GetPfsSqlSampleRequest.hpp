@@ -77,19 +77,19 @@ namespace Models
   protected:
     // The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
+    // > The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The instance ID.
     // 
-    // >  Only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters are supported
+    // > Only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters are supported
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
+    // > For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
     shared_ptr<string> nodeId_ {};
     // The SQL ID.
     shared_ptr<string> sqlId_ {};

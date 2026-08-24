@@ -354,37 +354,87 @@ namespace Models
 
 
     protected:
+      // The client IP address in the query.
       shared_ptr<string> clientIp_ {};
+      // The client port number in the query.
       shared_ptr<string> clientPort_ {};
+      // The client type.
       shared_ptr<string> clientUa_ {};
+      // The column name.
       shared_ptr<string> columnName_ {};
+      // The alert time, in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
+      // The database name.
       shared_ptr<string> databaseName_ {};
+      // The number of affected rows.
       shared_ptr<int64_t> effectRow_ {};
+      // The execution status. Valid values: 0: failed. 1: succeeded.
       shared_ptr<int32_t> executeStatus_ {};
+      // The execution duration, in milliseconds.
       shared_ptr<int64_t> executeTime_ {};
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether the alert is in the whitelist.
       shared_ptr<bool> inWhiteList_ {};
+      // The instance audit status.
       shared_ptr<string> instanceAuditStatus_ {};
+      // The description of the data asset instance.
       shared_ptr<string> instanceDescription_ {};
+      // The instance alias.
       shared_ptr<string> instanceName_ {};
+      // The network type. Valid values:
+      // 
+      // **default** (default): non-Alibaba Cloud service.
+      // 
+      // **aliyun**: Alibaba Cloud service.
       shared_ptr<string> ipType_ {};
+      // The data source.
       shared_ptr<string> logSource_ {};
+      // The log execution time.
       shared_ptr<int64_t> logTime_ {};
+      // The raw log content.
       shared_ptr<string> message_ {};
+      // The operation type.
       shared_ptr<string> operateType_ {};
+      // The key of the OSS storage object.
       shared_ptr<string> ossObjectKey_ {};
+      // The MaxCompute package name.
       shared_ptr<string> packageName_ {};
+      // The name of the product to which the data asset belongs. Valid values: RDS, PolarDB, PolarDB-X 2.0, and others.
       shared_ptr<string> productCode_ {};
+      // The ID that corresponds to the product name to which the data object belongs. Valid values:
+      // 
+      // - 3: ADB-MYSQL
+      // - 5: RDS
+      // - 7: PolarDB-X
+      // - 8: PolarDB
+      // - 9: ADB-PG
+      // - 11: MongoDB
+      // - 25: Redis
       shared_ptr<int64_t> productId_ {};
+      // The rule type.
       shared_ptr<string> ruleCategory_ {};
+      // The ID of the audit policy.
       shared_ptr<string> ruleId_ {};
+      // The name of the audit policy.
       shared_ptr<string> ruleName_ {};
+      // The SQL statement.
       shared_ptr<string> sqlText_ {};
+      // The table name used in the query.
       shared_ptr<string> tableName_ {};
+      // The user UID.
       shared_ptr<string> userId_ {};
+      // The username.
       shared_ptr<string> userName_ {};
+      // The risk level. Valid values:
+      // - **1**: low-risk.
+      // - **2**: medium-risk.
+      // - **3**: high-risk.
       shared_ptr<string> warnLevel_ {};
+      // The name of the risk level. Valid values:
+      // - Low-risk.
+      // - Medium-risk.
+      // - High-risk.
       shared_ptr<string> warnLevelName_ {};
     };
 
@@ -435,11 +485,17 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> asyncRequestId_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The client IP addresses in the SQL log records.
     shared_ptr<vector<DescribeAuditLogsResponseBody::Items>> items_ {};
+    // The page size for the paged query. This parameter indicates the number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records. This parameter is valid only for the Redis engine.
     shared_ptr<int32_t> totalCount_ {};
   };
 

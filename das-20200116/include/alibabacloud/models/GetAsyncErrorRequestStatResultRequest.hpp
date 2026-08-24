@@ -86,23 +86,23 @@ namespace Models
   protected:
     // The name of the database.
     shared_ptr<string> dbName_ {};
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the query, specified as a Unix timestamp in milliseconds.
     // 
-    // >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
+    // > The end time must be later than the start time. The interval between the start time and the end time cannot exceed 1 day.
     shared_ptr<int64_t> end_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The node ID.
+    // The ID of the node.
     // 
-    // >  This parameter must be specified for PolarDB for MySQL instances.
+    // > This parameter is required for PolarDB for MySQL instances.
     shared_ptr<string> nodeId_ {};
-    // The ID of the SQL template. Separate multiple SQL IDs with commas (,). You can call the [GetAsyncErrorRequestListByCode](https://help.aliyun.com/document_detail/410746.html) operation to query the ID of the SQL query for which MySQL error code is returned.
+    // One or more SQL IDs. Separate multiple SQL IDs with commas. You can call the [GetAsyncErrorRequestListByCode](https://help.aliyun.com/document_detail/410746.html) operation to query the SQL IDs that generated MySQL error codes on the instance.
     shared_ptr<string> sqlIdList_ {};
-    // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query, specified as a Unix timestamp in milliseconds.
     // 
-    // >  The beginning of the time range to query must be within the storage duration of the database instance and can be up to 90 days earlier than the current time.
+    // > The start time must be within the data retention period of SQL Explorer for the database instance. The start time cannot be earlier than 90 days before the current time.
     shared_ptr<int64_t> start_ {};
   };
 

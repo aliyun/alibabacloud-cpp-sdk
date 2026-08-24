@@ -121,18 +121,19 @@ namespace Models
 
 
     protected:
-      // The size of the SQL Explorer and Audit data that is stored in cold storage. Unit: bytes.
+      // The total cold storage data. Unit: bytes.
       shared_ptr<int64_t> coldSqlSize_ {};
-      // The free quota for cold data storage. Unit: bytes.
+      // The free cold storage data. Unit: bytes.
       shared_ptr<int64_t> freeColdSqlSize_ {};
-      // The free quota for hot data storage. Unit: bytes.
+      // The free hot storage data. Unit: bytes.
       shared_ptr<int64_t> freeHotSqlSize_ {};
-      // The size of the SQL Explorer and Audit data that is stored in hot storage. Unit: bytes.
+      // The total hot storage data. Unit: bytes.
       shared_ptr<int64_t> hotSqlSize_ {};
-      // The size of the SQL Explorer and Audit data that was generated in the most recent day. Unit: bytes.
+      // The amount of data imported in the last day. Unit: bytes.
       shared_ptr<int64_t> importSqlSize_ {};
-      // The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
+      // The total storage data (cold data + hot data).
       shared_ptr<int64_t> totalSqlSize_ {};
     };
 
@@ -176,20 +177,19 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeSqlLogStatisticResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the request is successful. Valid values:
+    // * true: The request is successful.
+    // * false: The request fails.
     shared_ptr<string> success_ {};
   };
 

@@ -181,8 +181,9 @@ namespace Models
         shared_ptr<vector<string>> groups_ {};
         // Indicates whether the alert contact name is the same as the contact name on CloudMonitor.
         // 
-        // * **true**
-        // * **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> isCmsReduplicated_ {};
         // The name of the alert contact.
         shared_ptr<string> name_ {};
@@ -383,15 +384,19 @@ namespace Models
     protected:
       // Indicates whether the event subscription feature is enabled. Valid values:
       // 
-      // *   **0**: The event subscription feature is disabled.
-      // *   **1**: The event subscription feature is enabled.
+      // - **0**: The event subscription feature is disabled.
+      // 
+      // - **1**: The event subscription feature is enabled.
       shared_ptr<int32_t> active_ {};
       // The notification method. Valid values:
       // 
-      // *   **hdm_alarm_sms**: text message.
-      // *   **dingtalk**: DingTalk chatbot.
-      // *   **hdm_alarm_sms_and_email**: text message and email.
-      // *   **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
+      // - **hdm_alarm_sms**: text message.
+      // 
+      // - **dingtalk**: DingTalk chatbot.
+      // 
+      // - **hdm_alarm_sms_and_email**: text message and email.
+      // 
+      // - **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
       shared_ptr<string> channelType_ {};
       // The name of the contact group that receives alert notifications. Multiple names are separated by commas (,).
       shared_ptr<string> contactGroupName_ {};
@@ -417,10 +422,13 @@ namespace Models
       shared_ptr<string> lang_ {};
       // The risk level of the events that trigger notifications. Valid values:
       // 
-      // *   **Notice**
-      // *   **Optimization**
-      // *   **Warn**
-      // *   **Critical**
+      // - **Notice**
+      // 
+      // - **Optimization**
+      // 
+      // - **Warn**
+      // 
+      // - **Critical**
       shared_ptr<string> level_ {};
       // The minimum interval between event notifications. Unit: seconds.
       shared_ptr<string> minInterval_ {};
@@ -474,14 +482,15 @@ namespace Models
     shared_ptr<GetEventSubscriptionResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

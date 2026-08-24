@@ -68,9 +68,11 @@ namespace Models
   protected:
     // The database engine. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PolarDBMySQL**
-    // *   **PostgreSQL**
+    // - **MySQL**
+    // 
+    // - **PolarDBMySQL**
+    // 
+    // - **PostgreSQL**
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};

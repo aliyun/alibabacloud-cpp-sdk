@@ -346,26 +346,39 @@ namespace Models
         shared_ptr<int64_t> db_ {};
         // The file descriptor event. Valid values:
         // 
-        // *   **r**: Client sockets are readable in the event loop.
-        // *   **w**: Client sockets are writable in the event loop.
+        // - **r**: Client sockets are readable in the event loop.
+        // 
+        // - **w**: Client sockets are writable in the event loop.
         shared_ptr<string> events_ {};
         // The file descriptor that is used by sockets.
         shared_ptr<int64_t> fd_ {};
         // The client flag. Valid values:
         // 
-        // *   **A**: The connection needs to be closed at the earliest opportunity.
-        // *   **b**: The client is waiting for blocked events.
-        // *   **c**: The connection is closed after all replies are written.
-        // *   **d**: The monitored keys have been modified, and the `EXEC` command is about to fail.
-        // *   **i**: The client is waiting for VM I/O operations. This value is no longer used.
-        // *   **M**: The client is the primary node.
-        // *   **N**: No special flags are configured.
-        // *   **O**: The client is in monitor mode.
-        // *   **r**: The client is a cluster node in read-only mode.
-        // *   **S**: The client is a replica node in normal mode.
-        // *   **u**: The client is not blocked.
-        // *   **U**: The client is connected by using UNIX domain sockets.
-        // *   **x**: The client is executing a transaction.
+        // - **A**: The connection needs to be closed at the earliest opportunity.
+        // 
+        // - **b**: The client is waiting for blocked events.
+        // 
+        // - **c**: The connection is closed after all replies are written.
+        // 
+        // - **d**: The monitored keys have been modified, and the `EXEC` command is about to fail.
+        // 
+        // - **i**: The client is waiting for VM I/O operations. This value is no longer used.
+        // 
+        // - **M**: The client is the primary node.
+        // 
+        // - **N**: No special flags are configured.
+        // 
+        // - **O**: The client is in monitor mode.
+        // 
+        // - **r**: The client is a cluster node in read-only mode.
+        // 
+        // - **S**: The client is a replica node in normal mode.
+        // 
+        // - **u**: The client is not blocked.
+        // 
+        // - **U**: The client is connected by using UNIX domain sockets.
+        // 
+        // - **x**: The client is executing a transaction.
         shared_ptr<string> flags_ {};
         // The client ID.
         shared_ptr<int64_t> id_ {};
@@ -484,14 +497,15 @@ namespace Models
     shared_ptr<GetRedisAllSessionResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

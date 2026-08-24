@@ -121,25 +121,24 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The task creation time. Specify the value as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The end time. Specify the value as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> end_ {};
-      // The ID of the database instance.
+      // The database instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> name_ {};
-      // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time. Specify the value as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> start_ {};
-      // The state of the task. Valid values:
+      // The task status.
+      // - **INIT**: pending scheduling.
+      // - **RUNNING**: running.
+      // - **FAILED**: failed.
+      // - **CANCELED**: canceled.
+      // - **COMPLETED**: completed.
       // 
-      // *   **INIT**: The task is to be scheduled.
-      // *   **RUNNING**: The task is running.
-      // *   **FAILED**: The task failed.
-      // *   **CANCELED**: The task is canceled.
-      // *   **COMPLETED**: The task is complete.
-      // 
-      // >  You can view the result of a task that is in the **COMPLETED** state.
+      // > When the task is in the **COMPLETED** state, you can view the task results.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -190,15 +189,14 @@ namespace Models
     // The returned data.
     shared_ptr<CreateSqlLogTaskResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, error information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: successful.
+    // - **false**: failed.
     shared_ptr<string> success_ {};
   };
 

@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The parameters of the card tool.
       shared_ptr<string> argsText_ {};
+      // The name of the card tool.
       shared_ptr<string> toolName_ {};
     };
 
@@ -137,8 +139,11 @@ namespace Models
 
 
     protected:
+      // The sub-agent status.
       shared_ptr<string> status_ {};
+      // The sub-agent ID.
       shared_ptr<string> subAgentId_ {};
+      // The sub-agent name.
       shared_ptr<string> subAgentName_ {};
     };
 
@@ -198,9 +203,13 @@ namespace Models
 
 
     protected:
+      // The parameters of the called tool.
       shared_ptr<string> arguments_ {};
+      // The tool ID.
       shared_ptr<string> id_ {};
+      // The name of the called tool.
       shared_ptr<string> name_ {};
+      // The tool calling invoke status.
       shared_ptr<string> status_ {};
     };
 
@@ -284,15 +293,25 @@ namespace Models
 
 
   protected:
+    // The response content.
     shared_ptr<string> content_ {};
+    // The tool calling invoke list.
     shared_ptr<vector<GetYaoChiAgentResponseBody::FunctionCall>> functionCall_ {};
+    // The ParentId field. This field exists only when the message is output by a sub-agent, and the value is the sub-agent ID.
     shared_ptr<string> parentId_ {};
+    // The cloud service type.
     shared_ptr<string> product_ {};
+    // The query ID. This value is the same as the QueryId request parameter.
     shared_ptr<string> queryId_ {};
+    // The reasoning content of the model.
     shared_ptr<string> reasoningContent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The session ID. This value is the same as the SessionId request parameter.
     shared_ptr<string> sessionId_ {};
+    // The list of sub-agent call information.
     shared_ptr<vector<GetYaoChiAgentResponseBody::SubAgentCall>> subAgentCall_ {};
+    // The card tool calling invoke list.
     shared_ptr<vector<GetYaoChiAgentResponseBody::UiFunctionCall>> uiFunctionCall_ {};
   };
 

@@ -85,6 +85,7 @@ namespace Models
 
 
       protected:
+        // The ID of the IP whitelist template.
         shared_ptr<string> globalSecurityGroupId_ {};
       };
 
@@ -99,6 +100,7 @@ namespace Models
 
 
     protected:
+      // The cross-product whitelist template information.
       shared_ptr<vector<Data::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
     };
 
@@ -142,11 +144,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
     // ListResult<InstanceSSL>
     shared_ptr<DeleteSecurityIPGroupResponseBody::Data> data_ {};
+    // The returned message.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

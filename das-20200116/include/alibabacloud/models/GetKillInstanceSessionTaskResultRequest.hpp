@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  You must specify this parameter if your database instance is a PolarDB for MySQL cluster.
+    // > You must specify this parameter if your database instance is a PolarDB for MySQL cluster.
     shared_ptr<string> nodeId_ {};
     // The task ID. You can obtain the task ID from the response parameters of the [CreateKillInstanceSessionTask](https://help.aliyun.com/document_detail/609246.html) operation.
     // 

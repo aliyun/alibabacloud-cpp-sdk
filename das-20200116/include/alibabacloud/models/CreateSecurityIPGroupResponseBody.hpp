@@ -131,11 +131,28 @@ namespace Models
 
 
       protected:
+        // The IP addresses in the whitelist template.
+        // 
+        // > Separate multiple IP addresses with commas (,). A maximum of 1000 IP addresses or CIDR blocks can be added across all IP whitelists.
         shared_ptr<string> GIpList_ {};
+        // The name of the IP whitelist template. The name must meet the following requirements:
+        // 
+        // - Contains only lowercase letters, digits, and underscores (_).
+        // 
+        // - Starts with a letter and ends with a letter or digit.
+        // 
+        // - Is 2 to 120 characters in length.
         shared_ptr<string> globalIgName_ {};
+        // The ID of the IP whitelist template.
         shared_ptr<string> globalSecurityGroupId_ {};
+        // The region ID.
+        // 
+        // Example value:
+        // cn-hangzhou
         shared_ptr<string> regionId_ {};
+        // The IP type.
         shared_ptr<string> securityIpType_ {};
+        // The network type of the whitelist.
         shared_ptr<string> whitelistNetType_ {};
       };
 
@@ -150,6 +167,7 @@ namespace Models
 
 
     protected:
+      // The cross-service whitelist template information.
       shared_ptr<vector<Data::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
     };
 
@@ -193,11 +211,20 @@ namespace Models
 
 
   protected:
+    // The returned status code.
     shared_ptr<string> code_ {};
     // ListResult<InstanceSSL>
     shared_ptr<CreateSecurityIPGroupResponseBody::Data> data_ {};
+    // The returned message.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

@@ -100,20 +100,21 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // Specifies whether to filter instances for which DAS Enterprise Edition is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
     // 
-    // >  If you set this parameter to **true**, only database instances for which DAS Enterprise Edition is disabled are queried. If you set this parameter to **false**, all database instances are queried.
+    // - **false**
+    // 
+    // > If you set this parameter to **true**, only database instances for which DAS Enterprise Edition is disabled are queried. If you set this parameter to **false**, all database instances are queried.
     shared_ptr<string> filterEnable_ {};
     // The database instance ID.
     // 
-    // >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+    // > The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
+    // > For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
     shared_ptr<string> nodeId_ {};
     // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
@@ -121,14 +122,15 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The duration threshold for automatic SQL optimization events. After this parameter is specified, the system collects statistics on automatic SQL optimization events whose duration does not exceed the specified threshold.
     // 
-    // >  This parameter is a reserved parameter and does not take effect.
+    // > This parameter is a reserved parameter and does not take effect.
     shared_ptr<string> threshold_ {};
     // Specifies whether to merge automatic SQL optimization events. Valid values:
     // 
-    // *   **true**: merges automatic SQL optimization events.
-    // *   **false**: does not merge automatic SQL optimization events.
+    // - **true**: merges automatic SQL optimization events.
     // 
-    // >  This parameter is a reserved parameter and does not take effect.
+    // - **false**: does not merge automatic SQL optimization events.
+    // 
+    // > This parameter is a reserved parameter and does not take effect.
     shared_ptr<string> useMerging_ {};
   };
 

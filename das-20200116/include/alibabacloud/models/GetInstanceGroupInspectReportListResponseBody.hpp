@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The date of the diagnosis.
       shared_ptr<string> reportDate_ {};
+      // The report ID.
       shared_ptr<string> reportId_ {};
+      // The task status. Valid values: WAITING_UNREADY = 0, WAITING_READY = 1, PROCESSING = 2, FINISHED = 3, ERROR = 4, STOPPED = -1.
       shared_ptr<string> status_ {};
     };
 
@@ -140,11 +144,18 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
     // List<ReportStatus>
     shared_ptr<vector<GetInstanceGroupInspectReportListResponseBody::Data>> data_ {};
+    // The response message.
+    // >If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // * **true**: The request is successful.
+    // * **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

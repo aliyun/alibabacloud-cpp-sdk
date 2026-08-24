@@ -125,32 +125,37 @@ namespace Models
 
 
     protected:
-      // Indicates whether the asynchronous request was complete.
+      // Indicates whether the asynchronous request is complete.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The request is complete.
+      // 
+      // - **false**: The request is in progress.
       shared_ptr<bool> complete_ {};
-      // Indicates whether the request failed. Valid values:
+      // Indicates whether the request failed.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The request failed.
+      // 
+      // - **false**: The request succeeded.
       shared_ptr<bool> fail_ {};
-      // Indicates whether the asynchronous request was successful. Valid values:
+      // Indicates whether the asynchronous request is complete.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The request is complete.
+      // 
+      // - **false**: The request is in progress.
       shared_ptr<bool> isFinish_ {};
-      // The returned data of the asynchronous request.
+      // The data returned by the asynchronous request.
       shared_ptr<map<string, DataResultValue>> result_ {};
-      // The ID of the asynchronous request.
+      // The asynchronous request ID.
       shared_ptr<string> resultId_ {};
       // The state of the asynchronous request. Valid values:
       // 
-      // *   **RUNNING**: The asynchronous request is running.
-      // *   **SUCCESS**: The asynchronous request is successful.
-      // *   **FAIL**: The asynchronous request fails.
+      // - **RUNNING**: The request is running.
+      // 
+      // - **SUCCESS**: The request succeeded.
+      // 
+      // - **FAIL**: The request failed.
       shared_ptr<string> state_ {};
-      // The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the asynchronous request was complete. The time is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -194,20 +199,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The response status code.
     shared_ptr<int64_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetAsyncErrorRequestStatResultResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request succeeds, this parameter returns **Successful**. If the request fails, this parameter returns an error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -249,30 +249,31 @@ namespace Models
           shared_ptr<int64_t> avgRowLength_ {};
           // The size of space fragments. Unit: bytes.
           // 
-          // >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. The fragmentation rate of a table is generally calculated based on the following formula: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, `Fragmentation rate = DataFree/PhyTotalSize`.
+          // > This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. The fragmentation rate of a table is generally calculated based on the following formula: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, `Fragmentation rate = DataFree/PhyTotalSize`.
           shared_ptr<int64_t> dataFree_ {};
-          // *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by data. Unit: bytes.
-          // *   For ApsaraDB for MongoDB instances, this parameter indicates the size of uncompressed data, that is, the amount of data. Unit: bytes.
+          // - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by data. Unit: bytes.
+          // 
+          // - For ApsaraDB for MongoDB instances, this parameter indicates the size of uncompressed data, that is, the amount of data. Unit: bytes.
           shared_ptr<int64_t> dataSize_ {};
           // The name of the database.
           shared_ptr<string> dbName_ {};
           // The type of the storage engine used by the table.
           // 
-          // >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // > This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           shared_ptr<string> engine_ {};
           // The size of space that can be reclaimed. Unit: bytes.
           // 
-          // >  This parameter is applicable only to ApsaraDB for MongoDB instances. `Fragmentation rate = FragmentSize/PhyTotalSize`.
+          // > This parameter is applicable only to ApsaraDB for MongoDB instances. `Fragmentation rate = FragmentSize/PhyTotalSize`.
           shared_ptr<int64_t> fragmentSize_ {};
           // The storage space occupied by indexes. Unit: bytes.
           shared_ptr<int64_t> indexSize_ {};
           // The storage space of the table. Unit: bytes.
           // 
-          // >  For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, the value of the parameter is the sum of **DataSize**, **IndexSize**, and **DataFree**. For ApsaraDB for MongoDB instances, the value of this parameter is the sum of **DataSize** and **IndexSize**.
+          // > For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, the value of the parameter is the sum of **DataSize**, **IndexSize**, and **DataFree**. For ApsaraDB for MongoDB instances, the value of this parameter is the sum of **DataSize** and **IndexSize**.
           shared_ptr<int64_t> phyTotalSize_ {};
           // The physical file size of the table. Unit: bytes.
           // 
-          // >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. Data of specific database instances cannot be obtained due to deployment mode.
+          // > This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. Data of specific database instances cannot be obtained due to deployment mode.
           shared_ptr<int64_t> physicalFileSize_ {};
           // The name of the table.
           shared_ptr<string> tableName_ {};
@@ -280,10 +281,11 @@ namespace Models
           shared_ptr<int64_t> tableRows_ {};
           // The type of the table.
           // 
-          // >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // > This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           shared_ptr<string> tableType_ {};
-          // *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by table data and indexes. Unit: bytes. The value is the sum of **DataSize** and **IndexSize**.
-          // *   For ApsaraDB for MongoDB instances, this parameter indicates the actual size of space allocated by Block Manager. Unit: Bytes. The compression ratio of an ApsaraDB for MongoDB instance is calculated based on the following formula: `Compression ratio = TotalSize/DataSize`.
+          // - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by table data and indexes. Unit: bytes. The value is the sum of **DataSize** and **IndexSize**.
+          // 
+          // - For ApsaraDB for MongoDB instances, this parameter indicates the actual size of space allocated by Block Manager. Unit: Bytes. The compression ratio of an ApsaraDB for MongoDB instance is calculated based on the following formula: `Compression ratio = TotalSize/DataSize`.
           shared_ptr<int64_t> totalSize_ {};
         };
 
@@ -358,37 +360,45 @@ namespace Models
           shared_ptr<string> dbName_ {};
           // The optimization suggestion. Valid values:
           // 
-          // *   **NEED_ANALYZE_TABLE**: You can execute the `ANALYZE TABLE` statement on the table during off-peak hours. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **NEED_OPTIMIZE_TABLE**: You can reclaim fragments during off-peak hours.
-          // *   **CHANGE_TABLE_ENGINE_IF_NECESSARY**: Change the storage engine type of a table after risk assessment. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: Pay attention to the usage of auto-increment IDs. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **DUPLICATE_INDEX**: Optimize indexes of tables. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **TABLE_SIZE**: Pay attention to the table size. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **TABLE_ROWS_AND_AVG_ROW_LENGTH**: Pay attention to the number of rows in a table and the average row length. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-          // *   **STORAGE_USED_PERCENT**: Pay attention to the space usage to prevent the instance from being locked if the instance is full.
+          // - **NEED_ANALYZE_TABLE**: You can execute the `ANALYZE TABLE` statement on the table during off-peak hours. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **NEED_OPTIMIZE_TABLE**: You can reclaim fragments during off-peak hours.
+          // 
+          // - **CHANGE_TABLE_ENGINE_IF_NECESSARY**: Change the storage engine type of a table after risk assessment. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: Pay attention to the usage of auto-increment IDs. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **DUPLICATE_INDEX**: Optimize indexes of tables. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **TABLE_SIZE**: Pay attention to the table size. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **TABLE_ROWS_AND_AVG_ROW_LENGTH**: Pay attention to the number of rows in a table and the average row length. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // 
+          // - **STORAGE_USED_PERCENT**: Pay attention to the space usage to prevent the instance from being locked if the instance is full.
           shared_ptr<string> optimizeAdvice_ {};
           // The item to be optimized. Valid values:
           // 
-          // *   **NEED_ANALYZE_TABLE**: tables whose storage statistics obtained from `information_schema.tables` are 50 GB larger or smaller than the physical file sizes. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // - **NEED_ANALYZE_TABLE**: tables whose storage statistics obtained from `information_schema.tables` are 50 GB larger or smaller than the physical file sizes. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **NEED_OPTIMIZE_TABLE**: tables whose space fragments are larger than 6 GB and whose fragmentation rates are greater than 30%. The fragmentation rate of a table is generally calculated based on the following formulas:
+          // - **NEED_OPTIMIZE_TABLE**: tables whose space fragments are larger than 6 GB and whose fragmentation rates are greater than 30%. The fragmentation rate of a table is generally calculated based on the following formulas:
           // 
-          //     *   ApsaraDB RDS for MySQL and PolarDB for MySQL: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, PhyTotalSize = DataSize + IndexSize + DataFree. Thus, the fragmentation rate can be calculated based on the following formula: `Fragmentation rate = DataFree/PhyTotalSize`.
-          //     *   ApsaraDB for MongoDB: `Fragmentation rate = FragmentSize/PhyTotalSize`.
+          //   - ApsaraDB RDS for MySQL and PolarDB for MySQL: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, PhyTotalSize = DataSize + IndexSize + DataFree. Thus, the fragmentation rate can be calculated based on the following formula: `Fragmentation rate = DataFree/PhyTotalSize`.
           // 
-          // *   **TABLE_ENGINE**: tables whose storage engines are not InnoDB or XEngine. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          //   - ApsaraDB for MongoDB: `Fragmentation rate = FragmentSize/PhyTotalSize`.
           // 
-          // *   **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: tables whose usages of auto-increment IDs exceed 80%. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // - **TABLE_ENGINE**: tables whose storage engines are not InnoDB or XEngine. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **DUPLICATE_INDEX**: tables whose indexes are redundant or duplicate. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // - **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: tables whose usages of auto-increment IDs exceed 80%. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **TABLE_SIZE**: single tables whose sizes are larger than 50 GB. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // - **DUPLICATE_INDEX**: tables whose indexes are redundant or duplicate. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **TABLE_ROWS_AND_AVG_ROW_LENGTH**: single tables that contain more than 5 million rows and whose average row lengths exceed 10 KB. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+          // - **TABLE_SIZE**: single tables whose sizes are larger than 50 GB. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **TOTAL_DATA_FREE**: instances whose reclaimable space is larger than 60 GB and whose total fragmentation rate is larger than 5%.
+          // - **TABLE_ROWS_AND_AVG_ROW_LENGTH**: single tables that contain more than 5 million rows and whose average row lengths exceed 10 KB. This is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
           // 
-          // *   **STORAGE_USED_PERCENT**: instances whose space usage is larger than 90%.
+          // - **TOTAL_DATA_FREE**: instances whose reclaimable space is larger than 60 GB and whose total fragmentation rate is larger than 5%.
+          // 
+          // - **STORAGE_USED_PERCENT**: instances whose space usage is larger than 90%.
           shared_ptr<string> optimizeItemName_ {};
           // The name of the table.
           shared_ptr<string> tableName_ {};
@@ -467,8 +477,9 @@ namespace Models
       protected:
         // The reason why the analysis on the database and table fails.
         // 
-        // *   **DB_OR_TABLE_NOT_EXIST**: The specified database or table does not exist.
-        // *   **DB_NOT_EXIST**: The specified database does not exist.
+        // - **DB_OR_TABLE_NOT_EXIST**: The specified database or table does not exist.
+        // 
+        // - **DB_NOT_EXIST**: The specified database does not exist.
         shared_ptr<string> analysisErrorType_ {};
         // Indicates whether the analysis on the database and table is successful.
         shared_ptr<bool> analysisSuccess_ {};
@@ -482,15 +493,15 @@ namespace Models
         shared_ptr<vector<StorageAnalysisResult::TableStats>> tableStats_ {};
         // The size of remaining storage.
         // 
-        // >  Unit: bytes.
+        // > Unit: bytes.
         shared_ptr<int64_t> totalFreeStorageSize_ {};
         // The total size of instance storage.
         // 
-        // >  Unit: bytes.
+        // > Unit: bytes.
         shared_ptr<int64_t> totalStorageSize_ {};
         // The size of used storage.
         // 
-        // >  Unit: bytes.
+        // > Unit: bytes.
         shared_ptr<int64_t> totalUsedStorageSize_ {};
       };
 
@@ -566,17 +577,23 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task progress.
       // 
-      // >  Valid values are integers that range from 0 to 100.
+      // > Valid values are integers that range from 0 to 100.
       shared_ptr<int64_t> taskProgress_ {};
       // The status of the storage analysis task. Valid values:
       // 
-      // *   **INIT**: The task is being initialized.
-      // *   **PENDING**: The task is being queued for execution.
-      // *   **RECEIVED**: The task is received for execution.
-      // *   **RUNNING**: The task is being executed.
-      // *   **RETRY**: The task is being retried.
-      // *   **SUCCESS**: The task succeeds.
-      // *   **FAILURE**: The task fails.
+      // - **INIT**: The task is being initialized.
+      // 
+      // - **PENDING**: The task is being queued for execution.
+      // 
+      // - **RECEIVED**: The task is received for execution.
+      // 
+      // - **RUNNING**: The task is being executed.
+      // 
+      // - **RETRY**: The task is being retried.
+      // 
+      // - **SUCCESS**: The task succeeds.
+      // 
+      // - **FAILURE**: The task fails.
       shared_ptr<string> taskState_ {};
       // Indicates whether the task is successful.
       shared_ptr<bool> taskSuccess_ {};
@@ -630,14 +647,15 @@ namespace Models
     shared_ptr<GetStorageAnalysisResultResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

@@ -145,8 +145,11 @@ namespace Models
 
 
         protected:
+          // The database engine type of the target instance.
           shared_ptr<string> engineName_ {};
+          // The list of database instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
+          // The number of instances under the current logon account.
           shared_ptr<int32_t> instanceNum_ {};
         };
 
@@ -235,16 +238,34 @@ namespace Models
 
 
       protected:
+        // The list of database instances bound to the cross-engine whitelist template.
         shared_ptr<vector<string>> dbInstances_ {};
+        // The instance information for each product bound to the template.
         shared_ptr<vector<SecurityIpGroups::EngineInfoList>> engineInfoList_ {};
+        // The ECS security group ID. This field is invalid and contains redundant data that will be deprecated.
         shared_ptr<string> GEcsSgIdList_ {};
+        // The IP addresses in the whitelist template.
+        // > Separate multiple IP addresses with commas (,).
         shared_ptr<string> GIpList_ {};
+        // The IP whitelist template name. The name must meet the following requirements:
+        // 
+        // - Contains only lowercase letters, digits, and underscores (_).
+        // 
+        // - Starts with a letter and ends with a letter or digit.
+        // 
+        // - Contains 2 to 120 characters in length.
         shared_ptr<string> globalIgName_ {};
+        // The IP whitelist template ID.
         shared_ptr<string> globalSecurityGroupId_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The IP type.
         shared_ptr<string> securityIpType_ {};
+        // The account ID. You can obtain the ID of the **logon account** on the **Security Settings** page in **Account Management** of the Alibaba Cloud console.
         shared_ptr<string> uid_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
+        // The network type of the whitelist.
         shared_ptr<string> whitelistNetType_ {};
       };
 
@@ -259,6 +280,7 @@ namespace Models
 
 
     protected:
+      // The list of all cross-engine whitelist templates for the user in the specified region.
       shared_ptr<vector<Data::SecurityIpGroups>> securityIpGroups_ {};
     };
 
@@ -302,11 +324,20 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     shared_ptr<string> code_ {};
     // ListResult<InstanceSSL>
     shared_ptr<DescribeSecurityIPGroupResponseBody::Data> data_ {};
+    // The message returned for the request.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an exception message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

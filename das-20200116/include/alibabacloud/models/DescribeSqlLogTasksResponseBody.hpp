@@ -152,9 +152,9 @@ namespace Models
 
 
         protected:
-          // The name of the filter parameter.
+          // The filter parameter.
           // 
-          // >  For more information about the filter parameters, see the **Valid values of Key** section of this topic.
+          // > For information about the supported filter parameters and their valid values, see **Additional information about request parameters**.
           shared_ptr<string> key_ {};
           // The value of the filter parameter.
           shared_ptr<string> value_ {};
@@ -287,54 +287,61 @@ namespace Models
 
 
       protected:
-        // The time when the analysis task was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The analysis completion time, represented as a unix timestamp in milliseconds.
         shared_ptr<int64_t> analysisTaskFinishTime_ {};
-        // The state of the analysis task.
+        // The status of the analysis task.
         // 
-        // >  This parameter is a system parameter. You do not need to pay attention to the parameter.
+        // > This is an internal parameter. You can ignore it.
         shared_ptr<string> analysisTaskStatus_ {};
-        // The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The task creation time, represented as a unix timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The time when the task ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The task end time, represented as a unix timestamp in milliseconds.
         shared_ptr<int64_t> end_ {};
-        // Indicates whether the task expired. Valid values:
+        // Indicates whether the task has expired. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: The task has expired.
+        // 
+        // - **false**: The task has not expired.
         shared_ptr<bool> expire_ {};
-        // The filter parameters.
+        // A list of filter conditions.
         shared_ptr<vector<List::Filters>> filters_ {};
+        // The VPC-internal URL for accessing the task result.
         shared_ptr<string> innerResult_ {};
         // The ID of the database instance.
         shared_ptr<string> instanceId_ {};
-        // The number of log records.
+        // The total number of logs.
         shared_ptr<int64_t> logCount_ {};
-        // The task name.
+        // The name of the task.
         shared_ptr<string> name_ {};
-        // The task progress.
+        // The progress of the task.
         shared_ptr<int32_t> progress_ {};
-        // The URL that is returned if the value of TaskType is **Export**.
+        // The URL that is returned when **TaskType** is set to **Export**.
         shared_ptr<string> result_ {};
-        // The number of files that are scanned.
+        // The total size of the scanned files, in bytes.
         shared_ptr<int64_t> scanFileSize_ {};
-        // The time when the task started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The task start time, represented as a unix timestamp in milliseconds.
         shared_ptr<int64_t> start_ {};
-        // The task state. Valid values:
+        // The task status. Valid values:
         // 
-        // *   **INIT**: The task is to be scheduled.
-        // *   **RUNNING**: The task is running.
-        // *   **FAILED**: The task failed.
-        // *   **CANCELED**: The task is canceled.
-        // *   **COMPLETED**: The task is complete.
+        // - **INIT**: pending scheduling.
         // 
-        // >  If a task is in the **COMPLETED** state, you can view the results of the task.
+        // - **RUNNING**: running.
+        // 
+        // - **FAILED**: failed.
+        // 
+        // - **CANCELED**: canceled.
+        // 
+        // - **COMPLETED**: completed.
+        // 
+        // > You can view the result of an offline task only when its status is **COMPLETED**.
         shared_ptr<string> status_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
         // The task type. Valid values:
         // 
-        // *   **Export**
-        // *   **Query**
+        // - **Export**: an export task.
+        // 
+        // - **Query**: a query task.
         shared_ptr<string> taskType_ {};
       };
 
@@ -371,13 +378,13 @@ namespace Models
 
 
     protected:
-      // The details of the data returned.
+      // The list of tasks.
       shared_ptr<vector<Data::List>> list_ {};
       // The page number.
       shared_ptr<int64_t> pageNo_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The number of tasks.
+      // The total number of tasks.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -421,20 +428,21 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeSqlLogTasksResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

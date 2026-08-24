@@ -75,26 +75,31 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The result of the DeleteStopGateway operation. Valid values:
+    // The status code indicating the result of the deletion:
     // 
-    // *   **0**: The metadata of the DBGateway is deleted.
-    // *   **-1**: A system error occurs.
-    // *   **-2**: The DBGateway does not exist.
-    // *   **-3**: The DBGateway is not stopped and the metadata cannot be deleted.
-    // *   **-4**: The metadata of the DBGateway fails to be deleted.
+    // - **0**: Success. The metadata was deleted.
+    // 
+    // - **-1**: A system error occurred.
+    // 
+    // - **-2**: The specified database gateway does not exist.
+    // 
+    // - **-3**: The database gateway is still active (not stopped) and its metadata cannot be deleted.
+    // 
+    // - **-4**: Failed to delete the metadata.
     shared_ptr<string> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > When the request is successful, this parameter returns **Successful**. When the request fails, this parameter returns exception information such as error codes.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The operation is successful.
+    // 
+    // - **false**: The operation failed.
     shared_ptr<string> success_ {};
   };
 

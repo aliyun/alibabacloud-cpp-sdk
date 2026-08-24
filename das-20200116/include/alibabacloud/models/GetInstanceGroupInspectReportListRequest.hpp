@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+      DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceGroupInspectReportListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+      DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     GetInstanceGroupInspectReportListRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->endTime_ == nullptr && this->groupId_ == nullptr && this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->groupId_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline GetInstanceGroupInspectReportListRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
+    // reportType Field Functions 
+    bool hasReportType() const { return this->reportType_ != nullptr;};
+    void deleteReportType() { this->reportType_ = nullptr;};
+    inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+    inline GetInstanceGroupInspectReportListRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -66,10 +75,17 @@ namespace Models
 
 
   protected:
+    // Optional. By default, the default Agent is used. You can also specify the Agent that was generated after DAS Agent was activated or that was manually created.
     shared_ptr<string> agentId_ {};
+    // The end timestamp.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // Reserved parameter.
     shared_ptr<string> groupId_ {};
+    shared_ptr<string> reportType_ {};
+    // The start timestamp.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

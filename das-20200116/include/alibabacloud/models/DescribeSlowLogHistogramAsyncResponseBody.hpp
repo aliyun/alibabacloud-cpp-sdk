@@ -281,9 +281,15 @@ namespace Models
 
 
           protected:
+            // The number of executions.
             shared_ptr<vector<int64_t>> count_ {};
+            // The instance role ID.
+            // >Supported only for ApsaraDB for MongoDB instances.
             shared_ptr<string> insId_ {};
+            // The instance role.
+            // >Supported only for ApsaraDB for MongoDB instances.
             shared_ptr<string> insRole_ {};
+            // The number of slow logs on the physical node.
             shared_ptr<int64_t> totalCount_ {};
           };
 
@@ -329,10 +335,17 @@ namespace Models
 
 
         protected:
+          // The number of slow logs.
           shared_ptr<vector<int64_t>> count_ {};
+          // The trend metrics.
+          // >Supported only for ApsaraDB for MongoDB instances.
           shared_ptr<vector<Item::InsItems>> insItems_ {};
+          // The instance role.
+          // >Supported only for ApsaraDB for MongoDB instances.
           shared_ptr<string> insRole_ {};
+          // The node ID.
           shared_ptr<string> nodeId_ {};
+          // The total number of slow logs.
           shared_ptr<int64_t> totalCount_ {};
         };
 
@@ -831,59 +844,147 @@ namespace Models
 
 
       protected:
+        // The average CPU processing duration. Unit: seconds (s).
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgCPUTime_ {};
+        // The average number of document rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<double>> avgDocExamined_ {};
+        // The average number of rows fetched.
         shared_ptr<vector<double>> avgFrows_ {};
+        // The average number of I/O writes.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgIOWrites_ {};
+        // The average number of index rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<double>> avgKeysExamined_ {};
+        // The average number of rows affected by the last statement.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgLastRowsCountAffected_ {};
+        // The average lock wait time. Unit: seconds.
         shared_ptr<vector<double>> avgLockTime_ {};
+        // The average number of logical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgLogicalIOReads_ {};
+        // The average number of physical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgPhysicalIOReads_ {};
+        // The average number of rows returned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<double>> avgReturnNum_ {};
+        // The average number of rows.
         shared_ptr<vector<double>> avgRows_ {};
+        // The average number of rows affected.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> avgRowsCountAffected_ {};
+        // The average number of rows scanned.
         shared_ptr<vector<double>> avgRowsExamined_ {};
+        // The average number of rows returned.
         shared_ptr<vector<double>> avgRowsSent_ {};
+        // The average execution duration.
         shared_ptr<vector<double>> avgRt_ {};
+        // The average number of requests.
         shared_ptr<vector<double>> avgScnt_ {};
+        // The CPU processing duration. Unit: seconds (s).
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> CPUTime_ {};
+        // The slow log count trend.
         shared_ptr<vector<int64_t>> count_ {};
+        // The number of document rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> docExamined_ {};
+        // The number of rows fetched by the compute node (CN) of the PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<vector<int64_t>> frows_ {};
+        // The number of I/O writes.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> IOWrites_ {};
+        // The trend metrics.
         shared_ptr<vector<DataItem::Item>> item_ {};
+        // The number of index rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> keysExamined_ {};
+        // The number of rows affected by the last statement.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> lastRowsCountAffected_ {};
+        // The total lock wait time. Unit: seconds.
         shared_ptr<vector<double>> lockTime_ {};
+        // The number of logical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> logicalIOReads_ {};
+        // The maximum CPU processing duration. Unit: seconds (s).
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<double>> maxCPUTime_ {};
+        // The maximum number of document rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> maxDocExamined_ {};
+        // The maximum number of rows fetched.
         shared_ptr<vector<int64_t>> maxFrows_ {};
+        // The maximum number of I/O writes.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> maxIOWrites_ {};
+        // The maximum number of index rows scanned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> maxKeysExamined_ {};
+        // The maximum number of rows affected by the last statement.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> maxLastRowsCountAffected_ {};
+        // The maximum lock wait time. Unit: seconds.
         shared_ptr<vector<double>> maxLockTime_ {};
+        // The maximum number of logical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> maxLogicalIOReads_ {};
+        // The maximum number of physical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> maxPhysicalIOReads_ {};
+        // The maximum number of rows returned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> maxReturnNum_ {};
+        // The maximum number of rows.
         shared_ptr<vector<int64_t>> maxRows_ {};
+        // The maximum number of rows affected.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> maxRowsCountAffected_ {};
+        // The maximum number of rows scanned.
         shared_ptr<vector<int64_t>> maxRowsExamined_ {};
+        // The maximum number of rows returned.
         shared_ptr<vector<int64_t>> maxRowsSent_ {};
+        // The maximum execution duration. Unit: seconds.
         shared_ptr<vector<double>> maxRt_ {};
+        // The maximum number of requests.
         shared_ptr<vector<int64_t>> maxScnt_ {};
+        // The number of physical reads.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> physicalIOReads_ {};
+        // The number of rows returned.
+        // >Supported only for ApsaraDB for MongoDB instances.
         shared_ptr<vector<int64_t>> returnNum_ {};
+        // The total number of rows updated or returned by compute nodes of the PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<vector<int64_t>> rows_ {};
+        // The number of rows affected.
+        // >Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<vector<int64_t>> rowsCountAffected_ {};
+        // The total number of rows scanned.
+        // > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
         shared_ptr<vector<int64_t>> rowsExamined_ {};
+        // The number of rows returned.
         shared_ptr<vector<int64_t>> rowsSent_ {};
+        // The total execution duration. Unit: seconds.
         shared_ptr<vector<double>> rt_ {};
+        // The number of DN requests from the compute node (CN) of the PolarDB-X 2.0 database instance.
+        // 
+        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
         shared_ptr<vector<int64_t>> scnt_ {};
+        // The total number of records queried.
         shared_ptr<int64_t> total_ {};
+        // The total number of slow query logs.
         shared_ptr<int64_t> totalCount_ {};
+        // Used only for relational databases.
         shared_ptr<vector<int64_t>> ts_ {};
+        // Not used. Reserved field.
         shared_ptr<vector<int64_t>> tsEnd_ {};
       };
 
@@ -949,13 +1050,24 @@ namespace Models
 
 
     protected:
+      // The data.
       shared_ptr<Data::DataItem> data_ {};
+      // The error code.
       shared_ptr<int32_t> errorCode_ {};
+      // Indicates whether the task is finished.
       shared_ptr<bool> isFinish_ {};
+      // The error message.
       shared_ptr<string> message_ {};
+      // The key of the request parameter.
       shared_ptr<string> requestKey_ {};
+      // The result ID.
       shared_ptr<string> resultId_ {};
+      // The current state. Valid values:
+      // - **RUNNING**: Running.
+      // - **SUCCESS**: Succeeded.
+      // - **FAIL**: Failed.
       shared_ptr<string> state_ {};
+      // The request time.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -999,11 +1111,19 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     shared_ptr<string> code_ {};
     // AsyncResult<Histogram>。
     shared_ptr<DescribeSlowLogHistogramAsyncResponseBody::Data> data_ {};
+    // The message returned for the request.
+    // >  This parameter returns **Successful** when the request succeeds. If the request fails, an exception message (such as an error code) is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful:
+    // 
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

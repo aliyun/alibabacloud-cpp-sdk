@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<string> dbName_ {};
     // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The end time must be later than the start time. The interval cannot exceed 24 hours.
+    // > The end time must be later than the start time. The interval cannot exceed 24 hours.
     shared_ptr<int64_t> end_ {};
     // The instance ID.
     // 
@@ -96,13 +96,13 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
+    // > You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
     shared_ptr<string> nodeId_ {};
     // The SQL query ID. You can call the [GetAsyncErrorRequestListByCode](https://help.aliyun.com/document_detail/410746.html) operation to query the ID of the SQL query for which MySQL error code is returned.
     shared_ptr<string> sqlId_ {};
     // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
-    // >  The start time must be within the storage duration of the SQL Explorer feature of the database instance, and can be up to 90 days earlier than the current time.
+    // > The start time must be within the storage duration of the SQL Explorer feature of the database instance, and can be up to 90 days earlier than the current time.
     shared_ptr<int64_t> start_ {};
   };
 

@@ -66,10 +66,22 @@ namespace Models
 
 
   protected:
+    // The ID of the database instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // 
+    // > Required for PolarDB for MySQL cluster instances.
     shared_ptr<string> nodeId_ {};
+    // The source of the analysis task:
+    // 
+    // - **MANUAL** or **not specified**: queries the recent deadlock analysis task.
+    // 
+    // - **AUTO**: queries the full deadlock analysis task.
     shared_ptr<string> source_ {};
+    // The ID of the deadlock text. This value is returned from the GetDeadLockHistory operation.
+    // 
     // This parameter is required.
     shared_ptr<string> textId_ {};
   };

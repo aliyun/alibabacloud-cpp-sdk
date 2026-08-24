@@ -173,7 +173,7 @@ namespace Models
         protected:
           // The number of active sessions within the account.
           // 
-          // >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+          // > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
           shared_ptr<int64_t> activeCount_ {};
           // The database account.
           shared_ptr<string> key_ {};
@@ -325,7 +325,7 @@ namespace Models
           shared_ptr<int64_t> sessionId_ {};
           // The SQL template ID.
           // 
-          // >  This parameter is returned only when you use a PolarDB-X 2.0 instance.
+          // > This parameter is returned only when you use a PolarDB-X 2.0 instance.
           shared_ptr<string> sqlTemplateId_ {};
           // The SQL statement executed in the session.
           shared_ptr<string> sqlText_ {};
@@ -414,7 +414,7 @@ namespace Models
         protected:
           // The number of active sessions of the database.
           // 
-          // >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+          // > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
           shared_ptr<int64_t> activeCount_ {};
           // The database name.
           shared_ptr<string> key_ {};
@@ -497,7 +497,7 @@ namespace Models
         protected:
           // The number of active sessions that belong to the client IP address.
           // 
-          // >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+          // > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
           shared_ptr<int64_t> activeCount_ {};
           // The IP address of the client.
           shared_ptr<string> key_ {};
@@ -652,18 +652,21 @@ namespace Models
     protected:
       // Indicates whether the asynchronous request was complete. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> complete_ {};
       // Indicates whether the asynchronous request failed. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> fail_ {};
       // Indicates whether the asynchronous request was complete. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isFinish_ {};
       // The ID of the asynchronous request.
       shared_ptr<string> resultId_ {};
@@ -671,9 +674,11 @@ namespace Models
       shared_ptr<Data::SessionData> sessionData_ {};
       // The state of the asynchronous request. Valid values:
       // 
-      // *   **RUNNING**
-      // *   **SUCCESS**
-      // *   **FAIL**
+      // - **RUNNING**
+      // 
+      // - **SUCCESS**
+      // 
+      // - **FAIL**
       shared_ptr<string> state_ {};
       // The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> timestamp_ {};
@@ -725,14 +730,15 @@ namespace Models
     shared_ptr<GetMySQLAllSessionAsyncResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

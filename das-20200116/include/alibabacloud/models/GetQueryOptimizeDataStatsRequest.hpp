@@ -178,16 +178,19 @@ namespace Models
   protected:
     // Specifies whether to sort the returned entries in ascending order. Default value: **true**. Valid values:
     // 
-    // *   **true**: sorts the returned entries in ascending order.
-    // *   **false**: does not sort the returned entries in ascending order.
+    // - **true**: sorts the returned entries in ascending order.
+    // 
+    // - **false**: does not sort the returned entries in ascending order.
     shared_ptr<string> asc_ {};
     // The name of the database to be queried.
     shared_ptr<string> dbNames_ {};
     // The database engine. Valid values:
     // 
-    // *   **MySQL**
-    // *   **PolarDBMySQL**
-    // *   **PostgreSQL**
+    // - **MySQL**
+    // 
+    // - **PolarDBMySQL**
+    // 
+    // - **PostgreSQL**
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
@@ -197,25 +200,35 @@ namespace Models
     shared_ptr<string> keywords_ {};
     // The logical relationship between multiple keywords. Valid values:
     // 
-    // *   **or**
-    // *   **and**
+    // - **or**
+    // 
+    // - **and**
     shared_ptr<string> logicalOperator_ {};
     // Specifies whether to query only SQL templates that need to be optimized. Default value: **false**. Valid values:
     // 
-    // *   **true**: queries only SQL templates that need to be optimized.
-    // *   **false**: does not query only SQL statements that need to be optimized.
+    // - **true**: queries only SQL templates that need to be optimized.
+    // 
+    // - **false**: does not query only SQL statements that need to be optimized.
     shared_ptr<string> onlyOptimizedSql_ {};
     // The field by which to sort the returned entries. Default value: **count**. Valid values:
     // 
-    // *   **count**: the number of executions.
-    // *   **maxQueryTime**: the longest execution time.
-    // *   **avgQueryTime**: the average execution time.
-    // *   **maxLockTime**: the longest lock wait time.
-    // *   **avgLockTime**: the longest lock wait time.
-    // *   **maxRowsExamined**: the largest number of scanned rows.
-    // *   **avgRowsExamined**: the average number of scanned rows.
-    // *   **maxRowsSent**: the largest number of returned rows.
-    // *   **avgRowsSent**: the average number of returned rows.
+    // - **count**: the number of executions.
+    // 
+    // - **maxQueryTime**: the longest execution time.
+    // 
+    // - **avgQueryTime**: the average execution time.
+    // 
+    // - **maxLockTime**: the longest lock wait time.
+    // 
+    // - **avgLockTime**: the longest lock wait time.
+    // 
+    // - **maxRowsExamined**: the largest number of scanned rows.
+    // 
+    // - **avgRowsExamined**: the average number of scanned rows.
+    // 
+    // - **maxRowsSent**: the largest number of returned rows.
+    // 
+    // - **avgRowsSent**: the average number of returned rows.
     shared_ptr<string> orderBy_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<string> pageNo_ {};
@@ -223,13 +236,15 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The region in which the instance resides. Valid values:
     // 
-    // *   **cn-china**: Chinese mainland
-    // *   **cn-hongkong**: China (Hong Kong)
-    // *   **ap-southeast-1**: Singapore
+    // - **cn-china**: Chinese mainland
     // 
-    // This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.****
+    // - **cn-hongkong**: China (Hong Kong)
     // 
-    // >  Set this parameter to **cn-china** for the instances that are created in the regions in the Chinese mainland.
+    // - **ap-southeast-1**: Singapore
+    // 
+    // This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.\\*\\*\\*\\*
+    // 
+    // > Set this parameter to **cn-china** for the instances that are created in the regions in the Chinese mainland.
     shared_ptr<string> region_ {};
     // The tags that are used to filter SQL templates. Separate multiple tags with commas (,). For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
     shared_ptr<string> rules_ {};

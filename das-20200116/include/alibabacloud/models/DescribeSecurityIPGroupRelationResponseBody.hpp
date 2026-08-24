@@ -115,9 +115,15 @@ namespace Models
 
 
       protected:
+        // The IP addresses in the whitelist template.
+        // 
+        // > Separate multiple IP addresses with commas (,). You can add up to 1,000 IP addresses or CIDR blocks across all IP whitelists.
         shared_ptr<string> GIpList_ {};
+        // The name of the IP whitelist template.
         shared_ptr<string> globalIgName_ {};
+        // The ID of the IP whitelist template.
         shared_ptr<string> globalSecurityGroupId_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -140,7 +146,9 @@ namespace Models
 
 
     protected:
+      // The global IP whitelist template information.
       shared_ptr<vector<Data::GlobalSecurityIPGroupRel>> globalSecurityIPGroupRel_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -184,11 +192,20 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     shared_ptr<string> code_ {};
     // ListResult<InstanceSSL>
     shared_ptr<DescribeSecurityIPGroupRelationResponseBody::Data> data_ {};
+    // The message returned for the request.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

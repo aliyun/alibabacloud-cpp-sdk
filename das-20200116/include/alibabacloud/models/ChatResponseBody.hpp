@@ -169,20 +169,35 @@ namespace Models
 
 
   protected:
+    // Indicates the current activity status of the agent.
     shared_ptr<string> activityType_ {};
+    // The content of the response.
     shared_ptr<string> content_ {};
+    // The incremental content of the response.
     shared_ptr<string> delta_ {};
+    // The message ID.
     shared_ptr<string> messageId_ {};
+    // The key for the additional information.
     shared_ptr<string> name_ {};
+    // The ID of the parent message.
     shared_ptr<string> parentMessageId_ {};
+    // The role in the conversation.
     shared_ptr<string> role_ {};
+    // The run ID.
     shared_ptr<string> runId_ {};
+    // The name of the execution step.
     shared_ptr<string> stepName_ {};
+    // The identifier of the callback tool.
     shared_ptr<string> taskTrackerId_ {};
+    // The thread ID.
     shared_ptr<string> threadId_ {};
+    // The tool call ID.
     shared_ptr<string> toolCallId_ {};
+    // The name of the tool.
     shared_ptr<string> toolCallName_ {};
+    // The event type.
     shared_ptr<string> type_ {};
+    // The value of the additional information.
     Darabonba::Json value_ {};
   };
 

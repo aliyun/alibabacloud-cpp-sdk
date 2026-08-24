@@ -123,8 +123,9 @@ namespace Models
       protected:
         // The severity level. Valid values:
         // 
-        // * **INFO**
-        // * **WARN**
+        // - **INFO**
+        // 
+        // - **WARN**
         shared_ptr<string> level_ {};
         // The tag ID.
         shared_ptr<string> ruleId_ {};
@@ -236,8 +237,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

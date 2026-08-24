@@ -348,36 +348,67 @@ namespace Models
 
 
     protected:
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> argument_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> avgRowSize_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> definedValues_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> estimateCPU_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> estimateExecutions_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> estimateIO_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> estimateRows_ {};
+      // Additional information.
       shared_ptr<string> extra_ {};
+      // The ID of the query.
       shared_ptr<string> id_ {};
+      // A reserved field for the PostgreSQL engine.
       shared_ptr<vector<string>> indexList_ {};
+      // The index actually used in the execution plan.
       shared_ptr<string> key_ {};
+      // The length of the index actually used.
       shared_ptr<string> keyLen_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> logicalOp_ {};
+      // A reserved field for the PolarDB X engine.
       shared_ptr<vector<string>> logicalPlanList_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> nodeId_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> outputList_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> parallel_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> parent_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> physicalOp_ {};
+      // The indexes that might be used.
       shared_ptr<string> possibleKeys_ {};
+      // A reserved field for the PostgreSQL engine.
       shared_ptr<string> queryPlan_ {};
+      // The column used by the index.
       shared_ptr<string> ref_ {};
+      // The number of rows to scan.
       shared_ptr<string> rows_ {};
+      // The type of the query.
       shared_ptr<string> selectType_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> stmtId_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> stmtText_ {};
+      // The name of the table.
       shared_ptr<string> table_ {};
+      // A reserved field for the PostgreSQL engine.
       shared_ptr<vector<string>> tableList_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> totalSubtreeCost_ {};
+      // The join type.
       shared_ptr<string> type_ {};
+      // A reserved field for the SQL Server engine.
       shared_ptr<string> warnings_ {};
     };
 
@@ -421,11 +452,21 @@ namespace Models
 
 
   protected:
+    // The status code returned. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // List<ExplainedSqlDO>
+    // List of execution plans.
     shared_ptr<vector<DescribeQueryExplainResponseBody::Data>> data_ {};
+    // The response message.
+    // 
+    // > If the request succeeds, this parameter returns Successful. If the request fails, this parameter returns error details such as an error code.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

@@ -181,18 +181,21 @@ namespace Models
     protected:
       // Indicates whether the asynchronous request was complete.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> complete_ {};
       // Indicates whether the asynchronous request failed. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> fail_ {};
       // Indicates whether the asynchronous request was complete. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isFinish_ {};
       // The number of SQL queries corresponding to the error code.
       shared_ptr<vector<Data::Result>> result_ {};
@@ -200,9 +203,11 @@ namespace Models
       shared_ptr<string> resultId_ {};
       // The state of the asynchronous request. Valid values:
       // 
-      // *   **RUNNING**
-      // *   **SUCCESS**
-      // *   **FAIL**
+      // - **RUNNING**
+      // 
+      // - **SUCCESS**
+      // 
+      // - **FAIL**
       shared_ptr<string> state_ {};
       // The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> timestamp_ {};
@@ -254,14 +259,15 @@ namespace Models
     shared_ptr<GetAsyncErrorRequestStatByCodeResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

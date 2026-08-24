@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The filter parameter.
       shared_ptr<string> key_ {};
+      // The value of the filter parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -175,19 +177,73 @@ namespace Models
 
 
   protected:
+    // Specifies whether to sort the results in ascending order. The default value is false.
     shared_ptr<bool> asc_ {};
+    // The end time of the query. This value is a UNIX timestamp in UTC. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The filter conditions.
     shared_ptr<vector<DescribeSlowLogStatisticRequest::Filters>> filters_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // 
+    // - For RDS for MySQL and PolarDB for MySQL, this parameter applies only to cluster instances. If you do not specify this parameter, the slow query logs of the primary node are queried by default.
+    // 
+    // - For PolarDB-X 2.0, specify **polarx_cn** for compute nodes or **polarx_dn** for data nodes.
     shared_ptr<string> nodeId_ {};
+    // The sorting method. Valid values:
+    // 
+    // **Count**
+    // 
+    // **QueryTime**
+    // 
+    // **LockTime**
+    // 
+    // **RowsExamined**
+    // 
+    // **RowsSent**
     shared_ptr<string> orderBy_ {};
+    // The page number. The value must be a positive integer. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time of the query. This value is a UNIX timestamp in UTC. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
+    // The task type.
+    // 
+    // For SQL engines:
+    // 
+    // **SlowLogRequestOrigin**: Aggregates logs by source IP address.
+    // 
+    // **SlowLogRequestUser**: Aggregates logs by source user.
+    // 
+    // **SQL**: Aggregates logs by SQL ID.
+    // 
+    // For ApsaraDB for MongoDB engines:
+    // 
+    // **SlowLogRequestOrigin**: Aggregates logs by source IP address.
+    // 
+    // **SlowLogRequestUser**: Aggregates logs by source user.
+    // 
+    // **SQL**: Aggregates logs by query ID.
+    // 
+    // **SlowLogRequestOpType**: Aggregates logs by operation type.
+    // 
+    // **SlowLogRequestNamespace**: Aggregates logs by namespace.
+    // 
+    // For Redis engines:
+    // 
+    // **SlowLogRequestNodeId**: Aggregates logs by node ID.
+    // 
+    // **SlowLogRequestHostInsId**: Aggregates logs by host instance ID.
     shared_ptr<string> type_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> consoleContext_ {};
     // The instance ID.
     // 
-    // >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+    // > The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

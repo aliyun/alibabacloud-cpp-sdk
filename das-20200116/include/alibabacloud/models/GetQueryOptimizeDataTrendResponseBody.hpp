@@ -114,14 +114,21 @@ namespace Models
       protected:
         // The name of the metric. Valid values:
         // 
-        // * **sqlExecuteCount**: the number of executions of slow SQL queries.
-        // * **sqlExecuteCountDiff**: the difference in the number of executions of slow SQL queries compared to the previous day.
-        // * **sqlCount**: the number of slow SQL templates.
-        // * **sqlCountDiff**: the difference in the number of slow SQL templates compared to the previous day.
-        // * **optimizedSqlExecuteCount**: the number of optimizable executions of slow SQL queries.
-        // * **optimizedSqlExecuteCountDiff**: the difference in the number of optimizable executions of slow SQL queries compared to the previous day.
-        // * **optimizedSqlCount**: the number of optimizable slow SQL templates.
-        // * **optimizedSqlCountDiff**: the difference in the number of optimizable slow SQL templates compared to the previous day.
+        // - **sqlExecuteCount**: the number of executions of slow SQL queries.
+        // 
+        // - **sqlExecuteCountDiff**: the difference in the number of executions of slow SQL queries compared to the previous day.
+        // 
+        // - **sqlCount**: the number of slow SQL templates.
+        // 
+        // - **sqlCountDiff**: the difference in the number of slow SQL templates compared to the previous day.
+        // 
+        // - **optimizedSqlExecuteCount**: the number of optimizable executions of slow SQL queries.
+        // 
+        // - **optimizedSqlExecuteCountDiff**: the difference in the number of optimizable executions of slow SQL queries compared to the previous day.
+        // 
+        // - **optimizedSqlCount**: the number of optimizable slow SQL templates.
+        // 
+        // - **optimizedSqlCountDiff**: the difference in the number of optimizable slow SQL templates compared to the previous day.
         shared_ptr<string> kpi_ {};
         // The data timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> timestamp_ {};
@@ -231,8 +238,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<string> success_ {};
   };
 

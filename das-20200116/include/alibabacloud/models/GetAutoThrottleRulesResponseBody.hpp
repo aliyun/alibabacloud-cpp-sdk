@@ -201,13 +201,15 @@ namespace Models
         // 
         // > Abnormal SQL statements use the same template as the SQL statements that need to be throttled.
         // 
-        // * **true**
-        // * **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> autoKillSession_ {};
         // The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
         // 
-        // * **AND**
-        // * **OR**
+        // - **AND**
+        // 
+        // - **OR**
         shared_ptr<string> cpuSessionRelation_ {};
         // The CPU utilization threshold.
         shared_ptr<double> cpuUsage_ {};
@@ -219,8 +221,9 @@ namespace Models
         shared_ptr<string> userId_ {};
         // Indicates whether the automatic SQL throttling feature is enabled. Valid values:
         // 
-        // * **true**
-        // * **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> visible_ {};
       };
 
@@ -356,13 +359,15 @@ namespace Models
         // 
         // > Abnormal SQL statements use the same template as the SQL statements that need to be throttled.
         // 
-        // * **true**
-        // * **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> autoKillSession_ {};
         // The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
         // 
-        // * **AND**
-        // * **OR**
+        // - **AND**
+        // 
+        // - **OR**
         shared_ptr<string> cpuSessionRelation_ {};
         // The CPU utilization threshold.
         shared_ptr<double> cpuUsage_ {};
@@ -374,8 +379,9 @@ namespace Models
         shared_ptr<string> userId_ {};
         // Indicates whether the automatic SQL throttling feature is enabled. Valid values:
         // 
-        // * **true**
-        // * **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> visible_ {};
       };
 
@@ -444,11 +450,11 @@ namespace Models
       shared_ptr<vector<Data::EnableAutoThrottleList>> enableAutoThrottleList_ {};
       // The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
       // 
-      // >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+      // > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
       shared_ptr<int64_t> neverEnableAutoThrottleOrReleasedInstanceCount_ {};
       // The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
       // 
-      // >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+      // > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
       shared_ptr<vector<string>> neverEnableAutoThrottleOrReleasedInstanceIdList_ {};
       // The number of databases for which the automatic SQL throttling feature has been enabled.
       shared_ptr<int64_t> totalAutoThrottleRulesCount_ {};
@@ -504,14 +510,15 @@ namespace Models
     shared_ptr<GetAutoThrottleRulesResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

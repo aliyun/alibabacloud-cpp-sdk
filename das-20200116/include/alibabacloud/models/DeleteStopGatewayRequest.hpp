@@ -38,7 +38,9 @@ namespace Models
 
 
   protected:
-    // The ID that can uniquely identify the DBGateway. You can obtain the DBGateway ID by calling the [DescribeCloudbenchTask](https://help.aliyun.com/document_detail/230669.html) operation. The DBGateway ID is the value of the **ClientGatewayId** field in the response.
+    // The unique ID of the database gateway.
+    // 
+    // Note: You can get this ID from the `ClientGatewayId` field in the response of the [DescribeCloudbenchTask](https://help.aliyun.com/document_detail/230669.html)  API.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};

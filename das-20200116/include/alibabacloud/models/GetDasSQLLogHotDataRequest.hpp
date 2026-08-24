@@ -287,96 +287,99 @@ namespace Models
 
 
   protected:
-    // The account of the database.
+    // The database account.
     // 
-    // >  You can specify multiple database accounts that are separated by spaces. Example: `user1 user2 user3`.
+    // > You can specify multiple database accounts. Separate multiple accounts with a space. For example: `user1 user2 user3`.
     shared_ptr<string> accountName_ {};
     // The node ID.
     // 
-    // >  This parameter must be specified if the database instance is a PolarDB for MySQL cluster.
+    // > This parameter is required if the database instance is a PolarDB for MySQL cluster.
     shared_ptr<string> childDBInstanceIDs_ {};
-    // The name of the database.
+    // The database name.
     // 
-    // >  You can specify multiple database names that are separated by spaces. Example: `DB1 DB2 DB3`.
+    // > You can specify multiple database names. Separate multiple names with a space. For example: `DB1 DB2 DB3`.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end of the time range to query. This value must be a Unix timestamp in milliseconds.
     // 
-    // >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
+    // > The end time must be later than the start time. The time range cannot exceed one day.
     // 
     // This parameter is required.
     shared_ptr<int64_t> end_ {};
-    // The error code of SQL execution. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to query MySQL error codes in SQL Explorer data.
+    // The SQL execution error code. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to obtain the error code.
     shared_ptr<string> fail_ {};
-    // The IP address of the client.
+    // The client IP address.
     // 
-    // >  You can specify multiple IP addresses that are separated by spaces. Example: `IP1 IP2 IP3`.
+    // > You can specify multiple client IP addresses. Separate multiple IP addresses with a space. For example: `IP1 IP2 IP3`.
     shared_ptr<string> hostAddress_ {};
     // The ID of the database instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The logical relationship among multiple keywords.
+    // The logical operator to use with multiple keywords. Valid values:
     // 
-    // *   **or**
-    // *   **and**
+    // - **or**
+    // 
+    // - **and**
     shared_ptr<string> logicalOperator_ {};
-    // The maximum execution duration. Unit: microseconds. You can specify this parameter to query the SQL statements whose execution duration is smaller than the value of this parameter.
+    // The maximum execution time in microseconds. Returns SQL statements that have an execution time less than this value.
     shared_ptr<int64_t> maxLatancy_ {};
     // The maximum number of entries per page. Valid values: 5 to 100.
     shared_ptr<int64_t> maxRecordsPerPage_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<int64_t> maxRows_ {};
-    // The maximum number of scanned rows. You can specify this parameter to query the SQL statements that scan a smaller number of rows than the value of this parameter.
+    // The maximum number of scanned rows. Returns SQL statements that scanned fewer than this number of rows.
     shared_ptr<int64_t> maxScanRows_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<int64_t> maxSpillCnt_ {};
-    // The minimum execution duration. Unit: microseconds. You can specify this parameter to query the SQL statements whose execution duration is greater than or equal to the value of this parameter.
+    // The minimum execution time in microseconds. Returns SQL statements with an execution time greater than or equal to this value.
     shared_ptr<int64_t> minLatancy_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<int64_t> minRows_ {};
-    // The minimum number of scanned rows. You can specify this parameter to query the SQL statements that scan a larger or an equal number of rows than the value of this parameter.
+    // The minimum number of scanned rows. Returns SQL statements that scanned at least this number of rows.
     shared_ptr<int64_t> minScanRows_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<int64_t> minSpillCnt_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number to return. Pages start from 1. The default value is 1.
     shared_ptr<int64_t> pageNumbers_ {};
-    // The keyword that is used for the query.
+    // The query keyword.
     // 
-    // >  Fuzzy search is not supported. You can query data by using multiple keywords. Separate keywords with spaces.
+    // > Fuzzy search is supported. You can specify up to 10 keywords. Separate multiple keywords with a space. For example: a1 b2 c3.
     shared_ptr<string> queryKeyword_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<string> role_ {};
-    // The basis on which you want to sort the query results.
+    // The sort key. Valid values:
     // 
-    // *   **SCAN_ROWS**: the number of scanned rows.
-    // *   **UPDATE_ROWS**: the number of updated rows.
-    // *   **CONSUME**: the time consumed.
-    // *   **ORIGIN_TIME**: the execution duration.
+    // - **ScanRows**: scanned rows.
+    // 
+    // - **UpdateRows**: updated rows.
+    // 
+    // - **Consume**: execution time.
+    // 
+    // - **OriginTime**: The execution start time.
+    // 
+    // - **ReturnRows**: returned rows.
     shared_ptr<string> sortKey_ {};
-    // The order in which you want to sort the query results.
+    // The sort order. Valid values:
     // 
-    // *   **ase**: ascending order.
-    // *   **desc**: descending order.
+    // - **ASC**: ascending
+    // 
+    // - **DESC**: descending
     shared_ptr<string> sortMethod_ {};
-    // The type of the SQL statement. Valid values:
-    // 
-    // *   **SELECT**
-    // *   **UPDATE**
-    // *   **DELETE**
+    // The SQL type.
     shared_ptr<string> sqlType_ {};
-    // The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start of the time range to query. This value must be a Unix timestamp in milliseconds.
     // 
-    // >  The beginning of the time range to query must be later than the time when DAS Enterprise Edition is enabled, and can be up to seven days earlier than the current time.
+    // > You can query only data that is generated after you enable DAS Enterprise Edition. The start time cannot be earlier than seven days before the current time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> start_ {};
-    // The execution results. You can specify **0** to query the SQL statements that are successfully executed. You can also specify an error code to query the corresponding SQL statements that fail to be executed.
+    // The execution state. Set this parameter to **0** to query for successfully executed SQL statements. You can also specify an error code to query for the corresponding SQL statements.
     shared_ptr<string> state_ {};
     // The thread ID.
     // 
-    // >  You can specify multiple thread IDs that are separated by spaces. Example: `Thread ID1 Thread ID2 Thread ID3`.
+    // > You can specify multiple thread IDs. Separate multiple IDs with a space. For example: `657 658 659`.
     shared_ptr<string> threadID_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter.
     shared_ptr<string> traceId_ {};
     // The transaction ID.
     shared_ptr<string> transactionId_ {};

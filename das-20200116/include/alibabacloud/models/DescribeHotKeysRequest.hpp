@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ApsaraDB for Redis instance.
+    // The instance ID of the Redis instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the data shard on the ApsaraDB for Redis instance.
+    // The ID of the data shard in the Redis instance.
     shared_ptr<string> nodeId_ {};
   };
 

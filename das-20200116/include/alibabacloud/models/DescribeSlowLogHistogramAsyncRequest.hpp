@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The filter parameter.
       shared_ptr<string> key_ {};
+      // The value of the filter parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -120,12 +122,22 @@ namespace Models
 
 
   protected:
+    // The end time of the query. Specify a UNIX timestamp in milliseconds.
+    // > The end time must be later than the start time.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The list of query filter conditions.
     shared_ptr<vector<DescribeSlowLogHistogramAsyncRequest::Filters>> filters_ {};
+    // The database instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
+    // > For PolarDB for MySQL instances, specify the node ID.
     shared_ptr<string> nodeId_ {};
+    // The start time of the query. Specify a UNIX timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

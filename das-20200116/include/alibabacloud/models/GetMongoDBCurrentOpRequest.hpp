@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  If you do not specify a node ID, the sessions of the primary node are queried by default.
+    // > If you do not specify a node ID, the sessions of the primary node are queried by default.
     shared_ptr<string> nodeId_ {};
     // A reserved parameter. You do not need to specify the parameter.
     shared_ptr<string> role_ {};

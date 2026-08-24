@@ -131,13 +131,23 @@ namespace Models
 
 
     protected:
+      // The end time of the analysis task range.
       shared_ptr<string> endTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The number of deadlocks.
       shared_ptr<int32_t> lockNumber_ {};
+      // The node ID. This parameter is used for PolarDB for MySQL clusters.
       shared_ptr<string> nodeId_ {};
+      // The start time of the analysis task range.
       shared_ptr<string> startTime_ {};
+      // The task status. Valid values:
+      // - **SUCCESS**: The analysis is successful.
+      // - **FAILED**: The analysis failed or encountered an exception.
       shared_ptr<string> status_ {};
+      // The full deadlock analysis task ID.
       shared_ptr<string> taskId_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -181,10 +191,20 @@ namespace Models
 
 
   protected:
+    // The returned status code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<vector<GetDeadlockHistogramResponseBody::Data>> data_ {};
+    // The returned message.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

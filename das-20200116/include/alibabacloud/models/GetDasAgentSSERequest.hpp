@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The ID of the agent to use. This parameter is optional. If you do not specify this parameter, the service uses the default agent. You can provide the ID of an agent that was generated when you enabled the DAS Agent service or that you manually created.
     shared_ptr<string> agentId_ {};
+    // This parameter is deprecated. Specify the instance ID in the Query parameter.
     shared_ptr<string> instanceId_ {};
+    // The natural language query for the agent.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The session ID, which must be in the UUID format. This parameter is optional. If you do not provide a session ID, the service creates a new session. To continue an existing conversation, use the same session ID in subsequent requests.
     shared_ptr<string> sessionId_ {};
   };
 

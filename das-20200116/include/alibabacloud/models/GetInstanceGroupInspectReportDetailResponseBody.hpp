@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The content of the automated operations report, including the report date and diagnostic details of managed instances.
       shared_ptr<string> reportDetail_ {};
+      // The report ID.
       shared_ptr<string> reportId_ {};
     };
 
@@ -119,11 +121,19 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     shared_ptr<string> code_ {};
     // ReportDetail
     shared_ptr<GetInstanceGroupInspectReportDetailResponseBody::Data> data_ {};
+    // The message returned for the request.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // * true: The request is successful.
+    // * false: The request fails.
     shared_ptr<string> success_ {};
   };
 

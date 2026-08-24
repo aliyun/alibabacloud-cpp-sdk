@@ -134,10 +134,32 @@ namespace Models
 
 
       protected:
+        // The log category. Valid values:
+        // - **NETWORK**: network connectivity log.
+        // - **ACCESS**: access control log.
+        // - **-**: common log.
+        // - **COMMAND**: slow log.
+        // - **SHARDING**: cluster log.
+        // - **STORAGE**: storage engine log.
+        // - **CONNPOOL**: connection pool log.
+        // - **ASIO**: asynchronous I/O log.
+        // - **WRITE**: slow update log.
+        // 
+        // > This parameter is supported only for ApsaraDB for MongoDB instances.
         shared_ptr<string> category_ {};
+        // The log connection information.
+        // 
+        // > This parameter is supported only for ApsaraDB for MongoDB instances.
         shared_ptr<string> connInfo_ {};
+        // The error log content.
         shared_ptr<string> content_ {};
+        // The time when the error log was generated. The value is a UNIX timestamp in milliseconds.
+        // 
+        // >Notice: For ApsaraDB for MongoDB instances, the time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
         shared_ptr<string> createTime_ {};
+        // The node ID.
+        // 
+        // > This parameter is supported only for ApsaraDB for MongoDB instances.
         shared_ptr<string> DBInstanceName_ {};
       };
 
@@ -196,12 +218,19 @@ namespace Models
 
 
     protected:
+      // The end time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> endTime_ {};
+      // The total number of log entries returned on the current page.
       shared_ptr<int64_t> itemsNumbers_ {};
+      // The log details.
       shared_ptr<vector<Data::Logs>> logs_ {};
+      // The maximum number of entries per page.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumbers_ {};
+      // The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> startTime_ {};
+      // The total number of log entries within the specified time range.
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -245,10 +274,19 @@ namespace Models
 
 
   protected:
+    // The returned status code.
     shared_ptr<int64_t> code_ {};
+    // The data details.
     shared_ptr<DescribeErrorLogRecordsResponseBody::Data> data_ {};
+    // The returned message.
+    // >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

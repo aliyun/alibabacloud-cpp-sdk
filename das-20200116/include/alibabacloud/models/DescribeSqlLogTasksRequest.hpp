@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The name of the filter parameter.
+      // The filter parameter.
       // 
-      // >  For more information about the filter parameters, see the **Valid values of Key** section of this topic.
+      // > See **Additional information about request parameters** for the supported filter parameters and their valid values.
       shared_ptr<string> key_ {};
       // The value of the filter parameter.
       shared_ptr<string> value_ {};
@@ -143,21 +143,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
-    // The filter parameters.
+    // An array of filter conditions.
     shared_ptr<vector<DescribeSqlLogTasksRequest::Filters>> filters_ {};
     // The ID of the database instance.
     shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
-    // >  This parameter is available only for instances that are deployed in the cluster architecture. You can specify this parameter to query the tasks of a specific node. If this parameter is not specified, the tasks of the primary node are returned by default.
+    // > For cluster instances only. You can specify a node ID to query its offline tasks. If this parameter is omitted, the offline tasks of the primary node are returned by default.
     shared_ptr<string> nodeId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be a positive integer. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> startTime_ {};
   };
 

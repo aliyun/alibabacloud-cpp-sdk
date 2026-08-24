@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The filter parameter. Set this parameter to filters.
       shared_ptr<string> key_ {};
+      // The error log content to filter.
       shared_ptr<string> value_ {};
     };
 
@@ -148,15 +150,36 @@ namespace Models
 
 
   protected:
+    // The end time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
+    // >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The filter conditions.
+    // 
+    // > Filtering is supported only for error logs of ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle).
     shared_ptr<vector<DescribeErrorLogRecordsRequest::Filters>> filters_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
     shared_ptr<string> nodeId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The node role. Valid values:
+    // 
+    // - db
+    // - mongos
+    // 
+    // > This parameter is supported only for ApsaraDB for MongoDB instances.
     shared_ptr<string> role_ {};
+    // The start time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
+    // 
+    // >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

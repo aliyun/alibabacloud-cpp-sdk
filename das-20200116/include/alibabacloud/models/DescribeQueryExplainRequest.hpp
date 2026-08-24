@@ -75,11 +75,20 @@ namespace Models
 
 
   protected:
+    // The name of the database.
     shared_ptr<string> dbName_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the node.
+    // 
+    // > For PolarDB for MySQL instances, if you specify a node ID, the system queries the execution plan on that node. Otherwise, it queries the execution plan on a secondary node.For high availability ApsaraDB RDS for MySQL instances, if you specify an instance ID, the system queries the execution plan on that node. Otherwise, it queries the execution plan on a secondary node.
     shared_ptr<string> nodeId_ {};
+    // Schema information. This is a reserved parameter.
     shared_ptr<string> schema_ {};
+    // The SQL statement for which you want to get the execution plan.
+    // 
     // This parameter is required.
     shared_ptr<string> sql_ {};
   };

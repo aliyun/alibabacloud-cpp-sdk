@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The returned status code.
     shared_ptr<int64_t> code_ {};
+    // Indicates whether the task is created. Valid values:
+    // 
+    // - **true**: The task is created.
+    // - **false**: The task fails to be created.
     shared_ptr<bool> data_ {};
+    // The returned message.
+    // 
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

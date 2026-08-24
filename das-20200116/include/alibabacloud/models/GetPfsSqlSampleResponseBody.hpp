@@ -376,17 +376,19 @@ namespace Models
       shared_ptr<string> logicId_ {};
       // Indicates whether the server failed to find an index that can be used for the SQL statement. Valid values:
       // 
-      // *   **1**: yes.
-      // *   **0**: no.
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<int32_t> noGoodIndexUsed_ {};
       // Indicates whether table scans were performed when indexes were not used. Valid values:
       // 
-      // *   **1**: yes.
-      // *   **0**: no.
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<int32_t> noIndexUsed_ {};
       // The node ID.
       // 
-      // >  This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
+      // > This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
       shared_ptr<string> nodeId_ {};
       // The number of rows affected by the SQL statement.
       shared_ptr<int32_t> rowsAffected_ {};
@@ -476,14 +478,15 @@ namespace Models
     shared_ptr<vector<GetPfsSqlSampleResponseBody::Data>> data_ {};
     // The returned message.
     // 
-    // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 
