@@ -81,9 +81,11 @@ namespace Models
 
 
     protected:
+      // The display name of the file. If not specified, the file name from Path is used.
       shared_ptr<string> name_ {};
-      // 本地上传时为预签名上传使用的批次相对路径；不同 ImportType 下含义由导入类型定义。
+      // The file name or relative path for local upload scenarios. The value cannot start with `direct_upload/` or `uploaded/`, cannot contain empty segments, `.`, or `..`, and must be 1024 bytes or less.
       shared_ptr<string> path_ {};
+      // The file size in bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -113,8 +115,11 @@ namespace Models
 
 
   protected:
+    // The list of files to upload. You can specify 1 to 100 files.
     shared_ptr<vector<GetKnowledgeBasePreSignedUrlRequest::Documents>> documents_ {};
+    // The validity period of the pre-signed URL in seconds. Default value: `3600`.
     shared_ptr<int32_t> expiresIn_ {};
+    // The knowledge base ID. Either this parameter or datasetId must be specified. This parameter takes priority.
     shared_ptr<string> knowledgeBaseId_ {};
   };
 

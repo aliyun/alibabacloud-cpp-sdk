@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_ANY_TO_JSON(MetaFields, metaFields_);
       DARABONBA_PTR_TO_JSON(StrategyId, strategyId_);
       DARABONBA_PTR_TO_JSON(dingTalkConfiguration, dingTalkConfiguration_);
+      DARABONBA_PTR_TO_JSON(parentId, parentId_);
     };
     friend void from_json(const Darabonba::Json& j, AddDocumentsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Dedup, dedup_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(MetaFields, metaFields_);
       DARABONBA_PTR_FROM_JSON(StrategyId, strategyId_);
       DARABONBA_PTR_FROM_JSON(dingTalkConfiguration, dingTalkConfiguration_);
+      DARABONBA_PTR_FROM_JSON(parentId, parentId_);
     };
     AddDocumentsRequest() = default ;
     AddDocumentsRequest(const AddDocumentsRequest &) = default ;
@@ -126,12 +128,19 @@ namespace Models
 
 
     protected:
+      // Not supported. Ignore this parameter.
       shared_ptr<string> appId_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> appPassword_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> dingDocMcpLink_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> dingTableMcpLink_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> knowledgeId_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> knowledgeType_ {};
+      // Not supported. Ignore this parameter.
       shared_ptr<string> userId_ {};
     };
 
@@ -182,9 +191,11 @@ namespace Models
 
 
     protected:
+      // The name of the document.
       shared_ptr<string> name_ {};
-      // 本地上传时为预签名上传使用的批次相对路径；不同 ImportType 下含义由导入类型定义。
+      // The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed request.
       shared_ptr<string> path_ {};
+      // The size of the file.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -226,13 +237,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable content deduplication.
       shared_ptr<bool> contentDedup_ {};
+      // Specifies whether to enable document name deduplication.
       shared_ptr<bool> docNameDedup_ {};
     };
 
     virtual bool empty() const override { return this->dedup_ == nullptr
         && this->documents_ == nullptr && this->importType_ == nullptr && this->knowledgeBaseId_ == nullptr && this->metaFields_ == nullptr && this->strategyId_ == nullptr
-        && this->dingTalkConfiguration_ == nullptr; };
+        && this->dingTalkConfiguration_ == nullptr && this->parentId_ == nullptr; };
     // dedup Field Functions 
     bool hasDedup() const { return this->dedup_ != nullptr;};
     void deleteDedup() { this->dedup_ = nullptr;};
@@ -290,16 +303,30 @@ namespace Models
     inline AddDocumentsRequest& setDingTalkConfiguration(AddDocumentsRequest::DingTalkConfiguration && dingTalkConfiguration) { DARABONBA_PTR_SET_RVALUE(dingTalkConfiguration_, dingTalkConfiguration) };
 
 
+    // parentId Field Functions 
+    bool hasParentId() const { return this->parentId_ != nullptr;};
+    void deleteParentId() { this->parentId_ = nullptr;};
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline AddDocumentsRequest& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
+
+
   protected:
+    // The deduplication configuration.
     shared_ptr<AddDocumentsRequest::Dedup> dedup_ {};
+    // The list of documents.
     shared_ptr<vector<AddDocumentsRequest::Documents>> documents_ {};
-    // 当前支持 LOCAL_UPLOAD；OSS_IMPORT 和 PUBLIC_URL 为后续导入方式预留。
+    // The import type.
     shared_ptr<string> importType_ {};
+    // The ID of the knowledge base.
     shared_ptr<string> knowledgeBaseId_ {};
-    // 导入时批量设置到本批次所有知识数据的标签键值。Key 必须为知识库已定义标签字段；Value 支持 string、int64、float32、bool、list。
+    // The batch label configuration. The key must be a label field defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
     Darabonba::Json metaFields_ {};
+    // The ID of the processing strategy.
     shared_ptr<string> strategyId_ {};
+    // Not supported. Ignore this parameter.
     shared_ptr<AddDocumentsRequest::DingTalkConfiguration> dingTalkConfiguration_ {};
+    // Defaults to root when omitted.
+    shared_ptr<string> parentId_ {};
   };
 
   } // namespace Models

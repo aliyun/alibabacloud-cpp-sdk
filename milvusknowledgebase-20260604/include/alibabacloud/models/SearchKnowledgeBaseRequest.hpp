@@ -388,9 +388,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The query for retrieval.
     shared_ptr<string> query_ {};
-    // The reranking model ID.
+    // The rerank model ID.
     shared_ptr<int64_t> rerankModelId_ {};
-    // 租户已开通的重排模型名称。同时填写 rerankModelId 时，本参数优先生效。
+    // The name of the rerank model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
     shared_ptr<string> rerankModelName_ {};
     // The retrieval configuration.
     shared_ptr<SearchKnowledgeBaseRequest::RetrievalConfig> retrievalConfig_ {};

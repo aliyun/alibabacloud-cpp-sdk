@@ -62,6 +62,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(knowledgeBaseId, knowledgeBaseId_);
         DARABONBA_PTR_TO_JSON(locations, locations_);
         DARABONBA_PTR_TO_JSON(parentChunkId, parentChunkId_);
+        DARABONBA_ANY_TO_JSON(scalarFields, scalarFields_);
         DARABONBA_PTR_TO_JSON(score, score_);
         DARABONBA_PTR_TO_JSON(scoreDetails, scoreDetails_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(knowledgeBaseId, knowledgeBaseId_);
         DARABONBA_PTR_FROM_JSON(locations, locations_);
         DARABONBA_PTR_FROM_JSON(parentChunkId, parentChunkId_);
+        DARABONBA_ANY_FROM_JSON(scalarFields, scalarFields_);
         DARABONBA_PTR_FROM_JSON(score, score_);
         DARABONBA_PTR_FROM_JSON(scoreDetails, scoreDetails_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
@@ -258,8 +260,8 @@ namespace Models
 
       virtual bool empty() const override { return this->chunkId_ == nullptr
         && this->content_ == nullptr && this->contentType_ == nullptr && this->documentId_ == nullptr && this->documentName_ == nullptr && this->images_ == nullptr
-        && this->knowledgeBaseId_ == nullptr && this->locations_ == nullptr && this->parentChunkId_ == nullptr && this->score_ == nullptr && this->scoreDetails_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->knowledgeBaseId_ == nullptr && this->locations_ == nullptr && this->parentChunkId_ == nullptr && this->scalarFields_ == nullptr && this->score_ == nullptr
+        && this->scoreDetails_ == nullptr && this->tags_ == nullptr; };
       // chunkId Field Functions 
       bool hasChunkId() const { return this->chunkId_ != nullptr;};
       void deleteChunkId() { this->chunkId_ = nullptr;};
@@ -327,6 +329,15 @@ namespace Models
       inline Results& setParentChunkId(string parentChunkId) { DARABONBA_PTR_SET_VALUE(parentChunkId_, parentChunkId) };
 
 
+      // scalarFields Field Functions 
+      bool hasScalarFields() const { return this->scalarFields_ != nullptr;};
+      void deleteScalarFields() { this->scalarFields_ = nullptr;};
+      inline       const Darabonba::Json & getScalarFields() const { DARABONBA_GET(scalarFields_) };
+      Darabonba::Json & getScalarFields() { DARABONBA_GET(scalarFields_) };
+      inline Results& setScalarFields(const Darabonba::Json & scalarFields) { DARABONBA_SET_VALUE(scalarFields_, scalarFields) };
+      inline Results& setScalarFields(Darabonba::Json && scalarFields) { DARABONBA_SET_RVALUE(scalarFields_, scalarFields) };
+
+
       // score Field Functions 
       bool hasScore() const { return this->score_ != nullptr;};
       void deleteScore() { this->score_ = nullptr;};
@@ -371,6 +382,8 @@ namespace Models
       shared_ptr<vector<Results::Locations>> locations_ {};
       // The parent chunk ID.
       shared_ptr<string> parentChunkId_ {};
+      // The scalar columns of the structured knowledge base. The columns are returned by their original column names and are not used in retrieval.
+      Darabonba::Json scalarFields_ {};
       // The overall relevance score.
       shared_ptr<float> score_ {};
       // The relevance score details.
@@ -466,11 +479,11 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response status code.
+    // The status code.
     shared_ptr<int32_t> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
