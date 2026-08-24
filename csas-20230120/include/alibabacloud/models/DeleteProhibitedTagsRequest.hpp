@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the custom prohibited software labels to delete. Duplicate IDs are not allowed. You can specify up to 100 IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> tagIds_ {};
   };

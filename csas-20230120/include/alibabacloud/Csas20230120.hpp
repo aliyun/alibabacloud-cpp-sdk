@@ -38,6 +38,23 @@ namespace Csas20230120
       Models::AddDeviceGroupMatchDevicesResponse addDeviceGroupMatchDevices(const Models::AddDeviceGroupMatchDevicesRequest &request);
 
       /**
+       * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+       *
+       * @param request AddVirusScanAdditionalListsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddVirusScanAdditionalListsResponse
+       */
+      Models::AddVirusScanAdditionalListsResponse addVirusScanAdditionalListsWithOptions(const Models::AddVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+       *
+       * @param request AddVirusScanAdditionalListsRequest
+       * @return AddVirusScanAdditionalListsResponse
+       */
+      Models::AddVirusScanAdditionalListsResponse addVirusScanAdditionalLists(const Models::AddVirusScanAdditionalListsRequest &request);
+
+      /**
        * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
        *
        * @param tmpReq AttachApplication2ConnectorRequest
@@ -154,6 +171,40 @@ namespace Csas20230120
        * @return BatchDeletePrivateAccessPolicyResponse
        */
       Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicy(const Models::BatchDeletePrivateAccessPolicyRequest &request);
+
+      /**
+       * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+       *
+       * @param request CancelVirusScanTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelVirusScanTasksResponse
+       */
+      Models::CancelVirusScanTasksResponse cancelVirusScanTasksWithOptions(const Models::CancelVirusScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+       *
+       * @param request CancelVirusScanTasksRequest
+       * @return CancelVirusScanTasksResponse
+       */
+      Models::CancelVirusScanTasksResponse cancelVirusScanTasks(const Models::CancelVirusScanTasksRequest &request);
+
+      /**
+       * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+       *
+       * @param request CancelVulScanTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelVulScanTasksResponse
+       */
+      Models::CancelVulScanTasksResponse cancelVulScanTasksWithOptions(const Models::CancelVulScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+       *
+       * @param request CancelVulScanTasksRequest
+       * @return CancelVulScanTasksResponse
+       */
+      Models::CancelVulScanTasksResponse cancelVulScanTasks(const Models::CancelVulScanTasksRequest &request);
 
       /**
        * @summary Creates an approval flow under the current Alibaba Cloud account.
@@ -503,6 +554,91 @@ namespace Csas20230120
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
+       * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+       *
+       * @param request CreateVirusScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVirusScanScheduledStrategyResponse
+       */
+      Models::CreateVirusScanScheduledStrategyResponse createVirusScanScheduledStrategyWithOptions(const Models::CreateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+       *
+       * @param request CreateVirusScanScheduledStrategyRequest
+       * @return CreateVirusScanScheduledStrategyResponse
+       */
+      Models::CreateVirusScanScheduledStrategyResponse createVirusScanScheduledStrategy(const Models::CreateVirusScanScheduledStrategyRequest &request);
+
+      /**
+       * @summary Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+       *
+       * @param request CreateVirusScanTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVirusScanTaskResponse
+       */
+      Models::CreateVirusScanTaskResponse createVirusScanTaskWithOptions(const Models::CreateVirusScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+       *
+       * @param request CreateVirusScanTaskRequest
+       * @return CreateVirusScanTaskResponse
+       */
+      Models::CreateVirusScanTaskResponse createVirusScanTask(const Models::CreateVirusScanTaskRequest &request);
+
+      /**
+       * @summary Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+       *
+       * @param request CreateVulScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVulScanScheduledStrategyResponse
+       */
+      Models::CreateVulScanScheduledStrategyResponse createVulScanScheduledStrategyWithOptions(const Models::CreateVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+       *
+       * @param request CreateVulScanScheduledStrategyRequest
+       * @return CreateVulScanScheduledStrategyResponse
+       */
+      Models::CreateVulScanScheduledStrategyResponse createVulScanScheduledStrategy(const Models::CreateVulScanScheduledStrategyRequest &request);
+
+      /**
+       * @summary Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+       *
+       * @param request CreateVulScanTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVulScanTaskResponse
+       */
+      Models::CreateVulScanTaskResponse createVulScanTaskWithOptions(const Models::CreateVulScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+       *
+       * @param request CreateVulScanTaskRequest
+       * @return CreateVulScanTaskResponse
+       */
+      Models::CreateVulScanTaskResponse createVulScanTask(const Models::CreateVulScanTaskRequest &request);
+
+      /**
+       * @summary Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+       *
+       * @param tmpReq CreateVulnerabilityFixTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVulnerabilityFixTaskResponse
+       */
+      Models::CreateVulnerabilityFixTaskResponse createVulnerabilityFixTaskWithOptions(const Models::CreateVulnerabilityFixTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+       *
+       * @param request CreateVulnerabilityFixTaskRequest
+       * @return CreateVulnerabilityFixTaskResponse
+       */
+      Models::CreateVulnerabilityFixTaskResponse createVulnerabilityFixTask(const Models::CreateVulnerabilityFixTaskRequest &request);
+
+      /**
        * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
        *
        * @param tmpReq CreateWmBaseImageRequest
@@ -658,6 +794,23 @@ namespace Csas20230120
        * @return DeleteDeviceGroupsResponse
        */
       Models::DeleteDeviceGroupsResponse deleteDeviceGroups(const Models::DeleteDeviceGroupsRequest &request);
+
+      /**
+       * @summary Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+       *
+       * @param request DeleteDevicesVulnerabilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDevicesVulnerabilityResponse
+       */
+      Models::DeleteDevicesVulnerabilityResponse deleteDevicesVulnerabilityWithOptions(const Models::DeleteDevicesVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+       *
+       * @param request DeleteDevicesVulnerabilityRequest
+       * @return DeleteDevicesVulnerabilityResponse
+       */
+      Models::DeleteDevicesVulnerabilityResponse deleteDevicesVulnerability(const Models::DeleteDevicesVulnerabilityRequest &request);
 
       /**
        * @summary Deletes a domain name list.
@@ -886,7 +1039,7 @@ namespace Csas20230120
       Models::DeleteProhibitedSoftwareResponse deleteProhibitedSoftware(const Models::DeleteProhibitedSoftwareRequest &request);
 
       /**
-       * @summary 批量删除自定义标签
+       * @summary Deletes custom prohibited software labels in batches.
        *
        * @param request DeleteProhibitedTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -895,7 +1048,7 @@ namespace Csas20230120
       Models::DeleteProhibitedTagsResponse deleteProhibitedTagsWithOptions(const Models::DeleteProhibitedTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除自定义标签
+       * @summary Deletes custom prohibited software labels in batches.
        *
        * @param request DeleteProhibitedTagsRequest
        * @return DeleteProhibitedTagsResponse
@@ -962,6 +1115,57 @@ namespace Csas20230120
        * @return DeleteUserGroupResponse
        */
       Models::DeleteUserGroupResponse deleteUserGroup(const Models::DeleteUserGroupRequest &request);
+
+      /**
+       * @summary Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+       *
+       * @param request DeleteVirusFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVirusFileResponse
+       */
+      Models::DeleteVirusFileResponse deleteVirusFileWithOptions(const Models::DeleteVirusFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+       *
+       * @param request DeleteVirusFileRequest
+       * @return DeleteVirusFileResponse
+       */
+      Models::DeleteVirusFileResponse deleteVirusFile(const Models::DeleteVirusFileRequest &request);
+
+      /**
+       * @summary Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+       *
+       * @param request DeleteVirusScanScheduledStrategiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVirusScanScheduledStrategiesResponse
+       */
+      Models::DeleteVirusScanScheduledStrategiesResponse deleteVirusScanScheduledStrategiesWithOptions(const Models::DeleteVirusScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+       *
+       * @param request DeleteVirusScanScheduledStrategiesRequest
+       * @return DeleteVirusScanScheduledStrategiesResponse
+       */
+      Models::DeleteVirusScanScheduledStrategiesResponse deleteVirusScanScheduledStrategies(const Models::DeleteVirusScanScheduledStrategiesRequest &request);
+
+      /**
+       * @summary Deletes a specified scheduled vulnerability scanning policy.
+       *
+       * @param request DeleteVulScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVulScanScheduledStrategyResponse
+       */
+      Models::DeleteVulScanScheduledStrategyResponse deleteVulScanScheduledStrategyWithOptions(const Models::DeleteVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified scheduled vulnerability scanning policy.
+       *
+       * @param request DeleteVulScanScheduledStrategyRequest
+       * @return DeleteVulScanScheduledStrategyResponse
+       */
+      Models::DeleteVulScanScheduledStrategyResponse deleteVulScanScheduledStrategy(const Models::DeleteVulScanScheduledStrategyRequest &request);
 
       /**
        * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
@@ -1066,6 +1270,23 @@ namespace Csas20230120
        * @return GetActiveIdpConfigResponse
        */
       Models::GetActiveIdpConfigResponse getActiveIdpConfig();
+
+      /**
+       * @summary Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+       *
+       * @param request GetAntiVirusRealTimeDefenceStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAntiVirusRealTimeDefenceStrategyResponse
+       */
+      Models::GetAntiVirusRealTimeDefenceStrategyResponse getAntiVirusRealTimeDefenceStrategyWithOptions(const Models::GetAntiVirusRealTimeDefenceStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+       *
+       * @param request GetAntiVirusRealTimeDefenceStrategyRequest
+       * @return GetAntiVirusRealTimeDefenceStrategyResponse
+       */
+      Models::GetAntiVirusRealTimeDefenceStrategyResponse getAntiVirusRealTimeDefenceStrategy(const Models::GetAntiVirusRealTimeDefenceStrategyRequest &request);
 
       /**
        * @summary Queries the details of an approval instance under the current Alibaba Cloud account.
@@ -1448,6 +1669,91 @@ namespace Csas20230120
       Models::GetUserGroupResponse getUserGroup(const Models::GetUserGroupRequest &request);
 
       /**
+       * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+       *
+       * @param request GetVirusScanGlobalConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVirusScanGlobalConfigResponse
+       */
+      Models::GetVirusScanGlobalConfigResponse getVirusScanGlobalConfigWithOptions(const Models::GetVirusScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+       *
+       * @param request GetVirusScanGlobalConfigRequest
+       * @return GetVirusScanGlobalConfigResponse
+       */
+      Models::GetVirusScanGlobalConfigResponse getVirusScanGlobalConfig(const Models::GetVirusScanGlobalConfigRequest &request);
+
+      /**
+       * @summary Queries the details of a specified scheduled virus scan policy.
+       *
+       * @param request GetVirusScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVirusScanScheduledStrategyResponse
+       */
+      Models::GetVirusScanScheduledStrategyResponse getVirusScanScheduledStrategyWithOptions(const Models::GetVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified scheduled virus scan policy.
+       *
+       * @param request GetVirusScanScheduledStrategyRequest
+       * @return GetVirusScanScheduledStrategyResponse
+       */
+      Models::GetVirusScanScheduledStrategyResponse getVirusScanScheduledStrategy(const Models::GetVirusScanScheduledStrategyRequest &request);
+
+      /**
+       * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+       *
+       * @param request GetVulScanGlobalConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVulScanGlobalConfigResponse
+       */
+      Models::GetVulScanGlobalConfigResponse getVulScanGlobalConfigWithOptions(const Models::GetVulScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+       *
+       * @param request GetVulScanGlobalConfigRequest
+       * @return GetVulScanGlobalConfigResponse
+       */
+      Models::GetVulScanGlobalConfigResponse getVulScanGlobalConfig(const Models::GetVulScanGlobalConfigRequest &request);
+
+      /**
+       * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+       *
+       * @param request GetVulScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVulScanScheduledStrategyResponse
+       */
+      Models::GetVulScanScheduledStrategyResponse getVulScanScheduledStrategyWithOptions(const Models::GetVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+       *
+       * @param request GetVulScanScheduledStrategyRequest
+       * @return GetVulScanScheduledStrategyResponse
+       */
+      Models::GetVulScanScheduledStrategyResponse getVulScanScheduledStrategy(const Models::GetVulScanScheduledStrategyRequest &request);
+
+      /**
+       * @summary Queries the details of a specified vulnerability.
+       *
+       * @param request GetVulnerabilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVulnerabilityResponse
+       */
+      Models::GetVulnerabilityResponse getVulnerabilityWithOptions(const Models::GetVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified vulnerability.
+       *
+       * @param request GetVulnerabilityRequest
+       * @return GetVulnerabilityResponse
+       */
+      Models::GetVulnerabilityResponse getVulnerability(const Models::GetVulnerabilityRequest &request);
+
+      /**
        * @summary Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
        *
        * @param request GetWmEmbedTaskRequest
@@ -1667,6 +1973,23 @@ namespace Csas20230120
        * @return ListDeviceGroupsResponse
        */
       Models::ListDeviceGroupsResponse listDeviceGroups(const Models::ListDeviceGroupsRequest &request);
+
+      /**
+       * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+       *
+       * @param request ListDevicesForVulnerabilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDevicesForVulnerabilityResponse
+       */
+      Models::ListDevicesForVulnerabilityResponse listDevicesForVulnerabilityWithOptions(const Models::ListDevicesForVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+       *
+       * @param request ListDevicesForVulnerabilityRequest
+       * @return ListDevicesForVulnerabilityResponse
+       */
+      Models::ListDevicesForVulnerabilityResponse listDevicesForVulnerability(const Models::ListDevicesForVulnerabilityRequest &request);
 
       /**
        * @summary Queries domain name entries in a domain name list by paging.
@@ -2388,6 +2711,159 @@ namespace Csas20230120
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
+       * @summary Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+       *
+       * @param request ListVirusFileStatusesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusFileStatusesResponse
+       */
+      Models::ListVirusFileStatusesResponse listVirusFileStatusesWithOptions(const Models::ListVirusFileStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+       *
+       * @param request ListVirusFileStatusesRequest
+       * @return ListVirusFileStatusesResponse
+       */
+      Models::ListVirusFileStatusesResponse listVirusFileStatuses(const Models::ListVirusFileStatusesRequest &request);
+
+      /**
+       * @summary 查询病毒扫描额外名单
+       *
+       * @param request ListVirusScanAdditionalListsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusScanAdditionalListsResponse
+       */
+      Models::ListVirusScanAdditionalListsResponse listVirusScanAdditionalListsWithOptions(const Models::ListVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询病毒扫描额外名单
+       *
+       * @param request ListVirusScanAdditionalListsRequest
+       * @return ListVirusScanAdditionalListsResponse
+       */
+      Models::ListVirusScanAdditionalListsResponse listVirusScanAdditionalLists(const Models::ListVirusScanAdditionalListsRequest &request);
+
+      /**
+       * @summary Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+       *
+       * @param request ListVirusScanScheduledStrategiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusScanScheduledStrategiesResponse
+       */
+      Models::ListVirusScanScheduledStrategiesResponse listVirusScanScheduledStrategiesWithOptions(const Models::ListVirusScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+       *
+       * @param request ListVirusScanScheduledStrategiesRequest
+       * @return ListVirusScanScheduledStrategiesResponse
+       */
+      Models::ListVirusScanScheduledStrategiesResponse listVirusScanScheduledStrategies(const Models::ListVirusScanScheduledStrategiesRequest &request);
+
+      /**
+       * @summary 批量查询病毒扫描任务的状态
+       *
+       * @param request ListVirusScanTaskStatusesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusScanTaskStatusesResponse
+       */
+      Models::ListVirusScanTaskStatusesResponse listVirusScanTaskStatusesWithOptions(const Models::ListVirusScanTaskStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询病毒扫描任务的状态
+       *
+       * @param request ListVirusScanTaskStatusesRequest
+       * @return ListVirusScanTaskStatusesResponse
+       */
+      Models::ListVirusScanTaskStatusesResponse listVirusScanTaskStatuses(const Models::ListVirusScanTaskStatusesRequest &request);
+
+      /**
+       * @summary 批量查询病毒扫描任务统计数据
+       *
+       * @param request ListVirusScanTaskSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusScanTaskSummaryResponse
+       */
+      Models::ListVirusScanTaskSummaryResponse listVirusScanTaskSummaryWithOptions(const Models::ListVirusScanTaskSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询病毒扫描任务统计数据
+       *
+       * @param request ListVirusScanTaskSummaryRequest
+       * @return ListVirusScanTaskSummaryResponse
+       */
+      Models::ListVirusScanTaskSummaryResponse listVirusScanTaskSummary(const Models::ListVirusScanTaskSummaryRequest &request);
+
+      /**
+       * @summary 批量查询病毒扫描任务
+       *
+       * @param request ListVirusScanTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirusScanTasksResponse
+       */
+      Models::ListVirusScanTasksResponse listVirusScanTasksWithOptions(const Models::ListVirusScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询病毒扫描任务
+       *
+       * @param request ListVirusScanTasksRequest
+       * @return ListVirusScanTasksResponse
+       */
+      Models::ListVirusScanTasksResponse listVirusScanTasks(const Models::ListVirusScanTasksRequest &request);
+
+      /**
+       * @summary Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+       *
+       * @param request ListVulScanScheduledStrategiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVulScanScheduledStrategiesResponse
+       */
+      Models::ListVulScanScheduledStrategiesResponse listVulScanScheduledStrategiesWithOptions(const Models::ListVulScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+       *
+       * @param request ListVulScanScheduledStrategiesRequest
+       * @return ListVulScanScheduledStrategiesResponse
+       */
+      Models::ListVulScanScheduledStrategiesResponse listVulScanScheduledStrategies(const Models::ListVulScanScheduledStrategiesRequest &request);
+
+      /**
+       * @summary Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+       *
+       * @param request ListVulScanTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVulScanTasksResponse
+       */
+      Models::ListVulScanTasksResponse listVulScanTasksWithOptions(const Models::ListVulScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+       *
+       * @param request ListVulScanTasksRequest
+       * @return ListVulScanTasksResponse
+       */
+      Models::ListVulScanTasksResponse listVulScanTasks(const Models::ListVulScanTasksRequest &request);
+
+      /**
+       * @summary Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+       *
+       * @param request ListVulnerabilitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVulnerabilitiesResponse
+       */
+      Models::ListVulnerabilitiesResponse listVulnerabilitiesWithOptions(const Models::ListVulnerabilitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+       *
+       * @param request ListVulnerabilitiesRequest
+       * @return ListVulnerabilitiesResponse
+       */
+      Models::ListVulnerabilitiesResponse listVulnerabilities(const Models::ListVulnerabilitiesRequest &request);
+
+      /**
        * @summary Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
        *
        * @param request LookupWmInfoMappingRequest
@@ -2473,6 +2949,23 @@ namespace Csas20230120
       Models::RemoveDeviceGroupMatchDevicesResponse removeDeviceGroupMatchDevices(const Models::RemoveDeviceGroupMatchDevicesRequest &request);
 
       /**
+       * @summary Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+       *
+       * @param request RemoveVirusScanAdditionalListsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveVirusScanAdditionalListsResponse
+       */
+      Models::RemoveVirusScanAdditionalListsResponse removeVirusScanAdditionalListsWithOptions(const Models::RemoveVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+       *
+       * @param request RemoveVirusScanAdditionalListsRequest
+       * @return RemoveVirusScanAdditionalListsResponse
+       */
+      Models::RemoveVirusScanAdditionalListsResponse removeVirusScanAdditionalLists(const Models::RemoveVirusScanAdditionalListsRequest &request);
+
+      /**
        * @summary Revokes a user device session.
        *
        * @param request RevokeUserDeviceSessionRequest
@@ -2509,6 +3002,23 @@ namespace Csas20230120
        * @return RevokeUserSessionResponse
        */
       Models::RevokeUserSessionResponse revokeUserSession(const Models::RevokeUserSessionRequest &request);
+
+      /**
+       * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+       *
+       * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+       */
+      Models::UpdateAntiVirusRealTimeDefenceStrategyResponse updateAntiVirusRealTimeDefenceStrategyWithOptions(const Models::UpdateAntiVirusRealTimeDefenceStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+       *
+       * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
+       * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+       */
+      Models::UpdateAntiVirusRealTimeDefenceStrategyResponse updateAntiVirusRealTimeDefenceStrategy(const Models::UpdateAntiVirusRealTimeDefenceStrategyRequest &request);
 
       /**
        * @summary Updates an approval process under the current Alibaba Cloud account.
@@ -3007,6 +3517,91 @@ namespace Csas20230120
        * @return UpdateUsersStatusResponse
        */
       Models::UpdateUsersStatusResponse updateUsersStatus(const Models::UpdateUsersStatusRequest &request);
+
+      /**
+       * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+       *
+       * @param request UpdateVirusFileStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVirusFileStatusResponse
+       */
+      Models::UpdateVirusFileStatusResponse updateVirusFileStatusWithOptions(const Models::UpdateVirusFileStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+       *
+       * @param request UpdateVirusFileStatusRequest
+       * @return UpdateVirusFileStatusResponse
+       */
+      Models::UpdateVirusFileStatusResponse updateVirusFileStatus(const Models::UpdateVirusFileStatusRequest &request);
+
+      /**
+       * @summary Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+       *
+       * @param request UpdateVirusScanGlobalConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVirusScanGlobalConfigResponse
+       */
+      Models::UpdateVirusScanGlobalConfigResponse updateVirusScanGlobalConfigWithOptions(const Models::UpdateVirusScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+       *
+       * @param request UpdateVirusScanGlobalConfigRequest
+       * @return UpdateVirusScanGlobalConfigResponse
+       */
+      Models::UpdateVirusScanGlobalConfigResponse updateVirusScanGlobalConfig(const Models::UpdateVirusScanGlobalConfigRequest &request);
+
+      /**
+       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+       *
+       * @param request UpdateVirusScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVirusScanScheduledStrategyResponse
+       */
+      Models::UpdateVirusScanScheduledStrategyResponse updateVirusScanScheduledStrategyWithOptions(const Models::UpdateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+       *
+       * @param request UpdateVirusScanScheduledStrategyRequest
+       * @return UpdateVirusScanScheduledStrategyResponse
+       */
+      Models::UpdateVirusScanScheduledStrategyResponse updateVirusScanScheduledStrategy(const Models::UpdateVirusScanScheduledStrategyRequest &request);
+
+      /**
+       * @summary Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+       *
+       * @param tmpReq UpdateVulScanGlobalConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVulScanGlobalConfigResponse
+       */
+      Models::UpdateVulScanGlobalConfigResponse updateVulScanGlobalConfigWithOptions(const Models::UpdateVulScanGlobalConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+       *
+       * @param request UpdateVulScanGlobalConfigRequest
+       * @return UpdateVulScanGlobalConfigResponse
+       */
+      Models::UpdateVulScanGlobalConfigResponse updateVulScanGlobalConfig(const Models::UpdateVulScanGlobalConfigRequest &request);
+
+      /**
+       * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+       *
+       * @param request UpdateVulScanScheduledStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVulScanScheduledStrategyResponse
+       */
+      Models::UpdateVulScanScheduledStrategyResponse updateVulScanScheduledStrategyWithOptions(const Models::UpdateVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+       *
+       * @param request UpdateVulScanScheduledStrategyRequest
+       * @return UpdateVulScanScheduledStrategyResponse
+       */
+      Models::UpdateVulScanScheduledStrategyResponse updateVulScanScheduledStrategy(const Models::UpdateVulScanScheduledStrategyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Csas20230120

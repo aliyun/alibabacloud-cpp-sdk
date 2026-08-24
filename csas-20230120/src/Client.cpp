@@ -90,6 +90,56 @@ AddDeviceGroupMatchDevicesResponse Client::addDeviceGroupMatchDevices(const AddD
 }
 
 /**
+ * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+ *
+ * @param request AddVirusScanAdditionalListsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddVirusScanAdditionalListsResponse
+ */
+AddVirusScanAdditionalListsResponse Client::addVirusScanAdditionalListsWithOptions(const AddVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasAdditionalLists()) {
+    bodyFlat["AdditionalLists"] = request.getAdditionalLists();
+  }
+
+  if (!!request.hasDevType()) {
+    body["DevType"] = request.getDevType();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AddVirusScanAdditionalLists"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddVirusScanAdditionalListsResponse>();
+}
+
+/**
+ * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+ *
+ * @param request AddVirusScanAdditionalListsRequest
+ * @return AddVirusScanAdditionalListsResponse
+ */
+AddVirusScanAdditionalListsResponse Client::addVirusScanAdditionalLists(const AddVirusScanAdditionalListsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addVirusScanAdditionalListsWithOptions(request, runtime);
+}
+
+/**
  * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
  *
  * @param tmpReq AttachApplication2ConnectorRequest
@@ -405,6 +455,98 @@ BatchDeletePrivateAccessPolicyResponse Client::batchDeletePrivateAccessPolicyWit
 BatchDeletePrivateAccessPolicyResponse Client::batchDeletePrivateAccessPolicy(const BatchDeletePrivateAccessPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return batchDeletePrivateAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+ *
+ * @param request CancelVirusScanTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelVirusScanTasksResponse
+ */
+CancelVirusScanTasksResponse Client::cancelVirusScanTasksWithOptions(const CancelVirusScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasTaskIds()) {
+    bodyFlat["TaskIds"] = request.getTaskIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelVirusScanTasks"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelVirusScanTasksResponse>();
+}
+
+/**
+ * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+ *
+ * @param request CancelVirusScanTasksRequest
+ * @return CancelVirusScanTasksResponse
+ */
+CancelVirusScanTasksResponse Client::cancelVirusScanTasks(const CancelVirusScanTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelVirusScanTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+ *
+ * @param request CancelVulScanTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelVulScanTasksResponse
+ */
+CancelVulScanTasksResponse Client::cancelVulScanTasksWithOptions(const CancelVulScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasTaskIds()) {
+    bodyFlat["TaskIds"] = request.getTaskIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelVulScanTasks"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelVulScanTasksResponse>();
+}
+
+/**
+ * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+ *
+ * @param request CancelVulScanTasksRequest
+ * @return CancelVulScanTasksResponse
+ */
+CancelVulScanTasksResponse Client::cancelVulScanTasks(const CancelVulScanTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelVulScanTasksWithOptions(request, runtime);
 }
 
 /**
@@ -1788,6 +1930,438 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
+ * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+ *
+ * @param request CreateVirusScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVirusScanScheduledStrategyResponse
+ */
+CreateVirusScanScheduledStrategyResponse Client::createVirusScanScheduledStrategyWithOptions(const CreateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHighRiskOperation()) {
+    body["HighRiskOperation"] = request.getHighRiskOperation();
+  }
+
+  if (!!request.hasLowRiskOperation()) {
+    body["LowRiskOperation"] = request.getLowRiskOperation();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMaxCpuUsage()) {
+    body["MaxCpuUsage"] = request.getMaxCpuUsage();
+  }
+
+  if (!!request.hasMidRiskOperation()) {
+    body["MidRiskOperation"] = request.getMidRiskOperation();
+  }
+
+  if (!!request.hasPerformanceMode()) {
+    body["PerformanceMode"] = request.getPerformanceMode();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasScanBeginTime()) {
+    body["ScanBeginTime"] = request.getScanBeginTime();
+  }
+
+  if (!!request.hasScanEndTime()) {
+    body["ScanEndTime"] = request.getScanEndTime();
+  }
+
+  if (!!request.hasScanFrequency()) {
+    body["ScanFrequency"] = request.getScanFrequency();
+  }
+
+  if (!!request.hasScanInterval()) {
+    body["ScanInterval"] = request.getScanInterval();
+  }
+
+  if (!!request.hasScanMode()) {
+    body["ScanMode"] = request.getScanMode();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasScanPath()) {
+    bodyFlat["ScanPath"] = request.getScanPath();
+  }
+
+  if (!!request.hasScanTargets()) {
+    bodyFlat["ScanTargets"] = request.getScanTargets();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStrategyDescription()) {
+    body["StrategyDescription"] = request.getStrategyDescription();
+  }
+
+  if (!!request.hasStrategyName()) {
+    body["StrategyName"] = request.getStrategyName();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVirusScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVirusScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+ *
+ * @param request CreateVirusScanScheduledStrategyRequest
+ * @return CreateVirusScanScheduledStrategyResponse
+ */
+CreateVirusScanScheduledStrategyResponse Client::createVirusScanScheduledStrategy(const CreateVirusScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVirusScanScheduledStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+ *
+ * @param request CreateVirusScanTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVirusScanTaskResponse
+ */
+CreateVirusScanTaskResponse Client::createVirusScanTaskWithOptions(const CreateVirusScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasHighRiskOperation()) {
+    body["HighRiskOperation"] = request.getHighRiskOperation();
+  }
+
+  if (!!request.hasLowRiskOperation()) {
+    body["LowRiskOperation"] = request.getLowRiskOperation();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMaxCpuUsage()) {
+    body["MaxCpuUsage"] = request.getMaxCpuUsage();
+  }
+
+  if (!!request.hasMidRiskOperation()) {
+    body["MidRiskOperation"] = request.getMidRiskOperation();
+  }
+
+  if (!!request.hasPerformanceMode()) {
+    body["PerformanceMode"] = request.getPerformanceMode();
+  }
+
+  if (!!request.hasScanMode()) {
+    body["ScanMode"] = request.getScanMode();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasScanPath()) {
+    bodyFlat["ScanPath"] = request.getScanPath();
+  }
+
+  if (!!request.hasScanTargets()) {
+    bodyFlat["ScanTargets"] = request.getScanTargets();
+  }
+
+  if (!!request.hasTaskDescription()) {
+    body["TaskDescription"] = request.getTaskDescription();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVirusScanTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVirusScanTaskResponse>();
+}
+
+/**
+ * @summary Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+ *
+ * @param request CreateVirusScanTaskRequest
+ * @return CreateVirusScanTaskResponse
+ */
+CreateVirusScanTaskResponse Client::createVirusScanTask(const CreateVirusScanTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVirusScanTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+ *
+ * @param request CreateVulScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVulScanScheduledStrategyResponse
+ */
+CreateVulScanScheduledStrategyResponse Client::createVulScanScheduledStrategyWithOptions(const CreateVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasScanBeginTime()) {
+    body["ScanBeginTime"] = request.getScanBeginTime();
+  }
+
+  if (!!request.hasScanEndTime()) {
+    body["ScanEndTime"] = request.getScanEndTime();
+  }
+
+  if (!!request.hasScanFrequency()) {
+    body["ScanFrequency"] = request.getScanFrequency();
+  }
+
+  if (!!request.hasScanInterval()) {
+    body["ScanInterval"] = request.getScanInterval();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStrategyDescription()) {
+    body["StrategyDescription"] = request.getStrategyDescription();
+  }
+
+  if (!!request.hasStrategyName()) {
+    body["StrategyName"] = request.getStrategyName();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVulScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVulScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+ *
+ * @param request CreateVulScanScheduledStrategyRequest
+ * @return CreateVulScanScheduledStrategyResponse
+ */
+CreateVulScanScheduledStrategyResponse Client::createVulScanScheduledStrategy(const CreateVulScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVulScanScheduledStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+ *
+ * @param request CreateVulScanTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVulScanTaskResponse
+ */
+CreateVulScanTaskResponse Client::createVulScanTaskWithOptions(const CreateVulScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTimestamp()) {
+    body["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasTaskDescription()) {
+    body["TaskDescription"] = request.getTaskDescription();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["TaskName"] = request.getTaskName();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVulScanTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVulScanTaskResponse>();
+}
+
+/**
+ * @summary Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+ *
+ * @param request CreateVulScanTaskRequest
+ * @return CreateVulScanTaskResponse
+ */
+CreateVulScanTaskResponse Client::createVulScanTask(const CreateVulScanTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVulScanTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+ *
+ * @param tmpReq CreateVulnerabilityFixTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVulnerabilityFixTaskResponse
+ */
+CreateVulnerabilityFixTaskResponse Client::createVulnerabilityFixTaskWithOptions(const CreateVulnerabilityFixTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateVulnerabilityFixTaskShrinkRequest request = CreateVulnerabilityFixTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWuyingVulFixConfig()) {
+    request.setWuyingVulFixConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWuyingVulFixConfig(), "WuyingVulFixConfig", "json"));
+  }
+
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDevTags()) {
+    bodyFlat["DevTags"] = request.getDevTags();
+  }
+
+  if (!!request.hasFixMode()) {
+    body["FixMode"] = request.getFixMode();
+  }
+
+  if (!!request.hasMaxDownloadSpeed()) {
+    body["MaxDownloadSpeed"] = request.getMaxDownloadSpeed();
+  }
+
+  if (!!request.hasUpdateId()) {
+    body["UpdateId"] = request.getUpdateId();
+  }
+
+  if (!!request.hasWuyingVulFixConfigShrink()) {
+    body["WuyingVulFixConfig"] = request.getWuyingVulFixConfigShrink();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVulnerabilityFixTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVulnerabilityFixTaskResponse>();
+}
+
+/**
+ * @summary Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+ *
+ * @param request CreateVulnerabilityFixTaskRequest
+ * @return CreateVulnerabilityFixTaskResponse
+ */
+CreateVulnerabilityFixTaskResponse Client::createVulnerabilityFixTask(const CreateVulnerabilityFixTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVulnerabilityFixTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
  *
  * @param tmpReq CreateWmBaseImageRequest
@@ -2364,6 +2938,56 @@ DeleteDeviceGroupsResponse Client::deleteDeviceGroups(const DeleteDeviceGroupsRe
 }
 
 /**
+ * @summary Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+ *
+ * @param request DeleteDevicesVulnerabilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDevicesVulnerabilityResponse
+ */
+DeleteDevicesVulnerabilityResponse Client::deleteDevicesVulnerabilityWithOptions(const DeleteDevicesVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDevTags()) {
+    bodyFlat["DevTags"] = request.getDevTags();
+  }
+
+  if (!!request.hasUpdateId()) {
+    body["UpdateId"] = request.getUpdateId();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDevicesVulnerability"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDevicesVulnerabilityResponse>();
+}
+
+/**
+ * @summary Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+ *
+ * @param request DeleteDevicesVulnerabilityRequest
+ * @return DeleteDevicesVulnerabilityResponse
+ */
+DeleteDevicesVulnerabilityResponse Client::deleteDevicesVulnerability(const DeleteDevicesVulnerabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDevicesVulnerabilityWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a domain name list.
  *
  * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
@@ -2914,7 +3538,7 @@ DeleteProhibitedSoftwareResponse Client::deleteProhibitedSoftware(const DeletePr
 }
 
 /**
- * @summary 批量删除自定义标签
+ * @summary Deletes custom prohibited software labels in batches.
  *
  * @param request DeleteProhibitedTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2949,7 +3573,7 @@ DeleteProhibitedTagsResponse Client::deleteProhibitedTagsWithOptions(const Delet
 }
 
 /**
- * @summary 批量删除自定义标签
+ * @summary Deletes custom prohibited software labels in batches.
  *
  * @param request DeleteProhibitedTagsRequest
  * @return DeleteProhibitedTagsResponse
@@ -3101,6 +3725,144 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
 DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteUserGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+ *
+ * @param request DeleteVirusFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVirusFileResponse
+ */
+DeleteVirusFileResponse Client::deleteVirusFileWithOptions(const DeleteVirusFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasFileMd5()) {
+    body["FileMd5"] = request.getFileMd5();
+  }
+
+  if (!!request.hasFilePath()) {
+    body["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVirusFile"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVirusFileResponse>();
+}
+
+/**
+ * @summary Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+ *
+ * @param request DeleteVirusFileRequest
+ * @return DeleteVirusFileResponse
+ */
+DeleteVirusFileResponse Client::deleteVirusFile(const DeleteVirusFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVirusFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+ *
+ * @param request DeleteVirusScanScheduledStrategiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVirusScanScheduledStrategiesResponse
+ */
+DeleteVirusScanScheduledStrategiesResponse Client::deleteVirusScanScheduledStrategiesWithOptions(const DeleteVirusScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasStrategyIds()) {
+    bodyFlat["StrategyIds"] = request.getStrategyIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVirusScanScheduledStrategies"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVirusScanScheduledStrategiesResponse>();
+}
+
+/**
+ * @summary Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+ *
+ * @param request DeleteVirusScanScheduledStrategiesRequest
+ * @return DeleteVirusScanScheduledStrategiesResponse
+ */
+DeleteVirusScanScheduledStrategiesResponse Client::deleteVirusScanScheduledStrategies(const DeleteVirusScanScheduledStrategiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVirusScanScheduledStrategiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a specified scheduled vulnerability scanning policy.
+ *
+ * @param request DeleteVulScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVulScanScheduledStrategyResponse
+ */
+DeleteVulScanScheduledStrategyResponse Client::deleteVulScanScheduledStrategyWithOptions(const DeleteVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasStrategyId()) {
+    body["StrategyId"] = request.getStrategyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVulScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVulScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Deletes a specified scheduled vulnerability scanning policy.
+ *
+ * @param request DeleteVulScanScheduledStrategyRequest
+ * @return DeleteVulScanScheduledStrategyResponse
+ */
+DeleteVulScanScheduledStrategyResponse Client::deleteVulScanScheduledStrategy(const DeleteVulScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVulScanScheduledStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -3425,6 +4187,41 @@ GetActiveIdpConfigResponse Client::getActiveIdpConfigWithOptions(const Darabonba
 GetActiveIdpConfigResponse Client::getActiveIdpConfig() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getActiveIdpConfigWithOptions(runtime);
+}
+
+/**
+ * @summary Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+ *
+ * @param request GetAntiVirusRealTimeDefenceStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAntiVirusRealTimeDefenceStrategyResponse
+ */
+GetAntiVirusRealTimeDefenceStrategyResponse Client::getAntiVirusRealTimeDefenceStrategyWithOptions(const GetAntiVirusRealTimeDefenceStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetAntiVirusRealTimeDefenceStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAntiVirusRealTimeDefenceStrategyResponse>();
+}
+
+/**
+ * @summary Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+ *
+ * @param request GetAntiVirusRealTimeDefenceStrategyRequest
+ * @return GetAntiVirusRealTimeDefenceStrategyResponse
+ */
+GetAntiVirusRealTimeDefenceStrategyResponse Client::getAntiVirusRealTimeDefenceStrategy(const GetAntiVirusRealTimeDefenceStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAntiVirusRealTimeDefenceStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -4301,6 +5098,190 @@ GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
 }
 
 /**
+ * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+ *
+ * @param request GetVirusScanGlobalConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVirusScanGlobalConfigResponse
+ */
+GetVirusScanGlobalConfigResponse Client::getVirusScanGlobalConfigWithOptions(const GetVirusScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetVirusScanGlobalConfig"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVirusScanGlobalConfigResponse>();
+}
+
+/**
+ * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+ *
+ * @param request GetVirusScanGlobalConfigRequest
+ * @return GetVirusScanGlobalConfigResponse
+ */
+GetVirusScanGlobalConfigResponse Client::getVirusScanGlobalConfig(const GetVirusScanGlobalConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVirusScanGlobalConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified scheduled virus scan policy.
+ *
+ * @param request GetVirusScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVirusScanScheduledStrategyResponse
+ */
+GetVirusScanScheduledStrategyResponse Client::getVirusScanScheduledStrategyWithOptions(const GetVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVirusScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVirusScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified scheduled virus scan policy.
+ *
+ * @param request GetVirusScanScheduledStrategyRequest
+ * @return GetVirusScanScheduledStrategyResponse
+ */
+GetVirusScanScheduledStrategyResponse Client::getVirusScanScheduledStrategy(const GetVirusScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVirusScanScheduledStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+ *
+ * @param request GetVulScanGlobalConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVulScanGlobalConfigResponse
+ */
+GetVulScanGlobalConfigResponse Client::getVulScanGlobalConfigWithOptions(const GetVulScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetVulScanGlobalConfig"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVulScanGlobalConfigResponse>();
+}
+
+/**
+ * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+ *
+ * @param request GetVulScanGlobalConfigRequest
+ * @return GetVulScanGlobalConfigResponse
+ */
+GetVulScanGlobalConfigResponse Client::getVulScanGlobalConfig(const GetVulScanGlobalConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVulScanGlobalConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+ *
+ * @param request GetVulScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVulScanScheduledStrategyResponse
+ */
+GetVulScanScheduledStrategyResponse Client::getVulScanScheduledStrategyWithOptions(const GetVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVulScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVulScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+ *
+ * @param request GetVulScanScheduledStrategyRequest
+ * @return GetVulScanScheduledStrategyResponse
+ */
+GetVulScanScheduledStrategyResponse Client::getVulScanScheduledStrategy(const GetVulScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVulScanScheduledStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified vulnerability.
+ *
+ * @param request GetVulnerabilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVulnerabilityResponse
+ */
+GetVulnerabilityResponse Client::getVulnerabilityWithOptions(const GetVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVulnerability"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVulnerabilityResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified vulnerability.
+ *
+ * @param request GetVulnerabilityRequest
+ * @return GetVulnerabilityResponse
+ */
+GetVulnerabilityResponse Client::getVulnerability(const GetVulnerabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVulnerabilityWithOptions(request, runtime);
+}
+
+/**
  * @summary Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
  *
  * @param request GetWmEmbedTaskRequest
@@ -4816,6 +5797,44 @@ ListDeviceGroupsResponse Client::listDeviceGroupsWithOptions(const ListDeviceGro
 ListDeviceGroupsResponse Client::listDeviceGroups(const ListDeviceGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDeviceGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+ *
+ * @param request ListDevicesForVulnerabilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDevicesForVulnerabilityResponse
+ */
+ListDevicesForVulnerabilityResponse Client::listDevicesForVulnerabilityWithOptions(const ListDevicesForVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDevicesForVulnerability"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDevicesForVulnerabilityResponse>();
+}
+
+/**
+ * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+ *
+ * @param request ListDevicesForVulnerabilityRequest
+ * @return ListDevicesForVulnerabilityResponse
+ */
+ListDevicesForVulnerabilityResponse Client::listDevicesForVulnerability(const ListDevicesForVulnerabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDevicesForVulnerabilityWithOptions(request, runtime);
 }
 
 /**
@@ -6689,6 +7708,348 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
+ * @summary Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+ *
+ * @param request ListVirusFileStatusesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusFileStatusesResponse
+ */
+ListVirusFileStatusesResponse Client::listVirusFileStatusesWithOptions(const ListVirusFileStatusesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusFileStatuses"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusFileStatusesResponse>();
+}
+
+/**
+ * @summary Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+ *
+ * @param request ListVirusFileStatusesRequest
+ * @return ListVirusFileStatusesResponse
+ */
+ListVirusFileStatusesResponse Client::listVirusFileStatuses(const ListVirusFileStatusesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusFileStatusesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询病毒扫描额外名单
+ *
+ * @param request ListVirusScanAdditionalListsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusScanAdditionalListsResponse
+ */
+ListVirusScanAdditionalListsResponse Client::listVirusScanAdditionalListsWithOptions(const ListVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusScanAdditionalLists"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusScanAdditionalListsResponse>();
+}
+
+/**
+ * @summary 查询病毒扫描额外名单
+ *
+ * @param request ListVirusScanAdditionalListsRequest
+ * @return ListVirusScanAdditionalListsResponse
+ */
+ListVirusScanAdditionalListsResponse Client::listVirusScanAdditionalLists(const ListVirusScanAdditionalListsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusScanAdditionalListsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+ *
+ * @param request ListVirusScanScheduledStrategiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusScanScheduledStrategiesResponse
+ */
+ListVirusScanScheduledStrategiesResponse Client::listVirusScanScheduledStrategiesWithOptions(const ListVirusScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusScanScheduledStrategies"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusScanScheduledStrategiesResponse>();
+}
+
+/**
+ * @summary Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+ *
+ * @param request ListVirusScanScheduledStrategiesRequest
+ * @return ListVirusScanScheduledStrategiesResponse
+ */
+ListVirusScanScheduledStrategiesResponse Client::listVirusScanScheduledStrategies(const ListVirusScanScheduledStrategiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusScanScheduledStrategiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量查询病毒扫描任务的状态
+ *
+ * @param request ListVirusScanTaskStatusesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusScanTaskStatusesResponse
+ */
+ListVirusScanTaskStatusesResponse Client::listVirusScanTaskStatusesWithOptions(const ListVirusScanTaskStatusesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusScanTaskStatuses"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusScanTaskStatusesResponse>();
+}
+
+/**
+ * @summary 批量查询病毒扫描任务的状态
+ *
+ * @param request ListVirusScanTaskStatusesRequest
+ * @return ListVirusScanTaskStatusesResponse
+ */
+ListVirusScanTaskStatusesResponse Client::listVirusScanTaskStatuses(const ListVirusScanTaskStatusesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusScanTaskStatusesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量查询病毒扫描任务统计数据
+ *
+ * @param request ListVirusScanTaskSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusScanTaskSummaryResponse
+ */
+ListVirusScanTaskSummaryResponse Client::listVirusScanTaskSummaryWithOptions(const ListVirusScanTaskSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusScanTaskSummary"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusScanTaskSummaryResponse>();
+}
+
+/**
+ * @summary 批量查询病毒扫描任务统计数据
+ *
+ * @param request ListVirusScanTaskSummaryRequest
+ * @return ListVirusScanTaskSummaryResponse
+ */
+ListVirusScanTaskSummaryResponse Client::listVirusScanTaskSummary(const ListVirusScanTaskSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusScanTaskSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量查询病毒扫描任务
+ *
+ * @param request ListVirusScanTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVirusScanTasksResponse
+ */
+ListVirusScanTasksResponse Client::listVirusScanTasksWithOptions(const ListVirusScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVirusScanTasks"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVirusScanTasksResponse>();
+}
+
+/**
+ * @summary 批量查询病毒扫描任务
+ *
+ * @param request ListVirusScanTasksRequest
+ * @return ListVirusScanTasksResponse
+ */
+ListVirusScanTasksResponse Client::listVirusScanTasks(const ListVirusScanTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVirusScanTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+ *
+ * @param request ListVulScanScheduledStrategiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVulScanScheduledStrategiesResponse
+ */
+ListVulScanScheduledStrategiesResponse Client::listVulScanScheduledStrategiesWithOptions(const ListVulScanScheduledStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVulScanScheduledStrategies"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVulScanScheduledStrategiesResponse>();
+}
+
+/**
+ * @summary Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+ *
+ * @param request ListVulScanScheduledStrategiesRequest
+ * @return ListVulScanScheduledStrategiesResponse
+ */
+ListVulScanScheduledStrategiesResponse Client::listVulScanScheduledStrategies(const ListVulScanScheduledStrategiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVulScanScheduledStrategiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+ *
+ * @param request ListVulScanTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVulScanTasksResponse
+ */
+ListVulScanTasksResponse Client::listVulScanTasksWithOptions(const ListVulScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVulScanTasks"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVulScanTasksResponse>();
+}
+
+/**
+ * @summary Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+ *
+ * @param request ListVulScanTasksRequest
+ * @return ListVulScanTasksResponse
+ */
+ListVulScanTasksResponse Client::listVulScanTasks(const ListVulScanTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVulScanTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+ *
+ * @param request ListVulnerabilitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVulnerabilitiesResponse
+ */
+ListVulnerabilitiesResponse Client::listVulnerabilitiesWithOptions(const ListVulnerabilitiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVulnerabilities"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVulnerabilitiesResponse>();
+}
+
+/**
+ * @summary Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+ *
+ * @param request ListVulnerabilitiesRequest
+ * @return ListVulnerabilitiesResponse
+ */
+ListVulnerabilitiesResponse Client::listVulnerabilities(const ListVulnerabilitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVulnerabilitiesWithOptions(request, runtime);
+}
+
+/**
  * @summary Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
  *
  * @param request LookupWmInfoMappingRequest
@@ -6981,6 +8342,52 @@ RemoveDeviceGroupMatchDevicesResponse Client::removeDeviceGroupMatchDevices(cons
 }
 
 /**
+ * @summary Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+ *
+ * @param request RemoveVirusScanAdditionalListsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveVirusScanAdditionalListsResponse
+ */
+RemoveVirusScanAdditionalListsResponse Client::removeVirusScanAdditionalListsWithOptions(const RemoveVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasListIds()) {
+    bodyFlat["ListIds"] = request.getListIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveVirusScanAdditionalLists"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveVirusScanAdditionalListsResponse>();
+}
+
+/**
+ * @summary Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+ *
+ * @param request RemoveVirusScanAdditionalListsRequest
+ * @return RemoveVirusScanAdditionalListsResponse
+ */
+RemoveVirusScanAdditionalListsResponse Client::removeVirusScanAdditionalLists(const RemoveVirusScanAdditionalListsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeVirusScanAdditionalListsWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
@@ -7074,6 +8481,84 @@ RevokeUserSessionResponse Client::revokeUserSessionWithOptions(const RevokeUserS
 RevokeUserSessionResponse Client::revokeUserSession(const RevokeUserSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeUserSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+ *
+ * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+ */
+UpdateAntiVirusRealTimeDefenceStrategyResponse Client::updateAntiVirusRealTimeDefenceStrategyWithOptions(const UpdateAntiVirusRealTimeDefenceStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHighRiskOperation()) {
+    body["HighRiskOperation"] = request.getHighRiskOperation();
+  }
+
+  if (!!request.hasLowRiskOperation()) {
+    body["LowRiskOperation"] = request.getLowRiskOperation();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMaxCpuUsage()) {
+    body["MaxCpuUsage"] = request.getMaxCpuUsage();
+  }
+
+  if (!!request.hasMidRiskOperation()) {
+    body["MidRiskOperation"] = request.getMidRiskOperation();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasScanTargets()) {
+    bodyFlat["ScanTargets"] = request.getScanTargets();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateAntiVirusRealTimeDefenceStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAntiVirusRealTimeDefenceStrategyResponse>();
+}
+
+/**
+ * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+ *
+ * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
+ * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+ */
+UpdateAntiVirusRealTimeDefenceStrategyResponse Client::updateAntiVirusRealTimeDefenceStrategy(const UpdateAntiVirusRealTimeDefenceStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAntiVirusRealTimeDefenceStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -8938,6 +10423,386 @@ UpdateUsersStatusResponse Client::updateUsersStatusWithOptions(const UpdateUsers
 UpdateUsersStatusResponse Client::updateUsersStatus(const UpdateUsersStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateUsersStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+ *
+ * @param request UpdateVirusFileStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVirusFileStatusResponse
+ */
+UpdateVirusFileStatusResponse Client::updateVirusFileStatusWithOptions(const UpdateVirusFileStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasFileMd5()) {
+    body["FileMd5"] = request.getFileMd5();
+  }
+
+  if (!!request.hasFilePath()) {
+    body["FilePath"] = request.getFilePath();
+  }
+
+  if (!!request.hasOperation()) {
+    body["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasVirusType()) {
+    body["VirusType"] = request.getVirusType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVirusFileStatus"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVirusFileStatusResponse>();
+}
+
+/**
+ * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+ *
+ * @param request UpdateVirusFileStatusRequest
+ * @return UpdateVirusFileStatusResponse
+ */
+UpdateVirusFileStatusResponse Client::updateVirusFileStatus(const UpdateVirusFileStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVirusFileStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+ *
+ * @param request UpdateVirusScanGlobalConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVirusScanGlobalConfigResponse
+ */
+UpdateVirusScanGlobalConfigResponse Client::updateVirusScanGlobalConfigWithOptions(const UpdateVirusScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUploadFileMaxSize()) {
+    body["UploadFileMaxSize"] = request.getUploadFileMaxSize();
+  }
+
+  if (!!request.hasUploadFileMaxSpeed()) {
+    body["UploadFileMaxSpeed"] = request.getUploadFileMaxSpeed();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUploadFileSuffixBlacklist()) {
+    bodyFlat["UploadFileSuffixBlacklist"] = request.getUploadFileSuffixBlacklist();
+  }
+
+  if (!!request.hasVirusFileUpload()) {
+    body["VirusFileUpload"] = request.getVirusFileUpload();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVirusScanGlobalConfig"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVirusScanGlobalConfigResponse>();
+}
+
+/**
+ * @summary Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+ *
+ * @param request UpdateVirusScanGlobalConfigRequest
+ * @return UpdateVirusScanGlobalConfigResponse
+ */
+UpdateVirusScanGlobalConfigResponse Client::updateVirusScanGlobalConfig(const UpdateVirusScanGlobalConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVirusScanGlobalConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+ *
+ * @param request UpdateVirusScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVirusScanScheduledStrategyResponse
+ */
+UpdateVirusScanScheduledStrategyResponse Client::updateVirusScanScheduledStrategyWithOptions(const UpdateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHighRiskOperation()) {
+    body["HighRiskOperation"] = request.getHighRiskOperation();
+  }
+
+  if (!!request.hasLowRiskOperation()) {
+    body["LowRiskOperation"] = request.getLowRiskOperation();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasMaxCpuUsage()) {
+    body["MaxCpuUsage"] = request.getMaxCpuUsage();
+  }
+
+  if (!!request.hasMidRiskOperation()) {
+    body["MidRiskOperation"] = request.getMidRiskOperation();
+  }
+
+  if (!!request.hasPerformanceMode()) {
+    body["PerformanceMode"] = request.getPerformanceMode();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasScanBeginTime()) {
+    body["ScanBeginTime"] = request.getScanBeginTime();
+  }
+
+  if (!!request.hasScanEndTime()) {
+    body["ScanEndTime"] = request.getScanEndTime();
+  }
+
+  if (!!request.hasScanFrequency()) {
+    body["ScanFrequency"] = request.getScanFrequency();
+  }
+
+  if (!!request.hasScanInterval()) {
+    body["ScanInterval"] = request.getScanInterval();
+  }
+
+  if (!!request.hasScanMode()) {
+    body["ScanMode"] = request.getScanMode();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasScanPath()) {
+    bodyFlat["ScanPath"] = request.getScanPath();
+  }
+
+  if (!!request.hasScanTargets()) {
+    bodyFlat["ScanTargets"] = request.getScanTargets();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStrategyDescription()) {
+    body["StrategyDescription"] = request.getStrategyDescription();
+  }
+
+  if (!!request.hasStrategyId()) {
+    body["StrategyId"] = request.getStrategyId();
+  }
+
+  if (!!request.hasStrategyName()) {
+    body["StrategyName"] = request.getStrategyName();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVirusScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVirusScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+ *
+ * @param request UpdateVirusScanScheduledStrategyRequest
+ * @return UpdateVirusScanScheduledStrategyResponse
+ */
+UpdateVirusScanScheduledStrategyResponse Client::updateVirusScanScheduledStrategy(const UpdateVirusScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVirusScanScheduledStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+ *
+ * @param tmpReq UpdateVulScanGlobalConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVulScanGlobalConfigResponse
+ */
+UpdateVulScanGlobalConfigResponse Client::updateVulScanGlobalConfigWithOptions(const UpdateVulScanGlobalConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateVulScanGlobalConfigShrinkRequest request = UpdateVulScanGlobalConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWuyingVulFixConfig()) {
+    request.setWuyingVulFixConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWuyingVulFixConfig(), "WuyingVulFixConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMaxDownloadSpeed()) {
+    body["MaxDownloadSpeed"] = request.getMaxDownloadSpeed();
+  }
+
+  if (!!request.hasWuyingVulFixConfigShrink()) {
+    body["WuyingVulFixConfig"] = request.getWuyingVulFixConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVulScanGlobalConfig"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVulScanGlobalConfigResponse>();
+}
+
+/**
+ * @summary Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+ *
+ * @param request UpdateVulScanGlobalConfigRequest
+ * @return UpdateVulScanGlobalConfigResponse
+ */
+UpdateVulScanGlobalConfigResponse Client::updateVulScanGlobalConfig(const UpdateVulScanGlobalConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVulScanGlobalConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+ *
+ * @param request UpdateVulScanScheduledStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVulScanScheduledStrategyResponse
+ */
+UpdateVulScanScheduledStrategyResponse Client::updateVulScanScheduledStrategyWithOptions(const UpdateVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasPriority()) {
+    body["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasScanBeginTime()) {
+    body["ScanBeginTime"] = request.getScanBeginTime();
+  }
+
+  if (!!request.hasScanEndTime()) {
+    body["ScanEndTime"] = request.getScanEndTime();
+  }
+
+  if (!!request.hasScanFrequency()) {
+    body["ScanFrequency"] = request.getScanFrequency();
+  }
+
+  if (!!request.hasScanInterval()) {
+    body["ScanInterval"] = request.getScanInterval();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStrategyDescription()) {
+    body["StrategyDescription"] = request.getStrategyDescription();
+  }
+
+  if (!!request.hasStrategyId()) {
+    body["StrategyId"] = request.getStrategyId();
+  }
+
+  if (!!request.hasStrategyName()) {
+    body["StrategyName"] = request.getStrategyName();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasWhitelist()) {
+    bodyFlat["Whitelist"] = request.getWhitelist();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVulScanScheduledStrategy"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVulScanScheduledStrategyResponse>();
+}
+
+/**
+ * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+ *
+ * @param request UpdateVulScanScheduledStrategyRequest
+ * @return UpdateVulScanScheduledStrategyResponse
+ */
+UpdateVulScanScheduledStrategyResponse Client::updateVulScanScheduledStrategy(const UpdateVulScanScheduledStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVulScanScheduledStrategyWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Csas20230120
