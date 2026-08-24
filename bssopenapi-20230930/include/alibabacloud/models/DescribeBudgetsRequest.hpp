@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The budget name. Fuzzy search is supported.
+    // The budget name. Fuzzy match is supported.
     shared_ptr<string> budgetName_ {};
     // The budget type.
     shared_ptr<string> budgetType_ {};
     // The expiration status.
     shared_ptr<string> expireStatus_ {};
-    // The primary marketplace ID. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

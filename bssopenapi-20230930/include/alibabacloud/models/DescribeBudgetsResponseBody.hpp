@@ -189,9 +189,9 @@ namespace Models
 
 
       protected:
-        // The remarks.
+        // The comment.
         shared_ptr<string> comment_ {};
-        // Indicates whether EventBridge is enabled.
+        // Specifies whether EventBridge is enabled.
         shared_ptr<bool> eventBridge_ {};
         // The list of message center notification channels.
         shared_ptr<vector<string>> mscChannels_ {};
@@ -199,7 +199,7 @@ namespace Models
         shared_ptr<vector<string>> mscContacts_ {};
         // The alert name. This parameter is user-defined and optional. If not specified, the backend automatically generates a name.
         shared_ptr<string> name_ {};
-        // The sort sequence number. This parameter is present only in responses. Alerts are numbered in ascending order by alert ID, starting from 1.
+        // The sequence number. This field is present only in responses and is numbered starting from 1 in ascending order of alert ID.
         shared_ptr<int32_t> sequence_ {};
         // The threshold type.
         shared_ptr<string> thresholdType_ {};
@@ -262,7 +262,7 @@ namespace Models
         shared_ptr<string> code_ {};
         // The selection mode.
         shared_ptr<string> selectType_ {};
-        // The filter value list.
+        // The list of filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -306,7 +306,7 @@ namespace Models
 
 
       protected:
-        // The member account IDs.
+        // The IDs of the member accounts.
         shared_ptr<vector<int64_t>> accountIds_ {};
         // The enterprise entity ID.
         shared_ptr<string> ecId_ {};
@@ -471,13 +471,13 @@ namespace Models
       shared_ptr<string> budgetName_ {};
       // The budget type.
       shared_ptr<string> budgetType_ {};
-      // The remarks.
+      // The comment.
       shared_ptr<string> comment_ {};
-      // The end period.
+      // The end period of the budget cycle.
       shared_ptr<string> cycleEndPeriod_ {};
-      // The specified quota per cycle.
+      // The specified quota for each cycle.
       shared_ptr<vector<Data::CycleQuota>> cycleQuota_ {};
-      // The start period.
+      // The start period of the budget cycle.
       shared_ptr<string> cycleStartPeriod_ {};
       // The cycle type.
       shared_ptr<string> cycleType_ {};

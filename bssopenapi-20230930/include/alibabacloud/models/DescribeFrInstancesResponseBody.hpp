@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AccountId, accountId_);
         DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+        DARABONBA_PTR_TO_JSON(AutoPurchase, autoPurchase_);
         DARABONBA_PTR_TO_JSON(CapacitiyTypeName, capacitiyTypeName_);
         DARABONBA_PTR_TO_JSON(CapacityType, capacityType_);
         DARABONBA_PTR_TO_JSON(CapacityTypeCode, capacityTypeCode_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CycleTypeCode, cycleTypeCode_);
         DARABONBA_PTR_TO_JSON(CycleTypeName, cycleTypeName_);
         DARABONBA_PTR_TO_JSON(DeductRegions, deductRegions_);
+        DARABONBA_PTR_TO_JSON(EnableDeductRule, enableDeductRule_);
         DARABONBA_PTR_TO_JSON(EnableExchange, enableExchange_);
         DARABONBA_PTR_TO_JSON(EnableRenew, enableRenew_);
         DARABONBA_PTR_TO_JSON(EnableUpgrade, enableUpgrade_);
@@ -90,6 +92,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
         DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+        DARABONBA_PTR_FROM_JSON(AutoPurchase, autoPurchase_);
         DARABONBA_PTR_FROM_JSON(CapacitiyTypeName, capacitiyTypeName_);
         DARABONBA_PTR_FROM_JSON(CapacityType, capacityType_);
         DARABONBA_PTR_FROM_JSON(CapacityTypeCode, capacityTypeCode_);
@@ -104,6 +107,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CycleTypeCode, cycleTypeCode_);
         DARABONBA_PTR_FROM_JSON(CycleTypeName, cycleTypeName_);
         DARABONBA_PTR_FROM_JSON(DeductRegions, deductRegions_);
+        DARABONBA_PTR_FROM_JSON(EnableDeductRule, enableDeductRule_);
         DARABONBA_PTR_FROM_JSON(EnableExchange, enableExchange_);
         DARABONBA_PTR_FROM_JSON(EnableRenew, enableRenew_);
         DARABONBA_PTR_FROM_JSON(EnableUpgrade, enableUpgrade_);
@@ -453,16 +457,69 @@ namespace Models
         shared_ptr<string> name_ {};
       };
 
+      class AutoPurchase : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AutoPurchase& obj) { 
+          DARABONBA_PTR_TO_JSON(AlreadyAutoPurchase, alreadyAutoPurchase_);
+          DARABONBA_PTR_TO_JSON(SettingAutoPurchase, settingAutoPurchase_);
+          DARABONBA_PTR_TO_JSON(SupportAutoPurchase, supportAutoPurchase_);
+        };
+        friend void from_json(const Darabonba::Json& j, AutoPurchase& obj) { 
+          DARABONBA_PTR_FROM_JSON(AlreadyAutoPurchase, alreadyAutoPurchase_);
+          DARABONBA_PTR_FROM_JSON(SettingAutoPurchase, settingAutoPurchase_);
+          DARABONBA_PTR_FROM_JSON(SupportAutoPurchase, supportAutoPurchase_);
+        };
+        AutoPurchase() = default ;
+        AutoPurchase(const AutoPurchase &) = default ;
+        AutoPurchase(AutoPurchase &&) = default ;
+        AutoPurchase(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AutoPurchase() = default ;
+        AutoPurchase& operator=(const AutoPurchase &) = default ;
+        AutoPurchase& operator=(AutoPurchase &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->alreadyAutoPurchase_ == nullptr
+        && this->settingAutoPurchase_ == nullptr && this->supportAutoPurchase_ == nullptr; };
+        // alreadyAutoPurchase Field Functions 
+        bool hasAlreadyAutoPurchase() const { return this->alreadyAutoPurchase_ != nullptr;};
+        void deleteAlreadyAutoPurchase() { this->alreadyAutoPurchase_ = nullptr;};
+        inline bool getAlreadyAutoPurchase() const { DARABONBA_PTR_GET_DEFAULT(alreadyAutoPurchase_, false) };
+        inline AutoPurchase& setAlreadyAutoPurchase(bool alreadyAutoPurchase) { DARABONBA_PTR_SET_VALUE(alreadyAutoPurchase_, alreadyAutoPurchase) };
+
+
+        // settingAutoPurchase Field Functions 
+        bool hasSettingAutoPurchase() const { return this->settingAutoPurchase_ != nullptr;};
+        void deleteSettingAutoPurchase() { this->settingAutoPurchase_ = nullptr;};
+        inline bool getSettingAutoPurchase() const { DARABONBA_PTR_GET_DEFAULT(settingAutoPurchase_, false) };
+        inline AutoPurchase& setSettingAutoPurchase(bool settingAutoPurchase) { DARABONBA_PTR_SET_VALUE(settingAutoPurchase_, settingAutoPurchase) };
+
+
+        // supportAutoPurchase Field Functions 
+        bool hasSupportAutoPurchase() const { return this->supportAutoPurchase_ != nullptr;};
+        void deleteSupportAutoPurchase() { this->supportAutoPurchase_ = nullptr;};
+        inline bool getSupportAutoPurchase() const { DARABONBA_PTR_GET_DEFAULT(supportAutoPurchase_, false) };
+        inline AutoPurchase& setSupportAutoPurchase(bool supportAutoPurchase) { DARABONBA_PTR_SET_VALUE(supportAutoPurchase_, supportAutoPurchase) };
+
+
+      protected:
+        shared_ptr<bool> alreadyAutoPurchase_ {};
+        shared_ptr<bool> settingAutoPurchase_ {};
+        shared_ptr<bool> supportAutoPurchase_ {};
+      };
+
       virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->accountName_ == nullptr && this->capacitiyTypeName_ == nullptr && this->capacityType_ == nullptr && this->capacityTypeCode_ == nullptr && this->commodity_ == nullptr
-        && this->commodityCode_ == nullptr && this->commodityName_ == nullptr && this->currCapacityBaseUnit_ == nullptr && this->currCapacityBaseValue_ == nullptr && this->currCapacityViewUnit_ == nullptr
-        && this->currCapacityViewValue_ == nullptr && this->cycleType_ == nullptr && this->cycleTypeCode_ == nullptr && this->cycleTypeName_ == nullptr && this->deductRegions_ == nullptr
-        && this->enableExchange_ == nullptr && this->enableRenew_ == nullptr && this->enableUpgrade_ == nullptr && this->endTime_ == nullptr && this->exchangeCommodityCode_ == nullptr
-        && this->initCapacityBaseUnit_ == nullptr && this->initCapacityBaseValue_ == nullptr && this->initCapacityViewUnit_ == nullptr && this->initCapacityViewValue_ == nullptr && this->instanceId_ == nullptr
-        && this->periodCapacityViewUnit_ == nullptr && this->periodCapacityViewValue_ == nullptr && this->periodTime_ == nullptr && this->product_ == nullptr && this->productCode_ == nullptr
-        && this->productName_ == nullptr && this->purchaseTime_ == nullptr && this->region_ == nullptr && this->regionName_ == nullptr && this->spec_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr && this->statusName_ == nullptr && this->template_ == nullptr
-        && this->templateCode_ == nullptr && this->templateName_ == nullptr && this->periodCapacityBaseUnit_ == nullptr && this->periodCapacityBaseValue_ == nullptr; };
+        && this->accountName_ == nullptr && this->autoPurchase_ == nullptr && this->capacitiyTypeName_ == nullptr && this->capacityType_ == nullptr && this->capacityTypeCode_ == nullptr
+        && this->commodity_ == nullptr && this->commodityCode_ == nullptr && this->commodityName_ == nullptr && this->currCapacityBaseUnit_ == nullptr && this->currCapacityBaseValue_ == nullptr
+        && this->currCapacityViewUnit_ == nullptr && this->currCapacityViewValue_ == nullptr && this->cycleType_ == nullptr && this->cycleTypeCode_ == nullptr && this->cycleTypeName_ == nullptr
+        && this->deductRegions_ == nullptr && this->enableDeductRule_ == nullptr && this->enableExchange_ == nullptr && this->enableRenew_ == nullptr && this->enableUpgrade_ == nullptr
+        && this->endTime_ == nullptr && this->exchangeCommodityCode_ == nullptr && this->initCapacityBaseUnit_ == nullptr && this->initCapacityBaseValue_ == nullptr && this->initCapacityViewUnit_ == nullptr
+        && this->initCapacityViewValue_ == nullptr && this->instanceId_ == nullptr && this->periodCapacityViewUnit_ == nullptr && this->periodCapacityViewValue_ == nullptr && this->periodTime_ == nullptr
+        && this->product_ == nullptr && this->productCode_ == nullptr && this->productName_ == nullptr && this->purchaseTime_ == nullptr && this->region_ == nullptr
+        && this->regionName_ == nullptr && this->spec_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr
+        && this->statusName_ == nullptr && this->template_ == nullptr && this->templateCode_ == nullptr && this->templateName_ == nullptr && this->periodCapacityBaseUnit_ == nullptr
+        && this->periodCapacityBaseValue_ == nullptr; };
       // accountId Field Functions 
       bool hasAccountId() const { return this->accountId_ != nullptr;};
       void deleteAccountId() { this->accountId_ = nullptr;};
@@ -475,6 +532,15 @@ namespace Models
       void deleteAccountName() { this->accountName_ = nullptr;};
       inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
       inline Data& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+      // autoPurchase Field Functions 
+      bool hasAutoPurchase() const { return this->autoPurchase_ != nullptr;};
+      void deleteAutoPurchase() { this->autoPurchase_ = nullptr;};
+      inline const Data::AutoPurchase & getAutoPurchase() const { DARABONBA_PTR_GET_CONST(autoPurchase_, Data::AutoPurchase) };
+      inline Data::AutoPurchase getAutoPurchase() { DARABONBA_PTR_GET(autoPurchase_, Data::AutoPurchase) };
+      inline Data& setAutoPurchase(const Data::AutoPurchase & autoPurchase) { DARABONBA_PTR_SET_VALUE(autoPurchase_, autoPurchase) };
+      inline Data& setAutoPurchase(Data::AutoPurchase && autoPurchase) { DARABONBA_PTR_SET_RVALUE(autoPurchase_, autoPurchase) };
 
 
       // capacitiyTypeName Field Functions 
@@ -581,6 +647,13 @@ namespace Models
       inline vector<Data::DeductRegions> getDeductRegions() { DARABONBA_PTR_GET(deductRegions_, vector<Data::DeductRegions>) };
       inline Data& setDeductRegions(const vector<Data::DeductRegions> & deductRegions) { DARABONBA_PTR_SET_VALUE(deductRegions_, deductRegions) };
       inline Data& setDeductRegions(vector<Data::DeductRegions> && deductRegions) { DARABONBA_PTR_SET_RVALUE(deductRegions_, deductRegions) };
+
+
+      // enableDeductRule Field Functions 
+      bool hasEnableDeductRule() const { return this->enableDeductRule_ != nullptr;};
+      void deleteEnableDeductRule() { this->enableDeductRule_ = nullptr;};
+      inline bool getEnableDeductRule() const { DARABONBA_PTR_GET_DEFAULT(enableDeductRule_, false) };
+      inline Data& setEnableDeductRule(bool enableDeductRule) { DARABONBA_PTR_SET_VALUE(enableDeductRule_, enableDeductRule) };
 
 
       // enableExchange Field Functions 
@@ -797,6 +870,7 @@ namespace Models
       shared_ptr<int64_t> accountId_ {};
       // The account name.
       shared_ptr<string> accountName_ {};
+      shared_ptr<Data::AutoPurchase> autoPurchase_ {};
       // The capacity type name.
       shared_ptr<string> capacitiyTypeName_ {};
       // The capacity type.
@@ -809,9 +883,9 @@ namespace Models
       shared_ptr<string> commodityCode_ {};
       // The commodity name.
       shared_ptr<string> commodityName_ {};
-      // The current capacity baseline unit.
+      // The current capacity base unit.
       shared_ptr<string> currCapacityBaseUnit_ {};
-      // The current capacity baseline value.
+      // The current capacity base value.
       shared_ptr<string> currCapacityBaseValue_ {};
       // The current capacity display unit.
       shared_ptr<string> currCapacityViewUnit_ {};
@@ -825,19 +899,20 @@ namespace Models
       shared_ptr<string> cycleTypeName_ {};
       // The list of deductible regions.
       shared_ptr<vector<Data::DeductRegions>> deductRegions_ {};
-      // Indicates whether the resource plan can be exchanged.
+      shared_ptr<bool> enableDeductRule_ {};
+      // Indicates whether exchange is supported.
       shared_ptr<bool> enableExchange_ {};
-      // Indicates whether the resource plan can be renewed.
+      // Indicates whether renewal is supported.
       shared_ptr<bool> enableRenew_ {};
-      // Indicates whether the resource plan can be upgraded.
+      // Indicates whether upgrade is supported.
       shared_ptr<bool> enableUpgrade_ {};
       // The expiration time.
       shared_ptr<int64_t> endTime_ {};
-      // The commodity code for exchange.
+      // The exchange commodity code.
       shared_ptr<string> exchangeCommodityCode_ {};
-      // The initial capacity baseline unit.
+      // The initial capacity base unit.
       shared_ptr<string> initCapacityBaseUnit_ {};
-      // The initial capacity baseline value.
+      // The initial capacity base value.
       shared_ptr<string> initCapacityBaseValue_ {};
       // The initial capacity display unit.
       shared_ptr<string> initCapacityViewUnit_ {};
@@ -879,9 +954,9 @@ namespace Models
       shared_ptr<string> templateCode_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The period capacity baseline unit.
+      // The periodic capacity base unit.
       shared_ptr<string> periodCapacityBaseUnit_ {};
-      // The period capacity baseline value.
+      // The periodic capacity base value.
       shared_ptr<string> periodCapacityBaseValue_ {};
     };
 

@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEREPORTDEFINITIONSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,9 +10,9 @@ namespace BssOpenApi20230930
 {
 namespace Models
 {
-  class CreateReportDefinitionRequest : public Darabonba::Model {
+  class CreateReportDefinitionShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateReportDefinitionRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateReportDefinitionShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BeginBillingCycle, beginBillingCycle_);
       DARABONBA_PTR_TO_JSON(IncludeMembers, includeMembers_);
       DARABONBA_PTR_TO_JSON(McProject, mcProject_);
@@ -25,11 +24,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_TO_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
-      DARABONBA_PTR_TO_JSON(SelectedFields, selectedFields_);
+      DARABONBA_PTR_TO_JSON(SelectedFields, selectedFieldsShrink_);
       DARABONBA_PTR_TO_JSON(SendWithAttach, sendWithAttach_);
       DARABONBA_PTR_TO_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateReportDefinitionRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateReportDefinitionShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BeginBillingCycle, beginBillingCycle_);
       DARABONBA_PTR_FROM_JSON(IncludeMembers, includeMembers_);
       DARABONBA_PTR_FROM_JSON(McProject, mcProject_);
@@ -41,17 +40,17 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OssBucketPath, ossBucketPath_);
       DARABONBA_PTR_FROM_JSON(ReportSourceType, reportSourceType_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
-      DARABONBA_PTR_FROM_JSON(SelectedFields, selectedFields_);
+      DARABONBA_PTR_FROM_JSON(SelectedFields, selectedFieldsShrink_);
       DARABONBA_PTR_FROM_JSON(SendWithAttach, sendWithAttach_);
       DARABONBA_PTR_FROM_JSON(SplitFileOnUserId, splitFileOnUserId_);
     };
-    CreateReportDefinitionRequest() = default ;
-    CreateReportDefinitionRequest(const CreateReportDefinitionRequest &) = default ;
-    CreateReportDefinitionRequest(CreateReportDefinitionRequest &&) = default ;
-    CreateReportDefinitionRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateReportDefinitionRequest() = default ;
-    CreateReportDefinitionRequest& operator=(const CreateReportDefinitionRequest &) = default ;
-    CreateReportDefinitionRequest& operator=(CreateReportDefinitionRequest &&) = default ;
+    CreateReportDefinitionShrinkRequest() = default ;
+    CreateReportDefinitionShrinkRequest(const CreateReportDefinitionShrinkRequest &) = default ;
+    CreateReportDefinitionShrinkRequest(CreateReportDefinitionShrinkRequest &&) = default ;
+    CreateReportDefinitionShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateReportDefinitionShrinkRequest() = default ;
+    CreateReportDefinitionShrinkRequest& operator=(const CreateReportDefinitionShrinkRequest &) = default ;
+    CreateReportDefinitionShrinkRequest& operator=(CreateReportDefinitionShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -59,105 +58,103 @@ namespace Models
     virtual bool empty() const override { return this->beginBillingCycle_ == nullptr
         && this->includeMembers_ == nullptr && this->mcProject_ == nullptr && this->mcTableName_ == nullptr && this->nbid_ == nullptr && this->notSendOnNoData_ == nullptr
         && this->ossBucketName_ == nullptr && this->ossBucketOwnerAccountId_ == nullptr && this->ossBucketPath_ == nullptr && this->reportSourceType_ == nullptr && this->reportType_ == nullptr
-        && this->selectedFields_ == nullptr && this->sendWithAttach_ == nullptr && this->splitFileOnUserId_ == nullptr; };
+        && this->selectedFieldsShrink_ == nullptr && this->sendWithAttach_ == nullptr && this->splitFileOnUserId_ == nullptr; };
     // beginBillingCycle Field Functions 
     bool hasBeginBillingCycle() const { return this->beginBillingCycle_ != nullptr;};
     void deleteBeginBillingCycle() { this->beginBillingCycle_ = nullptr;};
     inline string getBeginBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(beginBillingCycle_, "") };
-    inline CreateReportDefinitionRequest& setBeginBillingCycle(string beginBillingCycle) { DARABONBA_PTR_SET_VALUE(beginBillingCycle_, beginBillingCycle) };
+    inline CreateReportDefinitionShrinkRequest& setBeginBillingCycle(string beginBillingCycle) { DARABONBA_PTR_SET_VALUE(beginBillingCycle_, beginBillingCycle) };
 
 
     // includeMembers Field Functions 
     bool hasIncludeMembers() const { return this->includeMembers_ != nullptr;};
     void deleteIncludeMembers() { this->includeMembers_ = nullptr;};
     inline string getIncludeMembers() const { DARABONBA_PTR_GET_DEFAULT(includeMembers_, "") };
-    inline CreateReportDefinitionRequest& setIncludeMembers(string includeMembers) { DARABONBA_PTR_SET_VALUE(includeMembers_, includeMembers) };
+    inline CreateReportDefinitionShrinkRequest& setIncludeMembers(string includeMembers) { DARABONBA_PTR_SET_VALUE(includeMembers_, includeMembers) };
 
 
     // mcProject Field Functions 
     bool hasMcProject() const { return this->mcProject_ != nullptr;};
     void deleteMcProject() { this->mcProject_ = nullptr;};
     inline string getMcProject() const { DARABONBA_PTR_GET_DEFAULT(mcProject_, "") };
-    inline CreateReportDefinitionRequest& setMcProject(string mcProject) { DARABONBA_PTR_SET_VALUE(mcProject_, mcProject) };
+    inline CreateReportDefinitionShrinkRequest& setMcProject(string mcProject) { DARABONBA_PTR_SET_VALUE(mcProject_, mcProject) };
 
 
     // mcTableName Field Functions 
     bool hasMcTableName() const { return this->mcTableName_ != nullptr;};
     void deleteMcTableName() { this->mcTableName_ = nullptr;};
     inline string getMcTableName() const { DARABONBA_PTR_GET_DEFAULT(mcTableName_, "") };
-    inline CreateReportDefinitionRequest& setMcTableName(string mcTableName) { DARABONBA_PTR_SET_VALUE(mcTableName_, mcTableName) };
+    inline CreateReportDefinitionShrinkRequest& setMcTableName(string mcTableName) { DARABONBA_PTR_SET_VALUE(mcTableName_, mcTableName) };
 
 
     // nbid Field Functions 
     bool hasNbid() const { return this->nbid_ != nullptr;};
     void deleteNbid() { this->nbid_ = nullptr;};
     inline string getNbid() const { DARABONBA_PTR_GET_DEFAULT(nbid_, "") };
-    inline CreateReportDefinitionRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
+    inline CreateReportDefinitionShrinkRequest& setNbid(string nbid) { DARABONBA_PTR_SET_VALUE(nbid_, nbid) };
 
 
     // notSendOnNoData Field Functions 
     bool hasNotSendOnNoData() const { return this->notSendOnNoData_ != nullptr;};
     void deleteNotSendOnNoData() { this->notSendOnNoData_ = nullptr;};
     inline string getNotSendOnNoData() const { DARABONBA_PTR_GET_DEFAULT(notSendOnNoData_, "") };
-    inline CreateReportDefinitionRequest& setNotSendOnNoData(string notSendOnNoData) { DARABONBA_PTR_SET_VALUE(notSendOnNoData_, notSendOnNoData) };
+    inline CreateReportDefinitionShrinkRequest& setNotSendOnNoData(string notSendOnNoData) { DARABONBA_PTR_SET_VALUE(notSendOnNoData_, notSendOnNoData) };
 
 
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
     inline string getOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
-    inline CreateReportDefinitionRequest& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
+    inline CreateReportDefinitionShrinkRequest& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
 
 
     // ossBucketOwnerAccountId Field Functions 
     bool hasOssBucketOwnerAccountId() const { return this->ossBucketOwnerAccountId_ != nullptr;};
     void deleteOssBucketOwnerAccountId() { this->ossBucketOwnerAccountId_ = nullptr;};
     inline int64_t getOssBucketOwnerAccountId() const { DARABONBA_PTR_GET_DEFAULT(ossBucketOwnerAccountId_, 0L) };
-    inline CreateReportDefinitionRequest& setOssBucketOwnerAccountId(int64_t ossBucketOwnerAccountId) { DARABONBA_PTR_SET_VALUE(ossBucketOwnerAccountId_, ossBucketOwnerAccountId) };
+    inline CreateReportDefinitionShrinkRequest& setOssBucketOwnerAccountId(int64_t ossBucketOwnerAccountId) { DARABONBA_PTR_SET_VALUE(ossBucketOwnerAccountId_, ossBucketOwnerAccountId) };
 
 
     // ossBucketPath Field Functions 
     bool hasOssBucketPath() const { return this->ossBucketPath_ != nullptr;};
     void deleteOssBucketPath() { this->ossBucketPath_ = nullptr;};
     inline string getOssBucketPath() const { DARABONBA_PTR_GET_DEFAULT(ossBucketPath_, "") };
-    inline CreateReportDefinitionRequest& setOssBucketPath(string ossBucketPath) { DARABONBA_PTR_SET_VALUE(ossBucketPath_, ossBucketPath) };
+    inline CreateReportDefinitionShrinkRequest& setOssBucketPath(string ossBucketPath) { DARABONBA_PTR_SET_VALUE(ossBucketPath_, ossBucketPath) };
 
 
     // reportSourceType Field Functions 
     bool hasReportSourceType() const { return this->reportSourceType_ != nullptr;};
     void deleteReportSourceType() { this->reportSourceType_ = nullptr;};
     inline string getReportSourceType() const { DARABONBA_PTR_GET_DEFAULT(reportSourceType_, "") };
-    inline CreateReportDefinitionRequest& setReportSourceType(string reportSourceType) { DARABONBA_PTR_SET_VALUE(reportSourceType_, reportSourceType) };
+    inline CreateReportDefinitionShrinkRequest& setReportSourceType(string reportSourceType) { DARABONBA_PTR_SET_VALUE(reportSourceType_, reportSourceType) };
 
 
     // reportType Field Functions 
     bool hasReportType() const { return this->reportType_ != nullptr;};
     void deleteReportType() { this->reportType_ = nullptr;};
     inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
-    inline CreateReportDefinitionRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
+    inline CreateReportDefinitionShrinkRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
-    // selectedFields Field Functions 
-    bool hasSelectedFields() const { return this->selectedFields_ != nullptr;};
-    void deleteSelectedFields() { this->selectedFields_ = nullptr;};
-    inline const vector<string> & getSelectedFields() const { DARABONBA_PTR_GET_CONST(selectedFields_, vector<string>) };
-    inline vector<string> getSelectedFields() { DARABONBA_PTR_GET(selectedFields_, vector<string>) };
-    inline CreateReportDefinitionRequest& setSelectedFields(const vector<string> & selectedFields) { DARABONBA_PTR_SET_VALUE(selectedFields_, selectedFields) };
-    inline CreateReportDefinitionRequest& setSelectedFields(vector<string> && selectedFields) { DARABONBA_PTR_SET_RVALUE(selectedFields_, selectedFields) };
+    // selectedFieldsShrink Field Functions 
+    bool hasSelectedFieldsShrink() const { return this->selectedFieldsShrink_ != nullptr;};
+    void deleteSelectedFieldsShrink() { this->selectedFieldsShrink_ = nullptr;};
+    inline string getSelectedFieldsShrink() const { DARABONBA_PTR_GET_DEFAULT(selectedFieldsShrink_, "") };
+    inline CreateReportDefinitionShrinkRequest& setSelectedFieldsShrink(string selectedFieldsShrink) { DARABONBA_PTR_SET_VALUE(selectedFieldsShrink_, selectedFieldsShrink) };
 
 
     // sendWithAttach Field Functions 
     bool hasSendWithAttach() const { return this->sendWithAttach_ != nullptr;};
     void deleteSendWithAttach() { this->sendWithAttach_ = nullptr;};
     inline string getSendWithAttach() const { DARABONBA_PTR_GET_DEFAULT(sendWithAttach_, "") };
-    inline CreateReportDefinitionRequest& setSendWithAttach(string sendWithAttach) { DARABONBA_PTR_SET_VALUE(sendWithAttach_, sendWithAttach) };
+    inline CreateReportDefinitionShrinkRequest& setSendWithAttach(string sendWithAttach) { DARABONBA_PTR_SET_VALUE(sendWithAttach_, sendWithAttach) };
 
 
     // splitFileOnUserId Field Functions 
     bool hasSplitFileOnUserId() const { return this->splitFileOnUserId_ != nullptr;};
     void deleteSplitFileOnUserId() { this->splitFileOnUserId_ = nullptr;};
     inline string getSplitFileOnUserId() const { DARABONBA_PTR_GET_DEFAULT(splitFileOnUserId_, "") };
-    inline CreateReportDefinitionRequest& setSplitFileOnUserId(string splitFileOnUserId) { DARABONBA_PTR_SET_VALUE(splitFileOnUserId_, splitFileOnUserId) };
+    inline CreateReportDefinitionShrinkRequest& setSplitFileOnUserId(string splitFileOnUserId) { DARABONBA_PTR_SET_VALUE(splitFileOnUserId_, splitFileOnUserId) };
 
 
   protected:
@@ -191,7 +188,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> reportType_ {};
     // The user-specified subscription fields.
-    shared_ptr<vector<string>> selectedFields_ {};
+    shared_ptr<string> selectedFieldsShrink_ {};
     // Email subscription configuration. Specifies whether to include bill attachments in emails.
     shared_ptr<string> sendWithAttach_ {};
     // Email subscription configuration. Specifies whether to split attachments by user ID.

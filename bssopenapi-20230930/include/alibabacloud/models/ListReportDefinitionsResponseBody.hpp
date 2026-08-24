@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ReportSourceType, reportSourceType_);
         DARABONBA_PTR_TO_JSON(ReportTaskId, reportTaskId_);
         DARABONBA_PTR_TO_JSON(ReportType, reportType_);
+        DARABONBA_PTR_TO_JSON(SelectedFields, selectedFields_);
         DARABONBA_PTR_TO_JSON(SubscribeCreateTime, subscribeCreateTime_);
       };
       friend void from_json(const Darabonba::Json& j, ReportDefinitions& obj) { 
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ReportSourceType, reportSourceType_);
         DARABONBA_PTR_FROM_JSON(ReportTaskId, reportTaskId_);
         DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
+        DARABONBA_PTR_FROM_JSON(SelectedFields, selectedFields_);
         DARABONBA_PTR_FROM_JSON(SubscribeCreateTime, subscribeCreateTime_);
       };
       ReportDefinitions() = default ;
@@ -71,7 +73,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->beginBillingCycle_ == nullptr
         && this->ossBucketName_ == nullptr && this->ossBucketOwnerAccountId_ == nullptr && this->ossBucketPath_ == nullptr && this->reportSourceName_ == nullptr && this->reportSourceType_ == nullptr
-        && this->reportTaskId_ == nullptr && this->reportType_ == nullptr && this->subscribeCreateTime_ == nullptr; };
+        && this->reportTaskId_ == nullptr && this->reportType_ == nullptr && this->selectedFields_ == nullptr && this->subscribeCreateTime_ == nullptr; };
       // beginBillingCycle Field Functions 
       bool hasBeginBillingCycle() const { return this->beginBillingCycle_ != nullptr;};
       void deleteBeginBillingCycle() { this->beginBillingCycle_ = nullptr;};
@@ -128,6 +130,15 @@ namespace Models
       inline ReportDefinitions& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
+      // selectedFields Field Functions 
+      bool hasSelectedFields() const { return this->selectedFields_ != nullptr;};
+      void deleteSelectedFields() { this->selectedFields_ = nullptr;};
+      inline const vector<string> & getSelectedFields() const { DARABONBA_PTR_GET_CONST(selectedFields_, vector<string>) };
+      inline vector<string> getSelectedFields() { DARABONBA_PTR_GET(selectedFields_, vector<string>) };
+      inline ReportDefinitions& setSelectedFields(const vector<string> & selectedFields) { DARABONBA_PTR_SET_VALUE(selectedFields_, selectedFields) };
+      inline ReportDefinitions& setSelectedFields(vector<string> && selectedFields) { DARABONBA_PTR_SET_RVALUE(selectedFields_, selectedFields) };
+
+
       // subscribeCreateTime Field Functions 
       bool hasSubscribeCreateTime() const { return this->subscribeCreateTime_ != nullptr;};
       void deleteSubscribeCreateTime() { this->subscribeCreateTime_ = nullptr;};
@@ -155,6 +166,7 @@ namespace Models
       // - InstanceDetailForBillingPeriod: instance consumption details.
       // - BillingItemDetailMonthly: billable item consumption summary by billing cycle.
       shared_ptr<string> reportType_ {};
+      shared_ptr<vector<string>> selectedFields_ {};
       // The time when the subscription was created.
       shared_ptr<string> subscribeCreateTime_ {};
     };

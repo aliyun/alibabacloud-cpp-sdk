@@ -49,6 +49,7 @@
 #include <alibabacloud/models/CreateInvoiceResponseBody.hpp>
 #include <alibabacloud/models/CreateInvoiceResponse.hpp>
 #include <alibabacloud/models/CreateReportDefinitionRequest.hpp>
+#include <alibabacloud/models/CreateReportDefinitionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponse.hpp>
 #include <alibabacloud/models/DeleteBudgetRequest.hpp>

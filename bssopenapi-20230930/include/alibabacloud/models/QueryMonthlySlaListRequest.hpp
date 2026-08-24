@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The list of accounts to query. If this parameter is left empty, all accounts under the current entity ID are selected.
+      // The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
       // The enterprise entity ID.
       shared_ptr<string> ecId_ {};
@@ -160,15 +160,15 @@ namespace Models
 
 
   protected:
-    // The current page number. Default value: 1, which indicates the first page.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
+    // The enterprise and account list. If this parameter is empty, the current account is queried.
     shared_ptr<vector<QueryMonthlySlaListRequest::EcIdAccountIds>> ecIdAccountIds_ {};
     // Optional. Filter by instance ID.
     shared_ptr<vector<string>> instanceIds_ {};
-    // Optional. Month list in yyyyMM format.
+    // Optional. List of months in yyyyMM format.
     shared_ptr<vector<int32_t>> months_ {};
-    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
+    // The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

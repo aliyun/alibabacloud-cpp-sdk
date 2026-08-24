@@ -153,23 +153,26 @@ namespace Models
     protected:
       // The service availability.
       shared_ptr<double> availableRate_ {};
-      // The unique identifier of the damage record, which is used for targeted compensation application.
+      // The unique ID of the damage record, used for targeted claims.
       shared_ptr<string> damagedId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The month in yyyyMM format.
       shared_ptr<int32_t> month_ {};
-      // The monthly service charge.
+      // The monthly service fee.
       shared_ptr<double> monthlyServiceCharge_ {};
       // The compensation description.
       shared_ptr<string> payDescription_ {};
-      // The compensation ratio. Unit: %.
+      // The compensation ratio, in percentage (%).
       shared_ptr<double> payRate_ {};
-      // The compensation status. Valid values: 0 (uncompensated) and 1 (compensated).
+      // The compensation status. Valid values:
+      // - 0: not compensated.
+      // - 1: compensated.
+      // - 2: no compensation required.
       shared_ptr<int32_t> payStatus_ {};
       // The product code.
       shared_ptr<string> productCode_ {};
-      // The compensation amount.
+      // The compensation amount that should be paid.
       shared_ptr<double> shouldPaySum_ {};
     };
 
@@ -226,7 +229,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data list.
     shared_ptr<vector<QueryMonthlySlaListResponseBody::Data>> data_ {};
-    // The response metadata.
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

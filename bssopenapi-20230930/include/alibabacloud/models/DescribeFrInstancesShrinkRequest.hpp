@@ -201,17 +201,17 @@ namespace Models
     shared_ptr<string> commodityCode_ {};
     // The cycle type.
     shared_ptr<string> cycleType_ {};
-    // The enterprise and account list. If this parameter is empty, the current account is queried.
+    // The enterprise and account list. If empty, the current account is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
     // The end time.
     shared_ptr<int64_t> endTime_ {};
-    // The resource dimension to query.
+    // The resource dimension for the query.
     shared_ptr<string> group_ {};
     // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The instance label value of the resource plan.
+    // The instance tag label value of the resource plan instance.
     shared_ptr<string> instanceTag_ {};
-    // The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
+    // The primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
     // The current page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<string> productCode_ {};
     // The sort field.
     shared_ptr<string> sortField_ {};
-    // The sorting rule.
+    // The collation for sorting.
     shared_ptr<string> sortRule_ {};
     // The specification.
     shared_ptr<string> spec_ {};
