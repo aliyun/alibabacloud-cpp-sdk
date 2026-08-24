@@ -1,0 +1,39 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_KVCACHESTORE20260617MODEL_HPP_
+#define ALIBABACLOUD_KVCACHESTORE20260617MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/AttachKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/AttachKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/AttachKVCacheStoreResponse.hpp>
+#include <alibabacloud/models/CreateKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/CreateKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/CreateKVCacheStoreResponse.hpp>
+#include <alibabacloud/models/DeleteKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/DeleteKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/DeleteKVCacheStoreResponse.hpp>
+#include <alibabacloud/models/DescribeRegionsRequest.hpp>
+#include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRegionsResponse.hpp>
+#include <alibabacloud/models/DescribeZonesRequest.hpp>
+#include <alibabacloud/models/DescribeZonesResponseBody.hpp>
+#include <alibabacloud/models/DescribeZonesResponse.hpp>
+#include <alibabacloud/models/DetachKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/DetachKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/DetachKVCacheStoreResponse.hpp>
+#include <alibabacloud/models/GetKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/GetKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/GetKVCacheStoreResponse.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAttachInfoRequest.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAttachInfoResponseBody.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAttachInfoResponse.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesRequest.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesResponseBody.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesResponse.hpp>
+#include <alibabacloud/models/ListKVCacheStoresRequest.hpp>
+#include <alibabacloud/models/ListKVCacheStoresResponseBody.hpp>
+#include <alibabacloud/models/ListKVCacheStoresResponse.hpp>
+#include <alibabacloud/models/UpdateKVCacheStoreRequest.hpp>
+#include <alibabacloud/models/UpdateKVCacheStoreResponseBody.hpp>
+#include <alibabacloud/models/UpdateKVCacheStoreResponse.hpp>
+
+#endif
