@@ -166,7 +166,7 @@ namespace Models
 
 
       protected:
-        // The cron expression for the time-based scheduling.
+        // The cron expression for timed scheduling.
         shared_ptr<string> cronExpression_ {};
         // The query for the scheduled task.
         shared_ptr<string> query_ {};
@@ -283,10 +283,11 @@ namespace Models
 
 
       protected:
-        // The access type.
+        // The access type. Valid values:
+        // - mcp: accessed through MCP.
         shared_ptr<string> accessType_ {};
         shared_ptr<string> kbUuid_ {};
-        // The ID of the MCP server.
+        // The ID of the MCP Server.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -683,12 +684,12 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account ID of the primary account.
+      // The Alibaba Cloud account ID of the parent account.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
-      // The name of the creator.
+      // The creator name.
       shared_ptr<string> creatorUserName_ {};
       // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
@@ -712,16 +713,17 @@ namespace Models
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
-      // The external knowledge bases.
+      // The external knowledge base list.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
       shared_ptr<vector<Data::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
-      // The name of the modifier.
+      // The modifier name.
       shared_ptr<string> modifierUserName_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
       // The next run time of the periodic task.
+      // - In timestamp format.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
       shared_ptr<string> offlineTime_ {};
@@ -733,7 +735,7 @@ namespace Models
       shared_ptr<string> releaseTime_ {};
       // The periodic task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
-      // The status of the custom agent.
+      // The custom agent status.
       shared_ptr<string> status_ {};
       // The text report format.
       shared_ptr<string> textReportConfig_ {};
@@ -789,11 +791,14 @@ namespace Models
     shared_ptr<ModifyCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

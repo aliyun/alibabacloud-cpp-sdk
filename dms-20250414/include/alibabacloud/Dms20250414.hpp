@@ -21,7 +21,7 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary AddDataAgentMemory
+       * @summary Adds a memory entry to a DataAgent.
        *
        * @param request AddDataAgentMemoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Dms20250414
       Models::AddDataAgentMemoryResponse addDataAgentMemoryWithOptions(const Models::AddDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AddDataAgentMemory
+       * @summary Adds a memory entry to a DataAgent.
        *
        * @param request AddDataAgentMemoryRequest
        * @return AddDataAgentMemoryResponse
@@ -352,6 +352,23 @@ namespace Dms20250414
       Models::CreateDataLakeTableResponse createDataLakeTable(const Models::CreateDataLakeTableRequest &request);
 
       /**
+       * @summary 创建sql模版
+       *
+       * @param request CreateOneMetaSqlTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOneMetaSqlTemplateResponse
+       */
+      Models::CreateOneMetaSqlTemplateResponse createOneMetaSqlTemplateWithOptions(const Models::CreateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建sql模版
+       *
+       * @param request CreateOneMetaSqlTemplateRequest
+       * @return CreateOneMetaSqlTemplateResponse
+       */
+      Models::CreateOneMetaSqlTemplateResponse createOneMetaSqlTemplate(const Models::CreateOneMetaSqlTemplateRequest &request);
+
+      /**
        * @summary Deletes an Airflow instance.
        *
        * @param request DeleteAirflowRequest
@@ -609,6 +626,40 @@ namespace Dms20250414
        * @return DeleteFileUploadResponse
        */
       Models::DeleteFileUploadResponse deleteFileUpload(const Models::DeleteFileUploadRequest &request);
+
+      /**
+       * @summary 删除onemeta3.0的Ossie模型
+       *
+       * @param request DeleteOneMetaOssieModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOneMetaOssieModelResponse
+       */
+      Models::DeleteOneMetaOssieModelResponse deleteOneMetaOssieModelWithOptions(const Models::DeleteOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除onemeta3.0的Ossie模型
+       *
+       * @param request DeleteOneMetaOssieModelRequest
+       * @return DeleteOneMetaOssieModelResponse
+       */
+      Models::DeleteOneMetaOssieModelResponse deleteOneMetaOssieModel(const Models::DeleteOneMetaOssieModelRequest &request);
+
+      /**
+       * @summary 删除sql模版
+       *
+       * @param request DeleteOneMetaSqlTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOneMetaSqlTemplateResponse
+       */
+      Models::DeleteOneMetaSqlTemplateResponse deleteOneMetaSqlTemplateWithOptions(const Models::DeleteOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除sql模版
+       *
+       * @param request DeleteOneMetaSqlTemplateRequest
+       * @return DeleteOneMetaSqlTemplateResponse
+       */
+      Models::DeleteOneMetaSqlTemplateResponse deleteOneMetaSqlTemplate(const Models::DeleteOneMetaSqlTemplateRequest &request);
 
       /**
        * @summary Deletes a code file or directory from a workspace.
@@ -1069,6 +1120,23 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
+       * @summary 获取onemeta3.0的Ossie模型
+       *
+       * @param request GetOneMetaOssieModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOneMetaOssieModelResponse
+       */
+      Models::GetOneMetaOssieModelResponse getOneMetaOssieModelWithOptions(const Models::GetOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取onemeta3.0的Ossie模型
+       *
+       * @param request GetOneMetaOssieModelRequest
+       * @return GetOneMetaOssieModelResponse
+       */
+      Models::GetOneMetaOssieModelResponse getOneMetaOssieModel(const Models::GetOneMetaOssieModelRequest &request);
+
+      /**
        * @summary Queries the operation logs of the SQL window.
        *
        * @param request GetSqlConsoleOperationLogRequest
@@ -1147,6 +1215,23 @@ namespace Dms20250414
        * @return GetWorkspaceQuotaResponse
        */
       Models::GetWorkspaceQuotaResponse getWorkspaceQuota(const Models::GetWorkspaceQuotaRequest &request);
+
+      /**
+       * @summary 导入Ossie模型
+       *
+       * @param request ImportOneMetaOssieModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportOneMetaOssieModelResponse
+       */
+      Models::ImportOneMetaOssieModelResponse importOneMetaOssieModelWithOptions(const Models::ImportOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入Ossie模型
+       *
+       * @param request ImportOneMetaOssieModelRequest
+       * @return ImportOneMetaOssieModelResponse
+       */
+      Models::ImportOneMetaOssieModelResponse importOneMetaOssieModel(const Models::ImportOneMetaOssieModelRequest &request);
 
       /**
        * @summary Installs all currently available system MCP services for a specified Data Agent workspace.
@@ -1662,6 +1747,40 @@ namespace Dms20250414
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
+       * @summary 获取ossie模型列表
+       *
+       * @param request ListOneMetaOssieModelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOneMetaOssieModelsResponse
+       */
+      Models::ListOneMetaOssieModelsResponse listOneMetaOssieModelsWithOptions(const Models::ListOneMetaOssieModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取ossie模型列表
+       *
+       * @param request ListOneMetaOssieModelsRequest
+       * @return ListOneMetaOssieModelsResponse
+       */
+      Models::ListOneMetaOssieModelsResponse listOneMetaOssieModels(const Models::ListOneMetaOssieModelsRequest &request);
+
+      /**
+       * @summary 获取sql模版
+       *
+       * @param request ListOneMetaSqlTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOneMetaSqlTemplatesResponse
+       */
+      Models::ListOneMetaSqlTemplatesResponse listOneMetaSqlTemplatesWithOptions(const Models::ListOneMetaSqlTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取sql模版
+       *
+       * @param request ListOneMetaSqlTemplatesRequest
+       * @return ListOneMetaSqlTemplatesResponse
+       */
+      Models::ListOneMetaSqlTemplatesResponse listOneMetaSqlTemplates(const Models::ListOneMetaSqlTemplatesRequest &request);
+
+      /**
        * @summary Lists code files and directories at a specified path in a workspace.
        *
        * @description This operation lists the code files and directories at a specified path in a workspace.
@@ -2137,6 +2256,40 @@ namespace Dms20250414
        * @return UpdateKnowledgeBaseResponse
        */
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 更新Ossie模型
+       *
+       * @param request UpdateOneMetaOssieModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOneMetaOssieModelResponse
+       */
+      Models::UpdateOneMetaOssieModelResponse updateOneMetaOssieModelWithOptions(const Models::UpdateOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Ossie模型
+       *
+       * @param request UpdateOneMetaOssieModelRequest
+       * @return UpdateOneMetaOssieModelResponse
+       */
+      Models::UpdateOneMetaOssieModelResponse updateOneMetaOssieModel(const Models::UpdateOneMetaOssieModelRequest &request);
+
+      /**
+       * @summary 更新sql模版
+       *
+       * @param request UpdateOneMetaSqlTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOneMetaSqlTemplateResponse
+       */
+      Models::UpdateOneMetaSqlTemplateResponse updateOneMetaSqlTemplateWithOptions(const Models::UpdateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新sql模版
+       *
+       * @param request UpdateOneMetaSqlTemplateRequest
+       * @return UpdateOneMetaSqlTemplateResponse
+       */
+      Models::UpdateOneMetaSqlTemplateResponse updateOneMetaSqlTemplate(const Models::UpdateOneMetaSqlTemplateRequest &request);
 
       /**
        * @summary Uploads a document to a knowledge base.

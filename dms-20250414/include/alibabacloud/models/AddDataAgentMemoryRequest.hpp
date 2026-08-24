@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The memory content.
     shared_ptr<string> content_ {};
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The source ID.
+    // - If MemFrom is set to session, FromId indicates the session ID.
+    // - If MemFrom is set to user, FromId indicates the RAM user ID.
     shared_ptr<string> fromId_ {};
+    // The memory label. Valid values:
+    // - fact_specifications: fact definitions.
+    // - task_constraints: node constraints.
+    // - execution_config: execution configuration.
     shared_ptr<string> label_ {};
+    // The memory source. Valid values:
+    // - session: generated from a session.
+    // - user: edited by a user.
     shared_ptr<string> memFrom_ {};
+    // The session ID.
+    // - Note: This parameter is deprecated.
     shared_ptr<string> sessionUuid_ {};
   };
 

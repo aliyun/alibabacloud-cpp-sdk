@@ -75,7 +75,12 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<string> jobId_ {};
+      // Indicates whether the task submission request is successful. Valid values:
+      // 
+      // - True: The request is successful.                                 
+      // - False: The request failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -119,10 +124,18 @@ namespace Models
 
 
   protected:
+    // The response struct.
     shared_ptr<AddDataAgentMemoryResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

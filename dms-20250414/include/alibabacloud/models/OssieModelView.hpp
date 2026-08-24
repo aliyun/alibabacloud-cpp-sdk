@@ -176,21 +176,37 @@ namespace Models
 
 
   protected:
+    // The UUID of the associated instance.
     shared_ptr<string> catalogUuid_ {};
+    // The UUID of the associated database.
     shared_ptr<string> databaseUuid_ {};
+    // The semantic description.
     shared_ptr<string> description_ {};
+    // The semantic document format type.
     shared_ptr<string> docFormat_ {};
+    // The domain topic.
     shared_ptr<string> domainTopic_ {};
+    // The expression content.
     shared_ptr<string> expr_ {};
+    // The creation time.
     shared_ptr<int64_t> gmtCreated_ {};
+    // The modification time.
     shared_ptr<int64_t> gmtModified_ {};
+    // The UUID of the semantic knowledge.
     shared_ptr<string> knowledgeUuid_ {};
+    // The semantic document content.
     shared_ptr<string> rawDoc_ {};
+    // The semantic type.
     shared_ptr<string> semanticType_ {};
+    // The source.
     shared_ptr<string> source_ {};
+    // The document summary.
     shared_ptr<string> summary_ {};
+    // The knowledge base tag.
     shared_ptr<string> tag_ {};
+    // The semantic title.
     shared_ptr<string> title_ {};
+    // The version information.
     shared_ptr<string> version_ {};
   };
 

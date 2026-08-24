@@ -47,7 +47,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary AddDataAgentMemory
+ * @summary Adds a memory entry to a DataAgent.
  *
  * @param request AddDataAgentMemoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ AddDataAgentMemoryResponse Client::addDataAgentMemoryWithOptions(const AddDataAg
 }
 
 /**
- * @summary AddDataAgentMemory
+ * @summary Adds a memory entry to a DataAgent.
  *
  * @param request AddDataAgentMemoryRequest
  * @return AddDataAgentMemoryResponse
@@ -1383,6 +1383,76 @@ CreateDataLakeTableResponse Client::createDataLakeTable(const CreateDataLakeTabl
 }
 
 /**
+ * @summary 创建sql模版
+ *
+ * @param request CreateOneMetaSqlTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOneMetaSqlTemplateResponse
+ */
+CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplateWithOptions(const CreateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpr()) {
+    query["Expr"] = request.getExpr();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasSqlParams()) {
+    query["SqlParams"] = request.getSqlParams();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOneMetaSqlTemplate"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOneMetaSqlTemplateResponse>();
+}
+
+/**
+ * @summary 创建sql模版
+ *
+ * @param request CreateOneMetaSqlTemplateRequest
+ * @return CreateOneMetaSqlTemplateResponse
+ */
+CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplate(const CreateOneMetaSqlTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOneMetaSqlTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an Airflow instance.
  *
  * @param request DeleteAirflowRequest
@@ -2164,6 +2234,90 @@ DeleteFileUploadResponse Client::deleteFileUploadWithOptions(const DeleteFileUpl
 DeleteFileUploadResponse Client::deleteFileUpload(const DeleteFileUploadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteFileUploadWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除onemeta3.0的Ossie模型
+ *
+ * @param request DeleteOneMetaOssieModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOneMetaOssieModelResponse
+ */
+DeleteOneMetaOssieModelResponse Client::deleteOneMetaOssieModelWithOptions(const DeleteOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeUuid()) {
+    query["KnowledgeUuid"] = request.getKnowledgeUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOneMetaOssieModel"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOneMetaOssieModelResponse>();
+}
+
+/**
+ * @summary 删除onemeta3.0的Ossie模型
+ *
+ * @param request DeleteOneMetaOssieModelRequest
+ * @return DeleteOneMetaOssieModelResponse
+ */
+DeleteOneMetaOssieModelResponse Client::deleteOneMetaOssieModel(const DeleteOneMetaOssieModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOneMetaOssieModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除sql模版
+ *
+ * @param request DeleteOneMetaSqlTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOneMetaSqlTemplateResponse
+ */
+DeleteOneMetaSqlTemplateResponse Client::deleteOneMetaSqlTemplateWithOptions(const DeleteOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeUuid()) {
+    query["KnowledgeUuid"] = request.getKnowledgeUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOneMetaSqlTemplate"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOneMetaSqlTemplateResponse>();
+}
+
+/**
+ * @summary 删除sql模版
+ *
+ * @param request DeleteOneMetaSqlTemplateRequest
+ * @return DeleteOneMetaSqlTemplateResponse
+ */
+DeleteOneMetaSqlTemplateResponse Client::deleteOneMetaSqlTemplate(const DeleteOneMetaSqlTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteOneMetaSqlTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -3542,6 +3696,52 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
+ * @summary 获取onemeta3.0的Ossie模型
+ *
+ * @param request GetOneMetaOssieModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOneMetaOssieModelResponse
+ */
+GetOneMetaOssieModelResponse Client::getOneMetaOssieModelWithOptions(const GetOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocFormat()) {
+    body["DocFormat"] = request.getDocFormat();
+  }
+
+  if (!!request.hasKnowledgeUuid()) {
+    body["KnowledgeUuid"] = request.getKnowledgeUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetOneMetaOssieModel"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOneMetaOssieModelResponse>();
+}
+
+/**
+ * @summary 获取onemeta3.0的Ossie模型
+ *
+ * @param request GetOneMetaOssieModelRequest
+ * @return GetOneMetaOssieModelResponse
+ */
+GetOneMetaOssieModelResponse Client::getOneMetaOssieModel(const GetOneMetaOssieModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOneMetaOssieModelWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the operation logs of the SQL window.
  *
  * @param request GetSqlConsoleOperationLogRequest
@@ -3755,6 +3955,76 @@ GetWorkspaceQuotaResponse Client::getWorkspaceQuotaWithOptions(const GetWorkspac
 GetWorkspaceQuotaResponse Client::getWorkspaceQuota(const GetWorkspaceQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkspaceQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导入Ossie模型
+ *
+ * @param request ImportOneMetaOssieModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportOneMetaOssieModelResponse
+ */
+ImportOneMetaOssieModelResponse Client::importOneMetaOssieModelWithOptions(const ImportOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDocFormat()) {
+    query["DocFormat"] = request.getDocFormat();
+  }
+
+  if (!!request.hasDocument()) {
+    query["Document"] = request.getDocument();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ImportOneMetaOssieModel"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportOneMetaOssieModelResponse>();
+}
+
+/**
+ * @summary 导入Ossie模型
+ *
+ * @param request ImportOneMetaOssieModelRequest
+ * @return ImportOneMetaOssieModelResponse
+ */
+ImportOneMetaOssieModelResponse Client::importOneMetaOssieModel(const ImportOneMetaOssieModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importOneMetaOssieModelWithOptions(request, runtime);
 }
 
 /**
@@ -5730,6 +6000,142 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
+ * @summary 获取ossie模型列表
+ *
+ * @param request ListOneMetaOssieModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOneMetaOssieModelsResponse
+ */
+ListOneMetaOssieModelsResponse Client::listOneMetaOssieModelsWithOptions(const ListOneMetaOssieModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasEnableVectorSearch()) {
+    query["EnableVectorSearch"] = request.getEnableVectorSearch();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOneMetaOssieModels"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOneMetaOssieModelsResponse>();
+}
+
+/**
+ * @summary 获取ossie模型列表
+ *
+ * @param request ListOneMetaOssieModelsRequest
+ * @return ListOneMetaOssieModelsResponse
+ */
+ListOneMetaOssieModelsResponse Client::listOneMetaOssieModels(const ListOneMetaOssieModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOneMetaOssieModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取sql模版
+ *
+ * @param request ListOneMetaSqlTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOneMetaSqlTemplatesResponse
+ */
+ListOneMetaSqlTemplatesResponse Client::listOneMetaSqlTemplatesWithOptions(const ListOneMetaSqlTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasEnableVectorSearch()) {
+    query["EnableVectorSearch"] = request.getEnableVectorSearch();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasUuids()) {
+    query["Uuids"] = request.getUuids();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOneMetaSqlTemplates"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOneMetaSqlTemplatesResponse>();
+}
+
+/**
+ * @summary 获取sql模版
+ *
+ * @param request ListOneMetaSqlTemplatesRequest
+ * @return ListOneMetaSqlTemplatesResponse
+ */
+ListOneMetaSqlTemplatesResponse Client::listOneMetaSqlTemplates(const ListOneMetaSqlTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOneMetaSqlTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Lists code files and directories at a specified path in a workspace.
  *
  * @description This operation lists the code files and directories at a specified path in a workspace.
@@ -7465,6 +7871,146 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const UpdateK
 UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新Ossie模型
+ *
+ * @param request UpdateOneMetaOssieModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOneMetaOssieModelResponse
+ */
+UpdateOneMetaOssieModelResponse Client::updateOneMetaOssieModelWithOptions(const UpdateOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDocFormat()) {
+    query["DocFormat"] = request.getDocFormat();
+  }
+
+  if (!!request.hasDocument()) {
+    query["Document"] = request.getDocument();
+  }
+
+  if (!!request.hasKnowledgeUuid()) {
+    query["KnowledgeUuid"] = request.getKnowledgeUuid();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOneMetaOssieModel"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOneMetaOssieModelResponse>();
+}
+
+/**
+ * @summary 更新Ossie模型
+ *
+ * @param request UpdateOneMetaOssieModelRequest
+ * @return UpdateOneMetaOssieModelResponse
+ */
+UpdateOneMetaOssieModelResponse Client::updateOneMetaOssieModel(const UpdateOneMetaOssieModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateOneMetaOssieModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新sql模版
+ *
+ * @param request UpdateOneMetaSqlTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOneMetaSqlTemplateResponse
+ */
+UpdateOneMetaSqlTemplateResponse Client::updateOneMetaSqlTemplateWithOptions(const UpdateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpr()) {
+    query["Expr"] = request.getExpr();
+  }
+
+  if (!!request.hasKnowledgeUuid()) {
+    query["KnowledgeUuid"] = request.getKnowledgeUuid();
+  }
+
+  if (!!request.hasSqlParams()) {
+    query["SqlParams"] = request.getSqlParams();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateOneMetaSqlTemplate"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOneMetaSqlTemplateResponse>();
+}
+
+/**
+ * @summary 更新sql模版
+ *
+ * @param request UpdateOneMetaSqlTemplateRequest
+ * @return UpdateOneMetaSqlTemplateResponse
+ */
+UpdateOneMetaSqlTemplateResponse Client::updateOneMetaSqlTemplate(const UpdateOneMetaSqlTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateOneMetaSqlTemplateWithOptions(request, runtime);
 }
 
 /**

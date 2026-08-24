@@ -149,18 +149,31 @@ namespace Models
 
 
   protected:
+    // The UUID of the associated folder.
     shared_ptr<string> catalogUuid_ {};
+    // The UUID of the associated database.
     shared_ptr<string> databaseUuid_ {};
+    // The description of the SQL template.
     shared_ptr<string> description_ {};
+    // The content of the SQL template.
     shared_ptr<string> expr_ {};
+    // The creation time.
     shared_ptr<int64_t> gmtCreated_ {};
+    // The modification time.
     shared_ptr<int64_t> gmtModified_ {};
+    // The UUID of the knowledge.
     shared_ptr<string> knowledgeUuid_ {};
+    // The source of the SQL template knowledge.
     shared_ptr<string> source_ {};
+    // The parameters of the SQL template.
     shared_ptr<string> sqlParams_ {};
+    // The summary of the SQL template.
     shared_ptr<string> summary_ {};
+    // The tag of the SQL template.
     shared_ptr<string> tag_ {};
+    // The title of the SQL template.
     shared_ptr<string> title_ {};
+    // The version of the SQL template.
     shared_ptr<string> version_ {};
   };
 
