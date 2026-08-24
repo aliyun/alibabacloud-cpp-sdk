@@ -1097,6 +1097,9 @@
 #include <alibabacloud/models/RunInstancesRequest.hpp>
 #include <alibabacloud/models/RunInstancesResponseBody.hpp>
 #include <alibabacloud/models/RunInstancesResponse.hpp>
+#include <alibabacloud/models/SendDiagnosticInterruptRequest.hpp>
+#include <alibabacloud/models/SendDiagnosticInterruptResponseBody.hpp>
+#include <alibabacloud/models/SendDiagnosticInterruptResponse.hpp>
 #include <alibabacloud/models/SendFileRequest.hpp>
 #include <alibabacloud/models/SendFileResponseBody.hpp>
 #include <alibabacloud/models/SendFileResponse.hpp>

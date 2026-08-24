@@ -129,11 +129,28 @@ namespace Models
 
 
     protected:
-      // The communication mode of the ENI. Valid values:
+      // The communication mode of the network interface. Valid values:
+      // 
+      // - Standard: Uses TCP communication mode.
+      // - HighPerformance: Enables the Elastic RDMA Interface (ERI) and uses RDMA communication mode.
+      // 
+      // When the ENI is in the attached state, note the following:
+      // - The total number of RDMA network interfaces on an instance cannot exceed the RDMA network interface quota allowed by the instance type. You can query the EriQuantity field by calling the DescribeInstanceTypes operation to obtain the RDMA network interface quota allowed by the instance type.
+      // 
+      // > This parameter is in invitational preview and is not yet publicly available.
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the network interface controller (NIC).
+      // The number of queues for the ENI.
+      // When the ENI is in the attached state, take note of the following items:
+      // - The value cannot exceed the maximum number of queues allowed per ENI for the instance type.
+      // - The total number of queues across all ENIs of the instance cannot exceed the total queue quota allowed for the instance type. You can call the DescribeInstanceTypes operation to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields for the maximum number of queues per ENI and the total quota of the instance type.
+      // 
+      // > This parameter is in invitational preview and is not yet publicly available.
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queues for the RDMA ENI.
+      // The number of queues on the RDMA network interface.
+      // When the ENI is in the attached state, take note of the following:
+      // - The value cannot exceed the maximum number of queues allowed per RDMA network interface for the instance type. You can call the DescribeInstanceTypes operation to query the QueuePairNumber field for the maximum number of queues allowed per RDMA network interface for the instance type.
+      // 
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<int32_t> queuePairNumber_ {};
       // The inbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> rxQueueSize_ {};
@@ -262,7 +279,7 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
+      // The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: integers from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
       // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
@@ -414,24 +431,26 @@ namespace Models
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
     // Specifies whether to retain the ENI when the associated instance is released. Valid values:
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the network interface controller (NIC). The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+    // The description of the ENI. The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+    // 
+    // Default value: empty.
     shared_ptr<string> description_ {};
     shared_ptr<bool> enablePrimaryIPv6_ {};
     // This parameter is not publicly available.
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::EnhancedNetwork> enhancedNetwork_ {};
-    // The ID of the network interface controller (NIC).
+    // The ID of the ENI.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the ENI. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameter of the network interface controller (NIC).
+    // The communication parameters of the network interface controller (NIC).
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The number of queues for the ENI. Valid values: 1 to 2048.
     shared_ptr<int32_t> queueNumber_ {};
-    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the ENI. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -439,7 +458,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The inbound queue depth of the network interface controller (NIC).
     shared_ptr<int32_t> rxQueueSize_ {};
-    // The list of security group IDs. The secondary network interface controller (NIC) is added to the specified security groups and removed from the existing security groups.
+    // The IDs of security groups. The secondary ENI is added to the specified security groups and removed from the existing security groups.
+    // 
+    // - The valid values of N depend on the quota for the maximum number of security groups to which an ENI can belong. For more information, see [Before you begin](~~25412#SecurityGroupQuota~~).
+    // 
+    // - The modification takes effect shortly, but a slight delay may occur.
     shared_ptr<vector<string>> securityGroupId_ {};
     // Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
     shared_ptr<bool> sourceDestCheck_ {};

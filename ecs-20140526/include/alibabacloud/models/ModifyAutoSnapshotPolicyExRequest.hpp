@@ -212,12 +212,12 @@ namespace Models
       shared_ptr<vector<CopyEncryptionConfiguration::Arn>> arn_ {};
       // Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
       // 
-      // - true: enabled. 
-      // - false: disabled. 
+      // - true: enables encryption. 
+      // - false: does not enable encryption. 
       // 
       // Default value: false.
       shared_ptr<bool> encrypted_ {};
-      // The key ID of the KMS key used for encrypted cross-region snapshot replication.
+      // The key ID of the Key Management Service (KMS) key used for encrypted cross-region snapshot replication.
       shared_ptr<string> KMSKeyId_ {};
     };
 
@@ -330,8 +330,8 @@ namespace Models
   protected:
     // The retention period of cross-region snapshot replicas. Unit: days. Valid values:
     // 
-    // - -1: permanently retained.
-    // - 1 to 65535: retained for the specified number of days.
+    // - -1: Snapshot replicas are permanently retained.
+    // - 1 to 65535: specifies the number of days for which snapshot replicas are retained.
     // 
     // Default value: -1.
     shared_ptr<int32_t> copiedSnapshotsRetentionDays_ {};
@@ -360,7 +360,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7. For example, 1 indicates Monday.
+    // The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7, where 1 indicates Monday.
     // 
     // To create multiple automatic snapshots within a week, specify multiple days:
     // 
@@ -369,8 +369,8 @@ namespace Models
     shared_ptr<string> repeatWeekdays_ {};
     // The retention period of automatic snapshots. Unit: days. Valid values:
     // 
-    // - -1: permanently retained.
-    // - 1 to 65536: retained for the specified number of days.
+    // - -1: Automatic snapshots are permanently retained.
+    // - 1 to 65536: specifies the number of days for which automatic snapshots are retained.
     // 
     // Default value: -1.
     shared_ptr<int32_t> retentionDays_ {};

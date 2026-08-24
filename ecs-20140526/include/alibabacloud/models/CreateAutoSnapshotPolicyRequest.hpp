@@ -430,10 +430,10 @@ namespace Models
     shared_ptr<string> storageLocationArn_ {};
     // The tags of the automatic snapshot policy.
     shared_ptr<vector<CreateAutoSnapshotPolicyRequest::Tag>> tag_ {};
-    // The destination region to which snapshots are replicated. You can set only one destination region.
+    // The destination region to which snapshots are replicated. You can specify one destination region.
     shared_ptr<string> targetCopyRegions_ {};
     // The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
-    // This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+    // When AssociationType is set to AssociatedWithInstanceTag, this parameter is required.
     shared_ptr<vector<CreateAutoSnapshotPolicyRequest::TargetTags>> targetTags_ {};
     // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
     // 

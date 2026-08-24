@@ -2328,6 +2328,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of queried instances.
+    // 
+    // > When you use the `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

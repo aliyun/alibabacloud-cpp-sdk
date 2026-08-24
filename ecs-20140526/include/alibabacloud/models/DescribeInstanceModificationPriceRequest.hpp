@@ -114,7 +114,7 @@ namespace Models
 
 
     protected:
-      // The category of the data disk. Specify this parameter when you want to query the price of new subscription data disks to be attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
+      // The type of the data disk. Specify this parameter to query the price of a new subscription data disk attached to an ECS instance. Valid values of N: 1 to 16. Valid values:
       // 
       // - cloud_efficiency: ultra disk.
       // - cloud_ssd: standard SSD.
@@ -123,15 +123,16 @@ namespace Models
       // 
       // Default value: null.
       // 
-      // > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
+      // > When you call this operation, the instance type parameter (`InstanceType`) and the data disk parameters (`DataDisk.N.*`) cannot both be empty. Specify at least one of them.
       shared_ptr<string> category_ {};
+      // The ID of the data disk.
       shared_ptr<string> diskId_ {};
-      // The performance level of the data disk when the data disk is an enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+      // The performance level of the data disk when the disk type is enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
       // 
-      // - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
-      // - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
-      // - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
-      // - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+      // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+      // - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+      // - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
       // 
       // Default value: PL1.
       // 
@@ -141,14 +142,14 @@ namespace Models
       // 
       // - cloud_efficiency: 20 to 32768.
       // - cloud_ssd: 20 to 32768.
-      // - cloud_essd: The valid values depend on the value of `DataDisk.N.PerformanceLevel`.    
+      // - cloud_essd: The valid value range depends on the value of `DataDisk.N.PerformanceLevel`.    
       //     - PL0: 1 to 32768.
       //     - PL1: 20 to 32768.
       //     - PL2: 461 to 32768.
       //     - PL3: 1261 to 32768.
       // - cloud: 5 to 2000.
       // 
-      // Default value: the minimum capacity for the specified data disk category.
+      // Default value: the minimum capacity for the specified data disk type.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -199,8 +200,11 @@ namespace Models
 
 
     protected:
+      // The category of the system disk.
       shared_ptr<string> category_ {};
+      // The performance level of the system disk.
       shared_ptr<string> performanceLevel_ {};
+      // The size of the system disk.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -321,18 +325,21 @@ namespace Models
     shared_ptr<DescribeInstanceModificationPriceRequest::SystemDisk> systemDisk_ {};
     // The information about data disk types.
     shared_ptr<vector<DescribeInstanceModificationPriceRequest::DataDisk>> dataDisk_ {};
+    // The end time of the temporary bandwidth upgrade.
     shared_ptr<string> endTime_ {};
+    // The Internet Service Provider.
     shared_ptr<string> ISP_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
     // The instance ID of the instance for which you want to query the upgrade price.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The target instance type for the upgrade. Call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
-    // 
-    // > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
+    // The target instance type for the upgrade. We recommend that you call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
     shared_ptr<string> instanceType_ {};
+    // The network billing method to convert to.
     shared_ptr<string> internetChargeType_ {};
+    // The maximum outbound public bandwidth.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -342,6 +349,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time of the temporary bandwidth upgrade.
     shared_ptr<string> startTime_ {};
   };
 

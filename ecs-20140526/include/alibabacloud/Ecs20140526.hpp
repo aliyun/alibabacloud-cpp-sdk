@@ -171,10 +171,10 @@ namespace Ecs20140526
        *
        * @description ### Before you begin
        * - Before you assign a public IP address, the instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.  
-       * - If `"LockReason" : "security"` is included in the `OperationLocks` of an instance that is locked for [security reasons](https://help.aliyun.com/document_detail/25695.html), you cannot assign a public IP address to the instance. 
-       * - Make sure that the instance bandwidth is greater than 0 when you call this operation. You can call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth.
-       * ### Settings
-       * - Only users in the whitelist can specify the public IP address by using the `IpAddress` parameter. If the public bandwidth is greater than 0, you can set `InstanceId` to randomly allocate a public IP address. If the public bandwidth is 0, invoke the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth before you invoke this operation to allocate a public IP address.
+       * - If `"LockReason" : "security"` is included in the `OperationLocks` of an instance that is under [security control](https://help.aliyun.com/document_detail/25695.html), you cannot assign a public IP address to the instance. 
+       * - Make sure that the public bandwidth of the instance is greater than 0 before you call this operation. You can call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth.
+       * ### Precautions
+       * - Only users in the whitelist can specify the public IP address by using the `IpAddress` parameter. If the public bandwidth is greater than 0, you can set `InstanceId` to allocate a random public IP address. If the public bandwidth is 0, invoke [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) to adjust the bandwidth before you invoke this operation to allocate a public IP address.
        * - Only one public IP address can be allocated to an instance. If the instance already has a public IP address, the existing attached public IP address `IpAddress` is returned. 
        * - The new public IP address takes effect after you restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)).  
        * In addition to assigning a public IP address, you can associate an Elastic IP Address (EIP) with a VPC-connected ECS instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/2518064.html).
@@ -190,10 +190,10 @@ namespace Ecs20140526
        *
        * @description ### Before you begin
        * - Before you assign a public IP address, the instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.  
-       * - If `"LockReason" : "security"` is included in the `OperationLocks` of an instance that is locked for [security reasons](https://help.aliyun.com/document_detail/25695.html), you cannot assign a public IP address to the instance. 
-       * - Make sure that the instance bandwidth is greater than 0 when you call this operation. You can call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth.
-       * ### Settings
-       * - Only users in the whitelist can specify the public IP address by using the `IpAddress` parameter. If the public bandwidth is greater than 0, you can set `InstanceId` to randomly allocate a public IP address. If the public bandwidth is 0, invoke the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth before you invoke this operation to allocate a public IP address.
+       * - If `"LockReason" : "security"` is included in the `OperationLocks` of an instance that is under [security control](https://help.aliyun.com/document_detail/25695.html), you cannot assign a public IP address to the instance. 
+       * - Make sure that the public bandwidth of the instance is greater than 0 before you call this operation. You can call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth.
+       * ### Precautions
+       * - Only users in the whitelist can specify the public IP address by using the `IpAddress` parameter. If the public bandwidth is greater than 0, you can set `InstanceId` to allocate a random public IP address. If the public bandwidth is 0, invoke [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) to adjust the bandwidth before you invoke this operation to allocate a public IP address.
        * - Only one public IP address can be allocated to an instance. If the instance already has a public IP address, the existing attached public IP address `IpAddress` is returned. 
        * - The new public IP address takes effect after you restart the instance ([RebootInstance](https://help.aliyun.com/document_detail/25502.html)) or start the instance ([StartInstance](https://help.aliyun.com/document_detail/25500.html)).  
        * In addition to assigning a public IP address, you can associate an Elastic IP Address (EIP) with a VPC-connected ECS instance. For more information, see [AssociateEipAddress](https://help.aliyun.com/document_detail/2518064.html).
@@ -938,12 +938,12 @@ namespace Ecs20140526
        *
        * @description ## Operation description
        * After a public IP address is converted to an EIP, the EIP is billed separately. Make sure that you fully understand the [billable methods of EIPs](https://help.aliyun.com/document_detail/122035.html).
-       * When you invoke this operation, the ECS instance must meet the following requirements:
+       * When you invoke this operation, the ECS instance must meet the following conditions:
        * - The instance is in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
        * - No EIP is attached to the instance.
        * - The instance has no pending configuration change nodes.
        * - The public bandwidth cannot be 0 Mbit/s.
-       * - For subscription instances, the billing method for public bandwidth must be `pay-by-traffic`. Public IP addresses that use the `pay-by-bandwidth` billing method cannot be transformed to EIPs. Pay-as-you-go instances are not affected by this rule. For more information, refer to [Transform the public bandwidth billing method](https://help.aliyun.com/document_detail/178883.html).
+       * - For subscription instances, the billing method for public bandwidth must be `pay-by-traffic`. Public IP addresses with the `pay-by-bandwidth` billing method cannot be converted to EIPs. Pay-as-you-go instances are not subject to this restriction. For more information, refer to [Transform the billing method for public bandwidth](https://help.aliyun.com/document_detail/178883.html).
        * - The VPC-type subscription ECS instance does not expire within 24 hours.
        *
        * @param request ConvertNatPublicIpToEipRequest
@@ -957,12 +957,12 @@ namespace Ecs20140526
        *
        * @description ## Operation description
        * After a public IP address is converted to an EIP, the EIP is billed separately. Make sure that you fully understand the [billable methods of EIPs](https://help.aliyun.com/document_detail/122035.html).
-       * When you invoke this operation, the ECS instance must meet the following requirements:
+       * When you invoke this operation, the ECS instance must meet the following conditions:
        * - The instance is in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
        * - No EIP is attached to the instance.
        * - The instance has no pending configuration change nodes.
        * - The public bandwidth cannot be 0 Mbit/s.
-       * - For subscription instances, the billing method for public bandwidth must be `pay-by-traffic`. Public IP addresses that use the `pay-by-bandwidth` billing method cannot be transformed to EIPs. Pay-as-you-go instances are not affected by this rule. For more information, refer to [Transform the public bandwidth billing method](https://help.aliyun.com/document_detail/178883.html).
+       * - For subscription instances, the billing method for public bandwidth must be `pay-by-traffic`. Public IP addresses with the `pay-by-bandwidth` billing method cannot be converted to EIPs. Pay-as-you-go instances are not subject to this restriction. For more information, refer to [Transform the billing method for public bandwidth](https://help.aliyun.com/document_detail/178883.html).
        * - The VPC-type subscription ECS instance does not expire within 24 hours.
        *
        * @param request ConvertNatPublicIpToEipRequest
@@ -1176,15 +1176,15 @@ namespace Ecs20140526
        *     - Bat scripts for Windows instances (RunBatScript).
        *     - PowerShell scripts for Windows instances (RunPowerShellScript).
        *     - Shell scripts for Linux instances (RunShellScript).
-       * - You can specify the Timeout parameter to set the maximum timeout period for a command to run on an ECS instance. If the command times out, [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) forcefully terminates the command process by canceling the PID of the command.
-       *     - For a one-time execution, after the command times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command on the specified ECS instance changes to Failed.  
+       * - You can specify the Timeout parameter to set the maximum timeout period for command execution on ECS instances. If the command times out, [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) forcefully terminates the command process by canceling the PID of the command.
+       *     - For a one-time execution, after the command times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command on the specified ECS instance becomes Failed.  
        *     - For a scheduled execution: 
        *         - The timeout period takes effect for each execution record. 
-       *         - After a specific execution times out, the status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the execution record changes to Failed.  
+       *         - After a specific execution times out, the status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the execution record becomes Failed.  
        *         - The timeout of a previous execution does not affect the next execution. 
-       * - You can retain 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-       * - You can specify the WorkingDir parameter to set the execution path of a command. For Linux instances, the default path is the home directory of the root user, which is the `/root` directory. For Windows instances, the default path is the directory where the Cloud Assistant Agent process is located, such as `C:\\Windows\\System32`.
-       * - You can specify EnableParameter=true to enable the custom parameter feature. When you set CommandContent, you can define custom parameters in the {{parameter}} format and pass in custom parameter key-value pairs when you run the command by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html). For example, if you create a command `echo {{name}}` and pass in the key-value pair `<name, Jack>` through the Parameters parameter when you call InvokeCommand, the custom parameter is automatically replaced. A new command `echo Jack` is generated and run on the instance.
+       * - In a region, you can retain 500 to 50,000 Cloud Assistant commands. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+       * - You can specify the WorkingDir parameter to set the execution path of the command. For Linux instances, the default path is the home directory of the root user, which is `/root`. For Windows instances, the default path is the directory where the Cloud Assistant Agent process is located, such as `C:\\Windows\\System32`.
+       * - You can enable the custom parameter feature by specifying EnableParameter=true. When you set CommandContent, you can define custom parameters in the {{parameter}} format and pass in custom parameter key-value pairs when you run the command ([InvokeCommand](https://help.aliyun.com/document_detail/64841.html)). For example, if you create the command `echo {{name}}` and pass in the key-value pair `<name, Jack>` through the Parameters parameter when you call InvokeCommand, the custom parameter is automatically replaced. A new command `echo Jack` is generated and run on the instance.
        *
        * @param request CreateCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,15 +1200,15 @@ namespace Ecs20140526
        *     - Bat scripts for Windows instances (RunBatScript).
        *     - PowerShell scripts for Windows instances (RunPowerShellScript).
        *     - Shell scripts for Linux instances (RunShellScript).
-       * - You can specify the Timeout parameter to set the maximum timeout period for a command to run on an ECS instance. If the command times out, [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) forcefully terminates the command process by canceling the PID of the command.
-       *     - For a one-time execution, after the command times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command on the specified ECS instance changes to Failed.  
+       * - You can specify the Timeout parameter to set the maximum timeout period for command execution on ECS instances. If the command times out, [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) forcefully terminates the command process by canceling the PID of the command.
+       *     - For a one-time execution, after the command times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command on the specified ECS instance becomes Failed.  
        *     - For a scheduled execution: 
        *         - The timeout period takes effect for each execution record. 
-       *         - After a specific execution times out, the status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the execution record changes to Failed.  
+       *         - After a specific execution times out, the status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the execution record becomes Failed.  
        *         - The timeout of a previous execution does not affect the next execution. 
-       * - You can retain 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-       * - You can specify the WorkingDir parameter to set the execution path of a command. For Linux instances, the default path is the home directory of the root user, which is the `/root` directory. For Windows instances, the default path is the directory where the Cloud Assistant Agent process is located, such as `C:\\Windows\\System32`.
-       * - You can specify EnableParameter=true to enable the custom parameter feature. When you set CommandContent, you can define custom parameters in the {{parameter}} format and pass in custom parameter key-value pairs when you run the command by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html). For example, if you create a command `echo {{name}}` and pass in the key-value pair `<name, Jack>` through the Parameters parameter when you call InvokeCommand, the custom parameter is automatically replaced. A new command `echo Jack` is generated and run on the instance.
+       * - In a region, you can retain 500 to 50,000 Cloud Assistant commands. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+       * - You can specify the WorkingDir parameter to set the execution path of the command. For Linux instances, the default path is the home directory of the root user, which is `/root`. For Windows instances, the default path is the directory where the Cloud Assistant Agent process is located, such as `C:\\Windows\\System32`.
+       * - You can enable the custom parameter feature by specifying EnableParameter=true. When you set CommandContent, you can define custom parameters in the {{parameter}} format and pass in custom parameter key-value pairs when you run the command ([InvokeCommand](https://help.aliyun.com/document_detail/64841.html)). For example, if you create the command `echo {{name}}` and pass in the key-value pair `<name, Jack>` through the Parameters parameter when you call InvokeCommand, the custom parameter is automatically replaced. A new command `echo Jack` is generated and run on the instance.
        *
        * @param request CreateCommandRequest
        * @return CreateCommandResponse
@@ -1406,19 +1406,18 @@ namespace Ecs20140526
        * @description ### Precautions
        * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately completed. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
        * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create a custom image.
-       * - We recommend that you configure the image detection parameter `DetectionStrategy` when creating an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
+       * - Configure the image detection parameter `DetectionStrategy` when you create an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
        * The following section describes three methods to create a custom image by calling this operation. The priority of request parameters is: InstanceId > DiskDeviceMapping > SnapshotId. If your request contains two or more of these parameters, the image is created based on the parameter with the highest priority.
        * - **Create a custom image from an instance**: Specify the instance ID (`InstanceId`).
        *   - The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
        *   - After the operation is called, a new snapshot is created for each disk of the instance.
-       *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. We recommend that you stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before creating an image.
+       *   >Notice: Because a running instance may have cached data that has not been written to disks, the custom image data may be inconsistent with the instance data. Stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before you create an image.
        * - **Create a custom image from a snapshot (the specified snapshot cannot be one created on or before July 15, 2013.)**
        *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the instance system disk (`SnapshotId`).
-       *   - **Create a custom image from system disk and data disk snapshots**: This requires establishing data associations among multiple disks (`DiskDeviceMapping`).
-       *     - Only one system disk snapshot can be specified. 
-       *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
-       *  
-       * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before releasing the instance as needed.
+       *   - **Create a custom image from system disk and data disk snapshots**: This requires you to establish data associations among multiple disks (`DiskDeviceMapping`).
+       *     - Only one system disk snapshot can be specified.
+       *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.
+       * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before the instance is released as needed.
        *
        * @param request CreateImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1432,19 +1431,18 @@ namespace Ecs20140526
        * @description ### Precautions
        * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately completed. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
        * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create a custom image.
-       * - We recommend that you configure the image detection parameter `DetectionStrategy` when creating an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
+       * - Configure the image detection parameter `DetectionStrategy` when you create an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
        * The following section describes three methods to create a custom image by calling this operation. The priority of request parameters is: InstanceId > DiskDeviceMapping > SnapshotId. If your request contains two or more of these parameters, the image is created based on the parameter with the highest priority.
        * - **Create a custom image from an instance**: Specify the instance ID (`InstanceId`).
        *   - The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
        *   - After the operation is called, a new snapshot is created for each disk of the instance.
-       *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. We recommend that you stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before creating an image.
+       *   >Notice: Because a running instance may have cached data that has not been written to disks, the custom image data may be inconsistent with the instance data. Stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before you create an image.
        * - **Create a custom image from a snapshot (the specified snapshot cannot be one created on or before July 15, 2013.)**
        *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the instance system disk (`SnapshotId`).
-       *   - **Create a custom image from system disk and data disk snapshots**: This requires establishing data associations among multiple disks (`DiskDeviceMapping`).
-       *     - Only one system disk snapshot can be specified. 
-       *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
-       *  
-       * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before releasing the instance as needed.
+       *   - **Create a custom image from system disk and data disk snapshots**: This requires you to establish data associations among multiple disks (`DiskDeviceMapping`).
+       *     - Only one system disk snapshot can be specified.
+       *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.
+       * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before the instance is released as needed.
        *
        * @param request CreateImageRequest
        * @return CreateImageResponse
@@ -1997,7 +1995,7 @@ namespace Ecs20140526
       /**
        * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
        *
-       * @summary CreateVSwitch
+       * @summary Creates a vSwitch.
        *
        * @param request CreateVSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2008,7 +2006,7 @@ namespace Ecs20140526
       /**
        * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
        *
-       * @summary CreateVSwitch
+       * @summary Creates a vSwitch.
        *
        * @param request CreateVSwitchRequest
        * @return CreateVSwitchResponse
@@ -2039,7 +2037,7 @@ namespace Ecs20140526
       /**
        * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
        *
-       * @summary CreateVpc
+       * @summary CreateVpc.
        *
        * @param request CreateVpcRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2050,7 +2048,7 @@ namespace Ecs20140526
       /**
        * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
        *
-       * @summary CreateVpc
+       * @summary CreateVpc.
        *
        * @param request CreateVpcRequest
        * @return CreateVpcResponse
@@ -2593,17 +2591,17 @@ namespace Ecs20140526
        * @summary Asynchronously deletes an Elastic Network Interface (ENI).
        *
        * @description When you call this operation, take note of the following items:
-       * -  The Elastic Network Interface (ENI) must be in the Available state.
+       * -  The ENI must be in the Available state.
        * -  If the ENI is attached to an ECS instance, you must first detach it from the instance ([DetachNetworkInterface](https://help.aliyun.com/document_detail/58514.html)) before you can delete the ENI.
        * -  After the ENI is deleted:
-       *     - All private addresses of the ENI, including the primary private IP address and secondary private IP addresses, are automatically released.
+       *     - All private addresses (including the primary private IP address and secondary private IP addresses) of the ENI are automatically released.
        *     - The deleted ENI is removed from all associated security groups.
-       * -  This is an asynchronous operation. After you successfully invoke the operation, you can check the ENI status or listen for network interface controller (NIC) operation events to determine the result. The ENI state machine is shown in the following figure:
+       * -  This is an asynchronous operation. After a successful call, you can check the ENI status or listen for network interface controller (NIC) operation events to determine the result. The ENI state machine is shown in the following figure:
        * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221208/xual/DeleteNetworkInterface.jpg)
        *     - The Deleting state indicates that the delete request was sent successfully and the ENI is being deleted.
-       *     - If the ENI can no longer be found, the ENI is deleted.
-       *     - If the ENI remains in the Deleting state for an extended period, the deletion failed. In this case, you can invoke a new delete request for the ENI.
-       * **For details, see** [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+       *     - If the ENI cannot be found, the ENI is deleted.
+       *     - If the ENI remains in the Deleting state for an extended period of time, the deletion failed. In this case, you can send a new delete request for the ENI.
+       * **For details about sample code, see** [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
        *
        * @param request DeleteNetworkInterfaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2615,17 +2613,17 @@ namespace Ecs20140526
        * @summary Asynchronously deletes an Elastic Network Interface (ENI).
        *
        * @description When you call this operation, take note of the following items:
-       * -  The Elastic Network Interface (ENI) must be in the Available state.
+       * -  The ENI must be in the Available state.
        * -  If the ENI is attached to an ECS instance, you must first detach it from the instance ([DetachNetworkInterface](https://help.aliyun.com/document_detail/58514.html)) before you can delete the ENI.
        * -  After the ENI is deleted:
-       *     - All private addresses of the ENI, including the primary private IP address and secondary private IP addresses, are automatically released.
+       *     - All private addresses (including the primary private IP address and secondary private IP addresses) of the ENI are automatically released.
        *     - The deleted ENI is removed from all associated security groups.
-       * -  This is an asynchronous operation. After you successfully invoke the operation, you can check the ENI status or listen for network interface controller (NIC) operation events to determine the result. The ENI state machine is shown in the following figure:
+       * -  This is an asynchronous operation. After a successful call, you can check the ENI status or listen for network interface controller (NIC) operation events to determine the result. The ENI state machine is shown in the following figure:
        * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221208/xual/DeleteNetworkInterface.jpg)
        *     - The Deleting state indicates that the delete request was sent successfully and the ENI is being deleted.
-       *     - If the ENI can no longer be found, the ENI is deleted.
-       *     - If the ENI remains in the Deleting state for an extended period, the deletion failed. In this case, you can invoke a new delete request for the ENI.
-       * **For details, see** [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+       *     - If the ENI cannot be found, the ENI is deleted.
+       *     - If the ENI remains in the Deleting state for an extended period of time, the deletion failed. In this case, you can send a new delete request for the ENI.
+       * **For details about sample code, see** [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
        *
        * @param request DeleteNetworkInterfaceRequest
        * @return DeleteNetworkInterfaceResponse
@@ -4193,11 +4191,11 @@ namespace Ecs20140526
       Models::DescribeInstanceMaintenanceAttributesResponse describeInstanceMaintenanceAttributes(const Models::DescribeInstanceMaintenanceAttributesRequest &request);
 
       /**
-       * @summary Queries the price of upgrading the target instance type or adding subscription data disks for an unexpired subscription ECS instance.
+       * @summary Queries the price of upgrading an unexpired subscription ECS instance to a target instance type and the price of adding subscription data disks.
        *
-       * @description - Only the price for upgrading unexpired subscription ECS instances is supported. Querying the price for downgrading instances is not supported.
-       * - Querying the price for changing the configurations of pay-as-you-go ECS instances is not supported. Because the price of a pay-as-you-go ECS instance after a configuration change is the same as the price of a new instance, you can call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of an ECS instance.
-       * - Before you upgrade an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
+       * @description - Only supports querying the price information for upgrading unexpired subscription ECS instances. Querying the price information for downgrading instances is not supported.
+       * - Does not support querying the price information for changing the specifications of pay-as-you-go ECS instances. Because the price of a pay-as-you-go ECS instance after a specification change is the same as the price of a new instance, you can directly call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of an ECS instance.
+       * - Before upgrading an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
        *
        * @param request DescribeInstanceModificationPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4206,11 +4204,11 @@ namespace Ecs20140526
       Models::DescribeInstanceModificationPriceResponse describeInstanceModificationPriceWithOptions(const Models::DescribeInstanceModificationPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the price of upgrading the target instance type or adding subscription data disks for an unexpired subscription ECS instance.
+       * @summary Queries the price of upgrading an unexpired subscription ECS instance to a target instance type and the price of adding subscription data disks.
        *
-       * @description - Only the price for upgrading unexpired subscription ECS instances is supported. Querying the price for downgrading instances is not supported.
-       * - Querying the price for changing the configurations of pay-as-you-go ECS instances is not supported. Because the price of a pay-as-you-go ECS instance after a configuration change is the same as the price of a new instance, you can call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of an ECS instance.
-       * - Before you upgrade an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
+       * @description - Only supports querying the price information for upgrading unexpired subscription ECS instances. Querying the price information for downgrading instances is not supported.
+       * - Does not support querying the price information for changing the specifications of pay-as-you-go ECS instances. Because the price of a pay-as-you-go ECS instance after a specification change is the same as the price of a new instance, you can directly call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of an ECS instance.
+       * - Before upgrading an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
        *
        * @param request DescribeInstanceModificationPriceRequest
        * @return DescribeInstanceModificationPriceResponse
@@ -4431,9 +4429,13 @@ namespace Ecs20140526
       Models::DescribeInstanceVncUrlResponse describeInstanceVncUrl(const Models::DescribeInstanceVncUrlRequest &request);
 
       /**
-       * @summary Queries a list of instances based on specified request conditions and performs a conditional query to associate and retrieve the detailed information of the instances.
+       * @summary Queries the list of instances based on different request conditions and associates the conditional query with detailed information of the instances.
        *
-       * @description ### Before you begin.
+       * @description ### Before you begin
+       * - When you invoke an API operation by using Cloud Assistant CLI, request parameters of different data types must comply with format requirements. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+       * ### Usage notes
+       * - Send a dry run request by using the DryRun request parameter to check the validity of parameters and authorization.
+       * - When performing a paging query for the first page of results, set only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the credential to query subsequent pages. When performing a paging query for subsequent pages, set `NextToken` to the `NextToken` value obtained from the previous response as the query credential, and set `MaxResults` to limit the number of entries to return.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4442,9 +4444,13 @@ namespace Ecs20140526
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances based on specified request conditions and performs a conditional query to associate and retrieve the detailed information of the instances.
+       * @summary Queries the list of instances based on different request conditions and associates the conditional query with detailed information of the instances.
        *
-       * @description ### Before you begin.
+       * @description ### Before you begin
+       * - When you invoke an API operation by using Cloud Assistant CLI, request parameters of different data types must comply with format requirements. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+       * ### Usage notes
+       * - Send a dry run request by using the DryRun request parameter to check the validity of parameters and authorization.
+       * - When performing a paging query for the first page of results, set only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the credential to query subsequent pages. When performing a paging query for subsequent pages, set `NextToken` to the `NextToken` value obtained from the previous response as the query credential, and set `MaxResults` to limit the number of entries to return.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -4924,16 +4930,16 @@ namespace Ecs20140526
       Models::DescribePrefixListsResponse describePrefixLists(const Models::DescribePrefixListsRequest &request);
 
       /**
-       * @summary Queries the latest prices of specified resources. You can query the latest prices of ECS instances, disks, dedicated hosts, elasticity assurance services, and capacity reservation services based on resource type. The response includes promotion rules, prices, and discounts.
+       * @summary Queries the latest prices of specified resources. You can query the latest prices of ECS instances, disks, dedicated hosts, elasticity assurance, and capacity reservations based on resource type. The response includes information such as campaign rules, prices, and discounts.
        *
-       * @description The parameter settings vary based on the resource type:
-       *   - When `ResourceType=instance`, you must also specify `InstanceType`.
-       *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to query Elastic Compute Service (ECS) prices for different billing cycles.
-       *  - When `ResourceType=disk`, you must also specify `DataDisk.1.Category` and `DataDisk.1.Size`. When you query the price of `disk` resources, only the pay-as-you-go price of disks is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
-       * - When `ResourceType=diskperformance`, you must also specify `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops`.
-       *  - When `ResourceType=ddh`, you must also specify `DedicatedHostType`.
-       *  - When `ResourceType=ElasticityAssurance`, you must also specify `InstanceType`.
-       *  - When `ResourceType=CapacityReservation`, you must also specify `InstanceType`.
+       * @description When you query the prices of different resource types, the required parameters vary:
+       *   - When `ResourceType=instance`, you must also specify the `InstanceType` parameter.
+       *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is returned. You can specify the `PriceUnit` parameter to query the prices of Elastic Compute Service (ECS) instances for different billing cycles.
+       *  - When `ResourceType=disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When you query the price of a `disk` resource, only the pay-as-you-go price of the disk is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
+       * - When `ResourceType=diskperformance`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
+       *  - When `ResourceType=ddh`, you must also specify the `DedicatedHostType` parameter.
+       *  - When `ResourceType=ElasticityAssurance`, you must also specify the `InstanceType` parameter.
+       *  - When `ResourceType=CapacityReservation`, you must also specify the `InstanceType` parameter.
        * - When `ResourceType=bandwidth`, only the pay-by-traffic (`PayByTraffic`) price is returned.
        *
        * @param request DescribePriceRequest
@@ -4943,16 +4949,16 @@ namespace Ecs20140526
       Models::DescribePriceResponse describePriceWithOptions(const Models::DescribePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the latest prices of specified resources. You can query the latest prices of ECS instances, disks, dedicated hosts, elasticity assurance services, and capacity reservation services based on resource type. The response includes promotion rules, prices, and discounts.
+       * @summary Queries the latest prices of specified resources. You can query the latest prices of ECS instances, disks, dedicated hosts, elasticity assurance, and capacity reservations based on resource type. The response includes information such as campaign rules, prices, and discounts.
        *
-       * @description The parameter settings vary based on the resource type:
-       *   - When `ResourceType=instance`, you must also specify `InstanceType`.
-       *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is queried. You can specify the `PriceUnit` parameter to query Elastic Compute Service (ECS) prices for different billing cycles.
-       *  - When `ResourceType=disk`, you must also specify `DataDisk.1.Category` and `DataDisk.1.Size`. When you query the price of `disk` resources, only the pay-as-you-go price of disks is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
-       * - When `ResourceType=diskperformance`, you must also specify `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops`.
-       *  - When `ResourceType=ddh`, you must also specify `DedicatedHostType`.
-       *  - When `ResourceType=ElasticityAssurance`, you must also specify `InstanceType`.
-       *  - When `ResourceType=CapacityReservation`, you must also specify `InstanceType`.
+       * @description When you query the prices of different resource types, the required parameters vary:
+       *   - When `ResourceType=instance`, you must also specify the `InstanceType` parameter.
+       *     By default, the price of the pay-as-you-go (`PostPaid`) billing method (`ChargeType`) is returned. You can specify the `PriceUnit` parameter to query the prices of Elastic Compute Service (ECS) instances for different billing cycles.
+       *  - When `ResourceType=disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters. When you query the price of a `disk` resource, only the pay-as-you-go price of the disk is returned. This means that the `PriceUnit` parameter can only be set to `Hour`.
+       * - When `ResourceType=diskperformance`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
+       *  - When `ResourceType=ddh`, you must also specify the `DedicatedHostType` parameter.
+       *  - When `ResourceType=ElasticityAssurance`, you must also specify the `InstanceType` parameter.
+       *  - When `ResourceType=CapacityReservation`, you must also specify the `InstanceType` parameter.
        * - When `ResourceType=bandwidth`, only the pay-by-traffic (`PayByTraffic`) price is returned.
        *
        * @param request DescribePriceRequest
@@ -6727,33 +6733,33 @@ namespace Ecs20140526
        * <props="china">
        * - The following limits apply to the target ECS instances. If you select multiple ECS instances and one of them does not meet the execution conditions, you must call the operation again.
        *     - Target instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query target instance status.
-       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on target instance in advance. 
+       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be pre-installed on target instance. 
        *     - To run a PowerShell command, target instance must have the PowerShell module configured. 
-       * - One-time execution: The command is run only once.
+       * - One-time execution: The command is executed only once.
        * - Scheduled execution:
-       *     - The command is run at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
-       *     - If you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
-       *      Cloud Assistant Agent must be at or later than the following versions to support the new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
+       *     - The command is executed at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
+       *     - When you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
+       *      Cloud Assistant Agent must be at or later than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
        *     - Linux: 2.2.3.282
        *     - Windows: 2.1.3.282
-       * - A command may fail to be run due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be run. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
+       * - A command may fail to be executed due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be executed. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
        * - If you enabled the custom parameter feature when you created the command, you must pass in custom parameters (`Parameters`) when you run the command.
-       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
+       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance first. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
        * <props="intl">
        * - The following limits apply to the target ECS instances. If you select multiple ECS instances and one of them does not meet the execution conditions, you must call the operation again.
        *     - Target instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query target instance status.
-       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on target instance in advance. 
+       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be pre-installed on target instance. 
        *     - To run a PowerShell command, target instance must have the PowerShell module configured. 
-       * - One-time execution: The command is run only once.
+       * - One-time execution: The command is executed only once.
        * - Scheduled execution:
-       *     - The command is run at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
-       *     - If you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
-       *      Cloud Assistant Agent must be at or later than the following versions to support the new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
+       *     - The command is executed at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
+       *     - When you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
+       *      Cloud Assistant Agent must be at or later than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
        *     - Linux: 2.2.3.282
        *     - Windows: 2.1.3.282
-       * - A command may fail to be run due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be run. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
+       * - A command may fail to be executed due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be executed. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
        * - If you enabled the custom parameter feature when you created the command, you must pass in custom parameters (`Parameters`) when you run the command.
-       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
+       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance first. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
        *
        * @param tmpReq InvokeCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6768,33 +6774,33 @@ namespace Ecs20140526
        * <props="china">
        * - The following limits apply to the target ECS instances. If you select multiple ECS instances and one of them does not meet the execution conditions, you must call the operation again.
        *     - Target instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query target instance status.
-       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on target instance in advance. 
+       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be pre-installed on target instance. 
        *     - To run a PowerShell command, target instance must have the PowerShell module configured. 
-       * - One-time execution: The command is run only once.
+       * - One-time execution: The command is executed only once.
        * - Scheduled execution:
-       *     - The command is run at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
-       *     - If you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
-       *      Cloud Assistant Agent must be at or later than the following versions to support the new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
+       *     - The command is executed at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
+       *     - When you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
+       *      Cloud Assistant Agent must be at or later than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
        *     - Linux: 2.2.3.282
        *     - Windows: 2.1.3.282
-       * - A command may fail to be run due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be run. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
+       * - A command may fail to be executed due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be executed. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
        * - If you enabled the custom parameter feature when you created the command, you must pass in custom parameters (`Parameters`) when you run the command.
-       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
+       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance first. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
        * <props="intl">
        * - The following limits apply to the target ECS instances. If you select multiple ECS instances and one of them does not meet the execution conditions, you must call the operation again.
        *     - Target instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query target instance status.
-       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on target instance in advance. 
+       *     - [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be pre-installed on target instance. 
        *     - To run a PowerShell command, target instance must have the PowerShell module configured. 
-       * - One-time execution: The command is run only once.
+       * - One-time execution: The command is executed only once.
        * - Scheduled execution:
-       *     - The command is run at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
-       *     - If you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
-       *      Cloud Assistant Agent must be at or later than the following versions to support the new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
+       *     - The command is executed at the frequency specified by the Frequency parameter. The result of the previous execution does not affect the next execution.
+       *     - When you run a scheduled task based on a Cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of target instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Manage time synchronization services](https://help.aliyun.com/document_detail/92704.html).
+       *      Cloud Assistant Agent must be at or later than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron expression-based scheduled execution). If the ClientNeedUpgrade error code is returned, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
        *     - Linux: 2.2.3.282
        *     - Windows: 2.1.3.282
-       * - A command may fail to be run due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be run. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
+       * - A command may fail to be executed due to abnormal instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when a command fails to be executed. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html). 
        * - If you enabled the custom parameter feature when you created the command, you must pass in custom parameters (`Parameters`) when you run the command.
-       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
+       * - Call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query the Cloud Assistant status of target instance first. Run the command only when CloudAssistantStatus is true, especially for newly purchased instances.
        *
        * @param request InvokeCommandRequest
        * @return InvokeCommandResponse
@@ -7262,14 +7268,14 @@ namespace Ecs20140526
       /**
        * @summary Converts the billing method of data disks attached to a subscription ECS instance between pay-as-you-go and subscription.
        *
-       * @description Before you convert the billing method of a data disk, read [Convert the billing method of a disk](https://help.aliyun.com/document_detail/145018.html).
-       * Take note of the following items when you call this operation:
+       * @description Before you convert the billing method of a data disk, read [Convert disk billing method](https://help.aliyun.com/document_detail/145018.html).
+       * When you call this operation, take note of the following items:
        * - You cannot change the billing method of data disks attached to pay-as-you-go instances. Pay-as-you-go instances support only pay-as-you-go disks.
        * - The instance to which the data disk is attached cannot be in the expired and stopped state.
        * - The price difference before and after the billing method conversion is refunded to your original payment method. Used coupons are not refundable.
        * - After the billing method of a disk is successfully changed, you cannot change it again within five minutes.  
        * <props="china">- Disks with the multi-attach attribute enabled support only the pay-as-you-go billing method and cannot be converted to subscription.
-       * After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and go to the <props="china"><ph>[Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page to complete the payment.
+       * After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay for the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
        *
        * @param request ModifyDiskChargeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7280,14 +7286,14 @@ namespace Ecs20140526
       /**
        * @summary Converts the billing method of data disks attached to a subscription ECS instance between pay-as-you-go and subscription.
        *
-       * @description Before you convert the billing method of a data disk, read [Convert the billing method of a disk](https://help.aliyun.com/document_detail/145018.html).
-       * Take note of the following items when you call this operation:
+       * @description Before you convert the billing method of a data disk, read [Convert disk billing method](https://help.aliyun.com/document_detail/145018.html).
+       * When you call this operation, take note of the following items:
        * - You cannot change the billing method of data disks attached to pay-as-you-go instances. Pay-as-you-go instances support only pay-as-you-go disks.
        * - The instance to which the data disk is attached cannot be in the expired and stopped state.
        * - The price difference before and after the billing method conversion is refunded to your original payment method. Used coupons are not refundable.
        * - After the billing method of a disk is successfully changed, you cannot change it again within five minutes.  
        * <props="china">- Disks with the multi-attach attribute enabled support only the pay-as-you-go billing method and cannot be converted to subscription.
-       * After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and go to the <props="china"><ph>[Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page to complete the payment.
+       * After the billing method is changed, automatic payment is enabled by default. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated, and you can only void the order. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay for the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
        *
        * @param request ModifyDiskChargeTypeRequest
        * @return ModifyDiskChargeTypeResponse
@@ -8049,9 +8055,9 @@ namespace Ecs20140526
       Models::ModifyInstanceVpcAttributeResponse modifyInstanceVpcAttribute(const Models::ModifyInstanceVpcAttributeRequest &request);
 
       /**
-       * @summary Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution mode, and adding ECS instances or managed instances to the task.
+       * @summary Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution method, and adding ECS instances or managed instances to the task.
        *
-       * @description - You can modify tasks with the following execution modes (see the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+       * @description - You can modify tasks with the following execution methods (see the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
        *     - Period: periodic execution.
        *     - NextRebootOnly: automatically executes the command the next time the instance starts.
        *     - EveryReboot: automatically executes the command every time the instance starts.
@@ -8060,12 +8066,12 @@ namespace Ecs20140526
        *     - Running: The command is running on the instance. If the command execution state on at least one instance is Running, the overall execution state is Running.
        *     - Scheduled: The scheduled command has been sent and is waiting to run. If the command execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
        *     - Stopping: The task is being stopped. If the command execution state on at least one instance is Stopping, the overall execution state is Stopping.
-       * - Before modifying the scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the task must be later than the following versions:
+       * - Before modifying scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the task must be later than the following versions:
        *     - Linux: 2.2.3.541
        *     - Windows: 2.1.3.541
        *     - If the call result returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
        * - When you execute a Cloud Assistant common command, you cannot modify the command content `CommandContent`.
-       * - When you modify the command content `CommandContent`, and the task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with `KeepCommand` set to `true`, a new command is created and retained permanently, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+       * - When you modify the command content `CommandContent`, and the task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with `KeepCommand` set to `true`, a new command is created for long-term retention, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
        *
        * @param tmpReq ModifyInvocationAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8074,9 +8080,9 @@ namespace Ecs20140526
       Models::ModifyInvocationAttributeResponse modifyInvocationAttributeWithOptions(const Models::ModifyInvocationAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution mode, and adding ECS instances or managed instances to the task.
+       * @summary Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution method, and adding ECS instances or managed instances to the task.
        *
-       * @description - You can modify tasks with the following execution modes (see the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+       * @description - You can modify tasks with the following execution methods (see the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
        *     - Period: periodic execution.
        *     - NextRebootOnly: automatically executes the command the next time the instance starts.
        *     - EveryReboot: automatically executes the command every time the instance starts.
@@ -8085,12 +8091,12 @@ namespace Ecs20140526
        *     - Running: The command is running on the instance. If the command execution state on at least one instance is Running, the overall execution state is Running.
        *     - Scheduled: The scheduled command has been sent and is waiting to run. If the command execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
        *     - Stopping: The task is being stopped. If the command execution state on at least one instance is Stopping, the overall execution state is Stopping.
-       * - Before modifying the scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the task must be later than the following versions:
+       * - Before modifying scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the task must be later than the following versions:
        *     - Linux: 2.2.3.541
        *     - Windows: 2.1.3.541
        *     - If the call result returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
        * - When you execute a Cloud Assistant common command, you cannot modify the command content `CommandContent`.
-       * - When you modify the command content `CommandContent`, and the task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with `KeepCommand` set to `true`, a new command is created and retained permanently, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+       * - When you modify the command content `CommandContent`, and the task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with `KeepCommand` set to `true`, a new command is created for long-term retention, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands in a region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
        *
        * @param request ModifyInvocationAttributeRequest
        * @return ModifyInvocationAttributeResponse
@@ -8217,8 +8223,8 @@ namespace Ecs20140526
        * @summary Modifies the name, description, and other attributes of a specified prefix list, and supports adding, modifying, and deleting entries.
        *
        * @description ## Operation description
-       * - The specified Classless Inter-Domain Routing (CIDR) block must be in standard form. For example, 10.0.0.0/8 is a valid CIDR block, whereas 10.0.0.1/8 is a fault form. For more information, see [What is CIDR?](~~40637#section-jua-0tj-q5m~~).
-       * - When you add or delete entries, do not specify duplicate CIDR blocks. Examples:
+       * - The specified Classless Inter-Domain Routing (CIDR) blocks must be in standard form. For example, 10.0.0.0/8 is a valid CIDR block, whereas 10.0.0.1/8 is a fault form. For more information, see [What is CIDR?](~~40637#section-jua-0tj-q5m~~).
+       * - When you add or delete entries, you cannot specify duplicate CIDR blocks. Examples:
        *     - For IPv4 CIDR blocks: You cannot specify two entries that both have the CIDR block 10.0.0.0/8. You cannot specify two entries whose CIDR blocks are 10.0.0.1/32 and 10.0.0.1 respectively because these two CIDR blocks are duplicates.
        *     - For IPv6 CIDR blocks: You cannot specify two entries whose CIDR blocks are 2001:fd01:0:0:0:0:0:0/32 and 2001:fd01::/32 respectively because these two CIDR blocks are duplicates.
        * - The CIDR blocks of entries to be added cannot be the same as those of entries to be deleted. For example, when you add an entry whose CIDR block is 10.0.0.0/8, the entries to be deleted cannot contain the CIDR block 10.0.0.0/8.
@@ -8234,8 +8240,8 @@ namespace Ecs20140526
        * @summary Modifies the name, description, and other attributes of a specified prefix list, and supports adding, modifying, and deleting entries.
        *
        * @description ## Operation description
-       * - The specified Classless Inter-Domain Routing (CIDR) block must be in standard form. For example, 10.0.0.0/8 is a valid CIDR block, whereas 10.0.0.1/8 is a fault form. For more information, see [What is CIDR?](~~40637#section-jua-0tj-q5m~~).
-       * - When you add or delete entries, do not specify duplicate CIDR blocks. Examples:
+       * - The specified Classless Inter-Domain Routing (CIDR) blocks must be in standard form. For example, 10.0.0.0/8 is a valid CIDR block, whereas 10.0.0.1/8 is a fault form. For more information, see [What is CIDR?](~~40637#section-jua-0tj-q5m~~).
+       * - When you add or delete entries, you cannot specify duplicate CIDR blocks. Examples:
        *     - For IPv4 CIDR blocks: You cannot specify two entries that both have the CIDR block 10.0.0.0/8. You cannot specify two entries whose CIDR blocks are 10.0.0.1/32 and 10.0.0.1 respectively because these two CIDR blocks are duplicates.
        *     - For IPv6 CIDR blocks: You cannot specify two entries whose CIDR blocks are 2001:fd01:0:0:0:0:0:0/32 and 2001:fd01::/32 respectively because these two CIDR blocks are duplicates.
        * - The CIDR blocks of entries to be added cannot be the same as those of entries to be deleted. For example, when you add an entry whose CIDR block is 10.0.0.0/8, the entries to be deleted cannot contain the CIDR block 10.0.0.0/8.
@@ -8819,9 +8825,9 @@ namespace Ecs20140526
       Models::OpenSnapshotServiceResponse openSnapshotService(const Models::OpenSnapshotServiceRequest &request);
 
       /**
-       * @summary Purchases an elastic capacity reservation service that is ready but not yet activated.
+       * @summary Purchases an elastic capacity reservation service. You can use this operation to purchase an elastic capacity reservation service that is prepared and in an inactive state.
        *
-       * @description Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservations before you call this operation.
+       * @description Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservation before you use this operation.
        * Before you purchase an elastic capacity reservation service, you can call [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) to query available elastic capacity reservation services.
        *
        * @param request PurchaseElasticityAssuranceRequest
@@ -8831,9 +8837,9 @@ namespace Ecs20140526
       Models::PurchaseElasticityAssuranceResponse purchaseElasticityAssuranceWithOptions(const Models::PurchaseElasticityAssuranceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases an elastic capacity reservation service that is ready but not yet activated.
+       * @summary Purchases an elastic capacity reservation service. You can use this operation to purchase an elastic capacity reservation service that is prepared and in an inactive state.
        *
-       * @description Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservations before you call this operation.
+       * @description Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservation before you use this operation.
        * Before you purchase an elastic capacity reservation service, you can call [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) to query available elastic capacity reservation services.
        *
        * @param request PurchaseElasticityAssuranceRequest
@@ -9825,26 +9831,16 @@ namespace Ecs20140526
       Models::RevokeSecurityGroupEgressResponse revokeSecurityGroupEgress(const Models::RevokeSecurityGroupEgressRequest &request);
 
       /**
-       * @summary Creates and runs a Cloud Assistant command on one or more ECS instances. Supports Shell, PowerShell, or Bat script types, and provides features such as scheduled execution, custom parameters, and execution within containers on instances.
+       * @summary Creates and runs a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on instances.
        *
        * @description This is an asynchronous operation. After the request is sent, you can call [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html) or [DescribeInvocationResults](https://help.aliyun.com/document_detail/2679916.html) with the returned command ID or invocation ID to query the execution results.
        * ### Before you begin
-       * - The target instance must be in the running state (`Running`). You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status.
-       * - The target instance must have [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) pre-installed. You can install it by calling [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) and query the installation status by calling [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html).
-       *   > ECS instances created from public images after December 1, 2017 have Cloud Assistant Agent pre-installed by default.
-       * - To run PowerShell commands, ensure that the Windows operating system on the target ECS instance has the PowerShell module configured.
-       * ### Before you begin
-       * - In a single region, you can retain 500 to 50,000 Cloud Assistant commands. You can also request a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-       * - The Cloud Assistant Agent version must be no earlier than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron-based scheduled execution). If the `ClientNeedUpgrade` error code is returned, see [Upgrade or disable upgrades of Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
-       *       - Linux: 2.2.3.282
-       *       - Windows: 2.1.3.282
-       * - If you use a Cron expression for scheduled execution and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of the instance. Ensure that the time or time zone of the ECS instance is consistent with your expectations. For more information about time zones, see [Configure the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Configure the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
-       * ### Usage notes
-       * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for command execution on an ECS instance. If the command times out, Cloud Assistant Agent forcefully stops the process.
-       *     - For a one-time execution that times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to execution fault (Failed).
-       *     - For a scheduled execution, the timeout period applies to each execution record. A timeout in the previous execution does not affect the next execution. If an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to execution fault (Failed).
-       * - **Execution failures**: A command may fail to execute due to abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. In such cases, no execution information is generated. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html).
-       * - **Custom parameters**: When `EnableParameter=true`, the custom parameter feature is enabled. You can define custom parameters in the format of `{{parameter}}` in `CommandContent`, and pass in custom parameter key-value pairs when running the command.
+       * - The destination instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status.
+       * - Cloud Assistant Agent must be installed on the destination instance. You can call [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) to install it and call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html) to query the installation status.
+       *   > Cloud Assistant Agent is pre-installed by default on ECS instances created from public images after December 1, 2017.
+       * - To run PowerShell commands, make sure that the PowerShell module is configured on the Windows operating system of the destination ECS instance.
+       * ### Precautions.
+       * ### Recommendations.
        *
        * @param tmpReq RunCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9853,26 +9849,16 @@ namespace Ecs20140526
       Models::RunCommandResponse runCommandWithOptions(const Models::RunCommandRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and runs a Cloud Assistant command on one or more ECS instances. Supports Shell, PowerShell, or Bat script types, and provides features such as scheduled execution, custom parameters, and execution within containers on instances.
+       * @summary Creates and runs a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on instances.
        *
        * @description This is an asynchronous operation. After the request is sent, you can call [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html) or [DescribeInvocationResults](https://help.aliyun.com/document_detail/2679916.html) with the returned command ID or invocation ID to query the execution results.
        * ### Before you begin
-       * - The target instance must be in the running state (`Running`). You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status.
-       * - The target instance must have [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) pre-installed. You can install it by calling [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) and query the installation status by calling [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html).
-       *   > ECS instances created from public images after December 1, 2017 have Cloud Assistant Agent pre-installed by default.
-       * - To run PowerShell commands, ensure that the Windows operating system on the target ECS instance has the PowerShell module configured.
-       * ### Before you begin
-       * - In a single region, you can retain 500 to 50,000 Cloud Assistant commands. You can also request a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-       * - The Cloud Assistant Agent version must be no earlier than the following versions to support new features of scheduled tasks (execution at fixed intervals, one-time execution at a specified time, and specifying a year or time zone for Cron-based scheduled execution). If the `ClientNeedUpgrade` error code is returned, see [Upgrade or disable upgrades of Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the agent to the latest version.
-       *       - Linux: 2.2.3.282
-       *       - Windows: 2.1.3.282
-       * - If you use a Cron expression for scheduled execution and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is determined by the system time of the instance. Ensure that the time or time zone of the ECS instance is consistent with your expectations. For more information about time zones, see [Configure the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Configure the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
-       * ### Usage notes
-       * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for command execution on an ECS instance. If the command times out, Cloud Assistant Agent forcefully stops the process.
-       *     - For a one-time execution that times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to execution fault (Failed).
-       *     - For a scheduled execution, the timeout period applies to each execution record. A timeout in the previous execution does not affect the next execution. If an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to execution fault (Failed).
-       * - **Execution failures**: A command may fail to execute due to abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. In such cases, no execution information is generated. For more information, see [Common errors and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html).
-       * - **Custom parameters**: When `EnableParameter=true`, the custom parameter feature is enabled. You can define custom parameters in the format of `{{parameter}}` in `CommandContent`, and pass in custom parameter key-value pairs when running the command.
+       * - The destination instance must be in the Running state. You can call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status.
+       * - Cloud Assistant Agent must be installed on the destination instance. You can call [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) to install it and call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html) to query the installation status.
+       *   > Cloud Assistant Agent is pre-installed by default on ECS instances created from public images after December 1, 2017.
+       * - To run PowerShell commands, make sure that the PowerShell module is configured on the Windows operating system of the destination ECS instance.
+       * ### Precautions.
+       * ### Recommendations.
        *
        * @param request RunCommandRequest
        * @return RunCommandResponse
@@ -9883,25 +9869,29 @@ namespace Ecs20140526
        * @summary Batch creates ECS instances with support for automatic startup, public IP address allocation, and automatic release time settings.
        *
        * @description <props="china">
-       * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.
-       * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.
-       * This is an asynchronous operation. After a request to create an instance is successfully sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query instance information. When the returned status is `Running`, the instance is created and started.
+       * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of Elastic Compute Service (ECS).
+       * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of Elastic Compute Service (ECS).
+       * This is an asynchronous operation. After a request to create an instance is sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance information. When the returned status is `Running`, the instance is created and started.
        * ### Before you begin
        * <props="china">
        * - Make sure that your account has completed real-name registration. For more information, see [Real-name registration](https://help.aliyun.com/document_detail/48263.html).
        * - When resource inventory is insufficient to complete the current instance creation, Alibaba Cloud immediately sends an instance creation failure event (SystemFailure.Delete). You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether an instance creation failure event exists. For more information, see [Instance creation failure event](https://help.aliyun.com/document_detail/2545990.html).
        * - Make sure that the total number of instances you create or the total vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-       * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
-       * ### Before you begin.
+       * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding Alibaba Cloud region.
+       * ### Precautions
+       * - If the billing method of the instance is subscription (`PrePaid`), your available coupons are used by default during payment.
+       * - A maximum of 100 instances can be created in a single request. If you want to create more than 100 instances, call this operation in batches or concurrently.
+       * - If the value of `InternetMaxBandwidthOut` is greater than 0, a public IP address is automatically assigned to the instance.
+       * > The total peak pay-by-bandwidth public bandwidth for a single Alibaba Cloud account in a single region is subject to limits. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
        * ### Recommendations.
        * ## Request examples
        * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system and data disks with specific capacities, assign a public IP address, and set the instance name and password. The relevant request parameters are as follows:
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
-       * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Set the image ID
-       * InstanceType:"ecs.g7.large", //Set the instance type
-       * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Set the security group ID
-       * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Set the vSwitch ID
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
+       * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Specify the image ID
+       * InstanceType:"ecs.g7.large", //Specify the instance type
+       * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Specify the security group ID
+       * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Specify the vSwitch ID
        * SystemDisk:{
        *   Category:"cloud_essd", //Set the system disk category to enterprise SSD
        *   Size:40, //Set the system disk size to 40 GiB
@@ -9912,16 +9902,16 @@ namespace Ecs20140526
        *     Size:100, //Set the data disk size to 100 GiB
        *   }
        * ],
-       * HostName:"ECS-test", //Set the instance hostname
-       * Password:"ECS@test1234", //Set the instance logon password
+       * HostName:"ECS-test", //Specify the instance hostname
+       * Password:"ECS@test1234", //Specify the instance logon password
        * InternetMaxBandwidthOut:10 //Set the outbound public bandwidth to 10 Mbit/s
        * ```
        * Based on the preceding configurations, create instances of different types:
        * <details>
-       * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
+       * <summary>Example: Create 5 subscription instances with auto-renewal enabled</summary>
        * ```
        * Amount:5, //Set the quantity to 5
-       * InstanceChargeType:"PrePaid", //Specify subscription billing
+       * InstanceChargeType:"PrePaid", //Specify the subscription billing method
        * PeriodUnit:"Month", //Set the period unit to month
        * Period:1, //Set the period to 1 month
        * AutoRenew:true, //Enable auto-renewal
@@ -9932,7 +9922,7 @@ namespace Ecs20140526
        * <summary>Example: Create 10 pay-as-you-go instances</summary>
        * ```
        * Amount:10, //Set the quantity to 10
-       * InstanceChargeType:"PostPaid", //Specify pay-as-you-go billing
+       * InstanceChargeType:"PostPaid", //Specify the pay-as-you-go billing method
        * SpotStrategy:"NoSpot" //Default value, indicating regular pay-as-you-go
        * ```
        * </details>
@@ -9941,24 +9931,24 @@ namespace Ecs20140526
        * ```
        * Amount:20, //Set the quantity to 20
        * InstanceChargeType:"PostPaid",
-       * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy to automatically bid based on market price
-       * SpotDuration:1 //Set the spot instance protection period to 1 hour
+       * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy for spot instances to automatic bidding based on market price
+       * SpotDuration:1 //Set the protection period for spot instances to 1 hour
        * ```
        * </details>
        * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html). You now want to use this template to create ECS instances in the China (Hangzhou) region. Example:
        * <details>
        * <summary>Example: Create 10 ECS instances based on a launch template</summary>
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
        * Amount:10, //Set the quantity to 10
-       * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Set the launch template ID
+       * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Specify the launch template ID
        * ```
        * </details>
-       * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, pay-as-you-go instances are created.
+       * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, the created instances are pay-as-you-go instances.
        * <details>
-       * <summary>Example: Create one instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
+       * <summary>Example: Create 1 instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
        * ImageId = m-bp13ohd32cvzpq9e****，//Custom image ID
        * InstanceType = ecs.u1-c1m1.large，//Instance type
        * SecurityGroupId = sg-bp10jztp6b0sdsyl****，//Security group ID
@@ -9984,25 +9974,29 @@ namespace Ecs20140526
        * @summary Batch creates ECS instances with support for automatic startup, public IP address allocation, and automatic release time settings.
        *
        * @description <props="china">
-       * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.
-       * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.
-       * This is an asynchronous operation. After a request to create an instance is successfully sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query instance information. When the returned status is `Running`, the instance is created and started.
+       * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of Elastic Compute Service (ECS).
+       * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of Elastic Compute Service (ECS).
+       * This is an asynchronous operation. After a request to create an instance is sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance information. When the returned status is `Running`, the instance is created and started.
        * ### Before you begin
        * <props="china">
        * - Make sure that your account has completed real-name registration. For more information, see [Real-name registration](https://help.aliyun.com/document_detail/48263.html).
        * - When resource inventory is insufficient to complete the current instance creation, Alibaba Cloud immediately sends an instance creation failure event (SystemFailure.Delete). You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether an instance creation failure event exists. For more information, see [Instance creation failure event](https://help.aliyun.com/document_detail/2545990.html).
        * - Make sure that the total number of instances you create or the total vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-       * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
-       * ### Before you begin.
+       * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding Alibaba Cloud region.
+       * ### Precautions
+       * - If the billing method of the instance is subscription (`PrePaid`), your available coupons are used by default during payment.
+       * - A maximum of 100 instances can be created in a single request. If you want to create more than 100 instances, call this operation in batches or concurrently.
+       * - If the value of `InternetMaxBandwidthOut` is greater than 0, a public IP address is automatically assigned to the instance.
+       * > The total peak pay-by-bandwidth public bandwidth for a single Alibaba Cloud account in a single region is subject to limits. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
        * ### Recommendations.
        * ## Request examples
        * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system and data disks with specific capacities, assign a public IP address, and set the instance name and password. The relevant request parameters are as follows:
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
-       * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Set the image ID
-       * InstanceType:"ecs.g7.large", //Set the instance type
-       * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Set the security group ID
-       * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Set the vSwitch ID
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
+       * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Specify the image ID
+       * InstanceType:"ecs.g7.large", //Specify the instance type
+       * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Specify the security group ID
+       * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Specify the vSwitch ID
        * SystemDisk:{
        *   Category:"cloud_essd", //Set the system disk category to enterprise SSD
        *   Size:40, //Set the system disk size to 40 GiB
@@ -10013,16 +10007,16 @@ namespace Ecs20140526
        *     Size:100, //Set the data disk size to 100 GiB
        *   }
        * ],
-       * HostName:"ECS-test", //Set the instance hostname
-       * Password:"ECS@test1234", //Set the instance logon password
+       * HostName:"ECS-test", //Specify the instance hostname
+       * Password:"ECS@test1234", //Specify the instance logon password
        * InternetMaxBandwidthOut:10 //Set the outbound public bandwidth to 10 Mbit/s
        * ```
        * Based on the preceding configurations, create instances of different types:
        * <details>
-       * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
+       * <summary>Example: Create 5 subscription instances with auto-renewal enabled</summary>
        * ```
        * Amount:5, //Set the quantity to 5
-       * InstanceChargeType:"PrePaid", //Specify subscription billing
+       * InstanceChargeType:"PrePaid", //Specify the subscription billing method
        * PeriodUnit:"Month", //Set the period unit to month
        * Period:1, //Set the period to 1 month
        * AutoRenew:true, //Enable auto-renewal
@@ -10033,7 +10027,7 @@ namespace Ecs20140526
        * <summary>Example: Create 10 pay-as-you-go instances</summary>
        * ```
        * Amount:10, //Set the quantity to 10
-       * InstanceChargeType:"PostPaid", //Specify pay-as-you-go billing
+       * InstanceChargeType:"PostPaid", //Specify the pay-as-you-go billing method
        * SpotStrategy:"NoSpot" //Default value, indicating regular pay-as-you-go
        * ```
        * </details>
@@ -10042,24 +10036,24 @@ namespace Ecs20140526
        * ```
        * Amount:20, //Set the quantity to 20
        * InstanceChargeType:"PostPaid",
-       * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy to automatically bid based on market price
-       * SpotDuration:1 //Set the spot instance protection period to 1 hour
+       * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy for spot instances to automatic bidding based on market price
+       * SpotDuration:1 //Set the protection period for spot instances to 1 hour
        * ```
        * </details>
        * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html). You now want to use this template to create ECS instances in the China (Hangzhou) region. Example:
        * <details>
        * <summary>Example: Create 10 ECS instances based on a launch template</summary>
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
        * Amount:10, //Set the quantity to 10
-       * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Set the launch template ID
+       * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Specify the launch template ID
        * ```
        * </details>
-       * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, pay-as-you-go instances are created.
+       * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, the created instances are pay-as-you-go instances.
        * <details>
-       * <summary>Example: Create one instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
+       * <summary>Example: Create 1 instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
        * ```
-       * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+       * RegionId:"cn-hangzhou", //Specify the China (Hangzhou) region
        * ImageId = m-bp13ohd32cvzpq9e****，//Custom image ID
        * InstanceType = ecs.u1-c1m1.large，//Instance type
        * SecurityGroupId = sg-bp10jztp6b0sdsyl****，//Security group ID
@@ -10079,6 +10073,39 @@ namespace Ecs20140526
        * @return RunInstancesResponse
        */
       Models::RunInstancesResponse runInstances(const Models::RunInstancesRequest &request);
+
+      /**
+       * @summary Sends a diagnostic interrupt to a specified ECS instance to trigger an operating system crash and generate a memory dump file.
+       *
+       * @description ## Operation description
+       * - This API operation sends a diagnostic interrupt to an ECS instance that is inaccessible or unresponsive, manually triggering an operating system crash and generating a memory dump file (crash dump).
+       * - Sending a diagnostic interrupt triggers an operating system crash and restart, which may cause data loss. Proceed with caution.
+       * - The generated dump file can be used for root cause analysis and debugging instance issues.
+       * - Ensure that the required configurations (such as the kdump service and NMI response) are completed in the instance operating system in advance. Otherwise, a dump file may not be generated.
+       * - ECS Bare Metal instances do not support this feature.
+       * - If the instance system disk does not have sufficient space, the dump file may not be saved completely. The disk space may even be fully consumed, which prevents the instance from starting properly after the restart because the system disk is full.
+       *
+       * @param request SendDiagnosticInterruptRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendDiagnosticInterruptResponse
+       */
+      Models::SendDiagnosticInterruptResponse sendDiagnosticInterruptWithOptions(const Models::SendDiagnosticInterruptRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sends a diagnostic interrupt to a specified ECS instance to trigger an operating system crash and generate a memory dump file.
+       *
+       * @description ## Operation description
+       * - This API operation sends a diagnostic interrupt to an ECS instance that is inaccessible or unresponsive, manually triggering an operating system crash and generating a memory dump file (crash dump).
+       * - Sending a diagnostic interrupt triggers an operating system crash and restart, which may cause data loss. Proceed with caution.
+       * - The generated dump file can be used for root cause analysis and debugging instance issues.
+       * - Ensure that the required configurations (such as the kdump service and NMI response) are completed in the instance operating system in advance. Otherwise, a dump file may not be generated.
+       * - ECS Bare Metal instances do not support this feature.
+       * - If the instance system disk does not have sufficient space, the dump file may not be saved completely. The disk space may even be fully consumed, which prevents the instance from starting properly after the restart because the system disk is full.
+       *
+       * @param request SendDiagnosticInterruptRequest
+       * @return SendDiagnosticInterruptResponse
+       */
+      Models::SendDiagnosticInterruptResponse sendDiagnosticInterrupt(const Models::SendDiagnosticInterruptRequest &request);
 
       /**
        * @summary Sends a remote file to one or more ECS instances.

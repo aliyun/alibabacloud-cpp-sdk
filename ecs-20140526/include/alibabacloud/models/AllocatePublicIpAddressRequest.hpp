@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The instance ID of the instance to which you want to allocate a public IP address.
     // 
-    // >The instance bandwidth must be greater than 0.
+    // >The public bandwidth of the instance must be greater than 0.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
