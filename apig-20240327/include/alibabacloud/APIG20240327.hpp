@@ -2603,7 +2603,7 @@ namespace APIG20240327
       Models::UpdateHttpApiOperationResponse updateHttpApiOperation(const string &httpApiId, const string &operationId, const Models::UpdateHttpApiOperationRequest &request);
 
       /**
-       * @summary Updates the route of an HTTP API.
+       * @summary Updates a route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @param headers map
@@ -2613,7 +2613,7 @@ namespace APIG20240327
       Models::UpdateHttpApiRouteResponse updateHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const Models::UpdateHttpApiRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the route of an HTTP API.
+       * @summary Updates a route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @return UpdateHttpApiRouteResponse

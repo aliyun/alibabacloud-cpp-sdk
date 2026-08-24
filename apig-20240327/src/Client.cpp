@@ -7848,7 +7848,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -7905,7 +7905,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse

@@ -215,7 +215,7 @@ namespace Models
           shared_ptr<HttpApiBackendMatchConditions> match_ {};
           // The service port. Do not specify this parameter for dynamic ports.
           shared_ptr<int32_t> port_ {};
-          // The service protocol:
+          // The service protocol. Valid values:
           // - HTTP.
           // - HTTPS.
           shared_ptr<string> protocol_ {};
@@ -262,13 +262,13 @@ namespace Models
 
 
       protected:
-        // The API publish scenario. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
+        // The API publish scenario. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
         shared_ptr<string> backendScene_ {};
         // The list of custom domain names.
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The existing service configurations. In the single service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
+        // The existing service configurations. In the single service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 

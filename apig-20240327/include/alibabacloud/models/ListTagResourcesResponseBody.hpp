@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The token for the next query. An empty NextToken indicates that no more results exist.
+    // The token for the next query start position. An empty NextToken indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resources.
+    // The resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

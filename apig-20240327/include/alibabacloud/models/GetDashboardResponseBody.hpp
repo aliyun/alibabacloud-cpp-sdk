@@ -101,7 +101,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The dashboard title.
       shared_ptr<string> title_ {};
-      // The dashboard URL.
+      // The URL of the dashboard.
       shared_ptr<string> url_ {};
     };
 

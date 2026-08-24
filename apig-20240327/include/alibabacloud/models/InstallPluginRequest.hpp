@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The list of gateway IDs.
+    // The list of gateway IDs. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.IsEmpty. This field must be included in the body object.
     shared_ptr<vector<string>> gatewayIds_ {};
-    // The plug-in type ID.
+    // The plug-in type ID. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.IsEmpty. This field must be included in the body object.
     shared_ptr<string> pluginClassId_ {};
   };
 

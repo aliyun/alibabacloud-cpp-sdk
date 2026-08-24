@@ -149,7 +149,7 @@ namespace Models
       shared_ptr<string> selectOption_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The list of supported zones.
+      // The list of supported zones. At least two zones are required.
       shared_ptr<vector<ZoneConfig::Zones>> zones_ {};
     };
 
@@ -276,7 +276,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable log collection.
+        // Specifies whether to enable SLS log collection.
         shared_ptr<bool> enable_ {};
       };
 
@@ -398,13 +398,13 @@ namespace Models
     // 
     // - Professional: standard instance.
     // 
-    // - Serverless: Serverless instance.
+    // - Serverless: Serverless.
     // 
-    // - MultiTenantServerless: multi-tenant Serverless instance.
+    // - MultiTenantServerless: multi-tenant Serverless.
     // 
     // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
-    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only allowed when the gateway type is AI and the edition is MultiTenantServerless.
+    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
     shared_ptr<string> gatewayMode_ {};
     // The gateway type. Must be explicitly set to AI for AI Serverless or multi-tenant editions.
     shared_ptr<string> gatewayType_ {};

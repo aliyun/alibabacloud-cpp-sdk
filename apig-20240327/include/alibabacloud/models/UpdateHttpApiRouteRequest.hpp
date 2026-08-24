@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEHTTPAPIROUTEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEHTTPAPIROUTEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/HttpDubboTranscoder.hpp>
 #include <vector>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
@@ -123,18 +124,26 @@ namespace Models
       class Services : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Services& obj) { 
+          DARABONBA_PTR_TO_JSON(groupName, groupName_);
+          DARABONBA_PTR_TO_JSON(httpDubboTranscoder, httpDubboTranscoder_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
+          DARABONBA_PTR_TO_JSON(namespace, namespace_);
           DARABONBA_PTR_TO_JSON(port, port_);
           DARABONBA_PTR_TO_JSON(protocol, protocol_);
           DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(version, version_);
           DARABONBA_PTR_TO_JSON(weight, weight_);
         };
         friend void from_json(const Darabonba::Json& j, Services& obj) { 
+          DARABONBA_PTR_FROM_JSON(groupName, groupName_);
+          DARABONBA_PTR_FROM_JSON(httpDubboTranscoder, httpDubboTranscoder_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(namespace, namespace_);
           DARABONBA_PTR_FROM_JSON(port, port_);
           DARABONBA_PTR_FROM_JSON(protocol, protocol_);
           DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(version, version_);
           DARABONBA_PTR_FROM_JSON(weight, weight_);
         };
@@ -149,13 +158,37 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->modelName_ == nullptr
-        && this->port_ == nullptr && this->protocol_ == nullptr && this->serviceId_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
+        virtual bool empty() const override { return this->groupName_ == nullptr
+        && this->httpDubboTranscoder_ == nullptr && this->modelName_ == nullptr && this->namespace_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr
+        && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
+        // groupName Field Functions 
+        bool hasGroupName() const { return this->groupName_ != nullptr;};
+        void deleteGroupName() { this->groupName_ = nullptr;};
+        inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+        inline Services& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+        // httpDubboTranscoder Field Functions 
+        bool hasHttpDubboTranscoder() const { return this->httpDubboTranscoder_ != nullptr;};
+        void deleteHttpDubboTranscoder() { this->httpDubboTranscoder_ = nullptr;};
+        inline const HttpDubboTranscoder & getHttpDubboTranscoder() const { DARABONBA_PTR_GET_CONST(httpDubboTranscoder_, HttpDubboTranscoder) };
+        inline HttpDubboTranscoder getHttpDubboTranscoder() { DARABONBA_PTR_GET(httpDubboTranscoder_, HttpDubboTranscoder) };
+        inline Services& setHttpDubboTranscoder(const HttpDubboTranscoder & httpDubboTranscoder) { DARABONBA_PTR_SET_VALUE(httpDubboTranscoder_, httpDubboTranscoder) };
+        inline Services& setHttpDubboTranscoder(HttpDubboTranscoder && httpDubboTranscoder) { DARABONBA_PTR_SET_RVALUE(httpDubboTranscoder_, httpDubboTranscoder) };
+
+
         // modelName Field Functions 
         bool hasModelName() const { return this->modelName_ != nullptr;};
         void deleteModelName() { this->modelName_ = nullptr;};
         inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
         inline Services& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+        // namespace Field Functions 
+        bool hasNamespace() const { return this->namespace_ != nullptr;};
+        void deleteNamespace() { this->namespace_ = nullptr;};
+        inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+        inline Services& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
         // port Field Functions 
@@ -179,6 +212,13 @@ namespace Models
         inline Services& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline Services& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
         // version Field Functions 
         bool hasVersion() const { return this->version_ != nullptr;};
         void deleteVersion() { this->version_ = nullptr;};
@@ -194,8 +234,14 @@ namespace Models
 
 
       protected:
-        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured in the AiAutoRouter scenario, the default model of the AI service is used.
+        // The service group. Used in HTTP-to-Dubbo conversion scenarios.
+        shared_ptr<string> groupName_ {};
+        // The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+        shared_ptr<HttpDubboTranscoder> httpDubboTranscoder_ {};
+        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
         shared_ptr<string> modelName_ {};
+        // The service namespace. Used in HTTP-to-Dubbo conversion scenarios.
+        shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
@@ -204,6 +250,8 @@ namespace Models
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
+        // The service source type. Use MSE_NACOS for HTTP-to-Dubbo conversion scenarios.
+        shared_ptr<string> sourceType_ {};
         // The service version.
         shared_ptr<string> version_ {};
         // The percentage value of the traffic ratio.

@@ -506,6 +506,8 @@ namespace Models
           // The port number.
           shared_ptr<int32_t> port_ {};
           // The protocol. Valid values:
+          // - TCP
+          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -599,8 +601,12 @@ namespace Models
         // The load balancing address.
         shared_ptr<string> address_ {};
         // The protocol version. Valid values:
+        // - ipv4: IPv4.
+        // - ipv6: IPv6.
         shared_ptr<string> addressIpVersion_ {};
         // The load balancing address type. Valid values:
+        // - Internet: public network.
+        // - Intranet: private network.
         shared_ptr<string> addressType_ {};
         // Indicates whether this is the default ingress address of the gateway.
         shared_ptr<bool> gatewayDefault_ {};
@@ -611,12 +617,17 @@ namespace Models
         // The load balancing instance ID.
         shared_ptr<string> loadBalancerId_ {};
         // The load balancing mode of the gateway. Valid values:
+        // - Managed: managed by Cloud-native API Gateway.
         shared_ptr<string> mode_ {};
         // The list of listening ports.
         shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
         // The status of load balancing. Valid values:
+        // - Ready: active.
+        // - NotCreate: not associated with an instance.
         shared_ptr<string> status_ {};
-        // The load balancing type.
+        // The load balancing type. Valid values:
+        // - NLB: Network Load Balancer (NLB).
+        // - CLB: Classic Load Balancer (CLB).
         shared_ptr<string> type_ {};
       };
 
@@ -880,26 +891,32 @@ namespace Models
 
 
     protected:
-      // The billing method.
+      // The billing method. Valid values:
+      // - POSTPAY: pay-as-you-go.
+      // - PREPAY: subscription.
       shared_ptr<string> chargeType_ {};
       // The source from which the gateway was created. Valid values:
+      // - Console: the console.
       shared_ptr<string> createFrom_ {};
       // The creation timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
       // The list of environments associated with the gateway.
       shared_ptr<vector<Data::Environments>> environments_ {};
-      // The subscription expiration timestamp. Unit: milliseconds.
+      // The expiration timestamp for subscription instances. Unit: milliseconds.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // The edition of the gateway instance. Valid values:
+      // The gateway instance edition. Valid values:
       // 
       // - Professional: standard instance.
-      // - Serverless: Serverless.
+      // 
+      // - Serverless: Serverless instance.
       shared_ptr<string> gatewayEdition_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // The running mode of AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when AI + MultiTenantServerless is used.
+      // The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter.
       shared_ptr<string> gatewayMode_ {};
       // The gateway type. Valid values:
+      // - API: API gateway.
+      // - AI: AI gateway.
       shared_ptr<string> gatewayType_ {};
       // The type of the network service provider.
       shared_ptr<string> isp_ {};
@@ -916,8 +933,18 @@ namespace Models
       // The security group of the gateway.
       shared_ptr<Data::SecurityGroup> securityGroup_ {};
       // The gateway specification. Valid values:
+      // - apigw.small.x1: small specification.
       shared_ptr<string> spec_ {};
       // The gateway status. Valid values:
+      // - Running: The gateway is running.
+      // - Creating: The gateway is being created.
+      // - CreateFailed: The gateway failed to be created.
+      // - Upgrading: The gateway is being upgraded.
+      // - UpgradeFailed: The gateway failed to be upgraded.
+      // - Restarting: The gateway is being restarted.
+      // - RestartFailed: The gateway failed to be restarted.
+      // - Deleting: The gateway is being released.
+      // - DeleteFailed: The gateway failed to be released.
       shared_ptr<string> status_ {};
       // The resource tags.
       shared_ptr<vector<Data::Tags>> tags_ {};

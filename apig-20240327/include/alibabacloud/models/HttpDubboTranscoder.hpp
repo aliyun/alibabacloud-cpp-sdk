@@ -17,13 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dubboServiceGroup, dubboServiceGroup_);
       DARABONBA_PTR_TO_JSON(dubboServiceName, dubboServiceName_);
       DARABONBA_PTR_TO_JSON(dubboServiceVersion, dubboServiceVersion_);
-      DARABONBA_PTR_TO_JSON(mothedMapList, mothedMapList_);
+      DARABONBA_PTR_TO_JSON(methodMapList, methodMapList_);
     };
     friend void from_json(const Darabonba::Json& j, HttpDubboTranscoder& obj) { 
       DARABONBA_PTR_FROM_JSON(dubboServiceGroup, dubboServiceGroup_);
       DARABONBA_PTR_FROM_JSON(dubboServiceName, dubboServiceName_);
       DARABONBA_PTR_FROM_JSON(dubboServiceVersion, dubboServiceVersion_);
-      DARABONBA_PTR_FROM_JSON(mothedMapList, mothedMapList_);
+      DARABONBA_PTR_FROM_JSON(methodMapList, methodMapList_);
     };
     HttpDubboTranscoder() = default ;
     HttpDubboTranscoder(const HttpDubboTranscoder &) = default ;
@@ -36,31 +36,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    class MothedMapList : public Darabonba::Model {
+    class MethodMapList : public Darabonba::Model {
     public:
-      friend void to_json(Darabonba::Json& j, const MothedMapList& obj) { 
-        DARABONBA_PTR_TO_JSON(dubboMothedName, dubboMothedName_);
-        DARABONBA_PTR_TO_JSON(httpMothed, httpMothed_);
-        DARABONBA_PTR_TO_JSON(mothedpath, mothedpath_);
+      friend void to_json(Darabonba::Json& j, const MethodMapList& obj) { 
+        DARABONBA_PTR_TO_JSON(dubboMethodName, dubboMethodName_);
+        DARABONBA_PTR_TO_JSON(httpMethod, httpMethod_);
+        DARABONBA_PTR_TO_JSON(methodPath, methodPath_);
         DARABONBA_PTR_TO_JSON(paramMapsList, paramMapsList_);
         DARABONBA_PTR_TO_JSON(passThroughAllHeaders, passThroughAllHeaders_);
         DARABONBA_PTR_TO_JSON(passThroughList, passThroughList_);
       };
-      friend void from_json(const Darabonba::Json& j, MothedMapList& obj) { 
-        DARABONBA_PTR_FROM_JSON(dubboMothedName, dubboMothedName_);
-        DARABONBA_PTR_FROM_JSON(httpMothed, httpMothed_);
-        DARABONBA_PTR_FROM_JSON(mothedpath, mothedpath_);
+      friend void from_json(const Darabonba::Json& j, MethodMapList& obj) { 
+        DARABONBA_PTR_FROM_JSON(dubboMethodName, dubboMethodName_);
+        DARABONBA_PTR_FROM_JSON(httpMethod, httpMethod_);
+        DARABONBA_PTR_FROM_JSON(methodPath, methodPath_);
         DARABONBA_PTR_FROM_JSON(paramMapsList, paramMapsList_);
         DARABONBA_PTR_FROM_JSON(passThroughAllHeaders, passThroughAllHeaders_);
         DARABONBA_PTR_FROM_JSON(passThroughList, passThroughList_);
       };
-      MothedMapList() = default ;
-      MothedMapList(const MothedMapList &) = default ;
-      MothedMapList(MothedMapList &&) = default ;
-      MothedMapList(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~MothedMapList() = default ;
-      MothedMapList& operator=(const MothedMapList &) = default ;
-      MothedMapList& operator=(MothedMapList &&) = default ;
+      MethodMapList() = default ;
+      MethodMapList(const MethodMapList &) = default ;
+      MethodMapList(MethodMapList &&) = default ;
+      MethodMapList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MethodMapList() = default ;
+      MethodMapList& operator=(const MethodMapList &) = default ;
+      MethodMapList& operator=(MethodMapList &&) = default ;
       virtual void validate() const override {
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -112,48 +112,51 @@ namespace Models
 
 
       protected:
+        // The key used to extract the input parameter.
         shared_ptr<string> extractKey_ {};
+        // The input parameter location. Valid values: ALL_QUERY_PARAMETER: request parameter. ALL_HEADER: request header. ALL_PATH: URI of the request. ALL_BODY: request body.
         shared_ptr<string> extractKeySpec_ {};
+        // The backend parameter type.
         shared_ptr<string> mappingType_ {};
       };
 
-      virtual bool empty() const override { return this->dubboMothedName_ == nullptr
-        && this->httpMothed_ == nullptr && this->mothedpath_ == nullptr && this->paramMapsList_ == nullptr && this->passThroughAllHeaders_ == nullptr && this->passThroughList_ == nullptr; };
-      // dubboMothedName Field Functions 
-      bool hasDubboMothedName() const { return this->dubboMothedName_ != nullptr;};
-      void deleteDubboMothedName() { this->dubboMothedName_ = nullptr;};
-      inline string getDubboMothedName() const { DARABONBA_PTR_GET_DEFAULT(dubboMothedName_, "") };
-      inline MothedMapList& setDubboMothedName(string dubboMothedName) { DARABONBA_PTR_SET_VALUE(dubboMothedName_, dubboMothedName) };
+      virtual bool empty() const override { return this->dubboMethodName_ == nullptr
+        && this->httpMethod_ == nullptr && this->methodPath_ == nullptr && this->paramMapsList_ == nullptr && this->passThroughAllHeaders_ == nullptr && this->passThroughList_ == nullptr; };
+      // dubboMethodName Field Functions 
+      bool hasDubboMethodName() const { return this->dubboMethodName_ != nullptr;};
+      void deleteDubboMethodName() { this->dubboMethodName_ = nullptr;};
+      inline string getDubboMethodName() const { DARABONBA_PTR_GET_DEFAULT(dubboMethodName_, "") };
+      inline MethodMapList& setDubboMethodName(string dubboMethodName) { DARABONBA_PTR_SET_VALUE(dubboMethodName_, dubboMethodName) };
 
 
-      // httpMothed Field Functions 
-      bool hasHttpMothed() const { return this->httpMothed_ != nullptr;};
-      void deleteHttpMothed() { this->httpMothed_ = nullptr;};
-      inline string getHttpMothed() const { DARABONBA_PTR_GET_DEFAULT(httpMothed_, "") };
-      inline MothedMapList& setHttpMothed(string httpMothed) { DARABONBA_PTR_SET_VALUE(httpMothed_, httpMothed) };
+      // httpMethod Field Functions 
+      bool hasHttpMethod() const { return this->httpMethod_ != nullptr;};
+      void deleteHttpMethod() { this->httpMethod_ = nullptr;};
+      inline string getHttpMethod() const { DARABONBA_PTR_GET_DEFAULT(httpMethod_, "") };
+      inline MethodMapList& setHttpMethod(string httpMethod) { DARABONBA_PTR_SET_VALUE(httpMethod_, httpMethod) };
 
 
-      // mothedpath Field Functions 
-      bool hasMothedpath() const { return this->mothedpath_ != nullptr;};
-      void deleteMothedpath() { this->mothedpath_ = nullptr;};
-      inline string getMothedpath() const { DARABONBA_PTR_GET_DEFAULT(mothedpath_, "") };
-      inline MothedMapList& setMothedpath(string mothedpath) { DARABONBA_PTR_SET_VALUE(mothedpath_, mothedpath) };
+      // methodPath Field Functions 
+      bool hasMethodPath() const { return this->methodPath_ != nullptr;};
+      void deleteMethodPath() { this->methodPath_ = nullptr;};
+      inline string getMethodPath() const { DARABONBA_PTR_GET_DEFAULT(methodPath_, "") };
+      inline MethodMapList& setMethodPath(string methodPath) { DARABONBA_PTR_SET_VALUE(methodPath_, methodPath) };
 
 
       // paramMapsList Field Functions 
       bool hasParamMapsList() const { return this->paramMapsList_ != nullptr;};
       void deleteParamMapsList() { this->paramMapsList_ = nullptr;};
-      inline const vector<MothedMapList::ParamMapsList> & getParamMapsList() const { DARABONBA_PTR_GET_CONST(paramMapsList_, vector<MothedMapList::ParamMapsList>) };
-      inline vector<MothedMapList::ParamMapsList> getParamMapsList() { DARABONBA_PTR_GET(paramMapsList_, vector<MothedMapList::ParamMapsList>) };
-      inline MothedMapList& setParamMapsList(const vector<MothedMapList::ParamMapsList> & paramMapsList) { DARABONBA_PTR_SET_VALUE(paramMapsList_, paramMapsList) };
-      inline MothedMapList& setParamMapsList(vector<MothedMapList::ParamMapsList> && paramMapsList) { DARABONBA_PTR_SET_RVALUE(paramMapsList_, paramMapsList) };
+      inline const vector<MethodMapList::ParamMapsList> & getParamMapsList() const { DARABONBA_PTR_GET_CONST(paramMapsList_, vector<MethodMapList::ParamMapsList>) };
+      inline vector<MethodMapList::ParamMapsList> getParamMapsList() { DARABONBA_PTR_GET(paramMapsList_, vector<MethodMapList::ParamMapsList>) };
+      inline MethodMapList& setParamMapsList(const vector<MethodMapList::ParamMapsList> & paramMapsList) { DARABONBA_PTR_SET_VALUE(paramMapsList_, paramMapsList) };
+      inline MethodMapList& setParamMapsList(vector<MethodMapList::ParamMapsList> && paramMapsList) { DARABONBA_PTR_SET_RVALUE(paramMapsList_, paramMapsList) };
 
 
       // passThroughAllHeaders Field Functions 
       bool hasPassThroughAllHeaders() const { return this->passThroughAllHeaders_ != nullptr;};
       void deletePassThroughAllHeaders() { this->passThroughAllHeaders_ = nullptr;};
       inline string getPassThroughAllHeaders() const { DARABONBA_PTR_GET_DEFAULT(passThroughAllHeaders_, "") };
-      inline MothedMapList& setPassThroughAllHeaders(string passThroughAllHeaders) { DARABONBA_PTR_SET_VALUE(passThroughAllHeaders_, passThroughAllHeaders) };
+      inline MethodMapList& setPassThroughAllHeaders(string passThroughAllHeaders) { DARABONBA_PTR_SET_VALUE(passThroughAllHeaders_, passThroughAllHeaders) };
 
 
       // passThroughList Field Functions 
@@ -161,21 +164,27 @@ namespace Models
       void deletePassThroughList() { this->passThroughList_ = nullptr;};
       inline const vector<string> & getPassThroughList() const { DARABONBA_PTR_GET_CONST(passThroughList_, vector<string>) };
       inline vector<string> getPassThroughList() { DARABONBA_PTR_GET(passThroughList_, vector<string>) };
-      inline MothedMapList& setPassThroughList(const vector<string> & passThroughList) { DARABONBA_PTR_SET_VALUE(passThroughList_, passThroughList) };
-      inline MothedMapList& setPassThroughList(vector<string> && passThroughList) { DARABONBA_PTR_SET_RVALUE(passThroughList_, passThroughList) };
+      inline MethodMapList& setPassThroughList(const vector<string> & passThroughList) { DARABONBA_PTR_SET_VALUE(passThroughList_, passThroughList) };
+      inline MethodMapList& setPassThroughList(vector<string> && passThroughList) { DARABONBA_PTR_SET_RVALUE(passThroughList_, passThroughList) };
 
 
     protected:
-      shared_ptr<string> dubboMothedName_ {};
-      shared_ptr<string> httpMothed_ {};
-      shared_ptr<string> mothedpath_ {};
-      shared_ptr<vector<MothedMapList::ParamMapsList>> paramMapsList_ {};
+      // The Dubbo method name.
+      shared_ptr<string> dubboMethodName_ {};
+      // The HTTP method. Valid values: ALL_GET. ALL_POST. ALL_PUT. ALL_DELETE. ALL_PATCH.
+      shared_ptr<string> httpMethod_ {};
+      // The method matching path.
+      shared_ptr<string> methodPath_ {};
+      // The parameter mapping list.
+      shared_ptr<vector<MethodMapList::ParamMapsList>> paramMapsList_ {};
+      // The header pass-through type. Valid values: PASS_ALL: passes through all headers. PASS_NOT: does not pass through any headers. PASS_ASSIGN: passes through specified headers.
       shared_ptr<string> passThroughAllHeaders_ {};
+      // The list of specified pass-through headers.
       shared_ptr<vector<string>> passThroughList_ {};
     };
 
     virtual bool empty() const override { return this->dubboServiceGroup_ == nullptr
-        && this->dubboServiceName_ == nullptr && this->dubboServiceVersion_ == nullptr && this->mothedMapList_ == nullptr; };
+        && this->dubboServiceName_ == nullptr && this->dubboServiceVersion_ == nullptr && this->methodMapList_ == nullptr; };
     // dubboServiceGroup Field Functions 
     bool hasDubboServiceGroup() const { return this->dubboServiceGroup_ != nullptr;};
     void deleteDubboServiceGroup() { this->dubboServiceGroup_ = nullptr;};
@@ -197,20 +206,24 @@ namespace Models
     inline HttpDubboTranscoder& setDubboServiceVersion(string dubboServiceVersion) { DARABONBA_PTR_SET_VALUE(dubboServiceVersion_, dubboServiceVersion) };
 
 
-    // mothedMapList Field Functions 
-    bool hasMothedMapList() const { return this->mothedMapList_ != nullptr;};
-    void deleteMothedMapList() { this->mothedMapList_ = nullptr;};
-    inline const vector<HttpDubboTranscoder::MothedMapList> & getMothedMapList() const { DARABONBA_PTR_GET_CONST(mothedMapList_, vector<HttpDubboTranscoder::MothedMapList>) };
-    inline vector<HttpDubboTranscoder::MothedMapList> getMothedMapList() { DARABONBA_PTR_GET(mothedMapList_, vector<HttpDubboTranscoder::MothedMapList>) };
-    inline HttpDubboTranscoder& setMothedMapList(const vector<HttpDubboTranscoder::MothedMapList> & mothedMapList) { DARABONBA_PTR_SET_VALUE(mothedMapList_, mothedMapList) };
-    inline HttpDubboTranscoder& setMothedMapList(vector<HttpDubboTranscoder::MothedMapList> && mothedMapList) { DARABONBA_PTR_SET_RVALUE(mothedMapList_, mothedMapList) };
+    // methodMapList Field Functions 
+    bool hasMethodMapList() const { return this->methodMapList_ != nullptr;};
+    void deleteMethodMapList() { this->methodMapList_ = nullptr;};
+    inline const vector<HttpDubboTranscoder::MethodMapList> & getMethodMapList() const { DARABONBA_PTR_GET_CONST(methodMapList_, vector<HttpDubboTranscoder::MethodMapList>) };
+    inline vector<HttpDubboTranscoder::MethodMapList> getMethodMapList() { DARABONBA_PTR_GET(methodMapList_, vector<HttpDubboTranscoder::MethodMapList>) };
+    inline HttpDubboTranscoder& setMethodMapList(const vector<HttpDubboTranscoder::MethodMapList> & methodMapList) { DARABONBA_PTR_SET_VALUE(methodMapList_, methodMapList) };
+    inline HttpDubboTranscoder& setMethodMapList(vector<HttpDubboTranscoder::MethodMapList> && methodMapList) { DARABONBA_PTR_SET_RVALUE(methodMapList_, methodMapList) };
 
 
   protected:
+    // The Dubbo service group.
     shared_ptr<string> dubboServiceGroup_ {};
+    // The Dubbo service name.
     shared_ptr<string> dubboServiceName_ {};
+    // The Dubbo service version.
     shared_ptr<string> dubboServiceVersion_ {};
-    shared_ptr<vector<HttpDubboTranscoder::MothedMapList>> mothedMapList_ {};
+    // The method mapping list.
+    shared_ptr<vector<HttpDubboTranscoder::MethodMapList>> methodMapList_ {};
   };
 
   } // namespace Models
