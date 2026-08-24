@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The time when the workspace was created, in ISO-8601 format.
       shared_ptr<string> createdAt_ {};
+      // The workspace status.
       shared_ptr<string> status_ {};
+      // The workspace type.
       shared_ptr<string> type_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -141,9 +146,13 @@ namespace Models
 
 
   protected:
+    // This field is empty.
     shared_ptr<int32_t> maxResults_ {};
+    // This field is empty.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of workspaces.
     shared_ptr<vector<ListContextDatabaseWorkspacesResponseBody::Workspaces>> workspaces_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the target workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The new name of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
   };

@@ -36,6 +36,7 @@
 #include <alibabacloud/models/CreateMOUsageDetailExportResponseBody.hpp>
 #include <alibabacloud/models/CreateMOUsageDetailExportResponse.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateRequest.hpp>
+#include <alibabacloud/models/CreateSandboxTemplateShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateResponse.hpp>
 #include <alibabacloud/models/CreateScheduledTaskRequest.hpp>
@@ -130,6 +131,9 @@
 #include <alibabacloud/models/GetAvailableLLMModelsRequest.hpp>
 #include <alibabacloud/models/GetAvailableLLMModelsResponseBody.hpp>
 #include <alibabacloud/models/GetAvailableLLMModelsResponse.hpp>
+#include <alibabacloud/models/GetChatModelRequest.hpp>
+#include <alibabacloud/models/GetChatModelResponseBody.hpp>
+#include <alibabacloud/models/GetChatModelResponse.hpp>
 #include <alibabacloud/models/GetConversationsRequest.hpp>
 #include <alibabacloud/models/GetConversationsResponseBody.hpp>
 #include <alibabacloud/models/GetConversationsResponse.hpp>
@@ -216,6 +220,7 @@
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponseBody.hpp>
 #include <alibabacloud/models/ModifyMessagesFeedbacksResponse.hpp>
 #include <alibabacloud/models/ModifySandboxTemplateRequest.hpp>
+#include <alibabacloud/models/ModifySandboxTemplateShrinkRequest.hpp>
 #include <alibabacloud/models/ModifySandboxTemplateResponseBody.hpp>
 #include <alibabacloud/models/ModifySandboxTemplateResponse.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskRequest.hpp>

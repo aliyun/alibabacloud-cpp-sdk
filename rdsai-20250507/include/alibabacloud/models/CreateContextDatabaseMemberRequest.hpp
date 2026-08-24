@@ -75,12 +75,24 @@ namespace Models
 
 
   protected:
+    // Specifies whether to issue the first API key when the member is created. Default value: false.
     shared_ptr<bool> generateInitialKey_ {};
+    // The name of the first API key. This parameter takes effect only when GenerateInitialKey is set to true.
     shared_ptr<string> initialKeyName_ {};
+    // The member name.
+    // 
     // This parameter is required.
     shared_ptr<string> memberName_ {};
+    // The member role. Valid values:
+    // 
+    // - owner
+    // - admin
+    // - member
+    // 
     // This parameter is required.
     shared_ptr<string> role_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

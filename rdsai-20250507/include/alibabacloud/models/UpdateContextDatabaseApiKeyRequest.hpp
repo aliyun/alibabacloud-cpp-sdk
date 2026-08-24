@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The new description.
     shared_ptr<string> description_ {};
+    // API Key ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> keyId_ {};
+    // The member ID.
+    // 
     // This parameter is required.
     shared_ptr<string> memberId_ {};
+    // The new display name.
     shared_ptr<string> name_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

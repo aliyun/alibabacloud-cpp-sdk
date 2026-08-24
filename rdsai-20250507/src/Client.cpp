@@ -448,9 +448,9 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary 创建上下文数据库 API Key
+ * @summary Creates a context database API key.
  *
- * @description 创建 API Key（返回明文 apiKey）。
+ * @description Creates an API key and returns the plaintext apiKey.
  *
  * @param request CreateContextDatabaseApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -489,9 +489,9 @@ CreateContextDatabaseApiKeyResponse Client::createContextDatabaseApiKeyWithOptio
 }
 
 /**
- * @summary 创建上下文数据库 API Key
+ * @summary Creates a context database API key.
  *
- * @description 创建 API Key（返回明文 apiKey）。
+ * @description Creates an API key and returns the plaintext apiKey.
  *
  * @param request CreateContextDatabaseApiKeyRequest
  * @return CreateContextDatabaseApiKeyResponse
@@ -502,9 +502,9 @@ CreateContextDatabaseApiKeyResponse Client::createContextDatabaseApiKey(const Cr
 }
 
 /**
- * @summary 创建上下文数据库成员
+ * @summary Creates a ContextDB member.
  *
- * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+ * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
  *
  * @param request CreateContextDatabaseMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -551,9 +551,9 @@ CreateContextDatabaseMemberResponse Client::createContextDatabaseMemberWithOptio
 }
 
 /**
- * @summary 创建上下文数据库成员
+ * @summary Creates a ContextDB member.
  *
- * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+ * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
  *
  * @param request CreateContextDatabaseMemberRequest
  * @return CreateContextDatabaseMemberResponse
@@ -564,9 +564,9 @@ CreateContextDatabaseMemberResponse Client::createContextDatabaseMember(const Cr
 }
 
 /**
- * @summary 创建上下文数据库工作区
+ * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
  *
- * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+ * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -601,9 +601,9 @@ CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspaceWit
 }
 
 /**
- * @summary 创建上下文数据库工作区
+ * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
  *
- * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+ * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @return CreateContextDatabaseWorkspaceResponse
@@ -831,12 +831,18 @@ CreateMOUsageDetailExportResponse Client::createMOUsageDetailExport(const Create
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
- * @param request CreateSandboxTemplateRequest
+ * @param tmpReq CreateSandboxTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSandboxTemplateResponse
  */
-CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const CreateSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const CreateSandboxTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSandboxTemplateShrinkRequest request = CreateSandboxTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasDefaultCpu()) {
     query["DefaultCpu"] = request.getDefaultCpu();
@@ -850,6 +856,10 @@ CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const Cre
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasImage()) {
+    query["Image"] = request.getImage();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
@@ -860,6 +870,10 @@ CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const Cre
 
   if (!!request.hasReplicas()) {
     query["Replicas"] = request.getReplicas();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTemplateName()) {
@@ -1182,9 +1196,9 @@ DeleteAppInstanceResponse Client::deleteAppInstance(const DeleteAppInstanceReque
 }
 
 /**
- * @summary 删除上下文数据库成员
+ * @summary Deletes a ContextDB member.
  *
- * @description 删除成员（硬删除，不可恢复）。
+ * @description Deletes a member (hard delete, not recoverable).
  *
  * @param request DeleteContextDatabaseMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1219,9 +1233,9 @@ DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMemberWithOptio
 }
 
 /**
- * @summary 删除上下文数据库成员
+ * @summary Deletes a ContextDB member.
  *
- * @description 删除成员（硬删除，不可恢复）。
+ * @description Deletes a member (hard delete, not recoverable).
  *
  * @param request DeleteContextDatabaseMemberRequest
  * @return DeleteContextDatabaseMemberResponse
@@ -1232,9 +1246,9 @@ DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMember(const De
 }
 
 /**
- * @summary 删除上下文数据库工作区
+ * @summary Deletes a ContextDB workspace.
  *
- * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+ * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1265,9 +1279,9 @@ DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspaceWit
 }
 
 /**
- * @summary 删除上下文数据库工作区
+ * @summary Deletes a ContextDB workspace.
  *
- * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+ * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @return DeleteContextDatabaseWorkspaceResponse
@@ -2396,7 +2410,7 @@ DescribeMonitorDataResponse Client::describeMonitorData(const DescribeMonitorDat
 }
 
 /**
- * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
+ * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
  *
  * @description ### Applicable engine
  * RDS Supabase
@@ -2460,7 +2474,7 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(con
 }
 
 /**
- * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
+ * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
  *
  * @description ### Applicable engine
  * RDS Supabase
@@ -2707,6 +2721,41 @@ GetAvailableLLMModelsResponse Client::getAvailableLLMModelsWithOptions(const Get
 GetAvailableLLMModelsResponse Client::getAvailableLLMModels(const GetAvailableLLMModelsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAvailableLLMModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取会话可选模型
+ *
+ * @param request GetChatModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetChatModelResponse
+ */
+GetChatModelResponse Client::getChatModelWithOptions(const GetChatModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetChatModel"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetChatModelResponse>();
+}
+
+/**
+ * @summary 获取会话可选模型
+ *
+ * @param request GetChatModelRequest
+ * @return GetChatModelResponse
+ */
+GetChatModelResponse Client::getChatModel(const GetChatModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getChatModelWithOptions(request, runtime);
 }
 
 /**
@@ -3217,9 +3266,9 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary 列出成员名下 API Key
+ * @summary Lists the API keys for a context database.
  *
- * @description 列出指定成员名下的 API Key（不返回明文）。
+ * @description Lists the API keys under a specified member. The plaintext key values are not returned.
  *
  * @param request ListContextDatabaseApiKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3262,9 +3311,9 @@ ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeysWithOptions
 }
 
 /**
- * @summary 列出成员名下 API Key
+ * @summary Lists the API keys for a context database.
  *
- * @description 列出指定成员名下的 API Key（不返回明文）。
+ * @description Lists the API keys under a specified member. The plaintext key values are not returned.
  *
  * @param request ListContextDatabaseApiKeysRequest
  * @return ListContextDatabaseApiKeysResponse
@@ -3275,9 +3324,9 @@ ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeys(const List
 }
 
 /**
- * @summary 列出工作区成员
+ * @summary Lists the members of a context database.
  *
- * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+ * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
  *
  * @param request ListContextDatabaseMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3316,9 +3365,9 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembersWithOptions
 }
 
 /**
- * @summary 列出工作区成员
+ * @summary Lists the members of a context database.
  *
- * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+ * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
  *
  * @param request ListContextDatabaseMembersRequest
  * @return ListContextDatabaseMembersResponse
@@ -3329,9 +3378,9 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembers(const List
 }
 
 /**
- * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+ * @summary Lists ContextDB workspaces.
  *
- * @description 列出上下文数据库工作空间
+ * @description Lists ContextDB workspaces.
  *
  * @param request ListContextDatabaseWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3374,9 +3423,9 @@ ListContextDatabaseWorkspacesResponse Client::listContextDatabaseWorkspacesWithO
 }
 
 /**
- * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+ * @summary Lists ContextDB workspaces.
  *
- * @description 列出上下文数据库工作空间
+ * @description Lists ContextDB workspaces.
  *
  * @param request ListContextDatabaseWorkspacesRequest
  * @return ListContextDatabaseWorkspacesResponse
@@ -4274,12 +4323,18 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMess
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
- * @param request ModifySandboxTemplateRequest
+ * @param tmpReq ModifySandboxTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifySandboxTemplateResponse
  */
-ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const ModifySandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const ModifySandboxTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifySandboxTemplateShrinkRequest request = ModifySandboxTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasDefaultCpu()) {
     query["DefaultCpu"] = request.getDefaultCpu();
@@ -4287,6 +4342,10 @@ ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const Mod
 
   if (!!request.hasDefaultMemory()) {
     query["DefaultMemory"] = request.getDefaultMemory();
+  }
+
+  if (!!request.hasImage()) {
+    query["Image"] = request.getImage();
   }
 
   if (!!request.hasInstanceName()) {
@@ -4299,6 +4358,10 @@ ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const Mod
 
   if (!!request.hasReplicas()) {
     query["Replicas"] = request.getReplicas();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTemplateId()) {
@@ -4771,9 +4834,9 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary 吊销上下文数据库 API Key
+ * @summary Revokes a context database API key.
  *
- * @description 吊销 API Key。
+ * @description Revokes an API key.
  *
  * @param request RevokeContextDatabaseApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4812,9 +4875,9 @@ RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKeyWithOptio
 }
 
 /**
- * @summary 吊销上下文数据库 API Key
+ * @summary Revokes a context database API key.
  *
- * @description 吊销 API Key。
+ * @description Revokes an API key.
  *
  * @param request RevokeContextDatabaseApiKeyRequest
  * @return RevokeContextDatabaseApiKeyResponse
@@ -5007,9 +5070,9 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuota(const UpdateApiKeyQuotaReque
 }
 
 /**
- * @summary 更新上下文数据库 API Key 元数据
+ * @summary Updates the display metadata of a ContextDB API key.
  *
- * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+ * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
  *
  * @param request UpdateContextDatabaseApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5056,9 +5119,9 @@ UpdateContextDatabaseApiKeyResponse Client::updateContextDatabaseApiKeyWithOptio
 }
 
 /**
- * @summary 更新上下文数据库 API Key 元数据
+ * @summary Updates the display metadata of a ContextDB API key.
  *
- * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+ * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
  *
  * @param request UpdateContextDatabaseApiKeyRequest
  * @return UpdateContextDatabaseApiKeyResponse
@@ -5069,9 +5132,9 @@ UpdateContextDatabaseApiKeyResponse Client::updateContextDatabaseApiKey(const Up
 }
 
 /**
- * @summary 更新上下文数据库成员
+ * @summary Updates a context database member.
  *
- * @description 更新成员的角色 / 状态。
+ * @description Updates the role or status of a member.
  *
  * @param request UpdateContextDatabaseMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5114,9 +5177,9 @@ UpdateContextDatabaseMemberResponse Client::updateContextDatabaseMemberWithOptio
 }
 
 /**
- * @summary 更新上下文数据库成员
+ * @summary Updates a context database member.
  *
- * @description 更新成员的角色 / 状态。
+ * @description Updates the role or status of a member.
  *
  * @param request UpdateContextDatabaseMemberRequest
  * @return UpdateContextDatabaseMemberResponse
@@ -5127,9 +5190,9 @@ UpdateContextDatabaseMemberResponse Client::updateContextDatabaseMember(const Up
 }
 
 /**
- * @summary 修改上下文数据库工作区
+ * @summary Updates a ContextDB workspace.
  *
- * @description 修改 workspace 名称。
+ * @description Modifies the name of a workspace.
  *
  * @param request UpdateContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5164,9 +5227,9 @@ UpdateContextDatabaseWorkspaceResponse Client::updateContextDatabaseWorkspaceWit
 }
 
 /**
- * @summary 修改上下文数据库工作区
+ * @summary Updates a ContextDB workspace.
  *
- * @description 修改 workspace 名称。
+ * @description Modifies the name of a workspace.
  *
  * @param request UpdateContextDatabaseWorkspaceRequest
  * @return UpdateContextDatabaseWorkspaceResponse

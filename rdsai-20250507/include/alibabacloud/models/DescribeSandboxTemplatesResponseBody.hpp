@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBESANDBOXTEMPLATESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBESANDBOXTEMPLATESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -50,8 +51,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DefaultMemory, defaultMemory_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(EnableVpcAccess, enableVpcAccess_);
+        DARABONBA_PTR_TO_JSON(Image, image_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Replicas, replicas_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       };
       friend void from_json(const Darabonba::Json& j, SandboxTemplates& obj) { 
@@ -60,8 +63,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DefaultMemory, defaultMemory_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(EnableVpcAccess, enableVpcAccess_);
+        DARABONBA_PTR_FROM_JSON(Image, image_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       };
       SandboxTemplates() = default ;
@@ -76,8 +81,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdBy_ == nullptr
-        && this->defaultCpu_ == nullptr && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->name_ == nullptr
-        && this->replicas_ == nullptr && this->templateId_ == nullptr; };
+        && this->defaultCpu_ == nullptr && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->image_ == nullptr
+        && this->name_ == nullptr && this->replicas_ == nullptr && this->tags_ == nullptr && this->templateId_ == nullptr; };
       // createdBy Field Functions 
       bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
       void deleteCreatedBy() { this->createdBy_ = nullptr;};
@@ -113,6 +118,13 @@ namespace Models
       inline SandboxTemplates& setEnableVpcAccess(string enableVpcAccess) { DARABONBA_PTR_SET_VALUE(enableVpcAccess_, enableVpcAccess) };
 
 
+      // image Field Functions 
+      bool hasImage() const { return this->image_ != nullptr;};
+      void deleteImage() { this->image_ = nullptr;};
+      inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+      inline SandboxTemplates& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -127,6 +139,15 @@ namespace Models
       inline SandboxTemplates& setReplicas(int64_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const map<string, string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, map<string, string>) };
+      inline map<string, string> getTags() { DARABONBA_PTR_GET(tags_, map<string, string>) };
+      inline SandboxTemplates& setTags(const map<string, string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline SandboxTemplates& setTags(map<string, string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // templateId Field Functions 
       bool hasTemplateId() const { return this->templateId_ != nullptr;};
       void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -136,18 +157,20 @@ namespace Models
 
     protected:
       shared_ptr<string> createdBy_ {};
-      // The number of CPUs for the sandbox created by using this template.
+      // The number of CPUs for the sandbox created with this template.
       shared_ptr<string> defaultCpu_ {};
-      // The memory size of the sandbox created by using this template.
+      // The memory size of the sandbox created with this template.
       shared_ptr<string> defaultMemory_ {};
       // The sandbox template description.
       shared_ptr<string> description_ {};
-      // Indicates whether the sandbox created by using this template can access resources within the VPC where Supabase resides.
+      // Indicates whether the sandbox created with this template can access resources in the VPC where Supabase resides.
       shared_ptr<string> enableVpcAccess_ {};
+      shared_ptr<string> image_ {};
       // The sandbox template name.
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> replicas_ {};
-      // The sandbox template ID. Specify this ID when you create a sandbox by using this template.
+      shared_ptr<map<string, string>> tags_ {};
+      // The sandbox template ID. Specify this ID when creating a sandbox with this template.
       shared_ptr<string> templateId_ {};
     };
 
@@ -208,7 +231,7 @@ namespace Models
   protected:
     // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which to start the current read. An empty value indicates that the read starts from the beginning.
+    // The token that indicates the position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -218,7 +241,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of sandbox templates.
     shared_ptr<vector<DescribeSandboxTemplatesResponseBody::SandboxTemplates>> sandboxTemplates_ {};
-    // The total number of records that match the query conditions. This is an optional response element and may not be returned by default.
+    // The total number of records that match the request conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

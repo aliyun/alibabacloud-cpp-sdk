@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The time when the API key was created.
     shared_ptr<string> createdAt_ {};
+    // The description of the API key.
     shared_ptr<string> description_ {};
+    // A reserved field. This field is currently empty.
     shared_ptr<string> expiresAt_ {};
+    // The suffix of the API key.
     shared_ptr<string> keyDisplaySuffix_ {};
+    // The key ID.
     shared_ptr<int64_t> keyId_ {};
+    // The prefix of the API key.
     shared_ptr<string> keyPrefix_ {};
+    // The time when the API key was last used.
     shared_ptr<string> lastUsedAt_ {};
+    // The name of the API key.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The time when the API key was revoked.
     shared_ptr<string> revokedAt_ {};
+    // The status of the API key. After revocation, the value is revoked.
     shared_ptr<string> status_ {};
   };
 

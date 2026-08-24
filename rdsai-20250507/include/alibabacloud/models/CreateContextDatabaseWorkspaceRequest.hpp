@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the first member.
+    // 
     // This parameter is required.
     shared_ptr<string> memberName_ {};
+    // The workspace name.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
   };

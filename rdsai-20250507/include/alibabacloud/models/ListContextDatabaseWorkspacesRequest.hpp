@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The status used to filter results. Valid values: Active and Locked.
     shared_ptr<string> status_ {};
+    // The ID used to filter results. Only the workspace that matches this ID is returned.
     shared_ptr<string> workspaceId_ {};
   };
 

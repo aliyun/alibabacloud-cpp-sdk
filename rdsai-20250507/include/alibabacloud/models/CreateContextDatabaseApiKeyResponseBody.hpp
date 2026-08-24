@@ -144,15 +144,25 @@ namespace Models
 
 
     protected:
+      // The time when the API key was created.
       shared_ptr<string> createdAt_ {};
+      // The API key description. This field is not used.
       shared_ptr<string> description_ {};
+      // This field is empty.
       shared_ptr<string> expiresAt_ {};
+      // The suffix of the API key.
       shared_ptr<string> keyDisplaySuffix_ {};
+      // The key ID.
       shared_ptr<int64_t> keyId_ {};
+      // The prefix of the API key.
       shared_ptr<string> keyPrefix_ {};
+      // This field is empty.
       shared_ptr<string> lastUsedAt_ {};
+      // The API key name.
       shared_ptr<string> name_ {};
+      // This field is empty.
       shared_ptr<string> revokedAt_ {};
+      // The API key status.
       shared_ptr<string> status_ {};
     };
 
@@ -182,8 +192,11 @@ namespace Models
 
 
   protected:
+    // Api Key
     shared_ptr<string> apiKey_ {};
+    // The API key details.
     shared_ptr<CreateContextDatabaseApiKeyResponseBody::Key> key_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

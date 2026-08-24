@@ -176,15 +176,25 @@ namespace Models
 
 
       protected:
+        // The time when the member was created.
         shared_ptr<string> createdAt_ {};
+        // The API key description.
         shared_ptr<string> description_ {};
+        // This field is empty.
         shared_ptr<string> expiresAt_ {};
+        // The suffix of the API key.
         shared_ptr<string> keyDisplaySuffix_ {};
+        // The key ID.
         shared_ptr<int64_t> keyId_ {};
+        // The prefix of the API key.
         shared_ptr<string> keyPrefix_ {};
+        // The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have never been used.
         shared_ptr<string> lastUsedAt_ {};
+        // The API key name.
         shared_ptr<string> name_ {};
+        // This field is empty.
         shared_ptr<string> revokedAt_ {};
+        // The API key status.
         shared_ptr<string> status_ {};
       };
 
@@ -235,11 +245,17 @@ namespace Models
 
 
     protected:
+      // The time when the member was created.
       shared_ptr<string> createdAt_ {};
+      // The list of API keys.
       shared_ptr<vector<Members::Keys>> keys_ {};
+      // The member ID.
       shared_ptr<string> memberId_ {};
+      // The member name.
       shared_ptr<string> memberName_ {};
+      // The member role.
       shared_ptr<string> role_ {};
+      // The member status.
       shared_ptr<string> status_ {};
     };
 
@@ -276,9 +292,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page. This field is empty.
     shared_ptr<int32_t> maxResults_ {};
+    // The list of members.
     shared_ptr<vector<ListContextDatabaseMembersResponseBody::Members>> members_ {};
+    // The pagination token for the next page. This field is empty.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

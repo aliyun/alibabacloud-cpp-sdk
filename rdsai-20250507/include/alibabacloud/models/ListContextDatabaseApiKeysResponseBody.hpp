@@ -147,15 +147,25 @@ namespace Models
 
 
     protected:
+      // The time when the API key was created.
       shared_ptr<string> createdAt_ {};
+      // The API key description.
       shared_ptr<string> description_ {};
+      // This field is empty.
       shared_ptr<string> expiresAt_ {};
+      // The suffix of the API key.
       shared_ptr<string> keyDisplaySuffix_ {};
+      // The key ID.
       shared_ptr<int64_t> keyId_ {};
+      // The prefix of the API key.
       shared_ptr<string> keyPrefix_ {};
+      // The time when the API key was last used.
       shared_ptr<string> lastUsedAt_ {};
+      // The API key name.
       shared_ptr<string> name_ {};
+      // This field is empty.
       shared_ptr<string> revokedAt_ {};
+      // The API key status.
       shared_ptr<string> status_ {};
     };
 
@@ -192,9 +202,13 @@ namespace Models
 
 
   protected:
+    // The list of API keys.
     shared_ptr<vector<ListContextDatabaseApiKeysResponseBody::Keys>> keys_ {};
+    // This field is empty.
     shared_ptr<int32_t> maxResults_ {};
+    // This field is empty.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

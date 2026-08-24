@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The time when the workspace was created, in ISO-8601 format.
     shared_ptr<string> createdAt_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the workspace.
     shared_ptr<string> status_ {};
+    // The type of the workspace.
     shared_ptr<string> type_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // The modified name of the workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

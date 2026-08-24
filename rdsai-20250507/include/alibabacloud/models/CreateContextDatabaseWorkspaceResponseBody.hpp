@@ -130,16 +130,31 @@ namespace Models
 
 
   protected:
+    // The plaintext API key. This value is returned only once at creation time. The caller must persist it.
     shared_ptr<string> apiKey_ {};
+    // The name of the first API key. The value is fixed as default.
     shared_ptr<string> apiKeyName_ {};
+    // The time when the workspace was created, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
+    // The ID of the first member.
     shared_ptr<string> memberId_ {};
+    // The name of the first member.
     shared_ptr<string> memberName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role of the first member. The value is fixed as owner.
     shared_ptr<string> role_ {};
+    // The workspace status. Valid values:
+    // - Active: running normally.
+    // - Locked: locked due to overdue payment or expiration.
     shared_ptr<string> status_ {};
+    // The workspace type. Valid values:
+    // - personal: individual account.
+    // - enterprise: enterprise account.
     shared_ptr<string> type_ {};
+    // The ID of the new workspace.
     shared_ptr<string> workspaceId_ {};
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
   };
 

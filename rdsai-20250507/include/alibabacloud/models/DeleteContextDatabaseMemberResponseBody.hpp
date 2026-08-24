@@ -153,15 +153,25 @@ namespace Models
 
 
     protected:
+      // The creation time. This field is empty.
       shared_ptr<string> createdAt_ {};
+      // The API key description. This field is empty.
       shared_ptr<string> description_ {};
+      // This field is empty.
       shared_ptr<string> expiresAt_ {};
+      // The API key suffix. This field is empty.
       shared_ptr<string> keyDisplaySuffix_ {};
+      // The key ID. This field is empty.
       shared_ptr<int64_t> keyId_ {};
+      // The API key prefix. This field is empty.
       shared_ptr<string> keyPrefix_ {};
+      // This field is empty.
       shared_ptr<string> lastUsedAt_ {};
+      // The API key name. This field is empty.
       shared_ptr<string> name_ {};
+      // This field is empty.
       shared_ptr<string> revokedAt_ {};
+      // The API key status. This field is empty.
       shared_ptr<string> status_ {};
     };
 
@@ -220,12 +230,19 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createdAt_ {};
+    // The API key details. An empty array is returned.
     shared_ptr<vector<DeleteContextDatabaseMemberResponseBody::Keys>> keys_ {};
+    // The member ID.
     shared_ptr<string> memberId_ {};
+    // The member name.
     shared_ptr<string> memberName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The member role.
     shared_ptr<string> role_ {};
+    // The member status.
     shared_ptr<string> status_ {};
   };
 

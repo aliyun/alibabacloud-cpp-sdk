@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The member ID.
+    // 
     // This parameter is required.
     shared_ptr<string> memberId_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

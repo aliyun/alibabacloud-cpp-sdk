@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The time when the workspace was created, in ISO-8601 format.
     shared_ptr<string> createdAt_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The workspace status. The value is fixed as Deleted.
     shared_ptr<string> status_ {};
+    // The workspace type.
     shared_ptr<string> type_ {};
+    // The ID of the deleted workspace.
     shared_ptr<string> workspaceId_ {};
+    // The name of the deleted workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

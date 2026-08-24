@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The member ID.
+    // 
     // This parameter is required.
     shared_ptr<string> memberId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

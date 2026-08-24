@@ -114,9 +114,9 @@ namespace RdsAi20250507
       Models::CreateAppInstanceResponse createAppInstance(const Models::CreateAppInstanceRequest &request);
 
       /**
-       * @summary 创建上下文数据库 API Key
+       * @summary Creates a context database API key.
        *
-       * @description 创建 API Key（返回明文 apiKey）。
+       * @description Creates an API key and returns the plaintext apiKey.
        *
        * @param request CreateContextDatabaseApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -125,9 +125,9 @@ namespace RdsAi20250507
       Models::CreateContextDatabaseApiKeyResponse createContextDatabaseApiKeyWithOptions(const Models::CreateContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建上下文数据库 API Key
+       * @summary Creates a context database API key.
        *
-       * @description 创建 API Key（返回明文 apiKey）。
+       * @description Creates an API key and returns the plaintext apiKey.
        *
        * @param request CreateContextDatabaseApiKeyRequest
        * @return CreateContextDatabaseApiKeyResponse
@@ -135,9 +135,9 @@ namespace RdsAi20250507
       Models::CreateContextDatabaseApiKeyResponse createContextDatabaseApiKey(const Models::CreateContextDatabaseApiKeyRequest &request);
 
       /**
-       * @summary 创建上下文数据库成员
+       * @summary Creates a ContextDB member.
        *
-       * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+       * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
        *
        * @param request CreateContextDatabaseMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -146,9 +146,9 @@ namespace RdsAi20250507
       Models::CreateContextDatabaseMemberResponse createContextDatabaseMemberWithOptions(const Models::CreateContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建上下文数据库成员
+       * @summary Creates a ContextDB member.
        *
-       * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+       * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
        *
        * @param request CreateContextDatabaseMemberRequest
        * @return CreateContextDatabaseMemberResponse
@@ -156,9 +156,9 @@ namespace RdsAi20250507
       Models::CreateContextDatabaseMemberResponse createContextDatabaseMember(const Models::CreateContextDatabaseMemberRequest &request);
 
       /**
-       * @summary 创建上下文数据库工作区
+       * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
        *
-       * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+       * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
        *
        * @param request CreateContextDatabaseWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -167,9 +167,9 @@ namespace RdsAi20250507
       Models::CreateContextDatabaseWorkspaceResponse createContextDatabaseWorkspaceWithOptions(const Models::CreateContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建上下文数据库工作区
+       * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
        *
-       * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+       * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
        *
        * @param request CreateContextDatabaseWorkspaceRequest
        * @return CreateContextDatabaseWorkspaceResponse
@@ -241,11 +241,11 @@ namespace RdsAi20250507
        * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
-       * @param request CreateSandboxTemplateRequest
+       * @param tmpReq CreateSandboxTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSandboxTemplateResponse
        */
-      Models::CreateSandboxTemplateResponse createSandboxTemplateWithOptions(const Models::CreateSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateSandboxTemplateResponse createSandboxTemplateWithOptions(const Models::CreateSandboxTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates a sandbox template.
@@ -361,9 +361,9 @@ namespace RdsAi20250507
       Models::DeleteAppInstanceResponse deleteAppInstance(const Models::DeleteAppInstanceRequest &request);
 
       /**
-       * @summary 删除上下文数据库成员
+       * @summary Deletes a ContextDB member.
        *
-       * @description 删除成员（硬删除，不可恢复）。
+       * @description Deletes a member (hard delete, not recoverable).
        *
        * @param request DeleteContextDatabaseMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -372,9 +372,9 @@ namespace RdsAi20250507
       Models::DeleteContextDatabaseMemberResponse deleteContextDatabaseMemberWithOptions(const Models::DeleteContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除上下文数据库成员
+       * @summary Deletes a ContextDB member.
        *
-       * @description 删除成员（硬删除，不可恢复）。
+       * @description Deletes a member (hard delete, not recoverable).
        *
        * @param request DeleteContextDatabaseMemberRequest
        * @return DeleteContextDatabaseMemberResponse
@@ -382,9 +382,9 @@ namespace RdsAi20250507
       Models::DeleteContextDatabaseMemberResponse deleteContextDatabaseMember(const Models::DeleteContextDatabaseMemberRequest &request);
 
       /**
-       * @summary 删除上下文数据库工作区
+       * @summary Deletes a ContextDB workspace.
        *
-       * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+       * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
        *
        * @param request DeleteContextDatabaseWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -393,9 +393,9 @@ namespace RdsAi20250507
       Models::DeleteContextDatabaseWorkspaceResponse deleteContextDatabaseWorkspaceWithOptions(const Models::DeleteContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除上下文数据库工作区
+       * @summary Deletes a ContextDB workspace.
        *
-       * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+       * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
        *
        * @param request DeleteContextDatabaseWorkspaceRequest
        * @return DeleteContextDatabaseWorkspaceResponse
@@ -848,7 +848,7 @@ namespace RdsAi20250507
       Models::DescribeMonitorDataResponse describeMonitorData(const Models::DescribeMonitorDataRequest &request);
 
       /**
-       * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
+       * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
        *
        * @description ### Applicable engine
        * RDS Supabase
@@ -862,7 +862,7 @@ namespace RdsAi20250507
       Models::DescribeSandboxTemplatesResponse describeSandboxTemplatesWithOptions(const Models::DescribeSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
+       * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
        *
        * @description ### Applicable engine
        * RDS Supabase
@@ -967,6 +967,23 @@ namespace RdsAi20250507
        * @return GetAvailableLLMModelsResponse
        */
       Models::GetAvailableLLMModelsResponse getAvailableLLMModels(const Models::GetAvailableLLMModelsRequest &request);
+
+      /**
+       * @summary 获取会话可选模型
+       *
+       * @param request GetChatModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetChatModelResponse
+       */
+      Models::GetChatModelResponse getChatModelWithOptions(const Models::GetChatModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话可选模型
+       *
+       * @param request GetChatModelRequest
+       * @return GetChatModelResponse
+       */
+      Models::GetChatModelResponse getChatModel(const Models::GetChatModelRequest &request);
 
       /**
        * @summary Queries the historical conversations of a user.
@@ -1149,9 +1166,9 @@ namespace RdsAi20250507
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary 列出成员名下 API Key
+       * @summary Lists the API keys for a context database.
        *
-       * @description 列出指定成员名下的 API Key（不返回明文）。
+       * @description Lists the API keys under a specified member. The plaintext key values are not returned.
        *
        * @param request ListContextDatabaseApiKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1160,9 +1177,9 @@ namespace RdsAi20250507
       Models::ListContextDatabaseApiKeysResponse listContextDatabaseApiKeysWithOptions(const Models::ListContextDatabaseApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出成员名下 API Key
+       * @summary Lists the API keys for a context database.
        *
-       * @description 列出指定成员名下的 API Key（不返回明文）。
+       * @description Lists the API keys under a specified member. The plaintext key values are not returned.
        *
        * @param request ListContextDatabaseApiKeysRequest
        * @return ListContextDatabaseApiKeysResponse
@@ -1170,9 +1187,9 @@ namespace RdsAi20250507
       Models::ListContextDatabaseApiKeysResponse listContextDatabaseApiKeys(const Models::ListContextDatabaseApiKeysRequest &request);
 
       /**
-       * @summary 列出工作区成员
+       * @summary Lists the members of a context database.
        *
-       * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+       * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
        *
        * @param request ListContextDatabaseMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1181,9 +1198,9 @@ namespace RdsAi20250507
       Models::ListContextDatabaseMembersResponse listContextDatabaseMembersWithOptions(const Models::ListContextDatabaseMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出工作区成员
+       * @summary Lists the members of a context database.
        *
-       * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+       * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
        *
        * @param request ListContextDatabaseMembersRequest
        * @return ListContextDatabaseMembersResponse
@@ -1191,9 +1208,9 @@ namespace RdsAi20250507
       Models::ListContextDatabaseMembersResponse listContextDatabaseMembers(const Models::ListContextDatabaseMembersRequest &request);
 
       /**
-       * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+       * @summary Lists ContextDB workspaces.
        *
-       * @description 列出上下文数据库工作空间
+       * @description Lists ContextDB workspaces.
        *
        * @param request ListContextDatabaseWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1202,9 +1219,9 @@ namespace RdsAi20250507
       Models::ListContextDatabaseWorkspacesResponse listContextDatabaseWorkspacesWithOptions(const Models::ListContextDatabaseWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+       * @summary Lists ContextDB workspaces.
        *
-       * @description 列出上下文数据库工作空间
+       * @description Lists ContextDB workspaces.
        *
        * @param request ListContextDatabaseWorkspacesRequest
        * @return ListContextDatabaseWorkspacesResponse
@@ -1523,11 +1540,11 @@ namespace RdsAi20250507
        * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
-       * @param request ModifySandboxTemplateRequest
+       * @param tmpReq ModifySandboxTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifySandboxTemplateResponse
        */
-      Models::ModifySandboxTemplateResponse modifySandboxTemplateWithOptions(const Models::ModifySandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifySandboxTemplateResponse modifySandboxTemplateWithOptions(const Models::ModifySandboxTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Modifies a sandbox template.
@@ -1712,9 +1729,9 @@ namespace RdsAi20250507
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary 吊销上下文数据库 API Key
+       * @summary Revokes a context database API key.
        *
-       * @description 吊销 API Key。
+       * @description Revokes an API key.
        *
        * @param request RevokeContextDatabaseApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1723,9 +1740,9 @@ namespace RdsAi20250507
       Models::RevokeContextDatabaseApiKeyResponse revokeContextDatabaseApiKeyWithOptions(const Models::RevokeContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 吊销上下文数据库 API Key
+       * @summary Revokes a context database API key.
        *
-       * @description 吊销 API Key。
+       * @description Revokes an API key.
        *
        * @param request RevokeContextDatabaseApiKeyRequest
        * @return RevokeContextDatabaseApiKeyResponse
@@ -1810,9 +1827,9 @@ namespace RdsAi20250507
       Models::UpdateApiKeyQuotaResponse updateApiKeyQuota(const Models::UpdateApiKeyQuotaRequest &request);
 
       /**
-       * @summary 更新上下文数据库 API Key 元数据
+       * @summary Updates the display metadata of a ContextDB API key.
        *
-       * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+       * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
        *
        * @param request UpdateContextDatabaseApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1821,9 +1838,9 @@ namespace RdsAi20250507
       Models::UpdateContextDatabaseApiKeyResponse updateContextDatabaseApiKeyWithOptions(const Models::UpdateContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新上下文数据库 API Key 元数据
+       * @summary Updates the display metadata of a ContextDB API key.
        *
-       * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+       * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
        *
        * @param request UpdateContextDatabaseApiKeyRequest
        * @return UpdateContextDatabaseApiKeyResponse
@@ -1831,9 +1848,9 @@ namespace RdsAi20250507
       Models::UpdateContextDatabaseApiKeyResponse updateContextDatabaseApiKey(const Models::UpdateContextDatabaseApiKeyRequest &request);
 
       /**
-       * @summary 更新上下文数据库成员
+       * @summary Updates a context database member.
        *
-       * @description 更新成员的角色 / 状态。
+       * @description Updates the role or status of a member.
        *
        * @param request UpdateContextDatabaseMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1842,9 +1859,9 @@ namespace RdsAi20250507
       Models::UpdateContextDatabaseMemberResponse updateContextDatabaseMemberWithOptions(const Models::UpdateContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新上下文数据库成员
+       * @summary Updates a context database member.
        *
-       * @description 更新成员的角色 / 状态。
+       * @description Updates the role or status of a member.
        *
        * @param request UpdateContextDatabaseMemberRequest
        * @return UpdateContextDatabaseMemberResponse
@@ -1852,9 +1869,9 @@ namespace RdsAi20250507
       Models::UpdateContextDatabaseMemberResponse updateContextDatabaseMember(const Models::UpdateContextDatabaseMemberRequest &request);
 
       /**
-       * @summary 修改上下文数据库工作区
+       * @summary Updates a ContextDB workspace.
        *
-       * @description 修改 workspace 名称。
+       * @description Modifies the name of a workspace.
        *
        * @param request UpdateContextDatabaseWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1863,9 +1880,9 @@ namespace RdsAi20250507
       Models::UpdateContextDatabaseWorkspaceResponse updateContextDatabaseWorkspaceWithOptions(const Models::UpdateContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改上下文数据库工作区
+       * @summary Updates a ContextDB workspace.
        *
-       * @description 修改 workspace 名称。
+       * @description Modifies the name of a workspace.
        *
        * @param request UpdateContextDatabaseWorkspaceRequest
        * @return UpdateContextDatabaseWorkspaceResponse
