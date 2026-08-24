@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to retrieve all ConfigSets. Optional.
+    // Specifies whether to query all configuration sets. Optional.
     shared_ptr<bool> all_ {};
-    // The keyword for filtering ConfigSets by name.
+    // The keyword for searching by name.
     shared_ptr<string> keyword_ {};
     // The page number, starting from 1. Required.
     shared_ptr<string> pageIndex_ {};

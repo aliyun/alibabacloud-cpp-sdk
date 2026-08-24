@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The new configuration set ID.
+    // The configuration set ID.
     shared_ptr<string> id_ {};
-    // The unique ID for the request. Provide this request ID when contacting support.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Mail address ID
+    // The ID of the sender address.
     shared_ptr<string> mailAddressId_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

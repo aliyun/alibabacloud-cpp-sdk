@@ -30,10 +30,11 @@ namespace Dm20151123
 AlibabaCloud::Dm20151123::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-east-1" , "dm.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "dm.eu-central-1.aliyuncs.com"},
+    {"ap-southeast-1" , "dm.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-2" , "dm.ap-southeast-2.aliyuncs.com"},
     {"cn-hangzhou" , "dm.aliyuncs.com"},
-    {"ap-southeast-1" , "dm.ap-southeast-1.aliyuncs.com"}
+    {"us-east-1" , "dm.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "dm.eu-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dm", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -242,7 +243,7 @@ ApproveReplyMailAddressResponse Client::approveReplyMailAddress(const ApproveRep
 }
 
 /**
- * @summary Sends emails in batch.
+ * @summary Sends emails in batches.
  *
  * @param tmpReq BatchSendMailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +354,7 @@ BatchSendMailResponse Client::batchSendMailWithOptions(const BatchSendMailReques
 }
 
 /**
- * @summary Sends emails in batch.
+ * @summary Sends emails in batches.
  *
  * @param request BatchSendMailRequest
  * @return BatchSendMailResponse
@@ -626,14 +627,20 @@ ConfigSetCancelRelationFromAddressResponse Client::configSetCancelRelationFromAd
 }
 
 /**
- * @summary Creates a configuration set. You can create up to 100 configuration sets.
+ * @summary Creates a configuration set. A maximum of 100 configuration sets can be created.
  *
- * @param request ConfigSetCreateRequest
+ * @param tmpReq ConfigSetCreateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigSetCreateResponse
  */
-ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ConfigSetCreateShrinkRequest request = ConfigSetCreateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasValidationOption()) {
+    request.setValidationOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValidationOption(), "ValidationOption", "json"));
+  }
+
   json query = {};
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
@@ -649,6 +656,10 @@ ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreate
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasValidationOptionShrink()) {
+    query["ValidationOption"] = request.getValidationOptionShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -669,7 +680,7 @@ ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreate
 }
 
 /**
- * @summary Creates a configuration set. You can create up to 100 configuration sets.
+ * @summary Creates a configuration set. A maximum of 100 configuration sets can be created.
  *
  * @param request ConfigSetCreateRequest
  * @return ConfigSetCreateResponse
@@ -726,7 +737,7 @@ ConfigSetDeleteResponse Client::configSetDelete(const ConfigSetDeleteRequest &re
 }
 
 /**
- * @summary Retrieves the details of a specified configuration set.
+ * @summary Retrieves the details of a configuration set.
  *
  * @param request ConfigSetDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -757,7 +768,7 @@ ConfigSetDetailResponse Client::configSetDetailWithOptions(const ConfigSetDetail
 }
 
 /**
- * @summary Retrieves the details of a specified configuration set.
+ * @summary Retrieves the details of a configuration set.
  *
  * @param request ConfigSetDetailRequest
  * @return ConfigSetDetailResponse
@@ -768,7 +779,7 @@ ConfigSetDetailResponse Client::configSetDetail(const ConfigSetDetailRequest &re
 }
 
 /**
- * @summary Lists ConfigSets.
+ * @summary Lists configuration sets.
  *
  * @param request ConfigSetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +822,7 @@ ConfigSetListResponse Client::configSetListWithOptions(const ConfigSetListReques
 }
 
 /**
- * @summary Lists ConfigSets.
+ * @summary Lists configuration sets.
  *
  * @param request ConfigSetListRequest
  * @return ConfigSetListResponse
@@ -870,12 +881,18 @@ ConfigSetRelationFromAddressResponse Client::configSetRelationFromAddress(const 
 /**
  * @summary Updates a configuration set.
  *
- * @param request ConfigSetUpdateRequest
+ * @param tmpReq ConfigSetUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigSetUpdateResponse
  */
-ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdateRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ConfigSetUpdateShrinkRequest request = ConfigSetUpdateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasValidationOption()) {
+    request.setValidationOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValidationOption(), "ValidationOption", "json"));
+  }
+
   json query = {};
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
@@ -895,6 +912,10 @@ ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdate
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasValidationOptionShrink()) {
+    query["ValidationOption"] = request.getValidationOptionShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -984,7 +1005,7 @@ CreateDomainResponse Client::createDomain(const CreateDomainRequest &request) {
 }
 
 /**
- * @summary Create a mail address.
+ * @summary Creates a sender address.
  *
  * @param request CreateMailAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -995,6 +1016,10 @@ CreateMailAddressResponse Client::createMailAddressWithOptions(const CreateMailA
   json query = {};
   if (!!request.hasAccountName()) {
     query["AccountName"] = request.getAccountName();
+  }
+
+  if (!!request.hasAddressType()) {
+    query["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasOwnerId()) {
@@ -1035,7 +1060,7 @@ CreateMailAddressResponse Client::createMailAddressWithOptions(const CreateMailA
 }
 
 /**
- * @summary Create a mail address.
+ * @summary Creates a sender address.
  *
  * @param request CreateMailAddressRequest
  * @return CreateMailAddressResponse
@@ -3664,7 +3689,7 @@ QueryInvalidAddressResponse Client::queryInvalidAddress(const QueryInvalidAddres
 }
 
 /**
- * @summary Queries a list of sender addresses.
+ * @summary Queries the list of sender addresses.
  *
  * @param request QueryMailAddressByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3719,7 +3744,7 @@ QueryMailAddressByParamResponse Client::queryMailAddressByParamWithOptions(const
 }
 
 /**
- * @summary Queries a list of sender addresses.
+ * @summary Queries the list of sender addresses.
  *
  * @param request QueryMailAddressByParamRequest
  * @return QueryMailAddressByParamResponse
@@ -4410,7 +4435,7 @@ SendValidateFileResponse Client::sendValidateFileAdvance(const SendValidateFileA
 }
 
 /**
- * @summary Retrieves sending statistics that match specified criteria.
+ * @summary Retrieves sending data based on specified conditions.
  *
  * @param request SenderStatisticsByTagNameAndBatchIDRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4481,7 +4506,7 @@ SenderStatisticsByTagNameAndBatchIDResponse Client::senderStatisticsByTagNameAnd
 }
 
 /**
- * @summary Retrieves sending statistics that match specified criteria.
+ * @summary Retrieves sending data based on specified conditions.
  *
  * @param request SenderStatisticsByTagNameAndBatchIDRequest
  * @return SenderStatisticsByTagNameAndBatchIDResponse
@@ -4636,7 +4661,7 @@ SetSuppressionListLevelResponse Client::setSuppressionListLevel(const SetSuppres
 }
 
 /**
- * @summary Send a single email.
+ * @summary Sends a single email.
  *
  * @param tmpReq SingleSendMailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4763,7 +4788,7 @@ SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailReq
 }
 
 /**
- * @summary Send a single email.
+ * @summary Sends a single email.
  *
  * @param request SingleSendMailRequest
  * @return SingleSendMailResponse
@@ -5020,7 +5045,7 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
 }
 
 /**
- * @summary Validate an email address.
+ * @summary Validates an email address.
  *
  * @param request ValidateEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5063,7 +5088,7 @@ ValidateEmailResponse Client::validateEmailWithOptions(const ValidateEmailReques
 }
 
 /**
- * @summary Validate an email address.
+ * @summary Validates an email address.
  *
  * @param request ValidateEmailRequest
  * @return ValidateEmailResponse

@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateMailAddressRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(AddressType, addressType_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ReplyAddress, replyAddress_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateMailAddressRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(AddressType, addressType_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ReplyAddress, replyAddress_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->ownerId_ == nullptr && this->replyAddress_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sendtype_ == nullptr; };
+        && this->addressType_ == nullptr && this->ownerId_ == nullptr && this->replyAddress_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->sendtype_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
     inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline CreateMailAddressRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+    // addressType Field Functions 
+    bool hasAddressType() const { return this->addressType_ != nullptr;};
+    void deleteAddressType() { this->addressType_ = nullptr;};
+    inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+    inline CreateMailAddressRequest& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
     // ownerId Field Functions 
@@ -84,20 +94,24 @@ namespace Models
 
 
   protected:
-    // Sender\\"s email address
+    // The sender address.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The type of the address to create. Valid values:
+    // EXTERNAL: The domain name of the address to create has not been created in this system.
+    // INTERNAL: The domain name of the address to create has already been created in this system.
+    shared_ptr<string> addressType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Reply-to address
+    // The reply-to address.
     shared_ptr<string> replyAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Type of sending. Values:
+    // The type of email. Valid values:
     // 
-    // - batch: Bulk emails
+    // - batch: batch email
     // 
-    // - trigger: Triggered emails
+    // - trigger: triggered email
     // 
     // This parameter is required.
     shared_ptr<string> sendtype_ {};

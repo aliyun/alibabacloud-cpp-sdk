@@ -28,6 +28,7 @@
 #include <alibabacloud/models/ConfigSetCancelRelationFromAddressResponseBody.hpp>
 #include <alibabacloud/models/ConfigSetCancelRelationFromAddressResponse.hpp>
 #include <alibabacloud/models/ConfigSetCreateRequest.hpp>
+#include <alibabacloud/models/ConfigSetCreateShrinkRequest.hpp>
 #include <alibabacloud/models/ConfigSetCreateResponseBody.hpp>
 #include <alibabacloud/models/ConfigSetCreateResponse.hpp>
 #include <alibabacloud/models/ConfigSetDeleteRequest.hpp>
@@ -43,6 +44,7 @@
 #include <alibabacloud/models/ConfigSetRelationFromAddressResponseBody.hpp>
 #include <alibabacloud/models/ConfigSetRelationFromAddressResponse.hpp>
 #include <alibabacloud/models/ConfigSetUpdateRequest.hpp>
+#include <alibabacloud/models/ConfigSetUpdateShrinkRequest.hpp>
 #include <alibabacloud/models/ConfigSetUpdateResponseBody.hpp>
 #include <alibabacloud/models/ConfigSetUpdateResponse.hpp>
 #include <alibabacloud/models/CreateDomainRequest.hpp>

@@ -125,17 +125,17 @@ namespace Models
       shared_ptr<string> alias_ {};
       // The HTML body of the email.
       // 
-      // > **Note:** HtmlBody and TextBody are for different types of email content. You must specify at least one of them.
+      // Note: HtmlBody and TextBody are used for different types of email content. You must specify one of them.
       // 
-      // The new SDK uses Body for parameter passing with a limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
+      // The new SDK uses Body for parameter passing with a size limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
       shared_ptr<string> htmlBody_ {};
-      // The email subject.
+      // The subject of the email.
       shared_ptr<string> subject_ {};
       // The plain text body of the email.
       // 
-      // > **Note:** HtmlBody and TextBody are for different types of email content. You must specify at least one of them.
+      // Note: HtmlBody and TextBody are used for different types of email content. You must specify one of them.
       // 
-      // The new SDK uses Body for parameter passing with a limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
+      // The new SDK uses Body for parameter passing with a size limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
       shared_ptr<string> textBody_ {};
     };
 
@@ -181,9 +181,9 @@ namespace Models
 
 
     protected:
-      // The email template parameters. This is a JSON map data type.
+      // The email template parameters. This parameter is of the JSON map type.
       shared_ptr<map<string, string>> templateData_ {};
-      // The recipient list. This is an array type.
+      // The recipient list. This parameter is of the array type.
       shared_ptr<vector<string>> to_ {};
     };
 
@@ -339,8 +339,8 @@ namespace Models
     shared_ptr<string> clickTrace_ {};
     // Specifies whether to enable domain-level authentication.
     // 
+    // Valid values:
     // - true
-    // 
     // - false
     // 
     // Use this parameter only for domain-level authentication. Ignore it for sender address-level authentication.
@@ -357,11 +357,11 @@ namespace Models
     // 
     // a. Call the ModifyPWByDomain operation to set the domain password.
     // 
-    // b. Authenticate with the domain name and the configured password. Set the actual sender (mailfrom) to a custom address such as user@example.com. The recipient sees user@example.com as the sender.
+    // b. Authenticate with the domain name and the configured password. Pass a custom address such as user@example.com as the actual sender (mailfrom). The recipient sees user@example.com as the sender.
     shared_ptr<bool> domainAuth_ {};
     // The email header settings.
     // 
-    // Both standard and non-standard fields must comply with the syntax requirements for headers defined in the standard. A maximum of 10 headers can be passed through the headers field when sending emails via API. Headers exceeding this limit are ignored. SMTP has no such limit.
+    // Both standard and non-standard fields must comply with the syntax requirements for headers defined in the standard. A maximum of 10 headers can be passed through the headers field when sending emails via API. Headers that exceed this limit are ignored. SMTP has no such limit.
     // 
     // 1. Standard fields
     // 
@@ -373,26 +373,26 @@ namespace Models
     // 
     // Case-insensitive.
     // 
-    // a. Fields prefixed with X-User- (not pushed to EventBridge or Message Service (MNS). This restriction applies to API only. SMTP allows any custom fields.)
+    // a. Fields prefixed with X-User- (not pushed to EventBridge or Message Service (MNS). This restriction applies only to API. SMTP allows any custom fields.)
     // 
     // b. Fields prefixed with X-User-Notify- (pushed to EventBridge and Message Service (MNS). Both API and SMTP are supported.)
     // 
     // When pushed to EventBridge or MNS, these fields are included under the header field.
     shared_ptr<string> headers_ {};
-    // The ID of the dedicated IP address pool. Users who have purchased dedicated IP addresses can use this parameter to specify the outbound IP address for this email sending.
+    // The ID of the dedicated IP address pool. Users who have purchased dedicated IP addresses can use this parameter to specify the outbound IP address for this email sending task.
     shared_ptr<string> ipPoolId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The recipient list. The number of recipients must not exceed 100. Use this parameter or ReceiversName. If both Receivers and ReceiversName are specified, ReceiversName takes precedence.
+    // The recipient list. The number of recipients cannot exceed 100. Specify this parameter or ReceiversName. If both Receivers and ReceiversName are specified, ReceiversName takes precedence.
     // 
     // Example: [{"To":["Jackie@example.com"],"TemplateData":{"UserName":"Jackie"}},{"To":["Tom@example.com"],"TemplateData":{"UserName":"Tom"}}].
     shared_ptr<vector<BatchSendMailRequest::Receivers>> receivers_ {};
     // The name of a pre-created recipient list that has recipients uploaded.
     // 
-    // > **Note**
+    // Note:
     // 
-    // > The number of recipients in the list must not exceed the remaining daily quota. Otherwise, the email sending fails.
+    // The number of recipients in the list must not exceed the remaining daily quota. Otherwise, the email sending fails.
     // 
-    // > Wait at least 10 minutes after triggering the task before deleting the recipient list. Otherwise, the email sending may fail.
+    // Do not delete the recipient list until at least 10 minutes after the task is triggered. Otherwise, the email sending may fail.
     shared_ptr<string> receiversName_ {};
     // The reply-to address.
     shared_ptr<string> replyAddress_ {};
@@ -400,22 +400,24 @@ namespace Models
     shared_ptr<string> replyAddressAlias_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the email tag.
+    // The tag name of the email.
     shared_ptr<string> tagName_ {};
-    // The custom email content. Directly specify the content without creating a template in advance. Use this parameter or TemplateName. If both TemplateContent and TemplateName are specified, TemplateName takes precedence.
+    // The custom email content. You can directly specify the content without creating a template in advance. Specify this parameter or TemplateName. If both TemplateContent and TemplateName are specified, TemplateName takes precedence.
     shared_ptr<BatchSendMailRequest::TemplateContent> templateContent_ {};
     // The name of a pre-created and approved template.
     shared_ptr<string> templateName_ {};
     // The filtering level. For more information, see [Unsubscribe link generation and filtering mechanism](https://help.aliyun.com/document_detail/2689048.html).
+    // Valid values:
     // - disabled: No filtering is applied.
-    // - default: Uses the default policy. Batch addresses use sender address-level filtering.
-    // - mailfrom: Sender address-level filtering.
-    // - mailfrom_domain: Sender domain-level filtering.
-    // - edm_id: Account-level filtering.
+    // - default: The default policy is used. Batch addresses are filtered at the sender address level.
+    // - mailfrom: Filtering at the sender address level.
+    // - mailfrom_domain: Filtering at the sender domain level.
+    // - edm_id: Filtering at the account level.
     shared_ptr<string> unSubscribeFilterLevel_ {};
     // The type of the generated unsubscribe link. For more information, see [Unsubscribe link generation and filtering mechanism](https://help.aliyun.com/document_detail/2689048.html).
+    // Valid values:
     // - disabled: No unsubscribe link is generated.
-    // - default: Uses the default policy. An unsubscribe link is generated when a batch-type sender address sends emails to specific domains, such as domains containing keywords "gmail", "yahoo", "google", "aol.com", "hotmail", "outlook", or "ymail.com".
+    // - default: The default policy is used. An unsubscribe link is generated when emails are sent from a batch-type sender address to specific domains that contain keywords such as "gmail", "yahoo", "google", "aol.com", "hotmail", "outlook", or "ymail.com".
     // 
     // The display language is automatically determined based on the recipient\\"s browser settings.
     shared_ptr<string> unSubscribeLinkType_ {};

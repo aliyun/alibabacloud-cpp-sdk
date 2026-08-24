@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const MailAddress& obj) { 
           DARABONBA_PTR_TO_JSON(AccountName, accountName_);
           DARABONBA_PTR_TO_JSON(AccountStatus, accountStatus_);
+          DARABONBA_PTR_TO_JSON(AddressType, addressType_);
           DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
           DARABONBA_PTR_TO_JSON(ConfigSetName, configSetName_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
@@ -69,15 +70,18 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DailyReqCount, dailyReqCount_);
           DARABONBA_PTR_TO_JSON(DomainStatus, domainStatus_);
           DARABONBA_PTR_TO_JSON(MailAddressId, mailAddressId_);
+          DARABONBA_PTR_TO_JSON(MailAddressVerificationStatus, mailAddressVerificationStatus_);
           DARABONBA_PTR_TO_JSON(MonthCount, monthCount_);
           DARABONBA_PTR_TO_JSON(MonthReqCount, monthReqCount_);
           DARABONBA_PTR_TO_JSON(ReplyAddress, replyAddress_);
           DARABONBA_PTR_TO_JSON(ReplyStatus, replyStatus_);
+          DARABONBA_PTR_TO_JSON(SenderAddress, senderAddress_);
           DARABONBA_PTR_TO_JSON(Sendtype, sendtype_);
         };
         friend void from_json(const Darabonba::Json& j, MailAddress& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
           DARABONBA_PTR_FROM_JSON(AccountStatus, accountStatus_);
+          DARABONBA_PTR_FROM_JSON(AddressType, addressType_);
           DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
           DARABONBA_PTR_FROM_JSON(ConfigSetName, configSetName_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -85,10 +89,12 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DailyReqCount, dailyReqCount_);
           DARABONBA_PTR_FROM_JSON(DomainStatus, domainStatus_);
           DARABONBA_PTR_FROM_JSON(MailAddressId, mailAddressId_);
+          DARABONBA_PTR_FROM_JSON(MailAddressVerificationStatus, mailAddressVerificationStatus_);
           DARABONBA_PTR_FROM_JSON(MonthCount, monthCount_);
           DARABONBA_PTR_FROM_JSON(MonthReqCount, monthReqCount_);
           DARABONBA_PTR_FROM_JSON(ReplyAddress, replyAddress_);
           DARABONBA_PTR_FROM_JSON(ReplyStatus, replyStatus_);
+          DARABONBA_PTR_FROM_JSON(SenderAddress, senderAddress_);
           DARABONBA_PTR_FROM_JSON(Sendtype, sendtype_);
         };
         MailAddress() = default ;
@@ -103,9 +109,10 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->accountStatus_ == nullptr && this->configSetId_ == nullptr && this->configSetName_ == nullptr && this->createTime_ == nullptr && this->dailyCount_ == nullptr
-        && this->dailyReqCount_ == nullptr && this->domainStatus_ == nullptr && this->mailAddressId_ == nullptr && this->monthCount_ == nullptr && this->monthReqCount_ == nullptr
-        && this->replyAddress_ == nullptr && this->replyStatus_ == nullptr && this->sendtype_ == nullptr; };
+        && this->accountStatus_ == nullptr && this->addressType_ == nullptr && this->configSetId_ == nullptr && this->configSetName_ == nullptr && this->createTime_ == nullptr
+        && this->dailyCount_ == nullptr && this->dailyReqCount_ == nullptr && this->domainStatus_ == nullptr && this->mailAddressId_ == nullptr && this->mailAddressVerificationStatus_ == nullptr
+        && this->monthCount_ == nullptr && this->monthReqCount_ == nullptr && this->replyAddress_ == nullptr && this->replyStatus_ == nullptr && this->senderAddress_ == nullptr
+        && this->sendtype_ == nullptr; };
         // accountName Field Functions 
         bool hasAccountName() const { return this->accountName_ != nullptr;};
         void deleteAccountName() { this->accountName_ = nullptr;};
@@ -118,6 +125,13 @@ namespace Models
         void deleteAccountStatus() { this->accountStatus_ = nullptr;};
         inline string getAccountStatus() const { DARABONBA_PTR_GET_DEFAULT(accountStatus_, "") };
         inline MailAddress& setAccountStatus(string accountStatus) { DARABONBA_PTR_SET_VALUE(accountStatus_, accountStatus) };
+
+
+        // addressType Field Functions 
+        bool hasAddressType() const { return this->addressType_ != nullptr;};
+        void deleteAddressType() { this->addressType_ = nullptr;};
+        inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+        inline MailAddress& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
         // configSetId Field Functions 
@@ -169,6 +183,13 @@ namespace Models
         inline MailAddress& setMailAddressId(string mailAddressId) { DARABONBA_PTR_SET_VALUE(mailAddressId_, mailAddressId) };
 
 
+        // mailAddressVerificationStatus Field Functions 
+        bool hasMailAddressVerificationStatus() const { return this->mailAddressVerificationStatus_ != nullptr;};
+        void deleteMailAddressVerificationStatus() { this->mailAddressVerificationStatus_ = nullptr;};
+        inline string getMailAddressVerificationStatus() const { DARABONBA_PTR_GET_DEFAULT(mailAddressVerificationStatus_, "") };
+        inline MailAddress& setMailAddressVerificationStatus(string mailAddressVerificationStatus) { DARABONBA_PTR_SET_VALUE(mailAddressVerificationStatus_, mailAddressVerificationStatus) };
+
+
         // monthCount Field Functions 
         bool hasMonthCount() const { return this->monthCount_ != nullptr;};
         void deleteMonthCount() { this->monthCount_ = nullptr;};
@@ -197,6 +218,13 @@ namespace Models
         inline MailAddress& setReplyStatus(string replyStatus) { DARABONBA_PTR_SET_VALUE(replyStatus_, replyStatus) };
 
 
+        // senderAddress Field Functions 
+        bool hasSenderAddress() const { return this->senderAddress_ != nullptr;};
+        void deleteSenderAddress() { this->senderAddress_ = nullptr;};
+        inline string getSenderAddress() const { DARABONBA_PTR_GET_DEFAULT(senderAddress_, "") };
+        inline MailAddress& setSenderAddress(string senderAddress) { DARABONBA_PTR_SET_VALUE(senderAddress_, senderAddress) };
+
+
         // sendtype Field Functions 
         bool hasSendtype() const { return this->sendtype_ != nullptr;};
         void deleteSendtype() { this->sendtype_ = nullptr;};
@@ -207,6 +235,7 @@ namespace Models
       protected:
         shared_ptr<string> accountName_ {};
         shared_ptr<string> accountStatus_ {};
+        shared_ptr<string> addressType_ {};
         shared_ptr<string> configSetId_ {};
         shared_ptr<string> configSetName_ {};
         shared_ptr<string> createTime_ {};
@@ -214,10 +243,12 @@ namespace Models
         shared_ptr<string> dailyReqCount_ {};
         shared_ptr<string> domainStatus_ {};
         shared_ptr<string> mailAddressId_ {};
+        shared_ptr<string> mailAddressVerificationStatus_ {};
         shared_ptr<string> monthCount_ {};
         shared_ptr<string> monthReqCount_ {};
         shared_ptr<string> replyAddress_ {};
         shared_ptr<string> replyStatus_ {};
+        shared_ptr<string> senderAddress_ {};
         shared_ptr<string> sendtype_ {};
       };
 

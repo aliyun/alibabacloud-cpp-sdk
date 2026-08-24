@@ -57,7 +57,7 @@ namespace Dm20151123
       Models::ApproveReplyMailAddressResponse approveReplyMailAddress(const Models::ApproveReplyMailAddressRequest &request);
 
       /**
-       * @summary Sends emails in batch.
+       * @summary Sends emails in batches.
        *
        * @param tmpReq BatchSendMailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,7 +66,7 @@ namespace Dm20151123
       Models::BatchSendMailResponse batchSendMailWithOptions(const Models::BatchSendMailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends emails in batch.
+       * @summary Sends emails in batches.
        *
        * @param request BatchSendMailRequest
        * @return BatchSendMailResponse
@@ -159,16 +159,16 @@ namespace Dm20151123
       Models::ConfigSetCancelRelationFromAddressResponse configSetCancelRelationFromAddress(const Models::ConfigSetCancelRelationFromAddressRequest &request);
 
       /**
-       * @summary Creates a configuration set. You can create up to 100 configuration sets.
+       * @summary Creates a configuration set. A maximum of 100 configuration sets can be created.
        *
-       * @param request ConfigSetCreateRequest
+       * @param tmpReq ConfigSetCreateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigSetCreateResponse
        */
-      Models::ConfigSetCreateResponse configSetCreateWithOptions(const Models::ConfigSetCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ConfigSetCreateResponse configSetCreateWithOptions(const Models::ConfigSetCreateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a configuration set. You can create up to 100 configuration sets.
+       * @summary Creates a configuration set. A maximum of 100 configuration sets can be created.
        *
        * @param request ConfigSetCreateRequest
        * @return ConfigSetCreateResponse
@@ -193,7 +193,7 @@ namespace Dm20151123
       Models::ConfigSetDeleteResponse configSetDelete(const Models::ConfigSetDeleteRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified configuration set.
+       * @summary Retrieves the details of a configuration set.
        *
        * @param request ConfigSetDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +202,7 @@ namespace Dm20151123
       Models::ConfigSetDetailResponse configSetDetailWithOptions(const Models::ConfigSetDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified configuration set.
+       * @summary Retrieves the details of a configuration set.
        *
        * @param request ConfigSetDetailRequest
        * @return ConfigSetDetailResponse
@@ -210,7 +210,7 @@ namespace Dm20151123
       Models::ConfigSetDetailResponse configSetDetail(const Models::ConfigSetDetailRequest &request);
 
       /**
-       * @summary Lists ConfigSets.
+       * @summary Lists configuration sets.
        *
        * @param request ConfigSetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +219,7 @@ namespace Dm20151123
       Models::ConfigSetListResponse configSetListWithOptions(const Models::ConfigSetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists ConfigSets.
+       * @summary Lists configuration sets.
        *
        * @param request ConfigSetListRequest
        * @return ConfigSetListResponse
@@ -246,11 +246,11 @@ namespace Dm20151123
       /**
        * @summary Updates a configuration set.
        *
-       * @param request ConfigSetUpdateRequest
+       * @param tmpReq ConfigSetUpdateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfigSetUpdateResponse
        */
-      Models::ConfigSetUpdateResponse configSetUpdateWithOptions(const Models::ConfigSetUpdateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ConfigSetUpdateResponse configSetUpdateWithOptions(const Models::ConfigSetUpdateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates a configuration set.
@@ -278,7 +278,7 @@ namespace Dm20151123
       Models::CreateDomainResponse createDomain(const Models::CreateDomainRequest &request);
 
       /**
-       * @summary Create a mail address.
+       * @summary Creates a sender address.
        *
        * @param request CreateMailAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +287,7 @@ namespace Dm20151123
       Models::CreateMailAddressResponse createMailAddressWithOptions(const Models::CreateMailAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a mail address.
+       * @summary Creates a sender address.
        *
        * @param request CreateMailAddressRequest
        * @return CreateMailAddressResponse
@@ -1106,7 +1106,7 @@ namespace Dm20151123
       Models::QueryInvalidAddressResponse queryInvalidAddress(const Models::QueryInvalidAddressRequest &request);
 
       /**
-       * @summary Queries a list of sender addresses.
+       * @summary Queries the list of sender addresses.
        *
        * @param request QueryMailAddressByParamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1115,7 +1115,7 @@ namespace Dm20151123
       Models::QueryMailAddressByParamResponse queryMailAddressByParamWithOptions(const Models::QueryMailAddressByParamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of sender addresses.
+       * @summary Queries the list of sender addresses.
        *
        * @param request QueryMailAddressByParamRequest
        * @return QueryMailAddressByParamResponse
@@ -1282,7 +1282,7 @@ namespace Dm20151123
       Models::SendValidateFileResponse sendValidateFileAdvance(const Models::SendValidateFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves sending statistics that match specified criteria.
+       * @summary Retrieves sending data based on specified conditions.
        *
        * @param request SenderStatisticsByTagNameAndBatchIDRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +1291,7 @@ namespace Dm20151123
       Models::SenderStatisticsByTagNameAndBatchIDResponse senderStatisticsByTagNameAndBatchIDWithOptions(const Models::SenderStatisticsByTagNameAndBatchIDRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves sending statistics that match specified criteria.
+       * @summary Retrieves sending data based on specified conditions.
        *
        * @param request SenderStatisticsByTagNameAndBatchIDRequest
        * @return SenderStatisticsByTagNameAndBatchIDResponse
@@ -1333,7 +1333,7 @@ namespace Dm20151123
       Models::SetSuppressionListLevelResponse setSuppressionListLevel(const Models::SetSuppressionListLevelRequest &request);
 
       /**
-       * @summary Send a single email.
+       * @summary Sends a single email.
        *
        * @param tmpReq SingleSendMailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1342,7 +1342,7 @@ namespace Dm20151123
       Models::SingleSendMailResponse singleSendMailWithOptions(const Models::SingleSendMailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Send a single email.
+       * @summary Sends a single email.
        *
        * @param request SingleSendMailRequest
        * @return SingleSendMailResponse
@@ -1403,7 +1403,7 @@ namespace Dm20151123
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
-       * @summary Validate an email address.
+       * @summary Validates an email address.
        *
        * @param request ValidateEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1412,7 +1412,7 @@ namespace Dm20151123
       Models::ValidateEmailResponse validateEmailWithOptions(const Models::ValidateEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validate an email address.
+       * @summary Validates an email address.
        *
        * @param request ValidateEmailRequest
        * @return ValidateEmailResponse

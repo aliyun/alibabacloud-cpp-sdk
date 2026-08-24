@@ -140,10 +140,7 @@ namespace Models
 
 
   protected:
-    // The source channel through which the user accesses the service. Default value: 1. Valid values:
-    // 
-    // - 1: Direct access through Alibaba Cloud.
-    // - 2: Access through a partner channel.
+    // The source channel through which the user connects. Default value: 1.
     shared_ptr<int32_t> fromType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The remarks or application description for the SMS template. This parameter is required only when the templatetype is SMS. Maximum length: 100 characters.
@@ -152,10 +149,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The body content of the SMS template. This parameter is required only when the templatetype is SMS. Length: 2 to 400 characters.
     shared_ptr<string> smsContent_ {};
-    // The business type of the SMS template. This parameter is required only when the templatetype is SMS. Valid values:
-    // 
-    // - 0: verification code
-    // - 2: notification or promotion.
+    // The business type of the SMS template. This parameter is required only when the templatetype is SMS.
     shared_ptr<int32_t> smsType_ {};
     // The template ID.
     // 
