@@ -1788,9 +1788,9 @@ DescribeDataObjectColumnDetailV2Response Client::describeDataObjectColumnDetailV
 /**
  * @summary Queries the data detection results of data tables and files.
  *
- * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
+ * @description Queries the detection results of data tables and files, allowing you to view asset data detection results from a global perspective.
  * ## QPS limit
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request DescribeDataObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1831,6 +1831,10 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
     query["EngineType"] = request.getEngineType();
   }
 
+  if (!!request.hasFacetType()) {
+    query["FacetType"] = request.getFacetType();
+  }
+
   if (!!request.hasFeatureType()) {
     query["FeatureType"] = request.getFeatureType();
   }
@@ -1845,6 +1849,10 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIsRevision()) {
+    query["IsRevision"] = request.getIsRevision();
   }
 
   if (!!request.hasLang()) {
@@ -1951,9 +1959,9 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
 /**
  * @summary Queries the data detection results of data tables and files.
  *
- * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
+ * @description Queries the detection results of data tables and files, allowing you to view asset data detection results from a global perspective.
  * ## QPS limit
- * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request DescribeDataObjectsRequest
  * @return DescribeDataObjectsResponse

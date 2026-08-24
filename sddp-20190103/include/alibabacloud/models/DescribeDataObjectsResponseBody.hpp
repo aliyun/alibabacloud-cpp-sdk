@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_TO_JSON(HasNext, hasNext_);
       DARABONBA_PTR_TO_JSON(HasPrevious, hasPrevious_);
+      DARABONBA_PTR_TO_JSON(HitValues, hitValues_);
       DARABONBA_PTR_TO_JSON(Items, items_);
       DARABONBA_PTR_TO_JSON(NextCursor, nextCursor_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_FROM_JSON(HasNext, hasNext_);
       DARABONBA_PTR_FROM_JSON(HasPrevious, hasPrevious_);
+      DARABONBA_PTR_FROM_JSON(HitValues, hitValues_);
       DARABONBA_PTR_FROM_JSON(Items, items_);
       DARABONBA_PTR_FROM_JSON(NextCursor, nextCursor_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -230,21 +232,26 @@ namespace Models
 
       protected:
         // The risk level ID of the sensitive data detection rule. Valid values:
+        // - **1**: N/A. No sensitive data is detected.
+        // - **2**: S1. Level 1 sensitive data.
+        // - **3**: S2. Level 2 sensitive data.
+        // - **4**: S3. Level 3 sensitive data.
+        // - **5**: S4. Level 4 sensitive data.
         shared_ptr<int64_t> riskLevelId_ {};
         // The risk level name of the data asset table. Valid values:
         // - **N/A**: No sensitive data is detected.
-        // - **S1**: Level-1 sensitive data.
-        // - **S2**: Level-2 sensitive data.
-        // - **S3**: Level-3 sensitive data.
-        // - **S4**: Level-4 sensitive data.
+        // - **S1**: Level 1 sensitive data.
+        // - **S2**: Level 2 sensitive data.
+        // - **S3**: Level 3 sensitive data.
+        // - **S4**: Level 4 sensitive data.
         shared_ptr<string> riskLevelName_ {};
         // The rule information described from the top to the bottom of the template.
         shared_ptr<string> ruleCategoryNameList_ {};
-        // The number of detection models that are hit.
+        // The number of matched detection models.
         shared_ptr<int32_t> ruleCount_ {};
-        // The ID of the detection model.
+        // The detection model ID.
         shared_ptr<int64_t> ruleId_ {};
-        // The name of the detection model.
+        // The detection model name.
         shared_ptr<string> ruleName_ {};
         // The sample data.
         shared_ptr<string> sampleList_ {};
@@ -293,7 +300,10 @@ namespace Models
         // - **102**: Personal information.
         // - **107**: General information.
         shared_ptr<int64_t> id_ {};
-        // The data tag name. Valid values:
+        // The data label name. Valid values:
+        // - **Personal sensitive information.**
+        // - **Personal information.**
+        // - **General information.**
         shared_ptr<string> name_ {};
       };
 
@@ -610,17 +620,29 @@ namespace Models
       shared_ptr<int32_t> maskStatus_ {};
       // The member accounts ID.
       shared_ptr<int64_t> memberAccount_ {};
-      // The list of data tags.
+      // The list of data labels.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the data object.
       shared_ptr<string> name_ {};
       // The file category name.
       shared_ptr<string> objectFileCategory_ {};
-      // The data object type.
+      // The object type of the data object.
       shared_ptr<string> objectType_ {};
       // The path of the data object.
       shared_ptr<string> path_ {};
       // The product name to which the data object belongs. Valid values:
+      // - **MaxCompute**
+      // - **OSS**
+      // - **ADB-MYSQL**
+      // - **TableStore**
+      // - **RDS**
+      // - **SELF_DB**
+      // - **PolarDB-X**
+      // - **PolarDB**
+      // - **ADB-PG**
+      // - **OceanBase**
+      // - **MongoDB**
+      // - **Redis**
       shared_ptr<string> productCode_ {};
       // The ID that corresponds to the product name to which the data object belongs. Valid values:
       // - **1**: MaxCompute
@@ -644,15 +666,15 @@ namespace Models
       shared_ptr<string> regionName_ {};
       // The sensitivity level.
       shared_ptr<int32_t> riskLevelId_ {};
-      // The number of rules that are hit.
+      // The number of matched rules.
       shared_ptr<int32_t> ruleCount_ {};
-      // The list of detection models that are hit.
+      // The list of matched detection models.
       shared_ptr<vector<Items::RuleList>> ruleList_ {};
       // The number of sensitive data entries.
       shared_ptr<int32_t> sensitiveCount_ {};
       // The file size.
       shared_ptr<int64_t> size_ {};
-      // An array that consists of the number of rules hit for each sensitivity level, in the format "S1,S2,S3,S4,S5,S6,S7,S8,S9,S10", where S1 represents the number of rules hit at sensitivity level S1.
+      // The array that consists of the number of rules matched at each sensitivity level, in the format "S1,S2,S3,S4,S5,S6,S7,S8,S9,S10", where S1 represents the number of rules matched at sensitivity level S1.
       shared_ptr<string> sx_ {};
       // The table name.
       shared_ptr<string> tableName_ {};
@@ -669,9 +691,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->hasNext_ == nullptr && this->hasPrevious_ == nullptr && this->items_ == nullptr
-        && this->nextCursor_ == nullptr && this->pageSize_ == nullptr && this->previousCursor_ == nullptr && this->requestId_ == nullptr && this->syncStatus_ == nullptr
-        && this->totalCount_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->hasNext_ == nullptr && this->hasPrevious_ == nullptr && this->hitValues_ == nullptr
+        && this->items_ == nullptr && this->nextCursor_ == nullptr && this->pageSize_ == nullptr && this->previousCursor_ == nullptr && this->requestId_ == nullptr
+        && this->syncStatus_ == nullptr && this->totalCount_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -705,6 +727,15 @@ namespace Models
     void deleteHasPrevious() { this->hasPrevious_ = nullptr;};
     inline bool getHasPrevious() const { DARABONBA_PTR_GET_DEFAULT(hasPrevious_, false) };
     inline DescribeDataObjectsResponseBody& setHasPrevious(bool hasPrevious) { DARABONBA_PTR_SET_VALUE(hasPrevious_, hasPrevious) };
+
+
+    // hitValues Field Functions 
+    bool hasHitValues() const { return this->hitValues_ != nullptr;};
+    void deleteHitValues() { this->hitValues_ = nullptr;};
+    inline const vector<string> & getHitValues() const { DARABONBA_PTR_GET_CONST(hitValues_, vector<string>) };
+    inline vector<string> getHitValues() { DARABONBA_PTR_GET(hitValues_, vector<string>) };
+    inline DescribeDataObjectsResponseBody& setHitValues(const vector<string> & hitValues) { DARABONBA_PTR_SET_VALUE(hitValues_, hitValues) };
+    inline DescribeDataObjectsResponseBody& setHitValues(vector<string> && hitValues) { DARABONBA_PTR_SET_RVALUE(hitValues_, hitValues) };
 
 
     // items Field Functions 
@@ -759,12 +790,14 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query. Settings the current page number for paging. Default value: **1**.
+    // The page number of the current page in a paged query. Settings for paging. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
     shared_ptr<bool> hasNext_ {};
     shared_ptr<bool> hasPrevious_ {};
+    // The associate filter values used to return filtered values.
+    shared_ptr<vector<string>> hitValues_ {};
     // The list of data objects.
     shared_ptr<vector<DescribeDataObjectsResponseBody::Items>> items_ {};
     shared_ptr<string> nextCursor_ {};

@@ -21,10 +21,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(DomainId, domainId_);
       DARABONBA_PTR_TO_JSON(EngineType, engineType_);
+      DARABONBA_PTR_TO_JSON(FacetType, facetType_);
       DARABONBA_PTR_TO_JSON(FeatureType, featureType_);
       DARABONBA_PTR_TO_JSON(FileCategoryCode, fileCategoryCode_);
       DARABONBA_PTR_TO_JSON(FileType, fileType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IsRevision, isRevision_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(LogStore, logStore_);
       DARABONBA_PTR_TO_JSON(LogStoreFlag, logStoreFlag_);
@@ -56,10 +58,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(DomainId, domainId_);
       DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
+      DARABONBA_PTR_FROM_JSON(FacetType, facetType_);
       DARABONBA_PTR_FROM_JSON(FeatureType, featureType_);
       DARABONBA_PTR_FROM_JSON(FileCategoryCode, fileCategoryCode_);
       DARABONBA_PTR_FROM_JSON(FileType, fileType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IsRevision, isRevision_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(LogStore, logStore_);
       DARABONBA_PTR_FROM_JSON(LogStoreFlag, logStoreFlag_);
@@ -95,12 +99,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->APIVersion_ == nullptr
         && this->bucket_ == nullptr && this->currentPage_ == nullptr && this->cursor_ == nullptr && this->cursorDirection_ == nullptr && this->dbName_ == nullptr
-        && this->domainId_ == nullptr && this->engineType_ == nullptr && this->featureType_ == nullptr && this->fileCategoryCode_ == nullptr && this->fileType_ == nullptr
-        && this->instanceId_ == nullptr && this->lang_ == nullptr && this->logStore_ == nullptr && this->logStoreFlag_ == nullptr && this->memberAccount_ == nullptr
-        && this->modelIds_ == nullptr && this->modelTagIds_ == nullptr && this->pageSize_ == nullptr && this->parentCategoryIds_ == nullptr && this->path_ == nullptr
-        && this->productId_ == nullptr && this->productIds_ == nullptr && this->project_ == nullptr && this->queryName_ == nullptr && this->regionId_ == nullptr
-        && this->riskLevelIdList_ == nullptr && this->riskLevels_ == nullptr && this->ruleIds_ == nullptr && this->serviceRegionId_ == nullptr && this->tableName_ == nullptr
-        && this->taskId_ == nullptr && this->templateId_ == nullptr; };
+        && this->domainId_ == nullptr && this->engineType_ == nullptr && this->facetType_ == nullptr && this->featureType_ == nullptr && this->fileCategoryCode_ == nullptr
+        && this->fileType_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr && this->lang_ == nullptr && this->logStore_ == nullptr
+        && this->logStoreFlag_ == nullptr && this->memberAccount_ == nullptr && this->modelIds_ == nullptr && this->modelTagIds_ == nullptr && this->pageSize_ == nullptr
+        && this->parentCategoryIds_ == nullptr && this->path_ == nullptr && this->productId_ == nullptr && this->productIds_ == nullptr && this->project_ == nullptr
+        && this->queryName_ == nullptr && this->regionId_ == nullptr && this->riskLevelIdList_ == nullptr && this->riskLevels_ == nullptr && this->ruleIds_ == nullptr
+        && this->serviceRegionId_ == nullptr && this->tableName_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr; };
     // APIVersion Field Functions 
     bool hasAPIVersion() const { return this->APIVersion_ != nullptr;};
     void deleteAPIVersion() { this->APIVersion_ = nullptr;};
@@ -157,6 +161,13 @@ namespace Models
     inline DescribeDataObjectsRequest& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
+    // facetType Field Functions 
+    bool hasFacetType() const { return this->facetType_ != nullptr;};
+    void deleteFacetType() { this->facetType_ = nullptr;};
+    inline string getFacetType() const { DARABONBA_PTR_GET_DEFAULT(facetType_, "") };
+    inline DescribeDataObjectsRequest& setFacetType(string facetType) { DARABONBA_PTR_SET_VALUE(facetType_, facetType) };
+
+
     // featureType Field Functions 
     bool hasFeatureType() const { return this->featureType_ != nullptr;};
     void deleteFeatureType() { this->featureType_ = nullptr;};
@@ -183,6 +194,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeDataObjectsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // isRevision Field Functions 
+    bool hasIsRevision() const { return this->isRevision_ != nullptr;};
+    void deleteIsRevision() { this->isRevision_ = nullptr;};
+    inline int32_t getIsRevision() const { DARABONBA_PTR_GET_DEFAULT(isRevision_, 0) };
+    inline DescribeDataObjectsRequest& setIsRevision(int32_t isRevision) { DARABONBA_PTR_SET_VALUE(isRevision_, isRevision) };
 
 
     // lang Field Functions 
@@ -333,7 +351,7 @@ namespace Models
 
 
   protected:
-    // The parameter used for canary release evaluation.
+    // The identifier used for canary release evaluation.
     shared_ptr<int32_t> APIVersion_ {};
     // The OSS bucket filter.
     shared_ptr<string> bucket_ {};
@@ -346,39 +364,47 @@ namespace Models
     // The data domain ID to which the data asset belongs.
     shared_ptr<int64_t> domainId_ {};
     shared_ptr<string> engineType_ {};
+    // The facet dimension for associated filtering in the data catalog. Valid values: rule (category), task (task), instance (instance), and db (database). If this parameter is not specified or is empty, the original list and count query is performed (behavior unchanged). If a valid value is specified, the list query is skipped and only content.hitValues is returned. If an invalid value is specified, a parameter error is returned.
+    shared_ptr<string> facetType_ {};
     // **[Deprecated]** This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
     // The file category code.
     shared_ptr<int64_t> fileCategoryCode_ {};
-    // The OSS file type that can be detected.
+    // The OSS file type supported for detection.
+    // 
+    // > You can call [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html) to obtain the supported OSS file types. Use the Code field value from the response. This parameter is valid only for OSS asset queries.
     shared_ptr<int64_t> fileType_ {};
     // The keyword of the asset instance ID.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to filter revision items.
+    shared_ptr<int32_t> isRevision_ {};
     // The language of the request and response. Default value: **zh_cn**. Valid values:
-    // 
     // - **zh_cn**: Chinese.
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
     // The SLS Logstore filter.
     shared_ptr<string> logStore_ {};
-    // Specifies whether to query data at the Logstore dimension. The SLS page in the data catalog has two layers, and this parameter determines whether the query targets Logstore-level data.
+    // The data catalog SLS page has two layers. This parameter indicates whether the query is at the Logstore dimension.
     shared_ptr<int32_t> logStoreFlag_ {};
     // The member accounts ID.
     shared_ptr<int64_t> memberAccount_ {};
-    // The model IDs of the industry template. Separate multiple IDs with commas.
-    // > You can call [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) to obtain the model IDs of the industry template.
+    // The model IDs of the industry template, separated by commas.
+    // > You can call [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) to obtain the industry template model IDs.
     shared_ptr<string> modelIds_ {};
     // The data tags to query, separated by commas. Valid values:
+    // - **101**: personal sensitive information.
+    // - **102**: personal information.
+    // - **107**: general information.
     shared_ptr<string> modelTagIds_ {};
     // The maximum number of data asset instances to return per page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent category IDs of the templates to query, separated by commas.
+    // The list of parent category IDs of the templates to query, separated by commas.
     shared_ptr<string> parentCategoryIds_ {};
     // The file path filter.
     shared_ptr<string> path_ {};
     // The product of the data catalog.
     shared_ptr<int32_t> productId_ {};
-    // We recommend that you specify this parameter. The IDs of the products to query. Separate multiple IDs with commas. Valid values:
+    // We recommend that you specify this parameter. The list of product IDs to query, separated by commas. Valid values:
     // - **1**: MaxCompute
     // - **2**: OSS
     // - **3**: ADB-MYSQL
@@ -402,7 +428,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The risk level filter.
     shared_ptr<string> riskLevelIdList_ {};
-    // The risk levels of the data assets that you want to query. Separate multiple risk levels with commas (,). Valid values:
+    // The risk levels of the data assets to query. Separate multiple values with commas (,).
     // - **2**: S1, low risk level.
     // - **3**: S2, medium risk level.
     // - **4**: S3, high risk level.
@@ -411,12 +437,21 @@ namespace Models
     // The rule filter.
     shared_ptr<string> ruleIds_ {};
     // The region where the asset resides. Valid values:
+    // - **cn-beijing**: China (Beijing).
+    // - **cn-zhangjiakou**: China (Zhangjiakou).
+    // - **cn-huhehaote**: China (Hohhot).
+    // - **cn-hangzhou**: China (Hangzhou).
+    // - **cn-shanghai**: China (Shanghai).
+    // - **cn-shenzhen**: China (Shenzhen).
+    // - **cn-hongkong**: Hong Kong (China).
     shared_ptr<string> serviceRegionId_ {};
-    // The node name filter.
+    // The task name filter.
     shared_ptr<string> tableName_ {};
     // The task ID filter.
     shared_ptr<int64_t> taskId_ {};
     // The industry template ID.
+    // 
+    // > You can call [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) to obtain the industry template ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
