@@ -229,7 +229,6 @@ namespace Models
       // 
       // Default value: true.
       shared_ptr<bool> deleteWithInstance_ {};
-      // Device
       shared_ptr<string> device_ {};
       // The performance level of the ESSD that is used as a data disk. Valid values:
       // 
@@ -253,7 +252,6 @@ namespace Models
       //     *   PL2: 461 to 65,536
       //     *   PL3: 1,261 to 65,536
       shared_ptr<int32_t> size_ {};
-      // SnapshotId
       shared_ptr<string> snapshotId_ {};
     };
 

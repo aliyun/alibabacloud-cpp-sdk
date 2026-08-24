@@ -19,8 +19,6 @@ namespace EHPC20240730
 AlibabaCloud::EHPC20240730::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"me-east-1" , "ehpc.me-east-1.aliyuncs.com"},
-    {"eu-central-1" , "ehpc.eu-central-1.aliyuncs.com"},
     {"cn-zhangjiakou" , "ehpc.cn-zhangjiakou.aliyuncs.com"},
     {"cn-wulanchabu" , "ehpc.cn-wulanchabu.aliyuncs.com"},
     {"cn-wuhan-lr" , "ehpc.cn-wuhan-lr.aliyuncs.com"},
@@ -36,7 +34,9 @@ AlibabaCloud::EHPC20240730::Client::Client(Config &config): OpenApiClient(config
     {"cn-beijing" , "ehpc.cn-beijing.aliyuncs.com"},
     {"ap-southeast-5" , "ehpc.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-1" , "ehpc.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "ehpc.ap-northeast-1.aliyuncs.com"}
+    {"ap-northeast-1" , "ehpc.ap-northeast-1.aliyuncs.com"},
+    {"eu-central-1" , "ehpc.eu-central-1.aliyuncs.com"},
+    {"me-east-1" , "ehpc.me-east-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ehpc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -646,7 +646,7 @@ CreateReservedNodePoolResponse Client::createReservedNodePool(const CreateReserv
 }
 
 /**
- * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Adds one or more users to a specified cluster.
  *
  * @param tmpReq CreateUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +687,7 @@ CreateUsersResponse Client::createUsersWithOptions(const CreateUsersRequest &tmp
 }
 
 /**
- * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Adds one or more users to a specified cluster.
  *
  * @param request CreateUsersRequest
  * @return CreateUsersResponse
@@ -1363,6 +1363,44 @@ GetQueueResponse Client::getQueueWithOptions(const GetQueueRequest &request, con
 GetQueueResponse Client::getQueue(const GetQueueRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getQueueWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a cluster user.
+ *
+ * @param request GetUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserResponse
+ */
+GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUser"},
+    {"version" , "2024-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserResponse>();
+}
+
+/**
+ * @summary Queries the details of a cluster user.
+ *
+ * @param request GetUserRequest
+ * @return GetUserResponse
+ */
+GetUserResponse Client::getUser(const GetUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserWithOptions(request, runtime);
 }
 
 /**
@@ -2668,7 +2706,7 @@ UpdateQueueResponse Client::updateQueue(const UpdateQueueRequest &request) {
 }
 
 /**
- * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+ * @summary Updates the information of a specified cluster user, including properties such as user group and password.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2711,7 +2749,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+ * @summary Updates the information of a specified cluster user, including properties such as user group and password.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse

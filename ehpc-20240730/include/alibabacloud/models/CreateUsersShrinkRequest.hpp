@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The users that you want to add.
+    // The list of users.
     shared_ptr<string> userShrink_ {};
   };
 

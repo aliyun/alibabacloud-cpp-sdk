@@ -180,7 +180,7 @@ namespace EHPC20240730
       Models::CreateReservedNodePoolResponse createReservedNodePool(const Models::CreateReservedNodePoolRequest &request);
 
       /**
-       * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Adds one or more users to a specified cluster.
        *
        * @param tmpReq CreateUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -189,7 +189,7 @@ namespace EHPC20240730
       Models::CreateUsersResponse createUsersWithOptions(const Models::CreateUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Adds one or more users to a specified cluster.
        *
        * @param request CreateUsersRequest
        * @return CreateUsersResponse
@@ -442,6 +442,23 @@ namespace EHPC20240730
        * @return GetQueueResponse
        */
       Models::GetQueueResponse getQueue(const Models::GetQueueRequest &request);
+
+      /**
+       * @summary Queries the details of a cluster user.
+       *
+       * @param request GetUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserResponse
+       */
+      Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a cluster user.
+       *
+       * @param request GetUserRequest
+       * @return GetUserResponse
+       */
+      Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
        * @summary Installs an addon.
@@ -874,7 +891,7 @@ namespace EHPC20240730
       Models::UpdateQueueResponse updateQueue(const Models::UpdateQueueRequest &request);
 
       /**
-       * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+       * @summary Updates the information of a specified cluster user, including properties such as user group and password.
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -883,7 +900,7 @@ namespace EHPC20240730
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+       * @summary Updates the information of a specified cluster user, including properties such as user group and password.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse

@@ -80,6 +80,9 @@
 #include <alibabacloud/models/GetQueueRequest.hpp>
 #include <alibabacloud/models/GetQueueResponseBody.hpp>
 #include <alibabacloud/models/GetQueueResponse.hpp>
+#include <alibabacloud/models/GetUserRequest.hpp>
+#include <alibabacloud/models/GetUserResponseBody.hpp>
+#include <alibabacloud/models/GetUserResponse.hpp>
 #include <alibabacloud/models/InstallAddonRequest.hpp>
 #include <alibabacloud/models/InstallAddonResponseBody.hpp>
 #include <alibabacloud/models/InstallAddonResponse.hpp>
