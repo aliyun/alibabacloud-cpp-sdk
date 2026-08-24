@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_DTSAI20260401MODEL_HPP_
 #define ALIBABACLOUD_DTSAI20260401MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AuthorizeFileUploadRequest.hpp>
+#include <alibabacloud/models/AuthorizeFileUploadResponseBody.hpp>
+#include <alibabacloud/models/AuthorizeFileUploadResponse.hpp>
 #include <alibabacloud/models/CreateDocParserJobRequest.hpp>
 #include <alibabacloud/models/CreateDocParserJobAdvanceRequest.hpp>
 #include <alibabacloud/models/CreateDocParserJobResponseBody.hpp>

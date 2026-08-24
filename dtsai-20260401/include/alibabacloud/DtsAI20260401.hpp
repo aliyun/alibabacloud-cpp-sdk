@@ -23,10 +23,27 @@ namespace DtsAI20260401
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+       *
+       * @param request AuthorizeFileUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AuthorizeFileUploadResponse
+       */
+      Models::AuthorizeFileUploadResponse authorizeFileUploadWithOptions(const Models::AuthorizeFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+       *
+       * @param request AuthorizeFileUploadRequest
+       * @return AuthorizeFileUploadResponse
+       */
+      Models::AuthorizeFileUploadResponse authorizeFileUpload(const Models::AuthorizeFileUploadRequest &request);
+
+      /**
        * @summary Creates a document parsing task.
        *
        * @description - Region: Only China (Beijing) is supported.
-       * - Fees: Free during the public preview period. No fees are charged.
+       * - Fees: The service is free of charge during the public preview period.
        *
        * @param request CreateDocParserJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -38,7 +55,7 @@ namespace DtsAI20260401
        * @summary Creates a document parsing task.
        *
        * @description - Region: Only China (Beijing) is supported.
-       * - Fees: Free during the public preview period. No fees are charged.
+       * - Fees: The service is free of charge during the public preview period.
        *
        * @param request CreateDocParserJobRequest
        * @return CreateDocParserJobResponse
@@ -99,7 +116,7 @@ namespace DtsAI20260401
        * @summary Retrieves the content of a web page.
        *
        * @description - Region: Only China (Beijing) and Singapore regions are supported.
-       * - Pricing: Free of charge during the public preview period.
+       * - Fees: Free of charge during the public preview period.
        *
        * @param request WebFetchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -111,7 +128,7 @@ namespace DtsAI20260401
        * @summary Retrieves the content of a web page.
        *
        * @description - Region: Only China (Beijing) and Singapore regions are supported.
-       * - Pricing: Free of charge during the public preview period.
+       * - Fees: Free of charge during the public preview period.
        *
        * @param request WebFetchRequest
        * @return WebFetchResponse

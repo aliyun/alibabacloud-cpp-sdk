@@ -131,9 +131,13 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result data.
     shared_ptr<string> result_ {};
+    // The result type.
     shared_ptr<string> resultType_ {};
+    // The result URL.
     shared_ptr<string> resultUrl_ {};
+    // The status information.
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -84,6 +84,7 @@ namespace Models
 
 
   protected:
+    // The agent name.
     shared_ptr<string> agentName_ {};
     // The maximum number of results to return. Default value: 10. Valid values: 1 to 50.
     shared_ptr<int32_t> maxResults_ {};

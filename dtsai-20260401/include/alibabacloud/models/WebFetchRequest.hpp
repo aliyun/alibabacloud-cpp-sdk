@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The agent name.
     shared_ptr<string> agentName_ {};
     // The output format. Valid values:
     // 

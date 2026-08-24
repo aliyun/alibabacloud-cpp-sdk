@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The failure cause. This parameter has a value only when Status is failed.
+    // The failure reason. This parameter has a value only when Status is failed.
     shared_ptr<string> failureMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -114,9 +114,9 @@ namespace Models
     // 
     // - **success**: Completed. You can call DescribeDocParserJobResult to obtain the result.
     // 
-    // - **failed**: Failed. The cause is provided in FailureMessage.
+    // - **failed**: Failed. The reason is provided in FailureMessage.
     // 
-    // - **cancelled**: Canceled.
+    // - **cancelled**: Cancelled.
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

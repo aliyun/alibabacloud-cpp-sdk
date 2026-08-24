@@ -131,10 +131,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+ *
+ * @param request AuthorizeFileUploadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeFileUploadResponse
+ */
+AuthorizeFileUploadResponse Client::authorizeFileUploadWithOptions(const AuthorizeFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasFileFormat()) {
+    query["FileFormat"] = request.getFileFormat();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2026-04-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeFileUploadResponse>();
+}
+
+/**
+ * @summary Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+ *
+ * @param request AuthorizeFileUploadRequest
+ * @return AuthorizeFileUploadResponse
+ */
+AuthorizeFileUploadResponse Client::authorizeFileUpload(const AuthorizeFileUploadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeFileUploadWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a document parsing task.
  *
  * @description - Region: Only China (Beijing) is supported.
- * - Fees: Free during the public preview period. No fees are charged.
+ * - Fees: The service is free of charge during the public preview period.
  *
  * @param request CreateDocParserJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +310,7 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
  * @summary Creates a document parsing task.
  *
  * @description - Region: Only China (Beijing) is supported.
- * - Fees: Free during the public preview period. No fees are charged.
+ * - Fees: The service is free of charge during the public preview period.
  *
  * @param request CreateDocParserJobRequest
  * @return CreateDocParserJobResponse
@@ -478,7 +528,7 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatus(const Desc
  * @summary Retrieves the content of a web page.
  *
  * @description - Region: Only China (Beijing) and Singapore regions are supported.
- * - Pricing: Free of charge during the public preview period.
+ * - Fees: Free of charge during the public preview period.
  *
  * @param request WebFetchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -524,7 +574,7 @@ WebFetchResponse Client::webFetchWithOptions(const WebFetchRequest &request, con
  * @summary Retrieves the content of a web page.
  *
  * @description - Region: Only China (Beijing) and Singapore regions are supported.
- * - Pricing: Free of charge during the public preview period.
+ * - Fees: Free of charge during the public preview period.
  *
  * @param request WebFetchRequest
  * @return WebFetchResponse

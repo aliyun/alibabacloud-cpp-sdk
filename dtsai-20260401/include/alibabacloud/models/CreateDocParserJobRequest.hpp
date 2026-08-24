@@ -250,10 +250,15 @@ namespace Models
 
 
   protected:
+    // The agent name.
     shared_ptr<string> agentName_ {};
+    // The language type for speech recognition.
     shared_ptr<string> asrLanguage_ {};
+    // The audio clip output.
     shared_ptr<bool> audioClipOutput_ {};
+    // The audio window duration in seconds.
     shared_ptr<int32_t> audioWindowSeconds_ {};
+    // The chunk summary information.
     shared_ptr<bool> chunkSummary_ {};
     // The format of the input file. Valid values:
     // 
@@ -267,7 +272,7 @@ namespace Models
     // 
     // - **ppt**: PPT file in ppt format.
     // 
-    // - **txt**: plain text file.
+    // - **txt**: Plain text file.
     // 
     // - **md**: Markdown file.
     // 
@@ -284,19 +289,28 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> fileName_ {};
     // The HTTP or HTTPS URL of the file to be parsed.
-    // >SDKs for various languages provide an additional `CreateDocParserJobAdvance` method that supports passing a local file stream directly (such as InputStream in Java), without the need to upload the file to OSS and construct a FileUrl in advance. When using the Advance method, replace the `FileUrl` parameter (URL string) with the `FileUrlObject` parameter (file stream). All other request parameters remain unchanged. The SDK automatically performs the following operations:
+    // >SDKs for various programming languages additionally provide a `CreateDocParserJobAdvance` method that supports passing a local file stream directly (such as Java InputStream), without the need to upload the file to OSS and construct a FileUrl in advance. When using the Advance method, replace the `FileUrl` parameter (URL string) with the `FileUrlObject` parameter (file stream). All other request parameters remain unchanged. The SDK automatically performs the following operations:
     // >1. Obtains temporary OSS upload credentials.
     // >2. Uploads the file stream directly to OSS.
-    // >3. Calls the CreateDocParserJob operation with the generated OSS URL.
+    // >3. Calls the CreateDocParserJob operation using the generated OSS URL.
     shared_ptr<string> fileUrl_ {};
+    // The frame output result.
     shared_ptr<bool> frameOutput_ {};
+    // The global summary information.
     shared_ptr<bool> globalSummary_ {};
+    // The image processing format.
     shared_ptr<string> imageMode_ {};
+    // The image understanding and analysis setting.
     shared_ptr<string> imageUnderstanding_ {};
+    // The media chunk interval in seconds.
     shared_ptr<int32_t> mediaChunkIntervalSeconds_ {};
+    // The media chunk strategy.
     shared_ptr<string> mediaChunkStrategy_ {};
+    // The number of media frames per minute.
     shared_ptr<double> mediaFramesPerMinute_ {};
+    // The maximum frame budget for media.
     shared_ptr<int32_t> mediaMaxFrameBudget_ {};
+    // The minimum frame budget for media.
     shared_ptr<int32_t> mediaMinFrameBudget_ {};
     // The OSS file URL.
     shared_ptr<string> ossFileUrl_ {};
@@ -306,13 +320,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> outputFormat_ {};
+    // The parsing scene.
     shared_ptr<string> parseScene_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The response mode.
     shared_ptr<string> responseMode_ {};
+    // The result type.
     shared_ptr<string> resultType_ {};
+    // The table processing format.
     shared_ptr<string> tableFormat_ {};
   };
 

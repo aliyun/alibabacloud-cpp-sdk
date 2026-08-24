@@ -113,7 +113,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The document parsing result. The format is determined by the OutputFormat parameter specified in the CreateDocParserJob request.
     shared_ptr<string> result_ {};
+    // The result format.
     shared_ptr<string> resultType_ {};
+    // oss url
     shared_ptr<string> resultUrl_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

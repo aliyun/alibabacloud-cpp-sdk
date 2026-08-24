@@ -57,8 +57,9 @@ namespace Models
 
 
   protected:
+    // The agent name.
     shared_ptr<string> agentName_ {};
-    // The ID of the document parsing task. You can obtain the ID by calling CreateDocParserJob.
+    // The ID of the document parsing task. You can obtain this ID by calling CreateDocParserJob.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
