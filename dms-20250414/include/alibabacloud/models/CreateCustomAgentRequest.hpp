@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
+      DARABONBA_PTR_TO_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
       DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
+      DARABONBA_PTR_FROM_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
       DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -225,6 +227,8 @@ namespace Models
 
     protected:
       // The access type.
+      // 
+      // - mcp: access through MCP.
       shared_ptr<string> accessType_ {};
       shared_ptr<string> kbUuid_ {};
       // The ID of the MCP Server.
@@ -303,7 +307,7 @@ namespace Models
       shared_ptr<bool> skipPlan_ {};
       // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the web report rendering confirmation.
+      // Specifies whether to skip the web report generation confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -382,7 +386,8 @@ namespace Models
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
         && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfig_ == nullptr && this->instruction_ == nullptr
         && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr
-        && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
@@ -484,6 +489,15 @@ namespace Models
     inline CreateCustomAgentRequest& setTextReportConfig(string textReportConfig) { DARABONBA_PTR_SET_VALUE(textReportConfig_, textReportConfig) };
 
 
+    // userSpecifiedSkillList Field Functions 
+    bool hasUserSpecifiedSkillList() const { return this->userSpecifiedSkillList_ != nullptr;};
+    void deleteUserSpecifiedSkillList() { this->userSpecifiedSkillList_ = nullptr;};
+    inline const vector<string> & getUserSpecifiedSkillList() const { DARABONBA_PTR_GET_CONST(userSpecifiedSkillList_, vector<string>) };
+    inline vector<string> getUserSpecifiedSkillList() { DARABONBA_PTR_GET(userSpecifiedSkillList_, vector<string>) };
+    inline CreateCustomAgentRequest& setUserSpecifiedSkillList(const vector<string> & userSpecifiedSkillList) { DARABONBA_PTR_SET_VALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+    inline CreateCustomAgentRequest& setUserSpecifiedSkillList(vector<string> && userSpecifiedSkillList) { DARABONBA_PTR_SET_RVALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+
+
     // webReportConfig Field Functions 
     bool hasWebReportConfig() const { return this->webReportConfig_ != nullptr;};
     void deleteWebReportConfig() { this->webReportConfig_ = nullptr;};
@@ -509,19 +523,19 @@ namespace Models
     shared_ptr<CreateCustomAgentRequest::CallbackConfig> callbackConfig_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data range in **JSON string format**.
-    // - Common parameter description
-    //   - tableFlag: true indicates a specified data range.
+    // The specified data scope in **JSON character string format**.
+    // - Common metric description
+    //   - tableFlag: true indicates that a data scope is specified.
     //   - scope: personal is a fixed value.
     //   - personal: pass parameters for file or database types.
     // 
     // **File type**. Pass parameters in the following format:
     // - DataSourceType: remote_data_center is a fixed value.
-    // - FileId: The file ID.
-    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: The table name returned by the ListDataCenterTable operation.
-    // - TableIds: The TableId returned by the ListDataCenterTable operation.
-    // - RegionId: The current region.
+    // - FileId: the file ID.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name.
+    // - Tables: the table name returned by the ListDataCenterTable operation.
+    // - TableIds: the TableId returned by the ListDataCenterTable operation.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -543,15 +557,15 @@ namespace Models
     // 
     // **Database type**. Pass parameters as follows:
     // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
-    // - FileId: The instance name (deprecated).
-    // - DbName: The database name returned by the data center operation.
-    // - Database: The database name returned by the data center operation.
-    // - Tables: The table name returned by the data center operation.
-    // - TableIds: The TableId returned by the data center operation.
-    // - Engine: The engine type (mysql or postgresql).
-    // - RegionId: The current region.
+    // - DmsInstanceId: the DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: the DMS database ID returned by the data center operation.
+    // - FileId: the instance name (deprecated).
+    // - DbName: the database name returned by the data center operation.
+    // - Database: the database name returned by the data center operation.
+    // - Tables: the table name returned by the data center operation.
+    // - TableIds: the TableId returned by the data center operation.
+    // - Engine: the DPI engine type (mysql or postgresql).
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -580,10 +594,12 @@ namespace Models
     // The execution configuration.
     shared_ptr<CreateCustomAgentRequest::ExecutionConfig> executionConfig_ {};
     // The instruction.
+    // - Input limit: a maximum of 10000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
+    // - Input limit: a maximum of 10000 characters.
     shared_ptr<string> knowledge_ {};
-    // The external knowledge base configurations.
+    // The external knowledge base.
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
     // The name of the custom agent.
@@ -594,6 +610,7 @@ namespace Models
     shared_ptr<CreateCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
     // The text report format.
     shared_ptr<string> textReportConfig_ {};
+    shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     // The web report format.
     shared_ptr<string> webReportConfig_ {};
     shared_ptr<string> webReportTheme_ {};

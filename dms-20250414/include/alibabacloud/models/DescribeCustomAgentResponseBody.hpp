@@ -70,6 +70,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
+        DARABONBA_PTR_TO_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
         DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
         DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
         DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -104,6 +105,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
+        DARABONBA_PTR_FROM_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
         DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
         DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
         DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -168,7 +170,7 @@ namespace Models
       protected:
         // The cron expression for timed scheduling.
         shared_ptr<string> cronExpression_ {};
-        // The query for the periodic task.
+        // The query for the scheduled task.
         shared_ptr<string> query_ {};
         // The referenced historical session ID.
         shared_ptr<string> relatedSessionId_ {};
@@ -442,8 +444,8 @@ namespace Models
         && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
         && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr
         && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr
-        && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr
+        && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -657,6 +659,15 @@ namespace Models
       inline Data& setTextReportConfig(string textReportConfig) { DARABONBA_PTR_SET_VALUE(textReportConfig_, textReportConfig) };
 
 
+      // userSpecifiedSkillList Field Functions 
+      bool hasUserSpecifiedSkillList() const { return this->userSpecifiedSkillList_ != nullptr;};
+      void deleteUserSpecifiedSkillList() { this->userSpecifiedSkillList_ = nullptr;};
+      inline const vector<string> & getUserSpecifiedSkillList() const { DARABONBA_PTR_GET_CONST(userSpecifiedSkillList_, vector<string>) };
+      inline vector<string> getUserSpecifiedSkillList() { DARABONBA_PTR_GET(userSpecifiedSkillList_, vector<string>) };
+      inline Data& setUserSpecifiedSkillList(const vector<string> & userSpecifiedSkillList) { DARABONBA_PTR_SET_VALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+      inline Data& setUserSpecifiedSkillList(vector<string> && userSpecifiedSkillList) { DARABONBA_PTR_SET_RVALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+
+
       // webReportConfig Field Functions 
       bool hasWebReportConfig() const { return this->webReportConfig_ != nullptr;};
       void deleteWebReportConfig() { this->webReportConfig_ = nullptr;};
@@ -705,7 +716,7 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The instruction.
       shared_ptr<string> instruction_ {};
-      // Specifies whether a periodic task is configured.
+      // Specifies whether a scheduled task is configured.
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
@@ -717,7 +728,7 @@ namespace Models
       shared_ptr<string> modifierUserName_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The next run time of the periodic task.
+      // The next run time of the scheduled task.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
       shared_ptr<string> offlineTime_ {};
@@ -727,12 +738,13 @@ namespace Models
       shared_ptr<string> relatedSessionId_ {};
       // The publish time.
       shared_ptr<string> releaseTime_ {};
-      // The periodic task configuration.
+      // The scheduled task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       // The status of the custom agent.
       shared_ptr<string> status_ {};
       // The text report format.
       shared_ptr<string> textReportConfig_ {};
+      shared_ptr<vector<string>> userSpecifiedSkillList_ {};
       // The web report format.
       shared_ptr<string> webReportConfig_ {};
       shared_ptr<string> webReportTheme_ {};
@@ -784,7 +796,7 @@ namespace Models
     shared_ptr<DescribeCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -47,6 +47,68 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary AddDataAgentMemory
+ *
+ * @param request AddDataAgentMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDataAgentMemoryResponse
+ */
+AddDataAgentMemoryResponse Client::addDataAgentMemoryWithOptions(const AddDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasFromId()) {
+    query["FromId"] = request.getFromId();
+  }
+
+  if (!!request.hasLabel()) {
+    query["Label"] = request.getLabel();
+  }
+
+  if (!!request.hasMemFrom()) {
+    query["MemFrom"] = request.getMemFrom();
+  }
+
+  if (!!request.hasSessionUuid()) {
+    query["SessionUuid"] = request.getSessionUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddDataAgentMemory"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDataAgentMemoryResponse>();
+}
+
+/**
+ * @summary AddDataAgentMemory
+ *
+ * @param request AddDataAgentMemoryRequest
+ * @return AddDataAgentMemoryResponse
+ */
+AddDataAgentMemoryResponse Client::addDataAgentMemory(const AddDataAgentMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDataAgentMemoryWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds a user to a specified workspace.
  *
  * @param request AddUserToDataAgentWorkspaceRequest
@@ -667,6 +729,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
     request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
   }
 
+  if (!!tmpReq.hasUserSpecifiedSkillList()) {
+    request.setUserSpecifiedSkillListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserSpecifiedSkillList(), "UserSpecifiedSkillList", "json"));
+  }
+
   json query = {};
   if (!!request.hasCallbackConfigShrink()) {
     query["CallbackConfig"] = request.getCallbackConfigShrink();
@@ -718,6 +784,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 
   if (!!request.hasTextReportConfig()) {
     query["TextReportConfig"] = request.getTextReportConfig();
+  }
+
+  if (!!request.hasUserSpecifiedSkillListShrink()) {
+    query["UserSpecifiedSkillList"] = request.getUserSpecifiedSkillListShrink();
   }
 
   if (!!request.hasWebReportConfig()) {
@@ -5740,6 +5810,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
     request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
   }
 
+  if (!!tmpReq.hasUserSpecifiedSkillList()) {
+    request.setUserSpecifiedSkillListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserSpecifiedSkillList(), "UserSpecifiedSkillList", "json"));
+  }
+
   json query = {};
   if (!!request.hasCallbackConfigShrink()) {
     query["CallbackConfig"] = request.getCallbackConfigShrink();
@@ -5795,6 +5869,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 
   if (!!request.hasTextReportConfig()) {
     query["TextReportConfig"] = request.getTextReportConfig();
+  }
+
+  if (!!request.hasUserSpecifiedSkillListShrink()) {
+    query["UserSpecifiedSkillList"] = request.getUserSpecifiedSkillListShrink();
   }
 
   if (!!request.hasWebReportConfig()) {
@@ -6230,7 +6308,13 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
 /**
  * @summary Sends a user message to a specified session or cancels a session.
  *
- * @description ## Request description.
+ * @description ## Request description
+ * - `agent_id` and `session_id` are required fields.
+ * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+ * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - When `message_type` is `additional`, the `question` field is required.
+ * - `quoted_message` can be used to quote the user\\"s previous message content.
+ * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6337,7 +6421,13 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 /**
  * @summary Sends a user message to a specified session or cancels a session.
  *
- * @description ## Request description.
+ * @description ## Request description
+ * - `agent_id` and `session_id` are required fields.
+ * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+ * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - When `message_type` is `additional`, the `question` field is required.
+ * - `quoted_message` can be used to quote the user\\"s previous message content.
+ * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse

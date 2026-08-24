@@ -128,7 +128,7 @@ namespace Models
         shared_ptr<string> reportPrompt_ {};
         // The report theme. Valid values: default, journal, legacy, neobrutalism.
         shared_ptr<string> reportTheme_ {};
-        // The service type. Valid values: TextReport, WebReport, indicating whether the task generates a text report or a web report. Currently only WebReport is supported.
+        // The service type. Valid values: TextReport, WebReport. These values indicate whether the task generates a text report or a web report. Currently only WebReport is supported.
         shared_ptr<string> reportType_ {};
       };
 
@@ -163,6 +163,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SkipPlan, skipPlan_);
         DARABONBA_PTR_TO_JSON(SkipSqlConfirm, skipSqlConfirm_);
         DARABONBA_PTR_TO_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
+        DARABONBA_PTR_TO_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       };
       friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
@@ -178,6 +179,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SkipPlan, skipPlan_);
         DARABONBA_PTR_FROM_JSON(SkipSqlConfirm, skipSqlConfirm_);
         DARABONBA_PTR_FROM_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
+        DARABONBA_PTR_FROM_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       };
       SessionConfig() = default ;
       SessionConfig(const SessionConfig &) = default ;
@@ -193,7 +195,7 @@ namespace Models
       virtual bool empty() const override { return this->customAgentId_ == nullptr
         && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->kbUuidList_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr
         && this->mode_ == nullptr && this->planMode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr && this->skipPlan_ == nullptr
-        && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
+        && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr && this->userSpecifiedSkillList_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -285,6 +287,15 @@ namespace Models
       inline SessionConfig& setSkipWebReportConfirm(bool skipWebReportConfirm) { DARABONBA_PTR_SET_VALUE(skipWebReportConfirm_, skipWebReportConfirm) };
 
 
+      // userSpecifiedSkillList Field Functions 
+      bool hasUserSpecifiedSkillList() const { return this->userSpecifiedSkillList_ != nullptr;};
+      void deleteUserSpecifiedSkillList() { this->userSpecifiedSkillList_ = nullptr;};
+      inline const vector<string> & getUserSpecifiedSkillList() const { DARABONBA_PTR_GET_CONST(userSpecifiedSkillList_, vector<string>) };
+      inline vector<string> getUserSpecifiedSkillList() { DARABONBA_PTR_GET(userSpecifiedSkillList_, vector<string>) };
+      inline SessionConfig& setUserSpecifiedSkillList(const vector<string> & userSpecifiedSkillList) { DARABONBA_PTR_SET_VALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+      inline SessionConfig& setUserSpecifiedSkillList(vector<string> && userSpecifiedSkillList) { DARABONBA_PTR_SET_RVALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+
+
     protected:
       // Deprecated. Use the input parameter of CreateAgentSession instead.
       shared_ptr<string> customAgentId_ {};
@@ -294,18 +305,18 @@ namespace Models
       shared_ptr<string> enableSearch_ {};
       // The list of knowledge base IDs.
       shared_ptr<string> kbUuidList_ {};
-      // Currently only Chinese and English are supported. The default value is Chinese. Only uppercase is supported.
+      // Currently only Chinese and English are supported. The default is Chinese. Only uppercase is supported.
       shared_ptr<string> language_ {};
       // The MCP server IDs in the session configuration.
       shared_ptr<string> mcpServerIds_ {};
       // The mode. Valid values:
-      // - **ASK_DATA**: data query mode.
-      // - **ANALYSIS**: analysis mode.
-      // - **INSIGHT**: insight mode.
+      //  - **ASK_DATA**: data query mode.
+      //  - **ANALYSIS**: analysis mode.
+      //  - **INSIGHT**: insight mode.
       shared_ptr<string> mode_ {};
       // Specifies whether to enable the plan. Valid values: disable, enable, force. Default value: enable.
       shared_ptr<string> planMode_ {};
-      // The text of up to 64 characters that is used as a watermark in the generated PDF report.
+      // Text of up to 64 characters that is used as a watermark in the generated PDF report.
       shared_ptr<string> reportWaterMark_ {};
       // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
@@ -313,8 +324,9 @@ namespace Models
       shared_ptr<bool> skipPlan_ {};
       // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the web report rendering confirmation.
+      // Specifies whether to skip the web report generation confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
+      shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     };
 
     class DataSources : public Darabonba::Model {
@@ -426,9 +438,9 @@ namespace Models
 
 
         protected:
-          // The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, SQL statements without proper permissions are generated and blocked, which reduces DataAgent analysis speed and effectiveness.
+          // The list of columns allowed for querying in the current table. If left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in DataAgent prompts, knowledge, or instructions. Otherwise, unauthorized SQL statements may be generated and blocked, reducing DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
-          // The required row filter condition for the current table. If this parameter is not specified, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
+          // The required row filter condition for the current table. If left empty, this constraint is ignored. If specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
           // The table name to which the permission constraint rule applies.
           shared_ptr<string> tableName_ {};
@@ -542,11 +554,11 @@ namespace Models
 
 
     protected:
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values: remote_data_center, database, indicating whether the analysis is for a file or a database.
+      // The data source type. Valid values: remote_data_center, database. These values indicate whether the analysis is for a file or a database.
       shared_ptr<string> dataSourceType_ {};
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
@@ -558,9 +570,9 @@ namespace Models
       shared_ptr<string> engine_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> location_ {};
-      // The permission constraints for querying the current data source. The permission constraint feature is in canary release. This field does not take effect for users who are not included in the canary release.
+      // The permission constraints for querying the current data source. The permission constraint feature is available through canary release. This field does not take effect for users who are not included in the canary release.
       shared_ptr<DataSources::Permission> permission_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -677,9 +689,9 @@ namespace Models
 
 
         protected:
-          // The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, SQL statements without proper permissions are generated and blocked, which reduces DataAgent analysis speed and effectiveness.
+          // The list of columns allowed for querying in the current table. If left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in DataAgent prompts, knowledge, or instructions. Otherwise, unauthorized SQL statements may be generated and blocked, reducing DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
-          // The required row filter condition for the current table. If this parameter is not specified, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
+          // The required row filter condition for the current table. If left empty, this constraint is ignored. If specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
           // The table name to which the permission constraint rule applies.
           shared_ptr<string> tableName_ {};
@@ -793,11 +805,11 @@ namespace Models
 
 
     protected:
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> dataSourceId_ {};
       // The data source type. Valid values: `[remote_data_center, database]`, indicating whether the analysis is for a file or a database.
       shared_ptr<string> dataSourceType_ {};
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> database_ {};
       // The database name.
       shared_ptr<string> dbName_ {};
@@ -809,9 +821,9 @@ namespace Models
       shared_ptr<string> engine_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // Deprecated. You do not need to specify this parameter.
+      // Deprecated. No input is required.
       shared_ptr<string> location_ {};
-      // The permission constraints for querying the current data source. The permission constraint feature is in canary release. This field does not take effect for users who are not included in the canary release.
+      // The permission constraints for querying the current data source. The permission constraint feature is available through canary release. This field does not take effect for users who are not included in the canary release.
       shared_ptr<DataSource::Permission> permission_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -937,47 +949,47 @@ namespace Models
 
 
   protected:
-    // The agent ID. This is a required field. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
+    // The agent ID. This is a required field. You can obtain the current AgentID from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentID you need to specify may change with each request.
     shared_ptr<string> agentId_ {};
-    // The Data Management unit you are currently in. If you select an analytics database, this information is used to correctly connect to your Data Management instance. You can go to the DAS console to view your current Data Management unit. If you are a user on the Alibaba Cloud China Website (www.aliyun.com), you can directly enter cn-hangzhou.
+    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. Go to the DAS console to view your current Data Management unit. If you are a user of the Alibaba Cloud China Website (www.aliyun.com), enter cn-hangzhou.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter can be left empty. This parameter supports only one data source. Use the DataSources parameter instead.
+    // The data source information. This parameter can be left empty. Only one data source can be specified for this parameter. Use the DataSources parameter instead.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
     // The detailed data source information. This parameter can be left empty.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
-    // The message content to send to the agent.
+    // The message content to send to the Agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. Default value: `[primary]`.
+    // The message type. Default value: `[primary]`.  
     // 
-    // - Under normal circumstances, when interacting with the Agent, the message type is `[primary]`.
+    // - For regular interactions with the Agent, the message type is `[primary]`.
     // 
     // - When the message is a response to the Agent\\"s Human-in-Loop question, the type should be `[additional]`.
     // 
-    // - When the message is intended to trigger a report generation, the type should be `[report]`.
+    // - When the message is to trigger a report generation, the type should be `[report]`.
     // 
-    // - When the message is intended to cancel the current session, the type should be `[cancel]`.
+    // - When the message is to cancel the current session, the type should be `[cancel]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // This is a required field when the message type is `additional`. Specify the specific question that the agent asks the user through Human-in-Loop.
+    // A required field when the message type is `additional`. Specifies the specific question that the Agent asks the user through Human-in-Loop.
     shared_ptr<string> question_ {};
-    // The quoted content. This is typically used when interacting with the agent.
+    // The quoted content, typically used during interactions with the Agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after the analysis is complete, leave reply_to empty or set it to "0".
+    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), reply_to should be set to the exact Checkpoint sequence number carried by that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after analysis is complete, reply_to can be left empty or set to "0".  
     // 
-    // This field affects how the Agent decides to process the message. Passing an incorrect value may cause the analysis results to fall short of expectations.
+    // This field affects how the Agent decides to process the message. Passing an incorrect value may result in analysis results that do not meet expectations.
     shared_ptr<string> replyTo_ {};
-    // The special configuration for the current session. For the same session, only the configuration passed with the first SendMessage call takes effect.
+    // The special configuration for this session. For the same session, only the configuration passed with the first SendMessage call takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
     // The session ID. This is a required field. You can obtain the SessionId by calling CreateAgentSession.
     shared_ptr<string> sessionId_ {};
     // The configuration items that affect only the current task.
     shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
-    // The user OSS bucket. If this parameter is not specified, analysis data is securely stored in the built-in storage.
+    // The user\\"s OSS bucket. If left empty, analysis data is securely stored in the built-in storage.
     shared_ptr<string> userOssBucket_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

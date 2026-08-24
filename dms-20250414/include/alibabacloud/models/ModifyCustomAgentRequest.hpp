@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
+      DARABONBA_PTR_TO_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
       DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
+      DARABONBA_PTR_FROM_JSON(UserSpecifiedSkillList, userSpecifiedSkillList_);
       DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
       DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -384,8 +386,8 @@ namespace Models
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
         && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfig_ == nullptr
         && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->name_ == nullptr
-        && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr
+        && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
@@ -492,6 +494,15 @@ namespace Models
     void deleteTextReportConfig() { this->textReportConfig_ = nullptr;};
     inline string getTextReportConfig() const { DARABONBA_PTR_GET_DEFAULT(textReportConfig_, "") };
     inline ModifyCustomAgentRequest& setTextReportConfig(string textReportConfig) { DARABONBA_PTR_SET_VALUE(textReportConfig_, textReportConfig) };
+
+
+    // userSpecifiedSkillList Field Functions 
+    bool hasUserSpecifiedSkillList() const { return this->userSpecifiedSkillList_ != nullptr;};
+    void deleteUserSpecifiedSkillList() { this->userSpecifiedSkillList_ = nullptr;};
+    inline const vector<string> & getUserSpecifiedSkillList() const { DARABONBA_PTR_GET_CONST(userSpecifiedSkillList_, vector<string>) };
+    inline vector<string> getUserSpecifiedSkillList() { DARABONBA_PTR_GET(userSpecifiedSkillList_, vector<string>) };
+    inline ModifyCustomAgentRequest& setUserSpecifiedSkillList(const vector<string> & userSpecifiedSkillList) { DARABONBA_PTR_SET_VALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
+    inline ModifyCustomAgentRequest& setUserSpecifiedSkillList(vector<string> && userSpecifiedSkillList) { DARABONBA_PTR_SET_RVALUE(userSpecifiedSkillList_, userSpecifiedSkillList) };
 
 
     // webReportConfig Field Functions 
@@ -608,6 +619,7 @@ namespace Models
     shared_ptr<ModifyCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
     // The text report format.
     shared_ptr<string> textReportConfig_ {};
+    shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     // The web report format.
     shared_ptr<string> webReportConfig_ {};
     shared_ptr<string> webReportTheme_ {};

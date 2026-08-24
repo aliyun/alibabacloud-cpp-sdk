@@ -21,6 +21,23 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary AddDataAgentMemory
+       *
+       * @param request AddDataAgentMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDataAgentMemoryResponse
+       */
+      Models::AddDataAgentMemoryResponse addDataAgentMemoryWithOptions(const Models::AddDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AddDataAgentMemory
+       *
+       * @param request AddDataAgentMemoryRequest
+       * @return AddDataAgentMemoryResponse
+       */
+      Models::AddDataAgentMemoryResponse addDataAgentMemory(const Models::AddDataAgentMemoryRequest &request);
+
+      /**
        * @summary Adds a user to a specified workspace.
        *
        * @param request AddUserToDataAgentWorkspaceRequest
@@ -1799,7 +1816,13 @@ namespace Dms20250414
       /**
        * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * - `agent_id` and `session_id` are required fields.
+       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - When `message_type` is `additional`, the `question` field is required.
+       * - `quoted_message` can be used to quote the user\\"s previous message content.
+       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1810,7 +1833,13 @@ namespace Dms20250414
       /**
        * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request description.
+       * @description ## Request description
+       * - `agent_id` and `session_id` are required fields.
+       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - When `message_type` is `additional`, the `question` field is required.
+       * - `quoted_message` can be used to quote the user\\"s previous message content.
+       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
