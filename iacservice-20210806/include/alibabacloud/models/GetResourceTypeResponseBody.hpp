@@ -284,6 +284,7 @@ namespace Models
       shared_ptr<string> resourceDetailPageUrl_ {};
       // The URL of the resources page.
       shared_ptr<string> resourceListPageUrl_ {};
+      // The Alibaba Cloud resource type, in the format of ALIYUN::<cloud service>::<resource type>.
       shared_ptr<string> resourceType_ {};
       // The resource status.
       shared_ptr<string> status_ {};

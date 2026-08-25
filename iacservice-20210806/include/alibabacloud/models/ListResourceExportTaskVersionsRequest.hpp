@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The export version number.
     shared_ptr<string> exportVersion_ {};
-    // The search keyword. Fuzzy match is supported for export version names.
+    // The search keyword. Fuzzy search on export version names is supported.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -89,7 +89,7 @@ namespace Models
     // - Pending: preparing to run
     // - Success: succeeded
     // - Errored: failed
-    // - Canceled: canceled.
+    // - Canceled: canceled
     shared_ptr<string> status_ {};
   };
 

@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(executeType, executeType_);
         DARABONBA_PTR_TO_JSON(failedReason, failedReason_);
         DARABONBA_PTR_TO_JSON(jobId, jobId_);
+        DARABONBA_PTR_TO_JSON(logOutputPath, logOutputPath_);
         DARABONBA_PTR_TO_JSON(outputs, outputs_);
         DARABONBA_PTR_TO_JSON(parameters, parameters_);
         DARABONBA_PTR_TO_JSON(planOutputs, planOutputs_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(executeType, executeType_);
         DARABONBA_PTR_FROM_JSON(failedReason, failedReason_);
         DARABONBA_PTR_FROM_JSON(jobId, jobId_);
+        DARABONBA_PTR_FROM_JSON(logOutputPath, logOutputPath_);
         DARABONBA_PTR_FROM_JSON(outputs, outputs_);
         DARABONBA_PTR_FROM_JSON(parameters, parameters_);
         DARABONBA_PTR_FROM_JSON(planOutputs, planOutputs_);
@@ -155,7 +157,7 @@ namespace Models
 
 
         protected:
-          // The difference information of the resource change.
+          // The diff information of the resource change.
           shared_ptr<string> change_ {};
           // The types of resource change actions included in this resource change.
           shared_ptr<vector<string>> resourceActions_ {};
@@ -254,12 +256,12 @@ namespace Models
 
       protected:
         // The change type of the component. Valid values:
-        // - create: all resource changes in the component are additions.
-        // - delete: all resource changes in the component are deletions.
-        // - read: all resource changes in the component are read operations.
-        // - update: resource changes in the component include two or more types among additions, deletions, and read operations.
+        // - create: All resource changes in the component are creations.
+        // - delete: All resource changes in the component are deletions.
+        // - read: All resource changes in the component are reads.
+        // - update: Resource changes in the component include two or more types among creation, deletion, and read.
         shared_ptr<string> moduleAction_ {};
-        // The number of resources to be added, updated, and destroyed in this deployment.
+        // The number of resources to be created, updated, and destroyed in this deployment.
         shared_ptr<PlanOutputs::ModuleActionDetail> moduleActionDetail_ {};
         // The resource change information.
         shared_ptr<vector<PlanOutputs::ResourceChanges>> resourceChanges_ {};
@@ -347,6 +349,9 @@ namespace Models
         shared_ptr<string> description_ {};
         // The parameter name.
         shared_ptr<string> name_ {};
+        // Specifies whether the parameter is sensitive. Sensitive parameter values are not visible in the console or API. Valid values:
+        // - true: Sensitive.
+        // - false: Not sensitive.
         shared_ptr<bool> sensitive_ {};
         // The parameter type.
         shared_ptr<string> type_ {};
@@ -421,7 +426,7 @@ namespace Models
       protected:
         // The description.
         shared_ptr<string> description_ {};
-        // The expression, which can reference component outputs. Format: component.{component name}.{component output name}.
+        // The expression that can reference component outputs, in the format: component.{component name}.{component output name}.
         shared_ptr<string> expression_ {};
         // The name.
         shared_ptr<string> name_ {};
@@ -473,14 +478,14 @@ namespace Models
         // - **false**: No.
         // - **true**: Yes.
         shared_ptr<bool> autoApply_ {};
-        // Specifies whether this is a destroy job.
+        // Indicates whether this is a destroy job.
         shared_ptr<bool> isDestroy_ {};
       };
 
       virtual bool empty() const override { return this->config_ == nullptr
         && this->configVersion_ == nullptr && this->createTime_ == nullptr && this->deploymentName_ == nullptr && this->deploymentNo_ == nullptr && this->deploymentVersion_ == nullptr
-        && this->elapsedTime_ == nullptr && this->executeType_ == nullptr && this->failedReason_ == nullptr && this->jobId_ == nullptr && this->outputs_ == nullptr
-        && this->parameters_ == nullptr && this->planOutputs_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->elapsedTime_ == nullptr && this->executeType_ == nullptr && this->failedReason_ == nullptr && this->jobId_ == nullptr && this->logOutputPath_ == nullptr
+        && this->outputs_ == nullptr && this->parameters_ == nullptr && this->planOutputs_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
       // config Field Functions 
       bool hasConfig() const { return this->config_ != nullptr;};
       void deleteConfig() { this->config_ = nullptr;};
@@ -553,6 +558,13 @@ namespace Models
       inline Deployments& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
+      // logOutputPath Field Functions 
+      bool hasLogOutputPath() const { return this->logOutputPath_ != nullptr;};
+      void deleteLogOutputPath() { this->logOutputPath_ = nullptr;};
+      inline string getLogOutputPath() const { DARABONBA_PTR_GET_DEFAULT(logOutputPath_, "") };
+      inline Deployments& setLogOutputPath(string logOutputPath) { DARABONBA_PTR_SET_VALUE(logOutputPath_, logOutputPath) };
+
+
       // outputs Field Functions 
       bool hasOutputs() const { return this->outputs_ != nullptr;};
       void deleteOutputs() { this->outputs_ = nullptr;};
@@ -599,11 +611,11 @@ namespace Models
       shared_ptr<Deployments::Config> config_ {};
       // The configuration version, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
       shared_ptr<string> configVersion_ {};
-      // The creation time.
+      // The creation time in UTC, in the format of YYYY-MM-DDTHH:mm:ssZ (ISO 8601).
       shared_ptr<string> createTime_ {};
       // The deployment name.
       shared_ptr<string> deploymentName_ {};
-      // The deployment number. The deployment number of each stack starts from 1 and increments each time a deployment is triggered.
+      // The deployment number. The deployment number for each stack starts from 1 and increments each time a deployment is successfully triggered.
       shared_ptr<string> deploymentNo_ {};
       // Deprecated field.
       shared_ptr<string> deploymentVersion_ {};
@@ -611,14 +623,16 @@ namespace Models
       shared_ptr<int64_t> elapsedTime_ {};
       // The execution type.
       // 
-      // Manual: manual execution (default).
+      // Manual: Manual execution (default).
       // 
-      // Auto: automatic execution.
+      // Auto: Automatic execution.
       shared_ptr<string> executeType_ {};
       // The failure reason.
       shared_ptr<string> failedReason_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
+      // OSS object key prefix for deployment logs
+      shared_ptr<string> logOutputPath_ {};
       // The outputs.
       shared_ptr<vector<Deployments::Outputs>> outputs_ {};
       // The parameter set content.
@@ -628,29 +642,29 @@ namespace Models
       // The deployment status.
       // | Name | Description |
       // |------|------|
-      // | Pending | The initial status after a deployment is created. |
-      // | PriorityQueued | The deployment is queued by priority. |
-      // | PlanQueued | The deployment is queued because no workflow is available after the deployment is created. |
-      // | ApplyQueued | The deployment is queued because no workflow is available during execution. |
+      // | Pending | The initial status after the deployment is created. |
+      // | PriorityQueued | Priority queuing in progress. |
+      // | PlanQueued | The deployment is queuing because no workflow is available after creation. |
+      // | ApplyQueued | The deployment is queuing because no workflow is available during execution. |
       // | Planning | The resource deployment is in the Plan phase. |
       // | Planned | The resource deployment has completed the Plan phase. |
-      // | ConfigProactiveInProgress | A compliance pre-check is in progress. |
-      // | ConfigProactiveSuccess | The compliance pre-check succeeded. |
-      // | DetectInProgress | Drift detection is in progress. |
-      // | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
+      // | ConfigProactiveInProgress | Compliance pre-check in progress. |
+      // | ConfigProactiveSuccess | Compliance pre-check succeeded. |
+      // | DetectInProgress | Drift detection in progress. |
+      // | ImportQueued | The deployment is queuing because no workflow is available during Import execution. |
       // | Importing | The resource deployment is in the Import phase. |
       // | Imported | The resource deployment has completed the Import phase. |
-      // | StateQueued | The deployment is queued because no workflow is available during the state command execution. |
+      // | StateQueued | The deployment is queuing because no workflow is available during state command execution. |
       // | Stating | The resource deployment is executing the state command. |
       // | Stated | The resource deployment has completed the state command execution. |
       // | Confirmed | The resource deployment has been confirmed after the Plan phase. |
-      // | PlannedAndFinished | No differences were found after the Plan phase. The deployment is in a final status. |
+      // | PlannedAndFinished | No diff was found after the Plan phase. The deployment is in a final status. |
       // | Applying | The resource deployment is in the Apply phase. |
       // | Applied | The resource deployment has completed the Apply phase. |
       // | Discarded | The resource deployment has been discarded and is in a final status. |
-      // | Errored | The deployment encountered an error and is in a final status. |
-      // | ConfigProactiveFailure | The compliance pre-check failed. |
-      // | Canceled | The deployment has been canceled and is in a final status. |.
+      // | Errored | The deployment execution encountered an error and is in a final status. |
+      // | ConfigProactiveFailure | Compliance pre-check failed. |
+      // | Canceled | The deployment execution has been canceled and is in a final status. |
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

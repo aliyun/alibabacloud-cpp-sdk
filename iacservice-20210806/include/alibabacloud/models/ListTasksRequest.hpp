@@ -170,14 +170,15 @@ namespace Models
   protected:
     // The group ID.
     shared_ptr<string> groupId_ {};
-    // The keyword for fuzzy search by task ID or task name.
+    // The keyword used to perform a fuzzy search by task ID or task name.
     shared_ptr<string> keyword_ {};
+    // The key ID.
     shared_ptr<string> kmsKeyId_ {};
-    // The module ID.
+    // The template ID.
     shared_ptr<string> moduleId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The project ID.
     shared_ptr<string> projectId_ {};
@@ -185,10 +186,10 @@ namespace Models
     // 
     // - Planning: The job is in the Plan execution phase.
     // - Planned: The job has completed the Plan execution.
-    // - PlannedAndFinished: After the Plan execution is completed, no diff is found, and the job enters the final state.
+    // - PlannedAndFinished: After the Plan execution is complete, no diff is found. The job is in a final state.
     // - Applying: The job is in the Apply execution phase.
     // - Applied: The job has completed the Apply execution.
-    // - Errored: The job execution encountered errors and entered the final state.
+    // - Errored: The job execution encountered an error and entered a final state.
     shared_ptr<string> status_ {};
     // The list of task tags.
     shared_ptr<vector<ListTasksRequest::Tag>> tag_ {};

@@ -44,7 +44,7 @@ namespace IaCService20210806
       Models::AddSharedAccountsResponse addSharedAccounts(const Models::AddSharedAccountsRequest &request);
 
       /**
-       * @summary Associate drift detection configuration
+       * @summary Associates a drift detection configuration.
        *
        * @param request AssociateDetectConfigRequest
        * @param headers map
@@ -54,7 +54,7 @@ namespace IaCService20210806
       Models::AssociateDetectConfigResponse associateDetectConfigWithOptions(const Models::AssociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associate drift detection configuration
+       * @summary Associates a drift detection configuration.
        *
        * @param request AssociateDetectConfigRequest
        * @return AssociateDetectConfigResponse
@@ -252,9 +252,9 @@ namespace IaCService20210806
        *
        * @description ## Operation description
        * - This operation creates a new parameter set.
-       * - The name field is required and can be up to 128 characters in length.
-       * - Each element in the parameters array must contain the name field. Other fields are optional.
-       * - Use the clientToken field to ensure the idempotence of the request.
+       * - The `name` field is required and can be up to 128 characters in length.
+       * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+       * - Use the `clientToken` field to ensure idempotence of the request.
        * - The request header must contain authentication information to ensure secure access.
        *
        * @param request CreateParameterSetRequest
@@ -269,9 +269,9 @@ namespace IaCService20210806
        *
        * @description ## Operation description
        * - This operation creates a new parameter set.
-       * - The name field is required and can be up to 128 characters in length.
-       * - Each element in the parameters array must contain the name field. Other fields are optional.
-       * - Use the clientToken field to ensure the idempotence of the request.
+       * - The `name` field is required and can be up to 128 characters in length.
+       * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+       * - Use the `clientToken` field to ensure idempotence of the request.
        * - The request header must contain authentication information to ensure secure access.
        *
        * @param request CreateParameterSetRequest
@@ -382,7 +382,7 @@ namespace IaCService20210806
       Models::CreateStackResponse createStack(const Models::CreateStackRequest &request);
 
       /**
-       * @summary Creates a node.
+       * @summary Creates a task.
        *
        * @description Single-user call frequency: 100 calls per second.
        *
@@ -394,7 +394,7 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTaskWithOptions(const Models::CreateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a node.
+       * @summary Creates a task.
        *
        * @description Single-user call frequency: 100 calls per second.
        *
@@ -404,7 +404,25 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
 
       /**
-       * @summary Delete drift detection configuration
+       * @summary Creates a node from a resource import result.
+       *
+       * @param request CreateTaskFromResourceImportRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTaskFromResourceImportResponse
+       */
+      Models::CreateTaskFromResourceImportResponse createTaskFromResourceImportWithOptions(const Models::CreateTaskFromResourceImportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a node from a resource import result.
+       *
+       * @param request CreateTaskFromResourceImportRequest
+       * @return CreateTaskFromResourceImportResponse
+       */
+      Models::CreateTaskFromResourceImportResponse createTaskFromResourceImport(const Models::CreateTaskFromResourceImportRequest &request);
+
+      /**
+       * @summary Deletes a bias detection configuration.
        *
        * @param request DeleteDetectConfigRequest
        * @param headers map
@@ -414,7 +432,7 @@ namespace IaCService20210806
       Models::DeleteDetectConfigResponse deleteDetectConfigWithOptions(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete drift detection configuration
+       * @summary Deletes a bias detection configuration.
        *
        * @param request DeleteDetectConfigRequest
        * @return DeleteDetectConfigResponse
@@ -615,7 +633,7 @@ namespace IaCService20210806
        * @summary Deletes a node.
        *
        * @description Single-user call frequency: 100 calls per second.
-       * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+       * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
        *
        * @param request DeleteTaskRequest
        * @param headers map
@@ -628,7 +646,7 @@ namespace IaCService20210806
        * @summary Deletes a node.
        *
        * @description Single-user call frequency: 100 calls per second.
-       * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+       * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
        *
        * @param request DeleteTaskRequest
        * @return DeleteTaskResponse
@@ -658,7 +676,7 @@ namespace IaCService20210806
       Models::DetectTerraformStateResponse detectTerraformState(const Models::DetectTerraformStateRequest &request);
 
       /**
-       * @summary Disassociate drift detection configuration
+       * @summary Dissociates a drift detection configuration.
        *
        * @param request DissociateDetectConfigRequest
        * @param headers map
@@ -668,7 +686,7 @@ namespace IaCService20210806
       Models::DissociateDetectConfigResponse dissociateDetectConfigWithOptions(const Models::DissociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociate drift detection configuration
+       * @summary Dissociates a drift detection configuration.
        *
        * @param request DissociateDetectConfigRequest
        * @return DissociateDetectConfigResponse
@@ -862,6 +880,24 @@ namespace IaCService20210806
       Models::GetDetectConfigResponse getDetectConfig(const string &detectConfigId, const Models::GetDetectConfigRequest &request);
 
       /**
+       * @summary Retrieves the encryption configuration.
+       *
+       * @param request GetEncryptionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEncryptionConfigResponse
+       */
+      Models::GetEncryptionConfigResponse getEncryptionConfigWithOptions(const Models::GetEncryptionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the encryption configuration.
+       *
+       * @param request GetEncryptionConfigRequest
+       * @return GetEncryptionConfigResponse
+       */
+      Models::GetEncryptionConfigResponse getEncryptionConfig(const Models::GetEncryptionConfigRequest &request);
+
+      /**
        * @summary Retrieves the result of a Terraform run.
        *
        * @description Retrieves the result of a Terraform run.
@@ -974,10 +1010,10 @@ namespace IaCService20210806
       /**
        * @summary Retrieves the details of a parameter set by parameter set ID.
        *
-       * @description ## Description
-       * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
-       * - Authentication is required to call this operation.
-       * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+       * @description ## Request description
+       * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+       * - Authentication is required to access this operation.
+       * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
        *
        * @param request GetParameterSetRequest
        * @param headers map
@@ -989,10 +1025,10 @@ namespace IaCService20210806
       /**
        * @summary Retrieves the details of a parameter set by parameter set ID.
        *
-       * @description ## Description
-       * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
-       * - Authentication is required to call this operation.
-       * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+       * @description ## Request description
+       * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+       * - Authentication is required to access this operation.
+       * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
        *
        * @param request GetParameterSetRequest
        * @return GetParameterSetResponse
@@ -1182,7 +1218,7 @@ namespace IaCService20210806
       Models::GetStackDeploymentsResponse getStackDeployments(const string &stackId, const Models::GetStackDeploymentsRequest &request);
 
       /**
-       * @summary Retrieves the trigger result of a stack.
+       * @summary Retrieves the trigger result of a Stack.
        *
        * @param request GetStackExecutionResultRequest
        * @param headers map
@@ -1192,7 +1228,7 @@ namespace IaCService20210806
       Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const Models::GetStackExecutionResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the trigger result of a stack.
+       * @summary Retrieves the trigger result of a Stack.
        *
        * @param request GetStackExecutionResultRequest
        * @return GetStackExecutionResultResponse
@@ -1202,7 +1238,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves the details of a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request GetTaskRequest
        * @param headers map
@@ -1214,7 +1250,7 @@ namespace IaCService20210806
       /**
        * @summary Retrieves the details of a task.
        *
-       * @description Single-user call frequency: 100 calls per second.
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request GetTaskRequest
        * @return GetTaskResponse
@@ -1454,16 +1490,16 @@ namespace IaCService20210806
       Models::ListModuleVersionResponse listModuleVersion(const string &moduleId, const Models::ListModuleVersionRequest &request);
 
       /**
-       * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+       * @summary Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
        *
        * @description ## Operation description
-       * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
-       * ### Notes
-       * - Use the pageNumber and pageSize parameters to control the number of returned results.
-       * - Use the name parameter to perform a fuzzy match on template names.
-       * - Use the source parameter to filter templates by source, such as OSS import or file upload.
-       * - Use the status parameter to filter templates by status, such as Created or Published.
-       * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+       * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+       * ### Precautions
+       * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+       * - Use the `name` parameter to perform a fuzzy match search on template names.
+       * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+       * - Use the `status` parameter to filter templates by status (such as created or published).
+       * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
        *
        * @param tmpReq ListModulesRequest
        * @param headers map
@@ -1473,16 +1509,16 @@ namespace IaCService20210806
       Models::ListModulesResponse listModulesWithOptions(const Models::ListModulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+       * @summary Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
        *
        * @description ## Operation description
-       * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
-       * ### Notes
-       * - Use the pageNumber and pageSize parameters to control the number of returned results.
-       * - Use the name parameter to perform a fuzzy match on template names.
-       * - Use the source parameter to filter templates by source, such as OSS import or file upload.
-       * - Use the status parameter to filter templates by status, such as Created or Published.
-       * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+       * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+       * ### Precautions
+       * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+       * - Use the `name` parameter to perform a fuzzy match search on template names.
+       * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+       * - Use the `status` parameter to filter templates by status (such as created or published).
+       * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
        *
        * @param request ListModulesRequest
        * @return ListModulesResponse
@@ -1511,10 +1547,10 @@ namespace IaCService20210806
        * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
        *
        * @description ## Operation description
-       * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+       * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
        * ### Notes
-       * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
-       * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+       * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+       * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
        *
        * @param request ListParameterSetsRequest
        * @param headers map
@@ -1527,10 +1563,10 @@ namespace IaCService20210806
        * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
        *
        * @description ## Operation description
-       * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+       * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
        * ### Notes
-       * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
-       * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+       * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+       * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
        *
        * @param request ListParameterSetsRequest
        * @return ListParameterSetsResponse
@@ -1608,7 +1644,7 @@ namespace IaCService20210806
       Models::ListRegistryModuleVersionsResponse listRegistryModuleVersions(const Models::ListRegistryModuleVersionsRequest &request);
 
       /**
-       * @summary Queries a list of registry modules.
+       * @summary Queries the list of Registry modules.
        *
        * @description Single-user call frequency: 200 calls per second.
        *
@@ -1620,7 +1656,7 @@ namespace IaCService20210806
       Models::ListRegistryModulesResponse listRegistryModulesWithOptions(const Models::ListRegistryModulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of registry modules.
+       * @summary Queries the list of Registry modules.
        *
        * @description Single-user call frequency: 200 calls per second.
        *
@@ -1699,7 +1735,7 @@ namespace IaCService20210806
        * @summary Queries a list of resource types by filter conditions with pagination support.
        *
        * @description ## Operation description
-       * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+       * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
        *
        * @param tmpReq ListResourceTypesRequest
        * @param headers map
@@ -1712,7 +1748,7 @@ namespace IaCService20210806
        * @summary Queries a list of resource types by filter conditions with pagination support.
        *
        * @description ## Operation description
-       * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+       * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
        *
        * @param request ListResourceTypesRequest
        * @return ListResourceTypesResponse
@@ -1774,9 +1810,9 @@ namespace IaCService20210806
       Models::ListStacksResponse listStacks(const Models::ListStacksRequest &request);
 
       /**
-       * @summary Queries a list of tasks.
+       * @summary Retrieves a list of tasks.
        *
-       * @description The maximum number of times that a single user can call this operation per second: 100.
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param tmpReq ListTasksRequest
        * @param headers map
@@ -1786,9 +1822,9 @@ namespace IaCService20210806
       Models::ListTasksResponse listTasksWithOptions(const Models::ListTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of tasks.
+       * @summary Retrieves a list of tasks.
        *
-       * @description The maximum number of times that a single user can call this operation per second: 100.
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request ListTasksRequest
        * @return ListTasksResponse
@@ -1906,7 +1942,25 @@ namespace IaCService20210806
       Models::RemoveSharedAccountsResponse removeSharedAccounts(const Models::RemoveSharedAccountsRequest &request);
 
       /**
-       * @summary Trigger Stack execution
+       * @summary Sets the encryption configuration.
+       *
+       * @param request SetEncryptionConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetEncryptionConfigResponse
+       */
+      Models::SetEncryptionConfigResponse setEncryptionConfigWithOptions(const Models::SetEncryptionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the encryption configuration.
+       *
+       * @param request SetEncryptionConfigRequest
+       * @return SetEncryptionConfigResponse
+       */
+      Models::SetEncryptionConfigResponse setEncryptionConfig(const Models::SetEncryptionConfigRequest &request);
+
+      /**
+       * @summary Triggers the execution of a stack.
        *
        * @param request TriggerStackExecutionRequest
        * @param headers map
@@ -1916,7 +1970,7 @@ namespace IaCService20210806
       Models::TriggerStackExecutionResponse triggerStackExecutionWithOptions(const Models::TriggerStackExecutionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Trigger Stack execution
+       * @summary Triggers the execution of a stack.
        *
        * @param request TriggerStackExecutionRequest
        * @return TriggerStackExecutionResponse
@@ -2028,9 +2082,9 @@ namespace IaCService20210806
        *
        * @description ## Operation description
        * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
-       * - If the request includes the parameters field, the parameter list in the parameter set is updated.
-       * - The clientToken field can be used to ensure the idempotence of the request.
-       * - The update operation requires a valid parameterSetId as a path parameter.
+       * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+       * - The `clientToken` field can be used to ensure the idempotence of the request.
+       * - The update operation requires a valid `parameterSetId` as a path parameter.
        * - The request must include authentication information to pass identity verification.
        *
        * @param request UpdateParameterSetAttributeRequest
@@ -2045,9 +2099,9 @@ namespace IaCService20210806
        *
        * @description ## Operation description
        * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
-       * - If the request includes the parameters field, the parameter list in the parameter set is updated.
-       * - The clientToken field can be used to ensure the idempotence of the request.
-       * - The update operation requires a valid parameterSetId as a path parameter.
+       * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+       * - The `clientToken` field can be used to ensure the idempotence of the request.
+       * - The update operation requires a valid `parameterSetId` as a path parameter.
        * - The request must include authentication information to pass identity verification.
        *
        * @param request UpdateParameterSetAttributeRequest
@@ -2158,7 +2212,7 @@ namespace IaCService20210806
       Models::UpdateStackResponse updateStack(const string &stackId, const Models::UpdateStackRequest &request);
 
       /**
-       * @summary Updates the properties of a task.
+       * @summary Updates the attributes of a node.
        *
        * @description Single-user call frequency: 100 calls per second.
        *
@@ -2170,7 +2224,7 @@ namespace IaCService20210806
       Models::UpdateTaskAttributeResponse updateTaskAttributeWithOptions(const string &taskId, const Models::UpdateTaskAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the properties of a task.
+       * @summary Updates the attributes of a node.
        *
        * @description Single-user call frequency: 100 calls per second.
        *

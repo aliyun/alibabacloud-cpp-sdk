@@ -143,8 +143,9 @@ namespace Models
   protected:
     // The group ID.
     shared_ptr<string> groupId_ {};
-    // The search keyword. Fuzzy match is supported for template names.
+    // The search keyword. Supports fuzzy match on template names.
     shared_ptr<string> keyword_ {};
+    // The template name.
     shared_ptr<string> moduleName_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

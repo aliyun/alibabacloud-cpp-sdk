@@ -136,7 +136,7 @@ namespace Models
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
-    // The keyword for searching resource codes or names. Fuzzy match is supported.
+    // The keyword for searching resource code or name. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
     // The maximum number of entries per page. Valid values: 0 to 200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
@@ -146,19 +146,19 @@ namespace Models
     shared_ptr<string> product_ {};
     // The order in which resource types are returned. Valid values:
     // - Normal (default): returned in normal order.
-    // - Top: returned in order of popularity.
+    // - Top: returned in order of popular access.
     shared_ptr<string> sort_ {};
-    // The status filter list. Valid values:
+    // The status list for filtering. Valid values:
     // - Available
-    // - Deprecated.
+    // - Deprecated
     shared_ptr<string> status_ {};
     // The product subcategory in Terraform.
     shared_ptr<string> subcategory_ {};
     // Specifies whether Terraformer is supported.
     shared_ptr<bool> supportTerraformer_ {};
-    // The Terraform provider version. If this parameter is left empty, the latest version is used by default.
+    // The Terraform Provider version. If this parameter is left empty, the latest version is used by default.
     shared_ptr<string> terraformProviderVersion_ {};
-    // The Terraform resources.
+    // The list of Terraform resources.
     shared_ptr<string> terraformResourceTypesShrink_ {};
   };
 

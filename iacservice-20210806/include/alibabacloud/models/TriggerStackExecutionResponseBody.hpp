@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Unique ID of the trigger.
+    // The unique ID of the trigger.
     shared_ptr<string> triggerId_ {};
   };
 

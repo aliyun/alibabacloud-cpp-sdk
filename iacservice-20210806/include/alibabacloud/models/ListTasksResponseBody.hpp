@@ -139,13 +139,13 @@ namespace Models
 
 
       protected:
-        // The tag key of the task.
+        // The task tag key.
         shared_ptr<string> key_ {};
-        // The tag key of the module.
+        // The tag key of the template.
         shared_ptr<string> tagKey_ {};
         // The tag value of the task.
         shared_ptr<string> tagValue_ {};
-        // The tag value of the task.
+        // The task tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -324,30 +324,30 @@ namespace Models
     protected:
       // Indicates whether the task is automatically executed.
       shared_ptr<bool> autoApply_ {};
-      // The time when the task was created.
+      // The time when the task was created, in UTC in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The job ID of the current task.
       shared_ptr<string> currentJobId_ {};
-      // The current job status.
+      // The status of the current job.
       shared_ptr<string> currentJobStatus_ {};
-      // Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources are included.
+      // Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources exist.
       shared_ptr<bool> deletionProtection_ {};
       // The task group information.
       shared_ptr<Tasks::GroupInfo> groupInfo_ {};
-      // The latest version of the module.
+      // The latest version number of the template.
       shared_ptr<string> latestModuleVersion_ {};
-      // The module ID.
+      // The template ID.
       shared_ptr<string> moduleId_ {};
-      // The module name.
+      // The template name.
       shared_ptr<string> moduleName_ {};
-      // The module version.
+      // The template version.
       shared_ptr<string> moduleVersion_ {};
       // The task name.
       shared_ptr<string> name_ {};
       // The task status. Valid values:
       // 
-      // - Available: The task is available, and no job is running.
-      // - Running: The task is running, and the current job is in progress.
+      // - Available: The task is in an available state with no job running.
+      // - Running: The task is in a running state with a current job in progress.
       shared_ptr<string> status_ {};
       // The list of task tags.
       shared_ptr<vector<Tasks::Tags>> tags_ {};
@@ -397,13 +397,13 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of tasks.
     shared_ptr<vector<ListTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

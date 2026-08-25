@@ -187,6 +187,7 @@ namespace Models
       shared_ptr<string> resourceDetailPageUrl_ {};
       // The URL of the resources page.
       shared_ptr<string> resourceListPageUrl_ {};
+      // The Alibaba Cloud resource type in the format of ALIYUN::\\<cloud service>::\\<resource type>.
       shared_ptr<string> resourceType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
@@ -196,7 +197,7 @@ namespace Models
       shared_ptr<string> subcategory_ {};
       // Specifies whether Terraformer is supported.
       shared_ptr<string> supportTerraformer_ {};
-      // The Terraform provider version.
+      // The Terraform Provider version.
       shared_ptr<string> terraformProviderVersion_ {};
       // The resource type in Terraform.
       shared_ptr<string> terraformResourceType_ {};
@@ -250,7 +251,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resources.
     shared_ptr<vector<ListResourceTypesResponseBody::ResourceTypes>> resourceTypes_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

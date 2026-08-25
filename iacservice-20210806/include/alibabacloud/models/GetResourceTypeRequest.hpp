@@ -58,14 +58,15 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
+    // 
     // - zh-CN: Chinese.
     // - en-US: English.
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
-    // Specifies whether to filter out read-only properties.
+    // Specifies whether to filter read-only properties.
     shared_ptr<bool> filterReadOnly_ {};
-    // The Terraform provider version. If left empty, the latest version is used by default.
+    // The Terraform provider version. If this parameter is left empty, the latest version is used by default.
     shared_ptr<string> terraformProviderVersion_ {};
   };
 

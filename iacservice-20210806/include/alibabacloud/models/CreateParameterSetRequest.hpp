@@ -103,13 +103,15 @@ namespace Models
     protected:
       // The parameter name.
       shared_ptr<string> name_ {};
+      // Specifies whether the parameter is a secret parameter. Secret parameters are hidden in API responses and on the console, and are stored with encryption.
       shared_ptr<bool> secret_ {};
-      // The parameter set status. Valid values:
+      // The parameter status. Valid values:
       // 
-      // - HAS_VALUE (default): Defines a specific value.
-      // - EXPLICIT_NULL: Explicitly sets the value to null.
+      // HAS_VALUE (default): Defines a specific value.
+      // 
+      // EXPLICIT_NULL: Explicitly sets the value to null.
       shared_ptr<string> status_ {};
-      // The parameter type. Valid values: string, number, bool, map(string), and list(string).
+      // The parameter type (string/number/bool/map(string)/list(string)).
       shared_ptr<string> type_ {};
       // The parameter value. Use JSON for complex types.
       shared_ptr<string> value_ {};
@@ -148,11 +150,11 @@ namespace Models
 
 
   protected:
-    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The description of the parameter set. Maximum length: 1024 characters.
+    // The description of the parameter set. Maximum length: 1,024 characters.
     shared_ptr<string> description_ {};
     // The name of the parameter set. Maximum length: 128 characters.
     // 

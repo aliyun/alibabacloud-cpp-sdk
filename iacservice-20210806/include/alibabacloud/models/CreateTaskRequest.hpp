@@ -159,9 +159,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the node.
+      // The tag key of the task.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the node.
+      // The tag value of the task.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -358,7 +358,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically execute the node. Default value: false.
+    // Specifies whether to automatically execute the task. Default value: false.
     // - true: After the preview is complete (terraform plan), the execution (terraform apply) is automatically performed without manual confirmation.
     // - false: After the preview is complete (terraform plan), manual confirmation is required before the execution (terraform apply) starts.
     shared_ptr<bool> autoApply_ {};
@@ -370,11 +370,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The description of the node.
+    // The task description.
     shared_ptr<string> description_ {};
     // The project group information.
     shared_ptr<CreateTaskRequest::GroupInfo> groupInfo_ {};
-    // Specifies whether to use a state file. Default value: false. This parameter is applicable when the template originates from resource export. Only one node can use this parameter.
+    // Specifies whether to use a state file. Default value: false. This parameter applies to templates that originate from resource export. Only one task can use this parameter at a time.
     shared_ptr<bool> initModuleState_ {};
     // The template ID.
     // 
@@ -384,11 +384,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> moduleVersion_ {};
-    // The node name. The name must meet the following requirements:
+    // The task name. The name must meet the following requirements:
     // 
     // - The name must be 2 to 128 characters in length.
     // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
-    // - The name must be unique among all node resources within the current account.
+    // - The name must be unique among all tasks under the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -400,20 +400,22 @@ namespace Models
     shared_ptr<string> ramRole_ {};
     // Specifies whether to skip enumeration value validation. Default value: false.
     shared_ptr<bool> skipPropertyValidation_ {};
+    // Specifies whether to skip region validation. Valid values: true (skip) and false (do not skip).
     shared_ptr<bool> skipRegionValidation_ {};
-    // The list of tags for the node.
+    // The list of tags for the task.
     shared_ptr<vector<CreateTaskRequest::Tags>> tags_ {};
-    // The node backend configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
+    // The task configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
     shared_ptr<CreateTaskRequest::TaskBackend> taskBackend_ {};
+    // The Terraform Provider version. You can call the **ListTerraformProviderVersions** operation to obtain the list of supported versions.
     shared_ptr<string> terraformProviderVersion_ {};
-    // The Terraform version. Call the **ListAvailableTerraformVersions** operation to obtain the list of supported versions. Default value: 1.5.7.
+    // The Terraform version. You can call the **ListAvailableTerraformVersions** operation to obtain the list of supported versions. Default value: 1.5.7.
     shared_ptr<string> terraformVersion_ {};
     // The job trigger method. Valid values:
     // 
-    // - Manual: manual trigger (default).
-    // - NewVersion: triggered when a new template version is published.
-    // - ParameterSetUpdated: triggered when the parameter set content changes or the parameter set attach relationship changes.
-    // - Auto: automatically triggered when the node properties change, such as node creation, execution version change, or job trigger policy change (when changed from another value to Auto).
+    // - Manual: Manual trigger (default).
+    // - NewVersion: Triggered when a new template version is published.
+    // - ParameterSetUpdated: Triggered when the parameter set content changes or the parameter set binding relationship changes.
+    // - Auto: Automatically triggered when the task\\"s own properties change, such as task creation, execution version change, or job trigger strategy change (when changed from another value to Auto).
     // 
     // The **ramRole** parameter is required when the trigger method is not manual.
     shared_ptr<string> triggerStrategy_ {};

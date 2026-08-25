@@ -105,7 +105,7 @@ AddSharedAccountsResponse Client::addSharedAccounts(const AddSharedAccountsReque
 }
 
 /**
- * @summary Associate drift detection configuration
+ * @summary Associates a drift detection configuration.
  *
  * @param request AssociateDetectConfigRequest
  * @param headers map
@@ -146,7 +146,7 @@ AssociateDetectConfigResponse Client::associateDetectConfigWithOptions(const Ass
 }
 
 /**
- * @summary Associate drift detection configuration
+ * @summary Associates a drift detection configuration.
  *
  * @param request AssociateDetectConfigRequest
  * @return AssociateDetectConfigResponse
@@ -716,9 +716,9 @@ CreateModuleVersionResponse Client::createModuleVersion(const string &moduleId, 
  *
  * @description ## Operation description
  * - This operation creates a new parameter set.
- * - The name field is required and can be up to 128 characters in length.
- * - Each element in the parameters array must contain the name field. Other fields are optional.
- * - Use the clientToken field to ensure the idempotence of the request.
+ * - The `name` field is required and can be up to 128 characters in length.
+ * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+ * - Use the `clientToken` field to ensure idempotence of the request.
  * - The request header must contain authentication information to ensure secure access.
  *
  * @param request CreateParameterSetRequest
@@ -768,9 +768,9 @@ CreateParameterSetResponse Client::createParameterSetWithOptions(const CreatePar
  *
  * @description ## Operation description
  * - This operation creates a new parameter set.
- * - The name field is required and can be up to 128 characters in length.
- * - Each element in the parameters array must contain the name field. Other fields are optional.
- * - Use the clientToken field to ensure the idempotence of the request.
+ * - The `name` field is required and can be up to 128 characters in length.
+ * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+ * - Use the `clientToken` field to ensure idempotence of the request.
  * - The request header must contain authentication information to ensure secure access.
  *
  * @param request CreateParameterSetRequest
@@ -1132,7 +1132,7 @@ CreateStackResponse Client::createStack(const CreateStackRequest &request) {
 }
 
 /**
- * @summary Creates a node.
+ * @summary Creates a task.
  *
  * @description Single-user call frequency: 100 calls per second.
  *
@@ -1239,7 +1239,7 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
 }
 
 /**
- * @summary Creates a node.
+ * @summary Creates a task.
  *
  * @description Single-user call frequency: 100 calls per second.
  *
@@ -1253,7 +1253,64 @@ CreateTaskResponse Client::createTask(const CreateTaskRequest &request) {
 }
 
 /**
- * @summary Delete drift detection configuration
+ * @summary Creates a node from a resource import result.
+ *
+ * @param request CreateTaskFromResourceImportRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTaskFromResourceImportResponse
+ */
+CreateTaskFromResourceImportResponse Client::createTaskFromResourceImportWithOptions(const CreateTaskFromResourceImportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasExportTaskId()) {
+    body["exportTaskId"] = request.getExportTaskId();
+  }
+
+  if (!!request.hasExportVersion()) {
+    body["exportVersion"] = request.getExportVersion();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["taskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTaskFromResourceImport"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tasks/operations/createTaskFromResourceImport")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTaskFromResourceImportResponse>();
+}
+
+/**
+ * @summary Creates a node from a resource import result.
+ *
+ * @param request CreateTaskFromResourceImportRequest
+ * @return CreateTaskFromResourceImportResponse
+ */
+CreateTaskFromResourceImportResponse Client::createTaskFromResourceImport(const CreateTaskFromResourceImportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTaskFromResourceImportWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a bias detection configuration.
  *
  * @param request DeleteDetectConfigRequest
  * @param headers map
@@ -1280,7 +1337,7 @@ DeleteDetectConfigResponse Client::deleteDetectConfigWithOptions(const string &d
 }
 
 /**
- * @summary Delete drift detection configuration
+ * @summary Deletes a bias detection configuration.
  *
  * @param request DeleteDetectConfigRequest
  * @return DeleteDetectConfigResponse
@@ -1680,7 +1737,7 @@ DeleteStackResponse Client::deleteStack(const string &stackId, const DeleteStack
  * @summary Deletes a node.
  *
  * @description Single-user call frequency: 100 calls per second.
- * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+ * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
  *
  * @param request DeleteTaskRequest
  * @param headers map
@@ -1689,8 +1746,14 @@ DeleteStackResponse Client::deleteStack(const string &stackId, const DeleteStack
  */
 DeleteTaskResponse Client::deleteTaskWithOptions(const string &taskId, const DeleteTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasResourceRetentionPolicy()) {
+    query["resourceRetentionPolicy"] = request.getResourceRetentionPolicy();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteTask"},
@@ -1710,7 +1773,7 @@ DeleteTaskResponse Client::deleteTaskWithOptions(const string &taskId, const Del
  * @summary Deletes a node.
  *
  * @description Single-user call frequency: 100 calls per second.
- * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+ * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
  *
  * @param request DeleteTaskRequest
  * @return DeleteTaskResponse
@@ -1779,7 +1842,7 @@ DetectTerraformStateResponse Client::detectTerraformState(const DetectTerraformS
 }
 
 /**
- * @summary Disassociate drift detection configuration
+ * @summary Dissociates a drift detection configuration.
  *
  * @param request DissociateDetectConfigRequest
  * @param headers map
@@ -1820,7 +1883,7 @@ DissociateDetectConfigResponse Client::dissociateDetectConfigWithOptions(const D
 }
 
 /**
- * @summary Disassociate drift detection configuration
+ * @summary Dissociates a drift detection configuration.
  *
  * @param request DissociateDetectConfigRequest
  * @return DissociateDetectConfigResponse
@@ -2319,6 +2382,45 @@ GetDetectConfigResponse Client::getDetectConfig(const string &detectConfigId, co
 }
 
 /**
+ * @summary Retrieves the encryption configuration.
+ *
+ * @param request GetEncryptionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEncryptionConfigResponse
+ */
+GetEncryptionConfigResponse Client::getEncryptionConfigWithOptions(const GetEncryptionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEncryptionConfig"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/encryption/config")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEncryptionConfigResponse>();
+}
+
+/**
+ * @summary Retrieves the encryption configuration.
+ *
+ * @param request GetEncryptionConfigRequest
+ * @return GetEncryptionConfigResponse
+ */
+GetEncryptionConfigResponse Client::getEncryptionConfig(const GetEncryptionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getEncryptionConfigWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the result of a Terraform run.
  *
  * @description Retrieves the result of a Terraform run.
@@ -2542,10 +2644,10 @@ GetModuleVersionResponse Client::getModuleVersion(const string &moduleId, const 
 /**
  * @summary Retrieves the details of a parameter set by parameter set ID.
  *
- * @description ## Description
- * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
- * - Authentication is required to call this operation.
- * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+ * @description ## Request description
+ * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+ * - Authentication is required to access this operation.
+ * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
  *
  * @param request GetParameterSetRequest
  * @param headers map
@@ -2574,10 +2676,10 @@ GetParameterSetResponse Client::getParameterSetWithOptions(const string &paramet
 /**
  * @summary Retrieves the details of a parameter set by parameter set ID.
  *
- * @description ## Description
- * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
- * - Authentication is required to call this operation.
- * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+ * @description ## Request description
+ * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+ * - Authentication is required to access this operation.
+ * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
  *
  * @param request GetParameterSetRequest
  * @return GetParameterSetResponse
@@ -3016,7 +3118,7 @@ GetStackDeploymentsResponse Client::getStackDeployments(const string &stackId, c
 }
 
 /**
- * @summary Retrieves the trigger result of a stack.
+ * @summary Retrieves the trigger result of a Stack.
  *
  * @param request GetStackExecutionResultRequest
  * @param headers map
@@ -3043,7 +3145,7 @@ GetStackExecutionResultResponse Client::getStackExecutionResultWithOptions(const
 }
 
 /**
- * @summary Retrieves the trigger result of a stack.
+ * @summary Retrieves the trigger result of a Stack.
  *
  * @param request GetStackExecutionResultRequest
  * @return GetStackExecutionResultResponse
@@ -3057,7 +3159,7 @@ GetStackExecutionResultResponse Client::getStackExecutionResult(const string &tr
 /**
  * @summary Retrieves the details of a task.
  *
- * @description Single-user call frequency: 100 calls per second.
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request GetTaskRequest
  * @param headers map
@@ -3086,7 +3188,7 @@ GetTaskResponse Client::getTaskWithOptions(const string &taskId, const GetTaskRe
 /**
  * @summary Retrieves the details of a task.
  *
- * @description Single-user call frequency: 100 calls per second.
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request GetTaskRequest
  * @return GetTaskResponse
@@ -3689,16 +3791,16 @@ ListModuleVersionResponse Client::listModuleVersion(const string &moduleId, cons
 }
 
 /**
- * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+ * @summary Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
  *
  * @description ## Operation description
- * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
- * ### Notes
- * - Use the pageNumber and pageSize parameters to control the number of returned results.
- * - Use the name parameter to perform a fuzzy match on template names.
- * - Use the source parameter to filter templates by source, such as OSS import or file upload.
- * - Use the status parameter to filter templates by status, such as Created or Published.
- * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+ * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+ * ### Precautions
+ * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+ * - Use the `name` parameter to perform a fuzzy match search on template names.
+ * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+ * - Use the `status` parameter to filter templates by status (such as created or published).
+ * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
  *
  * @param tmpReq ListModulesRequest
  * @param headers map
@@ -3761,16 +3863,16 @@ ListModulesResponse Client::listModulesWithOptions(const ListModulesRequest &tmp
 }
 
 /**
- * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+ * @summary Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
  *
  * @description ## Operation description
- * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
- * ### Notes
- * - Use the pageNumber and pageSize parameters to control the number of returned results.
- * - Use the name parameter to perform a fuzzy match on template names.
- * - Use the source parameter to filter templates by source, such as OSS import or file upload.
- * - Use the status parameter to filter templates by status, such as Created or Published.
- * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+ * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+ * ### Precautions
+ * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+ * - Use the `name` parameter to perform a fuzzy match search on template names.
+ * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+ * - Use the `status` parameter to filter templates by status (such as created or published).
+ * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
  *
  * @param request ListModulesRequest
  * @return ListModulesResponse
@@ -3834,10 +3936,10 @@ ListParameterSetRelationResponse Client::listParameterSetRelation(const ListPara
  * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
  *
  * @description ## Operation description
- * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+ * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
  * ### Notes
- * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
- * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+ * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+ * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
  *
  * @param request ListParameterSetsRequest
  * @param headers map
@@ -3885,10 +3987,10 @@ ListParameterSetsResponse Client::listParameterSetsWithOptions(const ListParamet
  * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
  *
  * @description ## Operation description
- * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+ * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
  * ### Notes
- * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
- * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+ * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+ * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
  *
  * @param request ListParameterSetsRequest
  * @return ListParameterSetsResponse
@@ -4105,7 +4207,7 @@ ListRegistryModuleVersionsResponse Client::listRegistryModuleVersions(const List
 }
 
 /**
- * @summary Queries a list of registry modules.
+ * @summary Queries the list of Registry modules.
  *
  * @description Single-user call frequency: 200 calls per second.
  *
@@ -4160,7 +4262,7 @@ ListRegistryModulesResponse Client::listRegistryModulesWithOptions(const ListReg
 }
 
 /**
- * @summary Queries a list of registry modules.
+ * @summary Queries the list of Registry modules.
  *
  * @description Single-user call frequency: 200 calls per second.
  *
@@ -4364,7 +4466,7 @@ ListResourceExportTasksResponse Client::listResourceExportTasks(const ListResour
  * @summary Queries a list of resource types by filter conditions with pagination support.
  *
  * @description ## Operation description
- * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+ * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
  *
  * @param tmpReq ListResourceTypesRequest
  * @param headers map
@@ -4446,7 +4548,7 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const ListResourc
  * @summary Queries a list of resource types by filter conditions with pagination support.
  *
  * @description ## Operation description
- * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+ * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
  *
  * @param request ListResourceTypesRequest
  * @return ListResourceTypesResponse
@@ -4645,9 +4747,9 @@ ListStacksResponse Client::listStacks(const ListStacksRequest &request) {
 }
 
 /**
- * @summary Queries a list of tasks.
+ * @summary Retrieves a list of tasks.
  *
- * @description The maximum number of times that a single user can call this operation per second: 100.
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param tmpReq ListTasksRequest
  * @param headers map
@@ -4722,9 +4824,9 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &tmpReq, c
 }
 
 /**
- * @summary Queries a list of tasks.
+ * @summary Retrieves a list of tasks.
  *
- * @description The maximum number of times that a single user can call this operation per second: 100.
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request ListTasksRequest
  * @return ListTasksResponse
@@ -5043,7 +5145,60 @@ RemoveSharedAccountsResponse Client::removeSharedAccounts(const RemoveSharedAcco
 }
 
 /**
- * @summary Trigger Stack execution
+ * @summary Sets the encryption configuration.
+ *
+ * @param request SetEncryptionConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetEncryptionConfigResponse
+ */
+SetEncryptionConfigResponse Client::setEncryptionConfigWithOptions(const SetEncryptionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    body["kmsKeyId"] = request.getKmsKeyId();
+  }
+
+  if (!!request.hasKmsRegionId()) {
+    body["kmsRegionId"] = request.getKmsRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetEncryptionConfig"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/encryption/config")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetEncryptionConfigResponse>();
+}
+
+/**
+ * @summary Sets the encryption configuration.
+ *
+ * @param request SetEncryptionConfigRequest
+ * @return SetEncryptionConfigResponse
+ */
+SetEncryptionConfigResponse Client::setEncryptionConfig(const SetEncryptionConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return setEncryptionConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Triggers the execution of a stack.
  *
  * @param request TriggerStackExecutionRequest
  * @param headers map
@@ -5073,6 +5228,10 @@ TriggerStackExecutionResponse Client::triggerStackExecutionWithOptions(const Tri
     body["codeVersionId"] = request.getCodeVersionId();
   }
 
+  if (!!request.hasSourceTriggerId()) {
+    body["sourceTriggerId"] = request.getSourceTriggerId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -5092,7 +5251,7 @@ TriggerStackExecutionResponse Client::triggerStackExecutionWithOptions(const Tri
 }
 
 /**
- * @summary Trigger Stack execution
+ * @summary Triggers the execution of a stack.
  *
  * @param request TriggerStackExecutionRequest
  * @return TriggerStackExecutionResponse
@@ -5428,9 +5587,9 @@ UpdateModuleAttributeResponse Client::updateModuleAttribute(const string &module
  *
  * @description ## Operation description
  * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
- * - If the request includes the parameters field, the parameter list in the parameter set is updated.
- * - The clientToken field can be used to ensure the idempotence of the request.
- * - The update operation requires a valid parameterSetId as a path parameter.
+ * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+ * - The `clientToken` field can be used to ensure the idempotence of the request.
+ * - The update operation requires a valid `parameterSetId` as a path parameter.
  * - The request must include authentication information to pass identity verification.
  *
  * @param request UpdateParameterSetAttributeRequest
@@ -5476,9 +5635,9 @@ UpdateParameterSetAttributeResponse Client::updateParameterSetAttributeWithOptio
  *
  * @description ## Operation description
  * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
- * - If the request includes the parameters field, the parameter list in the parameter set is updated.
- * - The clientToken field can be used to ensure the idempotence of the request.
- * - The update operation requires a valid parameterSetId as a path parameter.
+ * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+ * - The `clientToken` field can be used to ensure the idempotence of the request.
+ * - The update operation requires a valid `parameterSetId` as a path parameter.
  * - The request must include authentication information to pass identity verification.
  *
  * @param request UpdateParameterSetAttributeRequest
@@ -5808,7 +5967,7 @@ UpdateStackResponse Client::updateStack(const string &stackId, const UpdateStack
 }
 
 /**
- * @summary Updates the properties of a task.
+ * @summary Updates the attributes of a node.
  *
  * @description Single-user call frequency: 100 calls per second.
  *
@@ -5903,7 +6062,7 @@ UpdateTaskAttributeResponse Client::updateTaskAttributeWithOptions(const string 
 }
 
 /**
- * @summary Updates the properties of a task.
+ * @summary Updates the attributes of a node.
  *
  * @description Single-user call frequency: 100 calls per second.
  *

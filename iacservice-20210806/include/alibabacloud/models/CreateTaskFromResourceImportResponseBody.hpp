@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATETASKRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATETASKRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATETASKFROMRESOURCEIMPORTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATETASKFROMRESOURCEIMPORTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace IaCService20210806
 {
 namespace Models
 {
-  class CreateTaskResponseBody : public Darabonba::Model {
+  class CreateTaskFromResourceImportResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateTaskResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateTaskFromResourceImportResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(taskId, taskId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateTaskResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateTaskFromResourceImportResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(taskId, taskId_);
     };
-    CreateTaskResponseBody() = default ;
-    CreateTaskResponseBody(const CreateTaskResponseBody &) = default ;
-    CreateTaskResponseBody(CreateTaskResponseBody &&) = default ;
-    CreateTaskResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateTaskResponseBody() = default ;
-    CreateTaskResponseBody& operator=(const CreateTaskResponseBody &) = default ;
-    CreateTaskResponseBody& operator=(CreateTaskResponseBody &&) = default ;
+    CreateTaskFromResourceImportResponseBody() = default ;
+    CreateTaskFromResourceImportResponseBody(const CreateTaskFromResourceImportResponseBody &) = default ;
+    CreateTaskFromResourceImportResponseBody(CreateTaskFromResourceImportResponseBody &&) = default ;
+    CreateTaskFromResourceImportResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateTaskFromResourceImportResponseBody() = default ;
+    CreateTaskFromResourceImportResponseBody& operator=(const CreateTaskFromResourceImportResponseBody &) = default ;
+    CreateTaskFromResourceImportResponseBody& operator=(CreateTaskFromResourceImportResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,19 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CreateTaskFromResourceImportResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
     inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
-    inline CreateTaskResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+    inline CreateTaskFromResourceImportResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

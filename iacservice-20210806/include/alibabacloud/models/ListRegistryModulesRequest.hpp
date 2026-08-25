@@ -84,14 +84,15 @@ namespace Models
 
 
   protected:
-    // The search keyword. Fuzzy search by module name is supported.
+    // The search keyword. Fuzzy match on module names is supported.
     shared_ptr<string> keyword_ {};
     // The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The workspace name.
     shared_ptr<string> namespaceName_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The filter condition for Registry module status.
     shared_ptr<string> status_ {};
     // The workspace type. Valid values:
     // 

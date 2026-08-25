@@ -55,6 +55,9 @@
 #include <alibabacloud/models/CreateTaskRequest.hpp>
 #include <alibabacloud/models/CreateTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateTaskResponse.hpp>
+#include <alibabacloud/models/CreateTaskFromResourceImportRequest.hpp>
+#include <alibabacloud/models/CreateTaskFromResourceImportResponseBody.hpp>
+#include <alibabacloud/models/CreateTaskFromResourceImportResponse.hpp>
 #include <alibabacloud/models/DeleteDetectConfigRequest.hpp>
 #include <alibabacloud/models/DeleteDetectConfigResponseBody.hpp>
 #include <alibabacloud/models/DeleteDetectConfigResponse.hpp>
@@ -121,6 +124,9 @@
 #include <alibabacloud/models/GetDetectConfigRequest.hpp>
 #include <alibabacloud/models/GetDetectConfigResponseBody.hpp>
 #include <alibabacloud/models/GetDetectConfigResponse.hpp>
+#include <alibabacloud/models/GetEncryptionConfigRequest.hpp>
+#include <alibabacloud/models/GetEncryptionConfigResponseBody.hpp>
+#include <alibabacloud/models/GetEncryptionConfigResponse.hpp>
 #include <alibabacloud/models/GetExecuteStateRequest.hpp>
 #include <alibabacloud/models/GetExecuteStateResponseBody.hpp>
 #include <alibabacloud/models/GetExecuteStateResponse.hpp>
@@ -265,6 +271,9 @@
 #include <alibabacloud/models/RemoveSharedAccountsShrinkRequest.hpp>
 #include <alibabacloud/models/RemoveSharedAccountsResponseBody.hpp>
 #include <alibabacloud/models/RemoveSharedAccountsResponse.hpp>
+#include <alibabacloud/models/SetEncryptionConfigRequest.hpp>
+#include <alibabacloud/models/SetEncryptionConfigResponseBody.hpp>
+#include <alibabacloud/models/SetEncryptionConfigResponse.hpp>
 #include <alibabacloud/models/TriggerStackExecutionRequest.hpp>
 #include <alibabacloud/models/TriggerStackExecutionResponseBody.hpp>
 #include <alibabacloud/models/TriggerStackExecutionResponse.hpp>

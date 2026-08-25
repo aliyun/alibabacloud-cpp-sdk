@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 备注
+    // The comment.
     shared_ptr<string> comment_ {};
-    // 作业执行结果
+    // The job execution result.
     shared_ptr<string> jobResult_ {};
-    // 到达状态时间
+    // The time when the status was reached, in the format of YYYY-MM-DD HH:mm:ss. The returned value does not include a time zone identifier.
     shared_ptr<string> timeStamps_ {};
   };
 

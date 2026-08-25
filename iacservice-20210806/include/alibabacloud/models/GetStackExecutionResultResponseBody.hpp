@@ -40,6 +40,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const StackResults& obj) { 
         DARABONBA_PTR_TO_JSON(deployments, deployments_);
+        DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(message, message_);
         DARABONBA_PTR_TO_JSON(stackId, stackId_);
         DARABONBA_PTR_TO_JSON(stackName, stackName_);
@@ -47,6 +48,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, StackResults& obj) { 
         DARABONBA_PTR_FROM_JSON(deployments, deployments_);
+        DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(message, message_);
         DARABONBA_PTR_FROM_JSON(stackId, stackId_);
         DARABONBA_PTR_FROM_JSON(stackName, stackName_);
@@ -125,12 +127,12 @@ namespace Models
         shared_ptr<string> jobResult_ {};
         // The deployment status.
         shared_ptr<string> status_ {};
-        // The URL to view the deployment details.
+        // The URL for viewing deployment details.
         shared_ptr<string> url_ {};
       };
 
       virtual bool empty() const override { return this->deployments_ == nullptr
-        && this->message_ == nullptr && this->stackId_ == nullptr && this->stackName_ == nullptr && this->stackStatus_ == nullptr; };
+        && this->errorCode_ == nullptr && this->message_ == nullptr && this->stackId_ == nullptr && this->stackName_ == nullptr && this->stackStatus_ == nullptr; };
       // deployments Field Functions 
       bool hasDeployments() const { return this->deployments_ != nullptr;};
       void deleteDeployments() { this->deployments_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
       inline vector<StackResults::Deployments> getDeployments() { DARABONBA_PTR_GET(deployments_, vector<StackResults::Deployments>) };
       inline StackResults& setDeployments(const vector<StackResults::Deployments> & deployments) { DARABONBA_PTR_SET_VALUE(deployments_, deployments) };
       inline StackResults& setDeployments(vector<StackResults::Deployments> && deployments) { DARABONBA_PTR_SET_RVALUE(deployments_, deployments) };
+
+
+      // errorCode Field Functions 
+      bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+      void deleteErrorCode() { this->errorCode_ = nullptr;};
+      inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+      inline StackResults& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
       // message Field Functions 
@@ -169,19 +178,17 @@ namespace Models
 
 
     protected:
-      // The deployment results of the stack.
+      // The deployment results of the Stack.
       shared_ptr<vector<StackResults::Deployments>> deployments_ {};
+      // Error code of the stack execution
+      shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> message_ {};
-      // The unique identifier of the stack.
+      // The unique identifier of the Stack.
       shared_ptr<string> stackId_ {};
-      // The stack name.
+      // The Stack name.
       shared_ptr<string> stackName_ {};
-      // The execution status of the stack. Valid values:
-      // - Deploying: deploying
-      // - Errored: deployment failed
-      // - Deployed: deployment completed
-      // - Waiting: waiting for deployment.
+      // The execution status of the Stack.
       shared_ptr<string> stackStatus_ {};
     };
 
@@ -220,10 +227,14 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The execution results of the triggered stacks.
+    // The execution results of the triggered Stacks.
     shared_ptr<vector<GetStackExecutionResultResponseBody::StackResults>> stackResults_ {};
     // The unique ID of the trigger.
     shared_ptr<string> triggerId_ {};
+    // The overall execution status of this trigger task. Valid values:
+    // - Waiting: Processing.
+    // - Success: Processing succeeded.
+    // - Errored: Processing failed.
     shared_ptr<string> triggeredStatus_ {};
   };
 

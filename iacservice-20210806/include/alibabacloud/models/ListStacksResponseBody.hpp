@@ -140,7 +140,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The description of the stack.
       shared_ptr<string> description_ {};
@@ -150,9 +150,9 @@ namespace Models
       // - OSS: a template stored in Object Storage Service (OSS).
       // - IAC_SERVICE_MODULE: a template created in the automation service console.
       shared_ptr<string> source_ {};
-      // The path of the configuration source. The value cannot exceed 1000 characters.
-      // - If the source is OSS, the value is in the format oss::<file link> and must be a zip file, such as oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-      // - If the source is IAC_SERVICE_MODULE, the value is a template ID, such as mod-xxxxx.
+      // The path value of the configuration source. The value cannot exceed 1000 characters.
+      // - If the source is OSS, the value is in the format oss::<file link> and must be a zip file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
+      // - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx
       shared_ptr<string> sourcePath_ {};
       // The description of the stack.
       shared_ptr<string> stackDescription_ {};
@@ -163,15 +163,15 @@ namespace Models
       // The stack status.
       // | Name | Description |
       // |------|------|
-      // | Creating | Being created |
-      // | Created | Creation complete |
-      // | Waiting | Waiting for deployment |
-      // | Deploying | Being deployed |
-      // | Deployed | Deployment complete |
-      // | Errored | Deployment failed |
-      // | Deleting | Being deleted |
-      // | Deleted | Deleted |
-      // | DeleteFailed | Deletion failed |.
+      // | Creating | Being created. |
+      // | Created | Created. |
+      // | Waiting | Waiting for deployment. |
+      // | Deploying | Being deployed. |
+      // | Deployed | Deployed. |
+      // | Errored | Deployment failed. |
+      // | Deleting | Being deleted. |
+      // | Deleted | Deleted. |
+      // | DeleteFailed | Deletion failed. |
       shared_ptr<string> status_ {};
     };
 

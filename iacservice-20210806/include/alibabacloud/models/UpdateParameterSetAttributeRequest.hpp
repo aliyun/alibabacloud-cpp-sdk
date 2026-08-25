@@ -101,13 +101,15 @@ namespace Models
     protected:
       // The parameter name.
       shared_ptr<string> name_ {};
+      // Specifies whether the parameter is a secret parameter. Secret parameters are hidden in API responses and console displays, and are stored with encryption.
       shared_ptr<bool> secret_ {};
-      // The parameter set status. Valid values:
+      // The parameter set status. Valid values: 
       // 
-      // - HAS_VALUE (default): Defines a specific value.
-      // - EXPLICIT_NULL: Explicitly set to null.
+      // HAS_VALUE (default): Defines a specific value. 
+      // 
+      // EXPLICIT_NULL: Explicitly set to null.
       shared_ptr<string> status_ {};
-      // The parameter type. Valid values: string, number, bool, map(string), and list(string).
+      // The parameter type (string/number/bool/map(string)/list(string)).
       shared_ptr<string> type_ {};
       // The parameter value. Use JSON for complex types.
       shared_ptr<string> value_ {};

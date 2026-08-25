@@ -108,14 +108,14 @@ namespace Models
 
 
       protected:
-        // The time when the parameter set was created.
+        // The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
         shared_ptr<string> createTime_ {};
-        // The resource ID. When the resource type is ModuleVersion, the ID is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+        // The resource ID. When the resource type is ModuleVersion, the ID is composed of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
         shared_ptr<string> resourceId_ {};
         // The resource type. Valid values:
         // 
-        // - Module: template
-        // - ModuleVersion: template version
+        // - Module: template.
+        // - ModuleVersion: template version.
         // - Task: task.
         shared_ptr<string> resourceType_ {};
       };
@@ -189,13 +189,14 @@ namespace Models
       protected:
         // The name of the parameter.
         shared_ptr<string> name_ {};
+        // Specifies whether the parameter is secret. Secret parameters are hidden in API responses and console displays, and are stored with encryption.
         shared_ptr<bool> secret_ {};
-        // The status of the parameter. Valid values:
+        // The parameter set status. Valid values:
         // 
         // - HAS_VALUE (default): A specific value is defined.
-        // - EXPLICIT_NULL: The value is explicitly set to null.
+        // - EXPLICIT_NULL: Explicitly set to null.
         shared_ptr<string> status_ {};
-        // The type of the parameter. Valid values: string, number, bool, map(string), and list(string).
+        // The type of the parameter (string/number/bool/map(string)/list(string)).
         shared_ptr<string> type_ {};
         // The value of the parameter.
         Darabonba::Json value_ {};
@@ -250,13 +251,13 @@ namespace Models
 
 
     protected:
-      // The time when the parameter set was created.
+      // The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The description of the parameter set.
       shared_ptr<string> description_ {};
       // The name of the parameter set.
       shared_ptr<string> name_ {};
-      // The ID of the parameter set.
+      // The parameter set ID.
       shared_ptr<string> parameterSetId_ {};
       // The parameters in the parameter set.
       shared_ptr<vector<ParameterSet::Parameters>> parameters_ {};

@@ -458,7 +458,7 @@ namespace Models
       shared_ptr<bool> autoApply_ {};
       // Indicates whether automatic deletion is enabled. When enabled, resources are automatically destroyed after the task is completed.
       shared_ptr<bool> autoDestroy_ {};
-      // The time when the task was created.
+      // The time when the task was created, in UTC in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The job ID of the current task.
       shared_ptr<string> currentJobId_ {};
@@ -466,11 +466,11 @@ namespace Models
       shared_ptr<string> currentJobStatus_ {};
       // Indicates whether deletion protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
-      // The description of the task.
+      // The description.
       shared_ptr<string> description_ {};
       // The group information.
       shared_ptr<Task::GroupInfo> groupInfo_ {};
-      // Specifies whether to use a state file. Default value: false. This parameter is applicable to templates that originate from resource export. Only one task can use this parameter at a time.
+      // Specifies whether to use a state file. Default value: false. This parameter applies to templates that originate from resource export. Only one task can use this parameter at a time.
       shared_ptr<bool> initModuleState_ {};
       // The latest version number of the template.
       shared_ptr<string> latestModuleVersion_ {};
@@ -488,11 +488,12 @@ namespace Models
       shared_ptr<string> ramRole_ {};
       // Specifies whether to skip enumeration value validation. Default value: false.
       shared_ptr<bool> skipPropertyValidation_ {};
+      // Specifies whether to skip region validation. Valid values: true and false.
       shared_ptr<bool> skipRegionValidation_ {};
       // The task status. Valid values:
       // 
       // - Available: the task is available and no job is running.
-      // - Running: a job is currently running.
+      // - Running: the task is running and a job is in progress.
       shared_ptr<string> status_ {};
       // The list of task tags.
       shared_ptr<vector<Task::Tags>> tags_ {};
