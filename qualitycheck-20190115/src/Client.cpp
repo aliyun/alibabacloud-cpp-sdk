@@ -2015,7 +2015,10 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
- * @summary Retrieves the task result of an Agent node.
+ * @summary Retrieves the task result of an agent node.
+ *
+ * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
+ * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
  *
  * @param request GetAgentTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2050,7 +2053,10 @@ GetAgentTaskResultResponse Client::getAgentTaskResultWithOptions(const GetAgentT
 }
 
 /**
- * @summary Retrieves the task result of an Agent node.
+ * @summary Retrieves the task result of an agent node.
+ *
+ * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
+ * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
  *
  * @param request GetAgentTaskResultRequest
  * @return GetAgentTaskResultResponse

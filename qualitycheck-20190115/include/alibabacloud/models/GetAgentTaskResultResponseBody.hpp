@@ -535,9 +535,9 @@ namespace Models
 
 
           protected:
-            // The label dimension.
+            // The tag dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether the label is matched.
+            // Indicates whether the tag is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -558,7 +558,7 @@ namespace Models
 
 
         protected:
-          // The list of labels.
+          // The list of tags.
           shared_ptr<vector<TagCategoryResponse::TagCategoryVoList>> tagCategoryVoList_ {};
         };
 
@@ -641,7 +641,7 @@ namespace Models
           protected:
             // The inspection dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether the label is matched.
+            // Indicates whether the tag is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -1032,13 +1032,13 @@ namespace Models
 
 
           protected:
-            // The property name.
+            // The attribute name.
             shared_ptr<string> name_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<int32_t>> originalUtterances_ {};
             // The reasoning for the judgment.
             shared_ptr<string> remarks_ {};
-            // The property value.
+            // The attribute value.
             shared_ptr<string> value_ {};
           };
 
@@ -1053,7 +1053,7 @@ namespace Models
 
 
         protected:
-          // The list of properties.
+          // The list of attributes.
           shared_ptr<vector<FieldResponse::FieldVoList>> fieldVoList_ {};
         };
 
@@ -1148,7 +1148,7 @@ namespace Models
       protected:
         // The result of the custom prompt.
         shared_ptr<Response::CustomerPromptResponse> customerPromptResponse_ {};
-        // The property extraction result.
+        // The attribute extraction result.
         shared_ptr<Response::FieldResponse> fieldResponse_ {};
         shared_ptr<Response::MultiLevelTagResponse> multiLevelTagResponse_ {};
         // The service quality inspection result.
