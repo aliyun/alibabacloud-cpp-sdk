@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The status of the volume. Valid values:
+    // - CREATING
+    // - AVAILABLE
+    // - ERROR
+    // - DELETING
     shared_ptr<string> status_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
+    // The name of the volume. The name must be unique within the team.
     shared_ptr<string> volumeName_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The parameters for updating the volume.
     shared_ptr<UpdateVolumeInput> body_ {};
   };
 

@@ -79,6 +79,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of teams displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The subscription plan of the team. Valid values:
+    // 
+    // - eco
+    // - std
+    // - pro
     shared_ptr<string> plan_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};

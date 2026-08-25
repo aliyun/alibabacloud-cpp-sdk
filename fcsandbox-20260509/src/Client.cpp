@@ -288,7 +288,7 @@ DeleteTeamResponse Client::deleteTeam(const string &teamID, const DeleteTeamRequ
 }
 
 /**
- * @summary 删除 Volume 
+ * @summary Deletes a Volume.
  *
  * @param request DeleteVolumeRequest
  * @param headers map
@@ -321,7 +321,7 @@ DeleteVolumeResponse Client::deleteVolumeWithOptions(const string &volumeID, con
 }
 
 /**
- * @summary 删除 Volume 
+ * @summary Deletes a Volume.
  *
  * @param request DeleteVolumeRequest
  * @return DeleteVolumeResponse
@@ -456,7 +456,7 @@ GetTeamResponse Client::getTeam(const string &teamID, const GetTeamRequest &requ
 }
 
 /**
- * @summary 查看 Volume
+ * @summary Queries a Volume.
  *
  * @param request GetVolumeRequest
  * @param headers map
@@ -489,7 +489,7 @@ GetVolumeResponse Client::getVolumeWithOptions(const string &volumeID, const Get
 }
 
 /**
- * @summary 查看 Volume
+ * @summary Queries a Volume.
  *
  * @param request GetVolumeRequest
  * @return GetVolumeResponse
@@ -619,7 +619,7 @@ ListQuotaResponse Client::listQuota(const ListQuotaRequest &request) {
 }
 
 /**
- * @summary Queries a list of teams.
+ * @summary Queries the list of teams.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -668,7 +668,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &request, 
 }
 
 /**
- * @summary Queries a list of teams.
+ * @summary Queries the list of teams.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -680,7 +680,7 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
- * @summary 分页查询 Volumes
+ * @summary Queries volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @param headers map
@@ -737,7 +737,7 @@ ListVolumesResponse Client::listVolumesWithOptions(const ListVolumesRequest &req
 }
 
 /**
- * @summary 分页查询 Volumes
+ * @summary Queries volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @return ListVolumesResponse
@@ -908,7 +908,7 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
 }
 
 /**
- * @summary 更新 Volume
+ * @summary Updates a volume.
  *
  * @param request UpdateVolumeRequest
  * @param headers map
@@ -936,7 +936,7 @@ UpdateVolumeResponse Client::updateVolumeWithOptions(const string &volumeID, con
 }
 
 /**
- * @summary 更新 Volume
+ * @summary Updates a volume.
  *
  * @param request UpdateVolumeRequest
  * @return UpdateVolumeResponse

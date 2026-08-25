@@ -129,7 +129,7 @@ namespace FCSandbox20260509
       Models::DeleteTeamResponse deleteTeam(const string &teamID, const Models::DeleteTeamRequest &request);
 
       /**
-       * @summary 删除 Volume 
+       * @summary Deletes a Volume.
        *
        * @param request DeleteVolumeRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace FCSandbox20260509
       Models::DeleteVolumeResponse deleteVolumeWithOptions(const string &volumeID, const Models::DeleteVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 Volume 
+       * @summary Deletes a Volume.
        *
        * @param request DeleteVolumeRequest
        * @return DeleteVolumeResponse
@@ -201,7 +201,7 @@ namespace FCSandbox20260509
       Models::GetTeamResponse getTeam(const string &teamID, const Models::GetTeamRequest &request);
 
       /**
-       * @summary 查看 Volume
+       * @summary Queries a Volume.
        *
        * @param request GetVolumeRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace FCSandbox20260509
       Models::GetVolumeResponse getVolumeWithOptions(const string &volumeID, const Models::GetVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看 Volume
+       * @summary Queries a Volume.
        *
        * @param request GetVolumeRequest
        * @return GetVolumeResponse
@@ -255,7 +255,7 @@ namespace FCSandbox20260509
       Models::ListQuotaResponse listQuota(const Models::ListQuotaRequest &request);
 
       /**
-       * @summary Queries a list of teams.
+       * @summary Queries the list of teams.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -265,7 +265,7 @@ namespace FCSandbox20260509
       Models::ListTeamsResponse listTeamsWithOptions(const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of teams.
+       * @summary Queries the list of teams.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -273,7 +273,7 @@ namespace FCSandbox20260509
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary 分页查询 Volumes
+       * @summary Queries volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @param headers map
@@ -283,7 +283,7 @@ namespace FCSandbox20260509
       Models::ListVolumesResponse listVolumesWithOptions(const Models::ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询 Volumes
+       * @summary Queries volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @return ListVolumesResponse
@@ -363,7 +363,7 @@ namespace FCSandbox20260509
       Models::UpdateTeamResponse updateTeam(const string &teamID, const Models::UpdateTeamRequest &request);
 
       /**
-       * @summary 更新 Volume
+       * @summary Updates a volume.
        *
        * @param request UpdateVolumeRequest
        * @param headers map
@@ -373,7 +373,7 @@ namespace FCSandbox20260509
       Models::UpdateVolumeResponse updateVolumeWithOptions(const string &volumeID, const Models::UpdateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Volume
+       * @summary Updates a volume.
        *
        * @param request UpdateVolumeRequest
        * @return UpdateVolumeResponse

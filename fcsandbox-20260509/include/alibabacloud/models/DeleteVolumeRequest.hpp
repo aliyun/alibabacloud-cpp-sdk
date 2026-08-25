@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the Team.
     shared_ptr<string> teamID_ {};
   };
 
