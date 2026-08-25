@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // ID
     shared_ptr<string> id_ {};
+    // The modification time.
     shared_ptr<int64_t> modifyTime_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The ID of the parent entity.
     shared_ptr<string> parentMetaEntityId_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

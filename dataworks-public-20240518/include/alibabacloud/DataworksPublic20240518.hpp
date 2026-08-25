@@ -266,6 +266,29 @@ namespace DataworksPublic20240518
       Models::BatchUpdateTasksResponse batchUpdateTasks(const Models::BatchUpdateTasksRequest &request);
 
       /**
+       * @summary Builds an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request BuildImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BuildImageResponse
+       */
+      Models::BuildImageResponse buildImageWithOptions(const Models::BuildImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Builds an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request BuildImageRequest
+       * @return BuildImageResponse
+       */
+      Models::BuildImageResponse buildImage(const Models::BuildImageRequest &request);
+
+      /**
        * @summary Interrupts the Agent call for a specified session, supporting interruption during streaming responses.
        *
        * @description ## Request description
@@ -289,6 +312,29 @@ namespace DataworksPublic20240518
        * @return CancelAgentSessionResponse
        */
       Models::CancelAgentSessionResponse cancelAgentSession(const Models::CancelAgentSessionRequest &request);
+
+      /**
+       * @summary Cancels an image test.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request CancelImageTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelImageTestResponse
+       */
+      Models::CancelImageTestResponse cancelImageTestWithOptions(const Models::CancelImageTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels an image test.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request CancelImageTestRequest
+       * @return CancelImageTestResponse
+       */
+      Models::CancelImageTestResponse cancelImageTest(const Models::CancelImageTestRequest &request);
 
       /**
        * @summary Clones a new data source based on an existing data source.
@@ -399,7 +445,7 @@ namespace DataworksPublic20240518
       Models::CreateAlertRuleResponse createAlertRule(const Models::CreateAlertRuleRequest &request);
 
       /**
-       * @summary Creates a workflow in DataStudio.
+       * @summary Creates a business process in DataStudio for data development.
        *
        * @param request CreateBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +454,7 @@ namespace DataworksPublic20240518
       Models::CreateBusinessResponse createBusinessWithOptions(const Models::CreateBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow in DataStudio.
+       * @summary Creates a business process in DataStudio for data development.
        *
        * @param request CreateBusinessRequest
        * @return CreateBusinessResponse
@@ -929,6 +975,29 @@ namespace DataworksPublic20240518
       Models::CreateIdentifyCredentialResponse createIdentifyCredential(const Models::CreateIdentifyCredentialRequest &request);
 
       /**
+       * @summary Creates an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param tmpReq CreateImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImageResponse
+       */
+      Models::CreateImageResponse createImageWithOptions(const Models::CreateImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request CreateImageRequest
+       * @return CreateImageResponse
+       */
+      Models::CreateImageResponse createImage(const Models::CreateImageRequest &request);
+
+      /**
        * @summary Registers a data lineage relationship in DataWorks Data Map. You can use this operation to establish lineage relationships between metadata entities managed by DataWorks, including table-to-table, column-to-column, table-to-column, and dataset-to-table scenarios. You can also establish lineage relationships between managed entities and custom entity objects registered by users. This operation is compatible with non-managed custom objects, but this approach is no longer recommended. Before calling this operation, make sure that the managed entities involved in the lineage registration already exist on the DataWorks platform.
        *
        * @description 1. DataWorks Professional Edition or a higher edition is required.
@@ -1420,9 +1489,9 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowDefinitionResponse createWorkflowDefinition(const Models::CreateWorkflowDefinitionRequest &request);
 
       /**
-       * @summary Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+       * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description DataWorks Basic Edition or higher is required.
+       * @description DataWorks Basic Edition or a higher edition is required.
        *
        * @param tmpReq CreateWorkflowInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1431,9 +1500,9 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowInstancesResponse createWorkflowInstancesWithOptions(const Models::CreateWorkflowInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+       * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description DataWorks Basic Edition or higher is required.
+       * @description DataWorks Basic Edition or a higher edition is required.
        *
        * @param request CreateWorkflowInstancesRequest
        * @return CreateWorkflowInstancesResponse
@@ -2337,6 +2406,27 @@ namespace DataworksPublic20240518
       Models::DeleteSemanticJobResponse deleteSemanticJob(const Models::DeleteSemanticJobRequest &request);
 
       /**
+       * @summary Deletes a specified personal development environment instance.
+       *
+       * @description Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request DeleteServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServerIdeInstanceResponse
+       */
+      Models::DeleteServerIdeInstanceResponse deleteServerIdeInstanceWithOptions(const Models::DeleteServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified personal development environment instance.
+       *
+       * @description Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request DeleteServerIdeInstanceRequest
+       * @return DeleteServerIdeInstanceResponse
+       */
+      Models::DeleteServerIdeInstanceResponse deleteServerIdeInstance(const Models::DeleteServerIdeInstanceRequest &request);
+
+      /**
        * @summary Delete Skill
        *
        * @description ## Request Description
@@ -2387,9 +2477,9 @@ namespace DataworksPublic20240518
       Models::DeleteTaskResponse deleteTask(const Models::DeleteTaskRequest &request);
 
       /**
-       * @summary Deletes a workflow.
+       * @summary Deletes a specified workflow.
        *
-       * @description This API operation is available for all DataWorks editions.
+       * @description DataWorks Basic Edition or a more advanced edition is required.
        *
        * @param request DeleteWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2398,9 +2488,9 @@ namespace DataworksPublic20240518
       Models::DeleteWorkflowResponse deleteWorkflowWithOptions(const Models::DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a workflow.
+       * @summary Deletes a specified workflow.
        *
-       * @description This API operation is available for all DataWorks editions.
+       * @description DataWorks Basic Edition or a more advanced edition is required.
        *
        * @param request DeleteWorkflowRequest
        * @return DeleteWorkflowResponse
@@ -2469,6 +2559,29 @@ namespace DataworksPublic20240518
        * @return DetachDataQualityRulesFromEvaluationTaskResponse
        */
       Models::DetachDataQualityRulesFromEvaluationTaskResponse detachDataQualityRulesFromEvaluationTask(const Models::DetachDataQualityRulesFromEvaluationTaskRequest &request);
+
+      /**
+       * @summary Disables an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request DisableImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableImageResponse
+       */
+      Models::DisableImageResponse disableImageWithOptions(const Models::DisableImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request DisableImageRequest
+       * @return DisableImageResponse
+       */
+      Models::DisableImageResponse disableImage(const Models::DisableImageRequest &request);
 
       /**
        * @summary Disables the specified approval process definition.
@@ -2579,6 +2692,29 @@ namespace DataworksPublic20240518
        * @return DownloadSemanticResultsResponse
        */
       Models::DownloadSemanticResultsResponse downloadSemanticResults(const Models::DownloadSemanticResultsRequest &request);
+
+      /**
+       * @summary Enables an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request EnableImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableImageResponse
+       */
+      Models::EnableImageResponse enableImageWithOptions(const Models::EnableImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request EnableImageRequest
+       * @return EnableImageResponse
+       */
+      Models::EnableImageResponse enableImage(const Models::EnableImageRequest &request);
 
       /**
        * @summary Enables a process definition with the specified ID.
@@ -3501,6 +3637,29 @@ namespace DataworksPublic20240518
       Models::GetImageResponse getImage(const Models::GetImageRequest &request);
 
       /**
+       * @summary Retrieves the details of an image test result.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request GetImageTestResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetImageTestResultResponse
+       */
+      Models::GetImageTestResultResponse getImageTestResultWithOptions(const Models::GetImageTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an image test result.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request GetImageTestResultRequest
+       * @return GetImageTestResultResponse
+       */
+      Models::GetImageTestResultResponse getImageTestResult(const Models::GetImageTestResultRequest &request);
+
+      /**
        * @summary Returns the status of an asynchronous task. After calling an asynchronous API, poll this API to obtain the success status.
        *
        * @param request GetJobStatusRequest
@@ -4037,6 +4196,27 @@ namespace DataworksPublic20240518
        * @return GetSemanticJobLogResponse
        */
       Models::GetSemanticJobLogResponse getSemanticJobLog(const Models::GetSemanticJobLogRequest &request);
+
+      /**
+       * @summary Queries the details of a specified personal development environment instance.
+       *
+       * @description Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+       *
+       * @param request GetServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServerIdeInstanceResponse
+       */
+      Models::GetServerIdeInstanceResponse getServerIdeInstanceWithOptions(const Models::GetServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified personal development environment instance.
+       *
+       * @description Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+       *
+       * @param request GetServerIdeInstanceRequest
+       * @return GetServerIdeInstanceResponse
+       */
+      Models::GetServerIdeInstanceResponse getServerIdeInstance(const Models::GetServerIdeInstanceRequest &request);
 
       /**
        * @summary Retrieves the details of a specified Skill by name, including the body of the SKILL.md file and the bundle\\"s download link.
@@ -4886,9 +5066,9 @@ namespace DataworksPublic20240518
       /**
        * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
        *
-       * @summary Lists quality monitoring nodes by paging query.
+       * @summary Queries a paged list of quality monitoring nodes by using paging.
        *
-       * @description 需要购买DataWorks基础版及以上版本才能使用
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request ListDataQualityEvaluationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4899,9 +5079,9 @@ namespace DataworksPublic20240518
       /**
        * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
        *
-       * @summary Lists quality monitoring nodes by paging query.
+       * @summary Queries a paged list of quality monitoring nodes by using paging.
        *
-       * @description 需要购买DataWorks基础版及以上版本才能使用
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request ListDataQualityEvaluationTasksRequest
        * @return ListDataQualityEvaluationTasksResponse
@@ -5336,6 +5516,29 @@ namespace DataworksPublic20240518
        * @return ListImageAssociatedProjectsResponse
        */
       Models::ListImageAssociatedProjectsResponse listImageAssociatedProjects(const Models::ListImageAssociatedProjectsRequest &request);
+
+      /**
+       * @summary Retrieves the list of image test results.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request ListImageTestResultsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImageTestResultsResponse
+       */
+      Models::ListImageTestResultsResponse listImageTestResultsWithOptions(const Models::ListImageTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of image test results.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request ListImageTestResultsRequest
+       * @return ListImageTestResultsResponse
+       */
+      Models::ListImageTestResultsResponse listImageTestResults(const Models::ListImageTestResultsRequest &request);
 
       /**
        * @summary Gets the details of a specified image version.
@@ -6116,6 +6319,69 @@ namespace DataworksPublic20240518
       Models::ListSemanticJobsResponse listSemanticJobs(const Models::ListSemanticJobsRequest &request);
 
       /**
+       * @summary Queries the list of available ECS instance types for personal development environments.
+       *
+       * @description Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+       *
+       * @param request ListServerIdeEcsSpecsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServerIdeEcsSpecsResponse
+       */
+      Models::ListServerIdeEcsSpecsResponse listServerIdeEcsSpecsWithOptions(const Models::ListServerIdeEcsSpecsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of available ECS instance types for personal development environments.
+       *
+       * @description Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+       *
+       * @param request ListServerIdeEcsSpecsRequest
+       * @return ListServerIdeEcsSpecsResponse
+       */
+      Models::ListServerIdeEcsSpecsResponse listServerIdeEcsSpecs(const Models::ListServerIdeEcsSpecsRequest &request);
+
+      /**
+       * @summary Queries the list of available images for personal development environments by using paging.
+       *
+       * @description Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+       *
+       * @param request ListServerIdeImagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServerIdeImagesResponse
+       */
+      Models::ListServerIdeImagesResponse listServerIdeImagesWithOptions(const Models::ListServerIdeImagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of available images for personal development environments by using paging.
+       *
+       * @description Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+       *
+       * @param request ListServerIdeImagesRequest
+       * @return ListServerIdeImagesResponse
+       */
+      Models::ListServerIdeImagesResponse listServerIdeImages(const Models::ListServerIdeImagesRequest &request);
+
+      /**
+       * @summary Queries a paged query list of personal development environment instances with paging support.
+       *
+       * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+       *
+       * @param request ListServerIdeInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServerIdeInstancesResponse
+       */
+      Models::ListServerIdeInstancesResponse listServerIdeInstancesWithOptions(const Models::ListServerIdeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a paged query list of personal development environment instances with paging support.
+       *
+       * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+       *
+       * @param request ListServerIdeInstancesRequest
+       * @return ListServerIdeInstancesResponse
+       */
+      Models::ListServerIdeInstancesResponse listServerIdeInstances(const Models::ListServerIdeInstancesRequest &request);
+
+      /**
        * @summary Lists the Skills in your account.
        *
        * @description ## Request
@@ -6273,7 +6539,9 @@ namespace DataworksPublic20240518
       Models::ListTasksResponse listTasks(const Models::ListTasksRequest &request);
 
       /**
-       * @summary Queries a list of ancestor instances of an instance by page.
+       * @summary Retrieves the upstream instances of a specified instance by page.
+       *
+       * @description DataWorks Basic Edition or a more advanced edition is required.
        *
        * @param request ListUpstreamTaskInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6282,7 +6550,9 @@ namespace DataworksPublic20240518
       Models::ListUpstreamTaskInstancesResponse listUpstreamTaskInstancesWithOptions(const Models::ListUpstreamTaskInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of ancestor instances of an instance by page.
+       * @summary Retrieves the upstream instances of a specified instance by page.
+       *
+       * @description DataWorks Basic Edition or a more advanced edition is required.
        *
        * @param request ListUpstreamTaskInstancesRequest
        * @return ListUpstreamTaskInstancesResponse
@@ -6558,6 +6828,29 @@ namespace DataworksPublic20240518
       Models::PromptAgentSessionResponse promptAgentSession(const Models::PromptAgentSessionRequest &request);
 
       /**
+       * @summary Publishes an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+       *
+       * @param request PublishImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishImageResponse
+       */
+      Models::PublishImageResponse publishImageWithOptions(const Models::PublishImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Publishes an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+       *
+       * @param request PublishImageRequest
+       * @return PublishImageResponse
+       */
+      Models::PublishImageResponse publishImage(const Models::PublishImageRequest &request);
+
+      /**
        * @summary Remove an entity object from a Data Map collection. The collection supports Data Map categories and data albums, and the entity currently supports only the Data Table type.
        * When removing an entity from a data album, the caller must have the AliyunDataWorksFullAccess permission or be the creator or administrator of the album.
        *
@@ -6750,6 +7043,29 @@ namespace DataworksPublic20240518
       Models::RevokeMemberProjectRolesResponse revokeMemberProjectRoles(const Models::RevokeMemberProjectRolesRequest &request);
 
       /**
+       * @summary Rolls back an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request RollbackImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackImageResponse
+       */
+      Models::RollbackImageResponse rollbackImageWithOptions(const Models::RollbackImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Rolls back an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request RollbackImageRequest
+       * @return RollbackImageResponse
+       */
+      Models::RollbackImageResponse rollbackImage(const Models::RollbackImageRequest &request);
+
+      /**
        * @summary Rolls back a specified parameter.
        *
        * @description This operation is available only in DataWorks Professional Edition or a later version.
@@ -6814,6 +7130,29 @@ namespace DataworksPublic20240518
        * @return RunCrawlerResponse
        */
       Models::RunCrawlerResponse runCrawler(const Models::RunCrawlerRequest &request);
+
+      /**
+       * @summary Runs an image test.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request RunImageTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunImageTestResponse
+       */
+      Models::RunImageTestResponse runImageTestWithOptions(const Models::RunImageTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Runs an image test.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+       *
+       * @param request RunImageTestRequest
+       * @return RunImageTestResponse
+       */
+      Models::RunImageTestResponse runImageTest(const Models::RunImageTestRequest &request);
 
       /**
        * @summary Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
@@ -6891,6 +7230,27 @@ namespace DataworksPublic20240518
        * @return StartDIJobResponse
        */
       Models::StartDIJobResponse startDIJob(const Models::StartDIJobRequest &request);
+
+      /**
+       * @summary Starts a specified personal development environment instance.
+       *
+       * @description Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request StartServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartServerIdeInstanceResponse
+       */
+      Models::StartServerIdeInstanceResponse startServerIdeInstanceWithOptions(const Models::StartServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Starts a specified personal development environment instance.
+       *
+       * @description Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request StartServerIdeInstanceRequest
+       * @return StartServerIdeInstanceResponse
+       */
+      Models::StartServerIdeInstanceResponse startServerIdeInstance(const Models::StartServerIdeInstanceRequest &request);
 
       /**
        * @summary Starts multiple workflow instances in a batch.
@@ -6999,6 +7359,27 @@ namespace DataworksPublic20240518
        * @return StopProcessInstanceResponse
        */
       Models::StopProcessInstanceResponse stopProcessInstance(const Models::StopProcessInstanceRequest &request);
+
+      /**
+       * @summary Stops a specified personal development environment instance.
+       *
+       * @description Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request StopServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopServerIdeInstanceResponse
+       */
+      Models::StopServerIdeInstanceResponse stopServerIdeInstanceWithOptions(const Models::StopServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops a specified personal development environment instance.
+       *
+       * @description Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+       *
+       * @param request StopServerIdeInstanceRequest
+       * @return StopServerIdeInstanceResponse
+       */
+      Models::StopServerIdeInstanceResponse stopServerIdeInstance(const Models::StopServerIdeInstanceRequest &request);
 
       /**
        * @summary Stops multiple instances in a batch.
@@ -7642,6 +8023,29 @@ namespace DataworksPublic20240518
        * @return UpdateIDEEventResultResponse
        */
       Models::UpdateIDEEventResultResponse updateIDEEventResult(const Models::UpdateIDEEventResultRequest &request);
+
+      /**
+       * @summary Updates an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param tmpReq UpdateImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateImageResponse
+       */
+      Models::UpdateImageResponse updateImageWithOptions(const Models::UpdateImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request UpdateImageRequest
+       * @return UpdateImageResponse
+       */
+      Models::UpdateImageResponse updateImage(const Models::UpdateImageRequest &request);
 
       /**
        * @summary Updates an MCP Server.

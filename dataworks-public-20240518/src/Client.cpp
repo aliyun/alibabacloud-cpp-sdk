@@ -685,6 +685,66 @@ BatchUpdateTasksResponse Client::batchUpdateTasks(const BatchUpdateTasksRequest 
 }
 
 /**
+ * @summary Builds an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request BuildImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BuildImageResponse
+ */
+BuildImageResponse Client::buildImageWithOptions(const BuildImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCu()) {
+    body["Cu"] = request.getCu();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcessId()) {
+    body["ProcessId"] = request.getProcessId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BuildImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BuildImageResponse>();
+}
+
+/**
+ * @summary Builds an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request BuildImageRequest
+ * @return BuildImageResponse
+ */
+BuildImageResponse Client::buildImage(const BuildImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return buildImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Interrupts the Agent call for a specified session, supporting interruption during streaming responses.
  *
  * @description ## Request description
@@ -746,6 +806,58 @@ CancelAgentSessionResponse Client::cancelAgentSessionWithOptions(const CancelAge
 CancelAgentSessionResponse Client::cancelAgentSession(const CancelAgentSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelAgentSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels an image test.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request CancelImageTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelImageTestResponse
+ */
+CancelImageTestResponse Client::cancelImageTestWithOptions(const CancelImageTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcessId()) {
+    body["ProcessId"] = request.getProcessId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelImageTest"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelImageTestResponse>();
+}
+
+/**
+ * @summary Cancels an image test.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request CancelImageTestRequest
+ * @return CancelImageTestResponse
+ */
+CancelImageTestResponse Client::cancelImageTest(const CancelImageTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelImageTestWithOptions(request, runtime);
 }
 
 /**
@@ -1067,7 +1179,7 @@ CreateAlertRuleResponse Client::createAlertRule(const CreateAlertRuleRequest &re
 }
 
 /**
- * @summary Creates a workflow in DataStudio.
+ * @summary Creates a business process in DataStudio for data development.
  *
  * @param request CreateBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1230,7 @@ CreateBusinessResponse Client::createBusinessWithOptions(const CreateBusinessReq
 }
 
 /**
- * @summary Creates a workflow in DataStudio.
+ * @summary Creates a business process in DataStudio for data development.
  *
  * @param request CreateBusinessRequest
  * @return CreateBusinessResponse
@@ -2957,6 +3069,116 @@ CreateIdentifyCredentialResponse Client::createIdentifyCredential(const CreateId
 }
 
 /**
+ * @summary Creates an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param tmpReq CreateImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImageResponse
+ */
+CreateImageResponse Client::createImageWithOptions(const CreateImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateImageShrinkRequest request = CreateImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBuildConfig()) {
+    request.setBuildConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBuildConfig(), "BuildConfig", "json"));
+  }
+
+  if (!!tmpReq.hasSupported()) {
+    request.setSupportedShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSupported(), "Supported", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasAcrAssociatedVpcId()) {
+    body["AcrAssociatedVpcId"] = request.getAcrAssociatedVpcId();
+  }
+
+  if (!!request.hasAcrInstanceId()) {
+    body["AcrInstanceId"] = request.getAcrInstanceId();
+  }
+
+  if (!!request.hasBuildConfigShrink()) {
+    body["BuildConfig"] = request.getBuildConfigShrink();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableSyncMaxCompute()) {
+    body["EnableSyncMaxCompute"] = request.getEnableSyncMaxCompute();
+  }
+
+  if (!!request.hasImageUri()) {
+    body["ImageUri"] = request.getImageUri();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNamespace()) {
+    body["Namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasProviderImageId()) {
+    body["ProviderImageId"] = request.getProviderImageId();
+  }
+
+  if (!!request.hasProviderType()) {
+    body["ProviderType"] = request.getProviderType();
+  }
+
+  if (!!request.hasRepositoryName()) {
+    body["RepositoryName"] = request.getRepositoryName();
+  }
+
+  if (!!request.hasSupportedShrink()) {
+    body["Supported"] = request.getSupportedShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImageResponse>();
+}
+
+/**
+ * @summary Creates an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request CreateImageRequest
+ * @return CreateImageResponse
+ */
+CreateImageResponse Client::createImage(const CreateImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Registers a data lineage relationship in DataWorks Data Map. You can use this operation to establish lineage relationships between metadata entities managed by DataWorks, including table-to-table, column-to-column, table-to-column, and dataset-to-table scenarios. You can also establish lineage relationships between managed entities and custom entity objects registered by users. This operation is compatible with non-managed custom objects, but this approach is no longer recommended. Before calling this operation, make sure that the managed entities involved in the lineage registration already exist on the DataWorks platform.
  *
  * @description 1. DataWorks Professional Edition or a higher edition is required.
@@ -4689,9 +4911,9 @@ CreateWorkflowDefinitionResponse Client::createWorkflowDefinition(const CreateWo
 }
 
 /**
- * @summary Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+ * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
  *
- * @description DataWorks Basic Edition or higher is required.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param tmpReq CreateWorkflowInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4784,9 +5006,9 @@ CreateWorkflowInstancesResponse Client::createWorkflowInstancesWithOptions(const
 }
 
 /**
- * @summary Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+ * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
  *
- * @description DataWorks Basic Edition or higher is required.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request CreateWorkflowInstancesRequest
  * @return CreateWorkflowInstancesResponse
@@ -6767,6 +6989,52 @@ DeleteSemanticJobResponse Client::deleteSemanticJob(const DeleteSemanticJobReque
 }
 
 /**
+ * @summary Deletes a specified personal development environment instance.
+ *
+ * @description Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request DeleteServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServerIdeInstanceResponse
+ */
+DeleteServerIdeInstanceResponse Client::deleteServerIdeInstanceWithOptions(const DeleteServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Deletes a specified personal development environment instance.
+ *
+ * @description Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request DeleteServerIdeInstanceRequest
+ * @return DeleteServerIdeInstanceResponse
+ */
+DeleteServerIdeInstanceResponse Client::deleteServerIdeInstance(const DeleteServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteServerIdeInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Skill
  *
  * @description ## Request Description
@@ -6871,9 +7139,9 @@ DeleteTaskResponse Client::deleteTask(const DeleteTaskRequest &request) {
 }
 
 /**
- * @summary Deletes a workflow.
+ * @summary Deletes a specified workflow.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a more advanced edition is required.
  *
  * @param request DeleteWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6914,9 +7182,9 @@ DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowReq
 }
 
 /**
- * @summary Deletes a workflow.
+ * @summary Deletes a specified workflow.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a more advanced edition is required.
  *
  * @param request DeleteWorkflowRequest
  * @return DeleteWorkflowResponse
@@ -7096,6 +7364,54 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
 DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesFromEvaluationTask(const DetachDataQualityRulesFromEvaluationTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return detachDataQualityRulesFromEvaluationTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request DisableImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableImageResponse
+ */
+DisableImageResponse Client::disableImageWithOptions(const DisableImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DisableImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableImageResponse>();
+}
+
+/**
+ * @summary Disables an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request DisableImageRequest
+ * @return DisableImageResponse
+ */
+DisableImageResponse Client::disableImage(const DisableImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableImageWithOptions(request, runtime);
 }
 
 /**
@@ -7322,6 +7638,54 @@ DownloadSemanticResultsResponse Client::downloadSemanticResultsWithOptions(const
 DownloadSemanticResultsResponse Client::downloadSemanticResults(const DownloadSemanticResultsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return downloadSemanticResultsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request EnableImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableImageResponse
+ */
+EnableImageResponse Client::enableImageWithOptions(const EnableImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EnableImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableImageResponse>();
+}
+
+/**
+ * @summary Enables an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request EnableImageRequest
+ * @return EnableImageResponse
+ */
+EnableImageResponse Client::enableImage(const EnableImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableImageWithOptions(request, runtime);
 }
 
 /**
@@ -9396,6 +9760,58 @@ GetImageResponse Client::getImage(const GetImageRequest &request) {
 }
 
 /**
+ * @summary Retrieves the details of an image test result.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request GetImageTestResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetImageTestResultResponse
+ */
+GetImageTestResultResponse Client::getImageTestResultWithOptions(const GetImageTestResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcessId()) {
+    query["ProcessId"] = request.getProcessId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetImageTestResult"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetImageTestResultResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an image test result.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request GetImageTestResultRequest
+ * @return GetImageTestResultResponse
+ */
+GetImageTestResultResponse Client::getImageTestResult(const GetImageTestResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getImageTestResultWithOptions(request, runtime);
+}
+
+/**
  * @summary Returns the status of an asynchronous task. After calling an asynchronous API, poll this API to obtain the success status.
  *
  * @param request GetJobStatusRequest
@@ -10499,6 +10915,52 @@ GetSemanticJobLogResponse Client::getSemanticJobLogWithOptions(const GetSemantic
 GetSemanticJobLogResponse Client::getSemanticJobLog(const GetSemanticJobLogRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSemanticJobLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified personal development environment instance.
+ *
+ * @description Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+ *
+ * @param request GetServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServerIdeInstanceResponse
+ */
+GetServerIdeInstanceResponse Client::getServerIdeInstanceWithOptions(const GetServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified personal development environment instance.
+ *
+ * @description Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+ *
+ * @param request GetServerIdeInstanceRequest
+ * @return GetServerIdeInstanceResponse
+ */
+GetServerIdeInstanceResponse Client::getServerIdeInstance(const GetServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServerIdeInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -12594,9 +13056,9 @@ ListDataQualityEvaluationTaskInstancesResponse Client::listDataQualityEvaluation
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Lists quality monitoring nodes by paging query.
+ * @summary Queries a paged list of quality monitoring nodes by using paging.
  *
- * @description 需要购买DataWorks基础版及以上版本才能使用
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request ListDataQualityEvaluationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12625,9 +13087,9 @@ ListDataQualityEvaluationTasksResponse Client::listDataQualityEvaluationTasksWit
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Lists quality monitoring nodes by paging query.
+ * @summary Queries a paged list of quality monitoring nodes by using paging.
  *
- * @description 需要购买DataWorks基础版及以上版本才能使用
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request ListDataQualityEvaluationTasksRequest
  * @return ListDataQualityEvaluationTasksResponse
@@ -13873,6 +14335,62 @@ ListImageAssociatedProjectsResponse Client::listImageAssociatedProjectsWithOptio
 ListImageAssociatedProjectsResponse Client::listImageAssociatedProjects(const ListImageAssociatedProjectsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listImageAssociatedProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of image test results.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request ListImageTestResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImageTestResultsResponse
+ */
+ListImageTestResultsResponse Client::listImageTestResultsWithOptions(const ListImageTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListImageTestResults"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImageTestResultsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of image test results.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request ListImageTestResultsRequest
+ * @return ListImageTestResultsResponse
+ */
+ListImageTestResultsResponse Client::listImageTestResults(const ListImageTestResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImageTestResultsWithOptions(request, runtime);
 }
 
 /**
@@ -15948,6 +16466,208 @@ ListSemanticJobsResponse Client::listSemanticJobs(const ListSemanticJobsRequest 
 }
 
 /**
+ * @summary Queries the list of available ECS instance types for personal development environments.
+ *
+ * @description Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+ *
+ * @param request ListServerIdeEcsSpecsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServerIdeEcsSpecsResponse
+ */
+ListServerIdeEcsSpecsResponse Client::listServerIdeEcsSpecsWithOptions(const ListServerIdeEcsSpecsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAcceleratorType()) {
+    body["AcceleratorType"] = request.getAcceleratorType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListServerIdeEcsSpecs"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServerIdeEcsSpecsResponse>();
+}
+
+/**
+ * @summary Queries the list of available ECS instance types for personal development environments.
+ *
+ * @description Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+ *
+ * @param request ListServerIdeEcsSpecsRequest
+ * @return ListServerIdeEcsSpecsResponse
+ */
+ListServerIdeEcsSpecsResponse Client::listServerIdeEcsSpecs(const ListServerIdeEcsSpecsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listServerIdeEcsSpecsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of available images for personal development environments by using paging.
+ *
+ * @description Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+ *
+ * @param request ListServerIdeImagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServerIdeImagesResponse
+ */
+ListServerIdeImagesResponse Client::listServerIdeImagesWithOptions(const ListServerIdeImagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLabels()) {
+    body["Labels"] = request.getLabels();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListServerIdeImages"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServerIdeImagesResponse>();
+}
+
+/**
+ * @summary Queries the list of available images for personal development environments by using paging.
+ *
+ * @description Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+ *
+ * @param request ListServerIdeImagesRequest
+ * @return ListServerIdeImagesResponse
+ */
+ListServerIdeImagesResponse Client::listServerIdeImages(const ListServerIdeImagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listServerIdeImagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a paged query list of personal development environment instances with paging support.
+ *
+ * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+ *
+ * @param request ListServerIdeInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServerIdeInstancesResponse
+ */
+ListServerIdeInstancesResponse Client::listServerIdeInstancesWithOptions(const ListServerIdeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRelatedUserId()) {
+    body["RelatedUserId"] = request.getRelatedUserId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSubType()) {
+    body["SubType"] = request.getSubType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListServerIdeInstances"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServerIdeInstancesResponse>();
+}
+
+/**
+ * @summary Queries a paged query list of personal development environment instances with paging support.
+ *
+ * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+ *
+ * @param request ListServerIdeInstancesRequest
+ * @return ListServerIdeInstancesResponse
+ */
+ListServerIdeInstancesResponse Client::listServerIdeInstances(const ListServerIdeInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listServerIdeInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Lists the Skills in your account.
  *
  * @description ## Request
@@ -16458,7 +17178,9 @@ ListTasksResponse Client::listTasks(const ListTasksRequest &request) {
 }
 
 /**
- * @summary Queries a list of ancestor instances of an instance by page.
+ * @summary Retrieves the upstream instances of a specified instance by page.
+ *
+ * @description DataWorks Basic Edition or a more advanced edition is required.
  *
  * @param request ListUpstreamTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16485,7 +17207,9 @@ ListUpstreamTaskInstancesResponse Client::listUpstreamTaskInstancesWithOptions(c
 }
 
 /**
- * @summary Queries a list of ancestor instances of an instance by page.
+ * @summary Retrieves the upstream instances of a specified instance by page.
+ *
+ * @description DataWorks Basic Edition or a more advanced edition is required.
  *
  * @param request ListUpstreamTaskInstancesRequest
  * @return ListUpstreamTaskInstancesResponse
@@ -17299,6 +18023,58 @@ PromptAgentSessionResponse Client::promptAgentSession(const PromptAgentSessionRe
 }
 
 /**
+ * @summary Publishes an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+ *
+ * @param request PublishImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishImageResponse
+ */
+PublishImageResponse Client::publishImageWithOptions(const PublishImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcessId()) {
+    body["ProcessId"] = request.getProcessId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PublishImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishImageResponse>();
+}
+
+/**
+ * @summary Publishes an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+ *
+ * @param request PublishImageRequest
+ * @return PublishImageResponse
+ */
+PublishImageResponse Client::publishImage(const PublishImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return publishImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Remove an entity object from a Data Map collection. The collection supports Data Map categories and data albums, and the entity currently supports only the Data Table type.
  * When removing an entity from a data album, the caller must have the AliyunDataWorksFullAccess permission or be the creator or administrator of the album.
  *
@@ -17881,6 +18657,58 @@ RevokeMemberProjectRolesResponse Client::revokeMemberProjectRoles(const RevokeMe
 }
 
 /**
+ * @summary Rolls back an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request RollbackImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackImageResponse
+ */
+RollbackImageResponse Client::rollbackImageWithOptions(const RollbackImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasImageVersion()) {
+    body["ImageVersion"] = request.getImageVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RollbackImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackImageResponse>();
+}
+
+/**
+ * @summary Rolls back an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request RollbackImageRequest
+ * @return RollbackImageResponse
+ */
+RollbackImageResponse Client::rollbackImage(const RollbackImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Rolls back a specified parameter.
  *
  * @description This operation is available only in DataWorks Professional Edition or a later version.
@@ -17998,6 +18826,66 @@ RunCrawlerResponse Client::runCrawlerWithOptions(const RunCrawlerRequest &reques
 RunCrawlerResponse Client::runCrawler(const RunCrawlerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Runs an image test.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request RunImageTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunImageTestResponse
+ */
+RunImageTestResponse Client::runImageTestWithOptions(const RunImageTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCu()) {
+    body["Cu"] = request.getCu();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcessId()) {
+    body["ProcessId"] = request.getProcessId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunImageTest"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunImageTestResponse>();
+}
+
+/**
+ * @summary Runs an image test.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+ *
+ * @param request RunImageTestRequest
+ * @return RunImageTestResponse
+ */
+RunImageTestResponse Client::runImageTest(const RunImageTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runImageTestWithOptions(request, runtime);
 }
 
 /**
@@ -18162,6 +19050,52 @@ StartDIJobResponse Client::startDIJobWithOptions(const StartDIJobRequest &tmpReq
 StartDIJobResponse Client::startDIJob(const StartDIJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startDIJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Starts a specified personal development environment instance.
+ *
+ * @description Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request StartServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartServerIdeInstanceResponse
+ */
+StartServerIdeInstanceResponse Client::startServerIdeInstanceWithOptions(const StartServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Starts a specified personal development environment instance.
+ *
+ * @description Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request StartServerIdeInstanceRequest
+ * @return StartServerIdeInstanceResponse
+ */
+StartServerIdeInstanceResponse Client::startServerIdeInstance(const StartServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startServerIdeInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -18380,6 +19314,52 @@ StopProcessInstanceResponse Client::stopProcessInstanceWithOptions(const StopPro
 StopProcessInstanceResponse Client::stopProcessInstance(const StopProcessInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopProcessInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops a specified personal development environment instance.
+ *
+ * @description Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request StopServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopServerIdeInstanceResponse
+ */
+StopServerIdeInstanceResponse Client::stopServerIdeInstanceWithOptions(const StopServerIdeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Stops a specified personal development environment instance.
+ *
+ * @description Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+ *
+ * @param request StopServerIdeInstanceRequest
+ * @return StopServerIdeInstanceResponse
+ */
+StopServerIdeInstanceResponse Client::stopServerIdeInstance(const StopServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopServerIdeInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -20600,6 +21580,110 @@ UpdateIDEEventResultResponse Client::updateIDEEventResultWithOptions(const Updat
 UpdateIDEEventResultResponse Client::updateIDEEventResult(const UpdateIDEEventResultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateIDEEventResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param tmpReq UpdateImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateImageResponse
+ */
+UpdateImageResponse Client::updateImageWithOptions(const UpdateImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateImageShrinkRequest request = UpdateImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBuildConfig()) {
+    request.setBuildConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBuildConfig(), "BuildConfig", "json"));
+  }
+
+  if (!!tmpReq.hasSupported()) {
+    request.setSupportedShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSupported(), "Supported", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAcrAssociatedVpcId()) {
+    query["AcrAssociatedVpcId"] = request.getAcrAssociatedVpcId();
+  }
+
+  if (!!request.hasAcrInstanceId()) {
+    query["AcrInstanceId"] = request.getAcrInstanceId();
+  }
+
+  if (!!request.hasImageUri()) {
+    query["ImageUri"] = request.getImageUri();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasRepositoryName()) {
+    query["RepositoryName"] = request.getRepositoryName();
+  }
+
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasBuildConfigShrink()) {
+    body["BuildConfig"] = request.getBuildConfigShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasProviderImageId()) {
+    body["ProviderImageId"] = request.getProviderImageId();
+  }
+
+  if (!!request.hasSupportedShrink()) {
+    body["Supported"] = request.getSupportedShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateImageResponse>();
+}
+
+/**
+ * @summary Updates an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request UpdateImageRequest
+ * @return UpdateImageResponse
+ */
+UpdateImageResponse Client::updateImage(const UpdateImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateImageWithOptions(request, runtime);
 }
 
 /**

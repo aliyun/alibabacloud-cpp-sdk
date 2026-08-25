@@ -84,28 +84,24 @@ namespace Models
 
 
   protected:
-    // Business Process ID.
+    // The ID of the business process.
     shared_ptr<int64_t> businessId_ {};
-    // Error code. The value is as follows:
+    // The error code. Description:
+    // - If the request was successful, this parameter is not returned.
+    // - If the request failed, this parameter is returned.
     // 
-    // - If the request succeeds, the ErrorCode field is not returned.
-    // 
-    // - If the request fails, the ErrorCode field is returned.
-    // 
-    // For more information, see the error code list in this topic.
+    // For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The unique ID of this request.<br>
-    // If an error occurs, you can use this ID to troubleshoot the issue.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the invocation succeeded. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: The invocation succeeded.
-    // 
-    // - false: The invocation failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

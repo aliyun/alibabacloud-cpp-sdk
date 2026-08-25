@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The downloadable URL (HTTP/HTTPS) of the bundle.zip file. Mutually exclusive with SkillMdOverride. If specified, the bundle is replaced.
+    // The downloadable URL (HTTP/HTTPS) of the bundle.zip file. Mutually exclusive with SkillMdOverride. If provided, the bundle is replaced.
     shared_ptr<string> bundleUrl_ {};
     // The Skill description.
     shared_ptr<string> description_ {};

@@ -1,0 +1,71 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_ROLLBACKIMAGERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_ROLLBACKIMAGERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataworksPublic20240518
+{
+namespace Models
+{
+  class RollbackImageResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const RollbackImageResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, RollbackImageResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    RollbackImageResponseBody() = default ;
+    RollbackImageResponseBody(const RollbackImageResponseBody &) = default ;
+    RollbackImageResponseBody(RollbackImageResponseBody &&) = default ;
+    RollbackImageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~RollbackImageResponseBody() = default ;
+    RollbackImageResponseBody& operator=(const RollbackImageResponseBody &) = default ;
+    RollbackImageResponseBody& operator=(RollbackImageResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline RollbackImageResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline RollbackImageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline RollbackImageResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The result of the API request.
+    shared_ptr<bool> data_ {};
+    // The request ID, which is used to locate logs and troubleshoot issues.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataworksPublic20240518
+#endif

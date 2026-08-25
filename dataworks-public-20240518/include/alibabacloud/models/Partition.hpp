@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The creation time, in millisecond-level timestamp.
     shared_ptr<int64_t> createTime_ {};
+    // The storage size of the partition, in bytes.
     shared_ptr<int64_t> dataSize_ {};
+    // The modification time, in millisecond-level timestamp.
     shared_ptr<int64_t> modifyTime_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The number of records in the partition.
     shared_ptr<int64_t> recordCount_ {};
+    // The resource ID of the data table to which the partition belongs.
     shared_ptr<string> tableId_ {};
   };
 

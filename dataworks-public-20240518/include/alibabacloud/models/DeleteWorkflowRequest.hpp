@@ -57,15 +57,14 @@ namespace Models
 
 
   protected:
-    // The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+    // The client unique code of the workflow, which is used to implement asynchronous operations and idempotence. If you do not specify this parameter during creation, the system automatically generates one. This code is uniquely bound to the resource ID. If you specify this parameter during update or deletion, it must be the same as the client unique code specified during creation.
     shared_ptr<string> clientUniqueCode_ {};
-    // The environment of the workspace. Valid values:
+    // The project environment. Valid values:
     // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // - Prod: production
+    // - Dev: development
     shared_ptr<string> envType_ {};
-    // The workflow ID.
+    // The unique identifier of the workflow.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

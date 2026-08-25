@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The name used to fuzzy match data quality check task names.
+    // The name used for fuzzy matching of data quality evaluation task names.
     shared_ptr<string> name_ {};
-    // The page number for the paging query. Default value: 1.
+    // The page number for paging. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size for the paging query. Default value: 10.
+    // The page size for paging. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The unique ID of the table in Data Map.
+    // The unique ID of the table in DataWorks Data Map.
     shared_ptr<string> tableGuid_ {};
   };
 

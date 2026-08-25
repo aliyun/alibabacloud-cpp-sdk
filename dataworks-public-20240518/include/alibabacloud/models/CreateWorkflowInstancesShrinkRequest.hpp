@@ -149,57 +149,49 @@ namespace Models
 
 
   protected:
-    // The default value is true.
+    // Specifies whether to run the workflow instance immediately after creation. Default value: true.
     shared_ptr<bool> autoStartEnabled_ {};
-    // The reason for the creation.
+    // The reason for creating the workflow instance.
     shared_ptr<string> comment_ {};
-    // The runtime configuration.
+    // The runtime configurations.
     shared_ptr<string> defaultRunPropertiesShrink_ {};
     // The project environment. Valid values:
-    // 
-    // - Prod
-    // 
-    // - Dev
+    // - Prod: production
+    // - Dev: development
     shared_ptr<string> envType_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The configuration of the data backfilling period.
+    // The data backfill period settings.
     shared_ptr<string> periodsShrink_ {};
     // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The tag creation policy. Valid values:
-    // 
-    // - Append: New tags are added on top of the existing tags of the manual workflow.
-    // 
-    // - Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+    // - Append: append mode. New tags are appended to the existing tags inherited from the manual workflow.
+    // - Overwrite: overwrite mode. Existing tags of the manual workflow are not inherited. Tags are created directly.
     shared_ptr<string> tagCreationPolicy_ {};
-    // The task tag list.
+    // The list of node labels.
     shared_ptr<string> tagsShrink_ {};
-    // The task-specific parameters. The value is in the JSON format. The key specifies the task ID. You can call the GetTask operation to obtain the format of the value by querying the script parameters.
+    // The node parameters used to set parameters for specific nodes. The value is in JSON format. The key is the node ID, and the value format refers to the node script parameter (the Task.Script.Parameter field in the GetTask response).
     shared_ptr<string> taskParameters_ {};
     // The type of the workflow instance. Valid values:
     // 
-    // - SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
-    // 
-    // - ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
-    // 
-    // - Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
-    // 
-    // - SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
-    // 
-    // - TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
+    // - SupplementData: data backfill. The method for specifying RootTaskIds and IncludeTaskIds varies based on the data backfill pattern. For more information, see the DefaultRunProperties.Mode parameter description.
+    // - ManualWorkflow: manual workflow. Set WorkflowId to the ID of the manual workflow. RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manual workflow is used.
+    // - Manual: manual node. Only RootTaskIds is required, which specifies the list of manual nodes to run.
+    // - SmokeTest: smoke test. Only RootTaskIds is required, which specifies the list of test nodes to run.
+    // - TriggerWorkflow: trigger-based workflow. Set WorkflowId to the ID of the trigger-based workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow is run.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The ID of the workflow to which the instance belongs. This parameter is set to 1 for auto triggered tasks.
+    // The ID of the workflow to which the instance belongs. The WorkflowId for periodic nodes is 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
-    // The workflow parameters. This parameter takes effect when a specific workflow is specified (`WorkflowId != 1`). For scheduled workflows and triggered workflows, the format is key=value, and these parameters have lower priority than task parameters. For manual workflows, the format is JSON, and these parameters have higher priority than task parameters.
+    // The workflow parameters. This parameter takes effect when a unique workflow is specified (`WorkflowId != 1`). For periodic workflows and trigger-based workflows, the format is key=value, and the priority is lower than node parameters. For manual workflows, the format is JSON, and the priority is higher than node parameters.
     shared_ptr<string> workflowParameters_ {};
   };
 

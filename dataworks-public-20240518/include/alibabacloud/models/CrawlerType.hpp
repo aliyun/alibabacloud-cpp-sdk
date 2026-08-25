@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether the entity type is optional.
       shared_ptr<bool> optional_ {};
+      // The entity subtype of the parent level. The value is null if no parent level exists.
       shared_ptr<string> parentSubType_ {};
+      // The entity subtype identifier.
       shared_ptr<string> subType_ {};
+      // The entity type identifier, which is related to the crawler type. The format is (CrawlerType)-{SubType}.
       shared_ptr<string> type_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The list of supported entity types. The entity types have a top-down hierarchical relationship based on their declaration order.
     shared_ptr<vector<CrawlerType::SupportedEntityTypes>> supportedEntityTypes_ {};
+    // The type identifier.
     shared_ptr<string> type_ {};
   };
 
