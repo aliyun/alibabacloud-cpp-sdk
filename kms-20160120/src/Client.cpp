@@ -24,40 +24,40 @@ AlibabaCloud::Kms20160120::Client::Client(Config &config): OpenApiClient(config)
   this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "kms.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "kms.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "kms.na-south-1.aliyuncs.com"},
-    {"me-east-1" , "kms.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "kms.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "kms.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "kms.eu-central-1.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "kms.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "kms.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "kms.cn-wulanchabu.aliyuncs.com"},
-    {"cn-wuhan-lr" , "kms.cn-wuhan-lr.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "kms.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "kms.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "kms.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "kms.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "kms.cn-qingdao.aliyuncs.com"},
-    {"cn-huhehaote" , "kms.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "kms.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan-acdr-1" , "kms.cn-heyuan-acdr-1.aliyuncs.com"},
-    {"cn-heyuan" , "kms.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "kms.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "kms.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "kms.cn-guangzhou.aliyuncs.com"},
-    {"cn-fuzhou" , "kms.cn-fuzhou.aliyuncs.com"},
-    {"cn-chengdu" , "kms.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "kms.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-beijing" , "kms.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "kms.ap-northeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "kms.ap-northeast-2.aliyuncs.com"},
     {"ap-southeast-7" , "kms.ap-southeast-7.aliyuncs.com"},
     {"ap-southeast-6" , "kms.ap-southeast-6.aliyuncs.com"},
     {"ap-southeast-5" , "kms.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "kms.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-1" , "kms.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "kms.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "kms.ap-northeast-1.aliyuncs.com"}
+    {"cn-hongkong" , "kms.cn-hongkong.aliyuncs.com"},
+    {"cn-chengdu" , "kms.cn-chengdu.aliyuncs.com"},
+    {"cn-wulanchabu" , "kms.cn-wulanchabu.aliyuncs.com"},
+    {"cn-huhehaote" , "kms.cn-huhehaote.aliyuncs.com"},
+    {"cn-zhangjiakou" , "kms.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-beijing" , "kms.cn-beijing.aliyuncs.com"},
+    {"cn-qingdao" , "kms.cn-qingdao.aliyuncs.com"},
+    {"cn-guangzhou" , "kms.cn-guangzhou.aliyuncs.com"},
+    {"cn-heyuan" , "kms.cn-heyuan.aliyuncs.com"},
+    {"cn-shenzhen" , "kms.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "kms.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou" , "kms.cn-hangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "kms.cn-fuzhou.aliyuncs.com"},
+    {"cn-wuhan-lr" , "kms.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "kms.cn-zhengzhou-jva.aliyuncs.com"},
+    {"na-south-1" , "kms.na-south-1.aliyuncs.com"},
+    {"eu-central-1" , "kms.eu-central-1.aliyuncs.com"},
+    {"eu-west-1" , "kms.eu-west-1.aliyuncs.com"},
+    {"us-west-1" , "kms.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "kms.us-east-1.aliyuncs.com"},
+    {"me-central-1" , "kms.me-central-1.aliyuncs.com"},
+    {"me-east-1" , "kms.me-east-1.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "kms.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "kms.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "kms.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "kms.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "kms.cn-beijing-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("kms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -125,9 +125,15 @@ AsymmetricDecryptResponse Client::asymmetricDecryptWithOptions(const AsymmetricD
     query["KeyVersionId"] = request.getKeyVersionId();
   }
 
+  json body = {};
+  if (!!request.hasRecipient()) {
+    body["Recipient"] = request.getRecipient();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "AsymmetricDecrypt"},
     {"version" , "2016-01-20"},
@@ -1267,13 +1273,15 @@ DecryptResponse Client::decryptWithOptions(const DecryptRequest &tmpReq, const D
     query["EncryptionContext"] = request.getEncryptionContextShrink();
   }
 
+  json body = {};
   if (!!request.hasRecipient()) {
-    query["Recipient"] = request.getRecipient();
+    body["Recipient"] = request.getRecipient();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "Decrypt"},
     {"version" , "2016-01-20"},
@@ -2423,13 +2431,15 @@ GenerateDataKeyResponse Client::generateDataKeyWithOptions(const GenerateDataKey
     query["NumberOfBytes"] = request.getNumberOfBytes();
   }
 
+  json body = {};
   if (!!request.hasRecipient()) {
-    query["Recipient"] = request.getRecipient();
+    body["Recipient"] = request.getRecipient();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "GenerateDataKey"},
     {"version" , "2016-01-20"},
@@ -2630,6 +2640,41 @@ GenerateMacResponse Client::generateMacWithOptions(const GenerateMacRequest &req
 GenerateMacResponse Client::generateMac(const GenerateMacRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateMacWithOptions(request, runtime);
+}
+
+/**
+ * @summary 从kms获取挑战
+ *
+ * @param request GetChallengeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetChallengeResponse
+ */
+GetChallengeResponse Client::getChallengeWithOptions(const GetChallengeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetChallenge"},
+    {"version" , "2016-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetChallengeResponse>();
+}
+
+/**
+ * @summary 从kms获取挑战
+ *
+ * @param request GetChallengeRequest
+ * @return GetChallengeResponse
+ */
+GetChallengeResponse Client::getChallenge(const GetChallengeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getChallengeWithOptions(request, runtime);
 }
 
 /**
@@ -3175,12 +3220,12 @@ GetSecretPolicyResponse Client::getSecretPolicy(const GetSecretPolicyRequest &re
 }
 
 /**
- * @summary Retrieve the credential value.
+ * @summary Retrieves a secret value.
  *
- * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
- * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
- * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
- * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+ * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+ * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+ * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+ * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
  *
  * @param request GetSecretValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3209,9 +3254,15 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const GetSecretValueReq
     query["VersionStage"] = request.getVersionStage();
   }
 
+  json body = {};
+  if (!!request.hasRecipient()) {
+    body["Recipient"] = request.getRecipient();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "GetSecretValue"},
     {"version" , "2016-01-20"},
@@ -3227,12 +3278,12 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const GetSecretValueReq
 }
 
 /**
- * @summary Retrieve the credential value.
+ * @summary Retrieves a secret value.
  *
- * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
- * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
- * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
- * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+ * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+ * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+ * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+ * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
  *
  * @param request GetSecretValueRequest
  * @return GetSecretValueResponse

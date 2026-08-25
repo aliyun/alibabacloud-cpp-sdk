@@ -13,12 +13,14 @@ namespace Models
   class AsymmetricDecryptResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AsymmetricDecryptResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_TO_JSON(KeyId, keyId_);
       DARABONBA_PTR_TO_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_TO_JSON(Plaintext, plaintext_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, AsymmetricDecryptResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
       DARABONBA_PTR_FROM_JSON(KeyVersionId, keyVersionId_);
       DARABONBA_PTR_FROM_JSON(Plaintext, plaintext_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->keyId_ == nullptr
-        && this->keyVersionId_ == nullptr && this->plaintext_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->ciphertextForRecipient_ == nullptr
+        && this->keyId_ == nullptr && this->keyVersionId_ == nullptr && this->plaintext_ == nullptr && this->requestId_ == nullptr; };
+    // ciphertextForRecipient Field Functions 
+    bool hasCiphertextForRecipient() const { return this->ciphertextForRecipient_ != nullptr;};
+    void deleteCiphertextForRecipient() { this->ciphertextForRecipient_ = nullptr;};
+    inline string getCiphertextForRecipient() const { DARABONBA_PTR_GET_DEFAULT(ciphertextForRecipient_, "") };
+    inline AsymmetricDecryptResponseBody& setCiphertextForRecipient(string ciphertextForRecipient) { DARABONBA_PTR_SET_VALUE(ciphertextForRecipient_, ciphertextForRecipient) };
+
+
     // keyId Field Functions 
     bool hasKeyId() const { return this->keyId_ != nullptr;};
     void deleteKeyId() { this->keyId_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> ciphertextForRecipient_ {};
     // The ID of the key. If the KeyId parameter in the request is a key alias or key ARN, the key ID is also returned in the response.
     shared_ptr<string> keyId_ {};
     // The version of the master key that was used to encrypt the plaintext.

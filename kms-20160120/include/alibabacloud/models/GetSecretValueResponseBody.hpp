@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetSecretValueResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AutomaticRotation, automaticRotation_);
+      DARABONBA_PTR_TO_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(ExtendedConfig, extendedConfig_);
       DARABONBA_PTR_TO_JSON(LastRotationDate, lastRotationDate_);
@@ -30,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetSecretValueResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AutomaticRotation, automaticRotation_);
+      DARABONBA_PTR_FROM_JSON(CiphertextForRecipient, ciphertextForRecipient_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(ExtendedConfig, extendedConfig_);
       DARABONBA_PTR_FROM_JSON(LastRotationDate, lastRotationDate_);
@@ -88,14 +90,21 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->automaticRotation_ == nullptr
-        && this->createTime_ == nullptr && this->extendedConfig_ == nullptr && this->lastRotationDate_ == nullptr && this->nextRotationDate_ == nullptr && this->requestId_ == nullptr
-        && this->rotationInterval_ == nullptr && this->secretData_ == nullptr && this->secretDataType_ == nullptr && this->secretName_ == nullptr && this->secretType_ == nullptr
-        && this->versionId_ == nullptr && this->versionStages_ == nullptr; };
+        && this->ciphertextForRecipient_ == nullptr && this->createTime_ == nullptr && this->extendedConfig_ == nullptr && this->lastRotationDate_ == nullptr && this->nextRotationDate_ == nullptr
+        && this->requestId_ == nullptr && this->rotationInterval_ == nullptr && this->secretData_ == nullptr && this->secretDataType_ == nullptr && this->secretName_ == nullptr
+        && this->secretType_ == nullptr && this->versionId_ == nullptr && this->versionStages_ == nullptr; };
     // automaticRotation Field Functions 
     bool hasAutomaticRotation() const { return this->automaticRotation_ != nullptr;};
     void deleteAutomaticRotation() { this->automaticRotation_ = nullptr;};
     inline string getAutomaticRotation() const { DARABONBA_PTR_GET_DEFAULT(automaticRotation_, "") };
     inline GetSecretValueResponseBody& setAutomaticRotation(string automaticRotation) { DARABONBA_PTR_SET_VALUE(automaticRotation_, automaticRotation) };
+
+
+    // ciphertextForRecipient Field Functions 
+    bool hasCiphertextForRecipient() const { return this->ciphertextForRecipient_ != nullptr;};
+    void deleteCiphertextForRecipient() { this->ciphertextForRecipient_ = nullptr;};
+    inline string getCiphertextForRecipient() const { DARABONBA_PTR_GET_DEFAULT(ciphertextForRecipient_, "") };
+    inline GetSecretValueResponseBody& setCiphertextForRecipient(string ciphertextForRecipient) { DARABONBA_PTR_SET_VALUE(ciphertextForRecipient_, ciphertextForRecipient) };
 
 
     // createTime Field Functions 
@@ -185,63 +194,64 @@ namespace Models
 
 
   protected:
-    // Indicates whether automatic rotation is enabled. Valid values:  
-    // - Enabled: Automatic rotation is enabled.  
-    // - Disabled: Automatic rotation is disabled.  
-    // - Invalid: The rotation status is abnormal, and KMS cannot automatically rotate the credential for you.  
+    // Indicates whether automatic rotation is enabled. Valid values:
+    // - Enabled: Automatic rotation is enabled.
+    // - Disabled: Automatic rotation is disabled.
+    // - Invalid: The rotation status is abnormal. KMS cannot automatically rotate the secret.
     // 
-    // > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials.
+    // > This parameter is returned only for ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, or ECS secrets.
     shared_ptr<string> automaticRotation_ {};
-    // The time when the credential was created.
+    shared_ptr<string> ciphertextForRecipient_ {};
+    // The time when the secret was created.
     shared_ptr<string> createTime_ {};
-    // The extended configuration of the credential.  
+    // The extended configuration of the secret.  
     // 
-    // > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials when FetchExtendedConfig is set to true.
+    // > This parameter is returned only for ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, or ECS secrets when FetchExtendedConfig is set to true.
     shared_ptr<string> extendedConfig_ {};
     // The time of the most recent rotation.  
     // 
-    // > This parameter is returned only if the credential has been rotated.
+    // > This parameter is returned only when the secret has been rotated.
     shared_ptr<string> lastRotationDate_ {};
     // The time of the next rotation.  
     // 
     // > This parameter is returned only when automatic rotation is enabled.
     shared_ptr<string> nextRotationDate_ {};
-    // The ID of the current request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and issue tracking.
+    // The request ID. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The epoch for automatic credential rotation.    
-    // The format is `integer[unit]`, where `integer` indicates the time duration and `unit` indicates the time unit. Valid value for `unit`: s (seconds). For example, a 7-day rotation epoch is 604800s.
+    // The interval for automatic rotation of the secret.    
+    // The format is `integer[unit]`, where `integer` specifies the length of time and `unit` specifies the time unit. The value of `unit` is s (seconds). For example, a rotation interval of 7 days is 604800s.
     // 
     // > This parameter is returned only when automatic rotation is enabled.
     shared_ptr<string> rotationInterval_ {};
-    // The value of the credential. KMS decrypts the stored ciphertext and returns this parameter.  
+    // The secret value. KMS decrypts the stored ciphertext secret value and returns this parameter.  
     // 
-    // - For generic secrets, the credential value you specified is returned.  
+    // - For generic secrets, the secret value you specified is returned.
     // 
-    // - For RDS credentials and Redis/Tair credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.  
+    // - For ApsaraDB RDS secrets and Redis/Tair secrets, the secret value is returned in the format: `{"AccountName":"","AccountPassword":""}`.
     // 
-    // - For RAM credentials, the credential value is in the format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2023-03-25T10:42:40Z"}`.  
+    // - For RAM secrets, the secret value is returned in the format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2023-03-25T10:42:40Z"}`.  
     // 
-    // - For ECS credentials, the credential value is in one of the following formats:  
-    //   - Security token type: `{"UserName":"ecs-user","Password":"H5asdasdsads****"}`.  
-    //   - Public-private key pair type (private key in PEM format): `{"UserName":"ecs-user","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`.  
+    // - For ECS secrets, the secret value is returned in the following formats:  
+    //   - Password-type secret: `{"UserName":"ecs-user","Password":"H5asdasdsads****"}`.  
+    //   - Public-private key pair-type secret (private key in PEM format): `{"UserName":"ecs-user","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`.
     // 
-    // - For PolarDB credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.
+    // - For PolarDB secrets, the secret value is returned in the format: `{"AccountName":"","AccountPassword":""}`.
     shared_ptr<string> secretData_ {};
-    // The value type of the credential. Valid values:
+    // The type of the secret value. Valid values:
     // - text
     // - binary
     shared_ptr<string> secretDataType_ {};
-    // The name of the credential.
+    // The secret name.
     shared_ptr<string> secretName_ {};
-    // The type of the credential. Valid values:
+    // The type of the secret. Valid values:
     // - Generic: generic secret.  
-    // - Rds: RDS credential.  
-    // - Redis: Redis/Tair credential.
-    // - RAMCredentials: RAM credential.  
-    // - ECS: ECS credential.
-    // - PolarDB: PolarDB credential.
+    // - Rds: ApsaraDB RDS secret.  
+    // - Redis: Redis/Tair secret.
+    // - RAMCredentials: RAM secret.  
+    // - ECS: ECS secret.
+    // - PolarDB: PolarDB secret.
     shared_ptr<string> secretType_ {};
-    // The version number of the credential.
+    // The version number of the secret.
     shared_ptr<string> versionId_ {};
     shared_ptr<GetSecretValueResponseBody::VersionStages> versionStages_ {};
   };

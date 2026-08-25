@@ -125,6 +125,9 @@
 #include <alibabacloud/models/GenerateMacRequest.hpp>
 #include <alibabacloud/models/GenerateMacResponseBody.hpp>
 #include <alibabacloud/models/GenerateMacResponse.hpp>
+#include <alibabacloud/models/GetChallengeRequest.hpp>
+#include <alibabacloud/models/GetChallengeResponseBody.hpp>
+#include <alibabacloud/models/GetChallengeResponse.hpp>
 #include <alibabacloud/models/GetClientKeyRequest.hpp>
 #include <alibabacloud/models/GetClientKeyResponseBody.hpp>
 #include <alibabacloud/models/GetClientKeyResponse.hpp>

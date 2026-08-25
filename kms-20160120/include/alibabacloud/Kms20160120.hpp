@@ -1202,6 +1202,23 @@ namespace Kms20160120
       Models::GenerateMacResponse generateMac(const Models::GenerateMacRequest &request);
 
       /**
+       * @summary 从kms获取挑战
+       *
+       * @param request GetChallengeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetChallengeResponse
+       */
+      Models::GetChallengeResponse getChallengeWithOptions(const Models::GetChallengeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从kms获取挑战
+       *
+       * @param request GetChallengeRequest
+       * @return GetChallengeResponse
+       */
+      Models::GetChallengeResponse getChallenge(const Models::GetChallengeRequest &request);
+
+      /**
        * @summary Retrieves information about a client key.
        *
        * @description For information about the access policy required for a RAM user or RAM role to call this operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
@@ -1446,12 +1463,12 @@ namespace Kms20160120
       Models::GetSecretPolicyResponse getSecretPolicy(const Models::GetSecretPolicyRequest &request);
 
       /**
-       * @summary Retrieve the credential value.
+       * @summary Retrieves a secret value.
        *
-       * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
-       * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
-       * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+       * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+       * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
        *
        * @param request GetSecretValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1460,12 +1477,12 @@ namespace Kms20160120
       Models::GetSecretValueResponse getSecretValueWithOptions(const Models::GetSecretValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the credential value.
+       * @summary Retrieves a secret value.
        *
-       * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
-       * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
-       * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+       * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+       * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
        *
        * @param request GetSecretValueRequest
        * @return GetSecretValueResponse

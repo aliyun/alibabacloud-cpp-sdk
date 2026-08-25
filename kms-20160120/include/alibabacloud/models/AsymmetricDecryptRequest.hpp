@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(KeyId, keyId_);
       DARABONBA_PTR_TO_JSON(KeyVersionId, keyVersionId_);
+      DARABONBA_PTR_TO_JSON(Recipient, recipient_);
     };
     friend void from_json(const Darabonba::Json& j, AsymmetricDecryptRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
       DARABONBA_PTR_FROM_JSON(KeyVersionId, keyVersionId_);
+      DARABONBA_PTR_FROM_JSON(Recipient, recipient_);
     };
     AsymmetricDecryptRequest() = default ;
     AsymmetricDecryptRequest(const AsymmetricDecryptRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && this->ciphertextBlob_ == nullptr && this->dryRun_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr; };
+        && this->ciphertextBlob_ == nullptr && this->dryRun_ == nullptr && this->keyId_ == nullptr && this->keyVersionId_ == nullptr && this->recipient_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
     inline string getKeyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
     inline AsymmetricDecryptRequest& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
+
+
+    // recipient Field Functions 
+    bool hasRecipient() const { return this->recipient_ != nullptr;};
+    void deleteRecipient() { this->recipient_ = nullptr;};
+    inline string getRecipient() const { DARABONBA_PTR_GET_DEFAULT(recipient_, "") };
+    inline AsymmetricDecryptRequest& setRecipient(string recipient) { DARABONBA_PTR_SET_VALUE(recipient_, recipient) };
 
 
   protected:
@@ -109,6 +118,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> keyVersionId_ {};
+    shared_ptr<string> recipient_ {};
   };
 
   } // namespace Models
