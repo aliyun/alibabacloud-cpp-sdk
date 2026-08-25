@@ -3541,6 +3541,10 @@ ListRulesV4Response Client::listRulesV4WithOptions(const ListRulesV4Request &req
     body["Status"] = request.getStatus();
   }
 
+  if (!!request.hasTargetType()) {
+    body["TargetType"] = request.getTargetType();
+  }
+
   if (!!request.hasType()) {
     body["Type"] = request.getType();
   }
@@ -5566,7 +5570,7 @@ UploadDataSyncResponse Client::uploadDataSync(const UploadDataSyncRequest &reque
 /**
  * @summary Performs real-time text quality inspection using a large language model.
  *
- * @description Pushes text data in a specific format to Smart Conversation Analysis (SCA) for real-time quality inspection based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Special notes:
+ * @description Pushes text data in a specific format to Smart Conversation Analysis (SCA) for real-time quality inspection based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one or more sentences are spoken by a role, providing higher real-time performance. Special notes:
  * If the pushed text is a single sentence from one role, some operators in the rules may not work due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
  * Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
  *
@@ -5607,7 +5611,7 @@ UploadDataSyncForLLMResponse Client::uploadDataSyncForLLMWithOptions(const Uploa
 /**
  * @summary Performs real-time text quality inspection using a large language model.
  *
- * @description Pushes text data in a specific format to Smart Conversation Analysis (SCA) for real-time quality inspection based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Special notes:
+ * @description Pushes text data in a specific format to Smart Conversation Analysis (SCA) for real-time quality inspection based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one or more sentences are spoken by a role, providing higher real-time performance. Special notes:
  * If the pushed text is a single sentence from one role, some operators in the rules may not work due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
  * Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
  *

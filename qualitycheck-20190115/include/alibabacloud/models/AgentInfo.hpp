@@ -49,12 +49,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FieldsParam, fieldsParam_);
         DARABONBA_PTR_TO_JSON(ServiceInspectionParam, serviceInspectionParam_);
         DARABONBA_PTR_TO_JSON(TagCategoryParam, tagCategoryParam_);
+        DARABONBA_PTR_TO_JSON(TagTreeLevelParam, tagTreeLevelParam_);
       };
       friend void from_json(const Darabonba::Json& j, InstructionTypeParam& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomPromptParam, customPromptParam_);
         DARABONBA_PTR_FROM_JSON(FieldsParam, fieldsParam_);
         DARABONBA_PTR_FROM_JSON(ServiceInspectionParam, serviceInspectionParam_);
         DARABONBA_PTR_FROM_JSON(TagCategoryParam, tagCategoryParam_);
+        DARABONBA_PTR_FROM_JSON(TagTreeLevelParam, tagTreeLevelParam_);
       };
       InstructionTypeParam() = default ;
       InstructionTypeParam(const InstructionTypeParam &) = default ;
@@ -67,6 +69,96 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TagTreeLevelParam : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TagTreeLevelParam& obj) { 
+          DARABONBA_PTR_TO_JSON(TagIds, tagIds_);
+          DARABONBA_PTR_TO_JSON(TagTreeLevels, tagTreeLevels_);
+        };
+        friend void from_json(const Darabonba::Json& j, TagTreeLevelParam& obj) { 
+          DARABONBA_PTR_FROM_JSON(TagIds, tagIds_);
+          DARABONBA_PTR_FROM_JSON(TagTreeLevels, tagTreeLevels_);
+        };
+        TagTreeLevelParam() = default ;
+        TagTreeLevelParam(const TagTreeLevelParam &) = default ;
+        TagTreeLevelParam(TagTreeLevelParam &&) = default ;
+        TagTreeLevelParam(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TagTreeLevelParam() = default ;
+        TagTreeLevelParam& operator=(const TagTreeLevelParam &) = default ;
+        TagTreeLevelParam& operator=(TagTreeLevelParam &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TagTreeLevels : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TagTreeLevels& obj) { 
+            DARABONBA_PTR_TO_JSON(Prompt, prompt_);
+            DARABONBA_PTR_TO_JSON(TagTreeIds, tagTreeIds_);
+          };
+          friend void from_json(const Darabonba::Json& j, TagTreeLevels& obj) { 
+            DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
+            DARABONBA_PTR_FROM_JSON(TagTreeIds, tagTreeIds_);
+          };
+          TagTreeLevels() = default ;
+          TagTreeLevels(const TagTreeLevels &) = default ;
+          TagTreeLevels(TagTreeLevels &&) = default ;
+          TagTreeLevels(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TagTreeLevels() = default ;
+          TagTreeLevels& operator=(const TagTreeLevels &) = default ;
+          TagTreeLevels& operator=(TagTreeLevels &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->prompt_ == nullptr
+        && this->tagTreeIds_ == nullptr; };
+          // prompt Field Functions 
+          bool hasPrompt() const { return this->prompt_ != nullptr;};
+          void deletePrompt() { this->prompt_ = nullptr;};
+          inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+          inline TagTreeLevels& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
+
+
+          // tagTreeIds Field Functions 
+          bool hasTagTreeIds() const { return this->tagTreeIds_ != nullptr;};
+          void deleteTagTreeIds() { this->tagTreeIds_ = nullptr;};
+          inline const vector<int64_t> & getTagTreeIds() const { DARABONBA_PTR_GET_CONST(tagTreeIds_, vector<int64_t>) };
+          inline vector<int64_t> getTagTreeIds() { DARABONBA_PTR_GET(tagTreeIds_, vector<int64_t>) };
+          inline TagTreeLevels& setTagTreeIds(const vector<int64_t> & tagTreeIds) { DARABONBA_PTR_SET_VALUE(tagTreeIds_, tagTreeIds) };
+          inline TagTreeLevels& setTagTreeIds(vector<int64_t> && tagTreeIds) { DARABONBA_PTR_SET_RVALUE(tagTreeIds_, tagTreeIds) };
+
+
+        protected:
+          shared_ptr<string> prompt_ {};
+          shared_ptr<vector<int64_t>> tagTreeIds_ {};
+        };
+
+        virtual bool empty() const override { return this->tagIds_ == nullptr
+        && this->tagTreeLevels_ == nullptr; };
+        // tagIds Field Functions 
+        bool hasTagIds() const { return this->tagIds_ != nullptr;};
+        void deleteTagIds() { this->tagIds_ = nullptr;};
+        inline const vector<int64_t> & getTagIds() const { DARABONBA_PTR_GET_CONST(tagIds_, vector<int64_t>) };
+        inline vector<int64_t> getTagIds() { DARABONBA_PTR_GET(tagIds_, vector<int64_t>) };
+        inline TagTreeLevelParam& setTagIds(const vector<int64_t> & tagIds) { DARABONBA_PTR_SET_VALUE(tagIds_, tagIds) };
+        inline TagTreeLevelParam& setTagIds(vector<int64_t> && tagIds) { DARABONBA_PTR_SET_RVALUE(tagIds_, tagIds) };
+
+
+        // tagTreeLevels Field Functions 
+        bool hasTagTreeLevels() const { return this->tagTreeLevels_ != nullptr;};
+        void deleteTagTreeLevels() { this->tagTreeLevels_ = nullptr;};
+        inline const vector<TagTreeLevelParam::TagTreeLevels> & getTagTreeLevels() const { DARABONBA_PTR_GET_CONST(tagTreeLevels_, vector<TagTreeLevelParam::TagTreeLevels>) };
+        inline vector<TagTreeLevelParam::TagTreeLevels> getTagTreeLevels() { DARABONBA_PTR_GET(tagTreeLevels_, vector<TagTreeLevelParam::TagTreeLevels>) };
+        inline TagTreeLevelParam& setTagTreeLevels(const vector<TagTreeLevelParam::TagTreeLevels> & tagTreeLevels) { DARABONBA_PTR_SET_VALUE(tagTreeLevels_, tagTreeLevels) };
+        inline TagTreeLevelParam& setTagTreeLevels(vector<TagTreeLevelParam::TagTreeLevels> && tagTreeLevels) { DARABONBA_PTR_SET_RVALUE(tagTreeLevels_, tagTreeLevels) };
+
+
+      protected:
+        shared_ptr<vector<int64_t>> tagIds_ {};
+        shared_ptr<vector<TagTreeLevelParam::TagTreeLevels>> tagTreeLevels_ {};
+      };
+
       class TagCategoryParam : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const TagCategoryParam& obj) { 
@@ -422,7 +514,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->customPromptParam_ == nullptr
-        && this->fieldsParam_ == nullptr && this->serviceInspectionParam_ == nullptr && this->tagCategoryParam_ == nullptr; };
+        && this->fieldsParam_ == nullptr && this->serviceInspectionParam_ == nullptr && this->tagCategoryParam_ == nullptr && this->tagTreeLevelParam_ == nullptr; };
       // customPromptParam Field Functions 
       bool hasCustomPromptParam() const { return this->customPromptParam_ != nullptr;};
       void deleteCustomPromptParam() { this->customPromptParam_ = nullptr;};
@@ -459,11 +551,21 @@ namespace Models
       inline InstructionTypeParam& setTagCategoryParam(InstructionTypeParam::TagCategoryParam && tagCategoryParam) { DARABONBA_PTR_SET_RVALUE(tagCategoryParam_, tagCategoryParam) };
 
 
+      // tagTreeLevelParam Field Functions 
+      bool hasTagTreeLevelParam() const { return this->tagTreeLevelParam_ != nullptr;};
+      void deleteTagTreeLevelParam() { this->tagTreeLevelParam_ = nullptr;};
+      inline const InstructionTypeParam::TagTreeLevelParam & getTagTreeLevelParam() const { DARABONBA_PTR_GET_CONST(tagTreeLevelParam_, InstructionTypeParam::TagTreeLevelParam) };
+      inline InstructionTypeParam::TagTreeLevelParam getTagTreeLevelParam() { DARABONBA_PTR_GET(tagTreeLevelParam_, InstructionTypeParam::TagTreeLevelParam) };
+      inline InstructionTypeParam& setTagTreeLevelParam(const InstructionTypeParam::TagTreeLevelParam & tagTreeLevelParam) { DARABONBA_PTR_SET_VALUE(tagTreeLevelParam_, tagTreeLevelParam) };
+      inline InstructionTypeParam& setTagTreeLevelParam(InstructionTypeParam::TagTreeLevelParam && tagTreeLevelParam) { DARABONBA_PTR_SET_RVALUE(tagTreeLevelParam_, tagTreeLevelParam) };
+
+
     protected:
       shared_ptr<InstructionTypeParam::CustomPromptParam> customPromptParam_ {};
       shared_ptr<InstructionTypeParam::FieldsParam> fieldsParam_ {};
       shared_ptr<InstructionTypeParam::ServiceInspectionParam> serviceInspectionParam_ {};
       shared_ptr<InstructionTypeParam::TagCategoryParam> tagCategoryParam_ {};
+      shared_ptr<InstructionTypeParam::TagTreeLevelParam> tagTreeLevelParam_ {};
     };
 
     virtual bool empty() const override { return this->agentDescription_ == nullptr

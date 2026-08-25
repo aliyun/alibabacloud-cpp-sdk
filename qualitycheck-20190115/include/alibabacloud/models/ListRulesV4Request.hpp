@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TargetType, targetType_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(TypeName, typeName_);
       DARABONBA_PTR_TO_JSON(UpdateEndTime, updateEndTime_);
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(TypeName, typeName_);
       DARABONBA_PTR_FROM_JSON(UpdateEndTime, updateEndTime_);
@@ -85,7 +87,8 @@ namespace Models
         && this->createUserId_ == nullptr && this->currentPage_ == nullptr && this->endTime_ == nullptr && this->lastUpdateEmpid_ == nullptr && this->pageNumber_ == nullptr
         && this->pageSize_ == nullptr && this->requireInfos_ == nullptr && this->rid_ == nullptr && this->ruleIdOrRuleName_ == nullptr && this->ruleScoreSingleType_ == nullptr
         && this->ruleType_ == nullptr && this->schemeId_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->type_ == nullptr && this->typeName_ == nullptr && this->updateEndTime_ == nullptr && this->updateStartTime_ == nullptr && this->updateUserId_ == nullptr; };
+        && this->targetType_ == nullptr && this->type_ == nullptr && this->typeName_ == nullptr && this->updateEndTime_ == nullptr && this->updateStartTime_ == nullptr
+        && this->updateUserId_ == nullptr; };
     // baseMeAgentId Field Functions 
     bool hasBaseMeAgentId() const { return this->baseMeAgentId_ != nullptr;};
     void deleteBaseMeAgentId() { this->baseMeAgentId_ = nullptr;};
@@ -235,6 +238,13 @@ namespace Models
     inline ListRulesV4Request& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // targetType Field Functions 
+    bool hasTargetType() const { return this->targetType_ != nullptr;};
+    void deleteTargetType() { this->targetType_ = nullptr;};
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline ListRulesV4Request& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -313,6 +323,7 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // Rule status.
     shared_ptr<int32_t> status_ {};
+    shared_ptr<string> targetType_ {};
     // Type value of the rule category that the rule belongs to.
     shared_ptr<int32_t> type_ {};
     // Name of the rule category that the rule belongs to.
