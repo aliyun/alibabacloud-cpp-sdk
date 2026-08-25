@@ -59,6 +59,27 @@ namespace ADBAI20250812
       Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatform(const Models::CreateEmbodiedAIPlatformRequest &request);
 
       /**
+       * @summary Creates an AnalyticDB multimodal knowledge base.
+       *
+       * @description Creates an AnalyticDB multimodal knowledge base.
+       *
+       * @param request CreateMultiModelKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultiModelKnowledgeBaseResponse
+       */
+      Models::CreateMultiModelKnowledgeBaseResponse createMultiModelKnowledgeBaseWithOptions(const Models::CreateMultiModelKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AnalyticDB multimodal knowledge base.
+       *
+       * @description Creates an AnalyticDB multimodal knowledge base.
+       *
+       * @param request CreateMultiModelKnowledgeBaseRequest
+       * @return CreateMultiModelKnowledgeBaseResponse
+       */
+      Models::CreateMultiModelKnowledgeBaseResponse createMultiModelKnowledgeBase(const Models::CreateMultiModelKnowledgeBaseRequest &request);
+
+      /**
        * @summary Deletes a metrics platform.
        *
        * @param request DeleteAgentPlatformRequest
@@ -93,6 +114,27 @@ namespace ADBAI20250812
       Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatform(const Models::DeleteEmbodiedAIPlatformRequest &request);
 
       /**
+       * @summary Deletes an ADB multimodal knowledge base.
+       *
+       * @description Deletes an ADB multimodal knowledge base.
+       *
+       * @param request DeleteMultiModalKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMultiModalKnowledgeBaseResponse
+       */
+      Models::DeleteMultiModalKnowledgeBaseResponse deleteMultiModalKnowledgeBaseWithOptions(const Models::DeleteMultiModalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an ADB multimodal knowledge base.
+       *
+       * @description Deletes an ADB multimodal knowledge base.
+       *
+       * @param request DeleteMultiModalKnowledgeBaseRequest
+       * @return DeleteMultiModalKnowledgeBaseResponse
+       */
+      Models::DeleteMultiModalKnowledgeBaseResponse deleteMultiModalKnowledgeBase(const Models::DeleteMultiModalKnowledgeBaseRequest &request);
+
+      /**
        * @summary Queries multi-turn conversations for instance kernel diagnostics.
        *
        * @description Queries multi-turn conversations for instance kernel diagnostics.
@@ -125,9 +167,9 @@ namespace ADBAI20250812
       Models::DescribeChatMessageResponse describeChatMessage(const Models::DescribeChatMessageRequest &request);
 
       /**
-       * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+       * @summary Queries the resource allocation plan for devices on the embodied intelligence platform.
        *
-       * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
+       * @description Queries the actual resource capacity corresponding to the backend of the instance device count.
        *
        * @param request DescribeEapDeviceResourceAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,9 +178,9 @@ namespace ADBAI20250812
       Models::DescribeEapDeviceResourceAllocationResponse describeEapDeviceResourceAllocationWithOptions(const Models::DescribeEapDeviceResourceAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+       * @summary Queries the resource allocation plan for devices on the embodied intelligence platform.
        *
-       * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
+       * @description Queries the actual resource capacity corresponding to the backend of the instance device count.
        *
        * @param request DescribeEapDeviceResourceAllocationRequest
        * @return DescribeEapDeviceResourceAllocationResponse

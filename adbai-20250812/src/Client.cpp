@@ -20,12 +20,15 @@ namespace ADBAI20250812
 AlibabaCloud::ADBAI20250812::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-shenzhen" , "adbai.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "adbai.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "adbai.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "adbai.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "adbai.ap-northeast-1.aliyuncs.com"},
     {"ap-southeast-1" , "adbai.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "adbai.ap-northeast-1.aliyuncs.com"}
+    {"cn-beijing" , "adbai.cn-beijing.aliyuncs.com"},
+    {"cn-hangzhou" , "adbai.cn-hangzhou.aliyuncs.com"},
+    {"cn-shanghai" , "adbai.cn-shanghai.aliyuncs.com"},
+    {"cn-shenzhen" , "adbai.cn-shenzhen.aliyuncs.com"},
+    {"cn-guangzhou" , "adbai.cn-guangzhou.aliyuncs.com"},
+    {"cn-wulanchabu" , "adbai.cn-wulanchabu.aliyuncs.com"},
+    {"us-west-1" , "adbai.us-west-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adbai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -185,6 +188,56 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 }
 
 /**
+ * @summary Creates an AnalyticDB multimodal knowledge base.
+ *
+ * @description Creates an AnalyticDB multimodal knowledge base.
+ *
+ * @param request CreateMultiModelKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMultiModelKnowledgeBaseResponse
+ */
+CreateMultiModelKnowledgeBaseResponse Client::createMultiModelKnowledgeBaseWithOptions(const CreateMultiModelKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMultiModelKnowledgeBase"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMultiModelKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary Creates an AnalyticDB multimodal knowledge base.
+ *
+ * @description Creates an AnalyticDB multimodal knowledge base.
+ *
+ * @param request CreateMultiModelKnowledgeBaseRequest
+ * @return CreateMultiModelKnowledgeBaseResponse
+ */
+CreateMultiModelKnowledgeBaseResponse Client::createMultiModelKnowledgeBase(const CreateMultiModelKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMultiModelKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a metrics platform.
  *
  * @param request DeleteAgentPlatformRequest
@@ -282,6 +335,56 @@ DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatformWithOptions(con
 DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatform(const DeleteEmbodiedAIPlatformRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEmbodiedAIPlatformWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an ADB multimodal knowledge base.
+ *
+ * @description Deletes an ADB multimodal knowledge base.
+ *
+ * @param request DeleteMultiModalKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMultiModalKnowledgeBaseResponse
+ */
+DeleteMultiModalKnowledgeBaseResponse Client::deleteMultiModalKnowledgeBaseWithOptions(const DeleteMultiModalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMultiModalKnowledgeBase"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMultiModalKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary Deletes an ADB multimodal knowledge base.
+ *
+ * @description Deletes an ADB multimodal knowledge base.
+ *
+ * @param request DeleteMultiModalKnowledgeBaseRequest
+ * @return DeleteMultiModalKnowledgeBaseResponse
+ */
+DeleteMultiModalKnowledgeBaseResponse Client::deleteMultiModalKnowledgeBase(const DeleteMultiModalKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMultiModalKnowledgeBaseWithOptions(request, runtime);
 }
 
 /**
@@ -410,9 +513,9 @@ DescribeChatMessageResponse Client::describeChatMessage(const DescribeChatMessag
 }
 
 /**
- * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+ * @summary Queries the resource allocation plan for devices on the embodied intelligence platform.
  *
- * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
+ * @description Queries the actual resource capacity corresponding to the backend of the instance device count.
  *
  * @param request DescribeEapDeviceResourceAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -451,9 +554,9 @@ DescribeEapDeviceResourceAllocationResponse Client::describeEapDeviceResourceAll
 }
 
 /**
- * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+ * @summary Queries the resource allocation plan for devices on the embodied intelligence platform.
  *
- * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
+ * @description Queries the actual resource capacity corresponding to the backend of the instance device count.
  *
  * @param request DescribeEapDeviceResourceAllocationRequest
  * @return DescribeEapDeviceResourceAllocationResponse
