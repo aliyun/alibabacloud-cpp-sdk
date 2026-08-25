@@ -99,9 +99,7 @@ namespace Models
 
     protected:
       shared_ptr<string> event_ {};
-      // nfcid
       shared_ptr<string> rfid_ {};
-      // sessionId
       shared_ptr<int64_t> sessionId_ {};
       shared_ptr<string> time_ {};
     };

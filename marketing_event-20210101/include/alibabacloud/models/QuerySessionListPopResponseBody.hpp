@@ -116,14 +116,10 @@ namespace Models
 
 
     protected:
-      // code
       shared_ptr<string> code_ {};
       shared_ptr<string> endTime_ {};
-      // id
       shared_ptr<int64_t> id_ {};
-      // location
       shared_ptr<string> location_ {};
-      // name
       shared_ptr<string> name_ {};
       shared_ptr<string> startTime_ {};
     };

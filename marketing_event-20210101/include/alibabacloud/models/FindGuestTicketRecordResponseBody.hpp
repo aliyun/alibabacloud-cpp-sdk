@@ -44,6 +44,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ChannelLevelInfo, channelLevelInfo_);
         DARABONBA_PTR_TO_JSON(CompanyName, companyName_);
         DARABONBA_PTR_TO_JSON(EquityDates, equityDates_);
+        DARABONBA_PTR_TO_JSON(FaceFeature, faceFeature_);
+        DARABONBA_PTR_TO_JSON(FaceFeatureWriteTime, faceFeatureWriteTime_);
         DARABONBA_PTR_TO_JSON(HealthCommitmentStatus, healthCommitmentStatus_);
         DARABONBA_PTR_TO_JSON(IdNumber, idNumber_);
         DARABONBA_PTR_TO_JSON(IdType, idType_);
@@ -58,6 +60,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ChannelLevelInfo, channelLevelInfo_);
         DARABONBA_PTR_FROM_JSON(CompanyName, companyName_);
         DARABONBA_PTR_FROM_JSON(EquityDates, equityDates_);
+        DARABONBA_PTR_FROM_JSON(FaceFeature, faceFeature_);
+        DARABONBA_PTR_FROM_JSON(FaceFeatureWriteTime, faceFeatureWriteTime_);
         DARABONBA_PTR_FROM_JSON(HealthCommitmentStatus, healthCommitmentStatus_);
         DARABONBA_PTR_FROM_JSON(IdNumber, idNumber_);
         DARABONBA_PTR_FROM_JSON(IdType, idType_);
@@ -345,9 +349,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->channelLevelInfo_ == nullptr
-        && this->companyName_ == nullptr && this->equityDates_ == nullptr && this->healthCommitmentStatus_ == nullptr && this->idNumber_ == nullptr && this->idType_ == nullptr
-        && this->name_ == nullptr && this->status_ == nullptr && this->ticketCode_ == nullptr && this->ticketName_ == nullptr && this->ticketReceiveDates_ == nullptr
-        && this->ticketType_ == nullptr; };
+        && this->companyName_ == nullptr && this->equityDates_ == nullptr && this->faceFeature_ == nullptr && this->faceFeatureWriteTime_ == nullptr && this->healthCommitmentStatus_ == nullptr
+        && this->idNumber_ == nullptr && this->idType_ == nullptr && this->name_ == nullptr && this->status_ == nullptr && this->ticketCode_ == nullptr
+        && this->ticketName_ == nullptr && this->ticketReceiveDates_ == nullptr && this->ticketType_ == nullptr; };
       // channelLevelInfo Field Functions 
       bool hasChannelLevelInfo() const { return this->channelLevelInfo_ != nullptr;};
       void deleteChannelLevelInfo() { this->channelLevelInfo_ = nullptr;};
@@ -369,6 +373,20 @@ namespace Models
       void deleteEquityDates() { this->equityDates_ = nullptr;};
       inline string getEquityDates() const { DARABONBA_PTR_GET_DEFAULT(equityDates_, "") };
       inline Data& setEquityDates(string equityDates) { DARABONBA_PTR_SET_VALUE(equityDates_, equityDates) };
+
+
+      // faceFeature Field Functions 
+      bool hasFaceFeature() const { return this->faceFeature_ != nullptr;};
+      void deleteFaceFeature() { this->faceFeature_ = nullptr;};
+      inline string getFaceFeature() const { DARABONBA_PTR_GET_DEFAULT(faceFeature_, "") };
+      inline Data& setFaceFeature(string faceFeature) { DARABONBA_PTR_SET_VALUE(faceFeature_, faceFeature) };
+
+
+      // faceFeatureWriteTime Field Functions 
+      bool hasFaceFeatureWriteTime() const { return this->faceFeatureWriteTime_ != nullptr;};
+      void deleteFaceFeatureWriteTime() { this->faceFeatureWriteTime_ = nullptr;};
+      inline string getFaceFeatureWriteTime() const { DARABONBA_PTR_GET_DEFAULT(faceFeatureWriteTime_, "") };
+      inline Data& setFaceFeatureWriteTime(string faceFeatureWriteTime) { DARABONBA_PTR_SET_VALUE(faceFeatureWriteTime_, faceFeatureWriteTime) };
 
 
       // healthCommitmentStatus Field Functions 
@@ -438,6 +456,8 @@ namespace Models
       shared_ptr<Data::ChannelLevelInfo> channelLevelInfo_ {};
       shared_ptr<string> companyName_ {};
       shared_ptr<string> equityDates_ {};
+      shared_ptr<string> faceFeature_ {};
+      shared_ptr<string> faceFeatureWriteTime_ {};
       shared_ptr<int32_t> healthCommitmentStatus_ {};
       shared_ptr<string> idNumber_ {};
       shared_ptr<string> idType_ {};

@@ -159,7 +159,6 @@ namespace Models
 
 
   protected:
-    // Id of the request
     shared_ptr<string> code_ {};
     shared_ptr<QueryQwenConferenceSgTicketPopResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
