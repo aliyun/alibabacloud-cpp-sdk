@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The ID of the user group.
         shared_ptr<string> targetId_ {};
+        // The name of the user group.
         shared_ptr<string> targetName_ {};
       };
 
@@ -167,7 +169,9 @@ namespace Models
 
 
       protected:
+        // The collection of organizational structure nodes.
         shared_ptr<vector<string>> group_ {};
+        // The ID of the identity provider.
         shared_ptr<string> idpId_ {};
       };
 
@@ -306,22 +310,56 @@ namespace Models
 
 
     protected:
+      // The time when the task was created, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
+      // The effective scope specified by organizational structure.
       shared_ptr<vector<Tasks::CustomMatchGroup>> customMatchGroup_ {};
+      // The time when the task expires, in seconds-level UNIX timestamp format.
       shared_ptr<int64_t> endTime_ {};
+      // The action to take on high-risk virus files. Valid values:
+      // - **Quarantine**: Quarantine quarantined file.
+      // - **Notify**: Report an alert only without taking action on quarantined file.
       shared_ptr<string> highRiskOperation_ {};
+      // The action to take on low-risk virus files. Valid values:
+      // - **Quarantine**: Quarantine quarantined file.
+      // - **Notify**: Report an alert only without taking action on quarantined file.
+      // - **None**: Take no action.
       shared_ptr<string> lowRiskOperation_ {};
+      // The matching mode for the effective scope. Valid values:
+      // - **UserGroupAll**: Applies to all users under the current Alibaba Cloud account.
+      // - **UserGroupNormal**: Applies only to users in specified user groups.
       shared_ptr<string> matchMode_ {};
+      // The collection of user groups to which the task applies.
       shared_ptr<vector<Tasks::MatchTargetInfos>> matchTargetInfos_ {};
+      // The maximum percentage of endpoint CPU usage allowed during scanning.
       shared_ptr<int64_t> maxCpuUsage_ {};
+      // The action to take on medium-risk virus files. Valid values:
+      // - **Quarantine**: Quarantine quarantined file.
+      // - **Notify**: Report an alert only without taking action on quarantined file.
       shared_ptr<string> midRiskOperation_ {};
+      // The scan performance schema pattern. Valid values:
+      // - **SecurityFirst**: Security first. The default CPU usage upper limit is 50%.
+      // - **Balance**: Balanced. The default CPU usage upper limit is 30%.
+      // - **ExperienceFirst**: Experience first. The default CPU usage upper limit is 15%.
       shared_ptr<string> performanceMode_ {};
+      // The scan path scope. Valid values:
+      // - **Quick**: Quick scan. Only scans critical system directories and common risk locations.
+      // - **Full**: Full scan.
+      // - **Custom**: Custom path scan.
       shared_ptr<string> scanMode_ {};
+      // The collection of custom scan paths.
       shared_ptr<vector<string>> scanPath_ {};
+      // The collection of virus types to be handled in this scan.
       shared_ptr<vector<string>> scanTargets_ {};
+      // The task status. Valid values:
+      // - **0**: Not canceled.
+      // - **1**: Canceled.
       shared_ptr<int32_t> status_ {};
+      // The description of the task.
       shared_ptr<string> taskDescription_ {};
+      // The ID of the virus scan task.
       shared_ptr<string> taskId_ {};
+      // The list of exempted users.
       shared_ptr<vector<string>> whitelist_ {};
     };
 
@@ -351,8 +389,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of virus scan tasks.
     shared_ptr<vector<ListVirusScanTasksResponseBody::Tasks>> tasks_ {};
+    // The total number of virus scan tasks.
     shared_ptr<int32_t> totalNum_ {};
   };
 

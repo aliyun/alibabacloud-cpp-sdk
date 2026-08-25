@@ -128,6 +128,12 @@
 #include <alibabacloud/models/CreateRegistrationPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRegistrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateRegistrationPolicyResponse.hpp>
+#include <alibabacloud/models/CreateSoftwarelibDistributeTaskRequest.hpp>
+#include <alibabacloud/models/CreateSoftwarelibDistributeTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateSoftwarelibDistributeTaskResponse.hpp>
+#include <alibabacloud/models/CreateSoftwarelibVersionRequest.hpp>
+#include <alibabacloud/models/CreateSoftwarelibVersionResponseBody.hpp>
+#include <alibabacloud/models/CreateSoftwarelibVersionResponse.hpp>
 #include <alibabacloud/models/CreateUserGroupRequest.hpp>
 #include <alibabacloud/models/CreateUserGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateUserGroupResponse.hpp>
@@ -422,6 +428,9 @@
 #include <alibabacloud/models/ListNacUserCertRequest.hpp>
 #include <alibabacloud/models/ListNacUserCertResponseBody.hpp>
 #include <alibabacloud/models/ListNacUserCertResponse.hpp>
+#include <alibabacloud/models/ListOperationAuditLogsRequest.hpp>
+#include <alibabacloud/models/ListOperationAuditLogsResponseBody.hpp>
+#include <alibabacloud/models/ListOperationAuditLogsResponse.hpp>
 #include <alibabacloud/models/ListPolicesForPrivateAccessApplicationRequest.hpp>
 #include <alibabacloud/models/ListPolicesForPrivateAccessApplicationResponseBody.hpp>
 #include <alibabacloud/models/ListPolicesForPrivateAccessApplicationResponse.hpp>
@@ -476,6 +485,9 @@
 #include <alibabacloud/models/ListSoftwareForUserDeviceRequest.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponseBody.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponse.hpp>
+#include <alibabacloud/models/ListSoftwarelibSoftwareRequest.hpp>
+#include <alibabacloud/models/ListSoftwarelibSoftwareResponseBody.hpp>
+#include <alibabacloud/models/ListSoftwarelibSoftwareResponse.hpp>
 #include <alibabacloud/models/ListTagsForPrivateAccessApplicationRequest.hpp>
 #include <alibabacloud/models/ListTagsForPrivateAccessApplicationResponseBody.hpp>
 #include <alibabacloud/models/ListTagsForPrivateAccessApplicationResponse.hpp>

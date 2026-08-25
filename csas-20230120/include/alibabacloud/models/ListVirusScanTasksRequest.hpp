@@ -119,16 +119,31 @@ namespace Models
 
 
   protected:
+    // The page number of the current page in paging. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The end point for filtering by task expiration time. The value is a UNIX timestamp in seconds. The value must be greater than StartTime.
     shared_ptr<int64_t> endTime_ {};
+    // The number of entries per page in paging. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The collection of scan performance modes. Duplicate values are not allowed.
     shared_ptr<vector<string>> performanceModes_ {};
+    // The collection of scan path scopes. Duplicate values are not allowed.
     shared_ptr<vector<string>> scanModes_ {};
+    // The start point for filtering by task expiration time. The value is a UNIX timestamp in seconds. This parameter must be specified together with EndTime. Specifying this parameter alone does not take effect.
     shared_ptr<int64_t> startTime_ {};
+    // The task status. Valid values:
+    // - **0**: Not canceled. This is the default value.
+    // - **1**: Canceled.
+    // - **-1**: No status filter. All tasks are returned.
     shared_ptr<int32_t> status_ {};
+    // The collection of virus scan task IDs. Duplicate values are not allowed.
     shared_ptr<vector<string>> taskIds_ {};
+    // The user group ID, used to filter tasks whose effective scope includes the specified user group. You can obtain the value from:
+    // - [ListUserGroups](~~ListUserGroups~~): Lists user groups.
     shared_ptr<string> userGroupId_ {};
   };
 

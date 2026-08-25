@@ -109,9 +109,13 @@ namespace Models
 
 
       protected:
+        // The number of user terminal devices that have received the task.
         shared_ptr<int32_t> deviceAckCount_ {};
+        // The number of user terminal devices on which the scan execution failed.
         shared_ptr<int32_t> deviceResultFailCount_ {};
+        // The number of user terminal devices on which the scan was executed successfully.
         shared_ptr<int32_t> deviceResultSuccessCount_ {};
+        // The number of user terminal devices that are currently executing the scan.
         shared_ptr<int32_t> deviceStartCount_ {};
       };
 
@@ -134,7 +138,9 @@ namespace Models
 
 
     protected:
+      // The virus scan task ID.
       shared_ptr<string> taskId_ {};
+      // The execution progress measured by device count.
       shared_ptr<Tasks::TaskStatus> taskStatus_ {};
     };
 
@@ -157,7 +163,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of execution progress for virus scan tasks.
     shared_ptr<vector<ListVirusScanTaskStatusesResponseBody::Tasks>> tasks_ {};
   };
 

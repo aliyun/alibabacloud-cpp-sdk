@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The collection of virus scan task IDs. The collection must contain at least one ID, and duplicate IDs are not allowed.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> taskIds_ {};
   };

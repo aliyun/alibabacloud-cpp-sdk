@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The virus scan task ID.
       shared_ptr<string> taskId_ {};
+      // The number of virus files detected by the task.
       shared_ptr<int64_t> virusFileCount_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of detection statistics for virus scan tasks.
     shared_ptr<vector<ListVirusScanTaskSummaryResponseBody::Tasks>> tasks_ {};
   };
 

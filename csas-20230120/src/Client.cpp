@@ -1872,6 +1872,210 @@ CreateRegistrationPolicyResponse Client::createRegistrationPolicy(const CreateRe
 }
 
 /**
+ * @summary Creates a software distribution task.
+ *
+ * @description - After a task is created, its initial status is disabled.
+ * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+ * - SupportOs supports only a single operating system value.
+ *
+ * @param request CreateSoftwarelibDistributeTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSoftwarelibDistributeTaskResponse
+ */
+CreateSoftwarelibDistributeTaskResponse Client::createSoftwarelibDistributeTaskWithOptions(const CreateSoftwarelibDistributeTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDevTags()) {
+    bodyFlat["DevTags"] = request.getDevTags();
+  }
+
+  if (!!request.hasDeviceGroupIds()) {
+    bodyFlat["DeviceGroupIds"] = request.getDeviceGroupIds();
+  }
+
+  if (!!request.hasExecuteMode()) {
+    body["ExecuteMode"] = request.getExecuteMode();
+  }
+
+  if (!!request.hasExecuteParameters()) {
+    body["ExecuteParameters"] = request.getExecuteParameters();
+  }
+
+  if (!!request.hasExecutePeriod()) {
+    body["ExecutePeriod"] = request.getExecutePeriod();
+  }
+
+  if (!!request.hasExpireMode()) {
+    body["ExpireMode"] = request.getExpireMode();
+  }
+
+  if (!!request.hasGmtExpired()) {
+    body["GmtExpired"] = request.getGmtExpired();
+  }
+
+  if (!!request.hasMatchMode()) {
+    body["MatchMode"] = request.getMatchMode();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasRetryTimes()) {
+    body["RetryTimes"] = request.getRetryTimes();
+  }
+
+  if (!!request.hasRunAsAccount()) {
+    body["RunAsAccount"] = request.getRunAsAccount();
+  }
+
+  if (!!request.hasSoftwareId()) {
+    body["SoftwareId"] = request.getSoftwareId();
+  }
+
+  if (!!request.hasSoftwareName()) {
+    body["SoftwareName"] = request.getSoftwareName();
+  }
+
+  if (!!request.hasSupportOs()) {
+    body["SupportOs"] = request.getSupportOs();
+  }
+
+  if (!!request.hasTaskType()) {
+    body["TaskType"] = request.getTaskType();
+  }
+
+  if (!!request.hasTimeout()) {
+    body["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    bodyFlat["UserGroupIds"] = request.getUserGroupIds();
+  }
+
+  if (!!request.hasVersionId()) {
+    body["VersionId"] = request.getVersionId();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSoftwarelibDistributeTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSoftwarelibDistributeTaskResponse>();
+}
+
+/**
+ * @summary Creates a software distribution task.
+ *
+ * @description - After a task is created, its initial status is disabled.
+ * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+ * - SupportOs supports only a single operating system value.
+ *
+ * @param request CreateSoftwarelibDistributeTaskRequest
+ * @return CreateSoftwarelibDistributeTaskResponse
+ */
+CreateSoftwarelibDistributeTaskResponse Client::createSoftwarelibDistributeTask(const CreateSoftwarelibDistributeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSoftwarelibDistributeTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a software version.
+ *
+ * @description - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+ * - A newly created version has an initial publish status of unpublished.
+ * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+ *
+ * @param request CreateSoftwarelibVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSoftwarelibVersionResponse
+ */
+CreateSoftwarelibVersionResponse Client::createSoftwarelibVersionWithOptions(const CreateSoftwarelibVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMd5()) {
+    body["Md5"] = request.getMd5();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasPublisherType()) {
+    body["PublisherType"] = request.getPublisherType();
+  }
+
+  if (!!request.hasSoftwareId()) {
+    body["SoftwareId"] = request.getSoftwareId();
+  }
+
+  if (!!request.hasSoftwareName()) {
+    body["SoftwareName"] = request.getSoftwareName();
+  }
+
+  if (!!request.hasSoftwarePkgName()) {
+    body["SoftwarePkgName"] = request.getSoftwarePkgName();
+  }
+
+  if (!!request.hasSoftwarePkgSize()) {
+    body["SoftwarePkgSize"] = request.getSoftwarePkgSize();
+  }
+
+  if (!!request.hasSoftwareUrl()) {
+    body["SoftwareUrl"] = request.getSoftwareUrl();
+  }
+
+  if (!!request.hasSoftwareVersion()) {
+    body["SoftwareVersion"] = request.getSoftwareVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSoftwarelibVersion"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSoftwarelibVersionResponse>();
+}
+
+/**
+ * @summary Creates a software version.
+ *
+ * @description - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+ * - A newly created version has an initial publish status of unpublished.
+ * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+ *
+ * @param request CreateSoftwarelibVersionRequest
+ * @return CreateSoftwarelibVersionResponse
+ */
+CreateSoftwarelibVersionResponse Client::createSoftwarelibVersion(const CreateSoftwarelibVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSoftwarelibVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a user group for your Alibaba Cloud account.
  *
  * @description You can create up to 500 user groups.
@@ -6444,6 +6648,92 @@ ListNacUserCertResponse Client::listNacUserCert(const ListNacUserCertRequest &re
 }
 
 /**
+ * @summary Queries administrator operation audit logs in batches.
+ *
+ * @description - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+ * - If OperationStatus is not specified, only successful operation records are returned.
+ * - Results are sorted by operation time in descending order.
+ * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+ * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+ *
+ * @param request ListOperationAuditLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOperationAuditLogsResponse
+ */
+ListOperationAuditLogsResponse Client::listOperationAuditLogsWithOptions(const ListOperationAuditLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEventType()) {
+    query["EventType"] = request.getEventType();
+  }
+
+  if (!!request.hasOperationFunc()) {
+    query["OperationFunc"] = request.getOperationFunc();
+  }
+
+  if (!!request.hasOperationStatus()) {
+    query["OperationStatus"] = request.getOperationStatus();
+  }
+
+  if (!!request.hasOperationType()) {
+    query["OperationType"] = request.getOperationType();
+  }
+
+  if (!!request.hasOperatorId()) {
+    query["OperatorId"] = request.getOperatorId();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOperationAuditLogs"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOperationAuditLogsResponse>();
+}
+
+/**
+ * @summary Queries administrator operation audit logs in batches.
+ *
+ * @description - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+ * - If OperationStatus is not specified, only successful operation records are returned.
+ * - Results are sorted by operation time in descending order.
+ * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+ * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+ *
+ * @param request ListOperationAuditLogsRequest
+ * @return ListOperationAuditLogsResponse
+ */
+ListOperationAuditLogsResponse Client::listOperationAuditLogs(const ListOperationAuditLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOperationAuditLogsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries policies for private access applications in your Alibaba Cloud account in batches.
  *
  * @param request ListPolicesForPrivateAccessApplicationRequest
@@ -7228,6 +7518,84 @@ ListSoftwareForUserDeviceResponse Client::listSoftwareForUserDevice(const ListSo
 }
 
 /**
+ * @summary Queries software in the software library in batches.
+ *
+ * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+ * - SoftwareName supports fuzzy match.
+ * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+ *
+ * @param request ListSoftwarelibSoftwareRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSoftwarelibSoftwareResponse
+ */
+ListSoftwarelibSoftwareResponse Client::listSoftwarelibSoftwareWithOptions(const ListSoftwarelibSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassifyId()) {
+    query["ClassifyId"] = request.getClassifyId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOs()) {
+    query["Os"] = request.getOs();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSoftwareName()) {
+    query["SoftwareName"] = request.getSoftwareName();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSoftwarelibSoftware"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSoftwarelibSoftwareResponse>();
+}
+
+/**
+ * @summary Queries software in the software library in batches.
+ *
+ * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+ * - SoftwareName supports fuzzy match.
+ * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+ *
+ * @param request ListSoftwarelibSoftwareRequest
+ * @return ListSoftwarelibSoftwareResponse
+ */
+ListSoftwarelibSoftwareResponse Client::listSoftwarelibSoftware(const ListSoftwarelibSoftwareRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSoftwarelibSoftwareWithOptions(request, runtime);
+}
+
+/**
  * @summary Batch query tags for private network access applications under the current Alibaba Cloud account.
  *
  * @param request ListTagsForPrivateAccessApplicationRequest
@@ -7822,7 +8190,7 @@ ListVirusScanScheduledStrategiesResponse Client::listVirusScanScheduledStrategie
 }
 
 /**
- * @summary 批量查询病毒扫描任务的状态
+ * @summary Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
  *
  * @param request ListVirusScanTaskStatusesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7849,7 +8217,7 @@ ListVirusScanTaskStatusesResponse Client::listVirusScanTaskStatusesWithOptions(c
 }
 
 /**
- * @summary 批量查询病毒扫描任务的状态
+ * @summary Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
  *
  * @param request ListVirusScanTaskStatusesRequest
  * @return ListVirusScanTaskStatusesResponse
@@ -7860,7 +8228,7 @@ ListVirusScanTaskStatusesResponse Client::listVirusScanTaskStatuses(const ListVi
 }
 
 /**
- * @summary 批量查询病毒扫描任务统计数据
+ * @summary Queries the detection result statistics of specified virus scan tasks in batches.
  *
  * @param request ListVirusScanTaskSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7887,7 +8255,7 @@ ListVirusScanTaskSummaryResponse Client::listVirusScanTaskSummaryWithOptions(con
 }
 
 /**
- * @summary 批量查询病毒扫描任务统计数据
+ * @summary Queries the detection result statistics of specified virus scan tasks in batches.
  *
  * @param request ListVirusScanTaskSummaryRequest
  * @return ListVirusScanTaskSummaryResponse
@@ -7898,7 +8266,7 @@ ListVirusScanTaskSummaryResponse Client::listVirusScanTaskSummary(const ListViru
 }
 
 /**
- * @summary 批量查询病毒扫描任务
+ * @summary Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
  *
  * @param request ListVirusScanTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7925,7 +8293,7 @@ ListVirusScanTasksResponse Client::listVirusScanTasksWithOptions(const ListVirus
 }
 
 /**
- * @summary 批量查询病毒扫描任务
+ * @summary Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
  *
  * @param request ListVirusScanTasksRequest
  * @return ListVirusScanTasksResponse
