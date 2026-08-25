@@ -148,6 +148,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Response& obj) { 
           DARABONBA_PTR_TO_JSON(CustomerPromptResponse, customerPromptResponse_);
           DARABONBA_PTR_TO_JSON(FieldResponse, fieldResponse_);
+          DARABONBA_PTR_TO_JSON(MultiLevelTagResponse, multiLevelTagResponse_);
           DARABONBA_PTR_TO_JSON(ServiceInspectionResponse, serviceInspectionResponse_);
           DARABONBA_PTR_TO_JSON(TagCategoryResponse, tagCategoryResponse_);
           DARABONBA_PTR_TO_JSON(VoiceprintResponse, voiceprintResponse_);
@@ -155,6 +156,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Response& obj) { 
           DARABONBA_PTR_FROM_JSON(CustomerPromptResponse, customerPromptResponse_);
           DARABONBA_PTR_FROM_JSON(FieldResponse, fieldResponse_);
+          DARABONBA_PTR_FROM_JSON(MultiLevelTagResponse, multiLevelTagResponse_);
           DARABONBA_PTR_FROM_JSON(ServiceInspectionResponse, serviceInspectionResponse_);
           DARABONBA_PTR_FROM_JSON(TagCategoryResponse, tagCategoryResponse_);
           DARABONBA_PTR_FROM_JSON(VoiceprintResponse, voiceprintResponse_);
@@ -662,6 +664,297 @@ namespace Models
           shared_ptr<vector<ServiceInspectionResponse::ServiceInspectionVoList>> serviceInspectionVoList_ {};
         };
 
+        class MultiLevelTagResponse : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const MultiLevelTagResponse& obj) { 
+            DARABONBA_PTR_TO_JSON(TagList, tagList_);
+          };
+          friend void from_json(const Darabonba::Json& j, MultiLevelTagResponse& obj) { 
+            DARABONBA_PTR_FROM_JSON(TagList, tagList_);
+          };
+          MultiLevelTagResponse() = default ;
+          MultiLevelTagResponse(const MultiLevelTagResponse &) = default ;
+          MultiLevelTagResponse(MultiLevelTagResponse &&) = default ;
+          MultiLevelTagResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~MultiLevelTagResponse() = default ;
+          MultiLevelTagResponse& operator=(const MultiLevelTagResponse &) = default ;
+          MultiLevelTagResponse& operator=(MultiLevelTagResponse &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class TagList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const TagList& obj) { 
+              DARABONBA_PTR_TO_JSON(Children, children_);
+              DARABONBA_PTR_TO_JSON(Remarks, remarks_);
+              DARABONBA_PTR_TO_JSON(TagName, tagName_);
+            };
+            friend void from_json(const Darabonba::Json& j, TagList& obj) { 
+              DARABONBA_PTR_FROM_JSON(Children, children_);
+              DARABONBA_PTR_FROM_JSON(Remarks, remarks_);
+              DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+            };
+            TagList() = default ;
+            TagList(const TagList &) = default ;
+            TagList(TagList &&) = default ;
+            TagList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~TagList() = default ;
+            TagList& operator=(const TagList &) = default ;
+            TagList& operator=(TagList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Children : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Children& obj) { 
+                DARABONBA_PTR_TO_JSON(Children, children_);
+                DARABONBA_PTR_TO_JSON(Remarks, remarks_);
+                DARABONBA_PTR_TO_JSON(TagName, tagName_);
+              };
+              friend void from_json(const Darabonba::Json& j, Children& obj) { 
+                DARABONBA_PTR_FROM_JSON(Children, children_);
+                DARABONBA_PTR_FROM_JSON(Remarks, remarks_);
+                DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+              };
+              Children() = default ;
+              Children(const Children &) = default ;
+              Children(Children &&) = default ;
+              Children(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Children() = default ;
+              Children& operator=(const Children &) = default ;
+              Children& operator=(Children &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              class ChildrenItem : public Darabonba::Model {
+              public:
+                friend void to_json(Darabonba::Json& j, const ChildrenItem& obj) { 
+                  DARABONBA_PTR_TO_JSON(Children, children_);
+                  DARABONBA_PTR_TO_JSON(Remarks, remarks_);
+                  DARABONBA_PTR_TO_JSON(TagName, tagName_);
+                };
+                friend void from_json(const Darabonba::Json& j, ChildrenItem& obj) { 
+                  DARABONBA_PTR_FROM_JSON(Children, children_);
+                  DARABONBA_PTR_FROM_JSON(Remarks, remarks_);
+                  DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+                };
+                ChildrenItem() = default ;
+                ChildrenItem(const ChildrenItem &) = default ;
+                ChildrenItem(ChildrenItem &&) = default ;
+                ChildrenItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+                virtual ~ChildrenItem() = default ;
+                ChildrenItem& operator=(const ChildrenItem &) = default ;
+                ChildrenItem& operator=(ChildrenItem &&) = default ;
+                virtual void validate() const override {
+                };
+                virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                class Children : public Darabonba::Model {
+                public:
+                  friend void to_json(Darabonba::Json& j, const Children& obj) { 
+                    DARABONBA_PTR_TO_JSON(Children, children_);
+                    DARABONBA_PTR_TO_JSON(Remarks, remarks_);
+                    DARABONBA_PTR_TO_JSON(TagName, tagName_);
+                  };
+                  friend void from_json(const Darabonba::Json& j, Children& obj) { 
+                    DARABONBA_PTR_FROM_JSON(Children, children_);
+                    DARABONBA_PTR_FROM_JSON(Remarks, remarks_);
+                    DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+                  };
+                  Children() = default ;
+                  Children(const Children &) = default ;
+                  Children(Children &&) = default ;
+                  Children(const Darabonba::Json & obj) { from_json(obj, *this); };
+                  virtual ~Children() = default ;
+                  Children& operator=(const Children &) = default ;
+                  Children& operator=(Children &&) = default ;
+                  virtual void validate() const override {
+                  };
+                  virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                  virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                  class ChildrenItem : public Darabonba::Model {
+                  public:
+                    friend void to_json(Darabonba::Json& j, const ChildrenItem& obj) { 
+                      DARABONBA_PTR_TO_JSON(Remarks, remarks_);
+                      DARABONBA_PTR_TO_JSON(TagName, tagName_);
+                    };
+                    friend void from_json(const Darabonba::Json& j, ChildrenItem& obj) { 
+                      DARABONBA_PTR_FROM_JSON(Remarks, remarks_);
+                      DARABONBA_PTR_FROM_JSON(TagName, tagName_);
+                    };
+                    ChildrenItem() = default ;
+                    ChildrenItem(const ChildrenItem &) = default ;
+                    ChildrenItem(ChildrenItem &&) = default ;
+                    ChildrenItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+                    virtual ~ChildrenItem() = default ;
+                    ChildrenItem& operator=(const ChildrenItem &) = default ;
+                    ChildrenItem& operator=(ChildrenItem &&) = default ;
+                    virtual void validate() const override {
+                    };
+                    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                    virtual bool empty() const override { return this->remarks_ == nullptr
+        && this->tagName_ == nullptr; };
+                    // remarks Field Functions 
+                    bool hasRemarks() const { return this->remarks_ != nullptr;};
+                    void deleteRemarks() { this->remarks_ = nullptr;};
+                    inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+                    inline ChildrenItem& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+                    // tagName Field Functions 
+                    bool hasTagName() const { return this->tagName_ != nullptr;};
+                    void deleteTagName() { this->tagName_ = nullptr;};
+                    inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+                    inline ChildrenItem& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
+
+
+                  protected:
+                    shared_ptr<string> remarks_ {};
+                    shared_ptr<string> tagName_ {};
+                  };
+
+                  virtual bool empty() const override { return this->children_ == nullptr
+        && this->remarks_ == nullptr && this->tagName_ == nullptr; };
+                  // children Field Functions 
+                  bool hasChildren() const { return this->children_ != nullptr;};
+                  void deleteChildren() { this->children_ = nullptr;};
+                  inline const vector<Children::ChildrenItem> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<Children::ChildrenItem>) };
+                  inline vector<Children::ChildrenItem> getChildren() { DARABONBA_PTR_GET(children_, vector<Children::ChildrenItem>) };
+                  inline Children& setChildren(const vector<Children::ChildrenItem> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
+                  inline Children& setChildren(vector<Children::ChildrenItem> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
+
+
+                  // remarks Field Functions 
+                  bool hasRemarks() const { return this->remarks_ != nullptr;};
+                  void deleteRemarks() { this->remarks_ = nullptr;};
+                  inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+                  inline Children& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+                  // tagName Field Functions 
+                  bool hasTagName() const { return this->tagName_ != nullptr;};
+                  void deleteTagName() { this->tagName_ = nullptr;};
+                  inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+                  inline Children& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
+
+
+                protected:
+                  shared_ptr<vector<Children::ChildrenItem>> children_ {};
+                  shared_ptr<string> remarks_ {};
+                  shared_ptr<string> tagName_ {};
+                };
+
+                virtual bool empty() const override { return this->children_ == nullptr
+        && this->remarks_ == nullptr && this->tagName_ == nullptr; };
+                // children Field Functions 
+                bool hasChildren() const { return this->children_ != nullptr;};
+                void deleteChildren() { this->children_ = nullptr;};
+                inline const vector<ChildrenItem::Children> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<ChildrenItem::Children>) };
+                inline vector<ChildrenItem::Children> getChildren() { DARABONBA_PTR_GET(children_, vector<ChildrenItem::Children>) };
+                inline ChildrenItem& setChildren(const vector<ChildrenItem::Children> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
+                inline ChildrenItem& setChildren(vector<ChildrenItem::Children> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
+
+
+                // remarks Field Functions 
+                bool hasRemarks() const { return this->remarks_ != nullptr;};
+                void deleteRemarks() { this->remarks_ = nullptr;};
+                inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+                inline ChildrenItem& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+                // tagName Field Functions 
+                bool hasTagName() const { return this->tagName_ != nullptr;};
+                void deleteTagName() { this->tagName_ = nullptr;};
+                inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+                inline ChildrenItem& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
+
+
+              protected:
+                shared_ptr<vector<ChildrenItem::Children>> children_ {};
+                shared_ptr<string> remarks_ {};
+                shared_ptr<string> tagName_ {};
+              };
+
+              virtual bool empty() const override { return this->children_ == nullptr
+        && this->remarks_ == nullptr && this->tagName_ == nullptr; };
+              // children Field Functions 
+              bool hasChildren() const { return this->children_ != nullptr;};
+              void deleteChildren() { this->children_ = nullptr;};
+              inline const vector<Children::ChildrenItem> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<Children::ChildrenItem>) };
+              inline vector<Children::ChildrenItem> getChildren() { DARABONBA_PTR_GET(children_, vector<Children::ChildrenItem>) };
+              inline Children& setChildren(const vector<Children::ChildrenItem> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
+              inline Children& setChildren(vector<Children::ChildrenItem> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
+
+
+              // remarks Field Functions 
+              bool hasRemarks() const { return this->remarks_ != nullptr;};
+              void deleteRemarks() { this->remarks_ = nullptr;};
+              inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+              inline Children& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+              // tagName Field Functions 
+              bool hasTagName() const { return this->tagName_ != nullptr;};
+              void deleteTagName() { this->tagName_ = nullptr;};
+              inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+              inline Children& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
+
+
+            protected:
+              shared_ptr<vector<Children::ChildrenItem>> children_ {};
+              shared_ptr<string> remarks_ {};
+              shared_ptr<string> tagName_ {};
+            };
+
+            virtual bool empty() const override { return this->children_ == nullptr
+        && this->remarks_ == nullptr && this->tagName_ == nullptr; };
+            // children Field Functions 
+            bool hasChildren() const { return this->children_ != nullptr;};
+            void deleteChildren() { this->children_ = nullptr;};
+            inline const vector<TagList::Children> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<TagList::Children>) };
+            inline vector<TagList::Children> getChildren() { DARABONBA_PTR_GET(children_, vector<TagList::Children>) };
+            inline TagList& setChildren(const vector<TagList::Children> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
+            inline TagList& setChildren(vector<TagList::Children> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
+
+
+            // remarks Field Functions 
+            bool hasRemarks() const { return this->remarks_ != nullptr;};
+            void deleteRemarks() { this->remarks_ = nullptr;};
+            inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+            inline TagList& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+            // tagName Field Functions 
+            bool hasTagName() const { return this->tagName_ != nullptr;};
+            void deleteTagName() { this->tagName_ = nullptr;};
+            inline string getTagName() const { DARABONBA_PTR_GET_DEFAULT(tagName_, "") };
+            inline TagList& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
+
+
+          protected:
+            shared_ptr<vector<TagList::Children>> children_ {};
+            shared_ptr<string> remarks_ {};
+            shared_ptr<string> tagName_ {};
+          };
+
+          virtual bool empty() const override { return this->tagList_ == nullptr; };
+          // tagList Field Functions 
+          bool hasTagList() const { return this->tagList_ != nullptr;};
+          void deleteTagList() { this->tagList_ = nullptr;};
+          inline const vector<MultiLevelTagResponse::TagList> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<MultiLevelTagResponse::TagList>) };
+          inline vector<MultiLevelTagResponse::TagList> getTagList() { DARABONBA_PTR_GET(tagList_, vector<MultiLevelTagResponse::TagList>) };
+          inline MultiLevelTagResponse& setTagList(const vector<MultiLevelTagResponse::TagList> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
+          inline MultiLevelTagResponse& setTagList(vector<MultiLevelTagResponse::TagList> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
+
+
+        protected:
+          shared_ptr<vector<MultiLevelTagResponse::TagList>> tagList_ {};
+        };
+
         class FieldResponse : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const FieldResponse& obj) { 
@@ -797,7 +1090,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->customerPromptResponse_ == nullptr
-        && this->fieldResponse_ == nullptr && this->serviceInspectionResponse_ == nullptr && this->tagCategoryResponse_ == nullptr && this->voiceprintResponse_ == nullptr; };
+        && this->fieldResponse_ == nullptr && this->multiLevelTagResponse_ == nullptr && this->serviceInspectionResponse_ == nullptr && this->tagCategoryResponse_ == nullptr && this->voiceprintResponse_ == nullptr; };
         // customerPromptResponse Field Functions 
         bool hasCustomerPromptResponse() const { return this->customerPromptResponse_ != nullptr;};
         void deleteCustomerPromptResponse() { this->customerPromptResponse_ = nullptr;};
@@ -814,6 +1107,15 @@ namespace Models
         inline Response::FieldResponse getFieldResponse() { DARABONBA_PTR_GET(fieldResponse_, Response::FieldResponse) };
         inline Response& setFieldResponse(const Response::FieldResponse & fieldResponse) { DARABONBA_PTR_SET_VALUE(fieldResponse_, fieldResponse) };
         inline Response& setFieldResponse(Response::FieldResponse && fieldResponse) { DARABONBA_PTR_SET_RVALUE(fieldResponse_, fieldResponse) };
+
+
+        // multiLevelTagResponse Field Functions 
+        bool hasMultiLevelTagResponse() const { return this->multiLevelTagResponse_ != nullptr;};
+        void deleteMultiLevelTagResponse() { this->multiLevelTagResponse_ = nullptr;};
+        inline const Response::MultiLevelTagResponse & getMultiLevelTagResponse() const { DARABONBA_PTR_GET_CONST(multiLevelTagResponse_, Response::MultiLevelTagResponse) };
+        inline Response::MultiLevelTagResponse getMultiLevelTagResponse() { DARABONBA_PTR_GET(multiLevelTagResponse_, Response::MultiLevelTagResponse) };
+        inline Response& setMultiLevelTagResponse(const Response::MultiLevelTagResponse & multiLevelTagResponse) { DARABONBA_PTR_SET_VALUE(multiLevelTagResponse_, multiLevelTagResponse) };
+        inline Response& setMultiLevelTagResponse(Response::MultiLevelTagResponse && multiLevelTagResponse) { DARABONBA_PTR_SET_RVALUE(multiLevelTagResponse_, multiLevelTagResponse) };
 
 
         // serviceInspectionResponse Field Functions 
@@ -848,6 +1150,7 @@ namespace Models
         shared_ptr<Response::CustomerPromptResponse> customerPromptResponse_ {};
         // The property extraction result.
         shared_ptr<Response::FieldResponse> fieldResponse_ {};
+        shared_ptr<Response::MultiLevelTagResponse> multiLevelTagResponse_ {};
         // The service quality inspection result.
         shared_ptr<Response::ServiceInspectionResponse> serviceInspectionResponse_ {};
         // The tag categorization result.
