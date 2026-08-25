@@ -39,6 +39,7 @@ namespace Models
     class Rules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Rules& obj) { 
+        DARABONBA_PTR_TO_JSON(ArchiveDays, archiveDays_);
         DARABONBA_PTR_TO_JSON(BackupType, backupType_);
         DARABONBA_PTR_TO_JSON(DataSourceFilters, dataSourceFilters_);
         DARABONBA_PTR_TO_JSON(Immutable, immutable_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VaultId, vaultId_);
       };
       friend void from_json(const Darabonba::Json& j, Rules& obj) { 
+        DARABONBA_PTR_FROM_JSON(ArchiveDays, archiveDays_);
         DARABONBA_PTR_FROM_JSON(BackupType, backupType_);
         DARABONBA_PTR_FROM_JSON(DataSourceFilters, dataSourceFilters_);
         DARABONBA_PTR_FROM_JSON(Immutable, immutable_);
@@ -124,12 +126,11 @@ namespace Models
       protected:
         // The tag key.
         shared_ptr<string> key_ {};
-        // The tag-based matching rule. Valid values:
-        // 
-        // *   **EQUAL**: Both the tag key and tag value are matched.
-        // *   **NOT**: The tag key is matched and the tag value is not matched.
+        // The tag matching rule. Valid values:
+        // - **EQUAL**: matches both the tag key and tag value.
+        // - **NOT**: matches the tag key but not the tag value.
         shared_ptr<string> operator_ {};
-        // The tag value. If you leave this parameter empty, the value is any value.
+        // The tag value. An empty value indicates any value.
         shared_ptr<string> value_ {};
       };
 
@@ -181,25 +182,28 @@ namespace Models
 
       protected:
         // The type of the special retention rule. Valid values:
-        // 
-        // *   **DAILY**: retains daily backups
-        // *   **WEEKLY**: retains weekly backups
-        // *   **MONTHLY**: retains monthly backups
-        // *   **YEARLY**: retains yearly backups
+        // - **DAILY**: daily backup.
+        // - **WEEKLY**: weekly backup.
+        // - **MONTHLY**: monthly backup.
+        // - **YEARLY**: yearly backup.
         shared_ptr<string> advancedRetentionType_ {};
-        // The special retention period of backups. Minimum value: 1. Unit: days.
+        // The special retention period of the backup. Minimum value: 1. Unit: days.
         shared_ptr<int64_t> retention_ {};
-        // Specifies which backup is retained based on the special retention rule. Only the first backup can be retained.
+        // The backup to which the rule applies. Currently, only the first backup is supported. Set the value to 1.
         shared_ptr<int64_t> whichSnapshot_ {};
       };
 
       class DataSourceFilters : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DataSourceFilters& obj) { 
+          DARABONBA_PTR_TO_JSON(AccountScope, accountScope_);
+          DARABONBA_PTR_TO_JSON(Accounts, accounts_);
           DARABONBA_PTR_TO_JSON(DataSourceIds, dataSourceIds_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
         };
         friend void from_json(const Darabonba::Json& j, DataSourceFilters& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccountScope, accountScope_);
+          DARABONBA_PTR_FROM_JSON(Accounts, accounts_);
           DARABONBA_PTR_FROM_JSON(DataSourceIds, dataSourceIds_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
         };
@@ -214,8 +218,76 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->dataSourceIds_ == nullptr
-        && this->sourceType_ == nullptr; };
+        class Accounts : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Accounts& obj) { 
+            DARABONBA_PTR_TO_JSON(CrossAccountRoleName, crossAccountRoleName_);
+            DARABONBA_PTR_TO_JSON(CrossAccountType, crossAccountType_);
+            DARABONBA_PTR_TO_JSON(CrossAccountUserId, crossAccountUserId_);
+          };
+          friend void from_json(const Darabonba::Json& j, Accounts& obj) { 
+            DARABONBA_PTR_FROM_JSON(CrossAccountRoleName, crossAccountRoleName_);
+            DARABONBA_PTR_FROM_JSON(CrossAccountType, crossAccountType_);
+            DARABONBA_PTR_FROM_JSON(CrossAccountUserId, crossAccountUserId_);
+          };
+          Accounts() = default ;
+          Accounts(const Accounts &) = default ;
+          Accounts(Accounts &&) = default ;
+          Accounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Accounts() = default ;
+          Accounts& operator=(const Accounts &) = default ;
+          Accounts& operator=(Accounts &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->crossAccountRoleName_ == nullptr
+        && this->crossAccountType_ == nullptr && this->crossAccountUserId_ == nullptr; };
+          // crossAccountRoleName Field Functions 
+          bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
+          void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
+          inline string getCrossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
+          inline Accounts& setCrossAccountRoleName(string crossAccountRoleName) { DARABONBA_PTR_SET_VALUE(crossAccountRoleName_, crossAccountRoleName) };
+
+
+          // crossAccountType Field Functions 
+          bool hasCrossAccountType() const { return this->crossAccountType_ != nullptr;};
+          void deleteCrossAccountType() { this->crossAccountType_ = nullptr;};
+          inline string getCrossAccountType() const { DARABONBA_PTR_GET_DEFAULT(crossAccountType_, "") };
+          inline Accounts& setCrossAccountType(string crossAccountType) { DARABONBA_PTR_SET_VALUE(crossAccountType_, crossAccountType) };
+
+
+          // crossAccountUserId Field Functions 
+          bool hasCrossAccountUserId() const { return this->crossAccountUserId_ != nullptr;};
+          void deleteCrossAccountUserId() { this->crossAccountUserId_ = nullptr;};
+          inline int64_t getCrossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
+          inline Accounts& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
+
+
+        protected:
+          shared_ptr<string> crossAccountRoleName_ {};
+          shared_ptr<string> crossAccountType_ {};
+          shared_ptr<int64_t> crossAccountUserId_ {};
+        };
+
+        virtual bool empty() const override { return this->accountScope_ == nullptr
+        && this->accounts_ == nullptr && this->dataSourceIds_ == nullptr && this->sourceType_ == nullptr; };
+        // accountScope Field Functions 
+        bool hasAccountScope() const { return this->accountScope_ != nullptr;};
+        void deleteAccountScope() { this->accountScope_ = nullptr;};
+        inline string getAccountScope() const { DARABONBA_PTR_GET_DEFAULT(accountScope_, "") };
+        inline DataSourceFilters& setAccountScope(string accountScope) { DARABONBA_PTR_SET_VALUE(accountScope_, accountScope) };
+
+
+        // accounts Field Functions 
+        bool hasAccounts() const { return this->accounts_ != nullptr;};
+        void deleteAccounts() { this->accounts_ = nullptr;};
+        inline const vector<DataSourceFilters::Accounts> & getAccounts() const { DARABONBA_PTR_GET_CONST(accounts_, vector<DataSourceFilters::Accounts>) };
+        inline vector<DataSourceFilters::Accounts> getAccounts() { DARABONBA_PTR_GET(accounts_, vector<DataSourceFilters::Accounts>) };
+        inline DataSourceFilters& setAccounts(const vector<DataSourceFilters::Accounts> & accounts) { DARABONBA_PTR_SET_VALUE(accounts_, accounts) };
+        inline DataSourceFilters& setAccounts(vector<DataSourceFilters::Accounts> && accounts) { DARABONBA_PTR_SET_RVALUE(accounts_, accounts) };
+
+
         // dataSourceIds Field Functions 
         bool hasDataSourceIds() const { return this->dataSourceIds_ != nullptr;};
         void deleteDataSourceIds() { this->dataSourceIds_ = nullptr;};
@@ -233,21 +305,30 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated.
+        shared_ptr<string> accountScope_ {};
+        shared_ptr<vector<DataSourceFilters::Accounts>> accounts_ {};
+        // Deprecated.
         shared_ptr<vector<string>> dataSourceIds_ {};
-        // The type of the data source. Valid values:
-        // 
-        // *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**.
-        // *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
-        // *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
-        // *   **ECS_FILE**: ECS file This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
-        // *   **OTS**: Tablestore instance This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
+        // The data source type. Valid values:
+        // - **UDM_ECS**: ECS instance backup. This data source type is supported only when **PolicyType** is set to **UDM_ECS_ONLY**.
+        // - **OSS**: OSS backup. This data source type is supported only when **PolicyType** is set to **STANDARD**.
+        // - **NAS**: Alibaba Cloud NAS backup. This data source type is supported only when **PolicyType** is set to **STANDARD**.
+        // - **ECS_FILE**: ECS File Backup Essential Edition. This data source type is supported only when **PolicyType** is set to **STANDARD**.
+        // - **OTS**: Tablestore backup. This data source type is supported only when **PolicyType** is set to **STANDARD**.
         shared_ptr<string> sourceType_ {};
       };
 
-      virtual bool empty() const override { return this->backupType_ == nullptr
-        && this->dataSourceFilters_ == nullptr && this->immutable_ == nullptr && this->keepLatestSnapshots_ == nullptr && this->replicationRegionId_ == nullptr && this->retention_ == nullptr
-        && this->retentionRules_ == nullptr && this->ruleType_ == nullptr && this->schedule_ == nullptr && this->tagFilters_ == nullptr && this->vaultId_ == nullptr; };
+      virtual bool empty() const override { return this->archiveDays_ == nullptr
+        && this->backupType_ == nullptr && this->dataSourceFilters_ == nullptr && this->immutable_ == nullptr && this->keepLatestSnapshots_ == nullptr && this->replicationRegionId_ == nullptr
+        && this->retention_ == nullptr && this->retentionRules_ == nullptr && this->ruleType_ == nullptr && this->schedule_ == nullptr && this->tagFilters_ == nullptr
+        && this->vaultId_ == nullptr; };
+      // archiveDays Field Functions 
+      bool hasArchiveDays() const { return this->archiveDays_ != nullptr;};
+      void deleteArchiveDays() { this->archiveDays_ = nullptr;};
+      inline int64_t getArchiveDays() const { DARABONBA_PTR_GET_DEFAULT(archiveDays_, 0L) };
+      inline Rules& setArchiveDays(int64_t archiveDays) { DARABONBA_PTR_SET_VALUE(archiveDays_, archiveDays) };
+
+
       // backupType Field Functions 
       bool hasBackupType() const { return this->backupType_ != nullptr;};
       void deleteBackupType() { this->backupType_ = nullptr;};
@@ -332,53 +413,49 @@ namespace Models
 
 
     protected:
-      // This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup type. Valid value: **COMPLETE**, which indicates full backup.
+      // This parameter is required only when **RuleType** is set to **TRANSITION**. The number of days after which a backup is automatically moved to the archive tier. Backups must be retained in the standard tier for at least 30 days and in the archive tier for at least 60 days. Unit: days.
+      shared_ptr<int64_t> archiveDays_ {};
+      // This parameter is required only when **RuleType** is set to **BACKUP**. The backup type. Set the value to **COMPLETE**, which specifies full backup.
       shared_ptr<string> backupType_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+      // This parameter is required only when **RuleType** is set to **TAG**. The data source filter rules.
       shared_ptr<vector<Rules::DataSourceFilters>> dataSourceFilters_ {};
-      // This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+      // This parameter is required only when **PolicyType** is set to **UDM_ECS_ONLY** and **RuleType** is set to **SECURITY**. Specifies whether to enable backup locking.
       shared_ptr<bool> immutable_ {};
-      // Specifies whether to enable the feature of keeping at least one backup version. Valid values:
-      // 
-      // *   0: The feature is disabled.
-      // *   1: The feature is enabled.
+      // Specifies whether to retain at least one backup version. Valid values:
+      // - 0: do not retain.
+      // - 1: retain.
       shared_ptr<int64_t> keepLatestSnapshots_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **REPLICATION**. This parameter specifies the ID of the destination region.
+      // This parameter is required only when **RuleType** is set to **REPLICATION**. The ID of the destination region for replication.
       shared_ptr<string> replicationRegionId_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION**, or **REPLICATION**.
-      // 
-      // *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the retention period when the **RuleType** parameter is set to **TRANSITION**. Minimum value: 1. Maximum value: 364635. Unit: days.
-      // *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Maximum value: 364635. Unit: days.
-      // *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Maximum value: 364635. Unit: days.
+      // This parameter is required only when **RuleType** is set to **BACKUP**, **TRANSITION**, or **REPLICATION**.
+      // - If **RuleType** is set to **BACKUP**: the retention period of backups. The priority of this parameter is lower than the Retention parameter of the rule whose **RuleType** is **TRANSITION**. Minimum value: 1. Maximum value: 364635. Unit: days.
+      // - If **RuleType** is set to **TRANSITION**: the retention period of backups. Minimum value: 1. Maximum value: 364635. Unit: days.
+      // - If **RuleType** is set to **REPLICATION**: the retention period of cross-region backups. Minimum value: 1. Maximum value: 364635. Unit: days.
       shared_ptr<int64_t> retention_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
+      // This parameter is required only when **RuleType** is set to **TRANSITION**. The special retention rules.
       shared_ptr<vector<Rules::RetentionRules>> retentionRules_ {};
-      // The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type. Valid values:
-      // 
-      // *   **BACKUP**: backup rule
-      // *   **TRANSITION**: lifecycle rule
-      // *   **REPLICATION**: replication rule
-      // *   **TAG**: tag-based resource association rule
+      // The rule type. Each policy must have at least one **BACKUP** rule and exactly one **TRANSITION** rule. Valid values:
+      // - **BACKUP**: backup rule.
+      // - **TRANSITION**: lifecycle rule.
+      // - **REPLICATION**: replication rule.
+      // - **TAG**: tag-based resource association rule.
       // 
       // This parameter is required.
       shared_ptr<string> ruleType_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
+      // This parameter is required only when **RuleType** is set to **BACKUP**. The backup schedule settings. Supported formats:
+      // - `I|{startTime}|{interval}`: specifies that a backup job is executed at the specified interval starting from {startTime}. For example, `I|1631685600|P1D` specifies that a backup job is executed once a day starting from 2021-09-15 14:00:00.
       // 
-      // *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+      //   * startTime: the start time of the backup. This value is a UNIX timestamp. Unit: seconds.
+      //   * interval: the ISO 8601 time interval. For example, `PT1H` specifies an interval of one hour. `P1D` specifies an interval of one day.
+      // - `C|{startTime}|{crontab}`: specifies that a backup job is executed based on the {crontab} expression starting from {startTime}. For example, `C|1631685600|0 0 2 ? * 3,5,7` specifies that a backup job is executed at 02:00:00 every Tuesday, Thursday, and Saturday starting from 2021-09-15 14:00:00.
+      //   * startTime: the start time of the backup. This value is a UNIX timestamp. Unit: seconds.
+      //   * crontab: the crontab expression. For example, `0 0 2 ? * 3,5,7` specifies every Tuesday, Thursday, and Saturday at 02:00:00.
       // 
-      //     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-      //     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
-      // 
-      // *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
-      // 
-      //     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-      //     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
-      // 
-      // The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
+      // Backup jobs that are missed are not compensated. If the previous backup job is not complete, the next backup job is not triggered.
       shared_ptr<string> schedule_ {};
-      // This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+      // This parameter is required only when **RuleType** is set to **TAG**. The resource tag filter rules.
       shared_ptr<vector<Rules::TagFilters>> tagFilters_ {};
-      // This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
+      // This parameter is required only when RuleType is set to BACKUP. The backup vault ID.
       shared_ptr<string> vaultId_ {};
     };
 
@@ -415,21 +492,19 @@ namespace Models
 
 
   protected:
-    // The description of the backup policy.
+    // The policy description.
     shared_ptr<string> policyDescription_ {};
-    // The name of the backup policy.
+    // The policy name.
     shared_ptr<string> policyName_ {};
     // The policy type. Valid values:
+    // - **STANDARD**: general backup policy. Supports backing up data sources other than ECS instances.
+    // - **UDM_ECS_ONLY**: ECS instance backup policy. Supports backing up only ECS instances.
     // 
-    // *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
-    // *   **UDM_ECS_ONLY**: This type of policy applies only to ECS instance backup.
-    // 
-    // If the policy type is not specified, Cloud Backup automatically sets the policy type based on whether the backup vault is specified in the rules of the policy:
-    // 
-    // *   If the backup vault is specified, Cloud Backup sets the policy type to **STANDARD**.
-    // *   If the backup vault is not specified, Cloud Backup sets the policy type to **UDM_ECS_ONLY**.
+    // If you do not specify the policy type, Cloud Backup automatically sets the policy type based on whether a backup vault is specified in the policy rules:
+    // - A backup vault is specified in the policy rules: **STANDARD**
+    // - No backup vault is specified in the policy rules: **UDM_ECS_ONLY**
     shared_ptr<string> policyType_ {};
-    // The rules in the backup policy.
+    // The list of policy rules.
     shared_ptr<vector<CreatePolicyV2Request::Rules>> rules_ {};
   };
 

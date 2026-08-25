@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The response code. 200 indicates success.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
     shared_ptr<string> message_ {};
-    // The ID of the backup policy.
+    // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true
+    // - false
     shared_ptr<bool> success_ {};
   };
 

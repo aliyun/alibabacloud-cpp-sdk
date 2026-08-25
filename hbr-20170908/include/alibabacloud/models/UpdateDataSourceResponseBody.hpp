@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The response message. If the request is successful, `successful` is returned. Otherwise, an error message is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

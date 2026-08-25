@@ -109,10 +109,15 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The cluster identifier.
       shared_ptr<string> clusterIdentifier_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // Resource details.
       shared_ptr<string> resourceInfo_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -178,13 +183,25 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The response message. Returns "successful" on success or an error message on failure.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of resources.
     shared_ptr<vector<DescribeContainerResourceResponseBody::Resources>> resources_ {};
+    // Indicates whether the request succeeded.
+    // 
+    // - true: succeeded
+    // 
+    // - false: failed
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

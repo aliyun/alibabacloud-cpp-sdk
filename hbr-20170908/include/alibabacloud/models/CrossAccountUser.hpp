@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETECROSSACCOUNTREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_DELETECROSSACCOUNTREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_CROSSACCOUNTUSER_HPP_
+#define ALIBABACLOUD_MODELS_CROSSACCOUNTUSER_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,25 +10,25 @@ namespace Hbr20170908
 {
 namespace Models
 {
-  class DeleteCrossAccountRequest : public Darabonba::Model {
+  class CrossAccountUser : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteCrossAccountRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const CrossAccountUser& obj) { 
       DARABONBA_PTR_TO_JSON(CrossAccountRoleName, crossAccountRoleName_);
       DARABONBA_PTR_TO_JSON(CrossAccountType, crossAccountType_);
       DARABONBA_PTR_TO_JSON(CrossAccountUserId, crossAccountUserId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteCrossAccountRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, CrossAccountUser& obj) { 
       DARABONBA_PTR_FROM_JSON(CrossAccountRoleName, crossAccountRoleName_);
       DARABONBA_PTR_FROM_JSON(CrossAccountType, crossAccountType_);
       DARABONBA_PTR_FROM_JSON(CrossAccountUserId, crossAccountUserId_);
     };
-    DeleteCrossAccountRequest() = default ;
-    DeleteCrossAccountRequest(const DeleteCrossAccountRequest &) = default ;
-    DeleteCrossAccountRequest(DeleteCrossAccountRequest &&) = default ;
-    DeleteCrossAccountRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteCrossAccountRequest() = default ;
-    DeleteCrossAccountRequest& operator=(const DeleteCrossAccountRequest &) = default ;
-    DeleteCrossAccountRequest& operator=(DeleteCrossAccountRequest &&) = default ;
+    CrossAccountUser() = default ;
+    CrossAccountUser(const CrossAccountUser &) = default ;
+    CrossAccountUser(CrossAccountUser &&) = default ;
+    CrossAccountUser(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CrossAccountUser() = default ;
+    CrossAccountUser& operator=(const CrossAccountUser &) = default ;
+    CrossAccountUser& operator=(CrossAccountUser &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,37 +39,26 @@ namespace Models
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
     inline string getCrossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
-    inline DeleteCrossAccountRequest& setCrossAccountRoleName(string crossAccountRoleName) { DARABONBA_PTR_SET_VALUE(crossAccountRoleName_, crossAccountRoleName) };
+    inline CrossAccountUser& setCrossAccountRoleName(string crossAccountRoleName) { DARABONBA_PTR_SET_VALUE(crossAccountRoleName_, crossAccountRoleName) };
 
 
     // crossAccountType Field Functions 
     bool hasCrossAccountType() const { return this->crossAccountType_ != nullptr;};
     void deleteCrossAccountType() { this->crossAccountType_ = nullptr;};
     inline string getCrossAccountType() const { DARABONBA_PTR_GET_DEFAULT(crossAccountType_, "") };
-    inline DeleteCrossAccountRequest& setCrossAccountType(string crossAccountType) { DARABONBA_PTR_SET_VALUE(crossAccountType_, crossAccountType) };
+    inline CrossAccountUser& setCrossAccountType(string crossAccountType) { DARABONBA_PTR_SET_VALUE(crossAccountType_, crossAccountType) };
 
 
     // crossAccountUserId Field Functions 
     bool hasCrossAccountUserId() const { return this->crossAccountUserId_ != nullptr;};
     void deleteCrossAccountUserId() { this->crossAccountUserId_ = nullptr;};
     inline int64_t getCrossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
-    inline DeleteCrossAccountRequest& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
+    inline CrossAccountUser& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
 
 
   protected:
-    // The name of the RAM role of the account to back up. This parameter is required when you configure cross-account backup by assuming a RAM role.
-    // 
-    // This parameter is required.
     shared_ptr<string> crossAccountRoleName_ {};
-    // The type of cross-account backup. Valid values:
-    // 
-    // - **CROSS_ACCOUNT**: Cross-account backup is configured by assuming a RAM role.
-    // 
-    // - **CROSS_ACCOUNT_BY_RD**: Cross-account backup is configured based on a resource directory.
     shared_ptr<string> crossAccountType_ {};
-    // The UID of the account to back up.
-    // 
-    // This parameter is required.
     shared_ptr<int64_t> crossAccountUserId_ {};
   };
 

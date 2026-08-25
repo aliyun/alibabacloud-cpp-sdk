@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> clientId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the backup vault.
+    // The ID of the backup repository.
     shared_ptr<string> vaultId_ {};
   };
 

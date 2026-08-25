@@ -83,8 +83,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     // 
-    // *   true: The request is successful.
-    // *   false: The request fails.
+    // - true: The request is successful.
+    // 
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
     // The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of the asynchronous job.
     shared_ptr<string> taskId_ {};

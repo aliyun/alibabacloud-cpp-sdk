@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
+    // The edition type. Valid values are BASIC and STANDARD. The default value is STANDARD.
     shared_ptr<string> edition_ {};
     // The ID of the backup job.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // The ID of the backup vault.
+    // The ID of the backup repository.
     shared_ptr<string> vaultId_ {};
   };
 

@@ -349,25 +349,25 @@ namespace Models
         shared_ptr<bool> containOsDisk_ {};
         // The type of the source disk.
         shared_ptr<string> diskCategory_ {};
-        // The name of the disk.
+        // The name of the disk device.
         shared_ptr<string> diskDevName_ {};
-        // The mapping between the device and the recovery point ID.
+        // The mapping between devices and backup point IDs.
         Darabonba::Json diskHbrSnapshotIdWithDeviceMap_ {};
-        // The IDs of the disks that are backed up at the recovery point.
+        // The list of disk IDs that are included in the backup point.
         shared_ptr<vector<string>> diskIdList_ {};
         // The reason for the downgrade.
         shared_ptr<string> downgradeReason_ {};
         // The hostname.
         shared_ptr<string> hostName_ {};
-        // The mapping between the instance ID and the disk ID.
+        // The mapping between instance IDs and disk IDs.
         Darabonba::Json instanceIdWithDiskIdListMap_ {};
         // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The specifications of the source instance.
+        // The instance type of the source instance.
         shared_ptr<string> instanceType_ {};
-        // Indicates whether the backup is created by the instant clone feature.
+        // Indicates whether the backup is created for the instant clone feature.
         shared_ptr<bool> instantAccess_ {};
-        // The list of snapshot IDs, corresponding to DiskIdList.
+        // The list of native snapshot IDs. The native snapshot IDs in this list have a one-to-one correspondence with the disk IDs in the DiskIdList.
         shared_ptr<vector<string>> nativeSnapshotIdList_ {};
         // The ID of the system disk.
         shared_ptr<string> osDiskId_ {};
@@ -375,11 +375,11 @@ namespace Models
         shared_ptr<string> osName_ {};
         // The English name of the operating system.
         shared_ptr<string> osNameEn_ {};
-        // The type of the operating system. Valid values: linux and windows.
+        // The type of the operating system. Valid values: linux, windows.
         shared_ptr<string> osType_ {};
         // The performance level of the source disk.
         shared_ptr<string> performanceLevel_ {};
-        // The system platform.
+        // The operating system.
         shared_ptr<string> platform_ {};
         // The ID of the snapshot group.
         shared_ptr<string> snapshotGroupId_ {};
@@ -595,70 +595,79 @@ namespace Models
 
 
     protected:
-      // The size of the backup snapshot. Unit: bytes.
+      // The actual size of the snapshot. Unit: bytes.
       shared_ptr<string> actualBytes_ {};
-      // The special retention type, which is valid only for special backups. Valid values:
+      // The special retention type. This parameter is valid only for special retention backups. Valid values:
       // 
-      // *   **WEEKLY**: weekly backups
-      // *   **MONTHLY**: monthly backups
-      // *   **YEARLY**: yearly backups
+      // - **WEEKLY**: weekly special retention backup
+      // 
+      // - **MONTHLY**: monthly special retention backup
+      // 
+      // - **YEARLY**: yearly special retention backup
       shared_ptr<string> advancedRetentionType_ {};
+      // The error message that is returned if the archiving fails.
       shared_ptr<string> archiveErrorMessage_ {};
+      // The archiving status.
       shared_ptr<string> archiveStatus_ {};
+      // The time when the archiving was triggered.
       shared_ptr<int64_t> archiveTriggerTime_ {};
-      // The backup type. Valid value: **COMPLETE**, which indicates full backup.
+      // The backup type. The value **COMPLETE** indicates a full backup.
       shared_ptr<string> backupType_ {};
-      // The total amount of data. Unit: bytes.
+      // The total size of the data source. Unit: bytes.
       shared_ptr<int64_t> bytesTotal_ {};
-      // Indicates whether the disk backup point can be deleted. This parameter is valid only if the value of SourceType is UDM_ECS_DISK.
+      // Indicates whether the disk backup point can be deleted. This parameter is valid only if **SourceType** is set to **UDM_ECS_DISK**.
       shared_ptr<bool> canBeDeleted_ {};
-      // The time when the backup snapshot was completed. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the backup snapshot was completed. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> completeTime_ {};
       // The time when the backup snapshot was created.
       shared_ptr<int64_t> createTime_ {};
-      // The time when the backup snapshot was created. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the backup snapshot was created. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTime_ {};
-      // The snapshot details.
+      // The details of the snapshot.
       shared_ptr<Snapshots::Detail> detail_ {};
-      // The ID of the cloud disk or local disk.
+      // The ID of the disk. The disk can be a cloud disk or a local disk.
       shared_ptr<string> diskId_ {};
-      // The expiration time of the backup.
+      // The time when the backup expires.
       shared_ptr<int64_t> expireTime_ {};
       // The ID of the ECS instance.
       shared_ptr<string> instanceId_ {};
       // The ID of the backup job.
       shared_ptr<string> jobId_ {};
-      // The ID of the backup snapshot.
+      // The ID of the native snapshot.
       shared_ptr<string> nativeSnapshotId_ {};
-      // The snapshot information.
+      // The information about the native snapshot.
       shared_ptr<string> nativeSnapshotInfo_ {};
-      // The hash value of the parent backup snapshot.
+      // The hash value of the parent snapshot.
       shared_ptr<string> parentSnapshotHash_ {};
-      // The prefix of the backup snapshot.
+      // The prefix of the snapshot.
       shared_ptr<string> prefix_ {};
-      // The timestamp of the backup snapshot. The value is a UNIX timestamp. Unit: seconds.
+      // The timestamp of the snapshot. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> realSnapshotTime_ {};
-      // The retention period of the backup snapshot. Unit: days.
+      // The retention period of the snapshot in days.
       shared_ptr<int64_t> retention_ {};
-      // The hash value of the backup snapshot.
+      // The hash value of the snapshot.
       shared_ptr<string> snapshotHash_ {};
       // The ID of the backup snapshot.
       shared_ptr<string> snapshotId_ {};
       // The type of the data source. Valid values:
       // 
-      // *   **UDM_ECS**: ECS instance backup
-      // *   **UDM_ECS_DISK**: disk backup subtask of ECS instance backup
-      // *   **UDM_DISK**: disk backup
-      shared_ptr<string> sourceType_ {};
-      // The time when the backup snapshot was created. The value is a UNIX timestamp. Unit: seconds.
-      shared_ptr<int64_t> startTime_ {};
-      // The status of the backup job. Valid values:
+      // - **UDM_ECS**: ECS instance backup
       // 
-      // *   **COMPLETE**: The backup job is completed.
-      // *   **PARTIAL_COMPLETE**: The backup job is partially completed.
-      // *   **FAILED**: The backup job has failed.
+      // - **UDM_ECS_DISK**: a disk backup subtask of an ECS instance backup
+      // 
+      // - **UDM_DISK**: disk backup
+      shared_ptr<string> sourceType_ {};
+      // The time when the snapshot was started. This value is a UNIX timestamp in seconds.
+      shared_ptr<int64_t> startTime_ {};
+      // The status of the backup snapshot. Valid values:
+      // 
+      // - **COMPLETE**: The backup is successful.
+      // 
+      // - **PARTIAL_COMPLETE**: The backup is partially successful.
+      // 
+      // - **FAILED**: The backup failed.
       shared_ptr<string> status_ {};
-      // The time when the backup snapshot was updated. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the backup snapshot was updated. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -709,20 +718,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The message that is returned. If the request was successful, **successful** is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about snapshots.
+    // The details of the snapshots.
     shared_ptr<vector<DescribeUdmSnapshotsResponseBody::Snapshots>> snapshots_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of backup snapshots.
+    // The total number of snapshots.
     shared_ptr<int64_t> totalCount_ {};
   };
 

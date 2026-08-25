@@ -78,17 +78,9 @@ namespace Models
 
 
     protected:
-      // The keys in the filter. Valid values:
-      // 
-      // *   **regionId**: the ID of a region
-      // *   **planId**: the ID of a backup plan
-      // *   **sourceType**: the type of a data source
-      // *   **vaultId**: the ID of a backup vault
-      // *   **instanceName**: the name of an instance
-      // *   **instanceId**: the ID of an instance
-      // *   **planName**: the name of a backup plan
+      // The key of the query filter. Valid values:
       shared_ptr<string> key_ {};
-      // The values that you want to match in the filter.
+      // The values to match in the query filter.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -132,21 +124,15 @@ namespace Models
 
 
   protected:
+    // The edition type. Valid values: BASIC and STANDARD. Default value: STANDARD.
     shared_ptr<string> edition_ {};
-    // The filters.
+    // The query filters.
     shared_ptr<vector<DescribeBackupPlansRequest::Filters>> filters_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The type of the data source. Valid values:
-    // 
-    // *   **ECS_FILE**: Elastic Compute Service (ECS) files
-    // *   **OSS**: Object Storage Service (OSS) buckets
-    // *   **NAS**: File Storage NAS (NAS) file systems
-    // *   **OTS**: Tablestore instances
-    // *   **UDM_ECS**: ECS instances
-    // *   **SYNC**: data synchronization
     shared_ptr<string> sourceType_ {};
   };
 

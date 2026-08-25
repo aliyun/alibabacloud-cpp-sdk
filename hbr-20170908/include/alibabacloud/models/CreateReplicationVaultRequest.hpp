@@ -114,19 +114,18 @@ namespace Models
   protected:
     // The description of the backup vault. The description must be 0 to 255 characters in length.
     shared_ptr<string> description_ {};
-    // The method that is used to encrypt the source data. This parameter is valid only if you set the VaultType parameter to STANDARD or OTS_BACKUP. Valid values:
-    // 
-    // *   **HBR_PRIVATE**: The source data is encrypted by using the built-in encryption method of Hybrid Backup Recovery (HBR).
-    // *   **KMS**: The source data is encrypted by using Key Management Service (KMS).
+    // The encryption type of the replication target vault. This parameter is valid only when VaultType is set to STANDARD. The encryption type must be the same as that of the source backup repository. Valid values:
+    // - **HBR_PRIVATE**: fully managed by Cloud Backup. The built-in secret key encryption method of the backup service is used.
+    // - **KMS**: uses a custom key from Alibaba Cloud Key Management Service (KMS) for encryption.
     shared_ptr<string> encryptType_ {};
-    // The customer master key (CMK) created in KMS or the alias of the key. This parameter is required only if you set the EncryptType parameter to KMS.
+    // The custom key or alias from Alibaba Cloud KMS. This parameter is required only when EncryptType is set to KMS.
     shared_ptr<string> kmsKeyId_ {};
-    // The data redundancy type of the backup vault. Valid values:
+    // The data redundancy storage method of the backup vault. Valid values:
     // 
-    // *   LRS: standard locally redundant storage (LRS). Cloud Backup stores the copies of each object on multiple devices of different facilities in the same zone. This way, Cloud Backup ensures data durability and availability even if hardware failures occur.
-    // *   ZRS: standard zone-redundant storage (ZRS). Cloud Backup uses the multi-zone mechanism to distribute data across three zones within the same region. If a zone fails, the data that is stored in the other two zones is still accessible.
+    // - LRS: locally redundant storage (LRS). The data redundancy storage mechanism is used to store redundant copies of each object on multiple devices across multiple facilities within the same zone, ensuring data durability and availability in the event of hardware failure.
+    // - ZRS: zone-redundant storage (ZRS). The multi-zone mechanism is used to distribute user data across three zones in the same region. If one zone becomes unavailable, the data can still be accessed normally.
     shared_ptr<string> redundancyType_ {};
-    // The ID of the region where the source vault resides.
+    // The region ID of the source vault.
     // 
     // This parameter is required.
     shared_ptr<string> replicationSourceRegionId_ {};
@@ -138,11 +137,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vaultName_ {};
-    // The ID of the region where the backup vault resides.
+    // The region ID of the backup vault.
     // 
     // This parameter is required.
     shared_ptr<string> vaultRegionId_ {};
-    // The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+    // The storage class of the backup vault. The value can only be **STANDARD**, which indicates standard storage.
     shared_ptr<string> vaultStorageClass_ {};
   };
 

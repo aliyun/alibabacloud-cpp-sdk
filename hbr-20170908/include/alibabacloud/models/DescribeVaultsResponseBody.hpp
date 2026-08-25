@@ -1071,20 +1071,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
     shared_ptr<string> message_ {};
-    // Page number for pagination, starting from 1. The default value is 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, with a minimum value of 1, a maximum value of 99, and a default value of 10.
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
-    // - true: Success - false: Failure
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Returns the total number of backup repositories.
+    // The total number of backup vaults returned.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeVaultsResponseBody::Vaults> vaults_ {};
   };

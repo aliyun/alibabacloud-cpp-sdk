@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // Return code, 200 indicates success.
+    // The response code. The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // Description of the return message, usually returns \\"successful\\" upon success, and corresponding error messages in case of failure.
+    // The returned message. The value "successful" is returned for a success response. An error message is returned for a failure response.
     shared_ptr<string> message_ {};
-    // Backup plan ID.
+    // The backup plan ID.
     shared_ptr<string> planId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     // 
-    // - true: Success.
-    // - false: Failure.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

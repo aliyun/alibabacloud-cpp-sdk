@@ -158,19 +158,42 @@ namespace Models
 
 
   protected:
+    // The absolute path of the directory. Specify `/` to browse the root directory of the backup.
     shared_ptr<string> absolutePath_ {};
+    // The backup client ID.
     shared_ptr<string> clientId_ {};
+    // The Cloud Backup edition. Valid values:
+    // 
+    // - **STANDARD**: Standard Edition. This is the default value.
+    // 
+    // - **BASIC**: Basic Edition. Only ECS file backup is supported in Basic Edition.
     shared_ptr<string> edition_ {};
+    // The maximum number of results to return per request.
+    // 
+    // Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is required to retrieve the next page of results. If this parameter is not specified, the first page of results is returned.
     shared_ptr<string> nextToken_ {};
+    // Deprecated. Use MaxResults and NextToken for pagination instead.
     shared_ptr<int32_t> pageNumber_ {};
+    // Deprecated. Use MaxResults and NextToken for pagination instead.
     shared_ptr<int32_t> pageSize_ {};
+    // The hash value of the directory. If this parameter is not specified, the root directory of the backup is browsed.
     shared_ptr<string> path_ {};
+    // Deprecated.
     shared_ptr<string> restoreId_ {};
     shared_ptr<string> securityToken_ {};
+    // The hash value of the backup snapshot.
     shared_ptr<string> snapshotHash_ {};
+    // The storage class of the backup data. Valid values:
+    // 
+    // - **STANDARD**: Standard.
+    // 
+    // - **ARCHIVE**: Archive.
     shared_ptr<string> storageClass_ {};
+    // Deprecated. Do not use.
     shared_ptr<string> token_ {};
+    // The backup vault ID.
     shared_ptr<string> vaultId_ {};
   };
 

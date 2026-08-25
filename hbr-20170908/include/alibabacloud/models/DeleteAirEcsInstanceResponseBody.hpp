@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+    // The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of an asynchronous job.
+    // The asynchronous task ID. You can call DescribeTask to obtain the task result.
     shared_ptr<string> taskId_ {};
   };
 

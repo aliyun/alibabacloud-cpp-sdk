@@ -160,23 +160,23 @@ namespace Models
 
 
     protected:
-      // The backup type. Valid value: **COMPLETE**, which indicates full backup.
+      // The backup type. Set the value to **COMPLETE**. This indicates a full backup.
       shared_ptr<string> backupType_ {};
-      // The ID of the region where the remote backup vault resides.
+      // The ID of the destination region for the geo-redundant backup.
       shared_ptr<string> destinationRegionId_ {};
-      // The retention period of the backup data. Unit: days.
+      // The number of days to retain the geo-redundant backup.
       shared_ptr<int64_t> destinationRetention_ {};
       // Specifies whether to disable the policy.
       shared_ptr<bool> disabled_ {};
-      // Specifies whether to enable remote replication.
+      // Specifies whether to enable geo-redundant replication.
       shared_ptr<bool> doCopy_ {};
-      // The retention period of the backup data. Minimum value: 1. Unit: days.
+      // The number of days to retain backups. The minimum value is 1.
       shared_ptr<int64_t> retention_ {};
-      // The name of the backup policy.
+      // The name of the policy.
       shared_ptr<string> ruleName_ {};
-      // The backup policy. Format: I|{startTime}|{interval}. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, I|1631685600|P1D specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+      // The backup policy. Use the I|{startTime}|{interval} format. This specifies that a backup job runs at a recurring interval. The {startTime} is when the backup starts. The {interval} is the time between jobs. HBR does not run overdue backup jobs. If the previous backup job is not finished, the next one does not start. For example, I|1631685600|P1D means the backup runs once a day, starting at 14:00:00 on September 15, 2021.
       // 
-      // startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds. interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+      // startTime: The start time of the backup. This is a UNIX timestamp in seconds. interval: The time interval. Use the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
       shared_ptr<string> schedule_ {};
     };
 
@@ -327,34 +327,41 @@ namespace Models
 
 
   protected:
-    // The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
+    // The configuration for the incremental file synchronization list. (This parameter is required only for file synchronization.)
     shared_ptr<string> changeListPath_ {};
-    // The details about ECS instance backup. The value is a JSON string.
+    // The details of the ECS instance backup. This is a JSON string.
     // 
-    // *   snapshotGroup: specifies whether to use a snapshot-consistent group. This parameter is valid only if all disks of the ECS instance are enhanced SSDs (ESSDs).
-    // *   appConsistent: specifies whether to enable application consistency. If you set this parameter to true, you must also specify the preScriptPath and postScriptPath parameters.
-    // *   preScriptPath: the path to the pre-freeze scripts.
-    // *   postScriptPath: the path to the post-thaw scripts.
+    // - snapshotGroup: Specifies whether to use a snapshot-consistent group. This feature is available only when all disks of the instance are Enhanced Solid-State Drives (ESSDs).
+    // 
+    // - appConsistent: Specifies whether to enable application consistency. You must also configure the preScriptPath and postScriptPath parameters.
+    // 
+    // - preScriptPath: The path to the pre-freeze script.
+    // 
+    // - postScriptPath: The path to the post-thaw script.
     Darabonba::Json detail_ {};
+    // The edition. Valid values are BASIC and STANDARD. The default value is STANDARD.
     shared_ptr<string> edition_ {};
-    // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. This parameter specifies the paths to the files to exclude from the backup. All files in the specified paths are not backed up. The value can be up to 255 characters in length.
     shared_ptr<string> exclude_ {};
-    // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. This parameter specifies the paths to the files to back up. All files in the specified paths are backed up. The value can be up to 255 characters in length.
     shared_ptr<string> include_ {};
-    // Specifies whether to enable the feature of keeping at least one backup version. Valid values:
+    // Specifies whether to permanently retain the latest backup version.
     // 
-    // *   0: The feature is disabled.
-    // *   1: The feature is enabled.
+    // - 0: No
+    // 
+    // - 1: Yes
     shared_ptr<int64_t> keepLatestSnapshots_ {};
-    // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a source path.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. This parameter specifies whether to use Volume Shadow Copy Service (VSS) to define the backup path.
     // 
-    // *   This parameter is available only for Windows ECS instances.
-    // *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-    // *   If you use VSS, you cannot back up data from multiple directories.
+    // - This feature is available only for Windows ECS instances.
+    // 
+    // - If data changes occur in the backup source, set this parameter to `["UseVSS":true]` to ensure data consistency.
+    // 
+    // - If you enable VSS, you cannot back up multiple file directories at the same time.
     shared_ptr<string> options_ {};
-    // The details about the Tablestore instance.
+    // The details of the Tablestore instance.
     shared_ptr<OtsDetail> otsDetail_ {};
-    // The source paths.
+    // The backup paths.
     shared_ptr<vector<string>> path_ {};
     // The ID of the backup plan.
     // 
@@ -362,37 +369,45 @@ namespace Models
     shared_ptr<string> planId_ {};
     // The name of the backup plan.
     shared_ptr<string> planName_ {};
-    // This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the prefix of objects that you want to back up. After a prefix is specified, only objects whose names start with the prefix are backed up.
+    // This parameter is required only when **SourceType** is set to **OSS**. This parameter specifies the prefix of objects to back up. After you specify a prefix, only objects that match the prefix are backed up.
     shared_ptr<string> prefix_ {};
-    // The retention period of the backup data. Minimum value: 1. Unit: days.
+    // The number of days to retain backups. The minimum value is 1.
     shared_ptr<int64_t> retention_ {};
-    // The rule of the backup plan.
+    // The rules of the backup plan.
     shared_ptr<vector<UpdateBackupPlanRequest::Rule>> rule_ {};
-    // The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the `{startTime}` parameter and the subsequent backup jobs at an interval that is specified in the `{interval}` parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+    // The backup policy. Use the `I|{startTime}|{interval}` format. This specifies that a backup job runs at a recurring interval. The `{startTime}` is when the backup starts. The `{interval}` is the time between jobs. HBR does not run overdue backup jobs. If the previous backup job is not finished, the next one does not start. For example, `I|1631685600|P1D` means the backup runs once a day, starting at 14:00:00 on September 15, 2021.
     // 
-    // *   **startTime**: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-    // *   **interval**: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+    // - **startTime**: The start time of the backup. This is a UNIX timestamp in seconds.
+    // 
+    // - **interval**: The time interval. Use the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
     shared_ptr<string> schedule_ {};
     // The type of the data source. Valid values:
     // 
-    // *   **ECS_FILE**: Elastic Compute Service (ECS) files
-    // *   **OSS**: Object Storage Service (OSS) buckets
-    // *   **NAS**: Apsara File Storage NAS file systems
-    // *   **OTS**: Tablestore instances
-    // *   **UDM_ECS**: ECS instances
+    // - **ECS_FILE**: Backs up ECS files.
+    // 
+    // - **OSS**: Backs up Alibaba Cloud OSS.
+    // 
+    // - **NAS**: Backs up Alibaba Cloud NAS.
+    // 
+    // - **OTS**: Backs up Alibaba Cloud Tablestore.
+    // 
+    // - **UDM_ECS**: Backs up an entire ECS instance.
     shared_ptr<string> sourceType_ {};
-    // This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the throttling rules. To ensure business continuity, you can limit the bandwidth that is used for file backup during peak hours. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. This parameter specifies traffic shaping for backups. Traffic shaping helps you control backup traffic during peak business hours to avoid affecting your services. The format is `{start}|{end}|{bandwidth}`. You can specify multiple traffic shaping rules. Separate them with vertical bars (|). The time ranges of the rules cannot overlap.
     // 
-    // *   **start**: the start hour
-    // *   **end**: the end hour.
-    // *   **bandwidth**: the bandwidth. Unit: KB/s.
+    // - **start**: The start hour.
+    // 
+    // - **end**: The end hour.
+    // 
+    // - **bandwidth**: The maximum speed. Unit: KB/s.
     shared_ptr<string> speedLimit_ {};
-    // Specifies whether to update the source path if the backup source is empty. Valid values:
+    // Specifies whether to update the backup paths if the Path parameter is empty.
     // 
-    // *   true: The system replaces the original source path with the specified source path.
-    // *   false: The system does not update the original source path. The system backs up data based on the source path that you specified when you created the backup plan.
+    // - true: Updates the backup paths based on the paths specified in this call.
+    // 
+    // - false: Does not update the backup paths. The backup paths that were configured when the backup plan was created are used.
     shared_ptr<bool> updatePaths_ {};
-    // The ID of the backup vault.
+    // The ID of the backup repository.
     shared_ptr<string> vaultId_ {};
   };
 

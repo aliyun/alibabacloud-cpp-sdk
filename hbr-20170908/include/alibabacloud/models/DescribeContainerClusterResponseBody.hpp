@@ -139,9 +139,11 @@ namespace Models
     protected:
       // The status of the client. Valid values:
       // 
-      // *   **MISS**: The client is disconnected.
-      // *   **UNKNOWN**: The client is in an unknown state.
-      // *   **READY**: The client is ready.
+      // - **MISS**: The client is disconnected.
+      // 
+      // - **UNKNOWN**: The client is in an unknown state.
+      // 
+      // - **READY**: The client is ready.
       shared_ptr<string> agentStatus_ {};
       // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
@@ -151,12 +153,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The identifier of the cluster.
       shared_ptr<string> identifier_ {};
-      // The name of the instance.
+      // The cluster name.
       shared_ptr<string> name_ {};
       // The network type of the cluster. Valid values:
       // 
-      // *   **CLASSIC**: the classic network
-      // *   **VPC**: virtual private cloud (VPC)
+      // - **CLASSIC**: the classic network
+      // 
+      // - **VPC**: virtual private cloud (VPC)
       shared_ptr<string> networkType_ {};
       // The token that is used to register the Hybrid Backup Recovery (HBR) client in the cluster.
       shared_ptr<string> token_ {};
@@ -238,8 +241,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The call is successful.
+    // 
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
     // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};

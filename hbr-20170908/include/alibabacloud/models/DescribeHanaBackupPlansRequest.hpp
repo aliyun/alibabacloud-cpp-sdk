@@ -88,9 +88,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> databaseName_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be a number that starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

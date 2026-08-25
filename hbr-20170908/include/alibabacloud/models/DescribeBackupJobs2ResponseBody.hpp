@@ -990,22 +990,23 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBackupJobs2ResponseBody::BackupJobs> backupJobs_ {};
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The message that is returned. If the request was successful, successful is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
-    // The page number of the returned page. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from page 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 99. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request was successful.
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned backup jobs that meet the specified conditions.
+    // The total number of backup jobs that meet the specified criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

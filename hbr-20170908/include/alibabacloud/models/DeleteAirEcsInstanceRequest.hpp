@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The ID of the Elastic Compute Service (ECS) instance.
+    // The instance ID of the ECS instance.
     shared_ptr<string> ecsInstanceId_ {};
-    // The data sources for which the client needs to be uninstalled.
+    // The list of data sources for which the client needs to be uninstalled.
     shared_ptr<vector<string>> uninstallClientSourceTypes_ {};
   };
 

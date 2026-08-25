@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the data source.
+    // 
     // This parameter is required.
     shared_ptr<string> dataSourceId_ {};
   };

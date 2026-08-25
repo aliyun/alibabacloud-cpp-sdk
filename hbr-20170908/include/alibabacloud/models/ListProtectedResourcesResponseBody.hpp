@@ -146,14 +146,38 @@ namespace Models
 
 
     protected:
+      // The number of backup plans.
       shared_ptr<int64_t> backupPlanCount_ {};
+      // The product capability to which the resource belongs. Valid values:
+      // - **HBR**: Cloud Backup standard capability.
+      // - **BASIC**: ECS File Backup Essential Edition.
       shared_ptr<string> createdByProduct_ {};
+      // The amount of protected data, in bytes. Currently, only ECS File Backup Essential Edition is supported.
+      // - **SourceType=ECS_FILE**: the backed-up block storage capacity.
       shared_ptr<int64_t> protectedDataSize_ {};
+      // The ID of the protected resource.
       shared_ptr<string> protectedResourceId_ {};
+      // The resource ID.
+      // - **SourceType=ECS_FILE**: the ECS instance ID.
+      // - **SourceType=COMMON_FILE_SYSTEM**: the CPFS data source ID.
+      // - **SourceType=COMMON_NAS**: the on-premises NAS data source ID.
+      // - **SourceType=File**: the local service client ID.
+      // - **SourceType=NAS**: the Alibaba Cloud NAS file system ID.
+      // - **SourceType=OSS**: the OSS bucket.
       shared_ptr<string> resourceId_ {};
+      // The UID of the user who owns the resource.
       shared_ptr<int64_t> resourceOwnerId_ {};
+      // The region ID of the resource.
       shared_ptr<string> resourceRegionId_ {};
+      // The number of backups.
       shared_ptr<int64_t> snapshotCount_ {};
+      // The backup feature type. Valid values:
+      // - **ECS_FILE**: ECS file backup.
+      // - **COMMON_FILE_SYSTEM**: Cloud Parallel File Storage (CPFS) backup.
+      // - **COMMON_NAS**: on-premises NAS backup.
+      // - **File**: on-premises file backup.
+      // - **NAS**: Alibaba Cloud NAS backup.
+      // - **OSS**: OSS backup.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -219,13 +243,26 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. If this parameter is empty, no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The list of protected resources.
     shared_ptr<vector<ListProtectedResourcesResponseBody::ProtectedResources>> protectedResources_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of protected resources.
     shared_ptr<int32_t> totalCount_ {};
   };
 

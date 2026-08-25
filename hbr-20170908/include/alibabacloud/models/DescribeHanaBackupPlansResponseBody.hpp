@@ -262,23 +262,24 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeHanaBackupPlansResponseBody::HanaBackupPlans> hanaBackupPlans_ {};
-    // The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+    // The message that is returned. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be a number that starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

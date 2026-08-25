@@ -49,7 +49,40 @@ AlibabaCloud::Hbr20170908::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhangjiakou-na62-a01" , "hbr.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "hbr.aliyuncs.com"},
     {"eu-west-1-oxs" , "hbr.aliyuncs.com"},
-    {"rus-west-1-pop" , "hbr.aliyuncs.com"}
+    {"rus-west-1-pop" , "hbr.aliyuncs.com"},
+    {"cn-wulanchabu" , "hbr.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "hbr.cn-beijing.aliyuncs.com"},
+    {"cn-qingdao" , "hbr.cn-qingdao.aliyuncs.com"},
+    {"cn-shanghai" , "hbr.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "hbr.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "hbr.cn-heyuan.aliyuncs.com"},
+    {"cn-zhangjiakou" , "hbr.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "hbr.cn-shenzhen.aliyuncs.com"},
+    {"ap-northeast-2" , "hbr.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "hbr.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "hbr.cn-chengdu.aliyuncs.com"},
+    {"cn-guangzhou" , "hbr.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-1" , "hbr.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "hbr.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "hbr.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "hbr.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "hbr.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "hbr.ap-southeast-7.aliyuncs.com"},
+    {"cn-hangzhou" , "hbr.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-8" , "hbr.ap-southeast-8.aliyuncs.com"},
+    {"cn-zhongwei" , "hbr.cn-zhongwei.aliyuncs.com"},
+    {"us-southeast-1" , "hbr.us-southeast-1.aliyuncs.com"},
+    {"na-south-1" , "hbr.na-south-1.aliyuncs.com"},
+    {"eu-central-1" , "hbr.eu-central-1.aliyuncs.com"},
+    {"us-west-1" , "hbr.us-west-1.aliyuncs.com"},
+    {"eu-west-1" , "hbr.eu-west-1.aliyuncs.com"},
+    {"us-east-1" , "hbr.us-east-1.aliyuncs.com"},
+    {"me-central-1" , "hbr.me-central-1.aliyuncs.com"},
+    {"me-east-1" , "hbr.me-east-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "hbr.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "hbr.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "hbr.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "hbr.cn-hangzhou-finance.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("hbr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -127,7 +160,7 @@ AddContainerClusterResponse Client::addContainerCluster(const AddContainerCluste
 }
 
 /**
- * @summary 添加跨账号信息
+ * @summary Create a cross-account management relationship.
  *
  * @param request AddCrossAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +203,7 @@ AddCrossAccountResponse Client::addCrossAccountWithOptions(const AddCrossAccount
 }
 
 /**
- * @summary 添加跨账号信息
+ * @summary Create a cross-account management relationship.
  *
  * @param request AddCrossAccountRequest
  * @return AddCrossAccountResponse
@@ -181,6 +214,12 @@ AddCrossAccountResponse Client::addCrossAccount(const AddCrossAccountRequest &re
 }
 
 /**
+ * @summary Creates a data source.
+ *
+ * @description - The local NAS backup feature supports the local NAS (`COMMON_NAS`) data source type.
+ * - The CPFS backup feature supports the following data source types: CPFS (`CPFS`), CPFS AI-Computing Edition (`BMCPFS`), and other large-scale file system (`COMMON_FILE_SYSTEM`).
+ * - The archive feature supports the following data source types: local NAS (`COMMON_NAS`), HDFS (`HDFS`), and S3 (`S3`).
+ *
  * @param request AddDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddDataSourceResponse
@@ -254,6 +293,12 @@ AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceReques
 }
 
 /**
+ * @summary Creates a data source.
+ *
+ * @description - The local NAS backup feature supports the local NAS (`COMMON_NAS`) data source type.
+ * - The CPFS backup feature supports the following data source types: CPFS (`CPFS`), CPFS AI-Computing Edition (`BMCPFS`), and other large-scale file system (`COMMON_FILE_SYSTEM`).
+ * - The archive feature supports the following data source types: local NAS (`COMMON_NAS`), HDFS (`HDFS`), and S3 (`S3`).
+ *
  * @param request AddDataSourceRequest
  * @return AddDataSourceResponse
  */
@@ -263,7 +308,7 @@ AddDataSourceResponse Client::addDataSource(const AddDataSourceRequest &request)
 }
 
 /**
- * @summary 浏览备份文件
+ * @summary Browses the list of backup files in a specified backup snapshot.
  *
  * @param request BrowseFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -346,7 +391,7 @@ BrowseFilesResponse Client::browseFilesWithOptions(const BrowseFilesRequest &req
 }
 
 /**
- * @summary 浏览备份文件
+ * @summary Browses the list of backup files in a specified backup snapshot.
  *
  * @param request BrowseFilesRequest
  * @return BrowseFilesResponse
@@ -515,7 +560,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Checks whether the user has permissions to access the current resource or page.
+ * @summary Checks whether the current user has permissions to access a specific resource or page.
  *
  * @param request CheckRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -554,7 +599,7 @@ CheckRoleResponse Client::checkRoleWithOptions(const CheckRoleRequest &request, 
 }
 
 /**
- * @summary Checks whether the user has permissions to access the current resource or page.
+ * @summary Checks whether the current user has permissions to access a specific resource or page.
  *
  * @param request CheckRoleRequest
  * @return CheckRoleResponse
@@ -681,12 +726,16 @@ CreateBackupJobResponse Client::createBackupJob(const CreateBackupJobRequest &re
 }
 
 /**
- * @summary Create a backup plan.
+ * @summary Creates a backup plan.
  *
- * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
- * - A backup plan supports only one type of data source.
- * - A backup plan supports only a single fixed interval backup cycle strategy.
- * - A backup plan can back up to only one backup vault.
+ * @description >Notice: 
+ * - To use features such as ECS File Backup Essential Edition, cloud disk backup, container backup, Tablestore backup free trial, archiving, or data synchronization, call this operation.
+ * - To use the 30-day free trial of NAS backup or OSS backup, call the CreateTrialBackupPlan operation.
+ * - To use standard capabilities of ECS File Backup Standard Edition, local file backup, ECS full-copy backup, NAS backup, OSS backup, or CPFS backup, call the CreatePolicyV2 and CreatePolicyBindings operations.
+ * - A backup plan associates a data source with a backup policy and other information required for backup. After a backup plan is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+ * - A backup plan supports only one data source.
+ * - A backup plan supports only a single backup cycle policy with a fixed interval.
+ * - A backup plan can back up data to only one vault.
  *
  * @param tmpReq CreateBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -861,12 +910,16 @@ CreateBackupPlanResponse Client::createBackupPlanWithOptions(const CreateBackupP
 }
 
 /**
- * @summary Create a backup plan.
+ * @summary Creates a backup plan.
  *
- * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
- * - A backup plan supports only one type of data source.
- * - A backup plan supports only a single fixed interval backup cycle strategy.
- * - A backup plan can back up to only one backup vault.
+ * @description >Notice: 
+ * - To use features such as ECS File Backup Essential Edition, cloud disk backup, container backup, Tablestore backup free trial, archiving, or data synchronization, call this operation.
+ * - To use the 30-day free trial of NAS backup or OSS backup, call the CreateTrialBackupPlan operation.
+ * - To use standard capabilities of ECS File Backup Standard Edition, local file backup, ECS full-copy backup, NAS backup, OSS backup, or CPFS backup, call the CreatePolicyV2 and CreatePolicyBindings operations.
+ * - A backup plan associates a data source with a backup policy and other information required for backup. After a backup plan is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+ * - A backup plan supports only one data source.
+ * - A backup plan supports only a single backup cycle policy with a fixed interval.
+ * - A backup plan can back up data to only one vault.
  *
  * @param request CreateBackupPlanRequest
  * @return CreateBackupPlanResponse
@@ -1247,10 +1300,10 @@ CreateHanaRestoreResponse Client::createHanaRestore(const CreateHanaRestoreReque
 }
 
 /**
- * @summary Binds one or more data sources to a backup policy.
+ * @summary Binds one or more data sources to a policy.
  *
- * @description *   You can bind data sources to only one policy in each request.
- * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+ * @description - Each call supports binding only data sources of the same type to a single policy.
+ * - ECS instances (full server backup) can be bound to only one policy.
  *
  * @param tmpReq CreatePolicyBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1293,10 +1346,10 @@ CreatePolicyBindingsResponse Client::createPolicyBindingsWithOptions(const Creat
 }
 
 /**
- * @summary Binds one or more data sources to a backup policy.
+ * @summary Binds one or more data sources to a policy.
  *
- * @description *   You can bind data sources to only one policy in each request.
- * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+ * @description - Each call supports binding only data sources of the same type to a single policy.
+ * - ECS instances (full server backup) can be bound to only one policy.
  *
  * @param request CreatePolicyBindingsRequest
  * @return CreatePolicyBindingsResponse
@@ -1307,12 +1360,12 @@ CreatePolicyBindingsResponse Client::createPolicyBindings(const CreatePolicyBind
 }
 
 /**
- * @summary Creates a backup policy.
+ * @summary Creates a policy.
  *
- * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
- * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
- * *   You can specify only one interval as a backup cycle in a backup policy.
- * *   Each backup policy allows you to back up data to only one backup vault.
+ * @description A backup policy records the information required for backup. After a backup policy is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+ * - A backup policy supports multiple data source types, including NAS backup, OSS backup, ECS instance backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
+ * - A backup policy supports only a single backup cycle policy with a fixed interval.
+ * - A backup policy can back up data to only one backup vault.
  *
  * @param tmpReq CreatePolicyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1361,12 +1414,12 @@ CreatePolicyV2Response Client::createPolicyV2WithOptions(const CreatePolicyV2Req
 }
 
 /**
- * @summary Creates a backup policy.
+ * @summary Creates a policy.
  *
- * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
- * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
- * *   You can specify only one interval as a backup cycle in a backup policy.
- * *   Each backup policy allows you to back up data to only one backup vault.
+ * @description A backup policy records the information required for backup. After a backup policy is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+ * - A backup policy supports multiple data source types, including NAS backup, OSS backup, ECS instance backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
+ * - A backup policy supports only a single backup cycle policy with a fixed interval.
+ * - A backup policy can back up data to only one backup vault.
  *
  * @param request CreatePolicyV2Request
  * @return CreatePolicyV2Response
@@ -1377,9 +1430,10 @@ CreatePolicyV2Response Client::createPolicyV2(const CreatePolicyV2Request &reque
 }
 
 /**
- * @summary Creates a mirror vault.
+ * @summary **[Deprecated]** Creates a replication target vault and configures cross-region replication. This API operation does not support cross-account replication and is deprecated. Use CreateVault and CreateVaultReplication instead for full capabilities.
  *
- * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
+ * @description After the backup vault is created, its status is INITIALIZING, and an initialization task is automatically initiated. After the task succeeds, the vault status changes to CREATED.
+ * Call this operation in the region where the replication target vault resides (VaultRegionId).
  *
  * @param request CreateReplicationVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1442,9 +1496,10 @@ CreateReplicationVaultResponse Client::createReplicationVaultWithOptions(const C
 }
 
 /**
- * @summary Creates a mirror vault.
+ * @summary **[Deprecated]** Creates a replication target vault and configures cross-region replication. This API operation does not support cross-account replication and is deprecated. Use CreateVault and CreateVaultReplication instead for full capabilities.
  *
- * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
+ * @description After the backup vault is created, its status is INITIALIZING, and an initialization task is automatically initiated. After the task succeeds, the vault status changes to CREATED.
+ * Call this operation in the region where the replication target vault resides (VaultRegionId).
  *
  * @param request CreateReplicationVaultRequest
  * @return CreateReplicationVaultResponse
@@ -1455,10 +1510,10 @@ CreateReplicationVaultResponse Client::createReplicationVault(const CreateReplic
 }
 
 /**
- * @summary Create a restore job.
+ * @summary Creates a restore job.
  *
- * @description - Create a restore job based on the selected snapshot and the restore destination.
- * - Currently, the data source type must match the restore destination data source type.
+ * @description - Creates a restore job based on the selected snapshot and restore destination.
+ * - The data source type and the restore destination data source type must be the same.
  *
  * @param tmpReq CreateRestoreJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1613,10 +1668,10 @@ CreateRestoreJobResponse Client::createRestoreJobWithOptions(const CreateRestore
 }
 
 /**
- * @summary Create a restore job.
+ * @summary Creates a restore job.
  *
- * @description - Create a restore job based on the selected snapshot and the restore destination.
- * - Currently, the data source type must match the restore destination data source type.
+ * @description - Creates a restore job based on the selected snapshot and restore destination.
+ * - The data source type and the restore destination data source type must be the same.
  *
  * @param request CreateRestoreJobRequest
  * @return CreateRestoreJobResponse
@@ -1679,10 +1734,10 @@ CreateTempFileUploadUrlResponse Client::createTempFileUploadUrl(const CreateTemp
 /**
  * @summary Creates a backup vault.
  *
- * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
- * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
- *     **
- *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+ * @description - Each Alibaba Cloud account can create a maximum of 100 backup vaults.
+ * - After a backup vault is created, its status is INITIALIZING and an initialization task automatically starts. After the task is successfully completed, the status changes to CREATED. The backup vault can be used for backup jobs only when its status is CREATED.
+ *   >Notice: 
+ *   Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/detail/hbr?) of Cloud Backup.
  *
  * @param request CreateVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1747,10 +1802,10 @@ CreateVaultResponse Client::createVaultWithOptions(const CreateVaultRequest &req
 /**
  * @summary Creates a backup vault.
  *
- * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
- * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
- *     **
- *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+ * @description - Each Alibaba Cloud account can create a maximum of 100 backup vaults.
+ * - After a backup vault is created, its status is INITIALIZING and an initialization task automatically starts. After the task is successfully completed, the status changes to CREATED. The backup vault can be used for backup jobs only when its status is CREATED.
+ *   >Notice: 
+ *   Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/detail/hbr?) of Cloud Backup.
  *
  * @param request CreateVaultRequest
  * @return CreateVaultResponse
@@ -1761,7 +1816,9 @@ CreateVaultResponse Client::createVault(const CreateVaultRequest &request) {
 }
 
 /**
- * @summary 创建备份库复制
+ * @summary Configures backup vault replication.
+ *
+ * @description Call this method in the region where the destination backup vault is located. Before you use this API, review the billing methods and pricing of Cloud Backup.
  *
  * @param request CreateVaultReplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1800,7 +1857,9 @@ CreateVaultReplicationResponse Client::createVaultReplicationWithOptions(const C
 }
 
 /**
- * @summary 创建备份库复制
+ * @summary Configures backup vault replication.
+ *
+ * @description Call this method in the region where the destination backup vault is located. Before you use this API, review the billing methods and pricing of Cloud Backup.
  *
  * @param request CreateVaultReplicationRequest
  * @return CreateVaultReplicationResponse
@@ -1811,7 +1870,9 @@ CreateVaultReplicationResponse Client::createVaultReplication(const CreateVaultR
 }
 
 /**
- * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+ * @deprecated OpenAPI DeleteAirEcsInstance is deprecated
+ *
+ * @summary Removes a restore-only ECS instance from ECS Backup Essential Edition.
  *
  * @param tmpReq DeleteAirEcsInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1852,7 +1913,9 @@ DeleteAirEcsInstanceResponse Client::deleteAirEcsInstanceWithOptions(const Delet
 }
 
 /**
- * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+ * @deprecated OpenAPI DeleteAirEcsInstance is deprecated
+ *
+ * @summary Removes a restore-only ECS instance from ECS Backup Essential Edition.
  *
  * @param request DeleteAirEcsInstanceRequest
  * @return DeleteAirEcsInstanceResponse
@@ -1865,11 +1928,11 @@ DeleteAirEcsInstanceResponse Client::deleteAirEcsInstance(const DeleteAirEcsInst
 /**
  * @summary Deletes a Cloud Backup client.
  *
- * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
- * *   When you perform this operation, resources that are associated with the client are also deleted, including:
- *     *   Backup plans
- *     *   Backup jobs
- *     *   Snapshots
+ * @description - You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+ * - When you perform this operation, resources that are associated with the client are also deleted, including:
+ *   - Backup plans
+ *   - Backup jobs
+ *   - Snapshots
  *
  * @param request DeleteBackupClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1902,11 +1965,11 @@ DeleteBackupClientResponse Client::deleteBackupClientWithOptions(const DeleteBac
 /**
  * @summary Deletes a Cloud Backup client.
  *
- * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
- * *   When you perform this operation, resources that are associated with the client are also deleted, including:
- *     *   Backup plans
- *     *   Backup jobs
- *     *   Snapshots
+ * @description - You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+ * - When you perform this operation, resources that are associated with the client are also deleted, including:
+ *   - Backup plans
+ *   - Backup jobs
+ *   - Snapshots
  *
  * @param request DeleteBackupClientRequest
  * @return DeleteBackupClientResponse
@@ -1917,9 +1980,9 @@ DeleteBackupClientResponse Client::deleteBackupClient(const DeleteBackupClientRe
 }
 
 /**
- * @summary Deletes the resources that are related to one or more HBR clients.
+ * @summary Deletes the resources of a backup client.
  *
- * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+ * @description This operation does not delete the backup client. It only deletes the resources of the backup client, such as backup plans, backup jobs, and snapshots.
  *
  * @param tmpReq DeleteBackupClientResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1956,9 +2019,9 @@ DeleteBackupClientResourceResponse Client::deleteBackupClientResourceWithOptions
 }
 
 /**
- * @summary Deletes the resources that are related to one or more HBR clients.
+ * @summary Deletes the resources of a backup client.
  *
- * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+ * @description This operation does not delete the backup client. It only deletes the resources of the backup client, such as backup plans, backup jobs, and snapshots.
  *
  * @param request DeleteBackupClientResourceRequest
  * @return DeleteBackupClientResourceResponse
@@ -1971,8 +2034,8 @@ DeleteBackupClientResourceResponse Client::deleteBackupClientResource(const Dele
 /**
  * @summary Deletes a backup plan.
  *
- * @description *   If you delete a backup plan, the backup jobs are also deleted.
- * *   If you delete a backup plan, the created snapshot files are not deleted.
+ * @description - Deleting a backup plan also deletes the associated backup jobs.
+ * - Deleting a backup plan does not delete existing snapshots.
  *
  * @param request DeleteBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2021,8 +2084,8 @@ DeleteBackupPlanResponse Client::deleteBackupPlanWithOptions(const DeleteBackupP
 /**
  * @summary Deletes a backup plan.
  *
- * @description *   If you delete a backup plan, the backup jobs are also deleted.
- * *   If you delete a backup plan, the created snapshot files are not deleted.
+ * @description - Deleting a backup plan also deletes the associated backup jobs.
+ * - Deleting a backup plan does not delete existing snapshots.
  *
  * @param request DeleteBackupPlanRequest
  * @return DeleteBackupPlanResponse
@@ -2033,7 +2096,7 @@ DeleteBackupPlanResponse Client::deleteBackupPlan(const DeleteBackupPlanRequest 
 }
 
 /**
- * @summary 删除客户端
+ * @summary Deletes a client.
  *
  * @param request DeleteClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2072,7 +2135,7 @@ DeleteClientResponse Client::deleteClientWithOptions(const DeleteClientRequest &
 }
 
 /**
- * @summary 删除客户端
+ * @summary Deletes a client.
  *
  * @param request DeleteClientRequest
  * @return DeleteClientResponse
@@ -2083,6 +2146,8 @@ DeleteClientResponse Client::deleteClient(const DeleteClientRequest &request) {
 }
 
 /**
+ * @summary Unregisters a container cluster record in Cloud Backup. After you unregister the cluster, you cannot recover backups of the cluster.
+ *
  * @param request DeleteContainerClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteContainerClusterResponse
@@ -2116,6 +2181,8 @@ DeleteContainerClusterResponse Client::deleteContainerClusterWithOptions(const D
 }
 
 /**
+ * @summary Unregisters a container cluster record in Cloud Backup. After you unregister the cluster, you cannot recover backups of the cluster.
+ *
  * @param request DeleteContainerClusterRequest
  * @return DeleteContainerClusterResponse
  */
@@ -2125,7 +2192,7 @@ DeleteContainerClusterResponse Client::deleteContainerCluster(const DeleteContai
 }
 
 /**
- * @summary 删除跨账号信息
+ * @summary Deletes a cross-account management relationship.
  *
  * @param request DeleteCrossAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2164,7 +2231,7 @@ DeleteCrossAccountResponse Client::deleteCrossAccountWithOptions(const DeleteCro
 }
 
 /**
- * @summary 删除跨账号信息
+ * @summary Deletes a cross-account management relationship.
  *
  * @param request DeleteCrossAccountRequest
  * @return DeleteCrossAccountResponse
@@ -2287,7 +2354,7 @@ DeleteHanaInstanceResponse Client::deleteHanaInstance(const DeleteHanaInstanceRe
 }
 
 /**
- * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+ * @summary Dissociates a data source from a policy. After the dissociation, the policy can no longer protect the data source. Proceed with caution.
  *
  * @param tmpReq DeletePolicyBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2334,7 +2401,7 @@ DeletePolicyBindingResponse Client::deletePolicyBindingWithOptions(const DeleteP
 }
 
 /**
- * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+ * @summary Dissociates a data source from a policy. After the dissociation, the policy can no longer protect the data source. Proceed with caution.
  *
  * @param request DeletePolicyBindingRequest
  * @return DeletePolicyBindingResponse
@@ -2345,9 +2412,9 @@ DeletePolicyBindingResponse Client::deletePolicyBinding(const DeletePolicyBindin
 }
 
 /**
- * @summary Deletes a backup policy.
+ * @summary Deletes a policy.
  *
- * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+ * @description When you delete a policy, it is detached from all associated data sources. Proceed with caution.
  *
  * @param request DeletePolicyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2378,9 +2445,9 @@ DeletePolicyV2Response Client::deletePolicyV2WithOptions(const DeletePolicyV2Req
 }
 
 /**
- * @summary Deletes a backup policy.
+ * @summary Deletes a policy.
  *
- * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+ * @description When you delete a policy, it is detached from all associated data sources. Proceed with caution.
  *
  * @param request DeletePolicyV2Request
  * @return DeletePolicyV2Response
@@ -2597,7 +2664,9 @@ DeleteVaultResponse Client::deleteVault(const DeleteVaultRequest &request) {
 }
 
 /**
- * @summary 关闭备份库复制
+ * @summary Stops backup vault replication.
+ *
+ * @description You can call this method in the region of the destination backup vault.
  *
  * @param request DeleteVaultReplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2636,7 +2705,9 @@ DeleteVaultReplicationResponse Client::deleteVaultReplicationWithOptions(const D
 }
 
 /**
- * @summary 关闭备份库复制
+ * @summary Stops backup vault replication.
+ *
+ * @description You can call this method in the region of the destination backup vault.
  *
  * @param request DeleteVaultReplicationRequest
  * @return DeleteVaultReplicationResponse
@@ -2647,7 +2718,7 @@ DeleteVaultReplicationResponse Client::deleteVaultReplication(const DeleteVaultR
 }
 
 /**
- * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+ * @summary Retrieves information about one or more backup clients that meet the specified conditions.
  *
  * @param tmpReq DescribeBackupClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2730,7 +2801,7 @@ DescribeBackupClientsResponse Client::describeBackupClientsWithOptions(const Des
 }
 
 /**
- * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+ * @summary Retrieves information about one or more backup clients that meet the specified conditions.
  *
  * @param request DescribeBackupClientsRequest
  * @return DescribeBackupClientsResponse
@@ -2741,7 +2812,7 @@ DescribeBackupClientsResponse Client::describeBackupClients(const DescribeBackup
 }
 
 /**
- * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+ * @summary Queries backup jobs that meet the specified criteria.
  *
  * @param request DescribeBackupJobs2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2792,7 +2863,7 @@ DescribeBackupJobs2Response Client::describeBackupJobs2WithOptions(const Describ
 }
 
 /**
- * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+ * @summary Queries backup jobs that meet the specified criteria.
  *
  * @param request DescribeBackupJobs2Request
  * @return DescribeBackupJobs2Response
@@ -2803,7 +2874,7 @@ DescribeBackupJobs2Response Client::describeBackupJobs2(const DescribeBackupJobs
 }
 
 /**
- * @summary Queries the information about one or more backup plans that meet the specified conditions.
+ * @summary Retrieves one or more backup plans that meet the specified conditions.
  *
  * @param request DescribeBackupPlansRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2850,7 +2921,7 @@ DescribeBackupPlansResponse Client::describeBackupPlansWithOptions(const Describ
 }
 
 /**
- * @summary Queries the information about one or more backup plans that meet the specified conditions.
+ * @summary Retrieves one or more backup plans that meet the specified conditions.
  *
  * @param request DescribeBackupPlansRequest
  * @return DescribeBackupPlansResponse
@@ -2937,7 +3008,7 @@ DescribeClientsResponse Client::describeClients(const DescribeClientsRequest &re
 /**
  * @summary Queries one or more container clusters that meet the specified conditions.
  *
- * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+ * @description Supported only for Container Service for Kubernetes (ACK) integration.
  *
  * @param request DescribeContainerClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2982,7 +3053,7 @@ DescribeContainerClusterResponse Client::describeContainerClusterWithOptions(con
 /**
  * @summary Queries one or more container clusters that meet the specified conditions.
  *
- * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+ * @description Supported only for Container Service for Kubernetes (ACK) integration.
  *
  * @param request DescribeContainerClusterRequest
  * @return DescribeContainerClusterResponse
@@ -2993,6 +3064,8 @@ DescribeContainerClusterResponse Client::describeContainerCluster(const Describe
 }
 
 /**
+ * @summary Queries the list of container cluster resources.
+ *
  * @param request DescribeContainerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeContainerResourceResponse
@@ -3038,6 +3111,8 @@ DescribeContainerResourceResponse Client::describeContainerResourceWithOptions(c
 }
 
 /**
+ * @summary Queries the list of container cluster resources.
+ *
  * @param request DescribeContainerResourceRequest
  * @return DescribeContainerResourceResponse
  */
@@ -3047,7 +3122,7 @@ DescribeContainerResourceResponse Client::describeContainerResource(const Descri
 }
 
 /**
- * @summary Queries the information about the accounts used in cross-account backup.
+ * @summary Queries cross-account management relationships.
  *
  * @param request DescribeCrossAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3082,7 +3157,7 @@ DescribeCrossAccountsResponse Client::describeCrossAccountsWithOptions(const Des
 }
 
 /**
- * @summary Queries the information about the accounts used in cross-account backup.
+ * @summary Queries cross-account management relationships.
  *
  * @param request DescribeCrossAccountsRequest
  * @return DescribeCrossAccountsResponse
@@ -3093,6 +3168,8 @@ DescribeCrossAccountsResponse Client::describeCrossAccounts(const DescribeCrossA
 }
 
 /**
+ * @summary Queries a list of data sources. Filter results by data source type, data source ID, data source name, or client group ID.
+ *
  * @param request DescribeDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDataSourcesResponse
@@ -3142,6 +3219,8 @@ DescribeDataSourcesResponse Client::describeDataSourcesWithOptions(const Describ
 }
 
 /**
+ * @summary Queries a list of data sources. Filter results by data source type, data source ID, data source name, or client group ID.
+ *
  * @param request DescribeDataSourcesRequest
  * @return DescribeDataSourcesResponse
  */
@@ -3151,7 +3230,7 @@ DescribeDataSourcesResponse Client::describeDataSources(const DescribeDataSource
 }
 
 /**
- * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+ * @summary Queries for one or more SAP HANA backup plans that match specified criteria.
  *
  * @param request DescribeHanaBackupPlansRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3202,7 +3281,7 @@ DescribeHanaBackupPlansResponse Client::describeHanaBackupPlansWithOptions(const
 }
 
 /**
- * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+ * @summary Queries for one or more SAP HANA backup plans that match specified criteria.
  *
  * @param request DescribeHanaBackupPlansRequest
  * @return DescribeHanaBackupPlansResponse
@@ -3713,15 +3792,29 @@ DescribeOtsTableSnapshotsResponse Client::describeOtsTableSnapshots(const Descri
 }
 
 /**
- * @summary Queries one or more backup policies.
+ * @summary Queries one or more policies.
  *
- * @param request DescribePoliciesV2Request
+ * @param tmpReq DescribePoliciesV2Request
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePoliciesV2Response
  */
-DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribePoliciesV2Request &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribePoliciesV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribePoliciesV2ShrinkRequest request = DescribePoliciesV2ShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAccounts()) {
+    request.setAccountsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccounts(), "Accounts", "json"));
+  }
+
   json body = {};
+  if (!!request.hasAccountScope()) {
+    body["AccountScope"] = request.getAccountScope();
+  }
+
+  if (!!request.hasAccountsShrink()) {
+    body["Accounts"] = request.getAccountsShrink();
+  }
+
   if (!!request.hasMaxResults()) {
     body["MaxResults"] = request.getMaxResults();
   }
@@ -3732,6 +3825,10 @@ DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribeP
 
   if (!!request.hasPolicyId()) {
     body["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasRuleScope()) {
+    body["RuleScope"] = request.getRuleScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3752,7 +3849,7 @@ DescribePoliciesV2Response Client::describePoliciesV2WithOptions(const DescribeP
 }
 
 /**
- * @summary Queries one or more backup policies.
+ * @summary Queries one or more policies.
  *
  * @param request DescribePoliciesV2Request
  * @return DescribePoliciesV2Response
@@ -3763,7 +3860,7 @@ DescribePoliciesV2Response Client::describePoliciesV2(const DescribePoliciesV2Re
 }
 
 /**
- * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+ * @summary Queries one or more data sources bound to a policy, or queries one or more policies bound to a data source.
  *
  * @param tmpReq DescribePolicyBindingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3822,7 +3919,7 @@ DescribePolicyBindingsResponse Client::describePolicyBindingsWithOptions(const D
 }
 
 /**
- * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+ * @summary Queries one or more data sources bound to a policy, or queries one or more policies bound to a data source.
  *
  * @param request DescribePolicyBindingsRequest
  * @return DescribePolicyBindingsResponse
@@ -3915,7 +4012,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries one or more restore jobs that meet the specified conditions.
+ * @summary Queries restore jobs that match specified criteria.
  *
  * @param request DescribeRestoreJobs2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -3962,7 +4059,7 @@ DescribeRestoreJobs2Response Client::describeRestoreJobs2WithOptions(const Descr
 }
 
 /**
- * @summary Queries one or more restore jobs that meet the specified conditions.
+ * @summary Queries restore jobs that match specified criteria.
  *
  * @param request DescribeRestoreJobs2Request
  * @return DescribeRestoreJobs2Response
@@ -4023,7 +4120,7 @@ DescribeTaskResponse Client::describeTask(const DescribeTaskRequest &request) {
 }
 
 /**
- * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+ * @summary Queries the snapshots of full backups.
  *
  * @param tmpReq DescribeUdmSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4090,7 +4187,7 @@ DescribeUdmSnapshotsResponse Client::describeUdmSnapshotsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+ * @summary Queries the snapshots of full backups.
  *
  * @param request DescribeUdmSnapshotsRequest
  * @return DescribeUdmSnapshotsResponse
@@ -4147,7 +4244,7 @@ DescribeVaultReplicationRegionsResponse Client::describeVaultReplicationRegions(
 }
 
 /**
- * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+ * @summary Retrieves information about one or more backup vaults that meet the specified conditions.
  *
  * @param request DescribeVaultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4220,7 +4317,7 @@ DescribeVaultsResponse Client::describeVaultsWithOptions(const DescribeVaultsReq
 }
 
 /**
- * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+ * @summary Retrieves information about one or more backup vaults that meet the specified conditions.
  *
  * @param request DescribeVaultsRequest
  * @return DescribeVaultsResponse
@@ -4233,8 +4330,8 @@ DescribeVaultsResponse Client::describeVaults(const DescribeVaultsRequest &reque
 /**
  * @summary Deletes an internal mount target created by Cloud Backup.
  *
- * @description *   If the request is successful, the mount target is deleted.
- * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+ * @description - If the request is successful, the mount target is deleted.
+ * - After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. Call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
  *
  * @param request DetachNasFileSystemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4283,8 +4380,8 @@ DetachNasFileSystemResponse Client::detachNasFileSystemWithOptions(const DetachN
 /**
  * @summary Deletes an internal mount target created by Cloud Backup.
  *
- * @description *   If the request is successful, the mount target is deleted.
- * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+ * @description - If the request is successful, the mount target is deleted.
+ * - After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. Call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
  *
  * @param request DetachNasFileSystemRequest
  * @return DetachNasFileSystemResponse
@@ -4297,7 +4394,7 @@ DetachNasFileSystemResponse Client::detachNasFileSystem(const DetachNasFileSyste
 /**
  * @summary Disables a backup plan.
  *
- * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+ * @description If the call is successful, the backup plan is disabled. The value of the Disabled parameter is then returned as true in the response of the DescribeBackupPlans operation.
  *
  * @param request DisableBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4342,7 +4439,7 @@ DisableBackupPlanResponse Client::disableBackupPlanWithOptions(const DisableBack
 /**
  * @summary Disables a backup plan.
  *
- * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+ * @description If the call is successful, the backup plan is disabled. The value of the Disabled parameter is then returned as true in the response of the DescribeBackupPlans operation.
  *
  * @param request DisableBackupPlanRequest
  * @return DisableBackupPlanResponse
@@ -4411,9 +4508,9 @@ DisableHanaBackupPlanResponse Client::disableHanaBackupPlan(const DisableHanaBac
 }
 
 /**
- * @summary Enables a backup plan.
+ * @summary Resumes a backup plan.
  *
- * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+ * @description If the call is successful, the backup plan is enabled. The plan then executes backups according to its policy. In the response of the DescribeBackupPlans operation, the value of the Disabled parameter is false.
  *
  * @param request EnableBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4456,9 +4553,9 @@ EnableBackupPlanResponse Client::enableBackupPlanWithOptions(const EnableBackupP
 }
 
 /**
- * @summary Enables a backup plan.
+ * @summary Resumes a backup plan.
  *
- * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+ * @description If the call is successful, the backup plan is enabled. The plan then executes backups according to its policy. In the response of the DescribeBackupPlans operation, the value of the Disabled parameter is false.
  *
  * @param request EnableBackupPlanRequest
  * @return EnableBackupPlanResponse
@@ -4695,7 +4792,7 @@ GenerateRamPolicyResponse Client::generateRamPolicy(const GenerateRamPolicyReque
 }
 
 /**
- * @summary Obtains basic backup statistics.
+ * @summary Retrieves basic statistics for Backup.
  *
  * @param request GetBasicStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4726,7 +4823,7 @@ GetBasicStatisticsResponse Client::getBasicStatisticsWithOptions(const GetBasicS
 }
 
 /**
- * @summary Obtains basic backup statistics.
+ * @summary Retrieves basic statistics for Backup.
  *
  * @param request GetBasicStatisticsRequest
  * @return GetBasicStatisticsResponse
@@ -4779,11 +4876,11 @@ GetTempFileDownloadLinkResponse Client::getTempFileDownloadLink(const GetTempFil
 }
 
 /**
- * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+ * @summary Installs backup clients on one or more ECS instances.
  *
- * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
- * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
- * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+ * @description - This operation creates a background asynchronous task. The task uses Cloud Assistant to install backup clients on ECS instances.
+ * - Call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to get the task result.
+ * - The task timeout is 15 minutes. After the task is created, wait 60 seconds before making the first query. Then, query the result every 30 seconds.
  *
  * @param tmpReq InstallBackupClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4832,11 +4929,11 @@ InstallBackupClientsResponse Client::installBackupClientsWithOptions(const Insta
 }
 
 /**
- * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+ * @summary Installs backup clients on one or more ECS instances.
  *
- * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
- * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
- * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+ * @description - This operation creates a background asynchronous task. The task uses Cloud Assistant to install backup clients on ECS instances.
+ * - Call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to get the task result.
+ * - The task timeout is 15 minutes. After the task is created, wait 60 seconds before making the first query. Then, query the result every 30 seconds.
  *
  * @param request InstallBackupClientsRequest
  * @return InstallBackupClientsResponse
@@ -4847,7 +4944,7 @@ InstallBackupClientsResponse Client::installBackupClients(const InstallBackupCli
 }
 
 /**
- * @summary 查询已保护的资源列表
+ * @summary Queries the list of protected resources.
  *
  * @param request ListProtectedResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4902,7 +4999,7 @@ ListProtectedResourcesResponse Client::listProtectedResourcesWithOptions(const L
 }
 
 /**
- * @summary 查询已保护的资源列表
+ * @summary Queries the list of protected resources.
  *
  * @param request ListProtectedResourcesRequest
  * @return ListProtectedResourcesResponse
@@ -4945,6 +5042,11 @@ OpenHbrServiceResponse Client::openHbrService() {
 }
 
 /**
+ * @summary Deletes a data source.
+ *
+ * @description >Warning: 
+ * Deleting a data source can cause data loss or render related data unqueryable. Before you delete the data source, ensure that you have removed all associated backup data and backup plans.
+ *
  * @param request RemoveDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveDataSourceResponse
@@ -4974,6 +5076,11 @@ RemoveDataSourceResponse Client::removeDataSourceWithOptions(const RemoveDataSou
 }
 
 /**
+ * @summary Deletes a data source.
+ *
+ * @description >Warning: 
+ * Deleting a data source can cause data loss or render related data unqueryable. Before you delete the data source, ensure that you have removed all associated backup data and backup plans.
+ *
  * @param request RemoveDataSourceRequest
  * @return RemoveDataSourceResponse
  */
@@ -4983,7 +5090,7 @@ RemoveDataSourceResponse Client::removeDataSource(const RemoveDataSourceRequest 
 }
 
 /**
- * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+ * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
  *
  * @param tmpReq SearchHistoricalSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5044,7 +5151,7 @@ SearchHistoricalSnapshotsResponse Client::searchHistoricalSnapshotsWithOptions(c
 }
 
 /**
- * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+ * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
  *
  * @param request SearchHistoricalSnapshotsRequest
  * @return SearchHistoricalSnapshotsResponse
@@ -5419,9 +5526,9 @@ UpdateBackupPlanResponse Client::updateBackupPlan(const UpdateBackupPlanRequest 
 }
 
 /**
- * @summary Updates the configurations of an HBR client.
+ * @summary Updates the configuration of a backup client.
  *
- * @description You can call this operation to update the configurations of both the old and new HBR clients.
+ * @description Applies to updating both legacy and new clients.
  *
  * @param request UpdateClientSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5504,9 +5611,9 @@ UpdateClientSettingsResponse Client::updateClientSettingsWithOptions(const Updat
 }
 
 /**
- * @summary Updates the configurations of an HBR client.
+ * @summary Updates the configuration of a backup client.
  *
- * @description You can call this operation to update the configurations of both the old and new HBR clients.
+ * @description Applies to updating both legacy and new clients.
  *
  * @param request UpdateClientSettingsRequest
  * @return UpdateClientSettingsResponse
@@ -5575,6 +5682,8 @@ UpdateContainerClusterResponse Client::updateContainerCluster(const UpdateContai
 }
 
 /**
+ * @summary Updates the data source configuration.
+ *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateDataSourceResponse
@@ -5648,6 +5757,8 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 }
 
 /**
+ * @summary Updates the data source configuration.
+ *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse
  */
@@ -5965,7 +6076,7 @@ UpdateHanaRetentionSettingResponse Client::updateHanaRetentionSetting(const Upda
 }
 
 /**
- * @summary Modifies the association between a backup policy and a data source.
+ * @summary Modifies the association between a policy and a data source.
  *
  * @param tmpReq UpdatePolicyBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6040,7 +6151,7 @@ UpdatePolicyBindingResponse Client::updatePolicyBindingWithOptions(const UpdateP
 }
 
 /**
- * @summary Modifies the association between a backup policy and a data source.
+ * @summary Modifies the association between a policy and a data source.
  *
  * @param request UpdatePolicyBindingRequest
  * @return UpdatePolicyBindingResponse
@@ -6051,9 +6162,9 @@ UpdatePolicyBindingResponse Client::updatePolicyBinding(const UpdatePolicyBindin
 }
 
 /**
- * @summary Modifies a backup policy.
+ * @summary Modifies a policy.
  *
- * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+ * @description Modifications to a policy take effect on all associated data sources. Proceed with caution.
  *
  * @param tmpReq UpdatePolicyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -6102,9 +6213,9 @@ UpdatePolicyV2Response Client::updatePolicyV2WithOptions(const UpdatePolicyV2Req
 }
 
 /**
- * @summary Modifies a backup policy.
+ * @summary Modifies a policy.
  *
- * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+ * @description Modifications to a policy take effect on all associated data sources. Proceed with caution.
  *
  * @param request UpdatePolicyV2Request
  * @return UpdatePolicyV2Response
@@ -6251,7 +6362,7 @@ UpgradeBackupClientsResponse Client::upgradeBackupClients(const UpgradeBackupCli
 /**
  * @summary Upgrades the Cloud Backup client.
  *
- * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+ * @description Upgrades a Cloud Backup client to the latest version. After the upgrade succeeds, the client version cannot be rolled back.
  *
  * @param request UpgradeClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6292,7 +6403,7 @@ UpgradeClientResponse Client::upgradeClientWithOptions(const UpgradeClientReques
 /**
  * @summary Upgrades the Cloud Backup client.
  *
- * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+ * @description Upgrades a Cloud Backup client to the latest version. After the upgrade succeeds, the client version cannot be rolled back.
  *
  * @param request UpgradeClientRequest
  * @return UpgradeClientResponse

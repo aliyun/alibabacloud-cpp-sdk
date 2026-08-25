@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Return code, 200 indicates success.
+    // The response code. The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // Description of the return message, usually \\"successful\\" when successful, and corresponding error messages when there is an error.
+    // The response message. The value "successful" is returned for a success. An error message is returned for a failure.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Restore job ID.
+    // The ID of the restore job.
     shared_ptr<string> restoreId_ {};
-    // Whether the request was successful.
-    //   - true: Success
-    //   - false: Failure
+    // Indicates whether the request was successful.
+    //   - true: The request was successful.
+    //   - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

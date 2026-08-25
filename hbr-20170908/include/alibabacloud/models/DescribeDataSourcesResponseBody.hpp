@@ -231,23 +231,47 @@ namespace Models
 
 
     protected:
+      // The client group ID used to access the data source.
       shared_ptr<string> clusterId_ {};
+      // The connection information of the data source, which describes how to access the data source.
       shared_ptr<string> connectionInfo_ {};
+      // The time when the data source was created. UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTime_ {};
+      // The data source ID.
       shared_ptr<string> dataSourceId_ {};
+      // The data source name.
       shared_ptr<string> dataSourceName_ {};
+      // The data source type.
       shared_ptr<string> dataSourceType_ {};
+      // The paths excluded from analysis. Archiving feature only.
       shared_ptr<string> exclude_ {};
+      // The paths included in the analysis. Archiving feature only.
       shared_ptr<string> include_ {};
+      // Whether the index is available. Archiving feature only.
       shared_ptr<bool> indexAvailable_ {};
+      // The index level. Valid values:
+      // 
+      // - OFF: No index is created.
+      // 
+      // - META: A metadata index is created.
+      // 
+      // - ALL: A full-text index is created. This value is deprecated.
       shared_ptr<string> indexLevel_ {};
+      // The time when the index was last updated. UNIX timestamp in seconds. Archiving feature only.
       shared_ptr<bool> indexUpdateTime_ {};
+      // Whether an index is being built. Archiving feature only.
       shared_ptr<bool> indexing_ {};
+      // The analysis options. Archiving feature only.
       shared_ptr<string> options_ {};
+      // The analysis paths. Archiving feature only.
       shared_ptr<vector<string>> paths_ {};
+      // The analysis plan ID. Archiving feature only.
       shared_ptr<string> planId_ {};
+      // The analysis schedule. Archiving feature only. Format: `I|{startTime}|{interval}`. `{startTime}` is the start time as a UNIX timestamp in seconds. `{interval}` is the execution interval in ISO 8601 format. Example: PT1H for one hour, P1D for one day.
       shared_ptr<string> schedule_ {};
+      // The rate limit configuration. Archiving feature only.
       shared_ptr<string> speedLimit_ {};
+      // The time when the data source was last updated. UNIX timestamp in seconds.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -313,13 +337,25 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The data sources.
     shared_ptr<vector<DescribeDataSourcesResponseBody::DataSources>> dataSources_ {};
+    // The response message. The value is "successful" if the request was successful, or an error message if the request failed.
     shared_ptr<string> message_ {};
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size. Valid values: 1 to 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of returned data sources.
     shared_ptr<int64_t> totalCount_ {};
   };
 

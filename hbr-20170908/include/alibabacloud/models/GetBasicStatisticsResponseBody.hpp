@@ -89,8 +89,15 @@ namespace Models
 
 
     protected:
+      // The backed-up data size, in bytes.
+      // 
+      // - When `SourceType` is set to `ECS_FILE`, this parameter represents the total capacity of backed-up Cloud Disks.
       shared_ptr<int64_t> protectedDataSize_ {};
+      // The number of backed-up resources.
+      // 
+      // - When `SourceType` is set to `ECS_FILE`, this parameter represents the number of backed-up ECS instances.
       shared_ptr<int32_t> protectedResourceCount_ {};
+      // The Region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -132,7 +139,13 @@ namespace Models
 
 
     protected:
+      // The backed-up data size, in bytes.
+      // 
+      // - When `SourceType` is set to `ECS_FILE`, this parameter represents the total capacity of backed-up Cloud Disks.
       shared_ptr<int64_t> protectedDataSize_ {};
+      // The number of backed-up resources.
+      // 
+      // - When `SourceType` is set to `ECS_FILE`, this parameter represents the number of backed-up ECS instances.
       shared_ptr<int32_t> protectedResourceCount_ {};
     };
 
@@ -193,12 +206,25 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The Backup statistics for all regions.
     shared_ptr<GetBasicStatisticsResponseBody::GlobalStatistics> globalStatistics_ {};
+    // The response message. If the request is successful, `successful` is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The Backup statistics for each region.
     shared_ptr<vector<GetBasicStatisticsResponseBody::RegionStatistics>> regionStatistics_ {};
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // The data source type. The valid value is:
+    // 
+    // - **ECS_FILE**: ECS File Backup.
     shared_ptr<string> sourceType_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

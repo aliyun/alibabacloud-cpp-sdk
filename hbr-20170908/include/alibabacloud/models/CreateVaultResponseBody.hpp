@@ -84,18 +84,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. If the request was successful, \\`successful\\` is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The ID of the initialization task used to initialize the backup vault. You can call the DescribeTask operation to query the status of an initialization task.
+    // The ID of the backup vault initialization task. Use the DescribeTask operation to query the task status.
     shared_ptr<string> taskId_ {};
     // The ID of the backup vault.
     shared_ptr<string> vaultId_ {};

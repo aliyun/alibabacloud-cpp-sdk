@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The page number for paged queries. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource ID.
+    // 
+    // - **ResourceType=PV**: The persistent volume ID.
     shared_ptr<string> resourceId_ {};
+    // The resource type. Valid value:
+    // 
+    // - **PV**: persistent volume (PV).
     shared_ptr<string> resourceType_ {};
   };
 

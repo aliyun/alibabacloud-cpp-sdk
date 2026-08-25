@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The data sources that you want to bind to the backup policy.
+    // The list of policy bindings.
     shared_ptr<string> policyBindingListShrink_ {};
-    // The ID of the backup policy.
+    // The policy ID.
     shared_ptr<string> policyId_ {};
   };
 

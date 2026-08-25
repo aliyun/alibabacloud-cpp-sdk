@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The HTTP status code.
     shared_ptr<string> code_ {};
+    // The data source ID.
     shared_ptr<string> dataSourceId_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

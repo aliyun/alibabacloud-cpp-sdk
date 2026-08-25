@@ -112,37 +112,43 @@ namespace Models
 
 
   protected:
-    // The description of the backup vault. The description must be 0 to 255 characters in length.
+    // The description of the backup vault. The description can be 0 to 255 characters in length.
     shared_ptr<string> description_ {};
-    // The method that is used to encrypt the source data. This parameter is valid only if you set the VaultType parameter to STANDARD or OTS_BACKUP. Valid values:
+    // The encryption type of the source data. This parameter is valid only if you set VaultType to STANDARD or OTS_BACKUP. Valid values:
     // 
-    // *   **HBR_PRIVATE**: The source data is encrypted by using the built-in encryption method of Hybrid Backup Recovery (HBR).
-    // *   **KMS**: The source data is encrypted by using Key Management Service (KMS).
+    // - **HBR_PRIVATE**: The backup vault is encrypted using the built-in encryption method of Cloud Backup.
+    // 
+    // - **KMS**: The backup vault is encrypted using a customer master key (CMK) from Key Management Service (KMS).
     shared_ptr<string> encryptType_ {};
-    // The customer master key (CMK) created in KMS or the alias of the key. This parameter is required only if you set the EncryptType parameter to KMS.
+    // The ID or alias of the KMS key. This parameter is required only if you set EncryptType to KMS.
     shared_ptr<string> kmsKeyId_ {};
+    // Specifies whether to create a replication vault.
     shared_ptr<bool> replication_ {};
     // The name of the backup vault. The name must be 1 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> vaultName_ {};
-    // The ID of the region where the backup vault resides.
+    // The region ID of the backup vault.
     // 
     // This parameter is required.
     shared_ptr<string> vaultRegionId_ {};
-    // The storage type of the backup vault.
+    // The storage class of the backup vault.
     // 
-    // *   **STANDARD**: standard storage.
-    // *   **ARCHIVE**: This parameter is deprecated.
-    // *   **COLD_ARCHIVE**: This parameter is deprecated.
-    // *   **IA**: This parameter is deprecated.
+    // - **STANDARD**: Standard.
+    // 
+    // - **ARCHIVE**: This value is deprecated.
+    // 
+    // - **COLD_ARCHIVE**: This value is deprecated.
+    // 
+    // - **IA**: This value is deprecated.
     shared_ptr<string> vaultStorageClass_ {};
     // The type of the backup vault. Valid values:
     // 
-    // *   **STANDARD**: standard backup vault
-    // *   **OTS_BACKUP**: backup vault for Tablestore
+    // - **STANDARD**: a standard backup vault.
+    // 
+    // - **OTS_BACKUP**: a Tablestore backup vault.
     shared_ptr<string> vaultType_ {};
-    // Specifies whether to enable the immutable backup feature.
+    // Specifies whether to enable backup locking.
     shared_ptr<bool> wormEnabled_ {};
   };
 

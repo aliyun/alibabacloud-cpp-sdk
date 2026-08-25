@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number for paging. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

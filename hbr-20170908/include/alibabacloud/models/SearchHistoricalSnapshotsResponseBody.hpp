@@ -613,23 +613,24 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The number of historical backup snapshots that are displayed on the current page.
+    // The number of historical snapshots displayed on the current page.
     shared_ptr<int32_t> limit_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
-    // The token that is required to obtain the next page of backup snapshots.
+    // The token that is required to obtain the next page of snapshots.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<SearchHistoricalSnapshotsResponseBody::Snapshots> snapshots_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned backup snapshots that meet the specified conditions.
+    // The total number of snapshots that meet the specified criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

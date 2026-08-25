@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The client group ID used to access the data source.
     shared_ptr<string> clusterId_ {};
+    // The data source ID.
     shared_ptr<string> dataSourceId_ {};
+    // The data source name.
     shared_ptr<string> dataSourceName_ {};
+    // The data source type.
     shared_ptr<string> dataSourceType_ {};
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of data sources to return on each page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

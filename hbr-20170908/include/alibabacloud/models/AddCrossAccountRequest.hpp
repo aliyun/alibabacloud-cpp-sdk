@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The alias. The maximum length is 32 characters. This parameter is not required for cross-account backups that are configured based on a resource directory.
     shared_ptr<string> alias_ {};
+    // The name of the RAM role for the account to back up. This parameter is used when you configure a cross-account backup by assuming a RAM role.
     shared_ptr<string> crossAccountRoleName_ {};
+    // The type of cross-account backup. Valid values:
+    // 
+    // - **CROSS_ACCOUNT**: Configures a cross-account backup by assuming a RAM role.
+    // 
+    // - **CROSS_ACCOUNT_BY_RD**: Configures a cross-account backup based on a resource directory.
     shared_ptr<string> crossAccountType_ {};
+    // The UID of the account to back up.
     shared_ptr<int64_t> crossAccountUserId_ {};
   };
 

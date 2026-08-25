@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the backup policy.
+    // The policy ID.
     shared_ptr<string> policyId_ {};
   };
 

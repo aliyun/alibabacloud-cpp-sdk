@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_HBR20170908MODEL_HPP_
 #define ALIBABACLOUD_HBR20170908MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CrossAccountUser.hpp>
 #include <alibabacloud/models/OtsDetail.hpp>
 #include <alibabacloud/models/OtsTableRestoreDetail.hpp>
 #include <alibabacloud/models/Report.hpp>
@@ -175,6 +176,7 @@
 #include <alibabacloud/models/DescribeOtsTableSnapshotsResponseBody.hpp>
 #include <alibabacloud/models/DescribeOtsTableSnapshotsResponse.hpp>
 #include <alibabacloud/models/DescribePoliciesV2Request.hpp>
+#include <alibabacloud/models/DescribePoliciesV2ShrinkRequest.hpp>
 #include <alibabacloud/models/DescribePoliciesV2ResponseBody.hpp>
 #include <alibabacloud/models/DescribePoliciesV2Response.hpp>
 #include <alibabacloud/models/DescribePolicyBindingsRequest.hpp>

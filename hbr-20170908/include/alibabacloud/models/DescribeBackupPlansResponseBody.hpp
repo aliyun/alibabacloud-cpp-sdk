@@ -1099,22 +1099,19 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBackupPlansResponseBody::BackupPlans> backupPlans_ {};
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. If the request was successful, "successful" is returned. If the request failed, the corresponding error message is returned.
     shared_ptr<string> message_ {};
-    // The page number of the returned page. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of returned backup plans that meet the specified conditions.
+    // The total number of backup plans that meet the specified conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

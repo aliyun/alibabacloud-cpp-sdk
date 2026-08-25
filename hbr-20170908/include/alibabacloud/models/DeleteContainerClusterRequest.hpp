@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to forcibly delete active container backup clients.
     shared_ptr<bool> force_ {};
   };
 

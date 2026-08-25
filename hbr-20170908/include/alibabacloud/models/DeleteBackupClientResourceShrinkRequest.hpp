@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
+    // A list of client IDs. The list can contain up to 100 client IDs.
     // 
     // This parameter is required.
     shared_ptr<string> clientIdsShrink_ {};

@@ -188,24 +188,24 @@ namespace Models
 
 
     protected:
-      // Backup type.
+      // The backup type.
       shared_ptr<string> backupType_ {};
-      // ID of the region for offsite replication.
+      // The ID of the destination region for cross-region replication.
       shared_ptr<string> destinationRegionId_ {};
-      // Number of days to retain offsite backups.
+      // The retention period of the geo-redundancy backup. Unit: days.
       shared_ptr<int64_t> destinationRetention_ {};
-      // Whether the rule is enabled.
+      // Specifies whether the rule is disabled.
       shared_ptr<bool> disabled_ {};
-      // Whether to enable offsite replication.
+      // Specifies whether to enable cross-region replication.
       shared_ptr<bool> doCopy_ {};
-      // Backup retention period.
+      // The retention period of the backup.
       shared_ptr<int64_t> retention_ {};
-      // Rule name.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // Backup strategy. Optional format: I|{startTime}|{interval}. This means that a backup task is executed every {interval} starting from {startTime}. Backup tasks for past times will not be executed. If the previous backup task has not been completed, the next backup task will not be triggered. For example, I|1631685600|P1D means a backup is performed every day starting from 2021-09-15 14:00:00.
+      // The backup policy. Format: I|{startTime}|{interval}. This indicates that a backup job is executed at every {interval} starting from {startTime}. Backup jobs for past time periods are not executed. If the previous backup job is not completed, the next backup job is not triggered. Example: I|1631685600|P1D indicates that a backup is performed once a day starting from 2021-09-15 14:00:00.
       // 
-      // - startTime: The start time of the backup, in UNIX time, in seconds.
-      // - interval: ISO8601 time interval. For example, PT1H means an interval of one hour. P1D means an interval of one day.
+      // startTime: the start time of the backup. The value is a UNIX timestamp. Unit: seconds.
+      // interval: the ISO 8601 time interval. Example: PT1H indicates an interval of one hour. P1D indicates an interval of one day.
       shared_ptr<string> schedule_ {};
     };
 
@@ -459,99 +459,100 @@ namespace Models
 
 
   protected:
-    // Backup type. Value: **COMPLETE**, indicating a full backup.
+    // The backup type. Set the value to **COMPLETE**, which indicates full backup.
     shared_ptr<string> backupType_ {};
-    // This parameter is required when **SourceType** is set to **OSS**. It represents the OSS bucket name.
+    // This parameter is required only when **SourceType** is set to **OSS**. The name of the OSS bucket.
     shared_ptr<string> bucket_ {};
-    // Configuration for the incremental file synchronization list. (Required only for synchronization)
+    // The configuration of the incremental file synchronization list. This parameter is required only for data synchronization.
     shared_ptr<string> changeListPath_ {};
     // The ID of the client group that executes the data synchronization plan. This parameter is required only for data synchronization.
     shared_ptr<string> clusterId_ {};
-    // This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
+    // This parameter is required only when **SourceType** is set to **NAS**. The time when the file system was created. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> createTime_ {};
-    // The role name created in the RAM of the original account for cross-account backup.
+    // The name of the RAM role created in the source account for cross-account backup.
     shared_ptr<string> crossAccountRoleName_ {};
-    // Cross-account backup type. Supported values:
-    // - SELF_ACCOUNT: Backup within the same account
-    // - CROSS_ACCOUNT: Cross-account backup
+    // The cross-account backup type. Valid values: 
+    // - SELF_ACCOUNT: backup within the same account.
+    // - CROSS_ACCOUNT: cross-account backup.
     shared_ptr<string> crossAccountType_ {};
-    // The original account ID used for cross-account backup.
+    // The ID of the source account for cross-account backup.
     shared_ptr<int64_t> crossAccountUserId_ {};
-    // The ID of the data source. This parameter is required only for data synchronization.
+    // The ID of the source data source. This parameter is required only for data synchronization.
     shared_ptr<string> dataSourceId_ {};
-    // Destination data source details. (Required only for synchronization)
+    // The details of the destination data source. This parameter is required only for data synchronization.
     Darabonba::Json destDataSourceDetail_ {};
-    // Destination data source ID. (Required only for synchronization)
+    // The ID of the destination data source. This parameter is required only for data synchronization.
     shared_ptr<string> destDataSourceId_ {};
-    // Destination data source type. (Required only for synchronization)
+    // The type of the destination data source. This parameter is required only for data synchronization.
     shared_ptr<string> destSourceType_ {};
-    // Details of the whole machine backup, in JSON string format.
+    // The details of the full-copy backup. The value is a JSON string.
     // 
-    // * snapshotGroup: Whether to use a consistent snapshot group (only valid if all instance disks are ESSD).
-    // * appConsistent: Whether to use application consistency (requires the use of preScriptPath and postScriptPath parameters).
-    // * preScriptPath: Path to the freeze script.
-    // * postScriptPath: Path to the thaw script.
+    // * snapshotGroup: specifies whether to use a consistent snapshot group. This parameter is valid only when all cloud disks of the instance are ESSDs.
+    // * appConsistent: specifies whether to use application consistency. This parameter must be used together with the preScriptPath and postScriptPath parameters.
+    // * preScriptPath: the path of the pre-freeze script.
+    // * postScriptPath: the path of the post-thaw script.
     Darabonba::Json detail_ {};
-    // Is the plan disabled by default
+    // Specifies whether the plan is disabled by default.
     shared_ptr<bool> disabled_ {};
+    // The edition type. Valid values: BASIC and STANDARD. Default value: STANDARD.
     shared_ptr<string> edition_ {};
-    // This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. The path to exclude from the backup. All files in this path are not backed up. The value can be up to 255 characters in length.
     shared_ptr<string> exclude_ {};
-    // This parameter is required when **SourceType** is set to **NAS**. It represents the file system ID.
+    // This parameter is required only when **SourceType** is set to **NAS**. The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the path to be backed up, and all files under this path will be backed up. Supports up to 255 characters.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. The path to include in the backup. All files in this path are backed up. The value can be up to 255 characters in length.
     shared_ptr<string> include_ {};
-    // This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the ECS instance ID.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. The ECS instance ID.
     shared_ptr<string> instanceId_ {};
-    // Table store instance name.
+    // The name of the Tablestore instance.
     shared_ptr<string> instanceName_ {};
-    // Whether to enable retaining at least one backup version.
-    // - 0 - Do not retain
-    // - 1 - Retain
+    // Specifies whether to retain at least one backup version. Valid values:
+    // - 0: does not retain.
+    // - 1: retains.
     shared_ptr<int64_t> keepLatestSnapshots_ {};
-    // This parameter is required when **SourceType** is set to **ECS_FILE**. It indicates whether to use the Windows system VSS to define the backup path.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. Specifies whether to use Windows Volume Shadow Copy Service (VSS) to define the source path.
     // 
-    // - This feature only supports Windows type ECS instances.
-    // - If there are data changes in the backup source and you need to ensure consistency between the backup data and the source data, you can configure it as `["UseVSS":true]`.
-    // - After choosing to use VSS, multiple file directories cannot be backed up simultaneously.
+    // - This feature is supported only for Windows ECS instances.
+    // - If the backup source contains data changes and you need to ensure consistency between the backup data and the source data, set this parameter to `["UseVSS":true]`.
+    // - After VSS is enabled, multiple file folders cannot be backed up simultaneously.
     shared_ptr<string> options_ {};
-    // The details about the Tablestore instance.
+    // The details of the Tablestore instance.
     shared_ptr<OtsDetail> otsDetail_ {};
-    // Backup paths.
+    // The source paths.
     shared_ptr<vector<string>> path_ {};
-    // Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
+    // The name of the backup plan. The name must be 1 to 64 characters in length. The backup plan name must be unique for each data source type within a single vault.
     shared_ptr<string> planName_ {};
-    // This parameter is required when **SourceType** is set to **OSS**. It represents the backup prefix. When specified, only objects matching the prefix are backed up.
+    // This parameter is required only when **SourceType** is set to **OSS**. The backup prefix. If specified, only objects that match the prefix are backed up.
     shared_ptr<string> prefix_ {};
-    // Number of days to retain the backup, with a minimum value of 1, in days.
+    // The retention period of the backup data. Minimum value: 1. Unit: days.
     shared_ptr<int64_t> retention_ {};
-    // Backup plan rules.
+    // The backup plan rules.
     shared_ptr<vector<CreateBackupPlanRequest::Rule>> rule_ {};
-    // Backup policy. Optional format: `I|{startTime}|{interval}`. This indicates that a backup task will be executed every `{interval}` starting from `{startTime}`. It does not compensate for missed backup tasks due to past time. If the previous backup task has not been completed, the next backup task will not be triggered. For example, `I|1631685600|P1D` means a backup is performed every day starting from 2021-09-15 14:00:00.
+    // The backup policy. Format: `I|{startTime}|{interval}`. This indicates that a backup job is executed at every `{interval}` starting from `{startTime}`. Backup jobs for past time periods are not compensated. If the previous backup job is not completed, the next backup job is not triggered. Example: `I|1631685600|P1D` indicates that a backup is performed once a day starting from 2021-09-15 14:00:00.
     // 
-    // - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
-    // - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
+    // - **startTime**: the start time of the backup. The value is a UNIX timestamp. Unit: seconds.
+    // - **interval**: the ISO 8601 time interval. Example: PT1H indicates an interval of one hour. P1D indicates an interval of one day.
     shared_ptr<string> schedule_ {};
     // The type of the data source. Valid values:
     // 
-    // *   **ECS_FILE**: Elastic Compute Service (ECS) files
-    // *   **OSS**: Object Storage Service (OSS) buckets
-    // *   **NAS**: File Storage NAS (NAS) file systems
-    // *   **OTS**: Tablestore instances
-    // *   **UDM_ECS**: ECS instances
-    // *   **SYNC**: data synchronization
+    // - **ECS_FILE**: backs up ECS files.
+    // - **OSS**: backs up Alibaba Cloud OSS.
+    // - **NAS**: backs up Alibaba Cloud NAS.
+    // - **OTS**: backs up Alibaba Cloud OTS.
+    // - **UDM_ECS**: backs up an entire ECS instance.
+    // - **SYNC**: data synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the backup traffic control. Format: `{start}:{end}:{bandwidth}`. Multiple traffic control configurations are separated by |, and the configured times should not overlap.
+    // This parameter is required only when **SourceType** is set to **ECS_FILE**. The backup traffic control. Format: `{start}:{end}:{bandwidth}`. Separate multiple traffic control configurations with vertical bars (|). The time ranges of the configurations cannot overlap.
     // 
-    // - **start**: Start hour.
-    // - **end**: End hour.
-    // - **bandwidth**: Limit rate, in KB/s.
+    // - **start**: the start hour.
+    // - **end**: the end hour.
+    // - **bandwidth**: the rate limit. Unit: KB/s.
     shared_ptr<string> speedLimit_ {};
-    // Region where the whole machine backup instance is located.
+    // The region where the ECS instance for full-copy backup resides.
     shared_ptr<string> udmRegionId_ {};
-    // Backup vault ID.
+    // The vault ID.
     shared_ptr<string> vaultId_ {};
   };
 

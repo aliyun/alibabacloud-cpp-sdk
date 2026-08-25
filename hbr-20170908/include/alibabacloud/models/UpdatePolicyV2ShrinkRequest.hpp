@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The description of the backup policy.
+    // The policy description.
     shared_ptr<string> policyDescription_ {};
-    // The ID of the backup policy.
+    // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The name of the backup policy.
+    // The policy name.
     shared_ptr<string> policyName_ {};
-    // The rules in the backup policy.
+    // The list of policy rules.
     shared_ptr<string> rulesShrink_ {};
   };
 

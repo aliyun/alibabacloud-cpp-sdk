@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The edition. Valid values: BASIC and STANDARD. The default value is STANDARD.
     shared_ptr<string> edition_ {};
     // The ID of the backup plan.
     // 
@@ -73,9 +74,11 @@ namespace Models
     shared_ptr<string> planId_ {};
     // The type of the data source. Valid values:
     // 
-    // *   **ECS_FILE**: Elastic Compute Service (ECS) files
-    // *   **OSS**: Object Storage Service (OSS) buckets
-    // *   **NAS**: Apsara File Storage NAS (NAS) file systems
+    // - **ECS_FILE**: Backs up ECS files.
+    // 
+    // - **OSS**: Backs up Alibaba Cloud OSS.
+    // 
+    // - **NAS**: Backs up Alibaba Cloud NAS.
     shared_ptr<string> sourceType_ {};
     // The ID of the backup vault.
     shared_ptr<string> vaultId_ {};

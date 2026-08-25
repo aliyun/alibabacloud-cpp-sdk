@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the source region. If you do not specify this parameter, the region where the API is called is used.
     shared_ptr<string> replicationSourceRegionId_ {};
+    // The ID of the source backup vault.
+    // 
     // This parameter is required.
     shared_ptr<string> replicationSourceVaultId_ {};
+    // The ID of the destination backup vault.
+    // 
     // This parameter is required.
     shared_ptr<string> replicationTargetVaultId_ {};
   };

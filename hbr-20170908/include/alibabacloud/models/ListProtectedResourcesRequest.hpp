@@ -94,12 +94,36 @@ namespace Models
 
 
   protected:
+    // The product capability to which the resource belongs. Valid values:
+    // - **HBR**: Cloud Backup standard capability.
+    // - **BASIC**: ECS File Backup Essential Edition.
     shared_ptr<string> createdByProduct_ {};
+    // Specifies whether the resource has backup points.
     shared_ptr<bool> hasSnapshot_ {};
+    // The number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. If this parameter is empty, no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The resource ID.
+    // - **SourceType=ECS_FILE**: the ECS instance ID.
+    // - **SourceType=COMMON_FILE_SYSTEM**: the CPFS data source ID.
+    // - **SourceType=COMMON_NAS**: the on-premises NAS data source ID.
+    // - **SourceType=File**: the local service client ID.
+    // - **SourceType=NAS**: the Alibaba Cloud NAS file system ID.
+    // - **SourceType=OSS**: the OSS bucket.
     shared_ptr<string> resourceId_ {};
+    // The number of entries to skip for paging.
+    // If the number of skipped entries exceeds the total number of conditional entries, an empty list is returned. The number of skipped entries must be a multiple of MaxResults.
     shared_ptr<int32_t> skip_ {};
+    // The backup feature type. Valid values:
+    // - **ECS_FILE**: ECS file backup.
+    // - **COMMON_FILE_SYSTEM**: Cloud Parallel File Storage (CPFS) backup.
+    // - **COMMON_NAS**: on-premises NAS backup.
+    // - **File**: on-premises file backup.
+    // - **NAS**: Alibaba Cloud NAS backup.
+    // - **OSS**: OSS backup.
     shared_ptr<string> sourceType_ {};
   };
 

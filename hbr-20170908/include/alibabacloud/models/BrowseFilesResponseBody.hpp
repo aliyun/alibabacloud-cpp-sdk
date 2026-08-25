@@ -219,15 +219,28 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. The value `successful` is returned if the request was successful. An error message is returned if the request failed.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page of results. An empty value indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
     shared_ptr<BrowseFilesResponseBody::Nodes> nodes_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -107,7 +107,7 @@ namespace Models
   protected:
     // The ID of the disk.
     shared_ptr<string> diskId_ {};
-    // The end of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
+    // The end of the time range to query. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -115,21 +115,23 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The ID of the backup job.
     shared_ptr<string> jobId_ {};
-    // The list of backup snapshots.
+    // The list of snapshot IDs.
     Darabonba::Json snapshotIds_ {};
     // The type of the data source. Valid values:
     // 
-    // *   **UDM_ECS**: ECS instance backup
-    // *   **UDM_ECS_DISK**: disk backup subtask of ECS instance backup
-    // *   **UDM_DISK**: disk backup
+    // - **UDM_ECS**: ECS instance backup
+    // 
+    // - **UDM_ECS_DISK**: a disk backup subtask of an ECS instance backup
+    // 
+    // - **UDM_DISK**: disk backup
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // The beginning of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The ID of the region where the ECS instance resides.
+    // The region ID of the ECS instance.
     // 
     // This parameter is required.
     shared_ptr<string> udmRegionId_ {};

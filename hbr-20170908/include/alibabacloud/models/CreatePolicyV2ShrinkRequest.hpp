@@ -66,21 +66,19 @@ namespace Models
 
 
   protected:
-    // The description of the backup policy.
+    // The policy description.
     shared_ptr<string> policyDescription_ {};
-    // The name of the backup policy.
+    // The policy name.
     shared_ptr<string> policyName_ {};
     // The policy type. Valid values:
+    // - **STANDARD**: general backup policy. Supports backing up data sources other than ECS instances.
+    // - **UDM_ECS_ONLY**: ECS instance backup policy. Supports backing up only ECS instances.
     // 
-    // *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
-    // *   **UDM_ECS_ONLY**: This type of policy applies only to ECS instance backup.
-    // 
-    // If the policy type is not specified, Cloud Backup automatically sets the policy type based on whether the backup vault is specified in the rules of the policy:
-    // 
-    // *   If the backup vault is specified, Cloud Backup sets the policy type to **STANDARD**.
-    // *   If the backup vault is not specified, Cloud Backup sets the policy type to **UDM_ECS_ONLY**.
+    // If you do not specify the policy type, Cloud Backup automatically sets the policy type based on whether a backup vault is specified in the policy rules:
+    // - A backup vault is specified in the policy rules: **STANDARD**
+    // - No backup vault is specified in the policy rules: **UDM_ECS_ONLY**
     shared_ptr<string> policyType_ {};
-    // The rules in the backup policy.
+    // The list of policy rules.
     shared_ptr<string> rulesShrink_ {};
   };
 

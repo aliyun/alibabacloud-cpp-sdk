@@ -788,23 +788,25 @@ namespace Models
 
 
   protected:
-    // The response status code. The status code 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The response message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+    // The response message. If the request is successful, "successful" is returned. Otherwise, an error message is returned.
     shared_ptr<string> message_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the returned page. Pages start from 1. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 99. Default: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // A container for the restore job details.
     shared_ptr<DescribeRestoreJobs2ResponseBody::RestoreJobs> restoreJobs_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

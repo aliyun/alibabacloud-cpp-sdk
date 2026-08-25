@@ -137,17 +137,17 @@ namespace Models
 
 
       protected:
-        // The tag key of the backup vault. Valid values of N: 1 to 20
+        // The tag key of the backup vault. Valid values of N: 1 to 20.
         // 
-        // *   The tag key cannot start with `aliyun` or `acs:`.
-        // *   The tag key cannot contain `http://` or `https://`.
-        // *   The tag key cannot be an empty string.
+        // - The tag key cannot start with `aliyun` or `acs:`. 
+        // - The tag key cannot contain `http://` or `https://`.
+        // - The tag key cannot be an empty string.
         shared_ptr<string> key_ {};
-        // The tag value of the backup vault. Valid values of N: 1 to 20
+        // The tag value of the backup vault. Valid values of N: 1 to 20.
         // 
-        // *   The tag value cannot start with `aliyun` or `acs:`.
-        // *   The tag value cannot contain `http://` or `https://`.
-        // *   The tag value cannot be an empty string.
+        // - The tag value cannot start with `aliyun` or `acs:`. 
+        // - The tag value cannot contain `http://` or `https://`.
+        // - The tag value cannot be an empty string.
         shared_ptr<string> value_ {};
       };
 
@@ -271,38 +271,38 @@ namespace Models
 
 
       protected:
-        // Indicates whether alerts are generated for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+        // Specifies whether to send alerts for partially completed jobs. This setting applies only to File Backup and ECS File Backup Essential Edition.
         shared_ptr<bool> alertOnPartialComplete_ {};
-        // The type of the endpoint on the data plane. Valid values:
+        // The type of the data plane endpoint. Valid values:
         // 
-        // *   **PUBLIC**: Internet
-        // *   **VPC**: virtual private cloud (VPC)
-        // *   **CLASSIC**: classic network
+        // - **PUBLIC**: public network.
+        // - **VPC**: VPC network.
+        // - **CLASSIC**: classic network.
         shared_ptr<string> dataNetworkType_ {};
-        // The proxy configuration on the data plane. Valid values:
+        // The data plane proxy setting. Valid values:
         // 
-        // *   **DISABLE**: The proxy is not used.
-        // *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
-        // *   **CUSTOM**: The configuration is customized (HTTP).
+        // - **DISABLE**: No proxy is used.
+        // - **USE_CONTROL_PROXY** (default): The same configuration as the control plane is used.
+        // - **CUSTOM**: A custom configuration is used (HTTP protocol).
         shared_ptr<string> dataProxySetting_ {};
-        // The number of CPU cores used by a single backup job. The value 0 indicates that the number is unlimited.
+        // The number of CPU cores used by a single backup job. A value of 0 indicates no limit.
         shared_ptr<string> maxCpuCore_ {};
-        // The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+        // The maximum memory that the client can use. Unit: bytes. Only versions 2.13.0 and later are supported.
         shared_ptr<int64_t> maxMemory_ {};
-        // The number of concurrent backup jobs. The value 0 indicates that the number is unlimited.
+        // The number of concurrent workers for a single backup job. A value of 0 indicates no limit.
         shared_ptr<string> maxWorker_ {};
-        // The custom host IP address of the proxy server on the data plane.
+        // The IP address of the custom data plane proxy server.
         shared_ptr<string> proxyHost_ {};
-        // The custom password of the proxy server on the data plane.
+        // The password of the custom data plane proxy server.
         shared_ptr<string> proxyPassword_ {};
-        // The custom host port of the proxy server on the data plane.
+        // The port of the custom data plane proxy server.
         shared_ptr<int32_t> proxyPort_ {};
-        // The custom username of the proxy server on the data plane.
+        // The username of the custom data plane proxy server.
         shared_ptr<string> proxyUser_ {};
-        // Indicates whether data on the data plane is transmitted over HTTPS. Valid values:
+        // Indicates whether HTTPS is used to transmit data plane data.
         // 
-        // *   true: Data is transmitted over HTTPS.
-        // *   false: Data is transmitted over HTTP.
+        // - true: HTTPS is used for transmission.
+        // - false: HTTP is used for transmission.
         shared_ptr<string> useHttps_ {};
       };
 
@@ -449,71 +449,67 @@ namespace Models
 
 
     protected:
-      // Indicates whether the client is installed on an all-in-one PC that integrates hardware and monitoring program. Valid values:
+      // Indicates whether the client is a hardware monitoring appliance client.
       // 
-      // *   true: The client is installed on an all-in-one PC that integrates hardware and monitoring program.
-      // *   false: The client is not installed on an all-in-one PC that integrates hardware and monitoring program.
+      // - true: The client is a hardware monitoring appliance client.
+      // - false: The client is not a hardware monitoring appliance client.
       shared_ptr<bool> appliance_ {};
-      // This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the system architecture where the backup client resides. Valid values:
-      // 
-      // *   **amd64**
-      // *   **386**
+      // This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The system architecture of the backup client. Valid values:
+      // * **amd64**
+      // * **386**
       shared_ptr<string> archType_ {};
       // The protection status of the backup client. Valid values:
-      // 
-      // *   **UNPROTECTED**: The backup client is not protected.
-      // *   **PROTECTED**: The backup client is protected.
+      // * **UNPROTECTED**: The server is not protected.
+      // * **PROTECTED**: The server is protected.
       shared_ptr<string> backupStatus_ {};
       // The ID of the backup client.
       shared_ptr<string> clientId_ {};
-      // The type of the backup client. Valid value: **ECS_CLIENT**, which indicates a client for ECS file backup.
+      // The type of the backup client. The value **ECS_CLIENT** indicates an ECS File Backup client.
       shared_ptr<string> clientType_ {};
       // The version number of the backup client.
       shared_ptr<string> clientVersion_ {};
-      // The time when the backup client was created. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the backup client was created. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> createdTime_ {};
       // The hostname of the backup client.
       shared_ptr<string> hostname_ {};
       // The instance ID.
       // 
-      // *   If the client is used to back up ECS files, this parameter indicates the ID of an ECS instance.
-      // *   If the client is used to back up on-premises files, this parameter indicates the hardware fingerprint that is generated based on the system information.
+      // - If the client type is ECS File Backup client, this parameter indicates the ECS instance ID.
+      // - If the client type is local file backup client, this parameter indicates the hardware fingerprint generated based on system information.
       shared_ptr<string> instanceId_ {};
-      // This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the name of the ECS instance.
+      // This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The name of the ECS instance.
       shared_ptr<string> instanceName_ {};
-      // The last heartbeat time of the backup client. The value is a UNIX timestamp. Unit: seconds.
+      // The time of the last heartbeat of the backup client. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> lastHeartBeatTime_ {};
       // The latest version number of the backup client.
       shared_ptr<string> maxClientVersion_ {};
-      // This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the operating system type of the backup client. Valid values:
-      // 
-      // *   **windows**
-      // *   **linux**
+      // This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The operating system type of the client. Valid values:
+      // * **windows**
+      // * **linux**
       shared_ptr<string> osType_ {};
-      // This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the internal IP address of the ECS instance.
+      // This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The internal IP address of the ECS instance.
       shared_ptr<string> privateIpV4_ {};
       // The configuration information of the backup client.
       shared_ptr<Clients::Settings> settings_ {};
       // The status of the backup client. Valid values:
-      // 
-      // *   **REGISTERED**: The backup client is registered.
-      // *   **ACTIVATED**: The backup client is activated.
-      // *   **DEACTIVATED**: The backup client fails to be activated.
-      // *   **INSTALLING**: The backup client is being installed.
-      // *   **INSTALL_FAILED**: The backup client fails to be installed.
-      // *   **NOT_INSTALLED**: The backup client is not installed.
-      // *   **UPGRADING**: The backup client is being upgraded.
-      // *   **UPGRADE_FAILED**: The backup client fails to be upgraded.
-      // *   **UNINSTALLING**: The backup client is being uninstalled.
-      // *   **UNINSTALL_FAILED**: The backup client fails to be uninstalled.
-      // *   **STOPPED**: The backup client is out of service.
-      // *   **UNKNOWN**: The backup client is disconnected.
+      // * **REGISTERED**: The client is registered.
+      // * **ACTIVATED**: The client is activated.
+      // * **DEACTIVATED**: The client activation has expired.
+      // * **INSTALLING**: The client is being installed.
+      // * **INSTALL_FAILED**: The client installation failed.
+      // * **NOT_INSTALLED**: The client is not installed.
+      // * **UPGRADING**: The client is being upgraded.
+      // * **UPGRADE_FAILED**: The client upgrade failed.
+      // * **UNINSTALLING**: The client is being uninstalled.
+      // * **UNINSTALL_FAILED**: The client uninstallation failed.
+      // * **STOPPED**: The client service is stopped.
+      // * **UNKNOWN**: The client is disconnected.
       shared_ptr<string> status_ {};
       // The tag information.
       shared_ptr<vector<Clients::Tags>> tags_ {};
-      // The time when the backup client was updated. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the backup client was last updated. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> updatedTime_ {};
-      // This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the zone of the backup client.
+      // This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -579,24 +575,24 @@ namespace Models
 
 
   protected:
-    // The queried backup clients.
+    // The list of backup clients.
     shared_ptr<vector<DescribeBackupClientsResponseBody::Clients>> clients_ {};
-    // The HTTP status code. The status code 200 indicates that the call is successful.
+    // The response code. 200 indicates success.
     shared_ptr<string> code_ {};
-    // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+    // The returned message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
     shared_ptr<string> message_ {};
-    // The page number of the returned page. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. Valid values: 1 to 99. Default value: 10.
+    // The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of returned HBR clients that meet the specified conditions.
+    // The total number of backup clients that meet the specified conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

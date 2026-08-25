@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The data source type. The valid value is:
+    // 
+    // - **ECS_FILE**: ECS File Backup.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
   };

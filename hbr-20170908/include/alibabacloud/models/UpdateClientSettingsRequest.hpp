@@ -158,46 +158,44 @@ namespace Models
 
 
   protected:
-    // Specifies whether to generate alert for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+    // Specifies whether to trigger an alert for partially completed jobs. This parameter takes effect only for local File Backup and ECS File Backup Essential Edition.
     shared_ptr<bool> alertOnPartialComplete_ {};
-    // The ID of the HBR client.
+    // The backup client ID.
     // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
-    // The type of the endpoint on the data plane. Valid values:
-    // 
-    // *   **PUBLIC**: Internet
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **CLASSIC**: classic network
+    // The data plane access point type. Valid values:
+    // * **PUBLIC**: public network
+    // * **VPC**: VPC network
+    // * **CLASSIC**: classic network
     shared_ptr<string> dataNetworkType_ {};
-    // The proxy configuration on the data plane. Valid values:
-    // 
-    // *   **DISABLE**: The proxy is not used.
-    // *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
-    // *   **CUSTOM**: The configuration is customized (HTTP).
+    // The data plane proxy setting. Valid values:
+    // * **DISABLE**: does not use a proxy.
+    // * **USE_CONTROL_PROXY** (default): uses the same configuration as the control plane.
+    // * **CUSTOM**: uses a custom configuration (HTTP protocol).
     shared_ptr<string> dataProxySetting_ {};
-    // The number of CPU cores used by a single backup job. The value 0 indicates that the number is unlimited.
+    // The number of CPU cores used by a single backup job. A value of 0 indicates no limit.
     shared_ptr<int32_t> maxCpuCore_ {};
-    // The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+    // The maximum memory that the client can use, in bytes. Only version 2.13.0 and later are supported.
     shared_ptr<int64_t> maxMemory_ {};
-    // The number of concurrent backup jobs. The value 0 indicates that the number is unlimited.
+    // The number of concurrent workers for a single backup job. A value of 0 indicates no limit.
     shared_ptr<int32_t> maxWorker_ {};
-    // The custom host IP address of the proxy server on the data plane.
+    // The IP address of the custom data plane proxy server host.
     shared_ptr<string> proxyHost_ {};
-    // The custom password of the proxy server on the data plane.
+    // The password of the custom data plane proxy server.
     shared_ptr<string> proxyPassword_ {};
-    // The custom host port of the proxy server on the data plane.
+    // The port of the custom data plane proxy server host.
     shared_ptr<int32_t> proxyPort_ {};
-    // The custom username of the proxy server on the data plane.
+    // The username of the custom data plane proxy server.
     shared_ptr<string> proxyUser_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether to transmit the data on the data plane over HTTPS. Valid values:
+    // Specifies whether to use HTTPS to transmit data plane data.
     // 
-    // *   true: Data is transmitted over HTTPS.
-    // *   false: Data is transmitted over HTTP.
+    // - true: Uses HTTPS for transmission.
+    // - false: Uses HTTP for transmission.
     shared_ptr<bool> useHttps_ {};
-    // The ID of the backup vault. This parameter is required for the old HBR client.
+    // The backup vault ID. This parameter is required for legacy clients.
     shared_ptr<string> vaultId_ {};
   };
 
