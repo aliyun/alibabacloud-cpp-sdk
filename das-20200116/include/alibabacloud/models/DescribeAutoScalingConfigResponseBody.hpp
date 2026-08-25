@@ -111,15 +111,14 @@ namespace Models
 
 
       protected:
-        // The average storage usage threshold that triggers automatic storage expansion. Unit: %.
+        // The average storage utilization threshold that triggers automatic storage scaling. Unit: %.
         shared_ptr<int32_t> diskUsageUpperThreshold_ {};
-        // The maximum storage size. Unit: GB.
+        // The maximum storage capacity. Unit: GB.
         shared_ptr<int32_t> maxStorage_ {};
-        // Indicates whether the automatic storage expansion feature is enabled. Valid values:
+        // Indicates whether automatic storage scaling is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> upgrade_ {};
       };
 
@@ -216,53 +215,53 @@ namespace Models
 
 
       protected:
-        // The quiescent period. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The cool-down period. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> coolDownTime_ {};
         // The average CPU utilization threshold that triggers automatic specification scale-up. Unit: %.
         shared_ptr<int32_t> cpuUsageUpperThreshold_ {};
-        // Indicates whether the automatic specification scale-down feature is enabled. Valid values:
+        // Indicates whether automatic specification scale-down is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> downgrade_ {};
-        // The maximum number of read-only nodes of the instance.
+        // The maximum number of read-only nodes for the instance.
         shared_ptr<int32_t> maxReadOnlyNodes_ {};
-        // The maximum specifications to which the cluster can be scaled up. For more information about the specifications of each type of supported database instances, see the following topics:
+        // The maximum specification for automatic scale-up. For details, refer to the product specification documentation for each database instance:
+        // <props="china">
         // 
-        // - PolarDB for MySQL Cluster Edition instances: [Compute node specifications of PolarDB for MySQL Enterprise Edition](https://help.aliyun.com/document_detail/102542.html)
+        // - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+        // - For ApsaraDB RDS for MySQL high-availability series with cloud disks, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
+        // - For Redis community cloud disk edition, see [Instance specifications](https://help.aliyun.com/document_detail/144986.html).
         // 
-        // - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
+        // 
+        // 
+        // <props="intl">
+        // 
+        // - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+        // - For ApsaraDB RDS for MySQL high-availability series with cloud disks, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
         shared_ptr<string> maxSpec_ {};
-        // The average memory usage threshold that triggers automatic specification scale-up. Unit: %.
+        // The average memory utilization threshold that triggers automatic specification scale-up. Unit: %.
         shared_ptr<int32_t> memUsageUpperThreshold_ {};
-        // The observation window. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> observationWindowSize_ {};
-        // Indicates whether the automatic specification scale-up feature is enabled. Valid values:
+        // Indicates whether automatic specification scale-up is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> upgrade_ {};
       };
 
@@ -359,49 +358,40 @@ namespace Models
 
 
       protected:
-        // Indicates whether the feature of automatically removing shards is enabled. Valid values:
+        // Indicates whether automatic shard removal is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> downgrade_ {};
-        // The observation window of the feature of automatically removing shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
-        // 
+        // The observation window for automatic shard removal. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **1d** indicates one day.
+        // > For example, **1d** indicates 1 day.
         shared_ptr<string> downgradeObservationWindowSize_ {};
-        // The maximum number of shards in the instance.
+        // The maximum total number of shards for the instance.
         shared_ptr<int32_t> maxShards_ {};
-        // The average memory usage threshold that triggers automatic removal of shards. Unit: %.
+        // The average memory utilization threshold that triggers automatic shard removal. Unit: %.
         shared_ptr<int32_t> memUsageLowerThreshold_ {};
-        // The average memory usage threshold that triggers automatic adding of shards. Unit: %.
+        // The average memory utilization threshold that triggers automatic shard addition. Unit: %.
         shared_ptr<int32_t> memUsageUpperThreshold_ {};
-        // The minimum number of shards in the instance.
+        // The minimum total number of shards for the instance.
         shared_ptr<int32_t> minShards_ {};
-        // Indicates whether the feature of automatically adding shards is enabled. Valid values:
+        // Indicates whether automatic shard addition is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> upgrade_ {};
-        // The observation window of the feature of automatically adding shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The observation window for automatic shard addition. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> upgradeObservationWindowSize_ {};
       };
 
@@ -470,39 +460,32 @@ namespace Models
 
 
       protected:
-        // The scale-out step size of CPU.
+        // The CPU scale-up increment.
         shared_ptr<int32_t> cpuStep_ {};
-        // The average CPU utilization threshold that triggers automatic scale-out of local resources. Unit: %.
+        // The average CPU utilization threshold that triggers automatic local resource scale-up. Unit: %.
         shared_ptr<int32_t> cpuUsageUpperThreshold_ {};
-        // The observation window of the automatic scale-in feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The scale-down observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> downgradeObservationWindowSize_ {};
-        // Indicates whether the auto scaling feature is enabled for local resources. Valid values:
+        // Indicates whether local resource elastic scaling is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> enable_ {};
-        // The observation window of the automatic scale-out feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The scale-up observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> upgradeObservationWindowSize_ {};
       };
 
@@ -573,31 +556,25 @@ namespace Models
       protected:
         // The average bandwidth usage threshold that triggers automatic bandwidth downgrade. Unit: %.
         shared_ptr<int32_t> bandwidthUsageLowerThreshold_ {};
-        // The average bandwidth usage threshold that triggers automatic bandwidth adjustment. Unit: %.
+        // The average bandwidth usage threshold that triggers automatic bandwidth upgrade. Unit: %.
         shared_ptr<int32_t> bandwidthUsageUpperThreshold_ {};
-        // Indicates whether the automatic bandwidth downgrade feature is enabled. Valid values:
+        // Indicates whether automatic bandwidth downgrade is enabled. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> downgrade_ {};
-        // The observation window of the automatic bandwidth adjustment feature. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+        // The observation window for automatic bandwidth upgrade. The value consists of a number and a time unit suffix. The time unit suffixes are:
         // 
         // - **s**: seconds.
-        // 
         // - **m**: minutes.
-        // 
         // - **h**: hours.
+        // - **d**: days. 
         // 
-        // - **d**: days.
-        // 
-        // > A value of **5m** indicates 5 minutes.
+        // > For example, **5m** indicates 5 minutes.
         shared_ptr<string> observationWindowSize_ {};
-        // Indicates whether the automatic bandwidth adjustment feature is enabled. Valid values:
-        // 
-        // - **true**
-        // 
-        // - **false**
+        // Indicates whether automatic bandwidth upgrade is enabled. Valid values:
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> upgrade_ {};
       };
 
@@ -649,15 +626,15 @@ namespace Models
 
 
     protected:
-      // The configurations of the automatic bandwidth adjustment feature.
+      // The bandwidth elastic scaling feature configuration of the instance.
       shared_ptr<Data::Bandwidth> bandwidth_ {};
-      // The configurations of the auto scaling feature for local resources.
+      // The local resource elastic scaling feature configuration of the instance.
       shared_ptr<Data::Resource> resource_ {};
-      // The configurations of the auto scaling feature for shards.
+      // The shard elastic scaling feature configuration of the instance.
       shared_ptr<Data::Shard> shard_ {};
-      // The configurations of the auto scaling feature for specifications.
+      // The specification elastic scaling feature configuration.
       shared_ptr<Data::Spec> spec_ {};
-      // The configurations of the automatic storage expansion feature.
+      // The Automatic storage scaling feature configuration of the instance.
       shared_ptr<Data::Storage> storage_ {};
     };
 
@@ -701,21 +678,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The returned status code.
     shared_ptr<string> code_ {};
-    // The configurations of the auto scaling feature for instances.
+    // The elastic scaling feature configuration of the instance.
     shared_ptr<DescribeAutoScalingConfigResponseBody::Data> data_ {};
     // The returned message.
     // 
-    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

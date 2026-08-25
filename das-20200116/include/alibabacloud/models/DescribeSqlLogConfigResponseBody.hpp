@@ -251,26 +251,26 @@ namespace Models
     protected:
       // Indicates whether cold data storage is enabled. Valid values:
       // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> coldEnable_ {};
       // The cold data storage duration. Unit: days.
       shared_ptr<int32_t> coldRetention_ {};
       // The start time of cold data storage. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> coldStartTime_ {};
       // The collector version. Valid values:
-      // 
       // - **MYSQL_V0**: MySQL V0.
       // - **MYSQL_V1**: MySQL V1.
       // - **MYSQL_V2**: MySQL V2.
       // - **MYSQL_V3**: MySQL V3.
       // - **PG_V1**: PostgreSQL V1.
-      // - **rdspg_v1**: ApsaraDB RDS for PostgreSQL V1.
+      // - **rdspg_v1**: RDS PostgreSQL V1.
       // - **polarpg_v1**: PolarDB for PostgreSQL V1.
       shared_ptr<string> collectorVersion_ {};
+      // Indicates whether SQL Explorer is enabled. This parameter is an alias of SqlLogEnable.
       shared_ptr<bool> enable_ {};
       // Indicates whether hot data storage is enabled. Valid values:
       // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> hotEnable_ {};
       // The hot data storage duration. Unit: days.
       shared_ptr<int32_t> hotRetention_ {};
@@ -280,7 +280,7 @@ namespace Models
       shared_ptr<string> logFilter_ {};
       // Indicates whether SQL Explorer is enabled. Valid values:
       // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> requestEnable_ {};
       // The time when SQL Explorer was enabled. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> requestStartTime_ {};
@@ -290,7 +290,7 @@ namespace Models
       shared_ptr<int32_t> retention_ {};
       // Indicates whether DAS Enterprise Edition is enabled. Valid values:
       // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> sqlLogEnable_ {};
       // A reserved parameter.
       shared_ptr<string> sqlLogSource_ {};
@@ -304,8 +304,9 @@ namespace Models
       shared_ptr<int64_t> sqlLogVisibleTime_ {};
       // A reserved parameter.
       shared_ptr<bool> supportMigration_ {};
+      // Indicates whether the engine and region of the current instance support security audit activation. This field only indicates product capability and does not indicate that security audit is already enabled.
       shared_ptr<bool> supportSecurityAudit_ {};
-      // The latest DAS Enterprise Edition version supported by the instance. Valid values:
+      // The latest DAS Enterprise Edition version supported by the current instance. Valid values:
       // - **SQL_LOG_V0**: Enterprise Edition V0.
       // - **SQL_LOG_V1**: Enterprise Edition V1.
       // - **SQL_LOG_V2**: Enterprise Edition V2.
@@ -368,7 +369,7 @@ namespace Models
     // The returned data.
     shared_ptr<DescribeSqlLogConfigResponseBody::Data> data_ {};
     // The returned message.
-    // >If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

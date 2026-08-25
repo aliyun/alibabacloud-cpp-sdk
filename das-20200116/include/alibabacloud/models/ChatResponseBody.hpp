@@ -14,16 +14,24 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChatResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ActivityType, activityType_);
+      DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(Delta, delta_);
+      DARABONBA_PTR_TO_JSON(Kind, kind_);
+      DARABONBA_PTR_TO_JSON(Label, label_);
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OriginatingToolCallId, originatingToolCallId_);
+      DARABONBA_PTR_TO_JSON(ParentAgentId, parentAgentId_);
       DARABONBA_PTR_TO_JSON(ParentMessageId, parentMessageId_);
       DARABONBA_PTR_TO_JSON(Role, role_);
       DARABONBA_PTR_TO_JSON(RunId, runId_);
       DARABONBA_PTR_TO_JSON(StepName, stepName_);
+      DARABONBA_PTR_TO_JSON(StepStatus, stepStatus_);
       DARABONBA_PTR_TO_JSON(TaskTrackerId, taskTrackerId_);
       DARABONBA_PTR_TO_JSON(ThreadId, threadId_);
+      DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_TO_JSON(ToolCallError, toolCallError_);
       DARABONBA_PTR_TO_JSON(ToolCallId, toolCallId_);
       DARABONBA_PTR_TO_JSON(ToolCallName, toolCallName_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -31,16 +39,24 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ChatResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ActivityType, activityType_);
+      DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(Delta, delta_);
+      DARABONBA_PTR_FROM_JSON(Kind, kind_);
+      DARABONBA_PTR_FROM_JSON(Label, label_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OriginatingToolCallId, originatingToolCallId_);
+      DARABONBA_PTR_FROM_JSON(ParentAgentId, parentAgentId_);
       DARABONBA_PTR_FROM_JSON(ParentMessageId, parentMessageId_);
       DARABONBA_PTR_FROM_JSON(Role, role_);
       DARABONBA_PTR_FROM_JSON(RunId, runId_);
       DARABONBA_PTR_FROM_JSON(StepName, stepName_);
+      DARABONBA_PTR_FROM_JSON(StepStatus, stepStatus_);
       DARABONBA_PTR_FROM_JSON(TaskTrackerId, taskTrackerId_);
       DARABONBA_PTR_FROM_JSON(ThreadId, threadId_);
+      DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_FROM_JSON(ToolCallError, toolCallError_);
       DARABONBA_PTR_FROM_JSON(ToolCallId, toolCallId_);
       DARABONBA_PTR_FROM_JSON(ToolCallName, toolCallName_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -58,14 +74,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activityType_ == nullptr
-        && this->content_ == nullptr && this->delta_ == nullptr && this->messageId_ == nullptr && this->name_ == nullptr && this->parentMessageId_ == nullptr
-        && this->role_ == nullptr && this->runId_ == nullptr && this->stepName_ == nullptr && this->taskTrackerId_ == nullptr && this->threadId_ == nullptr
-        && this->toolCallId_ == nullptr && this->toolCallName_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
+        && this->agentId_ == nullptr && this->content_ == nullptr && this->delta_ == nullptr && this->kind_ == nullptr && this->label_ == nullptr
+        && this->messageId_ == nullptr && this->name_ == nullptr && this->originatingToolCallId_ == nullptr && this->parentAgentId_ == nullptr && this->parentMessageId_ == nullptr
+        && this->role_ == nullptr && this->runId_ == nullptr && this->stepName_ == nullptr && this->stepStatus_ == nullptr && this->taskTrackerId_ == nullptr
+        && this->threadId_ == nullptr && this->timestamp_ == nullptr && this->toolCallError_ == nullptr && this->toolCallId_ == nullptr && this->toolCallName_ == nullptr
+        && this->type_ == nullptr && this->value_ == nullptr; };
     // activityType Field Functions 
     bool hasActivityType() const { return this->activityType_ != nullptr;};
     void deleteActivityType() { this->activityType_ = nullptr;};
     inline string getActivityType() const { DARABONBA_PTR_GET_DEFAULT(activityType_, "") };
     inline ChatResponseBody& setActivityType(string activityType) { DARABONBA_PTR_SET_VALUE(activityType_, activityType) };
+
+
+    // agentId Field Functions 
+    bool hasAgentId() const { return this->agentId_ != nullptr;};
+    void deleteAgentId() { this->agentId_ = nullptr;};
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline ChatResponseBody& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
     // content Field Functions 
@@ -82,6 +107,20 @@ namespace Models
     inline ChatResponseBody& setDelta(string delta) { DARABONBA_PTR_SET_VALUE(delta_, delta) };
 
 
+    // kind Field Functions 
+    bool hasKind() const { return this->kind_ != nullptr;};
+    void deleteKind() { this->kind_ = nullptr;};
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline ChatResponseBody& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+    // label Field Functions 
+    bool hasLabel() const { return this->label_ != nullptr;};
+    void deleteLabel() { this->label_ = nullptr;};
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline ChatResponseBody& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
@@ -94,6 +133,20 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ChatResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // originatingToolCallId Field Functions 
+    bool hasOriginatingToolCallId() const { return this->originatingToolCallId_ != nullptr;};
+    void deleteOriginatingToolCallId() { this->originatingToolCallId_ = nullptr;};
+    inline string getOriginatingToolCallId() const { DARABONBA_PTR_GET_DEFAULT(originatingToolCallId_, "") };
+    inline ChatResponseBody& setOriginatingToolCallId(string originatingToolCallId) { DARABONBA_PTR_SET_VALUE(originatingToolCallId_, originatingToolCallId) };
+
+
+    // parentAgentId Field Functions 
+    bool hasParentAgentId() const { return this->parentAgentId_ != nullptr;};
+    void deleteParentAgentId() { this->parentAgentId_ = nullptr;};
+    inline string getParentAgentId() const { DARABONBA_PTR_GET_DEFAULT(parentAgentId_, "") };
+    inline ChatResponseBody& setParentAgentId(string parentAgentId) { DARABONBA_PTR_SET_VALUE(parentAgentId_, parentAgentId) };
 
 
     // parentMessageId Field Functions 
@@ -124,6 +177,13 @@ namespace Models
     inline ChatResponseBody& setStepName(string stepName) { DARABONBA_PTR_SET_VALUE(stepName_, stepName) };
 
 
+    // stepStatus Field Functions 
+    bool hasStepStatus() const { return this->stepStatus_ != nullptr;};
+    void deleteStepStatus() { this->stepStatus_ = nullptr;};
+    inline string getStepStatus() const { DARABONBA_PTR_GET_DEFAULT(stepStatus_, "") };
+    inline ChatResponseBody& setStepStatus(string stepStatus) { DARABONBA_PTR_SET_VALUE(stepStatus_, stepStatus) };
+
+
     // taskTrackerId Field Functions 
     bool hasTaskTrackerId() const { return this->taskTrackerId_ != nullptr;};
     void deleteTaskTrackerId() { this->taskTrackerId_ = nullptr;};
@@ -136,6 +196,20 @@ namespace Models
     void deleteThreadId() { this->threadId_ = nullptr;};
     inline string getThreadId() const { DARABONBA_PTR_GET_DEFAULT(threadId_, "") };
     inline ChatResponseBody& setThreadId(string threadId) { DARABONBA_PTR_SET_VALUE(threadId_, threadId) };
+
+
+    // timestamp Field Functions 
+    bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+    void deleteTimestamp() { this->timestamp_ = nullptr;};
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline ChatResponseBody& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
+    // toolCallError Field Functions 
+    bool hasToolCallError() const { return this->toolCallError_ != nullptr;};
+    void deleteToolCallError() { this->toolCallError_ = nullptr;};
+    inline string getToolCallError() const { DARABONBA_PTR_GET_DEFAULT(toolCallError_, "") };
+    inline ChatResponseBody& setToolCallError(string toolCallError) { DARABONBA_PTR_SET_VALUE(toolCallError_, toolCallError) };
 
 
     // toolCallId Field Functions 
@@ -169,35 +243,43 @@ namespace Models
 
 
   protected:
-    // Indicates the current activity status of the agent.
+    // The heartbeat.
     shared_ptr<string> activityType_ {};
-    // The content of the response.
+    shared_ptr<string> agentId_ {};
+    // The response content.
     shared_ptr<string> content_ {};
-    // The incremental content of the response.
+    // Indicates whether the content is incremental.
     shared_ptr<string> delta_ {};
+    shared_ptr<string> kind_ {};
+    shared_ptr<string> label_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};
-    // The key for the additional information.
+    // The extension key.
     shared_ptr<string> name_ {};
-    // The ID of the parent message.
+    shared_ptr<string> originatingToolCallId_ {};
+    shared_ptr<string> parentAgentId_ {};
+    // The parent message ID.
     shared_ptr<string> parentMessageId_ {};
-    // The role in the conversation.
+    // The conversation role ID.
     shared_ptr<string> role_ {};
     // The run ID.
     shared_ptr<string> runId_ {};
-    // The name of the execution step.
+    // The execution step name.
     shared_ptr<string> stepName_ {};
-    // The identifier of the callback tool.
+    shared_ptr<string> stepStatus_ {};
+    // The callback tool class.
     shared_ptr<string> taskTrackerId_ {};
     // The thread ID.
     shared_ptr<string> threadId_ {};
-    // The tool call ID.
+    shared_ptr<int64_t> timestamp_ {};
+    shared_ptr<string> toolCallError_ {};
+    // The tool calling invoke ID.
     shared_ptr<string> toolCallId_ {};
-    // The name of the tool.
+    // The tool name.
     shared_ptr<string> toolCallName_ {};
     // The event type.
     shared_ptr<string> type_ {};
-    // The value of the additional information.
+    // The extension value.
     Darabonba::Json value_ {};
   };
 
