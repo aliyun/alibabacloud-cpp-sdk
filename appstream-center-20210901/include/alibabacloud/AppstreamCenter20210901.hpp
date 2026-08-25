@@ -567,6 +567,27 @@ namespace AppstreamCenter20210901
       Models::GetDebugAppInstanceResponse getDebugAppInstance(const Models::GetDebugAppInstanceRequest &request);
 
       /**
+       * @summary Retrieves file upload information.
+       *
+       * @description Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+       *
+       * @param request GetFileUploadInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFileUploadInfoResponse
+       */
+      Models::GetFileUploadInfoResponse getFileUploadInfoWithOptions(const Models::GetFileUploadInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves file upload information.
+       *
+       * @description Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+       *
+       * @param request GetFileUploadInfoRequest
+       * @return GetFileUploadInfoResponse
+       */
+      Models::GetFileUploadInfoResponse getFileUploadInfo(const Models::GetFileUploadInfoRequest &request);
+
+      /**
        * @summary Queries the details of a model provider template.
        *
        * @description You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
@@ -829,7 +850,7 @@ namespace AppstreamCenter20210901
       /**
        * @summary Queries the list of model provider templates.
        *
-       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
        * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param tmpReq ListModelProviderTemplatesRequest
@@ -841,7 +862,7 @@ namespace AppstreamCenter20210901
       /**
        * @summary Queries the list of model provider templates.
        *
-       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+       * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
        * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
        *
        * @param request ListModelProviderTemplatesRequest

@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProviderName, providerName_);
         DARABONBA_PTR_TO_JSON(ProviderTemplateId, providerTemplateId_);
         DARABONBA_PTR_TO_JSON(ProviderType, providerType_);
+        DARABONBA_PTR_TO_JSON(WuyingProviderKey, wuyingProviderKey_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Config, config_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProviderName, providerName_);
         DARABONBA_PTR_FROM_JSON(ProviderTemplateId, providerTemplateId_);
         DARABONBA_PTR_FROM_JSON(ProviderType, providerType_);
+        DARABONBA_PTR_FROM_JSON(WuyingProviderKey, wuyingProviderKey_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -71,7 +73,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->config_ == nullptr
         && this->description_ == nullptr && this->enableWuyingProxy_ == nullptr && this->name_ == nullptr && this->providerName_ == nullptr && this->providerTemplateId_ == nullptr
-        && this->providerType_ == nullptr; };
+        && this->providerType_ == nullptr && this->wuyingProviderKey_ == nullptr; };
       // config Field Functions 
       bool hasConfig() const { return this->config_ != nullptr;};
       void deleteConfig() { this->config_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
       inline Data& setProviderType(string providerType) { DARABONBA_PTR_SET_VALUE(providerType_, providerType) };
 
 
+      // wuyingProviderKey Field Functions 
+      bool hasWuyingProviderKey() const { return this->wuyingProviderKey_ != nullptr;};
+      void deleteWuyingProviderKey() { this->wuyingProviderKey_ = nullptr;};
+      inline string getWuyingProviderKey() const { DARABONBA_PTR_GET_DEFAULT(wuyingProviderKey_, "") };
+      inline Data& setWuyingProviderKey(string wuyingProviderKey) { DARABONBA_PTR_SET_VALUE(wuyingProviderKey_, wuyingProviderKey) };
+
+
     protected:
       // The model provider configuration JSON object.
       shared_ptr<string> config_ {};
@@ -136,6 +145,8 @@ namespace Models
       shared_ptr<string> providerTemplateId_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
+      // The WUYING secure gateway proxy ProviderKey.
+      shared_ptr<string> wuyingProviderKey_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
@@ -180,7 +191,7 @@ namespace Models
   protected:
     // The list of returned data objects.
     shared_ptr<vector<ListModelProviderTemplatesResponseBody::Data>> data_ {};
-    // The page number of the current query results.
+    // The current page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

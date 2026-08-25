@@ -1800,6 +1800,52 @@ GetDebugAppInstanceResponse Client::getDebugAppInstance(const GetDebugAppInstanc
 }
 
 /**
+ * @summary Retrieves file upload information.
+ *
+ * @description Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+ *
+ * @param request GetFileUploadInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFileUploadInfoResponse
+ */
+GetFileUploadInfoResponse Client::getFileUploadInfoWithOptions(const GetFileUploadInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFileUploadInfo"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFileUploadInfoResponse>();
+}
+
+/**
+ * @summary Retrieves file upload information.
+ *
+ * @description Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+ *
+ * @param request GetFileUploadInfoRequest
+ * @return GetFileUploadInfoResponse
+ */
+GetFileUploadInfoResponse Client::getFileUploadInfo(const GetFileUploadInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFileUploadInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a model provider template.
  *
  * @description You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
@@ -2848,7 +2894,7 @@ ListModelProviderEndpointsResponse Client::listModelProviderEndpoints(const List
 /**
  * @summary Queries the list of model provider templates.
  *
- * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+ * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
  * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
  *
  * @param tmpReq ListModelProviderTemplatesRequest
@@ -2916,7 +2962,7 @@ ListModelProviderTemplatesResponse Client::listModelProviderTemplatesWithOptions
 /**
  * @summary Queries the list of model provider templates.
  *
- * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+ * @description You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
  * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
  *
  * @param request ListModelProviderTemplatesRequest

@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The name of the Agent provider.
+    // The Agent provider name.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};

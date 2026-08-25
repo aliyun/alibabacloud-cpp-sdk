@@ -169,6 +169,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
         DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
         DARABONBA_PTR_TO_JSON(PolicyVersion, policyVersion_);
+        DARABONBA_PTR_TO_JSON(RevokeAccessPolicyRules, revokeAccessPolicyRules_);
         DARABONBA_PTR_TO_JSON(VideoPolicy, videoPolicy_);
         DARABONBA_PTR_TO_JSON(WatermarkPolicy, watermarkPolicy_);
       };
@@ -185,6 +186,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
         DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
         DARABONBA_PTR_FROM_JSON(PolicyVersion, policyVersion_);
+        DARABONBA_PTR_FROM_JSON(RevokeAccessPolicyRules, revokeAccessPolicyRules_);
         DARABONBA_PTR_FROM_JSON(VideoPolicy, videoPolicy_);
         DARABONBA_PTR_FROM_JSON(WatermarkPolicy, watermarkPolicy_);
       };
@@ -239,7 +241,7 @@ namespace Models
 
 
       protected:
-        // The watermark switch.
+        // Specifies whether to enable the watermark.
         shared_ptr<string> watermarkSwitch_ {};
         // The list of watermark types.
         shared_ptr<vector<string>> watermarkTypes_ {};
@@ -275,6 +277,50 @@ namespace Models
       protected:
         // The frame rate.
         shared_ptr<int32_t> frameRate_ {};
+      };
+
+      class RevokeAccessPolicyRules : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RevokeAccessPolicyRules& obj) { 
+          DARABONBA_PTR_TO_JSON(CidrIp, cidrIp_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+        };
+        friend void from_json(const Darabonba::Json& j, RevokeAccessPolicyRules& obj) { 
+          DARABONBA_PTR_FROM_JSON(CidrIp, cidrIp_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+        };
+        RevokeAccessPolicyRules() = default ;
+        RevokeAccessPolicyRules(const RevokeAccessPolicyRules &) = default ;
+        RevokeAccessPolicyRules(RevokeAccessPolicyRules &&) = default ;
+        RevokeAccessPolicyRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RevokeAccessPolicyRules() = default ;
+        RevokeAccessPolicyRules& operator=(const RevokeAccessPolicyRules &) = default ;
+        RevokeAccessPolicyRules& operator=(RevokeAccessPolicyRules &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->cidrIp_ == nullptr
+        && this->description_ == nullptr; };
+        // cidrIp Field Functions 
+        bool hasCidrIp() const { return this->cidrIp_ != nullptr;};
+        void deleteCidrIp() { this->cidrIp_ = nullptr;};
+        inline string getCidrIp() const { DARABONBA_PTR_GET_DEFAULT(cidrIp_, "") };
+        inline RevokeAccessPolicyRules& setCidrIp(string cidrIp) { DARABONBA_PTR_SET_VALUE(cidrIp_, cidrIp) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline RevokeAccessPolicyRules& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      protected:
+        // The IPv4 address or CIDR block to revoke.
+        shared_ptr<string> cidrIp_ {};
+        // The description of the access IP address whitelist rule to revoke.
+        shared_ptr<string> description_ {};
       };
 
       class ClipboardPolicy : public Darabonba::Model {
@@ -478,25 +524,25 @@ namespace Models
         shared_ptr<string> richTextClipboard_ {};
         // The rich text clipboard limit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The maximum size of rich text that can be downloaded from the cloud via the clipboard.
+        // The maximum size of rich text that can be downloaded from the cloud browser through the clipboard.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The size unit for rich text clipboard downloads from the cloud.
+        // The size unit for rich text downloaded from the cloud browser through the clipboard.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         // The rich text clipboard size unit.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The maximum size of rich text that can be uploaded to the cloud via the clipboard.
+        // The maximum size of rich text that can be uploaded to the cloud browser through the clipboard.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The size unit for rich text clipboard uploads to the cloud.
+        // The size unit for rich text uploaded to the cloud browser through the clipboard.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         shared_ptr<string> textClipboard_ {};
-        // The maximum size of text that can be downloaded from the cloud via the clipboard.
+        // The maximum size of text that can be downloaded from the cloud browser through the clipboard.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The size unit for text clipboard downloads from the cloud.
+        // The size unit for text downloaded from the cloud browser through the clipboard.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The maximum size of text that can be uploaded to the cloud via the clipboard.
+        // The maximum size of text that can be uploaded to the cloud browser through the clipboard.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The size unit for text clipboard uploads to the cloud.
+        // The size unit for text uploaded to the cloud browser through the clipboard.
         shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
@@ -587,7 +633,7 @@ namespace Models
       virtual bool empty() const override { return this->appContentProtection_ == nullptr
         && this->authorizeAccessPolicyRules_ == nullptr && this->clientTypes_ == nullptr && this->clipboardPolicy_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr
         && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyId_ == nullptr
-        && this->policyVersion_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
+        && this->policyVersion_ == nullptr && this->revokeAccessPolicyRules_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
       // appContentProtection Field Functions 
       bool hasAppContentProtection() const { return this->appContentProtection_ != nullptr;};
       void deleteAppContentProtection() { this->appContentProtection_ = nullptr;};
@@ -678,6 +724,15 @@ namespace Models
       inline Policy& setPolicyVersion(string policyVersion) { DARABONBA_PTR_SET_VALUE(policyVersion_, policyVersion) };
 
 
+      // revokeAccessPolicyRules Field Functions 
+      bool hasRevokeAccessPolicyRules() const { return this->revokeAccessPolicyRules_ != nullptr;};
+      void deleteRevokeAccessPolicyRules() { this->revokeAccessPolicyRules_ = nullptr;};
+      inline const vector<Policy::RevokeAccessPolicyRules> & getRevokeAccessPolicyRules() const { DARABONBA_PTR_GET_CONST(revokeAccessPolicyRules_, vector<Policy::RevokeAccessPolicyRules>) };
+      inline vector<Policy::RevokeAccessPolicyRules> getRevokeAccessPolicyRules() { DARABONBA_PTR_GET(revokeAccessPolicyRules_, vector<Policy::RevokeAccessPolicyRules>) };
+      inline Policy& setRevokeAccessPolicyRules(const vector<Policy::RevokeAccessPolicyRules> & revokeAccessPolicyRules) { DARABONBA_PTR_SET_VALUE(revokeAccessPolicyRules_, revokeAccessPolicyRules) };
+      inline Policy& setRevokeAccessPolicyRules(vector<Policy::RevokeAccessPolicyRules> && revokeAccessPolicyRules) { DARABONBA_PTR_SET_RVALUE(revokeAccessPolicyRules_, revokeAccessPolicyRules) };
+
+
       // videoPolicy Field Functions 
       bool hasVideoPolicy() const { return this->videoPolicy_ != nullptr;};
       void deleteVideoPolicy() { this->videoPolicy_ = nullptr;};
@@ -703,7 +758,7 @@ namespace Models
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
       // The logon client type control settings.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
-      // The clipboard-related policy.
+      // The clipboard policy.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
       // The data retention policy upon disconnection.
       shared_ptr<string> disconnectKeepSession_ {};
@@ -715,13 +770,15 @@ namespace Models
       shared_ptr<string> html5FileTransfer_ {};
       // The policy for disconnecting sessions when no operation is performed.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The time in seconds before a session is disconnected when no operation is performed.
+      // The no-operation disconnect time, in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
       // The policy version.
       shared_ptr<string> policyVersion_ {};
-      // The display policy.
+      // The server-side access IP address whitelist rules to revoke in this request.
+      shared_ptr<vector<Policy::RevokeAccessPolicyRules>> revokeAccessPolicyRules_ {};
+      // The video policy.
       shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
       // The watermark configuration.
       shared_ptr<Policy::WatermarkPolicy> watermarkPolicy_ {};

@@ -82,6 +82,9 @@
 #include <alibabacloud/models/GetDebugAppInstanceRequest.hpp>
 #include <alibabacloud/models/GetDebugAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetDebugAppInstanceResponse.hpp>
+#include <alibabacloud/models/GetFileUploadInfoRequest.hpp>
+#include <alibabacloud/models/GetFileUploadInfoResponseBody.hpp>
+#include <alibabacloud/models/GetFileUploadInfoResponse.hpp>
 #include <alibabacloud/models/GetModelProviderTemplateRequest.hpp>
 #include <alibabacloud/models/GetModelProviderTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetModelProviderTemplateResponse.hpp>
