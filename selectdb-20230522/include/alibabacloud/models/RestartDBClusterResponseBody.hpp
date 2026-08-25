@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The returned information.
+    // The response data.
     shared_ptr<RestartDBClusterResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

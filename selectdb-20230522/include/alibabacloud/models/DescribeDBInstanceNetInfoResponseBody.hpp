@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // Connection port number.
+        // The connection port number.
         shared_ptr<int32_t> port_ {};
-        // Port type. Valid values:
+        // The port type. Valid values:
         // 
         // - **HttpPort**: HTTP protocol port.
         // 
@@ -186,31 +186,31 @@ namespace Models
 
 
     protected:
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Connection address.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
-      // IP address.
+      // The IP address.
       shared_ptr<string> ip_ {};
-      // Network type of the instance. Valid values:
+      // The network type of the instance. Valid values:
       // 
-      // - **VPC**: Virtual Private Cloud (VPC).
-      // 
+      // - **VPC**: virtual private cloud (VPC).
+      //                               
       // - **PUBLIC**: Internet.
       shared_ptr<string> netType_ {};
-      // Port object.
+      // The port objects.
       shared_ptr<vector<DBInstanceNetInfos::PortList>> portList_ {};
-      // Indicates whether the information is visible to users. Valid values:
+      // Indicates whether the network information is visible to users. Valid values:
       // 
       // - **true**: Visible to users.
       // 
       // - **false**: Not visible to users.
       shared_ptr<bool> userVisible_ {};
-      // VPC ID.
+      // VPC ID。
       shared_ptr<string> vpcId_ {};
-      // VPC instance ID.
+      // The VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
-      // vSwitch ID.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -287,9 +287,9 @@ namespace Models
 
 
       protected:
-        // Connection port number.
+        // The connection port number.
         shared_ptr<int32_t> port_ {};
-        // Port type.
+        // The port type.
         shared_ptr<string> protocol_ {};
       };
 
@@ -362,23 +362,23 @@ namespace Models
 
 
     protected:
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Connection address.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
-      // IP address.
+      // The IP address.
       shared_ptr<string> ip_ {};
-      // Network type.
+      // The network type.
       shared_ptr<string> netType_ {};
-      // Port list.
+      // The port list.
       shared_ptr<vector<DBClustersNetInfos::PortList>> portList_ {};
-      // Indicates whether the information is visible to users.
+      // Indicates whether the network information is visible to users.
       shared_ptr<bool> userVisible_ {};
-      // VPC ID.
+      // VPC ID。
       shared_ptr<string> vpcId_ {};
-      // VPC instance ID.
+      // The VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
-      // vSwitch ID.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -410,11 +410,11 @@ namespace Models
 
 
   protected:
-    // Network list of BE instances.
+    // The network information list of the BE instances.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBClustersNetInfos>> DBClustersNetInfos_ {};
-    // Instance network information.
+    // The network information of the instance.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBInstanceNetInfos>> DBInstanceNetInfos_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

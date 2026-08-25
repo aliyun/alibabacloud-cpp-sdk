@@ -84,25 +84,24 @@ namespace Models
 
 
   protected:
-    // Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Attribute type to modify.
-    // Set to DBInstanceDescription.
+    // The type of the attribute to modify. Set this parameter to DBInstanceDescription.
     // 
     // This parameter is required.
     shared_ptr<string> instanceAttributeType_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Target cluster name.
+    // The new cluster name.
     // 
     // This parameter is required.
     shared_ptr<string> value_ {};

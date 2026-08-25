@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The ID of the primary cluster.
+    // The primary cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> activeClusterId_ {};
-    // The name of the cluster. The name must start with a letter and be up to 64 characters long. It can contain letters (case-insensitive), digits, and underscores (_). The name cannot contain two or more consecutive underscores. The cluster name must be unique within the instance.
+    // The instance name. Naming rules: must start with a letter, can contain up to 64 characters, and can include letters (case-insensitive), digits, and underscores (_). The name cannot contain two or more consecutive underscores (_), and cluster names must be unique within the same instance.
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the standby cluster.
+    // The secondary cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> standbyClusterId_ {};

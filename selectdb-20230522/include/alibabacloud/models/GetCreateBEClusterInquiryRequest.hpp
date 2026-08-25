@@ -142,13 +142,13 @@ namespace Models
   protected:
     // The elastic cache space.
     shared_ptr<int64_t> cacheSize_ {};
-    // The billing method.
+    // The billing type.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
     // The commodity code.
     shared_ptr<string> commodityCode_ {};
-    // The elastic computing resources.
+    // The elastic compute resources.
     shared_ptr<int64_t> computeSize_ {};
     // The instance ID.
     // 
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> dbInstanceId_ {};
     // The reserved cache space.
     shared_ptr<int64_t> preCacheSize_ {};
-    // The reserved computing resources.
+    // The reserved compute resources.
     shared_ptr<int64_t> preComputeSize_ {};
     // The billing cycle.
     // 

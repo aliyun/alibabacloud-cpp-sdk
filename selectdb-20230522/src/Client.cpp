@@ -19,31 +19,31 @@ namespace Selectdb20230522
 AlibabaCloud::Selectdb20230522::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
+    {"ap-northeast-2" , "selectdb.aliyuncs.com"},
+    {"ap-southeast-3" , "selectdb.aliyuncs.com"},
+    {"ap-southeast-7" , "selectdb.aliyuncs.com"},
+    {"cn-heyuan" , "selectdb.aliyuncs.com"},
+    {"cn-shenzhen" , "selectdb.cn-shenzhen.aliyuncs.com"},
+    {"cn-wulanchabu" , "selectdb.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "selectdb.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "selectdb.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "selectdb.cn-chengdu.aliyuncs.com"},
+    {"cn-qingdao" , "selectdb.cn-qingdao.aliyuncs.com"},
+    {"cn-shanghai" , "selectdb.cn-shanghai.aliyuncs.com"},
+    {"cn-guangzhou" , "selectdb.cn-guangzhou.aliyuncs.com"},
+    {"cn-hongkong" , "selectdb.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "selectdb.ap-southeast-1.aliyuncs.com"},
+    {"cn-huhehaote" , "selectdb.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "selectdb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "selectdb.ap-southeast-6.aliyuncs.com"},
+    {"cn-zhangjiakou" , "selectdb.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "selectdb.aliyuncs.com"},
     {"us-west-1" , "selectdb.us-west-1.aliyuncs.com"},
     {"us-east-1" , "selectdb.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "selectdb.na-south-1.aliyuncs.com"},
-    {"eu-west-1" , "selectdb.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "selectdb.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "selectdb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "selectdb.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "selectdb.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "selectdb.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "selectdb.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "selectdb.cn-qingdao.aliyuncs.com"},
-    {"cn-huhehaote" , "selectdb.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "selectdb.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "selectdb.aliyuncs.com"},
-    {"cn-hangzhou" , "selectdb.aliyuncs.com"},
-    {"cn-guangzhou" , "selectdb.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "selectdb.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "selectdb.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-7" , "selectdb.aliyuncs.com"},
-    {"ap-southeast-6" , "selectdb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "selectdb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "selectdb.aliyuncs.com"},
-    {"ap-southeast-1" , "selectdb.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "selectdb.aliyuncs.com"},
-    {"ap-northeast-1" , "selectdb.ap-northeast-1.aliyuncs.com"}
+    {"eu-west-1" , "selectdb.eu-west-1.aliyuncs.com"},
+    {"na-south-1" , "selectdb.na-south-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "selectdb.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("selectdb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -319,7 +319,7 @@ CheckIpExistsInSecurityIpListResponse Client::checkIpExistsInSecurityIpList(cons
 }
 
 /**
- * @summary Call this operation to check the service-linked role.
+ * @summary Checks the service-linked role.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -354,7 +354,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRoleWithOptions(const C
 }
 
 /**
- * @summary Call this operation to check the service-linked role.
+ * @summary Checks the service-linked role.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @return CheckServiceLinkedRoleResponse
@@ -711,7 +711,7 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
- * @summary Creates a time-based scaling rule.
+ * @summary Creates a time-based elastic scaling rule.
  *
  * @param request CreateElasticRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +766,7 @@ CreateElasticRuleResponse Client::createElasticRuleWithOptions(const CreateElast
 }
 
 /**
- * @summary Creates a time-based scaling rule.
+ * @summary Creates a time-based elastic scaling rule.
  *
  * @param request CreateElasticRuleRequest
  * @return CreateElasticRuleResponse
@@ -777,7 +777,7 @@ CreateElasticRuleResponse Client::createElasticRule(const CreateElasticRuleReque
 }
 
 /**
- * @summary Call this operation to create a service-linked role.
+ * @summary Creates a service-linked role.
  *
  * @param request CreateServiceLinkedRoleForSelectDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +812,7 @@ CreateServiceLinkedRoleForSelectDBResponse Client::createServiceLinkedRoleForSel
 }
 
 /**
- * @summary Call this operation to create a service-linked role.
+ * @summary Creates a service-linked role.
  *
  * @param request CreateServiceLinkedRoleForSelectDBRequest
  * @return CreateServiceLinkedRoleForSelectDBResponse
@@ -825,9 +825,9 @@ CreateServiceLinkedRoleForSelectDBResponse Client::createServiceLinkedRoleForSel
 /**
  * @summary Creates a virtual cluster.
  *
- * @description This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+ * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
  * - The minor engine version of the instance is 4.0.7 or later.
- * - The primary and standby clusters are in different zones.
+ * - The primary and secondary clusters are in different zones.
  *
  * @param request CreateVirtualClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -876,9 +876,9 @@ CreateVirtualClusterResponse Client::createVirtualClusterWithOptions(const Creat
 /**
  * @summary Creates a virtual cluster.
  *
- * @description This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+ * @description Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
  * - The minor engine version of the instance is 4.0.7 or later.
- * - The primary and standby clusters are in different zones.
+ * - The primary and secondary clusters are in different zones.
  *
  * @param request CreateVirtualClusterRequest
  * @return CreateVirtualClusterResponse
@@ -1003,7 +1003,7 @@ DeleteDBClusterBindingResponse Client::deleteDBClusterBinding(const DeleteDBClus
 }
 
 /**
- * @summary Deletes a specified ApsaraDB SelectDB instance.
+ * @summary Deletes a specified ApsaraDB for SelectDB instance.
  *
  * @description Subscription instances cannot be deleted.
  *
@@ -1046,7 +1046,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
- * @summary Deletes a specified ApsaraDB SelectDB instance.
+ * @summary Deletes a specified ApsaraDB for SelectDB instance.
  *
  * @description Subscription instances cannot be deleted.
  *
@@ -1123,7 +1123,8 @@ DeleteElasticRuleResponse Client::deleteElasticRule(const DeleteElasticRuleReque
 /**
  * @summary Deletes a virtual cluster.
  *
- * @description > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
+ * @description > 
+ * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
  *
  * @param request DeleteVirtualClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1164,7 +1165,8 @@ DeleteVirtualClusterResponse Client::deleteVirtualClusterWithOptions(const Delet
 /**
  * @summary Deletes a virtual cluster.
  *
- * @description > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
+ * @description > 
+ * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
  *
  * @param request DeleteVirtualClusterRequest
  * @return DeleteVirtualClusterResponse
@@ -1175,7 +1177,7 @@ DeleteVirtualClusterResponse Client::deleteVirtualCluster(const DeleteVirtualClu
 }
 
 /**
- * @summary Retrieves all instance type information.
+ * @summary Retrieves information about all instance specifications.
  *
  * @param request DescribeAllDBInstanceClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1184,6 +1186,10 @@ DeleteVirtualClusterResponse Client::deleteVirtualCluster(const DeleteVirtualClu
 DescribeAllDBInstanceClassResponse Client::describeAllDBInstanceClassWithOptions(const DescribeAllDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -1210,7 +1216,7 @@ DescribeAllDBInstanceClassResponse Client::describeAllDBInstanceClassWithOptions
 }
 
 /**
- * @summary Retrieves all instance type information.
+ * @summary Retrieves information about all instance specifications.
  *
  * @param request DescribeAllDBInstanceClassRequest
  * @return DescribeAllDBInstanceClassResponse
@@ -1275,7 +1281,7 @@ DescribeDBClusterConfigResponse Client::describeDBClusterConfig(const DescribeDB
 }
 
 /**
- * @summary Queries the change logs for cluster configurations.
+ * @summary Queries the configuration change records of a cluster.
  *
  * @param request DescribeDBClusterConfigChangeLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1326,7 +1332,7 @@ DescribeDBClusterConfigChangeLogsResponse Client::describeDBClusterConfigChangeL
 }
 
 /**
- * @summary Queries the change logs for cluster configurations.
+ * @summary Queries the configuration change records of a cluster.
  *
  * @param request DescribeDBClusterConfigChangeLogsRequest
  * @return DescribeDBClusterConfigChangeLogsResponse
@@ -1437,7 +1443,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttribute(const De
 }
 
 /**
- * @summary Queries the network information of a specified ApsaraDB SelectDB instance.
+ * @summary Queries the network information of a specified ApsaraDB for SelectDB instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1482,7 @@ DescribeDBInstanceNetInfoResponse Client::describeDBInstanceNetInfoWithOptions(c
 }
 
 /**
- * @summary Queries the network information of a specified ApsaraDB SelectDB instance.
+ * @summary Queries the network information of a specified ApsaraDB for SelectDB instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @return DescribeDBInstanceNetInfoResponse
@@ -1925,7 +1931,7 @@ DescribeTableSchemaResponse Client::describeTableSchema(const DescribeTableSchem
 }
 
 /**
- * @summary Queries vSwitches in a specified zone.
+ * @summary Lists vSwitches in a zone.
  *
  * @param request DescribeVSwitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1980,7 +1986,7 @@ DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSw
 }
 
 /**
- * @summary Queries vSwitches in a specified zone.
+ * @summary Lists vSwitches in a zone.
  *
  * @param request DescribeVSwitchesRequest
  * @return DescribeVSwitchesResponse
@@ -2103,7 +2109,7 @@ EnDisableScalingRulesResponse Client::enDisableScalingRules(const EnDisableScali
 }
 
 /**
- * @summary Queries pricing information for creating a new cluster in a SelectDB instance.
+ * @summary Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetCreateBEClusterInquiryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2130,7 +2136,7 @@ GetCreateBEClusterInquiryResponse Client::getCreateBEClusterInquiryWithOptions(c
 }
 
 /**
- * @summary Queries pricing information for creating a new cluster in a SelectDB instance.
+ * @summary Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetCreateBEClusterInquiryRequest
  * @return GetCreateBEClusterInquiryResponse
@@ -2179,7 +2185,7 @@ GetModifyBEClusterInquiryResponse Client::getModifyBEClusterInquiry(const GetMod
 }
 
 /**
- * @summary Modifies the cluster name of an ApsaraDB SelectDB instance.
+ * @summary Modifies the cluster name of an ApsaraDB for SelectDB instance.
  *
  * @param request ModifyBEClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2230,7 +2236,7 @@ ModifyBEClusterAttributeResponse Client::modifyBEClusterAttributeWithOptions(con
 }
 
 /**
- * @summary Modifies the cluster name of an ApsaraDB SelectDB instance.
+ * @summary Modifies the cluster name of an ApsaraDB for SelectDB instance.
  *
  * @param request ModifyBEClusterAttributeRequest
  * @return ModifyBEClusterAttributeResponse
@@ -2241,7 +2247,7 @@ ModifyBEClusterAttributeResponse Client::modifyBEClusterAttribute(const ModifyBE
 }
 
 /**
- * @summary Scales out or in a specified ApsaraDB for SelectDB cluster.
+ * @summary Scales a cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request ModifyDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2312,7 +2318,7 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
 }
 
 /**
- * @summary Scales out or in a specified ApsaraDB for SelectDB cluster.
+ * @summary Scales a cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request ModifyDBClusterRequest
  * @return ModifyDBClusterResponse
@@ -2323,7 +2329,7 @@ ModifyDBClusterResponse Client::modifyDBCluster(const ModifyDBClusterRequest &re
 }
 
 /**
- * @summary Modifies the cluster configuration.
+ * @summary Modifies the configuration of a cluster.
  *
  * @param request ModifyDBClusterConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2378,7 +2384,7 @@ ModifyDBClusterConfigResponse Client::modifyDBClusterConfigWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the cluster configuration.
+ * @summary Modifies the configuration of a cluster.
  *
  * @param request ModifyDBClusterConfigRequest
  * @return ModifyDBClusterConfigResponse
@@ -2585,11 +2591,10 @@ ModifySecurityIPListResponse Client::modifySecurityIPList(const ModifySecurityIP
 /**
  * @summary Modifies a virtual cluster.
  *
- * @description - You can modify the primary cluster independently.
- * - You can modify the standby cluster independently.
- * - You can switch between the primary and standby clusters.
- * >Warning: 
- * You cannot modify both the primary and standby clusters in the same operation.
+ * @description - You can modify the primary cluster separately.
+ * - You can modify the secondary cluster separately.
+ * - You can switch between the primary and secondary clusters.
+ * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
  *
  * @param request ModifyVirtualClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2638,11 +2643,10 @@ ModifyVirtualClusterResponse Client::modifyVirtualClusterWithOptions(const Modif
 /**
  * @summary Modifies a virtual cluster.
  *
- * @description - You can modify the primary cluster independently.
- * - You can modify the standby cluster independently.
- * - You can switch between the primary and standby clusters.
- * >Warning: 
- * You cannot modify both the primary and standby clusters in the same operation.
+ * @description - You can modify the primary cluster separately.
+ * - You can modify the secondary cluster separately.
+ * - You can switch between the primary and secondary clusters.
+ * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
  *
  * @param request ModifyVirtualClusterRequest
  * @return ModifyVirtualClusterResponse
@@ -2707,7 +2711,7 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(
 }
 
 /**
- * @summary Resets the password for a database account in an ApsaraDB for SelectDB instance.
+ * @summary Resets the account password of an ApsaraDB for SelectDB instance.
  *
  * @param request ResetAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2734,7 +2738,7 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 }
 
 /**
- * @summary Resets the password for a database account in an ApsaraDB for SelectDB instance.
+ * @summary Resets the account password of an ApsaraDB for SelectDB instance.
  *
  * @param request ResetAccountPasswordRequest
  * @return ResetAccountPasswordResponse
@@ -2745,7 +2749,7 @@ ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPass
 }
 
 /**
- * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
+ * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request RestartDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2798,7 +2802,7 @@ RestartDBClusterResponse Client::restartDBClusterWithOptions(const RestartDBClus
 }
 
 /**
- * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
+ * @summary Restarts a cluster of a specified ApsaraDB for SelectDB instance.
  *
  * @param request RestartDBClusterRequest
  * @return RestartDBClusterResponse
@@ -2863,7 +2867,7 @@ StartBEClusterResponse Client::startBECluster(const StartBEClusterRequest &reque
 }
 
 /**
- * @summary Stops a specified ApsaraDB SelectDB cluster.
+ * @summary Stops a specified ApsaraDB for SelectDB cluster.
  *
  * @param request StopBEClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2906,7 +2910,7 @@ StopBEClusterResponse Client::stopBEClusterWithOptions(const StopBEClusterReques
 }
 
 /**
- * @summary Stops a specified ApsaraDB SelectDB cluster.
+ * @summary Stops a specified ApsaraDB for SelectDB cluster.
  *
  * @param request StopBEClusterRequest
  * @return StopBEClusterResponse
@@ -3099,7 +3103,7 @@ UpgradeDBInstanceDeploySchemeResponse Client::upgradeDBInstanceDeployScheme(cons
 }
 
 /**
- * @summary Upgrades the database version of a specified ApsaraDB SelectDB instance.
+ * @summary Upgrades the database version of a specified ApsaraDB for SelectDB instance.
  *
  * @param request UpgradeDBInstanceEngineVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3150,7 +3154,7 @@ UpgradeDBInstanceEngineVersionResponse Client::upgradeDBInstanceEngineVersionWit
 }
 
 /**
- * @summary Upgrades the database version of a specified ApsaraDB SelectDB instance.
+ * @summary Upgrades the database version of a specified ApsaraDB for SelectDB instance.
  *
  * @param request UpgradeDBInstanceEngineVersionRequest
  * @return UpgradeDBInstanceEngineVersionResponse

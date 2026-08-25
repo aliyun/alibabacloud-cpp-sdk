@@ -149,9 +149,9 @@ namespace Models
 
 
       protected:
-        // The time when the task was created. The time is in GMT.
+        // The task creation time (GMT).
         shared_ptr<string> gmtCreated_ {};
-        // The time when the task was last modified. The time is in GMT.
+        // The task modification time (GMT).
         shared_ptr<string> gmtModified_ {};
         // The ID of the change record.
         shared_ptr<int64_t> id_ {};
@@ -161,7 +161,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The new parameter value.
         shared_ptr<string> newValue_ {};
-        // The original parameter value.
+        // The old parameter value.
         shared_ptr<string> oldValue_ {};
       };
 
@@ -211,7 +211,7 @@ namespace Models
       shared_ptr<string> dbInstanceId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
-      // The parameter change logs.
+      // The parameter change records.
       shared_ptr<vector<Data::ParamChangeLogs>> paramChangeLogs_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -261,9 +261,9 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<DescribeDBClusterConfigChangeLogsResponseBody::Data> data_ {};
-    // The dynamic code. This parameter is not used. Ignore this parameter.
+    // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used. Ignore this parameter.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

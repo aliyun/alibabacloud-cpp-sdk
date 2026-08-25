@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
-      // Instance numeric ID.
+      // The numeric ID of the instance.
       shared_ptr<string> dbInstanceId_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
-      // Task ID
+      // The task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // Access denied details.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Return data.
+    // The returned data.
     shared_ptr<ModifyDBClusterConfigResponseBody::Data> data_ {};
-    // Dynamic code, currently not in use, please ignore.
+    // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message, currently not in use, please ignore.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

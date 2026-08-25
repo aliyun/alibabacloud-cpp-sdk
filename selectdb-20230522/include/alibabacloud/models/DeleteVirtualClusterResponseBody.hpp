@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<DeleteVirtualClusterResponseBody::Data> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

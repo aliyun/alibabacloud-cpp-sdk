@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<CreateVirtualClusterResponseBody::Data> data_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

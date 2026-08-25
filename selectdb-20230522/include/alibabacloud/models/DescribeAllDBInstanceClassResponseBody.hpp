@@ -116,19 +116,19 @@ namespace Models
 
 
     protected:
-      // Type code.
+      // The specification code.
       shared_ptr<string> classCode_ {};
-      // Number of CPU cores.
+      // The number of CPU cores.
       shared_ptr<int64_t> cpuCores_ {};
-      // Default cache.
+      // The default cache size.
       shared_ptr<int64_t> defaultStorageInGB_ {};
-      // Maximum cache.
+      // The maximum cache size.
       shared_ptr<int64_t> maxStorageInGB_ {};
-      // Memory.
+      // The memory size.
       shared_ptr<int64_t> memoryInGB_ {};
-      // Minimum cache.
+      // The minimum cache size.
       shared_ptr<int64_t> minStorageInGB_ {};
-      // Cache increment.
+      // The cache step size.
       shared_ptr<int64_t> stepStorageInGB_ {};
     };
 
@@ -151,9 +151,9 @@ namespace Models
 
 
   protected:
-    // Instance type list.
+    // The list of instance specifications.
     shared_ptr<vector<DescribeAllDBInstanceClassResponseBody::ClassCodeList>> classCodeList_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

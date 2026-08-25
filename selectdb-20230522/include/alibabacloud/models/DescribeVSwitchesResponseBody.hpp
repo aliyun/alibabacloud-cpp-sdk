@@ -152,17 +152,17 @@ namespace Models
 
 
   protected:
-    // The list of results.
+    // The result list.
     shared_ptr<vector<DescribeVSwitchesResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. If this parameter is empty, all results have been returned.
+    // The token for the next query. An empty value of NextToken indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<string> totalRecordCount_ {};

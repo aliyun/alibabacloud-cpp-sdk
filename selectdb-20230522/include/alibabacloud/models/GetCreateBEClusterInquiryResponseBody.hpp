@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> currency_ {};
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
       shared_ptr<map<string, string>> pricingRules_ {};
-      // The amount.
+      // The trade amount.
       shared_ptr<string> tradeAmount_ {};
     };
 
@@ -192,7 +192,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<GetCreateBEClusterInquiryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the primary cluster.
+    // The primary cluster ID.
     shared_ptr<string> activeClusterId_ {};
     // The virtual cluster ID.
     // 
@@ -89,7 +89,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the standby cluster.
+    // The secondary cluster ID.
     shared_ptr<string> standbyClusterId_ {};
   };
 
