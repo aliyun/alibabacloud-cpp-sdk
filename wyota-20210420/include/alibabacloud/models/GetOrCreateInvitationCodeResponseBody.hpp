@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The authentication code for device enrollment.
       shared_ptr<string> authCode_ {};
+      // The expiration time of the compute group.
       shared_ptr<string> expireTime_ {};
+      // Indicates whether the invitation code has expired.
       shared_ptr<bool> expired_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The error code returned when the call fails.
     shared_ptr<string> code_ {};
+    // The data returned when the call is successful.
     shared_ptr<GetOrCreateInvitationCodeResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

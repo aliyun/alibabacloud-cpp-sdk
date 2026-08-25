@@ -170,22 +170,40 @@ namespace Models
 
 
   protected:
-    // aliuid
+    // The Alibaba Cloud account ID.
     shared_ptr<string> callerAliUid_ {};
+    // The client type.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> clientType_ {};
+    // The custom task ID.
     shared_ptr<string> customResourceId_ {};
+    // The effective status of the custom task. Valid values:
+    // - true: effective.
+    // - false: ineffective.
+    // - null: all.
     shared_ptr<bool> customResourceStatus_ {};
+    // Specifies whether the client is managed.
     shared_ptr<bool> inManage_ {};
+    // Specifies whether to include subgroups.
     shared_ptr<bool> includeSubGroups_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The device model.
     shared_ptr<string> model_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The soft client status.
     shared_ptr<bool> onlineStatus_ {};
+    // The soft client platform.
     shared_ptr<string> platform_ {};
+    // The fuzzy search parameter. Supports fuzzy search by SN, alias, or IP address. This parameter is incompatible with exact search parameters.
     shared_ptr<string> searchKeyword_ {};
+    // The group ID.
     shared_ptr<string> terminalGroupId_ {};
+    // The UUIDs of the servers to query. Separate multiple UUIDs with commas (,).
     shared_ptr<vector<string>> uuids_ {};
+    // Specifies whether to return bound users.
     shared_ptr<bool> withBindUser_ {};
   };
 

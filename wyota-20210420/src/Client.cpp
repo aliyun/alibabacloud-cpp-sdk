@@ -17,7 +17,7 @@ namespace Wyota20210420
 {
 
 AlibabaCloud::Wyota20210420::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("wyota", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -252,7 +252,7 @@ BindPasswordFreeLoginUserResponse Client::bindPasswordFreeLoginUser(const BindPa
 }
 
 /**
- * @summary 解除桌面端、移动端纳管
+ * @summary Removes managed terminal devices by UUID.
  *
  * @param request DeleteClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -297,7 +297,7 @@ DeleteClientsResponse Client::deleteClientsWithOptions(const DeleteClientsReques
 }
 
 /**
- * @summary 解除桌面端、移动端纳管
+ * @summary Removes managed terminal devices by UUID.
  *
  * @param request DeleteClientsRequest
  * @return DeleteClientsResponse
@@ -308,7 +308,7 @@ DeleteClientsResponse Client::deleteClients(const DeleteClientsRequest &request)
 }
 
 /**
- * @summary 查询桌面端、移动端详细信息
+ * @summary Queries information about all managed clients.
  *
  * @param request DescribeClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -401,7 +401,7 @@ DescribeClientsResponse Client::describeClientsWithOptions(const DescribeClients
 }
 
 /**
- * @summary 查询桌面端、移动端详细信息
+ * @summary Queries information about all managed clients.
  *
  * @param request DescribeClientsRequest
  * @return DescribeClientsResponse
@@ -412,7 +412,51 @@ DescribeClientsResponse Client::describeClients(const DescribeClientsRequest &re
 }
 
 /**
- * @summary 获取桌面端纳管邀请码
+ * @summary Retrieves custom resource statistics information.
+ *
+ * @param request GetCustomResourceStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomResourceStatsResponse
+ */
+GetCustomResourceStatsResponse Client::getCustomResourceStatsWithOptions(const GetCustomResourceStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMainBizType()) {
+    body["MainBizType"] = request.getMainBizType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCustomResourceStats"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomResourceStatsResponse>();
+}
+
+/**
+ * @summary Retrieves custom resource statistics information.
+ *
+ * @param request GetCustomResourceStatsRequest
+ * @return GetCustomResourceStatsResponse
+ */
+GetCustomResourceStatsResponse Client::getCustomResourceStats(const GetCustomResourceStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCustomResourceStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves or creates an invitation code for desktop device enrollment.
+ * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+ * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
  *
  * @param request GetOrCreateInvitationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +499,9 @@ GetOrCreateInvitationCodeResponse Client::getOrCreateInvitationCodeWithOptions(c
 }
 
 /**
- * @summary 获取桌面端纳管邀请码
+ * @summary Retrieves or creates an invitation code for desktop device enrollment.
+ * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+ * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
  *
  * @param request GetOrCreateInvitationCodeRequest
  * @return GetOrCreateInvitationCodeResponse
@@ -463,6 +509,48 @@ GetOrCreateInvitationCodeResponse Client::getOrCreateInvitationCodeWithOptions(c
 GetOrCreateInvitationCodeResponse Client::getOrCreateInvitationCode(const GetOrCreateInvitationCodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getOrCreateInvitationCodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the number of terminals.
+ *
+ * @param request GetTerminalCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTerminalCountResponse
+ */
+GetTerminalCountResponse Client::getTerminalCountWithOptions(const GetTerminalCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientType()) {
+    body["ClientType"] = request.getClientType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTerminalCount"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTerminalCountResponse>();
+}
+
+/**
+ * @summary Retrieves the number of terminals.
+ *
+ * @param request GetTerminalCountRequest
+ * @return GetTerminalCountResponse
+ */
+GetTerminalCountResponse Client::getTerminalCount(const GetTerminalCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTerminalCountWithOptions(request, runtime);
 }
 
 /**
@@ -556,6 +644,64 @@ ListTerminalResponse Client::listTerminal(const ListTerminalRequest &request) {
 }
 
 /**
+ * @summary Queries the version distribution of terminals.
+ *
+ * @param request ListVersionDistributionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVersionDistributionResponse
+ */
+ListVersionDistributionResponse Client::listVersionDistributionWithOptions(const ListVersionDistributionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientType()) {
+    body["ClientType"] = request.getClientType();
+  }
+
+  if (!!request.hasInManage()) {
+    body["InManage"] = request.getInManage();
+  }
+
+  if (!!request.hasMainBizType()) {
+    body["MainBizType"] = request.getMainBizType();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasVersionType()) {
+    body["VersionType"] = request.getVersionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVersionDistribution"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVersionDistributionResponse>();
+}
+
+/**
+ * @summary Queries the version distribution of terminals.
+ *
+ * @param request ListVersionDistributionRequest
+ * @return ListVersionDistributionResponse
+ */
+ListVersionDistributionResponse Client::listVersionDistribution(const ListVersionDistributionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVersionDistributionWithOptions(request, runtime);
+}
+
+/**
  * @summary 向终端发送运维命令
  *
  * @param request SendOpsMessageToTerminalsRequest
@@ -572,6 +718,10 @@ SendOpsMessageToTerminalsResponse Client::sendOpsMessageToTerminalsWithOptions(c
   json body = {};
   if (!!request.hasMsg()) {
     body["Msg"] = request.getMsg();
+  }
+
+  if (!!request.hasOpDomain()) {
+    body["OpDomain"] = request.getOpDomain();
   }
 
   if (!!request.hasOpsAction()) {

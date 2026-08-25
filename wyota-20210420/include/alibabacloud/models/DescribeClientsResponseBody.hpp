@@ -233,12 +233,17 @@ namespace Models
 
 
       protected:
+        // The Bluetooth MAC address.
         shared_ptr<string> bluetooth_ {};
         // chipId
         shared_ptr<string> chipId_ {};
+        // The CPU information.
         shared_ptr<string> cpu_ {};
+        // The Ethernet MAC address.
         shared_ptr<string> mac_ {};
+        // The memory information.
         shared_ptr<string> memory_ {};
+        // The storage information.
         shared_ptr<string> storage_ {};
         // wifi mac
         shared_ptr<string> wlan_ {};
@@ -438,24 +443,43 @@ namespace Models
 
 
       protected:
+        // Indicates whether standalone policy is supported.
         shared_ptr<bool> enablePolicy_ {};
+        // The reason why password-free logon is forbidden.
         shared_ptr<string> passwordFreeLoginForbiddenReason_ {};
+        // Indicates whether assisted logon is supported.
         shared_ptr<bool> supportAssistLogin_ {};
+        // Indicates whether remote diagnostics is supported.
         shared_ptr<bool> supportDiagnose_ {};
+        // Indicates whether restricting logon users is supported.
         shared_ptr<bool> supportLimitLoginUser_ {};
+        // Indicates whether localDeviceSn is supported.
         shared_ptr<bool> supportLocalDeviceSn_ {};
+        // Indicates whether management is supported.
         shared_ptr<bool> supportManage_ {};
+        // Indicates whether policy modification is supported.
         shared_ptr<bool> supportModifyPolicy_ {};
+        // Indicates whether password-free logon is supported.
         shared_ptr<bool> supportPasswordFreeLogin_ {};
+        // Indicates whether restart is supported.
         shared_ptr<bool> supportReboot_ {};
+        // Indicates whether factory reset is supported.
         shared_ptr<bool> supportReset_ {};
+        // Indicates whether the clear PIN button is grayed out.
         shared_ptr<bool> supportResetPin_ {};
+        // Indicates whether shutdown is supported.
         shared_ptr<bool> supportStop_ {};
+        // Indicates whether remote upgrade is supported.
         shared_ptr<bool> supportUpgrade_ {};
+        // The reason why assisted logon is forbidden.
         shared_ptr<string> unsupportAssistLoginReason_ {};
+        // The reason why management is forbidden.
         shared_ptr<string> unsupportManageReason_ {};
+        // The reason why localDeviceSn is forbidden.
         shared_ptr<string> unsupportedLocalDeviceSnReason_ {};
+        // Indicates whether the version is supported (V7.12.0 or later).
         shared_ptr<bool> versionSupported_ {};
+        // Indicates whether the version is too low and an upgrade is recommended.
         shared_ptr<bool> versionTooLow_ {};
       };
 
@@ -784,48 +808,87 @@ namespace Models
     protected:
       // aliUid
       shared_ptr<int64_t> aliUid_ {};
+      // The alias.
       shared_ptr<string> alias_ {};
+      // The area site.
       shared_ptr<string> areaSite_ {};
+      // The number of bound logon users.
       shared_ptr<int32_t> bindUserCount_ {};
+      // The password-free logon user.
       shared_ptr<string> bindUserId_ {};
+      // The system version number.
       shared_ptr<string> buildId_ {};
+      // The client type.
       shared_ptr<int32_t> clientType_ {};
+      // The client version.
       shared_ptr<string> clientVersion_ {};
+      // The currently used desktop.
       shared_ptr<string> currentConnectDesktop_ {};
+      // The currently logged-on user.
       shared_ptr<string> currentLoginUser_ {};
+      // The reason why the custom resource is invalid.
       shared_ptr<string> customResInvalidReason_ {};
+      // The custom resource ID.
       shared_ptr<string> customResourceId_ {};
+      // The custom resource name.
       shared_ptr<string> customResourceName_ {};
+      // The custom resource status.
       shared_ptr<bool> customResourceStatus_ {};
+      // The currently used desktop.
       shared_ptr<string> desktopId_ {};
+      // The desktop region.
       shared_ptr<string> desktopRegionId_ {};
+      // The device operating system.
       shared_ptr<string> deviceOs_ {};
+      // The features and support information.
       shared_ptr<Data::FunctionSupport> functionSupport_ {};
+      // The hardware information.
       shared_ptr<Data::HardwareInfo> hardwareInfo_ {};
+      // The host operating system information.
       shared_ptr<string> hostOsInfo_ {};
+      // Indicates whether the client is managed.
       shared_ptr<bool> inManage_ {};
+      // The geolocation of the public IP address.
       shared_ptr<string> ipGeoLocation_ {};
       // ipv4
       shared_ptr<string> ipv4_ {};
+      // The most recently logged-on user.
       shared_ptr<string> lastLoginUser_ {};
+      // The on-premises device SN.
       shared_ptr<string> localDeviceSn_ {};
+      // The location remarks.
       shared_ptr<string> locationInfo_ {};
+      // The currently logged-on user.
       shared_ptr<string> loginUser_ {};
+      // The main business type.
       shared_ptr<string> mainBizType_ {};
+      // The time when the client was managed.
       shared_ptr<string> manageTime_ {};
+      // The timestamp when the client was managed.
       shared_ptr<int64_t> manageTimestamp_ {};
+      // The device model.
       shared_ptr<string> model_ {};
+      // The preview image URL of the device type.
       shared_ptr<string> modelPreviewUrl_ {};
+      // Indicates whether the client is online.
       shared_ptr<bool> online_ {};
+      // Indicates whether the client is online.
       shared_ptr<bool> onlineStatus_ {};
+      // The password-free logon user.
       shared_ptr<string> passwordFreeLoginUser_ {};
+      // The device type.
       shared_ptr<string> platform_ {};
       // productName
       shared_ptr<string> productName_ {};
+      // The public IP address.
       shared_ptr<string> publicIpv4_ {};
+      // The time when the password-free logon user was set.
       shared_ptr<string> setPasswordFreeLoginUserTime_ {};
+      // The terminal group ID.
       shared_ptr<string> terminalGroupId_ {};
+      // The upgrade type. Valid values: internet and lan.
       shared_ptr<string> upgradeDownloadType_ {};
+      // The number of users bound to this device.
       shared_ptr<int32_t> userBindCount_ {};
       // uuid
       shared_ptr<string> uuid_ {};
@@ -895,13 +958,21 @@ namespace Models
 
 
   protected:
+    // The error code returned when the call fails.
     shared_ptr<string> code_ {};
+    // The data returned when the call is successful.
     shared_ptr<vector<DescribeClientsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> message_ {};
+    // The token for the next query. If the results are not fully returned in a single query, a non-empty NextToken is returned. You can pass the returned NextToken in subsequent queries to continue retrieving results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
+    // The total number of returned results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

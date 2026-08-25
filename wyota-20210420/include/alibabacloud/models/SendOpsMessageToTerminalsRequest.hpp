@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SendOpsMessageToTerminalsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Delay, delay_);
       DARABONBA_PTR_TO_JSON(Msg, msg_);
+      DARABONBA_PTR_TO_JSON(OpDomain, opDomain_);
       DARABONBA_PTR_TO_JSON(OpsAction, opsAction_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
       DARABONBA_PTR_TO_JSON(WaitForAck, waitForAck_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SendOpsMessageToTerminalsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Delay, delay_);
       DARABONBA_PTR_FROM_JSON(Msg, msg_);
+      DARABONBA_PTR_FROM_JSON(OpDomain, opDomain_);
       DARABONBA_PTR_FROM_JSON(OpsAction, opsAction_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
       DARABONBA_PTR_FROM_JSON(WaitForAck, waitForAck_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->delay_ == nullptr
-        && this->msg_ == nullptr && this->opsAction_ == nullptr && this->uuids_ == nullptr && this->waitForAck_ == nullptr; };
+        && this->msg_ == nullptr && this->opDomain_ == nullptr && this->opsAction_ == nullptr && this->uuids_ == nullptr && this->waitForAck_ == nullptr; };
     // delay Field Functions 
     bool hasDelay() const { return this->delay_ != nullptr;};
     void deleteDelay() { this->delay_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     void deleteMsg() { this->msg_ = nullptr;};
     inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline SendOpsMessageToTerminalsRequest& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+
+
+    // opDomain Field Functions 
+    bool hasOpDomain() const { return this->opDomain_ != nullptr;};
+    void deleteOpDomain() { this->opDomain_ = nullptr;};
+    inline string getOpDomain() const { DARABONBA_PTR_GET_DEFAULT(opDomain_, "") };
+    inline SendOpsMessageToTerminalsRequest& setOpDomain(string opDomain) { DARABONBA_PTR_SET_VALUE(opDomain_, opDomain) };
 
 
     // opsAction Field Functions 
@@ -80,6 +89,7 @@ namespace Models
   protected:
     shared_ptr<bool> delay_ {};
     shared_ptr<string> msg_ {};
+    shared_ptr<string> opDomain_ {};
     shared_ptr<string> opsAction_ {};
     shared_ptr<vector<string>> uuids_ {};
     shared_ptr<bool> waitForAck_ {};

@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The validity period in days, calculated from the current time. Set to -1 for permanent validity.
     shared_ptr<int32_t> expireDays_ {};
+    // The validity period in minutes, calculated from the current time. Set to -1 for permanent validity.
     shared_ptr<int32_t> expireMinutes_ {};
+    // The terminal group ID.
     shared_ptr<string> terminalGroupId_ {};
+    // The validity period type. Valid values:
+    // - 1: The response returns the expiration in days. This is the default value if Type is not specified.
+    // - 2: The response returns the expiration in minutes.
     shared_ptr<int32_t> type_ {};
   };
 

@@ -60,10 +60,14 @@ namespace Models
 
 
   protected:
-    // aliuid
+    // The Alibaba Cloud account ID.
     shared_ptr<string> callerAliUid_ {};
+    // Specifies whether the device is managed.
+    // 
     // This parameter is required.
     shared_ptr<bool> inManage_ {};
+    // The UUIDs of the asset instances. Separate multiple UUIDs with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> uuids_ {};
   };

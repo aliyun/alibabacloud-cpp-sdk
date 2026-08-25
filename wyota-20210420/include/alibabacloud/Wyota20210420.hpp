@@ -89,7 +89,7 @@ namespace Wyota20210420
       Models::BindPasswordFreeLoginUserResponse bindPasswordFreeLoginUser(const Models::BindPasswordFreeLoginUserRequest &request);
 
       /**
-       * @summary 解除桌面端、移动端纳管
+       * @summary Removes managed terminal devices by UUID.
        *
        * @param request DeleteClientsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Wyota20210420
       Models::DeleteClientsResponse deleteClientsWithOptions(const Models::DeleteClientsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除桌面端、移动端纳管
+       * @summary Removes managed terminal devices by UUID.
        *
        * @param request DeleteClientsRequest
        * @return DeleteClientsResponse
@@ -106,7 +106,7 @@ namespace Wyota20210420
       Models::DeleteClientsResponse deleteClients(const Models::DeleteClientsRequest &request);
 
       /**
-       * @summary 查询桌面端、移动端详细信息
+       * @summary Queries information about all managed clients.
        *
        * @param request DescribeClientsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Wyota20210420
       Models::DescribeClientsResponse describeClientsWithOptions(const Models::DescribeClientsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询桌面端、移动端详细信息
+       * @summary Queries information about all managed clients.
        *
        * @param request DescribeClientsRequest
        * @return DescribeClientsResponse
@@ -123,7 +123,26 @@ namespace Wyota20210420
       Models::DescribeClientsResponse describeClients(const Models::DescribeClientsRequest &request);
 
       /**
-       * @summary 获取桌面端纳管邀请码
+       * @summary Retrieves custom resource statistics information.
+       *
+       * @param request GetCustomResourceStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomResourceStatsResponse
+       */
+      Models::GetCustomResourceStatsResponse getCustomResourceStatsWithOptions(const Models::GetCustomResourceStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves custom resource statistics information.
+       *
+       * @param request GetCustomResourceStatsRequest
+       * @return GetCustomResourceStatsResponse
+       */
+      Models::GetCustomResourceStatsResponse getCustomResourceStats(const Models::GetCustomResourceStatsRequest &request);
+
+      /**
+       * @summary Retrieves or creates an invitation code for desktop device enrollment.
+       * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+       * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
        *
        * @param request GetOrCreateInvitationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,12 +151,31 @@ namespace Wyota20210420
       Models::GetOrCreateInvitationCodeResponse getOrCreateInvitationCodeWithOptions(const Models::GetOrCreateInvitationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取桌面端纳管邀请码
+       * @summary Retrieves or creates an invitation code for desktop device enrollment.
+       * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+       * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
        *
        * @param request GetOrCreateInvitationCodeRequest
        * @return GetOrCreateInvitationCodeResponse
        */
       Models::GetOrCreateInvitationCodeResponse getOrCreateInvitationCode(const Models::GetOrCreateInvitationCodeRequest &request);
+
+      /**
+       * @summary Retrieves the number of terminals.
+       *
+       * @param request GetTerminalCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTerminalCountResponse
+       */
+      Models::GetTerminalCountResponse getTerminalCountWithOptions(const Models::GetTerminalCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the number of terminals.
+       *
+       * @param request GetTerminalCountRequest
+       * @return GetTerminalCountResponse
+       */
+      Models::GetTerminalCountResponse getTerminalCount(const Models::GetTerminalCountRequest &request);
 
       /**
        * @summary 查询终端列表
@@ -155,6 +193,23 @@ namespace Wyota20210420
        * @return ListTerminalResponse
        */
       Models::ListTerminalResponse listTerminal(const Models::ListTerminalRequest &request);
+
+      /**
+       * @summary Queries the version distribution of terminals.
+       *
+       * @param request ListVersionDistributionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVersionDistributionResponse
+       */
+      Models::ListVersionDistributionResponse listVersionDistributionWithOptions(const Models::ListVersionDistributionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the version distribution of terminals.
+       *
+       * @param request ListVersionDistributionRequest
+       * @return ListVersionDistributionResponse
+       */
+      Models::ListVersionDistributionResponse listVersionDistribution(const Models::ListVersionDistributionRequest &request);
 
       /**
        * @summary 向终端发送运维命令
