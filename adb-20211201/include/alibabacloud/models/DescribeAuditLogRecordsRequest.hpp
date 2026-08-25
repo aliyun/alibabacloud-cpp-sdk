@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProcessId, processId_);
       DARABONBA_PTR_TO_JSON(ProxyUser, proxyUser_);
       DARABONBA_PTR_TO_JSON(QueryKeyword, queryKeyword_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
       DARABONBA_PTR_FROM_JSON(ProxyUser, proxyUser_);
       DARABONBA_PTR_FROM_JSON(QueryKeyword, queryKeyword_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -70,8 +72,8 @@ namespace Models
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && this->DBName_ == nullptr && this->endTime_ == nullptr && this->engineType_ == nullptr && this->hostAddress_ == nullptr && this->order_ == nullptr
         && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->proxyUser_ == nullptr && this->queryKeyword_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->sqlType_ == nullptr && this->startTime_ == nullptr && this->succeed_ == nullptr && this->user_ == nullptr; };
+        && this->processId_ == nullptr && this->proxyUser_ == nullptr && this->queryKeyword_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->sqlType_ == nullptr && this->startTime_ == nullptr && this->succeed_ == nullptr && this->user_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -149,6 +151,13 @@ namespace Models
     inline DescribeAuditLogRecordsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // processId Field Functions 
+    bool hasProcessId() const { return this->processId_ != nullptr;};
+    void deleteProcessId() { this->processId_ = nullptr;};
+    inline string getProcessId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
+    inline DescribeAuditLogRecordsRequest& setProcessId(string processId) { DARABONBA_PTR_SET_VALUE(processId_, processId) };
+
+
     // proxyUser Field Functions 
     bool hasProxyUser() const { return this->proxyUser_ != nullptr;};
     void deleteProxyUser() { this->proxyUser_ = nullptr;};
@@ -214,19 +223,24 @@ namespace Models
 
   protected:
     // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The ID of the Data Lakehouse Edition cluster.
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster IDs of all clusters in a region.
+    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster IDs of all clusters in a specified region.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the database on which the SQL statement was executed.
+    // The name of the database on which the SQL statement is executed.
     shared_ptr<string> DBName_ {};
     // The end of the time range to query. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ format.
     // > - The end time must be later than the start time.
     // > - The interval between the start time and the end time cannot exceed 24 hours.
     shared_ptr<string> endTime_ {};
+    // The engine type. Valid values:
+    // - XIHE: audit logs of the default compute engine.
+    // - AGENT_SERVERLESS: audit logs of the Serverless analytics feature.
+    // 
+    // If this parameter is not specified, the default value is XIHE.
     shared_ptr<string> engineType_ {};
-    // The IP address and port number of the client that executed the SQL statement.
+    // The IP address and port number of the client that executes the SQL statement.
     shared_ptr<string> hostAddress_ {};
     // The sorting order based on specified fields. The value is in JSON format and is an ordered JSON array. Compound sorting is performed in the order of the input array. The array contains the `Field` and `Type` fields. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`.
     // * `Field` specifies the field name for sorting. Valid values:
@@ -235,7 +249,7 @@ namespace Models
     //     * **ExecutionStartTime**: the execution start time of the SQL statement.
     //     * **QueryTime**: the execution duration of the SQL statement.
     //     * **PeakMemoryUsage**: the peak memory usage during the execution of the SQL statement.
-    //     * **ScanRows**: the number of rows scanned by the task with a data source.
+    //     * **ScanRows**: the number of rows scanned by tasks with data sources.
     //     * **ScanSize**: the amount of scanned data.
     //     * **ScanTime**: the total time consumed for scanning data.
     //     * **PlanningTime**: the time consumed for generating the execution plan.
@@ -260,9 +274,10 @@ namespace Models
     // - **50**
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> processId_ {};
     // A reserved parameter.
     shared_ptr<string> proxyUser_ {};
-    // The keyword used to filter the returned results.
+    // The keyword used to search the returned results.
     shared_ptr<string> queryKeyword_ {};
     // The region ID.
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the cluster.
@@ -280,16 +295,16 @@ namespace Models
     // - **DROP**
     // - **CREATE**
     // 
-    // > Only one type can be specified per request. If this parameter is left empty, all types are queried by default.
+    // > Only one type can be specified per request. If this parameter is not specified, all types are queried by default.
     shared_ptr<string> sqlType_ {};
     // The beginning of the time range to query. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ format.
-    // > SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is disabled and then re-enabled, only entries recorded after re-enabling are available.
+    // > SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is disabled and then re-enabled, only logs generated after re-enabling can be queried.
     shared_ptr<string> startTime_ {};
-    // Specifies whether the SQL statement was executed successfully. Valid values:
-    // * **true**: The SQL statement was executed successfully.
-    // * **false**: The SQL statement failed to be executed.
+    // Specifies whether the SQL statement is executed successfully. Valid values:
+    // * **true**: Executed successfully.
+    // * **false**: Execution failed.
     shared_ptr<string> succeed_ {};
-    // The username that executed the SQL statement.
+    // The username that executes the SQL statement.
     shared_ptr<string> user_ {};
   };
 

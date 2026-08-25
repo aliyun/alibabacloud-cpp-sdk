@@ -119,11 +119,11 @@ namespace Models
 
 
     protected:
-      // The name of the resource group.
+      // The resource group name.
       shared_ptr<string> groupName_ {};
-      // The query execution time threshold, in milliseconds (ms).
+      // The query execution time threshold. Unit: milliseconds (ms).
       shared_ptr<string> queryTime_ {};
-      // The name of the target resource group.
+      // The target resource group name.
       shared_ptr<string> targetGroupName_ {};
     };
 
@@ -250,17 +250,17 @@ namespace Models
       protected:
         // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
-        // The name of the worker group.
+        // The worker group name.
         shared_ptr<string> groupName_ {};
-        // The maximum number of worker nodes.
+        // The maximum number of workers.
         shared_ptr<int32_t> maxWorkerQuantity_ {};
-        // The minimum number of worker nodes.
+        // The minimum number of workers.
         shared_ptr<int32_t> minWorkerQuantity_ {};
-        // The disk size of a worker node.
+        // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
-        // The specifications of a worker node.
+        // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
-        // The resource type of a worker node.
+        // The resource type of the worker node.
         shared_ptr<string> workerSpecType_ {};
       };
 
@@ -269,10 +269,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const StorageMounts& obj) { 
           DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
           DARABONBA_PTR_TO_JSON(StorageId, storageId_);
+          DARABONBA_PTR_TO_JSON(StorageName, storageName_);
         };
         friend void from_json(const Darabonba::Json& j, StorageMounts& obj) { 
           DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
           DARABONBA_PTR_FROM_JSON(StorageId, storageId_);
+          DARABONBA_PTR_FROM_JSON(StorageName, storageName_);
         };
         StorageMounts() = default ;
         StorageMounts(const StorageMounts &) = default ;
@@ -286,7 +288,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->mountPath_ == nullptr
-        && this->storageId_ == nullptr; };
+        && this->storageId_ == nullptr && this->storageName_ == nullptr; };
         // mountPath Field Functions 
         bool hasMountPath() const { return this->mountPath_ != nullptr;};
         void deleteMountPath() { this->mountPath_ = nullptr;};
@@ -301,11 +303,19 @@ namespace Models
         inline StorageMounts& setStorageId(int64_t storageId) { DARABONBA_PTR_SET_VALUE(storageId_, storageId) };
 
 
+        // storageName Field Functions 
+        bool hasStorageName() const { return this->storageName_ != nullptr;};
+        void deleteStorageName() { this->storageName_ = nullptr;};
+        inline string getStorageName() const { DARABONBA_PTR_GET_DEFAULT(storageName_, "") };
+        inline StorageMounts& setStorageName(string storageName) { DARABONBA_PTR_SET_VALUE(storageName_, storageName) };
+
+
       protected:
         // The mount path.
         shared_ptr<string> mountPath_ {};
         // The storage ID.
         shared_ptr<int64_t> storageId_ {};
+        shared_ptr<string> storageName_ {};
       };
 
       class AppConfig : public Darabonba::Model {
@@ -382,7 +392,7 @@ namespace Models
           shared_ptr<string> image_ {};
           // The inference engine.
           shared_ptr<string> inferenceEngine_ {};
-          // The large language model (LLM).
+          // The LLM model.
           shared_ptr<string> llmModel_ {};
         };
 
@@ -502,26 +512,26 @@ namespace Models
     protected:
       // The Ray application configuration.
       shared_ptr<RayConfig::AppConfig> appConfig_ {};
-      // The type of the Ray cluster. Valid values:
+      // The Ray cluster type. Valid values:
       // 
-      // - **BASIC**: A basic, non-high-availability cluster.
+      // - BASIC: basic type, non-high-availability
       // 
-      // - **HIGH_AVAILABILITY**: A high-availability cluster.
+      // - HIGH_AVAILABILITY: high-availability type
       shared_ptr<string> category_ {};
-      // Specifies whether to enable the ENI.
+      // Specifies whether to enable ENI.
       shared_ptr<bool> enableUserEni_ {};
       // The allocation unit of the head node.
       shared_ptr<string> headAllocateUnit_ {};
       // The disk size of the head node.
       shared_ptr<string> headDiskCapacity_ {};
-      // The specifications of the head node.
+      // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
       // The resource type of the head node.
       shared_ptr<string> headSpecType_ {};
-      // A list of storage mounts.
+      // The storage mount list.
       shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
       shared_ptr<string> userDefinedRequirements_ {};
-      // A list of configurations for Ray worker groups.
+      // The list of Ray worker group configurations.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -584,9 +594,9 @@ namespace Models
 
 
       protected:
-        // The end time of the scaling window, specified as a cron expression.
+        // The end time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> endCronExpression_ {};
-        // The start time of the scaling window, specified as a cron expression. The duration between the start and end times must be at least one hour.
+        // The start time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> startCronExpression_ {};
       };
 
@@ -609,14 +619,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the scaling plan immediately upon creation.
-      // Valid values:
-      // 
-      // - **true**: The plan is enabled.
-      // 
-      // - **false**: The plan is disabled.
+      // Specifies whether to enable the elastic plan immediately after creation. Valid values:
+      // - **true**: Enables the elastic plan immediately.
+      // - **false**: Does not enable the elastic plan.
       shared_ptr<bool> enabled_ {};
-      // A list of rules.
+      // The list of rules.
       shared_ptr<vector<GpuElasticPlan::Rules>> rules_ {};
     };
 
@@ -740,16 +747,27 @@ namespace Models
 
 
     protected:
+      // The number of authentication nodes.
       shared_ptr<int32_t> authNodeNum_ {};
+      // The authentication node specifications in ACU ([0-9+]ACU).
       shared_ptr<string> authNodeSpec_ {};
+      // The number of insert nodes.
       shared_ptr<int32_t> insertNodeNum_ {};
+      // The insert node specifications in ACU ([0-9+]ACU).
       shared_ptr<string> insertNodeSpec_ {};
+      // The query node cache size in GB.
       shared_ptr<int32_t> selectNodeCacheSize_ {};
+      // The number of query nodes.
       shared_ptr<int32_t> selectNodeNum_ {};
+      // The query node specifications ([0-9+]ACU).
       shared_ptr<string> selectNodeSpec_ {};
+      // The disk size of storage nodes.
       shared_ptr<int32_t> storageNodeDiskSize_ {};
+      // The disk type of storage nodes (essd_pl1, essd_pl2).
       shared_ptr<string> storageNodeDiskType_ {};
+      // The number of storage nodes.
       shared_ptr<int32_t> storageNodeNum_ {};
+      // The storage node specifications in ACU ([0-9+]ACU).
       shared_ptr<string> storageNodeSpec_ {};
     };
 
@@ -924,77 +942,67 @@ namespace Models
 
 
   protected:
+    // The PromQL resource group configuration.
     shared_ptr<ModifyDBResourceGroupRequest::AtmConfig> atmConfig_ {};
-    // The idle duration after which the resource group is automatically stopped.
+    // The automatic stop interval.
     shared_ptr<string> autoStopInterval_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<string> clusterMode_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<string> clusterSizeResource_ {};
-    // <props="china">The ID of the Data Lakehouse Edition, Enterprise Edition, or Basic Edition cluster.
-    // <props="intl">The ID of the Data Lakehouse Edition cluster.
+    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable the spot instance feature for the resource group. This feature provides resources at a lower unit price, but they can be reclaimed at any time. Only `Job` resource groups support this feature. Valid values:
-    // 
-    // - **True**: enables the spot instance feature.
-    // 
-    // - **False**: disables the spot instance feature.
+    // Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
+    // - **True**: Enables the spot instance feature.
+    // - **False**: Disables the spot instance feature.
     shared_ptr<bool> enableSpot_ {};
     // The engine configuration.
     Darabonba::Json engineParams_ {};
-    // The time-based scaling plan for GPUs.
+    // The GPU time-sharing elastic plan.
     shared_ptr<ModifyDBResourceGroupRequest::GpuElasticPlan> gpuElasticPlan_ {};
-    // The name of the resource group.
-    // 
-    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group name for a specific cluster.
+    // The resource group name.
+    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group names of a specified cluster.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The type of the resource group. Valid values:
-    // 
+    // The resource group type. Valid values:
     // - **Interactive**
-    // 
     // - **Job**
-    // 
-    // > For more information about resource groups in Data Lakehouse Edition clusters, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<int32_t> maxClusterCount_ {};
-    // The maximum amount of reserved computing resources. The value cannot exceed the unallocated computing resources of the cluster.
-    // 
-    // - If the resource group type is `Interactive`, the value is specified in increments of 16 ACU.
-    // 
-    // - If the resource group type is `Job`, the value is specified in increments of 8 ACU.
+    // The maximum reserved computing resources.
+    // - If the resource group type is Interactive, the maximum reserved computing resources is the unallocated resources of the cluster, in increments of 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources is the unallocated resources of the cluster, in increments of 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<int32_t> maxGpuQuantity_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<int32_t> minClusterCount_ {};
-    // The minimum amount of reserved computing resources.
-    // 
-    // - If the resource group type is `Interactive`, the minimum amount of reserved computing resources is 16 ACU.
-    // 
-    // - If the resource group type is `Job`, the minimum amount of reserved computing resources is 0 ACU.
+    // The minimum reserved computing resources.
+    // - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
+    // - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
     shared_ptr<string> minComputeResource_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<int32_t> minGpuQuantity_ {};
-    // The Ray configuration. This parameter is required if the resource group is an AI group and uses a Ray cluster as its engine.
+    // The Ray configuration. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
     shared_ptr<ModifyDBResourceGroupRequest::RayConfig> rayConfig_ {};
-    // The region ID of the cluster.
-    // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query available regions.
+    // The region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
     shared_ptr<string> regionId_ {};
-    // The job submission rules.
+    // The job routing rules.
     shared_ptr<vector<ModifyDBResourceGroupRequest::Rules>> rules_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<string> specName_ {};
-    // The desired state of the resource group. Specify **starting** to start the resource group or **stopping** to stop it.
+    // The resource group status. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
     shared_ptr<string> status_ {};
-    // This parameter is reserved.
+    // A reserved parameter (not applicable).
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

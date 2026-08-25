@@ -261,6 +261,31 @@ namespace Adb20211201
       Models::CheckSampleDataSetResponse checkSampleDataSet(const Models::CheckSampleDataSetRequest &request);
 
       /**
+       * @summary Disables log synchronization to Simple Log Service (SLS).
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request CloseLogSyncToSLSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloseLogSyncToSLSResponse
+       */
+      Models::CloseLogSyncToSLSResponse closeLogSyncToSLSWithOptions(const Models::CloseLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables log synchronization to Simple Log Service (SLS).
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request CloseLogSyncToSLSRequest
+       * @return CloseLogSyncToSLSResponse
+       */
+      Models::CloseLogSyncToSLSResponse closeLogSyncToSLS(const Models::CloseLogSyncToSLSRequest &request);
+
+      /**
        * @summary Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
        *
        * @param tmpReq ConfigureResultExportRequest
@@ -472,9 +497,9 @@ namespace Adb20211201
       Models::CreateDBClusterResponse createDBCluster(const Models::CreateDBClusterRequest &request);
 
       /**
-       * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+       * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -483,9 +508,9 @@ namespace Adb20211201
       Models::CreateDBResourceGroupResponse createDBResourceGroupWithOptions(const Models::CreateDBResourceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+       * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateDBResourceGroupRequest
        * @return CreateDBResourceGroupResponse
@@ -1443,10 +1468,10 @@ namespace Adb20211201
       Models::DescribeApsResourceGroupsResponse describeApsResourceGroups(const Models::DescribeApsResourceGroupsRequest &request);
 
       /**
-       * @summary Queries the SQL Audit Log of a cluster.
+       * @summary Queries the SQL audit logs of a cluster.
        *
-       * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
-       * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+       * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAuditLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1455,10 +1480,10 @@ namespace Adb20211201
       Models::DescribeAuditLogRecordsResponse describeAuditLogRecordsWithOptions(const Models::DescribeAuditLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SQL Audit Log of a cluster.
+       * @summary Queries the SQL audit logs of a cluster.
        *
-       * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
-       * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+       * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAuditLogRecordsRequest
        * @return DescribeAuditLogRecordsResponse
@@ -1870,7 +1895,7 @@ namespace Adb20211201
       /**
        * @summary Queries the resource group information of a cluster.
        *
-       * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1881,7 +1906,7 @@ namespace Adb20211201
       /**
        * @summary Queries the resource group information of a cluster.
        *
-       * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBResourceGroupRequest
        * @return DescribeDBResourceGroupResponse
@@ -3238,6 +3263,31 @@ namespace Adb20211201
       Models::GetLakeStorageResponse getLakeStorage(const Models::GetLakeStorageRequest &request);
 
       /**
+       * @summary Retrieves the log synchronization configuration.
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request GetLogSyncToSLSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLogSyncToSLSResponse
+       */
+      Models::GetLogSyncToSLSResponse getLogSyncToSLSWithOptions(const Models::GetLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the log synchronization configuration.
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request GetLogSyncToSLSRequest
+       * @return GetLogSyncToSLSResponse
+       */
+      Models::GetLogSyncToSLSResponse getLogSyncToSLS(const Models::GetLogSyncToSLSRequest &request);
+
+      /**
        * @summary Retrieves the details of a semantic view.
        *
        * @param request GetSemanticViewRequest
@@ -4480,7 +4530,7 @@ namespace Adb20211201
       /**
        * @summary Changes the resource group of a cluster.
        *
-       * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq ModifyDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4491,7 +4541,7 @@ namespace Adb20211201
       /**
        * @summary Changes the resource group of a cluster.
        *
-       * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyDBResourceGroupRequest
        * @return ModifyDBResourceGroupResponse
@@ -4641,6 +4691,31 @@ namespace Adb20211201
        * @return ModifyUserEniVswitchOptionsResponse
        */
       Models::ModifyUserEniVswitchOptionsResponse modifyUserEniVswitchOptions(const Models::ModifyUserEniVswitchOptionsRequest &request);
+
+      /**
+       * @summary Enables log synchronization to Simple Log Service (SLS).
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request OpenLogSyncToSLSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenLogSyncToSLSResponse
+       */
+      Models::OpenLogSyncToSLSResponse openLogSyncToSLSWithOptions(const Models::OpenLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables log synchronization to Simple Log Service (SLS).
+       *
+       * @description - Central public endpoint: `adb.aliyuncs.com`.
+       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       *
+       * @param request OpenLogSyncToSLSRequest
+       * @return OpenLogSyncToSLSResponse
+       */
+      Models::OpenLogSyncToSLSResponse openLogSyncToSLS(const Models::OpenLogSyncToSLSRequest &request);
 
       /**
        * @summary Preloads metrics for a Spark application.

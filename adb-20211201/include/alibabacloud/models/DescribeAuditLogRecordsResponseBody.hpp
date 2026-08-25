@@ -172,15 +172,15 @@ namespace Models
     protected:
       // The connection ID.
       shared_ptr<string> connId_ {};
-      // The name of the database on which the SQL statement was executed.
+      // The name of the database on which the SQL statement is executed.
       shared_ptr<string> DBName_ {};
-      // The execution start time of the SQL statement in local time. The time is in the yyyy-MM-dd HH:mm:ss format.
+      // The execution start time of the SQL statement in local time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> executeTime_ {};
-      // The execution start time of the SQL statement, in millisecond-precision UNIX timestamp.
+      // The execution start time of the SQL statement. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> executeTimestamp_ {};
       // Indicates whether diagnostic information is included.
       shared_ptr<bool> hasDiagnosticInfo_ {};
-      // The IP address and port number of the client that executed the SQL statement.
+      // The IP address and port number of the client that executes the SQL statement.
       shared_ptr<string> hostAddress_ {};
       // The task ID.
       shared_ptr<string> processID_ {};
@@ -188,13 +188,13 @@ namespace Models
       shared_ptr<string> SQLText_ {};
       // The type of the SQL statement.
       shared_ptr<string> SQLType_ {};
-      // Indicates whether the SQL statement was executed successfully. Valid values:
-      // - **true**: The SQL statement was executed successfully.
-      // - **false**: The SQL statement failed to be executed.
+      // Indicates whether the SQL statement is executed successfully. Valid values:
+      // - **true**: Executed successfully.
+      // - **false**: Execution failed.
       shared_ptr<string> succeed_ {};
       // The execution duration of the SQL statement. Unit: milliseconds (ms).
       shared_ptr<string> totalTime_ {};
-      // The username that executed the SQL statement.
+      // The username that executes the SQL statement.
       shared_ptr<string> user_ {};
     };
 
@@ -246,7 +246,7 @@ namespace Models
 
   protected:
     // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-    // <props="intl">The ID of the Data Lakehouse Edition cluster.
+    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
     shared_ptr<string> DBClusterId_ {};
     // The list.
     shared_ptr<vector<DescribeAuditLogRecordsResponseBody::Items>> items_ {};

@@ -156,7 +156,7 @@ namespace Models
       protected:
         // The resource group name.
         shared_ptr<string> groupName_ {};
-        // The query execution time threshold. Unit: milliseconds (ms).
+        // The query execution time threshold, in milliseconds (ms).
         shared_ptr<string> queryTime_ {};
         // The name of the target resource group.
         shared_ptr<string> targetGroupName_ {};
@@ -293,13 +293,13 @@ namespace Models
         protected:
           // The allocation unit.
           shared_ptr<string> allocateUnit_ {};
-          // The name of the Ray worker group.
+          // The Ray worker group name.
           shared_ptr<string> groupName_ {};
           // The maximum number of workers.
           shared_ptr<int32_t> maxWorkerQuantity_ {};
           // The minimum number of workers.
           shared_ptr<int32_t> minWorkerQuantity_ {};
-          // The disk size per worker.
+          // The disk capacity per worker.
           shared_ptr<string> workerDiskCapacity_ {};
           // The worker specification name.
           shared_ptr<string> workerSpecName_ {};
@@ -312,10 +312,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const StorageMounts& obj) { 
             DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
             DARABONBA_PTR_TO_JSON(StorageId, storageId_);
+            DARABONBA_PTR_TO_JSON(StorageName, storageName_);
           };
           friend void from_json(const Darabonba::Json& j, StorageMounts& obj) { 
             DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
             DARABONBA_PTR_FROM_JSON(StorageId, storageId_);
+            DARABONBA_PTR_FROM_JSON(StorageName, storageName_);
           };
           StorageMounts() = default ;
           StorageMounts(const StorageMounts &) = default ;
@@ -329,7 +331,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->mountPath_ == nullptr
-        && this->storageId_ == nullptr; };
+        && this->storageId_ == nullptr && this->storageName_ == nullptr; };
           // mountPath Field Functions 
           bool hasMountPath() const { return this->mountPath_ != nullptr;};
           void deleteMountPath() { this->mountPath_ = nullptr;};
@@ -344,11 +346,19 @@ namespace Models
           inline StorageMounts& setStorageId(int64_t storageId) { DARABONBA_PTR_SET_VALUE(storageId_, storageId) };
 
 
+          // storageName Field Functions 
+          bool hasStorageName() const { return this->storageName_ != nullptr;};
+          void deleteStorageName() { this->storageName_ = nullptr;};
+          inline string getStorageName() const { DARABONBA_PTR_GET_DEFAULT(storageName_, "") };
+          inline StorageMounts& setStorageName(string storageName) { DARABONBA_PTR_SET_VALUE(storageName_, storageName) };
+
+
         protected:
           // The mount path.
           shared_ptr<string> mountPath_ {};
           // The storage ID.
           shared_ptr<int64_t> storageId_ {};
+          shared_ptr<string> storageName_ {};
         };
 
         class AppConfig : public Darabonba::Model {
@@ -584,7 +594,7 @@ namespace Models
         shared_ptr<bool> enableUserEni_ {};
         // The allocation unit of the head node.
         shared_ptr<string> headAllocateUnit_ {};
-        // The disk size of the head node.
+        // The disk capacity of the head node.
         shared_ptr<string> headDiskCapacity_ {};
         // The node specifications of the head node.
         shared_ptr<string> headSpec_ {};
@@ -596,6 +606,7 @@ namespace Models
         shared_ptr<string> rayDashboardAddress_ {};
         // The Ray Grafana address.
         shared_ptr<string> rayGrafanaAddress_ {};
+        // The Ray Serve public address.
         shared_ptr<string> rayServePublicAddress_ {};
         // The list of storage mounts.
         shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
@@ -663,9 +674,9 @@ namespace Models
 
 
         protected:
-          // The end time, specified as a cron expression. The interval must be at least 1 hour.
+          // The end time in Cron expression format. The interval must be at least 1 hour.
           shared_ptr<string> endCronExpression_ {};
-          // The start time, specified as a cron expression. The interval must be at least 1 hour.
+          // The start time in Cron expression format. The interval must be at least 1 hour.
           shared_ptr<string> startCronExpression_ {};
         };
 
@@ -814,16 +825,27 @@ namespace Models
 
 
       protected:
+        // The number of authentication nodes.
         shared_ptr<string> authNodeNum_ {};
+        // The authentication node specifications.
         shared_ptr<string> authNodeSpec_ {};
+        // The number of write nodes.
         shared_ptr<string> insertNodeNum_ {};
+        // The write node specifications.
         shared_ptr<string> insertNodeSpec_ {};
+        // The cache size of query nodes.
         shared_ptr<string> selectNodeCacheSize_ {};
+        // The number of query nodes.
         shared_ptr<string> selectNodeNum_ {};
+        // The query node specifications.
         shared_ptr<string> selectNodeSpec_ {};
+        // The disk size of storage nodes.
         shared_ptr<string> storageNodeDiskSize_ {};
+        // The disk type of storage nodes.
         shared_ptr<string> storageNodeDiskType_ {};
+        // The number of storage nodes.
         shared_ptr<string> storageNodeNum_ {};
+        // The storage node specifications.
         shared_ptr<string> storageNodeSpec_ {};
       };
 
@@ -1048,6 +1070,7 @@ namespace Models
 
 
     protected:
+      // The PromQL resource group configuration.
       shared_ptr<GroupsInfo::AtmConfig> atmConfig_ {};
       // The automatic stop interval, in the format of a number followed by m (minutes). The value ranges from 0m or 5m to 10080m. A value of 0m indicates that automatic stop is disabled.
       shared_ptr<string> autoStopInterval_ {};
@@ -1062,11 +1085,11 @@ namespace Models
       shared_ptr<string> clusterMode_ {};
       // A reserved parameter. Not applicable.
       shared_ptr<string> clusterSizeResource_ {};
-      // The time when the resource group was created. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+      // The time when the resource group was created, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
       shared_ptr<string> createTime_ {};
-      // The minimum elastic computing resources. Unit: ACUs.
+      // The minimum elastic computing resources, in ACUs.
       shared_ptr<string> elasticMinComputeResource_ {};
-      // Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
+      // Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but instances may be released. Valid values:
       // - **True**: The spot instance feature is enabled.
       // - **False**: The spot instance feature is disabled.
       // 
@@ -1083,13 +1106,13 @@ namespace Models
       // The resource group type. Valid values:
       // - **Interactive**
       // - **Job**
-      // > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+      // > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
       shared_ptr<string> groupType_ {};
       // The Resource Access Management (RAM) users attached to the resource group.
       shared_ptr<string> groupUsers_ {};
       // A reserved parameter. Not applicable.
       shared_ptr<int32_t> maxClusterCount_ {};
-      // The maximum reserved computing resources. Unit: ACUs.
+      // The maximum reserved computing resources, in ACUs.
       shared_ptr<string> maxComputeResource_ {};
       // The maximum number of GPUs.
       shared_ptr<int32_t> maxGpuQuantity_ {};
@@ -1099,7 +1122,7 @@ namespace Models
       shared_ptr<string> message_ {};
       // A reserved parameter. Not applicable.
       shared_ptr<int32_t> minClusterCount_ {};
-      // The minimum reserved computing resources. Unit: ACUs.
+      // The minimum reserved computing resources, in ACUs.
       shared_ptr<string> minComputeResource_ {};
       // The minimum number of GPUs.
       shared_ptr<int32_t> minGpuQuantity_ {};
@@ -1109,7 +1132,7 @@ namespace Models
       shared_ptr<vector<GroupsInfo::Rules>> rules_ {};
       // A reserved parameter. Not applicable.
       shared_ptr<int32_t> runningClusterCount_ {};
-      // The scale-out policy of the resource group. Valid values:
+      // The scaling policy of the resource group. Valid values:
       // 
       // - AutoScaling: enables the AutoScaling automatic scaling policy.
       // - Disable: disables automatic scaling.
@@ -1117,14 +1140,14 @@ namespace Models
       shared_ptr<string> scalePolicy_ {};
       // The specification name.
       shared_ptr<string> specName_ {};
-      // The status of the resource group. Valid values:
+      // The resource group status. Valid values:
       // - **creating**: being created
       // - **ok**: created
       // - **pendingdelete**: pending deletion
       shared_ptr<string> status_ {};
       // The name of the target resource group.
       shared_ptr<string> targetResourceGroupName_ {};
-      // The time when the resource group was last updated. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+      // The time when the resource group was last updated, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
       shared_ptr<string> updateTime_ {};
     };
 

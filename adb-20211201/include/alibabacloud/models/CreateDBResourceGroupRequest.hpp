@@ -128,9 +128,9 @@ namespace Models
       // - The name must start with a digit, an uppercase letter, or a lowercase letter.
       // - The name can contain digits, uppercase letters, lowercase letters, hyphens (-), and underscores (_).
       shared_ptr<string> groupName_ {};
-      // The query execution time threshold. Unit: milliseconds (ms).
+      // The query execution time threshold, in milliseconds (ms).
       shared_ptr<string> queryTime_ {};
-      // The name of the destination resource group.
+      // The name of the target resource group.
       shared_ptr<string> targetGroupName_ {};
     };
 
@@ -143,6 +143,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(HeadDiskCapacity, headDiskCapacity_);
         DARABONBA_PTR_TO_JSON(HeadSpec, headSpec_);
         DARABONBA_PTR_TO_JSON(HeadSpecType, headSpecType_);
+        DARABONBA_PTR_TO_JSON(StorageMounts, storageMounts_);
         DARABONBA_PTR_TO_JSON(UserDefinedRequirements, userDefinedRequirements_);
         DARABONBA_PTR_TO_JSON(WorkerGroups, workerGroups_);
       };
@@ -153,6 +154,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(HeadDiskCapacity, headDiskCapacity_);
         DARABONBA_PTR_FROM_JSON(HeadSpec, headSpec_);
         DARABONBA_PTR_FROM_JSON(HeadSpecType, headSpecType_);
+        DARABONBA_PTR_FROM_JSON(StorageMounts, storageMounts_);
         DARABONBA_PTR_FROM_JSON(UserDefinedRequirements, userDefinedRequirements_);
         DARABONBA_PTR_FROM_JSON(WorkerGroups, workerGroups_);
       };
@@ -267,9 +269,61 @@ namespace Models
         shared_ptr<string> workerSpecType_ {};
       };
 
+      class StorageMounts : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const StorageMounts& obj) { 
+          DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
+          DARABONBA_PTR_TO_JSON(StorageId, storageId_);
+          DARABONBA_PTR_TO_JSON(StorageName, storageName_);
+        };
+        friend void from_json(const Darabonba::Json& j, StorageMounts& obj) { 
+          DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
+          DARABONBA_PTR_FROM_JSON(StorageId, storageId_);
+          DARABONBA_PTR_FROM_JSON(StorageName, storageName_);
+        };
+        StorageMounts() = default ;
+        StorageMounts(const StorageMounts &) = default ;
+        StorageMounts(StorageMounts &&) = default ;
+        StorageMounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~StorageMounts() = default ;
+        StorageMounts& operator=(const StorageMounts &) = default ;
+        StorageMounts& operator=(StorageMounts &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->mountPath_ == nullptr
+        && this->storageId_ == nullptr && this->storageName_ == nullptr; };
+        // mountPath Field Functions 
+        bool hasMountPath() const { return this->mountPath_ != nullptr;};
+        void deleteMountPath() { this->mountPath_ = nullptr;};
+        inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+        inline StorageMounts& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+        // storageId Field Functions 
+        bool hasStorageId() const { return this->storageId_ != nullptr;};
+        void deleteStorageId() { this->storageId_ = nullptr;};
+        inline int64_t getStorageId() const { DARABONBA_PTR_GET_DEFAULT(storageId_, 0L) };
+        inline StorageMounts& setStorageId(int64_t storageId) { DARABONBA_PTR_SET_VALUE(storageId_, storageId) };
+
+
+        // storageName Field Functions 
+        bool hasStorageName() const { return this->storageName_ != nullptr;};
+        void deleteStorageName() { this->storageName_ = nullptr;};
+        inline string getStorageName() const { DARABONBA_PTR_GET_DEFAULT(storageName_, "") };
+        inline StorageMounts& setStorageName(string storageName) { DARABONBA_PTR_SET_VALUE(storageName_, storageName) };
+
+
+      protected:
+        shared_ptr<string> mountPath_ {};
+        shared_ptr<int64_t> storageId_ {};
+        shared_ptr<string> storageName_ {};
+      };
+
       virtual bool empty() const override { return this->category_ == nullptr
         && this->enableUserEni_ == nullptr && this->headAllocateUnit_ == nullptr && this->headDiskCapacity_ == nullptr && this->headSpec_ == nullptr && this->headSpecType_ == nullptr
-        && this->userDefinedRequirements_ == nullptr && this->workerGroups_ == nullptr; };
+        && this->storageMounts_ == nullptr && this->userDefinedRequirements_ == nullptr && this->workerGroups_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -312,6 +366,15 @@ namespace Models
       inline RayConfig& setHeadSpecType(string headSpecType) { DARABONBA_PTR_SET_VALUE(headSpecType_, headSpecType) };
 
 
+      // storageMounts Field Functions 
+      bool hasStorageMounts() const { return this->storageMounts_ != nullptr;};
+      void deleteStorageMounts() { this->storageMounts_ = nullptr;};
+      inline const vector<RayConfig::StorageMounts> & getStorageMounts() const { DARABONBA_PTR_GET_CONST(storageMounts_, vector<RayConfig::StorageMounts>) };
+      inline vector<RayConfig::StorageMounts> getStorageMounts() { DARABONBA_PTR_GET(storageMounts_, vector<RayConfig::StorageMounts>) };
+      inline RayConfig& setStorageMounts(const vector<RayConfig::StorageMounts> & storageMounts) { DARABONBA_PTR_SET_VALUE(storageMounts_, storageMounts) };
+      inline RayConfig& setStorageMounts(vector<RayConfig::StorageMounts> && storageMounts) { DARABONBA_PTR_SET_RVALUE(storageMounts_, storageMounts) };
+
+
       // userDefinedRequirements Field Functions 
       bool hasUserDefinedRequirements() const { return this->userDefinedRequirements_ != nullptr;};
       void deleteUserDefinedRequirements() { this->userDefinedRequirements_ = nullptr;};
@@ -331,8 +394,9 @@ namespace Models
     protected:
       // The Ray cluster type. Valid values:
       // 
-      // - BASIC: basic type, non-high-availability
-      // - HIGH_AVAILABILITY: high-availability type
+      // - BASIC: basic type, non-high-availability.
+      // 
+      // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
       // Specifies whether to enable user ENI connectivity.
       shared_ptr<bool> enableUserEni_ {};
@@ -344,6 +408,7 @@ namespace Models
       shared_ptr<string> headSpec_ {};
       // The resource type of the head node.
       shared_ptr<string> headSpecType_ {};
+      shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
       shared_ptr<string> userDefinedRequirements_ {};
       // The list of Ray worker group configurations.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
@@ -408,9 +473,9 @@ namespace Models
 
 
       protected:
-        // The end time as a cron expression. The interval must be at least 1 hour.
+        // The end time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> endCronExpression_ {};
-        // The start time as a cron expression. The interval must be at least 1 hour.
+        // The start time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> startCronExpression_ {};
       };
 
@@ -561,16 +626,27 @@ namespace Models
 
 
     protected:
+      // The number of authentication nodes.
       shared_ptr<int32_t> authNodeNum_ {};
+      // The authentication node specifications ([0-9+]ACU).
       shared_ptr<string> authNodeSpec_ {};
+      // The number of insert nodes.
       shared_ptr<int32_t> insertNodeNum_ {};
+      // The insert node specifications ([0-9+]ACU).
       shared_ptr<string> insertNodeSpec_ {};
+      // The cache size of query nodes (GB).
       shared_ptr<int32_t> selectNodeCacheSize_ {};
+      // The number of query nodes.
       shared_ptr<int32_t> selectNodeNum_ {};
+      // The query node specifications ([0-9+]ACU).
       shared_ptr<string> selectNodeSpec_ {};
+      // The disk size of storage nodes.
       shared_ptr<int32_t> storageNodeDiskSize_ {};
+      // The disk type of storage nodes (essd_pl1, essd_pl2).
       shared_ptr<string> storageNodeDiskType_ {};
+      // The number of storage nodes.
       shared_ptr<int32_t> storageNodeNum_ {};
+      // The storage node specifications ([0-9+]ACU).
       shared_ptr<string> storageNodeSpec_ {};
     };
 
@@ -759,8 +835,9 @@ namespace Models
 
 
   protected:
+    // The PromQL resource group configuration.
     shared_ptr<CreateDBResourceGroupRequest::AtmConfig> atmConfig_ {};
-    // The automatic stop interval. Unit: minutes (m).
+    // The automatic stop interval, in minutes (m).
     shared_ptr<string> autoStopInterval_ {};
     // The classification of the resource group. Valid values:
     // - SQL
@@ -772,7 +849,7 @@ namespace Models
     shared_ptr<string> clusterMode_ {};
     // A reserved parameter (not applicable).
     shared_ptr<string> clusterSizeResource_ {};
-    // The ID of the Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -799,27 +876,27 @@ namespace Models
     // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about resource groups of the Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
     // A reserved parameter (not applicable).
     shared_ptr<int32_t> maxClusterCount_ {};
-    // The maximum amount of reserved computing resources. Unit: ACUs.
-    // - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 8 ACUs.
+    // The maximum reserved computing resources, in ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
     // The maximum number of GPUs.
     shared_ptr<int32_t> maxGpuQuantity_ {};
     // A reserved parameter (not applicable).
     shared_ptr<int32_t> minClusterCount_ {};
-    // The minimum amount of reserved computing resources. Unit: ACUs.
+    // The minimum reserved computing resources, in ACUs.
     // - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
     // - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
     shared_ptr<string> minComputeResource_ {};
     // The minimum number of GPUs.
     shared_ptr<int32_t> minGpuQuantity_ {};
-    // The Ray configuration.
+    // The Ray configuration information.
     // > This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
     shared_ptr<CreateDBResourceGroupRequest::RayConfig> rayConfig_ {};
     // The region ID.
@@ -835,7 +912,7 @@ namespace Models
     shared_ptr<string> scalePolicy_ {};
     // The specification name.
     shared_ptr<string> specName_ {};
-    // The name of the destination resource group.
+    // The name of the target resource group.
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

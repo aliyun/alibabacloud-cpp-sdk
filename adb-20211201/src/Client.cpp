@@ -63,21 +63,21 @@ AlibabaCloud::Adb20211201::Client::Client(Config &config): OpenApiClient(config)
     {"eu-west-1-oxs" , "adb.ap-northeast-1.aliyuncs.com"},
     {"me-east-1" , "adb.ap-northeast-1.aliyuncs.com"},
     {"rus-west-1-pop" , "adb.ap-northeast-1.aliyuncs.com"},
-    {"na-south-1" , "adb.na-south-1.aliyuncs.com"},
-    {"me-central-1" , "adb.me-central-1.aliyuncs.com"},
+    {"cn-chengdu" , "adb.cn-chengdu.aliyuncs.com"},
+    {"cn-wulanchabu" , "adb.cn-wulanchabu.aliyuncs.com"},
+    {"cn-zhangjiakou" , "adb.cn-zhangjiakou.aliyuncs.com"},
+    {"ap-northeast-2" , "adb.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "adb.ap-northeast-1.aliyuncs.com"},
+    {"cn-guangzhou" , "adb.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-3" , "adb.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "adb.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "adb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "adb.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "adb.ap-southeast-7.aliyuncs.com"},
     {"eu-west-1" , "adb.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "adb.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "adb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "adb.cn-wulanchabu.aliyuncs.com"},
-    {"cn-huhehaote" , "adb.cn-huhehaote.aliyuncs.com"},
-    {"cn-guangzhou" , "adb.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "adb.cn-chengdu.aliyuncs.com"},
-    {"ap-southeast-7" , "adb.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "adb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "adb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "adb.ap-southeast-3.aliyuncs.com"},
-    {"ap-northeast-2" , "adb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "adb.ap-northeast-1.aliyuncs.com"}
+    {"na-south-1" , "adb.na-south-1.aliyuncs.com"},
+    {"me-central-1" , "adb.me-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -764,6 +764,64 @@ CheckSampleDataSetResponse Client::checkSampleDataSetWithOptions(const CheckSamp
 CheckSampleDataSetResponse Client::checkSampleDataSet(const CheckSampleDataSetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkSampleDataSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables log synchronization to Simple Log Service (SLS).
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request CloseLogSyncToSLSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloseLogSyncToSLSResponse
+ */
+CloseLogSyncToSLSResponse Client::closeLogSyncToSLSWithOptions(const CloseLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasLogType()) {
+    query["LogType"] = request.getLogType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloseLogSyncToSLS"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloseLogSyncToSLSResponse>();
+}
+
+/**
+ * @summary Disables log synchronization to Simple Log Service (SLS).
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request CloseLogSyncToSLSRequest
+ * @return CloseLogSyncToSLSResponse
+ */
+CloseLogSyncToSLSResponse Client::closeLogSyncToSLS(const CloseLogSyncToSLSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return closeLogSyncToSLSWithOptions(request, runtime);
 }
 
 /**
@@ -1921,9 +1979,9 @@ CreateDBClusterResponse Client::createDBCluster(const CreateDBClusterRequest &re
 }
 
 /**
- * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+ * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2068,9 +2126,9 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 }
 
 /**
- * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+ * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBResourceGroupRequest
  * @return CreateDBResourceGroupResponse
@@ -4917,10 +4975,10 @@ DescribeApsResourceGroupsResponse Client::describeApsResourceGroups(const Descri
 }
 
 /**
- * @summary Queries the SQL Audit Log of a cluster.
+ * @summary Queries the SQL audit logs of a cluster.
  *
- * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
- * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4971,6 +5029,10 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecordsWithOptions(const
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProcessId()) {
+    query["ProcessId"] = request.getProcessId();
   }
 
   if (!!request.hasProxyUser()) {
@@ -5027,10 +5089,10 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecordsWithOptions(const
 }
 
 /**
- * @summary Queries the SQL Audit Log of a cluster.
+ * @summary Queries the SQL audit logs of a cluster.
  *
- * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
- * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @return DescribeAuditLogRecordsResponse
@@ -6259,7 +6321,7 @@ DescribeDBClustersResponse Client::describeDBClusters(const DescribeDBClustersRe
 /**
  * @summary Queries the resource group information of a cluster.
  *
- * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6308,7 +6370,7 @@ DescribeDBResourceGroupResponse Client::describeDBResourceGroupWithOptions(const
 /**
  * @summary Queries the resource group information of a cluster.
  *
- * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBResourceGroupRequest
  * @return DescribeDBResourceGroupResponse
@@ -10658,6 +10720,10 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
     query["Topk"] = request.getTopk();
   }
 
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10736,6 +10802,64 @@ GetLakeStorageResponse Client::getLakeStorageWithOptions(const GetLakeStorageReq
 GetLakeStorageResponse Client::getLakeStorage(const GetLakeStorageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getLakeStorageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the log synchronization configuration.
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request GetLogSyncToSLSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLogSyncToSLSResponse
+ */
+GetLogSyncToSLSResponse Client::getLogSyncToSLSWithOptions(const GetLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasLogType()) {
+    query["LogType"] = request.getLogType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLogSyncToSLS"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLogSyncToSLSResponse>();
+}
+
+/**
+ * @summary Retrieves the log synchronization configuration.
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request GetLogSyncToSLSRequest
+ * @return GetLogSyncToSLSResponse
+ */
+GetLogSyncToSLSResponse Client::getLogSyncToSLS(const GetLogSyncToSLSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLogSyncToSLSWithOptions(request, runtime);
 }
 
 /**
@@ -14151,7 +14275,7 @@ ModifyDBClusterVipResponse Client::modifyDBClusterVip(const ModifyDBClusterVipRe
 /**
  * @summary Changes the resource group of a cluster.
  *
- * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq ModifyDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14290,7 +14414,7 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
 /**
  * @summary Changes the resource group of a cluster.
  *
- * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyDBResourceGroupRequest
  * @return ModifyDBResourceGroupResponse
@@ -14854,6 +14978,72 @@ ModifyUserEniVswitchOptionsResponse Client::modifyUserEniVswitchOptionsWithOptio
 ModifyUserEniVswitchOptionsResponse Client::modifyUserEniVswitchOptions(const ModifyUserEniVswitchOptionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyUserEniVswitchOptionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables log synchronization to Simple Log Service (SLS).
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request OpenLogSyncToSLSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenLogSyncToSLSResponse
+ */
+OpenLogSyncToSLSResponse Client::openLogSyncToSLSWithOptions(const OpenLogSyncToSLSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasLogType()) {
+    query["LogType"] = request.getLogType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTargetLogStore()) {
+    query["TargetLogStore"] = request.getTargetLogStore();
+  }
+
+  if (!!request.hasTargetProject()) {
+    query["TargetProject"] = request.getTargetProject();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OpenLogSyncToSLS"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenLogSyncToSLSResponse>();
+}
+
+/**
+ * @summary Enables log synchronization to Simple Log Service (SLS).
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ *
+ * @param request OpenLogSyncToSLSRequest
+ * @return OpenLogSyncToSLSResponse
+ */
+OpenLogSyncToSLSResponse Client::openLogSyncToSLS(const OpenLogSyncToSLSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return openLogSyncToSLSWithOptions(request, runtime);
 }
 
 /**

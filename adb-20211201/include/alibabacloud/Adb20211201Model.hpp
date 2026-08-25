@@ -71,6 +71,9 @@
 #include <alibabacloud/models/CheckSampleDataSetRequest.hpp>
 #include <alibabacloud/models/CheckSampleDataSetResponseBody.hpp>
 #include <alibabacloud/models/CheckSampleDataSetResponse.hpp>
+#include <alibabacloud/models/CloseLogSyncToSLSRequest.hpp>
+#include <alibabacloud/models/CloseLogSyncToSLSResponseBody.hpp>
+#include <alibabacloud/models/CloseLogSyncToSLSResponse.hpp>
 #include <alibabacloud/models/ConfigureResultExportRequest.hpp>
 #include <alibabacloud/models/ConfigureResultExportShrinkRequest.hpp>
 #include <alibabacloud/models/ConfigureResultExportResponseBody.hpp>
@@ -528,6 +531,9 @@
 #include <alibabacloud/models/GetLakeStorageRequest.hpp>
 #include <alibabacloud/models/GetLakeStorageResponseBody.hpp>
 #include <alibabacloud/models/GetLakeStorageResponse.hpp>
+#include <alibabacloud/models/GetLogSyncToSLSRequest.hpp>
+#include <alibabacloud/models/GetLogSyncToSLSResponseBody.hpp>
+#include <alibabacloud/models/GetLogSyncToSLSResponse.hpp>
 #include <alibabacloud/models/GetSemanticViewRequest.hpp>
 #include <alibabacloud/models/GetSemanticViewResponseBody.hpp>
 #include <alibabacloud/models/GetSemanticViewResponse.hpp>
@@ -729,6 +735,9 @@
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsRequest.hpp>
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserEniVswitchOptionsResponse.hpp>
+#include <alibabacloud/models/OpenLogSyncToSLSRequest.hpp>
+#include <alibabacloud/models/OpenLogSyncToSLSResponseBody.hpp>
+#include <alibabacloud/models/OpenLogSyncToSLSResponse.hpp>
 #include <alibabacloud/models/PreloadSparkAppMetricsRequest.hpp>
 #include <alibabacloud/models/PreloadSparkAppMetricsResponseBody.hpp>
 #include <alibabacloud/models/PreloadSparkAppMetricsResponse.hpp>

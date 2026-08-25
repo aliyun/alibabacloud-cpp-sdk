@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Question, question_);
       DARABONBA_PTR_TO_JSON(Topk, topk_);
+      DARABONBA_PTR_TO_JSON(User, user_);
     };
     friend void from_json(const Darabonba::Json& j, GetKnowledgeRecallRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Question, question_);
       DARABONBA_PTR_FROM_JSON(Topk, topk_);
+      DARABONBA_PTR_FROM_JSON(User, user_);
     };
     GetKnowledgeRecallRequest() = default ;
     GetKnowledgeRecallRequest(const GetKnowledgeRecallRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->question_ == nullptr && this->topk_ == nullptr; };
+        && this->question_ == nullptr && this->topk_ == nullptr && this->user_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline GetKnowledgeRecallRequest& setTopk(int32_t topk) { DARABONBA_PTR_SET_VALUE(topk_, topk) };
 
 
+    // user Field Functions 
+    bool hasUser() const { return this->user_ != nullptr;};
+    void deleteUser() { this->user_ = nullptr;};
+    inline string getUser() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
+    inline GetKnowledgeRecallRequest& setUser(string user) { DARABONBA_PTR_SET_VALUE(user_, user) };
+
+
   protected:
     // The ID of the AnalyticDB for MySQL cluster.
     // 
@@ -67,6 +76,8 @@ namespace Models
     shared_ptr<string> question_ {};
     // The top K number of related files to recall.
     shared_ptr<int32_t> topk_ {};
+    // The username. Only files that this user has permission to access are recalled.
+    shared_ptr<string> user_ {};
   };
 
   } // namespace Models
