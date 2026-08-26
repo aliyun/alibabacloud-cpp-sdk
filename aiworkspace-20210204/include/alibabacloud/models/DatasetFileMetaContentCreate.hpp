@@ -130,73 +130,56 @@ namespace Models
 
 
   protected:
-    // The comment on the file.
+    // The file comment.
     shared_ptr<string> comment_ {};
-    // The MIME type of the file. It includes a type and a subtype.
+    // The MIME type of the file. Contains Type and SubType.
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The size of the file in bytes.
+    // The file size in bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The time when the file was created. The time is in ISO 8601 format.
+    // The file creation time in ISO 8601 format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileCreateTime_ {};
-    // The fingerprint of the file. This value ensures the uniqueness of the file content and changes if the content is modified. For OSS files, this is the ETag. For NAS files, this is the MD5 value.
+    // The file fingerprint value. Used to determine the uniqueness of file content. This value changes when the file content is modified. OSS files use ETag, and NAS files use MD5 values.
     // 
     // This parameter is required.
     shared_ptr<string> fileFingerPrint_ {};
-    // The name of the file.
+    // The file name.
     shared_ptr<string> fileName_ {};
-    // The type of the file. This is the same as the Multipurpose Internet Mail Extensions (MIME) type.
+    // The file type. Same as MIME Type.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
-    // The time when the file was last modified. The time is in ISO 8601 format.
+    // The last modification time of the file in ISO 8601 format.
     // 
     // This parameter is required.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileUpdateTime_ {};
-    // The specific metadata of the file. This metadata cannot be used for retrieval. The value must be a JSON string.
+    // The specific metadata of the file, not searchable. In JSON string format.
     shared_ptr<string> metaAttributes_ {};
-    // The tags that are manually added by users. The \\`add\\` operation is used to add tags to a tag group. The value must be a JSON string.
-    // The following tag group is available:
-    // 
-    // - user: A list of tag names added to a single piece of metadata.
+    // User manual tagging: (add indicates adding tags to the tag group). In JSON string format.
+    // The operable tag groups are:
+    // - user: The list of tag names manually added by the user for a single metadata entry.
     // 
     // ```
     // {
     //     "user":{
-    //         "add":["Lane line","Sunny day"]
+    //         "add":["lane_line","sunny"]
     //     }
     // }
     // ```
     shared_ptr<string> tags_ {};
-    // The unique URI of the file. This URI records the unique path of the file. The path can be an OSS or NAS path.
-    // 
+    // The unique URI of the file. Used to record the unique file path. Supports file paths in OSS and NAS.
     // <details>
-    // 
-    // <summary>
-    // 
-    // OSS
-    // 
-    // </summary>
-    // 
-    // oss\\://${bucket}/${path}
-    // 
+    // <summary>OSS</summary>
+    // oss://${bucket}/${path}
     // </details>
-    // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // NAS
-    // 
-    // </summary>
-    // 
-    // nas\\://${fileSystemId}/${path}
-    // 
+    // <summary>NAS</summary>
+    // nas://${fileSystemId}/${path}
     // </details>
     // 
     // This parameter is required.

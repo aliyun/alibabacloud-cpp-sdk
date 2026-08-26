@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/UserMetricsEndpoint.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataCount, dataCount_);
       DARABONBA_PTR_TO_JSON(DataSize, dataSize_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
+      DARABONBA_PTR_TO_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
@@ -29,12 +31,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
+      DARABONBA_PTR_TO_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_TO_JSON(VersionName, versionName_);
     };
     friend void from_json(const Darabonba::Json& j, DatasetVersion& obj) { 
       DARABONBA_PTR_FROM_JSON(DataCount, dataCount_);
       DARABONBA_PTR_FROM_JSON(DataSize, dataSize_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
+      DARABONBA_PTR_FROM_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
@@ -46,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
+      DARABONBA_PTR_FROM_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
     };
     DatasetVersion() = default ;
@@ -60,9 +65,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataCount_ == nullptr
-        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->importInfo_ == nullptr && this->labels_ == nullptr && this->mountAccess_ == nullptr && this->options_ == nullptr && this->property_ == nullptr
-        && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->uri_ == nullptr && this->versionName_ == nullptr; };
+        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->datasetTaskRamRole_ == nullptr && this->description_ == nullptr && this->gmtCreateTime_ == nullptr
+        && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr && this->mountAccess_ == nullptr && this->options_ == nullptr
+        && this->property_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->uri_ == nullptr && this->userMetricsEndpoints_ == nullptr
+        && this->versionName_ == nullptr; };
     // dataCount Field Functions 
     bool hasDataCount() const { return this->dataCount_ != nullptr;};
     void deleteDataCount() { this->dataCount_ = nullptr;};
@@ -82,6 +88,13 @@ namespace Models
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
     inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline DatasetVersion& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
+
+
+    // datasetTaskRamRole Field Functions 
+    bool hasDatasetTaskRamRole() const { return this->datasetTaskRamRole_ != nullptr;};
+    void deleteDatasetTaskRamRole() { this->datasetTaskRamRole_ = nullptr;};
+    inline string getDatasetTaskRamRole() const { DARABONBA_PTR_GET_DEFAULT(datasetTaskRamRole_, "") };
+    inline DatasetVersion& setDatasetTaskRamRole(string datasetTaskRamRole) { DARABONBA_PTR_SET_VALUE(datasetTaskRamRole_, datasetTaskRamRole) };
 
 
     // description Field Functions 
@@ -163,6 +176,15 @@ namespace Models
     inline DatasetVersion& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
+    // userMetricsEndpoints Field Functions 
+    bool hasUserMetricsEndpoints() const { return this->userMetricsEndpoints_ != nullptr;};
+    void deleteUserMetricsEndpoints() { this->userMetricsEndpoints_ = nullptr;};
+    inline const vector<UserMetricsEndpoint> & getUserMetricsEndpoints() const { DARABONBA_PTR_GET_CONST(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline vector<UserMetricsEndpoint> getUserMetricsEndpoints() { DARABONBA_PTR_GET(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline DatasetVersion& setUserMetricsEndpoints(const vector<UserMetricsEndpoint> & userMetricsEndpoints) { DARABONBA_PTR_SET_VALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+    inline DatasetVersion& setUserMetricsEndpoints(vector<UserMetricsEndpoint> && userMetricsEndpoints) { DARABONBA_PTR_SET_RVALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+
+
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
@@ -171,35 +193,39 @@ namespace Models
 
 
   protected:
-    // The total number of data items in the version.
+    // DataCount
     shared_ptr<int64_t> dataCount_ {};
-    // The total size of the data in the version, in bytes.
+    // DataSize
     shared_ptr<int64_t> dataSize_ {};
-    // The data source type. For example, the value `OSS` indicates Object Storage Service.
+    // DataSourceType
     shared_ptr<string> dataSourceType_ {};
-    // A custom description for the dataset version.
+    // DatasetTaskRamRole
+    shared_ptr<string> datasetTaskRamRole_ {};
+    // Description
     shared_ptr<string> description_ {};
-    // The creation time of the dataset version, in UTC.
+    // create time
     shared_ptr<string> gmtCreateTime_ {};
-    // The time the dataset version was last modified, in UTC.
+    // modify time
     shared_ptr<string> gmtModifiedTime_ {};
-    // Information about the import source, in JSON format.
+    // ImportInfo
     shared_ptr<string> importInfo_ {};
-    // A list of labels applied to the dataset version.
+    // Labels
     shared_ptr<vector<Label>> labels_ {};
-    // The access permission for the mounted dataset. For example, `RO` means read-only.
+    // MountAccess
     shared_ptr<string> mountAccess_ {};
-    // Additional configurations for the dataset version, in JSON format.
+    // Options
     shared_ptr<string> options_ {};
-    // The data format of the dataset.
+    // property
     shared_ptr<string> property_ {};
-    // The ID of the source from which the version was created.
+    // SourceId
     shared_ptr<string> sourceId_ {};
-    // The method used to create the dataset version.
+    // SourceType
     shared_ptr<string> sourceType_ {};
-    // The URI of the data source.
+    // Uri
     shared_ptr<string> uri_ {};
-    // The name of the dataset version.
+    // UserMetricsEndpoints
+    shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
+    // version name
     shared_ptr<string> versionName_ {};
   };
 

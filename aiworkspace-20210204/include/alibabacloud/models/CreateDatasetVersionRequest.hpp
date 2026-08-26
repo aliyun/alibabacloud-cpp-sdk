@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/UserMetricsEndpoint.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataCount, dataCount_);
       DARABONBA_PTR_TO_JSON(DataSize, dataSize_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
+      DARABONBA_PTR_TO_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ImportInfo, importInfo_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
@@ -26,11 +28,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
+      DARABONBA_PTR_TO_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDatasetVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DataCount, dataCount_);
       DARABONBA_PTR_FROM_JSON(DataSize, dataSize_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
+      DARABONBA_PTR_FROM_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ImportInfo, importInfo_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
@@ -39,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
+      DARABONBA_PTR_FROM_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
     };
     CreateDatasetVersionRequest() = default ;
     CreateDatasetVersionRequest(const CreateDatasetVersionRequest &) = default ;
@@ -52,8 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataCount_ == nullptr
-        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->description_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr
-        && this->options_ == nullptr && this->property_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->uri_ == nullptr; };
+        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->datasetTaskRamRole_ == nullptr && this->description_ == nullptr && this->importInfo_ == nullptr
+        && this->labels_ == nullptr && this->options_ == nullptr && this->property_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr
+        && this->uri_ == nullptr && this->userMetricsEndpoints_ == nullptr; };
     // dataCount Field Functions 
     bool hasDataCount() const { return this->dataCount_ != nullptr;};
     void deleteDataCount() { this->dataCount_ = nullptr;};
@@ -73,6 +79,13 @@ namespace Models
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
     inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline CreateDatasetVersionRequest& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
+
+
+    // datasetTaskRamRole Field Functions 
+    bool hasDatasetTaskRamRole() const { return this->datasetTaskRamRole_ != nullptr;};
+    void deleteDatasetTaskRamRole() { this->datasetTaskRamRole_ = nullptr;};
+    inline string getDatasetTaskRamRole() const { DARABONBA_PTR_GET_DEFAULT(datasetTaskRamRole_, "") };
+    inline CreateDatasetVersionRequest& setDatasetTaskRamRole(string datasetTaskRamRole) { DARABONBA_PTR_SET_VALUE(datasetTaskRamRole_, datasetTaskRamRole) };
 
 
     // description Field Functions 
@@ -133,137 +146,112 @@ namespace Models
     inline CreateDatasetVersionRequest& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
+    // userMetricsEndpoints Field Functions 
+    bool hasUserMetricsEndpoints() const { return this->userMetricsEndpoints_ != nullptr;};
+    void deleteUserMetricsEndpoints() { this->userMetricsEndpoints_ = nullptr;};
+    inline const vector<UserMetricsEndpoint> & getUserMetricsEndpoints() const { DARABONBA_PTR_GET_CONST(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline vector<UserMetricsEndpoint> getUserMetricsEndpoints() { DARABONBA_PTR_GET(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline CreateDatasetVersionRequest& setUserMetricsEndpoints(const vector<UserMetricsEndpoint> & userMetricsEndpoints) { DARABONBA_PTR_SET_VALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+    inline CreateDatasetVersionRequest& setUserMetricsEndpoints(vector<UserMetricsEndpoint> && userMetricsEndpoints) { DARABONBA_PTR_SET_RVALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+
+
   protected:
-    // The number of files in the dataset.
+    // The number of dataset files.
     shared_ptr<int64_t> dataCount_ {};
-    // The size of the space occupied by the dataset files. Unit: bytes.
+    // The size of space occupied by dataset files. Unit: bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The type of the data source. If you specify multiple types, separate them with commas (,). Valid values:
+    // The data source type. Separate multiple values with commas (,). Valid values:
     // 
-    // - NAS: The data is stored in Alibaba Cloud File Storage (NAS).
+    // - NAS: Alibaba Cloud Network Attached Storage (NAS).
     // 
-    // - OSS: The data is stored in Alibaba Cloud Object Storage Service (OSS).
+    // - OSS: Alibaba Cloud Object Storage Service (OSS).
     // 
     // - CPFS
     // 
-    // Note: The DataSourceType of the version must be the same as the DataSourceType of the dataset. The system verifies this consistency when you create the version.
+    // > The DataSourceType of the version must be consistent with the DataSourceType of the dataset. Validation is performed against the dataset when a version is created.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // A custom description for the dataset version. This helps distinguish different dataset versions.
+    // UserMetricsEndpoints
+    shared_ptr<string> datasetTaskRamRole_ {};
+    // The custom description of the dataset version, used to distinguish different dataset versions.
     shared_ptr<string> description_ {};
-    // The storage import configuration of the dataset. Supported storage types include OSS, NAS, and CPFS.
+    // The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // OSS
-    // 
-    // </summary>
-    // 
-    // {<br>
-    // "region": "${region}",// The region ID.<br>
-    // "bucket": "${bucket}",// The bucket name.<br>
-    // "path": "${path}" // The file path.<br>
-    // }
-    // 
+    // <summary>OSS</summary>
+    // {<BR>
+    //   "region": "${region}",//Region ID<BR>
+    //   "bucket": "${bucket}",//Bucket name<BR>
+    //   "path": "${path}" //File path<BR>
+    // }<BR>
     // </details>
     // 
     // <details>
+    // <summary>NAS</summary>
+    // {<BR>
+    //   "region": "${region}",//Region ID<BR>
+    //   "fileSystemId": "${file_system_id}", //File system ID<BR>
+    //   "path": "${path}", //File system path<BR>
+    //   "mountTarget": "${mount_target}" //File system mount target<BR>
+    // }<BR>
+    // </details>
     // 
-    // <summary>
     // 
-    // NAS
-    // 
-    // </summary>
-    // 
-    // {<br>
-    // "region": "${region}",// The region ID.<br>
-    // "fileSystemId": "${file_system_id}", // The file system ID.<br>
-    // "path": "${path}", // The file system path.<br>
-    // "mountTarget": "${mount_target}" // The mount target of the file system.<br>
-    // }
-    // 
+    // <details>
+    // <summary>CPFS</summary>
+    // {<BR>
+    //   "region": "${region}",//Region ID<BR>
+    //   "fileSystemId": "${file_system_id}", //File system ID<BR>
+    //   "protocolServiceId":"${protocol_service_id}", //File system protocol service<BR>
+    //   "exportId": "${export_id}", //File system export directory<BR>
+    //   "path": "${path}",  //File system path<BR>
+    // }<BR>
     // </details>
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // CPFS
-    // 
-    // </summary>
-    // 
-    // {<br>
-    // "region": "${region}",// The region ID.<br>
-    // "fileSystemId": "${file_system_id}", // The file system ID.<br>
-    // "protocolServiceId":"${protocol_service_id}", // The protocol service of the file system.<br>
-    // "exportId": "${export_id}", // The exported directory of the file system.<br>
-    // "path": "${path}", // The file system path.<br>
-    // }
-    // 
-    // </details>
-    // 
-    // <details>
-    // 
-    // <summary>
-    // 
-    // Intelligent Computing CPFS
-    // 
-    // </summary>
-    // 
-    // {<br>
-    // "region": "${region}",// The region ID.<br>
-    // "fileSystemId": "${file_system_id}", // The file system ID.<br>
-    // "path": "${path}", // The file system path.<br>
-    // "mountTarget": "${mount_target}", // The mount target of the file system. This parameter is specific to the Intelligent Computing edition.<br>
-    // "isVpcMount": boolean, // Specifies whether the mount target is in a VPC. This parameter is specific to the Intelligent Computing edition.<br>
-    // }
-    // 
+    // <summary>Lingjun CPFS</summary>
+    // {<BR>
+    //   "region": "${region}",//Region ID<BR>
+    //   "fileSystemId": "${file_system_id}", //File system ID<BR>
+    //   "path": "${path}",  //File system path<BR>
+    //   "mountTarget": "${mount_target}" //File system mount target, specific to Lingjun edition<BR>
+    //   "isVpcMount": boolean, //Whether it is a VPC mount target, specific to Lingjun edition<BR>
+    // }<BR>
     // </details>
     shared_ptr<string> importInfo_ {};
-    // A list of tags for the dataset version.
+    // The list of dataset version labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The extended field, which is a JSON string.
-    // When DLC uses the dataset, you can configure the mountPath field to specify the default mount path for the dataset.
+    // The extended field in JsonString format.
+    // When DLC uses a dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
     shared_ptr<string> options_ {};
     // The property of the dataset. Valid values:
-    // 
-    // - FILE: A file.
-    // 
-    // - DIRECTORY: A folder.
+    // - FILE: file.
+    // - DIRECTORY: folder.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
-    // The ID of the data source.
-    // 
-    // - If SourceType is set to USER, you can customize the SourceId.
-    // 
-    // - If SourceType is set to ITAG, which indicates a dataset generated from the annotation results of the iTAG module, SourceId is the task ID from iTAG.
-    // 
-    // - If SourceType is set to PAI_PUBLIC_DATASET, which indicates a dataset created from a public PAI dataset, SourceId is empty by default.
+    // The data source ID.
+    // - If SourceType is USER, SourceId can be customized.
+    // - If SourceType is ITAG, which indicates a dataset generated from iTAG annotation results, SourceId is the iTAG task ID.
+    // - If SourceType is PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
     shared_ptr<string> sourceId_ {};
-    // The type of the data source. The default value is USER. Valid values:
-    // 
-    // - PAI-PUBLIC-DATASET: a public dataset from PAI.
-    // 
-    // - ITAG: a dataset generated from the annotation results of the iTAG module.
-    // 
-    // - USER: a dataset registered by a user.
+    // The data source type. Default value: USER. Valid values:
+    // - PAI-PUBLIC-DATASET: PAI public dataset.
+    // - ITAG: dataset generated from iTAG annotation results.
+    // - USER: user-registered dataset.
     shared_ptr<string> sourceType_ {};
-    // The following examples show how to configure the URI:
-    // 
+    // Examples of Uri configurations:
     // - If the data source type is OSS: `oss://bucket.endpoint/object`
-    // 
     // - If the data source type is NAS:
-    //   The format for a general-purpose NAS file system is `nas://<nasfisid>.region/subpath/to/dir/`.
-    //   CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`.
-    //   CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`.
-    //   CPFS 1.0 and CPFS 2.0 are distinguished by the format of the fsid. The format for CPFS 1.0 is cpfs-<8 ASCII characters>. The format for CPFS 2.0 is cpfs-<16 ASCII characters>.
+    // General-purpose NAS format: `nas://<nasfisid>.region/subpath/to/dir/`;
+    // CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`;
+    // CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`.
+    // CPFS 1.0 and CPFS 2.0 are distinguished by the format of the fsid: CPFS 1.0 format is cpfs-<8 ASCII characters>; CPFS 2.0 format is cpfs-<16 ASCII characters>.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
+    shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
   };
 
   } // namespace Models

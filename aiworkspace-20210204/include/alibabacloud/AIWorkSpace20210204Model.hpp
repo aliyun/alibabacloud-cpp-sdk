@@ -6,6 +6,7 @@
 #include <alibabacloud/models/Collection.hpp>
 #include <alibabacloud/models/Connection.hpp>
 #include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/UserMetricsEndpoint.hpp>
 #include <alibabacloud/models/DatasetVersion.hpp>
 #include <alibabacloud/models/DatasetShareRelationship.hpp>
 #include <alibabacloud/models/Dataset.hpp>

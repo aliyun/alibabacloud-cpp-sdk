@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The name of the dataset version.
+    // The dataset version name.
     shared_ptr<string> versionName_ {};
   };
 

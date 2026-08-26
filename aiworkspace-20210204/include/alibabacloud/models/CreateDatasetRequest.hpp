@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/UserMetricsEndpoint.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataSize, dataSize_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(DataType, dataType_);
+      DARABONBA_PTR_TO_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(ImportInfo, importInfo_);
@@ -37,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_TO_JSON(VersionDescription, versionDescription_);
       DARABONBA_PTR_TO_JSON(VersionLabels, versionLabels_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -48,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataSize, dataSize_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(DataType, dataType_);
+      DARABONBA_PTR_FROM_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(ImportInfo, importInfo_);
@@ -64,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_FROM_JSON(VersionDescription, versionDescription_);
       DARABONBA_PTR_FROM_JSON(VersionLabels, versionLabels_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -81,10 +86,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->accessibleRoleIdList_ == nullptr && this->dataCount_ == nullptr && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->dataType_ == nullptr
-        && this->description_ == nullptr && this->edition_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr
-        && this->name_ == nullptr && this->options_ == nullptr && this->property_ == nullptr && this->provider_ == nullptr && this->providerType_ == nullptr
-        && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->uri_ == nullptr
-        && this->userId_ == nullptr && this->versionDescription_ == nullptr && this->versionLabels_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->datasetTaskRamRole_ == nullptr && this->description_ == nullptr && this->edition_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr
+        && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->property_ == nullptr && this->provider_ == nullptr
+        && this->providerType_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr
+        && this->uri_ == nullptr && this->userId_ == nullptr && this->userMetricsEndpoints_ == nullptr && this->versionDescription_ == nullptr && this->versionLabels_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -127,6 +133,13 @@ namespace Models
     void deleteDataType() { this->dataType_ = nullptr;};
     inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline CreateDatasetRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
+
+
+    // datasetTaskRamRole Field Functions 
+    bool hasDatasetTaskRamRole() const { return this->datasetTaskRamRole_ != nullptr;};
+    void deleteDatasetTaskRamRole() { this->datasetTaskRamRole_ = nullptr;};
+    inline string getDatasetTaskRamRole() const { DARABONBA_PTR_GET_DEFAULT(datasetTaskRamRole_, "") };
+    inline CreateDatasetRequest& setDatasetTaskRamRole(string datasetTaskRamRole) { DARABONBA_PTR_SET_VALUE(datasetTaskRamRole_, datasetTaskRamRole) };
 
 
     // description Field Functions 
@@ -245,6 +258,15 @@ namespace Models
     inline CreateDatasetRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
+    // userMetricsEndpoints Field Functions 
+    bool hasUserMetricsEndpoints() const { return this->userMetricsEndpoints_ != nullptr;};
+    void deleteUserMetricsEndpoints() { this->userMetricsEndpoints_ = nullptr;};
+    inline const vector<UserMetricsEndpoint> & getUserMetricsEndpoints() const { DARABONBA_PTR_GET_CONST(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline vector<UserMetricsEndpoint> getUserMetricsEndpoints() { DARABONBA_PTR_GET(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline CreateDatasetRequest& setUserMetricsEndpoints(const vector<UserMetricsEndpoint> & userMetricsEndpoints) { DARABONBA_PTR_SET_VALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+    inline CreateDatasetRequest& setUserMetricsEndpoints(vector<UserMetricsEndpoint> && userMetricsEndpoints) { DARABONBA_PTR_SET_RVALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+
+
     // versionDescription Field Functions 
     bool hasVersionDescription() const { return this->versionDescription_ != nullptr;};
     void deleteVersionDescription() { this->versionDescription_ = nullptr;};
@@ -269,203 +291,147 @@ namespace Models
 
 
   protected:
-    // The visibility of the dataset in the workspace. Valid values:
-    // 
-    // - PRIVATE (default): The dataset is visible only to its owner and administrators in the workspace.
-    // 
-    // - PUBLIC: The dataset is visible to all users in the workspace.
-    // 
-    // - ROLE_PUBLIC: The dataset is visible to users with specific workspace roles. The list of roles is specified in the `AccessibleRoleIdList` parameter. The dataset owner and administrators always retain visibility.
+    // The visibility of the workspace. Valid values:
+    // - PRIVATE (default): visible only to yourself and administrators within the workspace.
+    // - PUBLIC: visible to all users in the workspace.
+    // - ROLE_PUBLIC: visible to specified workspace roles. For the role list, refer to AccessibleRoleIdList. Under this condition, the dataset owner and administrators always have visibility.
     shared_ptr<string> accessibility_ {};
-    // This parameter takes effect only when `Accessibility` is set to `ROLE_PUBLIC`. This parameter specifies a list of workspace role IDs that can view this dataset. Role IDs that start with `PAI.` are built-in roles, and role IDs that start with `role-` are custom roles.
+    // Takes effect when Accessibility is set to ROLE_PUBLIC. The list of workspace role names that can view the dataset. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs.
     shared_ptr<vector<string>> accessibleRoleIdList_ {};
     // The number of files in the dataset.
     shared_ptr<int64_t> dataCount_ {};
-    // The size of the dataset files, in bytes.
+    // The size of space occupied by the dataset files. Unit: bytes.
     shared_ptr<int64_t> dataSize_ {};
-    // The type of the data source. Valid values:
-    // 
-    // - OSS: Object Storage Service (OSS).
-    // 
-    // - NAS: general-purpose Apsara File Storage NAS.
-    // 
-    // - EXTREMENAS: Extreme NAS.
-    // 
-    // - CPFS: general-purpose Cloud Parallel File Storage (CPFS).
-    // 
-    // - BMCPFS: AI Computing Edition of CPFS.
-    // 
-    // - MAXCOMPUTE: MaxCompute.
-    // 
-    // - URL: a public HTTP or HTTPS URL.
+    // The data source type. Valid values:
+    // - OSS: Alibaba Cloud Object Storage Service (OSS).
+    // - NAS: Alibaba Cloud Apsara File Storage NAS General Purpose.
+    // - EXTREMENAS: Alibaba Cloud Apsara File Storage NAS Extreme.
+    // - CPFS: Alibaba Cloud Cloud Parallel File Storage (CPFS) General Purpose.
+    // - BMCPFS: Alibaba Cloud Cloud Parallel File Storage (CPFS) AI Edition. 
+    // - MAXCOMPUTE: Alibaba Cloud MaxCompute.
+    // - URL: public HTTP/HTTPS URL.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The data type of the dataset. The default value is `COMMON`. Valid values:
-    // 
-    // - COMMON: common
-    // 
-    // - PIC: image
-    // 
-    // - TEXT: text
-    // 
-    // - VIDEO: video
-    // 
-    // - AUDIO: audio
+    // The data type of the dataset. Default value: COMMON. Valid values:
+    // - COMMON: common.
+    // - PIC: image.
+    // - TEXT: text.
+    // - VIDEO: video.
+    // - AUDIO: audio.
     shared_ptr<string> dataType_ {};
-    // A custom description to distinguish the dataset from other datasets.
+    // DatasetTaskRamRole
+    shared_ptr<string> datasetTaskRamRole_ {};
+    // The custom description of the dataset to distinguish it from other datasets.
     shared_ptr<string> description_ {};
-    // The edition of the dataset. The default value is BASIC. Valid values:
+    // The dataset type. Default value: BASIC. Valid values:
     // 
-    // - BASIC: Basic. Does not support dataset file metadata management.
-    // 
-    // - ADVANCED: Advanced. Supported only for OSS datasets. Each version supports metadata management for up to 1 million files.
-    // 
-    // - LOGICAL: Logical. Supported only for OSS datasets. Each version supports metadata management for up to 3 million files.
+    // - BASIC: basic. Does not support dataset file metadata management.
+    // - ADVANCED: advanced. Only supported for OSS type. Each version supports up to 1 million file metadata entries.
+    // - LOGICAL: logical. Only supported for OSS type. Each version supports up to 3 million file metadata entries.
     shared_ptr<string> edition_ {};
-    // The storage import configuration of the dataset. `OSS`, `NAS`, and `CPFS` are supported.
+    // The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // OSS
-    // 
-    // </summary>
-    // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "bucket": "${bucket}",// The bucket name.\\
-    // "path": "${path}" // The file path.\\
-    // }
-    // 
+    // <summary>OSS</summary>
+    // {<BR>
+    // "region": "${region}",//Region ID<BR>
+    // "bucket": "${bucket}",//Bucket name<BR>
+    // "path": "${path}" //File path<BR>
+    // }<BR>
     // </details>
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // NAS
-    // 
-    // </summary>
-    // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "fileSystemId": "${file_system_id}", // The file system ID.\\
-    // "path": "${path}", // The file system path.\\
-    // "mountTarget": "${mount_target}" // The mount target of the file system.\\
-    // }
-    // 
+    // <summary>NAS</summary>
+    // {<BR>
+    // "region": "${region}",//Region ID<BR>
+    // "fileSystemId": "${file_system_id}", //File system ID<BR>
+    // "path": "${path}", //File system path<BR>
+    // "mountTarget": "${mount_target}" //File system mount target<BR>
+    // }<BR>
     // </details>
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // CPFS
-    // 
-    // </summary>
-    // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "fileSystemId": "${file_system_id}", // The file system ID.\\
-    // "protocolServiceId":"${protocol_service_id}", // The protocol service of the file system.\\
-    // "exportId": "${export_id}", // The exported directory of the file system.\\
-    // "path": "${path}", // The file system path.\\
-    // }
-    // 
+    // <summary>CPFS</summary>
+    // {<BR>
+    // "region": "${region}",//Region ID<BR>
+    // "fileSystemId": "${file_system_id}", //File system ID<BR>
+    // "protocolServiceId":"${protocol_service_id}", //File system protocol service<BR>
+    // "exportId": "${export_id}", //File system export directory<BR>
+    // "path": "${path}", //File system path<BR>
+    // }<BR>
     // </details>
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // CPFS (AI Computing Edition)
-    // 
-    // </summary>
-    // 
-    // {\\
-    // "region": "${region}",// The region ID.\\
-    // "fileSystemId": "${file_system_id}", // The file system ID.\\
-    // "path": "${path}", // The file system path.\\
-    // "mountTarget": "${mount_target}", // The mount target of the file system. This parameter is specific to the AI Computing Edition.\\
-    // "isVpcMount": boolean, // Specifies whether the mount target is in a VPC. This parameter is specific to the AI Computing Edition.\\
-    // }
-    // 
+    // <summary>AI Edition CPFS</summary>
+    // {<BR>
+    // "region": "${region}",//Region ID<BR>
+    // "fileSystemId": "${file_system_id}", //File system ID<BR>
+    // "path": "${path}", //File system path<BR>
+    // "mountTarget": "${mount_target}" //File system mount target, specific to AI Edition<BR>
+    // "isVpcMount": boolean, //Whether it is a VPC mount target, specific to AI Edition<BR>
+    // }<BR>
     // </details>
     shared_ptr<string> importInfo_ {};
-    // A list of labels.
+    // The list of labels.
     shared_ptr<vector<Label>> labels_ {};
-    // A list of workspace role IDs that are granted read and write permissions when the dataset is mounted. Role IDs that start with `PAI.` are built-in roles, and role IDs that start with `role-` are custom roles. If the list contains an asterisk (\\*), all roles are granted read and write permissions.
-    // 
-    // - Accounts with specified roles: `["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"]`
-    // 
-    // - All accounts: `["*"]`
-    // 
-    // - Dataset creator only: `[]`
+    // The list of workspace role names that have read and write permissions when the dataset is mounted. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs. If the list contains "*", all roles have read and write permissions.
+    // - Specified roles: ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"]
+    // - All accounts: ["*"]
+    // - Dataset creator only: []
     shared_ptr<vector<string>> mountAccessReadWriteRoleIdList_ {};
-    // The name of the dataset. The name must meet the following requirements:
-    // 
-    // - Starts with a lowercase letter, an uppercase letter, a number, or a Chinese character.
-    // 
-    // - Can contain underscores (_) and hyphens (-).
-    // 
-    // - Must be 1 to 127 characters long.
+    // The name of the dataset. Naming rules:
+    // - Must start with a lowercase letter, uppercase letter, digit, or Chinese character.
+    // - Can contain underscores (_) or hyphens (-).
+    // - Must be 1 to 127 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The extended fields, which are a JSON string.
-    // When a Data Lake Compute (DLC) job uses the dataset, you can configure the `mountPath` field to specify the default mount path of the dataset.
+    // The extended field in JsonString format.
+    // When DLC uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
     shared_ptr<string> options_ {};
     // The property of the dataset. Valid values:
-    // 
-    // - FILE: A file.
-    // 
-    // - DIRECTORY: A directory.
+    // - FILE: file.
+    // - DIRECTORY: folder.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
-    // The provider of the dataset. You cannot set this parameter to `pai`.
+    // The dataset provider. Cannot be set to pai.
     shared_ptr<string> provider_ {};
-    // The type of the data source provider. Valid values:
-    // 
+    // The data source provider type of the dataset. Valid values:
     // - Ecs (default)
-    // 
     // - Lingjun
     shared_ptr<string> providerType_ {};
-    // The ID of the source dataset for a labeled dataset.
+    // The source dataset ID of the annotation dataset.
     shared_ptr<string> sourceDatasetId_ {};
-    // The version of the source dataset for a labeled dataset.
+    // The source dataset version of the annotation dataset.
     shared_ptr<string> sourceDatasetVersion_ {};
-    // The ID of the data source.
-    // 
-    // - If `SourceType` is `USER`, you can specify a custom value for `SourceId`.
-    // 
-    // - If `SourceType` is `ITAG`, this parameter specifies the iTAG task ID from which the dataset was generated.
-    // 
-    // - If `SourceType` is `PAI_PUBLIC_DATASET`, the dataset is from a public PAI dataset, and this parameter is empty by default.
+    // The data source ID.
+    // - If SourceType is USER, SourceId can be customized.
+    // - If SourceType is ITAG, which indicates a dataset generated from iTAG annotation results, SourceId is the iTAG task ID.
+    // - If SourceType is PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
     shared_ptr<string> sourceId_ {};
-    // The source of the data. The default value is USER.
+    // The data source type. Default value: USER.
     shared_ptr<string> sourceType_ {};
-    // The URI of the data. The URI format varies based on the `DataSourceType` value.
-    // 
-    // - For an `OSS` data source: `oss://bucket.endpoint/object`
-    // 
-    // - For a `NAS` data source:
-    //   For general-purpose `NAS`: `nas://<nasfisid>.region/subpath/to/dir/`.
-    //   For `CPFS` 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`.
-    //   For `CPFS` 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`.
-    //   `CPFS` 1.0 and `CPFS` 2.0 are distinguished by the format of the file system ID (fsid). The fsid for `CPFS` 1.0 is in the `cpfs-<8-character ASCII string>` format. The fsid for `CPFS` 2.0 is in the `cpfs-<16-character ASCII string>` format.
+    // Examples of Uri configurations:
+    // - If the data source type is OSS: `oss://bucket.endpoint/object`
+    // - If the data source type is NAS:
+    // General Purpose NAS format: `nas://<nasfisid>.region/subpath/to/dir/`;
+    // CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`;
+    // CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`.
+    // CPFS 1.0 and CPFS 2.0 are distinguished by the fsid format: CPFS 1.0 format is cpfs-<8 ASCII characters>; CPFS 2.0 format is cpfs-<16 ASCII characters>.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
-    // The Alibaba Cloud account ID of the dataset owner. Workspace owners and administrators can create datasets for specified members of a workspace.
+    // The Alibaba Cloud account ID of the dataset owner. Workspace owners and administrators have permissions to create datasets for specified workspace members.
     shared_ptr<string> userId_ {};
+    // UserMetricsEndpoints
+    shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
     // The description of the initial version of the dataset.
     shared_ptr<string> versionDescription_ {};
-    // A list of labels for the initial version.
+    // The list of labels for the initial version.
     shared_ptr<vector<Label>> versionLabels_ {};
-    // The ID of the workspace to which the dataset belongs. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The ID of the workspace where the dataset resides. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     // If this parameter is not specified, the default workspace is used. If the default workspace does not exist, an error is returned.
     shared_ptr<string> workspaceId_ {};
   };

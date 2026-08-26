@@ -112,35 +112,30 @@ namespace Models
 
 
   protected:
-    // The label keys used to filter the dataset list. Datasets are returned if their label keys contain the specified strings.
+    // The dataset label used to filter the dataset list. Datasets whose label key or value contains the specified string are returned.
     shared_ptr<string> labelKeys_ {};
-    // The label values used to filter the dataset list. Datasets are returned if their label values contain the specified strings.
+    // The dataset label used to filter the dataset list. Datasets whose label key or value contains the specified string are returned.
     shared_ptr<string> labelValues_ {};
-    // The sort order for the paged query. The default value is ASC. Valid values:
-    // 
-    // - ASC: Ascending order.
-    // 
-    // - DESC: Descending order.
+    // The order in which entries are sorted by the specified field in a paged query. Default value: ASC.
+    // - ASC: ascending order.
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number. The value starts from 1. The default is 1.
+    // The page number of the dataset list. Minimum value: 1. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is 10.
+    // The number of entries per page for a paged query. Default value: 10.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The dataset properties. Valid values:
-    // 
-    // - DIRECTORY: Folder.
-    // 
-    // - FILE: File.
+    // The dataset property. Valid values:
+    // - DIRECTORY: folder.
+    // - FILE: file.
     shared_ptr<string> properties_ {};
-    // The field to use for sorting in a paged query. The default value is GmtCreateTime. Valid values:
+    // The field by which entries are sorted in a paged query. Default value: GmtCreateTime. Valid values:
+    // - GmtCreateTime (default): sort by creation time.
     // 
-    // - GmtCreateTime (default): Creation time.
-    // 
-    // - GmtModifiedTime: Modification time.
+    // - GmtModifiedTime: sort by modification time.
     // 
     // - SourceType
     // 
@@ -152,21 +147,15 @@ namespace Models
     // 
     // - DataCount
     shared_ptr<string> sortBy_ {};
-    // The ID of the data source.
-    // 
-    // - If SourceTypes is USER, you can specify a custom ID.
-    // 
-    // - If SourceTypes is ITAG, this is the ID of the iTAG annotation task.
-    // 
-    // - If SourceTypes is PAI_PUBLIC_DATASET, this parameter is empty by default.
+    // The data source ID.
+    // - If SourceTypes is set to USER, SourceId can be customized.
+    // - If SourceTypes is set to ITAG, which indicates a dataset generated from iTAG labeling results, SourceId is the iTAG task ID.
+    // - If SourceTypes is set to PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
     shared_ptr<string> sourceId_ {};
     // The source type. Valid values:
-    // 
-    // - PAI-PUBLIC-DATASET: A public dataset from PAI.
-    // 
-    // - ITAG: A dataset generated from the annotation results of the iTAG module.
-    // 
-    // - USER: A dataset registered by a user.
+    // - PAI-PUBLIC-DATASET: PAI public dataset.
+    // - ITAG: dataset generated from iTAG labeling results.
+    // - USER: dataset registered by a user.
     shared_ptr<string> sourceTypes_ {};
   };
 

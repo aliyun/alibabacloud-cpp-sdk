@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
+#include <alibabacloud/models/UserMetricsEndpoint.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataSize, dataSize_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_TO_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
+      DARABONBA_PTR_TO_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_TO_JSON(VersionName, versionName_);
     };
     friend void from_json(const Darabonba::Json& j, GetDatasetVersionResponseBody& obj) { 
@@ -38,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataSize, dataSize_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_FROM_JSON(DatasetTaskRamRole, datasetTaskRamRole_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
@@ -50,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
+      DARABONBA_PTR_FROM_JSON(UserMetricsEndpoints, userMetricsEndpoints_);
       DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
     };
     GetDatasetVersionResponseBody() = default ;
@@ -64,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataCount_ == nullptr
-        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->datasetId_ == nullptr && this->description_ == nullptr && this->gmtCreateTime_ == nullptr
-        && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr && this->mountAccess_ == nullptr && this->options_ == nullptr
-        && this->property_ == nullptr && this->requestId_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->uri_ == nullptr
-        && this->versionName_ == nullptr; };
+        && this->dataSize_ == nullptr && this->dataSourceType_ == nullptr && this->datasetId_ == nullptr && this->datasetTaskRamRole_ == nullptr && this->description_ == nullptr
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->labels_ == nullptr && this->mountAccess_ == nullptr
+        && this->options_ == nullptr && this->property_ == nullptr && this->requestId_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr
+        && this->uri_ == nullptr && this->userMetricsEndpoints_ == nullptr && this->versionName_ == nullptr; };
     // dataCount Field Functions 
     bool hasDataCount() const { return this->dataCount_ != nullptr;};
     void deleteDataCount() { this->dataCount_ = nullptr;};
@@ -94,6 +99,13 @@ namespace Models
     void deleteDatasetId() { this->datasetId_ = nullptr;};
     inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
     inline GetDatasetVersionResponseBody& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
+
+
+    // datasetTaskRamRole Field Functions 
+    bool hasDatasetTaskRamRole() const { return this->datasetTaskRamRole_ != nullptr;};
+    void deleteDatasetTaskRamRole() { this->datasetTaskRamRole_ = nullptr;};
+    inline string getDatasetTaskRamRole() const { DARABONBA_PTR_GET_DEFAULT(datasetTaskRamRole_, "") };
+    inline GetDatasetVersionResponseBody& setDatasetTaskRamRole(string datasetTaskRamRole) { DARABONBA_PTR_SET_VALUE(datasetTaskRamRole_, datasetTaskRamRole) };
 
 
     // description Field Functions 
@@ -182,6 +194,15 @@ namespace Models
     inline GetDatasetVersionResponseBody& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
+    // userMetricsEndpoints Field Functions 
+    bool hasUserMetricsEndpoints() const { return this->userMetricsEndpoints_ != nullptr;};
+    void deleteUserMetricsEndpoints() { this->userMetricsEndpoints_ = nullptr;};
+    inline const vector<UserMetricsEndpoint> & getUserMetricsEndpoints() const { DARABONBA_PTR_GET_CONST(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline vector<UserMetricsEndpoint> getUserMetricsEndpoints() { DARABONBA_PTR_GET(userMetricsEndpoints_, vector<UserMetricsEndpoint>) };
+    inline GetDatasetVersionResponseBody& setUserMetricsEndpoints(const vector<UserMetricsEndpoint> & userMetricsEndpoints) { DARABONBA_PTR_SET_VALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+    inline GetDatasetVersionResponseBody& setUserMetricsEndpoints(vector<UserMetricsEndpoint> && userMetricsEndpoints) { DARABONBA_PTR_SET_RVALUE(userMetricsEndpoints_, userMetricsEndpoints) };
+
+
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
@@ -190,99 +211,75 @@ namespace Models
 
 
   protected:
-    // The number of data entries.
+    // The data volume.
     shared_ptr<int64_t> dataCount_ {};
-    // The size of the dataset.
+    // The dataset size.
     shared_ptr<int64_t> dataSize_ {};
-    // The type of the data source.
+    // The data source type.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The ID of the dataset.
+    // The primary resource ID.
     shared_ptr<string> datasetId_ {};
-    // The description of the version.
+    // DatasetTaskRamRole
+    shared_ptr<string> datasetTaskRamRole_ {};
+    // The version description.
     shared_ptr<string> description_ {};
-    // The time when the dataset version was created.
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the dataset version was last modified.
+    // The last modification time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The storage import configuration of the dataset. Supported storage services include OSS, NAS, and CPFS.
+    // The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // OSS
-    // 
-    // </summary>
-    // 
+    // <summary>OSS</summary>
     // {
-    // "region": "${region}",// Region ID
-    // "bucket": "${bucket}",// Bucket name
-    // "path": "${path}" // File path
+    // "region": "${region}",//The region ID.
+    // "bucket": "${bucket}",//The bucket name.
+    // "path": "${path}" //The file path.
     // }
+    // </details>
+    // 
+    // <details>
+    // <summary>NAS</summary>
     // 
     // </details>
     // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // NAS
-    // 
-    // </summary>
-    // 
-    // </details>
-    // 
-    // <details>
-    // 
-    // <summary>
-    // 
-    // CPFS
-    // 
-    // </summary>
-    // 
+    // <summary>CPFS</summary>
     // Block content
-    // 
     // </details>
     // 
+    // 
     // <details>
-    // 
-    // <summary>
-    // 
-    // AI Computing CPFS
-    // 
-    // </summary>
-    // 
+    // <summary>Intelligent computing CPFS</summary>
     // Block content
-    // 
     // </details>
     shared_ptr<string> importInfo_ {};
-    // The tags of the resource.
+    // The resource labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The access permissions when the dataset is mounted.
-    // 
-    // - RO: Read-only mount
-    // 
-    // - RW: Read-write mount
+    // The permission when the dataset is mounted. Valid values:
+    // - RO: read-only mount
+    // - RW: read and write mount
     shared_ptr<string> mountAccess_ {};
-    // Additional options.
+    // The extension field.
     shared_ptr<string> options_ {};
     // The property of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the dataset source.
+    // The dataset source ID.
     shared_ptr<string> sourceId_ {};
-    // The source type.
+    // The data source type.
     shared_ptr<string> sourceType_ {};
-    // The URI of the dataset version.
+    // The URI configuration example.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
-    // The name of the dataset version.
+    shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
+    // The dataset version.
     shared_ptr<string> versionName_ {};
   };
 

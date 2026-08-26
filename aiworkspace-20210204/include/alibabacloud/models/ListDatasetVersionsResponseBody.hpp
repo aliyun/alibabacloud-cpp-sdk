@@ -83,11 +83,11 @@ namespace Models
     shared_ptr<vector<DatasetVersion>> datasetVersions_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The current page size.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of resources that match the filter conditions.
+    // The resource count that matches the conditional filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

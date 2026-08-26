@@ -571,6 +571,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
     body["DataType"] = request.getDataType();
   }
 
+  if (!!request.hasDatasetTaskRamRole()) {
+    body["DatasetTaskRamRole"] = request.getDatasetTaskRamRole();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }
@@ -635,6 +639,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
     body["UserId"] = request.getUserId();
   }
 
+  if (!!request.hasUserMetricsEndpoints()) {
+    body["UserMetricsEndpoints"] = request.getUserMetricsEndpoints();
+  }
+
   if (!!request.hasVersionDescription()) {
     body["VersionDescription"] = request.getVersionDescription();
   }
@@ -678,7 +686,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary Creates file metadata records for a dataset in a batch.
+ * @summary Creates file metadata records in a dataset in batches.
  *
  * @param request CreateDatasetFileMetasRequest
  * @param headers map
@@ -719,7 +727,7 @@ CreateDatasetFileMetasResponse Client::createDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Creates file metadata records for a dataset in a batch.
+ * @summary Creates file metadata records in a dataset in batches.
  *
  * @param request CreateDatasetFileMetasRequest
  * @return CreateDatasetFileMetasResponse
@@ -928,6 +936,10 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const strin
     body["DataSourceType"] = request.getDataSourceType();
   }
 
+  if (!!request.hasDatasetTaskRamRole()) {
+    body["DatasetTaskRamRole"] = request.getDatasetTaskRamRole();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }
@@ -958,6 +970,10 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const strin
 
   if (!!request.hasUri()) {
     body["Uri"] = request.getUri();
+  }
+
+  if (!!request.hasUserMetricsEndpoints()) {
+    body["UserMetricsEndpoints"] = request.getUserMetricsEndpoints();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1822,7 +1838,7 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Creates a workspace role.
+ * @summary Adds a workspace role.
  *
  * @param request CreateWorkspaceRoleRequest
  * @param headers map
@@ -1867,7 +1883,7 @@ CreateWorkspaceRoleResponse Client::createWorkspaceRoleWithOptions(const string 
 }
 
 /**
- * @summary Creates a workspace role.
+ * @summary Adds a workspace role.
  *
  * @param request CreateWorkspaceRoleRequest
  * @return CreateWorkspaceRoleResponse
@@ -3307,7 +3323,7 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfig(const string &DatasetId,
 }
 
 /**
- * @summary Retrieves information about a specific dataset version.
+ * @summary Retrieves the information of a specified dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @param headers map
@@ -3334,7 +3350,7 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &Dat
 }
 
 /**
- * @summary Retrieves information about a specific dataset version.
+ * @summary Retrieves the information of a specified dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @return GetDatasetVersionResponse
@@ -4535,7 +4551,7 @@ ListDatasetVersionsResponse Client::listDatasetVersions(const string &DatasetId,
 }
 
 /**
- * @summary Lists the datasets in a workspace.
+ * @summary Retrieves the list of datasets in a specified workspace.
  *
  * @param request ListDatasetsRequest
  * @param headers map
@@ -4636,7 +4652,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 }
 
 /**
- * @summary Lists the datasets in a workspace.
+ * @summary Retrieves the list of datasets in a specified workspace.
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -6802,7 +6818,7 @@ UpdateDatasetJobConfigResponse Client::updateDatasetJobConfig(const string &Data
 }
 
 /**
- * @summary Updates the information for a specific version of a dataset.
+ * @summary Updates the information of a specified dataset version.
  *
  * @param request UpdateDatasetVersionRequest
  * @param headers map
@@ -6820,12 +6836,20 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const strin
     body["DataSize"] = request.getDataSize();
   }
 
+  if (!!request.hasDatasetTaskRamRole()) {
+    body["DatasetTaskRamRole"] = request.getDatasetTaskRamRole();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }
 
   if (!!request.hasOptions()) {
     body["Options"] = request.getOptions();
+  }
+
+  if (!!request.hasUserMetricsEndpoints()) {
+    body["UserMetricsEndpoints"] = request.getUserMetricsEndpoints();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6847,7 +6871,7 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const strin
 }
 
 /**
- * @summary Updates the information for a specific version of a dataset.
+ * @summary Updates the information of a specified dataset version.
  *
  * @param request UpdateDatasetVersionRequest
  * @return UpdateDatasetVersionResponse

@@ -195,86 +195,66 @@ namespace Models
 
 
   protected:
-    // Specifies the dataset\\"s visibility.
+    // The visibility of the dataset.
     // 
-    // - `PUBLIC`: The dataset is publicly accessible.
-    // 
-    // - `PRIVATE`: The dataset is privately accessible.
+    // - PUBLIC: public.
+    // - PRIVATE: private.
     shared_ptr<string> accessibility_ {};
-    // The data source type. To specify multiple types, separate them with commas (,). Valid values:
-    // 
-    // - `NAS`: The data source is NAS.
-    // 
-    // - `OSS`: The data source is OSS.
+    // The data source types. Separate multiple values with commas (,). Valid values:
+    // - NAS: Alibaba Cloud Network Attached Storage (NAS).
+    // - OSS: Alibaba Cloud Object Storage Service (OSS).
     shared_ptr<string> dataSourceTypes_ {};
-    // The data type of the dataset. To specify multiple data types, separate them with commas (,). Valid values:
-    // 
-    // - `VIDEO`: video.
-    // 
-    // - `COMMON`: general.
-    // 
-    // - `TEXT`: text.
-    // 
-    // - `PIC`: image.
-    // 
-    // - `AUDIO`: audio.
+    // The data types of the dataset. Separate multiple values with commas (,). Valid values:
+    // - VIDEO: video.
+    // - COMMON: common.
+    // - TEXT: text.
+    // - PIC: image.
+    // - AUDIO: audio.
     shared_ptr<string> dataTypes_ {};
-    // A comma-separated list of dataset IDs.
+    // The dataset IDs. You can specify multiple dataset IDs separated by commas (,).
     shared_ptr<string> datasetIds_ {};
     // The dataset edition. Valid values:
     // 
-    // - `BASIC`: Basic edition. Does not support file metadata management.
-    // 
-    // - `ADVANCED`: Advanced edition. This edition is supported only for OSS datasets. Each version can manage metadata for up to 1 million files.
-    // 
-    // - `LOGICAL`: Logical edition. This edition is supported only for OSS datasets and is suitable for most use cases. Each version can manage metadata for up to 1 million files. You must use an SDK with this edition.
+    // - BASIC: Basic Edition. Does not support dataset file metadata management.
+    // - ADVANCED: Advanced Edition. Supported only for OSS type. Each version supports up to 1 million file metadata entries.
+    // - LOGICAL: Logical Edition. Supported only for OSS type. Each version supports up to 1 million file metadata entries. Applicable to most scenarios and requires the use of the SDK.
     shared_ptr<string> edition_ {};
-    // A label used to filter datasets. The operation returns datasets whose label key or value contains the specified string.
+    // The dataset label used to filter the dataset list. Datasets whose label key or value contains the specified string are returned.
     shared_ptr<string> label_ {};
-    // The dataset name. Fuzzy search is supported.
+    // The dataset name. Fuzzy match is supported based on the dataset name.
     shared_ptr<string> name_ {};
-    // The sort order for the results, based on the `SortBy` parameter. The default is `ASC`.
-    // 
-    // - `ASC`: ascending order.
-    // 
-    // - `DESC`: descending order.
+    // The sorting order for the specified sort field in paging queries. Default value: ASC.
+    // - ASC: ascending order.
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number for the paged query. Starts at 1. The default is 1.
+    // The page number of the dataset list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of datasets to return per page. The default is 10.
+    // The number of entries per page settings for paging queries. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The dataset properties. To specify multiple properties, separate them with commas (,). Valid values:
-    // 
-    // - `DIRECTORY`: A folder.
-    // 
-    // - `FILE`: A file.
+    // The dataset properties. Separate multiple values with commas (,). Valid values:
+    // - DIRECTORY: folder.
+    // - FILE: file.
     shared_ptr<string> properties_ {};
-    // The dataset provider. Set this parameter to `pai` to query public datasets on the PAI platform.
+    // The dataset provider. A value of "pai" indicates that the dataset is a PAI platform public dataset.
     shared_ptr<string> provider_ {};
-    // A filter for shared datasets.
-    // 
-    // - `TO_ME`: Returns only datasets shared with you.
-    // 
-    // - `BY_ME`: Returns only datasets that you have shared with others and displays details of the sharing configuration.
-    // 
-    // - If this parameter is omitted or empty, the operation returns all datasets in the current workspace, including those shared with you.
+    // The sharing filter for datasets:
+    // * TO_ME: returns only datasets shared with you.
+    // * BY_ME: returns only datasets you shared with others, with sharing configuration details displayed.
+    // * If this parameter is not set or is set to empty: returns all datasets in the current workspace, including TO_ME.
     shared_ptr<string> shareScope_ {};
-    // The sort field.
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
-    // The source dataset ID for an iTAG annotation set.
+    // The source dataset ID of the iTAG annotation set.
     shared_ptr<string> sourceDatasetId_ {};
-    // The source ID. The value of this parameter varies based on the `SourceTypes` value:
-    // 
-    // - If `SourceTypes` is `USER`, you can specify a custom value for `SourceId`.
-    // 
-    // - If `SourceTypes` is `ITAG`, `SourceId` is the ID of the iTAG task.
-    // 
-    // - If `SourceTypes` is `PAI_PUBLIC_DATASET`, this parameter is empty by default.
+    // The data source ID.
+    // - If SourceTypes is set to USER, you can customize the SourceId value.
+    // - If SourceTypes is set to ITAG, which indicates a dataset generated from iTAG annotation results, SourceId is the iTAG task ID.
+    // - If SourceTypes is set to PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
     shared_ptr<string> sourceId_ {};
-    // The source type. To specify multiple types, separate them with commas (,).
+    // The source types. Separate multiple values with commas (,).
     shared_ptr<string> sourceTypes_ {};
-    // The ID of the workspace that contains the dataset. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
-    // If this parameter is not specified, the default workspace is used. An error is returned if the default workspace does not exist.
+    // The ID of the workspace where the dataset resides. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // If you do not specify this parameter, the default workspace is used. If the default workspace does not exist, an error is returned.
     shared_ptr<string> workspaceId_ {};
   };
 
