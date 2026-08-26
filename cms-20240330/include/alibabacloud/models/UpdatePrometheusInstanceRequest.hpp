@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEPROMETHEUSINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEPROMETHEUSINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/PrometheusInstanceStoreConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(prometheusInstanceName, prometheusInstanceName_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(storageDuration, storageDuration_);
+      DARABONBA_PTR_TO_JSON(storeConfig, storeConfig_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, UpdatePrometheusInstanceRequest& obj) { 
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(prometheusInstanceName, prometheusInstanceName_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(storageDuration, storageDuration_);
+      DARABONBA_PTR_FROM_JSON(storeConfig, storeConfig_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     UpdatePrometheusInstanceRequest() = default ;
@@ -51,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->archiveDuration_ == nullptr
         && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr
-        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr && this->workspace_ == nullptr; };
+        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr && this->storeConfig_ == nullptr
+        && this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};
@@ -122,6 +126,15 @@ namespace Models
     inline UpdatePrometheusInstanceRequest& setStorageDuration(int32_t storageDuration) { DARABONBA_PTR_SET_VALUE(storageDuration_, storageDuration) };
 
 
+    // storeConfig Field Functions 
+    bool hasStoreConfig() const { return this->storeConfig_ != nullptr;};
+    void deleteStoreConfig() { this->storeConfig_ = nullptr;};
+    inline const PrometheusInstanceStoreConfig & getStoreConfig() const { DARABONBA_PTR_GET_CONST(storeConfig_, PrometheusInstanceStoreConfig) };
+    inline PrometheusInstanceStoreConfig getStoreConfig() { DARABONBA_PTR_GET(storeConfig_, PrometheusInstanceStoreConfig) };
+    inline UpdatePrometheusInstanceRequest& setStoreConfig(const PrometheusInstanceStoreConfig & storeConfig) { DARABONBA_PTR_SET_VALUE(storeConfig_, storeConfig) };
+    inline UpdatePrometheusInstanceRequest& setStoreConfig(PrometheusInstanceStoreConfig && storeConfig) { DARABONBA_PTR_SET_RVALUE(storeConfig_, storeConfig) };
+
+
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
@@ -130,8 +143,8 @@ namespace Models
 
 
   protected:
-    // The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archiving days:
-    // V1: 1 to 365 days. Supported only for billing by metric write volume.
+    // The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archive days:
+    // V1: 1 to 365 days. Only supported for billing by metric write volume.
     // V2: 1 to 3650 days (3650 indicates permanent retention).
     shared_ptr<int32_t> archiveDuration_ {};
     // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
@@ -144,18 +157,20 @@ namespace Models
     shared_ptr<bool> enableAuthFreeWrite_ {};
     // Specifies whether to enable access token authentication.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing method. This parameter can be modified only once during the instance lifetime. Valid values:
-    // - POSTPAY: pay-as-you-go by metric reporting volume.
-    // - POSTPAY_GB: pay-as-you-go by metric write volume.
+    // The billing method. This can be modified only once during the instance lifetime:
+    // POSTPAY: pay-as-you-go by metric reporting volume.
+    // POSTPAY_GB: pay-as-you-go by metric write volume.
     shared_ptr<string> paymentType_ {};
     // The instance name.
     shared_ptr<string> prometheusInstanceName_ {};
-    // Instance storage database status of the instance. Only RUNNING is supported. If this parameter is left empty, instance storage database status remains unchanged.
+    // Instance storage database status of the instance. Only RUNNING is supported. If left empty, instance storage database status is not changed.
     shared_ptr<string> status_ {};
     // The storage duration (days):
-    // By write volume: 90 or 180.
-    // By metric reporting volume: 15, 30, 60, 90, or 180.
+    // By write volume: 90, 180.
+    // By metric reporting volume: 15, 30, 60, 90, 180.
     shared_ptr<int32_t> storageDuration_ {};
+    // The Prometheus storage configuration.
+    shared_ptr<PrometheusInstanceStoreConfig> storeConfig_ {};
     // The workspace to which the instance belongs.
     shared_ptr<string> workspace_ {};
   };

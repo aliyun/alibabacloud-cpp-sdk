@@ -7,6 +7,7 @@
 #include <alibabacloud/models/DisplayNameFilter.hpp>
 #include <alibabacloud/models/EnabledFilter.hpp>
 #include <alibabacloud/models/LabelsFilter.hpp>
+#include <alibabacloud/models/MigrationStatusFilter.hpp>
 #include <alibabacloud/models/NotificationChannelsFilter.hpp>
 #include <alibabacloud/models/NotifyStrategyIdFilter.hpp>
 #include <alibabacloud/models/ObserveResourceConfigFilter.hpp>
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
+      DARABONBA_PTR_TO_JSON(migrationStatus, migrationStatus_);
       DARABONBA_PTR_TO_JSON(notificationChannels, notificationChannels_);
       DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_TO_JSON(observeResourceConfig, observeResourceConfig_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
+      DARABONBA_PTR_FROM_JSON(migrationStatus, migrationStatus_);
       DARABONBA_PTR_FROM_JSON(notificationChannels, notificationChannels_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_FROM_JSON(observeResourceConfig, observeResourceConfig_);
@@ -75,9 +78,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizSource_ == nullptr
-        && this->datasourceType_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notificationChannels_ == nullptr
-        && this->notifyStrategyId_ == nullptr && this->observeResourceConfig_ == nullptr && this->observeResourceGlobalScope_ == nullptr && this->observeResourceInstanceId_ == nullptr && this->observeResourceList_ == nullptr
-        && this->observeResourceType_ == nullptr && this->partitionKey_ == nullptr && this->severityLevels_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+        && this->datasourceType_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->migrationStatus_ == nullptr
+        && this->notificationChannels_ == nullptr && this->notifyStrategyId_ == nullptr && this->observeResourceConfig_ == nullptr && this->observeResourceGlobalScope_ == nullptr && this->observeResourceInstanceId_ == nullptr
+        && this->observeResourceList_ == nullptr && this->observeResourceType_ == nullptr && this->partitionKey_ == nullptr && this->severityLevels_ == nullptr && this->status_ == nullptr
+        && this->uuid_ == nullptr; };
     // bizSource Field Functions 
     bool hasBizSource() const { return this->bizSource_ != nullptr;};
     void deleteBizSource() { this->bizSource_ = nullptr;};
@@ -121,6 +125,15 @@ namespace Models
     inline LabelsFilter getLabels() { DARABONBA_PTR_GET(labels_, LabelsFilter) };
     inline QueryAlertRulesFilter& setLabels(const LabelsFilter & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline QueryAlertRulesFilter& setLabels(LabelsFilter && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+    // migrationStatus Field Functions 
+    bool hasMigrationStatus() const { return this->migrationStatus_ != nullptr;};
+    void deleteMigrationStatus() { this->migrationStatus_ = nullptr;};
+    inline const MigrationStatusFilter & getMigrationStatus() const { DARABONBA_PTR_GET_CONST(migrationStatus_, MigrationStatusFilter) };
+    inline MigrationStatusFilter getMigrationStatus() { DARABONBA_PTR_GET(migrationStatus_, MigrationStatusFilter) };
+    inline QueryAlertRulesFilter& setMigrationStatus(const MigrationStatusFilter & migrationStatus) { DARABONBA_PTR_SET_VALUE(migrationStatus_, migrationStatus) };
+    inline QueryAlertRulesFilter& setMigrationStatus(MigrationStatusFilter && migrationStatus) { DARABONBA_PTR_SET_RVALUE(migrationStatus_, migrationStatus) };
 
 
     // notificationChannels Field Functions 
@@ -226,12 +239,17 @@ namespace Models
     shared_ptr<DisplayNameFilter> displayName_ {};
     shared_ptr<EnabledFilter> enabled_ {};
     shared_ptr<LabelsFilter> labels_ {};
+    // Filters by migration status. isMigrated=true queries migrated rules (migration_status is not 0 or NULL). isMigrated=false queries native rules (migration_status=0).
+    shared_ptr<MigrationStatusFilter> migrationStatus_ {};
     shared_ptr<NotificationChannelsFilter> notificationChannels_ {};
     shared_ptr<NotifyStrategyIdFilter> notifyStrategyId_ {};
+    // Filters by the observeResourceConfig structure. This takes priority over the standalone observeResourceType / observeResourceGlobalScope / observeResourceList fields below. If both are specified and their semantics conflict, the request is rejected.
     shared_ptr<ObserveResourceConfigFilter> observeResourceConfig_ {};
     shared_ptr<ObserveResourceGlobalScopeFilter> observeResourceGlobalScope_ {};
+    // **[Deprecated]** Filters by a single resource entity ID. This field is retained only for backward compatibility with legacy SDKs. For new integrations, use observeResourceList.contains instead. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
     shared_ptr<string> observeResourceInstanceId_ {};
     shared_ptr<ObserveResourceListFilter> observeResourceList_ {};
+    // **[Deprecated]** Filters by observable resource type. For new integrations, use observeResourceConfig.entityType instead.
     shared_ptr<ObserveResourceTypeFilter> observeResourceType_ {};
     shared_ptr<PartitionKeyFilter> partitionKey_ {};
     shared_ptr<SeverityLevelsFilter> severityLevels_ {};

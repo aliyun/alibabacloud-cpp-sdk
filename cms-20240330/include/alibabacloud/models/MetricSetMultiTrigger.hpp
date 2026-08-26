@@ -125,15 +125,25 @@ namespace Models
 
 
   protected:
+    // The list of sub-conditions (used when expressionType=COMPOSITE). Each item contains queryName, operator, and threshold.
     shared_ptr<vector<MetricSetTriggerSimpleExpression>> conditions_ {};
+    // The duration in seconds that data must continuously meet the condition to trigger an alert. If not specified, the value is inherited from conditionConfig.durationSecs.
     shared_ptr<int32_t> durationSecs_ {};
+    // The expression type. Valid values: SIMPLE (single-metric threshold) or COMPOSITE (multi-metric AND/OR/UNLESS combination).
     shared_ptr<string> expressionType_ {};
+    // The logic operator (used when expressionType=COMPOSITE). Valid values: AND (all conditions met), OR (any condition met), UNLESS (first condition met and all others not met).
     shared_ptr<string> logicOperator_ {};
+    // The upper bound of the range. Required when expressionType=SIMPLE and operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
     shared_ptr<double> max_ {};
+    // The lower bound of the range. Required when expressionType=SIMPLE and operator is IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
+    // The comparison operator (used when expressionType=SIMPLE). Valid values: GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within range, requires min/max), OUT_OF_RANGE (outside range, requires min/max), PRESENT (field exists, no threshold/min/max needed), NOT_PRESENT (field does not exist, no threshold/min/max needed).
     shared_ptr<string> operator_ {};
+    // The referenced query name (used when expressionType=SIMPLE), corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The alert severity level: CRITICAL > ERROR > WARN / WARNING > INFO. Multiple triggers are sorted by this priority, and the first match fires.
     shared_ptr<string> severity_ {};
+    // The comparison threshold. Used when expressionType=SIMPLE and operator is GT/GE/LT/LE/EQ/NE. For IN_RANGE/OUT_OF_RANGE, use min/max instead. For PRESENT/NOT_PRESENT, leave this field empty.
     shared_ptr<double> threshold_ {};
   };
 

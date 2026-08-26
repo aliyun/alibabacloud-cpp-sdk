@@ -8784,6 +8784,10 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstanceWithOptions(con
     body["storageDuration"] = request.getStorageDuration();
   }
 
+  if (!!request.hasStoreConfig()) {
+    body["storeConfig"] = request.getStoreConfig();
+  }
+
   if (!!request.hasWorkspace()) {
     body["workspace"] = request.getWorkspace();
   }

@@ -129,6 +129,7 @@
 #include <alibabacloud/models/MetricSetMultiTrigger.hpp>
 #include <alibabacloud/models/MetricSetNamedQueryEntry.hpp>
 #include <alibabacloud/models/MetricSetTriggerCompositeExpression.hpp>
+#include <alibabacloud/models/MigrationStatusFilter.hpp>
 #include <alibabacloud/models/NotificationChannelsFilter.hpp>
 #include <alibabacloud/models/NotifyStrategyDetail.hpp>
 #include <alibabacloud/models/ResponsePlanDetail.hpp>
@@ -163,6 +164,7 @@
 #include <alibabacloud/models/ObserveResourceTypeFilter.hpp>
 #include <alibabacloud/models/Pagination.hpp>
 #include <alibabacloud/models/PartitionKeyFilter.hpp>
+#include <alibabacloud/models/PrometheusInstanceStoreConfig.hpp>
 #include <alibabacloud/models/PrometheusManagedInstance.hpp>
 #include <alibabacloud/models/PrometheusSimpleExpression.hpp>
 #include <alibabacloud/models/PrometheusMultiTrigger.hpp>

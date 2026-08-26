@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The expression type, fixed as SIMPLE (used by MetricSet multi-threshold triggers).
     shared_ptr<string> expressionType_ {};
+    // The upper bound of the range. Required when operator is IN_RANGE or OUT_OF_RANGE. Must be greater than or equal to min.
     shared_ptr<double> max_ {};
+    // The lower bound of the range. Required when operator is IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
+    // The comparison operator. Valid values: GT / GE / LT / LE / EQ / NE / IN_RANGE (requires both min and max) / OUT_OF_RANGE (requires both min and max) / PRESENT / NOT_PRESENT.
     shared_ptr<string> operator_ {};
+    // The referenced query name, corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The comparison threshold. Used when operator is GT, GE, LT, LE, EQ, or NE. Use min and max for IN_RANGE or OUT_OF_RANGE. Leave empty for PRESENT or NOT_PRESENT.
     shared_ptr<double> threshold_ {};
   };
 

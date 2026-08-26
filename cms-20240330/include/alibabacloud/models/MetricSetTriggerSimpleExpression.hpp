@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The expression type. Fixed as SIMPLE.
     shared_ptr<string> expressionType_ {};
+    // The upper bound of the range. Required when operator is IN_RANGE or OUT_OF_RANGE. Must be greater than or equal to min.
     shared_ptr<double> max_ {};
+    // The lower bound of the range. Required when operator is IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
+    // The comparison operator. Valid values: GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within range, requires both min and max), OUT_OF_RANGE (outside range, requires both min and max), PRESENT (field exists, does not require threshold/min/max), NOT_PRESENT (field does not exist, does not require threshold/min/max).
     shared_ptr<string> operator_ {};
+    // The referenced query name, corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The comparison threshold. Used when operator is GT, GE, LT, LE, EQ, or NE. IN_RANGE and OUT_OF_RANGE use min/max instead. PRESENT and NOT_PRESENT do not require this field.
     shared_ptr<double> threshold_ {};
   };
 

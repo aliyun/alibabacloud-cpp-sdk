@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETPROMETHEUSINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/PrometheusInstanceStoreConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(storageDuration, storageDuration_);
+        DARABONBA_PTR_TO_JSON(storeConfig, storeConfig_);
         DARABONBA_PTR_TO_JSON(supportAuthTypes, supportAuthTypes_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(userId, userId_);
@@ -115,6 +117,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(storageDuration, storageDuration_);
+        DARABONBA_PTR_FROM_JSON(storeConfig, storeConfig_);
         DARABONBA_PTR_FROM_JSON(supportAuthTypes, supportAuthTypes_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(userId, userId_);
@@ -184,7 +187,8 @@ namespace Models
         && this->prometheusInstanceName_ == nullptr && this->pushGatewayInterUrl_ == nullptr && this->pushGatewayInternalUrl_ == nullptr && this->pushGatewayIntraUrl_ == nullptr && this->regionId_ == nullptr
         && this->remoteReadInterUrl_ == nullptr && this->remoteReadInternalUrl_ == nullptr && this->remoteReadIntraUrl_ == nullptr && this->remoteWriteInterUrl_ == nullptr && this->remoteWriteInternalUrl_ == nullptr
         && this->remoteWriteIntraUrl_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr
-        && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
+        && this->storeConfig_ == nullptr && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr
+        && this->workspace_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
@@ -439,6 +443,15 @@ namespace Models
       inline PrometheusInstance& setStorageDuration(int32_t storageDuration) { DARABONBA_PTR_SET_VALUE(storageDuration_, storageDuration) };
 
 
+      // storeConfig Field Functions 
+      bool hasStoreConfig() const { return this->storeConfig_ != nullptr;};
+      void deleteStoreConfig() { this->storeConfig_ = nullptr;};
+      inline const PrometheusInstanceStoreConfig & getStoreConfig() const { DARABONBA_PTR_GET_CONST(storeConfig_, PrometheusInstanceStoreConfig) };
+      inline PrometheusInstanceStoreConfig getStoreConfig() { DARABONBA_PTR_GET(storeConfig_, PrometheusInstanceStoreConfig) };
+      inline PrometheusInstance& setStoreConfig(const PrometheusInstanceStoreConfig & storeConfig) { DARABONBA_PTR_SET_VALUE(storeConfig_, storeConfig) };
+      inline PrometheusInstance& setStoreConfig(PrometheusInstanceStoreConfig && storeConfig) { DARABONBA_PTR_SET_RVALUE(storeConfig_, storeConfig) };
+
+
       // supportAuthTypes Field Functions 
       bool hasSupportAuthTypes() const { return this->supportAuthTypes_ != nullptr;};
       void deleteSupportAuthTypes() { this->supportAuthTypes_ = nullptr;};
@@ -479,20 +492,20 @@ namespace Models
 
 
     protected:
-      // The access type. Valid values:
+      // The permission type. Valid values:
       // - readWrite
       // - readOnly
       // - httpReadOnly
       shared_ptr<string> accessType_ {};
-      // The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. A value of 3650 indicates that data is permanently retained.
+      // The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving, and a value of 3650 indicates permanent retention.
       shared_ptr<int32_t> archiveDuration_ {};
       // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeReadPolicy_ {};
       // The authentication-free write policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeWritePolicy_ {};
-      // The authentication token.
+      // The authentication token string.
       shared_ptr<string> authToken_ {};
-      // The time when the instance was created. The time is in UTC+0 and in the yyyy-MM-ddTHH:mmZ format.
+      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> createTime_ {};
       // Indicates whether authentication-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
@@ -517,10 +530,10 @@ namespace Models
       // The Prometheus instance type.
       shared_ptr<string> instanceType_ {};
       // The billing method. Valid values:
-      // - POSTPAY: pay-as-you-go based on the number of reported metrics.
-      // - POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+      // - POSTPAY: pay-as-you-go by metric reporting volume.
+      // - POSTPAY_GB: pay-as-you-go by metric write volume.
       shared_ptr<string> paymentType_ {};
-      // The time when the billing method of the instance was last modified, in UTC format.
+      // The time when the instance billing method was modified, in UTC format.
       shared_ptr<string> paymentTypeUpdateTime_ {};
       // The product to which the Prometheus instance belongs (arms or cms).
       shared_ptr<string> product_ {};
@@ -550,12 +563,14 @@ namespace Models
       shared_ptr<string> remoteWriteIntraUrl_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Fixed value: PrometheusInstance.
+      // The fixed value: PrometheusInstance.
       shared_ptr<string> resourceType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
-      // The storage duration, in days.
+      // The storage duration in days.
       shared_ptr<int32_t> storageDuration_ {};
+      // The Prometheus storage configuration.
+      shared_ptr<PrometheusInstanceStoreConfig> storeConfig_ {};
       // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
       // The list of tags.

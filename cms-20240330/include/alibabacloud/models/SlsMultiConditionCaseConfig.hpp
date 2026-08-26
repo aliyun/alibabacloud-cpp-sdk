@@ -13,19 +13,27 @@ namespace Models
   class SlsMultiConditionCaseConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SlsMultiConditionCaseConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(condition, condition_);
+      DARABONBA_PTR_TO_JSON(countCondition, countCondition_);
       DARABONBA_PTR_TO_JSON(countOperator, countOperator_);
       DARABONBA_PTR_TO_JSON(countThreshold, countThreshold_);
       DARABONBA_PTR_TO_JSON(matchField, matchField_);
       DARABONBA_PTR_TO_JSON(matchOperator, matchOperator_);
       DARABONBA_PTR_TO_JSON(matchValue, matchValue_);
+      DARABONBA_PTR_TO_JSON(operator, operator_);
+      DARABONBA_PTR_TO_JSON(rawCondition, rawCondition_);
       DARABONBA_PTR_TO_JSON(severity, severity_);
     };
     friend void from_json(const Darabonba::Json& j, SlsMultiConditionCaseConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(condition, condition_);
+      DARABONBA_PTR_FROM_JSON(countCondition, countCondition_);
       DARABONBA_PTR_FROM_JSON(countOperator, countOperator_);
       DARABONBA_PTR_FROM_JSON(countThreshold, countThreshold_);
       DARABONBA_PTR_FROM_JSON(matchField, matchField_);
       DARABONBA_PTR_FROM_JSON(matchOperator, matchOperator_);
       DARABONBA_PTR_FROM_JSON(matchValue, matchValue_);
+      DARABONBA_PTR_FROM_JSON(operator, operator_);
+      DARABONBA_PTR_FROM_JSON(rawCondition, rawCondition_);
       DARABONBA_PTR_FROM_JSON(severity, severity_);
     };
     SlsMultiConditionCaseConfig() = default ;
@@ -39,8 +47,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->countOperator_ == nullptr
-        && this->countThreshold_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr && this->matchValue_ == nullptr && this->severity_ == nullptr; };
+    virtual bool empty() const override { return this->condition_ == nullptr
+        && this->countCondition_ == nullptr && this->countOperator_ == nullptr && this->countThreshold_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr
+        && this->matchValue_ == nullptr && this->operator_ == nullptr && this->rawCondition_ == nullptr && this->severity_ == nullptr; };
+    // condition Field Functions 
+    bool hasCondition() const { return this->condition_ != nullptr;};
+    void deleteCondition() { this->condition_ = nullptr;};
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline SlsMultiConditionCaseConfig& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
+
+
+    // countCondition Field Functions 
+    bool hasCountCondition() const { return this->countCondition_ != nullptr;};
+    void deleteCountCondition() { this->countCondition_ = nullptr;};
+    inline string getCountCondition() const { DARABONBA_PTR_GET_DEFAULT(countCondition_, "") };
+    inline SlsMultiConditionCaseConfig& setCountCondition(string countCondition) { DARABONBA_PTR_SET_VALUE(countCondition_, countCondition) };
+
+
     // countOperator Field Functions 
     bool hasCountOperator() const { return this->countOperator_ != nullptr;};
     void deleteCountOperator() { this->countOperator_ = nullptr;};
@@ -76,6 +99,20 @@ namespace Models
     inline SlsMultiConditionCaseConfig& setMatchValue(string matchValue) { DARABONBA_PTR_SET_VALUE(matchValue_, matchValue) };
 
 
+    // operator Field Functions 
+    bool hasOperator() const { return this->operator_ != nullptr;};
+    void deleteOperator() { this->operator_ = nullptr;};
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline SlsMultiConditionCaseConfig& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
+
+
+    // rawCondition Field Functions 
+    bool hasRawCondition() const { return this->rawCondition_ != nullptr;};
+    void deleteRawCondition() { this->rawCondition_ = nullptr;};
+    inline string getRawCondition() const { DARABONBA_PTR_GET_DEFAULT(rawCondition_, "") };
+    inline SlsMultiConditionCaseConfig& setRawCondition(string rawCondition) { DARABONBA_PTR_SET_VALUE(rawCondition_, rawCondition) };
+
+
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
@@ -84,17 +121,25 @@ namespace Models
 
 
   protected:
-    // The count comparison operator. Valid values: GTE, GT, EQ, LTE, LT.
+    // The match expression (corresponds to V1 condition, preserved as-is without structured parsing).
+    shared_ptr<string> condition_ {};
+    // The count match expression (corresponds to V1 countCondition, preserved as-is without structured parsing).
+    shared_ptr<string> countCondition_ {};
+    // **[Deprecated]** The write path is disabled. Use countCondition instead.
     shared_ptr<string> countOperator_ {};
-    // The count threshold. The alert is triggered when this threshold is met.
+    // **[Deprecated]** The write path is disabled. Use countCondition instead.
     shared_ptr<int64_t> countThreshold_ {};
-    // The log field name. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX. Specify the field name when matchOperator is set to PRESENT or NOT_PRESENT.
+    // **[Deprecated]** The write path is disabled. Use condition instead.
     shared_ptr<string> matchField_ {};
-    // The log matching operator. Valid values: PRESENT (field exists), NOT_PRESENT (field does not exist), CONTAINS (contains), EQUALS (equals), REGEX (regular expression). If left empty, any data matches.
+    // **[Deprecated]** The write path is disabled. Use condition instead.
     shared_ptr<string> matchOperator_ {};
-    // The log match value. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX.
+    // **[Deprecated]** The write path is disabled. Use condition instead.
     shared_ptr<string> matchValue_ {};
-    // The severity level.
+    // The detection operator (aligned with V1 caseList.type): HAS_DATA / HAS_DATA_COUNT / HAS_DATA_MATCH / HAS_DATA_MATCH_COUNT.
+    shared_ptr<string> operator_ {};
+    // **[Deprecated]** The write path is disabled. Use condition instead.
+    shared_ptr<string> rawCondition_ {};
+    // The severity level (corresponds to V1 level).
     shared_ptr<string> severity_ {};
   };
 
