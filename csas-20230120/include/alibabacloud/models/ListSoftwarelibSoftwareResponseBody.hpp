@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MacIntelVersion, macIntelVersion_);
         DARABONBA_PTR_TO_JSON(MatchMode, matchMode_);
         DARABONBA_PTR_TO_JSON(OfficialDownloadUrl, officialDownloadUrl_);
+        DARABONBA_PTR_TO_JSON(RunAsAccount, runAsAccount_);
         DARABONBA_PTR_TO_JSON(SoftwareId, softwareId_);
         DARABONBA_PTR_TO_JSON(SoftwareName, softwareName_);
         DARABONBA_PTR_TO_JSON(SourceRemoved, sourceRemoved_);
@@ -80,6 +81,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MacIntelVersion, macIntelVersion_);
         DARABONBA_PTR_FROM_JSON(MatchMode, matchMode_);
         DARABONBA_PTR_FROM_JSON(OfficialDownloadUrl, officialDownloadUrl_);
+        DARABONBA_PTR_FROM_JSON(RunAsAccount, runAsAccount_);
         DARABONBA_PTR_FROM_JSON(SoftwareId, softwareId_);
         DARABONBA_PTR_FROM_JSON(SoftwareName, softwareName_);
         DARABONBA_PTR_FROM_JSON(SourceRemoved, sourceRemoved_);
@@ -255,7 +257,7 @@ namespace Models
         // - **local**: locally uploaded.
         // - **thirdparty**: third-party link.
         shared_ptr<string> publisherType_ {};
-        // The ID of the software to which the version belongs.
+        // The ID of the software to which this version belongs.
         shared_ptr<string> softwareId_ {};
         // The name of the software package.
         shared_ptr<string> softwarePkgName_ {};
@@ -264,8 +266,8 @@ namespace Models
         // The download URL of the software package.
         shared_ptr<string> softwareUrl_ {};
         // The version publish status. Valid values:
-        // - **published**: Published.
-        // - **unpublished**: Not published.
+        // - **published**: published.
+        // - **unpublished**: not published.
         shared_ptr<string> status_ {};
         // The software version number.
         shared_ptr<string> version_ {};
@@ -276,9 +278,9 @@ namespace Models
       virtual bool empty() const override { return this->builtinSoftwareId_ == nullptr
         && this->checkBundleId_ == nullptr && this->checkSoftwareName_ == nullptr && this->classifyId_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
         && this->devTags_ == nullptr && this->deviceGroupIds_ == nullptr && this->downloadTimes_ == nullptr && this->hasNewVersion_ == nullptr && this->logoUrl_ == nullptr
-        && this->macAppleVersion_ == nullptr && this->macIntelVersion_ == nullptr && this->matchMode_ == nullptr && this->officialDownloadUrl_ == nullptr && this->softwareId_ == nullptr
-        && this->softwareName_ == nullptr && this->sourceRemoved_ == nullptr && this->sourceType_ == nullptr && this->userGroupIds_ == nullptr && this->versions_ == nullptr
-        && this->windowsVersion_ == nullptr; };
+        && this->macAppleVersion_ == nullptr && this->macIntelVersion_ == nullptr && this->matchMode_ == nullptr && this->officialDownloadUrl_ == nullptr && this->runAsAccount_ == nullptr
+        && this->softwareId_ == nullptr && this->softwareName_ == nullptr && this->sourceRemoved_ == nullptr && this->sourceType_ == nullptr && this->userGroupIds_ == nullptr
+        && this->versions_ == nullptr && this->windowsVersion_ == nullptr; };
       // builtinSoftwareId Field Functions 
       bool hasBuiltinSoftwareId() const { return this->builtinSoftwareId_ != nullptr;};
       void deleteBuiltinSoftwareId() { this->builtinSoftwareId_ = nullptr;};
@@ -388,6 +390,13 @@ namespace Models
       inline DataList& setOfficialDownloadUrl(string officialDownloadUrl) { DARABONBA_PTR_SET_VALUE(officialDownloadUrl_, officialDownloadUrl) };
 
 
+      // runAsAccount Field Functions 
+      bool hasRunAsAccount() const { return this->runAsAccount_ != nullptr;};
+      void deleteRunAsAccount() { this->runAsAccount_ = nullptr;};
+      inline string getRunAsAccount() const { DARABONBA_PTR_GET_DEFAULT(runAsAccount_, "") };
+      inline DataList& setRunAsAccount(string runAsAccount) { DARABONBA_PTR_SET_VALUE(runAsAccount_, runAsAccount) };
+
+
       // softwareId Field Functions 
       bool hasSoftwareId() const { return this->softwareId_ != nullptr;};
       void deleteSoftwareId() { this->softwareId_ = nullptr;};
@@ -478,11 +487,13 @@ namespace Models
       shared_ptr<string> matchMode_ {};
       // The official download URL of the software.
       shared_ptr<string> officialDownloadUrl_ {};
+      // The execution account (only supported on Windows).
+      shared_ptr<string> runAsAccount_ {};
       // The software ID.
       shared_ptr<string> softwareId_ {};
       // The software name.
       shared_ptr<string> softwareName_ {};
-      // Indicates whether the built-in library source has been removed.
+      // Indicates whether the built-in library source has been deleted.
       shared_ptr<bool> sourceRemoved_ {};
       // The software source. Valid values:
       // - **custom**: custom software.

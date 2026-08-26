@@ -7480,6 +7480,66 @@ ListRiskItemsResponse Client::listRiskItems(const ListRiskItemsRequest &request)
 }
 
 /**
+ * @summary Retrieves a list of user labels.
+ *
+ * @param tmpReq ListSaseUserTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSaseUserTagsResponse
+ */
+ListSaseUserTagsResponse Client::listSaseUserTagsWithOptions(const ListSaseUserTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSaseUserTagsShrinkRequest request = ListSaseUserTagsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagIds()) {
+    request.setTagIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagIds(), "TagIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCurrentPage()) {
+    body["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTagIdsShrink()) {
+    body["TagIds"] = request.getTagIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListSaseUserTags"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSaseUserTagsResponse>();
+}
+
+/**
+ * @summary Retrieves a list of user labels.
+ *
+ * @param request ListSaseUserTagsRequest
+ * @return ListSaseUserTagsResponse
+ */
+ListSaseUserTagsResponse Client::listSaseUserTags(const ListSaseUserTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSaseUserTagsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListSoftwareForUserDeviceRequest

@@ -2603,6 +2603,23 @@ namespace Csas20230120
       Models::ListRiskItemsResponse listRiskItems(const Models::ListRiskItemsRequest &request);
 
       /**
+       * @summary Retrieves a list of user labels.
+       *
+       * @param tmpReq ListSaseUserTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSaseUserTagsResponse
+       */
+      Models::ListSaseUserTagsResponse listSaseUserTagsWithOptions(const Models::ListSaseUserTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of user labels.
+       *
+       * @param request ListSaseUserTagsRequest
+       * @return ListSaseUserTagsResponse
+       */
+      Models::ListSaseUserTagsResponse listSaseUserTags(const Models::ListSaseUserTagsRequest &request);
+
+      /**
        * @summary Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
        *
        * @param request ListSoftwareForUserDeviceRequest

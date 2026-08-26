@@ -482,6 +482,10 @@
 #include <alibabacloud/models/ListRiskItemsRequest.hpp>
 #include <alibabacloud/models/ListRiskItemsResponseBody.hpp>
 #include <alibabacloud/models/ListRiskItemsResponse.hpp>
+#include <alibabacloud/models/ListSaseUserTagsRequest.hpp>
+#include <alibabacloud/models/ListSaseUserTagsShrinkRequest.hpp>
+#include <alibabacloud/models/ListSaseUserTagsResponseBody.hpp>
+#include <alibabacloud/models/ListSaseUserTagsResponse.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceRequest.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponseBody.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponse.hpp>
