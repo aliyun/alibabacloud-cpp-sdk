@@ -1424,6 +1424,27 @@ namespace DataworksPublic20240518
       Models::CreateSemanticJobResponse createSemanticJob(const Models::CreateSemanticJobRequest &request);
 
       /**
+       * @summary Creates a personal development environment instance.
+       *
+       * @description Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+       *
+       * @param tmpReq CreateServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServerIdeInstanceResponse
+       */
+      Models::CreateServerIdeInstanceResponse createServerIdeInstanceWithOptions(const Models::CreateServerIdeInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a personal development environment instance.
+       *
+       * @description Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+       *
+       * @param request CreateServerIdeInstanceRequest
+       * @return CreateServerIdeInstanceResponse
+       */
+      Models::CreateServerIdeInstanceResponse createServerIdeInstance(const Models::CreateServerIdeInstanceRequest &request);
+
+      /**
        * @summary Creates a new Skill in DataWorks.
        *
        * @description ## Request description
@@ -8333,6 +8354,27 @@ namespace DataworksPublic20240518
        * @return UpdateSecurityStrategyResponse
        */
       Models::UpdateSecurityStrategyResponse updateSecurityStrategy(const Models::UpdateSecurityStrategyRequest &request);
+
+      /**
+       * @summary Updates the configuration of a specified personal development environment instance.
+       *
+       * @description Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+       *
+       * @param tmpReq UpdateServerIdeInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateServerIdeInstanceResponse
+       */
+      Models::UpdateServerIdeInstanceResponse updateServerIdeInstanceWithOptions(const Models::UpdateServerIdeInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the configuration of a specified personal development environment instance.
+       *
+       * @description Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+       *
+       * @param request UpdateServerIdeInstanceRequest
+       * @return UpdateServerIdeInstanceResponse
+       */
+      Models::UpdateServerIdeInstanceResponse updateServerIdeInstance(const Models::UpdateServerIdeInstanceRequest &request);
 
       /**
        * @summary Updates a specified Skill and generates a new version.

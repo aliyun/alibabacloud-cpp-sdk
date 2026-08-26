@@ -246,6 +246,10 @@
 #include <alibabacloud/models/CreateSemanticJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSemanticJobResponseBody.hpp>
 #include <alibabacloud/models/CreateSemanticJobResponse.hpp>
+#include <alibabacloud/models/CreateServerIdeInstanceRequest.hpp>
+#include <alibabacloud/models/CreateServerIdeInstanceShrinkRequest.hpp>
+#include <alibabacloud/models/CreateServerIdeInstanceResponseBody.hpp>
+#include <alibabacloud/models/CreateServerIdeInstanceResponse.hpp>
 #include <alibabacloud/models/CreateSkillRequest.hpp>
 #include <alibabacloud/models/CreateSkillShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSkillResponseBody.hpp>
@@ -1247,6 +1251,10 @@
 #include <alibabacloud/models/UpdateSecurityStrategyShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSecurityStrategyResponseBody.hpp>
 #include <alibabacloud/models/UpdateSecurityStrategyResponse.hpp>
+#include <alibabacloud/models/UpdateServerIdeInstanceRequest.hpp>
+#include <alibabacloud/models/UpdateServerIdeInstanceShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateServerIdeInstanceResponseBody.hpp>
+#include <alibabacloud/models/UpdateServerIdeInstanceResponse.hpp>
 #include <alibabacloud/models/UpdateSkillRequest.hpp>
 #include <alibabacloud/models/UpdateSkillShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSkillResponseBody.hpp>

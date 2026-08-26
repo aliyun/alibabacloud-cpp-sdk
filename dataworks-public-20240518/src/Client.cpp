@@ -4681,6 +4681,110 @@ CreateSemanticJobResponse Client::createSemanticJob(const CreateSemanticJobReque
 }
 
 /**
+ * @summary Creates a personal development environment instance.
+ *
+ * @description Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+ *
+ * @param tmpReq CreateServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServerIdeInstanceResponse
+ */
+CreateServerIdeInstanceResponse Client::createServerIdeInstanceWithOptions(const CreateServerIdeInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateServerIdeInstanceShrinkRequest request = CreateServerIdeInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCredentialConfig()) {
+    request.setCredentialConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCredentialConfig(), "CredentialConfig", "json"));
+  }
+
+  if (!!tmpReq.hasDatasets()) {
+    request.setDatasetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasets(), "Datasets", "json"));
+  }
+
+  if (!!tmpReq.hasUserCommand()) {
+    request.setUserCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserCommand(), "UserCommand", "json"));
+  }
+
+  if (!!tmpReq.hasUserVpc()) {
+    request.setUserVpcShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserVpc(), "UserVpc", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCredentialConfigShrink()) {
+    body["CredentialConfig"] = request.getCredentialConfigShrink();
+  }
+
+  if (!!request.hasCu()) {
+    body["Cu"] = request.getCu();
+  }
+
+  if (!!request.hasDatasetsShrink()) {
+    body["Datasets"] = request.getDatasetsShrink();
+  }
+
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasImageUrl()) {
+    body["ImageUrl"] = request.getImageUrl();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasUserCommandShrink()) {
+    body["UserCommand"] = request.getUserCommandShrink();
+  }
+
+  if (!!request.hasUserVpcShrink()) {
+    body["UserVpc"] = request.getUserVpcShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Creates a personal development environment instance.
+ *
+ * @description Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+ *
+ * @param request CreateServerIdeInstanceRequest
+ * @return CreateServerIdeInstanceResponse
+ */
+CreateServerIdeInstanceResponse Client::createServerIdeInstance(const CreateServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createServerIdeInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a new Skill in DataWorks.
  *
  * @description ## Request description
@@ -22642,6 +22746,100 @@ UpdateSecurityStrategyResponse Client::updateSecurityStrategyWithOptions(const U
 UpdateSecurityStrategyResponse Client::updateSecurityStrategy(const UpdateSecurityStrategyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSecurityStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the configuration of a specified personal development environment instance.
+ *
+ * @description Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+ *
+ * @param tmpReq UpdateServerIdeInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateServerIdeInstanceResponse
+ */
+UpdateServerIdeInstanceResponse Client::updateServerIdeInstanceWithOptions(const UpdateServerIdeInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateServerIdeInstanceShrinkRequest request = UpdateServerIdeInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCredentialConfig()) {
+    request.setCredentialConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCredentialConfig(), "CredentialConfig", "json"));
+  }
+
+  if (!!tmpReq.hasDatasets()) {
+    request.setDatasetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDatasets(), "Datasets", "json"));
+  }
+
+  if (!!tmpReq.hasUserVpc()) {
+    request.setUserVpcShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserVpc(), "UserVpc", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  json body = {};
+  if (!!request.hasCredentialConfigShrink()) {
+    body["CredentialConfig"] = request.getCredentialConfigShrink();
+  }
+
+  if (!!request.hasCu()) {
+    body["Cu"] = request.getCu();
+  }
+
+  if (!!request.hasDatasetsShrink()) {
+    body["Datasets"] = request.getDatasetsShrink();
+  }
+
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasImageUrl()) {
+    body["ImageUrl"] = request.getImageUrl();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasUserVpcShrink()) {
+    body["UserVpc"] = request.getUserVpcShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateServerIdeInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateServerIdeInstanceResponse>();
+}
+
+/**
+ * @summary Updates the configuration of a specified personal development environment instance.
+ *
+ * @description Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+ *
+ * @param request UpdateServerIdeInstanceRequest
+ * @return UpdateServerIdeInstanceResponse
+ */
+UpdateServerIdeInstanceResponse Client::updateServerIdeInstance(const UpdateServerIdeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateServerIdeInstanceWithOptions(request, runtime);
 }
 
 /**
