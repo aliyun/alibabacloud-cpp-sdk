@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The updated list of RAM role ARNs, separated by commas.
     shared_ptr<string> authorizedUserArnIds_ {};
+    // The updated list of UIDs, separated by commas.
     shared_ptr<string> authorizedUserIds_ {};
+    // The cold storage instance ID.
     shared_ptr<string> pfsInstanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

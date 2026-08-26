@@ -59,28 +59,28 @@ AlibabaCloud::Polardb20170801::Client::Client(Config &config): OpenApiClient(con
     {"cn-zhengzhou-nebula-1" , "polardb.aliyuncs.com"},
     {"eu-west-1-oxs" , "polardb.aliyuncs.com"},
     {"rus-west-1-pop" , "polardb.aliyuncs.com"},
-    {"us-west-1" , "polardb.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "polardb.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "polardb.na-south-1.aliyuncs.com"},
-    {"me-east-1" , "polardb.me-east-1.aliyuncs.com"},
-    {"eu-west-1" , "polardb.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "polardb.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "polardb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "polardb.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "polardb.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "polardb.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-huhehaote" , "polardb.cn-huhehaote.aliyuncs.com"},
     {"cn-hongkong" , "polardb.cn-hongkong.aliyuncs.com"},
-    {"cn-guangzhou" , "polardb.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "polardb.cn-chengdu.aliyuncs.com"},
-    {"ap-southeast-8" , "polardb.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "polardb.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "polardb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "polardb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "polardb.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "polardb.ap-southeast-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "polardb.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "polardb.cn-shenzhen.aliyuncs.com"},
     {"ap-northeast-2" , "polardb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "polardb.ap-northeast-1.aliyuncs.com"}
+    {"ap-northeast-1" , "polardb.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "polardb.cn-chengdu.aliyuncs.com"},
+    {"cn-guangzhou" , "polardb.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-1" , "polardb.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "polardb.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "polardb.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "polardb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "polardb.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "polardb.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-8" , "polardb.ap-southeast-8.aliyuncs.com"},
+    {"na-south-1" , "polardb.na-south-1.aliyuncs.com"},
+    {"eu-central-1" , "polardb.eu-central-1.aliyuncs.com"},
+    {"us-west-1" , "polardb.us-west-1.aliyuncs.com"},
+    {"eu-west-1" , "polardb.eu-west-1.aliyuncs.com"},
+    {"us-east-1" , "polardb.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "polardb.me-east-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "polardb.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "polardb.cn-shenzhen-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("polardb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -494,7 +494,7 @@ AddPolarFsQuotaResponse Client::addPolarFsQuota(const AddPolarFsQuotaRequest &re
 }
 
 /**
- * @summary 添加冷存授权账号
+ * @summary Adds authorized accounts for cold storage.
  *
  * @param request AddPolarOSSAuthorizedAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +537,7 @@ AddPolarOSSAuthorizedAccountResponse Client::addPolarOSSAuthorizedAccountWithOpt
 }
 
 /**
- * @summary 添加冷存授权账号
+ * @summary Adds authorized accounts for cold storage.
  *
  * @param request AddPolarOSSAuthorizedAccountRequest
  * @return AddPolarOSSAuthorizedAccountResponse
@@ -1934,7 +1934,7 @@ ContinueDBClusterMigrationResponse Client::continueDBClusterMigration(const Cont
 }
 
 /**
- * @summary This topic describes how to create an AI cluster.
+ * @summary Creates an AI cluster.
  *
  * @param request CreateAIDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2101,7 +2101,7 @@ CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBC
 }
 
 /**
- * @summary This topic describes how to create an AI cluster.
+ * @summary Creates an AI cluster.
  *
  * @param request CreateAIDBClusterRequest
  * @return CreateAIDBClusterResponse
@@ -2112,7 +2112,7 @@ CreateAIDBClusterResponse Client::createAIDBCluster(const CreateAIDBClusterReque
 }
 
 /**
- * @summary Creates a model service API key.
+ * @summary Creates a model creation service API key.
  *
  * @param request CreateAIDBClusterApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2151,7 +2151,7 @@ CreateAIDBClusterApiKeyResponse Client::createAIDBClusterApiKeyWithOptions(const
 }
 
 /**
- * @summary Creates a model service API key.
+ * @summary Creates a model creation service API key.
  *
  * @param request CreateAIDBClusterApiKeyRequest
  * @return CreateAIDBClusterApiKeyResponse
@@ -2802,7 +2802,7 @@ CreateAgenticDBProjectResponse Client::createAgenticDBProject(const CreateAgenti
 }
 
 /**
- * @summary 创建 AgenticDB 租户 API Key
+ * @summary Creates an API key for an AgenticDB tenant.
  *
  * @param request CreateAgenticDBTenantApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2849,7 +2849,7 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKeyWithOptio
 }
 
 /**
- * @summary 创建 AgenticDB 租户 API Key
+ * @summary Creates an API key for an AgenticDB tenant.
  *
  * @param request CreateAgenticDBTenantApiKeyRequest
  * @return CreateAgenticDBTenantApiKeyResponse
@@ -5376,6 +5376,178 @@ CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsum
 }
 
 /**
+ * @summary Creates a knowledge base.
+ *
+ * @param request CreateKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKnowledgeBaseResponse
+ */
+CreateKnowledgeBaseResponse Client::createKnowledgeBaseWithOptions(const CreateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKnowledgeBaseType()) {
+    query["KnowledgeBaseType"] = request.getKnowledgeBaseType();
+  }
+
+  if (!!request.hasKnowledgeSpaceId()) {
+    query["KnowledgeSpaceId"] = request.getKnowledgeSpaceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchMode()) {
+    query["SearchMode"] = request.getSearchMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateKnowledgeBase"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary Creates a knowledge base.
+ *
+ * @param request CreateKnowledgeBaseRequest
+ * @return CreateKnowledgeBaseResponse
+ */
+CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a knowledge space.
+ *
+ * @param request CreateKnowledgeSpaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKnowledgeSpaceResponse
+ */
+CreateKnowledgeSpaceResponse Client::createKnowledgeSpaceWithOptions(const CreateKnowledgeSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.getDBType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEmbeddingDimension()) {
+    query["EmbeddingDimension"] = request.getEmbeddingDimension();
+  }
+
+  if (!!request.hasEmbeddingModel()) {
+    query["EmbeddingModel"] = request.getEmbeddingModel();
+  }
+
+  if (!!request.hasEnforceAcl()) {
+    query["EnforceAcl"] = request.getEnforceAcl();
+  }
+
+  if (!!request.hasLLMModel()) {
+    query["LLMModel"] = request.getLLMModel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOSSAccessKey()) {
+    query["OSSAccessKey"] = request.getOSSAccessKey();
+  }
+
+  if (!!request.hasOSSBucket()) {
+    query["OSSBucket"] = request.getOSSBucket();
+  }
+
+  if (!!request.hasOSSSecretKey()) {
+    query["OSSSecretKey"] = request.getOSSSecretKey();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRerankModel()) {
+    query["RerankModel"] = request.getRerankModel();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasShardingSize()) {
+    query["ShardingSize"] = request.getShardingSize();
+  }
+
+  if (!!request.hasShardingStrategy()) {
+    query["ShardingStrategy"] = request.getShardingStrategy();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateKnowledgeSpace"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKnowledgeSpaceResponse>();
+}
+
+/**
+ * @summary Creates a knowledge space.
+ *
+ * @param request CreateKnowledgeSpaceRequest
+ * @return CreateKnowledgeSpaceResponse
+ */
+CreateKnowledgeSpaceResponse Client::createKnowledgeSpace(const CreateKnowledgeSpaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createKnowledgeSpaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a PolarFS S3 account.
  *
  * @param request CreateLakebaseS3AccountRequest
@@ -5434,7 +5606,7 @@ CreateLakebaseS3AccountResponse Client::createLakebaseS3Account(const CreateLake
 }
 
 /**
- * @summary Creates a model API.
+ * @summary Creates a routing rule.
  *
  * @param request CreateModelApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5443,6 +5615,10 @@ CreateLakebaseS3AccountResponse Client::createLakebaseS3Account(const CreateLake
 CreateModelApiResponse Client::createModelApiWithOptions(const CreateModelApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
   if (!!request.hasForceModel()) {
     query["ForceModel"] = request.getForceModel();
   }
@@ -5501,7 +5677,7 @@ CreateModelApiResponse Client::createModelApiWithOptions(const CreateModelApiReq
 }
 
 /**
- * @summary Creates a model API.
+ * @summary Creates a routing rule.
  *
  * @param request CreateModelApiRequest
  * @return CreateModelApiResponse
@@ -7031,6 +7207,10 @@ DeleteAgenticDBBranchResponse Client::deleteAgenticDBBranch(const DeleteAgenticD
 DeleteAgenticDBComputeClusterResponse Client::deleteAgenticDBComputeClusterWithOptions(const DeleteAgenticDBComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
   if (!!request.hasComputeClusterId()) {
     query["ComputeClusterId"] = request.getComputeClusterId();
   }
@@ -7039,8 +7219,16 @@ DeleteAgenticDBComputeClusterResponse Client::deleteAgenticDBComputeClusterWithO
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8578,6 +8766,52 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
+ * @summary Deletes a knowledge base.
+ *
+ * @param request DeleteKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKnowledgeBaseResponse
+ */
+DeleteKnowledgeBaseResponse Client::deleteKnowledgeBaseWithOptions(const DeleteKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKnowledgeBase"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary Deletes a knowledge base.
+ *
+ * @param request DeleteKnowledgeBaseRequest
+ * @return DeleteKnowledgeBaseResponse
+ */
+DeleteKnowledgeBaseResponse Client::deleteKnowledgeBase(const DeleteKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a PolarFS S3 account.
  *
  * @param request DeleteLakebaseS3AccountRequest
@@ -9330,7 +9564,7 @@ DeletePolarFsQuotaResponse Client::deletePolarFsQuota(const DeletePolarFsQuotaRe
 }
 
 /**
- * @summary 删除冷存授权账号
+ * @summary Deletes authorized accounts for cold storage.
  *
  * @param request DeletePolarOSSAuthorizedAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9373,7 +9607,7 @@ DeletePolarOSSAuthorizedAccountResponse Client::deletePolarOSSAuthorizedAccountW
 }
 
 /**
- * @summary 删除冷存授权账号
+ * @summary Deletes authorized accounts for cold storage.
  *
  * @param request DeletePolarOSSAuthorizedAccountRequest
  * @return DeletePolarOSSAuthorizedAccountResponse
@@ -9604,7 +9838,7 @@ DescribeAIDBClusterApiKeysResponse Client::describeAIDBClusterApiKeys(const Desc
 }
 
 /**
- * @summary Queries the details of a custom instance.
+ * @summary Queries the detailed attributes of a custom instance.
  *
  * @param request DescribeAIDBClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9651,7 +9885,7 @@ DescribeAIDBClusterAttributeResponse Client::describeAIDBClusterAttributeWithOpt
 }
 
 /**
- * @summary Queries the details of a custom instance.
+ * @summary Queries the detailed attributes of a custom instance.
  *
  * @param request DescribeAIDBClusterAttributeRequest
  * @return DescribeAIDBClusterAttributeResponse
@@ -10090,7 +10324,7 @@ DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasks(const Describe
 }
 
 /**
- * @summary View custom clusters.
+ * @summary Queries the list of custom AI clusters.
  *
  * @param request DescribeAIDBClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10169,7 +10403,7 @@ DescribeAIDBClustersResponse Client::describeAIDBClustersWithOptions(const Descr
 }
 
 /**
- * @summary View custom clusters.
+ * @summary Queries the list of custom AI clusters.
  *
  * @param request DescribeAIDBClustersRequest
  * @return DescribeAIDBClustersResponse
@@ -11132,7 +11366,7 @@ DescribeAgenticDBProjectResponse Client::describeAgenticDBProject(const Describe
 }
 
 /**
- * @summary 查询 AgenticDB 项目列表
+ * @summary Queries the list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11187,7 +11421,7 @@ DescribeAgenticDBProjectsResponse Client::describeAgenticDBProjectsWithOptions(c
 }
 
 /**
- * @summary 查询 AgenticDB 项目列表
+ * @summary Queries the list of AgenticDB projects.
  *
  * @param request DescribeAgenticDBProjectsRequest
  * @return DescribeAgenticDBProjectsResponse
@@ -11513,7 +11747,7 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
   DescribeApplicationPerformanceShrinkRequest request = DescribeApplicationPerformanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
@@ -11541,6 +11775,10 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
     query["EndTime"] = request.getEndTime();
   }
 
+  if (!!request.hasFilterShrink()) {
+    query["Filter"] = request.getFilterShrink();
+  }
+
   if (!!request.hasInterval()) {
     query["Interval"] = request.getInterval();
   }
@@ -11563,10 +11801,6 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
 
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasFilterShrink()) {
-    query["filter"] = request.getFilterShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14426,7 +14660,7 @@ DescribeDBClusterServerlessConfResponse Client::describeDBClusterServerlessConf(
 }
 
 /**
- * @summary Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+ * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
  *
  * @param request DescribeDBClusterTDERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14473,7 +14707,7 @@ DescribeDBClusterTDEResponse Client::describeDBClusterTDEWithOptions(const Descr
 }
 
 /**
- * @summary Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+ * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
  *
  * @param request DescribeDBClusterTDERequest
  * @return DescribeDBClusterTDEResponse
@@ -17000,6 +17234,114 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
+ * @summary Queries the details of a knowledge base.
+ *
+ * @param request DescribeKnowledgeBaseAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseAttributeResponse
+ */
+DescribeKnowledgeBaseAttributeResponse Client::describeKnowledgeBaseAttributeWithOptions(const DescribeKnowledgeBaseAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseAttributeResponse>();
+}
+
+/**
+ * @summary Queries the details of a knowledge base.
+ *
+ * @param request DescribeKnowledgeBaseAttributeRequest
+ * @return DescribeKnowledgeBaseAttributeResponse
+ */
+DescribeKnowledgeBaseAttributeResponse Client::describeKnowledgeBaseAttribute(const DescribeKnowledgeBaseAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of knowledge bases.
+ *
+ * @param request DescribeKnowledgeBasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBasesResponse
+ */
+DescribeKnowledgeBasesResponse Client::describeKnowledgeBasesWithOptions(const DescribeKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasKnowledgeSpaceId()) {
+    query["KnowledgeSpaceId"] = request.getKnowledgeSpaceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBases"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBasesResponse>();
+}
+
+/**
+ * @summary Queries a list of knowledge bases.
+ *
+ * @param request DescribeKnowledgeBasesRequest
+ * @return DescribeKnowledgeBasesResponse
+ */
+DescribeKnowledgeBasesResponse Client::describeKnowledgeBases(const DescribeKnowledgeBasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBasesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a PolarFS S3 account.
  *
  * @param request DescribeLakebaseS3AccountRequest
@@ -17442,7 +17784,7 @@ DescribeMetaListResponse Client::describeMetaList(const DescribeMetaListRequest 
 }
 
 /**
- * @summary Model Query API
+ * @summary Queries model APIs.
  *
  * @param request DescribeModelApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17509,7 +17851,7 @@ DescribeModelApisResponse Client::describeModelApisWithOptions(const DescribeMod
 }
 
 /**
- * @summary Model Query API
+ * @summary Queries model APIs.
  *
  * @param request DescribeModelApisRequest
  * @return DescribeModelApisResponse
@@ -21983,7 +22325,7 @@ GrantAccountPrivilegeZonalResponse Client::grantAccountPrivilegeZonal(const Gran
 }
 
 /**
- * @summary Installs a PolarClaw plugin.
+ * @summary Installs the PolarClaw plug-in.
  *
  * @param request InstallPolarClawPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22026,7 +22368,7 @@ InstallPolarClawPluginResponse Client::installPolarClawPluginWithOptions(const I
 }
 
 /**
- * @summary Installs a PolarClaw plugin.
+ * @summary Installs the PolarClaw plug-in.
  *
  * @param request InstallPolarClawPluginRequest
  * @return InstallPolarClawPluginResponse
@@ -27368,6 +27710,10 @@ ModifyMaskingRulesResponse Client::modifyMaskingRules(const ModifyMaskingRulesRe
 ModifyModelApiResponse Client::modifyModelApiWithOptions(const ModifyModelApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
   if (!!request.hasGwClusterId()) {
     query["GwClusterId"] = request.getGwClusterId();
   }

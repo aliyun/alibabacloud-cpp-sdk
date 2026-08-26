@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The description of the API key usage.
     shared_ptr<string> description_ {};
+    // The expiration time in ISO 8601 format. If this parameter is not specified, the API key never expires.
     shared_ptr<string> expireTime_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The tenant name. The name must be unique within the cluster and contain 2 to 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> tenantName_ {};
   };

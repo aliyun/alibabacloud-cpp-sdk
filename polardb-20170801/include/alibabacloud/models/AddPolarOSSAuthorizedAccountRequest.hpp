@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The list of authorized accounts to add, separated by commas. You can pass in UIDs and RAM role ARNs in mixed parameter notation.
+    // 
     // This parameter is required.
     shared_ptr<string> authorizedUserIds_ {};
+    // The ID of the PolarDB cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The cold storage instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> pfsInstanceId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

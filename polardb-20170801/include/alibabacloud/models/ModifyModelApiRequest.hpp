@@ -13,6 +13,7 @@ namespace Models
   class ModifyModelApiRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyModelApiRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ModelApiId, modelApiId_);
       DARABONBA_PTR_TO_JSON(ModelCategory, modelCategory_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RouteRules, routeRules_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyModelApiRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ModelApiId, modelApiId_);
       DARABONBA_PTR_FROM_JSON(ModelCategory, modelCategory_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->gwClusterId_ == nullptr
-        && this->modelApiId_ == nullptr && this->modelCategory_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr && this->recordInput_ == nullptr
-        && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->gwClusterId_ == nullptr && this->modelApiId_ == nullptr && this->modelCategory_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr
+        && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline ModifyModelApiRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
     // gwClusterId Field Functions 
     bool hasGwClusterId() const { return this->gwClusterId_ != nullptr;};
     void deleteGwClusterId() { this->gwClusterId_ = nullptr;};
@@ -112,6 +121,8 @@ namespace Models
 
 
   protected:
+    // The gateway retry configuration.
+    shared_ptr<string> config_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
@@ -120,13 +131,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> modelApiId_ {};
-    // The model category. Valid values:
-    // 
-    // - `text`
-    // 
-    // - `embedding`
-    // 
-    // - `rerank`
+    // The category. Valid values:
+    // * **text**
+    // * **embedding**
+    // * **rerank**
     // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
@@ -136,23 +144,20 @@ namespace Models
     shared_ptr<string> pathPrefix_ {};
     // The protocol. Valid values:
     // 
-    // - `openai`
-    // 
-    // - `anthropic`
-    // 
-    // - `Model Studio`
-    // 
-    // - `vllm`
+    // * **openai**
+    // * **anthropic**
+    // * **bailian**
+    // * **vllm**
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The number of input units.
+    // The number of input points.
     shared_ptr<string> recordInput_ {};
-    // The number of output units.
+    // The number of output points.
     shared_ptr<string> recordOutput_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // A JSON array of routing rules, provided as a string.
+    // The list of routing rules (JSON array string).
     // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};

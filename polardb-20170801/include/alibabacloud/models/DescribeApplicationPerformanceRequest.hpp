@@ -19,13 +19,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Downsample, downsample_);
       DARABONBA_PTR_TO_JSON(EndStep, endStep_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_ANY_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(Key, key_);
       DARABONBA_PTR_TO_JSON(MaxPoints, maxPoints_);
       DARABONBA_PTR_TO_JSON(ModelService, modelService_);
       DARABONBA_PTR_TO_JSON(StartStep, startStep_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
-      DARABONBA_ANY_TO_JSON(filter, filter_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationPerformanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
@@ -34,13 +34,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Downsample, downsample_);
       DARABONBA_PTR_FROM_JSON(EndStep, endStep_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_ANY_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(Key, key_);
       DARABONBA_PTR_FROM_JSON(MaxPoints, maxPoints_);
       DARABONBA_PTR_FROM_JSON(ModelService, modelService_);
       DARABONBA_PTR_FROM_JSON(StartStep, startStep_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
-      DARABONBA_ANY_FROM_JSON(filter, filter_);
     };
     DescribeApplicationPerformanceRequest() = default ;
     DescribeApplicationPerformanceRequest(const DescribeApplicationPerformanceRequest &) = default ;
@@ -55,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->consumer_ == nullptr && this->consumerGroup_ == nullptr && this->downsample_ == nullptr && this->endStep_ == nullptr && this->endTime_ == nullptr
-        && this->interval_ == nullptr && this->key_ == nullptr && this->maxPoints_ == nullptr && this->modelService_ == nullptr && this->startStep_ == nullptr
-        && this->startTime_ == nullptr && this->filter_ == nullptr; };
+        && this->filter_ == nullptr && this->interval_ == nullptr && this->key_ == nullptr && this->maxPoints_ == nullptr && this->modelService_ == nullptr
+        && this->startStep_ == nullptr && this->startTime_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -97,6 +97,15 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeApplicationPerformanceRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline     const Darabonba::Json & getFilter() const { DARABONBA_GET(filter_) };
+    Darabonba::Json & getFilter() { DARABONBA_GET(filter_) };
+    inline DescribeApplicationPerformanceRequest& setFilter(const Darabonba::Json & filter) { DARABONBA_SET_VALUE(filter_, filter) };
+    inline DescribeApplicationPerformanceRequest& setFilter(Darabonba::Json && filter) { DARABONBA_SET_RVALUE(filter_, filter) };
 
 
     // interval Field Functions 
@@ -141,15 +150,6 @@ namespace Models
     inline DescribeApplicationPerformanceRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
-    // filter Field Functions 
-    bool hasFilter() const { return this->filter_ != nullptr;};
-    void deleteFilter() { this->filter_ = nullptr;};
-    inline     const Darabonba::Json & getFilter() const { DARABONBA_GET(filter_) };
-    Darabonba::Json & getFilter() { DARABONBA_GET(filter_) };
-    inline DescribeApplicationPerformanceRequest& setFilter(const Darabonba::Json & filter) { DARABONBA_SET_VALUE(filter_, filter) };
-    inline DescribeApplicationPerformanceRequest& setFilter(Darabonba::Json && filter) { DARABONBA_SET_RVALUE(filter_, filter) };
-
-
   protected:
     // The application cluster ID.
     // 
@@ -167,6 +167,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    Darabonba::Json filter_ {};
     // The data granularity of performance data. Valid values:
     // - 5
     // - 30
@@ -178,7 +179,7 @@ namespace Models
     shared_ptr<string> interval_ {};
     // The performance metrics to query. Separate multiple values with commas (,).
     // 
-    // > **Note** You can specify up to 5 performance metrics.
+    // >  You can specify up to 5 performance metrics.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
@@ -192,7 +193,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    Darabonba::Json filter_ {};
   };
 
   } // namespace Models

@@ -182,13 +182,13 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The task type. Valid values:
       // 
-      // * **sft**: SFT-efficient training.
-      // * **grpo**: GRPO-reinforcement learning.
+      // * **sft**: SFT efficient training.
+      // * **grpo**: GRPO reinforcement learning.
       shared_ptr<string> trainMode_ {};
       // The training method. Valid values:
       // 
       // * **lora**
-      // * **full**: full-parameter training.
+      // * **full**: full-parameter fine-tuning.
       shared_ptr<string> trainType_ {};
     };
 
@@ -252,7 +252,7 @@ namespace Models
       shared_ptr<string> datasetName_ {};
       // The dataset path.
       shared_ptr<string> path_ {};
-      // The ratio of data split from the training set.
+      // The ratio split from the training set.
       shared_ptr<string> splitDatasetRatio_ {};
       // The type. Valid values:
       // 
@@ -500,21 +500,21 @@ namespace Models
     shared_ptr<int64_t> kindCode_ {};
     // The lock mode. Valid values:
     // 
-    // * **0**: Locked.
-    // * **1**: Unlocked.
+    // * **0**: locked.
+    // * **1**: unlocked.
     shared_ptr<string> lockMode_ {};
     // The maintenance end time.
     shared_ptr<string> maintainEndTime_ {};
     // The maintenance start time.
     shared_ptr<string> maintainStartTime_ {};
-    // The list of output model paths in the model fine-tuning scenario.
+    // The list of model paths output in the model fine-tuning scenario.
     shared_ptr<string> modelPath_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The task information.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::TaskInfo>> taskInfo_ {};
     shared_ptr<string> tuneArch_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

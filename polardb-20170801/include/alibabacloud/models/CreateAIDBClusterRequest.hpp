@@ -136,9 +136,9 @@ namespace Models
 
 
     protected:
-      // The start time of the billing interval. The time is in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The start time of the task. The time is in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
       shared_ptr<int64_t> beginTime_ {};
-      // The end time of the billing interval, which must be later than the start time. The time is in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The end time of the query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
       shared_ptr<int64_t> endTime_ {};
     };
 
@@ -403,65 +403,62 @@ namespace Models
     // Specifies whether to enable auto-renewal. Valid values:
     // 
     // - **true**: Auto-renewal is enabled.
-    // 
-    // - **false**: Auto-renewal is disabled.
+    // - **false**: Auto-renewal is not enabled.
     // 
     // Default value: **false**.
     // 
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     shared_ptr<string> autoRenew_ {};
-    // Specifies whether to automatically use a coupon. Valid values:
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): Use coupons.
+    // * false: Do not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to create a public endpoint.
     shared_ptr<string> createPublicEndpoint_ {};
-    // The description of the cluster. You can use the description to perform a fuzzy search.
+    // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The ID of the PolarDB cluster that the application depends on.
+    // The instance ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
-    // The node specification.
+    // The node specifications.
     shared_ptr<string> DBNodeClass_ {};
     // The extension.
     shared_ptr<string> extension_ {};
     // The inference engine.
     shared_ptr<string> inferenceEngine_ {};
-    // The Container Service for Kubernetes (ACK) cluster ID.
+    // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
     // The Kubernetes configuration.
     shared_ptr<string> kubeConfig_ {};
-    // The management mode of the Kubernetes cluster.
+    // The Kubernetes cluster management mode.
     shared_ptr<string> kubeManagement_ {};
-    // The type of the Kubernetes deployment.
+    // aideploy
     shared_ptr<string> kubeType_ {};
     // The Kubernetes configuration.
     shared_ptr<string> kubernetesConfig_ {};
     // The management mode.
     shared_ptr<string> managementMode_ {};
+    // The model name.
     shared_ptr<string> modelName_ {};
+    // The model operator space.
     shared_ptr<string> modelSpace_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The password.
     shared_ptr<string> password_ {};
-    // The billing method. Valid values:
+    // The billing method. Valid values: 
     // 
     // - **Postpaid**: pay-as-you-go.
-    // 
     // - **Prepaid**: subscription.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. This parameter is required if **PayType** is set to **Prepaid**. Valid values:
+    // This parameter is required to pass parameter when **PayType** is set to **Prepaid**. Specifies the unit of the upfront payment duration for the subscription cluster. 
     // 
-    // - **Year**
-    // 
-    // - **Month**
+    // - **Year**: The subscription duration is measured in years.
+    // - **Month**: The subscription duration is measured in months.
     shared_ptr<string> period_ {};
-    // The coupon code. If you do not specify this parameter, the default coupon is used.
-    // 
-    // - true (default): Use a coupon.
-    // 
-    // - false: Do not use a coupon.
+    // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
@@ -471,19 +468,17 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The storage space. Unit: GB.
+    // The storage space.
     shared_ptr<int32_t> storageSpace_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};
-    // The billing intervals for the pay-as-you-go cluster.
+    // The pay-as-you-go time intervals.
     shared_ptr<vector<CreateAIDBClusterRequest::TimeSlices>> timeSlices_ {};
-    // The subscription duration. This parameter is required if **PayType** is set to **Prepaid**.
-    // 
-    // - If **Period** is set to **Month**, the value of **UsedTime** must be an integer from `[1-9]`.
-    // 
-    // - If **Period** is set to **Year**, the value of **UsedTime** must be an integer from `[1-3]`.
+    // This parameter is required when **PayType** is set to **Prepaid**.
+    // - If **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
+    // - If **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
     shared_ptr<string> usedTime_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
@@ -491,7 +486,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The availability zone ID.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

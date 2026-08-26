@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The API key of the model service.
+      // The API key for model serving.
       shared_ptr<string> apiKey_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};

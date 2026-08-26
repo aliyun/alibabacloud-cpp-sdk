@@ -234,6 +234,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
         DARABONBA_PTR_TO_JSON(DBNodeRole, DBNodeRole_);
         DARABONBA_PTR_TO_JSON(DBNodeStatus, DBNodeStatus_);
+        DARABONBA_PTR_TO_JSON(DedicatedHostModel, dedicatedHostModel_);
         DARABONBA_PTR_TO_JSON(FailoverPriority, failoverPriority_);
         DARABONBA_PTR_TO_JSON(HotReplicaMode, hotReplicaMode_);
         DARABONBA_PTR_TO_JSON(ImciSwitch, imciSwitch_);
@@ -266,6 +267,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
         DARABONBA_PTR_FROM_JSON(DBNodeRole, DBNodeRole_);
         DARABONBA_PTR_FROM_JSON(DBNodeStatus, DBNodeStatus_);
+        DARABONBA_PTR_FROM_JSON(DedicatedHostModel, dedicatedHostModel_);
         DARABONBA_PTR_FROM_JSON(FailoverPriority, failoverPriority_);
         DARABONBA_PTR_FROM_JSON(HotReplicaMode, hotReplicaMode_);
         DARABONBA_PTR_FROM_JSON(ImciSwitch, imciSwitch_);
@@ -301,11 +303,11 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->addedCpuCores_ == nullptr
         && this->cpuCores_ == nullptr && this->creationTime_ == nullptr && this->DBNodeCXLRemoteMemory_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeDescription_ == nullptr
-        && this->DBNodeId_ == nullptr && this->DBNodeRole_ == nullptr && this->DBNodeStatus_ == nullptr && this->failoverPriority_ == nullptr && this->hotReplicaMode_ == nullptr
-        && this->imciSwitch_ == nullptr && this->masterId_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr && this->memorySize_ == nullptr
-        && this->mirrorInsName_ == nullptr && this->multiMasterLocalStandby_ == nullptr && this->multiMasterPrimaryNode_ == nullptr && this->orca_ == nullptr && this->remoteMemoryMax_ == nullptr
-        && this->remoteMemoryMin_ == nullptr && this->remoteMemoryRecommended_ == nullptr && this->remoteMemorySize_ == nullptr && this->sccMode_ == nullptr && this->serverWeight_ == nullptr
-        && this->serverlessType_ == nullptr && this->subCluster_ == nullptr && this->subGroupDescription_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBNodeId_ == nullptr && this->DBNodeRole_ == nullptr && this->DBNodeStatus_ == nullptr && this->dedicatedHostModel_ == nullptr && this->failoverPriority_ == nullptr
+        && this->hotReplicaMode_ == nullptr && this->imciSwitch_ == nullptr && this->masterId_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr
+        && this->memorySize_ == nullptr && this->mirrorInsName_ == nullptr && this->multiMasterLocalStandby_ == nullptr && this->multiMasterPrimaryNode_ == nullptr && this->orca_ == nullptr
+        && this->remoteMemoryMax_ == nullptr && this->remoteMemoryMin_ == nullptr && this->remoteMemoryRecommended_ == nullptr && this->remoteMemorySize_ == nullptr && this->sccMode_ == nullptr
+        && this->serverWeight_ == nullptr && this->serverlessType_ == nullptr && this->subCluster_ == nullptr && this->subGroupDescription_ == nullptr && this->zoneId_ == nullptr; };
       // addedCpuCores Field Functions 
       bool hasAddedCpuCores() const { return this->addedCpuCores_ != nullptr;};
       void deleteAddedCpuCores() { this->addedCpuCores_ = nullptr;};
@@ -367,6 +369,13 @@ namespace Models
       void deleteDBNodeStatus() { this->DBNodeStatus_ = nullptr;};
       inline string getDBNodeStatus() const { DARABONBA_PTR_GET_DEFAULT(DBNodeStatus_, "") };
       inline DBNodes& setDBNodeStatus(string DBNodeStatus) { DARABONBA_PTR_SET_VALUE(DBNodeStatus_, DBNodeStatus) };
+
+
+      // dedicatedHostModel Field Functions 
+      bool hasDedicatedHostModel() const { return this->dedicatedHostModel_ != nullptr;};
+      void deleteDedicatedHostModel() { this->dedicatedHostModel_ = nullptr;};
+      inline bool getDedicatedHostModel() const { DARABONBA_PTR_GET_DEFAULT(dedicatedHostModel_, false) };
+      inline DBNodes& setDedicatedHostModel(bool dedicatedHostModel) { DARABONBA_PTR_SET_VALUE(dedicatedHostModel_, dedicatedHostModel) };
 
 
       // failoverPriority Field Functions 
@@ -517,7 +526,7 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores added by second-level rapid scaling.
+      // The number of CPU cores added by automatically scaling local resources.
       shared_ptr<string> addedCpuCores_ {};
       // The number of CPU cores of the node.
       shared_ptr<string> cpuCores_ {};
@@ -531,40 +540,17 @@ namespace Models
       shared_ptr<string> DBNodeDescription_ {};
       // The node ID.
       shared_ptr<string> DBNodeId_ {};
-      // The role of the node. Valid values: 
-      // 
-      // - **Writer**: primary node.
-      // - **Reader**: read-only node.
+      // The role of the node. Valid values:
       shared_ptr<string> DBNodeRole_ {};
-      // The node status. Valid values:
-      // * **Creating**: Being created. 
-      // * **Running**: Running. 
-      // * **Deleting**: Being deleted.  
-      // * **Rebooting**: Being restarted.  
-      // * **DBNodeCreating**: Increase node in progress.  
-      // * **DBNodeDeleting**: Deleting a node. 
-      // * **ClassChanging**: Changing node specifications.  
-      // * **NetAddressCreating**: Creating network connectivity.  
-      // * **NetAddressDeleting**: Deleting network connectivity.  
-      // * **NetAddressModifying**: Modifying network connectivity.
-      // * **MinorVersionUpgrading**: Upgrade of the minor version in progress.
-      // * **Maintaining**: Instance under maintenance.  
-      // * **Switching**: Switching over.
+      // The status of the node. Valid values:
       shared_ptr<string> DBNodeStatus_ {};
-      // The failover priority. Each node has a failover priority that determines the probability of the node being elected as the primary node during a failover. A higher value indicates a higher priority.
+      shared_ptr<bool> dedicatedHostModel_ {};
+      // The failover priority. Each node has a failover priority that determines the probability of the node being elected as the primary node during a failover. A larger value indicates a higher priority.
       // Valid values: 1 to 15.
       shared_ptr<int32_t> failoverPriority_ {};
       // Indicates whether hot standby is enabled. Valid values:
-      // 
-      // - **ON**: Enabled.
-      // 
-      // - **OFF**: Disabled.
       shared_ptr<string> hotReplicaMode_ {};
-      // Indicates whether In-Memory Column Index (IMCI) is enabled. Valid values:
-      // 
-      // - **ON**: Enabled.
-      // 
-      // - **OFF**: Disabled.
+      // Indicates whether In-Memory Column Index is enabled. Valid values:
       shared_ptr<string> imciSwitch_ {};
       // The primary node ID of the Multi-master Cluster Edition.
       shared_ptr<string> masterId_ {};
@@ -574,17 +560,13 @@ namespace Models
       shared_ptr<int32_t> maxIOPS_ {};
       // The memory size of the node. Unit: MB.
       shared_ptr<string> memorySize_ {};
-      // The name of the hot replica that corresponds to this node in the hot standby storage and compute architecture.
+      // The name of the hot replica that corresponds to the node in the hot standby storage and compute architecture.
       shared_ptr<string> mirrorInsName_ {};
       // The multi-master local standby node.
       shared_ptr<string> multiMasterLocalStandby_ {};
       // The multi-master primary node.
       shared_ptr<string> multiMasterPrimaryNode_ {};
       // The Orca feature. Valid values:
-      // 
-      // - on: Enabled.
-      // 
-      // - off: Disabled.
       shared_ptr<string> orca_ {};
       shared_ptr<int32_t> remoteMemoryMax_ {};
       shared_ptr<int32_t> remoteMemoryMin_ {};
@@ -593,23 +575,19 @@ namespace Models
       shared_ptr<string> remoteMemorySize_ {};
       // Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
       // 
-      // - **ON**: Enabled.
-      // 
-      // - **OFF**: Disabled.
-      // 
       // This parameter is required.
       shared_ptr<string> sccMode_ {};
       // The routing weight.
-      // Valid values: 1 to 100. Default value: 1.
       shared_ptr<string> serverWeight_ {};
       // The serverless type of the node. Valid values:
       // 
-      // - AgileServerless: agile serverless node.
-      // - SteadyServerless: steady serverless node, which is a node in a cluster with defined specifications that has serverless capabilities enabled.
+      // - AgileServerless: agile serverless. The node is a serverless node.
+      // - SteadyServerless: steady serverless. The node is a node with defined specifications that has the serverless feature enabled.
       // 
-      // > This parameter is supported only for serverless clusters or clusters with defined specifications that have the serverless feature enabled. For more information, see [Serverless](https://help.aliyun.com/document_detail/452274.html).
+      // > * This parameter is supported only for serverless clusters or clusters with defined specifications that have the serverless feature enabled. For more information, see [Serverless](https://help.aliyun.com/document_detail/452274.html).
       shared_ptr<string> serverlessType_ {};
-      // Indicates whether the node is in the primary zone or secondary zone. This parameter is mainly used for resource-equivalent deployments.
+      // Indicates whether the node is in the primary zone or the secondary zone. This parameter is mainly used for resource-symmetric deployments.
+      // 
       // Valid values:
       // - Primary: primary zone.
       // - Standby: secondary zone.
@@ -1307,18 +1285,10 @@ namespace Models
     // The start time of the free AI feature.
     shared_ptr<string> aiCreatingTime_ {};
     // The AI node type. Valid values:
-    //      
-    // - **SearchNode**: search node.
-    // - **DLNode**: AI node.
     shared_ptr<string> aiType_ {};
     // The CPU architecture. Valid values:
-    // - **X86**
-    // - **ARM**
     shared_ptr<string> architecture_ {};
-    // The minor version update method. Valid values:
-    // 
-    // - Auto: Automatic update.
-    // - Manual: Manual update.
+    // The minor version update policy.
     shared_ptr<string> autoUpgradeMinorVersion_ {};
     // The maximum number of blktags in the file system.
     shared_ptr<int64_t> blktagTotal_ {};
@@ -1326,31 +1296,27 @@ namespace Models
     shared_ptr<int64_t> blktagUsed_ {};
     shared_ptr<DescribeDBClusterAttributeResponseBody::Branch> branch_ {};
     // Indicates whether I/O performance burst is enabled for the ESSD AutoPL cloud disk. Valid values:
-    // 
-    // - **true**: Enabled.
-    // - **false**: Disabled.
     shared_ptr<string> burstingEnabled_ {};
-    // The [edition](https://help.aliyun.com/document_detail/183258.html) of the cluster. Valid values:
+    // The [product edition](https://help.aliyun.com/document_detail/183258.html). Valid values:
     // * **Normal**: Cluster Edition
     // * **Basic**: Single Node Edition
-    // * **Archive**: X-Engine Edition
+    // * **Archive**: PolarDB X-Engine Edition
     // * **NormalMultimaster**: Multi-master Cluster Edition
-    // * **SENormal**: Standard Edition
+    // * **SENormal**: PolarDB for MySQL Standard Edition
     // 
     // > * PolarDB for PostgreSQL 11 does not support Single Node Edition.
-    // >* PolarDB for MySQL 8.0, PolarDB for MySQL 5.7, and PolarDB for PostgreSQL 14 support Standard Edition.
-    // >* PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster Edition.
+    // >* PolarDB for MySQL 8.0, PolarDB for MySQL 5.7, and PolarDB for PostgreSQL 14 support PolarDB for MySQL Standard Edition.
+    // >* PolarDB for MySQL 8.0 supports PolarDB X-Engine Edition and Multi-master Cluster Edition.
     shared_ptr<string> category_ {};
-    // Indicates whether column store tables are enabled.
+    // Indicates whether the column store table is enabled.
     shared_ptr<string> columnTable_ {};
     // Indicates whether storage compression is enabled. Valid values:
-    // - ON: Enabled.
-    // - OFF: Disabled.
     shared_ptr<string> compressStorageMode_ {};
-    // The compressed storage data size.
-    // >This parameter is returned only when the storage compression feature is enabled for the cluster.
+    // The size of the storage data after compression.
     shared_ptr<int64_t> compressStorageUsed_ {};
+    // The connection resource quota (AgenticDB exclusive).
     shared_ptr<int64_t> connectionResourceQuota_ {};
+    // The number of connection resources used (AgenticDB exclusive).
     shared_ptr<int64_t> connectionResourceUsed_ {};
     // The time when the cluster was created.
     shared_ptr<string> creationTime_ {};
@@ -1368,22 +1334,22 @@ namespace Models
     shared_ptr<string> DBType_ {};
     // The database engine version.
     shared_ptr<string> DBVersion_ {};
-    // The status of the current minor database version. Valid values:
+    // The status of the current minor version. Valid values:
     // * **Stable**: The current version is stable.
     // * **Old**: The current version is outdated. Upgrade to the latest version.
     // * **HighRisk**: The current version has critical defects. Upgrade to the latest version immediately.
-    // * **Beta**: The current version is a beta version.
+    // * **Beta**: The current version is a Beta version.
     // 
-    // > * For information about how to upgrade the minor database version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
+    // > * For more information about how to upgrade the minor version, see [Version upgrade](https://help.aliyun.com/document_detail/158572.html).
     // > * This parameter is returned only when the database engine type (**DBType**) is **MySQL**.
     shared_ptr<string> DBVersionStatus_ {};
-    // The total size of level-1 backups (snapshots), in bytes.
+    // The total size of level-1 backups (snapshots). Unit: bytes.
     shared_ptr<int64_t> dataLevel1BackupChainSize_ {};
-    // The data replication relationship mode. Valid values:
+    // The data replication mode. Valid values:
     // - **AsyncSync**: asynchronous
     // - **SemiSync**: semi-synchronous
     shared_ptr<string> dataSyncMode_ {};
-    // The lock status for cluster deletion. Valid values:
+    // The lock status of cluster deletion. Valid values:
     // * **0**: Unlocked. The cluster can be deleted.
     // * **1**: Locked. The cluster cannot be deleted.
     shared_ptr<int32_t> deletionLock_ {};
@@ -1391,91 +1357,52 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The expiration time of the cluster.
     // 
-    // > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // > Only clusters whose billing method is **Prepaid** (subscription) return a specific value for this parameter. **Postpaid** (pay-as-you-go) clusters return an empty value.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
     shared_ptr<string> expired_ {};
-    // Indicates whether resources are replenished for the new primary node after a cross-zone failover. Valid values:
+    // Indicates whether resources for the new primary database are replenished after a cross-zone failover. Valid values:
     // - **true**: Resources are replenished.
     // - **false**: Resources are not replenished.
     shared_ptr<bool> hasCompleteStandbyRes_ {};
-    // Indicates whether the Hot Standby Cluster (and standby compute nodes) is enabled. Valid values:
-    // - **StandbyClusterON**: The Hot Standby Cluster or both the Hot Standby Cluster and standby compute nodes are enabled. 
-    // - **StandbyClusterOFF**: The Hot Standby Cluster or both the Hot Standby Cluster and standby compute nodes are disabled.
+    // Indicates whether the hot standby storage cluster (and Standby compute nodes) is enabled. Valid values:
+    // - **StandbyClusterON**: The hot standby storage cluster and Standby compute nodes are enabled.
+    // - **StandbyClusterOFF**: The hot standby storage cluster and Standby compute nodes are disabled.
     shared_ptr<string> hotStandbyCluster_ {};
     // The automatic IMCI-based query acceleration feature. Valid values:
-    // - `ON`: Enabled.
-    // - `OFF`: Disabled.
     shared_ptr<string> imciAutoIndex_ {};
     // The failover with hot replica feature. Valid values:
-    // - `true`: Enabled.
-    // - `false`: Disabled.
     shared_ptr<string> imperceptibleSwitch_ {};
     // The maximum number of inodes in the file system.
     shared_ptr<int64_t> inodeTotal_ {};
     // The current inode usage.
     shared_ptr<int64_t> inodeUsed_ {};
-    // Indicates whether the cluster runs the latest Milvus version. Valid values:
-    // 
-    // - **true**: The cluster runs the latest Milvus version.
-    // 
-    // - **false**: The cluster does not run the latest Milvus version.
+    // Indicates whether the cluster is running the latest kernel version. Valid values:
     shared_ptr<bool> isLatestVersion_ {};
     // Indicates whether the database proxy is the latest version. Valid values:
-    // 
-    // - **true**: The database proxy is the latest version.
-    // - **false**: The database proxy is not the latest version.
     shared_ptr<bool> isProxyLatestVersion_ {};
-    // The lock mode. Valid values: 
-    // 
-    // - **Unlock**: Not locked.
-    // - **ManualLock**: Manually locked. 
-    // - **LockByExpiration**: Automatically locked due to cluster expiration.
+    // The lock mode. Valid values:
     shared_ptr<string> lockMode_ {};
     // The maintenance window of the cluster. The time is in the `HH:mmZ-HH:mmZ` format (UTC). For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 00:00 to 01:00 (UTC+08:00).
     shared_ptr<string> maintainTime_ {};
     // The Orca feature. Valid values:
-    // 
-    // - on: Enabled.
-    // 
-    // - off: Disabled.
     shared_ptr<string> orca_ {};
     // The billing method. Valid values:
-    // 
-    // - **Postpaid**: pay-as-you-go.
-    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // <p id="p_wyg_t4a_glm" props="china" icmsditafragmentmagic=1>The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}.</p>
-    // <p id="p_6de_jxy_k2g" props="china" icmsditafragmentmagic=1>Baseline performance = min{1,800 + 50 × capacity, 50,000}.</p>
-    // <note id="note_7kj_j0o_rgs" props="china" icmsditafragmentmagic=1>This parameter is supported only when StorageType is set to ESSDAUTOPL.</note>
+    // <p id="p_wyg_t4a_glm" props="china" icmsditafragmentmagic=1>The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}.</p>
     shared_ptr<string> provisionedIops_ {};
     // The number of CPU cores of the database proxy.
     shared_ptr<string> proxyCpuCores_ {};
     // The serverless type of the database proxy. Valid values:
-    // - AgileServerless: agile serverless cluster.
-    // - SteadyServerless: steady serverless, which is a cluster with defined specifications (billing method is subscription or pay-as-you-go).
+    // 
+    // - AgileServerless: agile serverless, which indicates a serverless cluster.
+    // - SteadyServerless: steady serverless, which indicates a cluster with defined specifications (a subscription or pay-as-you-go cluster).
     shared_ptr<string> proxyServerlessType_ {};
     // The number of CPU cores in the standard configuration of the database proxy.
     shared_ptr<string> proxyStandardCpuCores_ {};
     // The status of the database proxy. Valid values:
-    // 
-    // - **Creating**: Being created.
-    // - **Running**: Running.
-    // - **Deleting**: Being released.
-    // - **Rebooting**: Being restarted.
-    // - **DBNodeCreating**: Increase node in progress.
-    // - **DBNodeDeleting**: Deleting a node.
-    // - **ClassChanging**: Changing node specifications.
-    // - **NetAddressCreating**: Creating network connectivity.
-    // - **NetAddressDeleting**: Deleting network connectivity.
-    // - **NetAddressModifying**: Modifying network connectivity.
-    // - **Deleted**: Released.
     shared_ptr<string> proxyStatus_ {};
-    // The database proxy type. Valid values:
-    // 
-    // - **Exclusive**: Dedicated Enterprise Edition
-    // - **General**: Standard Enterprise Edition
+    // The type of the database proxy. Valid values:
     shared_ptr<string> proxyType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -1483,76 +1410,71 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // * If RestoreType is **RestoreByTime** or **RestoreByTimeOss**, this value indicates the point in time to which the cluster was restored.
-    // * If RestoreType is **RestoreByBackupSet** or **RestoreByBackupSetOss**, this value indicates the backup set ID used for the restoration.
+    // * If RestoreType is **RestoreByTime** or **RestoreByTimeOss**, this value indicates the point in time to which the cluster is restored.
+    // * If RestoreType is **RestoreByBackupSet** or **RestoreByBackupSetOss**, this value indicates the ID of the backup set from which the cluster is restored.
     // 
-    // <note>This parameter is supported only for clusters restored from a backup set or point in time after June 1, 2024.</note>
+    // <note>This parameter is supported only for clusters that are restored from a backup set or to a point in time after June 1, 2024.</note>
     shared_ptr<string> restoreDataPoint_ {};
     // The cluster restoration method. Valid values:
     // 
-    // * **RestoreByTime**: Restored from a point in time based on a level-1 backup.
-    // * **RestoreByBackupSet**: Restored from a backup set based on a level-1 backup.
-    // * **RestoreByTimeOss**: Restored from a point in time based on a level-2 backup.
-    // * **RestoreByBackupSetOss**: Restored from a backup set based on a level-2 backup.
-    // * **CloneFromSourceCluster**: Cloned from the source cluster.
+    // * **RestoreByTime**: Restores from a point in time based on a level-1 backup.
+    // * **RestoreByBackupSet**: Restores from a backup set based on a level-1 backup.
+    // * **RestoreByTimeOss**: Restores from a point in time based on a level-2 backup.
+    // * **RestoreByBackupSetOss**: Restores from a backup set based on a level-2 backup.
+    // * **CloneFromSourceCluster**: Clones from the source cluster.
     // 
-    // <note>This parameter is supported only for clusters restored from a backup set or point in time after June 1, 2024.</note>
+    // <note>This parameter is supported only for clusters that are restored from a backup set or a point in time after June 1, 2024.</note>
     shared_ptr<string> restoreType_ {};
     // The row compression setting.
     shared_ptr<string> rowCompression_ {};
-    // The storage size of SQL statements, in bytes. A value of -1 indicates that no data is available.
+    // The storage size of SQL statements. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> SQLSize_ {};
     // The running status of the search node.
     shared_ptr<string> searchClusterStatus_ {};
     // The compressed storage data size of the search node.
-    // >This parameter is returned only when the storage compression feature is enabled for the cluster.
     shared_ptr<int64_t> searchCompressStorageUsed_ {};
     // The storage usage of the search node.
     shared_ptr<int64_t> searchStorageUsed_ {};
     // The serverless type of the cluster. Valid values:
     // 
-    // - AgileServerless: agile serverless cluster.
-    // - SteadyServerless: steady serverless, which is a cluster with defined specifications that has the serverless feature enabled.
+    // - AgileServerless: agile serverless. This value indicates a serverless cluster.
+    // - SteadyServerless: steady serverless. This value indicates a cluster with defined specifications that has the serverless feature enabled.
     // 
     // > This parameter is supported only for serverless clusters or clusters with defined specifications that have the serverless feature enabled.
     shared_ptr<string> serverlessType_ {};
-    // The source cluster ID.
+    // The ID of the source cluster.
     // <note>This parameter is supported only for clusters restored from a backup set or point in time after June 1, 2024.</note>
     shared_ptr<string> sourceDBCluster_ {};
     // The region ID of the source cluster.
-    // <note>This parameter is returned only when the source cluster ID exists.</note>
     shared_ptr<string> sourceRegionId_ {};
     // The cross-zone disaster recovery mode. Valid values:
-    // - **ON**: Cross-zone disaster recovery is enabled.
-    // - **OFF**: Cross-zone disaster recovery is disabled.
+    // - **ON**: Cross-zone disaster recovery mode is enabled.
+    // - **OFF**: Cross-zone disaster recovery mode is disabled.
     // - **0**: Customer drill mode.
     shared_ptr<string> standbyHAMode_ {};
     shared_ptr<string> storageAutoScale_ {};
-    // The maximum storage capacity for the current cluster specifications, in bytes.
+    // The maximum storage capacity for the current cluster specifications. Unit: bytes.
     shared_ptr<int64_t> storageMax_ {};
-    // The storage billing type. Valid values:
+    // The billing method for storage. Valid values:
     // 
-    // - **Postpaid**: pay-by-capacity (pay-as-you-go).
-    // - **Prepaid**: pay-by-space (subscription).
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
     shared_ptr<string> storagePayType_ {};
-    // The storage space for pay-by-space (subscription) billing. Unit: bytes.
+    // The storage space billed by space (subscription). Unit: bytes.
     shared_ptr<int64_t> storageSpace_ {};
     // The storage type. The value is fixed as **HighPerformance**.
     shared_ptr<string> storageType_ {};
     shared_ptr<int32_t> storageUpperBound_ {};
-    // The storage usage, in bytes.
+    // The storage usage. Unit: bytes.
     shared_ptr<int64_t> storageUsed_ {};
-    // Indicates whether multi-zone data strong consistency is enabled for the cluster. Valid values:
-    // 
-    // - **ON**: Multi-zone data strong consistency is enabled. This applies to Standard Edition clusters deployed across three zones.
-    // 
-    // - **OFF**: Multi-zone data strong consistency is not enabled.
+    // Indicates whether multi-zone strong data consistency is enabled for the cluster. Valid values:
     shared_ptr<string> strictConsistency_ {};
-    // The specification type of compute nodes. Valid values:
+    // The specification type of the compute node. Valid values:
+    // 
     // * **Exclusive**: Dedicated
     // * **General**: General-purpose
     // 
-    // > This parameter is returned only for PolarDB for MySQL clusters of the Cluster Edition.
+    // > This parameter is returned only for PolarDB for MySQL Cluster Edition clusters.
     shared_ptr<string> subCategory_ {};
     // Indicates whether the failover with hot replica feature that is compatible with IMCI is supported.
     shared_ptr<string> supportInstantSwitchWithImci_ {};

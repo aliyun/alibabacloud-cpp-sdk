@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the AI cluster.
+    // The AI cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The model operator space.
     shared_ptr<string> modelSpace_ {};
   };
 

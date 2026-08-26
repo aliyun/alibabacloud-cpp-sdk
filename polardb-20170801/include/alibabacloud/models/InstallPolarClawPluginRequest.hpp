@@ -71,14 +71,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The npm package name, including the version number.
-    // 
-    // This parameter is required.
     shared_ptr<string> npmPackage_ {};
-    // The plugin ID.
+    // The plug-in ID.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Specifies whether to restart the gateway after installation. Defaults to true.
+    // Specifies whether to restart the gateway after installation. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

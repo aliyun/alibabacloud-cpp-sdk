@@ -13,14 +13,20 @@ namespace Models
   class DeleteAgenticDBComputeClusterRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteAgenticDBComputeClusterRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchId, branchId_);
       DARABONBA_PTR_TO_JSON(ComputeClusterId, computeClusterId_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteAgenticDBComputeClusterRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
       DARABONBA_PTR_FROM_JSON(ComputeClusterId, computeClusterId_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
     };
     DeleteAgenticDBComputeClusterRequest() = default ;
     DeleteAgenticDBComputeClusterRequest(const DeleteAgenticDBComputeClusterRequest &) = default ;
@@ -33,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->computeClusterId_ == nullptr
-        && this->DBClusterId_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchId_ == nullptr
+        && this->computeClusterId_ == nullptr && this->DBClusterId_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr && this->tenantId_ == nullptr; };
+    // branchId Field Functions 
+    bool hasBranchId() const { return this->branchId_ != nullptr;};
+    void deleteBranchId() { this->branchId_ = nullptr;};
+    inline string getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, "") };
+    inline DeleteAgenticDBComputeClusterRequest& setBranchId(string branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+
+
     // computeClusterId Field Functions 
     bool hasComputeClusterId() const { return this->computeClusterId_ != nullptr;};
     void deleteComputeClusterId() { this->computeClusterId_ = nullptr;};
@@ -49,6 +62,13 @@ namespace Models
     inline DeleteAgenticDBComputeClusterRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
+    // projectId Field Functions 
+    bool hasProjectId() const { return this->projectId_ != nullptr;};
+    void deleteProjectId() { this->projectId_ = nullptr;};
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline DeleteAgenticDBComputeClusterRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -56,13 +76,30 @@ namespace Models
     inline DeleteAgenticDBComputeClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline DeleteAgenticDBComputeClusterRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
   protected:
-    // This parameter is required.
+    // The branch ID.
+    shared_ptr<string> branchId_ {};
+    // The branch compute cluster ID.
     shared_ptr<string> computeClusterId_ {};
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The project ID to which the resource belongs.
+    shared_ptr<string> projectId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The tenant ID.
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The project ID for exact match.
     shared_ptr<string> projectId_ {};
+    // The project name for fuzzy match.
     shared_ptr<string> projectName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The tenant ID to which the project belongs.
     shared_ptr<string> tenantId_ {};
   };
 

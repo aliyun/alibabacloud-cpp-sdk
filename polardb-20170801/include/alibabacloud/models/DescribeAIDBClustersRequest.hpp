@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The tag key. Use this parameter with `Tag.n.Value` to filter clusters by tag. You can specify up to 20 tag pairs. The index n must be a unique, consecutive integer starting from 1.
+      // The tag key. You can filter the cluster list by tag. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key corresponds to Tag.n.Value.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value that corresponds to the tag key.
       shared_ptr<string> value_ {};
     };
 
@@ -196,57 +196,43 @@ namespace Models
 
 
   protected:
-    // The node type. To specify multiple types, separate them with a comma. Valid values:
+    // The node type. Multiple types are supported. Separate two values with a comma (,).
     // 
-    // - **vnode**: a node managed by Kubernetes
-    // 
-    // - **container**: a container that you can log on to
-    // 
-    // - **maas**: model service
+    // - vnode: managed by Kubernetes.
+    // - container: logon-enabled container.
+    // - maas: model service.
     shared_ptr<string> aiNodeType_ {};
-    // The cluster description. Fuzzy search is supported.
+    // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The cluster ID. To specify multiple clusters, separate their IDs with a comma.
+    // The cluster ID. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBClusterIds_ {};
     // The cluster status. Valid values:
     // 
-    // - **Creating**: The cluster is being created.
-    // 
-    // - **Running**: The cluster is running.
-    // 
-    // - **Deleting**: The cluster is being released.
-    // 
-    // - **Rebooting**: The cluster is restarting.
-    // 
-    // - **DBNodeCreating**: A node is being added.
-    // 
-    // - **DBNodeDeleting**: A node is being deleted.
-    // 
-    // - **ClassChanging**: The node specifications are being changed.
-    // 
-    // - **NetAddressCreating**: A network connection is being created.
-    // 
-    // - **NetAddressDeleting**: A network connection is being deleted.
-    // 
-    // - **NetAddressModifying**: A network connection is being modified.
-    // 
-    // - **Deleted**: The cluster is released.
-    // 
-    // * **ClassChanged**: Resources are being reclaimed after the upgrade or downgrade.
+    // - **Creating**: being created.
+    // - **Running**: running.
+    // - **Deleting**: being released.
+    // - **Rebooting**: being restarted.
+    // - **DBNodeCreating**: a node is being added (increase).
+    // - **DBNodeDeleting**: a node is being deleted.
+    // - **ClassChanging**: node specifications are being changed.
+    // - **NetAddressCreating**: a network connectivity is being created.
+    // - **NetAddressDeleting**: a network connectivity is being deleted.
+    // - **NetAddressModifying**: a network connectivity is being modified. 
+    // - **Deleted**: released.
+    // * **ClassChanged**: resources are being revoked after a decrease the quota operation.
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30**, **50**, and **100**.
-    // 
+    //                               
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method. Valid values:
+    // The billing method. Valid values: 
     // 
-    // - **Postpaid**: pay-as-you-go
-    // 
-    // - **Prepaid**: subscription
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
     // The region ID.
     // 
@@ -254,7 +240,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // A list of tags.
+    // The list of tags.
     shared_ptr<vector<DescribeAIDBClustersRequest::Tag>> tag_ {};
   };
 

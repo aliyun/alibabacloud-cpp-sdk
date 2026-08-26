@@ -140,14 +140,22 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The associated AgenticDB cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The default branch ID.
       shared_ptr<string> defaultBranchId_ {};
+      // The default branch name.
       shared_ptr<string> defaultBranchName_ {};
+      // The description of the project.
       shared_ptr<string> description_ {};
+      // Project ID
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
       shared_ptr<string> status_ {};
+      // The tenant ID to which the project belongs.
       shared_ptr<string> tenantId_ {};
     };
 
@@ -191,10 +199,15 @@ namespace Models
 
 
   protected:
+    // The list of projects.
     shared_ptr<vector<DescribeAgenticDBProjectsResponseBody::Items>> items_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

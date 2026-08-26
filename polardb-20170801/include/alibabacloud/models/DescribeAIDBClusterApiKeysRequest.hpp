@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The model space ID.
     shared_ptr<string> modelSpaceName_ {};
     // The region ID.
     // 

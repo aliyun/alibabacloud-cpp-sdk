@@ -159,7 +159,7 @@ namespace Polardb20170801
       Models::AddPolarFsQuotaResponse addPolarFsQuota(const Models::AddPolarFsQuotaRequest &request);
 
       /**
-       * @summary 添加冷存授权账号
+       * @summary Adds authorized accounts for cold storage.
        *
        * @param request AddPolarOSSAuthorizedAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -168,7 +168,7 @@ namespace Polardb20170801
       Models::AddPolarOSSAuthorizedAccountResponse addPolarOSSAuthorizedAccountWithOptions(const Models::AddPolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加冷存授权账号
+       * @summary Adds authorized accounts for cold storage.
        *
        * @param request AddPolarOSSAuthorizedAccountRequest
        * @return AddPolarOSSAuthorizedAccountResponse
@@ -614,7 +614,7 @@ namespace Polardb20170801
       Models::ContinueDBClusterMigrationResponse continueDBClusterMigration(const Models::ContinueDBClusterMigrationRequest &request);
 
       /**
-       * @summary This topic describes how to create an AI cluster.
+       * @summary Creates an AI cluster.
        *
        * @param request CreateAIDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -623,7 +623,7 @@ namespace Polardb20170801
       Models::CreateAIDBClusterResponse createAIDBClusterWithOptions(const Models::CreateAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to create an AI cluster.
+       * @summary Creates an AI cluster.
        *
        * @param request CreateAIDBClusterRequest
        * @return CreateAIDBClusterResponse
@@ -631,7 +631,7 @@ namespace Polardb20170801
       Models::CreateAIDBClusterResponse createAIDBCluster(const Models::CreateAIDBClusterRequest &request);
 
       /**
-       * @summary Creates a model service API key.
+       * @summary Creates a model creation service API key.
        *
        * @param request CreateAIDBClusterApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -640,7 +640,7 @@ namespace Polardb20170801
       Models::CreateAIDBClusterApiKeyResponse createAIDBClusterApiKeyWithOptions(const Models::CreateAIDBClusterApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model service API key.
+       * @summary Creates a model creation service API key.
        *
        * @param request CreateAIDBClusterApiKeyRequest
        * @return CreateAIDBClusterApiKeyResponse
@@ -784,7 +784,7 @@ namespace Polardb20170801
       Models::CreateAgenticDBProjectResponse createAgenticDBProject(const Models::CreateAgenticDBProjectRequest &request);
 
       /**
-       * @summary 创建 AgenticDB 租户 API Key
+       * @summary Creates an API key for an AgenticDB tenant.
        *
        * @param request CreateAgenticDBTenantApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +793,7 @@ namespace Polardb20170801
       Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKeyWithOptions(const Models::CreateAgenticDBTenantApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 AgenticDB 租户 API Key
+       * @summary Creates an API key for an AgenticDB tenant.
        *
        * @param request CreateAgenticDBTenantApiKeyRequest
        * @return CreateAgenticDBTenantApiKeyResponse
@@ -1314,6 +1314,40 @@ namespace Polardb20170801
       Models::CreateGwConsumerOrderResponse createGwConsumerOrder(const Models::CreateGwConsumerOrderRequest &request);
 
       /**
+       * @summary Creates a knowledge base.
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBaseWithOptions(const Models::CreateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a knowledge base.
+       *
+       * @param request CreateKnowledgeBaseRequest
+       * @return CreateKnowledgeBaseResponse
+       */
+      Models::CreateKnowledgeBaseResponse createKnowledgeBase(const Models::CreateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary Creates a knowledge space.
+       *
+       * @param request CreateKnowledgeSpaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeSpaceResponse
+       */
+      Models::CreateKnowledgeSpaceResponse createKnowledgeSpaceWithOptions(const Models::CreateKnowledgeSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a knowledge space.
+       *
+       * @param request CreateKnowledgeSpaceRequest
+       * @return CreateKnowledgeSpaceResponse
+       */
+      Models::CreateKnowledgeSpaceResponse createKnowledgeSpace(const Models::CreateKnowledgeSpaceRequest &request);
+
+      /**
        * @summary Creates a PolarFS S3 account.
        *
        * @param request CreateLakebaseS3AccountRequest
@@ -1331,7 +1365,7 @@ namespace Polardb20170801
       Models::CreateLakebaseS3AccountResponse createLakebaseS3Account(const Models::CreateLakebaseS3AccountRequest &request);
 
       /**
-       * @summary Creates a model API.
+       * @summary Creates a routing rule.
        *
        * @param request CreateModelApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1340,7 +1374,7 @@ namespace Polardb20170801
       Models::CreateModelApiResponse createModelApiWithOptions(const Models::CreateModelApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model API.
+       * @summary Creates a routing rule.
        *
        * @param request CreateModelApiRequest
        * @return CreateModelApiResponse
@@ -2247,6 +2281,23 @@ namespace Polardb20170801
       Models::DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(const Models::DeleteGlobalSecurityIPGroupRequest &request);
 
       /**
+       * @summary Deletes a knowledge base.
+       *
+       * @param request DeleteKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const Models::DeleteKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a knowledge base.
+       *
+       * @param request DeleteKnowledgeBaseRequest
+       * @return DeleteKnowledgeBaseResponse
+       */
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const Models::DeleteKnowledgeBaseRequest &request);
+
+      /**
        * @summary Deletes a PolarFS S3 account.
        *
        * @param request DeleteLakebaseS3AccountRequest
@@ -2516,7 +2567,7 @@ namespace Polardb20170801
       Models::DeletePolarFsQuotaResponse deletePolarFsQuota(const Models::DeletePolarFsQuotaRequest &request);
 
       /**
-       * @summary 删除冷存授权账号
+       * @summary Deletes authorized accounts for cold storage.
        *
        * @param request DeletePolarOSSAuthorizedAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2525,7 +2576,7 @@ namespace Polardb20170801
       Models::DeletePolarOSSAuthorizedAccountResponse deletePolarOSSAuthorizedAccountWithOptions(const Models::DeletePolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除冷存授权账号
+       * @summary Deletes authorized accounts for cold storage.
        *
        * @param request DeletePolarOSSAuthorizedAccountRequest
        * @return DeletePolarOSSAuthorizedAccountResponse
@@ -2613,7 +2664,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterApiKeysResponse describeAIDBClusterApiKeys(const Models::DescribeAIDBClusterApiKeysRequest &request);
 
       /**
-       * @summary Queries the details of a custom instance.
+       * @summary Queries the detailed attributes of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2622,7 +2673,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttributeWithOptions(const Models::DescribeAIDBClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a custom instance.
+       * @summary Queries the detailed attributes of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @return DescribeAIDBClusterAttributeResponse
@@ -2744,7 +2795,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterTasksResponse describeAIDBClusterTasks(const Models::DescribeAIDBClusterTasksRequest &request);
 
       /**
-       * @summary View custom clusters.
+       * @summary Queries the list of custom AI clusters.
        *
        * @param request DescribeAIDBClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2753,7 +2804,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClustersResponse describeAIDBClustersWithOptions(const Models::DescribeAIDBClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View custom clusters.
+       * @summary Queries the list of custom AI clusters.
        *
        * @param request DescribeAIDBClustersRequest
        * @return DescribeAIDBClustersResponse
@@ -3007,7 +3058,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBProjectResponse describeAgenticDBProject(const Models::DescribeAgenticDBProjectRequest &request);
 
       /**
-       * @summary 查询 AgenticDB 项目列表
+       * @summary Queries the list of AgenticDB projects.
        *
        * @param request DescribeAgenticDBProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3016,7 +3067,7 @@ namespace Polardb20170801
       Models::DescribeAgenticDBProjectsResponse describeAgenticDBProjectsWithOptions(const Models::DescribeAgenticDBProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 AgenticDB 项目列表
+       * @summary Queries the list of AgenticDB projects.
        *
        * @param request DescribeAgenticDBProjectsRequest
        * @return DescribeAgenticDBProjectsResponse
@@ -3903,7 +3954,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterServerlessConfResponse describeDBClusterServerlessConf(const Models::DescribeDBClusterServerlessConfRequest &request);
 
       /**
-       * @summary Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+       * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
        *
        * @param request DescribeDBClusterTDERequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3912,7 +3963,7 @@ namespace Polardb20170801
       Models::DescribeDBClusterTDEResponse describeDBClusterTDEWithOptions(const Models::DescribeDBClusterTDERequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+       * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
        *
        * @param request DescribeDBClusterTDERequest
        * @return DescribeDBClusterTDEResponse
@@ -4546,6 +4597,40 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
+       * @summary Queries the details of a knowledge base.
+       *
+       * @param request DescribeKnowledgeBaseAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseAttributeResponse
+       */
+      Models::DescribeKnowledgeBaseAttributeResponse describeKnowledgeBaseAttributeWithOptions(const Models::DescribeKnowledgeBaseAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a knowledge base.
+       *
+       * @param request DescribeKnowledgeBaseAttributeRequest
+       * @return DescribeKnowledgeBaseAttributeResponse
+       */
+      Models::DescribeKnowledgeBaseAttributeResponse describeKnowledgeBaseAttribute(const Models::DescribeKnowledgeBaseAttributeRequest &request);
+
+      /**
+       * @summary Queries a list of knowledge bases.
+       *
+       * @param request DescribeKnowledgeBasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBasesResponse
+       */
+      Models::DescribeKnowledgeBasesResponse describeKnowledgeBasesWithOptions(const Models::DescribeKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of knowledge bases.
+       *
+       * @param request DescribeKnowledgeBasesRequest
+       * @return DescribeKnowledgeBasesResponse
+       */
+      Models::DescribeKnowledgeBasesResponse describeKnowledgeBases(const Models::DescribeKnowledgeBasesRequest &request);
+
+      /**
        * @summary Queries the details of a PolarFS S3 account.
        *
        * @param request DescribeLakebaseS3AccountRequest
@@ -4665,7 +4750,7 @@ namespace Polardb20170801
       Models::DescribeMetaListResponse describeMetaList(const Models::DescribeMetaListRequest &request);
 
       /**
-       * @summary Model Query API
+       * @summary Queries model APIs.
        *
        * @param request DescribeModelApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4674,7 +4759,7 @@ namespace Polardb20170801
       Models::DescribeModelApisResponse describeModelApisWithOptions(const Models::DescribeModelApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Model Query API
+       * @summary Queries model APIs.
        *
        * @param request DescribeModelApisRequest
        * @return DescribeModelApisResponse
@@ -5963,7 +6048,7 @@ namespace Polardb20170801
       Models::GrantAccountPrivilegeZonalResponse grantAccountPrivilegeZonal(const Models::GrantAccountPrivilegeZonalRequest &request);
 
       /**
-       * @summary Installs a PolarClaw plugin.
+       * @summary Installs the PolarClaw plug-in.
        *
        * @param request InstallPolarClawPluginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5972,7 +6057,7 @@ namespace Polardb20170801
       Models::InstallPolarClawPluginResponse installPolarClawPluginWithOptions(const Models::InstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a PolarClaw plugin.
+       * @summary Installs the PolarClaw plug-in.
        *
        * @param request InstallPolarClawPluginRequest
        * @return InstallPolarClawPluginResponse

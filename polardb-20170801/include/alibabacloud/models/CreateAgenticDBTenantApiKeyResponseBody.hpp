@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The plaintext of the API key. This value is returned only in this response.
     shared_ptr<string> apiKey_ {};
+    // The resource ID of the API key.
     shared_ptr<string> apiKeyId_ {};
+    // The time when the API key was created.
     shared_ptr<string> createTime_ {};
+    // The expiration time of the API key. This value is empty if the API key never expires.
     shared_ptr<string> expireTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The tenant name.
     shared_ptr<string> tenantName_ {};
   };
 

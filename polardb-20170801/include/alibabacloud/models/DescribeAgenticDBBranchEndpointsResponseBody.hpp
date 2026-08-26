@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(Account, account_);
         DARABONBA_PTR_TO_JSON(Address, address_);
+        DARABONBA_PTR_TO_JSON(AddressItems, addressItems_);
         DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
         DARABONBA_PTR_TO_JSON(Database, database_);
         DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
@@ -47,6 +48,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(Account, account_);
         DARABONBA_PTR_FROM_JSON(Address, address_);
+        DARABONBA_PTR_FROM_JSON(AddressItems, addressItems_);
         DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
         DARABONBA_PTR_FROM_JSON(Database, database_);
         DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
@@ -65,9 +67,75 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AddressItems : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AddressItems& obj) { 
+          DARABONBA_PTR_TO_JSON(Address, address_);
+          DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
+          DARABONBA_PTR_TO_JSON(NetType, netType_);
+          DARABONBA_PTR_TO_JSON(Port, port_);
+        };
+        friend void from_json(const Darabonba::Json& j, AddressItems& obj) { 
+          DARABONBA_PTR_FROM_JSON(Address, address_);
+          DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
+          DARABONBA_PTR_FROM_JSON(NetType, netType_);
+          DARABONBA_PTR_FROM_JSON(Port, port_);
+        };
+        AddressItems() = default ;
+        AddressItems(const AddressItems &) = default ;
+        AddressItems(AddressItems &&) = default ;
+        AddressItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AddressItems() = default ;
+        AddressItems& operator=(const AddressItems &) = default ;
+        AddressItems& operator=(AddressItems &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->address_ == nullptr
+        && this->connectionString_ == nullptr && this->netType_ == nullptr && this->port_ == nullptr; };
+        // address Field Functions 
+        bool hasAddress() const { return this->address_ != nullptr;};
+        void deleteAddress() { this->address_ = nullptr;};
+        inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+        inline AddressItems& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+        // connectionString Field Functions 
+        bool hasConnectionString() const { return this->connectionString_ != nullptr;};
+        void deleteConnectionString() { this->connectionString_ = nullptr;};
+        inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+        inline AddressItems& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
+
+
+        // netType Field Functions 
+        bool hasNetType() const { return this->netType_ != nullptr;};
+        void deleteNetType() { this->netType_ = nullptr;};
+        inline string getNetType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
+        inline AddressItems& setNetType(string netType) { DARABONBA_PTR_SET_VALUE(netType_, netType) };
+
+
+        // port Field Functions 
+        bool hasPort() const { return this->port_ != nullptr;};
+        void deletePort() { this->port_ = nullptr;};
+        inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+        inline AddressItems& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      protected:
+        // The endpoint.
+        shared_ptr<string> address_ {};
+        // The full PostgreSQL connection string.
+        shared_ptr<string> connectionString_ {};
+        // The network type. Valid values: Private and Public.
+        shared_ptr<string> netType_ {};
+        // The port.
+        shared_ptr<int32_t> port_ {};
+      };
+
       virtual bool empty() const override { return this->account_ == nullptr
-        && this->address_ == nullptr && this->connectionString_ == nullptr && this->database_ == nullptr && this->endpointId_ == nullptr && this->endpointType_ == nullptr
-        && this->password_ == nullptr && this->port_ == nullptr; };
+        && this->address_ == nullptr && this->addressItems_ == nullptr && this->connectionString_ == nullptr && this->database_ == nullptr && this->endpointId_ == nullptr
+        && this->endpointType_ == nullptr && this->password_ == nullptr && this->port_ == nullptr; };
       // account Field Functions 
       bool hasAccount() const { return this->account_ != nullptr;};
       void deleteAccount() { this->account_ = nullptr;};
@@ -80,6 +148,15 @@ namespace Models
       void deleteAddress() { this->address_ = nullptr;};
       inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
       inline Items& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+      // addressItems Field Functions 
+      bool hasAddressItems() const { return this->addressItems_ != nullptr;};
+      void deleteAddressItems() { this->addressItems_ = nullptr;};
+      inline const vector<Items::AddressItems> & getAddressItems() const { DARABONBA_PTR_GET_CONST(addressItems_, vector<Items::AddressItems>) };
+      inline vector<Items::AddressItems> getAddressItems() { DARABONBA_PTR_GET(addressItems_, vector<Items::AddressItems>) };
+      inline Items& setAddressItems(const vector<Items::AddressItems> & addressItems) { DARABONBA_PTR_SET_VALUE(addressItems_, addressItems) };
+      inline Items& setAddressItems(vector<Items::AddressItems> && addressItems) { DARABONBA_PTR_SET_RVALUE(addressItems_, addressItems) };
 
 
       // connectionString Field Functions 
@@ -125,13 +202,23 @@ namespace Models
 
 
     protected:
+      // The account name.
       shared_ptr<string> account_ {};
+      // The compatible connection address. The public endpoint is returned first. If no public endpoint is available, the private endpoint is returned.
       shared_ptr<string> address_ {};
+      // The list of public and private network endpoints.
+      shared_ptr<vector<Items::AddressItems>> addressItems_ {};
+      // The compatible connection string. The public connection string is returned first. If no public connection string is available, the private connection string is returned.
       shared_ptr<string> connectionString_ {};
+      // The database name.
       shared_ptr<string> database_ {};
+      // The endpoint ID.
       shared_ptr<string> endpointId_ {};
+      // The endpoint type.
       shared_ptr<string> endpointType_ {};
+      // The password.
       shared_ptr<string> password_ {};
+      // The compatible connection port that corresponds to the Address parameter.
       shared_ptr<int32_t> port_ {};
     };
 
@@ -154,7 +241,9 @@ namespace Models
 
 
   protected:
+    // The list of endpoints.
     shared_ptr<vector<DescribeAgenticDBBranchEndpointsResponseBody::Items>> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

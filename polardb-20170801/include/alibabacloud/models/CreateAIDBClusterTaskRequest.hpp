@@ -269,13 +269,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The running parameters in JSON string format.
+    // The running parameters in a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> runningParameter_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The description of the model service.
+    // The model service description.
     shared_ptr<string> taskName_ {};
     shared_ptr<string> tuneArch_ {};
     // The virtual private cloud (VPC) ID.

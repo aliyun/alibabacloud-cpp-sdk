@@ -207,6 +207,12 @@
 #include <alibabacloud/models/CreateGwConsumerOrderRequest.hpp>
 #include <alibabacloud/models/CreateGwConsumerOrderResponseBody.hpp>
 #include <alibabacloud/models/CreateGwConsumerOrderResponse.hpp>
+#include <alibabacloud/models/CreateKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/CreateKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/CreateKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/CreateKnowledgeSpaceRequest.hpp>
+#include <alibabacloud/models/CreateKnowledgeSpaceResponseBody.hpp>
+#include <alibabacloud/models/CreateKnowledgeSpaceResponse.hpp>
 #include <alibabacloud/models/CreateLakebaseS3AccountRequest.hpp>
 #include <alibabacloud/models/CreateLakebaseS3AccountResponseBody.hpp>
 #include <alibabacloud/models/CreateLakebaseS3AccountResponse.hpp>
@@ -356,6 +362,9 @@
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupRequest.hpp>
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupResponse.hpp>
+#include <alibabacloud/models/DeleteKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/DeleteKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/DeleteKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/DeleteLakebaseS3AccountRequest.hpp>
 #include <alibabacloud/models/DeleteLakebaseS3AccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteLakebaseS3AccountResponse.hpp>
@@ -736,6 +745,12 @@
 #include <alibabacloud/models/DescribeHistoryTasksStatRequest.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponseBody.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponse.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseAttributeResponse.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBasesRequest.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBasesResponseBody.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBasesResponse.hpp>
 #include <alibabacloud/models/DescribeLakebaseS3AccountRequest.hpp>
 #include <alibabacloud/models/DescribeLakebaseS3AccountResponseBody.hpp>
 #include <alibabacloud/models/DescribeLakebaseS3AccountResponse.hpp>

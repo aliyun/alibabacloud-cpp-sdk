@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the AI cluster.
+    // The AI cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

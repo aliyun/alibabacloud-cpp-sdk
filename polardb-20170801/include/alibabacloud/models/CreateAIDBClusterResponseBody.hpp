@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

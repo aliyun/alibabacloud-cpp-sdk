@@ -111,13 +111,13 @@ namespace Models
     shared_ptr<string> message_ {};
     // The name of the installed npm package.
     shared_ptr<string> npmPackage_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
-    // The ID of the installed plugin.
+    // The ID of the installed plug-in.
     shared_ptr<string> pluginId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway restarted.
+    // Indicates whether the gateway has been restarted.
     shared_ptr<bool> restarted_ {};
   };
 

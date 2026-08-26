@@ -13,6 +13,7 @@ namespace Models
   class CreateModelApiRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateModelApiRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(ForceModel, forceModel_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ModelCategory, modelCategory_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RouteRules, routeRules_);
     };
     friend void from_json(const Darabonba::Json& j, CreateModelApiRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(ForceModel, forceModel_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ModelCategory, modelCategory_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->forceModel_ == nullptr
-        && this->gwClusterId_ == nullptr && this->modelCategory_ == nullptr && this->name_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr
-        && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->forceModel_ == nullptr && this->gwClusterId_ == nullptr && this->modelCategory_ == nullptr && this->name_ == nullptr && this->pathPrefix_ == nullptr
+        && this->protocol_ == nullptr && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline CreateModelApiRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
     // forceModel Field Functions 
     bool hasForceModel() const { return this->forceModel_ != nullptr;};
     void deleteForceModel() { this->forceModel_ = nullptr;};
@@ -121,19 +130,18 @@ namespace Models
 
 
   protected:
-    // The model to which requests are forcibly routed.
+    // The gateway retry configuration.
+    shared_ptr<string> config_ {};
+    // The forced model.
     shared_ptr<string> forceModel_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The model API category. Valid values:
-    // 
-    // - **text**
-    // 
-    // - **embedding**
-    // 
-    // - **rerank**
+    // The category. Valid values:
+    // * **text**
+    // * **embedding**
+    // * **rerank**
     // 
     // This parameter is required.
     shared_ptr<string> modelCategory_ {};
@@ -141,29 +149,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The path prefix.
+    // The API path prefix.
     // 
     // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
-    // The model API protocol. Valid values:
+    // The protocol. Valid values:
     // 
-    // - **OpenAI**
-    // 
-    // - **Anthropic**
-    // 
-    // - **Model Studio**
-    // 
-    // - **vLLM**
+    // * **openai**
+    // * **anthropic**
+    // * **bailian**
+    // * **vllm**
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // Specifies whether to record input for billing.
+    // The number of input points.
     shared_ptr<string> recordInput_ {};
-    // Specifies whether to record output for billing.
+    // The number of output points.
     shared_ptr<string> recordOutput_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // A list of routing rules, provided as a JSON array string.
+    // The list of routing rules (JSON array string).
     // 
     // This parameter is required.
     shared_ptr<string> routeRules_ {};
