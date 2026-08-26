@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(OrderColumn, orderColumn_);
+      DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProductVersion, productVersion_);
@@ -31,6 +33,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(OrderColumn, orderColumn_);
+      DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProductVersion, productVersion_);
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
         && this->colorScheme_ == nullptr && this->industry_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->productVersion_ == nullptr && this->status_ == nullptr; };
+        && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->productVersion_ == nullptr
+        && this->status_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
@@ -90,6 +95,20 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAppTemplatesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // orderColumn Field Functions 
+    bool hasOrderColumn() const { return this->orderColumn_ != nullptr;};
+    void deleteOrderColumn() { this->orderColumn_ = nullptr;};
+    inline string getOrderColumn() const { DARABONBA_PTR_GET_DEFAULT(orderColumn_, "") };
+    inline ListAppTemplatesRequest& setOrderColumn(string orderColumn) { DARABONBA_PTR_SET_VALUE(orderColumn_, orderColumn) };
+
+
+    // orderType Field Functions 
+    bool hasOrderType() const { return this->orderType_ != nullptr;};
+    void deleteOrderType() { this->orderType_ = nullptr;};
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline ListAppTemplatesRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // pageNum Field Functions 
@@ -135,11 +154,15 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
+    // The sort field. Only copyCount and gmtModified are supported.
+    shared_ptr<string> orderColumn_ {};
+    // The sort direction. Valid values: ASC and DESC. Default value: DESC.
+    shared_ptr<string> orderType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The Edition.
+    // The edition.
     shared_ptr<string> productVersion_ {};
     // The template status.
     shared_ptr<string> status_ {};

@@ -2035,7 +2035,7 @@ namespace WebsiteBuild20250429
       Models::ListAppTemplateDictsResponse listAppTemplateDicts(const Models::ListAppTemplateDictsRequest &request);
 
       /**
-       * @summary Queries the list of website templates.
+       * @summary Queries a list of templates.
        *
        * @description Retrieves the configuration information of the code generation plugin.
        *
@@ -2046,7 +2046,7 @@ namespace WebsiteBuild20250429
       Models::ListAppTemplatesResponse listAppTemplatesWithOptions(const Models::ListAppTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of website templates.
+       * @summary Queries a list of templates.
        *
        * @description Retrieves the configuration information of the code generation plugin.
        *

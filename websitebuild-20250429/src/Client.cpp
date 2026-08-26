@@ -5632,7 +5632,7 @@ ListAppTemplateDictsResponse Client::listAppTemplateDicts(const ListAppTemplateD
 }
 
 /**
- * @summary Queries the list of website templates.
+ * @summary Queries a list of templates.
  *
  * @description Retrieves the configuration information of the code generation plugin.
  *
@@ -5665,6 +5665,14 @@ ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTempla
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasPageNum()) {
@@ -5701,7 +5709,7 @@ ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTempla
 }
 
 /**
- * @summary Queries the list of website templates.
+ * @summary Queries a list of templates.
  *
  * @description Retrieves the configuration information of the code generation plugin.
  *

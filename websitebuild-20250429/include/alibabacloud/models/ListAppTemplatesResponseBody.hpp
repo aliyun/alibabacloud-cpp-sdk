@@ -103,6 +103,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Industry, industry_);
           DARABONBA_PTR_TO_JSON(IndustryName, industryName_);
+          DARABONBA_PTR_TO_JSON(IsRecommended, isRecommended_);
           DARABONBA_PTR_TO_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_TO_JSON(LikeCount, likeCount_);
           DARABONBA_PTR_TO_JSON(Liked, liked_);
@@ -130,6 +131,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Industry, industry_);
           DARABONBA_PTR_FROM_JSON(IndustryName, industryName_);
+          DARABONBA_PTR_FROM_JSON(IsRecommended, isRecommended_);
           DARABONBA_PTR_FROM_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_FROM_JSON(LikeCount, likeCount_);
           DARABONBA_PTR_FROM_JSON(Liked, liked_);
@@ -159,9 +161,9 @@ namespace Models
         virtual bool empty() const override { return this->appType_ == nullptr
         && this->bizId_ == nullptr && this->colorScheme_ == nullptr && this->colorSchemeName_ == nullptr && this->copyCount_ == nullptr && this->creator_ == nullptr
         && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->industry_ == nullptr && this->industryName_ == nullptr
-        && this->lastModifier_ == nullptr && this->likeCount_ == nullptr && this->liked_ == nullptr && this->metadata_ == nullptr && this->previewUrl_ == nullptr
-        && this->productVersion_ == nullptr && this->productVersionName_ == nullptr && this->shareCount_ == nullptr && this->status_ == nullptr && this->templateId_ == nullptr
-        && this->templateName_ == nullptr && this->thumbnailUrl_ == nullptr && this->viewCount_ == nullptr && this->weight_ == nullptr; };
+        && this->isRecommended_ == nullptr && this->lastModifier_ == nullptr && this->likeCount_ == nullptr && this->liked_ == nullptr && this->metadata_ == nullptr
+        && this->previewUrl_ == nullptr && this->productVersion_ == nullptr && this->productVersionName_ == nullptr && this->shareCount_ == nullptr && this->status_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->thumbnailUrl_ == nullptr && this->viewCount_ == nullptr && this->weight_ == nullptr; };
         // appType Field Functions 
         bool hasAppType() const { return this->appType_ != nullptr;};
         void deleteAppType() { this->appType_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
         void deleteIndustryName() { this->industryName_ = nullptr;};
         inline string getIndustryName() const { DARABONBA_PTR_GET_DEFAULT(industryName_, "") };
         inline Next& setIndustryName(string industryName) { DARABONBA_PTR_SET_VALUE(industryName_, industryName) };
+
+
+        // isRecommended Field Functions 
+        bool hasIsRecommended() const { return this->isRecommended_ != nullptr;};
+        void deleteIsRecommended() { this->isRecommended_ = nullptr;};
+        inline bool getIsRecommended() const { DARABONBA_PTR_GET_DEFAULT(isRecommended_, false) };
+        inline Next& setIsRecommended(bool isRecommended) { DARABONBA_PTR_SET_VALUE(isRecommended_, isRecommended) };
 
 
         // lastModifier Field Functions 
@@ -340,11 +349,11 @@ namespace Models
       protected:
         // The application type.
         shared_ptr<string> appType_ {};
-        // The BizId of the associated application instance.
+        // The bizId of the associated application instance.
         shared_ptr<string> bizId_ {};
-        // The color.
+        // The color scheme.
         shared_ptr<string> colorScheme_ {};
-        // The color name.
+        // The color scheme name.
         shared_ptr<string> colorSchemeName_ {};
         // The actual amount of data copied from the original table during a DMS lock-free schema change.
         shared_ptr<int32_t> copyCount_ {};
@@ -364,26 +373,27 @@ namespace Models
         shared_ptr<string> industry_ {};
         // The industry name.
         shared_ptr<string> industryName_ {};
-        // The ID of the last modifier.
+        shared_ptr<bool> isRecommended_ {};
+        // The ID of the user who last modified the resource.
         shared_ptr<string> lastModifier_ {};
         // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Indicates whether the current user has liked this template.
+        // Indicates whether the current user has liked this item.
         shared_ptr<bool> liked_ {};
-        // The remediation content.
+        // The fix content.
         shared_ptr<string> metadata_ {};
         // The preview URL.
         shared_ptr<string> previewUrl_ {};
-        // The product version. Valid values:
-        // - **BasicVersion**: Basic edition.
-        // - **EnterpriseVersion**: Enterprise edition.
+        // The product edition. Valid values:
+        // - **BasicVersion**: Basic Edition.
+        // - **EnterpriseVersion**: Enterprise Edition.
         // > This parameter is required only when ProductForm is set to IntegrationForm.
         shared_ptr<string> productVersion_ {};
-        // The Edition name.
+        // The product edition name.
         shared_ptr<string> productVersionName_ {};
         // The number of shares.
         shared_ptr<int32_t> shareCount_ {};
-        // Valid values: unknown, init, testing, online.
+        // The status. Valid values: unknown, init, testing, online.
         shared_ptr<string> status_ {};
         // The template ID.
         shared_ptr<string> templateId_ {};
@@ -411,6 +421,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Industry, industry_);
           DARABONBA_PTR_TO_JSON(IndustryName, industryName_);
+          DARABONBA_PTR_TO_JSON(IsRecommended, isRecommended_);
           DARABONBA_PTR_TO_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_TO_JSON(LikeCount, likeCount_);
           DARABONBA_PTR_TO_JSON(Liked, liked_);
@@ -438,6 +449,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Industry, industry_);
           DARABONBA_PTR_FROM_JSON(IndustryName, industryName_);
+          DARABONBA_PTR_FROM_JSON(IsRecommended, isRecommended_);
           DARABONBA_PTR_FROM_JSON(LastModifier, lastModifier_);
           DARABONBA_PTR_FROM_JSON(LikeCount, likeCount_);
           DARABONBA_PTR_FROM_JSON(Liked, liked_);
@@ -467,9 +479,9 @@ namespace Models
         virtual bool empty() const override { return this->appType_ == nullptr
         && this->bizId_ == nullptr && this->colorScheme_ == nullptr && this->colorSchemeName_ == nullptr && this->copyCount_ == nullptr && this->creator_ == nullptr
         && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->id_ == nullptr && this->industry_ == nullptr && this->industryName_ == nullptr
-        && this->lastModifier_ == nullptr && this->likeCount_ == nullptr && this->liked_ == nullptr && this->metadata_ == nullptr && this->previewUrl_ == nullptr
-        && this->productVersion_ == nullptr && this->productVersionName_ == nullptr && this->shareCount_ == nullptr && this->status_ == nullptr && this->templateId_ == nullptr
-        && this->templateName_ == nullptr && this->thumbnailUrl_ == nullptr && this->viewCount_ == nullptr && this->weight_ == nullptr; };
+        && this->isRecommended_ == nullptr && this->lastModifier_ == nullptr && this->likeCount_ == nullptr && this->liked_ == nullptr && this->metadata_ == nullptr
+        && this->previewUrl_ == nullptr && this->productVersion_ == nullptr && this->productVersionName_ == nullptr && this->shareCount_ == nullptr && this->status_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->thumbnailUrl_ == nullptr && this->viewCount_ == nullptr && this->weight_ == nullptr; };
         // appType Field Functions 
         bool hasAppType() const { return this->appType_ != nullptr;};
         void deleteAppType() { this->appType_ = nullptr;};
@@ -545,6 +557,13 @@ namespace Models
         void deleteIndustryName() { this->industryName_ = nullptr;};
         inline string getIndustryName() const { DARABONBA_PTR_GET_DEFAULT(industryName_, "") };
         inline Data& setIndustryName(string industryName) { DARABONBA_PTR_SET_VALUE(industryName_, industryName) };
+
+
+        // isRecommended Field Functions 
+        bool hasIsRecommended() const { return this->isRecommended_ != nullptr;};
+        void deleteIsRecommended() { this->isRecommended_ = nullptr;};
+        inline bool getIsRecommended() const { DARABONBA_PTR_GET_DEFAULT(isRecommended_, false) };
+        inline Data& setIsRecommended(bool isRecommended) { DARABONBA_PTR_SET_VALUE(isRecommended_, isRecommended) };
 
 
         // lastModifier Field Functions 
@@ -650,9 +669,9 @@ namespace Models
         shared_ptr<string> appType_ {};
         // The application instance ID.
         shared_ptr<string> bizId_ {};
-        // The color.
+        // The color scheme.
         shared_ptr<string> colorScheme_ {};
-        // The color name.
+        // The color scheme name.
         shared_ptr<string> colorSchemeName_ {};
         // The actual amount of data copied from the original table during a DMS lock-free schema change.
         shared_ptr<int32_t> copyCount_ {};
@@ -668,28 +687,29 @@ namespace Models
         shared_ptr<string> gmtModifiedTime_ {};
         // The primary key.
         shared_ptr<int64_t> id_ {};
-        // The industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry so that the backend matches the applicable algorithm combination. Valid values: 
+        // The industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry so that the backend matches the algorithm combination applicable to the industry. Valid values: 
         // 
         // - **microVideo**: short video industry.
         // - **common**: general industry.
         shared_ptr<string> industry_ {};
         // The industry name.
         shared_ptr<string> industryName_ {};
+        shared_ptr<bool> isRecommended_ {};
         // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
         // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Indicates whether the current user has liked this template.
+        // Indicates whether the current user has liked this item.
         shared_ptr<bool> liked_ {};
-        // The remediation action.
+        // The repair action.
         shared_ptr<string> metadata_ {};
         // The preview URL.
         shared_ptr<string> previewUrl_ {};
         // The product version. Valid values:
-        // - **BasicVersion**: Basic edition.
-        // - **EnterpriseVersion**: Enterprise edition.
+        // - **BasicVersion**: Basic Edition.
+        // - **EnterpriseVersion**: Enterprise Edition.
         shared_ptr<string> productVersion_ {};
-        // The Edition name.
+        // The edition name.
         shared_ptr<string> productVersionName_ {};
         // The number of shares.
         shared_ptr<int32_t> shareCount_ {};
@@ -791,7 +811,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of 1000 recent records for the current query. If the result exceeds 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
