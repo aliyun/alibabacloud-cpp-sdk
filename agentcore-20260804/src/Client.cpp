@@ -202,6 +202,63 @@ CreateIdentityProviderResponse Client::createIdentityProvider(const string &work
 }
 
 /**
+ * @summary Creates a managed agent in a specified workspace.
+ *
+ * @param tmpReq CreateManagedAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateManagedAgentResponse
+ */
+CreateManagedAgentResponse Client::createManagedAgentWithOptions(const string &workspaceId, const CreateManagedAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateManagedAgentShrinkRequest request = CreateManagedAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateManagedAgent"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateManagedAgentResponse>();
+}
+
+/**
+ * @summary Creates a managed agent in a specified workspace.
+ *
+ * @param request CreateManagedAgentRequest
+ * @return CreateManagedAgentResponse
+ */
+CreateManagedAgentResponse Client::createManagedAgent(const string &workspaceId, const CreateManagedAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createManagedAgentWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a model configuration under a specified model connection in a workspace.
  *
  * @param tmpReq CreateModelRequest
@@ -430,6 +487,67 @@ CreateUserResponse Client::createUser(const string &workspaceId, const CreateUse
 }
 
 /**
+ * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+ *
+ * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+ *
+ * @param tmpReq CreateWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateWorkspaceShrinkRequest request = CreateWorkspaceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkspace"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
+}
+
+/**
+ * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+ *
+ * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+ *
+ * @param request CreateWorkspaceRequest
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkspaceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 调试模型
  *
  * @param tmpReq DebugModelRequest
@@ -568,6 +686,45 @@ DeleteIdentityProviderResponse Client::deleteIdentityProvider(const string &work
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteIdentityProviderWithOptions(workspaceId, identityProviderType, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a specified managed agent.
+ *
+ * @param request DeleteManagedAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteManagedAgentResponse
+ */
+DeleteManagedAgentResponse Client::deleteManagedAgentWithOptions(const string &workspaceId, const string &agentId, const DeleteManagedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteManagedAgent"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents/" , Darabonba::Encode::Encoder::percentEncode(agentId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteManagedAgentResponse>();
+}
+
+/**
+ * @summary Deletes a specified managed agent.
+ *
+ * @param request DeleteManagedAgentRequest
+ * @return DeleteManagedAgentResponse
+ */
+DeleteManagedAgentResponse Client::deleteManagedAgent(const string &workspaceId, const string &agentId, const DeleteManagedAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
 }
 
 /**
@@ -751,6 +908,49 @@ DeleteUserResponse Client::deleteUser(const string &workspaceId, const string &a
 }
 
 /**
+ * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+ *
+ * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+ *
+ * @param request DeleteWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceId, const DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspace"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceResponse>();
+}
+
+/**
+ * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+ *
+ * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+ *
+ * @param request DeleteWorkspaceRequest
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const DeleteWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 查询凭证
  *
  * @param request GetCredentialRequest
@@ -826,6 +1026,45 @@ GetIdentityProviderResponse Client::getIdentityProvider(const string &workspaceI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIdentityProviderWithOptions(workspaceId, identityProviderType, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified managed agent.
+ *
+ * @param request GetManagedAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetManagedAgentResponse
+ */
+GetManagedAgentResponse Client::getManagedAgentWithOptions(const string &workspaceId, const string &agentId, const GetManagedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetManagedAgent"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents/" , Darabonba::Encode::Encoder::percentEncode(agentId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetManagedAgentResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified managed agent.
+ *
+ * @param request GetManagedAgentRequest
+ * @return GetManagedAgentResponse
+ */
+GetManagedAgentResponse Client::getManagedAgent(const string &workspaceId, const string &agentId, const GetManagedAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
 }
 
 /**
@@ -985,6 +1224,49 @@ GetUserResponse Client::getUser(const string &workspaceId, const string &agentCo
 }
 
 /**
+ * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+ *
+ * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+ *
+ * @param request GetWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceId, const GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspace"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceResponse>();
+}
+
+/**
+ * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+ *
+ * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+ *
+ * @param request GetWorkspaceRequest
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspace(const string &workspaceId, const GetWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 查询凭证列表
  *
  * @param request ListCredentialsRequest
@@ -1088,6 +1370,59 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const string &worksp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIdentityProvidersWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of managed agents in a specified workspace.
+ *
+ * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+ *
+ * @param request ListManagedAgentsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListManagedAgentsResponse
+ */
+ListManagedAgentsResponse Client::listManagedAgentsWithOptions(const string &workspaceId, const ListManagedAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListManagedAgents"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListManagedAgentsResponse>();
+}
+
+/**
+ * @summary Queries the list of managed agents in a specified workspace.
+ *
+ * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+ *
+ * @param request ListManagedAgentsRequest
+ * @return ListManagedAgentsResponse
+ */
+ListManagedAgentsResponse Client::listManagedAgents(const string &workspaceId, const ListManagedAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listManagedAgentsWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -1401,6 +1736,63 @@ ListUsersResponse Client::listUsers(const string &workspaceId, const ListUsersRe
 }
 
 /**
+ * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+ *
+ * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+ *
+ * @param request ListWorkspacesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSkip()) {
+    query["skip"] = request.getSkip();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaces"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
+}
+
+/**
+ * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+ *
+ * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+ *
+ * @param request ListWorkspacesRequest
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkspacesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 重置用户密码
  *
  * @param tmpReq ResetUserPasswordRequest
@@ -1560,7 +1952,64 @@ UpdateIdentityProviderResponse Client::updateIdentityProvider(const string &work
 }
 
 /**
- * @summary 更新模型
+ * @summary Updates the configuration of a specified managed agent.
+ *
+ * @param tmpReq UpdateManagedAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateManagedAgentResponse
+ */
+UpdateManagedAgentResponse Client::updateManagedAgentWithOptions(const string &workspaceId, const string &agentId, const UpdateManagedAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateManagedAgentShrinkRequest request = UpdateManagedAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateManagedAgent"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents/" , Darabonba::Encode::Encoder::percentEncode(agentId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateManagedAgentResponse>();
+}
+
+/**
+ * @summary Updates the configuration of a specified managed agent.
+ *
+ * @param request UpdateManagedAgentRequest
+ * @return UpdateManagedAgentResponse
+ */
+UpdateManagedAgentResponse Client::updateManagedAgent(const string &workspaceId, const string &agentId, const UpdateManagedAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
  *
  * @param tmpReq UpdateModelRequest
  * @param headers map
@@ -1605,7 +2054,7 @@ UpdateModelResponse Client::updateModelWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary 更新模型
+ * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
  *
  * @param request UpdateModelRequest
  * @return UpdateModelResponse
@@ -1785,6 +2234,67 @@ UpdateUserResponse Client::updateUser(const string &workspaceId, const string &a
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateUserWithOptions(workspaceId, agentCoreUserId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+ *
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ *
+ * @param tmpReq UpdateWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const string &workspaceId, const UpdateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateWorkspaceShrinkRequest request = UpdateWorkspaceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkspace"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceResponse>();
+}
+
+/**
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+ *
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ *
+ * @param request UpdateWorkspaceRequest
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspace(const string &workspaceId, const UpdateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkspaceWithOptions(workspaceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AgentCore20260804

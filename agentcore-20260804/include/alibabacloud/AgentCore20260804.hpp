@@ -75,6 +75,24 @@ namespace AgentCore20260804
       Models::CreateIdentityProviderResponse createIdentityProvider(const string &workspaceId, const Models::CreateIdentityProviderRequest &request);
 
       /**
+       * @summary Creates a managed agent in a specified workspace.
+       *
+       * @param tmpReq CreateManagedAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateManagedAgentResponse
+       */
+      Models::CreateManagedAgentResponse createManagedAgentWithOptions(const string &workspaceId, const Models::CreateManagedAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a managed agent in a specified workspace.
+       *
+       * @param request CreateManagedAgentRequest
+       * @return CreateManagedAgentResponse
+       */
+      Models::CreateManagedAgentResponse createManagedAgent(const string &workspaceId, const Models::CreateManagedAgentRequest &request);
+
+      /**
        * @summary Creates a model configuration under a specified model connection in a workspace.
        *
        * @param tmpReq CreateModelRequest
@@ -147,6 +165,28 @@ namespace AgentCore20260804
       Models::CreateUserResponse createUser(const string &workspaceId, const Models::CreateUserRequest &request);
 
       /**
+       * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+       *
+       * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+       *
+       * @param tmpReq CreateWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+       *
+       * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+       *
+       * @param request CreateWorkspaceRequest
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
+
+      /**
        * @summary 调试模型
        *
        * @param tmpReq DebugModelRequest
@@ -199,6 +239,24 @@ namespace AgentCore20260804
        * @return DeleteIdentityProviderResponse
        */
       Models::DeleteIdentityProviderResponse deleteIdentityProvider(const string &workspaceId, const string &identityProviderType, const Models::DeleteIdentityProviderRequest &request);
+
+      /**
+       * @summary Deletes a specified managed agent.
+       *
+       * @param request DeleteManagedAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteManagedAgentResponse
+       */
+      Models::DeleteManagedAgentResponse deleteManagedAgentWithOptions(const string &workspaceId, const string &agentId, const Models::DeleteManagedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified managed agent.
+       *
+       * @param request DeleteManagedAgentRequest
+       * @return DeleteManagedAgentResponse
+       */
+      Models::DeleteManagedAgentResponse deleteManagedAgent(const string &workspaceId, const string &agentId, const Models::DeleteManagedAgentRequest &request);
 
       /**
        * @summary 删除模型
@@ -273,6 +331,28 @@ namespace AgentCore20260804
       Models::DeleteUserResponse deleteUser(const string &workspaceId, const string &agentCoreUserId, const Models::DeleteUserRequest &request);
 
       /**
+       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+       *
+       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+       *
+       * @param request DeleteWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+       *
+       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+       *
+       * @param request DeleteWorkspaceRequest
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId, const Models::DeleteWorkspaceRequest &request);
+
+      /**
        * @summary 查询凭证
        *
        * @param request GetCredentialRequest
@@ -307,6 +387,24 @@ namespace AgentCore20260804
        * @return GetIdentityProviderResponse
        */
       Models::GetIdentityProviderResponse getIdentityProvider(const string &workspaceId, const string &identityProviderType, const Models::GetIdentityProviderRequest &request);
+
+      /**
+       * @summary Queries the details of a specified managed agent.
+       *
+       * @param request GetManagedAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetManagedAgentResponse
+       */
+      Models::GetManagedAgentResponse getManagedAgentWithOptions(const string &workspaceId, const string &agentId, const Models::GetManagedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified managed agent.
+       *
+       * @param request GetManagedAgentRequest
+       * @return GetManagedAgentResponse
+       */
+      Models::GetManagedAgentResponse getManagedAgent(const string &workspaceId, const string &agentId, const Models::GetManagedAgentRequest &request);
 
       /**
        * @summary Queries the detailed configuration and region of a model in a specified workspace.
@@ -381,6 +479,28 @@ namespace AgentCore20260804
       Models::GetUserResponse getUser(const string &workspaceId, const string &agentCoreUserId, const Models::GetUserRequest &request);
 
       /**
+       * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       *
+       * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       *
+       * @param request GetWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       *
+       * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       *
+       * @param request GetWorkspaceRequest
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspace(const string &workspaceId, const Models::GetWorkspaceRequest &request);
+
+      /**
        * @summary 查询凭证列表
        *
        * @param request ListCredentialsRequest
@@ -415,6 +535,28 @@ namespace AgentCore20260804
        * @return ListIdentityProvidersResponse
        */
       Models::ListIdentityProvidersResponse listIdentityProviders(const string &workspaceId, const Models::ListIdentityProvidersRequest &request);
+
+      /**
+       * @summary Queries the list of managed agents in a specified workspace.
+       *
+       * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+       *
+       * @param request ListManagedAgentsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListManagedAgentsResponse
+       */
+      Models::ListManagedAgentsResponse listManagedAgentsWithOptions(const string &workspaceId, const Models::ListManagedAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of managed agents in a specified workspace.
+       *
+       * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+       *
+       * @param request ListManagedAgentsRequest
+       * @return ListManagedAgentsResponse
+       */
+      Models::ListManagedAgentsResponse listManagedAgents(const string &workspaceId, const Models::ListManagedAgentsRequest &request);
 
       /**
        * @summary 查询模型连接列表
@@ -525,6 +667,28 @@ namespace AgentCore20260804
       Models::ListUsersResponse listUsers(const string &workspaceId, const Models::ListUsersRequest &request);
 
       /**
+       * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       *
+       * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       *
+       * @param request ListWorkspacesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       *
+       * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       *
+       * @param request ListWorkspacesRequest
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
+
+      /**
        * @summary 重置用户密码
        *
        * @param tmpReq ResetUserPasswordRequest
@@ -579,7 +743,25 @@ namespace AgentCore20260804
       Models::UpdateIdentityProviderResponse updateIdentityProvider(const string &workspaceId, const string &identityProviderType, const Models::UpdateIdentityProviderRequest &request);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the configuration of a specified managed agent.
+       *
+       * @param tmpReq UpdateManagedAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateManagedAgentResponse
+       */
+      Models::UpdateManagedAgentResponse updateManagedAgentWithOptions(const string &workspaceId, const string &agentId, const Models::UpdateManagedAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the configuration of a specified managed agent.
+       *
+       * @param request UpdateManagedAgentRequest
+       * @return UpdateManagedAgentResponse
+       */
+      Models::UpdateManagedAgentResponse updateManagedAgent(const string &workspaceId, const string &agentId, const Models::UpdateManagedAgentRequest &request);
+
+      /**
+       * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
        *
        * @param tmpReq UpdateModelRequest
        * @param headers map
@@ -589,7 +771,7 @@ namespace AgentCore20260804
       Models::UpdateModelResponse updateModelWithOptions(const string &workspaceId, const string &modelId, const Models::UpdateModelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
        *
        * @param request UpdateModelRequest
        * @return UpdateModelResponse
@@ -649,6 +831,28 @@ namespace AgentCore20260804
        * @return UpdateUserResponse
        */
       Models::UpdateUserResponse updateUser(const string &workspaceId, const string &agentCoreUserId, const Models::UpdateUserRequest &request);
+
+      /**
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+       *
+       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+       *
+       * @param tmpReq UpdateWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const string &workspaceId, const Models::UpdateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+       *
+       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+       *
+       * @param request UpdateWorkspaceRequest
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspace(const string &workspaceId, const Models::UpdateWorkspaceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentCore20260804

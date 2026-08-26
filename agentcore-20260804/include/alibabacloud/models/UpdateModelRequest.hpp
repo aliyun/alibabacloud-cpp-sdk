@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The model description. Maximum length: 255 characters.
+      // 
       // This parameter is required.
       shared_ptr<string> description_ {};
     };
@@ -82,7 +84,9 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<UpdateModelRequest::Body> body_ {};
+    // The client token for idempotence. Not currently supported.
     shared_ptr<string> clientToken_ {};
   };
 

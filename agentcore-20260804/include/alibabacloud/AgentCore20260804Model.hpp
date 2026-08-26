@@ -14,6 +14,10 @@
 #include <alibabacloud/models/CreateIdentityProviderShrinkRequest.hpp>
 #include <alibabacloud/models/CreateIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/CreateIdentityProviderResponse.hpp>
+#include <alibabacloud/models/CreateManagedAgentRequest.hpp>
+#include <alibabacloud/models/CreateManagedAgentShrinkRequest.hpp>
+#include <alibabacloud/models/CreateManagedAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateManagedAgentResponse.hpp>
 #include <alibabacloud/models/CreateModelRequest.hpp>
 #include <alibabacloud/models/CreateModelShrinkRequest.hpp>
 #include <alibabacloud/models/CreateModelResponseBody.hpp>
@@ -30,6 +34,10 @@
 #include <alibabacloud/models/CreateUserShrinkRequest.hpp>
 #include <alibabacloud/models/CreateUserResponseBody.hpp>
 #include <alibabacloud/models/CreateUserResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceShrinkRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DebugModelRequest.hpp>
 #include <alibabacloud/models/DebugModelShrinkRequest.hpp>
 #include <alibabacloud/models/DebugModelResponseBody.hpp>
@@ -40,6 +48,9 @@
 #include <alibabacloud/models/DeleteIdentityProviderRequest.hpp>
 #include <alibabacloud/models/DeleteIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/DeleteIdentityProviderResponse.hpp>
+#include <alibabacloud/models/DeleteManagedAgentRequest.hpp>
+#include <alibabacloud/models/DeleteManagedAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteManagedAgentResponse.hpp>
 #include <alibabacloud/models/DeleteModelRequest.hpp>
 #include <alibabacloud/models/DeleteModelResponseBody.hpp>
 #include <alibabacloud/models/DeleteModelResponse.hpp>
@@ -52,12 +63,18 @@
 #include <alibabacloud/models/DeleteUserRequest.hpp>
 #include <alibabacloud/models/DeleteUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
 #include <alibabacloud/models/GetCredentialRequest.hpp>
 #include <alibabacloud/models/GetCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
 #include <alibabacloud/models/GetIdentityProviderRequest.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponse.hpp>
+#include <alibabacloud/models/GetManagedAgentRequest.hpp>
+#include <alibabacloud/models/GetManagedAgentResponseBody.hpp>
+#include <alibabacloud/models/GetManagedAgentResponse.hpp>
 #include <alibabacloud/models/GetModelRequest.hpp>
 #include <alibabacloud/models/GetModelResponseBody.hpp>
 #include <alibabacloud/models/GetModelResponse.hpp>
@@ -70,12 +87,18 @@
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponseBody.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceResponse.hpp>
 #include <alibabacloud/models/ListCredentialsRequest.hpp>
 #include <alibabacloud/models/ListCredentialsResponseBody.hpp>
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
 #include <alibabacloud/models/ListIdentityProvidersRequest.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponse.hpp>
+#include <alibabacloud/models/ListManagedAgentsRequest.hpp>
+#include <alibabacloud/models/ListManagedAgentsResponseBody.hpp>
+#include <alibabacloud/models/ListManagedAgentsResponse.hpp>
 #include <alibabacloud/models/ListModelConnectionsRequest.hpp>
 #include <alibabacloud/models/ListModelConnectionsResponseBody.hpp>
 #include <alibabacloud/models/ListModelConnectionsResponse.hpp>
@@ -94,6 +117,9 @@
 #include <alibabacloud/models/ListUsersRequest.hpp>
 #include <alibabacloud/models/ListUsersResponseBody.hpp>
 #include <alibabacloud/models/ListUsersResponse.hpp>
+#include <alibabacloud/models/ListWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspacesResponse.hpp>
 #include <alibabacloud/models/ResetUserPasswordRequest.hpp>
 #include <alibabacloud/models/ResetUserPasswordShrinkRequest.hpp>
 #include <alibabacloud/models/ResetUserPasswordResponseBody.hpp>
@@ -106,6 +132,10 @@
 #include <alibabacloud/models/UpdateIdentityProviderShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/UpdateIdentityProviderResponse.hpp>
+#include <alibabacloud/models/UpdateManagedAgentRequest.hpp>
+#include <alibabacloud/models/UpdateManagedAgentShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateManagedAgentResponseBody.hpp>
+#include <alibabacloud/models/UpdateManagedAgentResponse.hpp>
 #include <alibabacloud/models/UpdateModelRequest.hpp>
 #include <alibabacloud/models/UpdateModelShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateModelResponseBody.hpp>
@@ -122,5 +152,9 @@
 #include <alibabacloud/models/UpdateUserShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateUserResponseBody.hpp>
 #include <alibabacloud/models/UpdateUserResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/UpdateWorkspaceResponse.hpp>
 
 #endif
