@@ -66,19 +66,16 @@ namespace Models
 
 
   protected:
-    // The description of the custom rule.
+    // Error description.
     shared_ptr<string> description_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The code that is returned for the request.
+    // Return code.
     // 
-    // > 
-    // 
-    // *   0 is returned if the request is normal.
-    // 
-    // *   For information about codes that are returned when exceptions occur, see the following Error codes table.
+    // > - "0" is returned under normal conditions.
+    // > - For abnormal conditions, refer to the error code list below.
     shared_ptr<int32_t> retCode_ {};
-    // The task ID.
+    // Task ID.
     shared_ptr<string> taskId_ {};
   };
 

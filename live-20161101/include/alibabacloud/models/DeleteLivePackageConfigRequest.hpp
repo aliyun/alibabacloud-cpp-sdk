@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // App name, `*` matches all names.
+    // The AppName of all live streams. An asterisk (\\*) matches all AppNames.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // Live streaming domain (primary playback domain).
+    // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Live stream name, `*` matches all streams under AppName.
+    // The stream name. An asterisk (\\*) matches all streams under the specified AppName.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

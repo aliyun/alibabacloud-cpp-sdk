@@ -71,8 +71,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The complete ingest URL or streaming URL. You can use the [URL generator](https://help.aliyun.com/document_detail/197400.html) to generate a URL.
+    // The complete ingest or streaming URL. You can use the [URL generator](https://help.aliyun.com/document_detail/197400.html) to generate a URL.
     // 
     // This parameter is required.
     shared_ptr<string> url_ {};

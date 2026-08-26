@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The result of the request. If success is returned, the request is successful. If an error message is returned, the request failed.
+    // The result description. The value success indicates a successful operation. An error message is returned if a fault occurs.
     shared_ptr<string> description_ {};
-    // The ID of the request.
+    // The gateway request ID.
     shared_ptr<string> requestId_ {};
-    // The returned HTTP status code. HTTP status code 2000 indicates that the request is successful. If another HTTP status code is returned, the request failed.
+    // The status code. A value of 2000 indicates success. Other values indicate exceptions.
     shared_ptr<int64_t> retCode_ {};
-    // The ID of the task.
+    // The generated task ID.
     shared_ptr<string> taskId_ {};
   };
 

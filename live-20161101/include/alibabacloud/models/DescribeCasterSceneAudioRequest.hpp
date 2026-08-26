@@ -68,16 +68,18 @@ namespace Models
   protected:
     // The ID of the production studio.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+    // - If you create a production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, obtain the value of CasterId from the response.
     // 
-    // >  You can find the ID of the production studio in the Instance Name column.
+    // - If you create a production studio in the ApsaraVideo Live console, view the ID on the **Production Studio** > **Cloud Production Studio** page.
+    // 
+    // > The name of a production studio in the list on the Cloud Production Studio page is the ID of the production studio.
     // 
     // This parameter is required.
     shared_ptr<string> casterId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the scene.
+    // The ID of the scenario.
     // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};

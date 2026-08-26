@@ -307,9 +307,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLivePushProxyLogResponseBody::DomainLogDetails> domainLogDetails_ {};
-    // Push domain.
+    // The ingest domain.
     shared_ptr<string> domainName_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

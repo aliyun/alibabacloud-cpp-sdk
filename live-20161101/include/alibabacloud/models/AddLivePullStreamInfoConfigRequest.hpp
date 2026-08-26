@@ -103,35 +103,34 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. This parameter is determined by you.
+    // The custom name of the application.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The domain name used for stream pulling. It is the main streaming domain.
+    // The streaming domain where the ingested stream will be hosted and distributed from.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     // The time when stream pulling ends.
     // 
-    // The time range specified by the StartTime and EndTime parameters cannot exceed seven days. The time specified by the EndTime parameter must be later than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The time range specified by the StartTime and EndTime parameters cannot exceed seven days. The time must be later than the current time. Specify the value in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The origin URL of the live stream. You can specify multiple URLs. Separate them with semicolons (;).
     // 
-    // >  You can pull only live streams in the Real-Time Messaging Protocol (RTMP), Flash Video (FLV), HTTP Live Streaming (HLS), and Secure Reliable Transport (SRT) formats.
+    // > You can pull only live streams in the RTMP, FLV, HLS, and SRT formats.
     // 
     // This parameter is required.
     shared_ptr<string> sourceUrl_ {};
-    // The time when stream pulling starts.
-    // 
-    // The time range specified by the StartTime and EndTime parameters cannot exceed seven days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The time when stream pulling starts. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the live stream. This parameter is determined by you.
+    // The custom name of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

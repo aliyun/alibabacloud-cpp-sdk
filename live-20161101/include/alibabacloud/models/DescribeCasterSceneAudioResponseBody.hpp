@@ -199,12 +199,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCasterSceneAudioResponseBody::AudioLayers> audioLayers_ {};
-    // The ID of the production studio. You can specify the ID in a request to start a scene in the production studio.
+    // The ID of the production studio. This ID can be used as a request parameter to start the production studio scenario.
     shared_ptr<string> casterId_ {};
-    // The audio mode. By default, the audio follows video (AFV) mode is used. Valid values:
+    // Specifies whether to enable audio follow. By default, audio follow is enabled.
     // 
-    // *   **0**: the audio mixing mode
-    // *   **1**: the AFV mode
+    // - **0**: mix mode.
+    // 
+    // - **1**: audio-follows-video mode.
     shared_ptr<int32_t> followEnable_ {};
     shared_ptr<DescribeCasterSceneAudioResponseBody::MixList> mixList_ {};
     // The request ID.

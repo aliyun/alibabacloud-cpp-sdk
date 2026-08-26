@@ -249,7 +249,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
     shared_ptr<DescribeCasterVideoResourcesResponseBody::VideoResources> videoResources_ {};
   };

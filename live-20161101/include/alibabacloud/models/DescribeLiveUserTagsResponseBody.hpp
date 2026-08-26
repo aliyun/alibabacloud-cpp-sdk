@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The tags.
     shared_ptr<vector<DescribeLiveUserTagsResponseBody::Tags>> tags_ {};

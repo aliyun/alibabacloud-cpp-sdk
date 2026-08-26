@@ -120,38 +120,37 @@ namespace Models
 
 
     protected:
-      // The scaling mode of the video layer. Valid values:
+      // The element fill mode. 
       // 
-      // *   **none** (default): indicates that the video layer is not scaled. The video layer is displayed based on its original size.
-      // *   **fit**: indicates that the video layer is adapted to the fill area. In this case, the video layer is scaled proportionally, with its original aspect ratio retained. The video layer is placed in the center, with its longer sides aligned with the fill area. If the aspect ratio of the video layer is different from that of the fill area, the content of the lower layer is displayed alongside the shorter sides. If there is no lower layer, black bars are displayed instead.
+      // - **none** (default): no fill. The Layer settings are configured with the image as the target.
+      // - **fit**: adaptive. The Layer settings are configured with the fill area (box) as the target. The image is scaled based on the original aspect ratio and centered within the fill area (box) using a long-edge alignment method. If the aspect ratio of the fill area does not match the image, the short edges are not filled (the lower Layer image is displayed. If no lower Layer is configured, the default black background is displayed).
       shared_ptr<string> fillMode_ {};
-      // The fixed delay of the video layer. This parameter is used to synchronize the video with subtitles. Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
+      // The fixed delay for the video. This can be used for subtitle synchronization. Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
       shared_ptr<int32_t> fixedDelayDuration_ {};
-      // The normalized value of the height of the video layer.
-      // 
-      // *   If the FillMode parameter of the video layer is set to none, the width of the video layer is proportionally scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-      // *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
+      // The normalized height ratio of the Layer element. 
+      //           
+      // - If the no-fill mode is used, the width of the element is proportionally scaled based on this height. Default value: **0**, which indicates that the image is displayed at its original size.
+      // - If the adaptive mode is used, this field is required and must be greater than **0**. It specifies the normalized height ratio of the fill area (box).
       shared_ptr<float> heightNormalized_ {};
-      // The normalized value of the position of the video layer, in the format of `[x,y]`. Default value: `[0,0]`.
+      // The normalized position values `[x,y]` of the Layer element. Default value: `[0,0]`.
       // 
-      // >  The values of x and y are normalized.
+      // >Note: The x and y values must be normalized.
       shared_ptr<vector<float>> positionNormalized_ {};
-      // The reference coordinates of the video layer. Valid values:
-      // 
-      // *   **topLeft** (default): the upper-left corner
-      // *   **topRight**: the upper-right corner
-      // *   **bottomLeft**: the lower-left corner
-      // *   **bottomRight**: the lower-right corner
-      // *   **center**: the center
-      // *   **topCenter**: the upper center
-      // *   **bottomCenter**: the lower center
-      // *   **leftCenter**: the left center
-      // *   **rightCenter**: the right center
+      // The reference coordinate for the position of the element. Valid values:
+      // - **topLeft** (default): top-left.
+      // - **topRight**: top-right.
+      // - **bottomLeft**: bottom-left.
+      // - **bottomRight**: bottom-right.
+      // - **center**: center.
+      // - **topCenter**: top-center.
+      // - **bottomCenter**: bottom-center.
+      // - **leftCenter**: left-center.
+      // - **rightCenter**: right-center.
       shared_ptr<string> positionRefer_ {};
-      // The normalized value of the width of the video layer.
+      // The normalized width ratio of the Layer element. 
       // 
-      // *   If the FillMode parameter of the video layer is set to none, the height of the video layer is proportionally scaled based on this parameter. The default value is **0**, which indicates that the video layer is not scaled.
-      // *   If the FillMode parameter of the video layer is set to fit, the value of this parameter is greater than **0**.
+      // - If the no-fill mode is used, the height of the element is proportionally scaled based on this width. Default value: **0**, which indicates that the image is displayed at its original size.
+      // - If the adaptive mode is used, this field is required and must be greater than **0**. It specifies the normalized width ratio of the fill area (box).
       shared_ptr<float> widthNormalized_ {};
     };
 
@@ -202,17 +201,16 @@ namespace Models
 
 
     protected:
-      // The fixed delay of the audio layer. This parameter is used to synchronize the audio with subtitles. Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
+      // The fixed delay for the audio. This can be used for subtitle synchronization. Unit: milliseconds. Default value: **0**. Valid values: **0 to 5000**.
       shared_ptr<int32_t> fixedDelayDuration_ {};
-      // The sound channels that are used for volume input in the audio layer. Valid values:
-      // 
-      // *   **leftChannel**: the left channel
-      // *   **rightChannel**: the right channel
-      // *   **all** (default): both the left and right channels
+      // The audio channels that can be used as volume input. Valid values:
+      // - **leftChannel**: left channel.
+      // - **rightChannel**: right channel.
+      // - **all** (default): both channels.
       shared_ptr<string> validChannel_ {};
-      // The normalized value of the height of the audio layer. The width of the audio layer is proportionally scaled based on this parameter.
+      // The normalized height ratio of the Layer element. The width of the element is proportionally scaled based on this height. 
       // 
-      // The default value is **0**, which indicates that the audio layer is not scaled.
+      // Default value: **0**, which indicates that the element is displayed at its original size.
       shared_ptr<float> volumeRate_ {};
     };
 
@@ -284,38 +282,40 @@ namespace Models
 
 
   protected:
-    // The audio layers.
+    // The audio information.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyCasterLayoutRequest::AudioLayer>> audioLayer_ {};
-    // The location IDs of the video layers, which are in the same order as the video layers.
+    // The location ID (LocationId) of the video resource element.
     // 
-    // For more information, see [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html).
+    // For the LocationId, see [Add a video source](https://help.aliyun.com/document_detail/2848020.html). The elements correspond to the VideoLayers elements in order.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> blendList_ {};
-    // The ID of the production studio.
+    // The production studio ID.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+    // - If you created the production studio by calling the [CreateCaster operation](https://help.aliyun.com/document_detail/2848009.html), check the CasterId parameter returned by the CreateCaster operation.
     // 
-    // >  You can find the ID of the production studio in the Instance ID/Name column.
+    // - If you created the production studio in the ApsaraVideo Live console, go to **ApsaraVideo Live console** > **Production Studio** > **Cloud Production Studio** to view the ID.
+    // 
+    // > The production studio name in the production studio list on the Cloud Production Studio page of the ApsaraVideo Live console is the production studio ID.
     // 
     // This parameter is required.
     shared_ptr<string> casterId_ {};
-    // The ID of the layout. If the layout was added by calling the [AddCasterLayout](https://help.aliyun.com/document_detail/2848025.html) operation, check the value of the response parameter LayoutId to obtain the ID.
+    // The layout ID. If you added the production studio layout by calling the [AddCasterLayout operation](https://help.aliyun.com/document_detail/2848025.html), check the LayoutId parameter returned by the AddCasterLayout operation.
     // 
     // This parameter is required.
     shared_ptr<string> layoutId_ {};
-    // The location IDs of the audio layers, which are in the same order as the audio layers.
+    // The location ID (LocationId) of the audio resource element.
     // 
-    // For more information, see [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html).
+    // For the LocationId, see [Add a video source](https://help.aliyun.com/document_detail/2848020.html). The elements correspond to the AudioLayers elements in order.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> mixList_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The video layers.
+    // The video information.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyCasterLayoutRequest::VideoLayer>> videoLayer_ {};

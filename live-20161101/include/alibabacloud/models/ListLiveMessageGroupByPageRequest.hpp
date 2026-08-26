@@ -84,30 +84,28 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+    // The data center. This value must be the same as the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Currently supported data centers are Shanghai (cn-shanghai) and Singapore (ap-southeast-1).
     shared_ptr<string> dataCenter_ {};
-    // The status of the groups to query. Default value: 0. Valid values:
-    // 
-    // *   0: all groups
-    // *   1: existing groups
-    // *   2: deleted groups
+    // The group status. Default value: 0. Valid values:
+    // - 0: Queries all groups.
+    // - 1: Queries groups that are not deleted.
+    // - 2: Queries deleted groups.
     shared_ptr<int32_t> groupStatus_ {};
-    // The page number. Valid values: [1,10000].
+    // The page number. Valid values: [1,10000\\].
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:[1,50].
+    // The page size. Valid values: [1,50\\].
     // 
     // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort order based on the time when the groups were created. Valid values:
-    // 
-    // *   1: ascending order
-    // *   2: descending order
+    // The sort order, based on group creation time. Valid values:
+    // - 1: Ascending order.
+    // - 2: Descending order.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sortType_ {};

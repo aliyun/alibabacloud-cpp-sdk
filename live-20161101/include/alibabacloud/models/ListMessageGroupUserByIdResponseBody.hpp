@@ -133,21 +133,23 @@ namespace Models
       protected:
         // Indicates whether the user is muted. Valid values:
         // 
-        // *   true: The user is muted.
-        // *   false: The user is not muted.
-        shared_ptr<bool> isMute_ {};
-        // The type of the mute. Valid values:
+        // - true: Muted.
         // 
-        // *   group: All members in the message group are muted.
-        // *   user: Specific members in the message group are muted.
+        // - false: Not muted.
+        shared_ptr<bool> isMute_ {};
+        // Mute type. Valid values:
+        // 
+        // - group: All members in the message group are muted.
+        // 
+        // - user: Individual user is muted.
         shared_ptr<vector<string>> muteBy_ {};
-        // The URL of the profile picture of the user.
+        // Profile picture URL.
         shared_ptr<string> userAvatar_ {};
-        // The custom information about the user.
+        // Custom user information content.
         shared_ptr<string> userExtension_ {};
-        // The ID of the user.
+        // User ID.
         shared_ptr<string> userId_ {};
-        // The nickname of the user.
+        // User nickname.
         shared_ptr<string> userNick_ {};
       };
 
@@ -177,14 +179,15 @@ namespace Models
 
 
     protected:
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: There is a next page.
+      // 
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
-      // The total number of users returned.
+      // Total number of users queried.
       shared_ptr<int32_t> total_ {};
-      // The list of users.
+      // User list information.
       shared_ptr<vector<Result::UserList>> userList_ {};
     };
 
@@ -207,9 +210,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // Return result.
     shared_ptr<ListMessageGroupUserByIdResponseBody::Result> result_ {};
   };
 

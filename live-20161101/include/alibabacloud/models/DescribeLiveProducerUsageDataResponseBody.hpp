@@ -236,11 +236,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveProducerUsageDataResponseBody::BillProducerData> billProducerData_ {};
-    // The end of the time range during which data was queried.
+    // The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start of the time range for which the data was queried.
+    // The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

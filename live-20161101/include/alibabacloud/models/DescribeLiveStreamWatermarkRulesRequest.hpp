@@ -75,13 +75,14 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streaming domain.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. If you do not specify this parameter, the default value 1 is used.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. If you do not specify this parameter, the default value 100 is used.
+    // The number of entries to return on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

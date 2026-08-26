@@ -59,10 +59,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether the members are unmuted. Valid values:
+      // Whether unmuting is successful, values:
       // 
-      // *   true: The members are unmuted.
-      // *   false: The members failed to be unmuted.
+      // - true: Successful.
+      // - false: Unsuccessful.
       shared_ptr<bool> success_ {};
     };
 
@@ -85,9 +85,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<CancelMuteGroupUserResponseBody::Result> result_ {};
   };
 

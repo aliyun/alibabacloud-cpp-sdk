@@ -94,31 +94,35 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The ARTC application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The start time of the query, specified as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> beginTs_ {};
+    // The channel ID.
     shared_ptr<string> channelId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The end time of the query, specified as a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTs_ {};
-    // The metric. Valid values:
+    // The metric type. Valid values:
     // 
-    // *   JoinChannelSucRate: the success rate of joining a channel within 5 seconds.
-    // *   VideoStuckRate: the video stuttering rate.
-    // *   AudioStuckRate: the audio stuttering rate.
-    // *   FirstFrameCost: the time to first frame.
+    // - `JoinChannelSucRate`: the success rate of joining a channel within 5 seconds.
+    // 
+    // - `VideoStuckRate`: the video stuttering rate.
+    // 
+    // - `AudioStuckRate`: the audio stuttering rate.
+    // 
+    // - `FirstFrameCost`: the time to first frame.
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
-    // The operating system. Valid values: iOS and Android.
+    // The operating system. Valid values: `iOS` and `Android`.
     shared_ptr<string> os_ {};
-    // The terminal type. Valid values: web and mobile.
+    // The terminal type. Valid values: `web` and `mobile`.
     shared_ptr<string> terminalType_ {};
   };
 

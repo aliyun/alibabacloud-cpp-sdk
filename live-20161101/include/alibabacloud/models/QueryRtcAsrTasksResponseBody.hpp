@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // The result of the request. If success is returned, the request was successful. If an error message is returned, the request failed.
+    // The description of the result. A value of \\`success\\` indicates that the call is successful. If the call fails, an error message is returned.
     shared_ptr<string> description_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code. HTTP status code 2000 indicates that the request was successful. Other HTTP status codes indicate that the request failed.
+    // The status code. A value of 2000 indicates that the call is successful. Other values indicate that an error occurred.
     shared_ptr<int64_t> retCode_ {};
-    // The results returned for the tasks.
+    // The result set of tasks.
     Darabonba::Json tasks_ {};
   };
 

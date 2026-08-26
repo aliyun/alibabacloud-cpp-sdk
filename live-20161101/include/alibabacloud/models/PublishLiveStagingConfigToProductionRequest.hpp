@@ -70,11 +70,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The name of the feature. For more information about how to obtain the feature name, see [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html).
+    // The name of the feature. To obtain the feature name, call the [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> functionName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

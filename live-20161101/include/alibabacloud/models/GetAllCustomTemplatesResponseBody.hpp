@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The template names and template configurations returned.
+    // A list of template names and template configurations.
     shared_ptr<string> customTemplates_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

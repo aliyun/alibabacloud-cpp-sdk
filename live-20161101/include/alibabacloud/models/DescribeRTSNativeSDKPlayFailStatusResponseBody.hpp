@@ -122,19 +122,19 @@ namespace Models
 
 
     protected:
-      // The timestamp of the returned data.
+      // The beginning of the time interval. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> timeStamp_ {};
-      // The status code that indicates failed DNS resolution.
+      // DNS resolution failure.
       shared_ptr<string> v20001_ {};
-      // The status code that indicates failed authentication.
+      // Authentication failure.
       shared_ptr<string> v20002_ {};
-      // The status code that indicates a connection signaling timeout.
+      // Connection signaling timeout.
       shared_ptr<string> v20011_ {};
-      // The status code that indicates a subscription signaling error.
+      // Subscription signaling error.
       shared_ptr<string> v20012_ {};
-      // The status code indicating that the stream to subscribe to does not exist.
+      // Subscribed stream does not exist.
       shared_ptr<string> v20013_ {};
-      // The status code that indicates a media packet collection timeout.
+      // Media packet receiving timeout.
       shared_ptr<string> v20052_ {};
     };
 
@@ -180,13 +180,13 @@ namespace Models
   protected:
     // The time granularity.
     shared_ptr<string> dataInterval_ {};
-    // The end of the time range for which the data was queried.
+    // The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The number of error status codes at each interval.
+    // The total number of error status codes for each time interval.
     shared_ptr<vector<DescribeRTSNativeSDKPlayFailStatusResponseBody::PlayFailStatus>> playFailStatus_ {};
-    // The ID of the request.
+    // Id
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for which the data was queried.
+    // The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

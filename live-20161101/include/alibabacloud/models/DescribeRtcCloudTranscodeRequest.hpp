@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID. The value can contain uppercase and lowercase letters, digits, underscores, and hyphens (-), with a maximum of 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The cloud transcoding task ID. The value can contain uppercase and lowercase letters, digits, underscores, and hyphens (-), with a maximum of 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

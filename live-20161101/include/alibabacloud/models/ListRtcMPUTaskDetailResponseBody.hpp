@@ -152,20 +152,18 @@ namespace Models
 
 
         protected:
-          // The ID of the channel where the user is.
+          // The channel ID where the stream mixing user resides.
           shared_ptr<string> channelId_ {};
-          // The source of the video. This parameter is valid only if you set StreamType to 2. Valid values:
-          // 
-          // *   camera (default): captures the video by using a camera.
-          // *   shareScreen: captures the content displayed on a screen.
+          // The video input stream type in stream mixing and transcoding mode. This parameter is valid only for video streams (StreamType=2). Valid values:
+          // - camera (default): camera.
+          // - shareScreen: screen sharing.
           shared_ptr<string> sourceType_ {};
-          // The type of the stream that is relayed. Valid values:
-          // 
-          // *   0 (default): the original stream.
-          // *   1: the audio-only stream.
-          // *   2: the video-only stream.
+          // The stream type for relaying in stream mixing and transcoding mode. Valid values:
+          // - 0 (default): relay the original stream.
+          // - 1: relay only the audio stream.
+          // - 2: relay only the video stream.
           shared_ptr<string> streamType_ {};
-          // The ID of the user.
+          // The stream mixing user ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -268,14 +266,13 @@ namespace Models
 
 
             protected:
-              // The ID of the channel where the user is.
+              // The channel ID where the stream mixing user resides.
               shared_ptr<string> channelId_ {};
-              // The source of the video. This parameter is valid only if you set StreamType to 2. Valid values:
-              // 
-              // *   camera (default): captures the video by using a camera.
-              // *   shareScreen: captures the content displayed on a screen.
+              // The video input stream type in stream mixing and transcoding mode. This parameter is valid only for video streams (StreamType=2). Valid values:
+              // - camera (default): camera.
+              // - shareScreen: screen sharing.
               shared_ptr<string> sourceType_ {};
-              // The ID of the user.
+              // The stream mixing user ID.
               shared_ptr<string> userId_ {};
             };
 
@@ -341,24 +338,23 @@ namespace Models
 
 
           protected:
-            // The URL of the background image of the pane. This image is displayed if the user turns off the camera or is not present in the channel.
+            // The background image URL of the sub-image. When the user turns off the camera or has not entered the channel, this image fills the layout position.
             shared_ptr<string> backgroundImageUrl_ {};
-            // The height of the pane. The value is normalized.
+            // The pane height, as a normalized percentage.
             shared_ptr<string> height_ {};
-            // The display mode. Valid values:
-            // 
-            // *   0: proportionally scales the video or background image to fit the pane. Black bars are added to fill the extra space.
-            // *   1 (default): crops the video or background image to fit the pane.
+            // The display mode for the sub-image output. Valid values:
+            // - 0: scales the image and displays a black background.
+            // - 1 (default): crops the image.
             shared_ptr<string> renderMode_ {};
-            // The information about the user whose stream is played in the pane.
+            // The stream mixing user information.
             shared_ptr<UserPanes::UserInfo> userInfo_ {};
-            // The width of the pane. The value is normalized.
+            // The pane width, as a normalized percentage.
             shared_ptr<string> width_ {};
-            // The x-coordinate of the pane. The value is normalized.
+            // The X coordinate, as a normalized percentage.
             shared_ptr<string> x_ {};
-            // The y-coordinate of the pane. The value is normalized.
+            // The Y coordinate, as a normalized percentage.
             shared_ptr<string> y_ {};
-            // The layer of the pane. A value of 0 indicates that the pane is placed at the bottom layer. A larger value indicates a higher layer.
+            // The stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
             shared_ptr<string> ZOrder_ {};
           };
 
@@ -373,7 +369,7 @@ namespace Models
 
 
         protected:
-          // The information about the panes.
+          // The stream mixing user pane information.
           shared_ptr<vector<Layout::UserPanes>> userPanes_ {};
         };
 
@@ -497,33 +493,31 @@ namespace Models
 
 
         protected:
-          // The bitrate of the audio. Unit: Kbit/s.
+          // The audio bitrate. Unit: kbps.
           shared_ptr<string> audioBitrate_ {};
-          // The number of audio channels. Valid values: 1 and 2.
+          // The number of audio channels. Valid values: 1, 2.
           shared_ptr<string> audioChannels_ {};
-          // Indicates whether the output stream is an audio-only stream. Valid values:
-          // 
-          // *   true
-          // *   false (default)
+          // Specifies whether the output is audio-only. Valid values:
+          // - true: audio-only.
+          // - false (default): not audio-only.
           shared_ptr<string> audioOnly_ {};
-          // The audio sampling rate. Unit: Hz.
+          // The audio sample rate. Unit: Hz.
           shared_ptr<string> audioSampleRate_ {};
-          // The parameter for advanced video encoding. The value is a JSON string. Optional fields:
-          // 
-          // *   profile: the encoding level. If the video encoding format is set to H.264, the valid values of this field are baseline, main, and high.
-          // *   preset: adjusts the trade-off between encoding speed and video quality. Valid values: ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow, and placebo. Each value specifies a level of trade-off between encoding speed and video quality. For example, the ultrafast preset has the fastest encoding speed but the lowest video quality, while the placebo preset sacrifices the encoding speed for the best video quality.
+          // The enhanced encoding parameters in JSON string format. The supported optional configurations include profile and preset.
+          // - profile: the encoding level. When the video encoding format is H.264, the supported values for profile include: "baseline", "main", "high".
+          // - preset: adjusts the balance between encoding speed and quality. The supported values for preset include: "ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow", "placebo". Each value represents a strategy for encoding speed versus output video quality, ranging from "ultrafast" (extremely fast, encoding speed prioritized) to "placebo" (pursuing ultimate quality, extremely slow encoding).
           shared_ptr<string> enhancedParam_ {};
-          // The bitrate of the video. Unit: Kbit/s.
+          // The video bitrate. Unit: kbps.
           shared_ptr<string> videoBitrate_ {};
           // The video encoding format. Default value: H.264.
           shared_ptr<string> videoCodec_ {};
-          // The frame rate of the video. Unit: frames per second (FPS).
+          // The video frame rate. Unit: fps.
           shared_ptr<string> videoFramerate_ {};
-          // The group of pictures (GOP) size of the video.
+          // The video GOP.
           shared_ptr<string> videoGop_ {};
-          // The height of the video. Unit: pixels.
+          // The video height. Unit: px.
           shared_ptr<string> videoHeight_ {};
-          // The width of the video. Unit: pixels.
+          // The video width. Unit: px.
           shared_ptr<string> videoWidth_ {};
         };
 
@@ -565,10 +559,9 @@ namespace Models
 
 
         protected:
-          // The display mode. Valid values:
-          // 
-          // *   0: proportionally scales the video or background image to fit the pane. Black bars are added to fill the extra space.
-          // *   1 (default): crops the video or background image to fit the pane.
+          // The display mode for the sub-image output. Valid values:
+          // - 0: scales the image and displays a black background.
+          // - 1 (default): crops the image.
           shared_ptr<string> renderMode_ {};
           // The URL of the global background image.
           shared_ptr<string> URL_ {};
@@ -613,15 +606,14 @@ namespace Models
 
 
       protected:
-        // The global background image.
+        // The global background image for stream mixing.
         shared_ptr<TranscodeParams::Background> background_ {};
-        // The encoding parameters of the output stream.
+        // The encoding parameters for the relayed output.
         shared_ptr<TranscodeParams::EncodeParams> encodeParams_ {};
         // The video layout information.
-        // 
-        // >  The video layout information includes the x-coordinate, y-coordinate, width, height, and layer of the pane. For audio-only transcoding, no video layout information is returned.
+        // > For video transcoding, the video layout information includes layout coordinates (X, Y), layout pane dimensions (Width, Height), and stacking order (ZOrder). For audio-only transcoding, no video layout information is included.
         shared_ptr<TranscodeParams::Layout> layout_ {};
-        // The information about the user whose stream is mixed. If an empty value is returned, streams from all users are mixed.
+        // The stream mixing user information. If no user is specified, all users are mixed.
         shared_ptr<vector<TranscodeParams::UserInfos>> userInfos_ {};
       };
 
@@ -672,18 +664,16 @@ namespace Models
 
 
       protected:
-        // The source of the video. This parameter is valid only if you set StreamType to 2. Valid values:
-        // 
-        // *   camera (default): captures the video by using a camera.
-        // *   shareScreen: captures the content displayed on a screen.
+        // The video input stream type in single-stream relaying mode. This parameter is valid only when the stream type is video (StreamType=2). Valid values:
+        // - camera (default): camera.
+        // - shareScreen: screen sharing.
         shared_ptr<string> sourceType_ {};
-        // The type of the stream that is relayed. Valid values:
-        // 
-        // *   0 (default): the original stream.
-        // *   1: the audio-only stream.
-        // *   2: the video-only stream.
+        // The stream type for relaying in single-stream relaying mode. Valid values:
+        // - 0 (default): relay the original stream.
+        // - 1: relay only the audio stream.
+        // - 2: relay only the video stream.
         shared_ptr<string> streamType_ {};
-        // The ID of the user whose stream is relayed. In single-stream relay mode, you can relay only one stream in a request.
+        // The user ID for relaying. Only one stream can be relayed at a time.
         shared_ptr<string> userId_ {};
       };
 
@@ -766,16 +756,15 @@ namespace Models
 
 
         protected:
-          // Indicates whether to add SEI messages to Instantaneous Decoder Refresh (IDR) frames. Valid values:
-          // 
-          // *   0: does not add SEI messages.
-          // *   1: adds SEI messages.
+          // Specifies whether to ensure that SEI is carried when sending IDR keyframes. Valid values:
+          // - 0: does not ensure SEI is carried.
+          // - 1: ensures SEI is carried.
           shared_ptr<string> followIdr_ {};
-          // The interval at which the SEI messages are added. Unit: milliseconds.
+          // The SEI sending interval. Unit: milliseconds.
           shared_ptr<string> interval_ {};
-          // The payload content of the custom SEI.
+          // The payload content of the pass-through SEI.
           shared_ptr<string> payloadContent_ {};
-          // The key of the payload content. Default value: udd.
+          // The key value corresponding to the payload content of the pass-through SEI. If not set, the key defaults to udd.
           shared_ptr<string> payloadContentKey_ {};
         };
 
@@ -817,12 +806,11 @@ namespace Models
 
 
         protected:
-          // Indicates whether to add SEI messages to Instantaneous Decoder Refresh (IDR) frames. Valid values:
-          // 
-          // *   0: does not add SEI messages.
-          // *   1: adds SEI messages.
+          // Specifies whether to ensure that SEI is carried when sending IDR keyframes. Valid values:
+          // - 0: does not ensure SEI is carried.
+          // - 1: ensures SEI is carried.
           shared_ptr<string> followIdr_ {};
-          // The interval at which the SEI messages are added. Unit: milliseconds.
+          // The SEI sending interval. Unit: milliseconds.
           shared_ptr<string> interval_ {};
         };
 
@@ -854,11 +842,11 @@ namespace Models
 
 
       protected:
-        // The layout and volume SEI. If the return value is an empty string, the default layout and volume SEI is used.
+        // The layout and volume SEI. If this parameter is empty, the default layout and volume SEI is carried.
         shared_ptr<SeiParams::LayoutVolume> layoutVolume_ {};
-        // The custom SEI.
+        // The pass-through SEI.
         shared_ptr<SeiParams::PassThrough> passThrough_ {};
-        // The custom payload type. Valid values: 100 to 254. Default value: 5.
+        // The custom payload_type of the SEI message. Valid values: 100 to 254. If not set, the SEI payload_type defaults to 5.
         shared_ptr<string> payloadType_ {};
       };
 
@@ -900,12 +888,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether stream relay is performed by using Alibaba Cloud CDN. Valid values:
-        // 
-        // *   false: Stream relay is performed by using a CDN service that is not Alibaba Cloud CDN.
-        // *   true: Stream relay is performed by using Alibaba Cloud CDN.
+        // Indicates whether the stream is relayed to Content Delivery Network (CDN). Valid values:
+        // - false: The stream is relayed to a non-Alibaba Cloud CDN.
+        // - true: The stream is relayed to Content Delivery Network (CDN).
         shared_ptr<bool> isAliCdn_ {};
-        // The ingest URL.
+        // The live stream ingest URL.
         shared_ptr<string> URL_ {};
       };
 
@@ -998,36 +985,33 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the channel.
+      // The channel ID.
       shared_ptr<string> channelId_ {};
-      // The timeout period of an idle connection. Unit: seconds.
-      // 
-      // >  If the task is idle for a period of time longer than the duration specified by the MaxIdleTime parameter, the task is automatically stopped. If the parameter is not specified, the task is stopped after the channel is closed.
+      // The idle timeout period. Unit: seconds.
+      // > If this parameter is set, the task is automatically stopped when the task has been idle for a period longer than MaxIdleTime. If this parameter is not set, the task is stopped immediately after the channel is closed.
       shared_ptr<string> maxIdleTime_ {};
       // The stream mixing mode. Valid values:
-      // 
-      // *   0: relays the original single stream without mixing streams. If the value of this parameter is 0, the TranscodeParams parameter is empty.
-      // *   1 (default): mixes multiple streams into a single stream and relays the mixed stream.
+      // - 0: single-stream relaying without stream mixing or transcoding. Only the original single stream is relayed. You do not need to configure stream mixing and transcoding parameters.
+      // - 1 (default): stream mixing, transcoding, and relaying.
       shared_ptr<string> mixMode_ {};
-      // The multiple ingest URLs relayed.
+      // The multi-address relaying parameters.
       shared_ptr<vector<MPUTasks::MultiStreamURL>> multiStreamURL_ {};
-      // The region in which the streams are mixed. Valid values:
-      // 
-      // *   **CN-shanghai**
-      // *   **AP-Singapore (default)**
-      // *   **EMAA-Saudi**
+      // The region where the requested stream mixing service resides. Valid values:
+      // - **CN-Shanghai<props="china"><ph> (default)</ph>**: Shanghai.
+      // - **AP-Singapore<props="intl"><ph> (default)</ph>**: Singapore.
+      // - **EMAA-Saudi**: Saudi Arabia.
       shared_ptr<string> region_ {};
-      // The supplemental enhancement information (SEI) parameters.
+      // The SEI configuration parameters.
       shared_ptr<MPUTasks::SeiParams> seiParams_ {};
-      // The parameters of the single-stream relay task.
+      // The single-stream relaying parameters.
       shared_ptr<MPUTasks::SingleSubParams> singleSubParams_ {};
-      // The ingest URL.
+      // The live stream ingest URL.
       shared_ptr<string> streamURL_ {};
-      // The ID of the stream relay task.
+      // The task ID. This ID is the identifier of the stream mixing and relaying task.
       shared_ptr<string> taskId_ {};
-      // The mixed-stream relay parameters.
+      // The stream mixing, transcoding, and relaying parameters.
       shared_ptr<MPUTasks::TranscodeParams> transcodeParams_ {};
     };
 
@@ -1050,7 +1034,7 @@ namespace Models
 
 
   protected:
-    // The parameters that you configured when you called the StartLiveMPUTask operation to create the tasks.
+    // The task parameter details. The parameter format is the same as the parameter format used when you call the operation to create a stream mixing task.
     shared_ptr<vector<ListRtcMPUTaskDetailResponseBody::MPUTasks>> MPUTasks_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

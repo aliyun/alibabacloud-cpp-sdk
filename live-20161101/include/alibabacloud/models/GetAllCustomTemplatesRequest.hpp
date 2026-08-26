@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the user.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

@@ -140,27 +140,30 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application in which the message is received.
+    // The ID of the interactive messaging application that is used to receive the message.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The message body. The body can be up to 15 KB in length.
+    // The message body. It can be up to 15 KB in length.
     shared_ptr<string> body_ {};
-    // The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+    // The data center, which must be the same as the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Valid values:
+    // 
+    // - cn-shanghai: Shanghai
+    // - ap-southeast-1: Singapore
     shared_ptr<string> dataCenter_ {};
     // The ID of the group that receives the message.
     // 
-    // >  Make sure that the specified group ID exists. Otherwise, a ResourceNotExist error is returned.
+    // > Make sure that the specified GroupId is available. Otherwise, a ResourceNotExist error is returned.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the message, which is a unique identifier that can be used to delete the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+    // The unique identifier of the message. This parameter is used to delete the message. The ID can contain only letters and digits and can be up to 64 bytes in length.
     shared_ptr<string> msgTid_ {};
-    // The message type.
+    // The message type. The total number of message types sent within a single group cannot exceed 30.
     shared_ptr<int64_t> msgType_ {};
-    // Specifies whether to disable message caching. Valid values: true and false. Default value: false, which specifies that the message is cached to the recent message list of the group.
+    // Specifies whether to disable message caching to the list of the latest messages in the group. Valid values: true and false. Default value: false, which indicates that the message is cached.
     shared_ptr<bool> noCache_ {};
-    // Specifies whether to disable message storage. Valid values: true and false. Default value: false, which specifies that the message is stored for a validity period of 30 days. You can find the message in the response of the ListLiveMessageGroupMessages operation. If you do not want to store the message, set this parameter to true.
+    // Specifies whether to disable message storage. Valid values: true and false. Default value: false, which indicates that the message is stored for a validity period of 30 days. You can find the message in the response of the ListLiveMessageGroupMessages operation. If you do not need to store the message, set this parameter to true.
     shared_ptr<bool> noStorage_ {};
     // The ID of the user who sends the message. The ID can be up to 64 bytes in length and can contain letters and digits.
     // 
@@ -170,7 +173,11 @@ namespace Models
     shared_ptr<string> senderMetaInfo_ {};
     // The contribution of the message to the increase in the number of messages of this type. Default value: 1.
     shared_ptr<int64_t> staticsIncrease_ {};
-    // The weight of the message. Default value: 1. A greater value indicates a higher priority. For a message of the highest priority, you can set the weight to 1000000.
+    // The weight of the message. Default value: 1.
+    // 
+    // - For low-priority messages such as likes, you can set the weight to 1.
+    // - For regular text messages such as bullet comments, you can set the weight to 5.
+    // - For high-priority messages such as red envelopes and gifts, you can set the weight to 1000000.
     shared_ptr<int64_t> weight_ {};
   };
 

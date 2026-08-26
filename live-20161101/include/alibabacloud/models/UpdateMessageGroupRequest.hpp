@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // The interactive message application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The extended field.
+    // The extension field.
     shared_ptr<map<string, string>> extension_ {};
-    // The ID of the message group.
+    // The message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};

@@ -321,7 +321,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeCasterScenesResponseBody::SceneList> sceneList_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

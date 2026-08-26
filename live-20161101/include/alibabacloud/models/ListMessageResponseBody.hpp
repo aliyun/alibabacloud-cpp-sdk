@@ -118,15 +118,15 @@ namespace Models
 
 
       protected:
-        // The message body. The value is a JSON string.
+        // The message body, in JSONString format.
         shared_ptr<string> data_ {};
-        // The ID of the message group.
+        // The message group ID.
         shared_ptr<string> groupId_ {};
-        // The ID of the message.
+        // The message ID.
         shared_ptr<string> messageId_ {};
-        // The ID of the user who sent the message.
+        // The message sender ID.
         shared_ptr<string> senderId_ {};
-        // The type of the message.
+        // The message type.
         shared_ptr<int32_t> type_ {};
       };
 
@@ -149,12 +149,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true: The current page is followed by another page.
-      // *   false: The current page is not followed by another page.
+      // - true: There is a next page.
+      // 
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
-      // Details about the messages.
+      // The message list.
       shared_ptr<vector<Result::MessageList>> messageList_ {};
     };
 
@@ -177,9 +178,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<ListMessageResponseBody::Result> result_ {};
   };
 

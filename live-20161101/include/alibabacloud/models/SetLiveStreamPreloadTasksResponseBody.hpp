@@ -172,21 +172,20 @@ namespace Models
 
 
   protected:
-    // The number of URLs for which the prefetch task configuration failed.
+    // The number of URLs for which the prefetch task failed.
     shared_ptr<int32_t> failedURL_ {};
     shared_ptr<SetLiveStreamPreloadTasksResponseBody::PreloadTasksMessages> preloadTasksMessages_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the prefetch task. Valid values:
+    // The task status. Valid values:
+    // - Success: successful.
+    // - Failed: failed.
     // 
-    // *   Success
-    // *   Failed
-    // 
-    // >  Success is returned only if the prefetch task is configured for all specified streaming URLs.
+    // > The status is Failed if any task fails to be created.
     shared_ptr<string> status_ {};
-    // The number of URLs for which the prefetch task is successfully configured.
+    // The number of URLs for which the prefetch task succeeded.
     shared_ptr<int32_t> successURL_ {};
-    // The total number of URLs.
+    // The total number of URLs in the prefetch task.
     shared_ptr<int32_t> totalURL_ {};
   };
 

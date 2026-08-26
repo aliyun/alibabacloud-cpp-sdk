@@ -77,13 +77,16 @@ namespace Models
   protected:
     // The streaming domain.
     // 
+    // > - Make sure that the specified domain name is a streaming domain and that you have the required permissions to operate on it.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+    // The end time. The time must be later than the start time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+    // The start time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
     shared_ptr<string> startTime_ {};
   };
 

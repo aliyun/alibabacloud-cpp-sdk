@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The ingest domain. You can set only one stream relay configuration for an ingest domain.
+    // The ingest domain. Each domain name has only one live stream relay configuration.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

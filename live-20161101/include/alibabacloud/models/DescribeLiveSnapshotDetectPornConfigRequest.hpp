@@ -94,26 +94,21 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application to which the stream belongs.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streamer streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The order in which the entries are sorted based on creation time. Valid values:
+    // The order in which entries are sorted by creation time. Valid values:
     // 
-    // *   **Asc** (default): ascending order
-    // *   **Desc**: descending order
-    // 
-    // Enumerated values:
-    // 
-    // *   asc
-    // *   desc
+    // - **Asc** (default): ascending order.
+    // - **Desc**: descending order.
     shared_ptr<string> order_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Valid values: **5 to 30**. Default value: **10**.
+    // The number of entries per page. Default value: **10**. Valid values: **5 to 30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> securityToken_ {};
   };

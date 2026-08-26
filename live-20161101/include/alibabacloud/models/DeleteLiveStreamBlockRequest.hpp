@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The AppName of the live stream. View AppNames on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -84,8 +84,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. View StreamNames on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

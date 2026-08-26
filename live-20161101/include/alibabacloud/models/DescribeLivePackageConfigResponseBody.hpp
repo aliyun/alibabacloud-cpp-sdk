@@ -234,18 +234,19 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLivePackageConfigResponseBody::LivePackageConfigList> livePackageConfigList_ {};
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   **asc** (default): ascending order
-    // *   **desc**: descending order
+    // - **asc** (default): ascending order.
+    // 
+    // - **desc**: descending order.
     shared_ptr<string> order_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of live stream encapsulation configurations.
+    // The total number of records.
     shared_ptr<int32_t> totalNum_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

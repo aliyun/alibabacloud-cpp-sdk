@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // The ID of the interactive message application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the messaging group.
+    // The ID of the message group.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the user who performs the operation.
+    // The user ID of the operator. This user must be the creator of the group.
     shared_ptr<string> operatorUserId_ {};
     // The page number. Default value: 1. Valid values: 1 to 100000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 50.
+    // The number of users to display on each page. Default value: 20. Valid values: 1 to 50.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

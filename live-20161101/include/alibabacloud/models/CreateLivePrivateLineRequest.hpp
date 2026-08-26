@@ -136,37 +136,37 @@ namespace Models
     shared_ptr<string> accelerationArea_ {};
     // The acceleration type. Valid values:
     // 
-    // *   play: streaming acceleration
-    // *   publish: stream ingest acceleration
+    // - play: streaming acceleration.
+    // - publish: stream ingest acceleration.
     // 
     // This parameter is required.
     shared_ptr<string> accelerationType_ {};
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streamer streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The acceleration channel that you want to reuse. This parameter is required if Reuse is set to yes.
+    // The ID of the acceleration channel to reuse. This parameter is required when Reuse is set to yes.
     shared_ptr<string> instanceId_ {};
-    // The accelerated bandwidth. Unit: Mbit/s. This parameter is required if Reuse is set to no.
+    // The acceleration bandwidth. Unit: Mbit/s. This parameter is required when Reuse is set to no.
     shared_ptr<string> maxBandwidth_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // Specifies whether to reuse an existing acceleration channel. Valid values:
-    // 
-    // *   yes: reuses an existing acceleration channel.
-    // *   no: creates a new acceleration channel.
+    // - yes: Reuse an existing acceleration channel.
+    // - no: Create a new acceleration channel.
     // 
     // This parameter is required.
     shared_ptr<string> reuse_ {};
-    // The name of the live stream.
+    // The live stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
-    // The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, and ap-southeast-1, which indicate China (Beijing), China (Shanghai), China (Shenzhen), China (Qingdao), Japan (Tokyo), Indonesia (Jakarta), Germany (Frankfurt), and Singapore, respectively.
+    // The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, ap-southeast-1, and ap-south-1, which represent the live centers in Beijing, Shanghai, Shenzhen, Qingdao, Japan, Indonesia, Germany, and Singapore respectively.
     // 
     // This parameter is required.
     shared_ptr<string> videoCenter_ {};

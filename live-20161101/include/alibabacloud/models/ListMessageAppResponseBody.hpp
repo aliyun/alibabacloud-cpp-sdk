@@ -134,17 +134,17 @@ namespace Models
 
 
       protected:
-        // The configurations of the application.
+        // Application configuration.
         shared_ptr<map<string, string>> appConfig_ {};
-        // The ID of the interactive messaging application.
+        // Interactive message application ID.
         shared_ptr<string> appId_ {};
-        // The name of the interactive messaging application.
+        // Interactive message application name.
         shared_ptr<string> appName_ {};
-        // The time when the interactive messaging application was created. The time is displayed in UTC.
+        // UTC timestamp when the application was created.
         shared_ptr<int64_t> createTime_ {};
-        // The extended field.
+        // Extension field.
         shared_ptr<map<string, string>> extension_ {};
-        // The status of the interactive message application. A value of **1** indicates that the application is normal.
+        // Interactive message application status. A value of **1** indicates that the application status is Normal.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -174,14 +174,14 @@ namespace Models
 
 
     protected:
-      // Details about the applications.
+      // Application list.
       shared_ptr<vector<Result::AppList>> appList_ {};
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true: The current page is followed by another page.
-      // *   false: The current page is not followed by another page.
+      // - true: There is a next page.
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
-      // The total number of interactive message applications.
+      // Total number of interactive message applications.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -204,9 +204,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<ListMessageAppResponseBody::Result> result_ {};
   };
 

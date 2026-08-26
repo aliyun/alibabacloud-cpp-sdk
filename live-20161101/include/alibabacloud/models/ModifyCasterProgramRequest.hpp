@@ -131,30 +131,33 @@ namespace Models
 
 
     protected:
-      // The components. Components in the production studio are listed from the bottom to the top in an array. When the production studio switches to another video resource, the components are also switched.
+      // The list of component IDs. The components are layered from bottom to top in the order they are listed. The components are switched in sync with the video source.
       // 
-      // *   This parameter is required and available only when EpisodeType is set to **Component**.
-      // *   This parameter is optional when EpisodeType is set to **Resource**. This indicates that the components are bound to and switched together with video resources.
+      // - This parameter is required and takes effect only when the node type is **Component**.
+      // 
+      // - If the node type is **Resource**, the components are attached to the video source and switched in sync.
       shared_ptr<vector<string>> componentId_ {};
-      // The end time of the episode. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+      // The end time. The time is in UTC. The format is *yyyy-MM-dd*T*HH:mm:ss*Z.
       shared_ptr<string> endTime_ {};
-      // The ID of the episode. If the episode was added by calling the [AddCasterEpisode](https://help.aliyun.com/document_detail/2848068.html) operation, check the value of the response parameter EpisodeId to obtain the ID.
+      // The program ID. If you add a program for the production studio by calling the [AddCasterEpisode]() operation, use the value of the EpisodeId parameter that is returned in the response.
       shared_ptr<string> episodeId_ {};
-      // The name of the episode.
+      // The program name.
       shared_ptr<string> episodeName_ {};
-      // The type of the episode. Valid values:
+      // The program type. Valid values:
       // 
-      // *   **Resource**: a video resource
-      // *   **Component**: a component
+      // - **Resource**: video source.
+      // 
+      // - **Component**: component.
       shared_ptr<string> episodeType_ {};
-      // The ID of the video resource. If the video resource was added by calling the [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html) operation, check the value of the response parameter ResourceId to obtain the ID.
+      // The ID of the video source. If you add a video source for the production studio by calling the [AddCasterVideoResource]() operation, use the value of the ResourceId parameter that is returned in the response.
       shared_ptr<string> resourceId_ {};
-      // The start time of the episode. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+      // The start time. The time is in UTC. The format is *yyyy-MM-dd*T*HH:mm:ss*Z.
       shared_ptr<string> startTime_ {};
-      // The policy for switching episodes. This parameter takes effect only when EpisodeType is set to **Resource**. Valid values:
+      // The switch policy. This parameter is valid only when the node type is **Resource**.
       // 
-      // *   **TimeFirst**: The episode starts when the previous episode ends and ends when the next episode starts. If no next episode exists, the episode keeps repeating until a new episode is added or the production studio stops. This value is required for live video resources.
-      // *   **ContentFirst**: The episode starts and ends as scheduled.
+      // - **TimeFirst**: time-first. This is the only valid policy for live stream video sources.
+      // 
+      // - **ContentFirst**: content-first.
       shared_ptr<string> switchType_ {};
     };
 
@@ -193,18 +196,20 @@ namespace Models
   protected:
     // The ID of the production studio.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+    // - If you create a production studio by calling the [CreateCaster]() operation, use the value of the CasterId parameter that is returned in the response.
     // 
-    // >  You can find the ID of the production studio in the Instance ID/Name column.
+    // - If you create a production studio in the ApsaraVideo Live console, go to the **Production Studio** > **Cloud Production Studio** page to view the ID.
+    // 
+    // > The name of the production studio in the list on the Cloud Production Studio page is the production studio ID.
     // 
     // This parameter is required.
     shared_ptr<string> casterId_ {};
-    // The episodes.
+    // The program information.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyCasterProgramRequest::Episode>> episode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

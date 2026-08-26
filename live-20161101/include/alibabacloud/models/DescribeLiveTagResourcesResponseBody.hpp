@@ -91,9 +91,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -116,9 +116,9 @@ namespace Models
 
 
     protected:
-      // The resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The key-value pair of the tag.
+      // The tags bound to the resource.
       shared_ptr<vector<TagResources::Tag>> tag_ {};
     };
 
@@ -141,9 +141,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags of the resource.
+    // A list of resources and their associated tags.
     shared_ptr<vector<DescribeLiveTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

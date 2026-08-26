@@ -86,18 +86,19 @@ namespace Models
   protected:
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // Specifies whether to collect statistics at the domain name level. Valid values:
+    // The domain name statistics switch. Valid values:
     // 
-    // *   on: collects statistics at the domain name level.
-    // *   off (default): collects statistics at the user level.
+    // - on: enables domain name-level statistics.
+    // - off: user-level data. User-level data is collected by default.
     shared_ptr<string> domainSwitch_ {};
-    // The end time of stream pulling. The time must be in UTC. The end time must be later than the start time. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+    // The end time of stream pulling in UTC. The interval between StartTime and EndTime must be within 30 days, and EndTime must be later than the current time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time of stream pulling. The time must be in UTC. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+    // The start time of stream pulling in UTC. The interval between StartTime and EndTime must be within 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

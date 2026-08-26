@@ -134,14 +134,14 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeLiveStreamsBlockListResponseBody::StreamUrls> streamUrls_ {};
-    // The total number of live stream URLs that meet the specified conditions.
+    // The total number of entries that meet the specified conditions.
     shared_ptr<int32_t> totalNum_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

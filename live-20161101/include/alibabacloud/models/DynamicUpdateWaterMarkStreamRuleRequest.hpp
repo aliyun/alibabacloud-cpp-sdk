@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> app_ {};
@@ -93,14 +93,15 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the stream that contains the watermark.
+    // The name of the watermarked stream.
     // 
     // This parameter is required.
     shared_ptr<string> stream_ {};
-    // The watermark template ID. You can call the [DescribeLiveStreamWatermarks](https://help.aliyun.com/document_detail/2848102.html) operation to obtain available watermark template IDs.
+    // The ID of the watermark template. Call the [DescribeLiveStreamWatermarks](https://help.aliyun.com/document_detail/2848102.html) operation to get the IDs of available watermark templates.
     // 
-    // >  The TemplateId parameter is used to replace the watermark template ID during live streaming.
+    // > The TemplateId parameter is used to replace the watermark template ID during a live stream.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

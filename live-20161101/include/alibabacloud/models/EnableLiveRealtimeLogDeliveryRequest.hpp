@@ -59,11 +59,12 @@ namespace Models
   protected:
     // The streaming domain for which you want to enable real-time log delivery.
     // 
-    // Separate multiple streaming domains with commas (,).
+    // Separate multiple domain names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

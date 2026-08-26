@@ -162,15 +162,15 @@ namespace Models
 
 
   protected:
-    // The time granularity.
+    // The data time granularity.
     shared_ptr<string> dataInterval_ {};
     // The ingest domain.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which the data was queried.
+    // The end time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> endTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the data was queried.
+    // The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeLiveDomainPushTrafficDataResponseBody::TrafficDataPerInterval> trafficDataPerInterval_ {};
   };

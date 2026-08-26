@@ -151,34 +151,37 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The time when the job was created.
       shared_ptr<string> createTime_ {};
-      // The ID of the task.
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // The time when the task was last started.
+      // The time when the job was last started.
       shared_ptr<string> lastStartAt_ {};
-      // The time when the task was last stopped.
+      // The time when the job was last stopped.
       shared_ptr<string> lastStopAt_ {};
-      // The name of the task.
+      // The job name.
       shared_ptr<string> name_ {};
-      // The status of the task. Valid values:
+      // The status of the transcoding job. Valid values:
       // 
-      // *   0: not started
-      // *   1: in progress
+      // - 0: The job is not started.
+      // 
+      // - 1: The job is running.
       shared_ptr<string> status_ {};
-      // The URL of the input stream.
+      // The input stream URL.
       shared_ptr<string> streamInput_ {};
-      // The URL of the output stream.
+      // The output stream URL.
       shared_ptr<string> streamOutput_ {};
-      // The ID of the edge transcoding template used by the task.
+      // The ID of the edge transcoding template used by the job.
       shared_ptr<string> templateId_ {};
-      // The name of the edge transcoding template used by the task.
+      // The name of the edge transcoding template used by the job.
       shared_ptr<string> templateName_ {};
       // The type of edge transcoding. Valid values:
       // 
-      // *   common: standard transcoding and Narrowband HD™ 1.0 transcoding
-      // *   nbhd-2: Narrowband HD™ 2.0 transcoding
-      // *   ultra-hd: ultra-high definition transcoding
+      // - common: standard transcoding and Narrowband HD 1.0.
+      // 
+      // - nbhd-2: Narrowband HD 2.0.
+      // 
+      // - ultra-hd: ultra-high definition.
       shared_ptr<string> type_ {};
     };
 
@@ -201,7 +204,7 @@ namespace Models
 
 
   protected:
-    // The details of the edge transcoding task.
+    // The edge transcoding job.
     shared_ptr<GetEdgeTranscodeJobResponseBody::Job> job_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

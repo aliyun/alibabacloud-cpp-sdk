@@ -123,35 +123,40 @@ namespace Models
   protected:
     // The ID of the production studio.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+    // - If you create a production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, use the CasterId value that is returned in the response.
     // 
-    // >  You can find the ID of the production studio in the Instance ID/Name column.
+    // - If you create a production studio in the LIVE console, find the ID on the Cloud Production Studio page. To go to this page, choose **LIVE** > **Production Studio** > **Cloud Production Studio**.
+    // 
+    // > The name of the production studio in the list on the Cloud Production Studio page is its ID.
     // 
     // This parameter is required.
     shared_ptr<string> casterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
     shared_ptr<string> endTime_ {};
-    // The ID of the episode.
+    // The ID of the program.
     shared_ptr<string> episodeId_ {};
-    // The type of the episode. Valid values:
+    // The type of the node. Valid values:
     // 
-    // *   **Resource**: a video resource
-    // *   **Component**: a component
+    // - **Resource**: video source.
+    // 
+    // - **Component**: component.
     shared_ptr<string> episodeType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The number of programs on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
     shared_ptr<string> startTime_ {};
-    // The status of the episode. Valid values:
+    // The status of the program. Valid values:
     // 
-    // *   **0**: The episode is not played.
-    // *   **1**: The episode is being played.
-    // *   **2**: The playback of the episode is complete.
+    // - **0**: not started
+    // 
+    // - **1**: playing
+    // 
+    // - **2**: finished
     shared_ptr<int32_t> status_ {};
   };
 

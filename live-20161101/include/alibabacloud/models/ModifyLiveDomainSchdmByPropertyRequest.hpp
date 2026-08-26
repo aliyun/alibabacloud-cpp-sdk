@@ -66,19 +66,22 @@ namespace Models
 
 
   protected:
-    // The domain name for which you want to modify the acceleration region.
+    // The live streaming domain for which you want to modify the acceleration region.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The acceleration region that you want to set. {"coverage":"overseas"} specifies regions outside the Chinese mainland. Valid values of coverage:
+    // The acceleration region. A value of {"coverage":"overseas"} specifies that the configuration is for regions outside mainland China. The following list describes the valid values for coverage:
     // 
-    // *   domestic: regions in the Chinese mainland.
-    // *   overseas: regions outside the Chinese mainland.
-    // *   global: regions in and outside the Chinese mainland.
+    // - domestic: mainland China.
+    // 
+    // - overseas: regions outside mainland China.
+    // 
+    // - global: regions in and outside mainland China.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

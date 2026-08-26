@@ -59,11 +59,12 @@ namespace Models
   protected:
     // The ID of the monitoring session.
     // 
-    // >  You can obtain the monitoring session ID from the response of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
+    // > Obtain the MonitorId value from the response of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> monitorId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -75,26 +75,27 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio.
+    // The production studio ID.
+    // - If you created the production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the CasterId parameter value returned by the CreateCaster operation.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+    // - If you created the production studio in the ApsaraVideo Live console, go to **ApsaraVideo Live console** > **Production Studios** > **China Cloud-based China Production Studio** to view the ID.
     // 
-    // >  You can find the ID of the production studio in the Instance ID/Name column.
+    // > The name of the production studio in the production studio list on the China Cloud-based Production Studio page is the production studio ID.
     // 
     // This parameter is required.
     shared_ptr<string> casterId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the scene.
+    // The scene ID.
     // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
-    // The type of the setting that you want to delete. Valid values:
+    // The scene configuration type. Valid values:
     // 
-    // *   **Component**: component setting
-    // *   **Layout**: layout setting
-    // *   **All**: component and layout settings
+    // - **Component**: component configuration.
+    // - **Layout**: layout configuration.
+    // - **All**: component and layout configuration.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

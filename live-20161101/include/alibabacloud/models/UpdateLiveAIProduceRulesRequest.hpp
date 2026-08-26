@@ -140,43 +140,42 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the live stream application.
     // 
     // This parameter is required.
     shared_ptr<string> app_ {};
-    // The description of the subtitle rule. The description can be up to 128 characters in length and can contain letters, digits, and special characters.
+    // The description of the subtitle rule. The description can contain letters, digits, Chinese characters, and special characters, and can be up to 128 characters in length.
     shared_ptr<string> description_ {};
-    // The main streaming domain.
+    // The primary streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // Specifies whether to generate live subtitles when stream pulling starts. Valid values:
-    // 
-    // *   true: generates live subtitles when stream pulling starts and stops generating live subtitles when no streams are pulled for 5 minutes. When stream pulling restarts, live subtitles are generated again.
-    // *   false: generates live subtitles when stream ingest starts.
+    // Specifies whether subtitles are triggered by stream pulling. Valid values:
+    // - true: Subtitles start when a stream is pulled. If no stream is pulled within 5 minutes, the subtitles stop. Subtitles restart when a stream is pulled again.
+    // - false: Subtitles start as long as stream ingest is active, regardless of whether a stream is being pulled.
     shared_ptr<bool> isLazy_ {};
-    // The specification of the output subtitles. Valid values:
-    // 
-    // *   `lp_ld`: 360p (640 × 360)
-    // *   `lp_ld_v`: 360p (360 × 640)
-    // *   `lp_sd`: 480p (854 × 480)
-    // *   `lp_sd_v`: 480p (480 × 854)
-    // *   `lp_hd`: 720p (1280 × 720)
-    // *   `lp_hd_v`: 720p (720 × 1280)
-    // *   `lp_ud`: 1080p (1920 × 1080)
-    // *   `lp_ud_v`: 1080p (1080 × 1920)
+    // The output specification of the subtitle. Valid values:
+    // - Landscape low definition 360P 640 × 360: `lp_ld`
+    // - Portrait low definition 360P 360 × 640: `lp_ld_v`
+    // - Landscape standard definition 480P 854 × 480: `lp_sd`
+    // - Portrait standard definition 480P 480 × 854: `lp_sd_v`
+    // - Landscape high definition 720P 1280 × 720: `lp_hd`
+    // - Portrait high definition 720P 720 × 1280: `lp_hd_v`
+    // - Landscape ultra-high definition 1080P 1920 × 1080: `lp_ud`
+    // - Portrait ultra-high definition 1080P 1080 × 1920: `lp_ud_v`
     shared_ptr<string> liveTemplate_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the subtitle rule.
     shared_ptr<string> rulesId_ {};
-    // The name of the virtual background template.
+    // The name of the virtual background template. You must specify at least one of SubtitleName and StudioName. Otherwise, a MissingParameter error is returned.
     shared_ptr<string> studioName_ {};
     // The ID of the subtitle template.
     shared_ptr<string> subtitleId_ {};
-    // The name of the subtitle template.
+    // The name of the subtitle template. You must specify at least one of SubtitleName and StudioName. Otherwise, a MissingParameter error is returned.
     shared_ptr<string> subtitleName_ {};
-    // The suffix to match.
+    // The suffix match.
     shared_ptr<string> suffix_ {};
   };
 

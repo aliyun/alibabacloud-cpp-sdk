@@ -98,14 +98,15 @@ namespace Models
 
 
       protected:
-        // The time when the user joined the group. The value is a UTC timestamp. Unit: milliseconds.
+        // The UTC timestamp when the user joined the message group. Unit: milliseconds
         shared_ptr<int64_t> joinTime_ {};
         // Indicates whether the user is online. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: The user is online.
+        // 
+        // - **false**: The user is offline.
         shared_ptr<bool> online_ {};
-        // The ID of the user.
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -120,7 +121,7 @@ namespace Models
 
 
     protected:
-      // The information about users.
+      // The array of objects
       shared_ptr<vector<Result::OnlineUsers>> onlineUsers_ {};
     };
 
@@ -145,7 +146,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The returned result
     shared_ptr<BatchGetOnlineUsersResponseBody::Result> result_ {};
   };
 

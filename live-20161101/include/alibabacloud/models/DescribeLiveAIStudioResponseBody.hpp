@@ -320,11 +320,11 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Valid values: 1 to 50.
+    // The number of entries returned on each page. Default value: 10. Valid values: 1 to 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeLiveAIStudioResponseBody::StudioConfigs> studioConfigs_ {};
     // The total number of templates.

@@ -70,11 +70,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the edge transcoding task.
+    // The ID of the edge transcoding job.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

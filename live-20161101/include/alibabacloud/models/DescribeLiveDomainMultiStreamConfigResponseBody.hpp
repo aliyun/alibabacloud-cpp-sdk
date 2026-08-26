@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the dual-stream disaster recovery feature is enabled. Valid values:
     // 
-    // *   **on**: enabled
-    // *   **off**: disabled
+    // - **on**: enabled
+    // - **off**: disabled
     shared_ptr<string> switch_ {};
   };
 

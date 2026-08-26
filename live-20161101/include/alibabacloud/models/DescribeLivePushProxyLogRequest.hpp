@@ -94,20 +94,24 @@ namespace Models
 
 
   protected:
-    // The ingest domain. You can specify only one domain in each request.
+    // The ingest domain. Multi-domain queries are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Get the log end time.
-    // Date format follows the ISO8601 representation and uses UTC+0 time, formatted as yyyy-MM-ddTHH:mm:ssZ.
+    // The end of the time range to query logs.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: 1.
+    // The page number. Default value: 1. Valid values: [1, 9223372036854775807].
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: [1,1000]. Default value: 300.
+    // The page size. Valid values: [1, 1000\\]. Default value: 300.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Get the log start time in ISO8601 format with UTC+0 timezone, formatted as yyyy-MM-ddTHH:mm:ssZ.
+    // The beginning of the time range to query logs.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

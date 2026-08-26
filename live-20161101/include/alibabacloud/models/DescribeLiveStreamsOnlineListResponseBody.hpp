@@ -316,15 +316,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveStreamsOnlineListResponseBody::OnlineInfo> onlineInfo_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of streams that meet the specified conditions.
+    // The total number of entries that meet the specified conditions.
     shared_ptr<int32_t> totalNum_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

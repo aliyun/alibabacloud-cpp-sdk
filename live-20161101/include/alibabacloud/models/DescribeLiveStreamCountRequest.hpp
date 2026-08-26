@@ -57,11 +57,14 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streaming domain.
+    // 
+    // > Make sure that the domain name is added to ApsaraVideo Live and that you have the permissions to operate on it.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

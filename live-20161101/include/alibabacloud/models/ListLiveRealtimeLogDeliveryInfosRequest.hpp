@@ -57,9 +57,10 @@ namespace Models
 
 
   protected:
-    // This parameter has no practical significance.
+    // This parameter is reserved.
     shared_ptr<string> liveOpenapiReserve_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

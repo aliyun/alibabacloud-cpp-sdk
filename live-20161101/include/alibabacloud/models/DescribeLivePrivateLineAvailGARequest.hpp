@@ -105,24 +105,24 @@ namespace Models
   protected:
     // The acceleration channel.
     shared_ptr<string> accelerationArea_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streamer\\"s streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Specifies whether to query Global Accelerator (GA) instances. Valid values:
-    // 
-    // *   yes: queries the status of GA instances.
-    // *   no: queries the binding information between GA instances and acceleration circuits.
+    // Specifies whether to query the Alibaba Cloud Global Accelerator (GA) instance. Valid values:
+    // - yes: Queries the GA instance status.
+    // - no: Queries the attachment details between the GA instance and the live streaming link.
     // 
     // This parameter is required.
     shared_ptr<string> isGaInstance_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream.
+    // The live stream name.
     shared_ptr<string> streamName_ {};
-    // The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, ap-southeast-1, and ap-south-1. cn-beijing indicates China (Beijing). cn-shanghai indicates China (Shanghai). cn-shenzhen indicates China (Shenzhen). cn-qingdao indicates China (Qingdao). ap-northeast-1 indicates Japan (Tokyo). ap-southeast-5 indicates Indonesia (Jakarta). eu-central-1 indicates Germany (Frankfurt). ap-southeast-1 indicates Singapore.
+    // The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, and ap-southeast-1, ap-south-1, which represent the live centers located in Beijing, Shanghai, Shenzhen, Qingdao, Japan, Indonesia, Germany, and Singapore.
     shared_ptr<string> videoCenter_ {};
   };
 

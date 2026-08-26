@@ -376,17 +376,17 @@ namespace Models
 
 
   protected:
-    // The accelerated domain name.
+    // The accelerated domain name queried.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which data was queried.
+    // The end time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The token that determines the start point of the next query. This parameter is returned if more data results are available.
+    // The starting index for the next query. This value is returned when the queried data has not been fully retrieved.
     shared_ptr<string> nextPageToken_ {};
-    // The number of rows returned.
+    // The number of returned data rows.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which data was queried.
+    // The start time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeLiveStreamMetricDetailDataResponseBody::StreamDetailData> streamDetailData_ {};
   };

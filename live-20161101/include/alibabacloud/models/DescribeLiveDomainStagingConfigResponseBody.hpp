@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The name of the parameter.
+        // The name of the configuration parameter.
         shared_ptr<string> argName_ {};
-        // The configured value.
+        // The value of the configuration parameter.
         shared_ptr<string> argValue_ {};
       };
 
@@ -134,18 +134,21 @@ namespace Models
 
 
     protected:
-      // The configuration ID.
+      // The ID of the configuration.
       shared_ptr<string> configId_ {};
       // The configurations of the feature.
       shared_ptr<vector<DomainConfigs::FunctionArgs>> functionArgs_ {};
       // The name of the feature.
       shared_ptr<string> functionName_ {};
-      // The configuration status. Valid values:
+      // The status of the configuration. Valid values:
       // 
-      // *   **success**
-      // *   **testing**
-      // *   **failed**
-      // *   **configuring**
+      // - **success**: Successful.
+      // 
+      // - **testing**: The configuration is being verified.
+      // 
+      // - **failed**: Failed.
+      // 
+      // - **configuring**: The configuration is in progress.
       shared_ptr<string> status_ {};
     };
 
@@ -168,9 +171,9 @@ namespace Models
 
 
   protected:
-    // The feature configurations of the accelerated domain name.
+    // The domain name configurations.
     shared_ptr<vector<DescribeLiveDomainStagingConfigResponseBody::DomainConfigs>> domainConfigs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

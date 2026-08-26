@@ -97,30 +97,32 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The timestamps when the snapshots that you want to delete were captured.
+    // A list of timestamps of the snapshots to delete.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> createTimestampList_ {};
-    // The main streaming domain.
+    // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to also delete the corresponding file in Object Storage Service (OSS) at the same time. Value values:
+    // Specifies whether to also delete the snapshot files from OSS. Valid values:
     // 
-    // *   **true**: deletes the corresponding file in OSS.
-    // *   **false**: does not delete the corresponding file in OSS.
+    // - **true**: Deletes.
     // 
-    // >  To delete the corresponding file in OSS, you must have the permissions on the OSS bucket.
+    // - **false**: Does not delete.
+    // 
+    // > To delete files from OSS, you must have the required permissions for OSS file operations.
     // 
     // This parameter is required.
     shared_ptr<bool> removeFile_ {};
-    // The name of the live stream.
+    // The stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

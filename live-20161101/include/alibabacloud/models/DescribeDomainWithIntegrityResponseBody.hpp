@@ -87,7 +87,7 @@ namespace Models
       shared_ptr<vector<string>> columns_ {};
       // The table name.
       shared_ptr<string> name_ {};
-      // The subpoints.
+      // The data points.
       shared_ptr<vector<string>> points_ {};
     };
 
@@ -110,7 +110,7 @@ namespace Models
 
 
   protected:
-    // The verification information.
+    // The verification content.
     shared_ptr<vector<DescribeDomainWithIntegrityResponseBody::Content>> content_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

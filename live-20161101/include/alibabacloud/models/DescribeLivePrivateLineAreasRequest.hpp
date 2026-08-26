@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streaming domain for ingest.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

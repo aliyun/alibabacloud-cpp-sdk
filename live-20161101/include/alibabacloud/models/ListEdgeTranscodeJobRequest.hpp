@@ -112,38 +112,35 @@ namespace Models
 
 
   protected:
-    // The ID of the data center.
+    // The data center ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The keyword of the query.
-    // 
-    // *   You can specify a task ID for an exact match.
-    // *   You can specify a task name for a fuzzy match.
+    // The search keyword. Valid values:
+    // - Task ID. Exact match is supported.
+    // - Task name. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The sort order of the tasks by creation time. Default value: desc. Valid values:
-    // 
-    // *   desc: descending order
-    // *   asc: ascending order
+    // The collation based on CreateTime. Default value: desc. Valid values:
+    // - desc: descending sorting.
+    // - asc: ascending sorting.
     shared_ptr<string> sortBy_ {};
-    // The task status. Valid values:
-    // 
-    // *   0: not started
-    // *   1: running
+    // The edge transcoding task status. Valid values:
+    // - 0: not started.
+    // - 1: running.
     shared_ptr<int32_t> status_ {};
-    // The type of edge transcoding. Valid values:
+    // The edge transcoding type. Valid values:
+    // - common: default transcoding (standard + Narrowband HD 1.0).
+    // - nbhd-2: Narrowband HD 2.0.
+    // - ultra-hd: ultra-high definition.
     // 
-    // *   common: standard transcoding and Narrowband HD™ 1.0 transcoding.
-    // *   nbhd-2: Narrowband HD™ 2.0 transcoding
-    // *   ultra-hd: ultra-high definition transcoding
-    // 
-    // >  If you do not specify this parameter, the query results are filtered based on the types of edge transcoding on which you are granted permissions.
+    // > If this parameter is not specified, transcoding templates for which the user has the corresponding transcoding type permissions are displayed.
     shared_ptr<string> type_ {};
   };
 

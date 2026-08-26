@@ -66,23 +66,25 @@ namespace Models
 
 
   protected:
-    // Interactive message application ID.
+    // Interactive Messages application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // 系统消息扩散类型，取值：
+    // System message diffusion type. Valid values:
     // 
-    // - 0：不扩散。
+    // - 0: No diffusion.
     // 
-    // - 1：扩散到指定人。
+    // - 1: Diffusion to specified users.
     // 
-    // - 2：扩散到群组。
+    // - 2: Diffusion to the group.
     shared_ptr<int32_t> broadCastType_ {};
-    // Message group ID.
+    // Group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // Operator\\"s UserId. > This parameter is required and the user must be the creator of the group.
+    // User ID of the operator.
+    // 
+    // > This parameter is required. The user must be the creator of the group.
     shared_ptr<string> operatorUserId_ {};
   };
 

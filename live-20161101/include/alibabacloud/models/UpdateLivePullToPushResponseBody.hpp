@@ -61,13 +61,10 @@ namespace Models
     shared_ptr<string> description_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The code that is returned for the request.
+    // The return code.
     // 
-    // > 
-    // 
-    // *   0 is returned if the request is normal.
-    // 
-    // *   For information about codes that are returned when exceptions occur, see the following Error codes table.
+    // > - The value "0" is returned if the operation is successful.
+    // > - For exceptions, refer to the error codes listed below.
     shared_ptr<int32_t> retCode_ {};
   };
 

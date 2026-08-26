@@ -120,11 +120,17 @@ namespace Models
 
 
     protected:
+      // The audio-only duration. Unit: seconds.
       shared_ptr<double> audioDuration_ {};
+      // The timestamp of the data point. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
       shared_ptr<string> timestamp_ {};
+      // The total duration. Unit: seconds.
       shared_ptr<double> totalDuration_ {};
+      // The duration of video above 720p. Unit: seconds.
       shared_ptr<double> v1080Duration_ {};
+      // The duration of video at 480p or lower. Unit: seconds.
       shared_ptr<double> v480Duration_ {};
+      // The duration of video at 720p or lower. Unit: seconds.
       shared_ptr<double> v720Duration_ {};
     };
 
@@ -197,15 +203,27 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraVideo Real-time Communication application that was queried.
     shared_ptr<string> appId_ {};
+    // The audio-only summary duration. Unit: seconds.
     shared_ptr<double> audioSummaryDuration_ {};
+    // The usage statistics information.
     shared_ptr<vector<DescribeLiveRtcRecordUsageDataResponseBody::Data>> data_ {};
+    // The recording mode. Valid values:
+    // 
+    // - 0: single-stream recording mode.
+    // 
+    // - 1: stream mixing recording mode.
     shared_ptr<string> recordMode_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total summary duration. Unit: seconds.
     shared_ptr<double> totalSummaryDuration_ {};
+    // The summary duration of video above 720p (including 1080p). Unit: seconds.
     shared_ptr<double> v1080SummaryDuration_ {};
+    // The summary duration of video at 480p or lower. Unit: seconds.
     shared_ptr<double> v480SummaryDuration_ {};
+    // The summary duration of video at 720p or lower. Unit: seconds.
     shared_ptr<double> v720SummaryDuration_ {};
   };
 

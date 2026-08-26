@@ -103,38 +103,42 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application.
     // 
-    // >  If you want to configure triggered stream pulling for all applications, set the value to **ali_all_app**.
+    // > To trigger origin fetch for all applications, set this parameter to **ali_all_app**.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streaming domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the application for back-to-origin stream pulling.
+    // The source application name.
     // 
-    // >  If you want to use the application specified in the streaming URL, leave this parameter empty.
+    // > Leave this parameter empty to use the application name from the playback URL of the source stream.
     shared_ptr<string> pullAppName_ {};
-    // The origin server address of the live stream. Separate multiple addresses with semicolons (;).
+    // The origin server that hosts the live stream. To specify multiple origin servers, separate them with semicolons (;).
     // 
     // This parameter is required.
     shared_ptr<string> pullDomainName_ {};
-    // The protocol for back-to-origin stream pulling. Valid values:
+    // The protocol to use for pulling the stream from the source. Valid values:
     // 
-    // *   **rtmp**
-    // *   **httpflv**
-    // *   **hls**
+    // - **rtmp**
+    // 
+    // - **httpflv**
+    // 
+    // - **hls**
     // 
     // This parameter is required.
     shared_ptr<string> pullProtocol_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to trigger stream pulling when the transcoded stream is played. The default value is **no**. Valid values:
+    // Specifies whether to trigger stream pulling when a request for a transcoded stream is made. Default value: **no**. Valid values:
     // 
-    // *   **yes**
-    // *   **no**
+    // - **yes**
+    // 
+    // - **no**
     shared_ptr<string> transcodeLazy_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ingest domain or streaming domain that you want to delete.
+    // The ingest or streaming domain to delete.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

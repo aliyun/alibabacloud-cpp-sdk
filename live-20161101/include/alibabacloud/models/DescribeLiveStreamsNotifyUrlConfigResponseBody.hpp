@@ -98,16 +98,17 @@ namespace Models
     protected:
       // The ingest domain.
       shared_ptr<string> domainName_ {};
-      // Exception event callback URL.
+      // The callback URL for receiving notifications about exception events.
       shared_ptr<string> exceptionNotifyUrl_ {};
       // The authentication key.
       shared_ptr<string> notifyAuthKey_ {};
-      // Indicates whether callback authentication is enabled. Valid values:
+      // Indicates whether authentication is enabled. Valid values:
       // 
-      // *   yes
-      // *   no
+      // - **yes**
+      // 
+      // - **no**
       shared_ptr<string> notifyReqAuth_ {};
-      // The callback URL.
+      // The callback URL for receiving live stream information.
       shared_ptr<string> notifyUrl_ {};
     };
 

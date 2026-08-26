@@ -84,17 +84,18 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    // The name of the app.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The domain name of the output stream.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The ID of the stream mixing task. If the task was created by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, check the value of the response parameter MixStreamId to obtain the ID.
+    // The ID of the stream mixing task. Obtain this ID from the MixStreamId parameter returned by the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> mixStreamId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The name of the output stream.
     shared_ptr<string> streamName_ {};

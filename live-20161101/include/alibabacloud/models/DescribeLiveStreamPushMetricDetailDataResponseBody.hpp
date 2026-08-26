@@ -204,17 +204,21 @@ namespace Models
   protected:
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range that was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    shared_ptr<string> endTime_ {};
-    // A pagination token. When you call this operation, up to 5,000 rows of data can be returned per query. If the number of rows exceeds 5,000, the response includes a pagination token that is used in the next request to retrieve a new page of results.
+    // The end of the time range for the returned data. The time follows the ISO 8601 standard in the UTC time zone.
     // 
-    // When you specify the token in the next query, data continues to be obtained from the end of the previous query.
+    // Format: YYYY-MM-DDThh:mm:ssZ.
+    shared_ptr<string> endTime_ {};
+    // The paging query token. Each query returns a maximum of 5,000 rows of data. If the data to be queried exceeds 5,000 rows, the response includes the start index for the next query.
+    // 
+    // Pass this token in the request to continue querying data from the row after the last row returned in the previous query.
     shared_ptr<string> nextPageToken_ {};
-    // The number of rows returned.
+    // The number of returned data rows.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range that was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the UTC time zone.
+    // 
+    // Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeLiveStreamPushMetricDetailDataResponseBody::StreamDetailData> streamDetailData_ {};
   };

@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+    // The data center. This value must be the same as the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Currently supported values: cn-shanghai (Shanghai) and ap-southeast-1 (Singapore).
     shared_ptr<string> dataCenter_ {};
-    // The ID of the interactive messaging group whose information you want to query.
+    // The group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};

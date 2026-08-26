@@ -85,13 +85,12 @@ namespace Models
 
   protected:
     // The acceleration type. Valid values:
-    // 
-    // *   play: streaming acceleration
-    // *   publish: stream ingest acceleration
+    // - play: streaming acceleration.
+    // - publish: stream ingest acceleration.
     // 
     // This parameter is required.
     shared_ptr<string> accelerationType_ {};
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -100,8 +99,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream.
+    // The live stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

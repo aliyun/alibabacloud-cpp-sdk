@@ -181,19 +181,19 @@ namespace Models
 
 
   protected:
-    // The billable region where the resource usage data was generated.
+    // The usage region.
     shared_ptr<string> area_ {};
-    // The time interval between the returned entries. Unit: seconds.
+    // The time interval of each record. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
-    // The domain name.
+    // The streaming domain.
     shared_ptr<string> domainName_ {};
-    // The end of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> endTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> startTime_ {};
-    // The type of the resource usage data.
+    // The usage type.
     shared_ptr<string> type_ {};
     shared_ptr<DescribeDomainUsageDataResponseBody::UsageDataPerInterval> usageDataPerInterval_ {};
   };

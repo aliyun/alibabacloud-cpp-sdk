@@ -144,12 +144,12 @@ namespace Models
 
 
   protected:
-    // The status code. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+    // The status code. If an error occurs, see the error codes.
     shared_ptr<string> code_ {};
-    // The status description. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+    // The status message. If an error occurs, see the error codes.
     shared_ptr<string> message_ {};
     shared_ptr<DeleteLiveStreamRecordIndexFilesResponseBody::RecordDeleteInfoList> recordDeleteInfoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

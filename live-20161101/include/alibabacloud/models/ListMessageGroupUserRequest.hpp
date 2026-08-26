@@ -75,26 +75,26 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // Interactive Messages application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the message group.
+    // Message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The number of the page to return. Default value: 1.
+    // Page number. Default value: 1.
     // 
     // Valid values: 1 to 100000.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of members to return on each page. Default value: 20.
+    // Number of message group members to display per page. Default value: 20.
     // 
     // Valid values: 1 to 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort order. Valid values:
+    // Sorting method. Valid values:
     // 
-    // *   0: ascending order by time
-    // *   1: descending order by time
+    // - 0: Ascending order by time.
+    // - 1: Descending order by time.
     shared_ptr<int32_t> sortType_ {};
   };
 

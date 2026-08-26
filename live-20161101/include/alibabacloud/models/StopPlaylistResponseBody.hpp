@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the episode list.
+    // The playlist ID.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

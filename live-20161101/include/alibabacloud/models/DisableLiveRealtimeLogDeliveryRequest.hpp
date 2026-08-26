@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The streaming domain for which you want to suspend real-time log delivery. Separate multiple streaming domains with commas (,).
+    // The streaming domain for which to pause real-time log delivery. To specify multiple domain names, separate them with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

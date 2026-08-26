@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // - A message that indicates the result of the request. If the request fails, this message helps the caller identify the issue.
+    // 
+    // - Valid values: OK, config invalid, degrade to no livemerger.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

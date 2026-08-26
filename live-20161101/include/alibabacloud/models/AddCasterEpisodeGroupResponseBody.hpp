@@ -94,7 +94,7 @@ namespace Models
 
   protected:
     shared_ptr<AddCasterEpisodeGroupResponseBody::ItemIds> itemIds_ {};
-    // The ID of the episode list that was added. Record the ID as it can be used to manage the program being added.
+    // The program list ID. This ID can be used as a request parameter for deleting a production studio program list, creating or adding program list items, deleting program list items, querying program list items, editing a program list, deleting a program list, querying a program list, starting a program list, or stopping a program list.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

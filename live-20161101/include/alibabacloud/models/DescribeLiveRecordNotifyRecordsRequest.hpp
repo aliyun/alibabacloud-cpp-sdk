@@ -130,13 +130,13 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application to which the stream belongs.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streamer\\"s streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -145,24 +145,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 500. Default value: 20.
+    // The number of entries per page. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
-    // >  You can query data within the last seven days.
+    // > You can query data within the last 7 days.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // Specifies whether the callback is successful. Valid values:
-    // 
-    // *   success
-    // *   failed
+    // Specifies whether the callback was successful. Valid values:
+    // - success: The callback was successful.
+    // - failed: The callback failed.
     shared_ptr<string> status_ {};
+    // The storage type of the recording for which to query callback records. Valid values:
+    // 
+    // - oss: recorded to OSS
+    // 
+    // - vod: recorded to ApsaraVideo VOD
+    // 
+    // - all: queries callback records for all storage types
     shared_ptr<string> storageType_ {};
-    // The name of the live stream.
+    // The stream name.
     shared_ptr<string> streamName_ {};
   };
 

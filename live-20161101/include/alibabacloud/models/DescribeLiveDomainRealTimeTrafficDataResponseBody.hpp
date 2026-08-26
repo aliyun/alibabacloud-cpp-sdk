@@ -162,16 +162,16 @@ namespace Models
 
 
   protected:
-    // The time interval between the entries returned. Unit: seconds
+    // The time interval between data points. Unit: second.
     shared_ptr<string> dataInterval_ {};
-    // The streaming domain.
+    // The streaming domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end of the time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeLiveDomainRealTimeTrafficDataResponseBody::RealTimeTrafficDataPerInterval> realTimeTrafficDataPerInterval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start of the time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
     shared_ptr<string> startTime_ {};
   };
 

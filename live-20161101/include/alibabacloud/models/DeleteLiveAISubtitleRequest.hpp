@@ -67,12 +67,13 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the subtitle template.
+    // The ID of the caption template.
     // 
     // This parameter is required.
     shared_ptr<string> subtitleId_ {};
-    // The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
+    // The name of the caption template. The name can contain only digits, letters, and hyphens (-). A hyphen cannot be the first character.
     shared_ptr<string> subtitleName_ {};
   };
 

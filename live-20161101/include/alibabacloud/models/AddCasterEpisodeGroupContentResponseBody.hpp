@@ -94,7 +94,7 @@ namespace Models
 
   protected:
     shared_ptr<AddCasterEpisodeGroupContentResponseBody::ItemIds> itemIds_ {};
-    // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to create or add episodes, remove episodes, query episodes, edit an episode list, delete an episode list, query the information about an episode list, start playing an episode list, or stop playing an episode list.
+    // The program ID. You can use this ID as a request parameter when you create, add, delete, or query program items. You can also use this ID to edit, delete, query, start, or stop a program.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

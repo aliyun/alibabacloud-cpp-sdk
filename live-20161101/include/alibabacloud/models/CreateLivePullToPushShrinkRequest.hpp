@@ -13,15 +13,18 @@ namespace Models
   class CreateLivePullToPushShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateLivePullToPushShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthKey, authKey_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(DstUrl, dstUrl_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(FileIndex, fileIndex_);
+      DARABONBA_PTR_TO_JSON(NotifyItemSwitch, notifyItemSwitch_);
       DARABONBA_PTR_TO_JSON(Offset, offset_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RepeatNumber, repeatNumber_);
+      DARABONBA_PTR_TO_JSON(ReqAuth, reqAuth_);
       DARABONBA_PTR_TO_JSON(RetryCount, retryCount_);
       DARABONBA_PTR_TO_JSON(RetryInterval, retryInterval_);
       DARABONBA_PTR_TO_JSON(SourceProtocol, sourceProtocol_);
@@ -31,15 +34,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateLivePullToPushShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthKey, authKey_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(DstUrl, dstUrl_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(FileIndex, fileIndex_);
+      DARABONBA_PTR_FROM_JSON(NotifyItemSwitch, notifyItemSwitch_);
       DARABONBA_PTR_FROM_JSON(Offset, offset_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RepeatNumber, repeatNumber_);
+      DARABONBA_PTR_FROM_JSON(ReqAuth, reqAuth_);
       DARABONBA_PTR_FROM_JSON(RetryCount, retryCount_);
       DARABONBA_PTR_FROM_JSON(RetryInterval, retryInterval_);
       DARABONBA_PTR_FROM_JSON(SourceProtocol, sourceProtocol_);
@@ -59,10 +65,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->callbackUrl_ == nullptr
-        && this->dstUrl_ == nullptr && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->offset_ == nullptr && this->ownerId_ == nullptr
-        && this->region_ == nullptr && this->regionId_ == nullptr && this->repeatNumber_ == nullptr && this->retryCount_ == nullptr && this->retryInterval_ == nullptr
-        && this->sourceProtocol_ == nullptr && this->sourceType_ == nullptr && this->sourceUrlsShrink_ == nullptr && this->startTime_ == nullptr && this->taskName_ == nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && this->callbackUrl_ == nullptr && this->dstUrl_ == nullptr && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->notifyItemSwitch_ == nullptr
+        && this->offset_ == nullptr && this->ownerId_ == nullptr && this->region_ == nullptr && this->regionId_ == nullptr && this->repeatNumber_ == nullptr
+        && this->reqAuth_ == nullptr && this->retryCount_ == nullptr && this->retryInterval_ == nullptr && this->sourceProtocol_ == nullptr && this->sourceType_ == nullptr
+        && this->sourceUrlsShrink_ == nullptr && this->startTime_ == nullptr && this->taskName_ == nullptr; };
+    // authKey Field Functions 
+    bool hasAuthKey() const { return this->authKey_ != nullptr;};
+    void deleteAuthKey() { this->authKey_ = nullptr;};
+    inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+    inline CreateLivePullToPushShrinkRequest& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
+
+
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
@@ -89,6 +103,13 @@ namespace Models
     void deleteFileIndex() { this->fileIndex_ = nullptr;};
     inline int32_t getFileIndex() const { DARABONBA_PTR_GET_DEFAULT(fileIndex_, 0) };
     inline CreateLivePullToPushShrinkRequest& setFileIndex(int32_t fileIndex) { DARABONBA_PTR_SET_VALUE(fileIndex_, fileIndex) };
+
+
+    // notifyItemSwitch Field Functions 
+    bool hasNotifyItemSwitch() const { return this->notifyItemSwitch_ != nullptr;};
+    void deleteNotifyItemSwitch() { this->notifyItemSwitch_ = nullptr;};
+    inline string getNotifyItemSwitch() const { DARABONBA_PTR_GET_DEFAULT(notifyItemSwitch_, "") };
+    inline CreateLivePullToPushShrinkRequest& setNotifyItemSwitch(string notifyItemSwitch) { DARABONBA_PTR_SET_VALUE(notifyItemSwitch_, notifyItemSwitch) };
 
 
     // offset Field Functions 
@@ -124,6 +145,13 @@ namespace Models
     void deleteRepeatNumber() { this->repeatNumber_ = nullptr;};
     inline int32_t getRepeatNumber() const { DARABONBA_PTR_GET_DEFAULT(repeatNumber_, 0) };
     inline CreateLivePullToPushShrinkRequest& setRepeatNumber(int32_t repeatNumber) { DARABONBA_PTR_SET_VALUE(repeatNumber_, repeatNumber) };
+
+
+    // reqAuth Field Functions 
+    bool hasReqAuth() const { return this->reqAuth_ != nullptr;};
+    void deleteReqAuth() { this->reqAuth_ = nullptr;};
+    inline string getReqAuth() const { DARABONBA_PTR_GET_DEFAULT(reqAuth_, "") };
+    inline CreateLivePullToPushShrinkRequest& setReqAuth(string reqAuth) { DARABONBA_PTR_SET_VALUE(reqAuth_, reqAuth) };
 
 
     // retryCount Field Functions 
@@ -176,120 +204,96 @@ namespace Models
 
 
   protected:
-    // The HTTP callback URL. By default, this parameter is left empty.
+    shared_ptr<string> authKey_ {};
+    // HTTP callback URL. Default value: empty.
     // 
-    // > 
-    // 
-    // *   The URL is used to receive callbacks related to the task.
-    // 
-    // *   The URL can be up to 2,000 characters in length.
-    // 
-    // *   If you do not specify this parameter, no callbacks are returned for events related to the task.
+    // > - The URL that receives task-related callbacks.
+    // > - Maximum length is 2000 characters.
+    // > - If this parameter is not specified, no task event callbacks will be sent.
     shared_ptr<string> callbackUrl_ {};
-    // The destination URL to which the stream is relayed.
+    // Destination URL address for pushing the stream.
     // 
-    // > 
-    // 
-    // *   The supported protocol for the URL is RTMP.
-    // 
-    // *   The URL can be up to 2,000 characters in length.
+    // > - The rtmp protocol is supported.
+    // > - Maximum length is 2000 characters.
     // 
     // This parameter is required.
     shared_ptr<string> dstUrl_ {};
-    // The end time of the task.
+    // Task end time.
     // 
-    // > 
-    // 
-    // *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-    // 
-    // *   The end time must be later than the start time.
-    // 
-    // *   The end time must be later than the current time.
+    // > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+    // > - EndTime must be later than StartTime.
+    // > - EndTime must be later than the current time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The file index, which specifies the sequence of the file where the playback starts.
+    // File index. Starts playback from the nth file.
     shared_ptr<int32_t> fileIndex_ {};
-    // The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
+    shared_ptr<string> notifyItemSwitch_ {};
+    // Start offset. The offset value from the beginning of the video file. Unit: seconds. Valid values: greater than 0.
     // 
-    // > 
-    // 
-    // *   This parameter indicates an offset from the first frame of the first video resource in the list.
-    // 
-    // *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+    // > - Indicates the position to start reading from, relative to the first frame (applies to the first video).
+    // > - This parameter applies only to VOD or third-party video streams.
     shared_ptr<int32_t> offset_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region where the task is started. Valid values:
+    // Specifies the region where the task is launched. Valid values:
     // 
-    // *   ap-southeast-1: Singapore
-    // *   ap-southeast-5: Indonesia (Jakarta)
-    // *   cn-beijing: China (Beijing)
-    // *   cn-shanghai: China (Shanghai)
+    // - ap-southeast-1 (Singapore)
+    // - ap-southeast-5 (Indonesia)
+    // - cn-beijing (Beijing)
+    // - cn-shanghai (Shanghai)
+    // - cn-shenzhen (Shenzhen)
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
-    // The number of playbacks after the first playback is complete. Valid values:
+    // Number of times to repeat playback after the initial playback is complete. Valid values:
     // 
-    // *   0 (default): specifies that the video list is played only once.
-    // *   \\-1: specifies that the video list is played in loop mode.
-    // *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
+    // - 0 (default): no repeat playback.
+    // - -1: loop indefinitely.
+    // - Other positive integers: number of times to repeat playback after the initial playback is complete.
     // 
-    // >  This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+    // > This parameter applies only to VOD or third-party video streams.
     shared_ptr<int32_t> repeatNumber_ {};
-    // The number of retries allowed. Default value: 3.
+    shared_ptr<string> reqAuth_ {};
+    // Number of retries. Default value: 3.
     shared_ptr<int32_t> retryCount_ {};
-    // The retry interval. Unit: seconds. Valid values: [60,300]. Default value: 60.
+    // Retry interval, in seconds. Valid values: [60, 300]. Default value: 60 seconds.
     shared_ptr<int32_t> retryInterval_ {};
-    // The protocol of the source stream.
+    // Source stream protocol name.
     // 
     // Valid values:
-    // 
-    // *   rtmp
-    // *   rtsp
-    // *   srt
-    // *   http-flv
-    // *   flv
-    // 
-    // >  This parameter is required if you set the **SourceType** parameter to live, but does not take effect if you set the SourceType parameter to vod or url.
+    // - rtmp
+    // - srt
+    // - http-flv
+    // - hls
+    // > This parameter is **required only when the SourceType parameter is set to live**, and is invalid when the value is vod or url.
     shared_ptr<string> sourceProtocol_ {};
-    // The type of the source stream. Valid values:
+    // Source stream type. Valid values:
     // 
-    // *   live: a live stream
-    // *   vod: a list of ApsaraVideo VOD resources
-    // *   url: a list of video resources from a third party
+    // - live: live stream.
+    // - vod: ApsaraVideo VOD resource.
+    // - url: third-party video file resource.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // The source URLs.
+    // List of source stream URL addresses.
     // 
-    // > 
-    // 
-    // *   If SourceType is set to live, you can specify only one streaming URL.
-    // 
-    // *   If SourceType is set to vod or url, you can specify up to 30 IDs or URLs.
-    // 
-    // *   If SourceType is set to live, the supported protocols for URLs are Real-Time Messaging Protocol (RTMP), Real-Time Streaming Protocol (RTSP), Secure Reliable Transport Protocol (SRT), and HTTP-FLV.
-    // 
-    // *   If SourceType is set to vod, specify the IDs of media assets from ApsaraVideo VOD.
-    // 
-    // *   If SourceType is set to url, the supported protocols for URLs are MP4 and HTTP-FLV.
+    // > - For the live type, only one complete live playback URL is supported.
+    // > - For the vod and url types, a maximum of 30 URLs can be specified.
+    // > - The live type supports: rtmp, srt, and http-flv protocols.
+    // > - For the vod type, specify ApsaraVideo VOD media asset IDs.
+    // > - The url type supports: mp4 and http-flv protocols.
     // 
     // This parameter is required.
     shared_ptr<string> sourceUrlsShrink_ {};
-    // The start time of the task.
+    // Task start time.
     // 
-    // > 
-    // 
-    // *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
+    // > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the task. Default value: "". Fuzzy search for task names is supported.
+    // Task name, used to support fuzzy query. Default value: "".
     shared_ptr<string> taskName_ {};
   };
 

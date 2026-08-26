@@ -66,15 +66,16 @@ namespace Models
 
 
   protected:
-    // The ingest domain or streaming domain.
+    // The ingest or streaming domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The ID of the resource group to which the domain name is moved.
+    // The ID of the destination resource group.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

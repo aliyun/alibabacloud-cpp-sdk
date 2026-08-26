@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the monitoring session.
     shared_ptr<string> monitorId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

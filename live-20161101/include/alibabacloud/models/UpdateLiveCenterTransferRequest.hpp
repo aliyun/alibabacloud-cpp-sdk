@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name for the live stream that you want to relay. Otherwise, the configuration does not take effect. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream application. The AppName you enter must match the AppName of the live stream to be transferred for the configuration to take effect. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -120,30 +120,32 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The third-party URL to which the live stream is relayed. You can add only one URL.
+    // The third-party live streaming address to transfer to. A maximum of one address is supported.
     // 
-    // >  The protocol that the URL uses must be the same as the protocol of the live stream. Only URLs over RTMP and SRT are supported.
+    // >The protocol of the destination address must match the protocol of the live stream being transferred. Only RTMP and SRT protocols are supported.
     // 
     // This parameter is required.
     shared_ptr<string> dstUrl_ {};
-    // The end time of stream relay. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time of the transfer. The date format follows ISO 8601 and uses UTC+0 time in the format yyyy-MM-ddTHH:mm:ssZ.
     // 
-    // >  The end time must be later than the start time.
+    // >The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time of stream relay. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the transfer. The date format follows ISO 8601 and uses UTC+0 time in the format yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
-    // The validity period of stream relay. Valid values:
+    // The transfer validity period. Valid values:
     // 
-    // *   **always**: The stream can always be relayed.
-    // *   **time**: The stream can be relayed in a specified time period.
+    // - **always**: Permanently effective.
     // 
-    // >  If the value is **time**, **StartTime** and **EndTime** are required.
+    // - **time**: Effective within a specified time range.
+    // 
+    // >If you set this parameter to **time**, **StartTime** and **EndTime** are required.
     // 
     // This parameter is required.
     shared_ptr<string> transferArgs_ {};

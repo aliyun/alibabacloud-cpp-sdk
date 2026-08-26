@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the resource.
       shared_ptr<string> key_ {};
+      // The tag value that corresponds to the tag key.
       shared_ptr<string> value_ {};
     };
 
@@ -150,14 +152,22 @@ namespace Models
 
 
   protected:
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The list of resource IDs. ResourceId and Tag cannot both be empty.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of tags. ResourceId and Tag cannot both be empty.
     shared_ptr<vector<ListLiveTagResourcesRequest::Tag>> tag_ {};
+    // The Bid of the tag owner.
     shared_ptr<string> tagOwnerBid_ {};
+    // The Alibaba Cloud account ID to which the tag belongs.
     shared_ptr<string> tagOwnerUid_ {};
   };
 

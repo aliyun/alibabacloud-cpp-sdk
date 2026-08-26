@@ -84,21 +84,22 @@ namespace Models
 
 
   protected:
-    // The application name. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The application name. View AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     shared_ptr<string> appName_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
-    // >  The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
+    // > The interval between EndTime and StartTime cannot exceed 7 days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

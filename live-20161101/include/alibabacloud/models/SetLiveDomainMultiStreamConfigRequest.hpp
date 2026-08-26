@@ -57,15 +57,14 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The primary streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to enable the dual-stream disaster recovery feature. Valid values:
-    // 
-    // *   **on**: enables the feature.
-    // *   **off**: disables the feature.
+    // The feature switch. Valid values:
+    // - **on**: enabled
+    // - **off**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> switch_ {};

@@ -71,15 +71,15 @@ namespace Models
 
 
   protected:
-    // The configurations of the application.
+    // Application configuration.
     shared_ptr<map<string, string>> appConfig_ {};
-    // The ID of the interactive messaging application.
+    // Interactive message application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The name of the interactive messaging application.
+    // Interactive message application name.
     shared_ptr<string> appName_ {};
-    // The extended field.
+    // Extension field.
     shared_ptr<map<string, string>> extension_ {};
   };
 

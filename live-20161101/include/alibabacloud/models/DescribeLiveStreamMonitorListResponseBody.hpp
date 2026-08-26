@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The output URL in the Flash Video (FLV) format.
+        // The output URL in FLV format.
         shared_ptr<string> flvUrl_ {};
-        // The output URL in the Real-Time Messaging Protocol (RTMP) format.
+        // The output URL in RTMP format.
         shared_ptr<string> rtmpUrl_ {};
       };
 
@@ -180,7 +180,7 @@ namespace Models
 
 
         protected:
-          // The volume. Valid values: 0 to 1. The value is rounded to two decimal places.
+          // The volume. The value must be between 0 and 1, inclusive, with up to two decimal places.
           shared_ptr<float> volumeRate_ {};
         };
 
@@ -244,18 +244,21 @@ namespace Models
 
 
         protected:
-          // The fill type. Set this value to none.
+          // The fill mode. For frontend development, set this parameter to none.
           shared_ptr<string> fillMode_ {};
-          // The position of the layer, in the format of [unk][x,y][unk]. The values of x and y need to be normalized.
+          // The normalized coordinates of the element\\"s position, in the format of [x,y]. The default value is [0,0]. The values of x and y must be normalized.
           shared_ptr<vector<float>> positionNormalized_ {};
-          // The reference position of the element. Valid values:
+          // The reference point for the element\\"s position. Valid values:
           // 
-          // *   topLeft
-          // *   topRight
-          // *   bottomLeft
-          // *   bottomRight
+          // - topLeft
+          // 
+          // - topRight
+          // 
+          // - bottomLeft
+          // 
+          // - bottomRight
           shared_ptr<string> positionRefer_ {};
-          // The size of the layer. Unit: bytes.
+          // The normalized size of the element\\"s fill area, in the format of [w,h].
           shared_ptr<vector<float>> sizeNormalized_ {};
         };
 
@@ -308,17 +311,17 @@ namespace Models
 
 
       protected:
-        // The index.
+        // The index. This parameter is used by the frontend.
         shared_ptr<int32_t> index_ {};
         // The URL of the input stream.
         shared_ptr<string> inputUrl_ {};
         // The layout information.
         shared_ptr<InputList::LayoutConfig> layoutConfig_ {};
-        // The layout ID, which must start from 1.
+        // The layout ID. The value must start from 1.
         shared_ptr<int32_t> layoutId_ {};
-        // The playback configurations.
+        // The playback configuration.
         shared_ptr<InputList::PlayConfig> playConfig_ {};
-        // The display name of the monitored stream.
+        // The display name of the stream for monitoring.
         shared_ptr<string> streamName_ {};
       };
 
@@ -431,47 +434,55 @@ namespace Models
     protected:
       // The audio source in the layout.
       shared_ptr<int32_t> audioFrom_ {};
-      // The callback URL that sends monitoring alerts.
+      // The webhook address for monitoring alert notifications.
       shared_ptr<string> callbackUrl_ {};
       // The URL of the DingTalk chatbot.
       shared_ptr<string> dingTalkWebHookUrl_ {};
-      // The domain name.
+      // The output domain name for monitoring.
       shared_ptr<string> domain_ {};
-      // The list of monitored input streams.
+      // The list of input streams for monitoring.
       shared_ptr<vector<LiveStreamMonitorList::InputList>> inputList_ {};
-      // The monitoring alert thresholds. The following fields are included:
+      // The settings for monitoring alert thresholds. The value is a JSON string that includes the following fields:
       // 
-      // *   fpsLowThres: the video frame rate alert threshold. The value is a floating-point number.
-      // *   brHighThres: the audio/video bitrate alert threshold. The value is a floating-point number.
-      // *   eofDurationThresSec: the interruption duration alert threshold. The value is a floating-point number.
+      // - fpsLowThres: the alert threshold for the video frame rate. This is a float.
+      // 
+      // - brHighThres: the alert threshold for the audio and video bitrate. This is a float.
+      // 
+      // - eofDurationThresSec: the alert threshold for the stream interruption duration. This is a float.
       shared_ptr<string> monitorConfig_ {};
       // The ID of the monitoring session.
       shared_ptr<string> monitorId_ {};
       // The name of the monitoring session.
       shared_ptr<string> monitorName_ {};
-      // The output resolution template. Valid values:
+      // The template for the output resolution. Valid values:
       // 
-      // *   **lp_ld**: low definition
-      // *   **lp_sd**: standard definition
-      // *   **lp_hd**: high definition
-      // *   **lp_ud**: ultra-high definition
+      // - **lp_ld**: low definition
+      // 
+      // - **lp_sd**: standard definition
+      // 
+      // - **lp_hd**: high definition
+      // 
+      // - **lp_ud**: ultra-high definition
       shared_ptr<string> outputTemplate_ {};
-      // The output URLs.
+      // The output URLs for monitoring.
       shared_ptr<LiveStreamMonitorList::OutputUrls> outputUrls_ {};
-      // The ID of the region. Valid values:
+      // The region. Valid values:
       // 
-      // *   cn-shanghai: China (Shanghai)
-      // *   cn-beijing: China (Beijing)
-      // *   ap-southeast-1: Singapore
+      // - cn-shanghai: China (Shanghai)
+      // 
+      // - cn-beijing: China (Beijing)
+      // 
+      // - ap-southeast-1: Singapore
       shared_ptr<string> region_ {};
-      // The start time of live monitoring. The time is displayed in UTC.
+      // The time when monitoring starts. The time is in UTC format.
       shared_ptr<string> startTime_ {};
       // The status of the monitoring session. Valid values:
       // 
-      // *   1: Monitoring
-      // *   0: Unmonitored
+      // - 1: The session is being monitored.
+      // 
+      // - 0: The session is not being monitored.
       shared_ptr<int32_t> status_ {};
-      // The end time of live monitoring. The time is displayed in UTC.
+      // The time when monitoring stops. The time is in UTC format.
       shared_ptr<string> stopTime_ {};
     };
 
@@ -505,7 +516,7 @@ namespace Models
     shared_ptr<vector<DescribeLiveStreamMonitorListResponseBody::LiveStreamMonitorList>> liveStreamMonitorList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of monitoring sessions.
+    // The total number of monitoring sessions.
     shared_ptr<int32_t> total_ {};
   };
 

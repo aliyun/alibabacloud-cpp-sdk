@@ -226,7 +226,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of streams.
     shared_ptr<int32_t> streamCount_ {};
-    // The total number of online users at the specified point in time for all the live streams under the main streaming domain.
+    // The total number of online users at the specified point in time on the specified domain.
     shared_ptr<int32_t> userCount_ {};
   };
 

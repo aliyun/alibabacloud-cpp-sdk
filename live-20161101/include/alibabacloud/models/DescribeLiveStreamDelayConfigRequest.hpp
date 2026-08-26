@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The streaming domain.
+    // The playback domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -88,20 +88,22 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The callback authentication key. The key can be 16 to 32 characters in length and can contain only letters and digits.
+    // The callback authentication key. The key must be 16 to 32 characters in length and can contain letters and digits.
     // 
-    // >  This parameter is required if you set the NotifyReqAuth parameter to **yes**.
+    // > This parameter is required when NotifyReqAuth is set to **yes**.
     shared_ptr<string> notifyAuthKey_ {};
-    // Specifies whether to enable callback authentication. Valid values:
+    // Specifies whether to enable authentication for callback notifications. Valid values:
     // 
-    // *   **yes**: enables callback authentication
-    // *   **no**: disables callback authentication
+    // - **yes**: Enables
     // 
-    // >  Default value: **no**. If you set this parameter to **yes**, the NotifyAuthKey parameter is required.
+    // - **no**: Disables
+    // 
+    // > The default value is **no**. If you set this parameter to **yes**, NotifyAuthKey is required.
     shared_ptr<string> notifyReqAuth_ {};
-    // The callback URL. Specify a valid URL that is up to 500 characters in length.
+    // The callback URL. The URL must be valid and cannot exceed 500 characters.
     shared_ptr<string> notifyUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

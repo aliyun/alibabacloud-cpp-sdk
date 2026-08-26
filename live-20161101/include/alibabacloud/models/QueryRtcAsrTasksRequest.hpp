@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the task that you want to query. If you do not specify this parameter, all running tasks under your UID are queried.
+    // The ID of the task to query. If you do not specify this parameter, all running tasks under your user ID are queried.
     shared_ptr<string> taskId_ {};
   };
 

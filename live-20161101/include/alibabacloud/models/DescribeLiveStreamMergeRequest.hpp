@@ -84,20 +84,22 @@ namespace Models
 
 
   protected:
-    // The name of the application that generates the output stream. You can view the application name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+    // Merged output App name. You can view this on the [Primary/Backup Stream Merge Configuration](https://help.aliyun.com/document_detail/606583.html) page.
     shared_ptr<string> appName_ {};
-    // The streaming domain.
+    // Streaming domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The streaming protocol. Valid values:
+    // Streaming protocol. Valid values:
     // 
-    // *   **rtmp**: This is the default value.
-    // *   **rtc**
+    // - **rtmp** (default)
+    // 
+    // - **rtc**
     shared_ptr<string> protocol_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the output stream. You can view the stream name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+    // Merged output Stream name. You can view this on the [Primary/Backup Stream Merge Configuration](https://help.aliyun.com/document_detail/606583.html) page.
     shared_ptr<string> streamName_ {};
   };
 

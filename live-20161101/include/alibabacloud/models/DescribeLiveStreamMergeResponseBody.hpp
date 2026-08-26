@@ -269,7 +269,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveStreamMergeResponseBody::LiveStreamMergeList> liveStreamMergeList_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

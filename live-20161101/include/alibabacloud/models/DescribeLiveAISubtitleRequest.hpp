@@ -94,25 +94,24 @@ namespace Models
 
 
   protected:
-    // Specifies whether to query the default subtitle template. Valid values:
+    // Specifies whether to query the default caption templates. Valid values:
     // 
-    // *   true
+    // - true: queries the default caption templates.
     // 
-    // *   false
+    // - false: does not query the default caption templates.
     // 
-    //     **
-    // 
-    //     **Note **The default template includes the built-in parameter configurations. You can specify the copyFrom parameter when you call the AddLiveAISubtitle operation to use the default template.
+    // > Default templates are built-in parameter sets. You can use them by specifying the copyFrom parameter in the AddLiveAISubtitle operation.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: [1,100].
+    // The page number. Valid values: 1 to 100.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Valid values: [1,100].
+    // The number of templates on each page. Valid values: 1 to 100.
     shared_ptr<string> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the subtitle template.
+    // The ID of the caption template.
     shared_ptr<string> subtitleId_ {};
-    // The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
+    // The name of the caption template. The name can contain only digits, uppercase letters, lowercase letters, and hyphens (-). The name cannot start with a hyphen.
     shared_ptr<string> subtitleName_ {};
   };
 

@@ -601,7 +601,7 @@ namespace Models
     shared_ptr<DescribeCasterComponentsResponseBody::Components> components_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

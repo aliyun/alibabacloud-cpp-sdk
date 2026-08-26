@@ -136,13 +136,13 @@ namespace Models
 
 
     protected:
-      // The name of the application to which the live stream belongs.
+      // The name of the application to which the stream belongs.
       shared_ptr<string> app_ {};
-      // The bitrate. Unit: bit/s.
+      // The bitrate in bit/s.
       shared_ptr<float> bitrate_ {};
       // The bitrate difference.
       shared_ptr<float> bwDiff_ {};
-      // The name of the content delivery network (CDN) service.
+      // The CDN name.
       shared_ptr<string> cdnName_ {};
       // The ingest domain.
       shared_ptr<string> domain_ {};
@@ -150,7 +150,7 @@ namespace Models
       shared_ptr<float> flr_ {};
       // The frame rate.
       shared_ptr<float> fps_ {};
-      // The name of the ingested stream.
+      // The stream name.
       shared_ptr<string> streamName_ {};
       // The timestamp.
       shared_ptr<int64_t> timestamp_ {};
@@ -182,7 +182,7 @@ namespace Models
 
 
   protected:
-    // The stream ingest details.
+    // The details of the stream ingest information.
     shared_ptr<vector<DescribeToutiaoLivePublishResponseBody::Content>> content_ {};
     // The description of the response status.
     shared_ptr<string> description_ {};

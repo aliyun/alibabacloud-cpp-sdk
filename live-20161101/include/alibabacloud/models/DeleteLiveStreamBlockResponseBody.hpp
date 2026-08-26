@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The result description. If the request was successful, ok is returned. If the request failed, the failure detail is returned.
+    // The description of the request. A value of ok indicates that the request was successful. An error message is returned if the request failed.
     shared_ptr<string> description_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status. Valid values:
+    // The status of the operation. Valid values:
     // 
-    // *   ok: The request was successful.
-    // *   fail: The request failed.
+    // - ok: Success.
     // 
-    // >  If any parameter failed to be configured, the request failed.
+    // - fail: Failure.
+    // 
+    // > The status is ok only if all tasks succeeded.
     shared_ptr<string> status_ {};
   };
 

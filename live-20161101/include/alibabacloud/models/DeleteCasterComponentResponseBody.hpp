@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. You can use the ID as a request parameter in the API operation that is called to query the components in the production studio, add an episode list to the production studio, or modify a component in the production studio.
+    // The ID of the production studio. This ID can be used in subsequent API calls to query the component list, add a program, or modify a component of the production studio.
     shared_ptr<string> casterId_ {};
-    // The component ID. You can use the ID as a request parameter in the API operation that is called to query the component in the production studio or modify the component in the production studio.
+    // The component ID. This ID can be used in subsequent API calls to query or modify the component.
     shared_ptr<string> componentId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

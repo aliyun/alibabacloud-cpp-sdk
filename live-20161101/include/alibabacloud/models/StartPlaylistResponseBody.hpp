@@ -187,11 +187,11 @@ namespace Models
 
 
     protected:
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The main streaming domain.
+      // The streaming domain.
       shared_ptr<string> domainName_ {};
-      // The name of the live stream.
+      // The stream name.
       shared_ptr<string> streamName_ {};
       shared_ptr<StreamInfo::Streams> streams_ {};
     };
@@ -222,11 +222,11 @@ namespace Models
 
 
   protected:
-    // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to stop playing the episode list.
+    // The ID of the playlist. You can use this ID as a request parameter to stop the playlist.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the live stream.
+    // The information about the stream.
     shared_ptr<StartPlaylistResponseBody::StreamInfo> streamInfo_ {};
   };
 

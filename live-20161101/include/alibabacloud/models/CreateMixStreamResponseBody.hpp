@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the stream mixing task. You can specify this parameter in a request to delete the stream mixing task or query stream mixing tasks.
+    // The ID of the stream mix task. Use this ID to query or delete the task.
     shared_ptr<string> mixStreamId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

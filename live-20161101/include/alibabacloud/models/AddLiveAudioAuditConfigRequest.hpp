@@ -112,25 +112,26 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The application name is case-sensitive.
+    // The AppName of the live stream. The AppName must match that in the ingest URL for the template to take effect. The value is case-sensitive.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The business type. You can specify a model. The default value is the domain name.
+    // The business type. This parameter can be used to select a model. The default value is the domain name.
     shared_ptr<string> bizType_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The name of the OSS bucket in which the recording is stored.
+    // The name of the OSS bucket.
     shared_ptr<string> ossBucket_ {};
-    // The endpoint of OSS.
+    // The endpoint of the OSS bucket.
     shared_ptr<string> ossEndpoint_ {};
-    // The name of the recording stored in OSS.
+    // The name of the recording file stored in OSS.
     shared_ptr<string> ossObject_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. The value of this parameter must be the same as the stream name in the ingest URL. Otherwise, the configuration does not take effect. The stream name is case-sensitive.
+    // The name of the live stream. The StreamName must match that in the ingest URL for the template to take effect. The value is case-sensitive.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

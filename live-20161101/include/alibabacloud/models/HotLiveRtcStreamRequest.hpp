@@ -121,35 +121,38 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The application name of the live stream to prefetch.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The audio MSID.
+    // The audio Msid.
     // 
     // This parameter is required.
     shared_ptr<string> audioMsid_ {};
-    // The duration for which the prefetch connection is maintained. Unit: milliseconds. Default value: 0, which specifies that the prefetch connection is always maintained.
+    // The duration to maintain the prefetch connection. Unit: milliseconds. The default value, 0, means the connection is always maintained.
     shared_ptr<string> connectionTimeout_ {};
     // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The custom period after which a timeout event is triggered. Unit: milliseconds.
+    // The custom timeout period for a timeout event. Unit: milliseconds.
     shared_ptr<string> mediaTimeout_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The code of the region in which the live stream is prefetched. For more information, see the following tables that list available region codes.
+    // The prefetch area. For more information, see the RegionCode lookup table.
     // 
-    // >  Region codes include provincial codes for China and country codes for all countries.
+    // > For regions within China, specify the corresponding code from the "Region codes for China" table. For all other regions, specify the country code.
+    // >
+    // > - If the CodeRegionHasNoNode error is returned after you specify a RegionCode, the corresponding area is not covered by L1 nodes and cannot be prefetched. In this case, specify a different RegionCode.
     // 
     // This parameter is required.
     shared_ptr<string> regionCode_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream that you want to prefetch.
+    // The name of the live stream to prefetch.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
-    // The video MSID.
+    // The video Msid.
     // 
     // This parameter is required.
     shared_ptr<string> videoMsid_ {};

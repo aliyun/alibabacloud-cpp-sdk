@@ -109,7 +109,7 @@ namespace Models
       protected:
         // The ID of the user who sent the message.
         shared_ptr<string> userId_ {};
-        // The additional information about the user who sent the message.
+        // The extended information of the user who sent the message.
         shared_ptr<string> userInfo_ {};
       };
 
@@ -170,15 +170,15 @@ namespace Models
     protected:
       // The message body.
       shared_ptr<string> body_ {};
-      // The ID of the message.
+      // The message identifier.
       shared_ptr<string> msgTid_ {};
-      // The type of the message.
+      // The message type.
       shared_ptr<int64_t> msgType_ {};
-      // The details about the user who sent the message.
+      // The message sender details.
       shared_ptr<MessageList::Sender> sender_ {};
-      // The sequence number of the message.
+      // The message sequence number.
       shared_ptr<int64_t> seqNumber_ {};
-      // The time when the message was sent. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the message was created, expressed as a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
       // The total number of messages.
       shared_ptr<int64_t> totalMessages_ {};
@@ -224,13 +224,13 @@ namespace Models
 
 
   protected:
-    // The ID of the group queried.
+    // The group ID of the group to query.
     shared_ptr<string> groupId_ {};
-    // Indicates whether the current page is followed by another page.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasmore_ {};
-    // Details about the messages.
+    // The message list.
     shared_ptr<vector<ListLiveMessageGroupMessagesResponseBody::MessageList>> messageList_ {};
-    // The starting page number for the next query. A value of 0 indicates that no further pages can be queried.
+    // The start position of the next page. The value is 0 if there is no next page.
     shared_ptr<int64_t> nextPageToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

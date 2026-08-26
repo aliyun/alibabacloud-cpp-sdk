@@ -48,11 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the layout.
-    // 
-    // Record the ID as it can be used to manage the layout being created.
+    // The ID of the layout. You can use this ID as a request parameter when you call operations to manage layouts, such as deleting, modifying, or querying layouts for a production studio or a virtual studio.
     shared_ptr<string> layoutId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

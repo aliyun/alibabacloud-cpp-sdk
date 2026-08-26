@@ -426,11 +426,11 @@ namespace Models
     shared_ptr<DescribeLiveRecordVodConfigsResponseBody::LiveRecordVodConfigs> liveRecordVodConfigs_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> total_ {};
   };
 

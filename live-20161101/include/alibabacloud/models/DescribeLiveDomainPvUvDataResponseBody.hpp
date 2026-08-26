@@ -172,16 +172,16 @@ namespace Models
 
 
   protected:
-    // The time interval between the entries returned. Unit: seconds. Default value: 3600.
+    // The time interval for each record. Unit: seconds. The value is fixed at 3600.
     shared_ptr<string> dataInterval_ {};
     // The streaming domain.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
+    // The end time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeLiveDomainPvUvDataResponseBody::PvUvDataInfos> pvUvDataInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time is displayed in UTC.
+    // The start time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
     shared_ptr<string> startTime_ {};
   };
 

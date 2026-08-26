@@ -131,20 +131,23 @@ namespace Models
 
 
       protected:
-        // The ID of the channel where the subscribed user is. If the user is in the same channel, you can leave this parameter empty. We recommend that you specify this parameter when you perform stream mixing across channels.
+        // The ID of the channel where the subscribed user is located. You do not need to set this parameter for users in the same channel. For cross-channel stream mixing, set this parameter.
         shared_ptr<string> channelId_ {};
-        // The type of the video source that is subscribed to. This parameter is valid only when you set StreamType to 2. Valid values:
+        // The type of video input stream to subscribe to for stream mixing. This parameter is valid only for video streams (StreamType=2). Valid values:
         // 
-        // *   **camera** (default)
-        // *   **shareScreen**
+        // - **camera** (default): Camera stream.
+        // 
+        // - **shareScreen**: Screen sharing stream.
         shared_ptr<string> sourceType_ {};
-        // The type of the relayed stream that is subscribed to. Valid values:
+        // The type of stream to subscribe to for stream mixing. Valid values:
         // 
-        // *   **0** (default): original stream
-        // *   **1**: only the audio track
-        // *   **2**: only the video track
+        // - **0** (default): Ingest the original stream.
+        // 
+        // - **1**: Ingest only the audio stream.
+        // 
+        // - **2**: Ingest only the video stream.
         shared_ptr<string> streamType_ {};
-        // The ID of the subscribed user.
+        // The ID of the user to subscribe to for stream mixing.
         // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
@@ -249,12 +252,13 @@ namespace Models
 
 
           protected:
-            // The ID of the channel where the user is. If the user is in the same channel, you can leave this parameter empty. We recommend that you specify this parameter when you perform stream mixing across channels.
+            // The ID of the channel where the user is located. You do not need to set this parameter for users in the same channel. For cross-channel stream mixing, set this parameter.
             shared_ptr<string> channelId_ {};
-            // The type of the video source. This parameter is valid only when you set StreamType to 2. Valid values:
+            // The type of video input stream in stream mixing and transcoding mode. This parameter is valid only for video streams (StreamType=2). Valid values:
             // 
-            // *   **camera** (default)
-            // *   **shareScreen**
+            // - **camera** (default): Camera stream.
+            // 
+            // - **shareScreen**: Screen sharing stream.
             shared_ptr<string> sourceType_ {};
             // The user ID.
             shared_ptr<string> userId_ {};
@@ -322,30 +326,29 @@ namespace Models
 
 
         protected:
-          // The URL of the background image of the pane. The URL can be up to 2,048 characters in length. This image is displayed if the user turns off the camera or is not present in the channel.
+          // The URL of the background image for the video pane. The maximum length is 2048 characters. When a user turns off their camera or has not joined the channel, this image is displayed in their layout position.
           shared_ptr<string> backgroundImageUrl_ {};
-          // The height of the pane. The value is normalized.
+          // The height of the pane, as a normalized percentage.
           shared_ptr<string> height_ {};
-          // The display mode of the pane. Valid values:
+          // The display mode of the output video pane. Valid values:
           // 
-          // *   **0**: scales the video proportionally to fit the view, with black bars displayed.
-          // *   **1 (default)**: crops the video to fit the view.
+          // - **0**: Scale and display a black background.
+          // 
+          // - **1** (default): Clip.
           shared_ptr<string> renderMode_ {};
-          // The information about the user whose stream is played in the pane. If you leave this parameter empty, the system automatically sets this parameter based on the order in which streamers join the channel.
+          // The information about the user corresponding to this pane. If you do not set this parameter, the system automatically fills it based on the order in which streamers join the channel.
           // 
-          // > 
+          // > - If you specify user information, that user must already be configured in the \\`TranscodeParams.UserInfos\\` parameter.
           // 
-          // *   If you specify the information about a user by using this parameter, the information about the user must also be specified by using the TranscodeParams.UserInfos parameter.
-          // 
-          // *   This parameter is valid only when you set StreamType to 0 or 2.
+          // - This parameter is valid only for original streams and video streams.
           shared_ptr<UserPanes::UserInfo> userInfo_ {};
-          // The width of the pane. The value is normalized.
+          // The width of the pane, as a normalized percentage.
           shared_ptr<string> width_ {};
-          // The x-coordinate of the pane. The value is normalized.
+          // The X-coordinate, as a normalized percentage.
           shared_ptr<string> x_ {};
-          // The y-coordinate of the pane. The value is normalized.
+          // The Y-coordinate, as a normalized percentage.
           shared_ptr<string> y_ {};
-          // The layer in which the pane resides. A value of 0 indicates the bottom layer. Each increment of the value by 1 indicates the next upper layer.
+          // The stacking order. 0 is the bottom layer. Layer 1 is on top of layer 0, and so on.
           shared_ptr<string> ZOrder_ {};
         };
 
@@ -360,7 +363,7 @@ namespace Models
 
 
       protected:
-        // The information about the panes.
+        // The information about user panes in the mixed stream.
         shared_ptr<vector<Layout::UserPanes>> userPanes_ {};
       };
 
@@ -484,38 +487,41 @@ namespace Models
 
 
       protected:
-        // The bitrate of the audio. Valid values: [8,500]. Unit: Kbit/s.
+        // The audio bitrate. Unit: kbps. The value must be in the range of [8, 500].
         shared_ptr<string> audioBitrate_ {};
-        // The number of sound channels. Valid values: 1 and 2.
+        // The number of audio channels. Valid values: 1, 2.
         shared_ptr<string> audioChannels_ {};
-        // Specifies whether the output stream is an audio-only stream. Valid values:
+        // Specifies whether the stream is audio-only. Valid values:
         // 
-        // *   **true**: The output stream is an audio-only stream. If you set this parameter to true, you need to configure only audio-related parameters under EncodeParams.
-        // *   **false** (default): The output stream is not an audio-only stream. If you set this parameter to false, you need to configure all parameters under EncodeParams, except the VideoCodec and EnhancedParam parameters.
+        // - **true**: Audio-only. You only need to set audio-related parameters.
+        // 
+        // - **false** (default): Not audio-only. All parameters except VideoCodec and EnhancedParam must be specified.
         shared_ptr<string> audioOnly_ {};
-        // The audio sampling rate. Valid values: 8000, 16000, 32000, 44100, and 48000. Unit: Hz.
+        // The audio sampling rate. Unit: Hz. Valid values: 8000, 16000, 32000, 44100, 48000.
         shared_ptr<string> audioSampleRate_ {};
-        // The parameter used for encoding enhancement, which is a JSON string. The parameter includes the optional profile and preset fields.
+        // The enhanced encoding parameters. This is a JSON string. The supported optional configurations include \\`profile\\` and \\`preset\\`.
         // 
-        // *   profile: the encoding level. If the video codec is H.264, the valid values of this field are baseline, main, and high. If the video codec is H.265, the valid value of this field is main.
-        // *   preset: adjusts the trade-off between encoding speed and video quality. The valid values of this field are ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow, and placebo. Each value specifies a level of trade-off between encoding speed and video quality. For example, the ultrafast preset has the fastest encoding speed but the lowest video quality, while the placebo preset sacrifices the encoding speed for the best video quality.
+        // - \\`profile\\`: The encoding profile. If the video encoding format is H.264, valid values for \\`profile\\` include "baseline", "main", and "high". If the video encoding format is H.265, the valid value for \\`profile\\` is "main".
         // 
-        // >  A value of superfast for the preset field is suitable for real-time communication scenarios. We recommend that you not set the field if you are not a professional encoding engineer.
+        // - \\`preset\\`: Balances encoding speed and quality. Valid values for \\`preset\\` include "ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow", and "placebo". Each value represents a strategy for balancing encoding speed and output video quality, from "ultrafast" (fastest encoding speed) to "placebo" (highest quality, slowest encoding speed).
+        // 
+        // > For example, "superfast" is mainly used for real-time communication. If you are not an expert in encoders, do not set this option.
         shared_ptr<string> enhancedParam_ {};
-        // The bitrate of the video. Valid values: [1,10000]. Unit: Kbit/s.
+        // The video bitrate. Unit: kbps. The value must be in the range of [1, 10000].
         shared_ptr<string> videoBitrate_ {};
-        // The video codec. Valid values:
+        // The video encoding format. Valid values:
         // 
-        // *   H.264 (default)
-        // *   H.265
+        // - H.264 (default).
+        // 
+        // - H.265.
         shared_ptr<string> videoCodec_ {};
-        // The frame rate of the video. Valid values: [1,60]. Unit: frames per second (FPS).
+        // The video frame rate. Unit: fps. The value must be in the range of [1, 60].
         shared_ptr<string> videoFramerate_ {};
-        // The group of pictures (GOP) size of the video. Valid values: [1,60].
+        // The video GOP size. The value must be in the range of [1, 60].
         shared_ptr<string> videoGop_ {};
-        // The height of the video. Valid values: [0,1920]. Unit: pixels.
+        // The video height. Unit: pixels. The value must be in the range of [0, 1920].
         shared_ptr<string> videoHeight_ {};
-        // The width of the video. Valid values: [0,1920]. Unit: pixels.
+        // The video width. Unit: pixels. The value must be in the range of [0, 1920].
         shared_ptr<string> videoWidth_ {};
       };
 
@@ -557,12 +563,13 @@ namespace Models
 
 
       protected:
-        // The display mode of the global background image. Valid values:
+        // The display mode of the output video. Valid values:
         // 
-        // *   **0**: scales the background image proportionally to fit the view, with black bars displayed.
-        // *   **1** (default): crops the background image to fit the view.
+        // - **0**: Scale and display a black background.
+        // 
+        // - **1** (default): Clip.
         shared_ptr<string> renderMode_ {};
-        // The URL of the global background image. The URL can be up to 2,048 characters in length.
+        // The URL of the global background image. The maximum length is 2048 characters.
         shared_ptr<string> URL_ {};
       };
 
@@ -605,15 +612,15 @@ namespace Models
 
 
     protected:
-      // The global background image.
+      // The global background image for the mixed stream.
       shared_ptr<TranscodeParams::Background> background_ {};
       // The encoding parameters for the output stream.
       shared_ptr<TranscodeParams::EncodeParams> encodeParams_ {};
       // The video layout information.
       // 
-      // >  If video transcoding is required, you must specify the video layout information, including the x-coordinate and y-coordinate, the width and height, and the layer. For audio-only transcoding, leave the video layout information empty.
+      // > For video transcoding, you must specify the video layout information, including coordinates (X, Y), pane dimensions (Width, Height), and stacking order (ZOrder). For audio-only transcoding, do not specify video layout information.
       shared_ptr<TranscodeParams::Layout> layout_ {};
-      // The information about the users whose streams are subscribed to. If you leave this parameter empty, streams from all users are mixed.
+      // The information about the users to subscribe to for stream mixing. If you do not specify users, all users are included in the mixed stream.
       shared_ptr<vector<TranscodeParams::UserInfos>> userInfos_ {};
     };
 
@@ -664,18 +671,21 @@ namespace Models
 
 
     protected:
-      // The type of the video source. This parameter is valid only when you set StreamType to 2. Valid values:
+      // The type of video input stream in single-stream ingest mode. This parameter is valid only for video streams (StreamType=2). Valid values:
       // 
-      // *   **camera** (default)
-      // *   **shareScreen**
+      // - **camera** (default): Camera stream.
+      // 
+      // - **shareScreen**: Screen sharing stream.
       shared_ptr<string> sourceType_ {};
-      // The type of the stream that you want to relay. Valid values:
+      // The type of stream to ingest in single-stream ingest mode. Valid values:
       // 
-      // *   **0** (default): original stream
-      // *   **1**: only the audio track
-      // *   **2**: only the video track
+      // - **0** (default): Ingest the original stream.
+      // 
+      // - **1**: Ingest only the audio stream.
+      // 
+      // - **2**: Ingest only the video stream.
       shared_ptr<string> streamType_ {};
-      // The user ID. In the single-stream relay mode, you can relay only one stream in a request.
+      // The ID of the user whose stream is ingested. Only one stream can be ingested at a time.
       // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
@@ -760,16 +770,17 @@ namespace Models
 
 
       protected:
-        // Specifies whether to include the SEI in an IDR frame. Valid values:
+        // Specifies whether to ensure that SEI is carried when sending an IDR keyframe. Valid values:
         // 
-        // *   **0**: does not include the SEI.
-        // *   **1**: includes the SEI.
+        // - **0**: Does not ensure SEI is carried.
+        // 
+        // - **1**: Ensures SEI is carried.
         shared_ptr<string> followIdr_ {};
-        // The interval at which the SEI is sent. Valid values: [1000,5000]. Unit: milliseconds.
+        // The SEI sending interval. Unit: milliseconds. The value must be in the range of [1000, 5000].
         shared_ptr<string> interval_ {};
-        // The payload content of the SEI.
+        // The payload content of the pass-through SEI.
         shared_ptr<string> payloadContent_ {};
-        // The key of the payload content of the SEI. If you do not specify this parameter, the default value udd is used.
+        // The key corresponding to the payload content of the pass-through SEI. If not set, the default key is \\`udd\\`.
         shared_ptr<string> payloadContentKey_ {};
       };
 
@@ -811,12 +822,13 @@ namespace Models
 
 
       protected:
-        // Specifies whether to include the SEI in an Instantaneous Decoder Refresh (IDR) frame. Valid values:
+        // Specifies whether to ensure that SEI is carried when sending an IDR keyframe. Valid values:
         // 
-        // *   **0**: does not include the SEI.
-        // *   **1**: includes the SEI.
+        // - **0**: Does not ensure SEI is carried.
+        // 
+        // - **1**: Ensures SEI is carried.
         shared_ptr<string> followIdr_ {};
-        // The interval at which the SEI is sent. Valid values: [1000,5000]. Unit: milliseconds.
+        // The SEI sending interval. Unit: milliseconds. The value must be in the range of [1000, 5000].
         shared_ptr<string> interval_ {};
       };
 
@@ -848,11 +860,11 @@ namespace Models
 
 
     protected:
-      // The layout and volume SEI. If you leave this parameter empty, the default layout and volume SEI is used.
+      // The layout and volume SEI. The content of this parameter can be empty, which means the default layout and volume SEI is carried.
       shared_ptr<SeiParams::LayoutVolume> layoutVolume_ {};
-      // Specifies whether to pass through the SEI.
+      // The pass-through SEI.
       shared_ptr<SeiParams::PassThrough> passThrough_ {};
-      // The custom payload_type of the SEI. Valid values: 100 to 254. If you do not specify this parameter, the default value 5 is used.
+      // The custom payload_type of the SEI message. The value must be in the range of 100-254. If not set, the default payload_type is 5.
       shared_ptr<string> payloadType_ {};
     };
 
@@ -894,14 +906,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether to perform stream relay by using Alibaba Cloud CDN. Valid values:
+      // Specifies whether to ingest the stream to Alibaba Cloud CDN.
       // 
-      // *   false: performs stream relay by using a CDN service that is not Alibaba Cloud CDN.
-      // *   true: performs stream relay by using Alibaba Cloud CDN.
+      // - false: Ingest to a non-Alibaba Cloud CDN.
       // 
-      // >  The default value of this parameter is false.
+      // - true: Ingest to Alibaba Cloud CDN.
+      // 
+      // > The default value is false.
       shared_ptr<bool> isAliCdn_ {};
-      // The ingest URL. Only the RTMP format is supported. The URL can be up to 2,048 characters in length. For information about the generation rules of ingest URLs, see [Ingest and streaming URLs](https://help.aliyun.com/document_detail/199339.html).
+      // The live ingest URL. Only the RTMP protocol is supported. The maximum length is 2048 characters. For information about how to generate the URL, see [Ingest URLs and playback URLs](https://help.aliyun.com/document_detail/199339.html).
       shared_ptr<string> URL_ {};
     };
 
@@ -994,52 +1007,56 @@ namespace Models
 
 
   protected:
-    // The application ID. You can specify only one application ID. The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // The application ID. Only one ID is supported. It can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The channel ID. You can specify only one channel ID. The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // The channel ID. Only one ID is supported. It can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
     // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
-    // The timeout period of an idle connection. Unit: seconds. Valid values: [10,86400].
+    // The idle timeout period. Unit: seconds. The value must be in the range of [10, 86400].
     // 
-    // >  If the task is idle for a period of time longer than the duration specified by the MaxIdleTime parameter, the task is automatically stopped. If the parameter is not specified, the task is stopped after the channel is closed.
+    // > If you set this parameter, the task is automatically stopped when it has been idle for a period longer than MaxIdleTime. If you do not set this parameter, the task is stopped immediately after the channel is closed.
     shared_ptr<string> maxIdleTime_ {};
     // The stream mixing mode. Valid values:
     // 
-    // *   **0**: the single-stream relay mode. In this mode, the service only relays the original single stream, but does not transcode mixed streams. You do not need to set parameters for mixed-stream transcoding.
-    // *   **1** (default): the mixed-stream relay mode.
+    // - **0**: Single-stream ingest. The original single stream is ingested without stream mixing or transcoding. You do not need to configure stream mixing and transcoding parameters.
+    // 
+    // - **1** (default): Stream mixing and transcoding.
     // 
     // This parameter is required.
     shared_ptr<string> mixMode_ {};
-    // The multiple ingest URLs to relay. This parameter allows you to specify multiple ingest URLs.
+    // The parameters for ingesting to multiple URLs. You can specify multiple live ingest URLs.
     // 
-    // >  The StreamURL and MultiStreamURL parameters are mutually exclusive. You must specify one of the two parameters.
+    // > When you set the ingest URL for a task, you must configure either the StreamURL parameter or the MultiStreamURL parameter, but not both.
     shared_ptr<vector<StartLiveMPUTaskRequest::MultiStreamURL>> multiStreamURL_ {};
-    // The region in which the streams are mixed. Valid values:
+    // The region where the stream mixing service is located. Valid values:
     // 
-    // *   **CN-Shanghai**
-    // *   **AP-Singapore** (default)
-    // *   **EMAA-Saudi**
+    // - **CN-Shanghai<props="china">(default)**: Shanghai.
+    // 
+    // - **AP-Singapore<props="intl">(default)**: Singapore.
+    // 
+    // - **EMAA-Saudi**: Saudi Arabia.
     shared_ptr<string> region_ {};
-    // The supplemental enhancement information (SEI) parameters.
+    // The SEI configuration parameters.
     shared_ptr<StartLiveMPUTaskRequest::SeiParams> seiParams_ {};
-    // The single-stream relay parameters. These parameters are required if you set MixMode to 0. Leave these parameters empty in the mixed-stream relay mode.
+    // The parameters for single-stream ingest. This parameter is required when MixMode is set to 0. Do not set this parameter for stream mixing and transcoding.
     shared_ptr<StartLiveMPUTaskRequest::SingleSubParams> singleSubParams_ {};
-    // The ingest URL. You can specify only one ingest URL in the Real-Time Messaging Protocol (RTMP) format. The URL can be up to 2,048 characters in length. For information about the generation rules of ingest URLs, see [Ingest and streaming URLs](https://help.aliyun.com/document_detail/199339.html).
+    // The live ingest URL. Only the RTMP protocol is supported. Only one URL is supported. The maximum length is 2048 characters. For information about how to generate the URL, see [Ingest URLs and playback URLs](https://help.aliyun.com/document_detail/199339.html).
     // 
-    // > 
+    // > - For domain names with hotlink protection enabled, the ingest URL must include an access token.
     // 
-    // *   If the ingest URL is under a domain name for which hotlink protection is enabled, you must include an access token in the URL.
-    // *   You cannot use the same ingest URL in different tasks.
-    // *   You cannot use the same ingest URL within 10 seconds after a task is stopped.
+    // - Do not use the same StreamURL in different tasks at the same time.
+    // 
+    // - Do not use the same StreamURL within 10 seconds after a task stops.
     shared_ptr<string> streamURL_ {};
-    // The task ID. You can specify only one task ID. The ID can be up to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The ID must be unique.
+    // The task ID. Only one ID is supported. It can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 55 characters. This ID is the unique identifier for the bypass ingest task.
+    // If a task with the same ID still exists and has not been cleared when you start a new task, \\`InvalidParam\\` is returned.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The mixed-stream relay parameters. These parameters are required if you set MixMode to 1. Leave these parameters empty if you use the single-stream relay mode.
+    // The parameters for stream mixing and transcoding. This parameter is required when MixMode is set to 1. Do not set this parameter for single-stream ingest.
     shared_ptr<StartLiveMPUTaskRequest::TranscodeParams> transcodeParams_ {};
   };
 

@@ -98,18 +98,19 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The ingest domain.
     shared_ptr<string> domainName_ {};
-    // The HTTPDNS API that is used to obtain the destination URLs.
+    // The URL of the HTTPDNS service used to resolve the addresses of the target domains.
     shared_ptr<string> httpDns_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the ingested stream.
+    // The name of the ingested live stream.
     shared_ptr<string> streamName_ {};
-    // The destination domain names to which the ingested stream is relayed. Multiple domain names are separated by commas (,).
+    // A comma-separated list of the target domains where the stream is forwarded.
     shared_ptr<string> targetDomainList_ {};
-    // Indicates whether stream ingest parameters are passed through. Valid values:
+    // Indicates whether the query parameters from the original ingest URL are passed through to the target URL.
     // 
-    // *   **yes**: Stream ingest parameters are passed through.
-    // *   **no**: Stream ingest parameters are not passed through.
+    // - **yes**: The parameters are passed through.
+    // 
+    // - **no**: The parameters are not passed through.
     shared_ptr<string> transferArgs_ {};
   };
 

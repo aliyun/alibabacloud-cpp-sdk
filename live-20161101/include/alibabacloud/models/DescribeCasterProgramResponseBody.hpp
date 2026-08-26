@@ -271,16 +271,17 @@ namespace Models
     // The ID of the production studio.
     shared_ptr<string> casterId_ {};
     shared_ptr<DescribeCasterProgramResponseBody::Episodes> episodes_ {};
-    // Indicates whether carousel playback is enabled.
+    // Indicates whether the program list is enabled.
     // 
-    // *   **0**: Carousel playback is disabled.
-    // *   **1**: Carousel playback is enabled.
+    // - **0**: disabled
+    // 
+    // - **1**: enabled
     shared_ptr<int32_t> programEffect_ {};
-    // The name of the episode list.
+    // The name of the program list.
     shared_ptr<string> programName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> total_ {};
   };
 

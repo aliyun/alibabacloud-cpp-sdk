@@ -71,16 +71,11 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The grouping method.
-    // 
-    // *   Domain name (default)
-    // *   Template
-    // 
-    // Valid values:
-    // 
-    // *   domain
-    // *   template
+    // The grouping type. Valid values:
+    // * domain (default)
+    // * template.
     shared_ptr<string> splitType_ {};
   };
 

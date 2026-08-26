@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The application ID. You can view your application IDs by navigating to **ApsaraVideo Live > Live+ > ApsaraVideo Real-time Communication > Application Management**.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The current page number, starting from 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The page size. Valid values: 10 to 100. Default value: 50.
     shared_ptr<int32_t> pageSize_ {};
   };
 

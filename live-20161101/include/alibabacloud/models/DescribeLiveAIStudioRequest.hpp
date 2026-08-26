@@ -85,12 +85,13 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The current page number. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Valid values: 1 to 50.
+    // The number of entries to return on each page. Default value: 10. Valid values: 1 to 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the virtual studio template that you want to query. This parameter is optional.
+    // The ID of the template to filter. This parameter is optional.
     shared_ptr<string> studioId_ {};
     // The name of the virtual studio template.
     shared_ptr<string> studioName_ {};

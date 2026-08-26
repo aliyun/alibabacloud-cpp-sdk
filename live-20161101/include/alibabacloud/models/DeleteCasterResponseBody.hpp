@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. You can use the ID as a request parameter in the API operation that is used to add input sources, layouts, components, or an episode list to the production studio or query the layouts of the production studio.
+    // The ID of the production studio. This ID is used as a request parameter to add video resources, layouts, components, and program lists, or to query the layout list.
     shared_ptr<string> casterId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

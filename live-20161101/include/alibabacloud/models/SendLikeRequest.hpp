@@ -75,25 +75,25 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // Interactive Messages application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The mode in which system messages are broadcasted. Valid values:
+    // System message diffusion type. Valid values:
     // 
-    // *   0: specifies that system messages are not broadcasted. This is the default value.
-    // *   1: specifies that system messages are broadcasted to specified users.
-    // *   2: specifies that system messages are broadcasted to the message group.
+    // - 0: No diffusion.
+    // - 1: Diffusion to specified users.
+    // - 2: Diffusion to a group.
     shared_ptr<int32_t> broadCastType_ {};
-    // The number of likes.
+    // Number of likes.
     // 
     // This parameter is required.
     shared_ptr<string> count_ {};
-    // The ID of the message group.
+    // Message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the user who performs the operation.
+    // Operator user ID.
     shared_ptr<string> operatorUserId_ {};
   };
 

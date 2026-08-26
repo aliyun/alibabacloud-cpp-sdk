@@ -123,11 +123,8 @@ namespace Models
 
 
         protected:
-          // The bandwidth. Unit: bit/s.
           shared_ptr<float> downFlow_ {};
-          // The number of online users.
           shared_ptr<float> online_ {};
-          // The bitrate.
           shared_ptr<string> rate_ {};
         };
 
@@ -150,9 +147,7 @@ namespace Models
 
 
       protected:
-        // The statistics on the HLS stream.
         shared_ptr<vector<StreamInfos::Infos>> infos_ {};
-        // The name of the stream.
         shared_ptr<string> streamName_ {};
       };
 
@@ -175,9 +170,7 @@ namespace Models
 
 
     protected:
-      // The domain name.
       shared_ptr<string> domainName_ {};
-      // Details about the statistics on each HLS stream under the domain name.
       shared_ptr<vector<UsageData::StreamInfos>> streamInfos_ {};
     };
 
@@ -207,11 +200,8 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The timestamp for which the data was queried.
     shared_ptr<string> time_ {};
-    // The usage data.
     shared_ptr<vector<DescribeHlsLiveStreamRealTimeBpsDataResponseBody::UsageData>> usageData_ {};
   };
 

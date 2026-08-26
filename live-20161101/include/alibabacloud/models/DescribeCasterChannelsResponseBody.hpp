@@ -168,7 +168,7 @@ namespace Models
     shared_ptr<DescribeCasterChannelsResponseBody::Channels> channels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of channels.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

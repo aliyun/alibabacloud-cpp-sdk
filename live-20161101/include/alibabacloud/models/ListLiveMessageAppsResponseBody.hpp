@@ -138,27 +138,27 @@ namespace Models
 
 
     protected:
-      // The ID of the interactive messaging application queried.
+      // The ID of the interactive messaging application.
       shared_ptr<string> appId_ {};
-      // The AppKey of the interactive messaging application. It is used to authorize operations related to the application ID.
+      // The AppKey of the interactive messaging application. This value is required for authentication of related operations on this application.
       shared_ptr<string> appKey_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The signature of the interactive messaging application. It is required by the interactive messaging SDK.
+      // The signature of the interactive messaging application. This value is required by the interactive messaging SDK.
       shared_ptr<string> appSign_ {};
-      // The time when the application was created. The value is a UNIX timestamp. Unit: seconds.
+      // The creation time, represented as a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> createTime_ {};
-      // The live center.
+      // The data center.
       shared_ptr<string> dataCenter_ {};
       // Indicates whether the interactive messaging application is disabled.
       shared_ptr<string> disable_ {};
-      // The time when the application was last modified. The value is a UNIX timestamp. Unit: seconds.
+      // The modification time, represented as a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> modifyTime_ {};
-      // The retention period of group messages in the application. Valid values:
+      // The storage duration tier for group messages within the application. Valid values:
       // 
-      // *   0 (default): 30 days
-      // *   1: 90 days
-      // *   2: 180 days
+      // - 0: Default value. Messages are stored for 30 days.
+      // - 1: Messages are stored for 90 days.
+      // - 2: Messages are stored for 180 days.
       shared_ptr<int32_t> msgLifeCycle_ {};
     };
 
@@ -195,13 +195,13 @@ namespace Models
 
 
   protected:
-    // The interactive messaging applications.
+    // The list of interactive messaging applications.
     shared_ptr<vector<ListLiveMessageAppsResponseBody::AppList>> appList_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasMore_ {};
-    // The starting page number for the next query. This parameter is returned only if the value of HasMore is true.
+    // The starting position of the next page. This parameter is returned only when HasMore is set to true.
     shared_ptr<int64_t> nextPageToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

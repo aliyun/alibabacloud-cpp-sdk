@@ -266,7 +266,7 @@ namespace Models
     shared_ptr<DescribeCasterStreamUrlResponseBody::CasterStreams> casterStreams_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of streams that were returned.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

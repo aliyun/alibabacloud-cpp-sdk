@@ -96,24 +96,28 @@ namespace Models
   protected:
     // The ID of the monitoring session.
     // 
-    // >  You can obtain the monitoring session ID from the response parameter MonitorId of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation. If you leave this parameter empty, the data of all monitoring sessions is returned.
+    // > Obtain the MonitorId value from the response parameters of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation. If you leave this parameter empty, the data of all monitoring sessions is returned.
     shared_ptr<string> monitorId_ {};
-    // The sorting order of monitoring sessions. Valid values:
+    // The order in which to sort the monitoring sessions. Valid values:
     // 
-    // *   0: Monitoring sessions are sorted by status.
-    // *   1: Monitoring sessions are sorted by start time in descending order.
-    // *   2: Monitoring sessions are sorted by start time in ascending order.
+    // - 0: Default. The monitoring sessions are sorted by monitoring status in descending order (active sessions are listed first). The start time is not used for sorting.
+    // 
+    // - 1: The monitoring sessions are sorted by start time in descending order.
+    // 
+    // - 2: The monitoring sessions are sorted by start time in ascending order.
     shared_ptr<int32_t> orderRule_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of monitoring sessions to return per page.
+    // The number of monitoring sessions to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The status of the monitoring session. Valid values:
     // 
-    // *   1: Monitoring
-    // *   0: Unmonitored
+    // - 1: The session is being monitored.
+    // 
+    // - 0: The session is not being monitored.
     shared_ptr<int32_t> status_ {};
   };
 

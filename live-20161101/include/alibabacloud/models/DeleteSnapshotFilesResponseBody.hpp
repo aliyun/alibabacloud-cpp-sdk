@@ -149,7 +149,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DeleteSnapshotFilesResponseBody::SnapshotDeleteInfoList> snapshotDeleteInfoList_ {};
-    // The number of successful screenshot deletions.
+    // The number of snapshots that were deleted.
     shared_ptr<int32_t> successCount_ {};
   };
 

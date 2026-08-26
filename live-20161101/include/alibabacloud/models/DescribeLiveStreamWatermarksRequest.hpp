@@ -84,15 +84,16 @@ namespace Models
 
 
   protected:
-    // The name of the main streaming domain.
+    // The main streaming domain.
     shared_ptr<string> domain_ {};
-    // The keyword used in the query. You can specify the template ID or name. Fuzzy search is supported for the name.
+    // The keyword for the search. You can specify a template ID or name. Fuzzy search is supported for names.
     shared_ptr<string> keyWord_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of templates per page. Default value: 100.
+    // The number of templates to return on each page. The default value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

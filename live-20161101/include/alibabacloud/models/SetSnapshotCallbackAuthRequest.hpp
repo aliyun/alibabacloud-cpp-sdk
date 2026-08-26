@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
-    // The custom key that is used for callback authentication.
+    // The authentication key.
     // 
     // This parameter is required.
     shared_ptr<string> callbackAuthKey_ {};
     // Specifies whether to enable callback authentication. Valid values:
     // 
-    // *   **yes**: enables callback authentication.
-    // *   **no**: disables callback authentication.
+    // - **yes**: enables
+    // 
+    // - **no**: disables
     // 
     // This parameter is required.
     shared_ptr<string> callbackReqAuth_ {};
@@ -91,6 +92,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

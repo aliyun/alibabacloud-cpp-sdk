@@ -155,7 +155,9 @@ namespace Models
 
 
   protected:
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListLiveTagResourcesResponseBody::TagResources> tagResources_ {};
   };

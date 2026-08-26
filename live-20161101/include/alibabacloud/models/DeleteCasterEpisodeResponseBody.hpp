@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. You can specify the ID as a parameter in the request to modify the episode in the production studio.
+    // The production studio ID. You can use this ID as a request parameter to modify the episode.
     shared_ptr<string> casterId_ {};
-    // The ID of the episode. You can specify the ID as a parameter in the request to modify the episode in the production studio.
+    // The episode ID. You can use this ID as a request parameter to modify the episode.
     shared_ptr<string> episodeId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

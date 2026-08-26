@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -179,50 +179,74 @@ namespace Models
   protected:
     // The name of the production studio.
     shared_ptr<string> casterName_ {};
-    // The preset resolution of the production studio. If the subscription billing method is used, this parameter supports the following valid values:
+    // The preset resolution of the production studio. This parameter is available only for the subscription billing method. Valid values:
     // 
-    // *   **lp_ld**: low definition
-    // *   **lp_sd**: standard definition
-    // *   **lp_hd**: high definition
-    // *   **lp_ud**: ultra high definition
-    // *   **lp_ld_v**: low definition (portrait mode)
-    // *   **lp_sd_v**: standard definition (portrait mode)
-    // *   **lp_hd_v**: high definition (portrait mode)
-    // *   **lp_ud_v**: ultra high definition (portrait mode)
+    // - **lp_ld**: low definition.
     // 
-    // >  If the pay-as-you-go billing method is used, you must call the [SetCasterConfig](https://help.aliyun.com/document_detail/60271.html) operation to specify the resolution.
+    // - **lp_sd**: standard definition.
+    // 
+    // - **lp_hd**: high definition.
+    // 
+    // - **lp_ud**: ultra-high definition.
+    // 
+    // - **lp_ld_v**: vertical low definition.
+    // 
+    // - **lp_sd_v**: vertical standard definition.
+    // 
+    // - **lp_hd_v**: vertical high definition.
+    // 
+    // - **lp_ud_v**: vertical ultra-high definition.
+    // 
+    // > If you use the pay-as-you-go billing method, call the [SetCasterConfig](https://help.aliyun.com/document_detail/60271.html) operation to set the resolution.
     shared_ptr<string> casterTemplate_ {};
-    // The billing method. Only the pay-as-you-go billing method is supported.**** Valid values:
+    // The billing method. Only **PostPaid** is supported. Valid values:
     // 
-    // *   **PrePaid**: subscription. This billing method is not yet supported.
-    // *   **PostPaid**: pay-as-you-go
+    // - **PrePaid**: subscription (not supported).
+    // 
+    // - **PostPaid**: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can specify a custom value for this parameter, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Generate a token on your client and ensure that the token is unique among different requests. The token can be up to 64 ASCII characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The expiration time of the production studio. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The expiration time of the production studio. The time is in the \\`yyyy-MM-ddTHH:mm:ssZ\\` format and is displayed in UTC.
     // 
-    // >  This parameter is valid only if you set the **ChargeType** parameter to **PrePaid**.
+    // > This parameter is available only if you set **ChargeType** to **PrePaid**.
     shared_ptr<string> expireTime_ {};
     // The type of the production studio. Valid values:
     // 
-    // *   **1**: general mode
-    // *   **6**: playlist mode (for carousel playback)
+    // <props="china">
+    // 
+    // - **1**: Standard.
+    // 
+    // - **3**: Lightweight Carousel.
+    // 
+    // - **4**: Virtual Studio.
+    // 
+    // - **6**: Carousel (New Playlist).
+    // 
+    // 
+    // 
+    // <props="intl">
+    // 
+    // - **1**: Standard.
+    // 
+    // - **6**: Carousel (New Playlist).
     // 
     // This parameter is required.
     shared_ptr<int32_t> normType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The time when the production studio was purchased. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The purchase time of the production studio. The time is in the \\`yyyy-MM-ddTHH:mm:ssZ\\` format and is displayed in UTC.
     // 
-    // >  This parameter is valid only if you set the **ChargeType** parameter to **PrePaid**.
+    // > This parameter is available only if you set **ChargeType** to **PrePaid**.
     shared_ptr<string> purchaseTime_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/2381067.html).
+    // The ID of the resource group. For more information, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<vector<CreateCasterRequest::Tag>> tag_ {};

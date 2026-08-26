@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the message.
+      // Message ID.
       shared_ptr<string> messageId_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The data returned.
+    // Return result.
     shared_ptr<SendMessageToGroupResponseBody::Result> result_ {};
   };
 

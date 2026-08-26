@@ -59,19 +59,19 @@ namespace Models
   protected:
     // The application ID.
     // 
-    // >  The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // > The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     // The custom SEI.
     // 
-    // >  The value is a JSON string that can be up to 4,096 characters in length.
+    // > The value is a JSON string that can be up to 4,096 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> customSei_ {};
     // The task ID.
     // 
-    // >  The ID can be up to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // > The ID can be up to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

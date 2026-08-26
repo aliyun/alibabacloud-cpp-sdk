@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The application ID. The ID is used in subsequent operations, such as joining a group.
+    // The application ID, which is used for subsequent operations such as joining groups.
     shared_ptr<string> appId_ {};
-    // The AppKey for authentication of this application.
+    // The AppKey, which is used to generate authentication for various operations related to the AppId.
     shared_ptr<string> appKey_ {};
-    // The application signature. The signature is required when you use the interactive messaging SDK.
+    // The application signature. The interactive messaging service SDK requires this information.
     shared_ptr<string> appSign_ {};
-    // The data center in which the interactive messaging application was created.
+    // The data center.
     shared_ptr<string> dataCenter_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

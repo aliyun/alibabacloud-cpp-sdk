@@ -75,6 +75,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pullDomain_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -70,11 +70,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The list of features. You must specify the ConfigId field when you want to modify the configurations. For more information, see **Features specified by the Functions parameter**.
+    // The list of features. Specify ConfigId only when you modify a configuration. For more information, see **Functions format description**.
     // 
     // This parameter is required.
     shared_ptr<string> functions_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -80,7 +80,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries to return on each page. Valid values: 1 to 3000. Default value: 2000.
     shared_ptr<int32_t> pageSize_ {};

@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The channel ID to which the transcoded stream is relayed.
         shared_ptr<string> channelId_ {};
+        // The transcoding template name.
         shared_ptr<string> transcodeTemplate_ {};
+        // The user ID in the channel to which the transcoded stream is relayed.
         shared_ptr<string> userId_ {};
+        // The user token required to relay the transcoded stream to the channel.
         shared_ptr<string> userToken_ {};
       };
 
@@ -191,8 +195,11 @@ namespace Models
 
 
         protected:
+          // The video input stream type of the subscription.
           shared_ptr<int64_t> sourceType_ {};
+          // The media type of the subscribed user.
           shared_ptr<int64_t> streamType_ {};
+          // The user ID of the subscribed user.
           shared_ptr<string> userId_ {};
         };
 
@@ -207,6 +214,7 @@ namespace Models
 
 
       protected:
+        // The single-stream subscription input parameters.
         shared_ptr<InputParam::SingleSubUserParam> singleSubUserParam_ {};
       };
 
@@ -267,12 +275,24 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The channel ID.
       shared_ptr<string> channelId_ {};
+      // The subscription input parameters.
       shared_ptr<TaskInfo::InputParam> inputParam_ {};
+      // The idle timeout period. If the task remains idle for longer than the MaxIdleTime value, the task is automatically stopped. Unit: seconds. Valid values: 10 to 14400 (maximum of 4 hours). Default value: 300.
       shared_ptr<int64_t> maxIdleTime_ {};
+      // The transcoding output parameters.
       shared_ptr<vector<TaskInfo::OutputParams>> outputParams_ {};
+      // The status of the cloud transcoding task. Valid values:
+      // 
+      // - STARTING
+      // - RUNNING
+      // - RECOVERING
+      // - STOPPED.
       shared_ptr<string> status_ {};
+      // The cloud transcoding task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -295,7 +315,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the cloud transcoding task.
     shared_ptr<DescribeRtcCloudTranscodeResponseBody::TaskInfo> taskInfo_ {};
   };
 

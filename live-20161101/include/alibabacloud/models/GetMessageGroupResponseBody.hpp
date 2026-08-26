@@ -107,20 +107,20 @@ namespace Models
 
 
     protected:
-      // The time when the message group was created. The time is displayed in UTC.
+      // UTC timestamp when the message group was created.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the creator.
+      // Creator ID.
       shared_ptr<string> creatorId_ {};
-      // The extended field.
+      // Extension field.
       Darabonba::Json extension_ {};
-      // The ID of the message group.
+      // Message group ID.
       shared_ptr<string> groupId_ {};
-      // Indicates whether the message group is muted.
+      // Indicates whether all members in this message group are muted.
       // 
-      // *   true: The message group is muted.
-      // *   false: The message group is not muted.
+      // - true: All members are muted.
+      // - false: All members are not muted.
       shared_ptr<bool> isMuteAll_ {};
-      // The status of the message group. The default value is **1**, which indicates that the message group is normal.
+      // Message group status. The default value is **1**, which indicates that the message group status is normal.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<GetMessageGroupResponseBody::Result> result_ {};
   };
 

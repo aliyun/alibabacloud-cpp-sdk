@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streaming domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

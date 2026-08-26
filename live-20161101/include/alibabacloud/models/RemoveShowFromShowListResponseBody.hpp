@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the episode.
+    // The show ID.
     shared_ptr<string> showId_ {};
-    // The IDs of episodes that failed to be removed and the relevant failure information.
+    // A list of IDs of the shows that failed to be deleted and the failure information.
     shared_ptr<string> failedList_ {};
-    // The IDs of episodes that were removed.
+    // The IDs of the shows that were successfully deleted.
     shared_ptr<string> successfulShowIds_ {};
   };
 

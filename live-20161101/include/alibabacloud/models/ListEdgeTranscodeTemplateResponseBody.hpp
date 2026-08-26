@@ -209,7 +209,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListEdgeTranscodeTemplateResponseBody::TemplateList> templateList_ {};
-    // The total number of templates returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

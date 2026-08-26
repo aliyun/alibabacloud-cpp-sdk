@@ -13,27 +13,33 @@ namespace Models
   class UpdateLivePullToPushShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateLivePullToPushShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthKey, authKey_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(FileIndex, fileIndex_);
+      DARABONBA_PTR_TO_JSON(NotifyItemSwitch, notifyItemSwitch_);
       DARABONBA_PTR_TO_JSON(Offset, offset_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RepeatNumber, repeatNumber_);
+      DARABONBA_PTR_TO_JSON(ReqAuth, reqAuth_);
       DARABONBA_PTR_TO_JSON(SourceUrls, sourceUrlsShrink_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLivePullToPushShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthKey, authKey_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(FileIndex, fileIndex_);
+      DARABONBA_PTR_FROM_JSON(NotifyItemSwitch, notifyItemSwitch_);
       DARABONBA_PTR_FROM_JSON(Offset, offset_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RepeatNumber, repeatNumber_);
+      DARABONBA_PTR_FROM_JSON(ReqAuth, reqAuth_);
       DARABONBA_PTR_FROM_JSON(SourceUrls, sourceUrlsShrink_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -49,9 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->callbackUrl_ == nullptr
-        && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->offset_ == nullptr && this->ownerId_ == nullptr && this->region_ == nullptr
-        && this->regionId_ == nullptr && this->repeatNumber_ == nullptr && this->sourceUrlsShrink_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && this->callbackUrl_ == nullptr && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->notifyItemSwitch_ == nullptr && this->offset_ == nullptr
+        && this->ownerId_ == nullptr && this->region_ == nullptr && this->regionId_ == nullptr && this->repeatNumber_ == nullptr && this->reqAuth_ == nullptr
+        && this->sourceUrlsShrink_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr; };
+    // authKey Field Functions 
+    bool hasAuthKey() const { return this->authKey_ != nullptr;};
+    void deleteAuthKey() { this->authKey_ = nullptr;};
+    inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+    inline UpdateLivePullToPushShrinkRequest& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
+
+
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
@@ -71,6 +85,13 @@ namespace Models
     void deleteFileIndex() { this->fileIndex_ = nullptr;};
     inline int32_t getFileIndex() const { DARABONBA_PTR_GET_DEFAULT(fileIndex_, 0) };
     inline UpdateLivePullToPushShrinkRequest& setFileIndex(int32_t fileIndex) { DARABONBA_PTR_SET_VALUE(fileIndex_, fileIndex) };
+
+
+    // notifyItemSwitch Field Functions 
+    bool hasNotifyItemSwitch() const { return this->notifyItemSwitch_ != nullptr;};
+    void deleteNotifyItemSwitch() { this->notifyItemSwitch_ = nullptr;};
+    inline string getNotifyItemSwitch() const { DARABONBA_PTR_GET_DEFAULT(notifyItemSwitch_, "") };
+    inline UpdateLivePullToPushShrinkRequest& setNotifyItemSwitch(string notifyItemSwitch) { DARABONBA_PTR_SET_VALUE(notifyItemSwitch_, notifyItemSwitch) };
 
 
     // offset Field Functions 
@@ -108,6 +129,13 @@ namespace Models
     inline UpdateLivePullToPushShrinkRequest& setRepeatNumber(int32_t repeatNumber) { DARABONBA_PTR_SET_VALUE(repeatNumber_, repeatNumber) };
 
 
+    // reqAuth Field Functions 
+    bool hasReqAuth() const { return this->reqAuth_ != nullptr;};
+    void deleteReqAuth() { this->reqAuth_ = nullptr;};
+    inline string getReqAuth() const { DARABONBA_PTR_GET_DEFAULT(reqAuth_, "") };
+    inline UpdateLivePullToPushShrinkRequest& setReqAuth(string reqAuth) { DARABONBA_PTR_SET_VALUE(reqAuth_, reqAuth) };
+
+
     // sourceUrlsShrink Field Functions 
     bool hasSourceUrlsShrink() const { return this->sourceUrlsShrink_ != nullptr;};
     void deleteSourceUrlsShrink() { this->sourceUrlsShrink_ = nullptr;};
@@ -130,98 +158,64 @@ namespace Models
 
 
   protected:
-    // The callback URL. By default, this parameter is left empty.
-    // 
-    // > 
-    // 
-    // *   The URL is used to receive callbacks related to the task.
-    // 
-    // *   The URL can be up to 2,000 characters in length.
-    // 
-    // *   If you do not specify this parameter, no callbacks are returned for events related to the task.
-    // 
-    // *   The update takes effect for subsequent events that occur.
+    shared_ptr<string> authKey_ {};
+    // The callback URL. Default value: empty.
+    // > - The URL that receives task-related callbacks.
+    // > - Maximum length: 2000 characters.
+    // > - If this parameter is not specified, task events are not sent as callbacks.
+    // > - The update takes effect only when the next event is triggered.
     shared_ptr<string> callbackUrl_ {};
     // The end time of the task.
-    // 
-    // > 
-    // 
-    // *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-    // 
-    // *   The end time must be later than the start time.
-    // 
-    // *   The end time must be later than the current time.
-    // 
-    // *   If the task has ended, the update does not take effect.
+    // > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // > - EndTime must be later than StartTime.
+    // > - EndTime must be later than the current time.
+    // > - If the task has ended, the update does not take effect.
     shared_ptr<string> endTime_ {};
-    // The file index. Default value: 0.
-    // 
-    // >  You can modify this parameter only if the task is stopped. The update takes effect after you restart the task.
+    // The video index. Default value: 0.
+    // > The update must be performed when the task is stopped and takes effect after the task is restarted.
     shared_ptr<int32_t> fileIndex_ {};
-    // The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
-    // 
-    // > 
-    // 
-    // *   This parameter indicates an offset from the first frame.
-    // 
-    // *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-    // 
-    // *   The update takes effect only for the first video in a video list.
-    // 
-    // *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
+    shared_ptr<string> notifyItemSwitch_ {};
+    // The start offset of the video file, in seconds. Valid values: greater than 0.
+    // > - Specifies the position to start reading from, relative to the first frame.
+    // > - This parameter applies only to video-on-demand or third-party video streams.
+    // > - This parameter takes effect only when the first video in the playlist is played.
+    // > - The update must be performed when the task is stopped and takes effect after the task is restarted.
     shared_ptr<int32_t> offset_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region where the task is started. Valid values:
     // 
-    // *   ap-southeast-1: Singapore
-    // *   ap-southeast-5: Indonesia (Jakarta)
-    // *   cn-beijing: China (Beijing)
-    // *   cn-shanghai: China (Shanghai)
+    // - ap-southeast-1 (Singapore)
+    // - ap-southeast-5 (Indonesia)
+    // - cn-beijing (Beijing)
+    // - cn-shanghai (Shanghai)
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The number of playbacks after the first playback is complete. Valid values:
+    // The number of times playback repeats after the playlist finishes. Valid values:
     // 
-    // *   0 (default): specifies that the video list is played only once.
-    // *   \\-1: specifies that the video list is played in loop mode.
-    // *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
+    // - 0 (default): No repeat playback.
+    // - -1: Loops indefinitely.
+    // - Other positive integers: The number of times playback repeats after the playlist finishes.
     // 
-    // > 
-    // 
-    // *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-    // 
-    // *   The update can take effect immediately.
+    // > - This parameter applies only to video-on-demand or third-party video streams.
+    // > - The update takes effect immediately.
     shared_ptr<int32_t> repeatNumber_ {};
-    // The source URLs.
+    shared_ptr<string> reqAuth_ {};
+    // The list of source stream URLs.
     // 
-    // > 
-    // 
-    // *   If SourceType is set to live, you can specify only one streaming URL.
-    // 
-    // *   If SourceType is set to vod or url, you can specify up to 30 IDs or URLs.
-    // 
-    // *   If SourceType is set to live, the supported protocols for URLs are Real-Time Messaging Protocol (RTMP), Real-Time Streaming Protocol (RTSP), Secure Reliable Transport Protocol (SRT), and HTTP-FLV.
-    // 
-    // *   If SourceType is set to vod, specify the IDs of media assets from ApsaraVideo VOD.
-    // 
-    // *   If SourceType is set to url, the supported protocols for URLs are MP4 and HTTP-FLV.
-    // 
-    // *   If the source is a live stream, the update takes effect immediately. If the source is a list of video resources from ApsaraVideo VOD or a third party, the update does not take effect until the playback of the current video ends. After the update takes effect, the video list starts to play from the beginning.
-    // 
-    // *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
+    // > - For the live type, only one complete live streaming URL is supported.
+    // > - For the vod and url types, up to 30 URLs can be specified.
+    // > - The live type supports RTMP, SRT, and HTTP-FLV protocols.
+    // > - For the vod type, specify ApsaraVideo VOD media asset IDs.
+    // > - The url type supports MP4 and HTTP-FLV protocols.
+    // > - For live source streams, the update takes effect immediately. For video file source streams, the update takes effect after the currently playing video ends, and playback restarts from the beginning of the updated video list.
+    // > - The update must be performed when the task is stopped and takes effect after the task is restarted.
     shared_ptr<string> sourceUrlsShrink_ {};
     // The start time of the task.
-    // 
-    // > 
-    // 
-    // *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-    // 
-    // *   If the task has already started, the update does not take effect.
+    // > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // > - If the task has already started running, the update does not take effect.
     shared_ptr<string> startTime_ {};
     // The task ID.
     // 

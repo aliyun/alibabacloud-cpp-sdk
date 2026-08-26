@@ -84,17 +84,18 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name for the live stream that you want to relay. Otherwise, the configuration does not take effect. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream application. The AppName you enter must match the AppName of the live stream to be relayed for the configuration to take effect. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     shared_ptr<string> appName_ {};
     // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The third-party URL to which the live stream is relayed.
+    // The third-party live streaming URL to which the stream is relayed.
     shared_ptr<string> dstUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     shared_ptr<string> streamName_ {};
   };
 

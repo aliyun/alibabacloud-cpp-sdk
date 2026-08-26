@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. You can specify the ID as a request parameter in the API operation that is used to add, delete, or modify episodes in the production studio.
+    // The ID of the production studio. You can use this ID as a request parameter when you add, delete, or modify episodes for the production studio.
     shared_ptr<string> casterId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

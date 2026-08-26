@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the application to which the ingest stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -111,28 +111,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Specifies whether the live stream is ingested by a streamer or played by a viewer. Set the value to **publisher**.
+    // Specifies whether to disable stream ingest or streaming. Currently, only disabling stream ingest is supported: **publisher**.
     // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};
-    // Specifies whether to only interrupt the live stream without adding the ingest URL of the live stream to the blacklist. Valid values:
+    // Specifies whether to only interrupt the stream without adding it to the blacklist. Valid values:
     // 
-    // *   **yes**: interrupts the live stream but does not add the ingest URL of the live stream to the blacklist. This value is available only when the live stream is ingested or played in the upstream.
-    // *   **no**: disables the live stream and adds the ingest URL of the live stream to the blacklist.
+    // - **yes**: Only interrupts the stream without adding it to the blacklist (supports upstream ingest or upstream streaming).
     // 
-    // >  If you do not specify this parameter, the default value no is used.
+    // - **no**: Interrupts the stream and adds it to the blacklist.
+    // 
+    // > Default value: no.
     shared_ptr<string> oneshot_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The time when the live stream is resumed. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The time to resume the stream. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
-    // > 
-    // 
-    // *   If you set the **Oneshot** parameter to **no** and do not specify this parameter, the live stream is disabled for six months by default.
-    // 
-    // *   If you specify this parameter, the live stream is resumed at the specified point in time.
+    // > - If the **Oneshot** parameter is set to **no** and ResumeTime is not specified, the live stream is disabled for 6 months by default.
+    // > - If a value is specified, the restriction is lifted at the time specified by ResumeTime and the live stream is resumed.
     shared_ptr<string> resumeTime_ {};
-    // The name of the ingested stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the ingest stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

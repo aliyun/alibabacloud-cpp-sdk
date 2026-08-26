@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // The end time must be later than the start time. The date format follows the ISO 8601 standard. Use UTC time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The integrity.
+    // The integrity value for verification.
     // 
     // This parameter is required.
     shared_ptr<float> integrity_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // The start time to query data. The date format follows the ISO 8601 standard. Use UTC time.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

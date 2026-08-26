@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the task that is returned when you start an RTC cloud recording.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

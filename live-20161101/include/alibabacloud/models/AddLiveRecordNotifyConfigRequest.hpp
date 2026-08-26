@@ -103,26 +103,35 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streamer streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Specifies whether to enable callbacks for recording status. Valid values:
+    // Specifies whether recording task status callbacks are required. Valid values:
     // 
-    // *   true: enables callbacks for recording status. If you set this parameter to **true**, an example of recording status callback is returned.
-    // *   false (default): disables callbacks for recording status.
+    // - true: Required. If NeedStatusNotify is set to **true**, the response includes a recording status callback example.
+    // - false (default): Not required.
     shared_ptr<bool> needStatusNotify_ {};
+    // The callback authentication key. The key must be 16 to 32 characters in length and can contain only letters and digits.
+    // > This parameter is required when the NotifyReqAuth parameter is set to true.
     shared_ptr<string> notifyAuthKey_ {};
-    shared_ptr<bool> notifyReqAuth_ {};
-    // The callback URL that is used to receive notifications about recording events and status.
+    // Specifies whether to enable callback authentication. Valid values:
     // 
-    // >  The URL must start with `http://` or `https://`. For more information, see [Callbacks for live stream recording](https://help.aliyun.com/document_detail/55016.html).
+    // - true: Enabled.
+    // 
+    // - false (default): Disabled.
+    // 
+    // > When this parameter is set to true, the NotifyAuthKey parameter is required.
+    shared_ptr<bool> notifyReqAuth_ {};
+    // The callback URL for recording events and status callbacks.
+    // 
+    // > The URL must start with `http://` or `https://`. For more information, see [Recording event callback](https://help.aliyun.com/document_detail/55016.html).
     // 
     // This parameter is required.
     shared_ptr<string> notifyUrl_ {};
-    // The callback URL for on-demand recordings.
+    // The callback URL for on-demand recording.
     // 
-    // >  The URL must start with `http://` or `https://`. For more information, see [On-demand recording](https://help.aliyun.com/document_detail/85910.html).
+    // > The URL must start with `http://` or `https://`. For more information, see [On-demand recording callback](https://help.aliyun.com/document_detail/85910.html).
     shared_ptr<string> onDemandUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};

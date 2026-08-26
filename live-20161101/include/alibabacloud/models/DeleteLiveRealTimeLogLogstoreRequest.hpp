@@ -75,19 +75,20 @@ namespace Models
 
 
   protected:
-    // The name of the Logstore to which log entries are delivered.
+    // The name of the SLS Logstore for real-time delivery.
     // 
     // This parameter is required.
     shared_ptr<string> logstore_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the Log Service project that is used for real-time log delivery.
+    // The name of the Simple Log Service (SLS) project for real-time delivery.
     // 
     // This parameter is required.
     shared_ptr<string> project_ {};
-    // The ID of the region where the Log Service project is deployed.
+    // The region of the SLS project for real-time delivery.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

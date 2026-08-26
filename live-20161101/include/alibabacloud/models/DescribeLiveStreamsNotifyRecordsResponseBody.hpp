@@ -256,11 +256,11 @@ namespace Models
     shared_ptr<DescribeLiveStreamsNotifyRecordsResponseBody::NotifyRecordsInfo> notifyRecordsInfo_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the specified conditions.
+    // The total number of entries that match the specified conditions.
     shared_ptr<int32_t> totalNum_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

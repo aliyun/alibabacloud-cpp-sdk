@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications that belong to the domain name.
+    // The AppName of the live stream. You can specify an asterisk (\\*) to match all AppNames under the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> app_ {};
-    // The main streaming domain.
+    // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. You can use the wildcard (\\*) to specify all streams of the application.
+    // The name of the live stream. You can use the wildcard (\\*) to specify all StreamNames under the AppName.
     // 
     // This parameter is required.
     shared_ptr<string> stream_ {};

@@ -103,22 +103,24 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     shared_ptr<string> appName_ {};
-    // The blocking type. Valid values:
+    // The blocking method. Valid values:
     // 
-    // *   blacklist
-    // *   whitelist
+    // - blacklist
+    // 
+    // - whitelist
     shared_ptr<string> blockType_ {};
     // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: 1.
+    // The number of the page to return. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Valid values: integers from 1 to 100.
+    // The number of entries to return on each page. Valid values: integers from 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
     // The name of the live stream.
     shared_ptr<string> streamName_ {};

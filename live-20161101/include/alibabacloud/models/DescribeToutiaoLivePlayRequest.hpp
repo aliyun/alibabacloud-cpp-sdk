@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application to which the stream belongs.
     // 
     // This parameter is required.
     shared_ptr<string> app_ {};
@@ -102,17 +102,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The end of the time range to query. The end time must be later than the start time. The time span cannot be greater than 10 hours. If you do not configure StartTime and EndTime, the data within the previous hour is queried. Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // The end of the time range to query. The end time must be later than the start time, and the time span cannot exceed 10 hours. If you do not specify StartTime and EndTime, data for the last hour is queried by default. Specify the time in the ISO 8601 standard. Use UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard. The time must be in UTC.
+    // The start of the time range to query. Specify the time in the ISO 8601 standard. Use UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the live stream.
+    // The stream name.
     // 
     // This parameter is required.
     shared_ptr<string> stream_ {};

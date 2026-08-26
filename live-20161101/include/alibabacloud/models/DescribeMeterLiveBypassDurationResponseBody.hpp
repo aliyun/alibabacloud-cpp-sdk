@@ -139,21 +139,21 @@ namespace Models
 
 
     protected:
-      // The audio-only duration. Audio-only is a basic specification. Unit: minutes.
+      // The audio-only duration at the basic specification. Unit: minutes.
       shared_ptr<int64_t> audioDuration_ {};
-      // The single-stream relay duration for audio. Unit: minutes.
+      // The single-stream relay audio duration. Unit: minutes.
       shared_ptr<int64_t> singleAudio_ {};
-      // The single-stream relay duration for video. Unit: minutes.
+      // The single-stream relay video duration. Unit: minutes.
       shared_ptr<int64_t> singleVideo_ {};
-      // The timestamp of the data returned.
+      // The start time of the time segment. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format in UTC+0.
       shared_ptr<string> timestamp_ {};
-      // The duration. Unit: minutes.
+      // The total duration. Unit: minutes.
       shared_ptr<int64_t> totalDuration_ {};
-      // The Full HD duration. The video resolution is 1920 × 1080 or lower. Unit: minutes.
+      // The full high definition duration, with a video resolution of 1920 × 1080 or lower. Unit: minutes.
       shared_ptr<int64_t> v1080Duration_ {};
-      // The SD duration. The video resolution is 640 × 480 or lower. Unit: minutes.
+      // The standard definition duration, with a video resolution of 640 × 480 or lower. Unit: minutes.
       shared_ptr<int64_t> v480Duration_ {};
-      // The HD duration. The video resolution is 1280 × 720 or lower. Unit: minutes.
+      // The high definition duration, with a video resolution of 1280 × 720 or lower. Unit: minutes.
       shared_ptr<int64_t> v720Duration_ {};
     };
 
@@ -226,23 +226,23 @@ namespace Models
 
 
   protected:
-    // The total audio-only duration. Audio-only is a basic specification. Unit: minutes.
+    // The total audio-only duration at the basic specification. Unit: minutes.
     shared_ptr<int64_t> audioSummaryDuration_ {};
-    // The usage statistics for each time granularity.
+    // The usage statistics information.
     shared_ptr<vector<DescribeMeterLiveBypassDurationResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total single-stream relay duration for audio. Unit: minutes.
+    // The total single-stream relay audio duration. Unit: minutes.
     shared_ptr<int64_t> singleAudioSummaryDuration_ {};
-    // The total single-stream relay duration for video. Unit: minutes.
+    // The total single-stream relay video duration. Unit: minutes.
     shared_ptr<int64_t> singleVideoSummaryDuration_ {};
     // The total duration. Unit: minutes.
     shared_ptr<int64_t> totalSummaryDuration_ {};
-    // The total Full HD duration. The video resolution is 1920 × 1080 or lower. Unit: minutes.
+    // The total full high definition duration, with a video resolution of 1920 × 1080 or lower. Unit: minutes.
     shared_ptr<int64_t> v1080SummaryDuration_ {};
-    // The total standard definition (SD) duration. The video resolution is 640 × 480 or lower. Unit: minutes.
+    // The total standard definition duration, with a video resolution of 640 × 480 or lower. Unit: minutes.
     shared_ptr<int64_t> v480SummaryDuration_ {};
-    // The total high definition (HD) duration. The video resolution is 1280 × 720 or lower. Unit: minutes.
+    // The total high definition duration, with a video resolution of 1280 × 720 or lower. Unit: minutes.
     shared_ptr<int64_t> v720SummaryDuration_ {};
   };
 

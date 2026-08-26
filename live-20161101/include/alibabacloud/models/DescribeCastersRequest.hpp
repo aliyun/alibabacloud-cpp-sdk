@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -205,53 +205,59 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio.
+    // The production studio ID.
     // 
-    // *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848012.html) operation, check the value of the response parameter CasterId to obtain the ID.
-    // *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the ApsaraVideo Live console and click Production Studios in the left-side navigation pane.
+    // - If you created the production studio by calling the [CreateCaster operation](https://help.aliyun.com/document_detail/2848012.html), check the CasterId parameter returned by the CreateCaster operation.
     // 
-    // > 
+    // - If you created the production studio in the ApsaraVideo Live console, go to **ApsaraVideo Live console > Production Studios > Cloud Production Studio** to view the ID.
     // 
-    // *   You can find the ID of the production studio in the Instance ID/Name column.
-    // 
-    // *   If you leave this parameter empty, the data of all production studios is returned.
+    // > - The production studio name in the production studio list on the Cloud Production Studio page is the production studio ID.
+    // > - If this parameter is left empty, the merged data of all production studios is returned by default.
     shared_ptr<string> casterId_ {};
     // The name of the production studio.
     shared_ptr<string> casterName_ {};
     // The billing method. Valid values:
     // 
-    // *   0: the subscription billing method
-    // *   1: the pay-as-you-go billing method
+    // - 0: PrePaid (subscription).
+    // 
+    // - 1: PostPaid (pay-as-you-go).
     shared_ptr<int32_t> chargeType_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> endTime_ {};
-    // The type of the production studio. Valid values:
+    // The specification type of the production studio. Valid values:
     // 
-    // *   1: general mode
-    // *   3: lightweight carousel playback mode
-    // *   4: virtual studio
-    // *   6: playlist mode
+    // - 1: general mode.
+    // 
+    // - 3: lightweight playlist mode.
+    // 
+    // - 4: virtual studio mode.
+    // 
+    // - 6: playlist mode (new playlist mode production studio).
     shared_ptr<string> normType_ {};
-    // Specifies whether to sort the production studios in ascending order based on the modification time.
+    // Specifies whether to sort the production studios in ascending order by modification time.
     // 
-    // >  If you leave this parameter empty, the default value is used. Default value: false.
+    // Valid values: true (ascending order by modification time) | false (descending order by modification time, which is the default value).
+    // 
+    // > If this parameter is not specified, the default value is "false".
     shared_ptr<string> orderByModifyAsc_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of templates to return on each page. If you leave this parameter empty, the default value is used. Default value: 100.
+    // The number of entries per page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/2381067.html).
+    // The resource group ID. For more information about resource groups, see [What is a resource group](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> startTime_ {};
-    // The status of the production studio. Valid values:
+    // The status. Valid values:
     // 
-    // *   0: idle
-    // *   1: streaming
+    // - 0: idle.  
+    // 
+    // - 1: streaming.
     shared_ptr<int32_t> status_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeCastersRequest::Tag>> tag_ {};
   };
 

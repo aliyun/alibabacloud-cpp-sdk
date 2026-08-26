@@ -304,7 +304,7 @@ namespace Models
 
 
   protected:
-    // The sort order.
+    // The sorting order.
     shared_ptr<string> order_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

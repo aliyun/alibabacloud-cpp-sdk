@@ -534,7 +534,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveRecordConfigResponseBody::LiveAppRecordList> liveAppRecordList_ {};
-    // The sorting order of recording configurations by creation time.
+    // The sort order.
     shared_ptr<string> order_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -542,7 +542,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of recording configurations that meet the specified conditions.
+    // The total number of entries that meet the specified conditions.
     shared_ptr<int32_t> totalNum_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

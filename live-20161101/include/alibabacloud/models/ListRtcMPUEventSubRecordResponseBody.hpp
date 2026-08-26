@@ -129,21 +129,22 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The ID of the subscribed application.
       shared_ptr<string> appId_ {};
       // The callback URL.
       shared_ptr<string> callbackUrl_ {};
       // The callback duration. Unit: milliseconds.
       shared_ptr<int64_t> cost_ {};
-      // For more information about the callback, see [CreateRtcMPUEventSub](https://help.aliyun.com/document_detail/2804583.html).
+      // The callback content. For more information, see [Create a stream mixing and forwarding event callback](https://help.aliyun.com/document_detail/2804583.html).
       shared_ptr<string> data_ {};
-      // The HTTP status code. 200 indicates that the callback is successful.
+      // The error code. A value of 200 indicates that the callback was successful.
       shared_ptr<string> HTTPCode_ {};
-      // The ID of the callback record.
+      // The callback record ID.
       shared_ptr<string> msgId_ {};
-      // The ID of the subscription.
+      // The event callback ID.
       shared_ptr<string> subId_ {};
-      // The time when the callback was invoked. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the callback was invoked.
+      // Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> time_ {};
     };
 
@@ -180,13 +181,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The total number of callback records returned on the current page.
     shared_ptr<int64_t> count_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasMore_ {};
     // The callback records.
     shared_ptr<vector<ListRtcMPUEventSubRecordResponseBody::Logs>> logs_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

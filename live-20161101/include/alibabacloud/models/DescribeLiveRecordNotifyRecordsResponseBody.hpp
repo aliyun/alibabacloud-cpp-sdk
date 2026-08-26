@@ -174,37 +174,42 @@ namespace Models
 
 
     protected:
-      // The name of the application to which the live stream belongs.
+      // The name of the application to which the stream belongs.
       shared_ptr<string> appName_ {};
-      // The description of the result. A value of success indicates that the request is successful. If the request fails, an error message is returned.
+      // The result description. The value is success if the callback was successful. Otherwise, an error message is returned.
       shared_ptr<string> description_ {};
-      // The main streaming domain.
+      // The streamer\\"s streaming domain.
       shared_ptr<string> domainName_ {};
-      // The callback content.
+      // The specific content of the callback.
       shared_ptr<string> notifyContent_ {};
+      // The callback request header.
       shared_ptr<string> notifyHeader_ {};
+      // The response returned by the user after receiving the callback.
       shared_ptr<string> notifyResponse_ {};
       // The callback result. Valid values:
-      // 
-      // *   success
-      // *   failed
+      // - success: The callback was successful.
+      // - failed: The callback failed.
       shared_ptr<string> notifyResult_ {};
-      // The time when the callback was returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The callback time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> notifyTime_ {};
       // The callback type. Valid values:
-      // 
-      // *   file_created: The recording file is created.
-      // *   record_error: A recording error occurs.
-      // *   record_started: Recording is started.
-      // *   record_paused: Recording is paused.
-      // *   record_resumed: Recording is resumed.
-      // *   record_force_transcode_fail: The recording task fails to trigger transcoding.
-      // *   transformat_error: An error occurs when the live stream is parsed.
+      // - file_created: The recording was created.
+      // - record_error: A recording error occurred.
+      // - record_started: The recording started.
+      // - record_paused: The recording was paused.
+      // - record_resumed: The recording was resumed.
+      // - record_force_transcode_fail: The recording task failed to trigger transcoding.
+      // - transformat_error: An error occurred while parsing the live stream content.
       shared_ptr<string> notifyType_ {};
       // The recording callback URL.
       shared_ptr<string> notifyUrl_ {};
+      // The recording storage type. Valid values:
+      // 
+      // - oss: recorded to OSS
+      // - vod: recorded to ApsaraVideo VOD
+      // - all: all storage types
       shared_ptr<string> storageType_ {};
-      // The name of the live stream.
+      // The stream name.
       shared_ptr<string> streamName_ {};
     };
 
@@ -274,7 +279,7 @@ namespace Models
     shared_ptr<vector<DescribeLiveRecordNotifyRecordsResponseBody::CallbackList>> callbackList_ {};
     // The error code.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // The prompt message.
     shared_ptr<string> msg_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -282,7 +287,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the specified conditions.
+    // The total number of entries that meet the conditions.
     shared_ptr<int32_t> totalNum_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

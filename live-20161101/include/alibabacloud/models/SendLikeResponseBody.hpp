@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The number of likes.
+      // Number of likes.
       shared_ptr<int32_t> likeCount_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<SendLikeResponseBody::Result> result_ {};
   };
 

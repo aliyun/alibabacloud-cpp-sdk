@@ -184,12 +184,12 @@ namespace Models
 
 
   protected:
-    // The end of the time range during which data was queried.
+    // The end time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeLiveDomainRecordUsageDataResponseBody::RecordUsageData> recordUsageData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which data was queried.
+    // The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     shared_ptr<string> startTime_ {};
   };
 

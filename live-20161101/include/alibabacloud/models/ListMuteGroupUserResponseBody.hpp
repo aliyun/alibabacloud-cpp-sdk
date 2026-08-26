@@ -113,10 +113,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: There is a next page.
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
       // The total number of muted members.
       shared_ptr<int32_t> total_ {};
@@ -145,7 +145,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<ListMuteGroupUserResponseBody::Result> result_ {};
   };
 

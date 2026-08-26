@@ -266,27 +266,51 @@ namespace Models
 
 
     protected:
+      // The application name. This value is returned regardless of whether it is specified.
       shared_ptr<string> appName_ {};
+      // The total bandwidth per minute for the stream, in bps.
       shared_ptr<float> bps_ {};
+      // The total number of concurrent connections per minute for the stream.
+      // 
+      // > **Concurrent connections** refers to the count of client process connections to the same stream within a unit of time.
       shared_ptr<int64_t> count_ {};
+      // The bandwidth for the FLV protocol, in bps. This field is not returned if the specified protocol does not match.
       shared_ptr<float> flvBps_ {};
+      // The number of concurrent connections for the FLV protocol. This field is not returned if the specified protocol does not match.
       shared_ptr<int64_t> flvCount_ {};
+      // The traffic for the FLV protocol, in bytes. This field is not returned if the specified protocol does not match.
       shared_ptr<double> flvTraffic_ {};
+      // The bandwidth for the HLS protocol, in bps. This field is not returned if the specified protocol does not match.
       shared_ptr<float> hlsBps_ {};
+      // The number of concurrent connections for the HLS protocol. This field is not returned if the specified protocol does not match.
       shared_ptr<int64_t> hlsCount_ {};
+      // The traffic for the HLS protocol, in bytes. This field is not returned if the specified protocol does not match.
       shared_ptr<double> hlsTraffic_ {};
+      // The number of new connections per minute for the stream.
       shared_ptr<int64_t> newConns_ {};
+      // The bandwidth for the P2P protocol, in bps. This field is not returned if the specified protocol does not match.
       shared_ptr<float> p2pBps_ {};
+      // The number of concurrent connections for the P2P protocol. This field is not returned if the specified protocol does not match.
       shared_ptr<int64_t> p2pCount_ {};
+      // The traffic for the P2P protocol, in bytes. This field is not returned if the specified protocol does not match.
       shared_ptr<double> p2pTraffic_ {};
+      // The bandwidth for the RTMP protocol, in bps. This field is not returned if the specified protocol does not match.
       shared_ptr<float> rtmpBps_ {};
+      // The number of concurrent connections for the RTMP protocol. This field is not returned if the specified protocol does not match.
       shared_ptr<int64_t> rtmpCount_ {};
+      // The traffic for the RTMP protocol, in bytes. This field is not returned if the specified protocol does not match.
       shared_ptr<double> rtmpTraffic_ {};
+      // The bandwidth for the RTS protocol, in bps. This field is not returned if the specified protocol does not match.
       shared_ptr<double> rtsBps_ {};
+      // The number of concurrent connections for the RTS protocol. This field is not returned if the specified protocol does not match.
       shared_ptr<int64_t> rtsCount_ {};
+      // The traffic for the RTS protocol, in bytes. This field is not returned if the specified protocol does not match.
       shared_ptr<double> rtsTraffic_ {};
+      // The stream name. This value is returned regardless of whether it is specified.
       shared_ptr<string> streamName_ {};
+      // The start time of the time slice. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format in UTC+0.
       shared_ptr<string> timeStamp_ {};
+      // The total traffic per minute for the stream, in bytes.
       shared_ptr<double> traffic_ {};
     };
 
@@ -352,14 +376,21 @@ namespace Models
 
 
   protected:
+    // The streaming domain information.
     shared_ptr<string> domainName_ {};
     // YYYY-MM-DDThh:mm:ssZ
     shared_ptr<string> endTime_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range to query. The time is in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
     shared_ptr<string> startTime_ {};
+    // The traffic data for each time interval.
     shared_ptr<vector<DescribeLiveUserStreamMetricDataResponseBody::StreamDetailData>> streamDetailData_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

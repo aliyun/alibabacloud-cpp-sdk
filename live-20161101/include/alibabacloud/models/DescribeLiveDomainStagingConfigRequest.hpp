@@ -70,11 +70,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The feature that you want to query. Separate multiple features with commas (,).
+    // The names of the features. Separate multiple feature names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> functionNames_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

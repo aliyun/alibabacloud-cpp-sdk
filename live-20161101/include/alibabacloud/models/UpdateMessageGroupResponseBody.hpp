@@ -61,8 +61,8 @@ namespace Models
     protected:
       // Indicates whether the update was successful. Valid values:
       // 
-      // *   true: The update was successful.
-      // *   false: The update failed.
+      // - true: The update was successful.
+      // - false: The update failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -85,7 +85,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<UpdateMessageGroupResponseBody::Result> result_ {};

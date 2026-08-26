@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The error message for failed authentication.
+    // The error message returned if authentication failed.
     shared_ptr<string> description_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the signed URL is valid. Valid values:
+    // Indicates whether the authentication is passed.
     // 
-    // *   pass: valid.
-    // *   false: invalid.
+    // - pass: The authentication is passed.
+    // 
+    // - false: The authentication failed.
     shared_ptr<string> status_ {};
   };
 

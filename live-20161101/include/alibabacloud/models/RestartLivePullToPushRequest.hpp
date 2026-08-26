@@ -67,15 +67,15 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the live center. Valid values:
-    // 
-    // *   ap-southeast-1: Singapore
-    // *   ap-southeast-5: Indonesia (Jakarta)
-    // *   cn-beijing: China (Beijing)
-    // *   cn-shanghai: China (Shanghai)
+    // The live center to query. Valid values:
+    // - ap-southeast-1 (Singapore)
+    // - ap-southeast-5 (Indonesia)
+    // - cn-beijing (Beijing)
+    // - cn-shanghai (Shanghai).
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The task ID.
     // 

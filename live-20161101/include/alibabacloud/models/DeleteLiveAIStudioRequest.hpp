@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the template. You can obtain the ID from the response to the CreateLiveAIStudio operation.
+    // The ID of the template. The ID is returned by the CreateLiveAIStudio operation.
     // 
     // This parameter is required.
     shared_ptr<string> studioId_ {};

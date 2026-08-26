@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // The application ID. You can specify only one application ID.
+      // The ID of the subscribed application.
       shared_ptr<string> appId_ {};
       // The callback URL.
       shared_ptr<string> callbackUrl_ {};
-      // The ID of the channel to which mixed-stream relay event callbacks are sent. Multiple channel IDs are separated by commas (,). If this parameter is not returned, mixed-stream relay event callbacks are sent to all channels.
+      // The channel IDs of stream mixing tasks that receive callbacks, separated by commas (,). If this field is empty, all channels receive callbacks.
       shared_ptr<string> channelIds_ {};
-      // The time when the event callback was fired. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The creation time of the event callback, in the format of yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> createTime_ {};
-      // The ID of the subscription.
+      // The event callback ID.
       shared_ptr<string> subId_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the subscription.
+    // The event callback information.
     shared_ptr<DescribeRtcMPUEventSubResponseBody::SubInfo> subInfo_ {};
   };
 

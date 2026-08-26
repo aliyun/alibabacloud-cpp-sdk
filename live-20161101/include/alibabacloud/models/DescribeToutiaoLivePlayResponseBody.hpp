@@ -118,17 +118,17 @@ namespace Models
 
 
     protected:
-      // The name of the application to which the live stream belongs.
+      // The name of the application to which the stream belongs.
       shared_ptr<string> app_ {};
       // The bandwidth. Unit: Mbit/s.
       shared_ptr<float> bandwidth_ {};
-      // The Content Delivery Network (CDN) name.
+      // The CDN name.
       shared_ptr<string> cdnName_ {};
       // The streaming domain.
       shared_ptr<string> domain_ {};
       // The number of viewers.
       shared_ptr<int64_t> playNum_ {};
-      // The name of the live stream.
+      // The stream name.
       shared_ptr<string> streamName_ {};
       // The timestamp.
       shared_ptr<int64_t> timestamp_ {};
@@ -160,7 +160,7 @@ namespace Models
 
 
   protected:
-    // The information about the live stream.
+    // The details of the stream information.
     shared_ptr<vector<DescribeToutiaoLivePlayResponseBody::Content>> content_ {};
     // The description of the response status.
     shared_ptr<string> description_ {};

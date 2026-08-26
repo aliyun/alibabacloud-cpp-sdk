@@ -76,8 +76,11 @@ namespace Models
 
 
     protected:
+      // The label key. Valid values of N: **1 to 20**.
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The label value. Valid values of N: **1 to 20**.
       shared_ptr<string> value_ {};
     };
 
@@ -124,13 +127,19 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The type of the resources. Set the value to **DOMAIN**.
+    // The resource ID. Set this parameter to a live streaming domain name.
+    // Valid values of N: **1 to 50**.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set this parameter to **DOMAIN**.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of labels.
+    // 
     // This parameter is required.
     shared_ptr<vector<TagLiveResourcesRequest::Tag>> tag_ {};
   };

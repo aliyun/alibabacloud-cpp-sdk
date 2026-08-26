@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The new task ID.
+    // The node ID returned when you create task.
     shared_ptr<string> taskId_ {};
   };
 

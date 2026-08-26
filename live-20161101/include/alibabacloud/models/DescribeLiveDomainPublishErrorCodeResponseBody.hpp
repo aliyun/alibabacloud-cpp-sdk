@@ -109,20 +109,19 @@ namespace Models
 
       protected:
         // The response code. Valid values:
-        // 
-        // *   3: The data read timed out.
-        // *   4: A data write error occurred.
-        // *   6: The data write timed out.
-        // *   200: The request is successful.
-        // *   500: An unknown internal error occurred.
-        // *   501: The stream ingest failed.
-        // *   502: The signaling operation timed out.
-        // *   401: A stream ingest parameter is invalid.
-        // *   403: The stream ingest authentication failed.
+        // - 3: read data timeout.
+        // - 4: write data error.
+        // - 6: write data timeout.
+        // - 200: success.
+        // - 500: internal system unknown error.
+        // - 501: stream ingest exception.
+        // - 502: signaling took too long.
+        // - 401: stream ingest parameter exception.
+        // - 403: stream ingest authentication failed.
         shared_ptr<string> code_ {};
-        // The number of times the HTTP status code was returned.
+        // The number of responses.
         shared_ptr<string> count_ {};
-        // The proportion of the HTTP status code.
+        // The proportion of responses.
         shared_ptr<string> proportion_ {};
       };
 
@@ -145,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The proportions of error codes.
+      // The list of status code distribution data.
       shared_ptr<vector<RealTimeCodeData::CodeData>> codeData_ {};
-      // The timestamp of the data returned.
+      // The start time of the time interval. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -198,17 +197,17 @@ namespace Models
 
 
   protected:
-    // The time granularity of the query. Unit: seconds. Default value: 60.
+    // The time granularity of the queried data. Unit: seconds. Default value: 60.
     shared_ptr<string> dataInterval_ {};
     // The ingest domain.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> endTime_ {};
-    // The proportions of error codes at each time interval.
+    // The status code distribution data for each time interval.
     shared_ptr<vector<DescribeLiveDomainPublishErrorCodeResponseBody::RealTimeCodeData>> realTimeCodeData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

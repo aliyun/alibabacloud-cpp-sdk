@@ -130,45 +130,50 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application to which the stream belongs.
     shared_ptr<string> app_ {};
-    // The main streaming domain to query.
+    // The streaming domain to query.
     // 
-    // *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-    // *   If you do not specify this parameter, the data of all domain names within your Alibaba Cloud account is returned.
+    // - You can query one or more domain names. To query multiple domain names, separate them with commas (,).
+    // 
+    // - If you do not specify this parameter, the service returns the merged data for all streaming domains.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // Specifies whether a quota of free image scanning is available. Valid values:
+    // You have a daily free quota for image scans. Valid values:
     // 
-    // *   **free**: specifies that a quota of free image scanning is available.
-    // *   **charge**: specifies that a quota of free image scanning is not available and fees are charged.
+    // - **free**
+    // 
+    // - **charge**
     shared_ptr<string> fee_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the domain name resides.
+    // The region where the domain name is located.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The moderation scenario. Valid values:
+    // The detection scenario. Valid values:
     // 
-    // *   **porn**: pornography detection. This is the default value.
-    // *   **terrorism**: terrorism detection
-    // *   **ad**: ad violation detection
-    // *   **live**: undesirable scene detection
-    // *   **logo**: logo detection
+    // - **porn** (default): pornography detection.
+    // 
+    // - **terrorism**: terrorism and political content detection.
+    // 
+    // - **ad**: ad and text violation detection.
+    // 
+    // - **live**: undesirable live streaming scenario detection.
+    // 
+    // - **logo**: logo detection.
     shared_ptr<string> scene_ {};
-    // The fields based on which data is grouped. Separate multiple fields with commas (,).
+    // The list of grouping fields. Separate multiple fields with commas (,).
     // 
-    // > If you leave the **SplitBy** parameter empty, only the **TimeStamp** and **Count** parameters are returned.
+    // > If you leave this parameter empty, the service returns only TimeStamp and Count.
     shared_ptr<string> splitBy_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
-    // > 
+    // > - You can query data from the last 90 days.
     // 
-    // *   You can query data in the last 90 days.
-    // 
-    // *   The minimum data granularity is 5 minutes. If you do not specify this parameter, data in the last 24 hours is queried.
+    // - The minimum data granularity is 5 minutes. If you leave this parameter empty, the service queries data from the last 24 hours by default.
     shared_ptr<string> startTime_ {};
-    // The name of the live stream.
+    // The stream name.
     shared_ptr<string> stream_ {};
   };
 

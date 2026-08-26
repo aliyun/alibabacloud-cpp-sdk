@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The domain name. You can specify only one domain name.
+    // The domain name. Only one domain name is supported.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

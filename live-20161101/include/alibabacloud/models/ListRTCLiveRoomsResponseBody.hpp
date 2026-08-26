@@ -62,7 +62,9 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of active channels.
     shared_ptr<vector<string>> rooms_ {};
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

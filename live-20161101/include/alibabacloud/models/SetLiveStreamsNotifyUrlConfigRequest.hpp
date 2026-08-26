@@ -98,29 +98,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Exception event callback URL.
+    // The callback URL for exception events.
     shared_ptr<string> exceptionNotifyUrl_ {};
     // The authentication key.
     // 
-    // >  This parameter is required if you set the NotifyReqAuth parameter to **yes**.
+    // > This parameter is required when the NotifyReqAuth request parameter is set to **yes**.
     // 
     // Value requirements:
     // 
-    // *   The key must be 16 to 64 characters in length.
-    // *   The key can contain letters and digits.
+    // - 16 to 64 characters in length.
+    // 
+    // - Supports uppercase letters, lowercase letters, and digits.
     shared_ptr<string> notifyAuthKey_ {};
-    // Specifies whether to enable callback authentication. Valid values:
+    // Specifies whether to enable authentication. Valid values:
     // 
-    // *   **yes**: enables callback authentication. If you set this parameter to **yes**, you must also specify the NotifyAuthKey parameter.
-    // *   **no**: disables callback authentication.
+    // - **yes**: Enabled. If you set this parameter to **yes**, you must also set the NotifyAuthKey request parameter.
+    // - **no**: Disabled.
     // 
-    // >  If you do not specify this parameter, the default value **no** is used.
+    // > If this parameter is not specified, the default value is **no**.
     // 
-    // For information about the authentication logic, see **Authentication for stream ingest callbacks**.
+    // For the authentication logic, see **Stream ingest callback authentication description** below.
     shared_ptr<string> notifyReqAuth_ {};
-    // The URL to which the stream ingest callbacks are sent.
+    // The URL to which live stream information is pushed.
     shared_ptr<string> notifyUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The callback URL for stream switching information.
     shared_ptr<string> switchNotifyUrl_ {};
   };
 

@@ -103,30 +103,27 @@ namespace Models
 
 
   protected:
-    // The destination URL. Fuzzy search is performed based on the destination URL.
+    // The destination ingest URL. Fuzzy search is performed based on the destination ingest URL.
     shared_ptr<string> dstUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
-    // 
-    // >  The value must be greater than 0 and not greater than the maximum value of the Integer data type. Default value: 1.
+    // > The value of this parameter must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // >  Valid values: [1,100]. Default value: 10.
+    // The number of records per page.
+    // > Default value: 10. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the live center. Valid values:
-    // 
-    // *   ap-southeast-1: Singapore
-    // *   ap-southeast-5: Indonesia (Jakarta)
-    // *   cn-beijing: China (Beijing)
-    // *   cn-shanghai: China (Shanghai)
+    // The live center to query. Valid values:
+    // - ap-southeast-1 (Singapore)
+    // - ap-southeast-5 (Indonesia)
+    // - cn-beijing (Beijing)
+    // - cn-shanghai (Shanghai)
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The task ID. Fuzzy search is performed based on the task ID.
-    // 
-    // >  The ID can be up to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // > The task ID consists of uppercase and lowercase letters, digits, underscores (_), and hyphens (-), with a maximum of 55 characters.
     shared_ptr<string> taskId_ {};
     // The task name. Fuzzy search is performed based on the task name.
     shared_ptr<string> taskName_ {};

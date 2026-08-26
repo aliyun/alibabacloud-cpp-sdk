@@ -84,21 +84,22 @@ namespace Models
 
 
   protected:
-    // The description of the custom rule.
+    // The custom description of the rule.
     shared_ptr<string> description_ {};
-    // The name of the custom rule.
+    // The custom name of the rule.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the watermark rule.
     // 
-    // >  You can obtain the rule ID by checking the value of the RuleId parameter that is returned by the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
+    // > Get the rule ID from the response of the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
     // The ID of the watermark template.
     // 
-    // >  You can obtain the template ID by checking the value of the TemplateId parameter that is returned by the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
+    // > Get the template ID from the response of the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
     shared_ptr<string> templateId_ {};
   };
 

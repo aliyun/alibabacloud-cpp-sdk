@@ -121,34 +121,34 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the application to which the live stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     shared_ptr<string> appName_ {};
     // The ingest domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Maximum value: 500. Valid values: integers from 1 to 500.
+    // The page size. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
-    // >  The start time must be in the last seven days.
+    // > The start time must be within the last 7 days.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // Specifies whether to return the records of successful or failed callbacks. Valid values:
-    // 
-    // *   success
-    // *   failed
+    // Specifies whether the callback is successful. Valid values:
+    // - success: Successful.
+    // - failed: Failed.
     shared_ptr<string> status_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     shared_ptr<string> streamName_ {};
   };
 

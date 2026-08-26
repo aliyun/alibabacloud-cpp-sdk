@@ -59,10 +59,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the mute is successful. Valid values:
+      // Indicates whether the mute operation is successful. Valid values:
       // 
-      // *   true: The mute is successful.
-      // *   false: The mute failed.
+      // - true: Successful.
+      // 
+      // - false: Not successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -85,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<MuteGroupUserResponseBody::Result> result_ {};

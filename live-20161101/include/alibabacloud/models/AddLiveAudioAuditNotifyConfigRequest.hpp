@@ -75,21 +75,26 @@ namespace Models
 
 
   protected:
-    // The callback URL. This URL is used to receive callback notifications about violations in audio.
+    // The URL used to receive callbacks for audio that contains problematic content.
     shared_ptr<string> callback_ {};
-    // The callback template. Valid values:
+    // The callback template for automated reviews. The value is a JSON string that can contain the following variables:
     // 
-    // *   **{DomainName}**: the streaming domain.
-    // *   **{AppName}**: the name of the application to which the live stream belongs.
-    // *   **{StreamName}**: the name of the live stream.
-    // *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
-    // *   **{Result}**: the moderation results.
+    // - **{DomainName}**: The streaming domain.
+    // 
+    // - **{AppName}**: The AppName of the live stream.
+    // 
+    // - **{StreamName}**: The stream name.
+    // 
+    // - **{Timestamp}**: The UNIX timestamp of the callback. Unit: seconds.
+    // 
+    // - **{Result}**: The review result.
     shared_ptr<string> callbackTemplate_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

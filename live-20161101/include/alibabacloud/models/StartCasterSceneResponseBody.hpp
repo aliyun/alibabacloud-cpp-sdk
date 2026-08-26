@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The streaming URL of the scene. It is used for playback, but not for stream relay.
+    // The output stream URL of the current scene. This URL is used for playback in the production studio and is not a bypass output.
     shared_ptr<string> streamUrl_ {};
   };
 

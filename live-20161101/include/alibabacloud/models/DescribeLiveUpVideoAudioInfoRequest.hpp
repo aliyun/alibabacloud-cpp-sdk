@@ -75,13 +75,14 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. The format is \\`yyyy-MM-ddTHH:mm:ssZ\\` in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the stream that you want to query. Specify this parameter in the following format: `rtmp://Ingest domain/Application name/Stream name`.
+    // The start time. The format is \\`yyyy-MM-ddTHH:mm:ssZ\\` in UTC.
     shared_ptr<string> startTime_ {};
-    // The operation that you want to perform. Set the value to **DescribeLiveUpVideoAudioInfo**.
+    // The full name of the stream to query. The format is `rtmp://<ingest domain>/<AppName>/<StreamName>`
     // 
     // This parameter is required.
     shared_ptr<string> stream_ {};

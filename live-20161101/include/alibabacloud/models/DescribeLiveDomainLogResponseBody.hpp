@@ -309,7 +309,7 @@ namespace Models
     shared_ptr<DescribeLiveDomainLogResponseBody::DomainLogDetails> domainLogDetails_ {};
     // The streaming domain or ingest domain.
     shared_ptr<string> domainName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

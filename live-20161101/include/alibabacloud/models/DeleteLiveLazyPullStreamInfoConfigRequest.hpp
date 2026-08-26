@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application.
     // 
-    // >  If you want to delete configurations of triggered stream pulling for all applications, set the value to **ali_all_app**.
+    // > To delete configurations of triggered stream pulling for all applications, set it to **ali_all_app**.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -77,6 +77,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

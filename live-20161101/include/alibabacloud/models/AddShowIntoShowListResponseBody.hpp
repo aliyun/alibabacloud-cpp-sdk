@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the episode.
+    // The show ID.
     shared_ptr<string> showId_ {};
-    // The list of resources that failed to be added and the reason for failure.
+    // The list of resources that failed to be added and the failure reasons.
     shared_ptr<string> failedList_ {};
-    // The IDs of the episodes that were added.
+    // The list of show IDs that were successfully added.
     shared_ptr<string> successfulShowIds_ {};
   };
 

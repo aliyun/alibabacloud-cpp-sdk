@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. This parameter is used in the requests of the following operations: DescribeCasterVideoResources, AddCasterLayout, and DescribeCasterLayouts.
+    // The ID of the production studio. You can use this ID to query video sources, add layouts, or query layout lists for the production studio.
     shared_ptr<string> casterId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource.
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
   };
 

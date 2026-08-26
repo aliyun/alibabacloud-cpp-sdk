@@ -48,13 +48,15 @@ namespace Models
 
 
   protected:
-    // The information about the editing task. The following fields are included:
+    // The task information, which contains:
     // 
-    // *   **vodId**: the ID of the VOD file.
-    // *   **mediaid**: the ID of the media file.
-    // *   **jobId**: the ID of the editing task.
+    // - **vodId**: the video-on-demand file ID.
+    // 
+    // - **mediaid**: the media file ID.
+    // 
+    // - **jobId**: the task ID.
     shared_ptr<string> jobInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

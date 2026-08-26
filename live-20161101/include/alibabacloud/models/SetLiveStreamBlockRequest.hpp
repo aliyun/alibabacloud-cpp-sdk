@@ -103,11 +103,13 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the application to which the live stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The blocking type. Valid values: blacklist and whitelist.
+    // The blocking mode. Valid values:
+    // - blacklist: blacklist.
+    // - whitelist: whitelist.
     // 
     // This parameter is required.
     shared_ptr<string> blockType_ {};
@@ -115,15 +117,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The blocked region. If you specify multiple regions, such as CN and AS, separate them with commas (,).
+    // The blocked regions, such as CN and AS. Separate multiple regions with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> locationList_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The time when the blocking ends. The time must be in UTC. If you do not specify this parameter, the blocking is valid for 7 days by default.
+    // The end time of the blocking period in UTC. If this parameter is not specified, the blocking lasts for 7 days by default.
     shared_ptr<string> releaseTime_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

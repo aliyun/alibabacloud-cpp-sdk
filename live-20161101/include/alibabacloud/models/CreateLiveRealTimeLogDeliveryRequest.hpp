@@ -88,19 +88,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The name of the Logstore to which log entries are delivered.
+    // The LogStoreName for real-time log delivery to SLS.
     // 
     // This parameter is required.
     shared_ptr<string> logstore_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the Log Service project that is used for real-time log delivery.
+    // The ProjectName for real-time log delivery to SLS.
     // 
     // This parameter is required.
     shared_ptr<string> project_ {};
-    // The ID of the region where the Log Service project is deployed.
+    // The Region for real-time log delivery to SLS.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

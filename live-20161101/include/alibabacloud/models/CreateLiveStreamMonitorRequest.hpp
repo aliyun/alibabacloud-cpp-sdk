@@ -130,41 +130,44 @@ namespace Models
 
 
   protected:
-    // The name of the application that plays the output streams of the monitoring session.
-    // 
-    // You can specify a name. If you do not specify a name, the system uses **monitor** as the name of the application.
+    // The application name for the output stream of the monitoring session. You can specify a custom name. If you do not specify this parameter, **monitor** is used as the application name.
     shared_ptr<string> app_ {};
-    // Supports input of callback addresses in HTTP(S) format.
+    // The webhook address. HTTP and HTTPS are supported.
     shared_ptr<string> callbackUrl_ {};
-    // DingTalk alert monitoring sends alert notifications through a DingTalk group robot. Please set up the DingTalk group robot first and enter the HTTP(S) address of the robot here. For more details, see [Custom Robot Access](https://open.dingtalk.com/document/robots/custom-robot-access).
-    // > Configure the custom keyword for the DingTalk group robot as \\"alert\\", otherwise, messages will not be received.
+    // The webhook URL of the DingTalk chatbot. To receive alert notifications, configure a DingTalk chatbot and enter its webhook URL, which can be in HTTP or HTTPS format. For more information, see [Custom robot access](https://open.dingtalk.com/document/robots/custom-robot-access).
+    // 
+    // > Set the custom keyword for the DingTalk chatbot to "Alerting". Otherwise, you cannot receive messages.
     shared_ptr<string> dingTalkWebHookUrl_ {};
-    // The endpoint of the monitoring session.
+    // The domain name to monitor.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The list of input streams to monitor. For more information, see the following **InputConfig** table.
+    // The list of input streams to monitor. For more information, see the **InputConfig** table below.
     // 
     // This parameter is required.
     shared_ptr<string> inputList_ {};
-    // Alarm threshold setting for monitoring, in JSON format. For more details, please refer to the table below for MonitorConfig.
+    // The alert threshold settings for monitoring. The value must be a JSON string. For more information, see the MonitorConfig table below.
     shared_ptr<string> monitorConfig_ {};
     // The name of the monitoring session.
     // 
     // This parameter is required.
     shared_ptr<string> monitorName_ {};
-    // The output template of the monitoring session. Valid values:
+    // The output template for the monitoring session. Valid values:
     // 
-    // *   **lp_ld**: low definition.
-    // *   **lp_sd**: standard definition.
-    // *   **lp_hd**: high definition.
-    // *   **lp_ud**: ultra high definition.
+    // - **lp_ld**: low definition.
+    // 
+    // - **lp_sd**: standard definition.
+    // 
+    // - **lp_hd**: high definition.
+    // 
+    // - **lp_ud**: ultra-high definition.
     // 
     // This parameter is required.
     shared_ptr<string> outputTemplate_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the output stream of the monitoring session. If you do not specify a name, the system generates a name at random.
+    // The name of the output stream for the monitoring session. If you do not specify this parameter, the system generates a random name.
     shared_ptr<string> stream_ {};
   };
 

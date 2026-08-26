@@ -110,17 +110,17 @@ namespace Models
 
 
     protected:
-      // The configurations of the application.
+      // The application configuration.
       shared_ptr<map<string, string>> appConfig_ {};
-      // The ID of the interactive messaging application.
+      // The ID of the interactive message application.
       shared_ptr<string> appId_ {};
-      // The name of the interactive messaging application.
+      // The name of the interactive message application.
       shared_ptr<string> appName_ {};
-      // The time when the interactive messaging application was created. The time is displayed in UTC.
+      // The UTC timestamp when the application was created.
       shared_ptr<int64_t> createTime_ {};
       // The extended field.
       shared_ptr<map<string, string>> extension_ {};
-      // The status of the interactive message application. A value of 1 indicates that the application is normal.
+      // The status of the interactive message application. A value of 1 indicates that the application is in a normal state.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The result of the request.
     shared_ptr<GetMessageAppResponseBody::Result> result_ {};
   };
 

@@ -48,12 +48,15 @@ namespace Models
 
 
   protected:
-    // The information about the scheduled tasks. The following fields are included:
+    // The list of scheduled tasks. The list contains the following parameters:
     // 
-    // *   Status: the status of the scheduled task. Valid values: 0 and 1. A value of 0 indicates that the scheduled task is paused. A value of 1 indicates that the scheduled task is started.
-    // *   LiveTemplate: the transcoding templates.
-    // *   TranscodeConfig: the transcoding configuration for the source URL.
-    // *   CasterId: the ID of the production studio.
+    // - Status: The status of the task. A value of 0 indicates that the task is paused. A value of 1 indicates that the task is started.
+    // 
+    // - LiveTemplate: The list of transcoding configurations.
+    // 
+    // - TranscodeConfig: The resolution for transcoding the pulled stream.
+    // 
+    // - CasterId: The ID of the production studio.
     shared_ptr<string> autoShowListTasks_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

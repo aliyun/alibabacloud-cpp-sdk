@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The sequence number of the episode in the query result.
+      // The orchestration index.
       shared_ptr<int32_t> index_ {};
-      // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to edit the episode list, delete the episode list, query the information about the episode list, start the episode list, or stop the episode list.
+      // The ID of the playlist. You can use this ID as a request parameter when you edit, delete, query, start, or stop the playlist.
       shared_ptr<string> programId_ {};
-      // The ID of the episode.
+      // The ID of the playlist item.
       shared_ptr<string> programItemId_ {};
-      // The name of the episode.
+      // The name of the playlist item.
       shared_ptr<string> programItemName_ {};
-      // The resource type.
+      // The type of the resource.
       shared_ptr<string> resourceType_ {};
-      // The resource ID.
+      // The ID of the resource.
       shared_ptr<string> resourceValue_ {};
     };
 
@@ -148,11 +148,11 @@ namespace Models
 
 
   protected:
-    // The episodes.
+    // The list of playlist items.
     shared_ptr<vector<ListPlaylistItemsResponseBody::ProgramItems>> programItems_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of episodes.
+    // The number of playlist items.
     shared_ptr<int32_t> total_ {};
   };
 

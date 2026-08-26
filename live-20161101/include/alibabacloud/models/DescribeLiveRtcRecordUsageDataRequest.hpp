@@ -75,13 +75,30 @@ namespace Models
 
 
   protected:
+    // The ID of the ApsaraVideo Real-time Communication application. You can view the ID in [ApsaraVideo Real-time Communication application management](https://help.aliyun.com/document_detail/2355593.html). Navigate to **ApsaraVideo Live > Live+ > Real-time Communication > Application Management** to view your application IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time for the query. The query granularity must be ≥ 5 minutes and ≤ 31 days. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The time granularity for the query data. Unit: seconds. Valid values:
+    // 
+    // - 3600 (default).
+    // 
+    // - 86400.
     shared_ptr<string> interval_ {};
+    // The recording mode. Valid values:
+    // 
+    // - 0: single-stream recording mode.
+    // 
+    // - 1: stream mixing recording mode.
+    // 
     // This parameter is required.
     shared_ptr<string> recordMode_ {};
+    // The start time for the query. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
@@ -105,8 +105,9 @@ namespace Models
     shared_ptr<int64_t> pageNum_ {};
     // The number of entries per page. Default value: **10**. Valid values: **5 to 100**.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream.
+    // The stream name.
     shared_ptr<string> streamName_ {};
   };
 

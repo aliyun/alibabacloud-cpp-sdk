@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the edge transcoding task.
+    // The ID of the edge transcoding job.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

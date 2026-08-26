@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio for which you want to query scheduled tasks.
+    // The ID of the production studio whose scheduled tasks you want to query.
     // 
-    // >  If the scheduled tasks were created by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, check the value of the response parameter CasterId to obtain the ID. If you do not specify this parameter, the system queries all the scheduled tasks that belong to the user specified by the OwnerId parameter.
+    // > If you create a scheduled task by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, use the CasterId value returned by that operation. If you leave this parameter empty, all scheduled tasks under your account are queried by default.
     shared_ptr<string> casterId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -66,12 +66,9 @@ namespace Models
 
 
   protected:
-    // The domain names to query. Separate them with commas (,). A domain name cannot contain double-byte characters.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> regionId_ {};
-    // The timestamp.
-    // 
     // This parameter is required.
     shared_ptr<string> time_ {};
   };

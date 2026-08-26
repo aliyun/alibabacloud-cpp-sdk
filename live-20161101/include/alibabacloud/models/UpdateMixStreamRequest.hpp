@@ -84,36 +84,44 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The streaming domain.
     // 
-    // >  Only domain names that reside in the China (Shanghai) and China (Beijing) regions are supported.
+    // >Notice: 
+    // 
+    // Only domain names in the China (Shanghai) and China (Beijing) regions are supported.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The input streams, in a JSON array.
+    // The list of input streams for the mix. This is a JSON array.
     // 
-    // For more information, see **InputStreamConfig**.
+    // For more information, see **InputStreamConfig** below.
     // 
     // This parameter is required.
     shared_ptr<string> inputStreamList_ {};
-    // The ID of the layout. Valid values:
+    // The layout ID. The following values are supported:
     // 
-    // *   **MixStreamLayout-1-1**
-    // *   **MixStreamLayout-2-1**
-    // *   **MixStreamLayout-2-2**
-    // *   **MixStreamLayout-2-3**
-    // *   **MixStreamLayout-3-1**
-    // *   **MixStreamLayout-3-2**
-    // *   **MixStreamLayout-4-1**
-    // *   **USERDEFINED**: If you do not use a preset layout, set this parameter to **USERDEFINED**.
+    // - **MixStreamLayout-1-1**
     // 
-    // >  For more information, see [Preset layouts for stream mixing](https://help.aliyun.com/document_detail/199361.html).
+    // - **MixStreamLayout-2-1**
+    // 
+    // - **MixStreamLayout-2-2**
+    // 
+    // - **MixStreamLayout-2-3**
+    // 
+    // - **MixStreamLayout-3-1**
+    // 
+    // - **MixStreamLayout-3-2**
+    // 
+    // - **MixStreamLayout-4-1**
+    // 
+    // - **USERDEFINED** (If you use a custom layout instead of a preset layout, set this parameter to this value.)
     shared_ptr<string> layoutId_ {};
-    // The ID of the stream mixing task. If the task was created by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, check the value of the response parameter MixStreamId to obtain the ID.
+    // The ID of the stream mix task. If you created the task by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, use the MixStreamId value returned in the response.
     // 
     // This parameter is required.
     shared_ptr<string> mixStreamId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

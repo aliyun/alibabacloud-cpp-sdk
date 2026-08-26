@@ -233,35 +233,35 @@ namespace Models
 
 
       protected:
-        // The audio configurations.
+        // The audio configuration information.
         shared_ptr<ScreenInputConfigList::AudioConfig> audioConfig_ {};
-        // The ID of the channel that is bound to the video resource.
+        // The channel location ID to which the video resource is bound.
         shared_ptr<string> channelId_ {};
-        // The color gamut for chroma key. Valid values:
+        // The chroma key color gamut. Valid values:
         // 
-        // *   **blue**
-        // *   **green**
-        // *   **auto**: automatic recognition
-        // *   **complex**: background replacement
+        // - **blue**: blue screen background.
+        // - **green**: green screen background.
+        // - **auto**: automatic detection.
+        // - **complex**: real-scene chroma keying.
         shared_ptr<string> color_ {};
-        // The normalized value of the height. The value indicates the ratio of the height of the keyed portrait to the height of the background. Valid values: **0 to 1**.
+        // The normalized height. This is the height ratio of the extracted portrait to the background. Valid values: **0 to 1**.
         shared_ptr<float> heightNormalized_ {};
-        // The unique ID of the chroma key source.
+        // The unique ID of the chroma key source material.
         shared_ptr<string> id_ {};
-        // The sequence number of the chroma key source. This parameter is displayed on the frontend but not used in the operation logic.
+        // The chroma key source number. Used for frontend display only and has no logical function.
         shared_ptr<int32_t> index_ {};
-        // Indicates whether only audio exists.
+        // Indicates whether only audio is used.
         shared_ptr<bool> onlyAudio_ {};
         // The portrait type. Valid values:
         // 
-        // *   **0**: half body
-        // *   **1**: full body
+        // - **0**: half-body.
+        // - **1**: full-body.
         shared_ptr<int32_t> portraitType_ {};
-        // The x-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+        // The position parameter, x coordinate. Valid values: **0 to 1**. The material position is based on the upper-left corner.
         shared_ptr<string> positionX_ {};
-        // The y-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+        // The position parameter, y coordinate. Valid values: **0 to 1**. The material position is based on the upper-left corner.
         shared_ptr<string> positionY_ {};
-        // The ID of the video resource.
+        // The video resource ID.
         shared_ptr<string> videoResourceId_ {};
       };
 
@@ -378,25 +378,25 @@ namespace Models
 
 
       protected:
-        // The ID of the channel that is bound to the video resource.
+        // The channel location ID to which the video resource is bound.
         shared_ptr<string> channelId_ {};
         // The fill type. Default value: none.
         shared_ptr<string> fillMode_ {};
-        // The normalized value of the material height. The value indicates the ratio of the material height to the height of the background. Valid values: **0 to 1**.
+        // The normalized height of the material. This is the height ratio of the material to the background. Valid values: **0 to 1**.
         shared_ptr<float> heightNormalized_ {};
         // The unique ID of the multimedia material.
         shared_ptr<string> id_ {};
-        // The ID of the image in ApsaraVideo VOD.
+        // The video-on-demand image material ID.
         shared_ptr<string> imageMaterialId_ {};
-        // The sequence number of the multimedia material. This parameter is displayed on the frontend but not used in the operation logic.
+        // The multimedia material number. Used for frontend display only and has no logical function.
         shared_ptr<int32_t> index_ {};
-        // The normalized value of the position of the material, in the format of [unk][x,y][unk]. Valid values of x and y: **0 to 1**. For example, [unk][0.1,0.2][unk] indicates that the material is horizontally offset by 10% and vertically offset by 20% towards the upper-left corner.
+        // The normalized position of the material fill area [x,y]. The values of x and y range from **0 to 1**. For example, [0.1,0.2] indicates a horizontal offset of 10% and a vertical offset of 20% from the upper-left corner.
         shared_ptr<vector<float>> positionNormalized_ {};
-        // The coordinate origin for the material. Default value: topLeft. topLeft indicates that the upper-left corner is used as the coordinate origin.
+        // The position reference coordinate of the material. Default value: topLeft, which indicates that the position is set based on the upper-left corner.
         shared_ptr<string> positionRefer_ {};
-        // The ID of the video resource.
+        // The video resource ID.
         shared_ptr<string> videoResourceId_ {};
-        // The normalized value of the material width. The value indicates the ratio of the material width to the width of the background. Valid values: **0 to 1**.
+        // The normalized width of the material. This is the width ratio of the material to the background. Valid values: **0 to 1**.
         shared_ptr<float> widthNormalized_ {};
       };
 
@@ -440,10 +440,10 @@ namespace Models
       protected:
         // The unique ID of the resource.
         shared_ptr<string> id_ {};
-        // The type of the resource. Valid values:
+        // The type of the resource configuration. Valid values:
         // 
-        // *   **background**: background material
-        // *   **media**: multimedia material
+        // - **background**: background material.
+        // - **media**: multimedia material.
         shared_ptr<string> type_ {};
       };
 
@@ -485,9 +485,9 @@ namespace Models
 
 
       protected:
-        // The ID of the channel that is bound to the video resource.
+        // The channel location ID to which the video resource is bound.
         shared_ptr<string> channelId_ {};
-        // The ID of the video resource.
+        // The video resource ID.
         shared_ptr<string> videoResourceId_ {};
       };
 
@@ -547,13 +547,13 @@ namespace Models
 
 
       protected:
-        // The unique ID of the material.
+        // The unique ID of the background material.
         shared_ptr<string> id_ {};
         // The URL of the material.
         shared_ptr<string> imageUrl_ {};
-        // The position ID.
+        // The location ID.
         shared_ptr<string> locationId_ {};
-        // The ID of the material in ApsaraVideo VOD.
+        // The video-on-demand material ID.
         shared_ptr<string> materialId_ {};
       };
 
@@ -627,24 +627,24 @@ namespace Models
 
 
     protected:
-      // The background material configurations.
+      // The background resource configuration.
       shared_ptr<StudioLayouts::BgImageConfig> bgImageConfig_ {};
-      // The common layout configurations. This parameter is returned only for a common layout.
+      // The common layout information. This field is returned when the layout is a common layout.
       shared_ptr<StudioLayouts::CommonConfig> commonConfig_ {};
-      // The layer sorting configurations.
+      // The layer order configuration.
       shared_ptr<vector<StudioLayouts::LayerOrderConfigList>> layerOrderConfigList_ {};
-      // The ID of the layout.
+      // The studio layout ID.
       shared_ptr<string> layoutId_ {};
-      // The name of the layout.
+      // The studio layout name.
       shared_ptr<string> layoutName_ {};
-      // The type of the layout. Valid values:
+      // The studio layout type. Valid values:
       // 
-      // *   **common**
-      // *   **studio**
+      // - **common**: common layout.
+      // - **studio**: studio layout.
       shared_ptr<string> layoutType_ {};
-      // The multimedia input configurations.
+      // The multimedia input resource configuration.
       shared_ptr<vector<StudioLayouts::MediaInputConfigList>> mediaInputConfigList_ {};
-      // The input configurations for chroma key.
+      // The chroma key input configuration.
       shared_ptr<vector<StudioLayouts::ScreenInputConfigList>> screenInputConfigList_ {};
     };
 
@@ -674,11 +674,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The layout information.
     shared_ptr<vector<DescribeStudioLayoutsResponseBody::StudioLayouts>> studioLayouts_ {};
-    // The total number of layouts.
+    // The number of layouts.
     shared_ptr<int32_t> total_ {};
   };
 

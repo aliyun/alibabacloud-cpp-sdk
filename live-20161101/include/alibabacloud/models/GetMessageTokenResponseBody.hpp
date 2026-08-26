@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The token used to establish a persistent connection.
+      // Token used for establishing persistent connections.
       shared_ptr<string> accessToken_ {};
-      // Indicates how long until the token expires. Unit: milliseconds.
+      // Logon token expiration time in milliseconds.
       shared_ptr<int64_t> accessTokenExpiredTime_ {};
-      // The updated token. If a token expires, you can call RefreshToken to obtain a new token.
+      // Refresh token. If the AccessToken expires, you can use the RefreshToken to obtain a new token.
       shared_ptr<string> refreshToken_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return results.
     shared_ptr<GetMessageTokenResponseBody::Result> result_ {};
   };
 

@@ -223,16 +223,16 @@ namespace Models
 
 
   protected:
-    // The total number of entries that meet the specified conditions.
+    // The total number of entries that meet the specified criteria.
     shared_ptr<int32_t> count_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The number of entries on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeStreamLocationBlockResponseBody::StreamBlockList> streamBlockList_ {};
-    // The total number of pages.
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

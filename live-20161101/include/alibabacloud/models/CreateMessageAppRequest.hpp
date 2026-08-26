@@ -62,13 +62,13 @@ namespace Models
 
 
   protected:
-    // The configurations of the application.
+    // The application configuration.
     shared_ptr<map<string, string>> appConfig_ {};
-    // The name of the interactive message application. The name must be 2 to 16 characters in length.
+    // The name of the interactive message application. The length must be 2 to 16 characters.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The extended fields.
+    // The extension field.
     shared_ptr<map<string, string>> extension_ {};
   };
 

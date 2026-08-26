@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The ID of the application to which the channel belongs. The ID can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the channel to which the user to be transcoded belongs. The ID can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The parameters for the input stream subscription.
+    // 
     // This parameter is required.
     shared_ptr<string> inputParamShrink_ {};
+    // The idle timeout period in seconds. If a task cannot subscribe to the specified streamer\\"s stream and remains idle for longer than this period, the task automatically stops. The value must be an integer from 10 to 14,400. The default value is 300.
     shared_ptr<int64_t> maxIdleTime_ {};
+    // The parameters for the transcoded output.
+    // 
     // This parameter is required.
     shared_ptr<string> outputParamsShrink_ {};
   };

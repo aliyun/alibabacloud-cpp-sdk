@@ -105,16 +105,23 @@ namespace Models
 
 
     protected:
-      // The main streaming domain.
+      // The streaming domain name.
       shared_ptr<string> domainName_ {};
-      // Indicates whether recording status callbacks are enabled. Valid values:
+      // Specifies whether to receive callbacks for the status of recording tasks. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: Yes.
+      // 
+      // - **false** (default): No.
       shared_ptr<bool> needStatusNotify_ {};
+      // The authentication key for the callback.
       shared_ptr<string> notifyAuthKey_ {};
+      // Specifies whether to enable callback authentication. Valid values:
+      // 
+      // - **yes**: enabled.
+      // 
+      // - **no**: disabled.
       shared_ptr<bool> notifyReqAuth_ {};
-      // The recording callback URL.
+      // The webhook address for recording callbacks.
       shared_ptr<string> notifyUrl_ {};
       // The callback URL for on-demand recording.
       shared_ptr<string> onDemandUrl_ {};
@@ -139,7 +146,7 @@ namespace Models
 
 
   protected:
-    // The configuration of callbacks for live stream recording.
+    // The recording callback configuration for the domain name.
     shared_ptr<DescribeLiveRecordNotifyConfigResponseBody::LiveRecordNotifyConfig> liveRecordNotifyConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

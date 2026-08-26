@@ -66,11 +66,12 @@ namespace Models
 
 
   protected:
-    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. The time must be in UTC and follow the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd**THH:mm:ssZ* format. The time must be in UTC.
+    // The start time. The time must be in UTC and follow the *yyyy-mm-dd*T*hh:mm:ss*Z format.
     shared_ptr<string> startTime_ {};
   };
 

@@ -94,12 +94,30 @@ namespace Models
 
 
     protected:
+      // The ID of the channel to which the transcoded stream is pushed. The ID can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters. (Pushing streams to a different channel is not supported. This setting is invalid.)
+      // 
       // This parameter is required.
       shared_ptr<string> channelId_ {};
+      // The name of the transcoding template. Valid values:
+      // 
+      // - alimcopy
+      // 
+      // - lld
+      // 
+      // - lsd
+      // 
+      // - lhd
+      // 
+      // - lud
+      // 
       // This parameter is required.
       shared_ptr<string> transcodeTemplate_ {};
+      // The user ID for the transcoded stream in the destination channel. This ID must be unique within the channel.
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
+      // The token required to push the transcoded stream to the channel. For more information, see [Token-based authentication](https://www.alibabacloud.com/help/en/apsaravideo-live/latest/token-based-authentication).
+      // 
       // This parameter is required.
       shared_ptr<string> userToken_ {};
     };
@@ -170,8 +188,22 @@ namespace Models
 
 
       protected:
+        // The type of the video input stream. This parameter is valid only if the subscribed media type includes a video stream. Valid values:
+        // 
+        // - 0 (default): The camera stream.
+        // 
+        // - 1: The screen sharing stream. (This value is not supported. The setting is invalid.)
         shared_ptr<int64_t> sourceType_ {};
+        // The media type of the subscribed stream. Valid values:
+        // 
+        // - 0 (default): The original stream, which includes both the audio and video streams.
+        // 
+        // - 1: The audio-only stream. (This value is not supported. The setting is invalid.)
+        // 
+        // - 2: The video-only stream. (This value is not supported. The setting is invalid.)
         shared_ptr<int64_t> streamType_ {};
+        // The ID of the user whose stream you want to subscribe to.
+        // 
         // This parameter is required.
         shared_ptr<string> userId_ {};
       };
@@ -187,6 +219,8 @@ namespace Models
 
 
     protected:
+      // The input parameters for a single-stream subscription.
+      // 
       // This parameter is required.
       shared_ptr<InputParam::SingleSubUserParam> singleSubUserParam_ {};
     };
@@ -233,13 +267,22 @@ namespace Models
 
 
   protected:
+    // The ID of the application to which the channel belongs. The ID can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the channel to which the user to be transcoded belongs. The ID can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-). The maximum length is 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The parameters for the input stream subscription.
+    // 
     // This parameter is required.
     shared_ptr<StartRtcCloudTranscodeRequest::InputParam> inputParam_ {};
+    // The idle timeout period in seconds. If a task cannot subscribe to the specified streamer\\"s stream and remains idle for longer than this period, the task automatically stops. The value must be an integer from 10 to 14,400. The default value is 300.
     shared_ptr<int64_t> maxIdleTime_ {};
+    // The parameters for the transcoded output.
+    // 
     // This parameter is required.
     shared_ptr<vector<StartRtcCloudTranscodeRequest::OutputParams>> outputParams_ {};
   };

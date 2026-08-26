@@ -75,6 +75,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

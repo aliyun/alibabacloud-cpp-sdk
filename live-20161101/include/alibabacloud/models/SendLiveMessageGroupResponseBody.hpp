@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the message, which is a unique identifier that can be used to delete the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+    // The unique identifier of the message, which can be used to delete the message. The ID can contain only letters and digits and can be up to 64 bytes in length.
     shared_ptr<string> msgTid_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

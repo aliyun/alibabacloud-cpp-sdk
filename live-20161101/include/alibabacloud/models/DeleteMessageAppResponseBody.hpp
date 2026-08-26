@@ -59,10 +59,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether the application was deleted. Valid values:
+      // Indicates whether the deletion was successful. Valid values:
       // 
-      // *   true: The application was deleted.
-      // *   false: The application failed to be deleted.
+      // - true: The deletion was successful.
+      // - false: The deletion failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -85,9 +85,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<DeleteMessageAppResponseBody::Result> result_ {};
   };
 

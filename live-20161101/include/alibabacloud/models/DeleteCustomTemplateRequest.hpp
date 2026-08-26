@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the template that you want to delete. The value is a string.
+    // The name of the template to delete.
     // 
     // This parameter is required.
     shared_ptr<string> template_ {};

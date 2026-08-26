@@ -99,13 +99,13 @@ namespace Models
     shared_ptr<string> callbackUrl_ {};
     // The channel ID. You can call the [ListEventSub](https://help.aliyun.com/document_detail/2848210.html) operation to query the channel ID.
     // 
-    // > 
+    // >
     // 
-    // *   This parameter is required if you specify the Users.N parameter.
+    // - This parameter is required if you specify the Users.N parameter.
     // 
-    // *   If you set this parameter to \\* or do not specify this parameter, all channels are subscribed to.
+    // - If you set this parameter to \\* or do not specify this parameter, all channels are subscribed to.
     // 
-    // *   You can create up to 20 subscriptions for each application ID.
+    // - You can create up to 20 subscriptions for each application ID.
     shared_ptr<string> channelId_ {};
     // The type of the events to which you want to subscribe.
     // 

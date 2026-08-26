@@ -175,11 +175,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveDelayedStreamingUsageResponseBody::DelayData> delayData_ {};
-    // The end of the time range during which the data was queried.
+    // The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the data was queried.
+    // The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

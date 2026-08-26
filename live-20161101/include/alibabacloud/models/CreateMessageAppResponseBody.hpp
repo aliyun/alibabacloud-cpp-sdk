@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the interactive messaging application.
+      // The ID of the interactive message application.
       shared_ptr<string> appId_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<CreateMessageAppResponseBody::Result> result_ {};

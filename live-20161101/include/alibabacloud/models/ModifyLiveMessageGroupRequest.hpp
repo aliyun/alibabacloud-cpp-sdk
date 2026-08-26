@@ -97,23 +97,23 @@ namespace Models
 
 
   protected:
-    // The list of administrators after your change.
+    // The updated list of administrators. Separate multiple administrators with commas (,). You can specify up to three administrators.
     shared_ptr<vector<string>> adminList_ {};
     // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+    // The data center. It must be the same as the data center specified in the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) call. Valid values: cn-shanghai (Shanghai) and ap-southeast-1 (Singapore).
     shared_ptr<string> dataCenter_ {};
     // The group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The additional information about the group after the modification. The value can be up to 32 KB in length.
+    // The updated extended information of the group. The information can be up to 32 KB in length.
     shared_ptr<string> groupInfo_ {};
-    // Specifies whether to change the group administrators.
+    // Specifies whether to modify the group administrators.
     shared_ptr<bool> modifyAdmin_ {};
-    // Specifies whether to modify the additional information about the group.
+    // Specifies whether to modify the extended information of the group.
     shared_ptr<bool> modifyInfo_ {};
   };
 

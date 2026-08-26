@@ -188,31 +188,31 @@ namespace Models
 
 
     protected:
-      // The name of the application to which the live stream belongs.
+      // The AppName of the live stream.
       shared_ptr<string> appName_ {};
-      // The time when the index file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> createTime_ {};
       // The main streaming domain.
       shared_ptr<string> domainName_ {};
-      // The recording length. Unit: seconds.
+      // The recording duration. Unit: seconds.
       shared_ptr<float> duration_ {};
-      // The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The end time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> endTime_ {};
       // The video format.
       shared_ptr<string> format_ {};
       // The video height.
       shared_ptr<int32_t> height_ {};
-      // The name of the Object Storage Service (OSS) bucket.
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucket_ {};
       // The endpoint of the OSS bucket.
       shared_ptr<string> ossEndpoint_ {};
       // The name of the storage file in OSS.
       shared_ptr<string> ossObject_ {};
-      // The ID of the index file.
+      // The manifest ID.
       shared_ptr<string> recordId_ {};
-      // The URL of the index file.
+      // The URL of the manifest.
       shared_ptr<string> recordUrl_ {};
-      // The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> startTime_ {};
       // The name of the live stream.
       shared_ptr<string> streamName_ {};
@@ -239,7 +239,7 @@ namespace Models
 
 
   protected:
-    // The information about the index file.
+    // Recording configuration.
     shared_ptr<DescribeLiveStreamRecordIndexFileResponseBody::RecordIndexInfo> recordIndexInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

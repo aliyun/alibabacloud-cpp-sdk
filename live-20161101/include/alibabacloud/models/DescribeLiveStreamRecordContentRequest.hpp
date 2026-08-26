@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // The main streaming domain.
+    // The AppName of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The operation that you want to perform. Set the value to **DescribeLiveStreamRecordContent**.
+    // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The beginning of the time range to query. You can only query the recordings in the last 6 months. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time for the query. The time range between StartTime and EndTime cannot exceed 4 days. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The name of the live stream.
+    // The start time for the query. You can query records from the last 6 months. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the application to which the live stream belongs.
+    // The name of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

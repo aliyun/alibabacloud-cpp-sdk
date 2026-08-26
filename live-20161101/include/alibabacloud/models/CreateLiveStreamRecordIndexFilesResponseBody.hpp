@@ -179,33 +179,33 @@ namespace Models
 
 
     protected:
-      // The name of the application to which the live stream belongs.
+      // The name of the application to which the stream belongs.
       shared_ptr<string> appName_ {};
-      // The time when the index file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> createTime_ {};
-      // The main streaming domain.
+      // The streamer streaming domain.
       shared_ptr<string> domainName_ {};
       // The recording length. Unit: seconds.
       shared_ptr<float> duration_ {};
-      // The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> endTime_ {};
-      // The height of the video.
+      // The video height.
       shared_ptr<int32_t> height_ {};
       // The name of the OSS bucket.
       shared_ptr<string> ossBucket_ {};
       // The endpoint of the OSS bucket.
       shared_ptr<string> ossEndpoint_ {};
-      // The name of the recording that is stored in OSS.
+      // The name of the recording file stored in OSS.
       shared_ptr<string> ossObject_ {};
       // The ID of the index file.
       shared_ptr<string> recordId_ {};
-      // The URL of the M3U8 index file.
+      // The URL of the index file.
       shared_ptr<string> recordUrl_ {};
-      // The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> startTime_ {};
-      // The name of the live stream.
+      // The stream name.
       shared_ptr<string> streamName_ {};
-      // The width of the video.
+      // The video width.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -228,9 +228,9 @@ namespace Models
 
 
   protected:
-    // The recording configuration.
+    // The recording configuration information.
     shared_ptr<CreateLiveStreamRecordIndexFilesResponseBody::RecordInfo> recordInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -248,9 +248,9 @@ namespace Models
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribeLiveStreamPreloadTasksResponseBody::PreloadTasks> preloadTasks_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the conditions.
     shared_ptr<int32_t> totalNum_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

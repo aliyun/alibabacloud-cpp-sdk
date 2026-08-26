@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};

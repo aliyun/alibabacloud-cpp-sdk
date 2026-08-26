@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to query the episodes in the episode list, edit the episode list, delete the episode list, query the information about the episode list, or stop the episode list.
+    // The ID of the playlist. You can use this ID as a request parameter to query playlist items, edit a playlist, delete a playlist, start a playlist, or stop a playlist.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -136,23 +136,23 @@ namespace Models
 
 
     protected:
-      // The name of the application.
+      // The app name.
       shared_ptr<string> appName_ {};
-      // The main streaming domain.
+      // The streaming domain.
       shared_ptr<string> domainName_ {};
-      // The time when the stream mixing task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the stream mixing task was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the stream mixing task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the stream mixing task was last modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
       shared_ptr<string> gmtModified_ {};
-      // The number of input streams.
+      // The number of input sources.
       shared_ptr<int32_t> inputStreamNumber_ {};
-      // The ID of the layout.
+      // The layout ID.
       shared_ptr<string> layoutId_ {};
       // The stream mixing template.
       shared_ptr<string> mixStreamTemplate_ {};
-      // The ID of the stream mixing task. You can specify this parameter in a request to delete the steam mixing task.
+      // The ID of the stream mixing task. You can use this ID to delete the task.
       shared_ptr<string> mixstreamId_ {};
-      // The name of the output stream.
+      // The stream name of the stream mixing task.
       shared_ptr<string> streamName_ {};
     };
 
@@ -182,9 +182,9 @@ namespace Models
 
 
   protected:
-    // Details about the stream mixing tasks.
+    // The list of stream mixing tasks.
     shared_ptr<vector<DescribeMixStreamListResponseBody::MixStreamList>> mixStreamList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of tasks.
     shared_ptr<int32_t> total_ {};

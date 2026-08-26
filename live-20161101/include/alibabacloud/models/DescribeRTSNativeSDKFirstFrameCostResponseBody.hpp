@@ -112,17 +112,17 @@ namespace Models
 
 
     protected:
-      // The time elapsed from initialization to connection establishment.
+      // The time elapsed from successful initialization to successful connection establishment.
       shared_ptr<string> connected_ {};
-      // The time elapsed from connection establishment to subscription.
+      // The time elapsed from successful connection establishment to successful subscription.
       shared_ptr<string> finishGetStreamInfo_ {};
-      // The time elapsed from first packet processing to display of the first frame.
+      // The time elapsed from receiving the first packet to rendering the first frame.
       shared_ptr<string> firstFrameComplete_ {};
-      // The time elapsed from subscription to first packet processing.
+      // The time elapsed from successful subscription to receiving the first packet.
       shared_ptr<string> firstPacket_ {};
-      // The time consumed by initialization.
+      // The initialization duration.
       shared_ptr<string> initialized_ {};
-      // The timestamp of the returned data.
+      // The start time of the time interval. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -168,13 +168,13 @@ namespace Models
   protected:
     // The time granularity.
     shared_ptr<string> dataInterval_ {};
-    // The end of the time range for which the data was queried.
+    // The end time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The average latency of first frames at each interval. Unit: milliseconds.
+    // The average first frame latency composition for each time interval. Unit: milliseconds.
     shared_ptr<vector<DescribeRTSNativeSDKFirstFrameCostResponseBody::FirstFrameCostData>> firstFrameCostData_ {};
-    // The ID of the request.
+    // Id
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for which the data was queried.
+    // The start time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

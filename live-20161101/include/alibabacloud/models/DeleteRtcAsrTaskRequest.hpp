@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The task ID. You can obtain the ID from the response to the [CreateRtcAsrTask](https://help.aliyun.com/document_detail/2848217.html) operation.
+    // The ID of the task. Call the [CreateRtcAsrTask](https://help.aliyun.com/document_detail/2848217.html) operation to obtain the task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

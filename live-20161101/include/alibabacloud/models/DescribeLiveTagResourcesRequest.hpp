@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag. Valid values of N: **1 to 20**.
+      // The tag key. You can specify up to 20 tag keys.
       shared_ptr<string> key_ {};
-      // The value of the tag. Valid values of N: **1 to 20**.
+      // The tag value. You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -125,16 +125,17 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The N resources. The resources are domain names in this operation. Valid values of N: **1 to 50**.
+    // The resource IDs. The resources are domain names for live streaming. You can query up to 50 resource IDs at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resources. Set the value to **DOMAIN**.
+    // The type of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The N tags.
+    // A list of tags.
     shared_ptr<vector<DescribeLiveTagResourcesRequest::Tag>> tag_ {};
   };
 

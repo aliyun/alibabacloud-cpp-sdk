@@ -357,7 +357,7 @@ namespace Models
     shared_ptr<DescribeCastersResponseBody::CasterList> casterList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of production studios.
+    // The total number of production studios.
     shared_ptr<int32_t> total_ {};
   };
 

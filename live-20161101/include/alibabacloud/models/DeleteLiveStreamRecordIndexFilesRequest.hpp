@@ -97,28 +97,30 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The name of the main streaming domain.
+    // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The index file IDs.
+    // The array of index file IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> recordId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to delete the corresponding file in Object Storage Service (OSS) synchronously. Valid values:
+    // Specifies whether to delete the associated OSS objects at the same time. Valid values:
     // 
-    // *   **true**: The corresponding file in OSS is deleted.
-    // *   **false**: The corresponding file in OSS is not deleted.
+    // - **true**: Deletes.
+    // 
+    // - **false**: Does not delete.
     // 
     // This parameter is required.
     shared_ptr<string> removeFile_ {};
-    // The name of the live stream.
+    // The stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

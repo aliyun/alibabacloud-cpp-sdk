@@ -172,45 +172,51 @@ namespace Models
     protected:
       // The name of the certificate.
       shared_ptr<string> certName_ {};
-      // The CNAME that is assigned to the domain name. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name to the CNAME.
+      // The canonical name (CNAME). A CNAME is generated for the live streaming domain. You must add a CNAME record at your DNS provider to map the live streaming domain to this CNAME.
       // 
-      // >  A time-to-live (TTL) value is specified in the CNAME record of a domain name to indicate how long the CNAME record can be cached on the DNS resolver. If you modify the CNAME record of the domain name, the new settings take effect after the cache expires, which takes about 10 minutes. For more information, see [CNAME resolution](https://help.aliyun.com/document_detail/362010.html).
+      // > Local DNS records are cached. After you add the CNAME record, it may take up to 10 minutes to take effect. For more information, see [FAQ about CNAME records](https://help.aliyun.com/document_detail/362010.html).
       shared_ptr<string> cname_ {};
       // The description of the domain name.
       shared_ptr<string> description_ {};
-      // The streaming domain or ingest domain.
+      // The ingest domain or streaming domain.
       shared_ptr<string> domainName_ {};
-      // The status of the domain name. Valid values:
+      // The status of the domain. Valid values:
       // 
-      // *   **online**: The domain name is enabled.
-      // *   **offline**: The domain name is disabled.
-      // *   **configuring**: The domain is being configured.
+      // - **online**: enabled.
+      // 
+      // - **offline**: disabled.
+      // 
+      // - **configuring**: being configured.
       shared_ptr<string> domainStatus_ {};
-      // The time when the domain name was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the domain was added. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the domain name was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the domain was last modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> gmtModified_ {};
       // The type of the domain name. Valid values:
       // 
-      // *   **liveVideo**: streaming domain
-      // *   **liveEdge**: ingest domain
+      // - **liveVideo**: streaming domain.
+      // 
+      // - **liveEdge**: ingest domain.
       shared_ptr<string> liveDomainType_ {};
-      // The ID of the region where the domain name resides.
+      // The region where the domain name is added.
       shared_ptr<string> region_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether the SSL certificate is enabled. Valid values:
+      // Indicates whether SSL is enabled. Valid values:
       // 
-      // *   **on**
-      // *   **off**
+      // - **on**: enabled.
+      // 
+      // - **off**: disabled.
       shared_ptr<string> SSLProtocol_ {};
       // The public key of the certificate.
       shared_ptr<string> SSLPub_ {};
       // The acceleration region. Valid values:
       // 
-      // *   **domestic**: regions in the Chinese mainland.
-      // *   **overseas**: regions outside the Chinese mainland.
-      // *   **global**: regions in and outside the Chinese mainland.
+      // - **domestic**: the Chinese mainland.
+      // 
+      // - **overseas**: regions outside the Chinese mainland.
+      // 
+      // - **global**: global.
       shared_ptr<string> scope_ {};
     };
 
@@ -233,7 +239,7 @@ namespace Models
 
 
   protected:
-    // The configuration details of the domain name.
+    // The details of the domain configuration.
     shared_ptr<DescribeLiveDomainDetailResponseBody::DomainDetail> domainDetail_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

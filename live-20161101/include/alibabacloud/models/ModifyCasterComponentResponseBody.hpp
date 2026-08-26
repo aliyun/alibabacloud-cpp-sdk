@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the component. You can use the ID as a request parameter in the API operation that is called to query components in a production studio.
+    // The component ID. You can use this ID as a request parameter to query the components of the production studio.
     shared_ptr<string> componentId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The component ID. The value can be used as the value of a request parameter to query, modify, or delete a production studio.
+    // The component ID. Use this ID to query, modify, or delete the component.
     shared_ptr<string> componentId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

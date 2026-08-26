@@ -14,6 +14,7 @@ namespace Models
   class DescribeCasterConfigResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCasterConfigResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AudioMixerMode, audioMixerMode_);
       DARABONBA_PTR_TO_JSON(AutoSwitchUrgentConfig, autoSwitchUrgentConfig_);
       DARABONBA_PTR_TO_JSON(AutoSwitchUrgentOn, autoSwitchUrgentOn_);
       DARABONBA_PTR_TO_JSON(CallbackUrl, callbackUrl_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UrgentMaterialId, urgentMaterialId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCasterConfigResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AudioMixerMode, audioMixerMode_);
       DARABONBA_PTR_FROM_JSON(AutoSwitchUrgentConfig, autoSwitchUrgentConfig_);
       DARABONBA_PTR_FROM_JSON(AutoSwitchUrgentOn, autoSwitchUrgentOn_);
       DARABONBA_PTR_FROM_JSON(CallbackUrl, callbackUrl_);
@@ -203,9 +205,9 @@ namespace Models
           shared_ptr<int32_t> bitrate_ {};
           // The video frame rate.
           shared_ptr<int32_t> fps_ {};
-          // The video height. Unit: pixels.
+          // The video height. Unit: pixels (px).
           shared_ptr<int32_t> height_ {};
-          // The video width. Unit: pixels.
+          // The video width. Unit: pixels (px).
           shared_ptr<int32_t> width_ {};
         };
 
@@ -252,18 +254,18 @@ namespace Models
 
 
     protected:
-      // The transcoding template of the production studio. Valid values:
+      // The production studio transcoding template. Valid values:
       // 
-      // *   **lp_ld**: low definition
-      // *   **lp_sd**: standard definition
-      // *   **lp_hd**: high definition
-      // *   **lp_ud**: ultra high definition
-      // *   **lp_ld_v**: low definition (portrait mode)
-      // *   **lp_sd_v**: standard definition (portrait mode)
-      // *   **lp_hd_v**: high definition (portrait mode)
-      // *   **lp_ud_v**: ultra high definition (portrait mode)
+      // - **lp_ld**: low definition.
+      // - **lp_sd**: standard definition.
+      // - **lp_hd**: high definition.
+      // - **lp_ud**: ultra-high definition.
+      // - **lp_ld_v**: portrait low definition.
+      // - **lp_sd_v**: portrait standard definition.
+      // - **lp_hd_v**: portrait high definition.
+      // - **lp_ud_v**: portrait ultra-high definition.
       shared_ptr<string> casterTemplate_ {};
-      // The custom settings.
+      // The custom configuration.
       shared_ptr<TranscodeConfig::CustomParams> customParams_ {};
       shared_ptr<TranscodeConfig::LiveTemplateIds> liveTemplateIds_ {};
     };
@@ -541,24 +543,35 @@ namespace Models
 
 
     protected:
-      // On-demand recording. Values:
-      // - 0: Off. 
-      // - 1: Via HTTP callback. 
-      // - 2: Parse streaming parameters for on-demand recording. 
-      // - 7: Default to not record.
+      // The on-demand recording mode. Valid values:
+      // 
+      // - 0: Disabled.
+      // 
+      // - 1: HTTP callback-based.
+      // 
+      // - 2: On-demand recording by parsing stream ingest parameters.
+      // 
+      // - 7: Not recorded by default.
       shared_ptr<int32_t> onDemand_ {};
-      // The OSS bucket for storage.
+      // The storage location.
       shared_ptr<string> ossBucket_ {};
-      // The Object Storage Service (OSS) endpoint.
+      // The OSS endpoint of the storage location.
       shared_ptr<string> ossEndpoint_ {};
       shared_ptr<RecordConfig::RecordFormat> recordFormat_ {};
     };
 
-    virtual bool empty() const override { return this->autoSwitchUrgentConfig_ == nullptr
-        && this->autoSwitchUrgentOn_ == nullptr && this->callbackUrl_ == nullptr && this->casterId_ == nullptr && this->casterName_ == nullptr && this->channelEnable_ == nullptr
-        && this->delay_ == nullptr && this->domainName_ == nullptr && this->programEffect_ == nullptr && this->programName_ == nullptr && this->recordConfig_ == nullptr
-        && this->requestId_ == nullptr && this->sideOutputUrl_ == nullptr && this->sideOutputUrlList_ == nullptr && this->syncGroupsConfig_ == nullptr && this->transcodeConfig_ == nullptr
-        && this->urgentImageId_ == nullptr && this->urgentImageUrl_ == nullptr && this->urgentLiveStreamUrl_ == nullptr && this->urgentMaterialId_ == nullptr; };
+    virtual bool empty() const override { return this->audioMixerMode_ == nullptr
+        && this->autoSwitchUrgentConfig_ == nullptr && this->autoSwitchUrgentOn_ == nullptr && this->callbackUrl_ == nullptr && this->casterId_ == nullptr && this->casterName_ == nullptr
+        && this->channelEnable_ == nullptr && this->delay_ == nullptr && this->domainName_ == nullptr && this->programEffect_ == nullptr && this->programName_ == nullptr
+        && this->recordConfig_ == nullptr && this->requestId_ == nullptr && this->sideOutputUrl_ == nullptr && this->sideOutputUrlList_ == nullptr && this->syncGroupsConfig_ == nullptr
+        && this->transcodeConfig_ == nullptr && this->urgentImageId_ == nullptr && this->urgentImageUrl_ == nullptr && this->urgentLiveStreamUrl_ == nullptr && this->urgentMaterialId_ == nullptr; };
+    // audioMixerMode Field Functions 
+    bool hasAudioMixerMode() const { return this->audioMixerMode_ != nullptr;};
+    void deleteAudioMixerMode() { this->audioMixerMode_ = nullptr;};
+    inline string getAudioMixerMode() const { DARABONBA_PTR_GET_DEFAULT(audioMixerMode_, "") };
+    inline DescribeCasterConfigResponseBody& setAudioMixerMode(string audioMixerMode) { DARABONBA_PTR_SET_VALUE(audioMixerMode_, audioMixerMode) };
+
+
     // autoSwitchUrgentConfig Field Functions 
     bool hasAutoSwitchUrgentConfig() const { return this->autoSwitchUrgentConfig_ != nullptr;};
     void deleteAutoSwitchUrgentConfig() { this->autoSwitchUrgentConfig_ = nullptr;};
@@ -706,56 +719,56 @@ namespace Models
 
 
   protected:
-    // The configuration for automatic switchover to the standby resource. The `eofThres` field specifies the duration after which the production studio automatically switches to the standby resource if a stream interruption occurs. Unit: seconds.
+    shared_ptr<string> audioMixerMode_ {};
+    // The automatic standby video switching configuration. `eofThres`: specifies the duration of stream interruption before automatically switching to the standby video. Unit: seconds.
     shared_ptr<string> autoSwitchUrgentConfig_ {};
-    // Indicates whether the production studio automatically switches to the standby resource in case of a stream interruption.
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether automatic switchover to the standby video upon stream interruption is enabled.
+    // - **true**: Enabled.
+    // - **false**: Shutdown.
     shared_ptr<string> autoSwitchUrgentOn_ {};
-    // The callback URL.
+    // The user callback URL.
     shared_ptr<string> callbackUrl_ {};
-    // The ID of the production studio.
+    // The production studio ID.
     shared_ptr<string> casterId_ {};
-    // The name of the production studio.
+    // The production studio name.
     shared_ptr<string> casterName_ {};
-    // Indicates whether channels are enabled for the production studio. Valid values:
-    // 
-    // *   **0**: Channels are disabled.
-    // *   **1**: Channels are enabled.
+    // Indicates whether Channel is enabled. Valid values:
+    //          
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> channelEnable_ {};
-    // Indicates whether stream delay is enabled. Unit: seconds.
-    // 
-    // *   **0**: Stream delay is disabled.
-    // *   **A value greater than 0**: Stream delay is enabled.
+    // The stream delay. Unit: seconds. 
+    //          
+    // - **0**: Stream delay is disabled.
+    // - Greater than **0**: Stream delay is enabled.
     shared_ptr<float> delay_ {};
-    // The main streaming domain.
+    // The primary streaming domain.
     shared_ptr<string> domainName_ {};
-    // Indicates whether the carousel playback feature is enabled. Valid values:
-    // 
-    // *   **0**: The carousel playback feature is disabled.
-    // *   **1**: The carousel playback feature is enabled.
+    // The playlist effective flag. Valid values:
+    //          
+    // - **0**: Not effective.
+    // - **1**: Effective.
     shared_ptr<int32_t> programEffect_ {};
-    // The name of the playlist for carousel playback.
+    // The playlist name.
     shared_ptr<string> programName_ {};
-    // The recording configuration. If this parameter is empty, the recording feature is disabled.
+    // The recording configuration. If this parameter is empty, the recording feature is not enabled.
     shared_ptr<DescribeCasterConfigResponseBody::RecordConfig> recordConfig_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The custom stream redirect URL.
+    // The custom side output URL of the production studio.
     shared_ptr<string> sideOutputUrl_ {};
-    // The list of custom stream redirect URLs.
+    // The list of custom side output URLs of the production studio.
     shared_ptr<string> sideOutputUrlList_ {};
     shared_ptr<DescribeCasterConfigResponseBody::SyncGroupsConfig> syncGroupsConfig_ {};
     // The transcoding configuration.
     shared_ptr<DescribeCasterConfigResponseBody::TranscodeConfig> transcodeConfig_ {};
-    // Prepared broadcast image media asset ID.
+    // The media library asset ID of the standby image.
     shared_ptr<string> urgentImageId_ {};
-    // URL of the standby image material.
+    // The URL of the standby image.
     shared_ptr<string> urgentImageUrl_ {};
     // The URL of the standby live stream.
     shared_ptr<string> urgentLiveStreamUrl_ {};
-    // The ID of the material that is used as the standby video from the media library.
+    // The media library asset ID of the standby video.
     shared_ptr<string> urgentMaterialId_ {};
   };
 

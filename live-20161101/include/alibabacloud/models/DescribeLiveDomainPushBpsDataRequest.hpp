@@ -103,25 +103,32 @@ namespace Models
 
 
   protected:
-    // The ingest domain. You can specify multiple ingest domains and separate them with commas (,). If you do not specify this parameter, the merged data of all your ingest domains is returned.
+    // The ingest domain.
+    // Batch domain name queries are supported. Separate multiple domain names with commas (,).
+    // If this parameter is left empty, the merged data of all ingest domains is returned by default.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. The end time must be later than the start time.
+    // The end of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The time granularity of the query. Unit: seconds. Valid values:
+    // The time granularity of the queried data. Unit: seconds. Valid values:
     // 
-    // *   **300**
-    // *   **3600**
-    // *   **86400**
+    // - **300**
+    // - **3600**
+    // - **86400**
     // 
-    // The default value is 300. If you specify an invalid value or do not specify this parameter, the default value is used.
+    // If you do not specify this parameter or the specified value is not supported, the default value 300 is used.
     shared_ptr<string> interval_ {};
-    // The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query a list of available ISPs. If you do not specify this parameter, the data of all ISPs is returned.
+    // The name of the Internet service provider (ISP) in English.
+    // You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to obtain ISP names. If you do not specify this parameter, data for all ISPs is returned.
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query a list of available regions. If you do not specify this parameter, the data of all regions is returned.
+    // The name of the region in English.
+    // You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to obtain region names. If you do not specify this parameter, data for all regions is returned.
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. If you do not specify this parameter, the data of the last 24 hours is returned.
+    // The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // If you do not specify this parameter, data from the last 24 hours is returned by default.
     shared_ptr<string> startTime_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The updated layout parameters. Leave this parameter empty in single-stream recording mode. This parameter is required in stream mixing recording mode when the transcoding output is not audio-only.
     shared_ptr<string> mixLayoutParamsShrink_ {};
+    // The updated subscription parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> subscribeParamsShrink_ {};
+    // The task ID. This ID is returned by StartRtcCloudRecording. Only tasks in the running or abnormal state can be updated.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

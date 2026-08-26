@@ -84,27 +84,27 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The ID of the subscribed application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time, expressed as a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The page number.
+    // The page number. Valid values: 1 and greater.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of callback records to return on each page. Valid values: 1 to 100.
+    // The number of records per page. Valid values: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time, expressed as a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The subscription ID. You can obtain the ID from the response to the [CreateEventSub](https://help.aliyun.com/document_detail/2848209.html) operation.
+    // The subscribe ID. You can obtain the subscribe ID from the response parameters of the [CreateEventSub](https://help.aliyun.com/document_detail/2848209.html) operation by using a parameter query.
     shared_ptr<string> subscribeId_ {};
   };
 

@@ -58,8 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the task.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

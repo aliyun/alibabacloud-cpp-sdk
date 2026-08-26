@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The number of streams that use the transcoding template.
+      // The number of streams for the transcoding template.
       shared_ptr<int32_t> count_ {};
       // The name of the transcoding template.
       shared_ptr<string> template_ {};
@@ -131,15 +131,15 @@ namespace Models
 
 
   protected:
-    // The number of streams for which transcoding is triggered by stream pulling.
+    // The number of streams that triggered transcoding.
     shared_ptr<int64_t> lazyTranscodedNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of streams.
+    // The total number of transcoding streams.
     shared_ptr<int64_t> total_ {};
-    // The details about the transcoding templates.
+    // The transcoding template data.
     shared_ptr<vector<DescribeLiveStreamTranscodeStreamNumResponseBody::TranscodeStreamCountDetails>> transcodeStreamCountDetails_ {};
-    // The number of streams that are transcoded.
+    // The number of transcoded streams.
     shared_ptr<int64_t> transcodedNumber_ {};
     // The number of streams that are not transcoded.
     shared_ptr<int64_t> untranscodeNumber_ {};

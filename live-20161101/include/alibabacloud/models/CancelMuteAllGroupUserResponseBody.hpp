@@ -59,9 +59,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the cancellation was successful, with values:
-      // - true: Success. 
-      // - false: Not successful.
+      // Indicates whether the cancellation was successful. Valid values:
+      // 
+      // - true: Successful.
+      // 
+      // - false: Unsuccessful.
       shared_ptr<bool> success_ {};
     };
 
@@ -84,9 +86,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Actual return result of the service
     shared_ptr<CancelMuteAllGroupUserResponseBody::Result> result_ {};
   };
 

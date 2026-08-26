@@ -103,26 +103,28 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications under the domain name. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the application. The wildcard character (\\*) is supported. An asterisk (\\*) represents all applications under the specified domain name. For more information, see [Stream management](https://help.aliyun.com/document_detail/197397.html).
     shared_ptr<string> appName_ {};
-    // The streaming domain.
+    // The streaming domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The length of a TS segment for HTTP Live Streaming (HLS). Unit: seconds.
+    // The duration of an HTTP Live Streaming (HLS) transport stream (TS) segment. Unit: seconds.
     shared_ptr<int32_t> duration_ {};
-    // Specifies whether to disable time shifting for the transcoded stream. Valid values:
+    // Specifies whether to enable time shifting for transcoded streams. Valid values:
     // 
-    // *   **true**: disables time shifting for the transcoded stream.
-    // *   **false**: enables time shifting for the transcoded stream.
+    // - **true**: Time shifting is disabled for transcoded streams.
+    // 
+    // - **false**: Time shifting is enabled for transcoded streams.
     // 
     // Default value: true.
     shared_ptr<bool> ignoreTranscode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. You can specify an asterisk (\\*) as the value to match all streams in the application. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the stream. The wildcard character (\\*) is supported. An asterisk (\\*) represents all streams under the specified application. For more information, see [Stream management](https://help.aliyun.com/document_detail/197397.html).
     shared_ptr<string> streamName_ {};
-    // The duration for which data is retained. Default value: 7. Unit: day.
+    // The data retention period. The default value is 7. Unit: days.
     shared_ptr<int32_t> vision_ {};
   };
 

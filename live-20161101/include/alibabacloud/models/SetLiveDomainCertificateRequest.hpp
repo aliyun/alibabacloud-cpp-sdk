@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CertName, certName_);
       DARABONBA_PTR_TO_JSON(CertType, certType_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ForceSet, forceSet_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(SSLPri, SSLPri_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CertName, certName_);
       DARABONBA_PTR_FROM_JSON(CertType, certType_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ForceSet, forceSet_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(SSLPri, SSLPri_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certName_ == nullptr
-        && this->certType_ == nullptr && this->domainName_ == nullptr && this->forceSet_ == nullptr && this->ownerId_ == nullptr && this->SSLPri_ == nullptr
-        && this->SSLProtocol_ == nullptr && this->SSLPub_ == nullptr && this->securityToken_ == nullptr; };
+        && this->certType_ == nullptr && this->domainName_ == nullptr && this->dryRun_ == nullptr && this->forceSet_ == nullptr && this->ownerId_ == nullptr
+        && this->SSLPri_ == nullptr && this->SSLProtocol_ == nullptr && this->SSLPub_ == nullptr && this->securityToken_ == nullptr; };
     // certName Field Functions 
     bool hasCertName() const { return this->certName_ != nullptr;};
     void deleteCertName() { this->certName_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SetLiveDomainCertificateRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline SetLiveDomainCertificateRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // forceSet Field Functions 
@@ -116,31 +125,37 @@ namespace Models
     shared_ptr<string> certName_ {};
     // The certificate type. Valid values:
     // 
-    // *   **upload**: a custom certificate
-    // *   **cas**: a certificate that is purchased from Certificate Management Service
-    // *   **free**: a free certificate (for testing)
+    // - **upload**: an uploaded certificate.
+    // - **cas**: a certificate from SSL Certificates Service.
+    // - **free**: a personal test certificate (Free Edition).
     shared_ptr<string> certType_ {};
-    // The domain name that is secured by the certificate. The domain name uses `HTTPS`-based acceleration.
+    // The accelerated domain name to which the certificate belongs. The domain name is of the `https` acceleration type.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Specifies whether to check the certificate name for duplicates. A value of 1 indicates that the system does not perform the check and overwrites the information about the certificate that has the same name. Set the value to **1**.
+    // Specifies whether to perform only a dry run, without actually executing the operation. Valid values:
+    // 
+    // - true: sends a dry run request. If the request passes the check, the operation is not actually executed.
+    // - false (default): sends a normal request. If the request passes the check, the operation is actually executed.
+    // 
+    // The dry run checks parameter validity, RAM permissions, and resource status. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the operation is not actually executed.
+    shared_ptr<bool> dryRun_ {};
+    // Ignores the check for duplicate certificate names and overwrites the existing certificate information with the same name. Fixed value: **1**.
     shared_ptr<string> forceSet_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The private key.
+    // The private key content.
     // 
-    // >  This parameter is required only if you set the SSLProtocol parameter to on.
+    // > This parameter is required only when SSLProtocol is set to on.
     shared_ptr<string> SSLPri_ {};
-    // Specifies whether to enable the HTTPS certificate. Valid values:
-    // 
-    // *   **on**. If you set this parameter to **on**, you must also specify the SSLPub and SSLPri parameters.
-    // *   **off**. This is the default value.
+    // Specifies whether to enable the HTTPS certificate. Valid values: 
+    // - **on**: enabled. If the value is **on**, you must also set the SSLPub and SSLPri request parameters.
+    // - **off** (default): disabled.
     // 
     // This parameter is required.
     shared_ptr<string> SSLProtocol_ {};
-    // The public key.
+    // The public key content.
     // 
-    // >  This parameter is required only if you set the SSLProtocol parameter to on.
+    // > This parameter is required only when SSLProtocol is set to on.
     shared_ptr<string> SSLPub_ {};
     shared_ptr<string> securityToken_ {};
   };

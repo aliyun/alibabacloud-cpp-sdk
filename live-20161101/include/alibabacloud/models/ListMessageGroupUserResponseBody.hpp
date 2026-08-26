@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The time when the user joined the message group. The value is a UTC timestamp.
+        // UTC timestamp when the user joined the message group.
         shared_ptr<int64_t> joinTime_ {};
-        // The ID of the user.
+        // User ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -125,14 +125,14 @@ namespace Models
 
 
     protected:
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true: The current page is followed by another page.
-      // *   false: The current page is not followed by another page.
+      // - true: There is a next page.
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
-      // The total number of users in the message group.
+      // Total number of message group users.
       shared_ptr<int32_t> total_ {};
-      // Details about the users.
+      // User list.
       shared_ptr<vector<Result::UserList>> userList_ {};
     };
 
@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return results.
     shared_ptr<ListMessageGroupUserResponseBody::Result> result_ {};
   };
 

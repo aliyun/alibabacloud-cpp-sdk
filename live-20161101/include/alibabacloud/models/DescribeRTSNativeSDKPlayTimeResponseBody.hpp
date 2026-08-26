@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The average playback duration within the period of time.
+      // The average playback duration during the time interval. Unit: milliseconds.
       shared_ptr<string> playTime_ {};
-      // The average stuttering duration within the period of time.
+      // The average stall duration during the time interval. Unit: milliseconds.
       shared_ptr<string> stallTime_ {};
-      // The timestamp of the returned data.
+      // The start time of the time interval. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -135,13 +135,13 @@ namespace Models
   protected:
     // The time granularity.
     shared_ptr<string> dataInterval_ {};
-    // The end of the time range for which the data was queried.
+    // The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The average playback duration and average stuttering duration at each interval. Unit: milliseconds.
+    // The average playback duration and average stall duration for each time interval. Unit: milliseconds.
     shared_ptr<vector<DescribeRTSNativeSDKPlayTimeResponseBody::PlayTimeData>> playTimeData_ {};
-    // The ID of the request.
+    // Id
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for which the data was queried.
+    // The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

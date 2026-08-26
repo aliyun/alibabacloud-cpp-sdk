@@ -66,17 +66,18 @@ namespace Models
 
 
   protected:
-    // The configuration of the template. The value is in the following JSON format: {height:xxx,scale:xxx,gop:xxx,bframes:xxx,cdesc:xxx}. All fields are required. If any field is left empty, the call fails.
+    // The template configuration in JSON format. The value must be in the following format: {height:xxx,scale:xxx,gop:xxx,bframes:xxx,cdesc:xxx}. All fields are required. The call fails if any field is missing.
     // 
-    // >  For more information, see **Fields of the CustomTemplate parameter**.
+    // > For more information about the parameters, see the **CustomTemplate details** table below.
     // 
     // This parameter is required.
     shared_ptr<string> customTemplate_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the template.
+    // The name of the template to add.
     // 
-    // > Record the template name. The template name is required if you want to use, query, or delete the template.
+    // > Record the template name after you create it. The name is required for subsequent operations, such as using, querying, and deleting the template.
     // 
     // This parameter is required.
     shared_ptr<string> template_ {};

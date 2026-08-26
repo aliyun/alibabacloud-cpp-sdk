@@ -116,49 +116,56 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The latency of FLV-based playback. Unit: seconds.
+    // The FLV playback latency. Unit: seconds.
     // 
-    // >  If this parameter is left empty, the latency is set to a value corresponding to the FlvLevel parameter.
+    // > If this parameter is left empty, the latency is set based on the value of FlvLevel.
     shared_ptr<int32_t> flvDelay_ {};
-    // The latency level of FLV-based playback. Ignore this parameter if the FlvDelay parameter is configured.
+    // The FLV latency level. This parameter is ignored if FlvDelay is set.
     // 
     // Valid values:
     // 
-    // *   **short** (default): The latency is 4 seconds.
-    // *   **medium**: The latency is 8 seconds.
-    // *   **long**: The latency is 16 seconds.
+    // - **short** (default): 2 seconds.
     // 
-    // >  If both the FlvDelay and FlvLevel parameters are left empty, FlvLevel is set to **short** by default.
+    // - **medium**: 4 seconds.
+    // 
+    // - **long**: more than 4 seconds.
+    // 
+    // > If both FlvDelay and FlvLevel are left empty, the default value **short** is used.
     shared_ptr<string> flvLevel_ {};
-    // The latency of HLS-based playback. Unit: seconds.
+    // The HLS playback latency. Unit: seconds.
     // 
-    // >  If this parameter is left empty, the latency is set to a value corresponding to the HlsLevel parameter.
+    // > If this parameter is left empty, the latency is set based on the value of HlsLevel.
     shared_ptr<int32_t> hlsDelay_ {};
-    // The latency level of HLS-based playback. Ignore this parameter if the HlsDelay parameter is configured.
+    // The HLS latency level. This parameter is ignored if HlsDelay is set.
     // 
     // Valid values:
     // 
-    // *   **short**: The latency is 3 seconds. This is the default value.
-    // *   **medium**: The latency is 6 seconds.
-    // *   **long**: The latency is 15 seconds.
+    // - **short** (default): 3 seconds.
     // 
-    // >  If both the HlsDelay and HlsLevel parameters are left empty, HlsLevel is set to **short** by default.
+    // - **medium**: 6 seconds.
+    // 
+    // - **long**: 15 seconds.
+    // 
+    // > If both HlsDelay and HlsLevel are left empty, the default value **short** is used.
     shared_ptr<string> hlsLevel_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The latency of RTMP-based playback. Unit: seconds.
+    // The RTMP playback latency. Unit: seconds.
     // 
-    // >  If this parameter is left empty, the latency is set to a value corresponding to the RtmpLevel parameter.
+    // > If this parameter is left empty, the latency is set based on the value of RtmpLevel.
     shared_ptr<int32_t> rtmpDelay_ {};
-    // The latency level of RTMP-based playback. Ignore this parameter if the RtmpDelay parameter is configured.
+    // The RTMP latency level. This parameter is ignored if RtmpDelay is set.
     // 
     // Valid values:
     // 
-    // *   **short** (default): The latency is 4 seconds.
-    // *   **medium**: The latency is 8 seconds.
-    // *   **long**: The latency is 16 seconds.
+    // - **short** (default): 2 seconds.
     // 
-    // >  If both the RtmpDelay and RtmpLevel parameters are left empty, RtmpLevel is set to **short** by default.
+    // - **medium**: 4 seconds.
+    // 
+    // - **long**: more than 4 seconds.
+    // 
+    // > If both RtmpDelay and RtmpLevel are left empty, the default value **short** is used.
     shared_ptr<string> rtmpLevel_ {};
   };
 

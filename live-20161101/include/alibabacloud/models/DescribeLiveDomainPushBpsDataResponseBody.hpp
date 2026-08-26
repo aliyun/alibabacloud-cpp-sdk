@@ -163,15 +163,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveDomainPushBpsDataResponseBody::BpsDataPerInterval> bpsDataPerInterval_ {};
-    // The time granularity of the query.
+    // The time granularity of the queried data.
     shared_ptr<string> dataInterval_ {};
-    // The ingest domain.
+    // The ingest domain that was queried.
     shared_ptr<string> domainName_ {};
-    // The end of the time range during which the data was queried.
+    // The end of the time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> endTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the data was queried.
+    // The beginning of the time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

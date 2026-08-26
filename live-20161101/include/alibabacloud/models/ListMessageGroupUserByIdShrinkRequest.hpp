@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // Interactive message application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the message group.
+    // Message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The list of users.
+    // User list.
     // 
     // This parameter is required.
     shared_ptr<string> userIdListShrink_ {};

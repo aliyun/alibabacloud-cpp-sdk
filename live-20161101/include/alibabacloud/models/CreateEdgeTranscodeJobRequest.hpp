@@ -98,11 +98,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The task name. The name can contain letters, digits, hyphens (-), and underscores (_). The name must be 255 characters in length.
+    // The job name. The name can contain Chinese characters, letters, digits, hyphens (-), and underscores (_). The name can be up to 255 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The URL of the input stream.
     // 

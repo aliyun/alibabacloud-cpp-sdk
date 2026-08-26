@@ -132,17 +132,17 @@ namespace Models
 
 
       protected:
-        // The ID of the interactive messaging application.
+        // Interactive Messages application ID.
         shared_ptr<string> appId_ {};
-        // The time when the message group was created. The time is displayed in UTC.
+        // UTC timestamp when the message group was created.
         shared_ptr<int64_t> createTime_ {};
-        // The ID of the creator.
+        // Creator ID.
         shared_ptr<string> creatorId_ {};
-        // The extended field.
+        // Extension field.
         shared_ptr<map<string, string>> extension_ {};
-        // The ID of the message group.
+        // Message group ID.
         shared_ptr<string> groupId_ {};
-        // The status of the message group. The default value is **1**, which indicates that the status of the message group is normal.
+        // Message group status. The default value is **1**, indicating that the message group status is normal.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -172,14 +172,14 @@ namespace Models
 
 
     protected:
-      // The list of message groups.
+      // Message group list.
       shared_ptr<vector<Result::GroupList>> groupList_ {};
-      // Indicates whether the current page is followed by another page. Valid values:
+      // Indicates whether there is a next page. Valid values:
       // 
-      // *   true: The current page is followed by another page.
-      // *   false: The current page is not followed by another page.
+      // - true: There is a next page.
+      // - false: There is no next page.
       shared_ptr<bool> hasMore_ {};
-      // The total number of message groups.
+      // Total number of message groups.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -202,9 +202,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<ListMessageGroupResponseBody::Result> result_ {};
   };
 

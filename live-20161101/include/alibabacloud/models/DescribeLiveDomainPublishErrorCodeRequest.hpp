@@ -84,21 +84,22 @@ namespace Models
 
 
   protected:
-    // The application name. The data is aggregated based on the application. If you specify this parameter, the DomainName parameter is required.
+    // Filters and aggregates data by AppName. If you specify AppName, you must set DomainName to a specific ingest domain.
     shared_ptr<string> appName_ {};
-    // The ingest domain. If you want to specify multiple ingest domains, separate them with commas (,).
+    // The ingest domain. You can specify multiple ingest domains. Separate multiple domain names with commas (,).
     // 
-    // >  This parameter is required.
+    // > This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     // 
-    // >  If you do not configure StartTime, the data within the previous hour is queried.
+    // > If you do not set this parameter, data from the last hour is queried by default.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     // 
-    // >  If you do not configure StartTime, the data within the previous hour is queried.
+    // > If you do not set this parameter, data from the last hour is queried by default.
     shared_ptr<string> startTime_ {};
   };
 

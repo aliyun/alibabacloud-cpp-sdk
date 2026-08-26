@@ -66,11 +66,12 @@ namespace Models
 
 
   protected:
-    // The ID of the data center.
+    // The data center ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The template ID.
     // 

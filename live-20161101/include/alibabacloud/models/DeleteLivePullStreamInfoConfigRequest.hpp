@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the application name.
+    // The name of the application to which the live stream belongs. Call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.html) to query the application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the live stream. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the stream name.
+    // The name of the stream. Call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.html) to query the stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

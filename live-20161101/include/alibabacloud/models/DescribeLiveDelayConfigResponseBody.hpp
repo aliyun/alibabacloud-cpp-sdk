@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The application name.
     shared_ptr<string> app_ {};
-    // The duration for which the playback of the live stream is delayed.
+    // The playback latency of the stream.
     shared_ptr<string> delayTime_ {};
-    // The main streaming domain.
+    // The streaming domain.
     shared_ptr<string> domain_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the live stream.
+    // The stream name.
     shared_ptr<string> stream_ {};
-    // The trigger mode. Valid values:
+    // The trigger mode for the task. Valid values:
     // 
-    // *   **PUBLISH_ONLY**: Stream delay can be triggered only by specifying the stream delay parameter in the ingest URL.
-    // *   **CONFIG_ONLY**: Stream delay can be triggered only by the stream delay configuration.
-    // *   **PUBLISH_CONFIG**: Stream delay can be triggered by the stream delay parameter in the ingest URL or the stream delay configuration. The stream delay parameter takes precedence over the stream delay configuration.
+    // - **PUBLISH_ONLY**: The task is triggered only when stream ingest parameters for delayed playback are specified.
+    // - **CONFIG_ONLY**: The task is triggered only by the configuration. Stream ingest parameters are ignored.
+    // - **PUBLISH_CONFIG**: The task can be triggered by both stream ingest parameters and the configuration. Stream ingest parameters have a higher priority than the configuration.
     shared_ptr<string> taskTriggerMode_ {};
   };
 

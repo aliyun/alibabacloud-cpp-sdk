@@ -89,13 +89,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all tags. Valid values:
+    // 
+    // - **true**: Yes.
+    // - **false**: No.
+    // 
+    // Default value: **false**.
     shared_ptr<bool> all_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource ID. The live streaming domain name. Valid values of N: 1 to 50.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Enumeration type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tag key. Valid values of N: **1 to 20**.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

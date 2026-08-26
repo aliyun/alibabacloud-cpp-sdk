@@ -103,24 +103,26 @@ namespace Models
 
 
   protected:
-    // The application name. If you leave this parameter empty, all applications are matched.
+    // The app name. Leave empty to match all names.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The live streaming domain (primary playback domain).
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   **asc** (default): ascending order
-    // *   **desc**: descending order
+    // - **asc** (default): ascending order.
+    // 
+    // - **desc**: descending order.
     shared_ptr<string> order_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Valid values: 5 to 30. Default value: 10.
+    // The page size. Default value: 10. Valid values: 5 to 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The stream name. If you leave this parameter empty, all streams are matched.
+    // The live stream name. Leave empty to match all stream names.
     shared_ptr<string> streamName_ {};
   };
 

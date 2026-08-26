@@ -57,15 +57,18 @@ namespace Models
 
 
   protected:
-    // The domain name for which you want to query the mappings. The following types of domain names are supported:
+    // The domain that you want to query. Valid types:
     // 
-    // *   Ingest domain
-    // *   Main streaming domain
-    // *   Sub-streaming domain
+    // - Ingest domain
+    // 
+    // - Main streaming domain
+    // 
+    // - Sub-streaming domain
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

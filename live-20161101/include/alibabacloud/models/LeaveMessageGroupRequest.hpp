@@ -75,26 +75,26 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // Interactive message application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Specifies whether to broadcast statistical messages. If you set the value to true, statistical messages of the message group are broadcasted after the users join the message group. The client can receive and process these messages. Valid values:
+    // Specifies whether to broadcast statistics messages. When enabled, the statistics information of the message group will be broadcast after joining the message group, and the client can receive and process this message. Valid values:
     // 
-    // *   true: broadcasts statistical messages.
-    // *   false: does not broadcast statistical messages.
+    // - true: Broadcast statistics messages.
+    // - false: Do not broadcast statistics messages.
     shared_ptr<bool> broadCastStatistics_ {};
-    // The mode in which system messages are broadcasted. Valid values:
+    // System message diffusion type. Valid values:
     // 
-    // *   0: specifies that system messages are not broadcasted. This is the default value.
-    // *   1: specifies that system messages are broadcasted to specified users.
-    // *   2: specifies that system messages are broadcasted to the message group.
+    // - 0 (default): No diffusion.
+    // - 1: Diffusion to specified users.
+    // - 2: Diffusion to the group.
     shared_ptr<int32_t> broadCastType_ {};
-    // The ID of the message group.
+    // Message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the user. Each user has a unique ID in the application.
+    // User ID, which is customized by the user and must be unique under the AppId.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

@@ -103,21 +103,22 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the application to which the stream belongs.
     shared_ptr<string> app_ {};
-    // The main streaming domain.
+    // The primary playback domain name.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: [1,100].
+    // The page number. Valid values: 1 to 100.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Valid values: [1,100].
+    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<string> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the subtitle rule.
+    // The ID of the caption rule.
     shared_ptr<string> rulesId_ {};
-    // The suffix of the subtitle rule.
+    // The caption suffix.
     // 
-    // > Set the value to the name of the subtitle template.
+    // > Set this parameter to the value of SubtitleName that is specified for the caption template.
     shared_ptr<string> suffixName_ {};
   };
 

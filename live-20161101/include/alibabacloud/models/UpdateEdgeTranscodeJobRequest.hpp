@@ -103,21 +103,22 @@ namespace Models
 
 
   protected:
-    // The ID of the data center.
+    // The data center ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the edge transcoding task.
+    // The ID of the edge transcoding job.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // The task name.
+    // The job name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The URL of the input stream.
+    // The input stream URL.
     shared_ptr<string> streamInput_ {};
-    // The URL of the output stream.
+    // The output stream URL.
     shared_ptr<string> streamOutput_ {};
     // The template ID.
     shared_ptr<string> templateId_ {};

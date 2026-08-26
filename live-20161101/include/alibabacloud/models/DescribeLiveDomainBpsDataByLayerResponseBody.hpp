@@ -146,7 +146,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLiveDomainBpsDataByLayerResponseBody::BpsDataInterval> bpsDataInterval_ {};
-    // The time interval between the data entries returned. Unit: seconds.
+    // The time interval between data entries. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The name of the live stream application.
     // 
     // This parameter is required.
     shared_ptr<string> app_ {};
-    // The main streaming domain.
+    // The primary streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the subtitle rule.
+    // The subtitle rule ID.
     shared_ptr<string> rulesId_ {};
-    // The suffix of the subtitle rule.
-    // 
-    // >  Set the value to the name of the subtitle template.
+    // The subtitle suffix. This parameter is required. Otherwise, the InvalidParameter error is returned.
+    // > Set this parameter to the value of SubtitleName that is specified in the subtitle template.
     shared_ptr<string> suffixName_ {};
   };
 

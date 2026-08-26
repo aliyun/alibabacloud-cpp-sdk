@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The average latency of first frames within the period of time.
+      // The average first frame delay during the time interval.
       shared_ptr<string> frameDelay_ {};
-      // The timestamp of the returned data.
+      // The beginning of the time interval. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -124,13 +124,13 @@ namespace Models
   protected:
     // The time granularity.
     shared_ptr<string> dataInterval_ {};
-    // The end of the time range for which the data was queried.
+    // The end time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The average latency of first frames at each interval. Unit: milliseconds.
+    // The average first frame delay for each time interval. Unit: milliseconds.
     shared_ptr<vector<DescribeRTSNativeSDKFirstFrameDelayResponseBody::FrameDelayData>> frameDelayData_ {};
-    // The ID of the request.
+    // Id
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for which the data was queried.
+    // The start time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

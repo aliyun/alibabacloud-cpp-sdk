@@ -164,36 +164,35 @@ namespace Models
 
 
   protected:
-    // The list of the group administrators.
+    // The list of administrators.
     shared_ptr<vector<string>> adminList_ {};
-    // The time when the group was created. The value is a UNIX timestamp. Unit: seconds.
+    // The creation time. This value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> createtime_ {};
-    // The ID of the group creator.
+    // The creator ID.
     shared_ptr<string> creatorId_ {};
-    // The time when the group was deleted. This parameter is returned only if the group was deleted.
+    // The deletion time. This parameter is returned only when the group has been deleted. This value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> deletatime_ {};
-    // Indicates whether the group was deleted.
+    // Indicates whether the group has been deleted.
     shared_ptr<bool> delete_ {};
-    // The ID of the user who deleted the group. This parameter is returned only if the group was deleted.
+    // The user who deleted the group. This parameter is returned only when the group has been deleted.
     shared_ptr<string> deletor_ {};
     // The group ID.
     shared_ptr<string> groupId_ {};
-    // Additional information about the group.
+    // The extended information of the group.
     shared_ptr<string> groupInfo_ {};
-    // The name of the group.
+    // The group name.
     shared_ptr<string> groupName_ {};
-    // The categorized message statistics. This parameter is returned only if the group exists.
+    // The message count statistics by category. This parameter is returned only when the group exists.
     shared_ptr<map<string, int64_t>> msgAmount_ {};
-    // The number of online users in the group. This parameter is returned only if the group exists.
+    // The number of online users in the group. This parameter is returned only when the group exists.
     shared_ptr<int64_t> onlineUserCounts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the group is a super group. Valid values:
-    // 
-    // *   True
-    // *   False
+    // Indicates whether the group is a super large group. Valid values:
+    // - True: The group is a super large group.
+    // - False: The group is not a super large group.
     shared_ptr<bool> superLargeGroup_ {};
-    // The total number of sessions. This parameter is returned only if the group exists.
+    // The total number of sessions. This parameter is returned only when the group exists.
     shared_ptr<int64_t> totalTimes_ {};
   };
 

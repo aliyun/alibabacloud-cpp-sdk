@@ -58,10 +58,11 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the watermark template.
     // 
-    // >  You can obtain the template ID by checking the value of the TemplateId parameter that is returned by the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/410759.html) operation.
+    // > The template ID is returned in the response of the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

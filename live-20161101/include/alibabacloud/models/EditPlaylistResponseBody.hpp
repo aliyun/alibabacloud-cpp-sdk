@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The ID of the episode.
+        // The ID of the playlist item.
         shared_ptr<string> itemId_ {};
-        // The name of the episode.
+        // The name of the playlist item.
         shared_ptr<string> itemName_ {};
       };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
       protected:
-        // The ID of the episode.
+        // The ID of the playlist item.
         shared_ptr<string> itemId_ {};
-        // The name of the episode.
+        // The name of the playlist item.
         shared_ptr<string> itemName_ {};
       };
 
@@ -166,9 +166,9 @@ namespace Models
 
 
     protected:
-      // The episodes that failed to be added.
+      // The list of playlist items that failed to be added.
       shared_ptr<vector<Items::FailedItems>> failedItems_ {};
-      // The episodes that were added.
+      // The list of playlist items that were successfully added.
       shared_ptr<vector<Items::SuccessItems>> successItems_ {};
     };
 
@@ -205,11 +205,11 @@ namespace Models
 
 
   protected:
-    // The ID of the production studio. You can use the ID as a request parameter in the API operation that is used to configure callbacks or add a virtual studio layout.
+    // The ID of the production studio. Use this ID as a request parameter to add a callback or a virtual studio layout.
     shared_ptr<string> casterId_ {};
-    // The information about the episodes.
+    // The list of added playlist items.
     shared_ptr<EditPlaylistResponseBody::Items> items_ {};
-    // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to delete the episode list, query the information about the episode list, start the episode list, or stop the episode list.
+    // The playlist ID. Use this ID as a request parameter to delete, query, start, or stop the playlist.
     shared_ptr<string> programId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

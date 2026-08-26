@@ -84,29 +84,30 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs.
+    // The AppName of the live stream.
     shared_ptr<string> app_ {};
-    // The streaming domain.
+    // The main streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the watermark rule.
     // 
-    // >  You can obtain the rule ID by checking the value of the RuleId parameter that is returned by the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
+    // > Get this ID from the response of the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
     shared_ptr<string> ruleId_ {};
-    // The name of the stream. The following matching rules apply:
+    // The stream name. The following rules apply:
     // 
-    // *   A stream name can be exactly matched, Example: liveStreamA.
-    // *   Fuzzy match is also supported. The use of an asterisk (`*`) allows all approximate matches to be found.
-    // *   You can place the asterisk before or after an approximate string.
+    // - To match a specific stream, enter the full stream name. Example: liveStreamA.
     // 
-    // > 
+    // - Use a wildcard for matching. The asterisk (\\*) matches all streams.
     // 
-    // *   Fuzzy match: Only one asterisk (`*`) before or after an approximate string is allowed. The approximate string must be enclosed in `()`. Separate multiple strings with vertical bars (`|`).
+    // - You can match by prefix or suffix.
     // 
-    // *   For example, `*(t1|t2)` matches all streams whose name has the `t1` or `t2` suffix, and `(abc|123)*` matches all streams whose name has the `abc` or `123` prefix.
+    // > * For wildcard matching, use only one asterisk (\\*) at the beginning or end of the string. Enclose matching items in parentheses. Separate multiple matching items with a vertical bar (|).
+    // >
+    // > * Example: `*(t1|t2)` matches all streams ending with `t1` or `t2`. `(abc|123)*` matches all streams starting with `abc` or `123`.
     shared_ptr<string> stream_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource. This parameter can be used as a request parameter in the API operation that you can call to delete the video source in the production studio or modify the video source in the production studio.
+    // The resource ID. This ID can be used as a request parameter for deleting or modifying a video source in the production studio.
     shared_ptr<string> resourceId_ {};
   };
 

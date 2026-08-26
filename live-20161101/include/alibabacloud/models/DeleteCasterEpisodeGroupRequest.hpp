@@ -58,10 +58,11 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the episode list. If the episode list was added by calling the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation, check the value of the response parameter ProgramId to obtain the ID.
+    // The ID of the episode list. To obtain the ID, call the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation and find the value of the ProgramId parameter in the response.
     // 
     // This parameter is required.
     shared_ptr<string> programId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

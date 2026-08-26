@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // The additional information about the user.
+      // The extended information of the user.
       shared_ptr<string> userInfo_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The ID of the group queried.
+    // The group ID of the group to query.
     shared_ptr<string> groupId_ {};
-    // Indicates whether the current page is followed by another page.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasmore_ {};
-    // The starting page number for the next query. A value of 0 indicates that no further pages can be queried.
+    // The start position of the next page. A value of 0 indicates that there is no next page.
     shared_ptr<int64_t> nextPageToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the users.
+    // The array of objects.
     shared_ptr<vector<ListLiveMessageGroupUsersResponseBody::UserList>> userList_ {};
   };
 

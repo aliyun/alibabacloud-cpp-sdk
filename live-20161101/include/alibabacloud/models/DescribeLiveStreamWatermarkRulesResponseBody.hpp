@@ -189,7 +189,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeLiveStreamWatermarkRulesResponseBody::RuleInfoList> ruleInfoList_ {};
-    // The total number of entries that meet the specified conditions.
+    // The total number of matching entries.
     shared_ptr<int32_t> total_ {};
   };
 

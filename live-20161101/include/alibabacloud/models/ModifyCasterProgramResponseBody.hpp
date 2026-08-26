@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the production studio.
     shared_ptr<string> casterId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // The list of administrators.
+      // The list of administrator user IDs.
       shared_ptr<vector<string>> adminList_ {};
-      // The time when the group was created. The value is a UNIX timestamp. Unit: seconds.
+      // The creation time, expressed as a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> createtime_ {};
-      // The ID of the user who created the group.
+      // The creator ID.
       shared_ptr<string> creatorId_ {};
       // Indicates whether the group is deleted.
       shared_ptr<bool> delete_ {};
-      // The ID of the interactive messaging group.
+      // The group ID.
       shared_ptr<string> groupId_ {};
-      // The additional information about the group.
+      // The extended information of the group.
       shared_ptr<string> groupInfo_ {};
-      // The name of the group.
+      // The group name.
       shared_ptr<string> groupName_ {};
     };
 
@@ -180,15 +180,15 @@ namespace Models
 
 
   protected:
-    // The list of groups.
+    // The group list.
     shared_ptr<vector<ListLiveMessageGroupByPageResponseBody::GroupList>> groupList_ {};
-    // The page number.
+    // The current page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

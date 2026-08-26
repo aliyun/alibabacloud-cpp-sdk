@@ -94,23 +94,24 @@ namespace Models
 
 
   protected:
-    // The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the application to which the live stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The ingest domain or streaming domain.
+    // The ingest domain.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC+8).
     // 
-    // >  If the StartTime and EndTime parameters are invalid, or if the StartTime and EndTime parameters are not specified, data in the last hour is queried by default.
+    // > If StartTime and EndTime are invalid or not specified, data from the last 1 hour is returned by default.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC+8).
     shared_ptr<string> startTime_ {};
-    // The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+    // The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

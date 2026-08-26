@@ -247,9 +247,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of watermark templates that meet the specified conditions.
+    // The total number of matching entries.
     shared_ptr<int32_t> total_ {};
     shared_ptr<DescribeLiveStreamWatermarksResponseBody::WatermarkList> watermarkList_ {};
   };

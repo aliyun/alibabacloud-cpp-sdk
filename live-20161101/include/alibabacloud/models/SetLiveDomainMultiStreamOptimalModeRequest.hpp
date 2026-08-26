@@ -79,19 +79,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The main streaming domain.
+    // The primary streaming domain.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // Specifies whether to enable the auto mode of dual-stream disaster recovery. Valid values:
-    // 
-    // *   **on**: enables the auto mode.
-    // *   **off**: disables the auto mode.
+    // The automatic mode switch. Valid values:
+    // - **on**: enabled
+    // - **off**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> optimalMode_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the live stream.
+    // The live stream name.
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};

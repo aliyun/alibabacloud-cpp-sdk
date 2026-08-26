@@ -112,28 +112,27 @@ namespace Models
 
 
   protected:
-    // The main streaming domain to query.
+    // The streaming domain to query.
     // 
-    // *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-    // *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+    // - You can specify a single domain name or multiple domain names. Separate multiple domain names with commas (,).
+    // - If this parameter is left empty, the merged data of all live streaming domain names is returned by default.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+    // The end time. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The ID of the monitoring session. If you leave this parameter empty, data of all monitoring sessions is queried by default. Separate multiple session IDs with commas (,).
+    // The monitoring session ID. If this parameter is left empty, the merged data of all monitoring sessions is returned by default. You can specify multiple IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceId_ {};
-    // The time granularity. Valid values: **3600** and **86400**. 3600 specifies that data is queried by hour and 86400 specifies that data is queried by day.
+    // The time granularity for the query. Valid values: **3600** (hour) and **86400** (day).
     shared_ptr<string> interval_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the live center. If you leave this parameter empty, data of all regions is queried by default. Separate multiple regions with commas (,).
+    // The live center region. If this parameter is left empty, the merged data of all regions is returned by default. You can specify multiple regions. Separate multiple regions with commas (,).
     shared_ptr<string> region_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The key that is used to group data. Valid values: **domain**, **region**, **instance**, and **resolution**. Default value: **resolution**. resolution specifies that data is grouped by resolution. Separate multiple values with commas (,).
+    // The grouping key. Default value: **resolution**, which indicates grouping by resolution. Valid values: **domain**, **region**, **instance**, and **resolution**. You can specify multiple values. Separate multiple values with commas (,).
     shared_ptr<string> splitBy_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
-    // 
-    // *   The time must be in UTC.
-    // *   The minimum data granularity is 1 hour.
-    // *   If you leave this parameter empty, data in the previous 24 hours is queried.
+    // The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+    // - The minimum data granularity is 1 hour.
+    // - If this parameter is not specified, data of the last 24 hours is returned by default.
     shared_ptr<string> startTime_ {};
   };
 

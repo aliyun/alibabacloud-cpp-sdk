@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The time when the metric was queried. The value is a UNIX timestamp. Unit: milliseconds.
+      // The timestamp of the data point, specified as a UNIX timestamp in milliseconds.
       shared_ptr<string> timestamp_ {};
       // The value of the metric.
       shared_ptr<string> value_ {};
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The node data.
+    // An array of data points.
     shared_ptr<vector<DescribeLiveInteractionMetricDataResponseBody::Nodes>> nodes_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The summary data.
+    // The summarized data for the query time range.
     shared_ptr<string> summaryData_ {};
   };
 

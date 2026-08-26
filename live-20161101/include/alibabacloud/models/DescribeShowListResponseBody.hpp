@@ -289,22 +289,22 @@ namespace Models
 
 
     protected:
-      // The background of the episode list.
+      // The background of the playlist.
       shared_ptr<string> background_ {};
-      // The ID of the episode that is playing.
+      // The ID of the show that is being played.
       shared_ptr<string> currentShowId_ {};
-      // The episode of the highest priority.
+      // The highest-priority show.
       // 
-      // > You can configure this parameter only before the episode list starts playing.
+      // > You can configure this parameter only before the playlist starts.
       shared_ptr<string> highPriorityShowId_ {};
-      // The time at which the episode of the highest priority is played. Format: yyyy-MM-dd\\"T\\"HH:mm:ss.
+      // The time when the highest-priority show is played. The format is yyyy-MM-dd\\"T\\"HH:mm:ss.
       // 
-      // > You can configure this parameter only before the episode list starts playing. After you configure this parameter, when the specified point in time is reached, any episode that is playing stops and the episode of the highest priority in the episode list starts to play.
+      // > You can configure this parameter only before the playlist starts. After the configuration is complete, the system switches to the highest-priority show at the specified time.
       shared_ptr<string> highPriorityShowStartTime_ {};
       shared_ptr<ShowListInfo::ShowList> showList_ {};
-      // The number of additional times the episode list is played by default. The value is 0.
+      // The default number of loops for the playlist. This value is always 0.
       shared_ptr<int32_t> showListRepeatTimes_ {};
-      // The number of additional times the episode list is played.
+      // The number of times the entire playlist is looped.
       shared_ptr<int32_t> totalShowListRepeatTimes_ {};
     };
 
@@ -334,13 +334,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // ****Details of the episode list.
-    // 
-    // Show indicates the information about a specific episode. For more information, see the **Show** parameter.
+    // The details of the playlist. `Show` contains the details of a show in the playlist.
     shared_ptr<string> showList_ {};
-    // The information about the episode list.
+    // The playlist.
     shared_ptr<DescribeShowListResponseBody::ShowListInfo> showListInfo_ {};
   };
 

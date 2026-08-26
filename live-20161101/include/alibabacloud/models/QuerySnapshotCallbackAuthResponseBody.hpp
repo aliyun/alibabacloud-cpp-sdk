@@ -66,14 +66,15 @@ namespace Models
 
 
   protected:
-    // The callback authentication key.
+    // The authentication key for callbacks.
     shared_ptr<string> callbackAuthKey_ {};
-    // Indicates whether callback authentication is enabled. Valid values:
+    // Indicates whether authentication for callbacks is enabled. Valid values:
     // 
-    // *   **yes**: Callback authentication is enabled.
-    // *   **no**: Callback authentication is disabled.
+    // - **yes**: enabled.
+    // 
+    // - **no**: disabled.
     shared_ptr<string> callbackReqAuth_ {};
-    // The main streaming domain.
+    // The streaming domain.
     shared_ptr<string> domainName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

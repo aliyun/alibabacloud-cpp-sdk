@@ -79,11 +79,11 @@ namespace Models
     shared_ptr<string> ISP_ {};
     // The English name of the Internet service provider (ISP).
     shared_ptr<string> ispEname_ {};
-    // The Chinese name of the region.
+    // The Chinese name of the IP region.
     shared_ptr<string> region_ {};
-    // The English name of the region.
+    // The English name of the IP region.
     shared_ptr<string> regionEname_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

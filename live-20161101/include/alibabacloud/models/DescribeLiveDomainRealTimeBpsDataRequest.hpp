@@ -94,27 +94,28 @@ namespace Models
 
 
   protected:
-    // The streaming domain name or names.
+    // The streaming domain.
     // 
     // Separate multiple domain names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time. It must be later than the start time. The format is *yyyy-MM-dd*T*HH:mm:ss*Z (UTC).
     // 
-    // >  If you do not set this parameter, the data of the hour following the specified start time is returned.
+    // > If you do not specify this parameter, data within one hour of the start time is queried by default.
     shared_ptr<string> endTime_ {};
-    // The name of the Internet service provider (ISP).
+    // The English name of the carrier.
     // 
-    // To query ISPs, call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation.
+    // For more information, see [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html).
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region in which you want to query data.
+    // The English name of the region.
     // 
-    // To query regions, call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation.
+    // For more information, see [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html).
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time. The format is *yyyy-MM-dd*T*HH:mm:ss*Z (UTC).
     shared_ptr<string> startTime_ {};
   };
 

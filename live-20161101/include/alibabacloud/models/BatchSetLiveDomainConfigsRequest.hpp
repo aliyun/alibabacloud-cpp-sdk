@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BatchSetLiveDomainConfigsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DomainNames, domainNames_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Functions, functions_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, BatchSetLiveDomainConfigsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DomainNames, domainNames_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Functions, functions_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainNames_ == nullptr
-        && this->functions_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->securityToken_ == nullptr; };
+        && this->dryRun_ == nullptr && this->functions_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->securityToken_ == nullptr; };
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
     inline string getDomainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
     inline BatchSetLiveDomainConfigsRequest& setDomainNames(string domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline BatchSetLiveDomainConfigsRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // functions Field Functions 
@@ -75,13 +84,14 @@ namespace Models
 
 
   protected:
-    // The domain names that you want to batch configure. Supported domain names include ingest domains, main streaming domains, and sub-streaming domains. Separate multiple domain names with commas (,).
+    // The domain names that you want to configure in batches. Valid values: ingest domain names, primary streaming domain names, and secondary streaming domain names. Separate multiple domain names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> domainNames_ {};
+    shared_ptr<bool> dryRun_ {};
     // The list of features.
     // 
-    // Some features, such as `filetype_based_ttl_set`, support multiple configuration records. To update one of the configuration records, use `configId` to identify the record. For more information, see **Format of the Functions parameter** and **Features specified by the Functions parameter**.
+    // Some features, such as `filetype_based_ttl_set`, allow you to set multiple records. If you want to update a specific record, you can specify the record by its `configId`. For more information, refer to **Functions format description** and **Functions feature description** below.
     // 
     // This parameter is required.
     shared_ptr<string> functions_ {};

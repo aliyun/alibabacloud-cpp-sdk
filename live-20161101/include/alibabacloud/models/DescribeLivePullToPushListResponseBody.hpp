@@ -74,12 +74,15 @@ namespace Models
       class TaskInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const TaskInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(AuthKey, authKey_);
           DARABONBA_PTR_TO_JSON(CallbackURL, callbackURL_);
           DARABONBA_PTR_TO_JSON(DstUrl, dstUrl_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(FileIndex, fileIndex_);
+          DARABONBA_PTR_TO_JSON(NotifyItemSwitch, notifyItemSwitch_);
           DARABONBA_PTR_TO_JSON(Offset, offset_);
           DARABONBA_PTR_TO_JSON(RepeatNumber, repeatNumber_);
+          DARABONBA_PTR_TO_JSON(ReqAuth, reqAuth_);
           DARABONBA_PTR_TO_JSON(RetryCount, retryCount_);
           DARABONBA_PTR_TO_JSON(RetryInterval, retryInterval_);
           DARABONBA_PTR_TO_JSON(SourceProtocol, sourceProtocol_);
@@ -90,12 +93,15 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TaskName, taskName_);
         };
         friend void from_json(const Darabonba::Json& j, TaskInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(AuthKey, authKey_);
           DARABONBA_PTR_FROM_JSON(CallbackURL, callbackURL_);
           DARABONBA_PTR_FROM_JSON(DstUrl, dstUrl_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(FileIndex, fileIndex_);
+          DARABONBA_PTR_FROM_JSON(NotifyItemSwitch, notifyItemSwitch_);
           DARABONBA_PTR_FROM_JSON(Offset, offset_);
           DARABONBA_PTR_FROM_JSON(RepeatNumber, repeatNumber_);
+          DARABONBA_PTR_FROM_JSON(ReqAuth, reqAuth_);
           DARABONBA_PTR_FROM_JSON(RetryCount, retryCount_);
           DARABONBA_PTR_FROM_JSON(RetryInterval, retryInterval_);
           DARABONBA_PTR_FROM_JSON(SourceProtocol, sourceProtocol_);
@@ -116,10 +122,18 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->callbackURL_ == nullptr
-        && this->dstUrl_ == nullptr && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->offset_ == nullptr && this->repeatNumber_ == nullptr
-        && this->retryCount_ == nullptr && this->retryInterval_ == nullptr && this->sourceProtocol_ == nullptr && this->sourceType_ == nullptr && this->sourceUrls_ == nullptr
-        && this->startTime_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
+        virtual bool empty() const override { return this->authKey_ == nullptr
+        && this->callbackURL_ == nullptr && this->dstUrl_ == nullptr && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->notifyItemSwitch_ == nullptr
+        && this->offset_ == nullptr && this->repeatNumber_ == nullptr && this->reqAuth_ == nullptr && this->retryCount_ == nullptr && this->retryInterval_ == nullptr
+        && this->sourceProtocol_ == nullptr && this->sourceType_ == nullptr && this->sourceUrls_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr
+        && this->taskName_ == nullptr; };
+        // authKey Field Functions 
+        bool hasAuthKey() const { return this->authKey_ != nullptr;};
+        void deleteAuthKey() { this->authKey_ = nullptr;};
+        inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+        inline TaskInfo& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
+
+
         // callbackURL Field Functions 
         bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
         void deleteCallbackURL() { this->callbackURL_ = nullptr;};
@@ -148,6 +162,13 @@ namespace Models
         inline TaskInfo& setFileIndex(int32_t fileIndex) { DARABONBA_PTR_SET_VALUE(fileIndex_, fileIndex) };
 
 
+        // notifyItemSwitch Field Functions 
+        bool hasNotifyItemSwitch() const { return this->notifyItemSwitch_ != nullptr;};
+        void deleteNotifyItemSwitch() { this->notifyItemSwitch_ = nullptr;};
+        inline string getNotifyItemSwitch() const { DARABONBA_PTR_GET_DEFAULT(notifyItemSwitch_, "") };
+        inline TaskInfo& setNotifyItemSwitch(string notifyItemSwitch) { DARABONBA_PTR_SET_VALUE(notifyItemSwitch_, notifyItemSwitch) };
+
+
         // offset Field Functions 
         bool hasOffset() const { return this->offset_ != nullptr;};
         void deleteOffset() { this->offset_ = nullptr;};
@@ -160,6 +181,13 @@ namespace Models
         void deleteRepeatNumber() { this->repeatNumber_ = nullptr;};
         inline int32_t getRepeatNumber() const { DARABONBA_PTR_GET_DEFAULT(repeatNumber_, 0) };
         inline TaskInfo& setRepeatNumber(int32_t repeatNumber) { DARABONBA_PTR_SET_VALUE(repeatNumber_, repeatNumber) };
+
+
+        // reqAuth Field Functions 
+        bool hasReqAuth() const { return this->reqAuth_ != nullptr;};
+        void deleteReqAuth() { this->reqAuth_ = nullptr;};
+        inline string getReqAuth() const { DARABONBA_PTR_GET_DEFAULT(reqAuth_, "") };
+        inline TaskInfo& setReqAuth(string reqAuth) { DARABONBA_PTR_SET_VALUE(reqAuth_, reqAuth) };
 
 
         // retryCount Field Functions 
@@ -221,45 +249,43 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> authKey_ {};
         // The HTTP callback URL.
         shared_ptr<string> callbackURL_ {};
-        // The destination URL to which the stream is relayed.
+        // The destination ingest URL.
         shared_ptr<string> dstUrl_ {};
-        // The end time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The task end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> endTime_ {};
-        // The file index, which indicates the sequence of the file where the playback starts.
+        // The file index. Playback starts from the nth file.
         shared_ptr<int32_t> fileIndex_ {};
-        // The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
-        // 
-        // > 
-        // 
-        // *   This parameter indicates an offset from the first frame.
-        // 
-        // *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+        shared_ptr<string> notifyItemSwitch_ {};
+        // The start offset, which is the start offset value of the video file. Unit: seconds. The value must be greater than 0.
+        // > - Indicates the position to start reading from, relative to the first frame.
+        // > - Valid only for video-on-demand resources or video files.
         shared_ptr<int32_t> offset_ {};
-        // The number of playbacks after the first playback is complete. Valid values:
+        // The number of times to repeat playback after the playlist finishes. Valid values:
+        // - 0 (default): Do not repeat.
+        // - -1: Loop indefinitely.
+        // - Other positive integers: The number of times to repeat playback after the playlist finishes.
         // 
-        // *   0 (default): specifies that the video list is played only once.
-        // *   \\-1: specifies that the video list is played in loop mode.
-        // *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
-        // 
-        // >  This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+        // > This parameter applies only to video-on-demand or third-party video streams.
         shared_ptr<int32_t> repeatNumber_ {};
-        // The number of retries allowed.
+        shared_ptr<string> reqAuth_ {};
+        // The number of retries.
         shared_ptr<int32_t> retryCount_ {};
         // The retry interval. Unit: seconds.
         shared_ptr<int32_t> retryInterval_ {};
-        // The protocol of the source stream.
+        // The source stream protocol name.
         shared_ptr<string> sourceProtocol_ {};
-        // The type of the source stream. Valid values:
+        // The source stream type. Valid values:
         // 
-        // *   live: a live stream
-        // *   vod: a list of ApsaraVideo VOD resources
-        // *   url: a list of video resources from a third party
+        // - live: live stream.
+        // - vod: ApsaraVideo VOD resource.
+        // - url: third-party video file resource.
         shared_ptr<string> sourceType_ {};
-        // The source URLs.
+        // The source stream URL addresses.
         shared_ptr<vector<string>> sourceUrls_ {};
-        // The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The task start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> startTime_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
@@ -329,40 +355,38 @@ namespace Models
 
 
     protected:
-      // The current file index.
+      // The currently effective playlist sequence offset.
       shared_ptr<int32_t> currentFileIndex_ {};
-      // The current offset for video playback.
+      // The currently effective video playback offset.
       shared_ptr<int32_t> currentOffset_ {};
-      // The reason why the task was exited. Valid values:
+      // The reason why the task exited. Valid values:
       // 
-      // *   TriggerByUser: You proactively ended the task.
-      // *   OverEndTime: The specified end time was exceeded.
+      // - TriggerByUser: Actively ended by the user.
+      // - OverEndTime: Exceeded the preset end time.
       // 
-      // >  This parameter is returned only if the task status is exited.
+      // > Returned only when the task is in the exited state.
       shared_ptr<string> taskExitReason_ {};
-      // The time when the task was exited. The value is a Unix timestamp in seconds.
-      // 
-      // >  This parameter is returned only if the task status is exited.
+      // The task exit time, in Unix seconds timestamp.
+      // > Returned only when the task is in the exited state.
       shared_ptr<int32_t> taskExitTime_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The information about the task.
+      // The task information.
       shared_ptr<TaskList::TaskInfo> taskInfo_ {};
-      // The reason why the task was stopped.
+      // The reason why the task stopped running. Valid values:
       // 
-      // *   PullStreamFailed: An exception occurred while pulling the source stream. A retry is in progress.
-      // *   PushStreamFailed: An exception occurred while ingesting the stream. A retry is in progress.
-      // *   UnknownError: An unknown exception occurred.
+      // - PullStreamFailed: Source stream pulling exception. Retrying.
+      // - PushStreamFailed: Destination stream pushing exception. Retrying.
+      // - UnknownError: Unknown exception.
       // 
-      // >  This parameter is returned only if the task status is stopped.
+      // > Returned only when the task is in the stopped state.
       shared_ptr<string> taskInvalidReason_ {};
-      // The task status. Valid values:
-      // 
-      // *   0: not started.
-      // *   1: running. Stream pulling and stream relay are normal.
-      // *   2: abnormal.
-      // *   3: stopped. It may be because exceptions occur during stream pulling or stream relay or you proactively call the StopLivePullToPush operation.
-      // *   \\-1: exited.
+      // The current task status. Valid values:
+      // - 0: Not started (the start time has not been reached).
+      // - 1: Running normally (stream pulling and pushing are normal).
+      // - 2: Running abnormally.
+      // - 3: Stopped (stream pulling or pushing is abnormal, or the task was actively stopped by calling an operation).
+      // - -1: Exited.
       shared_ptr<int32_t> taskStatus_ {};
     };
 
@@ -408,13 +432,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The list of task information.
     shared_ptr<vector<DescribeLivePullToPushListResponseBody::TaskList>> taskList_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -168,7 +168,7 @@ namespace Models
     shared_ptr<ListLiveDelayConfigResponseBody::DelayConfigList> delayConfigList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of stream delay configurations.
+    // The total number of stream delay configurations.
     shared_ptr<int32_t> total_ {};
   };
 

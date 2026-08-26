@@ -88,25 +88,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The mode in which system messages are broadcasted. Valid values:
+    // The system message broadcast type. Valid values:
     // 
-    // *   0: specifies that system messages are not broadcasted. This is the default value.
-    // *   1: specifies that system messages are broadcasted to specified users.
-    // *   2: specifies that system messages are broadcasted to the message group.
+    // - 0: no broadcast.
+    // 
+    // - 1: broadcast to specified users.
+    // 
+    // - 2: broadcast to the group.
     shared_ptr<int32_t> broadCastType_ {};
-    // The ID of the message group.
+    // The message group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The duration of the mute. Unit: seconds.
+    // The mute duration. Unit: seconds.
     // 
-    // > If you do not specify this parameter or set the value to 0, the default duration of 86,400 seconds is used.
+    // >If this parameter is not specified or is set to 0, the default mute duration (86400 seconds) is used.
     shared_ptr<int32_t> muteTime_ {};
-    // Details about the mute.
+    // The mute details.
     // 
     // This parameter is required.
     shared_ptr<string> muteUserListShrink_ {};
-    // The ID of the user who performs the operation.
+    // The user ID of the operator.
+    // > This parameter is required, and the user must be the creator of the group.
     shared_ptr<string> operatorUserId_ {};
   };
 

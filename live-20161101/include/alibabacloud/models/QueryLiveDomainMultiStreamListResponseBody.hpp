@@ -123,20 +123,14 @@ namespace Models
 
 
       protected:
-        // The active/standby tag.
-        // 
-        // >  This parameter indicates whether the active or standby stream is being distributed.
-        // 
-        // Valid values:
-        // 
-        // *   true
-        // *   false
+        // The primary/secondary flag.
+        // > Indicates which stream is currently being used for merged distribution.
         shared_ptr<bool> masterFlag_ {};
-        // The IP address of the stream ingest client.
+        // The IP address of the ingest client.
         shared_ptr<string> upstreamIp_ {};
-        // The unique identifier of the stream ingest.
+        // The unique identifier of the ingest stream.
         shared_ptr<string> upstreamSequence_ {};
-        // The stream ingest time.
+        // The stream ingest time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC+0).
         shared_ptr<string> upstreamTime_ {};
       };
 
@@ -205,19 +199,18 @@ namespace Models
 
 
       protected:
-        // The reason for the switchover.
-        // 
-        // *   merge cut manually: You proactively switched the stream.
-        // *   master stream no data: No data is available in the active stream.
-        // *   master stream low quality: The quality of the active stream deteriorated.
+        // The reason for stream switching.
+        // * merge cut manually: The user manually switched the stream.
+        // * master stream no data: The primary stream has no data.
+        // * master stream low quality: The primary stream quality degraded.
         shared_ptr<string> changeReason_ {};
-        // The switchover time.
+        // The stream switching time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC+0).
         shared_ptr<string> changeTime_ {};
-        // The stream used after the switchover.
+        // The stream that is actually used after the switch.
         shared_ptr<string> masterUpstream_ {};
-        // The IP address used after the switchover.
+        // The IP address used after the stream switch.
         shared_ptr<string> upstreamIp_ {};
-        // The identifier of the stream after the switchover.
+        // The stream identifier after the switch.
         shared_ptr<string> upstreamSequence_ {};
       };
 
@@ -270,20 +263,19 @@ namespace Models
 
 
     protected:
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The switchover records.
+      // The stream switching records.
       shared_ptr<vector<OnlineStreams::ChangeLogs>> changeLogs_ {};
-      // The main streaming domain.
+      // The streaming domain of the streamer.
       shared_ptr<string> domain_ {};
-      // Indicates whether the dual-stream disaster recovery feature is enabled. Valid values:
-      // 
-      // *   **on**: enabled
-      // *   **off**: disabled
+      // The feature switch. Valid values:
+      // - **on**: enabled.
+      // - **off**: disabled.
       shared_ptr<string> optimalMode_ {};
       // The name of the live stream.
       shared_ptr<string> streamName_ {};
-      // The standby streams.
+      // The list of all candidate streams.
       shared_ptr<vector<OnlineStreams::UpstreamList>> upstreamList_ {};
     };
 
@@ -327,15 +319,15 @@ namespace Models
 
 
   protected:
-    // The online streams returned.
+    // The number of online records.
     shared_ptr<vector<QueryLiveDomainMultiStreamListResponseBody::OnlineStreams>> onlineStreams_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -59,10 +59,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether the user left the message group. Valid values:
+      // Indicates whether the user successfully left the message group. Valid values:
       // 
-      // *   true: The user left the message group.
-      // *   false: The user failed to leave the message group.
+      // - true: Successful.
+      // - false: Unsuccessful.
       shared_ptr<bool> success_ {};
     };
 
@@ -85,9 +85,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // Return result.
     shared_ptr<LeaveMessageGroupResponseBody::Result> result_ {};
   };
 

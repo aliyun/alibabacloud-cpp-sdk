@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the interactive messaging application.
+    // The ID of the interactive messaging application to modify.
     shared_ptr<string> appId_ {};
-    // The signature of the interactive messaging application. It is required by the interactive messaging SDK.
+    // The signature of the interactive messaging application. This information is required by the interactive messaging service SDK.
     shared_ptr<string> appSign_ {};
-    // Indicates whether authentication is enabled. If custom content moderation is used, the value of this parameter is true by default.
+    // Indicates whether call authentication is enabled. If custom security audit is used, this parameter is set to true by default to enable call authentication.
     shared_ptr<bool> auditNeedAuthentication_ {};
-    // The content moderation method.
+    // The security audit method.
     shared_ptr<int32_t> auditType_ {};
-    // The URL for content moderation. This parameter is returned when the value of AuditType is 2.
+    // The security audit URL provided when AuditType is set to 2.
     shared_ptr<string> auditUrl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

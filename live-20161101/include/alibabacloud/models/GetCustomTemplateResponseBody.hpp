@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The configurations of the template.
+    // The template configuration.
     shared_ptr<string> customTemplate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the template.
+    // The template name.
     shared_ptr<string> template_ {};
   };
 

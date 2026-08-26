@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
-    // The unique identifier of the stream ingest.
+    // The unique identifier of the stream ingest. You can obtain this identifier by calling the [QueryLiveDomainMultiStreamList](https://help.aliyun.com/document_detail/2871872.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> upstreamSequence_ {};

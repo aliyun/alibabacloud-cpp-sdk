@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The result of the request. If success is returned, the request is successful. If an error message is returned, the request failed.
+    // The description of the result. If the value is \\`success\\`, the operation is successful. Otherwise, an error message is returned.
     shared_ptr<string> description_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned HTTP status code. HTTP status code 2000 indicates that the request is successful. If another HTTP status code is returned, the request failed.
+    // The status code. A value of \\`2000\\` indicates that the operation is successful. Other values indicate that an error occurred.
     shared_ptr<int64_t> retCode_ {};
   };
 

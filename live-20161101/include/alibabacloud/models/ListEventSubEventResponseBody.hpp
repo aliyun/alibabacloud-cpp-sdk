@@ -129,19 +129,19 @@ namespace Models
 
 
     protected:
-      // The application ID.
+      // The ID of the subscribed application.
       shared_ptr<string> appId_ {};
-      // The HTTP status code. A value of 200 indicates that the callback was successful.
+      // The error code. A value of 200 indicates a successful callback.
       shared_ptr<int32_t> code_ {};
       // The callback duration. Unit: milliseconds.
       shared_ptr<int32_t> cost_ {};
-      // The details about the callback.
+      // The callback content details.
       shared_ptr<string> data_ {};
-      // The ID of the callback record.
+      // The callback record ID.
       shared_ptr<string> messageId_ {};
-      // The subscription ID.
+      // The subscription event ID.
       shared_ptr<string> subId_ {};
-      // The time when the callback was generated.
+      // The time when the callback record was generated. The time is in the UTC+8 time zone. Format: yyyy-MM-dd hh:mm:ss.SSS.
       shared_ptr<string> time_ {};
       // The callback URL.
       shared_ptr<string> url_ {};
@@ -182,7 +182,7 @@ namespace Models
   protected:
     // The total number of callback records returned on the current page.
     shared_ptr<int64_t> count_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasMore_ {};
     // The callback records.
     shared_ptr<vector<ListEventSubEventResponseBody::Logs>> logs_ {};
