@@ -6297,6 +6297,54 @@ DeleteFunctionResponse Client::deleteFunction(const DeleteFunctionRequest &reque
 }
 
 /**
+ * @summary Deletes an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request DeleteImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteImageResponse
+ */
+DeleteImageResponse Client::deleteImageWithOptions(const DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteImageResponse>();
+}
+
+/**
+ * @summary Deletes an image.
+ *
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+ *
+ * @param request DeleteImageRequest
+ * @return DeleteImageResponse
+ */
+DeleteImageResponse Client::deleteImage(const DeleteImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a specified data lineage relationship from DataWorks Data Map.
  *
  * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.

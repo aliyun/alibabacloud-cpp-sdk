@@ -337,6 +337,9 @@
 #include <alibabacloud/models/DeleteFunctionRequest.hpp>
 #include <alibabacloud/models/DeleteFunctionResponseBody.hpp>
 #include <alibabacloud/models/DeleteFunctionResponse.hpp>
+#include <alibabacloud/models/DeleteImageRequest.hpp>
+#include <alibabacloud/models/DeleteImageResponseBody.hpp>
+#include <alibabacloud/models/DeleteImageResponse.hpp>
 #include <alibabacloud/models/DeleteLineageRelationshipRequest.hpp>
 #include <alibabacloud/models/DeleteLineageRelationshipResponseBody.hpp>
 #include <alibabacloud/models/DeleteLineageRelationshipResponse.hpp>

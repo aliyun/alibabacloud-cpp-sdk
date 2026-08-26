@@ -2051,6 +2051,29 @@ namespace DataworksPublic20240518
       Models::DeleteFunctionResponse deleteFunction(const Models::DeleteFunctionRequest &request);
 
       /**
+       * @summary Deletes an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request DeleteImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteImageResponse
+       */
+      Models::DeleteImageResponse deleteImageWithOptions(const Models::DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an image.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+       *
+       * @param request DeleteImageRequest
+       * @return DeleteImageResponse
+       */
+      Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
+
+      /**
        * @summary Deletes a specified data lineage relationship from DataWorks Data Map.
        *
        * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
