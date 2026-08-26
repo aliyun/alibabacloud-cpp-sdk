@@ -104,6 +104,9 @@
 #include <alibabacloud/models/CreateDataAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/CreateDataAgentThemeRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentThemeResponseBody.hpp>
+#include <alibabacloud/models/CreateDataAgentThemeResponse.hpp>
 #include <alibabacloud/models/CreateDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentWorkspaceResponse.hpp>
@@ -192,6 +195,9 @@
 #include <alibabacloud/models/DescribeDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/DescribeDataAgentThemeRequest.hpp>
+#include <alibabacloud/models/DescribeDataAgentThemeResponseBody.hpp>
+#include <alibabacloud/models/DescribeDataAgentThemeResponse.hpp>
 #include <alibabacloud/models/DescribeDocumentRequest.hpp>
 #include <alibabacloud/models/DescribeDocumentResponseBody.hpp>
 #include <alibabacloud/models/DescribeDocumentResponse.hpp>
@@ -228,6 +234,9 @@
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsRequest.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponse.hpp>
+#include <alibabacloud/models/GetDataAgentThemeUploadSignatureRequest.hpp>
+#include <alibabacloud/models/GetDataAgentThemeUploadSignatureResponseBody.hpp>
+#include <alibabacloud/models/GetDataAgentThemeUploadSignatureResponse.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoRequest.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoResponse.hpp>
@@ -307,6 +316,9 @@
 #include <alibabacloud/models/ListDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/ListDataAgentThemeRequest.hpp>
+#include <alibabacloud/models/ListDataAgentThemeResponseBody.hpp>
+#include <alibabacloud/models/ListDataAgentThemeResponse.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentWorkspaceResponse.hpp>
@@ -378,6 +390,9 @@
 #include <alibabacloud/models/ModifyDataAgentMcpRequest.hpp>
 #include <alibabacloud/models/ModifyDataAgentMcpResponseBody.hpp>
 #include <alibabacloud/models/ModifyDataAgentMcpResponse.hpp>
+#include <alibabacloud/models/ModifyDataAgentThemeRequest.hpp>
+#include <alibabacloud/models/ModifyDataAgentThemeResponseBody.hpp>
+#include <alibabacloud/models/ModifyDataAgentThemeResponse.hpp>
 #include <alibabacloud/models/OperateCustomAgentRequest.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponse.hpp>

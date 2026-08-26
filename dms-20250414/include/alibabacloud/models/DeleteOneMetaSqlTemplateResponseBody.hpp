@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The response struct.
     shared_ptr<bool> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: The request is successful.                                 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

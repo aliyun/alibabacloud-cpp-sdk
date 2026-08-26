@@ -103,17 +103,29 @@ namespace Models
 
 
   protected:
+    // The UUID of the associated folder.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogUuid_ {};
+    // The UUID of the associated database.
     shared_ptr<string> databaseUuid_ {};
+    // The semantic description.
     shared_ptr<string> description_ {};
+    // The semantic model document type. Valid values: JSON and YAML.
+    // 
     // This parameter is required.
     shared_ptr<string> docFormat_ {};
+    // The semantic model document definition.
+    // 
     // This parameter is required.
     shared_ptr<string> document_ {};
+    // The source of the semantic model.
+    // 
     // This parameter is required.
     shared_ptr<string> source_ {};
+    // The semantic model tag.
     shared_ptr<string> tag_ {};
+    // The semantic title. If the value is empty, the title is extracted from the document.
     shared_ptr<string> title_ {};
   };
 

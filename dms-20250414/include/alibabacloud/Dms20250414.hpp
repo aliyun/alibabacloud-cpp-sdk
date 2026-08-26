@@ -267,6 +267,23 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
+       * @summary Creates a DataAgent theme.
+       *
+       * @param request CreateDataAgentThemeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentThemeResponse
+       */
+      Models::CreateDataAgentThemeResponse createDataAgentThemeWithOptions(const Models::CreateDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a DataAgent theme.
+       *
+       * @param request CreateDataAgentThemeRequest
+       * @return CreateDataAgentThemeResponse
+       */
+      Models::CreateDataAgentThemeResponse createDataAgentTheme(const Models::CreateDataAgentThemeRequest &request);
+
+      /**
        * @summary Creates a DataAgent workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
@@ -352,7 +369,7 @@ namespace Dms20250414
       Models::CreateDataLakeTableResponse createDataLakeTable(const Models::CreateDataLakeTableRequest &request);
 
       /**
-       * @summary 创建sql模版
+       * @summary Creates an SQL template.
        *
        * @param request CreateOneMetaSqlTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +378,7 @@ namespace Dms20250414
       Models::CreateOneMetaSqlTemplateResponse createOneMetaSqlTemplateWithOptions(const Models::CreateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建sql模版
+       * @summary Creates an SQL template.
        *
        * @param request CreateOneMetaSqlTemplateRequest
        * @return CreateOneMetaSqlTemplateResponse
@@ -628,7 +645,7 @@ namespace Dms20250414
       Models::DeleteFileUploadResponse deleteFileUpload(const Models::DeleteFileUploadRequest &request);
 
       /**
-       * @summary 删除onemeta3.0的Ossie模型
+       * @summary Deletes an Ossie model from onemeta 3.0.
        *
        * @param request DeleteOneMetaOssieModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +654,7 @@ namespace Dms20250414
       Models::DeleteOneMetaOssieModelResponse deleteOneMetaOssieModelWithOptions(const Models::DeleteOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除onemeta3.0的Ossie模型
+       * @summary Deletes an Ossie model from onemeta 3.0.
        *
        * @param request DeleteOneMetaOssieModelRequest
        * @return DeleteOneMetaOssieModelResponse
@@ -645,7 +662,7 @@ namespace Dms20250414
       Models::DeleteOneMetaOssieModelResponse deleteOneMetaOssieModel(const Models::DeleteOneMetaOssieModelRequest &request);
 
       /**
-       * @summary 删除sql模版
+       * @summary Deletes a knowledge base in OneMeta 3.0.
        *
        * @param request DeleteOneMetaSqlTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,7 +671,7 @@ namespace Dms20250414
       Models::DeleteOneMetaSqlTemplateResponse deleteOneMetaSqlTemplateWithOptions(const Models::DeleteOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除sql模版
+       * @summary Deletes a knowledge base in OneMeta 3.0.
        *
        * @param request DeleteOneMetaSqlTemplateRequest
        * @return DeleteOneMetaSqlTemplateResponse
@@ -732,6 +749,23 @@ namespace Dms20250414
        * @return DescribeDataAgentSessionResponse
        */
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
+
+      /**
+       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+       *
+       * @param request DescribeDataAgentThemeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataAgentThemeResponse
+       */
+      Models::DescribeDataAgentThemeResponse describeDataAgentThemeWithOptions(const Models::DescribeDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+       *
+       * @param request DescribeDataAgentThemeRequest
+       * @return DescribeDataAgentThemeResponse
+       */
+      Models::DescribeDataAgentThemeResponse describeDataAgentTheme(const Models::DescribeDataAgentThemeRequest &request);
 
       /**
        * @summary Retrieves the details of a specific document.
@@ -967,6 +1001,25 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetrics(const Models::GetDataAgentTaskModelUsageMetricsRequest &request);
 
       /**
+       * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+       * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+       *
+       * @param request GetDataAgentThemeUploadSignatureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentThemeUploadSignatureResponse
+       */
+      Models::GetDataAgentThemeUploadSignatureResponse getDataAgentThemeUploadSignatureWithOptions(const Models::GetDataAgentThemeUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+       * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+       *
+       * @param request GetDataAgentThemeUploadSignatureRequest
+       * @return GetDataAgentThemeUploadSignatureResponse
+       */
+      Models::GetDataAgentThemeUploadSignatureResponse getDataAgentThemeUploadSignature(const Models::GetDataAgentThemeUploadSignatureRequest &request);
+
+      /**
        * @summary Retrieves the details of a collaborative workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
@@ -1120,7 +1173,7 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
-       * @summary 获取onemeta3.0的Ossie模型
+       * @summary Retrieves the Ossie model of onemeta 3.0.
        *
        * @param request GetOneMetaOssieModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1182,7 @@ namespace Dms20250414
       Models::GetOneMetaOssieModelResponse getOneMetaOssieModelWithOptions(const Models::GetOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取onemeta3.0的Ossie模型
+       * @summary Retrieves the Ossie model of onemeta 3.0.
        *
        * @param request GetOneMetaOssieModelRequest
        * @return GetOneMetaOssieModelResponse
@@ -1217,7 +1270,7 @@ namespace Dms20250414
       Models::GetWorkspaceQuotaResponse getWorkspaceQuota(const Models::GetWorkspaceQuotaRequest &request);
 
       /**
-       * @summary 导入Ossie模型
+       * @summary Creates an SQL template.
        *
        * @param request ImportOneMetaOssieModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1279,7 @@ namespace Dms20250414
       Models::ImportOneMetaOssieModelResponse importOneMetaOssieModelWithOptions(const Models::ImportOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入Ossie模型
+       * @summary Creates an SQL template.
        *
        * @param request ImportOneMetaOssieModelRequest
        * @return ImportOneMetaOssieModelResponse
@@ -1439,6 +1492,23 @@ namespace Dms20250414
        * @return ListDataAgentSessionResponse
        */
       Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
+
+      /**
+       * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+       *
+       * @param request ListDataAgentThemeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentThemeResponse
+       */
+      Models::ListDataAgentThemeResponse listDataAgentThemeWithOptions(const Models::ListDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+       *
+       * @param request ListDataAgentThemeRequest
+       * @return ListDataAgentThemeResponse
+       */
+      Models::ListDataAgentThemeResponse listDataAgentTheme(const Models::ListDataAgentThemeRequest &request);
 
       /**
        * @summary Retrieves the workspaces under the primary account with pagination.
@@ -1747,7 +1817,7 @@ namespace Dms20250414
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
-       * @summary 获取ossie模型列表
+       * @summary Retrieves a list of OSSIE models.
        *
        * @param request ListOneMetaOssieModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1756,7 +1826,7 @@ namespace Dms20250414
       Models::ListOneMetaOssieModelsResponse listOneMetaOssieModelsWithOptions(const Models::ListOneMetaOssieModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取ossie模型列表
+       * @summary Retrieves a list of OSSIE models.
        *
        * @param request ListOneMetaOssieModelsRequest
        * @return ListOneMetaOssieModelsResponse
@@ -1764,7 +1834,7 @@ namespace Dms20250414
       Models::ListOneMetaOssieModelsResponse listOneMetaOssieModels(const Models::ListOneMetaOssieModelsRequest &request);
 
       /**
-       * @summary 获取sql模版
+       * @summary Retrieves SQL templates.
        *
        * @param request ListOneMetaSqlTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1843,7 @@ namespace Dms20250414
       Models::ListOneMetaSqlTemplatesResponse listOneMetaSqlTemplatesWithOptions(const Models::ListOneMetaSqlTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取sql模版
+       * @summary Retrieves SQL templates.
        *
        * @param request ListOneMetaSqlTemplatesRequest
        * @return ListOneMetaSqlTemplatesResponse
@@ -1838,6 +1908,23 @@ namespace Dms20250414
        * @return ModifyDataAgentMcpResponse
        */
       Models::ModifyDataAgentMcpResponse modifyDataAgentMcp(const Models::ModifyDataAgentMcpRequest &request);
+
+      /**
+       * @summary ModifyDataAgentTheme
+       *
+       * @param request ModifyDataAgentThemeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDataAgentThemeResponse
+       */
+      Models::ModifyDataAgentThemeResponse modifyDataAgentThemeWithOptions(const Models::ModifyDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ModifyDataAgentTheme
+       *
+       * @param request ModifyDataAgentThemeRequest
+       * @return ModifyDataAgentThemeResponse
+       */
+      Models::ModifyDataAgentThemeResponse modifyDataAgentTheme(const Models::ModifyDataAgentThemeRequest &request);
 
       /**
        * @summary Operate custom agents in personal spaces and workspaces.
@@ -1936,12 +2023,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
-       * - `agent_id` and `session_id` are required fields.
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
        * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the user\\"s previous message content.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+       * - `quoted_message` can be used to quote the content of a previous user message.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1953,12 +2038,10 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
-       * - `agent_id` and `session_id` are required fields.
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
        * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the user\\"s previous message content.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+       * - `quoted_message` can be used to quote the content of a previous user message.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
@@ -2258,7 +2341,7 @@ namespace Dms20250414
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 更新Ossie模型
+       * @summary Updates an SQL template.
        *
        * @param request UpdateOneMetaOssieModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2267,7 +2350,7 @@ namespace Dms20250414
       Models::UpdateOneMetaOssieModelResponse updateOneMetaOssieModelWithOptions(const Models::UpdateOneMetaOssieModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Ossie模型
+       * @summary Updates an SQL template.
        *
        * @param request UpdateOneMetaOssieModelRequest
        * @return UpdateOneMetaOssieModelResponse
@@ -2275,7 +2358,7 @@ namespace Dms20250414
       Models::UpdateOneMetaOssieModelResponse updateOneMetaOssieModel(const Models::UpdateOneMetaOssieModelRequest &request);
 
       /**
-       * @summary 更新sql模版
+       * @summary Updates an SQL template.
        *
        * @param request UpdateOneMetaSqlTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2284,7 +2367,7 @@ namespace Dms20250414
       Models::UpdateOneMetaSqlTemplateResponse updateOneMetaSqlTemplateWithOptions(const Models::UpdateOneMetaSqlTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新sql模版
+       * @summary Updates an SQL template.
        *
        * @param request UpdateOneMetaSqlTemplateRequest
        * @return UpdateOneMetaSqlTemplateResponse

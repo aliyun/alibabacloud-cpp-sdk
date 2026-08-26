@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The document type of the semantic model. Valid values: JSON and YAML.
+    // 
     // This parameter is required.
     shared_ptr<string> docFormat_ {};
+    // The UUID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeUuid_ {};
   };

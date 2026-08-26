@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // The response struct.
     shared_ptr<OssieModelView> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.                                 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The UUID of the associated folder.
     shared_ptr<string> catalogUuid_ {};
+    // The UUID of the associated database.
     shared_ptr<string> databaseUuid_ {};
+    // The description of the SQL template.
     shared_ptr<string> description_ {};
+    // The content of the SQL template.
     shared_ptr<string> expr_ {};
+    // The UUID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeUuid_ {};
+    // The custom template parameters.
     shared_ptr<string> sqlParams_ {};
+    // The tag of the SQL template.
     shared_ptr<string> tag_ {};
+    // The title of the SQL template.
     shared_ptr<string> title_ {};
   };
 

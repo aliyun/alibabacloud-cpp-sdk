@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The UUID of the associated catalog.
     shared_ptr<string> catalogUuid_ {};
+    // The UUID of the associated database.
     shared_ptr<string> databaseUuid_ {};
+    // Specifies whether to use semantic search.
     shared_ptr<bool> enableVectorSearch_ {};
+    // The maximum number of entries to return in this response.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The search keyword.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The SQL template tag.
     shared_ptr<string> tag_ {};
+    // The UUIDs of knowledge instances. Separate multiple UUIDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

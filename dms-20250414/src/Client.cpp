@@ -1047,6 +1047,68 @@ CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAg
 }
 
 /**
+ * @summary Creates a DataAgent theme.
+ *
+ * @param request CreateDataAgentThemeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentThemeResponse
+ */
+CreateDataAgentThemeResponse Client::createDataAgentThemeWithOptions(const CreateDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFileFrom()) {
+    query["FileFrom"] = request.getFileFrom();
+  }
+
+  if (!!request.hasThemeId()) {
+    query["ThemeId"] = request.getThemeId();
+  }
+
+  if (!!request.hasThemeName()) {
+    query["ThemeName"] = request.getThemeName();
+  }
+
+  if (!!request.hasThemeType()) {
+    query["ThemeType"] = request.getThemeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentTheme"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentThemeResponse>();
+}
+
+/**
+ * @summary Creates a DataAgent theme.
+ *
+ * @param request CreateDataAgentThemeRequest
+ * @return CreateDataAgentThemeResponse
+ */
+CreateDataAgentThemeResponse Client::createDataAgentTheme(const CreateDataAgentThemeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentThemeWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a DataAgent workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
@@ -1383,7 +1445,7 @@ CreateDataLakeTableResponse Client::createDataLakeTable(const CreateDataLakeTabl
 }
 
 /**
- * @summary 创建sql模版
+ * @summary Creates an SQL template.
  *
  * @param request CreateOneMetaSqlTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1442,7 +1504,7 @@ CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplateWithOptions(con
 }
 
 /**
- * @summary 创建sql模版
+ * @summary Creates an SQL template.
  *
  * @param request CreateOneMetaSqlTemplateRequest
  * @return CreateOneMetaSqlTemplateResponse
@@ -2237,7 +2299,7 @@ DeleteFileUploadResponse Client::deleteFileUpload(const DeleteFileUploadRequest 
 }
 
 /**
- * @summary 删除onemeta3.0的Ossie模型
+ * @summary Deletes an Ossie model from onemeta 3.0.
  *
  * @param request DeleteOneMetaOssieModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2268,7 +2330,7 @@ DeleteOneMetaOssieModelResponse Client::deleteOneMetaOssieModelWithOptions(const
 }
 
 /**
- * @summary 删除onemeta3.0的Ossie模型
+ * @summary Deletes an Ossie model from onemeta 3.0.
  *
  * @param request DeleteOneMetaOssieModelRequest
  * @return DeleteOneMetaOssieModelResponse
@@ -2279,7 +2341,7 @@ DeleteOneMetaOssieModelResponse Client::deleteOneMetaOssieModel(const DeleteOneM
 }
 
 /**
- * @summary 删除sql模版
+ * @summary Deletes a knowledge base in OneMeta 3.0.
  *
  * @param request DeleteOneMetaSqlTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2372,7 @@ DeleteOneMetaSqlTemplateResponse Client::deleteOneMetaSqlTemplateWithOptions(con
 }
 
 /**
- * @summary 删除sql模版
+ * @summary Deletes a knowledge base in OneMeta 3.0.
  *
  * @param request DeleteOneMetaSqlTemplateRequest
  * @return DeleteOneMetaSqlTemplateResponse
@@ -2526,6 +2588,48 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSessionWithOptions(con
 DescribeDataAgentSessionResponse Client::describeDataAgentSession(const DescribeDataAgentSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+ *
+ * @param request DescribeDataAgentThemeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataAgentThemeResponse
+ */
+DescribeDataAgentThemeResponse Client::describeDataAgentThemeWithOptions(const DescribeDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasThemeId()) {
+    query["ThemeId"] = request.getThemeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataAgentTheme"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataAgentThemeResponse>();
+}
+
+/**
+ * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+ *
+ * @param request DescribeDataAgentThemeRequest
+ * @return DescribeDataAgentThemeResponse
+ */
+DescribeDataAgentThemeResponse Client::describeDataAgentTheme(const DescribeDataAgentThemeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataAgentThemeWithOptions(request, runtime);
 }
 
 /**
@@ -3202,6 +3306,50 @@ GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetr
 }
 
 /**
+ * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+ * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+ *
+ * @param request GetDataAgentThemeUploadSignatureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentThemeUploadSignatureResponse
+ */
+GetDataAgentThemeUploadSignatureResponse Client::getDataAgentThemeUploadSignatureWithOptions(const GetDataAgentThemeUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasThemeId()) {
+    query["ThemeId"] = request.getThemeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentThemeUploadSignature"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentThemeUploadSignatureResponse>();
+}
+
+/**
+ * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+ * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+ *
+ * @param request GetDataAgentThemeUploadSignatureRequest
+ * @return GetDataAgentThemeUploadSignatureResponse
+ */
+GetDataAgentThemeUploadSignatureResponse Client::getDataAgentThemeUploadSignature(const GetDataAgentThemeUploadSignatureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentThemeUploadSignatureWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a collaborative workspace.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
@@ -3696,7 +3844,7 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
- * @summary 获取onemeta3.0的Ossie模型
+ * @summary Retrieves the Ossie model of onemeta 3.0.
  *
  * @param request GetOneMetaOssieModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3731,7 +3879,7 @@ GetOneMetaOssieModelResponse Client::getOneMetaOssieModelWithOptions(const GetOn
 }
 
 /**
- * @summary 获取onemeta3.0的Ossie模型
+ * @summary Retrieves the Ossie model of onemeta 3.0.
  *
  * @param request GetOneMetaOssieModelRequest
  * @return GetOneMetaOssieModelResponse
@@ -3958,7 +4106,7 @@ GetWorkspaceQuotaResponse Client::getWorkspaceQuota(const GetWorkspaceQuotaReque
 }
 
 /**
- * @summary 导入Ossie模型
+ * @summary Creates an SQL template.
  *
  * @param request ImportOneMetaOssieModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4017,7 +4165,7 @@ ImportOneMetaOssieModelResponse Client::importOneMetaOssieModelWithOptions(const
 }
 
 /**
- * @summary 导入Ossie模型
+ * @summary Creates an SQL template.
  *
  * @param request ImportOneMetaOssieModelRequest
  * @return ImportOneMetaOssieModelResponse
@@ -4767,6 +4915,72 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+ *
+ * @param request ListDataAgentThemeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentThemeResponse
+ */
+ListDataAgentThemeResponse Client::listDataAgentThemeWithOptions(const ListDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasThemeFrom()) {
+    query["ThemeFrom"] = request.getThemeFrom();
+  }
+
+  if (!!request.hasThemeType()) {
+    query["ThemeType"] = request.getThemeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentTheme"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentThemeResponse>();
+}
+
+/**
+ * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+ *
+ * @param request ListDataAgentThemeRequest
+ * @return ListDataAgentThemeResponse
+ */
+ListDataAgentThemeResponse Client::listDataAgentTheme(const ListDataAgentThemeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentThemeWithOptions(request, runtime);
 }
 
 /**
@@ -6000,7 +6214,7 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
- * @summary 获取ossie模型列表
+ * @summary Retrieves a list of OSSIE models.
  *
  * @param request ListOneMetaOssieModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6055,7 +6269,7 @@ ListOneMetaOssieModelsResponse Client::listOneMetaOssieModelsWithOptions(const L
 }
 
 /**
- * @summary 获取ossie模型列表
+ * @summary Retrieves a list of OSSIE models.
  *
  * @param request ListOneMetaOssieModelsRequest
  * @return ListOneMetaOssieModelsResponse
@@ -6066,7 +6280,7 @@ ListOneMetaOssieModelsResponse Client::listOneMetaOssieModels(const ListOneMetaO
 }
 
 /**
- * @summary 获取sql模版
+ * @summary Retrieves SQL templates.
  *
  * @param request ListOneMetaSqlTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6125,7 +6339,7 @@ ListOneMetaSqlTemplatesResponse Client::listOneMetaSqlTemplatesWithOptions(const
 }
 
 /**
- * @summary 获取sql模版
+ * @summary Retrieves SQL templates.
  *
  * @param request ListOneMetaSqlTemplatesRequest
  * @return ListOneMetaSqlTemplatesResponse
@@ -6397,6 +6611,56 @@ ModifyDataAgentMcpResponse Client::modifyDataAgentMcpWithOptions(const ModifyDat
 ModifyDataAgentMcpResponse Client::modifyDataAgentMcp(const ModifyDataAgentMcpRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDataAgentMcpWithOptions(request, runtime);
+}
+
+/**
+ * @summary ModifyDataAgentTheme
+ *
+ * @param request ModifyDataAgentThemeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDataAgentThemeResponse
+ */
+ModifyDataAgentThemeResponse Client::modifyDataAgentThemeWithOptions(const ModifyDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasThemeId()) {
+    query["ThemeId"] = request.getThemeId();
+  }
+
+  if (!!request.hasThemeName()) {
+    query["ThemeName"] = request.getThemeName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDataAgentTheme"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDataAgentThemeResponse>();
+}
+
+/**
+ * @summary ModifyDataAgentTheme
+ *
+ * @param request ModifyDataAgentThemeRequest
+ * @return ModifyDataAgentThemeResponse
+ */
+ModifyDataAgentThemeResponse Client::modifyDataAgentTheme(const ModifyDataAgentThemeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDataAgentThemeWithOptions(request, runtime);
 }
 
 /**
@@ -6715,12 +6979,10 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
  * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
- * - `agent_id` and `session_id` are required fields.
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
  * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the user\\"s previous message content.
- * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+ * - `quoted_message` can be used to quote the content of a previous user message.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6828,12 +7090,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
- * - `agent_id` and `session_id` are required fields.
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
  * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the user\\"s previous message content.
- * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+ * - `quoted_message` can be used to quote the content of a previous user message.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -7874,7 +8134,7 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBas
 }
 
 /**
- * @summary 更新Ossie模型
+ * @summary Updates an SQL template.
  *
  * @param request UpdateOneMetaOssieModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7933,7 +8193,7 @@ UpdateOneMetaOssieModelResponse Client::updateOneMetaOssieModelWithOptions(const
 }
 
 /**
- * @summary 更新Ossie模型
+ * @summary Updates an SQL template.
  *
  * @param request UpdateOneMetaOssieModelRequest
  * @return UpdateOneMetaOssieModelResponse
@@ -7944,7 +8204,7 @@ UpdateOneMetaOssieModelResponse Client::updateOneMetaOssieModel(const UpdateOneM
 }
 
 /**
- * @summary 更新sql模版
+ * @summary Updates an SQL template.
  *
  * @param request UpdateOneMetaSqlTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8003,7 +8263,7 @@ UpdateOneMetaSqlTemplateResponse Client::updateOneMetaSqlTemplateWithOptions(con
 }
 
 /**
- * @summary 更新sql模版
+ * @summary Updates an SQL template.
  *
  * @param request UpdateOneMetaSqlTemplateRequest
  * @return UpdateOneMetaSqlTemplateResponse
