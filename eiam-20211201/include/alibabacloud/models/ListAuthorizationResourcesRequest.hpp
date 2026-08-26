@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The name of the filter field. Valid values:
+      // The filter field name. Valid values:
       // 
-      // - AuthorizationResourceEntityType: the type of the resource entity associated with the authorization resource.
+      // - AuthorizationResourceEntityType: the resource entity type associated with the authorization resource
       // 
-      // - AuthorizationResourceEntityId: the ID of the resource entity associated with the authorization resource.
+      // - AuthorizationResourceEntityId: the resource entity ID associated with the authorization resource
       shared_ptr<string> name_ {};
       // The list of filter field values.
       shared_ptr<vector<string>> value_ {};
@@ -144,7 +144,7 @@ namespace Models
     // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that identifies the start position of the next page.
+    // The pagination token that marks the starting position of the next page.
     // 
     // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};

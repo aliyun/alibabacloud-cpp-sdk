@@ -143,6 +143,9 @@
 #include <alibabacloud/models/CreateResourceServerScopeRequest.hpp>
 #include <alibabacloud/models/CreateResourceServerScopeResponseBody.hpp>
 #include <alibabacloud/models/CreateResourceServerScopeResponse.hpp>
+#include <alibabacloud/models/CreateTrustedOriginRequest.hpp>
+#include <alibabacloud/models/CreateTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/CreateTrustedOriginResponse.hpp>
 #include <alibabacloud/models/CreateUserRequest.hpp>
 #include <alibabacloud/models/CreateUserResponseBody.hpp>
 #include <alibabacloud/models/CreateUserResponse.hpp>
@@ -227,6 +230,9 @@
 #include <alibabacloud/models/DeleteResourceServerScopeRequest.hpp>
 #include <alibabacloud/models/DeleteResourceServerScopeResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceServerScopeResponse.hpp>
+#include <alibabacloud/models/DeleteTrustedOriginRequest.hpp>
+#include <alibabacloud/models/DeleteTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/DeleteTrustedOriginResponse.hpp>
 #include <alibabacloud/models/DeleteUserRequest.hpp>
 #include <alibabacloud/models/DeleteUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserResponse.hpp>
@@ -314,6 +320,9 @@
 #include <alibabacloud/models/DisableResourceServerCustomSubjectRequest.hpp>
 #include <alibabacloud/models/DisableResourceServerCustomSubjectResponseBody.hpp>
 #include <alibabacloud/models/DisableResourceServerCustomSubjectResponse.hpp>
+#include <alibabacloud/models/DisableTrustedOriginRequest.hpp>
+#include <alibabacloud/models/DisableTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/DisableTrustedOriginResponse.hpp>
 #include <alibabacloud/models/DisableUserRequest.hpp>
 #include <alibabacloud/models/DisableUserResponseBody.hpp>
 #include <alibabacloud/models/DisableUserResponse.hpp>
@@ -395,6 +404,9 @@
 #include <alibabacloud/models/EnableResourceServerCustomSubjectRequest.hpp>
 #include <alibabacloud/models/EnableResourceServerCustomSubjectResponseBody.hpp>
 #include <alibabacloud/models/EnableResourceServerCustomSubjectResponse.hpp>
+#include <alibabacloud/models/EnableTrustedOriginRequest.hpp>
+#include <alibabacloud/models/EnableTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/EnableTrustedOriginResponse.hpp>
 #include <alibabacloud/models/EnableUserRequest.hpp>
 #include <alibabacloud/models/EnableUserResponseBody.hpp>
 #include <alibabacloud/models/EnableUserResponse.hpp>
@@ -572,6 +584,9 @@
 #include <alibabacloud/models/GetSynchronizationJobRequest.hpp>
 #include <alibabacloud/models/GetSynchronizationJobResponseBody.hpp>
 #include <alibabacloud/models/GetSynchronizationJobResponse.hpp>
+#include <alibabacloud/models/GetTrustedOriginRequest.hpp>
+#include <alibabacloud/models/GetTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/GetTrustedOriginResponse.hpp>
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponseBody.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
@@ -755,6 +770,9 @@
 #include <alibabacloud/models/ListSynchronizationJobsRequest.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponseBody.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponse.hpp>
+#include <alibabacloud/models/ListTrustedOriginsRequest.hpp>
+#include <alibabacloud/models/ListTrustedOriginsResponseBody.hpp>
+#include <alibabacloud/models/ListTrustedOriginsResponse.hpp>
 #include <alibabacloud/models/ListUserAuthnSourceMappingsRequest.hpp>
 #include <alibabacloud/models/ListUserAuthnSourceMappingsResponseBody.hpp>
 #include <alibabacloud/models/ListUserAuthnSourceMappingsResponse.hpp>
@@ -1040,6 +1058,9 @@
 #include <alibabacloud/models/UpdateResourceServerScopeRequest.hpp>
 #include <alibabacloud/models/UpdateResourceServerScopeResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceServerScopeResponse.hpp>
+#include <alibabacloud/models/UpdateTrustedOriginRequest.hpp>
+#include <alibabacloud/models/UpdateTrustedOriginResponseBody.hpp>
+#include <alibabacloud/models/UpdateTrustedOriginResponse.hpp>
 #include <alibabacloud/models/UpdateUserRequest.hpp>
 #include <alibabacloud/models/UpdateUserResponseBody.hpp>
 #include <alibabacloud/models/UpdateUserResponse.hpp>

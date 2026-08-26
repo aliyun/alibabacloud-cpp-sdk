@@ -831,7 +831,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Authorizes a specified ResourceServer for a Client application.
+ * @summary Grants a specified ResourceServer to a Client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -870,7 +870,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClientW
 }
 
 /**
- * @summary Authorizes a specified ResourceServer for a Client application.
+ * @summary Grants a specified ResourceServer to a Client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @return AuthorizeResourceServerToClientResponse
@@ -2901,6 +2901,64 @@ CreateResourceServerScopeResponse Client::createResourceServerScope(const Create
 }
 
 /**
+ * @summary Creates a trusted origin.
+ *
+ * @param request CreateTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTrustedOriginResponse
+ */
+CreateTrustedOriginResponse Client::createTrustedOriginWithOptions(const CreateTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrigin()) {
+    query["Origin"] = request.getOrigin();
+  }
+
+  if (!!request.hasTrustOriginName()) {
+    query["TrustOriginName"] = request.getTrustOriginName();
+  }
+
+  if (!!request.hasTrustedOriginScene()) {
+    query["TrustedOriginScene"] = request.getTrustedOriginScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTrustedOriginResponse>();
+}
+
+/**
+ * @summary Creates a trusted origin.
+ *
+ * @param request CreateTrustedOriginRequest
+ * @return CreateTrustedOriginResponse
+ */
+CreateTrustedOriginResponse Client::createTrustedOrigin(const CreateTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTrustedOriginWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an EIAM account in a specified EIAM instance.
  *
  * @param request CreateUserRequest
@@ -4290,6 +4348,56 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScopeWithOptions(c
 DeleteResourceServerScopeResponse Client::deleteResourceServerScope(const DeleteResourceServerScopeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteResourceServerScopeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a trusted origin.
+ *
+ * @param request DeleteTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTrustedOriginResponse
+ */
+DeleteTrustedOriginResponse Client::deleteTrustedOriginWithOptions(const DeleteTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTrustedOriginId()) {
+    query["TrustedOriginId"] = request.getTrustedOriginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTrustedOriginResponse>();
+}
+
+/**
+ * @summary Deletes a trusted origin.
+ *
+ * @param request DeleteTrustedOriginRequest
+ * @return DeleteTrustedOriginResponse
+ */
+DeleteTrustedOriginResponse Client::deleteTrustedOrigin(const DeleteTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTrustedOriginWithOptions(request, runtime);
 }
 
 /**
@@ -5685,6 +5793,52 @@ DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSu
 }
 
 /**
+ * @summary Disables a trusted origin.
+ *
+ * @param request DisableTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableTrustedOriginResponse
+ */
+DisableTrustedOriginResponse Client::disableTrustedOriginWithOptions(const DisableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTrustedOriginId()) {
+    query["TrustedOriginId"] = request.getTrustedOriginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableTrustedOriginResponse>();
+}
+
+/**
+ * @summary Disables a trusted origin.
+ *
+ * @param request DisableTrustedOriginRequest
+ * @return DisableTrustedOriginResponse
+ */
+DisableTrustedOriginResponse Client::disableTrustedOrigin(const DisableTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableTrustedOriginWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
  *
  * @param request DisableUserRequest
@@ -6974,6 +7128,52 @@ EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubj
 EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubject(const EnableResourceServerCustomSubjectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableResourceServerCustomSubjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables a trusted origin.
+ *
+ * @param request EnableTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableTrustedOriginResponse
+ */
+EnableTrustedOriginResponse Client::enableTrustedOriginWithOptions(const EnableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTrustedOriginId()) {
+    query["TrustedOriginId"] = request.getTrustedOriginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableTrustedOriginResponse>();
+}
+
+/**
+ * @summary Enables a trusted origin.
+ *
+ * @param request EnableTrustedOriginRequest
+ * @return EnableTrustedOriginResponse
+ */
+EnableTrustedOriginResponse Client::enableTrustedOrigin(const EnableTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableTrustedOriginWithOptions(request, runtime);
 }
 
 /**
@@ -9723,6 +9923,52 @@ GetSynchronizationJobResponse Client::getSynchronizationJob(const GetSynchroniza
 }
 
 /**
+ * @summary Queries the details of a trusted origin.
+ *
+ * @param request GetTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTrustedOriginResponse
+ */
+GetTrustedOriginResponse Client::getTrustedOriginWithOptions(const GetTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTrustedOriginId()) {
+    query["TrustedOriginId"] = request.getTrustedOriginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTrustedOriginResponse>();
+}
+
+/**
+ * @summary Queries the details of a trusted origin.
+ *
+ * @param request GetTrustedOriginRequest
+ * @return GetTrustedOriginResponse
+ */
+GetTrustedOriginResponse Client::getTrustedOrigin(const GetTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTrustedOriginWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of an EIAM account.
  *
  * @param request GetUserRequest
@@ -10707,6 +10953,8 @@ ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplic
 /**
  * @summary Queries a list of authorization resource information.
  *
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+ *
  * @param request ListAuthorizationResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAuthorizationResourcesResponse
@@ -10753,6 +11001,8 @@ ListAuthorizationResourcesResponse Client::listAuthorizationResourcesWithOptions
 
 /**
  * @summary Queries a list of authorization resource information.
+ *
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListAuthorizationResourcesRequest
  * @return ListAuthorizationResourcesResponse
@@ -13207,6 +13457,72 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobs(const ListSynchr
 }
 
 /**
+ * @summary Queries the list of trusted origins.
+ *
+ * @param request ListTrustedOriginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTrustedOriginsResponse
+ */
+ListTrustedOriginsResponse Client::listTrustedOriginsWithOptions(const ListTrustedOriginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrigin()) {
+    query["Origin"] = request.getOrigin();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTrustOriginName()) {
+    query["TrustOriginName"] = request.getTrustOriginName();
+  }
+
+  if (!!request.hasTrustedOriginScene()) {
+    query["TrustedOriginScene"] = request.getTrustedOriginScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTrustedOrigins"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTrustedOriginsResponse>();
+}
+
+/**
+ * @summary Queries the list of trusted origins.
+ *
+ * @param request ListTrustedOriginsRequest
+ * @return ListTrustedOriginsResponse
+ */
+ListTrustedOriginsResponse Client::listTrustedOrigins(const ListTrustedOriginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTrustedOriginsWithOptions(request, runtime);
+}
+
+/**
  * @summary Lists the mappings for third-party logon accounts.
  *
  * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
@@ -14385,7 +14701,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsers(const Revo
 }
 
 /**
- * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
+ * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14424,7 +14740,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClientWit
 }
 
 /**
- * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
+ * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @return RevokeResourceServerFromClientResponse
@@ -14435,7 +14751,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClient(co
 }
 
 /**
- * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
+ * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14478,7 +14794,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
+ * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @return RevokeResourceServerScopesFromClientResponse
@@ -18544,6 +18860,64 @@ UpdateResourceServerScopeResponse Client::updateResourceServerScopeWithOptions(c
 UpdateResourceServerScopeResponse Client::updateResourceServerScope(const UpdateResourceServerScopeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateResourceServerScopeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies a trusted origin.
+ *
+ * @param request UpdateTrustedOriginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTrustedOriginResponse
+ */
+UpdateTrustedOriginResponse Client::updateTrustedOriginWithOptions(const UpdateTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTrustOriginName()) {
+    query["TrustOriginName"] = request.getTrustOriginName();
+  }
+
+  if (!!request.hasTrustedOriginId()) {
+    query["TrustedOriginId"] = request.getTrustedOriginId();
+  }
+
+  if (!!request.hasTrustedOriginScene()) {
+    query["TrustedOriginScene"] = request.getTrustedOriginScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateTrustedOrigin"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTrustedOriginResponse>();
+}
+
+/**
+ * @summary Modifies a trusted origin.
+ *
+ * @param request UpdateTrustedOriginRequest
+ * @return UpdateTrustedOriginResponse
+ */
+UpdateTrustedOriginResponse Client::updateTrustedOrigin(const UpdateTrustedOriginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTrustedOriginWithOptions(request, runtime);
 }
 
 /**

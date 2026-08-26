@@ -259,7 +259,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerScopesToUserResponse authorizeResourceServerScopesToUser(const Models::AuthorizeResourceServerScopesToUserRequest &request);
 
       /**
-       * @summary Authorizes a specified ResourceServer for a Client application.
+       * @summary Grants a specified ResourceServer to a Client application.
        *
        * @param request AuthorizeResourceServerToClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace Eiam20211201
       Models::AuthorizeResourceServerToClientResponse authorizeResourceServerToClientWithOptions(const Models::AuthorizeResourceServerToClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a specified ResourceServer for a Client application.
+       * @summary Grants a specified ResourceServer to a Client application.
        *
        * @param request AuthorizeResourceServerToClientRequest
        * @return AuthorizeResourceServerToClientResponse
@@ -832,6 +832,23 @@ namespace Eiam20211201
       Models::CreateResourceServerScopeResponse createResourceServerScope(const Models::CreateResourceServerScopeRequest &request);
 
       /**
+       * @summary Creates a trusted origin.
+       *
+       * @param request CreateTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTrustedOriginResponse
+       */
+      Models::CreateTrustedOriginResponse createTrustedOriginWithOptions(const Models::CreateTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a trusted origin.
+       *
+       * @param request CreateTrustedOriginRequest
+       * @return CreateTrustedOriginResponse
+       */
+      Models::CreateTrustedOriginResponse createTrustedOrigin(const Models::CreateTrustedOriginRequest &request);
+
+      /**
        * @summary Creates an EIAM account in a specified EIAM instance.
        *
        * @param request CreateUserRequest
@@ -1322,6 +1339,23 @@ namespace Eiam20211201
        * @return DeleteResourceServerScopeResponse
        */
       Models::DeleteResourceServerScopeResponse deleteResourceServerScope(const Models::DeleteResourceServerScopeRequest &request);
+
+      /**
+       * @summary Deletes a trusted origin.
+       *
+       * @param request DeleteTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTrustedOriginResponse
+       */
+      Models::DeleteTrustedOriginResponse deleteTrustedOriginWithOptions(const Models::DeleteTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a trusted origin.
+       *
+       * @param request DeleteTrustedOriginRequest
+       * @return DeleteTrustedOriginResponse
+       */
+      Models::DeleteTrustedOriginResponse deleteTrustedOrigin(const Models::DeleteTrustedOriginRequest &request);
 
       /**
        * @summary Deletes a specified EIAM account and purges all information associated with the account.
@@ -1833,6 +1867,23 @@ namespace Eiam20211201
       Models::DisableResourceServerCustomSubjectResponse disableResourceServerCustomSubject(const Models::DisableResourceServerCustomSubjectRequest &request);
 
       /**
+       * @summary Disables a trusted origin.
+       *
+       * @param request DisableTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableTrustedOriginResponse
+       */
+      Models::DisableTrustedOriginResponse disableTrustedOriginWithOptions(const Models::DisableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables a trusted origin.
+       *
+       * @param request DisableTrustedOriginRequest
+       * @return DisableTrustedOriginResponse
+       */
+      Models::DisableTrustedOriginResponse disableTrustedOrigin(const Models::DisableTrustedOriginRequest &request);
+
+      /**
        * @summary Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
        *
        * @param request DisableUserRequest
@@ -2302,6 +2353,23 @@ namespace Eiam20211201
        * @return EnableResourceServerCustomSubjectResponse
        */
       Models::EnableResourceServerCustomSubjectResponse enableResourceServerCustomSubject(const Models::EnableResourceServerCustomSubjectRequest &request);
+
+      /**
+       * @summary Enables a trusted origin.
+       *
+       * @param request EnableTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableTrustedOriginResponse
+       */
+      Models::EnableTrustedOriginResponse enableTrustedOriginWithOptions(const Models::EnableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables a trusted origin.
+       *
+       * @param request EnableTrustedOriginRequest
+       * @return EnableTrustedOriginResponse
+       */
+      Models::EnableTrustedOriginResponse enableTrustedOrigin(const Models::EnableTrustedOriginRequest &request);
 
       /**
        * @summary Sets an account to the enabled state.
@@ -3315,6 +3383,23 @@ namespace Eiam20211201
       Models::GetSynchronizationJobResponse getSynchronizationJob(const Models::GetSynchronizationJobRequest &request);
 
       /**
+       * @summary Queries the details of a trusted origin.
+       *
+       * @param request GetTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTrustedOriginResponse
+       */
+      Models::GetTrustedOriginResponse getTrustedOriginWithOptions(const Models::GetTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a trusted origin.
+       *
+       * @param request GetTrustedOriginRequest
+       * @return GetTrustedOriginResponse
+       */
+      Models::GetTrustedOriginResponse getTrustedOrigin(const Models::GetTrustedOriginRequest &request);
+
+      /**
        * @summary Queries the details of an EIAM account.
        *
        * @param request GetUserRequest
@@ -3614,6 +3699,8 @@ namespace Eiam20211201
       /**
        * @summary Queries a list of authorization resource information.
        *
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+       *
        * @param request ListAuthorizationResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAuthorizationResourcesResponse
@@ -3622,6 +3709,8 @@ namespace Eiam20211201
 
       /**
        * @summary Queries a list of authorization resource information.
+       *
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListAuthorizationResourcesRequest
        * @return ListAuthorizationResourcesResponse
@@ -4389,6 +4478,23 @@ namespace Eiam20211201
       Models::ListSynchronizationJobsResponse listSynchronizationJobs(const Models::ListSynchronizationJobsRequest &request);
 
       /**
+       * @summary Queries the list of trusted origins.
+       *
+       * @param request ListTrustedOriginsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTrustedOriginsResponse
+       */
+      Models::ListTrustedOriginsResponse listTrustedOriginsWithOptions(const Models::ListTrustedOriginsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of trusted origins.
+       *
+       * @param request ListTrustedOriginsRequest
+       * @return ListTrustedOriginsResponse
+       */
+      Models::ListTrustedOriginsResponse listTrustedOrigins(const Models::ListTrustedOriginsRequest &request);
+
+      /**
        * @summary Lists the mappings for third-party logon accounts.
        *
        * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
@@ -4762,7 +4868,7 @@ namespace Eiam20211201
       Models::RevokeApplicationFromUsersResponse revokeApplicationFromUsers(const Models::RevokeApplicationFromUsersRequest &request);
 
       /**
-       * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
+       * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
        *
        * @param request RevokeResourceServerFromClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4771,7 +4877,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerFromClientResponse revokeResourceServerFromClientWithOptions(const Models::RevokeResourceServerFromClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
+       * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
        *
        * @param request RevokeResourceServerFromClientRequest
        * @return RevokeResourceServerFromClientResponse
@@ -4779,7 +4885,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerFromClientResponse revokeResourceServerFromClient(const Models::RevokeResourceServerFromClientRequest &request);
 
       /**
-       * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
+       * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
        *
        * @param request RevokeResourceServerScopesFromClientRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4788,7 +4894,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromClientResponse revokeResourceServerScopesFromClientWithOptions(const Models::RevokeResourceServerScopesFromClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
+       * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
        *
        * @param request RevokeResourceServerScopesFromClientRequest
        * @return RevokeResourceServerScopesFromClientResponse
@@ -6034,6 +6140,23 @@ namespace Eiam20211201
        * @return UpdateResourceServerScopeResponse
        */
       Models::UpdateResourceServerScopeResponse updateResourceServerScope(const Models::UpdateResourceServerScopeRequest &request);
+
+      /**
+       * @summary Modifies a trusted origin.
+       *
+       * @param request UpdateTrustedOriginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTrustedOriginResponse
+       */
+      Models::UpdateTrustedOriginResponse updateTrustedOriginWithOptions(const Models::UpdateTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a trusted origin.
+       *
+       * @param request UpdateTrustedOriginRequest
+       * @return UpdateTrustedOriginResponse
+       */
+      Models::UpdateTrustedOriginResponse updateTrustedOrigin(const Models::UpdateTrustedOriginRequest &request);
 
       /**
        * @summary Updates the basic information of an EIAM account.
