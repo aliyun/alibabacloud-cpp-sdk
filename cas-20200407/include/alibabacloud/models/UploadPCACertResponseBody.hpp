@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique identifier for the certificate.
+    // The certificate identifier.
     shared_ptr<string> identifier_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the certificate to revoke.
     shared_ptr<int64_t> certificateId_ {};
-    // The ID of the instance.
+    // The ID of the instance. This parameter accepts only V2.0 subscription certificate instances (certificates purchased from a CA such as DigiCert or GeoTrust, with an InstanceId in the format of cas-cn-*). Uploaded certificates (cas-upload-*) are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

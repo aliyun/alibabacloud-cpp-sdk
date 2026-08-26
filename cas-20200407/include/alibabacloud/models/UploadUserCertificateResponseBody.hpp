@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<int64_t> certId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the certificate instance.
+    // The instance ID of the certificate to operate on.
     shared_ptr<string> resourceId_ {};
   };
 

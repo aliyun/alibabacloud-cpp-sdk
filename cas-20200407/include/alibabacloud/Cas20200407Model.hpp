@@ -180,6 +180,12 @@
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ListTagKeysRequest.hpp>
+#include <alibabacloud/models/ListTagKeysResponseBody.hpp>
+#include <alibabacloud/models/ListTagKeysResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListTrusteeOrderRequest.hpp>
 #include <alibabacloud/models/ListTrusteeOrderResponseBody.hpp>
 #include <alibabacloud/models/ListTrusteeOrderResponse.hpp>
@@ -211,6 +217,12 @@
 #include <alibabacloud/models/SignRequest.hpp>
 #include <alibabacloud/models/SignResponseBody.hpp>
 #include <alibabacloud/models/SignResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateCompanyRequest.hpp>
 #include <alibabacloud/models/UpdateCompanyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCompanyResponse.hpp>

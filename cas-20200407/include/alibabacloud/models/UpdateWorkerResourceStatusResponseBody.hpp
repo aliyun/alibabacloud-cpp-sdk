@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data returned by the request.
     Darabonba::Json data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The use case of the certificate warehouse.
+    // The scenarios of the repository.
     shared_ptr<string> biz_ {};
-    // The name of the certificate warehouse.
+    // The name of the certificate repository.
     shared_ptr<string> name_ {};
-    // The type of the certificate warehouse. Valid values:
+    // The type of the certificate repository.
     shared_ptr<string> type_ {};
   };
 

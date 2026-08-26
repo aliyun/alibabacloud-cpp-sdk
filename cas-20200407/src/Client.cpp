@@ -1026,7 +1026,11 @@ CreateWHClientCertificateResponse Client::createWHClientCertificate(const Create
 }
 
 /**
- * @summary Creates a certificate warehouse.
+ * @summary Creates a certificate repository.
+ *
+ * @description This operation is used to query the list of certificate repositories.
+ * ### QPS limit
+ * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request CreateWarehouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1065,7 +1069,11 @@ CreateWarehouseResponse Client::createWarehouseWithOptions(const CreateWarehouse
 }
 
 /**
- * @summary Creates a certificate warehouse.
+ * @summary Creates a certificate repository.
+ *
+ * @description This operation is used to query the list of certificate repositories.
+ * ### QPS limit
+ * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request CreateWarehouseRequest
  * @return CreateWarehouseResponse
@@ -1406,7 +1414,12 @@ DeleteDeploymentJobResponse Client::deleteDeploymentJob(const DeleteDeploymentJo
 }
 
 /**
- * @summary Deletes a Certificate Management Service instance.
+ * @summary Deletes an instance.
+ *
+ * @description 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
+ * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
+ * ## QPS限制
+ * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,6 +1428,10 @@ DeleteDeploymentJobResponse Client::deleteDeploymentJob(const DeleteDeploymentJo
 DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -1437,7 +1454,12 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes a Certificate Management Service instance.
+ * @summary Deletes an instance.
+ *
+ * @description 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
+ * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
+ * ## QPS限制
+ * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -1498,9 +1520,9 @@ DeletePCACertResponse Client::deletePCACert(const DeletePCACertRequest &request)
 }
 
 /**
- * @summary Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+ * @summary Deletes an expired, revoked, or uploaded certificate.
  *
- * @description This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+ * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DeleteUserCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1511,6 +1533,10 @@ DeleteUserCertificateResponse Client::deleteUserCertificateWithOptions(const Del
   json query = {};
   if (!!request.hasCertId()) {
     query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1531,9 +1557,9 @@ DeleteUserCertificateResponse Client::deleteUserCertificateWithOptions(const Del
 }
 
 /**
- * @summary Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+ * @summary Deletes an expired, revoked, or uploaded certificate.
  *
- * @description This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+ * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DeleteUserCertificateRequest
  * @return DeleteUserCertificateResponse
@@ -2086,11 +2112,11 @@ GetCertificateDetailResponse Client::getCertificateDetail(const GetCertificateDe
 }
 
 /**
- * @summary 获取证书资源包数量
+ * @summary Retrieves the number of certificate resource plans.
  *
- * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
- * ## QPS限制
- * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request GetCertificatePackageCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2114,11 +2140,11 @@ GetCertificatePackageCountResponse Client::getCertificatePackageCountWithOptions
 }
 
 /**
- * @summary 获取证书资源包数量
+ * @summary Retrieves the number of certificate resource plans.
  *
- * @description 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
- * ## QPS限制
- * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request GetCertificatePackageCountRequest
  * @return GetCertificatePackageCountResponse
@@ -2675,11 +2701,11 @@ ListCertResponse Client::listCert(const ListCertRequest &request) {
 }
 
 /**
- * @summary Queries the certificate application repositories in your account.
+ * @summary Queries the list of certificate repositories.
  *
- * @description You can call the ListCertWarehouse operation to query certificate repositories.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the list of certificate repositories.
+ * ### QPS limit
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
  *
  * @param request ListCertWarehouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2726,11 +2752,11 @@ ListCertWarehouseResponse Client::listCertWarehouseWithOptions(const ListCertWar
 }
 
 /**
- * @summary Queries the certificate application repositories in your account.
+ * @summary Queries the list of certificate repositories.
  *
- * @description You can call the ListCertWarehouse operation to query certificate repositories.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the list of certificate repositories.
+ * ### QPS limit
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
  *
  * @param request ListCertWarehouseRequest
  * @return ListCertWarehouseResponse
@@ -3303,9 +3329,157 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
+ * @summary Retrieves a list of tag keys and values.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+ *
+ * @param request ListTagKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagKeysResponse
+ */
+ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagKeys"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagKeysResponse>();
+}
+
+/**
+ * @summary Retrieves a list of tag keys and values.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+ *
+ * @param request ListTagKeysRequest
+ * @return ListTagKeysResponse
+ */
+ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagKeysWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the tags associated with a resource.
+ *
+ * @description This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
+ *
+ * @param request ListTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary Retrieves the tags associated with a resource.
+ *
+ * @description This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of managed orders.
  *
- * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+ * @description Queries the managed orders for a certificate or order.
  * ## QPS limit
  * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
@@ -3352,7 +3526,7 @@ ListTrusteeOrderResponse Client::listTrusteeOrderWithOptions(const ListTrusteeOr
 /**
  * @summary Retrieves the list of managed orders.
  *
- * @description This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+ * @description Queries the managed orders for a certificate or order.
  * ## QPS limit
  * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
@@ -3719,6 +3893,10 @@ RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForP
 /**
  * @summary Revokes a certificate.
  *
+ * @description Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+ *
  * @param request RevokeCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RevokeCertificateResponse
@@ -3753,6 +3931,10 @@ RevokeCertificateResponse Client::revokeCertificateWithOptions(const RevokeCerti
 
 /**
  * @summary Revokes a certificate.
+ *
+ * @description Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request RevokeCertificateRequest
  * @return RevokeCertificateResponse
@@ -3876,6 +4058,138 @@ SignResponse Client::signWithOptions(const SignRequest &request, const Darabonba
 SignResponse Client::sign(const SignRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return signWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds resource tags.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+ *
+ * @param request TagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary Adds resource tags.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes tags.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+ *
+ * @param request UntagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.getAll();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.getTagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary Removes tags.
+ *
+ * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -4031,7 +4345,7 @@ UpdateContactResponse Client::updateContact(const UpdateContactRequest &request)
 }
 
 /**
- * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+ * @summary Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
  *
  * @param request UpdateCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4066,7 +4380,7 @@ UpdateCsrResponse Client::updateCsrWithOptions(const UpdateCsrRequest &request, 
 }
 
 /**
- * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+ * @summary Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
  *
  * @param request UpdateCsrRequest
  * @return UpdateCsrResponse
@@ -4283,7 +4597,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary Rolls back or re-executes a worker task in a certificate deployment task.
+ * @summary Updates the status of a worker task in a deployment task.
  *
  * @param request UpdateWorkerResourceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4322,7 +4636,7 @@ UpdateWorkerResourceStatusResponse Client::updateWorkerResourceStatusWithOptions
 }
 
 /**
- * @summary Rolls back or re-executes a worker task in a certificate deployment task.
+ * @summary Updates the status of a worker task in a deployment task.
  *
  * @param request UpdateWorkerResourceStatusRequest
  * @return UpdateWorkerResourceStatusResponse
@@ -4383,11 +4697,11 @@ UploadCsrResponse Client::uploadCsr(const UploadCsrRequest &request) {
 }
 
 /**
- * @summary Uploads a PCA certificate to a certificate warehouse.
+ * @summary Uploads a PCA certificate to a certificate repository.
  *
- * @description Use this operation to upload a PCA certificate to a certificate warehouse.
+ * @description Uploads a PCA certificate to a certificate repository.
  * ## QPS limit
- * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request UploadPCACertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4430,11 +4744,11 @@ UploadPCACertResponse Client::uploadPCACertWithOptions(const UploadPCACertReques
 }
 
 /**
- * @summary Uploads a PCA certificate to a certificate warehouse.
+ * @summary Uploads a PCA certificate to a certificate repository.
  *
- * @description Use this operation to upload a PCA certificate to a certificate warehouse.
+ * @description Uploads a PCA certificate to a certificate repository.
  * ## QPS limit
- * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request UploadPCACertRequest
  * @return UploadPCACertResponse
@@ -4445,9 +4759,15 @@ UploadPCACertResponse Client::uploadPCACert(const UploadPCACertRequest &request)
 }
 
 /**
- * @summary Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+ * @summary Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
  *
- * @description The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+ * @description The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
+ * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+ * The China SM certificate includes an encryption certificate and a signing certificate.
+ * The China SM certificate is used in China to comply with the national cryptographic standards.
+ * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+ * The China SM certificate includes an encryption certificate and a signing certificate.
+ * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
  *
  * @param request UploadUserCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4458,6 +4778,10 @@ UploadUserCertificateResponse Client::uploadUserCertificateWithOptions(const Upl
   json query = {};
   if (!!request.hasCert()) {
     query["Cert"] = request.getCert();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEncryptCert()) {
@@ -4510,9 +4834,15 @@ UploadUserCertificateResponse Client::uploadUserCertificateWithOptions(const Upl
 }
 
 /**
- * @summary Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+ * @summary Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
  *
- * @description The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+ * @description The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
+ * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+ * The China SM certificate includes an encryption certificate and a signing certificate.
+ * The China SM certificate is used in China to comply with the national cryptographic standards.
+ * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+ * The China SM certificate includes an encryption certificate and a signing certificate.
+ * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
  *
  * @param request UploadUserCertificateRequest
  * @return UploadUserCertificateResponse

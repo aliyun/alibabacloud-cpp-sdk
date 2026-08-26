@@ -39,6 +39,8 @@ namespace Models
 
   protected:
     // The contact ID.
+    // 
+    // This parameter is required.
     shared_ptr<int64_t> contactId_ {};
   };
 

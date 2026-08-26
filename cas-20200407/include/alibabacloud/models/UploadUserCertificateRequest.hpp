@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UploadUserCertificateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Cert, cert_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(EncryptCert, encryptCert_);
       DARABONBA_PTR_TO_JSON(EncryptPrivateKey, encryptPrivateKey_);
       DARABONBA_PTR_TO_JSON(Key, key_);
@@ -26,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UploadUserCertificateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Cert, cert_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(EncryptCert, encryptCert_);
       DARABONBA_PTR_FROM_JSON(EncryptPrivateKey, encryptPrivateKey_);
       DARABONBA_PTR_FROM_JSON(Key, key_);
@@ -91,13 +93,20 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->cert_ == nullptr
-        && this->encryptCert_ == nullptr && this->encryptPrivateKey_ == nullptr && this->key_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->signCert_ == nullptr && this->signPrivateKey_ == nullptr && this->tags_ == nullptr; };
+        && this->clientToken_ == nullptr && this->encryptCert_ == nullptr && this->encryptPrivateKey_ == nullptr && this->key_ == nullptr && this->name_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->signCert_ == nullptr && this->signPrivateKey_ == nullptr && this->tags_ == nullptr; };
     // cert Field Functions 
     bool hasCert() const { return this->cert_ != nullptr;};
     void deleteCert() { this->cert_ = nullptr;};
     inline string getCert() const { DARABONBA_PTR_GET_DEFAULT(cert_, "") };
     inline UploadUserCertificateRequest& setCert(string cert) { DARABONBA_PTR_SET_VALUE(cert_, cert) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UploadUserCertificateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // encryptCert Field Functions 
@@ -159,27 +168,28 @@ namespace Models
 
 
   protected:
-    // The content of a non-SM certificate in PEM format.
+    // The non-China SM certificate content in PEM format.
     shared_ptr<string> cert_ {};
-    // The content of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
+    // The client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
+    // The encryption certificate content of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
     shared_ptr<string> encryptCert_ {};
-    // The content of the private key of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
+    // The private key content of the encryption certificate of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The private key of a non-SM certificate in PEM format.
+    // The private key content of the non-China SM certificate in PEM format.
     shared_ptr<string> key_ {};
-    // The custom name of the certificate. The name can be up to 63 characters long and can contain letters, digits, and underscores (_).
-    // 
-    // > Certificate names must be unique for each user.
+    // The custom certificate name. Maximum length: 63 characters. All character types are supported, including letters, digits, and underscores.
+    // > Certificate names must be unique within the same user account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The content of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
+    // The signing certificate content of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
     shared_ptr<string> signCert_ {};
-    // The content of the private key of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
+    // The private key content of the signing certificate of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
     shared_ptr<string> signPrivateKey_ {};
-    // A list of tags.
+    // The list of tags.
     shared_ptr<vector<UploadUserCertificateRequest::Tags>> tags_ {};
   };
 

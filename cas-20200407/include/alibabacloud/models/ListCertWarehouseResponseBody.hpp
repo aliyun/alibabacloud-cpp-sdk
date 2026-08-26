@@ -131,35 +131,28 @@ namespace Models
 
 
     protected:
-      // The timestamp when the certificate application repository expires. Unit: milliseconds.
+      // The expiration time, in timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The instance ID of the certificate application repository.
+      // The sales instance.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the certificate application repository has expired. Valid values:
+      // Indicates whether the repository has expired. Valid values:
       // 
       // - **true**
-      // 
       // - **false**
       shared_ptr<bool> isExpired_ {};
-      // The name of the certificate application repository.
+      // The repository name.
       shared_ptr<string> name_ {};
-      // The instance ID of the private CA.
+      // The PCA instance.
       shared_ptr<string> pcaInstanceId_ {};
-      // The queries per second (QPS).
+      // Qps。
       shared_ptr<int64_t> qps_ {};
-      // The type of the certificate application repository. Valid values:
+      // The repository type. Valid values:
       // 
-      // - **ssl**: certificate application repository of SSL certificates
-      // 
-      // - **uploadPCA**: certificate application repository of uploaded private certificates
-      // 
-      // - **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
-      // 
-      // - **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud PCA, available only on the China site (aliyun.com)
-      // 
-      // - **disable**: disabled certificate application repository
+      // - **uploadCA**: an uploaded CA certificate that contains a complete certificate chain.
+      // - **uploadPCA**: an uploaded certificate, including a self-signed certificate, a certificate issued by a third party, or a certificate issued by Alibaba Cloud.
+      // - **aliyunPCA**: an Alibaba Cloud PCA certificate.
       shared_ptr<string> type_ {};
-      // The ID of the certificate application repository.
+      // The repository ID.
       shared_ptr<int64_t> whId_ {};
     };
 
@@ -203,15 +196,15 @@ namespace Models
 
 
   protected:
-    // The certificate application repositories.
+    // The list of certificate repositories.
     shared_ptr<vector<ListCertWarehouseResponseBody::CertWarehouseList>> certWarehouseList_ {};
-    // The page number of the returned page. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned per page. Default value: 50.
+    // The number of entries per page. Default value: 50.
     shared_ptr<int64_t> showSize_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

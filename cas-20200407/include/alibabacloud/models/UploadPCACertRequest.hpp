@@ -66,17 +66,16 @@ namespace Models
 
 
   protected:
-    // The content of the certificate and its chain, in PEM format.
+    // The certificate.
     // 
     // This parameter is required.
     shared_ptr<string> cert_ {};
-    // A custom name for the certificate.
+    // The certificate name.
     shared_ptr<string> name_ {};
-    // The private key of the certificate, in PEM format.
+    // The private key of the certificate.
     shared_ptr<string> privateKey_ {};
-    // The ID of the certificate warehouse.
-    // 
-    // > Call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
+    // The repository ID.
+    // > You can call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> warehouseId_ {};

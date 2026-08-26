@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The certificate ID.
+    // The certificate ID. You must specify either CertificateId or OrderId. Both cannot be empty at the same time.
     shared_ptr<int64_t> certificateId_ {};
     // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The order ID.
+    // The order ID. You must specify either CertificateId or OrderId. Both cannot be empty at the same time.
     shared_ptr<int64_t> orderId_ {};
   };
 

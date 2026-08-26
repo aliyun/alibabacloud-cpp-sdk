@@ -57,19 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the deployment task. You can call the [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html) operation to obtain the ID of a deployment task from the **JobId** parameter. You can also call the [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html) operation to obtain the ID of a deployment task.
+    // The deployment task ID. This ID is returned by [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html). You can also obtain it by calling [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The desired status of the worker resource.
-    // 
-    // Valid values:
-    // 
-    // - rollback
+    // The target status. Valid values: "editing", "pending", "success", "rollback", "rollback_success", "rollback_error".
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The ID of the worker task. You can call the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation to obtain the ID of a worker task.
+    // The deployment task worker ID. You can obtain this ID by calling [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> workerId_ {};

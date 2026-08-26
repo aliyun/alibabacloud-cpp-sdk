@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of orders.
     shared_ptr<int32_t> totalCount_ {};
-    // The order list.
+    // The list of orders.
     shared_ptr<string> trusteeOrderList_ {};
   };
 
