@@ -13,21 +13,27 @@ namespace Models
   class SubmitAIImageAuditJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitAIImageAuditJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CensorProvider, censorProvider_);
+      DARABONBA_PTR_TO_JSON(ImageService, imageService_);
       DARABONBA_PTR_TO_JSON(MediaAuditConfiguration, mediaAuditConfiguration_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(ServiceParameters, serviceParameters_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitAIImageAuditJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CensorProvider, censorProvider_);
+      DARABONBA_PTR_FROM_JSON(ImageService, imageService_);
       DARABONBA_PTR_FROM_JSON(MediaAuditConfiguration, mediaAuditConfiguration_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(ServiceParameters, serviceParameters_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
     };
     SubmitAIImageAuditJobRequest() = default ;
@@ -41,9 +47,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->mediaAuditConfiguration_ == nullptr
-        && this->mediaId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->templateId_ == nullptr; };
+    virtual bool empty() const override { return this->censorProvider_ == nullptr
+        && this->imageService_ == nullptr && this->mediaAuditConfiguration_ == nullptr && this->mediaId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->serviceParameters_ == nullptr && this->templateId_ == nullptr; };
+    // censorProvider Field Functions 
+    bool hasCensorProvider() const { return this->censorProvider_ != nullptr;};
+    void deleteCensorProvider() { this->censorProvider_ = nullptr;};
+    inline string getCensorProvider() const { DARABONBA_PTR_GET_DEFAULT(censorProvider_, "") };
+    inline SubmitAIImageAuditJobRequest& setCensorProvider(string censorProvider) { DARABONBA_PTR_SET_VALUE(censorProvider_, censorProvider) };
+
+
+    // imageService Field Functions 
+    bool hasImageService() const { return this->imageService_ != nullptr;};
+    void deleteImageService() { this->imageService_ = nullptr;};
+    inline string getImageService() const { DARABONBA_PTR_GET_DEFAULT(imageService_, "") };
+    inline SubmitAIImageAuditJobRequest& setImageService(string imageService) { DARABONBA_PTR_SET_VALUE(imageService_, imageService) };
+
+
     // mediaAuditConfiguration Field Functions 
     bool hasMediaAuditConfiguration() const { return this->mediaAuditConfiguration_ != nullptr;};
     void deleteMediaAuditConfiguration() { this->mediaAuditConfiguration_ = nullptr;};
@@ -86,6 +106,13 @@ namespace Models
     inline SubmitAIImageAuditJobRequest& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // serviceParameters Field Functions 
+    bool hasServiceParameters() const { return this->serviceParameters_ != nullptr;};
+    void deleteServiceParameters() { this->serviceParameters_ = nullptr;};
+    inline string getServiceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
+    inline SubmitAIImageAuditJobRequest& setServiceParameters(string serviceParameters) { DARABONBA_PTR_SET_VALUE(serviceParameters_, serviceParameters) };
+
+
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -94,11 +121,13 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> censorProvider_ {};
+    shared_ptr<string> imageService_ {};
     // The review node configuration.
-    // - Other configuration items of the review node. Currently, only the ResourceType field is supported, which is used to specify the media file type and adjust the review standards and rules for the specified type.
-    // - Usage notes for ResourceType: only letters, digits, and underscores are allowed.
+    // - Other configuration items of the review node. Currently, only the ResourceType field is supported, which is used to specify the media file type. You can adjust the review standards and rules for the specified type.
+    // - Usage notes for ResourceType: Only letters, digits, and underscores (_) are allowed.
     // 
-    // >- You can customize the ResourceType field as described in the usage notes. After customization, [submit a Yida form](https://yida.alibaba-inc.com/o/ticketapply) to commit to Alibaba Cloud for spooling before the configuration takes effect.
+    // >- You can customize the ResourceType field based on the usage notes. After customization, [submit a Yida form](https://yida.alibaba-inc.com/o/ticketapply) to commit to Alibaba Cloud for spooling before the configuration takes effect.
     // >- To adjust the review standards and rules for a specific ResourceType, [submit a Yida form](https://yida.alibaba-inc.com/o/ticketapply) to request technical support.
     shared_ptr<string> mediaAuditConfiguration_ {};
     // The image ID.
@@ -111,9 +140,10 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<string> resourceOwnerId_ {};
+    shared_ptr<string> serviceParameters_ {};
     // The AI template ID. You can obtain the ID by using one of the following methods:
-    // - When you call the [Add AI template](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template, the AI template ID is the value of TemplateId in the response.
-    // - After the AI template is added, call the [Query AI template list](https://help.aliyun.com/document_detail/102936.html) operation to obtain the AI template ID, which is the value of TemplateId in the response.
+    // - Call the [Add AI template](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template. The AI template ID is the value of TemplateId in the response.
+    // - After the AI template is added, call the [Query AI template list](https://help.aliyun.com/document_detail/102936.html) operation to query the AI template ID, which is the value of TemplateId in the response.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
