@@ -127,6 +127,9 @@
 #include <alibabacloud/models/DeleteAppPluginRequest.hpp>
 #include <alibabacloud/models/DeleteAppPluginResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppPluginResponse.hpp>
+#include <alibabacloud/models/DeleteAppSceneRecipientRequest.hpp>
+#include <alibabacloud/models/DeleteAppSceneRecipientResponseBody.hpp>
+#include <alibabacloud/models/DeleteAppSceneRecipientResponse.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsRequest.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppSupabaseSecretsResponse.hpp>

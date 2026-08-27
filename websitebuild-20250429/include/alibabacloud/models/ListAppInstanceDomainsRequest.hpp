@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(StatusQueryMode, statusQueryMode_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstanceDomainsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(StatusQueryMode, statusQueryMode_);
     };
     ListAppInstanceDomainsRequest() = default ;
     ListAppInstanceDomainsRequest(const ListAppInstanceDomainsRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->domainKeyword_ == nullptr && this->domainType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr
-        && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
+        && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->statusQueryMode_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -111,24 +113,35 @@ namespace Models
     inline ListAppInstanceDomainsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // statusQueryMode Field Functions 
+    bool hasStatusQueryMode() const { return this->statusQueryMode_ != nullptr;};
+    void deleteStatusQueryMode() { this->statusQueryMode_ = nullptr;};
+    inline string getStatusQueryMode() const { DARABONBA_PTR_GET_DEFAULT(statusQueryMode_, "") };
+    inline ListAppInstanceDomainsRequest& setStatusQueryMode(string statusQueryMode) { DARABONBA_PTR_SET_VALUE(statusQueryMode_, statusQueryMode) };
+
+
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
     // The domain name keyword. This parameter is optional and used for fuzzy match.
     shared_ptr<string> domainKeyword_ {};
     // The domain management type. Valid values:
+    // 
     // - CUSTOM
     // - PLATFORM_PREFIX
     // 
     // Default value: CUSTOM.
     shared_ptr<string> domainType_ {};
-    // The maximum number of entries returned per query.
+    // The number of entries per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The field used for sorting.
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
     // The sort type. Valid values:
+    // 
     // - ASC
     // - DESC
     shared_ptr<string> orderType_ {};
@@ -136,6 +149,13 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The domain status query mode. Valid values:
+    // 
+    // - BASIC: returns only the persisted status.
+    // - REALTIME: refreshes the external service status.
+    // 
+    // Default value: REALTIME.
+    shared_ptr<string> statusQueryMode_ {};
   };
 
   } // namespace Models

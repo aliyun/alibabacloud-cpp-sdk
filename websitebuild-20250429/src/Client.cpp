@@ -2048,6 +2048,60 @@ DeleteAppPluginResponse Client::deleteAppPlugin(const DeleteAppPluginRequest &re
 }
 
 /**
+ * @summary Deletes a scenario recipient.
+ *
+ * @description Queries application instance information.
+ *
+ * @param request DeleteAppSceneRecipientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppSceneRecipientResponse
+ */
+DeleteAppSceneRecipientResponse Client::deleteAppSceneRecipientWithOptions(const DeleteAppSceneRecipientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRecipientId()) {
+    query["RecipientId"] = request.getRecipientId();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppSceneRecipient"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppSceneRecipientResponse>();
+}
+
+/**
+ * @summary Deletes a scenario recipient.
+ *
+ * @description Queries application instance information.
+ *
+ * @param request DeleteAppSceneRecipientRequest
+ * @return DeleteAppSceneRecipientResponse
+ */
+DeleteAppSceneRecipientResponse Client::deleteAppSceneRecipient(const DeleteAppSceneRecipientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppSceneRecipientWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a Supabase key.
  *
  * @description The Supabase instance information corresponding to the operated resource.
@@ -5137,6 +5191,10 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatusQueryMode()) {
+    query["StatusQueryMode"] = request.getStatusQueryMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

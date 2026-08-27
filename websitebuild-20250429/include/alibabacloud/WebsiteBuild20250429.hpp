@@ -679,6 +679,27 @@ namespace WebsiteBuild20250429
       Models::DeleteAppPluginResponse deleteAppPlugin(const Models::DeleteAppPluginRequest &request);
 
       /**
+       * @summary Deletes a scenario recipient.
+       *
+       * @description Queries application instance information.
+       *
+       * @param request DeleteAppSceneRecipientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppSceneRecipientResponse
+       */
+      Models::DeleteAppSceneRecipientResponse deleteAppSceneRecipientWithOptions(const Models::DeleteAppSceneRecipientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a scenario recipient.
+       *
+       * @description Queries application instance information.
+       *
+       * @param request DeleteAppSceneRecipientRequest
+       * @return DeleteAppSceneRecipientResponse
+       */
+      Models::DeleteAppSceneRecipientResponse deleteAppSceneRecipient(const Models::DeleteAppSceneRecipientRequest &request);
+
+      /**
        * @summary Deletes a Supabase key.
        *
        * @description The Supabase instance information corresponding to the operated resource.
