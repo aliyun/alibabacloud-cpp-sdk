@@ -23,7 +23,6 @@ AlibabaCloud::ModelStudio20260210::Client::Client(Config &config): OpenApiClient
     {"cn-beijing" , "modelstudio.cn-beijing.aliyuncs.com"},
     {"cn-hongkong" , "modelstudio.cn-hongkong.aliyuncs.com"},
     {"ap-southeast-1" , "modelstudio.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "modelstudio.ap-northeast-1.aliyuncs.com"},
     {"us-east-1" , "modelstudio.us-east-1.aliyuncs.com"},
     {"eu-central-1" , "modelstudio.eu-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -628,6 +627,172 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getApiKeyWithOptions(apiKeyId, headers, runtime);
+}
+
+/**
+ * @summary 查询账单概览
+ *
+ * @param tmpReq GetBillingOverviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBillingOverviewResponse
+ */
+GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillingOverviewRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetBillingOverviewShrinkRequest request = GetBillingOverviewShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
+  }
+
+  if (!!tmpReq.hasGroupBy()) {
+    request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "groupBy", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBillMonth()) {
+    query["billMonth"] = request.getBillMonth();
+  }
+
+  if (!!request.hasFilterShrink()) {
+    query["filter"] = request.getFilterShrink();
+  }
+
+  if (!!request.hasGroupByShrink()) {
+    query["groupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasLocale()) {
+    query["locale"] = request.getLocale();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTopNum()) {
+    query["topNum"] = request.getTopNum();
+  }
+
+  if (!!request.hasZeroFilter()) {
+    query["zeroFilter"] = request.getZeroFilter();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBillingOverview"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/billing/overview")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBillingOverviewResponse>();
+}
+
+/**
+ * @summary 查询账单概览
+ *
+ * @param request GetBillingOverviewRequest
+ * @return GetBillingOverviewResponse
+ */
+GetBillingOverviewResponse Client::getBillingOverview(const GetBillingOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBillingOverviewWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询账单趋势
+ *
+ * @param tmpReq GetBillingTrendRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBillingTrendResponse
+ */
+GetBillingTrendResponse Client::getBillingTrendWithOptions(const GetBillingTrendRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetBillingTrendShrinkRequest request = GetBillingTrendShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
+  }
+
+  if (!!tmpReq.hasGroupBy()) {
+    request.setGroupByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGroupBy(), "groupBy", "json"));
+  }
+
+  if (!!tmpReq.hasTimePeriod()) {
+    request.setTimePeriodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimePeriod(), "timePeriod", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterShrink()) {
+    query["filter"] = request.getFilterShrink();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasGroupByShrink()) {
+    query["groupBy"] = request.getGroupByShrink();
+  }
+
+  if (!!request.hasLocale()) {
+    query["locale"] = request.getLocale();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTimePeriodShrink()) {
+    query["timePeriod"] = request.getTimePeriodShrink();
+  }
+
+  if (!!request.hasTopNum()) {
+    query["topNum"] = request.getTopNum();
+  }
+
+  if (!!request.hasZeroFilter()) {
+    query["zeroFilter"] = request.getZeroFilter();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBillingTrend"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/billing/trend")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBillingTrendResponse>();
+}
+
+/**
+ * @summary 查询账单趋势
+ *
+ * @param request GetBillingTrendRequest
+ * @return GetBillingTrendResponse
+ */
+GetBillingTrendResponse Client::getBillingTrend(const GetBillingTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBillingTrendWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1754,7 +1919,7 @@ UpdateModelLimitsResponse Client::updateModelLimits(const UpdateModelLimitsReque
 }
 
 /**
- * @summary 更新业务空间模型授权
+ * @summary Updates model authorization for a workspace.
  *
  * @param request UpdateModelPermissionsRequest
  * @param headers map
@@ -1795,7 +1960,7 @@ UpdateModelPermissionsResponse Client::updateModelPermissionsWithOptions(const U
 }
 
 /**
- * @summary 更新业务空间模型授权
+ * @summary Updates model authorization for a workspace.
  *
  * @param request UpdateModelPermissionsRequest
  * @return UpdateModelPermissionsResponse

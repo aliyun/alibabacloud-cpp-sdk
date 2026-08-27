@@ -90,9 +90,14 @@ namespace Models
 
 
     protected:
+      // Specifies whether to grant model deployment permission.
       shared_ptr<bool> deploy_ {};
+      // Specifies whether to grant model training permission.
       shared_ptr<bool> fineTune_ {};
+      // Specifies whether to grant model invocation permission.
       shared_ptr<bool> inference_ {};
+      // The model.
+      // 
       // This parameter is required.
       shared_ptr<string> model_ {};
     };
@@ -123,8 +128,15 @@ namespace Models
 
 
   protected:
+    // The tri-state value for one-click authorization. Valid values:
+    // - OPEN: grants authorization to all models with one click.
+    // - CLOSE: cancels one-click authorization.
+    // - KEEP: keeps per-model authorization.
     shared_ptr<string> accessAllEntities_ {};
+    // The list of per-model authorization items.
     shared_ptr<vector<UpdateModelPermissionsRequest::Models>> models_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

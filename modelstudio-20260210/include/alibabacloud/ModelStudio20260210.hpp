@@ -267,6 +267,42 @@ namespace ModelStudio20260210
       Models::GetApiKeyResponse getApiKey(const string &apiKeyId);
 
       /**
+       * @summary 查询账单概览
+       *
+       * @param tmpReq GetBillingOverviewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBillingOverviewResponse
+       */
+      Models::GetBillingOverviewResponse getBillingOverviewWithOptions(const Models::GetBillingOverviewRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询账单概览
+       *
+       * @param request GetBillingOverviewRequest
+       * @return GetBillingOverviewResponse
+       */
+      Models::GetBillingOverviewResponse getBillingOverview(const Models::GetBillingOverviewRequest &request);
+
+      /**
+       * @summary 查询账单趋势
+       *
+       * @param tmpReq GetBillingTrendRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBillingTrendResponse
+       */
+      Models::GetBillingTrendResponse getBillingTrendWithOptions(const Models::GetBillingTrendRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询账单趋势
+       *
+       * @param request GetBillingTrendRequest
+       * @return GetBillingTrendResponse
+       */
+      Models::GetBillingTrendResponse getBillingTrend(const Models::GetBillingTrendRequest &request);
+
+      /**
        * @summary Retrieves information about a specified organization.
        *
        * @description Retrieves information about a specified organization by OrgId.
@@ -685,7 +721,7 @@ namespace ModelStudio20260210
       Models::UpdateModelLimitsResponse updateModelLimits(const Models::UpdateModelLimitsRequest &request);
 
       /**
-       * @summary 更新业务空间模型授权
+       * @summary Updates model authorization for a workspace.
        *
        * @param request UpdateModelPermissionsRequest
        * @param headers map
@@ -695,7 +731,7 @@ namespace ModelStudio20260210
       Models::UpdateModelPermissionsResponse updateModelPermissionsWithOptions(const Models::UpdateModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新业务空间模型授权
+       * @summary Updates model authorization for a workspace.
        *
        * @param request UpdateModelPermissionsRequest
        * @return UpdateModelPermissionsResponse

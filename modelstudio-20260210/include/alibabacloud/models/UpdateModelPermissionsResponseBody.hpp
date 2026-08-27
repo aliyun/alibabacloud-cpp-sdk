@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is empty when the call is successful.
     shared_ptr<string> code_ {};
+    // The error message. This parameter is empty when the call is successful.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call is successful.
     shared_ptr<bool> success_ {};
   };
 

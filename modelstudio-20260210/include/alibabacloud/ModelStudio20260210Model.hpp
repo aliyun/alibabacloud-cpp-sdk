@@ -37,6 +37,14 @@
 #include <alibabacloud/models/EnableApiKeyResponse.hpp>
 #include <alibabacloud/models/GetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/GetApiKeyResponse.hpp>
+#include <alibabacloud/models/GetBillingOverviewRequest.hpp>
+#include <alibabacloud/models/GetBillingOverviewShrinkRequest.hpp>
+#include <alibabacloud/models/GetBillingOverviewResponseBody.hpp>
+#include <alibabacloud/models/GetBillingOverviewResponse.hpp>
+#include <alibabacloud/models/GetBillingTrendRequest.hpp>
+#include <alibabacloud/models/GetBillingTrendShrinkRequest.hpp>
+#include <alibabacloud/models/GetBillingTrendResponseBody.hpp>
+#include <alibabacloud/models/GetBillingTrendResponse.hpp>
 #include <alibabacloud/models/GetOrganizationRequest.hpp>
 #include <alibabacloud/models/GetOrganizationResponseBody.hpp>
 #include <alibabacloud/models/GetOrganizationResponse.hpp>
