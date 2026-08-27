@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID used for OSS uploads.
     shared_ptr<string> accessId_ {};
+    // The normalized logical upload directory on the server side, relative to the digital human artifact root directory.
     shared_ptr<string> artifactPath_ {};
+    // The allowed OSS object prefix for uploads.
     shared_ptr<string> dir_ {};
+    // The expiration time of the upload credential. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> expire_ {};
+    // The OSS form upload URL.
     shared_ptr<string> host_ {};
+    // The maximum size of a single file upload, in bytes.
     shared_ptr<int64_t> maxSize_ {};
+    // The Base64-encoded OSS Post Policy.
     shared_ptr<string> policy_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The OSS Post Policy signature.
     shared_ptr<string> signature_ {};
+    // The status code returned upon a successful OSS upload.
     shared_ptr<string> successActionStatus_ {};
   };
 

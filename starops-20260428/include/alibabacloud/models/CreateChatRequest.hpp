@@ -142,13 +142,13 @@ namespace Models
 
 
     protected:
-      // The multimodal content of the message.
+      // The text or multimodal array.
       shared_ptr<vector<Messages::Contents>> contents_ {};
-      // A unique identifier for the message.
+      // The unique identifier of the current message.
       shared_ptr<string> messageId_ {};
       // The role of the message.
       shared_ptr<string> role_ {};
-      // The tool call list.
+      // The list of tool invocations.
       shared_ptr<vector<Darabonba::Json>> tools_ {};
     };
 
@@ -194,15 +194,21 @@ namespace Models
 
 
   protected:
-    // The operation type. Valid values: `create` (default), `reconnect`, and `stop`.
+    // The action type. Valid values:
+    // 
+    // - create: creates a conversation.
+    // - reconnect: reconnects to an existing conversation.
+    // - stop: stops the conversation.
+    // 
+    // Default value: create.
     shared_ptr<string> action_ {};
     // The name of the digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
-    // The message list.
+    // The list of messages.
     shared_ptr<vector<CreateChatRequest::Messages>> messages_ {};
-    // The session thread ID.
+    // The conversation thread ID.
     shared_ptr<string> threadId_ {};
-    // The set of variables.
+    // The list of variables.
     Darabonba::Json variables_ {};
   };
 

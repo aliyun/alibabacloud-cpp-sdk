@@ -84,10 +84,14 @@ namespace Models
       class Aliyun : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Aliyun& obj) { 
+          DARABONBA_PTR_TO_JSON(autoPassPolicy, autoPassPolicy_);
+          DARABONBA_PTR_TO_JSON(denyPolicy, denyPolicy_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
           DARABONBA_PTR_TO_JSON(statements, statements_);
         };
         friend void from_json(const Darabonba::Json& j, Aliyun& obj) { 
+          DARABONBA_PTR_FROM_JSON(autoPassPolicy, autoPassPolicy_);
+          DARABONBA_PTR_FROM_JSON(denyPolicy, denyPolicy_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
           DARABONBA_PTR_FROM_JSON(statements, statements_);
         };
@@ -172,8 +176,26 @@ namespace Models
           shared_ptr<string> product_ {};
         };
 
-        virtual bool empty() const override { return this->enable_ == nullptr
-        && this->statements_ == nullptr; };
+        virtual bool empty() const override { return this->autoPassPolicy_ == nullptr
+        && this->denyPolicy_ == nullptr && this->enable_ == nullptr && this->statements_ == nullptr; };
+        // autoPassPolicy Field Functions 
+        bool hasAutoPassPolicy() const { return this->autoPassPolicy_ != nullptr;};
+        void deleteAutoPassPolicy() { this->autoPassPolicy_ = nullptr;};
+        inline const vector<string> & getAutoPassPolicy() const { DARABONBA_PTR_GET_CONST(autoPassPolicy_, vector<string>) };
+        inline vector<string> getAutoPassPolicy() { DARABONBA_PTR_GET(autoPassPolicy_, vector<string>) };
+        inline Aliyun& setAutoPassPolicy(const vector<string> & autoPassPolicy) { DARABONBA_PTR_SET_VALUE(autoPassPolicy_, autoPassPolicy) };
+        inline Aliyun& setAutoPassPolicy(vector<string> && autoPassPolicy) { DARABONBA_PTR_SET_RVALUE(autoPassPolicy_, autoPassPolicy) };
+
+
+        // denyPolicy Field Functions 
+        bool hasDenyPolicy() const { return this->denyPolicy_ != nullptr;};
+        void deleteDenyPolicy() { this->denyPolicy_ = nullptr;};
+        inline const vector<string> & getDenyPolicy() const { DARABONBA_PTR_GET_CONST(denyPolicy_, vector<string>) };
+        inline vector<string> getDenyPolicy() { DARABONBA_PTR_GET(denyPolicy_, vector<string>) };
+        inline Aliyun& setDenyPolicy(const vector<string> & denyPolicy) { DARABONBA_PTR_SET_VALUE(denyPolicy_, denyPolicy) };
+        inline Aliyun& setDenyPolicy(vector<string> && denyPolicy) { DARABONBA_PTR_SET_RVALUE(denyPolicy_, denyPolicy) };
+
+
         // enable Field Functions 
         bool hasEnable() const { return this->enable_ != nullptr;};
         void deleteEnable() { this->enable_ = nullptr;};
@@ -191,6 +213,10 @@ namespace Models
 
 
       protected:
+        // The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically approved without human confirmation. If empty or not configured, built-in read-only operations (Get*, List*, Describe*) are automatically approved. Unmatched requests require human-in-the-loop (HIL) confirmation.
+        shared_ptr<vector<string>> autoPassPolicy_ {};
+        // The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If empty or not configured, no operations are actively denied. STAROps directly rejects matched requests. The Pop side performs a secondary fallback check.
+        shared_ptr<vector<string>> denyPolicy_ {};
         // Indicates whether the policy is enabled.
         shared_ptr<bool> enable_ {};
         // The list of Aliyun CLI tool policy statements.
@@ -536,7 +562,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The ARN of the RAM role.
+    // The Alibaba Cloud Resource Name (ARN) of the RAM role.
     shared_ptr<string> roleArn_ {};
     // The sandbox network ACL policy configuration for the digital employee.
     shared_ptr<GetDigitalEmployeeResponseBody::SandboxNetworkPolicy> sandboxNetworkPolicy_ {};

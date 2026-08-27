@@ -44,9 +44,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建产物上传凭证
+ * @summary Creates an artifact upload credential.
  *
- * @description 获取上传内容所需链接，适用于大文件。
+ * @description Obtains the link required to upload content. This operation is applicable to large files.
  *
  * @param request CreateArtifactUploadTokenRequest
  * @param headers map
@@ -79,9 +79,9 @@ CreateArtifactUploadTokenResponse Client::createArtifactUploadTokenWithOptions(c
 }
 
 /**
- * @summary 创建产物上传凭证
+ * @summary Creates an artifact upload credential.
  *
- * @description 获取上传内容所需链接，适用于大文件。
+ * @description Obtains the link required to upload content. This operation is applicable to large files.
  *
  * @param request CreateArtifactUploadTokenRequest
  * @return CreateArtifactUploadTokenResponse
@@ -93,9 +93,9 @@ CreateArtifactUploadTokenResponse Client::createArtifactUploadToken(const string
 }
 
 /**
- * @summary New conversation
+ * @summary Creates a conversation.
  *
- * @description Starts a session.
+ * @description Initiates a conversation.
  *
  * @param request CreateChatRequest
  * @param headers map
@@ -158,9 +158,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary New conversation
+ * @summary Creates a conversation.
  *
- * @description Starts a session.
+ * @description Initiates a conversation.
  *
  * @param request CreateChatRequest
  * @param headers map
@@ -209,9 +209,9 @@ CreateChatResponse Client::createChatWithOptions(const CreateChatRequest &reques
 }
 
 /**
- * @summary New conversation
+ * @summary Creates a conversation.
  *
- * @description Starts a session.
+ * @description Initiates a conversation.
  *
  * @param request CreateChatRequest
  * @return CreateChatResponse
@@ -223,7 +223,7 @@ CreateChatResponse Client::createChat(const CreateChatRequest &request) {
 }
 
 /**
- * @summary Creates a digital employee.
+ * @summary Creates a DigitalEmployee.
  *
  * @description Creates a digital employee.
  *
@@ -298,7 +298,7 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
 }
 
 /**
- * @summary Creates a digital employee.
+ * @summary Creates a DigitalEmployee.
  *
  * @description Creates a digital employee.
  *
@@ -843,7 +843,9 @@ GetArtifactResponse Client::getArtifact(const string &name, const GetArtifactReq
 }
 
 /**
- * @summary 获取产物下载链接
+ * @summary Retrieves the download URL for an artifact.
+ *
+ * @description Retrieves the download URL for artifact content. This operation is suitable for large files.
  *
  * @param request GetArtifactDownloadUrlRequest
  * @param headers map
@@ -876,7 +878,9 @@ GetArtifactDownloadUrlResponse Client::getArtifactDownloadUrlWithOptions(const s
 }
 
 /**
- * @summary 获取产物下载链接
+ * @summary Retrieves the download URL for an artifact.
+ *
+ * @description Retrieves the download URL for artifact content. This operation is suitable for large files.
  *
  * @param request GetArtifactDownloadUrlRequest
  * @return GetArtifactDownloadUrlResponse
@@ -1272,7 +1276,7 @@ ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkills(const string
 }
 
 /**
- * @summary Returns a list of digital employees.
+ * @summary Lists digital employees.
  *
  * @description Lists digital employees.
  *
@@ -1337,7 +1341,7 @@ ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListD
 }
 
 /**
- * @summary Returns a list of digital employees.
+ * @summary Lists digital employees.
  *
  * @description Lists digital employees.
  *

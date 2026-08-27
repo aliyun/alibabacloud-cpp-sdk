@@ -102,13 +102,13 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // The type of the digital employee.
     shared_ptr<string> employeeType_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
+    // The page size. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The name of the digital employee.
     shared_ptr<string> name_ {};
-    // The token that is used to retrieve the next page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<vector<Tag>> tags_ {};

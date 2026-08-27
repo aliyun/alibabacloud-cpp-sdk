@@ -183,31 +183,31 @@ namespace Models
 
 
     protected:
-      // A list of invoked agents.
+      // The list of invoked agents.
       shared_ptr<vector<Darabonba::Json>> agents_ {};
-      // A list of generated artifacts.
+      // The artifact output information.
       shared_ptr<vector<Darabonba::Json>> artifacts_ {};
-      // The ID of the current call.
+      // The current execution ID.
       shared_ptr<string> callId_ {};
-      // A list of content objects.
+      // The content information.
       shared_ptr<vector<Darabonba::Json>> contents_ {};
-      // Message details.
+      // The message details.
       shared_ptr<string> detail_ {};
-      // A list of events.
+      // The list of events.
       shared_ptr<vector<Darabonba::Json>> events_ {};
-      // The ID of the parent call.
+      // The execution ID of the parent level.
       shared_ptr<string> parentCallId_ {};
-      // The role of the message sender.
+      // The role that initiated the message.
       shared_ptr<string> role_ {};
-      // The message sequence number.
+      // The sequence number of the message.
       shared_ptr<int32_t> seq_ {};
-      // The timestamp, in nanoseconds.
+      // The timestamp in nanoseconds.
       shared_ptr<string> timestamp_ {};
-      // A list of tool calls.
+      // The list of tools used.
       shared_ptr<vector<Darabonba::Json>> tools_ {};
-      // The message type.
+      // The specific type of the message.
       shared_ptr<string> type_ {};
-      // The message version.
+      // The version number of the message.
       shared_ptr<string> version_ {};
     };
 
@@ -237,11 +237,11 @@ namespace Models
 
 
   protected:
-    // A list of message objects in the session.
+    // The list of messages in the session.
     shared_ptr<vector<CreateChatResponseBody::Messages>> messages_ {};
-    // A unique identifier for the API request, useful for troubleshooting.
+    // The ID data of the current message request. The first request ID in the root data.
     shared_ptr<string> requestId_ {};
-    // Uniquely identifies the request chain for tracing.
+    // The ID data of the current message request. The first trace ID in the root data.
     shared_ptr<string> traceId_ {};
   };
 

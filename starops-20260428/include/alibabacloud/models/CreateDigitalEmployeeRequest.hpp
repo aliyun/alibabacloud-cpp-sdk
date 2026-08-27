@@ -74,10 +74,14 @@ namespace Models
       class Aliyun : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Aliyun& obj) { 
+          DARABONBA_PTR_TO_JSON(autoPassPolicy, autoPassPolicy_);
+          DARABONBA_PTR_TO_JSON(denyPolicy, denyPolicy_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
           DARABONBA_PTR_TO_JSON(statements, statements_);
         };
         friend void from_json(const Darabonba::Json& j, Aliyun& obj) { 
+          DARABONBA_PTR_FROM_JSON(autoPassPolicy, autoPassPolicy_);
+          DARABONBA_PTR_FROM_JSON(denyPolicy, denyPolicy_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
           DARABONBA_PTR_FROM_JSON(statements, statements_);
         };
@@ -150,7 +154,7 @@ namespace Models
 
 
         protected:
-          // The list of Aliyun OpenAPI actions. The format is product:ApiName, product:Prefix*, or product:*.
+          // The list of Aliyun OpenAPI actions. Format: product:ApiName, product:Prefix*, or product:*.
           shared_ptr<vector<string>> actions_ {};
           // The Aliyun OpenAPI version that this statement applies to.
           shared_ptr<string> apiVersion_ {};
@@ -160,8 +164,26 @@ namespace Models
           shared_ptr<string> product_ {};
         };
 
-        virtual bool empty() const override { return this->enable_ == nullptr
-        && this->statements_ == nullptr; };
+        virtual bool empty() const override { return this->autoPassPolicy_ == nullptr
+        && this->denyPolicy_ == nullptr && this->enable_ == nullptr && this->statements_ == nullptr; };
+        // autoPassPolicy Field Functions 
+        bool hasAutoPassPolicy() const { return this->autoPassPolicy_ != nullptr;};
+        void deleteAutoPassPolicy() { this->autoPassPolicy_ = nullptr;};
+        inline const vector<string> & getAutoPassPolicy() const { DARABONBA_PTR_GET_CONST(autoPassPolicy_, vector<string>) };
+        inline vector<string> getAutoPassPolicy() { DARABONBA_PTR_GET(autoPassPolicy_, vector<string>) };
+        inline Aliyun& setAutoPassPolicy(const vector<string> & autoPassPolicy) { DARABONBA_PTR_SET_VALUE(autoPassPolicy_, autoPassPolicy) };
+        inline Aliyun& setAutoPassPolicy(vector<string> && autoPassPolicy) { DARABONBA_PTR_SET_RVALUE(autoPassPolicy_, autoPassPolicy) };
+
+
+        // denyPolicy Field Functions 
+        bool hasDenyPolicy() const { return this->denyPolicy_ != nullptr;};
+        void deleteDenyPolicy() { this->denyPolicy_ = nullptr;};
+        inline const vector<string> & getDenyPolicy() const { DARABONBA_PTR_GET_CONST(denyPolicy_, vector<string>) };
+        inline vector<string> getDenyPolicy() { DARABONBA_PTR_GET(denyPolicy_, vector<string>) };
+        inline Aliyun& setDenyPolicy(const vector<string> & denyPolicy) { DARABONBA_PTR_SET_VALUE(denyPolicy_, denyPolicy) };
+        inline Aliyun& setDenyPolicy(vector<string> && denyPolicy) { DARABONBA_PTR_SET_RVALUE(denyPolicy_, denyPolicy) };
+
+
         // enable Field Functions 
         bool hasEnable() const { return this->enable_ != nullptr;};
         void deleteEnable() { this->enable_ = nullptr;};
@@ -179,9 +201,13 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable the Aliyun MCP tool policy.
+        // The auto-pass policy. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically passed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically passed. Unmatched requests require human-in-the-loop (HIL) confirmation.
+        shared_ptr<vector<string>> autoPassPolicy_ {};
+        // The explicit deny policy with the highest priority. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. When matched by STAROps, the request is directly denied. Pop performs a secondary fallback check.
+        shared_ptr<vector<string>> denyPolicy_ {};
+        // Specifies whether to enable the Aliyun MCP tool policy. The policy is enabled by default and is disabled only when this parameter is explicitly set to false.
         shared_ptr<bool> enable_ {};
-        // The list of Aliyun OpenAPI tool policy statements.
+        // **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This parameter is still returned during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
         shared_ptr<vector<Aliyun::Statements>> statements_ {};
       };
 
@@ -253,7 +279,7 @@ namespace Models
     protected:
       // The list of allowed CIDRs or IP addresses. A maximum of 50 entries are supported.
       shared_ptr<vector<string>> allowCidrs_ {};
-      // The list of allowed FQDNs. A maximum of 50 FQDNs are supported.
+      // The list of allowed FQDNs. A maximum of 50 entries are supported.
       shared_ptr<vector<string>> allowFqdns_ {};
       // Specifies whether to enable the sandbox network ACL.
       shared_ptr<bool> enableAcl_ {};
@@ -336,7 +362,7 @@ namespace Models
 
 
       protected:
-        // The attributes of the knowledge base.
+        // The knowledge base attributes.
         shared_ptr<string> attributes_ {};
         // The Bailian index ID.
         shared_ptr<string> indexId_ {};
@@ -367,9 +393,9 @@ namespace Models
 
 
     protected:
-      // The list of Bailian knowledge bases.
+      // The Bailian knowledge base list.
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-      // The list of SOP knowledge bases.
+      // The SOP knowledge base list.
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
@@ -464,6 +490,7 @@ namespace Models
 
 
   protected:
+    // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
     // The default rule of the digital employee.
     shared_ptr<string> defaultRule_ {};
@@ -471,7 +498,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
-    // The list of knowledge bases.
+    // The knowledge base list.
     shared_ptr<CreateDigitalEmployeeRequest::Knowledges> knowledges_ {};
     // The name of the digital employee.
     // 

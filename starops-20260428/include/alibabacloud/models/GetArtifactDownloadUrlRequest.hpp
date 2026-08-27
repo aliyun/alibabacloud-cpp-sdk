@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The artifact file path, relative to the digital worker artifact root directory.
+    // 
     // This parameter is required.
     shared_ptr<string> artifactPath_ {};
   };

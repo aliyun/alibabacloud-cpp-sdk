@@ -160,11 +160,11 @@ namespace Models
         protected:
           // The attributes of the knowledge base.
           shared_ptr<string> attributes_ {};
-          // The ID of the Model Studio index.
+          // The Bailian index ID.
           shared_ptr<string> indexId_ {};
           // The region of the knowledge base.
           shared_ptr<string> region_ {};
-          // The ID of the Model Studio workspace.
+          // The Bailian workspace ID.
           shared_ptr<string> workspaceId_ {};
         };
 
@@ -189,9 +189,9 @@ namespace Models
 
 
       protected:
-        // A list of Model Studio knowledge bases.
+        // The list of Bailian knowledge bases.
         shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-        // A list of SOP knowledge bases.
+        // The list of SOP knowledge bases.
         shared_ptr<vector<Darabonba::Json>> sop_ {};
       };
 
@@ -290,7 +290,6 @@ namespace Models
 
 
     protected:
-      // The custom attributes of the digital employee.
       shared_ptr<map<string, string>> attributes_ {};
       // The creation time.
       // 
@@ -304,15 +303,15 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The type of the digital employee.
       shared_ptr<string> employeeType_ {};
-      // A list of knowledge bases.
+      // The list of knowledge bases.
       shared_ptr<DigitalEmployees::Knowledges> knowledges_ {};
       // The name of the digital employee.
       shared_ptr<string> name_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The RAM role ARN.
+      // The ARN of the RAM role.
       shared_ptr<string> roleArn_ {};
-      // A list of tags.
+      // The tags.
       shared_ptr<vector<Tag>> tags_ {};
       // The modification time.
       // 
@@ -360,15 +359,15 @@ namespace Models
 
 
   protected:
-    // A list of digital employees.
+    // The list of digital employees.
     shared_ptr<vector<ListDigitalEmployeesResponseBody::DigitalEmployees>> digitalEmployees_ {};
-    // The maximum number of entries returned.
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

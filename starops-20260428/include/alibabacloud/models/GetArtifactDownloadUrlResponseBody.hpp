@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The expiration time of the download URL. This value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> expire_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The temporary download URL.
     shared_ptr<string> url_ {};
   };
 

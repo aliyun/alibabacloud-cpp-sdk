@@ -21,9 +21,9 @@ namespace STAROps20260428
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建产物上传凭证
+       * @summary Creates an artifact upload credential.
        *
-       * @description 获取上传内容所需链接，适用于大文件。
+       * @description Obtains the link required to upload content. This operation is applicable to large files.
        *
        * @param request CreateArtifactUploadTokenRequest
        * @param headers map
@@ -33,9 +33,9 @@ namespace STAROps20260428
       Models::CreateArtifactUploadTokenResponse createArtifactUploadTokenWithOptions(const string &name, const Models::CreateArtifactUploadTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建产物上传凭证
+       * @summary Creates an artifact upload credential.
        *
-       * @description 获取上传内容所需链接，适用于大文件。
+       * @description Obtains the link required to upload content. This operation is applicable to large files.
        *
        * @param request CreateArtifactUploadTokenRequest
        * @return CreateArtifactUploadTokenResponse
@@ -43,9 +43,9 @@ namespace STAROps20260428
       Models::CreateArtifactUploadTokenResponse createArtifactUploadToken(const string &name, const Models::CreateArtifactUploadTokenRequest &request);
 
       /**
-       * @summary New conversation
+       * @summary Creates a conversation.
        *
-       * @description Starts a session.
+       * @description Initiates a conversation.
        *
        * @param request CreateChatRequest
        * @param headers map
@@ -55,9 +55,9 @@ namespace STAROps20260428
       FutureGenerator<Models::CreateChatResponse> createChatWithSSE(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary New conversation
+       * @summary Creates a conversation.
        *
-       * @description Starts a session.
+       * @description Initiates a conversation.
        *
        * @param request CreateChatRequest
        * @param headers map
@@ -67,9 +67,9 @@ namespace STAROps20260428
       Models::CreateChatResponse createChatWithOptions(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary New conversation
+       * @summary Creates a conversation.
        *
-       * @description Starts a session.
+       * @description Initiates a conversation.
        *
        * @param request CreateChatRequest
        * @return CreateChatResponse
@@ -77,7 +77,7 @@ namespace STAROps20260428
       Models::CreateChatResponse createChat(const Models::CreateChatRequest &request);
 
       /**
-       * @summary Creates a digital employee.
+       * @summary Creates a DigitalEmployee.
        *
        * @description Creates a digital employee.
        *
@@ -89,7 +89,7 @@ namespace STAROps20260428
       Models::CreateDigitalEmployeeResponse createDigitalEmployeeWithOptions(const Models::CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a digital employee.
+       * @summary Creates a DigitalEmployee.
        *
        * @description Creates a digital employee.
        *
@@ -307,7 +307,9 @@ namespace STAROps20260428
       Models::GetArtifactResponse getArtifact(const string &name, const Models::GetArtifactRequest &request);
 
       /**
-       * @summary 获取产物下载链接
+       * @summary Retrieves the download URL for an artifact.
+       *
+       * @description Retrieves the download URL for artifact content. This operation is suitable for large files.
        *
        * @param request GetArtifactDownloadUrlRequest
        * @param headers map
@@ -317,7 +319,9 @@ namespace STAROps20260428
       Models::GetArtifactDownloadUrlResponse getArtifactDownloadUrlWithOptions(const string &name, const Models::GetArtifactDownloadUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取产物下载链接
+       * @summary Retrieves the download URL for an artifact.
+       *
+       * @description Retrieves the download URL for artifact content. This operation is suitable for large files.
        *
        * @param request GetArtifactDownloadUrlRequest
        * @return GetArtifactDownloadUrlResponse
@@ -497,7 +501,7 @@ namespace STAROps20260428
       Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkills(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request);
 
       /**
-       * @summary Returns a list of digital employees.
+       * @summary Lists digital employees.
        *
        * @description Lists digital employees.
        *
@@ -509,7 +513,7 @@ namespace STAROps20260428
       Models::ListDigitalEmployeesResponse listDigitalEmployeesWithOptions(const Models::ListDigitalEmployeesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns a list of digital employees.
+       * @summary Lists digital employees.
        *
        * @description Lists digital employees.
        *
