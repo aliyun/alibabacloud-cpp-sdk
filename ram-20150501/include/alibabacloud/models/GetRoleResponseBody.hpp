@@ -34,23 +34,31 @@ namespace Models
     class Role : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Role& obj) { 
+        DARABONBA_PTR_TO_JSON(AllowConsoleLogin, allowConsoleLogin_);
         DARABONBA_PTR_TO_JSON(Arn, arn_);
         DARABONBA_PTR_TO_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
         DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(IsServiceLinkedRole, isServiceLinkedRole_);
+        DARABONBA_PTR_TO_JSON(LatestDeletionTask, latestDeletionTask_);
         DARABONBA_PTR_TO_JSON(MaxSessionDuration, maxSessionDuration_);
         DARABONBA_PTR_TO_JSON(RoleId, roleId_);
         DARABONBA_PTR_TO_JSON(RoleName, roleName_);
+        DARABONBA_PTR_TO_JSON(RolePrincipalName, rolePrincipalName_);
         DARABONBA_PTR_TO_JSON(UpdateDate, updateDate_);
       };
       friend void from_json(const Darabonba::Json& j, Role& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllowConsoleLogin, allowConsoleLogin_);
         DARABONBA_PTR_FROM_JSON(Arn, arn_);
         DARABONBA_PTR_FROM_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
         DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(IsServiceLinkedRole, isServiceLinkedRole_);
+        DARABONBA_PTR_FROM_JSON(LatestDeletionTask, latestDeletionTask_);
         DARABONBA_PTR_FROM_JSON(MaxSessionDuration, maxSessionDuration_);
         DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
         DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
+        DARABONBA_PTR_FROM_JSON(RolePrincipalName, rolePrincipalName_);
         DARABONBA_PTR_FROM_JSON(UpdateDate, updateDate_);
       };
       Role() = default ;
@@ -64,9 +72,61 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->arn_ == nullptr
-        && this->assumeRolePolicyDocument_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleId_ == nullptr
-        && this->roleName_ == nullptr && this->updateDate_ == nullptr; };
+      class LatestDeletionTask : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LatestDeletionTask& obj) { 
+          DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
+          DARABONBA_PTR_TO_JSON(DeletionTaskId, deletionTaskId_);
+        };
+        friend void from_json(const Darabonba::Json& j, LatestDeletionTask& obj) { 
+          DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
+          DARABONBA_PTR_FROM_JSON(DeletionTaskId, deletionTaskId_);
+        };
+        LatestDeletionTask() = default ;
+        LatestDeletionTask(const LatestDeletionTask &) = default ;
+        LatestDeletionTask(LatestDeletionTask &&) = default ;
+        LatestDeletionTask(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LatestDeletionTask() = default ;
+        LatestDeletionTask& operator=(const LatestDeletionTask &) = default ;
+        LatestDeletionTask& operator=(LatestDeletionTask &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->createDate_ == nullptr
+        && this->deletionTaskId_ == nullptr; };
+        // createDate Field Functions 
+        bool hasCreateDate() const { return this->createDate_ != nullptr;};
+        void deleteCreateDate() { this->createDate_ = nullptr;};
+        inline string getCreateDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
+        inline LatestDeletionTask& setCreateDate(string createDate) { DARABONBA_PTR_SET_VALUE(createDate_, createDate) };
+
+
+        // deletionTaskId Field Functions 
+        bool hasDeletionTaskId() const { return this->deletionTaskId_ != nullptr;};
+        void deleteDeletionTaskId() { this->deletionTaskId_ = nullptr;};
+        inline string getDeletionTaskId() const { DARABONBA_PTR_GET_DEFAULT(deletionTaskId_, "") };
+        inline LatestDeletionTask& setDeletionTaskId(string deletionTaskId) { DARABONBA_PTR_SET_VALUE(deletionTaskId_, deletionTaskId) };
+
+
+      protected:
+        // The time when the deletion task was created. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
+        shared_ptr<string> createDate_ {};
+        // The ID of the deletion task.
+        shared_ptr<string> deletionTaskId_ {};
+      };
+
+      virtual bool empty() const override { return this->allowConsoleLogin_ == nullptr
+        && this->arn_ == nullptr && this->assumeRolePolicyDocument_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->isServiceLinkedRole_ == nullptr
+        && this->latestDeletionTask_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleId_ == nullptr && this->roleName_ == nullptr && this->rolePrincipalName_ == nullptr
+        && this->updateDate_ == nullptr; };
+      // allowConsoleLogin Field Functions 
+      bool hasAllowConsoleLogin() const { return this->allowConsoleLogin_ != nullptr;};
+      void deleteAllowConsoleLogin() { this->allowConsoleLogin_ = nullptr;};
+      inline bool getAllowConsoleLogin() const { DARABONBA_PTR_GET_DEFAULT(allowConsoleLogin_, false) };
+      inline Role& setAllowConsoleLogin(bool allowConsoleLogin) { DARABONBA_PTR_SET_VALUE(allowConsoleLogin_, allowConsoleLogin) };
+
+
       // arn Field Functions 
       bool hasArn() const { return this->arn_ != nullptr;};
       void deleteArn() { this->arn_ = nullptr;};
@@ -95,6 +155,22 @@ namespace Models
       inline Role& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // isServiceLinkedRole Field Functions 
+      bool hasIsServiceLinkedRole() const { return this->isServiceLinkedRole_ != nullptr;};
+      void deleteIsServiceLinkedRole() { this->isServiceLinkedRole_ = nullptr;};
+      inline bool getIsServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(isServiceLinkedRole_, false) };
+      inline Role& setIsServiceLinkedRole(bool isServiceLinkedRole) { DARABONBA_PTR_SET_VALUE(isServiceLinkedRole_, isServiceLinkedRole) };
+
+
+      // latestDeletionTask Field Functions 
+      bool hasLatestDeletionTask() const { return this->latestDeletionTask_ != nullptr;};
+      void deleteLatestDeletionTask() { this->latestDeletionTask_ = nullptr;};
+      inline const Role::LatestDeletionTask & getLatestDeletionTask() const { DARABONBA_PTR_GET_CONST(latestDeletionTask_, Role::LatestDeletionTask) };
+      inline Role::LatestDeletionTask getLatestDeletionTask() { DARABONBA_PTR_GET(latestDeletionTask_, Role::LatestDeletionTask) };
+      inline Role& setLatestDeletionTask(const Role::LatestDeletionTask & latestDeletionTask) { DARABONBA_PTR_SET_VALUE(latestDeletionTask_, latestDeletionTask) };
+      inline Role& setLatestDeletionTask(Role::LatestDeletionTask && latestDeletionTask) { DARABONBA_PTR_SET_RVALUE(latestDeletionTask_, latestDeletionTask) };
+
+
       // maxSessionDuration Field Functions 
       bool hasMaxSessionDuration() const { return this->maxSessionDuration_ != nullptr;};
       void deleteMaxSessionDuration() { this->maxSessionDuration_ = nullptr;};
@@ -116,6 +192,13 @@ namespace Models
       inline Role& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
+      // rolePrincipalName Field Functions 
+      bool hasRolePrincipalName() const { return this->rolePrincipalName_ != nullptr;};
+      void deleteRolePrincipalName() { this->rolePrincipalName_ = nullptr;};
+      inline string getRolePrincipalName() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipalName_, "") };
+      inline Role& setRolePrincipalName(string rolePrincipalName) { DARABONBA_PTR_SET_VALUE(rolePrincipalName_, rolePrincipalName) };
+
+
       // updateDate Field Functions 
       bool hasUpdateDate() const { return this->updateDate_ != nullptr;};
       void deleteUpdateDate() { this->updateDate_ = nullptr;};
@@ -124,21 +207,29 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+      // Indicates whether console logon is allowed for the RAM role.
+      shared_ptr<bool> allowConsoleLogin_ {};
+      // The resource descriptor of the role.
       shared_ptr<string> arn_ {};
-      // The policy that specifies the trusted entity to assume the RAM role.
+      // The access policy that specifies the permission to assume the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the RAM role was created.
+      // The time when the role was created. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
-      // The description of the RAM role.
+      // The description of the role.
       shared_ptr<string> description_ {};
-      // The maximum session duration of the RAM role.
+      // Indicates whether the role is a service-linked role.
+      shared_ptr<bool> isServiceLinkedRole_ {};
+      // The information about the most recent deletion task.
+      shared_ptr<Role::LatestDeletionTask> latestDeletionTask_ {};
+      // The maximum session duration of the role.
       shared_ptr<int64_t> maxSessionDuration_ {};
-      // The ID of the RAM role.
+      // The ID of the role.
       shared_ptr<string> roleId_ {};
-      // The name of the RAM role.
+      // The name of the role.
       shared_ptr<string> roleName_ {};
-      // The time when the RAM role was modified.
+      // The name of the role with the domain name suffix.
+      shared_ptr<string> rolePrincipalName_ {};
+      // The time when the role was last updated. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -163,7 +254,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM role.
+    // The role information.
     shared_ptr<GetRoleResponseBody::Role> role_ {};
   };
 

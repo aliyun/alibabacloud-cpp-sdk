@@ -94,13 +94,13 @@ namespace Models
     shared_ptr<string> newDisplayName_ {};
     // The new email address of the RAM user.
     // 
-    // >  This parameter applies only to the China site (aliyun.com).
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> newEmail_ {};
     // The new mobile phone number of the RAM user.
     // 
     // Format: \\<Country code>-\\<Mobile phone number>.
     // 
-    // >  This parameter applies only to the China site (aliyun.com).
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> newMobilePhone_ {};
     // The new username of the RAM user.
     // 

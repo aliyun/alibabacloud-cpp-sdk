@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The encoded diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+    // The encoded diagnostic message obtained from the `AccessDeniedDetail.EncodedDiagnosticMessage` field in the response body when an API request is denied due to insufficient permissions. Pass this parameter to decode the permission diagnostic information when calling this operation.
     shared_ptr<string> encodedDiagnosticMessage_ {};
   };
 

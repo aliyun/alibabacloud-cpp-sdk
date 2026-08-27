@@ -132,11 +132,11 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The email address of the RAM user.
       // 
-      // >  This parameter can be returned only on the China site (aliyun.com).
+      // > This parameter can be returned only on the China site (aliyun.com).
       shared_ptr<string> email_ {};
       // The mobile phone number of the RAM user.
       // 
-      // >  This parameter can be returned only on the China site (aliyun.com).
+      // > This parameter can be returned only on the China site (aliyun.com).
       shared_ptr<string> mobilePhone_ {};
       // The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
       shared_ptr<string> updateDate_ {};

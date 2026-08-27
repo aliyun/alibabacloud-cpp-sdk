@@ -126,21 +126,21 @@ namespace Models
 
 
     protected:
-      // The number of references to the policy.
+      // The number of references.
       shared_ptr<int32_t> attachmentCount_ {};
-      // The time when the policy was created.
+      // The time when the policy was created. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
       shared_ptr<string> createDate_ {};
-      // The default version of the policy.
+      // The default version.
       shared_ptr<string> defaultVersion_ {};
-      // The description of the policy.
+      // The description of the access policy.
       shared_ptr<string> description_ {};
-      // This parameter is deprecated.
+      // Deprecated.
       shared_ptr<string> policyDocument_ {};
-      // The name of the policy.
+      // The name of the access policy.
       shared_ptr<string> policyName_ {};
-      // The type of the policy.
+      // The type of the access policy.
       shared_ptr<string> policyType_ {};
-      // The time when the policy was modified.
+      // The time when the policy was last modified. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -200,13 +200,13 @@ namespace Models
 
 
     protected:
-      // The time when the default policy version was created.
+      // The time when the policy was created. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
       shared_ptr<string> createDate_ {};
-      // An attribute in the `DefaultPolicyVersion` parameter. The value of the `IsDefaultVersion` parameter is `true`.
+      // The data structure returned by `DefaultPolicyVersion` is always the default version. Therefore, the value of `IsDefaultVersion` is always `true`.
       shared_ptr<bool> isDefaultVersion_ {};
-      // The document of the policy.
+      // The policy document of the access policy.
       shared_ptr<string> policyDocument_ {};
-      // The ID of the default policy version.
+      // The version of the access policy.
       shared_ptr<string> versionId_ {};
     };
 
@@ -238,9 +238,9 @@ namespace Models
 
 
   protected:
-    // The information about the default policy version.
+    // The default version of the access policy.
     shared_ptr<GetPolicyResponseBody::DefaultPolicyVersion> defaultPolicyVersion_ {};
-    // The basic information about the policy.
+    // The basic information of the access policy.
     shared_ptr<GetPolicyResponseBody::Policy> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

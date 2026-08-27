@@ -86,8 +86,9 @@ namespace Models
       protected:
         // Indicates whether RAM users can manage their public keys. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> allowUserToManagePublicKeys_ {};
       };
 
@@ -121,8 +122,9 @@ namespace Models
       protected:
         // Indicates whether RAM users can manage their MFA devices. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> allowUserToManageMFADevices_ {};
       };
 
@@ -184,18 +186,21 @@ namespace Models
       protected:
         // Indicates whether RAM users can change their passwords. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> allowUserToChangePassword_ {};
         // Indicates whether RAM users can save security codes for MFA during logon. Each security code is valid for seven days. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> enableSaveMFATicket_ {};
         // The subnet mask that indicates the IP addresses from which logon to the Alibaba Cloud Management Console is allowed. This parameter applies to password-based logon and single sign-on (SSO). However, this parameter does not apply to API calls that are authenticated based on AccessKey pairs.
         // 
-        // *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
-        // *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
+        // - If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
+        // 
+        // - If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
         // 
         // If you want to specify more than one subnet mask, separate the masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
         shared_ptr<string> loginNetworkMasks_ {};
@@ -233,8 +238,9 @@ namespace Models
       protected:
         // Indicates whether Resource Access Management (RAM) users can manage their AccessKey pairs. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> allowUserToManageAccessKeys_ {};
       };
 
@@ -285,7 +291,7 @@ namespace Models
       shared_ptr<SecurityPreference::MFAPreference> MFAPreference_ {};
       // The public key preference.
       // 
-      // >  This parameter is valid only for the Japan site.
+      // > This parameter is valid only for the Japan site.
       shared_ptr<SecurityPreference::PublicKeyPreference> publicKeyPreference_ {};
     };
 

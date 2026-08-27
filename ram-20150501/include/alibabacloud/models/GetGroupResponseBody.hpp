@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // The description of the RAM user group.
+      // The remarks.
       shared_ptr<string> comments_ {};
-      // The time when the RAM user group was created.
+      // The creation time in UTC. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> createDate_ {};
-      // The ID of the RAM user group.
+      // The ID of the user group.
       shared_ptr<string> groupId_ {};
-      // The name of the RAM user group.
+      // The name of the user group.
       shared_ptr<string> groupName_ {};
-      // The modification time.
+      // The update time in UTC. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The information about the RAM user group.
+    // The user group information.
     shared_ptr<GetGroupResponseBody::Group> group_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

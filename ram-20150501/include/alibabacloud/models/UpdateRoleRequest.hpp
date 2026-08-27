@@ -13,12 +13,14 @@ namespace Models
   class UpdateRoleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateRoleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(NewAllowConsoleLogin, newAllowConsoleLogin_);
       DARABONBA_PTR_TO_JSON(NewAssumeRolePolicyDocument, newAssumeRolePolicyDocument_);
       DARABONBA_PTR_TO_JSON(NewDescription, newDescription_);
       DARABONBA_PTR_TO_JSON(NewMaxSessionDuration, newMaxSessionDuration_);
       DARABONBA_PTR_TO_JSON(RoleName, roleName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateRoleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(NewAllowConsoleLogin, newAllowConsoleLogin_);
       DARABONBA_PTR_FROM_JSON(NewAssumeRolePolicyDocument, newAssumeRolePolicyDocument_);
       DARABONBA_PTR_FROM_JSON(NewDescription, newDescription_);
       DARABONBA_PTR_FROM_JSON(NewMaxSessionDuration, newMaxSessionDuration_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->newAssumeRolePolicyDocument_ == nullptr
-        && this->newDescription_ == nullptr && this->newMaxSessionDuration_ == nullptr && this->roleName_ == nullptr; };
+    virtual bool empty() const override { return this->newAllowConsoleLogin_ == nullptr
+        && this->newAssumeRolePolicyDocument_ == nullptr && this->newDescription_ == nullptr && this->newMaxSessionDuration_ == nullptr && this->roleName_ == nullptr; };
+    // newAllowConsoleLogin Field Functions 
+    bool hasNewAllowConsoleLogin() const { return this->newAllowConsoleLogin_ != nullptr;};
+    void deleteNewAllowConsoleLogin() { this->newAllowConsoleLogin_ = nullptr;};
+    inline bool getNewAllowConsoleLogin() const { DARABONBA_PTR_GET_DEFAULT(newAllowConsoleLogin_, false) };
+    inline UpdateRoleRequest& setNewAllowConsoleLogin(bool newAllowConsoleLogin) { DARABONBA_PTR_SET_VALUE(newAllowConsoleLogin_, newAllowConsoleLogin) };
+
+
     // newAssumeRolePolicyDocument Field Functions 
     bool hasNewAssumeRolePolicyDocument() const { return this->newAssumeRolePolicyDocument_ != nullptr;};
     void deleteNewAssumeRolePolicyDocument() { this->newAssumeRolePolicyDocument_ = nullptr;};
@@ -66,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The trust policy that specifies the trusted entity to assume the RAM role.
+    // Specifies whether the RAM role is allowed to log on to the console.
+    shared_ptr<bool> newAllowConsoleLogin_ {};
+    // The trust policy of the RAM role.
     shared_ptr<string> newAssumeRolePolicyDocument_ {};
-    // The new description of the RAM role.
+    // The description of the RAM role.
     // 
-    // The description must be 1 to 1,024 characters in length.
+    // The description must be 1 to 1024 characters in length.
     shared_ptr<string> newDescription_ {};
-    // The maximum session time of the RAM role.
+    // The maximum session duration of the RAM role.
     // 
     // Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
-    // 
-    // If you do not specify this parameter, the default value is used.
     shared_ptr<int64_t> newMaxSessionDuration_ {};
     // The name of the RAM role.
     // 
-    // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+    // The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     shared_ptr<string> roleName_ {};
   };
 

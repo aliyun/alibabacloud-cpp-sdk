@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the RAM role.
+    // The name of the role.
     shared_ptr<string> roleName_ {};
   };
 

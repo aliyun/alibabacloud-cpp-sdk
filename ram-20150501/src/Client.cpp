@@ -17,7 +17,31 @@ namespace Ram20150501
 {
 
 AlibabaCloud::Ram20150501::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "central";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "ram.aliyuncs.com"},
+    {"cn-qingdao" , "ram.aliyuncs.com"},
+    {"cn-shanghai" , "ram.aliyuncs.com"},
+    {"cn-hongkong" , "ram.aliyuncs.com"},
+    {"cn-zhangjiakou" , "ram.aliyuncs.com"},
+    {"cn-shenzhen" , "ram.aliyuncs.com"},
+    {"ap-northeast-1" , "ram.aliyuncs.com"},
+    {"cn-chengdu" , "ram.aliyuncs.com"},
+    {"ap-southeast-1" , "ram.aliyuncs.com"},
+    {"ap-southeast-3" , "ram.aliyuncs.com"},
+    {"cn-huhehaote" , "ram.aliyuncs.com"},
+    {"ap-southeast-5" , "ram.aliyuncs.com"},
+    {"cn-hangzhou" , "ram.aliyuncs.com"},
+    {"us-east-1" , "ram.aliyuncs.com"},
+    {"eu-west-1" , "ram.aliyuncs.com"},
+    {"us-west-1" , "ram.aliyuncs.com"},
+    {"eu-central-1" , "ram.aliyuncs.com"},
+    {"me-east-1" , "ram.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "ram.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ram.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "ram.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "ram.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ram", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -82,7 +106,7 @@ AddUserToGroupResponse Client::addUserToGroup(const AddUserToGroupRequest &reque
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) user group.
+ * @summary Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
  *
  * @param request AttachPolicyToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +149,7 @@ AttachPolicyToGroupResponse Client::attachPolicyToGroupWithOptions(const AttachP
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) user group.
+ * @summary Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
  *
  * @param request AttachPolicyToGroupRequest
  * @return AttachPolicyToGroupResponse
@@ -136,7 +160,7 @@ AttachPolicyToGroupResponse Client::attachPolicyToGroup(const AttachPolicyToGrou
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) role.
+ * @summary Calls the AttachPolicyToRole operation to add a permission to a specified role.
  *
  * @param request AttachPolicyToRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +203,7 @@ AttachPolicyToRoleResponse Client::attachPolicyToRoleWithOptions(const AttachPol
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) role.
+ * @summary Calls the AttachPolicyToRole operation to add a permission to a specified role.
  *
  * @param request AttachPolicyToRoleRequest
  * @return AttachPolicyToRoleResponse
@@ -190,7 +214,7 @@ AttachPolicyToRoleResponse Client::attachPolicyToRole(const AttachPolicyToRoleRe
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) user.
+ * @summary Attaches an access policy to a specified user.
  *
  * @param request AttachPolicyToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +257,7 @@ AttachPolicyToUserResponse Client::attachPolicyToUserWithOptions(const AttachPol
 }
 
 /**
- * @summary Attaches a policy to a Resource Access Management (RAM) user.
+ * @summary Attaches an access policy to a specified user.
  *
  * @param request AttachPolicyToUserRequest
  * @return AttachPolicyToUserResponse
@@ -298,9 +322,10 @@ BindMFADeviceResponse Client::bindMFADevice(const BindMFADeviceRequest &request)
 }
 
 /**
- * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+ * @summary Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
  *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @description > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+ * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
  *
  * @param request ChangePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -335,9 +360,10 @@ ChangePasswordResponse Client::changePasswordWithOptions(const ChangePasswordReq
 }
 
 /**
- * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+ * @summary Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
  *
- * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+ * @description > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+ * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
  *
  * @param request ChangePasswordRequest
  * @return ChangePasswordResponse
@@ -350,7 +376,6 @@ ChangePasswordResponse Client::changePassword(const ChangePasswordRequest &reque
 /**
  * @summary Deletes the alias of an Alibaba Cloud account.
  *
- * @param request ClearAccountAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ClearAccountAliasResponse
  */
@@ -381,7 +406,9 @@ ClearAccountAliasResponse Client::clearAccountAlias() {
 }
 
 /**
- * @summary Creates an AccessKey pair for a Resource Access Management (RAM) user.
+ * @summary Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+ *
+ * @description Each RAM user can have a maximum of two AccessKey pairs.
  *
  * @param request CreateAccessKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +439,9 @@ CreateAccessKeyResponse Client::createAccessKeyWithOptions(const CreateAccessKey
 }
 
 /**
- * @summary Creates an AccessKey pair for a Resource Access Management (RAM) user.
+ * @summary Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+ *
+ * @description Each RAM user can have a maximum of two AccessKey pairs.
  *
  * @param request CreateAccessKeyRequest
  * @return CreateAccessKeyResponse
@@ -643,10 +672,10 @@ CreatePolicyVersionResponse Client::createPolicyVersion(const CreatePolicyVersio
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) role.
+ * @summary Creates a RAM role.
  *
- * @description ### [](#)Operation description
- * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+ * @description ### Operation description
+ * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
  *
  * @param tmpReq CreateRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,6 +690,10 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &tmpReq
   }
 
   json query = {};
+  if (!!request.hasAllowConsoleLogin()) {
+    query["AllowConsoleLogin"] = request.getAllowConsoleLogin();
+  }
+
   if (!!request.hasAssumeRolePolicyDocument()) {
     query["AssumeRolePolicyDocument"] = request.getAssumeRolePolicyDocument();
   }
@@ -699,10 +732,10 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &tmpReq
 }
 
 /**
- * @summary Creates a Resource Access Management (RAM) role.
+ * @summary Creates a RAM role.
  *
- * @description ### [](#)Operation description
- * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+ * @description ### Operation description
+ * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
  *
  * @param request CreateRoleRequest
  * @return CreateRoleResponse
@@ -713,9 +746,59 @@ CreateRoleResponse Client::createRole(const CreateRoleRequest &request) {
 }
 
 /**
+ * @summary Creates a service-linked role.
+ *
+ * @param request CreateServiceLinkedRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceLinkedRoleResponse
+ */
+CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const CreateServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomSuffix()) {
+    query["CustomSuffix"] = request.getCustomSuffix();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateServiceLinkedRole"},
+    {"version" , "2015-05-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceLinkedRoleResponse>();
+}
+
+/**
+ * @summary Creates a service-linked role.
+ *
+ * @param request CreateServiceLinkedRoleRequest
+ * @return CreateServiceLinkedRoleResponse
+ */
+CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServiceLinkedRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createServiceLinkedRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Resource Access Management (RAM) user.
  *
- * @description This topic provides an example on how to create a RAM user named `alice`.
+ * @description This topic provides an example on how to create a RAM user named `alice`.
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -764,7 +847,7 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 /**
  * @summary Creates a Resource Access Management (RAM) user.
  *
- * @description This topic provides an example on how to create a RAM user named `alice`.
+ * @description This topic provides an example on how to create a RAM user named `alice`.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -817,7 +900,7 @@ CreateVirtualMFADeviceResponse Client::createVirtualMFADevice(const CreateVirtua
 }
 
 /**
- * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+ * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
  *
  * @param request DecodeDiagnosticMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -848,7 +931,7 @@ DecodeDiagnosticMessageResponse Client::decodeDiagnosticMessageWithOptions(const
 }
 
 /**
- * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+ * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
  *
  * @param request DecodeDiagnosticMessageRequest
  * @return DecodeDiagnosticMessageResponse
@@ -1133,6 +1216,48 @@ DeleteRoleResponse Client::deleteRole(const DeleteRoleRequest &request) {
 }
 
 /**
+ * @summary Deletes a service-linked role.
+ *
+ * @param request DeleteServiceLinkedRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServiceLinkedRoleResponse
+ */
+DeleteServiceLinkedRoleResponse Client::deleteServiceLinkedRoleWithOptions(const DeleteServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServiceLinkedRole"},
+    {"version" , "2015-05-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServiceLinkedRoleResponse>();
+}
+
+/**
+ * @summary Deletes a service-linked role.
+ *
+ * @param request DeleteServiceLinkedRoleRequest
+ * @return DeleteServiceLinkedRoleResponse
+ */
+DeleteServiceLinkedRoleResponse Client::deleteServiceLinkedRole(const DeleteServiceLinkedRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteServiceLinkedRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a Resource Access Management (RAM) user.
  *
  * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
@@ -1221,7 +1346,7 @@ DeleteVirtualMFADeviceResponse Client::deleteVirtualMFADevice(const DeleteVirtua
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) user group.
+ * @summary Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
  *
  * @param request DetachPolicyFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1264,7 +1389,7 @@ DetachPolicyFromGroupResponse Client::detachPolicyFromGroupWithOptions(const Det
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) user group.
+ * @summary Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
  *
  * @param request DetachPolicyFromGroupRequest
  * @return DetachPolicyFromGroupResponse
@@ -1275,7 +1400,7 @@ DetachPolicyFromGroupResponse Client::detachPolicyFromGroup(const DetachPolicyFr
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) role.
+ * @summary Revokes a specified access policy from a role.
  *
  * @param request DetachPolicyFromRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1443,7 @@ DetachPolicyFromRoleResponse Client::detachPolicyFromRoleWithOptions(const Detac
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) role.
+ * @summary Revokes a specified access policy from a role.
  *
  * @param request DetachPolicyFromRoleRequest
  * @return DetachPolicyFromRoleResponse
@@ -1329,7 +1454,7 @@ DetachPolicyFromRoleResponse Client::detachPolicyFromRole(const DetachPolicyFrom
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) user.
+ * @summary Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
  *
  * @param request DetachPolicyFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1372,7 +1497,7 @@ DetachPolicyFromUserResponse Client::detachPolicyFromUserWithOptions(const Detac
 }
 
 /**
- * @summary Detaches a policy from a Resource Access Management (RAM) user.
+ * @summary Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
  *
  * @param request DetachPolicyFromUserRequest
  * @return DetachPolicyFromUserResponse
@@ -1383,6 +1508,8 @@ DetachPolicyFromUserResponse Client::detachPolicyFromUser(const DetachPolicyFrom
 }
 
 /**
+ * @summary Queries the last time when an AccessKey pair was used.
+ *
  * @param request GetAccessKeyLastUsedRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccessKeyLastUsedResponse
@@ -1416,6 +1543,8 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsedWithOptions(const GetAc
 }
 
 /**
+ * @summary Queries the last time when an AccessKey pair was used.
+ *
  * @param request GetAccessKeyLastUsedRequest
  * @return GetAccessKeyLastUsedResponse
  */
@@ -1427,7 +1556,6 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsed(const GetAccessKeyLast
 /**
  * @summary Queries the alias of an Alibaba Cloud account.
  *
- * @param request GetAccountAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountAliasResponse
  */
@@ -1458,7 +1586,7 @@ GetAccountAliasResponse Client::getAccountAlias() {
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) user group.
+ * @summary Queries the information of a user group by calling the GetGroup operation.
  *
  * @param request GetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1489,7 +1617,7 @@ GetGroupResponse Client::getGroupWithOptions(const GetGroupRequest &request, con
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) user group.
+ * @summary Queries the information of a user group by calling the GetGroup operation.
  *
  * @param request GetGroupRequest
  * @return GetGroupResponse
@@ -1500,7 +1628,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1531,7 +1659,7 @@ GetLoginProfileResponse Client::getLoginProfileWithOptions(const GetLoginProfile
 }
 
 /**
- * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+ * @summary Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
  *
  * @param request GetLoginProfileRequest
  * @return GetLoginProfileResponse
@@ -1544,7 +1672,6 @@ GetLoginProfileResponse Client::getLoginProfile(const GetLoginProfileRequest &re
 /**
  * @summary Queries the password policy of Resource Access Management (RAM) users, including the password strength.
  *
- * @param request GetPasswordPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPasswordPolicyResponse
  */
@@ -1575,7 +1702,7 @@ GetPasswordPolicyResponse Client::getPasswordPolicy() {
 }
 
 /**
- * @summary Queries information about a policy.
+ * @summary Retrieves the information of a specified access policy.
  *
  * @param request GetPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1610,7 +1737,7 @@ GetPolicyResponse Client::getPolicyWithOptions(const GetPolicyRequest &request, 
 }
 
 /**
- * @summary Queries information about a policy.
+ * @summary Retrieves the information of a specified access policy.
  *
  * @param request GetPolicyRequest
  * @return GetPolicyResponse
@@ -1621,7 +1748,7 @@ GetPolicyResponse Client::getPolicy(const GetPolicyRequest &request) {
 }
 
 /**
- * @summary Queries the information about a policy version.
+ * @summary Retrieves a specific version of an access policy.
  *
  * @param request GetPolicyVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1660,7 +1787,7 @@ GetPolicyVersionResponse Client::getPolicyVersionWithOptions(const GetPolicyVers
 }
 
 /**
- * @summary Queries the information about a policy version.
+ * @summary Retrieves a specific version of an access policy.
  *
  * @param request GetPolicyVersionRequest
  * @return GetPolicyVersionResponse
@@ -1671,7 +1798,7 @@ GetPolicyVersionResponse Client::getPolicyVersion(const GetPolicyVersionRequest 
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) role.
+ * @summary Retrieves the information about a role.
  *
  * @param request GetRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1702,7 +1829,7 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) role.
+ * @summary Retrieves the information about a role.
  *
  * @param request GetRoleRequest
  * @return GetRoleResponse
@@ -1715,7 +1842,6 @@ GetRoleResponse Client::getRole(const GetRoleRequest &request) {
 /**
  * @summary Queries the security preferences.
  *
- * @param request GetSecurityPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSecurityPreferenceResponse
  */
@@ -1746,9 +1872,51 @@ GetSecurityPreferenceResponse Client::getSecurityPreference() {
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) user.
+ * @summary Retrieves the template of a service-linked role.
  *
- * @description This topic provides an example on how to query information about the RAM user `alice`.
+ * @param request GetServiceLinkedRoleTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceLinkedRoleTemplateResponse
+ */
+GetServiceLinkedRoleTemplateResponse Client::getServiceLinkedRoleTemplateWithOptions(const GetServiceLinkedRoleTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.getServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServiceLinkedRoleTemplate"},
+    {"version" , "2015-05-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceLinkedRoleTemplateResponse>();
+}
+
+/**
+ * @summary Retrieves the template of a service-linked role.
+ *
+ * @param request GetServiceLinkedRoleTemplateRequest
+ * @return GetServiceLinkedRoleTemplateResponse
+ */
+GetServiceLinkedRoleTemplateResponse Client::getServiceLinkedRoleTemplate(const GetServiceLinkedRoleTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServiceLinkedRoleTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
+ *
+ * @description This topic provides an example of how to query the details of the RAM user `alice`.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1779,9 +1947,9 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Queries information about a Resource Access Management (RAM) user.
+ * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
  *
- * @description This topic provides an example on how to query information about the RAM user `alice`.
+ * @description This topic provides an example of how to query the details of the RAM user `alice`.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -1834,7 +2002,7 @@ GetUserMFAInfoResponse Client::getUserMFAInfo(const GetUserMFAInfoRequest &reque
 }
 
 /**
- * @summary Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+ * @summary Lists the AccessKey pairs of a specified user.
  *
  * @param request ListAccessKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1865,7 +2033,7 @@ ListAccessKeysResponse Client::listAccessKeysWithOptions(const ListAccessKeysReq
 }
 
 /**
- * @summary Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+ * @summary Lists the AccessKey pairs of a specified user.
  *
  * @param request ListAccessKeysRequest
  * @return ListAccessKeysResponse
@@ -1876,7 +2044,7 @@ ListAccessKeysResponse Client::listAccessKeys(const ListAccessKeysRequest &reque
 }
 
 /**
- * @summary Queries the entities to which a policy is attached.
+ * @summary Lists the entities that reference an access policy.
  *
  * @param request ListEntitiesForPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1911,7 +2079,7 @@ ListEntitiesForPolicyResponse Client::listEntitiesForPolicyWithOptions(const Lis
 }
 
 /**
- * @summary Queries the entities to which a policy is attached.
+ * @summary Lists the entities that reference an access policy.
  *
  * @param request ListEntitiesForPolicyRequest
  * @return ListEntitiesForPolicyResponse
@@ -1922,7 +2090,7 @@ ListEntitiesForPolicyResponse Client::listEntitiesForPolicy(const ListEntitiesFo
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) user groups.
+ * @summary Queries the list of user groups by calling the ListGroups operation.
  *
  * @param request ListGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1957,7 +2125,7 @@ ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &reques
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) user groups.
+ * @summary Queries the list of user groups by calling the ListGroups operation.
  *
  * @param request ListGroupsRequest
  * @return ListGroupsResponse
@@ -1968,10 +2136,10 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+ * @summary Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
  *
- * @description ### [](#)
- * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+ * @description ### Usage notes
+ * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
  *
  * @param request ListGroupsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2002,10 +2170,10 @@ ListGroupsForUserResponse Client::listGroupsForUserWithOptions(const ListGroupsF
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+ * @summary Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
  *
- * @description ### [](#)
- * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+ * @description ### Usage notes
+ * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
  *
  * @param request ListGroupsForUserRequest
  * @return ListGroupsForUserResponse
@@ -2016,7 +2184,7 @@ ListGroupsForUserResponse Client::listGroupsForUser(const ListGroupsForUserReque
 }
 
 /**
- * @summary Queries a list of policies.
+ * @summary Invokes the ListPolicies operation to list access policies.
  *
  * @param tmpReq ListPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2065,7 +2233,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queries a list of policies.
+ * @summary Invokes the ListPolicies operation to list access policies.
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -2076,7 +2244,7 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary Queries the policies that are attached to a Resource Access Management (RAM) user group.
+ * @summary Lists the permission policies attached to a user group.
  *
  * @param request ListPoliciesForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2107,7 +2275,7 @@ ListPoliciesForGroupResponse Client::listPoliciesForGroupWithOptions(const ListP
 }
 
 /**
- * @summary Queries the policies that are attached to a Resource Access Management (RAM) user group.
+ * @summary Lists the permission policies attached to a user group.
  *
  * @param request ListPoliciesForGroupRequest
  * @return ListPoliciesForGroupResponse
@@ -2118,7 +2286,7 @@ ListPoliciesForGroupResponse Client::listPoliciesForGroup(const ListPoliciesForG
 }
 
 /**
- * @summary Queries the policies that are attached to a Resource Access Management (RAM) role.
+ * @summary Lists the access policies attached to a role.
  *
  * @param request ListPoliciesForRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2149,7 +2317,7 @@ ListPoliciesForRoleResponse Client::listPoliciesForRoleWithOptions(const ListPol
 }
 
 /**
- * @summary Queries the policies that are attached to a Resource Access Management (RAM) role.
+ * @summary Lists the access policies attached to a role.
  *
  * @param request ListPoliciesForRoleRequest
  * @return ListPoliciesForRoleResponse
@@ -2206,7 +2374,7 @@ ListPoliciesForUserResponse Client::listPoliciesForUser(const ListPoliciesForUse
 }
 
 /**
- * @summary Queries the versions of a policy.
+ * @summary Lists the versions of an access policy.
  *
  * @param request ListPolicyVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2241,7 +2409,7 @@ ListPolicyVersionsResponse Client::listPolicyVersionsWithOptions(const ListPolic
 }
 
 /**
- * @summary Queries the versions of a policy.
+ * @summary Lists the versions of an access policy.
  *
  * @param request ListPolicyVersionsRequest
  * @return ListPolicyVersionsResponse
@@ -2252,7 +2420,7 @@ ListPolicyVersionsResponse Client::listPolicyVersions(const ListPolicyVersionsRe
 }
 
 /**
- * @summary Queries all Resource Access Management (RAM) roles.
+ * @summary Lists RAM roles.
  *
  * @param tmpReq ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +2465,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &tmpReq, c
 }
 
 /**
- * @summary Queries all Resource Access Management (RAM) roles.
+ * @summary Lists RAM roles.
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -2422,7 +2590,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+ * @summary Lists the Resource Access Management (RAM) users in a specified user group.
  *
  * @param request ListUsersForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2461,7 +2629,7 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const ListUsersFo
 }
 
 /**
- * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+ * @summary Lists the Resource Access Management (RAM) users in a specified user group.
  *
  * @param request ListUsersForGroupRequest
  * @return ListUsersForGroupResponse
@@ -2474,7 +2642,6 @@ ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupReque
 /**
  * @summary Queries multi-factor authentication (MFA) devices.
  *
- * @param request ListVirtualMFADevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListVirtualMFADevicesResponse
  */
@@ -3151,9 +3318,9 @@ UpdatePolicyDescriptionResponse Client::updatePolicyDescription(const UpdatePoli
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) role.
+ * @summary Calls the UpdateRole operation to update the information of a RAM role.
  *
- * @description This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+ * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
  *
  * @param request UpdateRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3162,6 +3329,10 @@ UpdatePolicyDescriptionResponse Client::updatePolicyDescription(const UpdatePoli
 UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasNewAllowConsoleLogin()) {
+    query["NewAllowConsoleLogin"] = request.getNewAllowConsoleLogin();
+  }
+
   if (!!request.hasNewAssumeRolePolicyDocument()) {
     query["NewAssumeRolePolicyDocument"] = request.getNewAssumeRolePolicyDocument();
   }
@@ -3196,9 +3367,9 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) role.
+ * @summary Calls the UpdateRole operation to update the information of a RAM role.
  *
- * @description This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+ * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
  *
  * @param request UpdateRoleRequest
  * @return UpdateRoleResponse

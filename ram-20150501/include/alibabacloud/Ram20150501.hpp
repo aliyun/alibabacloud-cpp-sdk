@@ -38,7 +38,7 @@ namespace Ram20150501
       Models::AddUserToGroupResponse addUserToGroup(const Models::AddUserToGroupRequest &request);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) user group.
+       * @summary Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
        *
        * @param request AttachPolicyToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Ram20150501
       Models::AttachPolicyToGroupResponse attachPolicyToGroupWithOptions(const Models::AttachPolicyToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) user group.
+       * @summary Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
        *
        * @param request AttachPolicyToGroupRequest
        * @return AttachPolicyToGroupResponse
@@ -55,7 +55,7 @@ namespace Ram20150501
       Models::AttachPolicyToGroupResponse attachPolicyToGroup(const Models::AttachPolicyToGroupRequest &request);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) role.
+       * @summary Calls the AttachPolicyToRole operation to add a permission to a specified role.
        *
        * @param request AttachPolicyToRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Ram20150501
       Models::AttachPolicyToRoleResponse attachPolicyToRoleWithOptions(const Models::AttachPolicyToRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) role.
+       * @summary Calls the AttachPolicyToRole operation to add a permission to a specified role.
        *
        * @param request AttachPolicyToRoleRequest
        * @return AttachPolicyToRoleResponse
@@ -72,7 +72,7 @@ namespace Ram20150501
       Models::AttachPolicyToRoleResponse attachPolicyToRole(const Models::AttachPolicyToRoleRequest &request);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) user.
+       * @summary Attaches an access policy to a specified user.
        *
        * @param request AttachPolicyToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Ram20150501
       Models::AttachPolicyToUserResponse attachPolicyToUserWithOptions(const Models::AttachPolicyToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a policy to a Resource Access Management (RAM) user.
+       * @summary Attaches an access policy to a specified user.
        *
        * @param request AttachPolicyToUserRequest
        * @return AttachPolicyToUserResponse
@@ -106,9 +106,10 @@ namespace Ram20150501
       Models::BindMFADeviceResponse bindMFADevice(const Models::BindMFADeviceRequest &request);
 
       /**
-       * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+       * @summary Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
        *
-       * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+       * @description > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+       * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
        *
        * @param request ChangePasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -117,9 +118,10 @@ namespace Ram20150501
       Models::ChangePasswordResponse changePasswordWithOptions(const Models::ChangePasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+       * @summary Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
        *
-       * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+       * @description > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+       * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
        *
        * @param request ChangePasswordRequest
        * @return ChangePasswordResponse
@@ -129,7 +131,6 @@ namespace Ram20150501
       /**
        * @summary Deletes the alias of an Alibaba Cloud account.
        *
-       * @param request ClearAccountAliasRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ClearAccountAliasResponse
        */
@@ -143,7 +144,9 @@ namespace Ram20150501
       Models::ClearAccountAliasResponse clearAccountAlias();
 
       /**
-       * @summary Creates an AccessKey pair for a Resource Access Management (RAM) user.
+       * @summary Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+       *
+       * @description Each RAM user can have a maximum of two AccessKey pairs.
        *
        * @param request CreateAccessKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -152,7 +155,9 @@ namespace Ram20150501
       Models::CreateAccessKeyResponse createAccessKeyWithOptions(const Models::CreateAccessKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AccessKey pair for a Resource Access Management (RAM) user.
+       * @summary Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+       *
+       * @description Each RAM user can have a maximum of two AccessKey pairs.
        *
        * @param request CreateAccessKeyRequest
        * @return CreateAccessKeyResponse
@@ -234,10 +239,10 @@ namespace Ram20150501
       Models::CreatePolicyVersionResponse createPolicyVersion(const Models::CreatePolicyVersionRequest &request);
 
       /**
-       * @summary Creates a Resource Access Management (RAM) role.
+       * @summary Creates a RAM role.
        *
-       * @description ### [](#)Operation description
-       * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+       * @description ### Operation description
+       * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
        *
        * @param tmpReq CreateRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -246,10 +251,10 @@ namespace Ram20150501
       Models::CreateRoleResponse createRoleWithOptions(const Models::CreateRoleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Resource Access Management (RAM) role.
+       * @summary Creates a RAM role.
        *
-       * @description ### [](#)Operation description
-       * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+       * @description ### Operation description
+       * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
        *
        * @param request CreateRoleRequest
        * @return CreateRoleResponse
@@ -257,9 +262,26 @@ namespace Ram20150501
       Models::CreateRoleResponse createRole(const Models::CreateRoleRequest &request);
 
       /**
+       * @summary Creates a service-linked role.
+       *
+       * @param request CreateServiceLinkedRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceLinkedRoleResponse
+       */
+      Models::CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(const Models::CreateServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a service-linked role.
+       *
+       * @param request CreateServiceLinkedRoleRequest
+       * @return CreateServiceLinkedRoleResponse
+       */
+      Models::CreateServiceLinkedRoleResponse createServiceLinkedRole(const Models::CreateServiceLinkedRoleRequest &request);
+
+      /**
        * @summary Creates a Resource Access Management (RAM) user.
        *
-       * @description This topic provides an example on how to create a RAM user named `alice`.
+       * @description This topic provides an example on how to create a RAM user named `alice`.
        *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -270,7 +292,7 @@ namespace Ram20150501
       /**
        * @summary Creates a Resource Access Management (RAM) user.
        *
-       * @description This topic provides an example on how to create a RAM user named `alice`.
+       * @description This topic provides an example on how to create a RAM user named `alice`.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -295,7 +317,7 @@ namespace Ram20150501
       Models::CreateVirtualMFADeviceResponse createVirtualMFADevice(const Models::CreateVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+       * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
        *
        * @param request DecodeDiagnosticMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -304,7 +326,7 @@ namespace Ram20150501
       Models::DecodeDiagnosticMessageResponse decodeDiagnosticMessageWithOptions(const Models::DecodeDiagnosticMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+       * @summary Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
        *
        * @param request DecodeDiagnosticMessageRequest
        * @return DecodeDiagnosticMessageResponse
@@ -424,6 +446,23 @@ namespace Ram20150501
       Models::DeleteRoleResponse deleteRole(const Models::DeleteRoleRequest &request);
 
       /**
+       * @summary Deletes a service-linked role.
+       *
+       * @param request DeleteServiceLinkedRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceLinkedRoleResponse
+       */
+      Models::DeleteServiceLinkedRoleResponse deleteServiceLinkedRoleWithOptions(const Models::DeleteServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a service-linked role.
+       *
+       * @param request DeleteServiceLinkedRoleRequest
+       * @return DeleteServiceLinkedRoleResponse
+       */
+      Models::DeleteServiceLinkedRoleResponse deleteServiceLinkedRole(const Models::DeleteServiceLinkedRoleRequest &request);
+
+      /**
        * @summary Deletes a Resource Access Management (RAM) user.
        *
        * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
@@ -462,7 +501,7 @@ namespace Ram20150501
       Models::DeleteVirtualMFADeviceResponse deleteVirtualMFADevice(const Models::DeleteVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) user group.
+       * @summary Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
        *
        * @param request DetachPolicyFromGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -471,7 +510,7 @@ namespace Ram20150501
       Models::DetachPolicyFromGroupResponse detachPolicyFromGroupWithOptions(const Models::DetachPolicyFromGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) user group.
+       * @summary Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
        *
        * @param request DetachPolicyFromGroupRequest
        * @return DetachPolicyFromGroupResponse
@@ -479,7 +518,7 @@ namespace Ram20150501
       Models::DetachPolicyFromGroupResponse detachPolicyFromGroup(const Models::DetachPolicyFromGroupRequest &request);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) role.
+       * @summary Revokes a specified access policy from a role.
        *
        * @param request DetachPolicyFromRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -488,7 +527,7 @@ namespace Ram20150501
       Models::DetachPolicyFromRoleResponse detachPolicyFromRoleWithOptions(const Models::DetachPolicyFromRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) role.
+       * @summary Revokes a specified access policy from a role.
        *
        * @param request DetachPolicyFromRoleRequest
        * @return DetachPolicyFromRoleResponse
@@ -496,7 +535,7 @@ namespace Ram20150501
       Models::DetachPolicyFromRoleResponse detachPolicyFromRole(const Models::DetachPolicyFromRoleRequest &request);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) user.
+       * @summary Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
        *
        * @param request DetachPolicyFromUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -505,7 +544,7 @@ namespace Ram20150501
       Models::DetachPolicyFromUserResponse detachPolicyFromUserWithOptions(const Models::DetachPolicyFromUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a policy from a Resource Access Management (RAM) user.
+       * @summary Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
        *
        * @param request DetachPolicyFromUserRequest
        * @return DetachPolicyFromUserResponse
@@ -513,6 +552,8 @@ namespace Ram20150501
       Models::DetachPolicyFromUserResponse detachPolicyFromUser(const Models::DetachPolicyFromUserRequest &request);
 
       /**
+       * @summary Queries the last time when an AccessKey pair was used.
+       *
        * @param request GetAccessKeyLastUsedRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAccessKeyLastUsedResponse
@@ -520,6 +561,8 @@ namespace Ram20150501
       Models::GetAccessKeyLastUsedResponse getAccessKeyLastUsedWithOptions(const Models::GetAccessKeyLastUsedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the last time when an AccessKey pair was used.
+       *
        * @param request GetAccessKeyLastUsedRequest
        * @return GetAccessKeyLastUsedResponse
        */
@@ -528,7 +571,6 @@ namespace Ram20150501
       /**
        * @summary Queries the alias of an Alibaba Cloud account.
        *
-       * @param request GetAccountAliasRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAccountAliasResponse
        */
@@ -542,7 +584,7 @@ namespace Ram20150501
       Models::GetAccountAliasResponse getAccountAlias();
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) user group.
+       * @summary Queries the information of a user group by calling the GetGroup operation.
        *
        * @param request GetGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +593,7 @@ namespace Ram20150501
       Models::GetGroupResponse getGroupWithOptions(const Models::GetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) user group.
+       * @summary Queries the information of a user group by calling the GetGroup operation.
        *
        * @param request GetGroupRequest
        * @return GetGroupResponse
@@ -559,7 +601,7 @@ namespace Ram20150501
       Models::GetGroupResponse getGroup(const Models::GetGroupRequest &request);
 
       /**
-       * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+       * @summary Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
        *
        * @param request GetLoginProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -568,7 +610,7 @@ namespace Ram20150501
       Models::GetLoginProfileResponse getLoginProfileWithOptions(const Models::GetLoginProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+       * @summary Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
        *
        * @param request GetLoginProfileRequest
        * @return GetLoginProfileResponse
@@ -578,7 +620,6 @@ namespace Ram20150501
       /**
        * @summary Queries the password policy of Resource Access Management (RAM) users, including the password strength.
        *
-       * @param request GetPasswordPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetPasswordPolicyResponse
        */
@@ -592,7 +633,7 @@ namespace Ram20150501
       Models::GetPasswordPolicyResponse getPasswordPolicy();
 
       /**
-       * @summary Queries information about a policy.
+       * @summary Retrieves the information of a specified access policy.
        *
        * @param request GetPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -601,7 +642,7 @@ namespace Ram20150501
       Models::GetPolicyResponse getPolicyWithOptions(const Models::GetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a policy.
+       * @summary Retrieves the information of a specified access policy.
        *
        * @param request GetPolicyRequest
        * @return GetPolicyResponse
@@ -609,7 +650,7 @@ namespace Ram20150501
       Models::GetPolicyResponse getPolicy(const Models::GetPolicyRequest &request);
 
       /**
-       * @summary Queries the information about a policy version.
+       * @summary Retrieves a specific version of an access policy.
        *
        * @param request GetPolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,7 +659,7 @@ namespace Ram20150501
       Models::GetPolicyVersionResponse getPolicyVersionWithOptions(const Models::GetPolicyVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a policy version.
+       * @summary Retrieves a specific version of an access policy.
        *
        * @param request GetPolicyVersionRequest
        * @return GetPolicyVersionResponse
@@ -626,7 +667,7 @@ namespace Ram20150501
       Models::GetPolicyVersionResponse getPolicyVersion(const Models::GetPolicyVersionRequest &request);
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) role.
+       * @summary Retrieves the information about a role.
        *
        * @param request GetRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -635,7 +676,7 @@ namespace Ram20150501
       Models::GetRoleResponse getRoleWithOptions(const Models::GetRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) role.
+       * @summary Retrieves the information about a role.
        *
        * @param request GetRoleRequest
        * @return GetRoleResponse
@@ -645,7 +686,6 @@ namespace Ram20150501
       /**
        * @summary Queries the security preferences.
        *
-       * @param request GetSecurityPreferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSecurityPreferenceResponse
        */
@@ -659,9 +699,26 @@ namespace Ram20150501
       Models::GetSecurityPreferenceResponse getSecurityPreference();
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) user.
+       * @summary Retrieves the template of a service-linked role.
        *
-       * @description This topic provides an example on how to query information about the RAM user `alice`.
+       * @param request GetServiceLinkedRoleTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceLinkedRoleTemplateResponse
+       */
+      Models::GetServiceLinkedRoleTemplateResponse getServiceLinkedRoleTemplateWithOptions(const Models::GetServiceLinkedRoleTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the template of a service-linked role.
+       *
+       * @param request GetServiceLinkedRoleTemplateRequest
+       * @return GetServiceLinkedRoleTemplateResponse
+       */
+      Models::GetServiceLinkedRoleTemplateResponse getServiceLinkedRoleTemplate(const Models::GetServiceLinkedRoleTemplateRequest &request);
+
+      /**
+       * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
+       *
+       * @description This topic provides an example of how to query the details of the RAM user `alice`.
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -670,9 +727,9 @@ namespace Ram20150501
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a Resource Access Management (RAM) user.
+       * @summary You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
        *
-       * @description This topic provides an example on how to query information about the RAM user `alice`.
+       * @description This topic provides an example of how to query the details of the RAM user `alice`.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -697,7 +754,7 @@ namespace Ram20150501
       Models::GetUserMFAInfoResponse getUserMFAInfo(const Models::GetUserMFAInfoRequest &request);
 
       /**
-       * @summary Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+       * @summary Lists the AccessKey pairs of a specified user.
        *
        * @param request ListAccessKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -706,7 +763,7 @@ namespace Ram20150501
       Models::ListAccessKeysResponse listAccessKeysWithOptions(const Models::ListAccessKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+       * @summary Lists the AccessKey pairs of a specified user.
        *
        * @param request ListAccessKeysRequest
        * @return ListAccessKeysResponse
@@ -714,7 +771,7 @@ namespace Ram20150501
       Models::ListAccessKeysResponse listAccessKeys(const Models::ListAccessKeysRequest &request);
 
       /**
-       * @summary Queries the entities to which a policy is attached.
+       * @summary Lists the entities that reference an access policy.
        *
        * @param request ListEntitiesForPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +780,7 @@ namespace Ram20150501
       Models::ListEntitiesForPolicyResponse listEntitiesForPolicyWithOptions(const Models::ListEntitiesForPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the entities to which a policy is attached.
+       * @summary Lists the entities that reference an access policy.
        *
        * @param request ListEntitiesForPolicyRequest
        * @return ListEntitiesForPolicyResponse
@@ -731,7 +788,7 @@ namespace Ram20150501
       Models::ListEntitiesForPolicyResponse listEntitiesForPolicy(const Models::ListEntitiesForPolicyRequest &request);
 
       /**
-       * @summary Queries Resource Access Management (RAM) user groups.
+       * @summary Queries the list of user groups by calling the ListGroups operation.
        *
        * @param request ListGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -740,7 +797,7 @@ namespace Ram20150501
       Models::ListGroupsResponse listGroupsWithOptions(const Models::ListGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Resource Access Management (RAM) user groups.
+       * @summary Queries the list of user groups by calling the ListGroups operation.
        *
        * @param request ListGroupsRequest
        * @return ListGroupsResponse
@@ -748,10 +805,10 @@ namespace Ram20150501
       Models::ListGroupsResponse listGroups(const Models::ListGroupsRequest &request);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+       * @summary Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
        *
-       * @description ### [](#)
-       * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+       * @description ### Usage notes
+       * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
        *
        * @param request ListGroupsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -760,10 +817,10 @@ namespace Ram20150501
       Models::ListGroupsForUserResponse listGroupsForUserWithOptions(const Models::ListGroupsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+       * @summary Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
        *
-       * @description ### [](#)
-       * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+       * @description ### Usage notes
+       * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
        *
        * @param request ListGroupsForUserRequest
        * @return ListGroupsForUserResponse
@@ -771,7 +828,7 @@ namespace Ram20150501
       Models::ListGroupsForUserResponse listGroupsForUser(const Models::ListGroupsForUserRequest &request);
 
       /**
-       * @summary Queries a list of policies.
+       * @summary Invokes the ListPolicies operation to list access policies.
        *
        * @param tmpReq ListPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -780,7 +837,7 @@ namespace Ram20150501
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of policies.
+       * @summary Invokes the ListPolicies operation to list access policies.
        *
        * @param request ListPoliciesRequest
        * @return ListPoliciesResponse
@@ -788,7 +845,7 @@ namespace Ram20150501
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
 
       /**
-       * @summary Queries the policies that are attached to a Resource Access Management (RAM) user group.
+       * @summary Lists the permission policies attached to a user group.
        *
        * @param request ListPoliciesForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -797,7 +854,7 @@ namespace Ram20150501
       Models::ListPoliciesForGroupResponse listPoliciesForGroupWithOptions(const Models::ListPoliciesForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the policies that are attached to a Resource Access Management (RAM) user group.
+       * @summary Lists the permission policies attached to a user group.
        *
        * @param request ListPoliciesForGroupRequest
        * @return ListPoliciesForGroupResponse
@@ -805,7 +862,7 @@ namespace Ram20150501
       Models::ListPoliciesForGroupResponse listPoliciesForGroup(const Models::ListPoliciesForGroupRequest &request);
 
       /**
-       * @summary Queries the policies that are attached to a Resource Access Management (RAM) role.
+       * @summary Lists the access policies attached to a role.
        *
        * @param request ListPoliciesForRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,7 +871,7 @@ namespace Ram20150501
       Models::ListPoliciesForRoleResponse listPoliciesForRoleWithOptions(const Models::ListPoliciesForRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the policies that are attached to a Resource Access Management (RAM) role.
+       * @summary Lists the access policies attached to a role.
        *
        * @param request ListPoliciesForRoleRequest
        * @return ListPoliciesForRoleResponse
@@ -843,7 +900,7 @@ namespace Ram20150501
       Models::ListPoliciesForUserResponse listPoliciesForUser(const Models::ListPoliciesForUserRequest &request);
 
       /**
-       * @summary Queries the versions of a policy.
+       * @summary Lists the versions of an access policy.
        *
        * @param request ListPolicyVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -852,7 +909,7 @@ namespace Ram20150501
       Models::ListPolicyVersionsResponse listPolicyVersionsWithOptions(const Models::ListPolicyVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the versions of a policy.
+       * @summary Lists the versions of an access policy.
        *
        * @param request ListPolicyVersionsRequest
        * @return ListPolicyVersionsResponse
@@ -860,7 +917,7 @@ namespace Ram20150501
       Models::ListPolicyVersionsResponse listPolicyVersions(const Models::ListPolicyVersionsRequest &request);
 
       /**
-       * @summary Queries all Resource Access Management (RAM) roles.
+       * @summary Lists RAM roles.
        *
        * @param tmpReq ListRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -869,7 +926,7 @@ namespace Ram20150501
       Models::ListRolesResponse listRolesWithOptions(const Models::ListRolesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all Resource Access Management (RAM) roles.
+       * @summary Lists RAM roles.
        *
        * @param request ListRolesRequest
        * @return ListRolesResponse
@@ -911,7 +968,7 @@ namespace Ram20150501
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+       * @summary Lists the Resource Access Management (RAM) users in a specified user group.
        *
        * @param request ListUsersForGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +977,7 @@ namespace Ram20150501
       Models::ListUsersForGroupResponse listUsersForGroupWithOptions(const Models::ListUsersForGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+       * @summary Lists the Resource Access Management (RAM) users in a specified user group.
        *
        * @param request ListUsersForGroupRequest
        * @return ListUsersForGroupResponse
@@ -930,7 +987,6 @@ namespace Ram20150501
       /**
        * @summary Queries multi-factor authentication (MFA) devices.
        *
-       * @param request ListVirtualMFADevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListVirtualMFADevicesResponse
        */
@@ -1154,9 +1210,9 @@ namespace Ram20150501
       Models::UpdatePolicyDescriptionResponse updatePolicyDescription(const Models::UpdatePolicyDescriptionRequest &request);
 
       /**
-       * @summary Modifies information about a Resource Access Management (RAM) role.
+       * @summary Calls the UpdateRole operation to update the information of a RAM role.
        *
-       * @description This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+       * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
        *
        * @param request UpdateRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1165,9 +1221,9 @@ namespace Ram20150501
       Models::UpdateRoleResponse updateRoleWithOptions(const Models::UpdateRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies information about a Resource Access Management (RAM) role.
+       * @summary Calls the UpdateRole operation to update the information of a RAM role.
        *
-       * @description This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+       * @description This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
        *
        * @param request UpdateRoleRequest
        * @return UpdateRoleResponse

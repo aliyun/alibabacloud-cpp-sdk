@@ -137,55 +137,21 @@ namespace Models
 
 
       protected:
-        // The type of the entity to which the policy is attached.
-        // 
-        // Valid values:
-        // 
-        // *   RamUser: RAM user
-        // *   RamRole: RAM role
-        // *   ResourceDirectoryTarget: entity in a resource directory
-        // *   RamGroup: RAM user group
+        // The entity type to which the policy is attached.
         shared_ptr<string> attachedEntityType_ {};
-        // The authorization scope of the policy.
-        // 
-        // Valid values:
-        // 
-        // *   Account: Alibaba Cloud account
-        // *   Folder: folder in the resource directory
-        // *   ResourceGroup: resource group
+        // The scope to which the policy is attached.
         shared_ptr<string> attachedScope_ {};
-        // The effect of the policy.
-        // 
-        // Valid values:
-        // 
-        // *   Deny
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Allow
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // The policy effect.
         shared_ptr<string> effect_ {};
-        // The identifier of the policy.
+        // The policy name, as follows:
         // 
-        // *   Control policy: the ID of the control policy
-        // *   RAM policy: the name of the policy
+        // - Control policy: The control policy ID.
+        // 
+        // - RAM access policy: The access policy name.
         shared_ptr<string> policyIdentifier_ {};
-        // The type of the policy.
-        // 
-        // Valid values:
-        // *   Custom: custom policy
-        // *   System: system policy
+        // The policy type.
         shared_ptr<string> policyType_ {};
-        // The version number of the policy.
+        // The policy version number.
         // 
         // > Only custom policies have version numbers.
         shared_ptr<string> policyVersion_ {};
@@ -238,21 +204,17 @@ namespace Models
 
 
       protected:
-        // The identity.
+        // The identity identifier used for authentication in the user request, as follows:
         // 
-        // *   If the operator is a RAM user, the ID of the user is displayed.
-        // *   If the operator is a RAM role, the name and session name of the role are displayed. Example: RoleName:RoleSessionName.
-        // *   If the operator is an SSO federated identity, the type and name of the identity provider (IdP) are displayed. Example: saml-provider/AzureAD.
+        // - RAM user: The UID of the RAM user.
+        // 
+        // - RAM role: The role name and role session name (for example, RoleName:RoleSessionName).
+        // 
+        // - SSO federated identity: The identity provider type and name (for example, saml-provider/AzureAD).
         shared_ptr<string> authPrincipalDisplayName_ {};
-        // The ID of the Alibaba Cloud account to which the identity belongs.
+        // The Alibaba Cloud account UID of the identity used for authentication in the user request.
         shared_ptr<string> authPrincipalOwnerId_ {};
-        // The identity type that is used for authentication in the request.
-        // 
-        // Valid values:
-        // 
-        // *   SubUser: RAM user
-        // *   AssumedRoleUser: RAM role
-        // *   Federated: SSO federated identity
+        // The identity type used for authentication in the user request.
         shared_ptr<string> authPrincipalType_ {};
       };
 
@@ -296,9 +258,9 @@ namespace Models
 
 
       protected:
-        // The key of the condition.
+        // The key of the authentication condition.
         shared_ptr<string> conditionKey_ {};
-        // The values that correspond to the key.
+        // The list of values corresponding to the authentication condition key.
         shared_ptr<vector<string>> conditionValues_ {};
       };
 
@@ -361,32 +323,19 @@ namespace Models
 
 
     protected:
-      // The operation that is used for authentication in the request.
+      // The action used for authentication in the user request.
       shared_ptr<string> authAction_ {};
-      // The conditions that are used for authentication in the request.
+      // The list of conditions used for authentication in the user request.
       shared_ptr<vector<DecodedDiagnosticMessage::AuthConditions>> authConditions_ {};
-      // The operator that is used for authentication in the request.
+      // The principal used for authentication in the user request.
       shared_ptr<DecodedDiagnosticMessage::AuthPrincipal> authPrincipal_ {};
-      // The resource that is used for authentication in the request.
+      // The resource used for authentication in the user request.
       shared_ptr<string> authResource_ {};
-      // Indicates whether the access denied error is caused by an explicit deny.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the denial is explicit.
       shared_ptr<bool> explicitDeny_ {};
-      // The policies that are matched.
+      // The list of policies matched during authentication.
       shared_ptr<vector<DecodedDiagnosticMessage::MatchedPolicies>> matchedPolicies_ {};
-      // The type of the policy that causes the access denied error.
-      // 
-      // Valid values:
-      // 
-      // *   AssumeRolePolicy: role-specific trust policy
-      // *   ControlPolicy: control policy
-      // *   AccountLevelIdentityBasedPolicy: identity-based policy at the account level
-      // *   ResourceGroupLevelIdentityBasedPolicy: identity-based policy at the resource group level
-      // *   SessionPolicy: session policy
+      // The policy type that caused the permission denial.
       shared_ptr<string> noPermissionPolicyType_ {};
     };
 
@@ -409,7 +358,7 @@ namespace Models
 
 
   protected:
-    // The decoded diagnostic information.
+    // The decoded diagnostic message.
     shared_ptr<DecodeDiagnosticMessageResponseBody::DecodedDiagnosticMessage> decodedDiagnosticMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -42,6 +42,9 @@
 #include <alibabacloud/models/CreateRoleShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRoleResponseBody.hpp>
 #include <alibabacloud/models/CreateRoleResponse.hpp>
+#include <alibabacloud/models/CreateServiceLinkedRoleRequest.hpp>
+#include <alibabacloud/models/CreateServiceLinkedRoleResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceLinkedRoleResponse.hpp>
 #include <alibabacloud/models/CreateUserRequest.hpp>
 #include <alibabacloud/models/CreateUserResponseBody.hpp>
 #include <alibabacloud/models/CreateUserResponse.hpp>
@@ -69,6 +72,9 @@
 #include <alibabacloud/models/DeleteRoleRequest.hpp>
 #include <alibabacloud/models/DeleteRoleResponseBody.hpp>
 #include <alibabacloud/models/DeleteRoleResponse.hpp>
+#include <alibabacloud/models/DeleteServiceLinkedRoleRequest.hpp>
+#include <alibabacloud/models/DeleteServiceLinkedRoleResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceLinkedRoleResponse.hpp>
 #include <alibabacloud/models/DeleteUserRequest.hpp>
 #include <alibabacloud/models/DeleteUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserResponse.hpp>
@@ -108,6 +114,9 @@
 #include <alibabacloud/models/GetRoleResponse.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponseBody.hpp>
 #include <alibabacloud/models/GetSecurityPreferenceResponse.hpp>
+#include <alibabacloud/models/GetServiceLinkedRoleTemplateRequest.hpp>
+#include <alibabacloud/models/GetServiceLinkedRoleTemplateResponseBody.hpp>
+#include <alibabacloud/models/GetServiceLinkedRoleTemplateResponse.hpp>
 #include <alibabacloud/models/GetUserRequest.hpp>
 #include <alibabacloud/models/GetUserResponseBody.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>

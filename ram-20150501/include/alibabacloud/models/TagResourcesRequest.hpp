@@ -112,8 +112,9 @@ namespace Models
     // 
     // Enumerated values:
     // 
-    // *   role: RAM roles.
-    // *   policy: policies.
+    // - role: RAM roles.
+    // 
+    // - policy: policies.
     shared_ptr<string> resourceType_ {};
     // The tags. You can specify up to 20 tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

@@ -117,17 +117,17 @@ namespace Models
     protected:
       // The description of the RAM user.
       shared_ptr<string> comments_ {};
-      // The point in time when the RAM user was created. The time is displayed in UTC.
+      // The point in time when the RAM user was created. It is displayed in UTC.
       shared_ptr<string> createDate_ {};
       // The display name of the RAM user.
       shared_ptr<string> displayName_ {};
       // The email address of the RAM user.
       // 
-      // >  This parameter applies only to the China site (aliyun.com).
+      // > This parameter applies only to the China site (aliyun.com).
       shared_ptr<string> email_ {};
       // The mobile phone number of the RAM user.
       // 
-      // >  This parameter applies only to the China site (aliyun.com).
+      // > This parameter applies only to the China site (aliyun.com).
       shared_ptr<string> mobilePhone_ {};
       // The ID of the RAM user.
       shared_ptr<string> userId_ {};

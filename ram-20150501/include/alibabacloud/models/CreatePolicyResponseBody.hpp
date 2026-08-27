@@ -106,8 +106,9 @@ namespace Models
       shared_ptr<string> policyName_ {};
       // The type of the policy. Valid values:
       // 
-      // *   Custom
-      // *   System
+      // - Custom
+      // 
+      // - System
       shared_ptr<string> policyType_ {};
     };
 

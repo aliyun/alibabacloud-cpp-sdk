@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the policy.
+    // The access policy name.
     shared_ptr<string> policyName_ {};
-    // The type of the policy. Valid values: `System` and `Custom`.
+    // The type of the access policy. Valid values: `System`, `Custom`.
     shared_ptr<string> policyType_ {};
-    // The ID of the policy version.
+    // The ID of the target version.
     shared_ptr<string> versionId_ {};
   };
 

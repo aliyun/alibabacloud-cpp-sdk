@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the AccessKey pair.
     shared_ptr<string> userAccessKeyId_ {};
+    // The name of the RAM user.
     shared_ptr<string> userName_ {};
   };
 

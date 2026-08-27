@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the RAM user.
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

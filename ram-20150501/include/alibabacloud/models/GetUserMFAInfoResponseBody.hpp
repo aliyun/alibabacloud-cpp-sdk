@@ -73,8 +73,9 @@ namespace Models
       shared_ptr<string> serialNumber_ {};
       // The type of the MFA device. Valid values:
       // 
-      // *   VMFA: virtual MFA device.
-      // *   U2F: Universal 2nd Factor (U2F) security key.
+      // - VMFA: virtual MFA device.
+      // 
+      // - U2F: Universal 2nd Factor (U2F) security key.
       shared_ptr<string> type_ {};
     };
 

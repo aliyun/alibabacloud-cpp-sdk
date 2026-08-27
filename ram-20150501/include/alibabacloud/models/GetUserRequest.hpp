@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The username of the RAM user.
+    // The name of the RAM user.
     // 
-    // The username must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+    // The name is 1 to 64 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
     shared_ptr<string> userName_ {};
   };
 

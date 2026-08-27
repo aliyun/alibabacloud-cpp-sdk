@@ -96,8 +96,9 @@ namespace Models
       // 
       // Enumerated values:
       // 
-      // *   role: RAM roles.
-      // *   policy: policies.
+      // - role: RAM roles.
+      // 
+      // - policy: policies.
       shared_ptr<string> resourceType_ {};
       // The key of the tag.
       shared_ptr<string> tagKey_ {};

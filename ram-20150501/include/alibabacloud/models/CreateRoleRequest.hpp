@@ -14,6 +14,7 @@ namespace Models
   class CreateRoleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateRoleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowConsoleLogin, allowConsoleLogin_);
       DARABONBA_PTR_TO_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(MaxSessionDuration, maxSessionDuration_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRoleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowConsoleLogin, allowConsoleLogin_);
       DARABONBA_PTR_FROM_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(MaxSessionDuration, maxSessionDuration_);
@@ -76,14 +78,21 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->assumeRolePolicyDocument_ == nullptr
-        && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleName_ == nullptr && this->tag_ == nullptr; };
+    virtual bool empty() const override { return this->allowConsoleLogin_ == nullptr
+        && this->assumeRolePolicyDocument_ == nullptr && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleName_ == nullptr && this->tag_ == nullptr; };
+    // allowConsoleLogin Field Functions 
+    bool hasAllowConsoleLogin() const { return this->allowConsoleLogin_ != nullptr;};
+    void deleteAllowConsoleLogin() { this->allowConsoleLogin_ = nullptr;};
+    inline bool getAllowConsoleLogin() const { DARABONBA_PTR_GET_DEFAULT(allowConsoleLogin_, false) };
+    inline CreateRoleRequest& setAllowConsoleLogin(bool allowConsoleLogin) { DARABONBA_PTR_SET_VALUE(allowConsoleLogin_, allowConsoleLogin) };
+
+
     // assumeRolePolicyDocument Field Functions 
     bool hasAssumeRolePolicyDocument() const { return this->assumeRolePolicyDocument_ != nullptr;};
     void deleteAssumeRolePolicyDocument() { this->assumeRolePolicyDocument_ = nullptr;};
@@ -122,23 +131,26 @@ namespace Models
 
 
   protected:
-    // The trust policy that specifies one or more trusted entities to assume the RAM role. The trusted entities can be Alibaba Cloud accounts, Alibaba Cloud services, or identity providers (IdPs).
-    // 
-    // >  RAM users cannot assume the RAM roles of trusted Alibaba Cloud services.
+    // Specifies whether console logon is allowed for the RAM role. Valid values:
+    // - true: Console logon is allowed.
+    // - false: Console logon is not allowed.
+    shared_ptr<bool> allowConsoleLogin_ {};
+    // The trust policy. Specifies one or more principals that are allowed to assume the RAM role. The principal can be an Alibaba Cloud account, an Alibaba Cloud service, or an identity provider.
+    // >Resource Access Management (RAM) users cannot assume RAM roles whose trusted entity is an Alibaba Cloud service.
     shared_ptr<string> assumeRolePolicyDocument_ {};
     // The description of the RAM role.
     // 
-    // The description must be 1 to 1,024 characters in length.
+    // The description must be 1 to 1024 characters in length.
     shared_ptr<string> description_ {};
-    // The maximum session time of the RAM role.
+    // The maximum session duration of the RAM role.
     // 
     // Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
     // 
-    // If you do not specify this parameter, the default value is used.
+    // If you leave this parameter empty, the default value is used.
     shared_ptr<int64_t> maxSessionDuration_ {};
     // The name of the RAM role.
     // 
-    // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+    // The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     shared_ptr<string> roleName_ {};
     // The tags.
     shared_ptr<vector<CreateRoleRequest::Tag>> tag_ {};

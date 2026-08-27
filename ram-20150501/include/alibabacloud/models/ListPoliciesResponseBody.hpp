@@ -284,7 +284,7 @@ namespace Models
   protected:
     // Indicates whether the response is truncated.
     shared_ptr<bool> isTruncated_ {};
-    // The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set `Marker` to obtain the truncated part.``
+    // This parameter is returned only when `IsTruncated` is `true`. If `true` is returned, call this operation again and use `Marker` to obtain the truncated content.
     shared_ptr<string> marker_ {};
     shared_ptr<ListPoliciesResponseBody::Policies> policies_ {};
     // The request ID.

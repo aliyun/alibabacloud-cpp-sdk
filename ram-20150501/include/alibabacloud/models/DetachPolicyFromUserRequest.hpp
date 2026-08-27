@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The name of the policy.
+    // The name of the access policy.
     shared_ptr<string> policyName_ {};
-    // The type of the policy. Valid values: `System` and `Custom`.
+    // The type of the access policy. Valid values: `System` or `Custom`.
     shared_ptr<string> policyType_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The name of the RAM user.
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

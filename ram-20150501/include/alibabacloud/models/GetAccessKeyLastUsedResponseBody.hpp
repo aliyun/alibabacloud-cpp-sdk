@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The time when the AccessKey pair was used for the last time.
+      // The last time the AccessKey pair was used.
       shared_ptr<string> lastUsedDate_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The details of the time when the AccessKey pair was used for the last time.
+    // Information about the last time the AccessKey pair was used.
     shared_ptr<GetAccessKeyLastUsedResponseBody::AccessKeyLastUsed> accessKeyLastUsed_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

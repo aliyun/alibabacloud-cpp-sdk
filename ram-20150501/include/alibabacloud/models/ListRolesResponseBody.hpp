@@ -58,6 +58,7 @@ namespace Models
       class Role : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Role& obj) { 
+          DARABONBA_PTR_TO_JSON(AllowConsoleLogin, allowConsoleLogin_);
           DARABONBA_PTR_TO_JSON(Arn, arn_);
           DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -68,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(UpdateDate, updateDate_);
         };
         friend void from_json(const Darabonba::Json& j, Role& obj) { 
+          DARABONBA_PTR_FROM_JSON(AllowConsoleLogin, allowConsoleLogin_);
           DARABONBA_PTR_FROM_JSON(Arn, arn_);
           DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -163,9 +165,16 @@ namespace Models
           shared_ptr<vector<Tags::Tag>> tag_ {};
         };
 
-        virtual bool empty() const override { return this->arn_ == nullptr
-        && this->createDate_ == nullptr && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleId_ == nullptr && this->roleName_ == nullptr
-        && this->tags_ == nullptr && this->updateDate_ == nullptr; };
+        virtual bool empty() const override { return this->allowConsoleLogin_ == nullptr
+        && this->arn_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->maxSessionDuration_ == nullptr && this->roleId_ == nullptr
+        && this->roleName_ == nullptr && this->tags_ == nullptr && this->updateDate_ == nullptr; };
+        // allowConsoleLogin Field Functions 
+        bool hasAllowConsoleLogin() const { return this->allowConsoleLogin_ != nullptr;};
+        void deleteAllowConsoleLogin() { this->allowConsoleLogin_ = nullptr;};
+        inline bool getAllowConsoleLogin() const { DARABONBA_PTR_GET_DEFAULT(allowConsoleLogin_, false) };
+        inline Role& setAllowConsoleLogin(bool allowConsoleLogin) { DARABONBA_PTR_SET_VALUE(allowConsoleLogin_, allowConsoleLogin) };
+
+
         // arn Field Functions 
         bool hasArn() const { return this->arn_ != nullptr;};
         void deleteArn() { this->arn_ = nullptr;};
@@ -225,6 +234,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<bool> allowConsoleLogin_ {};
         shared_ptr<string> arn_ {};
         shared_ptr<string> createDate_ {};
         shared_ptr<string> description_ {};
@@ -284,7 +294,7 @@ namespace Models
   protected:
     // Indicates whether the response is truncated.
     shared_ptr<bool> isTruncated_ {};
-    // The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.````
+    // This parameter is returned only when `IsTruncated` is `true`. If the value of `IsTruncated` is `true`, call this operation again and use `Marker` to retrieve the truncated content.
     shared_ptr<string> marker_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

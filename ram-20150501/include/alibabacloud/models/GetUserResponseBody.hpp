@@ -133,27 +133,27 @@ namespace Models
 
 
     protected:
-      // The description of the RAM user.
+      // The description.
       shared_ptr<string> comments_ {};
-      // The point in time when the RAM user was created. The time is displayed in UTC.
+      // The time when the RAM user was created. The time is in UTC.
       shared_ptr<string> createDate_ {};
-      // The display name of the RAM user.
+      // The display name.
       shared_ptr<string> displayName_ {};
       // The email address of the RAM user.
       // 
-      // >  This parameter can be returned only on the China site (aliyun.com).
+      // > This parameter is available only on the China site (aliyun.com).
       shared_ptr<string> email_ {};
-      // The point in time when the RAM user last logged on to the Alibaba Cloud Management Console by using the password. The time is displayed in UTC.
+      // The last time the user logged on with a password. The time is in UTC.
       shared_ptr<string> lastLoginDate_ {};
       // The mobile phone number of the RAM user.
       // 
-      // >  This parameter can be returned only on the China site (aliyun.com).
+      // > This parameter is available only on the China site (aliyun.com).
       shared_ptr<string> mobilePhone_ {};
-      // The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+      // The time when the RAM user was last updated. The time is in UTC.
       shared_ptr<string> updateDate_ {};
-      // The ID of the RAM user.
+      // The unique ID of the RAM user.
       shared_ptr<string> userId_ {};
-      // The username of the RAM user.
+      // The name of the RAM user.
       shared_ptr<string> userName_ {};
     };
 
@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The information about the RAM user.
     shared_ptr<GetUserResponseBody::User> user_ {};

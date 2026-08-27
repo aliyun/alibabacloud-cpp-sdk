@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The new password that is used to log on to the console.
+    // The new console logon password of the Resource Access Management (RAM) user.
     // 
-    // The password must meet the complexity requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
+    // The password must meet the password strength requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
     shared_ptr<string> newPassword_ {};
-    // The old password that is used to log on to the console.
+    // The old console logon password of the Resource Access Management (RAM) user.
     shared_ptr<string> oldPassword_ {};
   };
 

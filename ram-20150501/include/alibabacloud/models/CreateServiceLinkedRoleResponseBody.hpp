@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEROLERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATEROLERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATESERVICELINKEDROLERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATESERVICELINKEDROLERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Ram20150501
 {
 namespace Models
 {
-  class CreateRoleResponseBody : public Darabonba::Model {
+  class CreateServiceLinkedRoleResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateRoleResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateServiceLinkedRoleResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Role, role_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateRoleResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateServiceLinkedRoleResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Role, role_);
     };
-    CreateRoleResponseBody() = default ;
-    CreateRoleResponseBody(const CreateRoleResponseBody &) = default ;
-    CreateRoleResponseBody(CreateRoleResponseBody &&) = default ;
-    CreateRoleResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateRoleResponseBody() = default ;
-    CreateRoleResponseBody& operator=(const CreateRoleResponseBody &) = default ;
-    CreateRoleResponseBody& operator=(CreateRoleResponseBody &&) = default ;
+    CreateServiceLinkedRoleResponseBody() = default ;
+    CreateServiceLinkedRoleResponseBody(const CreateServiceLinkedRoleResponseBody &) = default ;
+    CreateServiceLinkedRoleResponseBody(CreateServiceLinkedRoleResponseBody &&) = default ;
+    CreateServiceLinkedRoleResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateServiceLinkedRoleResponseBody() = default ;
+    CreateServiceLinkedRoleResponseBody& operator=(const CreateServiceLinkedRoleResponseBody &) = default ;
+    CreateServiceLinkedRoleResponseBody& operator=(CreateServiceLinkedRoleResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,22 +34,20 @@ namespace Models
     class Role : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Role& obj) { 
-        DARABONBA_PTR_TO_JSON(AllowConsoleLogin, allowConsoleLogin_);
         DARABONBA_PTR_TO_JSON(Arn, arn_);
         DARABONBA_PTR_TO_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
         DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
         DARABONBA_PTR_TO_JSON(Description, description_);
-        DARABONBA_PTR_TO_JSON(MaxSessionDuration, maxSessionDuration_);
+        DARABONBA_PTR_TO_JSON(IsServiceLinkedRole, isServiceLinkedRole_);
         DARABONBA_PTR_TO_JSON(RoleId, roleId_);
         DARABONBA_PTR_TO_JSON(RoleName, roleName_);
       };
       friend void from_json(const Darabonba::Json& j, Role& obj) { 
-        DARABONBA_PTR_FROM_JSON(AllowConsoleLogin, allowConsoleLogin_);
         DARABONBA_PTR_FROM_JSON(Arn, arn_);
         DARABONBA_PTR_FROM_JSON(AssumeRolePolicyDocument, assumeRolePolicyDocument_);
         DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
-        DARABONBA_PTR_FROM_JSON(MaxSessionDuration, maxSessionDuration_);
+        DARABONBA_PTR_FROM_JSON(IsServiceLinkedRole, isServiceLinkedRole_);
         DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
         DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
       };
@@ -64,16 +62,9 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->allowConsoleLogin_ == nullptr
-        && this->arn_ == nullptr && this->assumeRolePolicyDocument_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->maxSessionDuration_ == nullptr
-        && this->roleId_ == nullptr && this->roleName_ == nullptr; };
-      // allowConsoleLogin Field Functions 
-      bool hasAllowConsoleLogin() const { return this->allowConsoleLogin_ != nullptr;};
-      void deleteAllowConsoleLogin() { this->allowConsoleLogin_ = nullptr;};
-      inline bool getAllowConsoleLogin() const { DARABONBA_PTR_GET_DEFAULT(allowConsoleLogin_, false) };
-      inline Role& setAllowConsoleLogin(bool allowConsoleLogin) { DARABONBA_PTR_SET_VALUE(allowConsoleLogin_, allowConsoleLogin) };
-
-
+      virtual bool empty() const override { return this->arn_ == nullptr
+        && this->assumeRolePolicyDocument_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->isServiceLinkedRole_ == nullptr && this->roleId_ == nullptr
+        && this->roleName_ == nullptr; };
       // arn Field Functions 
       bool hasArn() const { return this->arn_ != nullptr;};
       void deleteArn() { this->arn_ = nullptr;};
@@ -102,11 +93,11 @@ namespace Models
       inline Role& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-      // maxSessionDuration Field Functions 
-      bool hasMaxSessionDuration() const { return this->maxSessionDuration_ != nullptr;};
-      void deleteMaxSessionDuration() { this->maxSessionDuration_ = nullptr;};
-      inline int64_t getMaxSessionDuration() const { DARABONBA_PTR_GET_DEFAULT(maxSessionDuration_, 0L) };
-      inline Role& setMaxSessionDuration(int64_t maxSessionDuration) { DARABONBA_PTR_SET_VALUE(maxSessionDuration_, maxSessionDuration) };
+      // isServiceLinkedRole Field Functions 
+      bool hasIsServiceLinkedRole() const { return this->isServiceLinkedRole_ != nullptr;};
+      void deleteIsServiceLinkedRole() { this->isServiceLinkedRole_ = nullptr;};
+      inline bool getIsServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(isServiceLinkedRole_, false) };
+      inline Role& setIsServiceLinkedRole(bool isServiceLinkedRole) { DARABONBA_PTR_SET_VALUE(isServiceLinkedRole_, isServiceLinkedRole) };
 
 
       // roleId Field Functions 
@@ -124,21 +115,22 @@ namespace Models
 
 
     protected:
-      // Indicates whether console logon is allowed for the RAM role.
-      shared_ptr<bool> allowConsoleLogin_ {};
-      // The resource descriptor of the RAM role.
+      // The resource descriptor of the role.
       shared_ptr<string> arn_ {};
-      // The trust policy of the RAM role.
+      // The trust policy document of the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the RAM role was created.
+      // The time when the role was created (UTC).
       shared_ptr<string> createDate_ {};
-      // The description of the RAM role.
+      // The description of the role.
       shared_ptr<string> description_ {};
-      // The maximum session duration of the RAM role.
-      shared_ptr<int64_t> maxSessionDuration_ {};
-      // The ID of the RAM role.
+      // Indicates whether the role is a service-linked role. Valid values:
+      // 
+      // - true: The role is a service-linked role.
+      // - false: The role is not a service-linked role.
+      shared_ptr<bool> isServiceLinkedRole_ {};
+      // The role ID.
       shared_ptr<string> roleId_ {};
-      // The name of the RAM role.
+      // The role name.
       shared_ptr<string> roleName_ {};
     };
 
@@ -148,23 +140,23 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CreateServiceLinkedRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline const CreateRoleResponseBody::Role & getRole() const { DARABONBA_PTR_GET_CONST(role_, CreateRoleResponseBody::Role) };
-    inline CreateRoleResponseBody::Role getRole() { DARABONBA_PTR_GET(role_, CreateRoleResponseBody::Role) };
-    inline CreateRoleResponseBody& setRole(const CreateRoleResponseBody::Role & role) { DARABONBA_PTR_SET_VALUE(role_, role) };
-    inline CreateRoleResponseBody& setRole(CreateRoleResponseBody::Role && role) { DARABONBA_PTR_SET_RVALUE(role_, role) };
+    inline const CreateServiceLinkedRoleResponseBody::Role & getRole() const { DARABONBA_PTR_GET_CONST(role_, CreateServiceLinkedRoleResponseBody::Role) };
+    inline CreateServiceLinkedRoleResponseBody::Role getRole() { DARABONBA_PTR_GET(role_, CreateServiceLinkedRoleResponseBody::Role) };
+    inline CreateServiceLinkedRoleResponseBody& setRole(const CreateServiceLinkedRoleResponseBody::Role & role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+    inline CreateServiceLinkedRoleResponseBody& setRole(CreateServiceLinkedRoleResponseBody::Role && role) { DARABONBA_PTR_SET_RVALUE(role_, role) };
 
 
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM role.
-    shared_ptr<CreateRoleResponseBody::Role> role_ {};
+    // The role information.
+    shared_ptr<CreateServiceLinkedRoleResponseBody::Role> role_ {};
   };
 
   } // namespace Models
