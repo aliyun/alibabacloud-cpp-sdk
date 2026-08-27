@@ -26,6 +26,11 @@ namespace WinNexo20260512
 
 AlibabaCloud::WinNexo20260512::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "winnexo.cn-shanghai.aliyuncs.com"},
+    {"cn-zhangjiakou" , "winnexo.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "winnexo.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("winnexo", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -42,6 +47,79 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+/**
+ * @summary Adds multiple tenant members to a specified user group in a single request.
+ *
+ * @description ## Request description
+ * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+ * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+ * - The caller must have the required permissions to perform this operation.
+ * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+ *
+ * @param tmpReq AddUserGroupMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUserGroupMembersResponse
+ */
+AddUserGroupMembersResponse Client::addUserGroupMembersWithOptions(const AddUserGroupMembersRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddUserGroupMembersShrinkRequest request = AddUserGroupMembersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUserIds()) {
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "userIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUserGroupId()) {
+    body["userGroupId"] = request.getUserGroupId();
+  }
+
+  if (!!request.hasUserIdsShrink()) {
+    body["userIds"] = request.getUserIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddUserGroupMembers"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/addUserGroupMembers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUserGroupMembersResponse>();
+}
+
+/**
+ * @summary Adds multiple tenant members to a specified user group in a single request.
+ *
+ * @description ## Request description
+ * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+ * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+ * - The caller must have the required permissions to perform this operation.
+ * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+ *
+ * @param request AddUserGroupMembersRequest
+ * @return AddUserGroupMembersResponse
+ */
+AddUserGroupMembersResponse Client::addUserGroupMembers(const AddUserGroupMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addUserGroupMembersWithOptions(request, headers, runtime);
 }
 
 /**
@@ -87,6 +165,125 @@ CheckHealthResponse Client::checkHealth(const CheckHealthRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return checkHealthWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a service notice.
+ *
+ * @description ## Operation description
+ * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+ * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+ * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+ * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+ * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+ *
+ * @param tmpReq CreateAnnouncementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAnnouncementResponse
+ */
+CreateAnnouncementResponse Client::createAnnouncementWithOptions(const CreateAnnouncementRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAnnouncementShrinkRequest request = CreateAnnouncementShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetRoleCodes()) {
+    request.setTargetRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetRoleCodes(), "targetRoleCodes", "json"));
+  }
+
+  if (!!tmpReq.hasTargetTenantIds()) {
+    request.setTargetTenantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetTenantIds(), "targetTenantIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasDisplayPage()) {
+    body["displayPage"] = request.getDisplayPage();
+  }
+
+  if (!!request.hasDisplayType()) {
+    body["displayType"] = request.getDisplayType();
+  }
+
+  if (!!request.hasEffectiveEnd()) {
+    body["effectiveEnd"] = request.getEffectiveEnd();
+  }
+
+  if (!!request.hasEffectiveStart()) {
+    body["effectiveStart"] = request.getEffectiveStart();
+  }
+
+  if (!!request.hasPriority()) {
+    body["priority"] = request.getPriority();
+  }
+
+  if (!!request.hasPublishNow()) {
+    body["publishNow"] = request.getPublishNow();
+  }
+
+  if (!!request.hasTargetRoleCodesShrink()) {
+    body["targetRoleCodes"] = request.getTargetRoleCodesShrink();
+  }
+
+  if (!!request.hasTargetRoleMode()) {
+    body["targetRoleMode"] = request.getTargetRoleMode();
+  }
+
+  if (!!request.hasTargetTenantIdsShrink()) {
+    body["targetTenantIds"] = request.getTargetTenantIdsShrink();
+  }
+
+  if (!!request.hasTargetTenantMode()) {
+    body["targetTenantMode"] = request.getTargetTenantMode();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAnnouncement"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createAnnouncement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAnnouncementResponse>();
+}
+
+/**
+ * @summary Creates a service notice.
+ *
+ * @description ## Operation description
+ * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+ * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+ * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+ * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+ * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+ *
+ * @param request CreateAnnouncementRequest
+ * @return CreateAnnouncementResponse
+ */
+CreateAnnouncementResponse Client::createAnnouncement(const CreateAnnouncementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAnnouncementWithOptions(request, headers, runtime);
 }
 
 /**
@@ -331,6 +528,214 @@ CreateGroupAliDingChatResponse Client::createGroupAliDingChat(const CreateGroupA
 }
 
 /**
+ * @summary Creates a group-level DingTalk chat knowledge source.
+ *
+ * @description ## Operation description
+ * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+ * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+ * - groupId, chatId, and historyStartTime are required.
+ * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+ * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+ *
+ * @param tmpReq CreateGroupDingtalkChatRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupDingtalkChatResponse
+ */
+CreateGroupDingtalkChatResponse Client::createGroupDingtalkChatWithOptions(const CreateGroupDingtalkChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGroupDingtalkChatShrinkRequest request = CreateGroupDingtalkChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateFrequency()) {
+    request.setUpdateFrequencyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateFrequency(), "updateFrequency", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasChatId()) {
+    body["chatId"] = request.getChatId();
+  }
+
+  if (!!request.hasChatName()) {
+    body["chatName"] = request.getChatName();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasHistoryStartTime()) {
+    body["historyStartTime"] = request.getHistoryStartTime();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasUpdateFrequencyShrink()) {
+    body["updateFrequency"] = request.getUpdateFrequencyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupDingtalkChat"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupDingtalkChat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupDingtalkChatResponse>();
+}
+
+/**
+ * @summary Creates a group-level DingTalk chat knowledge source.
+ *
+ * @description ## Operation description
+ * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+ * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+ * - groupId, chatId, and historyStartTime are required.
+ * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+ * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+ *
+ * @param request CreateGroupDingtalkChatRequest
+ * @return CreateGroupDingtalkChatResponse
+ */
+CreateGroupDingtalkChatResponse Client::createGroupDingtalkChat(const CreateGroupDingtalkChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupDingtalkChatWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+ *
+ * @param tmpReq CreateGroupFeishuDocRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupFeishuDocResponse
+ */
+CreateGroupFeishuDocResponse Client::createGroupFeishuDocWithOptions(const CreateGroupFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGroupFeishuDocShrinkRequest request = CreateGroupFeishuDocShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasObjectBindings()) {
+    request.setObjectBindingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getObjectBindings(), "objectBindings", "json"));
+  }
+
+  if (!!tmpReq.hasSyncConfig()) {
+    request.setSyncConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSyncConfig(), "syncConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasDocUrl()) {
+    body["docUrl"] = request.getDocUrl();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasObjectBindingsShrink()) {
+    body["objectBindings"] = request.getObjectBindingsShrink();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasSyncConfigShrink()) {
+    body["syncConfig"] = request.getSyncConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupFeishuDoc"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupFeishuDoc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupFeishuDocResponse>();
+}
+
+/**
+ * @summary Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+ *
+ * @param request CreateGroupFeishuDocRequest
+ * @return CreateGroupFeishuDocResponse
+ */
+CreateGroupFeishuDocResponse Client::createGroupFeishuDoc(const CreateGroupFeishuDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupFeishuDocWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Uploads an AliDing online document to the enterprise knowledge base. Management permissions are required.
  *
  * @description ## Request description
@@ -494,6 +899,103 @@ CreateKnowledgeBaseDirectoryResponse Client::createKnowledgeBaseDirectory(const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createKnowledgeBaseDirectoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+ *
+ * @param tmpReq CreateKnowledgeBaseFeishuDocRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKnowledgeBaseFeishuDocResponse
+ */
+CreateKnowledgeBaseFeishuDocResponse Client::createKnowledgeBaseFeishuDocWithOptions(const CreateKnowledgeBaseFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateKnowledgeBaseFeishuDocShrinkRequest request = CreateKnowledgeBaseFeishuDocShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasObjectBindings()) {
+    request.setObjectBindingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getObjectBindings(), "objectBindings", "json"));
+  }
+
+  if (!!tmpReq.hasSyncConfig()) {
+    request.setSyncConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSyncConfig(), "syncConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasDocUrl()) {
+    body["docUrl"] = request.getDocUrl();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasObjectBindingsShrink()) {
+    body["objectBindings"] = request.getObjectBindingsShrink();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasSyncConfigShrink()) {
+    body["syncConfig"] = request.getSyncConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKnowledgeBaseFeishuDoc"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createKnowledgeBaseFeishuDoc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKnowledgeBaseFeishuDocResponse>();
+}
+
+/**
+ * @summary Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+ *
+ * @param request CreateKnowledgeBaseFeishuDocRequest
+ * @return CreateKnowledgeBaseFeishuDocResponse
+ */
+CreateKnowledgeBaseFeishuDocResponse Client::createKnowledgeBaseFeishuDoc(const CreateKnowledgeBaseFeishuDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createKnowledgeBaseFeishuDocWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1071,6 +1573,109 @@ CreatePersonalAlidingKnowledgeBaseResponse Client::createPersonalAlidingKnowledg
 }
 
 /**
+ * @summary Creates a personal DingTalk group chat knowledge source.
+ *
+ * @description ## Operation description
+ * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+ * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+ * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+ * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+ * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+ *
+ * @param tmpReq CreatePersonalDingtalkChatRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePersonalDingtalkChatResponse
+ */
+CreatePersonalDingtalkChatResponse Client::createPersonalDingtalkChatWithOptions(const CreatePersonalDingtalkChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePersonalDingtalkChatShrinkRequest request = CreatePersonalDingtalkChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateFrequency()) {
+    request.setUpdateFrequencyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateFrequency(), "updateFrequency", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasChatId()) {
+    body["chatId"] = request.getChatId();
+  }
+
+  if (!!request.hasChatName()) {
+    body["chatName"] = request.getChatName();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasHistoryStartTime()) {
+    body["historyStartTime"] = request.getHistoryStartTime();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasUpdateFrequencyShrink()) {
+    body["updateFrequency"] = request.getUpdateFrequencyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePersonalDingtalkChat"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createPersonalDingtalkChat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePersonalDingtalkChatResponse>();
+}
+
+/**
+ * @summary Creates a personal DingTalk group chat knowledge source.
+ *
+ * @description ## Operation description
+ * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+ * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+ * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+ * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+ * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+ *
+ * @param request CreatePersonalDingtalkChatRequest
+ * @return CreatePersonalDingtalkChatResponse
+ */
+CreatePersonalDingtalkChatResponse Client::createPersonalDingtalkChat(const CreatePersonalDingtalkChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPersonalDingtalkChatWithOptions(request, headers, runtime);
+}
+
+/**
  * @deprecated OpenAPI CreatePersonalDingtalkMeeting is deprecated
  *
  * @summary Uploads a DingTalk meeting to the personal resource library of the current digital employee.
@@ -1426,6 +2031,103 @@ CreatePersonalFeishuChatResponse Client::createPersonalFeishuChat(const CreatePe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createPersonalFeishuChatWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+ *
+ * @param tmpReq CreatePersonalFeishuDocRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePersonalFeishuDocResponse
+ */
+CreatePersonalFeishuDocResponse Client::createPersonalFeishuDocWithOptions(const CreatePersonalFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePersonalFeishuDocShrinkRequest request = CreatePersonalFeishuDocShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasObjectBindings()) {
+    request.setObjectBindingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getObjectBindings(), "objectBindings", "json"));
+  }
+
+  if (!!tmpReq.hasSyncConfig()) {
+    request.setSyncConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSyncConfig(), "syncConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasDocUrl()) {
+    body["docUrl"] = request.getDocUrl();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasObjectBindingsShrink()) {
+    body["objectBindings"] = request.getObjectBindingsShrink();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasSyncConfigShrink()) {
+    body["syncConfig"] = request.getSyncConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePersonalFeishuDoc"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createPersonalFeishuDoc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePersonalFeishuDocResponse>();
+}
+
+/**
+ * @summary Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+ *
+ * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+ *
+ * @param request CreatePersonalFeishuDocRequest
+ * @return CreatePersonalFeishuDocResponse
+ */
+CreatePersonalFeishuDocResponse Client::createPersonalFeishuDoc(const CreatePersonalFeishuDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPersonalFeishuDocWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2105,6 +2807,168 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
+ * @summary Creates a user group under the tenant to which the authenticated identity belongs.
+ *
+ * @description WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+ *
+ * @param request CreateUserGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserGroupResponse
+ */
+CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasParentId()) {
+    body["parentId"] = request.getParentId();
+  }
+
+  if (!!request.hasUserGroupName()) {
+    body["userGroupName"] = request.getUserGroupName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateUserGroup"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createUserGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserGroupResponse>();
+}
+
+/**
+ * @summary Creates a user group under the tenant to which the authenticated identity belongs.
+ *
+ * @description WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+ *
+ * @param request CreateUserGroupRequest
+ * @return CreateUserGroupResponse
+ */
+CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createUserGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+ *
+ * @description Creates a user and sets initial roles and user groups via OpenAPI.
+ *     Business orchestration:
+ *     1. Parses roleCodes → role_ids (system role enumeration validation)
+ *     2. Checks whether the user already exists (used to return the isNewUser flag)
+ *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+ *     4. Returns the creation result (including the isNewUser flag)
+ *     Error codes:
+ *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+ *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+ *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+ *
+ * @param tmpReq CreateUserWithGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserWithGroupsResponse
+ */
+CreateUserWithGroupsResponse Client::createUserWithGroupsWithOptions(const CreateUserWithGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateUserWithGroupsShrinkRequest request = CreateUserWithGroupsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRoleCodes()) {
+    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoleCodes(), "roleCodes", "json"));
+  }
+
+  if (!!tmpReq.hasUserGroupIds()) {
+    request.setUserGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserGroupIds(), "userGroupIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasPasswordEncrypted()) {
+    body["passwordEncrypted"] = request.getPasswordEncrypted();
+  }
+
+  if (!!request.hasRoleCodesShrink()) {
+    body["roleCodes"] = request.getRoleCodesShrink();
+  }
+
+  if (!!request.hasUserGroupIdsShrink()) {
+    body["userGroupIds"] = request.getUserGroupIdsShrink();
+  }
+
+  if (!!request.hasWnAccountId()) {
+    body["wnAccountId"] = request.getWnAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateUserWithGroups"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createUserWithGroups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserWithGroupsResponse>();
+}
+
+/**
+ * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+ *
+ * @description Creates a user and sets initial roles and user groups via OpenAPI.
+ *     Business orchestration:
+ *     1. Parses roleCodes → role_ids (system role enumeration validation)
+ *     2. Checks whether the user already exists (used to return the isNewUser flag)
+ *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+ *     4. Returns the creation result (including the isNewUser flag)
+ *     Error codes:
+ *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+ *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+ *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+ *
+ * @param request CreateUserWithGroupsRequest
+ * @return CreateUserWithGroupsResponse
+ */
+CreateUserWithGroupsResponse Client::createUserWithGroups(const CreateUserWithGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createUserWithGroupsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes a session.
  *
  * @description ## Request description
@@ -2505,7 +3369,7 @@ GetChatSessionResponse Client::getChatSession(const GetChatSessionRequest &reque
 }
 
 /**
- * @summary Retrieves the active Graph Schema that is readable by the current user.
+ * @summary Retrieves the active Graph Schema readable by the current user.
  *
  * @description Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
  *
@@ -2546,7 +3410,7 @@ GetGraphSchemaResponse Client::getGraphSchemaWithOptions(const GetGraphSchemaReq
 }
 
 /**
- * @summary Retrieves the active Graph Schema that is readable by the current user.
+ * @summary Retrieves the active Graph Schema readable by the current user.
  *
  * @description Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
  *
@@ -2839,6 +3703,65 @@ GetScheduledTaskExecutionRecordsResponse Client::getScheduledTaskExecutionRecord
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getScheduledTaskExecutionRecordsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the push configuration options for scheduled tasks.
+ *
+ * @description Queries the channels and methods available to the current user for scheduled task push notifications.
+ *
+ * @param request GetScheduledTaskPushOptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScheduledTaskPushOptionsResponse
+ */
+GetScheduledTaskPushOptionsResponse Client::getScheduledTaskPushOptionsWithOptions(const GetScheduledTaskPushOptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasDigitalEmployeeName()) {
+    body["digitalEmployeeName"] = request.getDigitalEmployeeName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetScheduledTaskPushOptions"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getScheduledTaskPushOptions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScheduledTaskPushOptionsResponse>();
+}
+
+/**
+ * @summary Retrieves the push configuration options for scheduled tasks.
+ *
+ * @description Queries the channels and methods available to the current user for scheduled task push notifications.
+ *
+ * @param request GetScheduledTaskPushOptionsRequest
+ * @return GetScheduledTaskPushOptionsResponse
+ */
+GetScheduledTaskPushOptionsResponse Client::getScheduledTaskPushOptions(const GetScheduledTaskPushOptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getScheduledTaskPushOptionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3229,6 +4152,77 @@ GetSourceUploadSignatureResponse Client::getSourceUploadSignature(const GetSourc
 }
 
 /**
+ * @summary Retrieves an API token and ensures that it is active.
+ *
+ * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+ *     Business logic:
+ *     1. Obtains user_id from identity (caller_type=user is enforced).
+ *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+ *     3. Calls ensure_active_token:
+ *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+ *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+ *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+ *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+ *
+ * @param request GetTokenEnsureEnableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTokenEnsureEnableResponse
+ */
+GetTokenEnsureEnableResponse Client::getTokenEnsureEnableWithOptions(const GetTokenEnsureEnableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasWnUserId()) {
+    body["wnUserId"] = request.getWnUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTokenEnsureEnable"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getTokenEnsureEnable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTokenEnsureEnableResponse>();
+}
+
+/**
+ * @summary Retrieves an API token and ensures that it is active.
+ *
+ * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+ *     Business logic:
+ *     1. Obtains user_id from identity (caller_type=user is enforced).
+ *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+ *     3. Calls ensure_active_token:
+ *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+ *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+ *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+ *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+ *
+ * @param request GetTokenEnsureEnableRequest
+ * @return GetTokenEnsureEnableResponse
+ */
+GetTokenEnsureEnableResponse Client::getTokenEnsureEnable(const GetTokenEnsureEnableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTokenEnsureEnableWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the token status of a user.
  *
  * @description Queries the INSTANCE token status of a user.
@@ -3428,6 +4422,73 @@ GetUserCreditUsageResponse Client::getUserCreditUsage(const GetUserCreditUsageRe
 }
 
 /**
+ * @summary Queries the details of a specified user group, including its parent group, child groups, and members.
+ *
+ * @description ## Operation description
+ * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+ * - `userGroupId` is a required parameter that must be provided in the request body.
+ * - `tenantId` is an optional parameter that can be passed through the query string.
+ * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+ * - The content type for both requests and responses is `application/json`.
+ * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+ *
+ * @param request GetUserGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserGroupResponse
+ */
+GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUserGroupId()) {
+    body["userGroupId"] = request.getUserGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetUserGroup"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getUserGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserGroupResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified user group, including its parent group, child groups, and members.
+ *
+ * @description ## Operation description
+ * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+ * - `userGroupId` is a required parameter that must be provided in the request body.
+ * - `tenantId` is an optional parameter that can be passed through the query string.
+ * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+ * - The content type for both requests and responses is `application/json`.
+ * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+ *
+ * @param request GetUserGroupRequest
+ * @return GetUserGroupResponse
+ */
+GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getUserGroupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the complete information of the authenticated user through OpenAPI, including basic information and tenant list.
  *
  * @description ## Request description
@@ -3583,6 +4644,67 @@ GrantAgentUsersResponse Client::grantAgentUsers(const GrantAgentUsersRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return grantAgentUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries currently effective service notices.
+ *
+ * @description ## Request description
+ * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+ *
+ * @param request ListActiveAnnouncementsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListActiveAnnouncementsResponse
+ */
+ListActiveAnnouncementsResponse Client::listActiveAnnouncementsWithOptions(const ListActiveAnnouncementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPageNumber()) {
+    body["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListActiveAnnouncements"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listActiveAnnouncements")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListActiveAnnouncementsResponse>();
+}
+
+/**
+ * @summary Queries currently effective service notices.
+ *
+ * @description ## Request description
+ * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+ *
+ * @param request ListActiveAnnouncementsRequest
+ * @return ListActiveAnnouncementsResponse
+ */
+ListActiveAnnouncementsResponse Client::listActiveAnnouncements(const ListActiveAnnouncementsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listActiveAnnouncementsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4793,6 +5915,63 @@ ListTenantDirectoryResponse Client::listTenantDirectory(const ListTenantDirector
 }
 
 /**
+ * @summary Returns the multi-level user group tree for the current tenant.
+ *
+ * @description ## Request description
+ * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+ * ### Precautions
+ * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+ * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+ *
+ * @param request ListUserGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserGroupsResponse
+ */
+ListUserGroupsResponse Client::listUserGroupsWithOptions(const ListUserGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserGroups"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listUserGroups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserGroupsResponse>();
+}
+
+/**
+ * @summary Returns the multi-level user group tree for the current tenant.
+ *
+ * @description ## Request description
+ * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+ * ### Precautions
+ * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+ * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+ *
+ * @param request ListUserGroupsRequest
+ * @return ListUserGroupsResponse
+ */
+ListUserGroupsResponse Client::listUserGroups(const ListUserGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listUserGroupsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the knowledge base directory content visible to the current OpenAPI user.
  *
  * @description ## Operation description
@@ -5365,6 +6544,65 @@ MoveResourceResponse Client::moveResource(const MoveResourceRequest &request) {
 }
 
 /**
+ * @summary Offlines a service notice.
+ *
+ * @description ## Request description
+ * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+ * The caller must belong to the system operations tenant and have announcement management permissions.
+ *
+ * @param request OfflineAnnouncementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflineAnnouncementResponse
+ */
+OfflineAnnouncementResponse Client::offlineAnnouncementWithOptions(const OfflineAnnouncementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAnnouncementId()) {
+    body["announcementId"] = request.getAnnouncementId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OfflineAnnouncement"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/offlineAnnouncement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflineAnnouncementResponse>();
+}
+
+/**
+ * @summary Offlines a service notice.
+ *
+ * @description ## Request description
+ * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+ * The caller must belong to the system operations tenant and have announcement management permissions.
+ *
+ * @param request OfflineAnnouncementRequest
+ * @return OfflineAnnouncementResponse
+ */
+OfflineAnnouncementResponse Client::offlineAnnouncement(const OfflineAnnouncementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return offlineAnnouncementWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Previews the knowledge content in a specified enterprise knowledge base.
  *
  * @description ## Operation description
@@ -5862,6 +7100,81 @@ RemoveUserResponse Client::removeUser(const RemoveUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return removeUserWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Removes direct member relationships in bulk from a specified user group.
+ *
+ * @description ## Request description
+ * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+ * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+ * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+ * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+ * - This operation requires appropriate permission authentication and is recorded in operation logs.
+ *
+ * @param tmpReq RemoveUserGroupMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveUserGroupMembersResponse
+ */
+RemoveUserGroupMembersResponse Client::removeUserGroupMembersWithOptions(const RemoveUserGroupMembersRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveUserGroupMembersShrinkRequest request = RemoveUserGroupMembersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUserIds()) {
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "userIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUserGroupId()) {
+    body["userGroupId"] = request.getUserGroupId();
+  }
+
+  if (!!request.hasUserIdsShrink()) {
+    body["userIds"] = request.getUserIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RemoveUserGroupMembers"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/removeUserGroupMembers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveUserGroupMembersResponse>();
+}
+
+/**
+ * @summary Removes direct member relationships in bulk from a specified user group.
+ *
+ * @description ## Request description
+ * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+ * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+ * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+ * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+ * - This operation requires appropriate permission authentication and is recorded in operation logs.
+ *
+ * @param request RemoveUserGroupMembersRequest
+ * @return RemoveUserGroupMembersResponse
+ */
+RemoveUserGroupMembersResponse Client::removeUserGroupMembers(const RemoveUserGroupMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return removeUserGroupMembersWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6774,6 +8087,176 @@ RunSkillResponse Client::runSkill(const RunSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return runSkillWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Saves group outputs in batches to the collaboration group repository.
+ *
+ * @description ## Request description
+ * - Saves specified group outputs to the repository directory of the same collaboration group.
+ * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+ * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+ * - If `directoryId` is not specified, the default repository directory of the target group is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+ * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+ *
+ * @param tmpReq SaveGroupOutputFileToGroupResourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveGroupOutputFileToGroupResourceResponse
+ */
+SaveGroupOutputFileToGroupResourceResponse Client::saveGroupOutputFileToGroupResourceWithOptions(const SaveGroupOutputFileToGroupResourceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SaveGroupOutputFileToGroupResourceShrinkRequest request = SaveGroupOutputFileToGroupResourceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItemIds()) {
+    request.setItemIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItemIds(), "itemIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasItemIdsShrink()) {
+    body["itemIds"] = request.getItemIdsShrink();
+  }
+
+  if (!!request.hasMode()) {
+    body["mode"] = request.getMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveGroupOutputFileToGroupResource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/saveGroupOutputFileToGroupResource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveGroupOutputFileToGroupResourceResponse>();
+}
+
+/**
+ * @summary Saves group outputs in batches to the collaboration group repository.
+ *
+ * @description ## Request description
+ * - Saves specified group outputs to the repository directory of the same collaboration group.
+ * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+ * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+ * - If `directoryId` is not specified, the default repository directory of the target group is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+ * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+ *
+ * @param request SaveGroupOutputFileToGroupResourceRequest
+ * @return SaveGroupOutputFileToGroupResourceResponse
+ */
+SaveGroupOutputFileToGroupResourceResponse Client::saveGroupOutputFileToGroupResource(const SaveGroupOutputFileToGroupResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return saveGroupOutputFileToGroupResourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+ *
+ * @description ## Request description
+ * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+ * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+ * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+ * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+ * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+ *
+ * @param tmpReq SaveGroupOutputFileToPersonalResourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveGroupOutputFileToPersonalResourceResponse
+ */
+SaveGroupOutputFileToPersonalResourceResponse Client::saveGroupOutputFileToPersonalResourceWithOptions(const SaveGroupOutputFileToPersonalResourceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SaveGroupOutputFileToPersonalResourceShrinkRequest request = SaveGroupOutputFileToPersonalResourceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItemIds()) {
+    request.setItemIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItemIds(), "itemIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasItemIdsShrink()) {
+    body["itemIds"] = request.getItemIdsShrink();
+  }
+
+  if (!!request.hasMode()) {
+    body["mode"] = request.getMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveGroupOutputFileToPersonalResource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/saveGroupOutputFileToPersonalResource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveGroupOutputFileToPersonalResourceResponse>();
+}
+
+/**
+ * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+ *
+ * @description ## Request description
+ * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+ * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+ * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+ * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+ * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+ *
+ * @param request SaveGroupOutputFileToPersonalResourceRequest
+ * @return SaveGroupOutputFileToPersonalResourceResponse
+ */
+SaveGroupOutputFileToPersonalResourceResponse Client::saveGroupOutputFileToPersonalResource(const SaveGroupOutputFileToPersonalResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return saveGroupOutputFileToPersonalResourceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8345,6 +9828,77 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateUserWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates the name, description, and parent relationship of a specified user group.
+ *
+ * @description WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+ *
+ * @param request UpdateUserGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateUserGroupResponse
+ */
+UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasMoveToRoot()) {
+    body["moveToRoot"] = request.getMoveToRoot();
+  }
+
+  if (!!request.hasParentId()) {
+    body["parentId"] = request.getParentId();
+  }
+
+  if (!!request.hasUserGroupId()) {
+    body["userGroupId"] = request.getUserGroupId();
+  }
+
+  if (!!request.hasUserGroupName()) {
+    body["userGroupName"] = request.getUserGroupName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateUserGroup"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateUserGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateUserGroupResponse>();
+}
+
+/**
+ * @summary Updates the name, description, and parent relationship of a specified user group.
+ *
+ * @description WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+ *
+ * @param request UpdateUserGroupRequest
+ * @return UpdateUserGroupResponse
+ */
+UpdateUserGroupResponse Client::updateUserGroup(const UpdateUserGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateUserGroupWithOptions(request, headers, runtime);
 }
 
 /**

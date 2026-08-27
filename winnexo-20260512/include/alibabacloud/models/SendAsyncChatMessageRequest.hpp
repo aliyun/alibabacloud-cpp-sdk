@@ -334,7 +334,7 @@ namespace Models
     shared_ptr<bool> directChat_ {};
     // The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
     shared_ptr<vector<SendAsyncChatMessageRequest::Files>> files_ {};
-    // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, a new session uses standard, and an existing session retains its current tier.
+    // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain their current tier.
     shared_ptr<string> model_ {};
     // Specifies whether to reuse the most recent session of the digital employee when sessionId is not specified. This is designed for CLI scenarios. Default value: false, which creates a new session.
     shared_ptr<bool> reuseLastSession_ {};
@@ -342,7 +342,7 @@ namespace Models
     shared_ptr<string> sessionId_ {};
     // Specifies whether to use streaming generation. This operation always generates backend content in streaming mode and writes it to the message stream. The value does not change the response structure.
     shared_ptr<bool> stream_ {};
-    // The task execution metadata returned by executeScheduledTask. If specified, the request is processed through the task execution pipeline.
+    // The task execution metadata returned by executeScheduledTask. When provided, the request is processed through the task execution pipeline.
     shared_ptr<SendAsyncChatMessageRequest::TaskExecution> taskExecution_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

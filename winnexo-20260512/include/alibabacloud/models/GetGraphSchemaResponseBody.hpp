@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(graphName, graphName_);
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(schemaId, schemaId_);
       DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
       DARABONBA_PTR_TO_JSON(yamlEdit, yamlEdit_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(graphName, graphName_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(schemaId, schemaId_);
       DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
       DARABONBA_PTR_FROM_JSON(yamlEdit, yamlEdit_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->graphName_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->schemaVersion_ == nullptr && this->yamlEdit_ == nullptr; };
+        && this->graphName_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->schemaId_ == nullptr && this->schemaVersion_ == nullptr
+        && this->yamlEdit_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline GetGraphSchemaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // schemaId Field Functions 
+    bool hasSchemaId() const { return this->schemaId_ != nullptr;};
+    void deleteSchemaId() { this->schemaId_ = nullptr;};
+    inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+    inline GetGraphSchemaResponseBody& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
+
+
     // schemaVersion Field Functions 
     bool hasSchemaVersion() const { return this->schemaVersion_ != nullptr;};
     void deleteSchemaVersion() { this->schemaVersion_ = nullptr;};
@@ -86,7 +96,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The knowledge graph name.
+    // The graph name.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
@@ -94,6 +104,8 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The active QueryAgent registered schema ID corresponding to the graph. The value is null if not yet registered.
+    shared_ptr<string> schemaId_ {};
     // The version.
     // 
     // This parameter is required.

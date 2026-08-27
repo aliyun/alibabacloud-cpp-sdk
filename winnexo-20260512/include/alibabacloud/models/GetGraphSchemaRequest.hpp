@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The knowledge graph name. Call listGraphs to obtain this value.
+    // The graph name. Call listGraphs first to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};

@@ -22,6 +22,36 @@ namespace WinNexo20260512
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Adds multiple tenant members to a specified user group in a single request.
+       *
+       * @description ## Request description
+       * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+       * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+       * - The caller must have the required permissions to perform this operation.
+       * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+       *
+       * @param tmpReq AddUserGroupMembersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddUserGroupMembersResponse
+       */
+      Models::AddUserGroupMembersResponse addUserGroupMembersWithOptions(const Models::AddUserGroupMembersRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds multiple tenant members to a specified user group in a single request.
+       *
+       * @description ## Request description
+       * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+       * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+       * - The caller must have the required permissions to perform this operation.
+       * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+       *
+       * @param request AddUserGroupMembersRequest
+       * @return AddUserGroupMembersResponse
+       */
+      Models::AddUserGroupMembersResponse addUserGroupMembers(const Models::AddUserGroupMembersRequest &request);
+
+      /**
        * @summary Performs a service health check.
        *
        * @param request CheckHealthRequest
@@ -38,6 +68,38 @@ namespace WinNexo20260512
        * @return CheckHealthResponse
        */
       Models::CheckHealthResponse checkHealth(const Models::CheckHealthRequest &request);
+
+      /**
+       * @summary Creates a service notice.
+       *
+       * @description ## Operation description
+       * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+       * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+       * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+       * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+       * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+       *
+       * @param tmpReq CreateAnnouncementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAnnouncementResponse
+       */
+      Models::CreateAnnouncementResponse createAnnouncementWithOptions(const Models::CreateAnnouncementRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a service notice.
+       *
+       * @description ## Operation description
+       * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+       * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+       * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+       * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+       * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+       *
+       * @param request CreateAnnouncementRequest
+       * @return CreateAnnouncementResponse
+       */
+      Models::CreateAnnouncementResponse createAnnouncement(const Models::CreateAnnouncementRequest &request);
 
       /**
        * @summary Creates a session.
@@ -122,6 +184,60 @@ namespace WinNexo20260512
       Models::CreateGroupAliDingChatResponse createGroupAliDingChat(const Models::CreateGroupAliDingChatRequest &request);
 
       /**
+       * @summary Creates a group-level DingTalk chat knowledge source.
+       *
+       * @description ## Operation description
+       * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+       * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+       * - groupId, chatId, and historyStartTime are required.
+       * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+       * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+       *
+       * @param tmpReq CreateGroupDingtalkChatRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGroupDingtalkChatResponse
+       */
+      Models::CreateGroupDingtalkChatResponse createGroupDingtalkChatWithOptions(const Models::CreateGroupDingtalkChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a group-level DingTalk chat knowledge source.
+       *
+       * @description ## Operation description
+       * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+       * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+       * - groupId, chatId, and historyStartTime are required.
+       * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+       * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+       *
+       * @param request CreateGroupDingtalkChatRequest
+       * @return CreateGroupDingtalkChatResponse
+       */
+      Models::CreateGroupDingtalkChatResponse createGroupDingtalkChat(const Models::CreateGroupDingtalkChatRequest &request);
+
+      /**
+       * @summary Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+       *
+       * @param tmpReq CreateGroupFeishuDocRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGroupFeishuDocResponse
+       */
+      Models::CreateGroupFeishuDocResponse createGroupFeishuDocWithOptions(const Models::CreateGroupFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+       *
+       * @param request CreateGroupFeishuDocRequest
+       * @return CreateGroupFeishuDocResponse
+       */
+      Models::CreateGroupFeishuDocResponse createGroupFeishuDoc(const Models::CreateGroupFeishuDocRequest &request);
+
+      /**
        * @summary Uploads an AliDing online document to the enterprise knowledge base. Management permissions are required.
        *
        * @description ## Request description
@@ -188,6 +304,28 @@ namespace WinNexo20260512
        * @return CreateKnowledgeBaseDirectoryResponse
        */
       Models::CreateKnowledgeBaseDirectoryResponse createKnowledgeBaseDirectory(const Models::CreateKnowledgeBaseDirectoryRequest &request);
+
+      /**
+       * @summary Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+       *
+       * @param tmpReq CreateKnowledgeBaseFeishuDocRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKnowledgeBaseFeishuDocResponse
+       */
+      Models::CreateKnowledgeBaseFeishuDocResponse createKnowledgeBaseFeishuDocWithOptions(const Models::CreateKnowledgeBaseFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+       *
+       * @param request CreateKnowledgeBaseFeishuDocRequest
+       * @return CreateKnowledgeBaseFeishuDocResponse
+       */
+      Models::CreateKnowledgeBaseFeishuDocResponse createKnowledgeBaseFeishuDoc(const Models::CreateKnowledgeBaseFeishuDocRequest &request);
 
       /**
        * @summary Uploads a specified file to the enterprise knowledge base. Management permissions are required.
@@ -398,6 +536,38 @@ namespace WinNexo20260512
       Models::CreatePersonalAlidingKnowledgeBaseResponse createPersonalAlidingKnowledgeBase(const Models::CreatePersonalAlidingKnowledgeBaseRequest &request);
 
       /**
+       * @summary Creates a personal DingTalk group chat knowledge source.
+       *
+       * @description ## Operation description
+       * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+       * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+       * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+       * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+       * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+       *
+       * @param tmpReq CreatePersonalDingtalkChatRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePersonalDingtalkChatResponse
+       */
+      Models::CreatePersonalDingtalkChatResponse createPersonalDingtalkChatWithOptions(const Models::CreatePersonalDingtalkChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a personal DingTalk group chat knowledge source.
+       *
+       * @description ## Operation description
+       * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+       * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+       * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+       * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+       * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+       *
+       * @param request CreatePersonalDingtalkChatRequest
+       * @return CreatePersonalDingtalkChatResponse
+       */
+      Models::CreatePersonalDingtalkChatResponse createPersonalDingtalkChat(const Models::CreatePersonalDingtalkChatRequest &request);
+
+      /**
        * @deprecated OpenAPI CreatePersonalDingtalkMeeting is deprecated
        *
        * @summary Uploads a DingTalk meeting to the personal resource library of the current digital employee.
@@ -532,6 +702,28 @@ namespace WinNexo20260512
        * @return CreatePersonalFeishuChatResponse
        */
       Models::CreatePersonalFeishuChatResponse createPersonalFeishuChat(const Models::CreatePersonalFeishuChatRequest &request);
+
+      /**
+       * @summary Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+       *
+       * @param tmpReq CreatePersonalFeishuDocRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePersonalFeishuDocResponse
+       */
+      Models::CreatePersonalFeishuDocResponse createPersonalFeishuDocWithOptions(const Models::CreatePersonalFeishuDocRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+       *
+       * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+       *
+       * @param request CreatePersonalFeishuDocRequest
+       * @return CreatePersonalFeishuDocResponse
+       */
+      Models::CreatePersonalFeishuDocResponse createPersonalFeishuDoc(const Models::CreatePersonalFeishuDocRequest &request);
 
       /**
        * @summary Uploads a Lark Minutes meeting file to the personal resource library of the current digital employee.
@@ -790,6 +982,68 @@ namespace WinNexo20260512
       Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
 
       /**
+       * @summary Creates a user group under the tenant to which the authenticated identity belongs.
+       *
+       * @description WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+       *
+       * @param request CreateUserGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserGroupResponse
+       */
+      Models::CreateUserGroupResponse createUserGroupWithOptions(const Models::CreateUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a user group under the tenant to which the authenticated identity belongs.
+       *
+       * @description WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+       *
+       * @param request CreateUserGroupRequest
+       * @return CreateUserGroupResponse
+       */
+      Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
+
+      /**
+       * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+       *
+       * @description Creates a user and sets initial roles and user groups via OpenAPI.
+       *     Business orchestration:
+       *     1. Parses roleCodes → role_ids (system role enumeration validation)
+       *     2. Checks whether the user already exists (used to return the isNewUser flag)
+       *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+       *     4. Returns the creation result (including the isNewUser flag)
+       *     Error codes:
+       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+       *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+       *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+       *
+       * @param tmpReq CreateUserWithGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserWithGroupsResponse
+       */
+      Models::CreateUserWithGroupsResponse createUserWithGroupsWithOptions(const Models::CreateUserWithGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+       *
+       * @description Creates a user and sets initial roles and user groups via OpenAPI.
+       *     Business orchestration:
+       *     1. Parses roleCodes → role_ids (system role enumeration validation)
+       *     2. Checks whether the user already exists (used to return the isNewUser flag)
+       *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+       *     4. Returns the creation result (including the isNewUser flag)
+       *     Error codes:
+       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+       *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+       *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+       *
+       * @param request CreateUserWithGroupsRequest
+       * @return CreateUserWithGroupsResponse
+       */
+      Models::CreateUserWithGroupsResponse createUserWithGroups(const Models::CreateUserWithGroupsRequest &request);
+
+      /**
        * @summary Deletes a session.
        *
        * @description ## Request description
@@ -988,7 +1242,7 @@ namespace WinNexo20260512
       Models::GetChatSessionResponse getChatSession(const Models::GetChatSessionRequest &request);
 
       /**
-       * @summary Retrieves the active Graph Schema that is readable by the current user.
+       * @summary Retrieves the active Graph Schema readable by the current user.
        *
        * @description Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
        *
@@ -1000,7 +1254,7 @@ namespace WinNexo20260512
       Models::GetGraphSchemaResponse getGraphSchemaWithOptions(const Models::GetGraphSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the active Graph Schema that is readable by the current user.
+       * @summary Retrieves the active Graph Schema readable by the current user.
        *
        * @description Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
        *
@@ -1148,6 +1402,28 @@ namespace WinNexo20260512
        * @return GetScheduledTaskExecutionRecordsResponse
        */
       Models::GetScheduledTaskExecutionRecordsResponse getScheduledTaskExecutionRecords(const Models::GetScheduledTaskExecutionRecordsRequest &request);
+
+      /**
+       * @summary Retrieves the push configuration options for scheduled tasks.
+       *
+       * @description Queries the channels and methods available to the current user for scheduled task push notifications.
+       *
+       * @param request GetScheduledTaskPushOptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScheduledTaskPushOptionsResponse
+       */
+      Models::GetScheduledTaskPushOptionsResponse getScheduledTaskPushOptionsWithOptions(const Models::GetScheduledTaskPushOptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the push configuration options for scheduled tasks.
+       *
+       * @description Queries the channels and methods available to the current user for scheduled task push notifications.
+       *
+       * @param request GetScheduledTaskPushOptionsRequest
+       * @return GetScheduledTaskPushOptionsResponse
+       */
+      Models::GetScheduledTaskPushOptionsResponse getScheduledTaskPushOptions(const Models::GetScheduledTaskPushOptionsRequest &request);
 
       /**
        * @deprecated OpenAPI GetScheduledTaskUnderstandDetail is deprecated
@@ -1316,6 +1592,44 @@ namespace WinNexo20260512
       Models::GetSourceUploadSignatureResponse getSourceUploadSignature(const Models::GetSourceUploadSignatureRequest &request);
 
       /**
+       * @summary Retrieves an API token and ensures that it is active.
+       *
+       * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+       *     Business logic:
+       *     1. Obtains user_id from identity (caller_type=user is enforced).
+       *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+       *     3. Calls ensure_active_token:
+       *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+       *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+       *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+       *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+       *
+       * @param request GetTokenEnsureEnableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTokenEnsureEnableResponse
+       */
+      Models::GetTokenEnsureEnableResponse getTokenEnsureEnableWithOptions(const Models::GetTokenEnsureEnableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves an API token and ensures that it is active.
+       *
+       * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+       *     Business logic:
+       *     1. Obtains user_id from identity (caller_type=user is enforced).
+       *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+       *     3. Calls ensure_active_token:
+       *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+       *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+       *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+       *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+       *
+       * @param request GetTokenEnsureEnableRequest
+       * @return GetTokenEnsureEnableResponse
+       */
+      Models::GetTokenEnsureEnableResponse getTokenEnsureEnable(const Models::GetTokenEnsureEnableRequest &request);
+
+      /**
        * @summary Queries the token status of a user.
        *
        * @description Queries the INSTANCE token status of a user.
@@ -1420,6 +1734,40 @@ namespace WinNexo20260512
       Models::GetUserCreditUsageResponse getUserCreditUsage(const Models::GetUserCreditUsageRequest &request);
 
       /**
+       * @summary Queries the details of a specified user group, including its parent group, child groups, and members.
+       *
+       * @description ## Operation description
+       * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+       * - `userGroupId` is a required parameter that must be provided in the request body.
+       * - `tenantId` is an optional parameter that can be passed through the query string.
+       * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+       * - The content type for both requests and responses is `application/json`.
+       * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+       *
+       * @param request GetUserGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserGroupResponse
+       */
+      Models::GetUserGroupResponse getUserGroupWithOptions(const Models::GetUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified user group, including its parent group, child groups, and members.
+       *
+       * @description ## Operation description
+       * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+       * - `userGroupId` is a required parameter that must be provided in the request body.
+       * - `tenantId` is an optional parameter that can be passed through the query string.
+       * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+       * - The content type for both requests and responses is `application/json`.
+       * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+       *
+       * @param request GetUserGroupRequest
+       * @return GetUserGroupResponse
+       */
+      Models::GetUserGroupResponse getUserGroup(const Models::GetUserGroupRequest &request);
+
+      /**
        * @summary Retrieves the complete information of the authenticated user through OpenAPI, including basic information and tenant list.
        *
        * @description ## Request description
@@ -1486,6 +1834,30 @@ namespace WinNexo20260512
        * @return GrantAgentUsersResponse
        */
       Models::GrantAgentUsersResponse grantAgentUsers(const Models::GrantAgentUsersRequest &request);
+
+      /**
+       * @summary Queries currently effective service notices.
+       *
+       * @description ## Request description
+       * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+       *
+       * @param request ListActiveAnnouncementsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListActiveAnnouncementsResponse
+       */
+      Models::ListActiveAnnouncementsResponse listActiveAnnouncementsWithOptions(const Models::ListActiveAnnouncementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries currently effective service notices.
+       *
+       * @description ## Request description
+       * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+       *
+       * @param request ListActiveAnnouncementsRequest
+       * @return ListActiveAnnouncementsResponse
+       */
+      Models::ListActiveAnnouncementsResponse listActiveAnnouncements(const Models::ListActiveAnnouncementsRequest &request);
 
       /**
        * @summary Queries or drills down into the enterprise knowledge base list of a tenant.
@@ -1992,6 +2364,36 @@ namespace WinNexo20260512
       Models::ListTenantDirectoryResponse listTenantDirectory(const Models::ListTenantDirectoryRequest &request);
 
       /**
+       * @summary Returns the multi-level user group tree for the current tenant.
+       *
+       * @description ## Request description
+       * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+       * ### Precautions
+       * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+       * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+       *
+       * @param request ListUserGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserGroupsResponse
+       */
+      Models::ListUserGroupsResponse listUserGroupsWithOptions(const Models::ListUserGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Returns the multi-level user group tree for the current tenant.
+       *
+       * @description ## Request description
+       * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+       * ### Precautions
+       * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+       * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+       *
+       * @param request ListUserGroupsRequest
+       * @return ListUserGroupsResponse
+       */
+      Models::ListUserGroupsResponse listUserGroups(const Models::ListUserGroupsRequest &request);
+
+      /**
        * @summary Queries the knowledge base directory content visible to the current OpenAPI user.
        *
        * @description ## Operation description
@@ -2220,6 +2622,32 @@ namespace WinNexo20260512
       Models::MoveResourceResponse moveResource(const Models::MoveResourceRequest &request);
 
       /**
+       * @summary Offlines a service notice.
+       *
+       * @description ## Request description
+       * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+       * The caller must belong to the system operations tenant and have announcement management permissions.
+       *
+       * @param request OfflineAnnouncementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflineAnnouncementResponse
+       */
+      Models::OfflineAnnouncementResponse offlineAnnouncementWithOptions(const Models::OfflineAnnouncementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Offlines a service notice.
+       *
+       * @description ## Request description
+       * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+       * The caller must belong to the system operations tenant and have announcement management permissions.
+       *
+       * @param request OfflineAnnouncementRequest
+       * @return OfflineAnnouncementResponse
+       */
+      Models::OfflineAnnouncementResponse offlineAnnouncement(const Models::OfflineAnnouncementRequest &request);
+
+      /**
        * @summary Previews the knowledge content in a specified enterprise knowledge base.
        *
        * @description ## Operation description
@@ -2444,6 +2872,38 @@ namespace WinNexo20260512
        * @return RemoveUserResponse
        */
       Models::RemoveUserResponse removeUser(const Models::RemoveUserRequest &request);
+
+      /**
+       * @summary Removes direct member relationships in bulk from a specified user group.
+       *
+       * @description ## Request description
+       * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+       * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+       * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+       * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+       * - This operation requires appropriate permission authentication and is recorded in operation logs.
+       *
+       * @param tmpReq RemoveUserGroupMembersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveUserGroupMembersResponse
+       */
+      Models::RemoveUserGroupMembersResponse removeUserGroupMembersWithOptions(const Models::RemoveUserGroupMembersRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes direct member relationships in bulk from a specified user group.
+       *
+       * @description ## Request description
+       * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+       * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+       * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+       * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+       * - This operation requires appropriate permission authentication and is recorded in operation logs.
+       *
+       * @param request RemoveUserGroupMembersRequest
+       * @return RemoveUserGroupMembersResponse
+       */
+      Models::RemoveUserGroupMembersResponse removeUserGroupMembers(const Models::RemoveUserGroupMembersRequest &request);
 
       /**
        * @summary Renames a data source in a specified enterprise knowledge base.
@@ -2850,6 +3310,74 @@ namespace WinNexo20260512
        * @return RunSkillResponse
        */
       Models::RunSkillResponse runSkill(const Models::RunSkillRequest &request);
+
+      /**
+       * @summary Saves group outputs in batches to the collaboration group repository.
+       *
+       * @description ## Request description
+       * - Saves specified group outputs to the repository directory of the same collaboration group.
+       * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+       * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+       * - If `directoryId` is not specified, the default repository directory of the target group is used.
+       * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+       * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+       *
+       * @param tmpReq SaveGroupOutputFileToGroupResourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveGroupOutputFileToGroupResourceResponse
+       */
+      Models::SaveGroupOutputFileToGroupResourceResponse saveGroupOutputFileToGroupResourceWithOptions(const Models::SaveGroupOutputFileToGroupResourceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Saves group outputs in batches to the collaboration group repository.
+       *
+       * @description ## Request description
+       * - Saves specified group outputs to the repository directory of the same collaboration group.
+       * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+       * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+       * - If `directoryId` is not specified, the default repository directory of the target group is used.
+       * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+       * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+       *
+       * @param request SaveGroupOutputFileToGroupResourceRequest
+       * @return SaveGroupOutputFileToGroupResourceResponse
+       */
+      Models::SaveGroupOutputFileToGroupResourceResponse saveGroupOutputFileToGroupResource(const Models::SaveGroupOutputFileToGroupResourceRequest &request);
+
+      /**
+       * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+       *
+       * @description ## Request description
+       * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+       * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+       * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+       * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+       * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+       * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+       *
+       * @param tmpReq SaveGroupOutputFileToPersonalResourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveGroupOutputFileToPersonalResourceResponse
+       */
+      Models::SaveGroupOutputFileToPersonalResourceResponse saveGroupOutputFileToPersonalResourceWithOptions(const Models::SaveGroupOutputFileToPersonalResourceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+       *
+       * @description ## Request description
+       * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+       * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+       * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+       * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+       * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+       * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+       *
+       * @param request SaveGroupOutputFileToPersonalResourceRequest
+       * @return SaveGroupOutputFileToPersonalResourceResponse
+       */
+      Models::SaveGroupOutputFileToPersonalResourceResponse saveGroupOutputFileToPersonalResource(const Models::SaveGroupOutputFileToPersonalResourceRequest &request);
 
       /**
        * @summary Saves output details in batch as personal resources. Supports link or copy mode.
@@ -3400,6 +3928,28 @@ namespace WinNexo20260512
        * @return UpdateUserResponse
        */
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
+
+      /**
+       * @summary Updates the name, description, and parent relationship of a specified user group.
+       *
+       * @description WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+       *
+       * @param request UpdateUserGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateUserGroupResponse
+       */
+      Models::UpdateUserGroupResponse updateUserGroupWithOptions(const Models::UpdateUserGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, and parent relationship of a specified user group.
+       *
+       * @description WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+       *
+       * @param request UpdateUserGroupRequest
+       * @return UpdateUserGroupResponse
+       */
+      Models::UpdateUserGroupResponse updateUserGroup(const Models::UpdateUserGroupRequest &request);
 
       /**
        * @summary Updates partial fields of the current user information and returns the complete user information.
