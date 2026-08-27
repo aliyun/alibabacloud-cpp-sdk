@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The client idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The identity provider type. Currently, only DingTalk is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> identityProviderType_ {};
+    // The identity provider metadata. In the DingTalk scenario, this is a JSON object string that contains the `appKey`, `appSecret`, `corpId`, `encryptKey`, and `verificationToken` fields. This is a sensitive parameter.
     shared_ptr<string> idpMetadata_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to enable logon. Default value: `true`. This default value is used if the parameter is not specified or is left empty.
     shared_ptr<bool> loginEnabled_ {};
+    // Specifies whether to enable user synchronization. Default value: `false`. User synchronization is enabled only when this parameter is explicitly set to `true`.
     shared_ptr<bool> syncEnabled_ {};
   };
 

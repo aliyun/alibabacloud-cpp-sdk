@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Optional. Fuzzy matches by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

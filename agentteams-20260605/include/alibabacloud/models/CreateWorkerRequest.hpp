@@ -109,8 +109,11 @@ namespace Models
 
 
     protected:
+      // The returned data.
       shared_ptr<string> label_ {};
+      // The returned data.
       shared_ptr<string> name_ {};
+      // The returned data.
       shared_ptr<string> version_ {};
     };
 
@@ -184,8 +187,11 @@ namespace Models
 
 
       protected:
+        // The returned data.
         shared_ptr<string> label_ {};
+        // The returned data.
         shared_ptr<string> name_ {};
+        // The returned data.
         shared_ptr<string> version_ {};
       };
 
@@ -215,8 +221,11 @@ namespace Models
 
 
     protected:
+      // The sub-agent configuration.
       shared_ptr<string> agents_ {};
+      // The list of sub-agent skills.
       shared_ptr<vector<Subagents::Skills>> skills_ {};
+      // The sub-agent ID.
       shared_ptr<string> subagentId_ {};
     };
 
@@ -267,8 +276,11 @@ namespace Models
 
 
     protected:
+      // The skill label.
       shared_ptr<string> label_ {};
+      // The skill name.
       shared_ptr<string> name_ {};
+      // The skill version.
       shared_ptr<string> version_ {};
     };
 
@@ -310,7 +322,9 @@ namespace Models
 
 
     protected:
+      // The returned data.
       shared_ptr<string> modelName_ {};
+      // The returned data.
       shared_ptr<string> modelProvider_ {};
     };
 
@@ -342,6 +356,7 @@ namespace Models
 
 
     protected:
+      // The MCP server name.
       shared_ptr<string> name_ {};
     };
 
@@ -392,8 +407,11 @@ namespace Models
 
 
     protected:
+      // The quota type.
       shared_ptr<string> limitType_ {};
+      // The period type.
       shared_ptr<string> periodType_ {};
+      // The quota limit.
       shared_ptr<int64_t> usageLimit_ {};
     };
 
@@ -444,8 +462,11 @@ namespace Models
 
 
     protected:
+      // The group name.
       shared_ptr<string> name_ {};
+      // The group role.
       shared_ptr<string> role_ {};
+      // The group type.
       shared_ptr<string> type_ {};
     };
 
@@ -477,6 +498,7 @@ namespace Models
 
 
     protected:
+      // The credential name.
       shared_ptr<string> name_ {};
     };
 
@@ -533,6 +555,7 @@ namespace Models
 
 
       protected:
+        // The returned data.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -629,13 +652,21 @@ namespace Models
 
 
       protected:
+        // The returned data.
         shared_ptr<string> cardTemplateId_ {};
+        // The returned data.
         shared_ptr<string> clientId_ {};
+        // The returned data.
         shared_ptr<string> extension_ {};
+        // The returned data.
         shared_ptr<string> messageType_ {};
+        // The returned data.
         shared_ptr<string> robotCode_ {};
+        // The returned data.
         shared_ptr<bool> showThinking_ {};
+        // The returned data.
         shared_ptr<bool> showToolCalls_ {};
+        // The returned data.
         shared_ptr<bool> streamingEnabled_ {};
       };
 
@@ -674,9 +705,13 @@ namespace Models
 
 
     protected:
+      // The channel configuration.
       shared_ptr<Channels::Config> config_ {};
+      // Specifies whether the channel is enabled.
       shared_ptr<bool> enabled_ {};
+      // The channel secrets.
       shared_ptr<Channels::Secrets> secrets_ {};
+      // The channel type.
       shared_ptr<string> type_ {};
     };
 
@@ -823,22 +858,39 @@ namespace Models
 
 
   protected:
+    // The Agent runtime type.
     shared_ptr<string> agentType_ {};
+    // The Agents configuration.
     shared_ptr<string> agents_ {};
+    // The list of channel configurations.
     shared_ptr<vector<CreateWorkerRequest::Channels>> channels_ {};
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The list of credential bindings.
     shared_ptr<vector<CreateWorkerRequest::Credentials>> credentials_ {};
+    // The deployment type.
     shared_ptr<string> deployType_ {};
+    // The list of team groups.
     shared_ptr<vector<CreateWorkerRequest::Groups>> groups_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The quota configuration.
     shared_ptr<CreateWorkerRequest::LimitConfig> limitConfig_ {};
+    // The list of MCP servers.
     shared_ptr<vector<CreateWorkerRequest::McpServers>> mcpServers_ {};
+    // The model configuration.
     shared_ptr<CreateWorkerRequest::Model> model_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The list of skills.
     shared_ptr<vector<CreateWorkerRequest::Skills>> skills_ {};
+    // The Soul configuration.
     shared_ptr<string> soul_ {};
+    // The list of sub-agents.
     shared_ptr<vector<CreateWorkerRequest::Subagents>> subagents_ {};
+    // The template configuration.
     shared_ptr<CreateWorkerRequest::Template> template_ {};
+    // The Worker version number.
     shared_ptr<string> versionCode_ {};
   };
 

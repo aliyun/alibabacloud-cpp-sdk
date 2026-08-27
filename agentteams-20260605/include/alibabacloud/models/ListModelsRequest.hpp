@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The model ID used to query a specific model.
     shared_ptr<string> id_ {};
+    // Optional. Fuzzy match by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The pagination token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The model provider name used for filtering.
     shared_ptr<string> providerName_ {};
   };
 

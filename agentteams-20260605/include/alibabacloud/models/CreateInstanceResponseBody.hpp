@@ -79,7 +79,9 @@ namespace Models
 
 
     protected:
+      // **The instance ID.**
       shared_ptr<string> instanceId_ {};
+      // **The order ID.**
       shared_ptr<string> orderId_ {};
     };
 
@@ -138,13 +140,19 @@ namespace Models
 
 
   protected:
+    // **The response code.**
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateInstanceResponseBody::Data> data_ {};
+    // **The HTTP status code.**
     shared_ptr<int32_t> httpStatusCode_ {};
-    // InstanceId
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // **Indicates whether the request was successful.**
     shared_ptr<bool> success_ {};
   };
 

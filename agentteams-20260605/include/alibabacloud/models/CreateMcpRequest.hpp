@@ -124,18 +124,31 @@ namespace Models
 
 
   protected:
+    // The list of MCP server addresses.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> addresses_ {};
+    // The authentication information.
     shared_ptr<string> authConfig_ {};
+    // Specifies whether to enable authentication.
     shared_ptr<bool> authEnabled_ {};
+    // The client idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The creation type. Default value: DIRECT_PROXY.
     shared_ptr<string> createType_ {};
+    // The description of the MCP server.
     shared_ptr<string> description_ {};
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Optional. Fuzzy match by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The protocol type.
     shared_ptr<string> protocol_ {};
+    // The Swagger configuration. This parameter is required if Type is set to HTTP_TO_MCP.
     shared_ptr<string> swaggerConfig_ {};
   };
 

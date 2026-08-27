@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time for statistics collection. This value is a UNIX timestamp in milliseconds.
     shared_ptr<string> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The start time for statistics collection. This value is a UNIX timestamp in milliseconds.
     shared_ptr<string> startTime_ {};
   };
 

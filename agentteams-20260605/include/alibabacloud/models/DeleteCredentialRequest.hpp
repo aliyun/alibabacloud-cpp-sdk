@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The idempotence token that ensures the idempotency of the request.
     shared_ptr<string> clientToken_ {};
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the credential.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

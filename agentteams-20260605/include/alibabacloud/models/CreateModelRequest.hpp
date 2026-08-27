@@ -106,17 +106,30 @@ namespace Models
 
 
   protected:
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The model description.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Optional. Fuzzy matches instances by name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The list of protocols supported by the model, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> protocols_ {};
+    // The provider identifier.
     shared_ptr<string> provider_ {};
+    // The ID of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> providerId_ {};
+    // The name of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> providerName_ {};
   };

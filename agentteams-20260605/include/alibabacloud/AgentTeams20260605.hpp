@@ -21,7 +21,13 @@ namespace AgentTeams20260605
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 绑定上游身份提供商
+       * @summary Binds an upstream identity provider to a specified instance and triggers a synchronization task.
+       *
+       * @description ## Operation description
+       * - This is an asynchronous operation that immediately returns binding task information after the call.
+       * - Use `GetInstanceAsyncTask` to poll for the asynchronous task result. The default polling interval is 30 seconds, with a maximum of 20 attempts.
+       * - The `IdpMetadata` parameter contains sensitive information. Ensure secure transmission.
+       * - The default values of `LoginEnabled` and `SyncEnabled` are `true` and `false`, respectively. If not explicitly specified, the default values are used.
        *
        * @param request BindIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +36,13 @@ namespace AgentTeams20260605
       Models::BindIdentityProviderResponse bindIdentityProviderWithOptions(const Models::BindIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定上游身份提供商
+       * @summary Binds an upstream identity provider to a specified instance and triggers a synchronization task.
+       *
+       * @description ## Operation description
+       * - This is an asynchronous operation that immediately returns binding task information after the call.
+       * - Use `GetInstanceAsyncTask` to poll for the asynchronous task result. The default polling interval is 30 seconds, with a maximum of 20 attempts.
+       * - The `IdpMetadata` parameter contains sensitive information. Ensure secure transmission.
+       * - The default values of `LoginEnabled` and `SyncEnabled` are `true` and `false`, respectively. If not explicitly specified, the default values are used.
        *
        * @param request BindIdentityProviderRequest
        * @return BindIdentityProviderResponse
@@ -38,15 +50,15 @@ namespace AgentTeams20260605
       Models::BindIdentityProviderResponse bindIdentityProvider(const Models::BindIdentityProviderRequest &request);
 
       /**
-       * @summary 为指定AgentTeams实例异步开通并配置阿里云公网NAT网关。
+       * @summary Activates and configures an Internet NAT gateway for a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 本接口用于为特定的AgentTeams实例创建公网NAT网关，并自动完成EIP申请、绑定以及SNAT规则的设置。
-       * - 接口调用后将返回一个异步任务ID，实际的NAT网关、EIP及SNAT资源ID会在异步任务完成后通过任务结果提供。
-       * - NAT网关名称由系统自动生成，格式为`magic-create-for-vpc-{vpcId}`。
-       * - 支持GET和POST方法进行请求。
-       * - `eipBandwidth`参数指定了自动申请EIP时的带宽大小，默认值为5Mbps，范围在1-200Mbps之间。
-       * - 如果`instanceId`为空或无效，或者提供的`eipBandwidth`不在允许范围内，API将返回错误响应。
+       * @description ## Operation description
+       * - This operation creates an Internet NAT gateway and automatically applies for an elastic IP address (EIP), bindS the EIP, and configures SNAT rules.
+       * - An asynchronous task ID is returned after the call. The actual resource ID is provided in the task result.
+       * - NAT gateway name format: `magic-create-for-vpc-{vpcId}`.
+       * - GET and POST methods are supported.
+       * - The `eipBandwidth` parameter ranges from 1 to 200 Mbit/s. Default value: 5 Mbit/s.
+       * - If `InstanceId` is invalid or `eipBandwidth` is out of range, the API returns an error response.
        *
        * @param request ConfigureNatGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -55,15 +67,15 @@ namespace AgentTeams20260605
       Models::ConfigureNatGatewayResponse configureNatGatewayWithOptions(const Models::ConfigureNatGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为指定AgentTeams实例异步开通并配置阿里云公网NAT网关。
+       * @summary Activates and configures an Internet NAT gateway for a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 本接口用于为特定的AgentTeams实例创建公网NAT网关，并自动完成EIP申请、绑定以及SNAT规则的设置。
-       * - 接口调用后将返回一个异步任务ID，实际的NAT网关、EIP及SNAT资源ID会在异步任务完成后通过任务结果提供。
-       * - NAT网关名称由系统自动生成，格式为`magic-create-for-vpc-{vpcId}`。
-       * - 支持GET和POST方法进行请求。
-       * - `eipBandwidth`参数指定了自动申请EIP时的带宽大小，默认值为5Mbps，范围在1-200Mbps之间。
-       * - 如果`instanceId`为空或无效，或者提供的`eipBandwidth`不在允许范围内，API将返回错误响应。
+       * @description ## Operation description
+       * - This operation creates an Internet NAT gateway and automatically applies for an elastic IP address (EIP), bindS the EIP, and configures SNAT rules.
+       * - An asynchronous task ID is returned after the call. The actual resource ID is provided in the task result.
+       * - NAT gateway name format: `magic-create-for-vpc-{vpcId}`.
+       * - GET and POST methods are supported.
+       * - The `eipBandwidth` parameter ranges from 1 to 200 Mbit/s. Default value: 5 Mbit/s.
+       * - If `InstanceId` is invalid or `eipBandwidth` is out of range, the API returns an error response.
        *
        * @param request ConfigureNatGatewayRequest
        * @return ConfigureNatGatewayResponse
@@ -71,7 +83,13 @@ namespace AgentTeams20260605
       Models::ConfigureNatGatewayResponse configureNatGateway(const Models::ConfigureNatGatewayRequest &request);
 
       /**
-       * @summary 创建凭证
+       * @summary Creates a new key-value credential under a specified AgentTeams instance.
+       *
+       * @description ## Operation description
+       * - `ApiKey` is a sensitive field and is not returned in plaintext.
+       * - `ClientToken` is used to ensure idempotence of the request. This parameter is optional but recommended.
+       * - The credential name (Name) must match the regular expression `^[A-Z_][A-Z0-9_]*$`.
+       * - If the specified credential name already exists in the specified instance, the error code `Credential.Name.AlreadyExists` is returned.
        *
        * @param request CreateCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -80,7 +98,13 @@ namespace AgentTeams20260605
       Models::CreateCredentialResponse createCredentialWithOptions(const Models::CreateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建凭证
+       * @summary Creates a new key-value credential under a specified AgentTeams instance.
+       *
+       * @description ## Operation description
+       * - `ApiKey` is a sensitive field and is not returned in plaintext.
+       * - `ClientToken` is used to ensure idempotence of the request. This parameter is optional but recommended.
+       * - The credential name (Name) must match the regular expression `^[A-Z_][A-Z0-9_]*$`.
+       * - If the specified credential name already exists in the specified instance, the error code `Credential.Name.AlreadyExists` is returned.
        *
        * @param request CreateCredentialRequest
        * @return CreateCredentialResponse
@@ -88,14 +112,14 @@ namespace AgentTeams20260605
       Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
 
       /**
-       * @summary 用于创建指定配置的集群实例。
+       * @summary Asynchronously creates a cluster instance with the specified configurations.
        *
-       * @description ## 请求说明
-       * - 本接口支持通过表单参数或 query 参数传递请求信息。
-       * - `instanceSpec` 和 `networkType` 等部分参数有默认值，若未指定则使用默认值。
-       * - 必须提供 `instanceName`, `regionId`, `vpcId`, 和 `vSwitchId` 参数。
-       * - `networkType` 支持三种选项：`PRIVATE_PUBNET`, `PRIVATE_NET`, `PUB_NET`，默认为 `PRIVATE_NET`。
-       * - 如果指定了 `zoneId`，则会尝试在该可用区创建实例；否则将根据系统策略选择合适的可用区。
+       * @description ## Operation description
+       * - This is an asynchronous operation. After a successful call, the instance status changes to CREATING.
+       * - The actual resource creation is completed asynchronously in the background. Poll the creation result by calling the `GetInstance` operation.
+       * - You can pass request information by using form parameters or query parameters.
+       * - If optional parameters are not provided, default values are used.
+       * - Use `ClientToken` to ensure the idempotence of the request.
        *
        * @param tmpReq CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -104,14 +128,14 @@ namespace AgentTeams20260605
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于创建指定配置的集群实例。
+       * @summary Asynchronously creates a cluster instance with the specified configurations.
        *
-       * @description ## 请求说明
-       * - 本接口支持通过表单参数或 query 参数传递请求信息。
-       * - `instanceSpec` 和 `networkType` 等部分参数有默认值，若未指定则使用默认值。
-       * - 必须提供 `instanceName`, `regionId`, `vpcId`, 和 `vSwitchId` 参数。
-       * - `networkType` 支持三种选项：`PRIVATE_PUBNET`, `PRIVATE_NET`, `PUB_NET`，默认为 `PRIVATE_NET`。
-       * - 如果指定了 `zoneId`，则会尝试在该可用区创建实例；否则将根据系统策略选择合适的可用区。
+       * @description ## Operation description
+       * - This is an asynchronous operation. After a successful call, the instance status changes to CREATING.
+       * - The actual resource creation is completed asynchronously in the background. Poll the creation result by calling the `GetInstance` operation.
+       * - You can pass request information by using form parameters or query parameters.
+       * - If optional parameters are not provided, default values are used.
+       * - Use `ClientToken` to ensure the idempotence of the request.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -119,14 +143,14 @@ namespace AgentTeams20260605
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建MCP
+       * @summary Creates an MCP server.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description ## Operation description
+       * - You must specify the `InstanceId`, `Name`, and `Addresses` parameters when you create an MCP server.
+       * - The `CreateType` parameter defaults to `DIRECT_PROXY`. If you select the `HTTP_TO_MCP` mode, you must also specify `SwaggerConfig`.
+       * - Set `AuthEnabled` to enable or disable authentication. If authentication is enabled, you must specify `AuthConfig`.
+       * - Use `ClientToken` to ensure the idempotence of the request.
+       * - Custom protocol types are supported. The `streamable` protocol is used by default.
        *
        * @param tmpReq CreateMcpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -135,14 +159,14 @@ namespace AgentTeams20260605
       Models::CreateMcpResponse createMcpWithOptions(const Models::CreateMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建MCP
+       * @summary Creates an MCP server.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description ## Operation description
+       * - You must specify the `InstanceId`, `Name`, and `Addresses` parameters when you create an MCP server.
+       * - The `CreateType` parameter defaults to `DIRECT_PROXY`. If you select the `HTTP_TO_MCP` mode, you must also specify `SwaggerConfig`.
+       * - Set `AuthEnabled` to enable or disable authentication. If authentication is enabled, you must specify `AuthConfig`.
+       * - Use `ClientToken` to ensure the idempotence of the request.
+       * - Custom protocol types are supported. The `streamable` protocol is used by default.
        *
        * @param request CreateMcpRequest
        * @return CreateMcpResponse
@@ -150,14 +174,9 @@ namespace AgentTeams20260605
       Models::CreateMcpResponse createMcp(const Models::CreateMcpRequest &request);
 
       /**
-       * @summary 创建模型
+       * @summary Creates an AI model under a specified AgentTeams instance. You must specify the model name, the model provider, and the list of supported protocols.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Creates an AI model under a specified AgentTeams instance. You must specify the model name, the model provider, and the list of supported protocols.
        *
        * @param tmpReq CreateModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,14 +185,9 @@ namespace AgentTeams20260605
       Models::CreateModelResponse createModelWithOptions(const Models::CreateModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型
+       * @summary Creates an AI model under a specified AgentTeams instance. You must specify the model name, the model provider, and the list of supported protocols.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Creates an AI model under a specified AgentTeams instance. You must specify the model name, the model provider, and the list of supported protocols.
        *
        * @param request CreateModelRequest
        * @return CreateModelResponse
@@ -181,14 +195,9 @@ namespace AgentTeams20260605
       Models::CreateModelResponse createModel(const Models::CreateModelRequest &request);
 
       /**
-       * @summary 创建模型
+       * @summary Creates an AI model provider under a specified AgentTeams instance. You must specify the provider name, address, supported protocol list, and API keys.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Creates an AI model provider under a specified AgentTeams instance. You must specify the provider name, address, supported protocol list, and API keys.
        *
        * @param tmpReq CreateModelProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -197,14 +206,9 @@ namespace AgentTeams20260605
       Models::CreateModelProviderResponse createModelProviderWithOptions(const Models::CreateModelProviderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型
+       * @summary Creates an AI model provider under a specified AgentTeams instance. You must specify the provider name, address, supported protocol list, and API keys.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Creates an AI model provider under a specified AgentTeams instance. You must specify the provider name, address, supported protocol list, and API keys.
        *
        * @param request CreateModelProviderRequest
        * @return CreateModelProviderResponse
@@ -212,13 +216,13 @@ namespace AgentTeams20260605
       Models::CreateModelProviderResponse createModelProvider(const Models::CreateModelProviderRequest &request);
 
       /**
-       * @summary 用于创建指定实例的Endpoint，支持多种组件和网关类型。
+       * @summary Creates an endpoint for a specified instance. Multiple component types and gateway types are supported.
        *
-       * @description ## 请求说明
-       * - 当前controller使用的是普通参数绑定，不是`@RequestBody`，因此参数更适合按query/form方式传递。
-       * - `domain`字段会在服务端进行`trim + lowerCase`处理。
-       * - `query`和`headers`必须是JSON object字符串格式，不能为数组。
-       * - 创建操作仅将数据保存到数据库；只有在更新时，如果满足`ELEMENT/MATRIX + AI_GATEWAY + INTERNET`且域名或证书发生变化，才会触发AI Gateway域名同步逻辑。
+       * @description Creates an endpoint for a specified instance. Multiple component types and gateway types are supported.
+       * - The current controller uses standard parameter binding instead of @RequestBody, so parameters are better suited for query/form-based transmission.
+       * - The domain field is trimmed and converted to lowercase on the server side.
+       * - The query and headers must be in JSON object string format and cannot be arrays.
+       * - The create operation only saves data to the database. The AI Gateway domain name synchronization logic is triggered only during an update when the conditions ELEMENT/MATRIX + AI_GATEWAY + INTERNET are met and the domain name or certificate has changed.
        *
        * @param request CreateServiceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -227,13 +231,13 @@ namespace AgentTeams20260605
       Models::CreateServiceEndpointResponse createServiceEndpointWithOptions(const Models::CreateServiceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于创建指定实例的Endpoint，支持多种组件和网关类型。
+       * @summary Creates an endpoint for a specified instance. Multiple component types and gateway types are supported.
        *
-       * @description ## 请求说明
-       * - 当前controller使用的是普通参数绑定，不是`@RequestBody`，因此参数更适合按query/form方式传递。
-       * - `domain`字段会在服务端进行`trim + lowerCase`处理。
-       * - `query`和`headers`必须是JSON object字符串格式，不能为数组。
-       * - 创建操作仅将数据保存到数据库；只有在更新时，如果满足`ELEMENT/MATRIX + AI_GATEWAY + INTERNET`且域名或证书发生变化，才会触发AI Gateway域名同步逻辑。
+       * @description Creates an endpoint for a specified instance. Multiple component types and gateway types are supported.
+       * - The current controller uses standard parameter binding instead of @RequestBody, so parameters are better suited for query/form-based transmission.
+       * - The domain field is trimmed and converted to lowercase on the server side.
+       * - The query and headers must be in JSON object string format and cannot be arrays.
+       * - The create operation only saves data to the database. The AI Gateway domain name synchronization logic is triggered only during an update when the conditions ELEMENT/MATRIX + AI_GATEWAY + INTERNET are met and the domain name or certificate has changed.
        *
        * @param request CreateServiceEndpointRequest
        * @return CreateServiceEndpointResponse
@@ -241,7 +245,9 @@ namespace AgentTeams20260605
       Models::CreateServiceEndpointResponse createServiceEndpoint(const Models::CreateServiceEndpointRequest &request);
 
       /**
-       * @summary 创建团队
+       * @summary Creates a team under a specified instance. You can set the team name, description, administrator, and initial member list.
+       *
+       * @description Creates a team under a specified instance. You can set the team name, description, administrator, and initial member list.
        *
        * @param tmpReq CreateTeamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +256,9 @@ namespace AgentTeams20260605
       Models::CreateTeamResponse createTeamWithOptions(const Models::CreateTeamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建团队
+       * @summary Creates a team under a specified instance. You can set the team name, description, administrator, and initial member list.
+       *
+       * @description Creates a team under a specified instance. You can set the team name, description, administrator, and initial member list.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse
@@ -258,7 +266,9 @@ namespace AgentTeams20260605
       Models::CreateTeamResponse createTeam(const Models::CreateTeamRequest &request);
 
       /**
-       * @summary 创建用户
+       * @summary Creates a user under a specified instance. You can set the username, display name, email address, authentication method, note, and password. If no password is specified, the system automatically generates an initial password and returns it in the response.
+       *
+       * @description Creates a user under a specified instance. You can set the username, display name, email address, authentication method, note, and password. If no password is specified, the system automatically generates an initial password and returns it in the response.
        *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +277,9 @@ namespace AgentTeams20260605
       Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建用户
+       * @summary Creates a user under a specified instance. You can set the username, display name, email address, authentication method, note, and password. If no password is specified, the system automatically generates an initial password and returns it in the response.
+       *
+       * @description Creates a user under a specified instance. You can set the username, display name, email address, authentication method, note, and password. If no password is specified, the system automatically generates an initial password and returns it in the response.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -275,7 +287,9 @@ namespace AgentTeams20260605
       Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
 
       /**
-       * @summary 创建Worker
+       * @summary Creates a Worker instance with specified configurations such as model, skills, template, MCP servers, and channels.
+       *
+       * @description Creates a Worker instance with specified configurations such as model, skills, template, MCP servers, and channels.
        *
        * @param tmpReq CreateWorkerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -284,7 +298,9 @@ namespace AgentTeams20260605
       Models::CreateWorkerResponse createWorkerWithOptions(const Models::CreateWorkerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Worker
+       * @summary Creates a Worker instance with specified configurations such as model, skills, template, MCP servers, and channels.
+       *
+       * @description Creates a Worker instance with specified configurations such as model, skills, template, MCP servers, and channels.
        *
        * @param request CreateWorkerRequest
        * @return CreateWorkerResponse
@@ -292,7 +308,9 @@ namespace AgentTeams20260605
       Models::CreateWorkerResponse createWorker(const Models::CreateWorkerRequest &request);
 
       /**
-       * @summary 创建Worker本地纳管启动Token
+       * @summary Creates a local management bootstrap token for a Worker, with support for specifying the network type.
+       *
+       * @description Creates a local management bootstrap token for a Worker, with support for specifying the network type.
        *
        * @param request CreateWorkerBootstrapTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +319,9 @@ namespace AgentTeams20260605
       Models::CreateWorkerBootstrapTokenResponse createWorkerBootstrapTokenWithOptions(const Models::CreateWorkerBootstrapTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Worker本地纳管启动Token
+       * @summary Creates a local management bootstrap token for a Worker, with support for specifying the network type.
+       *
+       * @description Creates a local management bootstrap token for a Worker, with support for specifying the network type.
        *
        * @param request CreateWorkerBootstrapTokenRequest
        * @return CreateWorkerBootstrapTokenResponse
@@ -309,7 +329,9 @@ namespace AgentTeams20260605
       Models::CreateWorkerBootstrapTokenResponse createWorkerBootstrapToken(const Models::CreateWorkerBootstrapTokenRequest &request);
 
       /**
-       * @summary 删除凭证
+       * @summary Deletes an existing credential from a specified AgentTeams instance. The credential cannot be deleted if it is still attached to a Worker.
+       *
+       * @description Deletes an existing credential from a specified AgentTeams instance. The credential cannot be deleted if it is still attached to a Worker.
        *
        * @param request DeleteCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +340,9 @@ namespace AgentTeams20260605
       Models::DeleteCredentialResponse deleteCredentialWithOptions(const Models::DeleteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除凭证
+       * @summary Deletes an existing credential from a specified AgentTeams instance. The credential cannot be deleted if it is still attached to a Worker.
+       *
+       * @description Deletes an existing credential from a specified AgentTeams instance. The credential cannot be deleted if it is still attached to a Worker.
        *
        * @param request DeleteCredentialRequest
        * @return DeleteCredentialResponse
@@ -326,13 +350,9 @@ namespace AgentTeams20260605
       Models::DeleteCredentialResponse deleteCredential(const Models::DeleteCredentialRequest &request);
 
       /**
-       * @summary 用于释放指定的AgentTeams实例，并清理相关资源。
+       * @summary Releases a specified AgentTeams instance and cleans up related resources. Supports GET and POST methods. After a successful call, the instance status changes to DELETING, and resource cleanup is performed asynchronously in the background.
        *
-       * @description ## 请求说明
-       * - 本API支持`GET`和`POST`方法，两者语义相同。
-       * - 使用`POST`方法时，参数通过`application/x-www-form-urlencoded`格式提交。
-       * - 当前实例状态为`CREATING`、`DELETING`或`DELETED`时，请求将被拒绝。
-       * - 成功调用后，实例状态将首先更改为`DELETING`，实际的资源清理过程由后台异步执行。
+       * @description Releases a specified AgentTeams instance and cleans up related resources. Supports GET and POST methods. After a successful call, the instance status changes to DELETING, and resource cleanup is performed asynchronously in the background.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -341,13 +361,9 @@ namespace AgentTeams20260605
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于释放指定的AgentTeams实例，并清理相关资源。
+       * @summary Releases a specified AgentTeams instance and cleans up related resources. Supports GET and POST methods. After a successful call, the instance status changes to DELETING, and resource cleanup is performed asynchronously in the background.
        *
-       * @description ## 请求说明
-       * - 本API支持`GET`和`POST`方法，两者语义相同。
-       * - 使用`POST`方法时，参数通过`application/x-www-form-urlencoded`格式提交。
-       * - 当前实例状态为`CREATING`、`DELETING`或`DELETED`时，请求将被拒绝。
-       * - 成功调用后，实例状态将首先更改为`DELETING`，实际的资源清理过程由后台异步执行。
+       * @description Releases a specified AgentTeams instance and cleans up related resources. Supports GET and POST methods. After a successful call, the instance status changes to DELETING, and resource cleanup is performed asynchronously in the background.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -355,14 +371,9 @@ namespace AgentTeams20260605
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary 删除MCP
+       * @summary Deletes an MCP server from a specified AgentTeams instance. The server cannot be deleted if it is associated with any Workers.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an MCP server from a specified AgentTeams instance. The server cannot be deleted if it is associated with any Workers.
        *
        * @param request DeleteMcpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -371,14 +382,9 @@ namespace AgentTeams20260605
       Models::DeleteMcpResponse deleteMcpWithOptions(const Models::DeleteMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除MCP
+       * @summary Deletes an MCP server from a specified AgentTeams instance. The server cannot be deleted if it is associated with any Workers.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an MCP server from a specified AgentTeams instance. The server cannot be deleted if it is associated with any Workers.
        *
        * @param request DeleteMcpRequest
        * @return DeleteMcpResponse
@@ -386,14 +392,9 @@ namespace AgentTeams20260605
       Models::DeleteMcpResponse deleteMcp(const Models::DeleteMcpRequest &request);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes an AI model from a specified AgentTeams instance. The model cannot be deleted if it is still associated with a Worker.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an AI model from a specified AgentTeams instance. The model cannot be deleted if it is still associated with a Worker.
        *
        * @param request DeleteModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -402,14 +403,9 @@ namespace AgentTeams20260605
       Models::DeleteModelResponse deleteModelWithOptions(const Models::DeleteModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes an AI model from a specified AgentTeams instance. The model cannot be deleted if it is still associated with a Worker.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an AI model from a specified AgentTeams instance. The model cannot be deleted if it is still associated with a Worker.
        *
        * @param request DeleteModelRequest
        * @return DeleteModelResponse
@@ -417,14 +413,9 @@ namespace AgentTeams20260605
       Models::DeleteModelResponse deleteModel(const Models::DeleteModelRequest &request);
 
       /**
-       * @summary 删除模型供应商
+       * @summary Deletes an AI model provider from a specified AgentTeams instance. The provider cannot be deleted if it still has associated models.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an AI model provider from a specified AgentTeams instance. The provider cannot be deleted if it still has associated models.
        *
        * @param request DeleteModelProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -433,14 +424,9 @@ namespace AgentTeams20260605
       Models::DeleteModelProviderResponse deleteModelProviderWithOptions(const Models::DeleteModelProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型供应商
+       * @summary Deletes an AI model provider from a specified AgentTeams instance. The provider cannot be deleted if it still has associated models.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Deletes an AI model provider from a specified AgentTeams instance. The provider cannot be deleted if it still has associated models.
        *
        * @param request DeleteModelProviderRequest
        * @return DeleteModelProviderResponse
@@ -448,13 +434,13 @@ namespace AgentTeams20260605
       Models::DeleteModelProviderResponse deleteModelProvider(const Models::DeleteModelProviderRequest &request);
 
       /**
-       * @summary 用于删除指定AgentTeams实例下的endpoint，并清理相关资源。
+       * @summary Deletes an endpoint from a specified AgentTeams instance and cleans up related resources.
        *
-       * @description ## 请求说明
-       * - 该接口支持通过GET或POST方法调用。
-       * - 如果目标endpoint是`WORKER`类型，系统将自动清理与之关联的APIG/AI Gateway云资源及KubeOne worker service配置。
-       * - 请求参数必须包含`instanceId`和`endpointId`，且不能为空。
-       * - 成功响应会返回HTTP状态码200以及成功标志；错误响应则根据具体情况返回相应的HTTP状态码（如400、404、409）及错误信息。
+       * @description Deletes an endpoint from a specified AgentTeams instance and cleans up related resources.
+       * - This operation supports GET or POST methods.
+       * - If the target endpoint is of the WORKER type, the system automatically cleans up associated APIG/AI Gateway cloud resources and KubeOne worker service configurations.
+       * - The request parameters must include instanceId and endpointId, and neither can be empty.
+       * - A successful response returns HTTP status code 200 and a success flag. An error response returns the corresponding HTTP status code (such as 400, 404, or 409) and an error message.
        *
        * @param request DeleteServiceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -463,13 +449,13 @@ namespace AgentTeams20260605
       Models::DeleteServiceEndpointResponse deleteServiceEndpointWithOptions(const Models::DeleteServiceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于删除指定AgentTeams实例下的endpoint，并清理相关资源。
+       * @summary Deletes an endpoint from a specified AgentTeams instance and cleans up related resources.
        *
-       * @description ## 请求说明
-       * - 该接口支持通过GET或POST方法调用。
-       * - 如果目标endpoint是`WORKER`类型，系统将自动清理与之关联的APIG/AI Gateway云资源及KubeOne worker service配置。
-       * - 请求参数必须包含`instanceId`和`endpointId`，且不能为空。
-       * - 成功响应会返回HTTP状态码200以及成功标志；错误响应则根据具体情况返回相应的HTTP状态码（如400、404、409）及错误信息。
+       * @description Deletes an endpoint from a specified AgentTeams instance and cleans up related resources.
+       * - This operation supports GET or POST methods.
+       * - If the target endpoint is of the WORKER type, the system automatically cleans up associated APIG/AI Gateway cloud resources and KubeOne worker service configurations.
+       * - The request parameters must include instanceId and endpointId, and neither can be empty.
+       * - A successful response returns HTTP status code 200 and a success flag. An error response returns the corresponding HTTP status code (such as 400, 404, or 409) and an error message.
        *
        * @param request DeleteServiceEndpointRequest
        * @return DeleteServiceEndpointResponse
@@ -477,7 +463,9 @@ namespace AgentTeams20260605
       Models::DeleteServiceEndpointResponse deleteServiceEndpoint(const Models::DeleteServiceEndpointRequest &request);
 
       /**
-       * @summary 删除团队
+       * @summary Deletes a team under a specified instance. After deletion, the team and associated resources enter an asynchronous cleanup process.
+       *
+       * @description Deletes a team under a specified instance. After deletion, the team and associated resources enter an asynchronous cleanup process.
        *
        * @param request DeleteTeamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -486,7 +474,9 @@ namespace AgentTeams20260605
       Models::DeleteTeamResponse deleteTeamWithOptions(const Models::DeleteTeamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除团队
+       * @summary Deletes a team under a specified instance. After deletion, the team and associated resources enter an asynchronous cleanup process.
+       *
+       * @description Deletes a team under a specified instance. After deletion, the team and associated resources enter an asynchronous cleanup process.
        *
        * @param request DeleteTeamRequest
        * @return DeleteTeamResponse
@@ -494,7 +484,9 @@ namespace AgentTeams20260605
       Models::DeleteTeamResponse deleteTeam(const Models::DeleteTeamRequest &request);
 
       /**
-       * @summary 删除用户
+       * @summary Deletes a specified user from a specified instance. After deletion, the user cannot log on to or access instance resources. Proceed with caution.
+       *
+       * @description Deletes a specified user from a specified instance. After deletion, the user cannot log on to or access instance resources. Proceed with caution.
        *
        * @param request DeleteUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -503,7 +495,9 @@ namespace AgentTeams20260605
       Models::DeleteUserResponse deleteUserWithOptions(const Models::DeleteUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除用户
+       * @summary Deletes a specified user from a specified instance. After deletion, the user cannot log on to or access instance resources. Proceed with caution.
+       *
+       * @description Deletes a specified user from a specified instance. After deletion, the user cannot log on to or access instance resources. Proceed with caution.
        *
        * @param request DeleteUserRequest
        * @return DeleteUserResponse
@@ -511,7 +505,9 @@ namespace AgentTeams20260605
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
-       * @summary 删除Worker
+       * @summary Deletes a Worker under a specified instance.
+       *
+       * @description Deletes a Worker under a specified instance.
        *
        * @param request DeleteWorkerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -520,7 +516,9 @@ namespace AgentTeams20260605
       Models::DeleteWorkerResponse deleteWorkerWithOptions(const Models::DeleteWorkerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Worker
+       * @summary Deletes a Worker under a specified instance.
+       *
+       * @description Deletes a Worker under a specified instance.
        *
        * @param request DeleteWorkerRequest
        * @return DeleteWorkerResponse
@@ -528,7 +526,9 @@ namespace AgentTeams20260605
       Models::DeleteWorkerResponse deleteWorker(const Models::DeleteWorkerRequest &request);
 
       /**
-       * @summary 查询凭证详情
+       * @summary Queries the details of a specified credential under an AgentTeams instance, including the status, description, and list of bound Workers.
+       *
+       * @description Queries the details of a specified credential under an AgentTeams instance, including the status, description, and list of bound Workers.
        *
        * @param request GetCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +537,9 @@ namespace AgentTeams20260605
       Models::GetCredentialResponse getCredentialWithOptions(const Models::GetCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭证详情
+       * @summary Queries the details of a specified credential under an AgentTeams instance, including the status, description, and list of bound Workers.
+       *
+       * @description Queries the details of a specified credential under an AgentTeams instance, including the status, description, and list of bound Workers.
        *
        * @param request GetCredentialRequest
        * @return GetCredentialResponse
@@ -545,7 +547,9 @@ namespace AgentTeams20260605
       Models::GetCredentialResponse getCredential(const Models::GetCredentialRequest &request);
 
       /**
-       * @summary 查询指定类型的上游身份提供商详情
+       * @summary Queries the binding details of an upstream identity provider for a specified instance and identity provider type, including the logon callback URL and metadata.
+       *
+       * @description Queries the binding details of an upstream identity provider for a specified instance and identity provider type, including the logon callback URL and metadata.
        *
        * @param request GetIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -554,7 +558,9 @@ namespace AgentTeams20260605
       Models::GetIdentityProviderResponse getIdentityProviderWithOptions(const Models::GetIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定类型的上游身份提供商详情
+       * @summary Queries the binding details of an upstream identity provider for a specified instance and identity provider type, including the logon callback URL and metadata.
+       *
+       * @description Queries the binding details of an upstream identity provider for a specified instance and identity provider type, including the logon callback URL and metadata.
        *
        * @param request GetIdentityProviderRequest
        * @return GetIdentityProviderResponse
@@ -562,15 +568,9 @@ namespace AgentTeams20260605
       Models::GetIdentityProviderResponse getIdentityProvider(const Models::GetIdentityProviderRequest &request);
 
       /**
-       * @summary 通过实例ID查询指定实例的详细信息。
+       * @summary Queries the details of a specified instance by instance ID. Supports GET and POST methods. A successful response returns the detailed configuration and status of the instance.
        *
-       * @description ## 请求说明
-       * - 该接口支持`GET`和`POST`方法。
-       * - 请求时必须在头部包含`X-User-Id`，用于校验实例归属。
-       * - `X-Acs-Request-Id`为可选项，如果提供，则响应中的`requestId`将优先使用此值。
-       * - 必须通过`instanceId`参数指定要查询的实例。
-       * - 成功响应会返回实例的详细配置信息及状态。
-       * - 如果请求失败，根据错误类型返回相应的HTTP状态码及错误消息。
+       * @description Queries the details of a specified instance by instance ID. Supports GET and POST methods. A successful response returns the detailed configuration and status of the instance.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -579,15 +579,9 @@ namespace AgentTeams20260605
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过实例ID查询指定实例的详细信息。
+       * @summary Queries the details of a specified instance by instance ID. Supports GET and POST methods. A successful response returns the detailed configuration and status of the instance.
        *
-       * @description ## 请求说明
-       * - 该接口支持`GET`和`POST`方法。
-       * - 请求时必须在头部包含`X-User-Id`，用于校验实例归属。
-       * - `X-Acs-Request-Id`为可选项，如果提供，则响应中的`requestId`将优先使用此值。
-       * - 必须通过`instanceId`参数指定要查询的实例。
-       * - 成功响应会返回实例的详细配置信息及状态。
-       * - 如果请求失败，根据错误类型返回相应的HTTP状态码及错误消息。
+       * @description Queries the details of a specified instance by instance ID. Supports GET and POST methods. A successful response returns the detailed configuration and status of the instance.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -595,15 +589,15 @@ namespace AgentTeams20260605
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary 查询指定AgentTeams实例关联的异步任务状态，支持分页。
+       * @summary Queries the status of asynchronous tasks associated with a specified AgentTeams instance, with pagination support.
        *
-       * @description ## 请求说明
-       * - 本接口用于查询特定AgentTeams实例下的异步任务执行状态。
-       * - 目前仅支持查询与实例生命周期相关的创建实例任务。
-       * - 可通过`taskCode`参数指定要查询的任务类型，默认为创建实例任务。
-       * - 支持使用`maxResults`和`nextToken`进行结果分页。
-       * - 当任务处于暂停(`PAUSED`)状态时，会返回用户需要采取行动的信息(`recoveryMessage`)。
-       * - 注意：当前不支持通过`taskId`直接查询任务状态。
+       * @description Queries the status of asynchronous tasks associated with a specified AgentTeams instance, with paging support.
+       * - This operation queries the execution status of asynchronous tasks under a specific AgentTeams instance.
+       * - Currently, only instance creation tasks related to the instance lifecycle are supported.
+       * - Use the taskCode parameter to specify the task type to query. The default is the instance creation task.
+       * - Use maxResults and nextToken for result paging.
+       * - When a task is in the PAUSED state, the response includes information about the action the user needs to take (recoveryMessage).
+       * - Querying task status directly by taskId is not currently supported.
        *
        * @param request GetInstanceAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,15 +606,15 @@ namespace AgentTeams20260605
       Models::GetInstanceAsyncTaskResponse getInstanceAsyncTaskWithOptions(const Models::GetInstanceAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定AgentTeams实例关联的异步任务状态，支持分页。
+       * @summary Queries the status of asynchronous tasks associated with a specified AgentTeams instance, with pagination support.
        *
-       * @description ## 请求说明
-       * - 本接口用于查询特定AgentTeams实例下的异步任务执行状态。
-       * - 目前仅支持查询与实例生命周期相关的创建实例任务。
-       * - 可通过`taskCode`参数指定要查询的任务类型，默认为创建实例任务。
-       * - 支持使用`maxResults`和`nextToken`进行结果分页。
-       * - 当任务处于暂停(`PAUSED`)状态时，会返回用户需要采取行动的信息(`recoveryMessage`)。
-       * - 注意：当前不支持通过`taskId`直接查询任务状态。
+       * @description Queries the status of asynchronous tasks associated with a specified AgentTeams instance, with paging support.
+       * - This operation queries the execution status of asynchronous tasks under a specific AgentTeams instance.
+       * - Currently, only instance creation tasks related to the instance lifecycle are supported.
+       * - Use the taskCode parameter to specify the task type to query. The default is the instance creation task.
+       * - Use maxResults and nextToken for result paging.
+       * - When a task is in the PAUSED state, the response includes information about the action the user needs to take (recoveryMessage).
+       * - Querying task status directly by taskId is not currently supported.
        *
        * @param request GetInstanceAsyncTaskRequest
        * @return GetInstanceAsyncTaskResponse
@@ -628,13 +622,13 @@ namespace AgentTeams20260605
       Models::GetInstanceAsyncTaskResponse getInstanceAsyncTask(const Models::GetInstanceAsyncTaskRequest &request);
 
       /**
-       * @summary 获取实例 OSS 挂载到 ACS 所需的 RAM 授权链接。
+       * @summary Retrieves the RAM authorization URL required to mount OSS to ACS for an instance.
        *
-       * @description ## 请求说明
-       * - 该接口支持`GET`和`POST`方法。
-       * - 请求时必须在头部包含`X-User-Id`，用于校验实例归属。
-       * - 必须通过`instanceId`参数指定实例，后端会根据实例信息生成授权链接。
-       * - 成功响应会返回 RAM 控制台授权链接，不会创建 RAM 角色或策略。
+       * @description Retrieves the RAM authorization URL required to mount OSS to ACS for an instance.
+       * - This operation supports GET and POST methods.
+       * - The X-User-Id header must be included in the request to verify instance ownership.
+       * - The InstanceId parameter is required to specify the instance. The backend generates the authorization URL based on the instance information.
+       * - A successful response returns the RAM console authorization URL without creating a RAM role or policy.
        *
        * @param request GetInstanceOssMountRamAuthorizeUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,13 +637,13 @@ namespace AgentTeams20260605
       Models::GetInstanceOssMountRamAuthorizeUrlResponse getInstanceOssMountRamAuthorizeUrlWithOptions(const Models::GetInstanceOssMountRamAuthorizeUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例 OSS 挂载到 ACS 所需的 RAM 授权链接。
+       * @summary Retrieves the RAM authorization URL required to mount OSS to ACS for an instance.
        *
-       * @description ## 请求说明
-       * - 该接口支持`GET`和`POST`方法。
-       * - 请求时必须在头部包含`X-User-Id`，用于校验实例归属。
-       * - 必须通过`instanceId`参数指定实例，后端会根据实例信息生成授权链接。
-       * - 成功响应会返回 RAM 控制台授权链接，不会创建 RAM 角色或策略。
+       * @description Retrieves the RAM authorization URL required to mount OSS to ACS for an instance.
+       * - This operation supports GET and POST methods.
+       * - The X-User-Id header must be included in the request to verify instance ownership.
+       * - The InstanceId parameter is required to specify the instance. The backend generates the authorization URL based on the instance information.
+       * - A successful response returns the RAM console authorization URL without creating a RAM role or policy.
        *
        * @param request GetInstanceOssMountRamAuthorizeUrlRequest
        * @return GetInstanceOssMountRamAuthorizeUrlResponse
@@ -657,14 +651,9 @@ namespace AgentTeams20260605
       Models::GetInstanceOssMountRamAuthorizeUrlResponse getInstanceOssMountRamAuthorizeUrl(const Models::GetInstanceOssMountRamAuthorizeUrlRequest &request);
 
       /**
-       * @summary 查询MCP详情
+       * @summary Queries the details of a specified MCP server, including the address, authentication configuration, deployment status, and protocol.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the details of a specified MCP server, including the address, authentication configuration, deployment status, and protocol.
        *
        * @param request GetMcpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -673,14 +662,9 @@ namespace AgentTeams20260605
       Models::GetMcpResponse getMcpWithOptions(const Models::GetMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询MCP详情
+       * @summary Queries the details of a specified MCP server, including the address, authentication configuration, deployment status, and protocol.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the details of a specified MCP server, including the address, authentication configuration, deployment status, and protocol.
        *
        * @param request GetMcpRequest
        * @return GetMcpResponse
@@ -688,7 +672,9 @@ namespace AgentTeams20260605
       Models::GetMcpResponse getMcp(const Models::GetMcpRequest &request);
 
       /**
-       * @summary 模型调用摘要
+       * @summary Queries the model call summary for a specified AgentTeams instance within a specified time range, including today\\"s and this week\\"s call counts, change rates, call frequency, and provider distribution.
+       *
+       * @description Queries the model call summary for a specified AgentTeams instance within a specified time range, including today\\"s and this week\\"s call counts, change rates, call frequency, and provider distribution.
        *
        * @param request GetModelInvocationSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,7 +683,9 @@ namespace AgentTeams20260605
       Models::GetModelInvocationSummaryResponse getModelInvocationSummaryWithOptions(const Models::GetModelInvocationSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型调用摘要
+       * @summary Queries the model call summary for a specified AgentTeams instance within a specified time range, including today\\"s and this week\\"s call counts, change rates, call frequency, and provider distribution.
+       *
+       * @description Queries the model call summary for a specified AgentTeams instance within a specified time range, including today\\"s and this week\\"s call counts, change rates, call frequency, and provider distribution.
        *
        * @param request GetModelInvocationSummaryRequest
        * @return GetModelInvocationSummaryResponse
@@ -705,14 +693,9 @@ namespace AgentTeams20260605
       Models::GetModelInvocationSummaryResponse getModelInvocationSummary(const Models::GetModelInvocationSummaryRequest &request);
 
       /**
-       * @summary 查询模型供应商详情
+       * @summary Queries the details of a single AI model provider, including the name, address, protocol list, API keys, and deployment status.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the details of a single AI model provider, including the name, address, protocol list, API keys, and deployment status.
        *
        * @param request GetModelProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -721,14 +704,9 @@ namespace AgentTeams20260605
       Models::GetModelProviderResponse getModelProviderWithOptions(const Models::GetModelProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型供应商详情
+       * @summary Queries the details of a single AI model provider, including the name, address, protocol list, API keys, and deployment status.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the details of a single AI model provider, including the name, address, protocol list, API keys, and deployment status.
        *
        * @param request GetModelProviderRequest
        * @return GetModelProviderResponse
@@ -736,14 +714,13 @@ namespace AgentTeams20260605
       Models::GetModelProviderResponse getModelProvider(const Models::GetModelProviderRequest &request);
 
       /**
-       * @summary 查询指定实例的NAT网关及其SNAT规则的配置状态。
+       * @summary Queries the configuration status of the NAT gateway and its SNAT rules for a specified instance.
        *
-       * @description ## 请求说明
-       * 通过此API，您可以获取特定实例关联的NAT网关配置详情及SNAT规则的状态。该接口支持GET或POST方法调用，并需要提供`instanceId`作为请求参数来指定要查询的实例。
-       * ### 注意事项
-       * - 确保提供的`instanceId`是有效的且属于您的账户。
-       * - 根据返回的状态值（如`READY`, `NEED_CONFIGURE_NAT_GATEWAY`, `NEED_CONFIGURE_SNAT_RULE`），采取相应的操作以完成NAT网关或SNAT规则的配置。
-       * - 当状态为`NEED_CONFIGURE_NAT_GATEWAY`时，表示当前VPC下没有可用的NAT网关；而`NEED_CONFIGURE_SNAT_RULE`则意味着虽然存在NAT网关但某些子网CIDR未被SNAT规则覆盖。
+       * @description Queries the configuration status of the NAT gateway and its SNAT rules for a specified instance.
+       * - This API allows you to retrieve the NAT gateway configuration details and SNAT rule status associated with a specific instance. This operation supports GET or POST method calls and requires the instanceId as a request parameter to specify the instance to query.
+       * - Ensure that the provided instanceId is valid and belongs to your account.
+       * - Based on the returned status values (such as READY, NEED_CONFIGURE_NAT_GATEWAY, or NEED_CONFIGURE_SNAT_RULE), take the corresponding actions to complete the NAT gateway or SNAT rule configuration.
+       * - When the status is NEED_CONFIGURE_NAT_GATEWAY, it indicates that no available NAT gateway exists in the current VPC. NEED_CONFIGURE_SNAT_RULE means that a NAT gateway exists but some subnet CIDRs are not covered by SNAT rules.
        *
        * @param request GetNatGatewayStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -752,14 +729,13 @@ namespace AgentTeams20260605
       Models::GetNatGatewayStatusResponse getNatGatewayStatusWithOptions(const Models::GetNatGatewayStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定实例的NAT网关及其SNAT规则的配置状态。
+       * @summary Queries the configuration status of the NAT gateway and its SNAT rules for a specified instance.
        *
-       * @description ## 请求说明
-       * 通过此API，您可以获取特定实例关联的NAT网关配置详情及SNAT规则的状态。该接口支持GET或POST方法调用，并需要提供`instanceId`作为请求参数来指定要查询的实例。
-       * ### 注意事项
-       * - 确保提供的`instanceId`是有效的且属于您的账户。
-       * - 根据返回的状态值（如`READY`, `NEED_CONFIGURE_NAT_GATEWAY`, `NEED_CONFIGURE_SNAT_RULE`），采取相应的操作以完成NAT网关或SNAT规则的配置。
-       * - 当状态为`NEED_CONFIGURE_NAT_GATEWAY`时，表示当前VPC下没有可用的NAT网关；而`NEED_CONFIGURE_SNAT_RULE`则意味着虽然存在NAT网关但某些子网CIDR未被SNAT规则覆盖。
+       * @description Queries the configuration status of the NAT gateway and its SNAT rules for a specified instance.
+       * - This API allows you to retrieve the NAT gateway configuration details and SNAT rule status associated with a specific instance. This operation supports GET or POST method calls and requires the instanceId as a request parameter to specify the instance to query.
+       * - Ensure that the provided instanceId is valid and belongs to your account.
+       * - Based on the returned status values (such as READY, NEED_CONFIGURE_NAT_GATEWAY, or NEED_CONFIGURE_SNAT_RULE), take the corresponding actions to complete the NAT gateway or SNAT rule configuration.
+       * - When the status is NEED_CONFIGURE_NAT_GATEWAY, it indicates that no available NAT gateway exists in the current VPC. NEED_CONFIGURE_SNAT_RULE means that a NAT gateway exists but some subnet CIDRs are not covered by SNAT rules.
        *
        * @param request GetNatGatewayStatusRequest
        * @return GetNatGatewayStatusResponse
@@ -767,14 +743,14 @@ namespace AgentTeams20260605
       Models::GetNatGatewayStatusResponse getNatGatewayStatus(const Models::GetNatGatewayStatusRequest &request);
 
       /**
-       * @summary 查询指定ID的Endpoint详细信息，支持通过实例ID进行校验。
+       * @summary Queries the details of an endpoint with a specified ID. You can verify the endpoint by instance ID.
        *
-       * @description ## 请求说明
-       * - 该API用于根据`endpointId`查询单个Endpoint的具体配置与状态信息。
-       * - 可选参数`instanceId`用于验证Endpoint是否属于特定实例。
-       * - 请求方式支持`GET`和`POST`，其中`GET`使用query string传递参数，而`POST`则可以通过form参数提交。
-       * - 如果`endpointId`缺失或为空，则会返回`InvalidParameter`错误。
-       * - 当请求的Endpoint不存在、不属于提供的实例或者不属于当前用户时，将收到相应的资源不存在类错误响应。
+       * @description Queries the details of an endpoint with a specified ID. You can verify the endpoint by instance ID.
+       * - This API operation queries the configuration and status information of a single endpoint based on the endpointId.
+       * - The optional parameter instanceId is used to verify whether the endpoint belongs to a specific instance.
+       * - The request supports both GET and POST methods. GET passes parameters through the query string, while POST submits parameters through form data.
+       * - If endpointId is missing or empty, an InvalidParameter error is returned.
+       * - If the requested endpoint does not exist, does not belong to the specified instance, or does not belong to the current user, a resource-not-found error is returned.
        *
        * @param request GetServiceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,14 +759,14 @@ namespace AgentTeams20260605
       Models::GetServiceEndpointResponse getServiceEndpointWithOptions(const Models::GetServiceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定ID的Endpoint详细信息，支持通过实例ID进行校验。
+       * @summary Queries the details of an endpoint with a specified ID. You can verify the endpoint by instance ID.
        *
-       * @description ## 请求说明
-       * - 该API用于根据`endpointId`查询单个Endpoint的具体配置与状态信息。
-       * - 可选参数`instanceId`用于验证Endpoint是否属于特定实例。
-       * - 请求方式支持`GET`和`POST`，其中`GET`使用query string传递参数，而`POST`则可以通过form参数提交。
-       * - 如果`endpointId`缺失或为空，则会返回`InvalidParameter`错误。
-       * - 当请求的Endpoint不存在、不属于提供的实例或者不属于当前用户时，将收到相应的资源不存在类错误响应。
+       * @description Queries the details of an endpoint with a specified ID. You can verify the endpoint by instance ID.
+       * - This API operation queries the configuration and status information of a single endpoint based on the endpointId.
+       * - The optional parameter instanceId is used to verify whether the endpoint belongs to a specific instance.
+       * - The request supports both GET and POST methods. GET passes parameters through the query string, while POST submits parameters through form data.
+       * - If endpointId is missing or empty, an InvalidParameter error is returned.
+       * - If the requested endpoint does not exist, does not belong to the specified instance, or does not belong to the current user, a resource-not-found error is returned.
        *
        * @param request GetServiceEndpointRequest
        * @return GetServiceEndpointResponse
@@ -798,7 +774,9 @@ namespace AgentTeams20260605
       Models::GetServiceEndpointResponse getServiceEndpoint(const Models::GetServiceEndpointRequest &request);
 
       /**
-       * @summary 任务统计摘要
+       * @summary Queries the task statistics summary of a specified AgentTeams instance within a specified time range, including total tasks, average task duration, token consumption, and status distribution.
+       *
+       * @description Queries the task statistics summary of a specified AgentTeams instance within a specified time range, including total tasks, average task duration, token consumption, and status distribution.
        *
        * @param request GetTaskStatsSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -807,7 +785,9 @@ namespace AgentTeams20260605
       Models::GetTaskStatsSummaryResponse getTaskStatsSummaryWithOptions(const Models::GetTaskStatsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务统计摘要
+       * @summary Queries the task statistics summary of a specified AgentTeams instance within a specified time range, including total tasks, average task duration, token consumption, and status distribution.
+       *
+       * @description Queries the task statistics summary of a specified AgentTeams instance within a specified time range, including total tasks, average task duration, token consumption, and status distribution.
        *
        * @param request GetTaskStatsSummaryRequest
        * @return GetTaskStatsSummaryResponse
@@ -815,7 +795,9 @@ namespace AgentTeams20260605
       Models::GetTaskStatsSummaryResponse getTaskStatsSummary(const Models::GetTaskStatsSummaryRequest &request);
 
       /**
-       * @summary 查询团队详情
+       * @summary Queries the details of a specified team under a specified instance, including the description, administrator, leader, members, associated workers, and room status.
+       *
+       * @description Queries the details of a specified team under a specified instance, including the description, administrator, leader, members, associated workers, and room status.
        *
        * @param request GetTeamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +806,9 @@ namespace AgentTeams20260605
       Models::GetTeamResponse getTeamWithOptions(const Models::GetTeamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询团队详情
+       * @summary Queries the details of a specified team under a specified instance, including the description, administrator, leader, members, associated workers, and room status.
+       *
+       * @description Queries the details of a specified team under a specified instance, including the description, administrator, leader, members, associated workers, and room status.
        *
        * @param request GetTeamRequest
        * @return GetTeamResponse
@@ -832,7 +816,9 @@ namespace AgentTeams20260605
       Models::GetTeamResponse getTeam(const Models::GetTeamRequest &request);
 
       /**
-       * @summary Token趋势统计
+       * @summary Queries the token consumption trend of a specified AgentTeams instance within a specified time range, supports grouping by time dimension, and returns time series data that can be used for charting.
+       *
+       * @description Queries the token consumption trend of a specified AgentTeams instance within a specified time range, supports grouping by time dimension, and returns time series data that can be used for charting.
        *
        * @param request GetTokenTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -841,7 +827,9 @@ namespace AgentTeams20260605
       Models::GetTokenTrendResponse getTokenTrendWithOptions(const Models::GetTokenTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Token趋势统计
+       * @summary Queries the token consumption trend of a specified AgentTeams instance within a specified time range, supports grouping by time dimension, and returns time series data that can be used for charting.
+       *
+       * @description Queries the token consumption trend of a specified AgentTeams instance within a specified time range, supports grouping by time dimension, and returns time series data that can be used for charting.
        *
        * @param request GetTokenTrendRequest
        * @return GetTokenTrendResponse
@@ -849,7 +837,9 @@ namespace AgentTeams20260605
       Models::GetTokenTrendResponse getTokenTrend(const Models::GetTokenTrendRequest &request);
 
       /**
-       * @summary 工具调用分布
+       * @summary Queries the tool calling distribution of a specified AgentTeams instance within a specified time range, and returns the number of calls for each tool and the total number of calls.
+       *
+       * @description Queries the tool calling distribution of a specified AgentTeams instance within a specified time range, and returns the number of calls for each tool and the total number of calls.
        *
        * @param request GetToolCallDistributionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -858,7 +848,9 @@ namespace AgentTeams20260605
       Models::GetToolCallDistributionResponse getToolCallDistributionWithOptions(const Models::GetToolCallDistributionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工具调用分布
+       * @summary Queries the tool calling distribution of a specified AgentTeams instance within a specified time range, and returns the number of calls for each tool and the total number of calls.
+       *
+       * @description Queries the tool calling distribution of a specified AgentTeams instance within a specified time range, and returns the number of calls for each tool and the total number of calls.
        *
        * @param request GetToolCallDistributionRequest
        * @return GetToolCallDistributionResponse
@@ -866,7 +858,9 @@ namespace AgentTeams20260605
       Models::GetToolCallDistributionResponse getToolCallDistribution(const Models::GetToolCallDistributionRequest &request);
 
       /**
-       * @summary 查询用户详情
+       * @summary Queries the details of a specified user under a specified instance, including the username, display name, email address, authentication method, status, and creation time.
+       *
+       * @description Queries the details of a specified user under a specified instance, including the username, display name, email address, authentication method, status, and creation time.
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -875,7 +869,9 @@ namespace AgentTeams20260605
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户详情
+       * @summary Queries the details of a specified user under a specified instance, including the username, display name, email address, authentication method, status, and creation time.
+       *
+       * @description Queries the details of a specified user under a specified instance, including the username, display name, email address, authentication method, status, and creation time.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -883,7 +879,9 @@ namespace AgentTeams20260605
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
 
       /**
-       * @summary 获取用户初始密码
+       * @summary Retrieves the initial password of a specified user under a specified instance. The initial password is generated by the system or specified by the user when the user is created.
+       *
+       * @description Retrieves the initial password of a specified user under a specified instance. The initial password is generated by the system or specified by the user when the user is created.
        *
        * @param request GetUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -892,7 +890,9 @@ namespace AgentTeams20260605
       Models::GetUserPasswordResponse getUserPasswordWithOptions(const Models::GetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户初始密码
+       * @summary Retrieves the initial password of a specified user under a specified instance. The initial password is generated by the system or specified by the user when the user is created.
+       *
+       * @description Retrieves the initial password of a specified user under a specified instance. The initial password is generated by the system or specified by the user when the user is created.
        *
        * @param request GetUserPasswordRequest
        * @return GetUserPasswordResponse
@@ -900,7 +900,9 @@ namespace AgentTeams20260605
       Models::GetUserPasswordResponse getUserPassword(const Models::GetUserPasswordRequest &request);
 
       /**
-       * @summary 查询Worker详情
+       * @summary Queries the details of a specified worker, including configurations such as model, skills, sub-agents, MCP servers, channels, and quotas.
+       *
+       * @description Queries the details of a specified worker, including configurations such as model, skills, sub-agents, MCP servers, channels, and quotas.
        *
        * @param request GetWorkerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -909,7 +911,9 @@ namespace AgentTeams20260605
       Models::GetWorkerResponse getWorkerWithOptions(const Models::GetWorkerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Worker详情
+       * @summary Queries the details of a specified worker, including configurations such as model, skills, sub-agents, MCP servers, channels, and quotas.
+       *
+       * @description Queries the details of a specified worker, including configurations such as model, skills, sub-agents, MCP servers, channels, and quotas.
        *
        * @param request GetWorkerRequest
        * @return GetWorkerResponse
@@ -917,7 +921,9 @@ namespace AgentTeams20260605
       Models::GetWorkerResponse getWorker(const Models::GetWorkerRequest &request);
 
       /**
-       * @summary 查询Worker本地纳管启动选项
+       * @summary Queries the startup options for local Worker management and returns available network types.
+       *
+       * @description Queries the startup options for local Worker management and returns available network types.
        *
        * @param request GetWorkerBootstrapOptionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -926,7 +932,9 @@ namespace AgentTeams20260605
       Models::GetWorkerBootstrapOptionsResponse getWorkerBootstrapOptionsWithOptions(const Models::GetWorkerBootstrapOptionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Worker本地纳管启动选项
+       * @summary Queries the startup options for local Worker management and returns available network types.
+       *
+       * @description Queries the startup options for local Worker management and returns available network types.
        *
        * @param request GetWorkerBootstrapOptionsRequest
        * @return GetWorkerBootstrapOptionsResponse
@@ -934,7 +942,9 @@ namespace AgentTeams20260605
       Models::GetWorkerBootstrapOptionsResponse getWorkerBootstrapOptions(const Models::GetWorkerBootstrapOptionsRequest &request);
 
       /**
-       * @summary 查询Worker最大可升级版本
+       * @summary Queries the maximum upgradable version of a worker.
+       *
+       * @description Queries the maximum upgradable version of a worker.
        *
        * @param request GetWorkerMaxVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -943,7 +953,9 @@ namespace AgentTeams20260605
       Models::GetWorkerMaxVersionResponse getWorkerMaxVersionWithOptions(const Models::GetWorkerMaxVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Worker最大可升级版本
+       * @summary Queries the maximum upgradable version of a worker.
+       *
+       * @description Queries the maximum upgradable version of a worker.
        *
        * @param request GetWorkerMaxVersionRequest
        * @return GetWorkerMaxVersionResponse
@@ -951,7 +963,9 @@ namespace AgentTeams20260605
       Models::GetWorkerMaxVersionResponse getWorkerMaxVersion(const Models::GetWorkerMaxVersionRequest &request);
 
       /**
-       * @summary Worker统计摘要
+       * @summary Queries the Worker statistics summary, including the total number of workers, the number of running workers, the number of stopped workers, and more.
+       *
+       * @description Queries the Worker statistics summary, including the total number of workers, the number of running workers, the number of stopped workers, and more.
        *
        * @param request GetWorkerStatsSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -960,7 +974,9 @@ namespace AgentTeams20260605
       Models::GetWorkerStatsSummaryResponse getWorkerStatsSummaryWithOptions(const Models::GetWorkerStatsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Worker统计摘要
+       * @summary Queries the Worker statistics summary, including the total number of workers, the number of running workers, the number of stopped workers, and more.
+       *
+       * @description Queries the Worker statistics summary, including the total number of workers, the number of running workers, the number of stopped workers, and more.
        *
        * @param request GetWorkerStatsSummaryRequest
        * @return GetWorkerStatsSummaryResponse
@@ -968,7 +984,9 @@ namespace AgentTeams20260605
       Models::GetWorkerStatsSummaryResponse getWorkerStatsSummary(const Models::GetWorkerStatsSummaryRequest &request);
 
       /**
-       * @summary 查询凭证列表
+       * @summary Queries the credential list under a specified AgentTeams instance with paging, returning credential summary information and the number of Workers attached to each credential.
+       *
+       * @description Queries the credential list under a specified AgentTeams instance with paging, returning credential summary information and the number of Workers attached to each credential.
        *
        * @param request ListCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -977,7 +995,9 @@ namespace AgentTeams20260605
       Models::ListCredentialsResponse listCredentialsWithOptions(const Models::ListCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭证列表
+       * @summary Queries the credential list under a specified AgentTeams instance with paging, returning credential summary information and the number of Workers attached to each credential.
+       *
+       * @description Queries the credential list under a specified AgentTeams instance with paging, returning credential summary information and the number of Workers attached to each credential.
        *
        * @param request ListCredentialsRequest
        * @return ListCredentialsResponse
@@ -985,7 +1005,9 @@ namespace AgentTeams20260605
       Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
 
       /**
-       * @summary 查询上游身份提供商绑定列表
+       * @summary Queries the list of upstream identity provider bindings for a specified instance, with support for paginated responses.
+       *
+       * @description Queries the list of upstream identity provider bindings for a specified instance, with support for paginated responses.
        *
        * @param request ListIdentityProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -994,7 +1016,9 @@ namespace AgentTeams20260605
       Models::ListIdentityProvidersResponse listIdentityProvidersWithOptions(const Models::ListIdentityProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询上游身份提供商绑定列表
+       * @summary Queries the list of upstream identity provider bindings for a specified instance, with support for paginated responses.
+       *
+       * @description Queries the list of upstream identity provider bindings for a specified instance, with support for paginated responses.
        *
        * @param request ListIdentityProvidersRequest
        * @return ListIdentityProvidersResponse
@@ -1002,22 +1026,9 @@ namespace AgentTeams20260605
       Models::ListIdentityProvidersResponse listIdentityProviders(const Models::ListIdentityProvidersRequest &request);
 
       /**
-       * @summary 用于查询符合条件的实例列表，并支持分页和模糊匹配。
+       * @summary Queries a list of instances that meet the specified conditions. Supports pagination and fuzzy match. Supports GET and POST methods. The list is returned in reverse chronological order by creation time.
        *
-       * @description ## 请求说明
-       * - **分页规则**：
-       *   - 如果传了 `NextToken`，优先按 `NextToken` 解析 offset。
-       *   - 如果没传 `NextToken`，则使用 `skip`。
-       *   - `MaxResults` 的取值范围为 1 到 100，非法值会返回 `400` 错误。
-       *   - `NextToken` 必须是有效的整数，否则会返回 `400` 错误。
-       *   - `skip` 的值不能小于 0，否则会返回 `400` 错误。
-       * - **排序规则**：列表按创建时间倒序返回。
-       * - **请求参数**：
-       *   - `instanceName`：实例名称，支持模糊匹配。
-       *   - `status`：实例状态。
-       *   - `MaxResults`：分页大小，默认值为 20。
-       *   - `NextToken`：下一页游标。
-       *   - `skip`：跳过的记录数，默认值为 0。
+       * @description Queries a list of instances that meet the specified conditions. Supports pagination and fuzzy match. Supports GET and POST methods. The list is returned in reverse chronological order by creation time.
        *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1026,22 +1037,9 @@ namespace AgentTeams20260605
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于查询符合条件的实例列表，并支持分页和模糊匹配。
+       * @summary Queries a list of instances that meet the specified conditions. Supports pagination and fuzzy match. Supports GET and POST methods. The list is returned in reverse chronological order by creation time.
        *
-       * @description ## 请求说明
-       * - **分页规则**：
-       *   - 如果传了 `NextToken`，优先按 `NextToken` 解析 offset。
-       *   - 如果没传 `NextToken`，则使用 `skip`。
-       *   - `MaxResults` 的取值范围为 1 到 100，非法值会返回 `400` 错误。
-       *   - `NextToken` 必须是有效的整数，否则会返回 `400` 错误。
-       *   - `skip` 的值不能小于 0，否则会返回 `400` 错误。
-       * - **排序规则**：列表按创建时间倒序返回。
-       * - **请求参数**：
-       *   - `instanceName`：实例名称，支持模糊匹配。
-       *   - `status`：实例状态。
-       *   - `MaxResults`：分页大小，默认值为 20。
-       *   - `NextToken`：下一页游标。
-       *   - `skip`：跳过的记录数，默认值为 0。
+       * @description Queries a list of instances that meet the specified conditions. Supports pagination and fuzzy match. Supports GET and POST methods. The list is returned in reverse chronological order by creation time.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -1049,14 +1047,9 @@ namespace AgentTeams20260605
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary 测试模型供应商和模型
+       * @summary Queries the list of tools provided by a specified MCP server, including tool names, titles, descriptions, and input schemas.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有Magic实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of tools provided by a specified MCP server, including tool names, titles, descriptions, and input schemas.
        *
        * @param request ListMcpToolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1065,14 +1058,9 @@ namespace AgentTeams20260605
       Models::ListMcpToolsResponse listMcpToolsWithOptions(const Models::ListMcpToolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 测试模型供应商和模型
+       * @summary Queries the list of tools provided by a specified MCP server, including tool names, titles, descriptions, and input schemas.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有Magic实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of tools provided by a specified MCP server, including tool names, titles, descriptions, and input schemas.
        *
        * @param request ListMcpToolsRequest
        * @return ListMcpToolsResponse
@@ -1080,14 +1068,9 @@ namespace AgentTeams20260605
       Models::ListMcpToolsResponse listMcpTools(const Models::ListMcpToolsRequest &request);
 
       /**
-       * @summary 查询MCP列表
+       * @summary Queries the MCP server list under a specified AgentTeams instance by using paging.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the MCP server list under a specified AgentTeams instance by using paging.
        *
        * @param request ListMcpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1096,14 +1079,9 @@ namespace AgentTeams20260605
       Models::ListMcpsResponse listMcpsWithOptions(const Models::ListMcpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询MCP列表
+       * @summary Queries the MCP server list under a specified AgentTeams instance by using paging.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the MCP server list under a specified AgentTeams instance by using paging.
        *
        * @param request ListMcpsRequest
        * @return ListMcpsResponse
@@ -1111,14 +1089,9 @@ namespace AgentTeams20260605
       Models::ListMcpsResponse listMcps(const Models::ListMcpsRequest &request);
 
       /**
-       * @summary 查询模型供应商列表
+       * @summary Queries the list of AI model providers under a specified AgentTeams instance. Paging is supported.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of AI model providers under a specified AgentTeams instance. Paging is supported.
        *
        * @param request ListModelProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1127,14 +1100,9 @@ namespace AgentTeams20260605
       Models::ListModelProvidersResponse listModelProvidersWithOptions(const Models::ListModelProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型供应商列表
+       * @summary Queries the list of AI model providers under a specified AgentTeams instance. Paging is supported.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of AI model providers under a specified AgentTeams instance. Paging is supported.
        *
        * @param request ListModelProvidersRequest
        * @return ListModelProvidersResponse
@@ -1142,14 +1110,9 @@ namespace AgentTeams20260605
       Models::ListModelProvidersResponse listModelProviders(const Models::ListModelProvidersRequest &request);
 
       /**
-       * @summary 查询模型列表
+       * @summary Queries the list of AI models under a specified AgentTeams instance. You can filter results by model name or provider name, and paging is supported.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of AI models under a specified AgentTeams instance. You can filter results by model name or provider name, and paging is supported.
        *
        * @param request ListModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1158,14 +1121,9 @@ namespace AgentTeams20260605
       Models::ListModelsResponse listModelsWithOptions(const Models::ListModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型列表
+       * @summary Queries the list of AI models under a specified AgentTeams instance. You can filter results by model name or provider name, and paging is supported.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Queries the list of AI models under a specified AgentTeams instance. You can filter results by model name or provider name, and paging is supported.
        *
        * @param request ListModelsRequest
        * @return ListModelsResponse
@@ -1173,12 +1131,12 @@ namespace AgentTeams20260605
       Models::ListModelsResponse listModels(const Models::ListModelsRequest &request);
 
       /**
-       * @summary 此API用于查询指定实例下的AI网关端点列表。
+       * @summary Queries the list of AI gateway endpoints under a specified instance.
        *
-       * @description ## 请求说明
-       * - `instanceId` 是必填参数，用来指定 AgentTeams 实例 ID。
-       * - 可选参数包括 `component`, `serviceName`, `networkType`, 和 `domainType`，用于进一步筛选返回的端点列表。
-       * - 不支持通过 `status` 参数进行筛选。
+       * @description This API queries the list of AI gateway endpoints under a specified instance.
+       * - instanceId is a required parameter that specifies the AgentTeams instance ID.
+       * - Optional parameters include component, serviceName, networkType, and domainType, which are used to further filter the returned endpoint list.
+       * - Filtering by the status parameter is not supported.
        *
        * @param request ListServiceEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1187,12 +1145,12 @@ namespace AgentTeams20260605
       Models::ListServiceEndpointsResponse listServiceEndpointsWithOptions(const Models::ListServiceEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 此API用于查询指定实例下的AI网关端点列表。
+       * @summary Queries the list of AI gateway endpoints under a specified instance.
        *
-       * @description ## 请求说明
-       * - `instanceId` 是必填参数，用来指定 AgentTeams 实例 ID。
-       * - 可选参数包括 `component`, `serviceName`, `networkType`, 和 `domainType`，用于进一步筛选返回的端点列表。
-       * - 不支持通过 `status` 参数进行筛选。
+       * @description This API queries the list of AI gateway endpoints under a specified instance.
+       * - instanceId is a required parameter that specifies the AgentTeams instance ID.
+       * - Optional parameters include component, serviceName, networkType, and domainType, which are used to further filter the returned endpoint list.
+       * - Filtering by the status parameter is not supported.
        *
        * @param request ListServiceEndpointsRequest
        * @return ListServiceEndpointsResponse
@@ -1200,13 +1158,12 @@ namespace AgentTeams20260605
       Models::ListServiceEndpointsResponse listServiceEndpoints(const Models::ListServiceEndpointsRequest &request);
 
       /**
-       * @summary 查询用户侧APIG可用的SSL证书列表
+       * @summary Queries the list of SSL certificates available to the user in APIG.
        *
-       * @description ## 请求说明
-       * - 该API用于获取与指定AgentTeams实例相关的SSL证书列表。
-       * - 可通过`certNameLike`和`domainName`参数进行模糊搜索或精确匹配证书名称及绑定域名。
-       * - 分页参数`pageNumber`和`pageSize`允许客户端控制返回结果的数量和页码，默认每页显示10条记录。
-       * - 成功响应将包含请求ID、是否成功标志、错误代码（如果有的话）、HTTP状态码、本次请求的最大结果数、下一页标记（如果有更多数据的话）、总证书数量以及具体的证书详情列表。
+       * @description Queries the list of SSL certificates available to the user in APIG.
+       * - This API retrieves the list of SSL certificates associated with a specified AgentTeams instance.
+       * - The pagination parameters MaxResults and NextToken allow the client to control the number of returned results and retrieve the next page of data.
+       * - A successful response includes the request ID, success flag, error code, next page token, total certificate count, and the certificate details list.
        *
        * @param request ListSslCertsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1215,13 +1172,12 @@ namespace AgentTeams20260605
       Models::ListSslCertsResponse listSslCertsWithOptions(const Models::ListSslCertsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户侧APIG可用的SSL证书列表
+       * @summary Queries the list of SSL certificates available to the user in APIG.
        *
-       * @description ## 请求说明
-       * - 该API用于获取与指定AgentTeams实例相关的SSL证书列表。
-       * - 可通过`certNameLike`和`domainName`参数进行模糊搜索或精确匹配证书名称及绑定域名。
-       * - 分页参数`pageNumber`和`pageSize`允许客户端控制返回结果的数量和页码，默认每页显示10条记录。
-       * - 成功响应将包含请求ID、是否成功标志、错误代码（如果有的话）、HTTP状态码、本次请求的最大结果数、下一页标记（如果有更多数据的话）、总证书数量以及具体的证书详情列表。
+       * @description Queries the list of SSL certificates available to the user in APIG.
+       * - This API retrieves the list of SSL certificates associated with a specified AgentTeams instance.
+       * - The pagination parameters MaxResults and NextToken allow the client to control the number of returned results and retrieve the next page of data.
+       * - A successful response includes the request ID, success flag, error code, next page token, total certificate count, and the certificate details list.
        *
        * @param request ListSslCertsRequest
        * @return ListSslCertsResponse
@@ -1229,7 +1185,9 @@ namespace AgentTeams20260605
       Models::ListSslCertsResponse listSslCerts(const Models::ListSslCertsRequest &request);
 
       /**
-       * @summary 团队详情列表
+       * @summary Queries the statistical details of teams under a specified instance, including aggregate metrics such as the number of workers, number of tasks, success rate, and token usage for each team.
+       *
+       * @description Queries the statistical details of teams under a specified instance, including aggregate metrics such as the number of workers, number of tasks, success rate, and token usage for each team.
        *
        * @param request ListTeamDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1238,7 +1196,9 @@ namespace AgentTeams20260605
       Models::ListTeamDetailsResponse listTeamDetailsWithOptions(const Models::ListTeamDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 团队详情列表
+       * @summary Queries the statistical details of teams under a specified instance, including aggregate metrics such as the number of workers, number of tasks, success rate, and token usage for each team.
+       *
+       * @description Queries the statistical details of teams under a specified instance, including aggregate metrics such as the number of workers, number of tasks, success rate, and token usage for each team.
        *
        * @param request ListTeamDetailsRequest
        * @return ListTeamDetailsResponse
@@ -1246,7 +1206,9 @@ namespace AgentTeams20260605
       Models::ListTeamDetailsResponse listTeamDetails(const Models::ListTeamDetailsRequest &request);
 
       /**
-       * @summary 查询Team任务列表
+       * @summary Queries the task list of a specified team under a specified instance. The task metadata is sourced from the OSS bucket bound to the instance.
+       *
+       * @description Queries the task list of a specified team under a specified instance. The task metadata is sourced from the OSS bucket bound to the instance.
        *
        * @param request ListTeamTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1255,7 +1217,9 @@ namespace AgentTeams20260605
       Models::ListTeamTasksResponse listTeamTasksWithOptions(const Models::ListTeamTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Team任务列表
+       * @summary Queries the task list of a specified team under a specified instance. The task metadata is sourced from the OSS bucket bound to the instance.
+       *
+       * @description Queries the task list of a specified team under a specified instance. The task metadata is sourced from the OSS bucket bound to the instance.
        *
        * @param request ListTeamTasksRequest
        * @return ListTeamTasksResponse
@@ -1263,7 +1227,9 @@ namespace AgentTeams20260605
       Models::ListTeamTasksResponse listTeamTasks(const Models::ListTeamTasksRequest &request);
 
       /**
-       * @summary 查询团队列表
+       * @summary Queries the list of teams under a specified instance, with support for fuzzy filtering by name and pagination.
+       *
+       * @description Queries the list of teams under a specified instance, with support for fuzzy filtering by name and pagination.
        *
        * @param request ListTeamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1272,7 +1238,9 @@ namespace AgentTeams20260605
       Models::ListTeamsResponse listTeamsWithOptions(const Models::ListTeamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询团队列表
+       * @summary Queries the list of teams under a specified instance, with support for fuzzy filtering by name and pagination.
+       *
+       * @description Queries the list of teams under a specified instance, with support for fuzzy filtering by name and pagination.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -1280,7 +1248,9 @@ namespace AgentTeams20260605
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary 查询用户列表
+       * @summary Queries the list of users under a specified instance. Supports fuzzy match by username and paging query. The list is returned in reverse chronological order by creation time.
+       *
+       * @description Queries the list of users under a specified instance. Supports fuzzy match by username and paging query. The list is returned in reverse chronological order by creation time.
        *
        * @param request ListUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1289,7 +1259,9 @@ namespace AgentTeams20260605
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户列表
+       * @summary Queries the list of users under a specified instance. Supports fuzzy match by username and paging query. The list is returned in reverse chronological order by creation time.
+       *
+       * @description Queries the list of users under a specified instance. Supports fuzzy match by username and paging query. The list is returned in reverse chronological order by creation time.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -1297,7 +1269,9 @@ namespace AgentTeams20260605
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
-       * @summary Worker统计详情列表
+       * @summary Queries a list of Worker statistics details by paging, including task count, token usage, and LLM call count.
+       *
+       * @description Queries a list of Worker statistics details by paging, including task count, token usage, and LLM call count.
        *
        * @param request ListWorkerStatsDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1306,7 +1280,9 @@ namespace AgentTeams20260605
       Models::ListWorkerStatsDetailsResponse listWorkerStatsDetailsWithOptions(const Models::ListWorkerStatsDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Worker统计详情列表
+       * @summary Queries a list of Worker statistics details by paging, including task count, token usage, and LLM call count.
+       *
+       * @description Queries a list of Worker statistics details by paging, including task count, token usage, and LLM call count.
        *
        * @param request ListWorkerStatsDetailsRequest
        * @return ListWorkerStatsDetailsResponse
@@ -1314,7 +1290,9 @@ namespace AgentTeams20260605
       Models::ListWorkerStatsDetailsResponse listWorkerStatsDetails(const Models::ListWorkerStatsDetailsRequest &request);
 
       /**
-       * @summary 查询Worker列表
+       * @summary Queries the list of Workers under a specified instance by using paging, with support for filtering by name, model, template, and other conditions.
+       *
+       * @description Queries the list of Workers under a specified instance by using paging, with support for filtering by name, model, template, and other conditions.
        *
        * @param tmpReq ListWorkersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1301,9 @@ namespace AgentTeams20260605
       Models::ListWorkersResponse listWorkersWithOptions(const Models::ListWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Worker列表
+       * @summary Queries the list of Workers under a specified instance by using paging, with support for filtering by name, model, template, and other conditions.
+       *
+       * @description Queries the list of Workers under a specified instance by using paging, with support for filtering by name, model, template, and other conditions.
        *
        * @param request ListWorkersRequest
        * @return ListWorkersResponse
@@ -1331,7 +1311,9 @@ namespace AgentTeams20260605
       Models::ListWorkersResponse listWorkers(const Models::ListWorkersRequest &request);
 
       /**
-       * @summary 创建或更新CMS工作空间
+       * @summary Creates or updates a CMS workspace.
+       *
+       * @description Creates or updates a CMS workspace.
        *
        * @param request PutCmsWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1340,7 +1322,9 @@ namespace AgentTeams20260605
       Models::PutCmsWorkspaceResponse putCmsWorkspaceWithOptions(const Models::PutCmsWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或更新CMS工作空间
+       * @summary Creates or updates a CMS workspace.
+       *
+       * @description Creates or updates a CMS workspace.
        *
        * @param request PutCmsWorkspaceRequest
        * @return PutCmsWorkspaceResponse
@@ -1348,15 +1332,15 @@ namespace AgentTeams20260605
       Models::PutCmsWorkspaceResponse putCmsWorkspace(const Models::PutCmsWorkspaceRequest &request);
 
       /**
-       * @summary 查询指定实例、worker、团队或个人的功能特性状态。
+       * @summary Queries the attribute status of a specified instance, worker, team, or individual.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询特定`instanceId`下的不同目标（如`INSTANCE`、`WORKER`、`TEAM`、`HUMAN`）的功能特性状态。
-       * - `targetScope`参数定义了查询的目标类型，根据不同的`targetScope`值，可能需要提供额外的`resourceName`参数来指定具体的资源名称。
-       * - 如果提供了`featureCodes`列表，则返回这些特定功能特性的状态；否则，将返回指定`targetScope`下所有功能特性的状态。
-       * - 当使用`WORKER`、`TEAM`或`HUMAN`作为`targetScope`时，请确保正确填写对应的`resourceName`。
-       * - 对于`INSTANCE`级别的查询，无需提供`resourceName`。
-       * - 特性支持情况受基础版本、工作器版本等因素影响，并通过`unsupportedReasonCode`和`unsupportedReason`字段给出不支持的具体原因。
+       * @description Queries the feature status of a specified instance, worker, team, or individual.
+       * - This operation queries the feature status of different targets (such as INSTANCE, WORKER, TEAM, or HUMAN) under a specific instanceId.
+       * - The targetScope parameter defines the target type for the query. Depending on the targetScope value, you may need to provide an additional resourceName parameter to specify the resource name.
+       * - If a featureCodes list is provided, the status of those specific features is returned. Otherwise, the status of all features under the specified targetScope is returned.
+       * - When using WORKER, TEAM, or HUMAN as the targetScope, make sure to correctly specify the corresponding resourceName.
+       * - For INSTANCE-level queries, resourceName is not required.
+       * - Feature support is affected by factors such as the base version and worker version. The unsupportedReasonCode and unsupportedReason fields provide the specific reason why a feature is not supported.
        *
        * @param request QueryFeaturesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1365,15 +1349,15 @@ namespace AgentTeams20260605
       Models::QueryFeaturesResponse queryFeaturesWithOptions(const Models::QueryFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定实例、worker、团队或个人的功能特性状态。
+       * @summary Queries the attribute status of a specified instance, worker, team, or individual.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询特定`instanceId`下的不同目标（如`INSTANCE`、`WORKER`、`TEAM`、`HUMAN`）的功能特性状态。
-       * - `targetScope`参数定义了查询的目标类型，根据不同的`targetScope`值，可能需要提供额外的`resourceName`参数来指定具体的资源名称。
-       * - 如果提供了`featureCodes`列表，则返回这些特定功能特性的状态；否则，将返回指定`targetScope`下所有功能特性的状态。
-       * - 当使用`WORKER`、`TEAM`或`HUMAN`作为`targetScope`时，请确保正确填写对应的`resourceName`。
-       * - 对于`INSTANCE`级别的查询，无需提供`resourceName`。
-       * - 特性支持情况受基础版本、工作器版本等因素影响，并通过`unsupportedReasonCode`和`unsupportedReason`字段给出不支持的具体原因。
+       * @description Queries the feature status of a specified instance, worker, team, or individual.
+       * - This operation queries the feature status of different targets (such as INSTANCE, WORKER, TEAM, or HUMAN) under a specific instanceId.
+       * - The targetScope parameter defines the target type for the query. Depending on the targetScope value, you may need to provide an additional resourceName parameter to specify the resource name.
+       * - If a featureCodes list is provided, the status of those specific features is returned. Otherwise, the status of all features under the specified targetScope is returned.
+       * - When using WORKER, TEAM, or HUMAN as the targetScope, make sure to correctly specify the corresponding resourceName.
+       * - For INSTANCE-level queries, resourceName is not required.
+       * - Feature support is affected by factors such as the base version and worker version. The unsupportedReasonCode and unsupportedReason fields provide the specific reason why a feature is not supported.
        *
        * @param request QueryFeaturesRequest
        * @return QueryFeaturesResponse
@@ -1381,9 +1365,9 @@ namespace AgentTeams20260605
       Models::QueryFeaturesResponse queryFeatures(const Models::QueryFeaturesRequest &request);
 
       /**
-       * @summary 获取当前AgentTeams Resource Pool配置支持的所有可用区ID。
+       * @summary Retrieves all zone IDs supported by the current AgentTeams Resource Pool configuration.
        *
-       * @description ## 请求说明
+       * @description Retrieves all zone IDs supported by the current AgentTeams Resource Pool configuration.
        *
        * @param request QuerySupportedZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1392,9 +1376,9 @@ namespace AgentTeams20260605
       Models::QuerySupportedZonesResponse querySupportedZonesWithOptions(const Models::QuerySupportedZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前AgentTeams Resource Pool配置支持的所有可用区ID。
+       * @summary Retrieves all zone IDs supported by the current AgentTeams Resource Pool configuration.
        *
-       * @description ## 请求说明
+       * @description Retrieves all zone IDs supported by the current AgentTeams Resource Pool configuration.
        *
        * @param request QuerySupportedZonesRequest
        * @return QuerySupportedZonesResponse
@@ -1402,7 +1386,9 @@ namespace AgentTeams20260605
       Models::QuerySupportedZonesResponse querySupportedZones(const Models::QuerySupportedZonesRequest &request);
 
       /**
-       * @summary 设置用户密码
+       * @summary Resets the password of a specified user under a specified instance. After the reset, the user must log on with the new password.
+       *
+       * @description Resets the password of a specified user under a specified instance. After the reset, the user must log on with the new password.
        *
        * @param request ResetUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1411,7 +1397,9 @@ namespace AgentTeams20260605
       Models::ResetUserPasswordResponse resetUserPasswordWithOptions(const Models::ResetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置用户密码
+       * @summary Resets the password of a specified user under a specified instance. After the reset, the user must log on with the new password.
+       *
+       * @description Resets the password of a specified user under a specified instance. After the reset, the user must log on with the new password.
        *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
@@ -1419,14 +1407,9 @@ namespace AgentTeams20260605
       Models::ResetUserPasswordResponse resetUserPassword(const Models::ResetUserPasswordRequest &request);
 
       /**
-       * @summary 测试模型供应商和模型
+       * @summary Tests the connectivity of an AI model provider and model under a specified AgentTeams instance by sending a test prompt and returning the call result, latency, and token usage.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Tests the connectivity of an AI model provider and model under a specified AgentTeams instance by sending a test prompt and returning the call result, latency, and token usage.
        *
        * @param request TestModelProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1435,14 +1418,9 @@ namespace AgentTeams20260605
       Models::TestModelProviderResponse testModelProviderWithOptions(const Models::TestModelProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 测试模型供应商和模型
+       * @summary Tests the connectivity of an AI model provider and model under a specified AgentTeams instance by sending a test prompt and returning the call result, latency, and token usage.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Tests the connectivity of an AI model provider and model under a specified AgentTeams instance by sending a test prompt and returning the call result, latency, and token usage.
        *
        * @param request TestModelProviderRequest
        * @return TestModelProviderResponse
@@ -1450,7 +1428,9 @@ namespace AgentTeams20260605
       Models::TestModelProviderResponse testModelProvider(const Models::TestModelProviderRequest &request);
 
       /**
-       * @summary 解绑上游身份提供商
+       * @summary Unbinds the upstream identity provider from a specified instance, dissociates the identity federation relationship, and cleans up associated user identities and data.
+       *
+       * @description Unbinds the upstream identity provider from a specified instance, dissociates the identity federation relationship, and cleans up associated user identities and data.
        *
        * @param request UnbindIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1459,7 +1439,9 @@ namespace AgentTeams20260605
       Models::UnbindIdentityProviderResponse unbindIdentityProviderWithOptions(const Models::UnbindIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑上游身份提供商
+       * @summary Unbinds the upstream identity provider from a specified instance, dissociates the identity federation relationship, and cleans up associated user identities and data.
+       *
+       * @description Unbinds the upstream identity provider from a specified instance, dissociates the identity federation relationship, and cleans up associated user identities and data.
        *
        * @param request UnbindIdentityProviderRequest
        * @return UnbindIdentityProviderResponse
@@ -1467,12 +1449,12 @@ namespace AgentTeams20260605
       Models::UnbindIdentityProviderResponse unbindIdentityProvider(const Models::UnbindIdentityProviderRequest &request);
 
       /**
-       * @summary 更新凭证密钥
+       * @summary Updates the plaintext key of an existing credential in an AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于更新 AgentTeams 实例下已有 Credential 的密钥明文。
-       * - 仅更新 Agent Identity TokenVault 中同名 APIKeyCredentialProvider 的密钥值，不修改本地元数据（description、createTime、updateTime、status）。
-       * - 响应不包含 apiKey 明文；如需绑定 Worker 明细请调用 GetCredential。
+       * @description Updates the plaintext key of an existing credential in an AgentTeams instance.
+       * - This operation updates the plaintext key of an existing Credential in an AgentTeams instance.
+       * - Only the key value of the APIKeyCredentialProvider with the same name in the Agent Identity TokenVault is updated. Local metadata (description, createTime, updateTime, and status) is not modified.
+       * - The response does not contain the apiKey plaintext. To obtain Worker details, call GetCredential.
        *
        * @param request UpdateCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1481,12 +1463,12 @@ namespace AgentTeams20260605
       Models::UpdateCredentialResponse updateCredentialWithOptions(const Models::UpdateCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭证密钥
+       * @summary Updates the plaintext key of an existing credential in an AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于更新 AgentTeams 实例下已有 Credential 的密钥明文。
-       * - 仅更新 Agent Identity TokenVault 中同名 APIKeyCredentialProvider 的密钥值，不修改本地元数据（description、createTime、updateTime、status）。
-       * - 响应不包含 apiKey 明文；如需绑定 Worker 明细请调用 GetCredential。
+       * @description Updates the plaintext key of an existing credential in an AgentTeams instance.
+       * - This operation updates the plaintext key of an existing Credential in an AgentTeams instance.
+       * - Only the key value of the APIKeyCredentialProvider with the same name in the Agent Identity TokenVault is updated. Local metadata (description, createTime, updateTime, and status) is not modified.
+       * - The response does not contain the apiKey plaintext. To obtain Worker details, call GetCredential.
        *
        * @param request UpdateCredentialRequest
        * @return UpdateCredentialResponse
@@ -1494,7 +1476,9 @@ namespace AgentTeams20260605
       Models::UpdateCredentialResponse updateCredential(const Models::UpdateCredentialRequest &request);
 
       /**
-       * @summary 更新上游身份提供商绑定
+       * @summary Updates the upstream identity provider configuration bound to a specified instance. You can adjust the logon switch and user synchronization switch.
+       *
+       * @description Updates the upstream identity provider configuration bound to a specified instance. You can adjust the logon switch and user synchronization switch.
        *
        * @param request UpdateIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1503,7 +1487,9 @@ namespace AgentTeams20260605
       Models::UpdateIdentityProviderResponse updateIdentityProviderWithOptions(const Models::UpdateIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新上游身份提供商绑定
+       * @summary Updates the upstream identity provider configuration bound to a specified instance. You can adjust the logon switch and user synchronization switch.
+       *
+       * @description Updates the upstream identity provider configuration bound to a specified instance. You can adjust the logon switch and user synchronization switch.
        *
        * @param request UpdateIdentityProviderRequest
        * @return UpdateIdentityProviderResponse
@@ -1511,13 +1497,9 @@ namespace AgentTeams20260605
       Models::UpdateIdentityProviderResponse updateIdentityProvider(const Models::UpdateIdentityProviderRequest &request);
 
       /**
-       * @summary 用于更改指定AgentTeams实例的名称，支持通过GET或POST方法调用。
+       * @summary Changes the name of a specified AgentTeams instance. This operation supports GET and POST methods. You can only modify the instance name through this operation. You cannot change the namespace through this operation.
        *
-       * @description ## 请求说明
-       * - 推荐使用`POST`方法，并以表单形式提交参数。
-       * - 当前实现不支持JSON格式的请求体，请勿尝试使用`@RequestBody`方式调用。
-       * - 必须提供有效的`instanceId`和非空的`instanceName`作为参数。
-       * - 该接口仅允许修改实例名称(`instanceName`)，不允许通过此接口变更命名空间(`namespace`)。
+       * @description Changes the name of a specified AgentTeams instance. This operation supports GET and POST methods. You can only modify the instance name through this operation. You cannot change the namespace through this operation.
        *
        * @param tmpReq UpdateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1526,13 +1508,9 @@ namespace AgentTeams20260605
       Models::UpdateInstanceResponse updateInstanceWithOptions(const Models::UpdateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于更改指定AgentTeams实例的名称，支持通过GET或POST方法调用。
+       * @summary Changes the name of a specified AgentTeams instance. This operation supports GET and POST methods. You can only modify the instance name through this operation. You cannot change the namespace through this operation.
        *
-       * @description ## 请求说明
-       * - 推荐使用`POST`方法，并以表单形式提交参数。
-       * - 当前实现不支持JSON格式的请求体，请勿尝试使用`@RequestBody`方式调用。
-       * - 必须提供有效的`instanceId`和非空的`instanceName`作为参数。
-       * - 该接口仅允许修改实例名称(`instanceName`)，不允许通过此接口变更命名空间(`namespace`)。
+       * @description Changes the name of a specified AgentTeams instance. This operation supports GET and POST methods. You can only modify the instance name through this operation. You cannot change the namespace through this operation.
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -1540,13 +1518,13 @@ namespace AgentTeams20260605
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary 重启暂停中的创建实例异步任务。
+       * @summary Restarts a paused asynchronous task for creating an instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于重新启动一个处于暂停状态的创建实例任务。
-       * - 目前仅支持 `agentteams:pay-order:create` 类型的任务。
-       * - 确保提供的 `instanceId`、`taskCode` 和 `taskId` 参数准确无误，否则可能导致请求失败。
-       * - 如果任务不是暂停状态（PAUSED），则不允许调用此接口进行更新。
+       * @description Restarts a paused asynchronous task for creating an instance.
+       * - This operation restarts a create-instance task that is in the paused state.
+       * - Only tasks of the agentteams:pay-order:create type are supported.
+       * - Ensure that the InstanceId, TaskCode, and TaskId parameters are accurate. Otherwise, the request may fail.
+       * - If the task is not in the paused state (PAUSED), you cannot call this operation to update the task.
        *
        * @param request UpdateInstanceAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1555,13 +1533,13 @@ namespace AgentTeams20260605
       Models::UpdateInstanceAsyncTaskResponse updateInstanceAsyncTaskWithOptions(const Models::UpdateInstanceAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启暂停中的创建实例异步任务。
+       * @summary Restarts a paused asynchronous task for creating an instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于重新启动一个处于暂停状态的创建实例任务。
-       * - 目前仅支持 `agentteams:pay-order:create` 类型的任务。
-       * - 确保提供的 `instanceId`、`taskCode` 和 `taskId` 参数准确无误，否则可能导致请求失败。
-       * - 如果任务不是暂停状态（PAUSED），则不允许调用此接口进行更新。
+       * @description Restarts a paused asynchronous task for creating an instance.
+       * - This operation restarts a create-instance task that is in the paused state.
+       * - Only tasks of the agentteams:pay-order:create type are supported.
+       * - Ensure that the InstanceId, TaskCode, and TaskId parameters are accurate. Otherwise, the request may fail.
+       * - If the task is not in the paused state (PAUSED), you cannot call this operation to update the task.
        *
        * @param request UpdateInstanceAsyncTaskRequest
        * @return UpdateInstanceAsyncTaskResponse
@@ -1569,14 +1547,9 @@ namespace AgentTeams20260605
       Models::UpdateInstanceAsyncTaskResponse updateInstanceAsyncTask(const Models::UpdateInstanceAsyncTaskRequest &request);
 
       /**
-       * @summary 更新MCP
+       * @summary Updates the configuration of a specified MCP server, including the address list, authentication information, and description.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the configuration of a specified MCP server, including the address list, authentication information, and description.
        *
        * @param tmpReq UpdateMcpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1585,14 +1558,9 @@ namespace AgentTeams20260605
       Models::UpdateMcpResponse updateMcpWithOptions(const Models::UpdateMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新MCP
+       * @summary Updates the configuration of a specified MCP server, including the address list, authentication information, and description.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the configuration of a specified MCP server, including the address list, authentication information, and description.
        *
        * @param request UpdateMcpRequest
        * @return UpdateMcpResponse
@@ -1600,14 +1568,9 @@ namespace AgentTeams20260605
       Models::UpdateMcpResponse updateMcp(const Models::UpdateMcpRequest &request);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the description and other information of an AI model in a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the description and other information of an AI model in a specified AgentTeams instance.
        *
        * @param request UpdateModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1616,14 +1579,9 @@ namespace AgentTeams20260605
       Models::UpdateModelResponse updateModelWithOptions(const Models::UpdateModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型
+       * @summary Updates the description and other information of an AI model in a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the description and other information of an AI model in a specified AgentTeams instance.
        *
        * @param request UpdateModelRequest
        * @return UpdateModelResponse
@@ -1631,14 +1589,9 @@ namespace AgentTeams20260605
       Models::UpdateModelResponse updateModel(const Models::UpdateModelRequest &request);
 
       /**
-       * @summary 更新模型供应商
+       * @summary Updates the address, protocol list, API key, and other information of an AI model provider in a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the address, protocol list, API key, and other information of an AI model provider in a specified AgentTeams instance.
        *
        * @param tmpReq UpdateModelProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1647,14 +1600,9 @@ namespace AgentTeams20260605
       Models::UpdateModelProviderResponse updateModelProviderWithOptions(const Models::UpdateModelProviderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型供应商
+       * @summary Updates the address, protocol list, API key, and other information of an AI model provider in a specified AgentTeams instance.
        *
-       * @description ## 请求说明
-       * - 该接口用于查询当前登录用户所拥有的所有AgentTeams实例。
-       * - 用户身份通过请求头`X-User-Id`传递，服务端会根据此ID自动过滤只返回属于该用户的实例数据。
-       * - 支持使用`instanceName`进行模糊匹配以及通过`status`参数精确匹配实例状态来过滤查询结果。
-       * - 默认情况下，结果将按照创建时间倒序排列，并且可以通过设置`limit`和`offset`参数来进行分页控制，默认每页显示20条记录。
-       * - 如果请求中缺少`X-User-Id`或者其值为空，则会返回400错误；如果指定的实例不存在或不属于当前用户，则返回404错误。
+       * @description Updates the address, protocol list, API key, and other information of an AI model provider in a specified AgentTeams instance.
        *
        * @param request UpdateModelProviderRequest
        * @return UpdateModelProviderResponse
@@ -1662,15 +1610,15 @@ namespace AgentTeams20260605
       Models::UpdateModelProviderResponse updateModelProvider(const Models::UpdateModelProviderRequest &request);
 
       /**
-       * @summary 用于更新指定Endpoint的域名和SSL证书信息。
+       * @summary Updates the domain name and SSL certificate information for a specified endpoint.
        *
-       * @description ## 请求说明
-       * - 本API支持更新`ELEMENT`、`MATRIX`类型的Endpoint。
-       * - 如果尝试更新其他类型的Endpoint，将返回400错误。
-       * - 当`endpointId`不存在或不属于当前用户实例时，将返回404错误。
-       * - 更新域名时，系统会创建或复用新的HTTPS domain，并将其绑定到原endpoint route上，同时解绑旧domain，但不会删除旧domain。
-       * - 若不提供`domain`或`certIdentifier`参数，则保持原有设置不变。
-       * - 其他如`component`、`gatewayType`等字段即使传入也不会被更新。
+       * @description Updates the domain name and SSL certificate information for a specified endpoint.
+       * - This API operation supports updating endpoints of the ELEMENT or MATRIX type.
+       * - If you attempt to update an endpoint of another type, a 400 error is returned.
+       * - If the endpointId does not exist or does not belong to the current user instance, a 404 error is returned.
+       * - When updating a domain name, the system creates or reuses a new HTTPS domain and binds it to the original endpoint route. The old domain is unbound but not deleted.
+       * - If the domain or certIdentifier parameter is not specified, the existing settings are retained.
+       * - Other fields such as component and gatewayType are not updated even if they are specified in the request.
        *
        * @param request UpdateServiceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1679,15 +1627,15 @@ namespace AgentTeams20260605
       Models::UpdateServiceEndpointResponse updateServiceEndpointWithOptions(const Models::UpdateServiceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于更新指定Endpoint的域名和SSL证书信息。
+       * @summary Updates the domain name and SSL certificate information for a specified endpoint.
        *
-       * @description ## 请求说明
-       * - 本API支持更新`ELEMENT`、`MATRIX`类型的Endpoint。
-       * - 如果尝试更新其他类型的Endpoint，将返回400错误。
-       * - 当`endpointId`不存在或不属于当前用户实例时，将返回404错误。
-       * - 更新域名时，系统会创建或复用新的HTTPS domain，并将其绑定到原endpoint route上，同时解绑旧domain，但不会删除旧domain。
-       * - 若不提供`domain`或`certIdentifier`参数，则保持原有设置不变。
-       * - 其他如`component`、`gatewayType`等字段即使传入也不会被更新。
+       * @description Updates the domain name and SSL certificate information for a specified endpoint.
+       * - This API operation supports updating endpoints of the ELEMENT or MATRIX type.
+       * - If you attempt to update an endpoint of another type, a 400 error is returned.
+       * - If the endpointId does not exist or does not belong to the current user instance, a 404 error is returned.
+       * - When updating a domain name, the system creates or reuses a new HTTPS domain and binds it to the original endpoint route. The old domain is unbound but not deleted.
+       * - If the domain or certIdentifier parameter is not specified, the existing settings are retained.
+       * - Other fields such as component and gatewayType are not updated even if they are specified in the request.
        *
        * @param request UpdateServiceEndpointRequest
        * @return UpdateServiceEndpointResponse
@@ -1695,7 +1643,9 @@ namespace AgentTeams20260605
       Models::UpdateServiceEndpointResponse updateServiceEndpoint(const Models::UpdateServiceEndpointRequest &request);
 
       /**
-       * @summary 更新团队
+       * @summary Updates the description and member list of a team under a specified instance, and returns the latest team information after the update.
+       *
+       * @description Updates the description and member list of a team under a specified instance, and returns the latest team information after the update.
        *
        * @param tmpReq UpdateTeamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1704,7 +1654,9 @@ namespace AgentTeams20260605
       Models::UpdateTeamResponse updateTeamWithOptions(const Models::UpdateTeamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新团队
+       * @summary Updates the description and member list of a team under a specified instance, and returns the latest team information after the update.
+       *
+       * @description Updates the description and member list of a team under a specified instance, and returns the latest team information after the update.
        *
        * @param request UpdateTeamRequest
        * @return UpdateTeamResponse
@@ -1712,7 +1664,9 @@ namespace AgentTeams20260605
       Models::UpdateTeamResponse updateTeam(const Models::UpdateTeamRequest &request);
 
       /**
-       * @summary 更新用户信息
+       * @summary Updates the information of a specified user under a specified instance, including the display name, email address, authentication method, and remarks.
+       *
+       * @description Updates the information of a specified user under a specified instance, including the display name, email address, authentication method, and remarks.
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1675,9 @@ namespace AgentTeams20260605
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新用户信息
+       * @summary Updates the information of a specified user under a specified instance, including the display name, email address, authentication method, and remarks.
+       *
+       * @description Updates the information of a specified user under a specified instance, including the display name, email address, authentication method, and remarks.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
@@ -1729,7 +1685,9 @@ namespace AgentTeams20260605
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
-       * @summary 更新Worker
+       * @summary Updates the configuration of a specified Worker, including model, skills, template, MCP servers, channels, and quotas.
+       *
+       * @description Updates the configuration of a specified Worker, including model, skills, template, MCP servers, channels, and quotas.
        *
        * @param tmpReq UpdateWorkerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1738,7 +1696,9 @@ namespace AgentTeams20260605
       Models::UpdateWorkerResponse updateWorkerWithOptions(const Models::UpdateWorkerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Worker
+       * @summary Updates the configuration of a specified Worker, including model, skills, template, MCP servers, channels, and quotas.
+       *
+       * @description Updates the configuration of a specified Worker, including model, skills, template, MCP servers, channels, and quotas.
        *
        * @param request UpdateWorkerRequest
        * @return UpdateWorkerResponse

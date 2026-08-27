@@ -103,18 +103,32 @@ namespace Models
 
 
   protected:
+    // The address of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> address_ {};
+    // The list of API keys for the model provider, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKeysShrink_ {};
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The description of the model provider.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Optional. The instance name for fuzzy matching.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The list of protocols supported by the model provider, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> protocolsShrink_ {};
+    // Optional. The instance status for exact matching.
+    // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
   };

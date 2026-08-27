@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The new SSL certificate identifier. If this parameter is not specified, the existing certificate is retained.
     shared_ptr<string> certIdentifier_ {};
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The new domain name. If this parameter is not specified, the existing domain name is retained.
     shared_ptr<string> domain_ {};
+    // The globally unique endpoint ID.
+    // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

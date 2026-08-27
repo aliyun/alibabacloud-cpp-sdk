@@ -111,10 +111,15 @@ namespace Models
 
 
     protected:
+      // The identity provider type.
       shared_ptr<string> identityProviderType_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // Indicates whether logon is enabled.
       shared_ptr<bool> loginEnabled_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // Indicates whether synchronization is enabled.
       shared_ptr<bool> syncEnabled_ {};
     };
 
@@ -187,14 +192,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of identity provider bindings.
     shared_ptr<vector<ListIdentityProvidersResponseBody::Items>> items_ {};
+    // The maximum number of entries returned in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. This parameter is empty if no more data exists.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

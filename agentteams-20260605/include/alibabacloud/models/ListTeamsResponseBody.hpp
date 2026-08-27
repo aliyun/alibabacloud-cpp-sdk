@@ -109,6 +109,7 @@ namespace Models
 
 
       protected:
+        // The team name.
         shared_ptr<string> name_ {};
       };
 
@@ -183,14 +184,23 @@ namespace Models
 
 
     protected:
+      // The name of the team administrator.
       shared_ptr<string> adminName_ {};
+      // The time when the team was created.
       shared_ptr<string> createdAt_ {};
+      // The team description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the team leader.
       shared_ptr<string> leaderName_ {};
+      // The team name.
       shared_ptr<string> name_ {};
+      // The running status of the team. This parameter is empty when the team is running normally.
       shared_ptr<string> status_ {};
+      // The list of team members.
       shared_ptr<vector<Items::TeamMembers>> teamMembers_ {};
+      // The list of Worker names associated with the team.
       shared_ptr<vector<string>> workerNames_ {};
     };
 
@@ -263,14 +273,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of team summaries.
     shared_ptr<vector<ListTeamsResponseBody::Items>> items_ {};
+    // The maximum number of records returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. This parameter is empty if no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the specified conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

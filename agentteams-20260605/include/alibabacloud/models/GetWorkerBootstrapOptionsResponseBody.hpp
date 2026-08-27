@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether the network type is available.
         shared_ptr<bool> available_ {};
+        // The network type.
         shared_ptr<string> networkType_ {};
       };
 
@@ -131,8 +133,11 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The Worker name.
       shared_ptr<string> name_ {};
+      // The list of network options.
       shared_ptr<vector<Data::NetworkOptions>> networkOptions_ {};
     };
 
@@ -183,11 +188,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetWorkerBootstrapOptionsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

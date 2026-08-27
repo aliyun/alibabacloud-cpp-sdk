@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The new password.
     shared_ptr<string> password_ {};
   };
 

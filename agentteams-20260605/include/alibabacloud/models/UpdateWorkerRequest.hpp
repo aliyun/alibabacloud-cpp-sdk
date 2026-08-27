@@ -101,8 +101,11 @@ namespace Models
 
 
     protected:
+      // The response data.
       shared_ptr<string> label_ {};
+      // The response data.
       shared_ptr<string> name_ {};
+      // The response data.
       shared_ptr<string> version_ {};
     };
 
@@ -153,8 +156,11 @@ namespace Models
 
 
     protected:
+      // The skill label.
       shared_ptr<string> label_ {};
+      // The skill name.
       shared_ptr<string> name_ {};
+      // The skill version.
       shared_ptr<string> version_ {};
     };
 
@@ -196,7 +202,9 @@ namespace Models
 
 
     protected:
+      // The response data.
       shared_ptr<string> modelName_ {};
+      // The response data.
       shared_ptr<string> modelProvider_ {};
     };
 
@@ -228,6 +236,7 @@ namespace Models
 
 
     protected:
+      // The MCP server name.
       shared_ptr<string> name_ {};
     };
 
@@ -278,8 +287,11 @@ namespace Models
 
 
     protected:
+      // The response data.
       shared_ptr<string> limitType_ {};
+      // The response data.
       shared_ptr<string> periodType_ {};
+      // The usage limit.
       shared_ptr<int64_t> usageLimit_ {};
     };
 
@@ -311,6 +323,7 @@ namespace Models
 
 
     protected:
+      // The credential name.
       shared_ptr<string> name_ {};
     };
 
@@ -367,6 +380,7 @@ namespace Models
 
 
       protected:
+        // The response data.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -463,13 +477,21 @@ namespace Models
 
 
       protected:
+        // The response data.
         shared_ptr<string> cardTemplateId_ {};
+        // The response data.
         shared_ptr<string> clientId_ {};
+        // The response data.
         shared_ptr<string> extension_ {};
+        // The response data.
         shared_ptr<string> messageType_ {};
+        // The response data.
         shared_ptr<string> robotCode_ {};
+        // The response data.
         shared_ptr<bool> showThinking_ {};
+        // The response data.
         shared_ptr<bool> showToolCalls_ {};
+        // The response data.
         shared_ptr<bool> streamingEnabled_ {};
       };
 
@@ -508,9 +530,13 @@ namespace Models
 
 
     protected:
+      // The channel configuration.
       shared_ptr<Channels::Config> config_ {};
+      // Specifies whether the channel is enabled.
       shared_ptr<bool> enabled_ {};
+      // The channel secrets.
       shared_ptr<Channels::Secrets> secrets_ {};
+      // The channel type.
       shared_ptr<string> type_ {};
     };
 
@@ -624,20 +650,35 @@ namespace Models
 
 
   protected:
+    // The Agents configuration.
     shared_ptr<string> agents_ {};
+    // The list of channel configurations.
     shared_ptr<vector<UpdateWorkerRequest::Channels>> channels_ {};
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The list of credential bindings.
     shared_ptr<vector<UpdateWorkerRequest::Credentials>> credentials_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The quota configuration.
     shared_ptr<UpdateWorkerRequest::LimitConfig> limitConfig_ {};
+    // The list of MCP servers.
     shared_ptr<vector<UpdateWorkerRequest::McpServers>> mcpServers_ {};
+    // The model configuration.
     shared_ptr<UpdateWorkerRequest::Model> model_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The list of skills.
     shared_ptr<vector<UpdateWorkerRequest::Skills>> skills_ {};
+    // The Soul configuration.
     shared_ptr<string> soul_ {};
+    // The template configuration.
     shared_ptr<UpdateWorkerRequest::Template> template_ {};
+    // The Worker version number.
     shared_ptr<string> versionCode_ {};
   };
 

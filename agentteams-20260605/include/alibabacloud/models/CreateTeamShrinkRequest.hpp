@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The team administrator name. The administrator must be an existing user under the instance with sufficient permissions.
     shared_ptr<string> adminName_ {};
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The team description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The team name.
     shared_ptr<string> name_ {};
+    // The initial member list of the team.
     shared_ptr<string> teamMembersShrink_ {};
   };
 

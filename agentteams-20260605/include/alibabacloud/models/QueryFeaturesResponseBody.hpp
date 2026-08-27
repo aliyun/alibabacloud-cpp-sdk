@@ -139,11 +139,25 @@ namespace Models
 
 
       protected:
+        // The feature description.
         shared_ptr<string> description_ {};
+        // The feature display name.
         shared_ptr<string> displayName_ {};
+        // The feature code.
         shared_ptr<string> featureCode_ {};
+        // Indicates whether the feature is supported.
         shared_ptr<bool> supported_ {};
+        // The detailed reason why the feature is not supported.
         shared_ptr<string> unsupportedReason_ {};
+        // The reason code for why the feature is not supported. Valid values:
+        //  * BASE_VERSION_UNSUPPORTED: The base version does not support this feature.
+        //  * WORKER_VERSION_UNSUPPORTED: The worker version does not support this feature.
+        //  * FEATURE_DISABLED: The feature is disabled.
+        //  * FEATURE_DEPRECATED: The feature is deprecated.
+        //  * OVERRIDDEN_DENY: The feature is denied by an override.
+        //  * CUSTOM_RULE_UNSUPPORTED: A custom rule does not support this feature.
+        //  * VERSION_METADATA_MISSING: The version metadata is missing.
+        //  * RULE_NOT_MATCHED: No rule is matched.
         shared_ptr<string> unsupportedReasonCode_ {};
       };
 
@@ -180,9 +194,17 @@ namespace Models
 
 
     protected:
+      // The list of features.
       shared_ptr<vector<Data::Features>> features_ {};
+      // The AgentTeams instance ID.
       shared_ptr<string> instanceId_ {};
+      // The target resource name. Required for `WORKER`, `TEAM`, and `HUMAN`. Not required for `INSTANCE`.
       shared_ptr<string> resourceName_ {};
+      // The query target type. Valid values:
+      //  * INSTANCE: instance level
+      //  * WORKER: worker level
+      //  * TEAM: team level
+      //  * HUMAN: human level
       shared_ptr<string> targetScope_ {};
     };
 
@@ -233,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The queried feature information.
     shared_ptr<QueryFeaturesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

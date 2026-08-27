@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the AgentTeams instance to release.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

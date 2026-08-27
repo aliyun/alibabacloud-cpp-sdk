@@ -130,12 +130,19 @@ namespace Models
 
 
     protected:
+      // The URL of the team avatar.
       shared_ptr<string> avatarUrl_ {};
+      // The running status of the team.
       shared_ptr<string> status_ {};
+      // The task success rate. Valid values: 0 to 100.
       shared_ptr<double> successRate_ {};
+      // The number of tasks for the team.
       shared_ptr<int32_t> taskCount_ {};
+      // The team name.
       shared_ptr<string> teamName_ {};
+      // The token usage within the time interval.
       shared_ptr<int64_t> tokenUsage_ {};
+      // The number of workers associated with the team.
       shared_ptr<int32_t> workerCount_ {};
     };
 
@@ -208,14 +215,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of team statistical details.
     shared_ptr<vector<ListTeamDetailsResponseBody::Items>> items_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. This parameter is empty if no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page size. Default value: 10. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The keyword for fuzzy match by username.
     shared_ptr<string> nameLike_ {};
+    // The pagination token for the next page. A non-negative integer that represents the offset.
     shared_ptr<string> nextToken_ {};
   };
 

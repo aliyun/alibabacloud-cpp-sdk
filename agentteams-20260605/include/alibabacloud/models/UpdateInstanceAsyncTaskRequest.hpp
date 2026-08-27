@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to resume the task.
     shared_ptr<bool> isResume_ {};
+    // The asynchronous task code. Only `agentteams:pay-order:create` is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> taskCode_ {};
+    // The asynchronous task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

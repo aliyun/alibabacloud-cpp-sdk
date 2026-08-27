@@ -186,22 +186,39 @@ namespace Models
 
 
   protected:
+    // The Agent runtime type.
     shared_ptr<string> agentType_ {};
+    // The Agents configuration.
     shared_ptr<string> agents_ {};
+    // The list of channel configurations.
     shared_ptr<string> channelsShrink_ {};
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The list of credential bindings.
     shared_ptr<string> credentialsShrink_ {};
+    // The deployment type.
     shared_ptr<string> deployType_ {};
+    // The list of team groups.
     shared_ptr<string> groupsShrink_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The quota configuration.
     shared_ptr<string> limitConfigShrink_ {};
+    // The list of MCP servers.
     shared_ptr<string> mcpServersShrink_ {};
+    // The model configuration.
     shared_ptr<string> modelShrink_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The list of skills.
     shared_ptr<string> skillsShrink_ {};
+    // The Soul configuration.
     shared_ptr<string> soul_ {};
+    // The list of sub-agents.
     shared_ptr<string> subagentsShrink_ {};
+    // The template configuration.
     shared_ptr<string> templateShrink_ {};
+    // The Worker version number.
     shared_ptr<string> versionCode_ {};
   };
 

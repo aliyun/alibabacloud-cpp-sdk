@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The keyword for fuzzy match of the credential name.
     shared_ptr<string> nameLike_ {};
+    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

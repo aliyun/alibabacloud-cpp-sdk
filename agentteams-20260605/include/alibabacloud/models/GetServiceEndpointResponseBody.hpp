@@ -167,17 +167,38 @@ namespace Models
 
 
     protected:
+      // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
+      // The component type. Valid values:
+      //  * ELEMENT: element
+      //  * TUNNEL: tunnel
+      //  * MATRIX: matrix
+      //  * WORKER: worker
       shared_ptr<string> component_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The domain name type. Valid values:
+      //  * BUILTIN: built-in
+      //  * CUSTOM: custom
       shared_ptr<string> domainType_ {};
+      // Endpoint ID
       shared_ptr<string> endpointId_ {};
+      // The service name.
       shared_ptr<string> endpointName_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The network type. Valid values:
+      //  * NONE: none
+      //  * INTRANET: internal network
+      //  * INTERNET: Internet
       shared_ptr<string> networkType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -221,10 +242,15 @@ namespace Models
 
 
   protected:
+    // The response code returned on success.
     shared_ptr<string> code_ {};
+    // The details of the endpoint.
     shared_ptr<GetServiceEndpointResponseBody::Data> data_ {};
+    // **message**
     shared_ptr<string> message_ {};
+    // **requestId**
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

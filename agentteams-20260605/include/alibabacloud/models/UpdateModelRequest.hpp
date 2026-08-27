@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The model description.
     shared_ptr<string> description_ {};
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

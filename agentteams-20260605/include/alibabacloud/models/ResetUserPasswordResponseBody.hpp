@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The username.
       shared_ptr<string> name_ {};
+      // The password after the reset.
       shared_ptr<string> password_ {};
+      // The user principal identifier.
       shared_ptr<string> subject_ {};
+      // The user pool ID.
       shared_ptr<string> userPoolId_ {};
     };
 
@@ -158,11 +163,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ResetUserPasswordResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

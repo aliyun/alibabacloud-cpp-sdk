@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The endpoint component. Valid values: ELEMENT, MATRIX, WORKER, and TUNNEL.
     shared_ptr<string> component_ {};
+    // The domain name type. Valid values: BUILTIN and CUSTOM.
     shared_ptr<string> domainType_ {};
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The network type. Valid values: INTRANET and INTERNET.
     shared_ptr<string> networkType_ {};
+    // The pagination token used to retrieve the next page of data.
     shared_ptr<string> nextToken_ {};
+    // The service name. Exact match is used.
     shared_ptr<string> resourceName_ {};
+    // The number of records to skip.
     shared_ptr<string> skip_ {};
   };
 

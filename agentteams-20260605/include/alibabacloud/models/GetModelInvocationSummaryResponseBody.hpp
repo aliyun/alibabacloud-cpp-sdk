@@ -116,8 +116,11 @@ namespace Models
 
 
       protected:
+        // The number of calls.
         shared_ptr<int32_t> count_ {};
+        // The percentage.
         shared_ptr<double> percentage_ {};
+        // The provider name.
         shared_ptr<string> providerName_ {};
       };
 
@@ -168,11 +171,17 @@ namespace Models
 
 
     protected:
+      // The call frequency. Unit: calls per minute.
       shared_ptr<double> callFrequency_ {};
+      // The provider call distribution.
       shared_ptr<vector<Data::ProviderDistribution>> providerDistribution_ {};
+      // The number of calls made today.
       shared_ptr<int32_t> todayCallCount_ {};
+      // The change rate of calls made today.
       shared_ptr<double> todayChangeRate_ {};
+      // The number of calls made this week.
       shared_ptr<int32_t> weekCallCount_ {};
+      // The change rate of calls made this week.
       shared_ptr<double> weekChangeRate_ {};
     };
 
@@ -223,11 +232,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetModelInvocationSummaryResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

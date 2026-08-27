@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The identity provider type. Currently, only DingTalk is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> identityProviderType_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

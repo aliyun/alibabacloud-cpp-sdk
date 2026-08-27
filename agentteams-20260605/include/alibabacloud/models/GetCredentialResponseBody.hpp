@@ -120,8 +120,11 @@ namespace Models
 
 
       protected:
+        // The Worker name.
         shared_ptr<string> name_ {};
+        // The Worker status.
         shared_ptr<string> status_ {};
+        // The binding update time in ISO 8601 format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -187,13 +190,21 @@ namespace Models
 
 
     protected:
+      // The list of bound Workers.
       shared_ptr<vector<Data::BoundWorkers>> boundWorkers_ {};
+      // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The credential description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The credential key.
       shared_ptr<string> name_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource status.
       shared_ptr<string> status_ {};
+      // The update time in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -244,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetCredentialResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
   };
 

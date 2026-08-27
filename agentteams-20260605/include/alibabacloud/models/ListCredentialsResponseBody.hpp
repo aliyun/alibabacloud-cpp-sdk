@@ -120,11 +120,17 @@ namespace Models
 
 
     protected:
+      // The number of bound Workers.
       shared_ptr<int32_t> boundWorkerCount_ {};
+      // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The credential description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The credential key.
       shared_ptr<string> name_ {};
+      // The update time in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -197,14 +203,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of credential summaries.
     shared_ptr<vector<ListCredentialsResponseBody::Items>> items_ {};
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

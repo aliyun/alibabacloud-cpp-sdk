@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The identity provider type. Currently, only DingTalk is supported. Specify this parameter to locate the binding to be unbound.
     shared_ptr<string> identityProviderType_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

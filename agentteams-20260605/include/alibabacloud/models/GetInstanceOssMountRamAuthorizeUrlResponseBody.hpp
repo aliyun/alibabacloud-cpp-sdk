@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The RAM console authorization URL.
       shared_ptr<string> authorizeUrl_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The RAM authorization URL information.
     shared_ptr<GetInstanceOssMountRamAuthorizeUrlResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

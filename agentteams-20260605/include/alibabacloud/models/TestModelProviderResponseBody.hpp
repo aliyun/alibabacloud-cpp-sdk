@@ -121,12 +121,19 @@ namespace Models
 
 
     protected:
+      // The error message. This parameter is returned when the test fails.
       shared_ptr<string> errorMessage_ {};
+      // The number of input tokens.
       shared_ptr<int64_t> inputTokens_ {};
+      // The call latency, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
+      // The number of output tokens.
       shared_ptr<int64_t> outputTokens_ {};
+      // The response content returned by the model.
       shared_ptr<string> response_ {};
+      // The test status.
       shared_ptr<string> status_ {};
+      // Indicates whether the test was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -170,10 +177,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<TestModelProviderResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

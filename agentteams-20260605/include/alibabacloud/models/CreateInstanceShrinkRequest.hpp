@@ -94,16 +94,32 @@ namespace Models
 
 
   protected:
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // `instanceName`: `string`, required.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // `instanceSpec`: `string`, optional, default `SMALL_X1`
+    // 
     // This parameter is required.
     shared_ptr<string> instanceSpec_ {};
+    // `networkType`: `string`, optional, default `PRIVATE_NET`  
+    // Valid values:
+    // 
+    // *   `PRIVATE_PUBNET`
+    // *   `PRIVATE_NET`
+    // *   `PUB_NET`
+    // 
     // This parameter is required.
     shared_ptr<string> networkType_ {};
+    // The billing method.
     shared_ptr<string> paymentType_ {};
+    // `vpcId`: `string`, required.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The zones.
     shared_ptr<string> zonesShrink_ {};
   };
 

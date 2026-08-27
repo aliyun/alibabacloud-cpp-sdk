@@ -123,12 +123,25 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createdAt_ {};
+      // The current step.
       shared_ptr<string> currentStep_ {};
+      // The time when the task was last modified.
       shared_ptr<string> modifiedAt_ {};
+      // The asynchronous task code. Only \\"agentteams:pay-order:create\\" is supported. Valid values:
+      //  * agentteams:pay-order:create: create instance task.
       shared_ptr<string> taskCode_ {};
+      // The asynchronous task ID.
       shared_ptr<string> taskId_ {};
+      // The asynchronous task status. Valid values:
+      //  * PENDING: pending.
+      //  * RUNNING: running.
+      //  * PAUSED: paused.
+      //  * COMPLETED: completed.
+      //  * FAILED: failed.
       shared_ptr<string> taskStatus_ {};
+      // Indicates whether the task is waiting for user action.
       shared_ptr<bool> waitingForUserAction_ {};
     };
 
@@ -179,11 +192,17 @@ namespace Models
 
 
   protected:
+    // The status code in the success response.
     shared_ptr<string> code_ {};
+    // The details of the asynchronous task.
     shared_ptr<UpdateInstanceAsyncTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // **message**
     shared_ptr<string> message_ {};
+    // **requestId**
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

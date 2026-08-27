@@ -115,17 +115,29 @@ namespace Models
 
 
   protected:
+    // The address list of the MCP server.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> addresses_ {};
+    // The authentication information.
     shared_ptr<string> authConfig_ {};
+    // Specifies whether to enable authentication.
     shared_ptr<bool> authEnabled_ {};
+    // The client idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The creation type.
     shared_ptr<string> createType_ {};
+    // The description of the MCP server.
     shared_ptr<string> description_ {};
+    // Optional. Fuzzy matches by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Required if Type is set to HTTP_TO_MCP.
     shared_ptr<string> swaggerConfig_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The business response code. The value is `SUCCESS` upon success.
     shared_ptr<string> code_ {};
+    // The value is `true` when the deletion is successful.
     shared_ptr<bool> data_ {};
+    // **Response message**, which is fixed to `success` upon success.
     shared_ptr<string> message_ {};
+    // **Request ID**, which preferentially uses the `requestId` from the request context, and then the `traceId`.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

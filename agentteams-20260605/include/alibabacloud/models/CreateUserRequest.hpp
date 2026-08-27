@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The authentication method.
     shared_ptr<string> authMethod_ {};
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The email address.
     shared_ptr<string> email_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The note.
     shared_ptr<string> note_ {};
+    // The password. If not specified, the system automatically generates an initial password.
     shared_ptr<string> password_ {};
   };
 

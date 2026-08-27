@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // The template label.
         shared_ptr<string> label_ {};
+        // The template name.
         shared_ptr<string> name_ {};
+        // The template version.
         shared_ptr<string> version_ {};
       };
 
@@ -178,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The Worker name.
         shared_ptr<string> name_ {};
+        // The group role.
         shared_ptr<string> role_ {};
+        // The group type.
         shared_ptr<string> type_ {};
       };
 
@@ -247,13 +253,21 @@ namespace Models
 
 
     protected:
+      // The Agent runtime type.
       shared_ptr<string> agentType_ {};
+      // The deployment type.
       shared_ptr<string> deployType_ {};
+      // The list of team groups.
       shared_ptr<vector<Items::Groups>> groups_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The Worker name.
       shared_ptr<string> name_ {};
+      // The Worker status.
       shared_ptr<string> status_ {};
+      // The template configuration.
       shared_ptr<Items::Template> template_ {};
+      // The Worker version number.
       shared_ptr<string> versionCode_ {};
     };
 
@@ -326,14 +340,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of Workers.
     shared_ptr<vector<ListWorkersResponseBody::Items>> items_ {};
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

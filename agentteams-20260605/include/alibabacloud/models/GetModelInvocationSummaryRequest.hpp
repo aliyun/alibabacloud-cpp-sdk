@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time of the query. Unit: milliseconds (UNIX timestamp).
     shared_ptr<string> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The start time of the query. Unit: milliseconds (UNIX timestamp).
     shared_ptr<string> startTime_ {};
   };
 

@@ -157,15 +157,25 @@ namespace Models
 
 
     protected:
+      // The list of MCP server addresses.
       shared_ptr<vector<string>> addresses_ {};
+      // The creation type.
       shared_ptr<string> createType_ {};
+      // The deployment status.
       shared_ptr<string> deployStatus_ {};
+      // The MCP server description.
       shared_ptr<string> description_ {};
+      // The MCP server ID.
       shared_ptr<string> id_ {};
+      // The AgentTeams instance ID.
       shared_ptr<string> instanceId_ {};
+      // The MCP server configuration.
       shared_ptr<string> mcpServerConfig_ {};
+      // The MCP server name.
       shared_ptr<string> name_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
+      // The MCP server access URL.
       shared_ptr<string> url_ {};
     };
 
@@ -231,13 +241,21 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of MCP servers.
     shared_ptr<vector<ListMcpsResponseBody::Items>> items_ {};
+    // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

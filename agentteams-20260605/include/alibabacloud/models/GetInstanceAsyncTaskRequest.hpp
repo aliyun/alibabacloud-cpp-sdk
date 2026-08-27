@@ -75,11 +75,21 @@ namespace Models
 
 
   protected:
+    // The ID of the AgentTeams instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page size. Default value: `100`. Valid values: `1` to `100`.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page. Do not specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The task status filter.
     shared_ptr<string> status_ {};
+    // The task code. If not specified, all asynchronous tasks are queried. You can pass in a `TaskCode` to filter results. To query multiple task types, submit separate requests.
+    // 
+    // Currently supported `taskCode` values include: `CreateInstance`, `RenewInstance`, `UpdateInstance`, `ReleaseInstance`, `ConfigureNatGateway`, `UpgradeInstance`, `CreateWorkerEndpoint`, and `DeleteWorkerEndpoint`.
+    // 
+    // Legacy task codes such as `LIFECYCLE_MAGIC_PAY_ORDER_CALLBACK_CREATE` are supported for backward compatibility, but `CreateInstance` is recommended.
     shared_ptr<string> taskCode_ {};
   };
 

@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The number of tasks in this status.
         shared_ptr<int32_t> count_ {};
+        // The task status.
         shared_ptr<string> status_ {};
       };
 
@@ -140,9 +142,13 @@ namespace Models
 
 
     protected:
+      // The average task duration. Unit: milliseconds.
       shared_ptr<double> averageTaskDuration_ {};
+      // The task status distribution.
       shared_ptr<vector<Data::StatusDistribution>> statusDistribution_ {};
+      // The total token consumption of tasks.
       shared_ptr<int64_t> taskTokenConsumption_ {};
+      // The total number of tasks.
       shared_ptr<int32_t> totalTasks_ {};
     };
 
@@ -193,11 +199,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetTaskStatsSummaryResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

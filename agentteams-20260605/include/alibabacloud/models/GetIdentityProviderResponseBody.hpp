@@ -135,13 +135,21 @@ namespace Models
 
 
     protected:
+      // The event subscription callback URL.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
+      // The identity provider type.
       shared_ptr<string> identityProviderType_ {};
+      // The identity provider metadata.
       shared_ptr<map<string, string>> idpMetadata_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The logon callback URL.
       shared_ptr<string> loginCallbackUrl_ {};
+      // Indicates whether logon is enabled.
       shared_ptr<bool> loginEnabled_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // Indicates whether synchronization is enabled.
       shared_ptr<bool> syncEnabled_ {};
     };
 
@@ -192,11 +200,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetIdentityProviderResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

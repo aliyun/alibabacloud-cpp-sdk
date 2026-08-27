@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The target resource name. Required for `WORKER`, `TEAM`, and `HUMAN`. Not required for `INSTANCE`.
     shared_ptr<string> resourceName_ {};
+    // The query target type: `INSTANCE` / `WORKER` / `TEAM` / `HUMAN`.
+    // 
     // This parameter is required.
     shared_ptr<string> targetScope_ {};
   };

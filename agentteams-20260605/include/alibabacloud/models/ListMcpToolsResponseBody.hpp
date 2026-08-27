@@ -100,9 +100,13 @@ namespace Models
 
 
     protected:
+      // The tool description.
       shared_ptr<string> description_ {};
+      // The input parameter schema of the tool.
       shared_ptr<string> inputSchema_ {};
+      // The tool name.
       shared_ptr<string> name_ {};
+      // The tool title.
       shared_ptr<string> title_ {};
     };
 
@@ -168,13 +172,21 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of tools.
     shared_ptr<vector<ListMcpToolsResponseBody::Items>> items_ {};
+    // The maximum number of records per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

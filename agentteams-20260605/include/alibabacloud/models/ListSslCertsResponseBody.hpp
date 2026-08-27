@@ -155,15 +155,25 @@ namespace Models
 
 
     protected:
+      // The certificate algorithm.
       shared_ptr<string> algorithm_ {};
+      // The certificate ID.
       shared_ptr<int64_t> certId_ {};
+      // The certificate identifier used by APIG. Pass this value when creating or updating an HTTPS domain name.
       shared_ptr<string> certIdentifier_ {};
+      // The certificate name.
       shared_ptr<string> certName_ {};
+      // Indicates whether the certificate chain is complete.
       shared_ptr<bool> chainCompleted_ {};
+      // The certificate common name.
       shared_ptr<string> commonName_ {};
+      // The certificate domain name.
       shared_ptr<string> domain_ {};
+      // The certificate issuer.
       shared_ptr<string> issuer_ {};
+      // The expiration timestamp, in milliseconds.
       shared_ptr<int64_t> notAfterTimestamp_ {};
+      // The effective period UNIX timestamp, in milliseconds.
       shared_ptr<int64_t> notBeforeTimestamp_ {};
     };
 
@@ -229,13 +239,21 @@ namespace Models
 
 
   protected:
+    // The error code. This field is typically empty when the request is successful.
     shared_ptr<string> code_ {};
+    // The list of certificates.
     shared_ptr<vector<ListSslCertsResponseBody::Items>> items_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. The value is `null` if no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of certificates.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return in this query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that indicates the offset from which to start the query. The value must be a non-negative integer. Do not specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
   };
 

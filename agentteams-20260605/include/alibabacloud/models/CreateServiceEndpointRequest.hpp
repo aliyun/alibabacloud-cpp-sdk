@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
     shared_ptr<string> certIdentifier_ {};
+    // The idempotency token that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The component type. Valid values: `ELEMENT`, `TUNNEL`, `MATRIX`, and `WORKER`.
+    // 
     // This parameter is required.
     shared_ptr<string> component_ {};
+    // The custom domain name. The server trims and converts the value to lowercase.
     shared_ptr<string> domain_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The service name.
     shared_ptr<string> resourceName_ {};
   };
 

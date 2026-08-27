@@ -142,8 +142,11 @@ namespace Models
 
 
       protected:
+        // The template label.
         shared_ptr<string> label_ {};
+        // The template name.
         shared_ptr<string> name_ {};
+        // The template version.
         shared_ptr<string> version_ {};
       };
 
@@ -223,8 +226,11 @@ namespace Models
 
 
         protected:
+          // Indicates whether the skill contains a skill.md file.
           shared_ptr<bool> hasSkillMd_ {};
+          // The skill name.
           shared_ptr<string> name_ {};
+          // The skill ID.
           shared_ptr<string> skillId_ {};
         };
 
@@ -275,11 +281,17 @@ namespace Models
 
 
       protected:
+        // The sub-Agent description.
         shared_ptr<string> description_ {};
+        // Indicates whether the sub-Agent contains an agents.md file.
         shared_ptr<bool> hasAgentsMd_ {};
+        // The sub-Agent name.
         shared_ptr<string> name_ {};
+        // The skill list of the sub-Agent.
         shared_ptr<vector<Subagents::Skills>> skills_ {};
+        // The source path.
         shared_ptr<string> sourcePath_ {};
+        // The sub-Agent ID.
         shared_ptr<string> subagentId_ {};
       };
 
@@ -330,8 +342,11 @@ namespace Models
 
 
       protected:
+        // The skill label.
         shared_ptr<string> label_ {};
+        // The skill name.
         shared_ptr<string> name_ {};
+        // The skill version.
         shared_ptr<string> version_ {};
       };
 
@@ -373,7 +388,9 @@ namespace Models
 
 
       protected:
+        // The model name.
         shared_ptr<string> modelName_ {};
+        // The model provider.
         shared_ptr<string> modelProvider_ {};
       };
 
@@ -424,8 +441,11 @@ namespace Models
 
 
       protected:
+        // The MCP server name.
         shared_ptr<string> name_ {};
+        // The MCP transport protocol.
         shared_ptr<string> transport_ {};
+        // The MCP server URL.
         shared_ptr<string> url_ {};
       };
 
@@ -503,11 +523,17 @@ namespace Models
 
 
       protected:
+        // The quota type.
         shared_ptr<string> limitType_ {};
+        // Indicates whether the quota is exceeded.
         shared_ptr<bool> overLimit_ {};
+        // The period type.
         shared_ptr<string> periodType_ {};
+        // The quota rule status.
         shared_ptr<string> ruleStatus_ {};
+        // The quota upper limit.
         shared_ptr<int64_t> usageLimit_ {};
+        // The used amount.
         shared_ptr<int64_t> usedAmount_ {};
       };
 
@@ -558,8 +584,11 @@ namespace Models
 
 
       protected:
+        // The group name.
         shared_ptr<string> name_ {};
+        // The group role.
         shared_ptr<string> role_ {};
+        // The group type.
         shared_ptr<string> type_ {};
       };
 
@@ -591,6 +620,7 @@ namespace Models
 
 
       protected:
+        // The credential name.
         shared_ptr<string> name_ {};
       };
 
@@ -647,6 +677,7 @@ namespace Models
 
 
         protected:
+          // Indicates whether the client secret has been set.
           shared_ptr<bool> clientSecret_ {};
         };
 
@@ -743,13 +774,21 @@ namespace Models
 
 
         protected:
+          // The card template ID.
           shared_ptr<string> cardTemplateId_ {};
+          // The client ID.
           shared_ptr<string> clientId_ {};
+          // The extension configuration.
           shared_ptr<string> extension_ {};
+          // The message type.
           shared_ptr<string> messageType_ {};
+          // The robot code.
           shared_ptr<string> robotCode_ {};
+          // Indicates whether the thinking process is displayed.
           shared_ptr<bool> showThinking_ {};
+          // Indicates whether tool invocations are displayed.
           shared_ptr<bool> showToolCalls_ {};
+          // Indicates whether streaming output is enabled.
           shared_ptr<bool> streamingEnabled_ {};
         };
 
@@ -788,9 +827,13 @@ namespace Models
 
 
       protected:
+        // The channel configuration.
         shared_ptr<Channels::Config> config_ {};
+        // Indicates whether the channel is enabled.
         shared_ptr<bool> enabled_ {};
+        // The secret status.
         shared_ptr<Channels::SecretStatus> secretStatus_ {};
+        // The channel type.
         shared_ptr<string> type_ {};
       };
 
@@ -951,24 +994,43 @@ namespace Models
 
 
     protected:
+      // The Agent runtime type.
       shared_ptr<string> agentType_ {};
+      // The Agents configuration.
       shared_ptr<string> agents_ {};
+      // The channel list.
       shared_ptr<vector<Data::Channels>> channels_ {};
+      // The credential binding list.
       shared_ptr<vector<Data::Credentials>> credentials_ {};
+      // The deployment type.
       shared_ptr<string> deployType_ {};
+      // The team group list.
       shared_ptr<vector<Data::Groups>> groups_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The quota configuration.
       shared_ptr<Data::LimitConfig> limitConfig_ {};
+      // The MCP server list.
       shared_ptr<vector<Data::McpServers>> mcpServers_ {};
+      // The model configuration.
       shared_ptr<Data::Model> model_ {};
+      // The Worker name.
       shared_ptr<string> name_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The skill list.
       shared_ptr<vector<Data::Skills>> skills_ {};
+      // The Soul configuration.
       shared_ptr<string> soul_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The Worker status.
       shared_ptr<string> status_ {};
+      // The sub-Agent list.
       shared_ptr<vector<Data::Subagents>> subagents_ {};
+      // The template configuration.
       shared_ptr<Data::Template> template_ {};
+      // The Worker version number.
       shared_ptr<string> versionCode_ {};
     };
 
@@ -1019,11 +1081,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetWorkerResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

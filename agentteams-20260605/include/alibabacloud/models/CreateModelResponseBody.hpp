@@ -142,14 +142,23 @@ namespace Models
 
 
     protected:
+      // The creation time, in millisecond timestamp format.
       shared_ptr<int64_t> createTime_ {};
+      // The model description.
       shared_ptr<string> description_ {};
+      // The model ID.
       shared_ptr<string> id_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The model name.
       shared_ptr<string> name_ {};
+      // The list of protocols supported by the model.
       shared_ptr<vector<string>> protocols_ {};
+      // The provider identifier.
       shared_ptr<string> provider_ {};
+      // The name of the model provider.
       shared_ptr<string> providerName_ {};
+      // The update time, in millisecond timestamp format.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -193,10 +202,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateModelResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of records to return in this request. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The keyword for fuzzy match of team names.
     shared_ptr<string> nameLike_ {};
+    // The pagination token. Set this parameter to the offset integer string returned by the previous request.
     shared_ptr<string> nextToken_ {};
   };
 

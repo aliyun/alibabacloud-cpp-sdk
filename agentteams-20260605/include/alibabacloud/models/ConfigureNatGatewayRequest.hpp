@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The client idempotency token.
     shared_ptr<string> clientToken_ {};
+    // The description for the NAT gateway, EIP, and SNAT rule creation.
     shared_ptr<string> description_ {};
+    // The allocation ID of the EIP.
     shared_ptr<string> eipAllocationId_ {};
+    // The bandwidth of the automatically applied EIP. Valid values: 1 to 200. Unit: Mbit/s.
     shared_ptr<int32_t> eipBandwidth_ {};
+    // The ID of the AgentTeams instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the NAT gateway instance.
     shared_ptr<string> natGatewayInstanceId_ {};
   };
 

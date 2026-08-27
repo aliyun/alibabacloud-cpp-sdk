@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Optional. The exact match filter for instance status.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The AgentTeams instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

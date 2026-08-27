@@ -94,16 +94,28 @@ namespace Models
 
 
   protected:
+    // The address of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> address_ {};
+    // The list of API keys for the model provider, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKeysShrink_ {};
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The description of the model provider.
     shared_ptr<string> description_ {};
+    // The model provider ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of protocols supported by the model provider, in JSON format.
+    // 
     // This parameter is required.
     shared_ptr<string> protocolsShrink_ {};
   };

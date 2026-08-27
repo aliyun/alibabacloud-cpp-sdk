@@ -107,6 +107,7 @@ namespace Models
 
 
       protected:
+        // The member name.
         shared_ptr<string> name_ {};
       };
 
@@ -148,7 +149,9 @@ namespace Models
 
 
       protected:
+        // The room ID.
         shared_ptr<string> roomId_ {};
+        // The room type.
         shared_ptr<string> type_ {};
       };
 
@@ -239,16 +242,27 @@ namespace Models
 
 
     protected:
+      // The name of the team administrator.
       shared_ptr<string> adminName_ {};
+      // The time when the team was created.
       shared_ptr<string> createdAt_ {};
+      // The team description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the team leader.
       shared_ptr<string> leaderName_ {};
+      // The team name.
       shared_ptr<string> name_ {};
+      // The list of rooms associated with the team.
       shared_ptr<vector<Data::Rooms>> rooms_ {};
+      // The running status of the team. This field is empty when the team is running normally.
       shared_ptr<string> status_ {};
+      // The list of team members.
       shared_ptr<vector<Data::TeamMembers>> teamMembers_ {};
+      // The time when the team was last updated.
       shared_ptr<string> updatedAt_ {};
+      // The list of worker names associated with the team.
       shared_ptr<vector<string>> workerNames_ {};
     };
 
@@ -299,11 +313,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetTeamResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The AgentTeams instance ID. This parameter is used to verify the ownership of the current user\\"s instance and to query certificates by the instance region.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of data.
     shared_ptr<string> nextToken_ {};
   };
 

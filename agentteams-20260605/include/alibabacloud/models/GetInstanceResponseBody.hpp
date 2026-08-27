@@ -41,6 +41,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AiRegistryNamespaceId, aiRegistryNamespaceId_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Zones, zones_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiRegistryNamespaceId, aiRegistryNamespaceId_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -119,14 +121,23 @@ namespace Models
 
 
       protected:
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceSpec_ == nullptr && this->networkType_ == nullptr && this->ossBucketName_ == nullptr
-        && this->paymentType_ == nullptr && this->regionId_ == nullptr && this->securityGroup_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr
-        && this->vpcId_ == nullptr && this->zones_ == nullptr; };
+      virtual bool empty() const override { return this->aiRegistryNamespaceId_ == nullptr
+        && this->createTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceSpec_ == nullptr && this->networkType_ == nullptr
+        && this->ossBucketName_ == nullptr && this->paymentType_ == nullptr && this->regionId_ == nullptr && this->securityGroup_ == nullptr && this->status_ == nullptr
+        && this->updateTime_ == nullptr && this->vpcId_ == nullptr && this->zones_ == nullptr; };
+      // aiRegistryNamespaceId Field Functions 
+      bool hasAiRegistryNamespaceId() const { return this->aiRegistryNamespaceId_ != nullptr;};
+      void deleteAiRegistryNamespaceId() { this->aiRegistryNamespaceId_ = nullptr;};
+      inline string getAiRegistryNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(aiRegistryNamespaceId_, "") };
+      inline Data& setAiRegistryNamespaceId(string aiRegistryNamespaceId) { DARABONBA_PTR_SET_VALUE(aiRegistryNamespaceId_, aiRegistryNamespaceId) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -221,18 +232,36 @@ namespace Models
 
 
     protected:
+      // The AI Registry namespace ID.
+      shared_ptr<string> aiRegistryNamespaceId_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The instance specification. The value is returned in a format such as small.x1.
       shared_ptr<string> instanceSpec_ {};
+      // The network type.
       shared_ptr<string> networkType_ {};
+      // The OSS bucket name.
       shared_ptr<string> ossBucketName_ {};
+      // The billing method.
       shared_ptr<string> paymentType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The security group ID.
       shared_ptr<string> securityGroup_ {};
+      // The instance status. Valid values:
+      // - RUNNING: running.
+      // - STOPPED: stopped.
+      // - CREATING: being created.
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
+      // VPC ID
       shared_ptr<string> vpcId_ {};
+      // The list of vSwitch IDs.
       shared_ptr<vector<Data::Zones>> zones_ {};
     };
 
@@ -276,10 +305,15 @@ namespace Models
 
 
   protected:
+    // The response code. The value is fixed as SUCCESS.
     shared_ptr<string> code_ {};
+    // The instance details.
     shared_ptr<GetInstanceResponseBody::Data> data_ {};
+    // The response message. The value is fixed as success.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. The value is fixed as `true`.
     shared_ptr<bool> success_ {};
   };
 

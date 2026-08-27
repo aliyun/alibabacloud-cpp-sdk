@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The ID of the AgentTeams instance.
       shared_ptr<string> instanceId_ {};
+      // The new instance name.
       shared_ptr<string> instanceName_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The status code in the successful response.
     shared_ptr<string> code_ {};
+    // The details of the updated instance.
     shared_ptr<UpdateInstanceResponseBody::Data> data_ {};
+    // **The HTTP status code.**
     shared_ptr<int32_t> httpStatusCode_ {};
+    // **The response message.**
     shared_ptr<string> message_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of records to return in this request. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token, which is the offset integer string returned from the previous page.
     shared_ptr<string> nextToken_ {};
+    // The team name.
+    // 
     // This parameter is required.
     shared_ptr<string> team_ {};
   };

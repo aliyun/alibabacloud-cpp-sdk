@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // * **Description**: The instance name. Supports fuzzy match.
     shared_ptr<string> instanceName_ {};
+    // * **Description**: The page size.
+    // * **Default value**: 20
+    // * **Current implementation limit**: 1 to 100
     shared_ptr<int32_t> maxResults_ {};
+    // * **Description**: The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
+    // * **Description**: The number of records to skip.
+    // * **Default value**: 0
     shared_ptr<int32_t> skip_ {};
+    // * **Description**: The instance status.
     shared_ptr<string> status_ {};
   };
 

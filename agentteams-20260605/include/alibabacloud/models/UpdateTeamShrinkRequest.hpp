@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The team description.
     shared_ptr<string> description_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The team member list. If specified, this overwrites the existing members entirely.
     shared_ptr<string> teamMembersShrink_ {};
   };
 

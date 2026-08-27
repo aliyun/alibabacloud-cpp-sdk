@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -190,14 +192,27 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The instance specifications.
       shared_ptr<string> instanceSpec_ {};
+      // The OSS bucket name.
       shared_ptr<string> ossBucketName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The security group ID.
       shared_ptr<string> securityGroup_ {};
+      // The instance status. Valid values:
+      //  * RUNNING: running
+      //  * STOPPED: stopped
+      //  * PENDING: being created
+      //  * ERROR: error
       shared_ptr<string> status_ {};
+      // VPC ID
       shared_ptr<string> vpcId_ {};
+      // The list of vSwitch IDs.
       shared_ptr<vector<Items::Zones>> zones_ {};
     };
 
@@ -263,13 +278,21 @@ namespace Models
 
 
   protected:
+    // **Business code**
     shared_ptr<string> code_ {};
+    // The list of data on the current page.
     shared_ptr<vector<ListInstancesResponseBody::Items>> items_ {};
+    // **The page size used in this response**
     shared_ptr<int32_t> maxResults_ {};
+    // **Response message**
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. This value is typically `null` when no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // **Request ID**
     shared_ptr<string> requestId_ {};
+    // **Indicates whether the request is successful**
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

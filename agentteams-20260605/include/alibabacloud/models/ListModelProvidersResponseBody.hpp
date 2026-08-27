@@ -159,15 +159,25 @@ namespace Models
 
 
     protected:
+      // The model provider address.
       shared_ptr<string> address_ {};
+      // The list of API keys.
       shared_ptr<vector<string>> apiKeys_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The deployment status.
       shared_ptr<string> deployStatus_ {};
+      // The model provider description.
       shared_ptr<string> description_ {};
+      // The model provider ID.
       shared_ptr<string> id_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The model provider name.
       shared_ptr<string> name_ {};
+      // The list of protocols supported by the model provider.
       shared_ptr<vector<string>> protocols_ {};
+      // The provider identifier.
       shared_ptr<string> provider_ {};
     };
 
@@ -233,13 +243,21 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of model providers.
     shared_ptr<vector<ListModelProvidersResponseBody::Items>> items_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

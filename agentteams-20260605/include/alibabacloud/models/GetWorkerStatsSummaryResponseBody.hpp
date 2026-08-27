@@ -95,9 +95,13 @@ namespace Models
 
 
     protected:
+      // The number of workers in other states.
       shared_ptr<int32_t> otherWorkers_ {};
+      // The number of running workers.
       shared_ptr<int32_t> runningWorkers_ {};
+      // The number of stopped workers.
       shared_ptr<int32_t> stoppedWorkers_ {};
+      // The total number of workers.
       shared_ptr<int32_t> totalWorkers_ {};
     };
 
@@ -148,11 +152,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetWorkerStatsSummaryResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

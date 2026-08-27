@@ -157,12 +157,19 @@ namespace Models
 
 
       protected:
+        // The CIDR block.
         shared_ptr<string> cidrBlock_ {};
+        // Indicates whether the CIDR block is covered by a SNAT rule.
         shared_ptr<bool> covered_ {};
+        // The associated NAT gateway ID. This value is null if not configured.
         shared_ptr<string> natGatewayId_ {};
+        // The SNAT entry ID. This value is null if not configured.
         shared_ptr<string> snatEntryId_ {};
+        // The SNAT source CIDR. This value is null if not configured.
         shared_ptr<string> snatSourceCidr_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -222,9 +229,14 @@ namespace Models
 
 
       protected:
+        // The NAT gateway ID.
         shared_ptr<string> natGatewayId_ {};
+        // Indicates whether the SNAT rule is configured.
         shared_ptr<bool> snatConfigured_ {};
+        // The SNAT table ID.
         shared_ptr<string> snatTableId_ {};
+        // The status of the NAT gateway. Valid values:
+        //  * Available: available
         shared_ptr<string> status_ {};
       };
 
@@ -292,13 +304,24 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // Indicates whether the NAT gateway is configured.
       shared_ptr<bool> natGatewayConfigured_ {};
+      // The list of NAT gateway details.
       shared_ptr<vector<Data::NatGateways>> natGateways_ {};
+      // Indicates whether the SNAT rule is configured.
       shared_ptr<bool> snatConfigured_ {};
+      // The status of the NAT gateway. Valid values:
+      //  * READY: The NAT gateway exists, and the zone/vSwitch CIDR selected by the current instance is covered by SNAT.
+      //  * NEED_CONFIGURE_NAT_GATEWAY: No NAT gateway exists in the VPC associated with the current instance. You need to purchase or configure a NAT gateway.
+      //  * NEED_CONFIGURE_SNAT_RULE: The NAT gateway exists, but the zone/vSwitch CIDR selected by the current instance is not fully added to SNAT. You need to add SNAT rules.
       shared_ptr<string> status_ {};
+      // VPC ID
       shared_ptr<string> vpcId_ {};
+      // Indicates whether the selected zone/vSwitch CIDR is covered.
       shared_ptr<bool> zoneCidrCovered_ {};
+      // The CIDR blocks and SNAT configuration status of each zone/vSwitch in the VPC.
       shared_ptr<vector<Data::ZoneCidrs>> zoneCidrs_ {};
     };
 
@@ -349,11 +372,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The NAT gateway configuration status information.
     shared_ptr<GetNatGatewayStatusResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

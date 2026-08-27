@@ -115,8 +115,11 @@ namespace Models
 
 
       protected:
+        // The access endpoint.
         shared_ptr<string> endpoint_ {};
+        // The license key.
         shared_ptr<string> licenseKey_ {};
+        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -167,11 +170,17 @@ namespace Models
 
 
     protected:
+      // The bootstrap token.
       shared_ptr<string> bootstrapToken_ {};
+      // The CMS configuration.
       shared_ptr<Data::Cms> cms_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The Worker name.
       shared_ptr<string> name_ {};
+      // The network type.
       shared_ptr<string> networkType_ {};
+      // The token fingerprint.
       shared_ptr<string> tokenFingerprint_ {};
     };
 
@@ -222,11 +231,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateWorkerBootstrapTokenResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

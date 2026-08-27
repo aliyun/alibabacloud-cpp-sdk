@@ -142,7 +142,9 @@ namespace Models
 
 
         protected:
+          // API Key
           shared_ptr<string> apiKey_ {};
+          // The API key name.
           shared_ptr<string> apiKeyName_ {};
         };
 
@@ -157,6 +159,7 @@ namespace Models
 
 
       protected:
+        // The authentication configuration.
         shared_ptr<EndpointConfig::Auth> auth_ {};
       };
 
@@ -251,17 +254,29 @@ namespace Models
 
 
     protected:
+      // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
+      // The endpoint component. Valid values: `ELEMENT`, `MATRIX`, `WORKER`, and `TUNNEL`.
       shared_ptr<string> component_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The domain name type. Valid values: `BUILTIN` and `CUSTOM`.
       shared_ptr<string> domainType_ {};
+      // The configuration information of the endpoint.
       shared_ptr<Items::EndpointConfig> endpointConfig_ {};
+      // Endpoint ID
       shared_ptr<string> endpointId_ {};
+      // The service name. Exact match is used.
       shared_ptr<string> endpointName_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The network type. Valid values: `INTRANET` and `INTERNET`.
       shared_ptr<string> networkType_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -327,13 +342,21 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // items
     shared_ptr<vector<ListServiceEndpointsResponseBody::Items>> items_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // nextToken
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // totalCount
     shared_ptr<int32_t> totalCount_ {};
   };
 

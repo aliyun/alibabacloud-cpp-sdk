@@ -159,12 +159,22 @@ namespace Models
 
 
       protected:
+        // The error code. Valid values:
+        // - CMS_WORKSPACE_QUOTA_EXCEEDED: CMS workspace quota exceeded.
         shared_ptr<string> code_ {};
+        // The specific error message.
         shared_ptr<string> message_ {};
+        // The time when the error occurred.
         shared_ptr<string> occurredAt_ {};
+        // The suggested recovery action.
         shared_ptr<string> recoverySuggestion_ {};
+        // Indicates whether the task can be retried.
         shared_ptr<bool> retryable_ {};
+        // The error source. Valid values:
+        // - CMS: content management system.
         shared_ptr<string> source_ {};
+        // The recovery type. Valid values:
+        // - ERROR_RECOVERY: error recovery.
         shared_ptr<string> type_ {};
       };
 
@@ -215,11 +225,23 @@ namespace Models
 
 
     protected:
+      // The current step.
       shared_ptr<string> currentStep_ {};
+      // The recovery message returned to the user when the task status is paused.
       shared_ptr<Items::RecoveryMessage> recoveryMessage_ {};
+      // The task code. Valid values:
+      // - LIFECYCLE_MAGIC_PAY_ORDER_CALLBACK_CREATE: instance creation task.
+      // - MAGIC_BIND_IDENTITY_PROVIDER: upstream identity provider binding task.
       shared_ptr<string> taskCode_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task status. Valid values:
+      // - PAUSED: paused.
+      // - RUNNING: running.
+      // - SUCCEEDED: succeeded.
+      // - FAILED: failed.
       shared_ptr<string> taskStatus_ {};
+      // Indicates whether the task is waiting for user action. When `taskStatus = PAUSED`, this value is true and `recoveryMessage` is returned to display recovery instructions to the user. When the task is not paused, this value is false and `recoveryMessage` is empty.
       shared_ptr<bool> waitingForUserAction_ {};
     };
 
@@ -292,14 +314,23 @@ namespace Models
 
 
   protected:
+    // SUCCESS
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned list. The `items` array may contain multiple tasks with the same `taskCode`.
     shared_ptr<vector<GetInstanceAsyncTaskResponseBody::Items>> items_ {};
+    // The page size. Default value: 100. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
+    // success
     shared_ptr<string> message_ {};
+    // The token for the next page. This parameter is not returned for the first request.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

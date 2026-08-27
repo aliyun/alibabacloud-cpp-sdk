@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Optional. Fuzzy matches by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The ID of the AgentTeams instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

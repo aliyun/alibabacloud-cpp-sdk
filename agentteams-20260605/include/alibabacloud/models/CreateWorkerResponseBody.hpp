@@ -136,8 +136,11 @@ namespace Models
 
 
       protected:
+        // The template label.
         shared_ptr<string> label_ {};
+        // The template name.
         shared_ptr<string> name_ {};
+        // The template version.
         shared_ptr<string> version_ {};
       };
 
@@ -188,8 +191,11 @@ namespace Models
 
 
       protected:
+        // The skill label.
         shared_ptr<string> label_ {};
+        // The skill name.
         shared_ptr<string> name_ {};
+        // The skill version.
         shared_ptr<string> version_ {};
       };
 
@@ -231,7 +237,9 @@ namespace Models
 
 
       protected:
+        // The model name.
         shared_ptr<string> modelName_ {};
+        // The model provider.
         shared_ptr<string> modelProvider_ {};
       };
 
@@ -282,8 +290,11 @@ namespace Models
 
 
       protected:
+        // The MCP server name.
         shared_ptr<string> name_ {};
+        // The MCP transport protocol.
         shared_ptr<string> transport_ {};
+        // The MCP server URL.
         shared_ptr<string> url_ {};
       };
 
@@ -334,8 +345,11 @@ namespace Models
 
 
       protected:
+        // The quota type.
         shared_ptr<string> limitType_ {};
+        // The period type.
         shared_ptr<string> periodType_ {};
+        // The quota limit.
         shared_ptr<int64_t> usageLimit_ {};
       };
 
@@ -386,8 +400,11 @@ namespace Models
 
 
       protected:
+        // The group name.
         shared_ptr<string> name_ {};
+        // The group role.
         shared_ptr<string> role_ {};
+        // The group type.
         shared_ptr<string> type_ {};
       };
 
@@ -419,6 +436,7 @@ namespace Models
 
 
       protected:
+        // The credential name.
         shared_ptr<string> name_ {};
       };
 
@@ -553,21 +571,37 @@ namespace Models
 
 
     protected:
+      // The Agent runtime type.
       shared_ptr<string> agentType_ {};
+      // The Agents configuration.
       shared_ptr<string> agents_ {};
+      // The list of credential bindings.
       shared_ptr<vector<Data::Credentials>> credentials_ {};
+      // The deployment type.
       shared_ptr<string> deployType_ {};
+      // The list of team groups.
       shared_ptr<vector<Data::Groups>> groups_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The quota configuration.
       shared_ptr<Data::LimitConfig> limitConfig_ {};
+      // The list of MCP servers.
       shared_ptr<vector<Data::McpServers>> mcpServers_ {};
+      // The model configuration.
       shared_ptr<Data::Model> model_ {};
+      // The worker name.
       shared_ptr<string> name_ {};
+      // The list of skills.
       shared_ptr<vector<Data::Skills>> skills_ {};
+      // The Soul configuration.
       shared_ptr<string> soul_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // The worker status.
       shared_ptr<string> status_ {};
+      // The template configuration.
       shared_ptr<Data::Template> template_ {};
+      // The Worker version number.
       shared_ptr<string> versionCode_ {};
     };
 
@@ -618,11 +652,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateWorkerResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

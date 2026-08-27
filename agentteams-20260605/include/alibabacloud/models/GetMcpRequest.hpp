@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The MCP server ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Optional. The instance name for fuzzy matching.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

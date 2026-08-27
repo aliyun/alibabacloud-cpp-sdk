@@ -140,18 +140,31 @@ namespace Models
 
 
   protected:
+    // The Agent runtime type filter.
     shared_ptr<string> agentType_ {};
+    // The credential name filter.
     shared_ptr<string> credential_ {};
+    // The team group filter.
     shared_ptr<string> groupShrink_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The MCP server name filter.
     shared_ptr<string> mcp_ {};
+    // The model name filter.
     shared_ptr<string> modelName_ {};
+    // The model provider filter.
     shared_ptr<string> modelProvider_ {};
+    // The fuzzy match filter for the Worker name.
     shared_ptr<string> nameLike_ {};
+    // The pagination token used to query the next page of data.
     shared_ptr<string> nextToken_ {};
+    // The template filter.
     shared_ptr<string> templateShrink_ {};
+    // The Worker version number filter.
     shared_ptr<string> versionCode_ {};
   };
 

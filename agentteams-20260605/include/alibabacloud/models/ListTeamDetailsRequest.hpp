@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end time of the statistical interval. The value is a millisecond-level timestamp string.
     shared_ptr<string> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of data.
     shared_ptr<string> nextToken_ {};
+    // The start time of the statistical interval. The value is a millisecond-level timestamp string.
     shared_ptr<string> startTime_ {};
   };
 

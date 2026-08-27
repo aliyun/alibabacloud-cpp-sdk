@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The model name. Optional. Filters by fuzzy match on instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
+    // The content of the test prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The provider ID. Optional. Filters by exact match on instance status.
+    // 
     // This parameter is required.
     shared_ptr<string> providerId_ {};
+    // The name of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> providerName_ {};
   };

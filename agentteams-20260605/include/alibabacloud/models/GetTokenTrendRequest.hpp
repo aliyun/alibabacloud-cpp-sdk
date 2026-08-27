@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The query end time. Unit: milliseconds (UNIX timestamp).
     shared_ptr<string> endTime_ {};
+    // The grouping dimension, such as by day or by hour.
     shared_ptr<string> groupBy_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The query start time. Unit: milliseconds (UNIX timestamp).
     shared_ptr<string> startTime_ {};
   };
 

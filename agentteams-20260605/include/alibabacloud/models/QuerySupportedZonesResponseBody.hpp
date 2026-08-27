@@ -74,6 +74,7 @@ namespace Models
 
 
     protected:
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -146,14 +147,23 @@ namespace Models
 
 
   protected:
+    // The response code, which is `SUCCESS` when the operation succeeds.
     shared_ptr<string> code_ {};
+    // The HTTP status code, which is `200` when the operation succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of zones.
     shared_ptr<vector<QuerySupportedZonesResponseBody::Items>> items_ {};
+    // The number of entries returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message, which is `success` when the operation succeeds.
     shared_ptr<string> message_ {};
+    // The token for the next page, which is `null` because this operation does not support pagination.
     shared_ptr<string> nextToken_ {};
+    // The request ID, which is `null` when the operation succeeds.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
+    // The total number of zones.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Optional. Fuzzy matches by instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

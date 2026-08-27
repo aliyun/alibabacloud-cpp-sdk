@@ -130,13 +130,23 @@ namespace Models
 
 
     protected:
+      // The SSL certificate identifier.
       shared_ptr<string> certIdentifier_ {};
+      // The component type. Valid values:
+      //  * ELEMENT: element type.
+      //  * MATRIX: matrix type.
       shared_ptr<string> component_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The domain name type.
       shared_ptr<string> domainType_ {};
+      // The globally unique endpoint ID.
       shared_ptr<string> endpointId_ {};
+      // The service name.
       shared_ptr<string> endpointName_ {};
+      // The AgentTeams instance ID, which is used to verify endpoint ownership and current user permissions.
       shared_ptr<string> instanceId_ {};
+      // The network type.
       shared_ptr<string> networkType_ {};
     };
 
@@ -180,10 +190,15 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is null if the request is successful.
     shared_ptr<string> code_ {};
+    // The updated endpoint information.
     shared_ptr<UpdateServiceEndpointResponseBody::Data> data_ {};
+    // The error message. This parameter is null if the request is successful.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -132,13 +132,21 @@ namespace Models
 
 
     protected:
+      // The authentication method.
       shared_ptr<string> authMethod_ {};
+      // The time when the user was created.
       shared_ptr<string> createdAt_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // The email address.
       shared_ptr<string> email_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The username.
       shared_ptr<string> name_ {};
+      // The remarks.
       shared_ptr<string> note_ {};
+      // The user status.
       shared_ptr<string> status_ {};
     };
 
@@ -189,11 +197,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<UpdateUserResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

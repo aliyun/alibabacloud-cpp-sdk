@@ -120,11 +120,17 @@ namespace Models
 
 
     protected:
+      // The LLM call count.
       shared_ptr<int64_t> llmCallCount_ {};
+      // The model name.
       shared_ptr<string> model_ {};
+      // The Worker name.
       shared_ptr<string> name_ {};
+      // The Worker status.
       shared_ptr<string> status_ {};
+      // The task count.
       shared_ptr<int64_t> taskCount_ {};
+      // The token usage.
       shared_ptr<int64_t> tokenUsage_ {};
     };
 
@@ -197,14 +203,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of Worker statistics details.
     shared_ptr<vector<ListWorkerStatsDetailsResponseBody::Items>> items_ {};
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

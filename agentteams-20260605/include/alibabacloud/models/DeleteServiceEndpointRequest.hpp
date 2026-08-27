@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // **Endpoint ID**
+    // 
     // This parameter is required.
     shared_ptr<string> endpointId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

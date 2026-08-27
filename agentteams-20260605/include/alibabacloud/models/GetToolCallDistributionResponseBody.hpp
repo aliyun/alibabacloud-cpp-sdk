@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The number of calls for the tool.
         shared_ptr<int32_t> callCount_ {};
+        // The tool name.
         shared_ptr<string> toolName_ {};
       };
 
@@ -122,7 +124,9 @@ namespace Models
 
 
     protected:
+      // The tool calling distribution list.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The total number of tool invocations.
       shared_ptr<int32_t> totalCalls_ {};
     };
 
@@ -173,11 +177,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetToolCallDistributionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

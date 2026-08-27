@@ -133,13 +133,21 @@ namespace Models
 
 
     protected:
+      // The list of MCP server addresses.
       shared_ptr<vector<string>> addresses_ {};
+      // The creation type.
       shared_ptr<string> createType_ {};
+      // The deployment status.
       shared_ptr<string> deployStatus_ {};
+      // The description of the MCP server.
       shared_ptr<string> description_ {};
+      // The export task ID.
       shared_ptr<string> id_ {};
+      // The MCP server configuration.
       shared_ptr<string> mcpServerConfig_ {};
+      // The MCP server name.
       shared_ptr<string> name_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
     };
 
@@ -183,10 +191,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateMcpResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

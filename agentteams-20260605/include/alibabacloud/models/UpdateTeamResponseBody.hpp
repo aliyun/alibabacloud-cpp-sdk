@@ -103,6 +103,7 @@ namespace Models
 
 
       protected:
+        // The member name.
         shared_ptr<string> name_ {};
       };
 
@@ -177,14 +178,23 @@ namespace Models
 
 
     protected:
+      // The team administrator name.
       shared_ptr<string> adminName_ {};
+      // The time when the team was created.
       shared_ptr<string> createdAt_ {};
+      // The team description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The team leader name.
       shared_ptr<string> leaderName_ {};
+      // The team name.
       shared_ptr<string> name_ {};
+      // The team member list.
       shared_ptr<vector<Data::TeamMembers>> teamMembers_ {};
+      // The time when the team was last updated.
       shared_ptr<string> updatedAt_ {};
+      // The list of Worker names associated with the team.
       shared_ptr<vector<string>> workerNames_ {};
     };
 
@@ -235,11 +245,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<UpdateTeamResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -120,11 +122,17 @@ namespace Models
 
 
   protected:
+    // The idempotency token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // **The ID of the AgentTeams instance.**
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // **The new instance name. This parameter cannot be empty.**
     shared_ptr<string> instanceName_ {};
+    // The network type.
     shared_ptr<string> networkType_ {};
+    // The list of zones and vSwitches.
     shared_ptr<vector<UpdateInstanceRequest::Zones>> zones_ {};
   };
 

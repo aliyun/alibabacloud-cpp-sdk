@@ -95,6 +95,7 @@ namespace Models
 
 
       protected:
+        // The member name.
         shared_ptr<string> name_ {};
       };
 
@@ -138,10 +139,15 @@ namespace Models
 
 
     protected:
+      // The team administrator name.
       shared_ptr<string> adminName_ {};
+      // The team description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The team name.
       shared_ptr<string> name_ {};
+      // The team member list.
       shared_ptr<vector<Data::TeamMembers>> teamMembers_ {};
     };
 
@@ -192,11 +198,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreateTeamResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

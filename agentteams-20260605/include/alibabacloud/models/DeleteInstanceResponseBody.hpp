@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The ID of the released instance.
       shared_ptr<string> instanceId_ {};
+      // The ID of the asynchronous release task. You can use this ID to query the task status.
       shared_ptr<string> taskId_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The object that contains the released instance ID and the asynchronous release task ID.
     shared_ptr<DeleteInstanceResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
