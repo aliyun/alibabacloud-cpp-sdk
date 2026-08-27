@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    // OK: The request was successful.
+    // 
+    // For other error codes, see the error code list.
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<string> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

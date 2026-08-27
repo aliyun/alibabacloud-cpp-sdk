@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> index_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -128,9 +130,12 @@ namespace Models
 
 
   protected:
+    // The SpaceId of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
+    // The Flow name.
     shared_ptr<string> flowName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The pagination information.
     shared_ptr<ListFlowRequest::Page> page_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

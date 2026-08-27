@@ -87,9 +87,12 @@ namespace Models
 
 
   protected:
+    // The embedded code.
     shared_ptr<string> code_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The list of embedded permissions.
     shared_ptr<vector<string>> permissions_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

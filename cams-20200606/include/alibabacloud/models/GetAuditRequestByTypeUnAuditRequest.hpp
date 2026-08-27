@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the [China-China interconnection](https://chatapp.console.aliyun.com/CustomerList) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The request type.
+    // 
     // This parameter is required.
     shared_ptr<string> requestType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -98,7 +98,7 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
@@ -106,15 +106,15 @@ namespace Models
     Darabonba::Json data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The response data.
     Darabonba::Json response_ {};
     // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

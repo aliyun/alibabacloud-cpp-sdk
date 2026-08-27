@@ -77,7 +77,9 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

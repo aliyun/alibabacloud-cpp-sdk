@@ -114,11 +114,17 @@ namespace Models
 
 
   protected:
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The contact details.
     shared_ptr<string> contactDetails_ {};
+    // The contact name.
     shared_ptr<string> contactName_ {};
+    // The country.
     shared_ptr<string> country_ {};
+    // The file path.
     shared_ptr<string> filePath_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

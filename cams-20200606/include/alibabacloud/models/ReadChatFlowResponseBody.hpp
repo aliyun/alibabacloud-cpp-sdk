@@ -86,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
@@ -94,13 +94,13 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned data.
+    // The response content.
     Darabonba::Json response_ {};
-    // Indicates whether the operation is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation is successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

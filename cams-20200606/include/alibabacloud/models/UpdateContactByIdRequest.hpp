@@ -132,18 +132,30 @@ namespace Models
 
 
   protected:
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The description of the contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactDetails_ {};
+    // The ID of the contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // The name of the contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
+    // The country code.
+    // 
     // This parameter is required.
     shared_ptr<string> country_ {};
+    // The email address.
     shared_ptr<string> email_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

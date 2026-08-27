@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The content of the returned data.
+    // The response content.
     Darabonba::Json response_ {};
     // Indicates whether the operation was successful. Valid values:
     // 

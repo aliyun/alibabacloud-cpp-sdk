@@ -103,16 +103,16 @@ namespace Models
 
 
   protected:
-    // The business tenant code. The default value is ALICOM_OPAAS.
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
-    // The business extension information. The default value is an empty collection.
+    // The business extension information. Default value: an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
-    // The code of the flow. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
-    // The version of the flow to copy. To view the historical versions of a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click a flow name to open the orchestration canvas.
+    // The flow version to copy. Click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and view historical flow versions.
     shared_ptr<string> flowVersionCopyFrom_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The remarks for the version.
+    // The version remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

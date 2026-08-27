@@ -86,7 +86,7 @@ namespace Models
 
 
   protected:
-    // Details about the denied access.
+    // The access denied detail.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
@@ -98,9 +98,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,8 +75,13 @@ namespace Models
 
 
   protected:
+    // The personal access token.
+    // This field is not required if you use Alibaba Cloud AccessKey pair (AK+SK) or STS temporary authorization.
+    // 
     // This parameter is required.
     shared_ptr<string> accessToken_ {};
+    // The instance ID. The unique identifier of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
     shared_ptr<int64_t> ownerId_ {};

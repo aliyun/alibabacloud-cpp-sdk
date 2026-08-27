@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
       DARABONBA_PTR_TO_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_TO_JSON(FlowVersion, flowVersion_);
+      DARABONBA_PTR_TO_JSON(MultiWabaPhoneNumbers, multiWabaPhoneNumbersShrink_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PhoneNumbers, phoneNumbersShrink_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
       DARABONBA_PTR_FROM_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_FROM_JSON(FlowVersion, flowVersion_);
+      DARABONBA_PTR_FROM_JSON(MultiWabaPhoneNumbers, multiWabaPhoneNumbersShrink_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PhoneNumbers, phoneNumbersShrink_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelCode_ == nullptr
-        && this->channelType_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->ownerId_ == nullptr && this->phoneNumbersShrink_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->wabaId_ == nullptr; };
+        && this->channelType_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->multiWabaPhoneNumbersShrink_ == nullptr && this->ownerId_ == nullptr
+        && this->phoneNumbersShrink_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->wabaId_ == nullptr; };
     // channelCode Field Functions 
     bool hasChannelCode() const { return this->channelCode_ != nullptr;};
     void deleteChannelCode() { this->channelCode_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteFlowVersion() { this->flowVersion_ = nullptr;};
     inline string getFlowVersion() const { DARABONBA_PTR_GET_DEFAULT(flowVersion_, "") };
     inline FlowRebindPhoneShrinkRequest& setFlowVersion(string flowVersion) { DARABONBA_PTR_SET_VALUE(flowVersion_, flowVersion) };
+
+
+    // multiWabaPhoneNumbersShrink Field Functions 
+    bool hasMultiWabaPhoneNumbersShrink() const { return this->multiWabaPhoneNumbersShrink_ != nullptr;};
+    void deleteMultiWabaPhoneNumbersShrink() { this->multiWabaPhoneNumbersShrink_ = nullptr;};
+    inline string getMultiWabaPhoneNumbersShrink() const { DARABONBA_PTR_GET_DEFAULT(multiWabaPhoneNumbersShrink_, "") };
+    inline FlowRebindPhoneShrinkRequest& setMultiWabaPhoneNumbersShrink(string multiWabaPhoneNumbersShrink) { DARABONBA_PTR_SET_VALUE(multiWabaPhoneNumbersShrink_, multiWabaPhoneNumbersShrink) };
 
 
     // ownerId Field Functions 
@@ -112,9 +121,7 @@ namespace Models
 
 
   protected:
-    // The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
-    // 
-    // This parameter is required.
+    // The message channel code, which is the channel ID. You can view the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) console.
     shared_ptr<string> channelCode_ {};
     // The message channel type. Valid values:
     // 
@@ -128,12 +135,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
-    // The flow code. You can view it on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+    // The flow code. You can view this in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
     // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
-    // The flow version. On the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the flow builder canvas and view the flow version.
+    // The flow version. In the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click the flow name to open the flow editor canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
+    // The multi-WABA binding configurations.
+    shared_ptr<string> multiWabaPhoneNumbersShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
     shared_ptr<string> phoneNumbersShrink_ {};
@@ -141,11 +150,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
     // 
-    // - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID on the Channel Management > Manage > WABA Management page.
+    // - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID in Channel Management > Manage > WABA Management.
     // 
     // - If ChannelType is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
-    // 
-    // This parameter is required.
     shared_ptr<string> wabaId_ {};
   };
 

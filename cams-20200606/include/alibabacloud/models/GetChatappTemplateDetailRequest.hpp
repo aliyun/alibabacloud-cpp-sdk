@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+    // The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
     // The WabaId of the ISV customer.
     // 
-    // > This parameter is deprecated. Use CustSpaceId instead.
+    // > Deprecated parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
     // The ISV verification code, which is used to verify whether the sub-account is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> templateCode_ {};
     // The name of the template.
     shared_ptr<string> templateName_ {};
-    // The templatetype.
+    // The templatetype. Valid values:
     // 
     // - **WHATSAPP**
     // 

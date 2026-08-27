@@ -112,19 +112,17 @@ namespace Models
 
 
   protected:
-    // The business number.
+    // The business phone number.
     // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
-    // The action to perform on the call.
+    // The call action.
     // 
     // This parameter is required.
     shared_ptr<string> callAction_ {};
     // The call ID.
     shared_ptr<string> callId_ {};
-    // The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
-    // 
-    // <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+    // The space ID or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
@@ -133,7 +131,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The call negotiation information.
     shared_ptr<string> sessionShrink_ {};
-    // The user\\"s number.
+    // The user phone number.
     shared_ptr<string> userNumber_ {};
   };
 

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsvCode, isvCode_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
+      DARABONBA_PTR_TO_JSON(ProductSetId, productSetId_);
       DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsvCode, isvCode_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
+      DARABONBA_PTR_FROM_JSON(ProductSetId, productSetId_);
       DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
@@ -273,15 +275,15 @@ namespace Models
 
 
         protected:
-          // The button list. This parameter applies only to the BUTTONS component. Each Carousel card can have a maximum of two buttons.
+          // The list of buttons. Applicable only to BUTTONS components. Each Carousel card can have a maximum of two buttons.
           shared_ptr<vector<CardComponents::Buttons>> buttons_ {};
-          // The media resource type. Valid when Type is set to HEADER.
+          // The media resource type. Valid when Type is HEADER.
           // 
           // - **IMAGE**: image 
           // 
           // - **VIDEO**: video
           shared_ptr<string> format_ {};
-          // The BODY content in the Carousel card.
+          // The BODY content in a Carousel card.
           shared_ptr<string> text_ {};
           // The component type. Valid values:
           // 
@@ -293,7 +295,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The material path.
+          // The media resource path.
           shared_ptr<string> url_ {};
         };
 
@@ -308,7 +310,7 @@ namespace Models
 
 
       protected:
-        // The list of components in the Carousel card.
+        // The list of controls in a Carousel card.
         // 
         // This parameter is required.
         shared_ptr<vector<Cards::CardComponents>> cardComponents_ {};
@@ -397,9 +399,9 @@ namespace Models
 
 
         protected:
-          // Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The package name for WhatsApp to launch the application.
+          // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The package name of the application invoked by WhatsApp.
           shared_ptr<string> packageName_ {};
-          // Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The signature hash value for WhatsApp to launch the application.
+          // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The signature hash value of the application invoked by WhatsApp.
           shared_ptr<string> signatureHash_ {};
         };
 
@@ -508,11 +510,11 @@ namespace Models
 
 
       protected:
-        // Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The button text for the WhatsApp autofill operation.
+        // Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The button text for the WhatsApp Autofill operation.
         shared_ptr<string> autofillText_ {};
         // The coupon code value. Only letters and numbers are supported. You can pass in a variable such as $(couponCode) and provide the actual coupon code when sending the message.
         shared_ptr<string> couponCode_ {};
-        // The flow data event type. Valid values:
+        // The Flow data event type. Valid values:
         // 
         // - DATA_EXCHANGE: data exchange.
         // 
@@ -520,9 +522,9 @@ namespace Models
         shared_ptr<string> flowAction_ {};
         // Flow ID。
         shared_ptr<string> flowId_ {};
-        // Valid when the WhatsApp template Category is Marketing and Button type is QUICK_REPLY. Indicates the button is a marketing opt-out button. If the customer clicks this button and the send control operation is configured in ChatApp, subsequent Marketing messages will not be sent to the customer.
+        // Valid for WhatsApp templates when Category is Marketing and Button type is QUICK_REPLY. Indicates the button is a marketing opt-out button. If the customer clicks this button and send control is configured on ChatApp, subsequent Marketing messages will not be sent to the customer.
         shared_ptr<bool> isOptOut_ {};
-        // The navigate screen. Required when FlowAction is set to NAVIGATE.
+        // The navigate screen. Required when FlowAction is NAVIGATE.
         shared_ptr<string> navigateScreen_ {};
         // Use the properties under SupportedApps instead.
         shared_ptr<string> packageName_ {};
@@ -552,9 +554,9 @@ namespace Models
         // 
         // - **CATALOG**: catalog
         // 
-        // - **FLOW**: open a WhatsApp flow
+        // - **FLOW**: open WhatsApp flow
         // 
-        // > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. When the type is COPY_CODE, Text is required. When the type is ONE_TAP, Text (displayed when the target application is not installed on the device, indicating the name of the copy verification code button) is required, and SignatureHash, PackageName, and AutofillText are required.
+        // > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. When the type is COPY_CODE, Text is required. When the type is ONE_TAP, Text (displayed when the target application is not installed on the device, representing the copy verification code button name), SignatureHash, PackageName, and AutofillText are required.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -675,27 +677,27 @@ namespace Models
 
 
     protected:
-      // Valid for WhatsApp templates when Category is AUTHENTICATION and Component Type is Body. Displays a message in the Body section advising not to share the verification code with others.
+      // Valid for WhatsApp templates when Category is AUTHENTICATION and Component Type is Body. Displays a prompt above the Body advising not to share the verification code with others.
       shared_ptr<bool> addSecretRecommendation_ {};
-      // The button list. This parameter applies only to the **BUTTONS** component.
+      // The list of buttons. Applicable only to **BUTTONS** components.
       // 
-      // > WhatsApp button limits:
-      // > - For WhatsApp templates with Category set to MARKETING or UTILITY, a maximum of 10 buttons are allowed.
-      // > - Only one PHONE_NUMBER button is allowed.
-      // > - A maximum of two URL buttons are allowed.
-      // > - QUICK_REPLY buttons cannot be mixed in random order with PHONE_NUMBER or URL buttons.
+      // > WhatsApp button quantity rules:
+      // > - When Category is MARKETING/UTILITY, a maximum of 10 buttons are allowed.
+      // > - Only 1 PHONE_NUMBER button is allowed.
+      // > - A maximum of 2 URL buttons are allowed.
+      // > - QUICK_REPLY buttons cannot appear out of order with PHONE_NUMBER/URL buttons.
       shared_ptr<vector<Components::Buttons>> buttons_ {};
       // The description.
-      // > A description can be added when Type is set to **HEADER** and Format is set to **IMAGE/DOCUMENT/VIDEO**.
+      // > A description can be added when Type is **HEADER** and Format is **IMAGE/DOCUMENT/VIDEO**.
       shared_ptr<string> caption_ {};
       // The list of Carousel template cards.
       shared_ptr<vector<Components::Cards>> cards_ {};
-      // The validity period (in minutes) of the verification code in WhatsApp AUTHENTICATION templates. Valid only for WhatsApp messages when Category is AUTHENTICATION and Component Type is Footer. This information is displayed in the Footer section.
+      // The validity period (in minutes) of the verification code for WhatsApp AUTHENTICATION templates. Valid only for WhatsApp messages when Category is AUTHENTICATION and Component Type is Footer. This information is displayed in the Footer position.
       shared_ptr<int32_t> codeExpirationMinutes_ {};
       // Invalid field.
       shared_ptr<int32_t> duration_ {};
       // The file name.
-      // > A file name can be specified when Type is set to **HEADER** and Format is set to **DOCUMENT**.
+      // > Specifies the file name when Type is **HEADER** and Format is **DOCUMENT**.
       shared_ptr<string> fileName_ {};
       // Invalid field.
       shared_ptr<string> fileType_ {};
@@ -709,11 +711,11 @@ namespace Models
       // 
       // - **VIDEO**: video
       shared_ptr<string> format_ {};
-      // Specifies whether the coupon code has an expiration time. Used when type is set to LIMITED_TIME_OFFER.
+      // Specifies whether the coupon code has an expiration time. This parameter is used when type is LIMITED_TIME_OFFER.
       shared_ptr<bool> hasExpiration_ {};
       // The text of the message to be sent.
       // 
-      // > When Category is set to AUTHENTICATION, this property value is empty.
+      // > When Category is AUTHENTICATION, this property value is empty.
       shared_ptr<string> text_ {};
       // Invalid field.
       shared_ptr<string> thumbUrl_ {};
@@ -731,18 +733,18 @@ namespace Models
       // 
       // - **LIMITED_TIME_OFFER**
       // 
-      // > - For WhatsApp templates, the character length of the **BODY** component cannot exceed 1024 characters. The character length of the **HEADER** and **FOOTER** components cannot exceed 60 characters.
+      // > - For WhatsApp templates, the **BODY** component cannot exceed 1024 characters. The **HEADER** and **FOOTER** components cannot exceed 60 characters.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The material path.
+      // The media resource path.
       shared_ptr<string> url_ {};
     };
 
     virtual bool empty() const override { return this->category_ == nullptr
         && this->categoryChangePaused_ == nullptr && this->components_ == nullptr && this->custSpaceId_ == nullptr && this->custWabaId_ == nullptr && this->example_ == nullptr
-        && this->isvCode_ == nullptr && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->templateCode_ == nullptr && this->templateName_ == nullptr
-        && this->templateType_ == nullptr; };
+        && this->isvCode_ == nullptr && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->productSetId_ == nullptr && this->templateCode_ == nullptr
+        && this->templateName_ == nullptr && this->templateType_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -810,6 +812,13 @@ namespace Models
     inline ModifyChatappTemplateRequest& setMessageSendTtlSeconds(int32_t messageSendTtlSeconds) { DARABONBA_PTR_SET_VALUE(messageSendTtlSeconds_, messageSendTtlSeconds) };
 
 
+    // productSetId Field Functions 
+    bool hasProductSetId() const { return this->productSetId_ != nullptr;};
+    void deleteProductSetId() { this->productSetId_ = nullptr;};
+    inline string getProductSetId() const { DARABONBA_PTR_GET_DEFAULT(productSetId_, "") };
+    inline ModifyChatappTemplateRequest& setProductSetId(string productSetId) { DARABONBA_PTR_SET_VALUE(productSetId_, productSetId) };
+
+
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
@@ -834,32 +843,34 @@ namespace Models
   protected:
     // The templatetype cannot be modified.
     shared_ptr<string> category_ {};
-    // Specifies whether to pause sending when a Utility template is changed to Marketing type.
+    // When a Utility template is changed to Marketing type, the template is paused for sending.
     shared_ptr<bool> categoryChangePaused_ {};
     // The list of message template components.
     // 
-    // > When Category is set to AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is set to BODY or FOOTER and the Text content is empty, the content is automatically generated.
+    // > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is BODY/FOOTER, the Text content is empty and is automatically generated.
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyChatappTemplateRequest::Components>> components_ {};
-    // The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+    // The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
     // The ISV customer WabaId.
     // 
-    // > Deprecated parameter. Use CustSpaceId instead.
+    // > This parameter is deprecated. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The examples for creating the template.
+    // The example for creating a template.
     shared_ptr<map<string, string>> example_ {};
-    // The ISV verification code used to verify whether the RAM user is authorized by the ISV.
+    // The ISV verification code used to verify whether the sub-account is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
     // The validity period for sending template messages in WhatsApp.
-    // - AUTHENTICATION: valid values are 30 to 900. 
-    // - UTILITY: valid values are 30 to 43200.
+    // - AUTHENTICATION: valid values range from 30 to 900. 
+    // - UTILITY: valid values range from 30 to 43200.
     shared_ptr<int32_t> messageSendTtlSeconds_ {};
+    // productSetId
+    shared_ptr<string> productSetId_ {};
     // The message template code.
     shared_ptr<string> templateCode_ {};
     // The template name.

@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PageId of the Messenger page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

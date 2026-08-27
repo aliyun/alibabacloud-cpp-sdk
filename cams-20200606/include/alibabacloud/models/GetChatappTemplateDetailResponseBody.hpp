@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, GetChatappTemplateDetailResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
     };
     GetChatappTemplateDetailResponseBody() = default ;
     GetChatappTemplateDetailResponseBody(const GetChatappTemplateDetailResponseBody &) = default ;
@@ -51,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ProductSetId, productSetId_);
         DARABONBA_PTR_TO_JSON(QualityScore, qualityScore_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
@@ -66,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ProductSetId, productSetId_);
         DARABONBA_PTR_FROM_JSON(QualityScore, qualityScore_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
@@ -252,9 +256,9 @@ namespace Models
               shared_ptr<string> phoneNumber_ {};
               // The button content.
               shared_ptr<string> text_ {};
-              // The button type for carousel templates. Valid values: URL, PHONE_NUMBER, and QUICK_REPLY.
+              // The button type for a carousel template. Valid values: URL, PHONE_NUMBER, or QUICK_REPLY.
               shared_ptr<string> type_ {};
-              // The URL accessed when the button is clicked.
+              // The URL to visit when the button is clicked.
               shared_ptr<string> url_ {};
               // The URL type. Valid values:
               //  
@@ -306,13 +310,13 @@ namespace Models
           protected:
             // The list of card buttons.
             shared_ptr<vector<CardComponents::Buttons>> buttons_ {};
-            // The header type in carousel templates. Only IMAGE and VIDEO are supported. All cards must have the same header type.
+            // The header type in a carousel template. Only IMAGE and VIDEO are supported. All cards must have the same header type.
             shared_ptr<string> format_ {};
-            // The text content of the card.
+            // The card text content.
             shared_ptr<string> text_ {};
             // The component type.
             shared_ptr<string> type_ {};
-            // The web address.
+            // The web URL.
             shared_ptr<string> url_ {};
           };
 
@@ -613,53 +617,53 @@ namespace Models
 
 
         protected:
-          // Required when the WhatsApp template Category is Authentication and Button Type is ONE_TAP. The button text for the WhatsApp autofill operation.
+          // Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the button text for the WhatsApp Autofill operation.
           shared_ptr<string> autofillText_ {};
           // The coupon code.
           shared_ptr<string> couponCode_ {};
-          // The extended attributes.
+          // The extended fields.
           shared_ptr<Buttons::ExtendAttrs> extendAttrs_ {};
-          // The flow data event type. Valid values:
+          // The Flow data event type. Valid values:
           // 
-          // - NAVIGATE: navigation
+          // - NAVIGATE: navigation.
           // 
-          // - DATA_EXCHANGE: data exchange
+          // - DATA_EXCHANGE: data exchange.
           shared_ptr<string> flowAction_ {};
           // Flow ID
           shared_ptr<string> flowId_ {};
-          // Valid when the WhatsApp template Category is Marketing and Button Type is QUICK_REPLY. Indicates that the button is a marketing opt-out button. If the customer clicks this button and the send control operation is configured on the Chat App platform, subsequent marketing messages will not be sent to the customer.
+          // Valid for WhatsApp templates with Category set to Marketing and Button Type set to QUICK_REPLY. Indicates that the button is a marketing opt-out button. If a customer clicks this button and the send control operation is configured on the Chat App Message Service platform, subsequent Marketing messages will not be sent to the customer.
           shared_ptr<bool> isOptOut_ {};
           // The navigate screen. Required when FlowAction is set to NAVIGATE.
           shared_ptr<string> navigateScreen_ {};
-          // Required when the WhatsApp template Category is Authentication and Button Type is ONE_TAP. The package name of the application launched by WhatsApp.
+          // Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the package name for WhatsApp to launch the application.
           shared_ptr<string> packageName_ {};
           // The phone number. Valid only when the button type is **PHONE_NUMBER**.
           shared_ptr<string> phoneNumber_ {};
-          // Required when the WhatsApp template Category is Authentication and Button Type is ONE_TAP. The signature hash value used by WhatsApp to launch the application.
+          // Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the signature hash value for WhatsApp to launch the application.
           shared_ptr<string> signatureHash_ {};
-          // The applications supported by ONE_TAP/ZERO_TAP verification code.
+          // The applications supported by the ONE_TAP/ZERO_TAP verification code.
           shared_ptr<vector<Buttons::SupportedApps>> supportedApps_ {};
           // The display name of the button.
           shared_ptr<string> text_ {};
           // The button type.
           // 
-          // - **PHONE_NUMBER**: call button
+          // - **PHONE_NUMBER**: phone call button.
           // 
-          // - **URL**: web page button
+          // - **URL**: web page button.
           // 
-          // - **QUICK_REPLY**: quick reply button
+          // - **QUICK_REPLY**: quick reply button.
           // 
-          // - **COPY_CODE**: copy verification code or coupon code
+          // - **COPY_CODE**: copy verification code or coupon code.
           // 
-          // - **ONE_TAP**: autofill button for AUTHENTICATION templates
+          // - **ONE_TAP**: autofill button for AUTHENTICATION templates.
           // 
-          // - **ZERO_TAP**: autofill button for AUTHENTICATION templates
+          // - **ZERO_TAP**: autofill button for AUTHENTICATION templates.
           // 
-          // - **MPM**: multi-product catalog
+          // - **MPM**: multi-product catalog.
           // 
-          // - **CATALOG**: catalog
+          // - **CATALOG**: catalog.
           // 
-          // - **FLOW**: open WhatsApp flow
+          // - **FLOW**: open WhatsApp flow.
           // 
           // > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. If the type is COPY_CODE, Text is required. If the type is ONE_TAP, Text (displayed when the target application is not installed on the device, indicating the name of the copy verification code button), SignatureHash, PackageName, and AutofillText are required.
           // > - Viber templates allow only one button, and it must be of the URL type.
@@ -817,43 +821,43 @@ namespace Models
 
 
       protected:
-        // Valid for WhatsApp templates when Category is Authentication and Component Type is Body. Displays a recommendation on the Body not to share the verification code with others.
+        // Valid for WhatsApp templates when Category is Authentication and Component Type is Body. Indicates whether a security recommendation message that advises users not to share the verification code is displayed above the Body.
         shared_ptr<bool> addSecretRecommendation_ {};
-        // The list of buttons. Applicable only to the **BUTTONS** component.
+        // The button list. Applicable only to the **BUTTONS** component.
         // 
         // > WhatsApp button quantity rules:
-        // > - When the WhatsApp category is MARKETING or UTILITY, a maximum of 10 buttons are allowed.
-        // > - Only one PHONE_NUMBER button is allowed.
-        // > - A maximum of two URL buttons are allowed.
-        // > - QUICK_REPLY buttons cannot appear in a mixed order with PHONE_NUMBER or URL buttons.
+        // > - For WhatsApp templates with Category set to MARKETING or UTILITY, a maximum of 10 buttons are allowed.
+        // > - Only 1 PHONE_NUMBER button is allowed.
+        // > - A maximum of 2 URL buttons are allowed.
+        // > - QUICK_REPLY buttons cannot be mixed in random order with PHONE_NUMBER or URL buttons.
         shared_ptr<vector<Components::Buttons>> buttons_ {};
-        // The description of the file.
+        // The file description.
         shared_ptr<string> caption_ {};
         // The list of carousel cards.
         shared_ptr<vector<Components::Cards>> cards_ {};
-        // The verification code validity period (in minutes) for WhatsApp Authentication templates. Valid only for WhatsApp messages when Category is Authentication and Component Type is Footer. This information is displayed in the Footer.
+        // The verification code validity period in minutes for WhatsApp Authentication templates. Valid only when the message type is WhatsApp, Category is Authentication, and Component Type is Footer. This information is displayed in the Footer position.
         shared_ptr<int32_t> codeExpirationMinutes_ {};
-        // The video duration for Viber video messages. Valid values: 0 to 600.
+        // The video duration of a Viber video message. Valid values: 0 to 600.
         shared_ptr<int32_t> duration_ {};
-        // The name of the file.
+        // The file name.
         shared_ptr<string> fileName_ {};
-        // The file type for Viber file messages.
+        // The file type of a Viber file message.
         shared_ptr<string> fileType_ {};
         // The format.
         shared_ptr<string> format_ {};
         // The latitude of the location.
         shared_ptr<string> latitude_ {};
-        // The address of the location.
+        // The location address.
         shared_ptr<string> locationAddress_ {};
-        // The name of the location.
+        // The location name.
         shared_ptr<string> locationName_ {};
         // The longitude of the location.
         shared_ptr<string> longitude_ {};
-        // The coupon code expiration variable for LTO templates.
+        // The offer code expiration variable in a Limited Time Offer (LTO) template.
         shared_ptr<string> offerExpirationTimeMs_ {};
         // The text of the message to be sent.
         shared_ptr<string> text_ {};
-        // The thumbnail for Viber video messages.
+        // The thumbnail for a Viber video message.
         shared_ptr<string> thumbUrl_ {};
         // The component type.
         // 
@@ -863,26 +867,26 @@ namespace Models
         // 
         // - **FOOTER**
         // 
-        //  - **BUTTONS**
+        // - **BUTTONS**
         // 
         // - **CAROUSEL**
         // 
         // - **LIMITED_TIME_OFFER**
         // 
-        // > - For WhatsApp templates, the character length of the **BODY** component cannot exceed 1024 characters. The character length of the **HEADER** and **FOOTER** components cannot exceed 60 characters.
+        // > - For WhatsApp templates, the **BODY** component cannot exceed 1024 characters. The **HEADER** and **FOOTER** components cannot exceed 60 characters.
         // > - For Viber templates, the **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** types are invalid.
-        // > - In Viber templates, images, videos, and files are placed in the **HEADER** (the device displays images below the text).
+        // > - For Viber templates, images, videos, and files are placed in the **HEADER** (the device displays images below the text).
         shared_ptr<string> type_ {};
-        // The media URL.
+        // The material URL.
         shared_ptr<string> url_ {};
-        // Specifies whether the coupon code has an expiration time in limited-time offer (LTO) templates.
+        // Specifies whether the offer code has an expiration time in a Limited Time Offer (LTO) template.
         shared_ptr<bool> hasExpiration_ {};
       };
 
       virtual bool empty() const override { return this->allowSend_ == nullptr
         && this->auditStatus_ == nullptr && this->category_ == nullptr && this->categoryChangePaused_ == nullptr && this->components_ == nullptr && this->example_ == nullptr
-        && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->name_ == nullptr && this->qualityScore_ == nullptr && this->reason_ == nullptr
-        && this->templateCode_ == nullptr && this->templateType_ == nullptr; };
+        && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->name_ == nullptr && this->productSetId_ == nullptr && this->qualityScore_ == nullptr
+        && this->reason_ == nullptr && this->templateCode_ == nullptr && this->templateType_ == nullptr; };
       // allowSend Field Functions 
       bool hasAllowSend() const { return this->allowSend_ != nullptr;};
       void deleteAllowSend() { this->allowSend_ = nullptr;};
@@ -950,6 +954,13 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // productSetId Field Functions 
+      bool hasProductSetId() const { return this->productSetId_ != nullptr;};
+      void deleteProductSetId() { this->productSetId_ = nullptr;};
+      inline string getProductSetId() const { DARABONBA_PTR_GET_DEFAULT(productSetId_, "") };
+      inline Data& setProductSetId(string productSetId) { DARABONBA_PTR_SET_VALUE(productSetId_, productSetId) };
+
+
       // qualityScore Field Functions 
       bool hasQualityScore() const { return this->qualityScore_ != nullptr;};
       void deleteQualityScore() { this->qualityScore_ = nullptr;};
@@ -979,6 +990,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether the current template can be used for sending. This parameter is valid only for Marketing templates.
       shared_ptr<bool> allowSend_ {};
       // The audit status. Valid values:
       // 
@@ -999,44 +1011,34 @@ namespace Models
       // - **AUTHENTICATION**: identity verification.
       // 
       // Viber template category. Valid values:
-      // - **text**: text only
       // 
-      // - **image**: image only
+      // - **UTILITY**: transaction-related.
       // 
-      // - **text_image_button**: text + image + button
+      // - **MARKETING**: marketing template.
       // 
-      // - **text_button**: text + button
-      // 
-      // - **document**: file
-      // 
-      // - **video**: video
-      // 
-      // - **text_video**: text + video
-      // 
-      // - **text_video_button**: text + video + button
-      // 
-      // - **text_image**: text + image
-      // 
-      // > When the Viber template value is text_video_button, the button does not open a web page. Instead, it opens the video of the current message within the web page. Therefore, you do not need to enter any address information in the URL of the button.
+      // - **AUTHENTICATION**: identity verification.
       shared_ptr<string> category_ {};
+      // Indicates whether template sending is paused when a Utility template is changed to a Marketing template.
       shared_ptr<bool> categoryChangePaused_ {};
       // The list of message template components.
       shared_ptr<vector<Data::Components>> components_ {};
-      // The variable examples.
+      // The variable example.
       shared_ptr<map<string, string>> example_ {};
       // The language of the template. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
       shared_ptr<string> language_ {};
-      // The message validity period when sending messages with WhatsApp Authentication templates.
+      // The message time-to-live when sending WhatsApp Authentication template messages.
       shared_ptr<int32_t> messageSendTtlSeconds_ {};
       // The name of the template.
       shared_ptr<string> name_ {};
+      // productSetId
+      shared_ptr<string> productSetId_ {};
       // The template quality.
-      // - RED (low quality)
-      // - YELLOW (medium quality)
-      // - UNKNOWN (unknown quality)
-      // - GREEN (high quality)
+      // - RED: Low quality.
+      // - YELLOW: Medium quality.
+      // - UNKNOWN: Quality unknown.
+      // - GREEN: High quality.
       shared_ptr<string> qualityScore_ {};
-      // The reason why the template was rejected during review.
+      // The reason for template review rejection.
       shared_ptr<string> reason_ {};
       // The code of the template.
       shared_ptr<string> templateCode_ {};
@@ -1049,7 +1051,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -1087,10 +1089,17 @@ namespace Models
     inline GetChatappTemplateDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline GetChatappTemplateDetailResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
   protected:
-    // The access denied details.
+    // The access denied detail information.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     // 
     // - OK indicates that the request was successful.
     // 
@@ -1102,6 +1111,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

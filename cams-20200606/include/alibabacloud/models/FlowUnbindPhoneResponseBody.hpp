@@ -84,22 +84,22 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request status code.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: The operation is successful.
     // 
     // - false: The operation failed.
     shared_ptr<bool> model_ {};
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: The operation is successful.
     // 
     // - false: The operation failed.
     shared_ptr<bool> success_ {};

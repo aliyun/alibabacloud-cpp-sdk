@@ -180,23 +180,41 @@ namespace Models
 
 
   protected:
+    // The description of the campaign.
     shared_ptr<string> activityDesc_ {};
+    // The name of the node instance.
+    // 
     // This parameter is required.
     shared_ptr<string> activityName_ {};
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The cron expression.
     shared_ptr<string> cronExpression_ {};
+    // The end time.
     shared_ptr<string> endDate_ {};
+    // The trigger method of the baseline scan. Valid values:
+    // 
+    // - **Schedule**: Triggered by a periodic configuration task.
+    // - **Manual**: Manually triggered.
+    // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The parameter flag.
     shared_ptr<string> paramFlag_ {};
+    // The API parameters.
     Darabonba::Json params_ {};
+    // The code of the associated flow.
     shared_ptr<string> relatedFlowCode_ {};
+    // The name of the associated flow.
     shared_ptr<string> relatedFlowName_ {};
+    // The ID of the related group.
     shared_ptr<int64_t> relatedGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time.
     shared_ptr<string> startDate_ {};
   };
 

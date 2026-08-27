@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The tag description.
       shared_ptr<string> tagDescription_ {};
+      // The tag ID.
       shared_ptr<string> tagId_ {};
+      // The tag name.
       shared_ptr<string> tagName_ {};
     };
 
@@ -149,12 +152,27 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response status code.
+    // 
+    // - OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListDmTagResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

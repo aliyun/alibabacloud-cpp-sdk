@@ -103,18 +103,18 @@ namespace Models
 
 
   protected:
-    // The business tenant code. The default value is ALICOM_OPAAS.
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
-    // The business extension information. The default value is an empty collection.
+    // The business extension information. Default value: an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
-    // The flow DSL data to import. This is a block of data in JSON format. To obtain this data, arrange the components on the canvas in the Flow Editor, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas. The flow is exported as a JSON data file.
+    // The imported flow DSL data, which is a JSON-formatted string. You can arrange flow components on the canvas in the flow orchestration console in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas to export a JSON data file for viewing.
     shared_ptr<string> flowViewModel_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The remarks for the flow.
+    // The flow remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The title of the flow.
+    // The flow title.
     shared_ptr<string> title_ {};
   };
 

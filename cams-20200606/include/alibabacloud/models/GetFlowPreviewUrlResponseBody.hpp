@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The flow ID.
+      // Flow ID。
       shared_ptr<string> flowId_ {};
       // The temporary preview URL.
       shared_ptr<string> previewUrl_ {};

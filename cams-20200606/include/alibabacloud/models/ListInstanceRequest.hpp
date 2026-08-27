@@ -13,20 +13,24 @@ namespace Models
   class ListInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BindId, bindId_);
       DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
       DARABONBA_PTR_TO_JSON(FilterStr, filterStr_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(IsBind, isBind_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SubmitTime, submitTime_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BindId, bindId_);
       DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
       DARABONBA_PTR_FROM_JSON(FilterStr, filterStr_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(IsBind, isBind_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -43,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->channelType_ == nullptr
-        && this->filterStr_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->submitTime_ == nullptr; };
+    virtual bool empty() const override { return this->bindId_ == nullptr
+        && this->channelType_ == nullptr && this->filterStr_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->isBind_ == nullptr
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->submitTime_ == nullptr; };
+    // bindId Field Functions 
+    bool hasBindId() const { return this->bindId_ != nullptr;};
+    void deleteBindId() { this->bindId_ = nullptr;};
+    inline string getBindId() const { DARABONBA_PTR_GET_DEFAULT(bindId_, "") };
+    inline ListInstanceRequest& setBindId(string bindId) { DARABONBA_PTR_SET_VALUE(bindId_, bindId) };
+
+
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};
@@ -72,6 +83,13 @@ namespace Models
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ListInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // isBind Field Functions 
+    bool hasIsBind() const { return this->isBind_ != nullptr;};
+    void deleteIsBind() { this->isBind_ = nullptr;};
+    inline bool getIsBind() const { DARABONBA_PTR_GET_DEFAULT(isBind_, false) };
+    inline ListInstanceRequest& setIsBind(bool isBind) { DARABONBA_PTR_SET_VALUE(isBind_, isBind) };
 
 
     // pageIndex Field Functions 
@@ -103,31 +121,30 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> bindId_ {};
     // The channel type. Valid values:
     // 
     // - **whatsapp**
     // 
     // - **messenger**
-    // 
     // - **instagram**
     // 
-    // <props="intl">
-    // 
-    // - **viber**
+    // <props="intl">- **viber**
     shared_ptr<string> channelType_ {};
-    // The filter string for the query.
+    // The filter condition.
     shared_ptr<string> filterStr_ {};
-    // The instance ID. Use this parameter for non-Alibaba Cloud hosts only.
+    // The instance ID. Only non-Alibaba Cloud hosts are supported.
     shared_ptr<string> instanceId_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The page number to return.
+    shared_ptr<bool> isBind_ {};
+    // The page number.
     shared_ptr<int64_t> pageIndex_ {};
-    // The number of items to return per page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the resource group that contains the instance.
+    // The ID of the enterprise resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The submission time, in `YYYY-MM-DD HH:MM:SS` format.
+    // The submit time.
     shared_ptr<string> submitTime_ {};
   };
 

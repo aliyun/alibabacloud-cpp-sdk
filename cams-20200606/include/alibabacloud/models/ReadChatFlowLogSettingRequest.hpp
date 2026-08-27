@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The code of the flow. You can find the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

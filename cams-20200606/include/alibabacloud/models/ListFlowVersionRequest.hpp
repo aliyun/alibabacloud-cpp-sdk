@@ -114,28 +114,24 @@ namespace Models
 
 
   protected:
-    // The business tenant code. The default value is ALICOM_OPAAS.
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
-    // Business extension information. The default value is an empty collection.
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
-    // The flow code. Find the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // The flow code. You can query the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the flow version. Valid values:
-    // 
-    // - DRAFT: The flow is a draft.
-    // 
-    // - DELETED: The flow is deleted.
-    // 
-    // - ONLINE: The flow is published.
-    // 
-    // - OFFLINE: The flow is unpublished.
+    // The flow version status. Valid values:
+    // - DRAFT: draft.
+    // - DELETED: deleted.
+    // - ONLINE: online.
+    // - OFFLINE: offline.
     shared_ptr<string> status_ {};
   };
 

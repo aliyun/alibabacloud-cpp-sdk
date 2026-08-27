@@ -84,11 +84,23 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    // - OK: The request was successful.
+    // 
+    // - For other error codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<string> data_ {};
+    // The result message.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

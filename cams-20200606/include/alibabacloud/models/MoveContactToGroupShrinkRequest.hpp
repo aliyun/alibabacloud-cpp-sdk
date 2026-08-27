@@ -103,11 +103,17 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
+    // The list of contacts whose group associations are to be modified.
+    // 
     // This parameter is required.
     shared_ptr<string> contacts_ {};
+    // The list of existing group IDs to associate with.
     shared_ptr<string> linkExistGroups_ {};
+    // The list of new group names to associate with.
     shared_ptr<string> linkNewGroups_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

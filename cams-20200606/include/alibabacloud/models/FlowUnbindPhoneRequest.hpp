@@ -105,18 +105,16 @@ namespace Models
     // 
     // - MESSENGER
     // 
-    // <props="intl">
-    // 
-    // - VIBER
+    // <props="intl">- VIBER
     shared_ptr<string> channelType_ {};
-    // The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // The flow code. You can view the flow code on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
-    // The flow version. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to go to the orchestration canvas and view the flow version.
+    // The flow version. You can view the flow version by going to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, clicking the flow name, and entering the flow editor canvas page.
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // A list of phone numbers, Page IDs, Account IDs, or Service IDs for the channel instance.
+    // The list of phone numbers, PageIds, AccountIds,<props="intl"> or ServiceIds under the channel instance.
     shared_ptr<vector<string>> phoneNumbers_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

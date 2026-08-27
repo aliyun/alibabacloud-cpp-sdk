@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
       DARABONBA_PTR_TO_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_TO_JSON(FlowVersion, flowVersion_);
+      DARABONBA_PTR_TO_JSON(MultiWabaPhoneNumbers, multiWabaPhoneNumbers_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PhoneNumbers, phoneNumbers_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
       DARABONBA_PTR_FROM_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_FROM_JSON(FlowVersion, flowVersion_);
+      DARABONBA_PTR_FROM_JSON(MultiWabaPhoneNumbers, multiWabaPhoneNumbers_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PhoneNumbers, phoneNumbers_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -46,9 +48,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class MultiWabaPhoneNumbers : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MultiWabaPhoneNumbers& obj) { 
+        DARABONBA_PTR_TO_JSON(ChannelCode, channelCode_);
+        DARABONBA_PTR_TO_JSON(PhoneNumbers, phoneNumbers_);
+        DARABONBA_PTR_TO_JSON(WabaId, wabaId_);
+      };
+      friend void from_json(const Darabonba::Json& j, MultiWabaPhoneNumbers& obj) { 
+        DARABONBA_PTR_FROM_JSON(ChannelCode, channelCode_);
+        DARABONBA_PTR_FROM_JSON(PhoneNumbers, phoneNumbers_);
+        DARABONBA_PTR_FROM_JSON(WabaId, wabaId_);
+      };
+      MultiWabaPhoneNumbers() = default ;
+      MultiWabaPhoneNumbers(const MultiWabaPhoneNumbers &) = default ;
+      MultiWabaPhoneNumbers(MultiWabaPhoneNumbers &&) = default ;
+      MultiWabaPhoneNumbers(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MultiWabaPhoneNumbers() = default ;
+      MultiWabaPhoneNumbers& operator=(const MultiWabaPhoneNumbers &) = default ;
+      MultiWabaPhoneNumbers& operator=(MultiWabaPhoneNumbers &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->channelCode_ == nullptr
+        && this->phoneNumbers_ == nullptr && this->wabaId_ == nullptr; };
+      // channelCode Field Functions 
+      bool hasChannelCode() const { return this->channelCode_ != nullptr;};
+      void deleteChannelCode() { this->channelCode_ = nullptr;};
+      inline string getChannelCode() const { DARABONBA_PTR_GET_DEFAULT(channelCode_, "") };
+      inline MultiWabaPhoneNumbers& setChannelCode(string channelCode) { DARABONBA_PTR_SET_VALUE(channelCode_, channelCode) };
+
+
+      // phoneNumbers Field Functions 
+      bool hasPhoneNumbers() const { return this->phoneNumbers_ != nullptr;};
+      void deletePhoneNumbers() { this->phoneNumbers_ = nullptr;};
+      inline const vector<string> & getPhoneNumbers() const { DARABONBA_PTR_GET_CONST(phoneNumbers_, vector<string>) };
+      inline vector<string> getPhoneNumbers() { DARABONBA_PTR_GET(phoneNumbers_, vector<string>) };
+      inline MultiWabaPhoneNumbers& setPhoneNumbers(const vector<string> & phoneNumbers) { DARABONBA_PTR_SET_VALUE(phoneNumbers_, phoneNumbers) };
+      inline MultiWabaPhoneNumbers& setPhoneNumbers(vector<string> && phoneNumbers) { DARABONBA_PTR_SET_RVALUE(phoneNumbers_, phoneNumbers) };
+
+
+      // wabaId Field Functions 
+      bool hasWabaId() const { return this->wabaId_ != nullptr;};
+      void deleteWabaId() { this->wabaId_ = nullptr;};
+      inline string getWabaId() const { DARABONBA_PTR_GET_DEFAULT(wabaId_, "") };
+      inline MultiWabaPhoneNumbers& setWabaId(string wabaId) { DARABONBA_PTR_SET_VALUE(wabaId_, wabaId) };
+
+
+    protected:
+      // The channel code.
+      shared_ptr<string> channelCode_ {};
+      // The list of phone numbers.
+      shared_ptr<vector<string>> phoneNumbers_ {};
+      // wabaId
+      shared_ptr<string> wabaId_ {};
+    };
+
     virtual bool empty() const override { return this->channelCode_ == nullptr
-        && this->channelType_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->ownerId_ == nullptr && this->phoneNumbers_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->wabaId_ == nullptr; };
+        && this->channelType_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->multiWabaPhoneNumbers_ == nullptr && this->ownerId_ == nullptr
+        && this->phoneNumbers_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->wabaId_ == nullptr; };
     // channelCode Field Functions 
     bool hasChannelCode() const { return this->channelCode_ != nullptr;};
     void deleteChannelCode() { this->channelCode_ = nullptr;};
@@ -75,6 +134,15 @@ namespace Models
     void deleteFlowVersion() { this->flowVersion_ = nullptr;};
     inline string getFlowVersion() const { DARABONBA_PTR_GET_DEFAULT(flowVersion_, "") };
     inline FlowRebindPhoneRequest& setFlowVersion(string flowVersion) { DARABONBA_PTR_SET_VALUE(flowVersion_, flowVersion) };
+
+
+    // multiWabaPhoneNumbers Field Functions 
+    bool hasMultiWabaPhoneNumbers() const { return this->multiWabaPhoneNumbers_ != nullptr;};
+    void deleteMultiWabaPhoneNumbers() { this->multiWabaPhoneNumbers_ = nullptr;};
+    inline const vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers> & getMultiWabaPhoneNumbers() const { DARABONBA_PTR_GET_CONST(multiWabaPhoneNumbers_, vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers>) };
+    inline vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers> getMultiWabaPhoneNumbers() { DARABONBA_PTR_GET(multiWabaPhoneNumbers_, vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers>) };
+    inline FlowRebindPhoneRequest& setMultiWabaPhoneNumbers(const vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers> & multiWabaPhoneNumbers) { DARABONBA_PTR_SET_VALUE(multiWabaPhoneNumbers_, multiWabaPhoneNumbers) };
+    inline FlowRebindPhoneRequest& setMultiWabaPhoneNumbers(vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers> && multiWabaPhoneNumbers) { DARABONBA_PTR_SET_RVALUE(multiWabaPhoneNumbers_, multiWabaPhoneNumbers) };
 
 
     // ownerId Field Functions 
@@ -115,9 +183,7 @@ namespace Models
 
 
   protected:
-    // The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
-    // 
-    // This parameter is required.
+    // The message channel code, which is the channel ID. You can view the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) console.
     shared_ptr<string> channelCode_ {};
     // The message channel type. Valid values:
     // 
@@ -131,12 +197,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
-    // The flow code. You can view it on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+    // The flow code. You can view this in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
     // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
-    // The flow version. On the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the flow builder canvas and view the flow version.
+    // The flow version. In the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click the flow name to open the flow editor canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
+    // The multi-WABA binding configurations.
+    shared_ptr<vector<FlowRebindPhoneRequest::MultiWabaPhoneNumbers>> multiWabaPhoneNumbers_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
     shared_ptr<vector<string>> phoneNumbers_ {};
@@ -144,11 +212,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
     // 
-    // - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID on the Channel Management > Manage > WABA Management page.
+    // - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID in Channel Management > Manage > WABA Management.
     // 
     // - If ChannelType is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
-    // 
-    // This parameter is required.
     shared_ptr<string> wabaId_ {};
   };
 

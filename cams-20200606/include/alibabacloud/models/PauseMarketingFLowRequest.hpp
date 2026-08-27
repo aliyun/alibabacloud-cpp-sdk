@@ -75,7 +75,9 @@ namespace Models
 
 
   protected:
+    // The activity code.
     shared_ptr<string> activityCode_ {};
+    // The activity ID (deprecated).
     shared_ptr<string> activityId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

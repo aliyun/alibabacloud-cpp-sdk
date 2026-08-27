@@ -144,20 +144,24 @@ namespace Models
     protected:
       // The list of categories.
       shared_ptr<vector<string>> categories_ {};
-      // The API version.
+      // The API version information.
       shared_ptr<string> dataApiVersion_ {};
+      // The URL of the WA Flow Endpoint
       shared_ptr<string> endpointUri_ {};
-      // The flow ID.
+      // Flow ID。
       shared_ptr<string> flowId_ {};
-      // The flow name.
+      // The Flow name.
       shared_ptr<string> flowName_ {};
-      // The JSON version.
+      // The JSON version information.
       shared_ptr<string> JSONVersion_ {};
       // The temporary preview URL.
       shared_ptr<string> previewUrl_ {};
       // The expiration time of the preview URL.
       shared_ptr<int64_t> previewUrlExpires_ {};
-      // The status of the flow.
+      // The status of the Flow. Valid values:
+      // - PUBLISHED: Published.
+      // - DRAFT: Draft.
+      // - DEPRECATED: Deprecated.
       shared_ptr<string> status_ {};
     };
 
@@ -201,6 +205,7 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};

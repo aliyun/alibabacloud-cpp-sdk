@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The IDs of the authorized ad accounts.
+    // 
     // This parameter is required.
     shared_ptr<string> adAccountIdsShrink_ {};
+    // The authorization code obtained after the embedded authorization is completed.
+    // 
     // This parameter is required.
     shared_ptr<string> authenticationCode_ {};
+    // The Business platform ID.
+    // 
     // This parameter is required.
     shared_ptr<string> businessId_ {};
+    // The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PageId of the messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The space ID of the ISV sub-customer, or the instance ID of the direct customer.
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The phone number.

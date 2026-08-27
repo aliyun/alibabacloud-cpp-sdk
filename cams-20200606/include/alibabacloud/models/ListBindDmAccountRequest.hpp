@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};

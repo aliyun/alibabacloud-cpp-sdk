@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // 通道实例
+    // The channel instance.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};

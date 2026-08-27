@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The reason why access was denied.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // OK indicates that the request was successful.
+    // The response code. OK indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};

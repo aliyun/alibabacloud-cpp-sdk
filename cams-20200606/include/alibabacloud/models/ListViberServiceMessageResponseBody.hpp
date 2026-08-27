@@ -141,13 +141,21 @@ namespace Models
 
 
     protected:
+      // The business account name.
       shared_ptr<string> businessAccountName_ {};
+      // The destination country or region ID.
       shared_ptr<vector<string>> destinationCountryId_ {};
+      // The destination country or region ID.
       shared_ptr<vector<string>> destinationInternationalCountryId_ {};
+      // The industry involved.
       shared_ptr<string> industryInvolved_ {};
+      // The collection of destination countries or regions.
       shared_ptr<vector<string>> messageDestinationCountry_ {};
+      // The list of international destination countries or regions.
       shared_ptr<vector<string>> messageDestinationInternationalCountry_ {};
+      // The service ID.
       shared_ptr<string> serviceId_ {};
+      // The resource status.
       shared_ptr<string> state_ {};
     };
 
@@ -198,11 +206,25 @@ namespace Models
 
 
   protected:
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListViberServiceMessageResponseBody::Data>> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID. This is used for troubleshooting when an error occurs.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

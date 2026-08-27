@@ -95,7 +95,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> index_ {};
-      // The number of entries per page. Default value: 10.
+      // The number of templates to query per page. Default value: 10.
       // 
       // This parameter is required.
       shared_ptr<int32_t> size_ {};
@@ -199,28 +199,29 @@ namespace Models
 
 
   protected:
-    // The review state of the template. Valid values:
+    // The review status. Valid values:
     // 
-    // - **pass**: The template is approved.
+    // - **pass**: Approved.
     // 
-    // - **fail**: The template is rejected.
+    // - **fail**: Rejected.
     // 
-    // - **auditing**: The template is being reviewed.
+    // - **auditing**: Under review.
     // 
-    // - **unaudit**: The review is suspended.
+    // - **unaudit**: Review suspended.
     shared_ptr<string> auditStatus_ {};
+    // The category of the template.
     shared_ptr<string> category_ {};
-    // The code of the message template.
+    // The code of the template.
     shared_ptr<string> code_ {};
-    // The space ID of the RAM user within the ISV account.
+    // The space ID of the ISV sub-customer, or the instance ID of a direct customer.
     shared_ptr<string> custSpaceId_ {};
-    // The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+    // The WabaId of the ISV customer.
     // 
-    // > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+    // > This is a deprecated parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+    // The ISV verification code, which is used to verify whether the RAM user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The language of the template. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     shared_ptr<string> language_ {};
     // The name of the template.
     shared_ptr<string> name_ {};
@@ -229,7 +230,7 @@ namespace Models
     shared_ptr<ListChatappTemplateRequest::Page> page_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the message template.
+    // The templatetype. Valid values:
     // 
     // - **WHATSAPP**
     // 

@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateFlowVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     UpdateFlowVersionRequest() = default ;
     UpdateFlowVersionRequest(const UpdateFlowVersionRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizCode_ == nullptr
         && this->bizExtend_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->flowViewModel_ == nullptr && this->ownerId_ == nullptr
-        && this->remark_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->remark_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->type_ == nullptr; };
     // bizCode Field Functions 
     bool hasBizCode() const { return this->bizCode_ != nullptr;};
     void deleteBizCode() { this->bizCode_ = nullptr;};
@@ -113,22 +115,31 @@ namespace Models
     inline UpdateFlowVersionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline UpdateFlowVersionRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
-    // The tenant code. Default value: ALICOM_OPAAS.
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
-    // The extended business information. The default value is an empty collection.
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
-    // The code of the flow. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
-    // The version of the flow. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to open the canvas and view the flow version.
+    // The flow version. You can click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the flow editor canvas page and view the flow version.
     shared_ptr<string> flowVersion_ {};
-    // The DSL data of the flow version, in JSON format. To obtain this data, orchestrate the components on the canvas in the Flow Editor. After you save the flow, click **Settings** > **Export** in the upper-right corner of the canvas to export the flow as a JSON data file.
+    // The DSL data of the flow version. This is a JSON-formatted data string. You can orchestrate flow components on the flow editor canvas in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas orchestration page to export a JSON-formatted data file for viewing.
     shared_ptr<string> flowViewModel_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The remarks for the version.
+    // The version remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The save type.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

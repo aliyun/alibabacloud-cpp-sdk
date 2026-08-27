@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

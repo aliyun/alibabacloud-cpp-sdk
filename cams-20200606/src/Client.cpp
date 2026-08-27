@@ -691,7 +691,7 @@ AddGroupResponse Client::addGroup(const AddGroupRequest &request) {
 }
 
 /**
- * @summary 新增营销活动
+ * @summary Creates a campaign.
  *
  * @param tmpReq AddMarketingFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -792,7 +792,7 @@ AddMarketingFlowResponse Client::addMarketingFlowWithOptions(const AddMarketingF
 }
 
 /**
- * @summary 新增营销活动
+ * @summary Creates a campaign.
  *
  * @param request AddMarketingFlowRequest
  * @return AddMarketingFlowResponse
@@ -993,7 +993,7 @@ BindInstagramPageResponse Client::bindInstagramPage(const BindInstagramPageReque
 }
 
 /**
- * @summary 绑定选择的pageId
+ * @summary Binds the selected pageId.
  *
  * @param request BindMessengerPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1044,7 +1044,7 @@ BindMessengerPageResponse Client::bindMessengerPageWithOptions(const BindMesseng
 }
 
 /**
- * @summary 绑定选择的pageId
+ * @summary Binds the selected pageId.
  *
  * @param request BindMessengerPageRequest
  * @return BindMessengerPageResponse
@@ -1055,7 +1055,7 @@ BindMessengerPageResponse Client::bindMessengerPage(const BindMessengerPageReque
 }
 
 /**
- * @summary 资源转组
+ * @summary Moves a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1094,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary Moves a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -1671,8 +1671,8 @@ CopyTemplateResponse Client::copyTemplate(const CopyTemplateRequest &request) {
 /**
  * @summary Creates a flow.
  *
- * @description - This API operation creates a flow. You can also create a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
- * - After you create a flow, you can orchestrate the canvas. For more information, see [Flow Editor components](https://help.aliyun.com/document_detail/2836818.html).
+ * @description - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
  *
  * @param tmpReq CreateChatFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1686,6 +1686,10 @@ CreateChatFlowResponse Client::createChatFlowWithOptions(const CreateChatFlowReq
     request.setBizExtendShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBizExtend(), "BizExtend", "json"));
   }
 
+  if (!!tmpReq.hasLifeCycleExtendData()) {
+    request.setLifeCycleExtendDataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLifeCycleExtendData(), "LifeCycleExtendData", "json"));
+  }
+
   json query = {};
   if (!!request.hasBizCode()) {
     query["BizCode"] = request.getBizCode();
@@ -1695,8 +1699,20 @@ CreateChatFlowResponse Client::createChatFlowWithOptions(const CreateChatFlowReq
     query["BizExtend"] = request.getBizExtendShrink();
   }
 
+  if (!!request.hasCreateFromFlowCode()) {
+    query["CreateFromFlowCode"] = request.getCreateFromFlowCode();
+  }
+
+  if (!!request.hasCreateFromFlowVersion()) {
+    query["CreateFromFlowVersion"] = request.getCreateFromFlowVersion();
+  }
+
   if (!!request.hasFlowTriggerType()) {
     query["FlowTriggerType"] = request.getFlowTriggerType();
+  }
+
+  if (!!request.hasLifeCycleExtendDataShrink()) {
+    query["LifeCycleExtendData"] = request.getLifeCycleExtendDataShrink();
   }
 
   if (!!request.hasOwnerId()) {
@@ -1739,8 +1755,8 @@ CreateChatFlowResponse Client::createChatFlowWithOptions(const CreateChatFlowReq
 /**
  * @summary Creates a flow.
  *
- * @description - This API operation creates a flow. You can also create a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
- * - After you create a flow, you can orchestrate the canvas. For more information, see [Flow Editor components](https://help.aliyun.com/document_detail/2836818.html).
+ * @description - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
  *
  * @param request CreateChatFlowRequest
  * @return CreateChatFlowResponse
@@ -1753,9 +1769,9 @@ CreateChatFlowResponse Client::createChatFlow(const CreateChatFlowRequest &reque
 /**
  * @summary Creates and imports a flow.
  *
- * @description - You can call this operation to create and import a flow. You can also create and import a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, ensure that you have exported the Domain-Specific Language (DSL) data for the flow.
- * - If you do not have the exported DSL data for a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). Click a flow name to open the canvas. Arrange the components on the canvas, save the flow, and then export it as a JSON data file.
+ * @description - You can call this operation to create and import a flow, or manually create and import a flow in the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+ * - Before calling this operation, make sure you have exported flow DSL data.
+ * - If you do not have exported flow DSL data, go to the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click a flow name to open the canvas orchestration page, arrange canvas components, save the flow, and export it as a JSON data file.
  *
  * @param tmpReq CreateChatFlowByImportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1822,9 +1838,9 @@ CreateChatFlowByImportResponse Client::createChatFlowByImportWithOptions(const C
 /**
  * @summary Creates and imports a flow.
  *
- * @description - You can call this operation to create and import a flow. You can also create and import a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, ensure that you have exported the Domain-Specific Language (DSL) data for the flow.
- * - If you do not have the exported DSL data for a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). Click a flow name to open the canvas. Arrange the components on the canvas, save the flow, and then export it as a JSON data file.
+ * @description - You can call this operation to create and import a flow, or manually create and import a flow in the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+ * - Before calling this operation, make sure you have exported flow DSL data.
+ * - If you do not have exported flow DSL data, go to the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click a flow name to open the canvas orchestration page, arrange canvas components, save the flow, and export it as a JSON data file.
  *
  * @param request CreateChatFlowByImportRequest
  * @return CreateChatFlowByImportResponse
@@ -1835,12 +1851,12 @@ CreateChatFlowByImportResponse Client::createChatFlowByImport(const CreateChatFl
 }
 
 /**
- * @summary Creates log settings for a flow.
+ * @summary Creates a flow log setting.
  *
- * @description - To update the log settings for a flow using the API, you must first create the log settings. After the settings are created, call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the log settings. Then, call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the settings.
- * - If you do not need to update the log settings using the API, you can manually update the log settings on the Log page. In the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), choose **Settings** > **Log**.
- * - Before you call this operation, make sure that you have successfully created a flow.
- * - If you do not have a successfully created flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - To update a flow log setting by using an API, you must first create a flow log setting. After the setting is created, you can call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the flow log setting information, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log setting.
+ * - If you do not need to update the flow log setting by using an API, you can manually update the flow log information in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log** page.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
  *
  * @param request CreateChatFlowLogSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1883,12 +1899,12 @@ CreateChatFlowLogSettingResponse Client::createChatFlowLogSettingWithOptions(con
 }
 
 /**
- * @summary Creates log settings for a flow.
+ * @summary Creates a flow log setting.
  *
- * @description - To update the log settings for a flow using the API, you must first create the log settings. After the settings are created, call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the log settings. Then, call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the settings.
- * - If you do not need to update the log settings using the API, you can manually update the log settings on the Log page. In the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), choose **Settings** > **Log**.
- * - Before you call this operation, make sure that you have successfully created a flow.
- * - If you do not have a successfully created flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - To update a flow log setting by using an API, you must first create a flow log setting. After the setting is created, you can call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the flow log setting information, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log setting.
+ * - If you do not need to update the flow log setting by using an API, you can manually update the flow log information in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log** page.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
  *
  * @param request CreateChatFlowLogSettingRequest
  * @return CreateChatFlowLogSettingResponse
@@ -1965,12 +1981,12 @@ CreateChatappMigrationInitiateResponse Client::createChatappMigrationInitiate(co
 }
 
 /**
- * @summary Creates a message template. After a template is approved, you can use it to send messages.
+ * @summary Creates a message template. After the template is approved, you can use it to send messages.
  *
  * @description ### QPS limit
- * The queries per second (QPS) limit for this API operation is 50 for a single user. If you exceed the limit, API calls are rate-limited, which may affect your business. We recommend that you call this operation at a reasonable frequency.
- * ### Status change
- * You can monitor template status and quality changes using Message Service (MNS) or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
+ * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * ### Status changes
+ * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
  * @param tmpReq CreateChatappTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1988,58 +2004,62 @@ CreateChatappTemplateResponse Client::createChatappTemplateWithOptions(const Cre
     request.setExampleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExample(), "Example", "json"));
   }
 
-  json body = {};
+  json query = {};
   if (!!request.hasAllowCategoryChange()) {
-    body["AllowCategoryChange"] = request.getAllowCategoryChange();
+    query["AllowCategoryChange"] = request.getAllowCategoryChange();
   }
 
   if (!!request.hasCategory()) {
-    body["Category"] = request.getCategory();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasCategoryChangePaused()) {
-    body["CategoryChangePaused"] = request.getCategoryChangePaused();
+    query["CategoryChangePaused"] = request.getCategoryChangePaused();
   }
 
   if (!!request.hasComponentsShrink()) {
-    body["Components"] = request.getComponentsShrink();
+    query["Components"] = request.getComponentsShrink();
   }
 
   if (!!request.hasCustSpaceId()) {
-    body["CustSpaceId"] = request.getCustSpaceId();
+    query["CustSpaceId"] = request.getCustSpaceId();
   }
 
   if (!!request.hasCustWabaId()) {
-    body["CustWabaId"] = request.getCustWabaId();
+    query["CustWabaId"] = request.getCustWabaId();
   }
 
   if (!!request.hasExampleShrink()) {
-    body["Example"] = request.getExampleShrink();
+    query["Example"] = request.getExampleShrink();
   }
 
   if (!!request.hasIsvCode()) {
-    body["IsvCode"] = request.getIsvCode();
+    query["IsvCode"] = request.getIsvCode();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.getLanguage();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasMessageSendTtlSeconds()) {
-    body["MessageSendTtlSeconds"] = request.getMessageSendTtlSeconds();
+    query["MessageSendTtlSeconds"] = request.getMessageSendTtlSeconds();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.getName();
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasProductSetId()) {
+    query["ProductSetId"] = request.getProductSetId();
   }
 
   if (!!request.hasTemplateType()) {
-    body["TemplateType"] = request.getTemplateType();
+    query["TemplateType"] = request.getTemplateType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateChatappTemplate"},
     {"version" , "2020-06-06"},
@@ -2055,12 +2075,12 @@ CreateChatappTemplateResponse Client::createChatappTemplateWithOptions(const Cre
 }
 
 /**
- * @summary Creates a message template. After a template is approved, you can use it to send messages.
+ * @summary Creates a message template. After the template is approved, you can use it to send messages.
  *
  * @description ### QPS limit
- * The queries per second (QPS) limit for this API operation is 50 for a single user. If you exceed the limit, API calls are rate-limited, which may affect your business. We recommend that you call this operation at a reasonable frequency.
- * ### Status change
- * You can monitor template status and quality changes using Message Service (MNS) or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
+ * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * ### Status changes
+ * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
  * @param request CreateChatappTemplateRequest
  * @return CreateChatappTemplateResponse
@@ -2225,11 +2245,11 @@ CreateFlowResponse Client::createFlow(const CreateFlowRequest &request) {
 }
 
 /**
- * @summary Creates a new version of a flow by copying an existing version.
+ * @summary Creates a new flow version by copying an existing flow version.
  *
- * @description - You can call this operation to create a new flow version. You can also manually copy a flow version from the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To do this, click a flow name to open the orchestration canvas and then copy the version.
- * - Before you call this operation, make sure that you have created a flow.
- * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to create a new flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and manually copy a new flow version.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param tmpReq CreateFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2294,11 +2314,11 @@ CreateFlowVersionResponse Client::createFlowVersionWithOptions(const CreateFlowV
 }
 
 /**
- * @summary Creates a new version of a flow by copying an existing version.
+ * @summary Creates a new flow version by copying an existing flow version.
  *
- * @description - You can call this operation to create a new flow version. You can also manually copy a flow version from the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To do this, click a flow name to open the orchestration canvas and then copy the version.
- * - Before you call this operation, make sure that you have created a flow.
- * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to create a new flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and manually copy a new flow version.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param request CreateFlowVersionRequest
  * @return CreateFlowVersionResponse
@@ -2461,7 +2481,7 @@ CreateMessageCampaignResponse Client::createMessageCampaign(const CreateMessageC
 }
 
 /**
- * @summary 嵌入式授权messenger
+ * @summary Authorizes an embedded messenger.
  *
  * @param tmpReq CreateMessengerPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2526,7 +2546,7 @@ CreateMessengerPageResponse Client::createMessengerPageWithOptions(const CreateM
 }
 
 /**
- * @summary 嵌入式授权messenger
+ * @summary Authorizes an embedded messenger.
  *
  * @param request CreateMessengerPageRequest
  * @return CreateMessengerPageResponse
@@ -2541,12 +2561,12 @@ CreateMessengerPageResponse Client::createMessengerPage(const CreateMessengerPag
  *
  * @description - After the QR code is created, users can scan it with WhatsApp to quickly open the corresponding business phone number.
  * - Before calling this operation, make sure that you have a successfully created WhatsApp message channel.
- * - If you do not have a successfully created WhatsApp message channel, manually create one on the
+ * - If you do not have a successfully created WhatsApp message channel, you can manually create one on the
  * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
  * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
  * page.
  * #### QPS limit
- * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request CreatePhoneMessageQrdlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2605,12 +2625,12 @@ CreatePhoneMessageQrdlResponse Client::createPhoneMessageQrdlWithOptions(const C
  *
  * @description - After the QR code is created, users can scan it with WhatsApp to quickly open the corresponding business phone number.
  * - Before calling this operation, make sure that you have a successfully created WhatsApp message channel.
- * - If you do not have a successfully created WhatsApp message channel, manually create one on the
+ * - If you do not have a successfully created WhatsApp message channel, you can manually create one on the
  * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
  * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
  * page.
  * #### QPS limit
- * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request CreatePhoneMessageQrdlRequest
  * @return CreatePhoneMessageQrdlResponse
@@ -2621,7 +2641,7 @@ CreatePhoneMessageQrdlResponse Client::createPhoneMessageQrdl(const CreatePhoneM
 }
 
 /**
- * @summary 根据嵌入式code获取pageId入库
+ * @summary Retrieves and stores the pageId based on the embedded code.
  *
  * @param tmpReq CreateWhatsappConversionApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2678,7 +2698,7 @@ CreateWhatsappConversionApiResponse Client::createWhatsappConversionApiWithOptio
 }
 
 /**
- * @summary 根据嵌入式code获取pageId入库
+ * @summary Retrieves and stores the pageId based on the embedded code.
  *
  * @param request CreateWhatsappConversionApiRequest
  * @return CreateWhatsappConversionApiResponse
@@ -2691,9 +2711,9 @@ CreateWhatsappConversionApiResponse Client::createWhatsappConversionApi(const Cr
 /**
  * @summary Deletes a flow.
  *
- * @description - You can call this operation to delete a flow. You can also manually delete a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you delete a flow, make sure its status is Unpublished.
- * - Deleted flows cannot be recovered. Proceed with caution.
+ * @description - You can call this operation to delete a flow, or manually delete a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - Before deleting a flow, make sure the flow status is offline.
+ * - A deleted flow cannot be recovered. Proceed with caution.
  *
  * @param tmpReq DeleteChatFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2752,9 +2772,9 @@ DeleteChatFlowResponse Client::deleteChatFlowWithOptions(const DeleteChatFlowReq
 /**
  * @summary Deletes a flow.
  *
- * @description - You can call this operation to delete a flow. You can also manually delete a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you delete a flow, make sure its status is Unpublished.
- * - Deleted flows cannot be recovered. Proceed with caution.
+ * @description - You can call this operation to delete a flow, or manually delete a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - Before deleting a flow, make sure the flow status is offline.
+ * - A deleted flow cannot be recovered. Proceed with caution.
  *
  * @param request DeleteChatFlowRequest
  * @return DeleteChatFlowResponse
@@ -3089,7 +3109,7 @@ DeleteChatappTemplateResponse Client::deleteChatappTemplate(const DeleteChatappT
 }
 
 /**
- * @summary 编辑联系人-删除联系人
+ * @summary Deletes a contact from the contact list.
  *
  * @param tmpReq DeleteContactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3158,7 +3178,7 @@ DeleteContactsResponse Client::deleteContactsWithOptions(const DeleteContactsReq
 }
 
 /**
- * @summary 编辑联系人-删除联系人
+ * @summary Deletes a contact from the contact list.
  *
  * @param request DeleteContactsRequest
  * @return DeleteContactsResponse
@@ -3367,7 +3387,7 @@ DeleteFlowVersionResponse Client::deleteFlowVersion(const DeleteFlowVersionReque
 }
 
 /**
- * @summary 删除群组
+ * @summary Deletes a group.
  *
  * @param request DeleteGroupByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3410,7 +3430,7 @@ DeleteGroupByIdResponse Client::deleteGroupByIdWithOptions(const DeleteGroupById
 }
 
 /**
- * @summary 删除群组
+ * @summary Deletes a group.
  *
  * @param request DeleteGroupByIdRequest
  * @return DeleteGroupByIdResponse
@@ -3421,7 +3441,7 @@ DeleteGroupByIdResponse Client::deleteGroupById(const DeleteGroupByIdRequest &re
 }
 
 /**
- * @summary 删除ins的page
+ * @summary Deletes a page from an Instagram instance.
  *
  * @param request DeleteInstagramPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3468,7 +3488,7 @@ DeleteInstagramPageResponse Client::deleteInstagramPageWithOptions(const DeleteI
 }
 
 /**
- * @summary 删除ins的page
+ * @summary Deletes a page from an Instagram instance.
  *
  * @param request DeleteInstagramPageRequest
  * @return DeleteInstagramPageResponse
@@ -3645,7 +3665,7 @@ DeleteMessageCampaignResponse Client::deleteMessageCampaign(const DeleteMessageC
 }
 
 /**
- * @summary 删除messenger的page
+ * @summary Deletes a Messenger page.
  *
  * @param request DeleteMessengerPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3692,7 +3712,7 @@ DeleteMessengerPageResponse Client::deleteMessengerPageWithOptions(const DeleteM
 }
 
 /**
- * @summary 删除messenger的page
+ * @summary Deletes a Messenger page.
  *
  * @param request DeleteMessengerPageRequest
  * @return DeleteMessengerPageResponse
@@ -3823,9 +3843,9 @@ DeleteWhatsappUserNameResponse Client::deleteWhatsappUserName(const DeleteWhatsa
 }
 
 /**
- * @summary Deprecates a WhatsApp flow.
+ * @summary Deprecates a Flow.
  *
- * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DeprecateFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3872,9 +3892,9 @@ DeprecateFlowResponse Client::deprecateFlowWithOptions(const DeprecateFlowReques
 }
 
 /**
- * @summary Deprecates a WhatsApp flow.
+ * @summary Deprecates a Flow.
  *
- * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DeprecateFlowRequest
  * @return DeprecateFlowResponse
@@ -3955,15 +3975,14 @@ EnableWhatsappROIMetricResponse Client::enableWhatsappROIMetric(const EnableWhat
 }
 
 /**
- * @summary Attaches a phone number or a business account ID to a flow.
+ * @summary Binds a phone number or merchant account ID to a flow.
  *
- * @description - Call this API operation to attach a phone number or a business account ID to a flow. You can also manually attach them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this API operation, make sure that you have created a flow and a message channel of the corresponding type.
- * - For a WhatsApp channel, you must have completed [WhatsApp Business Account (WABA) registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
- * - For a Messenger channel, you must have [connected a public homepage account](https://help.aliyun.com/document_detail/2837713.html).
- * - For an Instagram channel, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
- * <props="intl">
- * - For a Viber channel, you must have [requested a service number](https://help.aliyun.com/document_detail/2807995.html).
+ * @description - You can call this operation to bind a phone number or merchant account ID to a flow, or manually bind them in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * - Before calling this operation, make sure that you have a successfully created flow and a successfully created message channel that corresponds to the flow type.
+ * - For the WhatsApp channel type, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+ * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+ * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+ * <props="intl">- For the Viber channel type, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
  *
  * @param tmpReq FlowBindPhoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3973,6 +3992,10 @@ FlowBindPhoneResponse Client::flowBindPhoneWithOptions(const FlowBindPhoneReques
   tmpReq.validate();
   FlowBindPhoneShrinkRequest request = FlowBindPhoneShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMultiWabaPhoneNumbers()) {
+    request.setMultiWabaPhoneNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMultiWabaPhoneNumbers(), "MultiWabaPhoneNumbers", "json"));
+  }
+
   if (!!tmpReq.hasPhoneNumbers()) {
     request.setPhoneNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhoneNumbers(), "PhoneNumbers", "json"));
   }
@@ -3992,6 +4015,10 @@ FlowBindPhoneResponse Client::flowBindPhoneWithOptions(const FlowBindPhoneReques
 
   if (!!request.hasFlowVersion()) {
     query["FlowVersion"] = request.getFlowVersion();
+  }
+
+  if (!!request.hasMultiWabaPhoneNumbersShrink()) {
+    query["MultiWabaPhoneNumbers"] = request.getMultiWabaPhoneNumbersShrink();
   }
 
   if (!!request.hasOwnerId()) {
@@ -4032,15 +4059,14 @@ FlowBindPhoneResponse Client::flowBindPhoneWithOptions(const FlowBindPhoneReques
 }
 
 /**
- * @summary Attaches a phone number or a business account ID to a flow.
+ * @summary Binds a phone number or merchant account ID to a flow.
  *
- * @description - Call this API operation to attach a phone number or a business account ID to a flow. You can also manually attach them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this API operation, make sure that you have created a flow and a message channel of the corresponding type.
- * - For a WhatsApp channel, you must have completed [WhatsApp Business Account (WABA) registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
- * - For a Messenger channel, you must have [connected a public homepage account](https://help.aliyun.com/document_detail/2837713.html).
- * - For an Instagram channel, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
- * <props="intl">
- * - For a Viber channel, you must have [requested a service number](https://help.aliyun.com/document_detail/2807995.html).
+ * @description - You can call this operation to bind a phone number or merchant account ID to a flow, or manually bind them in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * - Before calling this operation, make sure that you have a successfully created flow and a successfully created message channel that corresponds to the flow type.
+ * - For the WhatsApp channel type, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+ * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+ * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+ * <props="intl">- For the Viber channel type, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
  *
  * @param request FlowBindPhoneRequest
  * @return FlowBindPhoneResponse
@@ -4053,7 +4079,7 @@ FlowBindPhoneResponse Client::flowBindPhone(const FlowBindPhoneRequest &request)
 /**
  * @summary Rebinds a phone number or merchant account ID to a flow.
  *
- * @description - You can call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * @description - Call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
  * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
  * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
  *
@@ -4065,6 +4091,10 @@ FlowRebindPhoneResponse Client::flowRebindPhoneWithOptions(const FlowRebindPhone
   tmpReq.validate();
   FlowRebindPhoneShrinkRequest request = FlowRebindPhoneShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMultiWabaPhoneNumbers()) {
+    request.setMultiWabaPhoneNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMultiWabaPhoneNumbers(), "MultiWabaPhoneNumbers", "json"));
+  }
+
   if (!!tmpReq.hasPhoneNumbers()) {
     request.setPhoneNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhoneNumbers(), "PhoneNumbers", "json"));
   }
@@ -4084,6 +4114,10 @@ FlowRebindPhoneResponse Client::flowRebindPhoneWithOptions(const FlowRebindPhone
 
   if (!!request.hasFlowVersion()) {
     query["FlowVersion"] = request.getFlowVersion();
+  }
+
+  if (!!request.hasMultiWabaPhoneNumbersShrink()) {
+    query["MultiWabaPhoneNumbers"] = request.getMultiWabaPhoneNumbersShrink();
   }
 
   if (!!request.hasOwnerId()) {
@@ -4126,7 +4160,7 @@ FlowRebindPhoneResponse Client::flowRebindPhoneWithOptions(const FlowRebindPhone
 /**
  * @summary Rebinds a phone number or merchant account ID to a flow.
  *
- * @description - You can call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * @description - Call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
  * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
  * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
  *
@@ -4139,13 +4173,13 @@ FlowRebindPhoneResponse Client::flowRebindPhone(const FlowRebindPhoneRequest &re
 }
 
 /**
- * @summary Unbinds a phone number or business account ID from a flow.
+ * @summary Dissociates a phone number or merchant account ID from a flow.
  *
- * @description - Before you call this operation, ensure that the flow is unpublished. If the flow is published, you can unpublish it manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas. Alternatively, you can call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to unpublish the flow.
- * - You can call this operation to unbind a phone number or business account ID from a flow. You can also perform this action manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, ensure that a phone number or business account ID is bound to the flow.
- * - If no phone number or business account ID is bound to the flow, you can bind one manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
- * - After a phone number or business account ID is unbound from a flow, the flow cannot be published. You must bind a new phone number or business account ID to the flow before you can publish it.
+ * @description - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
+ * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
+ * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
+ * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
  *
  * @param tmpReq FlowUnbindPhoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4206,13 +4240,13 @@ FlowUnbindPhoneResponse Client::flowUnbindPhoneWithOptions(const FlowUnbindPhone
 }
 
 /**
- * @summary Unbinds a phone number or business account ID from a flow.
+ * @summary Dissociates a phone number or merchant account ID from a flow.
  *
- * @description - Before you call this operation, ensure that the flow is unpublished. If the flow is published, you can unpublish it manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas. Alternatively, you can call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to unpublish the flow.
- * - You can call this operation to unbind a phone number or business account ID from a flow. You can also perform this action manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, ensure that a phone number or business account ID is bound to the flow.
- * - If no phone number or business account ID is bound to the flow, you can bind one manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
- * - After a phone number or business account ID is unbound from a flow, the flow cannot be published. You must bind a new phone number or business account ID to the flow before you can publish it.
+ * @description - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
+ * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+ * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
+ * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
+ * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
  *
  * @param request FlowUnbindPhoneRequest
  * @return FlowUnbindPhoneResponse
@@ -4277,7 +4311,7 @@ GeneratePresignedUrlResponse Client::generatePresignedUrl(const GeneratePresigne
 }
 
 /**
- * @summary 通过类型查询出个人待审核的单子
+ * @summary Queries pending review tickets for an individual by type.
  *
  * @param request GetAuditRequestByTypeUnAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4324,7 +4358,7 @@ GetAuditRequestByTypeUnAuditResponse Client::getAuditRequestByTypeUnAuditWithOpt
 }
 
 /**
- * @summary 通过类型查询出个人待审核的单子
+ * @summary Queries pending review tickets for an individual by type.
  *
  * @param request GetAuditRequestByTypeUnAuditRequest
  * @return GetAuditRequestByTypeUnAuditResponse
@@ -4388,9 +4422,9 @@ GetAutoGeneratedTemplateResponse Client::getAutoGeneratedTemplate(const GetAutoG
  * @summary Retrieves ChatFlow runtime data.
  *
  * @description - Before calling this operation, make sure that the flow you created is online and has been triggered.
- * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
- * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a campaign.
- * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is automatically triggered when a message is sent to the bound business account.
+ * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
+ * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a marketing activity.
+ * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is triggered when a message is sent to the business account bound to the flow.
  *
  * @param tmpReq GetChatFlowMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4474,9 +4508,9 @@ GetChatFlowMetricResponse Client::getChatFlowMetricWithOptions(const GetChatFlow
  * @summary Retrieves ChatFlow runtime data.
  *
  * @description - Before calling this operation, make sure that the flow you created is online and has been triggered.
- * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
- * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a campaign.
- * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is automatically triggered when a message is sent to the bound business account.
+ * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
+ * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a marketing activity.
+ * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is triggered when a message is sent to the business account bound to the flow.
  *
  * @param request GetChatFlowMetricRequest
  * @return GetChatFlowMetricResponse
@@ -4489,8 +4523,8 @@ GetChatFlowMetricResponse Client::getChatFlowMetric(const GetChatFlowMetricReque
 /**
  * @summary Queries the details of a flow template.
  *
- * @description - You can call this operation to query the details of a flow template. You can also go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page and click a template name to view its details.
- * - After you view the details of a template on the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page, you can use the template to create a flow.
+ * @description - You can call this operation to query the details of a flow template. You can also view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - After you view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
  *
  * @param request GetChatFlowTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4539,8 +4573,8 @@ GetChatFlowTemplateResponse Client::getChatFlowTemplateWithOptions(const GetChat
 /**
  * @summary Queries the details of a flow template.
  *
- * @description - You can call this operation to query the details of a flow template. You can also go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page and click a template name to view its details.
- * - After you view the details of a template on the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page, you can use the template to create a flow.
+ * @description - You can call this operation to query the details of a flow template. You can also view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - After you view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
  *
  * @param request GetChatFlowTemplateRequest
  * @return GetChatFlowTemplateResponse
@@ -4750,7 +4784,7 @@ GetChatappPhoneNumberSettingResponse Client::getChatappPhoneNumberSetting(const 
  * @summary Retrieves the details of a Chat App Message Service message template.
  *
  * @description ### QPS limit
- * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetChatappTemplateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4808,7 +4842,7 @@ GetChatappTemplateDetailResponse Client::getChatappTemplateDetailWithOptions(con
  * @summary Retrieves the details of a Chat App Message Service message template.
  *
  * @description ### QPS limit
- * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetChatappTemplateDetailRequest
  * @return GetChatappTemplateDetailResponse
@@ -5219,7 +5253,7 @@ GetCustomerSiteResponse Client::getCustomerSite(const GetCustomerSiteRequest &re
 }
 
 /**
- * @summary 下载excel数据
+ * @summary Downloads Excel data.
  *
  * @param tmpReq GetDownloadExcelListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5304,7 +5338,7 @@ GetDownloadExcelListResponse Client::getDownloadExcelListWithOptions(const GetDo
 }
 
 /**
- * @summary 下载excel数据
+ * @summary Downloads Excel data.
  *
  * @param request GetDownloadExcelListRequest
  * @return GetDownloadExcelListResponse
@@ -5315,7 +5349,7 @@ GetDownloadExcelListResponse Client::getDownloadExcelList(const GetDownloadExcel
 }
 
 /**
- * @summary 获取ins的page列表
+ * @summary Retrieves the list of Instagram pages for an instance.
  *
  * @param request GetFbInstagramPagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5362,7 +5396,7 @@ GetFbInstagramPagesResponse Client::getFbInstagramPagesWithOptions(const GetFbIn
 }
 
 /**
- * @summary 获取ins的page列表
+ * @summary Retrieves the list of Instagram pages for an instance.
  *
  * @param request GetFbInstagramPagesRequest
  * @return GetFbInstagramPagesResponse
@@ -5373,7 +5407,7 @@ GetFbInstagramPagesResponse Client::getFbInstagramPages(const GetFbInstagramPage
 }
 
 /**
- * @summary 获取facebook的pageId列表
+ * @summary Retrieves the list of Facebook page IDs.
  *
  * @param request GetFbMessengerPagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5420,7 +5454,7 @@ GetFbMessengerPagesResponse Client::getFbMessengerPagesWithOptions(const GetFbMe
 }
 
 /**
- * @summary 获取facebook的pageId列表
+ * @summary Retrieves the list of Facebook page IDs.
  *
  * @param request GetFbMessengerPagesRequest
  * @return GetFbMessengerPagesResponse
@@ -5431,12 +5465,12 @@ GetFbMessengerPagesResponse Client::getFbMessengerPages(const GetFbMessengerPage
 }
 
 /**
- * @summary Queries the details of a WhatsApp flow, including its status, name, categories, and preview URL.
+ * @summary Retrieves the details of a Flow.
  *
- * @description - Before calling this operation, make sure that you have created a WhatsApp flow.
- * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - Before calling this operation, make sure that you have successfully created a WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request GetFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5483,12 +5517,12 @@ GetFlowResponse Client::getFlowWithOptions(const GetFlowRequest &request, const 
 }
 
 /**
- * @summary Queries the details of a WhatsApp flow, including its status, name, categories, and preview URL.
+ * @summary Retrieves the details of a Flow.
  *
- * @description - Before calling this operation, make sure that you have created a WhatsApp flow.
- * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - Before calling this operation, make sure that you have successfully created a WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request GetFlowRequest
  * @return GetFlowResponse
@@ -5499,12 +5533,12 @@ GetFlowResponse Client::getFlow(const GetFlowRequest &request) {
 }
 
 /**
- * @summary Queries the JSON content of a WhatsApp flow.
+ * @summary Retrieves the JSON-formatted content of a Flow.
  *
- * @description - Before calling this operation, make sure that you have created a WhatsApp flow.
- * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - Before calling this operation, make sure that you have successfully created a WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, create one by calling the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetFlowJSONAssestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5551,12 +5585,12 @@ GetFlowJSONAssestResponse Client::getFlowJSONAssestWithOptions(const GetFlowJSON
 }
 
 /**
- * @summary Queries the JSON content of a WhatsApp flow.
+ * @summary Retrieves the JSON-formatted content of a Flow.
  *
- * @description - Before calling this operation, make sure that you have created a WhatsApp flow.
- * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - Before calling this operation, make sure that you have successfully created a WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, create one by calling the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetFlowJSONAssestRequest
  * @return GetFlowJSONAssestResponse
@@ -5567,13 +5601,13 @@ GetFlowJSONAssestResponse Client::getFlowJSONAssest(const GetFlowJSONAssestReque
 }
 
 /**
- * @summary Generates a temporary preview URL for a WhatsApp flow.
+ * @summary Retrieves the preview URL of a Flow.
  *
- * @description - After you create a WhatsApp flow, call this operation to generate a temporary preview URL for the flow.
- * - Before you call this operation, make sure that you have created a WhatsApp flow.
- * - If you do not have a WhatsApp flow, you can call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - After creating a WhatsApp Flow, you can call this operation to retrieve the Flow preview URL to preview your Flow.
+ * - Before calling this operation, make sure you have a successfully created WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetFlowPreviewUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5620,13 +5654,13 @@ GetFlowPreviewUrlResponse Client::getFlowPreviewUrlWithOptions(const GetFlowPrev
 }
 
 /**
- * @summary Generates a temporary preview URL for a WhatsApp flow.
+ * @summary Retrieves the preview URL of a Flow.
  *
- * @description - After you create a WhatsApp flow, call this operation to generate a temporary preview URL for the flow.
- * - Before you call this operation, make sure that you have created a WhatsApp flow.
- * - If you do not have a WhatsApp flow, you can call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) API to create one.
+ * @description - After creating a WhatsApp Flow, you can call this operation to retrieve the Flow preview URL to preview your Flow.
+ * - Before calling this operation, make sure you have a successfully created WhatsApp Flow.
+ * - If you do not have a successfully created WhatsApp Flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
  * #### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetFlowPreviewUrlRequest
  * @return GetFlowPreviewUrlResponse
@@ -5637,7 +5671,7 @@ GetFlowPreviewUrlResponse Client::getFlowPreviewUrl(const GetFlowPreviewUrlReque
 }
 
 /**
- * @summary 查询群组是否重名
+ * @summary Queries whether a group name already exists.
  *
  * @param tmpReq GetGroupExistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5694,7 +5728,7 @@ GetGroupExistResponse Client::getGroupExistWithOptions(const GetGroupExistReques
 }
 
 /**
- * @summary 查询群组是否重名
+ * @summary Queries whether a group name already exists.
  *
  * @param request GetGroupExistRequest
  * @return GetGroupExistResponse
@@ -5983,10 +6017,13 @@ GetPhoneEncryptionPublicKeyResponse Client::getPhoneEncryptionPublicKey(const Ge
 /**
  * @summary Retrieves the verification status of a phone number.
  *
- * @description - You can call this operation to retrieve the verification status of a phone number. You can also view the status on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **WABA Management** > **Phone Number Management** page.
- * - Before calling this operation, add a phone number to your WhatsApp Business Account (WABA) and submit it for verification.
- * - If you have not added a phone number to your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to obtain a verification code and register the number.
- * This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+ * @description - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status in the
+ * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+ * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Phone Number Management** page.
+ * - This operation only queries the verification status of a phone number. If the phone number status is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
+ * - Before calling this operation, make sure that a phone number has been added to your WABA and that phone number verification has been submitted.
+ * - If a phone number has been added to your WABA and needs to be registered, but the verification status is unverified or verification has expired, call [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) to obtain a verification code and register the phone number.
+ * The queries per second (QPS) limit for a single user on this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetPhoneNumberVerificationStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6035,10 +6072,13 @@ GetPhoneNumberVerificationStatusResponse Client::getPhoneNumberVerificationStatu
 /**
  * @summary Retrieves the verification status of a phone number.
  *
- * @description - You can call this operation to retrieve the verification status of a phone number. You can also view the status on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **WABA Management** > **Phone Number Management** page.
- * - Before calling this operation, add a phone number to your WhatsApp Business Account (WABA) and submit it for verification.
- * - If you have not added a phone number to your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to obtain a verification code and register the number.
- * This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+ * @description - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status in the
+ * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+ * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Phone Number Management** page.
+ * - This operation only queries the verification status of a phone number. If the phone number status is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
+ * - Before calling this operation, make sure that a phone number has been added to your WABA and that phone number verification has been submitted.
+ * - If a phone number has been added to your WABA and needs to be registered, but the verification status is unverified or verification has expired, call [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) to obtain a verification code and register the phone number.
+ * The queries per second (QPS) limit for a single user on this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetPhoneNumberVerificationStatusRequest
  * @return GetPhoneNumberVerificationStatusResponse
@@ -6215,7 +6255,7 @@ GetViberByRequestNoResponse Client::getViberByRequestNo(const GetViberByRequestN
 }
 
 /**
- * @summary 可以申请暂停的次数
+ * @summary Queries the number of times that a pause can be requested.
  *
  * @param request GetViberPauseTimesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6258,7 +6298,7 @@ GetViberPauseTimesResponse Client::getViberPauseTimesWithOptions(const GetViberP
 }
 
 /**
- * @summary 可以申请暂停的次数
+ * @summary Queries the number of times that a pause can be requested.
  *
  * @param request GetViberPauseTimesRequest
  * @return GetViberPauseTimesResponse
@@ -6331,7 +6371,7 @@ GetWhatsappConnectionCatalogResponse Client::getWhatsappConnectionCatalog(const 
 }
 
 /**
- * @summary 获取嵌入式授权page
+ * @summary Retrieves the embedded authorization page.
  *
  * @param request GetWhatsappConversionApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6374,7 +6414,7 @@ GetWhatsappConversionApiResponse Client::getWhatsappConversionApiWithOptions(con
 }
 
 /**
- * @summary 获取嵌入式授权page
+ * @summary Retrieves the embedded authorization page.
  *
  * @param request GetWhatsappConversionApiRequest
  * @return GetWhatsappConversionApiResponse
@@ -6625,7 +6665,7 @@ IsvGetAppIdResponse Client::isvGetAppId(const IsvGetAppIdRequest &request) {
 }
 
 /**
- * @summary 查询群组列表
+ * @summary Queries the list of groups.
  *
  * @param tmpReq ListAllGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6678,7 +6718,7 @@ ListAllGroupsResponse Client::listAllGroupsWithOptions(const ListAllGroupsReques
 }
 
 /**
- * @summary 查询群组列表
+ * @summary Queries the list of groups.
  *
  * @param request ListAllGroupsRequest
  * @return ListAllGroupsResponse
@@ -6689,7 +6729,7 @@ ListAllGroupsResponse Client::listAllGroups(const ListAllGroupsRequest &request)
 }
 
 /**
- * @summary 查询绑定的dm账号
+ * @summary Queries the bound DM account.
  *
  * @param request ListBindDmAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6732,7 +6772,7 @@ ListBindDmAccountResponse Client::listBindDmAccountWithOptions(const ListBindDmA
 }
 
 /**
- * @summary 查询绑定的dm账号
+ * @summary Queries the bound DM account.
  *
  * @param request ListBindDmAccountRequest
  * @return ListBindDmAccountResponse
@@ -6743,11 +6783,11 @@ ListBindDmAccountResponse Client::listBindDmAccount(const ListBindDmAccountReque
 }
 
 /**
- * @summary Queries the phone numbers or business account IDs attached to a flow.
+ * @summary Queries the list of phone numbers or business account IDs bound to a flow based on the flow code.
  *
- * @description - You can call this operation to query the phone numbers or business account IDs attached to a flow. You can also view this information on the **Settings** page in the **Flow Editor**.
- * - Before you call this operation, ensure that a phone number or business account ID is attached to your flow.
- * - If a phone number or business account ID is not attached to your flow, you can attach one manually on the **Settings** page in the **Flow Editor** or by calling the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+ * @description - You can call this operation to query the list of phone numbers or business account IDs bound to a flow. You can also view the list in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
+ * - Before calling this operation, make sure that your flow is already bound to phone numbers or business account IDs.
+ * - If your flow is not bound to phone numbers or business account IDs, manually bind them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to bind them.
  *
  * @param request ListBindingRelationsForFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6794,11 +6834,11 @@ ListBindingRelationsForFlowVersionResponse Client::listBindingRelationsForFlowVe
 }
 
 /**
- * @summary Queries the phone numbers or business account IDs attached to a flow.
+ * @summary Queries the list of phone numbers or business account IDs bound to a flow based on the flow code.
  *
- * @description - You can call this operation to query the phone numbers or business account IDs attached to a flow. You can also view this information on the **Settings** page in the **Flow Editor**.
- * - Before you call this operation, ensure that a phone number or business account ID is attached to your flow.
- * - If a phone number or business account ID is not attached to your flow, you can attach one manually on the **Settings** page in the **Flow Editor** or by calling the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+ * @description - You can call this operation to query the list of phone numbers or business account IDs bound to a flow. You can also view the list in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
+ * - Before calling this operation, make sure that your flow is already bound to phone numbers or business account IDs.
+ * - If your flow is not bound to phone numbers or business account IDs, manually bind them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to bind them.
  *
  * @param request ListBindingRelationsForFlowVersionRequest
  * @return ListBindingRelationsForFlowVersionResponse
@@ -6813,8 +6853,8 @@ ListBindingRelationsForFlowVersionResponse Client::listBindingRelationsForFlowVe
  *
  * @description - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
  * - Before calling this operation, make sure that you have successfully created flows.
- * - If you do not have any successfully created flows, manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
- * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify these parameters, all flows are returned.
+ * - If you do not have any successfully created flows, you can manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify them, all flows are queried.
  *
  * @param tmpReq ListChatFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6837,6 +6877,14 @@ ListChatFlowResponse Client::listChatFlowWithOptions(const ListChatFlowRequest &
     query["BizExtend"] = request.getBizExtendShrink();
   }
 
+  if (!!request.hasFlowCode()) {
+    query["FlowCode"] = request.getFlowCode();
+  }
+
+  if (!!request.hasFlowStatus()) {
+    query["FlowStatus"] = request.getFlowStatus();
+  }
+
   if (!!request.hasFlowTriggerType()) {
     query["FlowTriggerType"] = request.getFlowTriggerType();
   }
@@ -6857,6 +6905,10 @@ ListChatFlowResponse Client::listChatFlowWithOptions(const ListChatFlowRequest &
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasPhoneNumber()) {
+    query["PhoneNumber"] = request.getPhoneNumber();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
@@ -6871,6 +6923,10 @@ ListChatFlowResponse Client::listChatFlowWithOptions(const ListChatFlowRequest &
 
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6895,8 +6951,8 @@ ListChatFlowResponse Client::listChatFlowWithOptions(const ListChatFlowRequest &
  *
  * @description - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
  * - Before calling this operation, make sure that you have successfully created flows.
- * - If you do not have any successfully created flows, manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
- * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify these parameters, all flows are returned.
+ * - If you do not have any successfully created flows, you can manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify them, all flows are queried.
  *
  * @param request ListChatFlowRequest
  * @return ListChatFlowResponse
@@ -6909,8 +6965,8 @@ ListChatFlowResponse Client::listChatFlow(const ListChatFlowRequest &request) {
 /**
  * @summary Lists flow templates.
  *
- * @description - You can call this operation to list flow templates. You can also view the list of templates on the **View Templates** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - You can use the optional parameters in this operation to filter the list of templates. If you do not specify any filter conditions, all templates are returned.
+ * @description - You can call this operation to view the template list, or view the template list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Template View** page.
+ * - The optional parameters in this operation are filter conditions for the template list. If not specified, all templates are queried.
  *
  * @param request ListChatFlowTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6971,8 +7027,8 @@ ListChatFlowTemplateResponse Client::listChatFlowTemplateWithOptions(const ListC
 /**
  * @summary Lists flow templates.
  *
- * @description - You can call this operation to list flow templates. You can also view the list of templates on the **View Templates** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - You can use the optional parameters in this operation to filter the list of templates. If you do not specify any filter conditions, all templates are returned.
+ * @description - You can call this operation to view the template list, or view the template list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Template View** page.
+ * - The optional parameters in this operation are filter conditions for the template list. If not specified, all templates are queried.
  *
  * @param request ListChatFlowTemplateRequest
  * @return ListChatFlowTemplateResponse
@@ -7081,12 +7137,11 @@ ListChatGroupResponse Client::listChatGroup(const ListChatGroupRequest &request)
 }
 
 /**
- * @summary Lists the members of an IM group.
+ * @summary Retrieves the member list of an IM group.
  *
- * @description >Notice: 
- * This operation is an internal preview feature. Contact your account manager to request access.
- * - Before calling this operation, ensure you have created an IM group with an invitation link, and that members have joined by using that link.
- * - To create an IM group and add an invitation link, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations.
+ * @description >Notice: The feature of retrieving IM group member lists through API is a Meta beta feature. Contact your account manager to apply for access.
+ * - Before calling this operation, make sure that the IM group you created has an IM group invitation link added and that members have joined the IM group through the link.
+ * - If you do not have a created IM group, use the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
  *
  * @param tmpReq ListChatGroupParticipantsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7151,12 +7206,11 @@ ListChatGroupParticipantsResponse Client::listChatGroupParticipantsWithOptions(c
 }
 
 /**
- * @summary Lists the members of an IM group.
+ * @summary Retrieves the member list of an IM group.
  *
- * @description >Notice: 
- * This operation is an internal preview feature. Contact your account manager to request access.
- * - Before calling this operation, ensure you have created an IM group with an invitation link, and that members have joined by using that link.
- * - To create an IM group and add an invitation link, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations.
+ * @description >Notice: The feature of retrieving IM group member lists through API is a Meta beta feature. Contact your account manager to apply for access.
+ * - Before calling this operation, make sure that the IM group you created has an IM group invitation link added and that members have joined the IM group through the link.
+ * - If you do not have a created IM group, use the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
  *
  * @param request ListChatGroupParticipantsRequest
  * @return ListChatGroupParticipantsResponse
@@ -7287,10 +7341,10 @@ ListChatappMessageResponse Client::listChatappMessage(const ListChatappMessageRe
 }
 
 /**
- * @summary Queries message templates.
+ * @summary Retrieves a list of message templates.
  *
  * @description ### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param tmpReq ListChatappTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7375,10 +7429,10 @@ ListChatappTemplateResponse Client::listChatappTemplateWithOptions(const ListCha
 }
 
 /**
- * @summary Queries message templates.
+ * @summary Retrieves a list of message templates.
  *
  * @description ### QPS limit
- * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request ListChatappTemplateRequest
  * @return ListChatappTemplateResponse
@@ -7539,7 +7593,7 @@ ListDmAccountResponse Client::listDmAccount(const ListDmAccountRequest &request)
 }
 
 /**
- * @summary 查询DM的tag
+ * @summary Queries the tags of DirectMail.
  *
  * @param request ListDmTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7590,7 +7644,7 @@ ListDmTagResponse Client::listDmTagWithOptions(const ListDmTagRequest &request, 
 }
 
 /**
- * @summary 查询DM的tag
+ * @summary Queries the tags of DirectMail.
  *
  * @param request ListDmTagRequest
  * @return ListDmTagResponse
@@ -7655,9 +7709,9 @@ ListFacebookPostsResponse Client::listFacebookPosts(const ListFacebookPostsReque
 }
 
 /**
- * @summary Retrieves a list of WhatsApp flows.
+ * @summary Queries the list of Flows.
  *
- * @description This operation allows a maximum of 5 requests per second (RPS) per account. Excess requests are throttled and may result in service interruptions.
+ * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param tmpReq ListFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7714,9 +7768,9 @@ ListFlowResponse Client::listFlowWithOptions(const ListFlowRequest &tmpReq, cons
 }
 
 /**
- * @summary Retrieves a list of WhatsApp flows.
+ * @summary Queries the list of Flows.
  *
- * @description This operation allows a maximum of 5 requests per second (RPS) per account. Excess requests are throttled and may result in service interruptions.
+ * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request ListFlowRequest
  * @return ListFlowResponse
@@ -7787,8 +7841,8 @@ ListFlowNodeGroupResponse Client::listFlowNodeGroup(const ListFlowNodeGroupReque
 /**
  * @summary Lists flow component prototypes.
  *
- * @description - You can call this API operation to query flow component prototypes. You can also view the prototypes on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name.
- * - You can use the optional parameters for this operation to filter flow component prototypes. If you do not specify any optional parameters, all flow component prototypes are returned.
+ * @description - You can call this operation to query flow component prototypes. You can also click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view flow component prototypes.
+ * - The optional parameters in this operation are filter conditions for flow component prototypes. If you do not specify them, all flow component prototypes are queried.
  *
  * @param request ListFlowNodePrototypeV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -7849,8 +7903,8 @@ ListFlowNodePrototypeV2Response Client::listFlowNodePrototypeV2WithOptions(const
 /**
  * @summary Lists flow component prototypes.
  *
- * @description - You can call this API operation to query flow component prototypes. You can also view the prototypes on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name.
- * - You can use the optional parameters for this operation to filter flow component prototypes. If you do not specify any optional parameters, all flow component prototypes are returned.
+ * @description - You can call this operation to query flow component prototypes. You can also click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view flow component prototypes.
+ * - The optional parameters in this operation are filter conditions for flow component prototypes. If you do not specify them, all flow component prototypes are queried.
  *
  * @param request ListFlowNodePrototypeV2Request
  * @return ListFlowNodePrototypeV2Response
@@ -7863,10 +7917,10 @@ ListFlowNodePrototypeV2Response Client::listFlowNodePrototypeV2(const ListFlowNo
 /**
  * @summary Lists flow versions.
  *
- * @description - You can call this API operation to query flow versions. You can also view flow versions in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name to open the orchestration canvas.
- * - Before calling this API operation, make sure that you have created one or more flows.
- * - If you have not created any flows, create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) API operation.
- * - The optional parameters for this API operation are filter conditions. If you do not specify any optional parameters, all flow versions are returned.
+ * @description - You can call this operation to query flow versions. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view flow versions.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * - The optional parameters in this operation are filter conditions for querying flow versions. If you do not specify them, all flow versions are queried.
  *
  * @param tmpReq ListFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7937,10 +7991,10 @@ ListFlowVersionResponse Client::listFlowVersionWithOptions(const ListFlowVersion
 /**
  * @summary Lists flow versions.
  *
- * @description - You can call this API operation to query flow versions. You can also view flow versions in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name to open the orchestration canvas.
- * - Before calling this API operation, make sure that you have created one or more flows.
- * - If you have not created any flows, create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) API operation.
- * - The optional parameters for this API operation are filter conditions. If you do not specify any optional parameters, all flow versions are returned.
+ * @description - You can call this operation to query flow versions. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view flow versions.
+ * - Before calling this operation, make sure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * - The optional parameters in this operation are filter conditions for querying flow versions. If you do not specify them, all flow versions are queried.
  *
  * @param request ListFlowVersionRequest
  * @return ListFlowVersionResponse
@@ -8005,7 +8059,7 @@ ListInstagramPageResponse Client::listInstagramPage(const ListInstagramPageReque
 }
 
 /**
- * @summary 查询instagram帖子列表
+ * @summary Queries the list of Instagram posts.
  *
  * @param request ListInstagramPostsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8048,7 +8102,7 @@ ListInstagramPostsResponse Client::listInstagramPostsWithOptions(const ListInsta
 }
 
 /**
- * @summary 查询instagram帖子列表
+ * @summary Queries the list of Instagram posts.
  *
  * @param request ListInstagramPostsRequest
  * @return ListInstagramPostsResponse
@@ -8059,7 +8113,7 @@ ListInstagramPostsResponse Client::listInstagramPosts(const ListInstagramPostsRe
 }
 
 /**
- * @summary Lists instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8068,6 +8122,10 @@ ListInstagramPostsResponse Client::listInstagramPosts(const ListInstagramPostsRe
 ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBindId()) {
+    query["BindId"] = request.getBindId();
+  }
+
   if (!!request.hasChannelType()) {
     query["ChannelType"] = request.getChannelType();
   }
@@ -8082,6 +8140,10 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasIsBind()) {
+    query["IsBind"] = request.getIsBind();
   }
 
   if (!!request.hasPageIndex()) {
@@ -8118,7 +8180,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Lists instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -8439,7 +8501,7 @@ ListPageAdAccountResponse Client::listPageAdAccount(const ListPageAdAccountReque
 /**
  * @summary Queries the list of message QR codes.
  *
- * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
+ * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request ListPhoneMessageQrdlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8488,7 +8550,7 @@ ListPhoneMessageQrdlResponse Client::listPhoneMessageQrdlWithOptions(const ListP
 /**
  * @summary Queries the list of message QR codes.
  *
- * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
+ * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request ListPhoneMessageQrdlRequest
  * @return ListPhoneMessageQrdlResponse
@@ -8659,7 +8721,7 @@ ListProductCatalogResponse Client::listProductCatalog(const ListProductCatalogRe
 }
 
 /**
- * @summary 展示viber申请单服务号卡片
+ * @summary Displays the Viber service number card for an application form.
  *
  * @param request ListViberServiceMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8702,7 +8764,7 @@ ListViberServiceMessageResponse Client::listViberServiceMessageWithOptions(const
 }
 
 /**
- * @summary 展示viber申请单服务号卡片
+ * @summary Displays the Viber service number card for an application form.
  *
  * @param request ListViberServiceMessageRequest
  * @return ListViberServiceMessageResponse
@@ -8764,7 +8826,7 @@ ListWhatAppTemplateResponse Client::listWhatAppTemplate(const ListWhatAppTemplat
  * @description ### QPS limit
  * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  * ### Status changes
- * Changes to the template status and quality can be monitored through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+ * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
  * @param tmpReq ModifyChatappTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8782,58 +8844,62 @@ ModifyChatappTemplateResponse Client::modifyChatappTemplateWithOptions(const Mod
     request.setExampleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExample(), "Example", "json"));
   }
 
-  json body = {};
+  json query = {};
   if (!!request.hasCategory()) {
-    body["Category"] = request.getCategory();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasCategoryChangePaused()) {
-    body["CategoryChangePaused"] = request.getCategoryChangePaused();
+    query["CategoryChangePaused"] = request.getCategoryChangePaused();
   }
 
   if (!!request.hasComponentsShrink()) {
-    body["Components"] = request.getComponentsShrink();
+    query["Components"] = request.getComponentsShrink();
   }
 
   if (!!request.hasCustSpaceId()) {
-    body["CustSpaceId"] = request.getCustSpaceId();
+    query["CustSpaceId"] = request.getCustSpaceId();
   }
 
   if (!!request.hasCustWabaId()) {
-    body["CustWabaId"] = request.getCustWabaId();
+    query["CustWabaId"] = request.getCustWabaId();
   }
 
   if (!!request.hasExampleShrink()) {
-    body["Example"] = request.getExampleShrink();
+    query["Example"] = request.getExampleShrink();
   }
 
   if (!!request.hasIsvCode()) {
-    body["IsvCode"] = request.getIsvCode();
+    query["IsvCode"] = request.getIsvCode();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.getLanguage();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasMessageSendTtlSeconds()) {
-    body["MessageSendTtlSeconds"] = request.getMessageSendTtlSeconds();
+    query["MessageSendTtlSeconds"] = request.getMessageSendTtlSeconds();
+  }
+
+  if (!!request.hasProductSetId()) {
+    query["ProductSetId"] = request.getProductSetId();
   }
 
   if (!!request.hasTemplateCode()) {
-    body["TemplateCode"] = request.getTemplateCode();
+    query["TemplateCode"] = request.getTemplateCode();
   }
 
   if (!!request.hasTemplateName()) {
-    body["TemplateName"] = request.getTemplateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateType()) {
-    body["TemplateType"] = request.getTemplateType();
+    query["TemplateType"] = request.getTemplateType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyChatappTemplate"},
     {"version" , "2020-06-06"},
@@ -8854,7 +8920,7 @@ ModifyChatappTemplateResponse Client::modifyChatappTemplateWithOptions(const Mod
  * @description ### QPS limit
  * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  * ### Status changes
- * Changes to the template status and quality can be monitored through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+ * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
  * @param request ModifyChatappTemplateRequest
  * @return ModifyChatappTemplateResponse
@@ -9115,7 +9181,7 @@ ModifyPhoneBusinessProfileResponse Client::modifyPhoneBusinessProfile(const Modi
 }
 
 /**
- * @summary 联系人变更群组
+ * @summary Modifies the group associations of contacts.
  *
  * @param tmpReq MoveContactToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9180,7 +9246,7 @@ MoveContactToGroupResponse Client::moveContactToGroupWithOptions(const MoveConta
 }
 
 /**
- * @summary 联系人变更群组
+ * @summary Modifies the group associations of contacts.
  *
  * @param request MoveContactToGroupRequest
  * @return MoveContactToGroupResponse
@@ -9191,12 +9257,12 @@ MoveContactToGroupResponse Client::moveContactToGroup(const MoveContactToGroupRe
 }
 
 /**
- * @summary Unpublishes a flow version.
+ * @summary Offlines a flow version.
  *
- * @description - You can call this operation to unpublish a flow version. You can also manually unpublish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
- * - Before calling this operation, make sure that the flow is published.
- * - If a flow is not published, you can publish it manually from the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or by calling the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation.
- * - After a flow version is unpublished, the orchestrated flow stops running. This may affect your business. Proceed with caution.
+ * @description - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
+ * - Before calling this operation, make sure the flow you created is already online.
+ * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
+ * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
  *
  * @param tmpReq OfflineFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9261,12 +9327,12 @@ OfflineFlowVersionResponse Client::offlineFlowVersionWithOptions(const OfflineFl
 }
 
 /**
- * @summary Unpublishes a flow version.
+ * @summary Offlines a flow version.
  *
- * @description - You can call this operation to unpublish a flow version. You can also manually unpublish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
- * - Before calling this operation, make sure that the flow is published.
- * - If a flow is not published, you can publish it manually from the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or by calling the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation.
- * - After a flow version is unpublished, the orchestrated flow stops running. This may affect your business. Proceed with caution.
+ * @description - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
+ * - Before calling this operation, make sure the flow you created is already online.
+ * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
+ * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
  *
  * @param request OfflineFlowVersionRequest
  * @return OfflineFlowVersionResponse
@@ -9279,10 +9345,10 @@ OfflineFlowVersionResponse Client::offlineFlowVersion(const OfflineFlowVersionRe
 /**
  * @summary Publishes a flow version.
  *
- * @description - You can call this operation to publish a flow version. You can also manually publish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
- * - Before you call this operation, make sure that you have created a flow and attached it to a phone number or a business account ID.
- * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and attach a phone number or business account ID. Alternatively, you can call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and attach a phone number or business account ID.
- * - After a flow with a non-manual trigger is published, it is triggered when the attached phone number or business account sends a message to the business. If your flow contains components that incur fees, such as message sending or function invocations, make sure you understand the billing methods and pricing of the related products before you call this operation.
+ * @description - You can call this operation to publish a flow version. You can also click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually publish a flow version.
+ * - Before calling this operation, make sure that you have a successfully created flow and that your flow is bindded to a phone number or merchant account ID.
+ * - If you do not have a successfully created flow, you can manually create a flow and bindded it to a phone number or merchant account ID on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind it to a phone number or merchant account ID.
+ * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending or function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
  *
  * @param tmpReq OnlineFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9349,10 +9415,10 @@ OnlineFlowVersionResponse Client::onlineFlowVersionWithOptions(const OnlineFlowV
 /**
  * @summary Publishes a flow version.
  *
- * @description - You can call this operation to publish a flow version. You can also manually publish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
- * - Before you call this operation, make sure that you have created a flow and attached it to a phone number or a business account ID.
- * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and attach a phone number or business account ID. Alternatively, you can call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and attach a phone number or business account ID.
- * - After a flow with a non-manual trigger is published, it is triggered when the attached phone number or business account sends a message to the business. If your flow contains components that incur fees, such as message sending or function invocations, make sure you understand the billing methods and pricing of the related products before you call this operation.
+ * @description - You can call this operation to publish a flow version. You can also click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually publish a flow version.
+ * - Before calling this operation, make sure that you have a successfully created flow and that your flow is bindded to a phone number or merchant account ID.
+ * - If you do not have a successfully created flow, you can manually create a flow and bindded it to a phone number or merchant account ID on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind it to a phone number or merchant account ID.
+ * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending or function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
  *
  * @param request OnlineFlowVersionRequest
  * @return OnlineFlowVersionResponse
@@ -9363,7 +9429,7 @@ OnlineFlowVersionResponse Client::onlineFlowVersion(const OnlineFlowVersionReque
 }
 
 /**
- * @summary 开通Chatapp服务
+ * @summary Activates the Chat App Message Service.
  *
  * @param request OpenChatappServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9402,7 +9468,7 @@ OpenChatappServiceResponse Client::openChatappServiceWithOptions(const OpenChata
 }
 
 /**
- * @summary 开通Chatapp服务
+ * @summary Activates the Chat App Message Service.
  *
  * @param request OpenChatappServiceRequest
  * @return OpenChatappServiceResponse
@@ -9413,7 +9479,7 @@ OpenChatappServiceResponse Client::openChatappService(const OpenChatappServiceRe
 }
 
 /**
- * @summary 暂停服务
+ * @summary Pauses a service.
  *
  * @param request PauseMarketingFLowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9460,7 +9526,7 @@ PauseMarketingFLowResponse Client::pauseMarketingFLowWithOptions(const PauseMark
 }
 
 /**
- * @summary 暂停服务
+ * @summary Pauses a service.
  *
  * @param request PauseMarketingFLowRequest
  * @return PauseMarketingFLowResponse
@@ -9709,7 +9775,7 @@ QueryInstanceResponse Client::queryInstance(const QueryInstanceRequest &request)
 }
 
 /**
- * @summary 查询营销消息是否生效
+ * @summary Queries whether a marketing message is effective.
  *
  * @param request QueryMMLActiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9752,7 +9818,7 @@ QueryMMLActiveResponse Client::queryMMLActiveWithOptions(const QueryMMLActiveReq
 }
 
 /**
- * @summary 查询营销消息是否生效
+ * @summary Queries whether a marketing message is effective.
  *
  * @param request QueryMMLActiveRequest
  * @return QueryMMLActiveResponse
@@ -9889,9 +9955,9 @@ QueryWabaBusinessInfoResponse Client::queryWabaBusinessInfo(const QueryWabaBusin
 /**
  * @summary Retrieves the details of a flow.
  *
- * @description - You can call this API operation to retrieve the details of a flow. You can also view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, make sure that you have created a flow.
- * - If you have not created a flow, you can create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to retrieve flow details, or manually view flow details in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - Before calling this operation, ensure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param tmpReq ReadChatFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9950,9 +10016,9 @@ ReadChatFlowResponse Client::readChatFlowWithOptions(const ReadChatFlowRequest &
 /**
  * @summary Retrieves the details of a flow.
  *
- * @description - You can call this API operation to retrieve the details of a flow. You can also view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before you call this operation, make sure that you have created a flow.
- * - If you have not created a flow, you can create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to retrieve flow details, or manually view flow details in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+ * - Before calling this operation, ensure that you have a successfully created flow.
+ * - If you do not have a successfully created flow, you can manually create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param request ReadChatFlowRequest
  * @return ReadChatFlowResponse
@@ -9963,11 +10029,11 @@ ReadChatFlowResponse Client::readChatFlow(const ReadChatFlowRequest &request) {
 }
 
 /**
- * @summary Views the log settings for a flow.
+ * @summary Queries the flow log settings.
  *
- * @description - Before you call this operation, ensure that log settings are configured for the flow.
- * - If log settings are not configured for the flow, call the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation to configure them.
- * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
+ * @description - Before calling this operation, make sure that flow log settings have been created for your flow.
+ * - If flow log settings have not been created for your flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
+ * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
  *
  * @param request ReadChatFlowLogSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10010,11 +10076,11 @@ ReadChatFlowLogSettingResponse Client::readChatFlowLogSettingWithOptions(const R
 }
 
 /**
- * @summary Views the log settings for a flow.
+ * @summary Queries the flow log settings.
  *
- * @description - Before you call this operation, ensure that log settings are configured for the flow.
- * - If log settings are not configured for the flow, call the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation to configure them.
- * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
+ * @description - Before calling this operation, make sure that flow log settings have been created for your flow.
+ * - If flow log settings have not been created for your flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
+ * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
  *
  * @param request ReadChatFlowLogSettingRequest
  * @return ReadChatFlowLogSettingResponse
@@ -10050,6 +10116,10 @@ ReadFlowVersionResponse Client::readFlowVersionWithOptions(const ReadFlowVersion
 
   if (!!request.hasBizExtendShrink()) {
     query["BizExtend"] = request.getBizExtendShrink();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
   }
 
   if (!!request.hasFlowCode()) {
@@ -10109,7 +10179,7 @@ ReadFlowVersionResponse Client::readFlowVersion(const ReadFlowVersionRequest &re
 }
 
 /**
- * @summary 当前群组移除单个联系人
+ * @summary Removes a single contact from the current group.
  *
  * @param request RemoveContactByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10156,7 +10226,7 @@ RemoveContactByIdResponse Client::removeContactByIdWithOptions(const RemoveConta
 }
 
 /**
- * @summary 当前群组移除单个联系人
+ * @summary Removes a single contact from the current group.
  *
  * @param request RemoveContactByIdRequest
  * @return RemoveContactByIdResponse
@@ -10391,12 +10461,12 @@ SendChatappMassMessageResponse Client::sendChatappMassMessage(const SendChatappM
  *
  * @description - You can call this operation to send a message, or manually send a message on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Send Message** page.
  * - Before calling this operation, make sure that you have created a channel and have an approved template.
- * - For the WhatsApp channel type, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
- * - For the Messenger channel type, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
- * - For the Instagram channel type, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
- * <props="intl">- For the Viber channel type, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+ * - For WhatsApp channels, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+ * - For Messenger channels, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+ * - For Instagram channels, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+ * <props="intl">- For Viber channels, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
  * ### QPS limit
- * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  * ### Status changes
  * You can monitor message delivery status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
@@ -10583,12 +10653,12 @@ SendChatappMessageResponse Client::sendChatappMessageWithOptions(const SendChata
  *
  * @description - You can call this operation to send a message, or manually send a message on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Send Message** page.
  * - Before calling this operation, make sure that you have created a channel and have an approved template.
- * - For the WhatsApp channel type, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
- * - For the Messenger channel type, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
- * - For the Instagram channel type, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
- * <props="intl">- For the Viber channel type, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+ * - For WhatsApp channels, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+ * - For Messenger channels, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+ * - For Instagram channels, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+ * <props="intl">- For Viber channels, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
  * ### QPS limit
- * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+ * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
  * ### Status changes
  * You can monitor message delivery status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
  *
@@ -10715,7 +10785,7 @@ SyncBusinessAppHistoryResponse Client::syncBusinessAppHistory(const SyncBusiness
 }
 
 /**
- * @summary 同步flow
+ * @summary Syncs a WhatsApp flow.
  *
  * @param request SyncFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10758,7 +10828,7 @@ SyncFlowResponse Client::syncFlowWithOptions(const SyncFlowRequest &request, con
 }
 
 /**
- * @summary 同步flow
+ * @summary Syncs a WhatsApp flow.
  *
  * @param request SyncFlowRequest
  * @return SyncFlowResponse
@@ -10983,7 +11053,7 @@ TriggerChatFlowResponse Client::triggerChatFlow(const TriggerChatFlowRequest &re
 }
 
 /**
- * @summary 解绑邮件账号
+ * @summary Unbinds an email account.
  *
  * @param request UnbindDmAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11026,7 +11096,7 @@ UnbindDmAccountResponse Client::unbindDmAccountWithOptions(const UnbindDmAccount
 }
 
 /**
- * @summary 解绑邮件账号
+ * @summary Unbinds an email account.
  *
  * @param request UnbindDmAccountRequest
  * @return UnbindDmAccountResponse
@@ -11181,9 +11251,9 @@ UpdateAuditRequestResponse Client::updateAuditRequest(const UpdateAuditRequestRe
 /**
  * @summary Updates the basic information of a flow based on the flow code.
  *
- * @description - You can call this operation to update the basic information of a flow, or update it manually on the **Basic Information** page under **Settings** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before calling this operation, make sure that you have created a flow.
- * - If you have not created a flow, go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click **Create Flow** to create one.
+ * @description - You can call this operation to update the basic information of a flow, or manually update it in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Basic Information**.
+ * - Before calling this operation, make sure you have a successfully created flow.
+ * - If you do not have a successfully created flow, click **Create Flow** in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
  *
  * @param tmpReq UpdateChatFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11250,9 +11320,9 @@ UpdateChatFlowResponse Client::updateChatFlowWithOptions(const UpdateChatFlowReq
 /**
  * @summary Updates the basic information of a flow based on the flow code.
  *
- * @description - You can call this operation to update the basic information of a flow, or update it manually on the **Basic Information** page under **Settings** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
- * - Before calling this operation, make sure that you have created a flow.
- * - If you have not created a flow, go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click **Create Flow** to create one.
+ * @description - You can call this operation to update the basic information of a flow, or manually update it in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Basic Information**.
+ * - Before calling this operation, make sure you have a successfully created flow.
+ * - If you do not have a successfully created flow, click **Create Flow** in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
  *
  * @param request UpdateChatFlowRequest
  * @return UpdateChatFlowResponse
@@ -11493,7 +11563,7 @@ UpdateCommerceSettingResponse Client::updateCommerceSetting(const UpdateCommerce
 }
 
 /**
- * @summary 修改联系人
+ * @summary Modifies a contact.
  *
  * @param tmpReq UpdateContactByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11570,7 +11640,7 @@ UpdateContactByIdResponse Client::updateContactByIdWithOptions(const UpdateConta
 }
 
 /**
- * @summary 修改联系人
+ * @summary Modifies a contact.
  *
  * @param request UpdateContactByIdRequest
  * @return UpdateContactByIdResponse
@@ -11735,11 +11805,11 @@ UpdateFlowJSONAssetResponse Client::updateFlowJSONAsset(const UpdateFlowJSONAsse
 }
 
 /**
- * @summary Updates the Domain-Specific Language (DSL) data of a flow version on the canvas.
+ * @summary Updates the DSL data of a flow version, used for updating the flow version on the canvas.
  *
- * @description - You can call this operation to update the DSL data of a flow version. You can also update the DSL data on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To access the canvas, click the name of the flow.
- * - Before calling this operation, make sure that you have created a flow and its status is Unpublished.
- * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to update the DSL data of a flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
+ * - Before calling this operation, make sure that you have created a flow and the flow status is offline.
+ * - If you have not created a flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param tmpReq UpdateFlowVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11790,6 +11860,10 @@ UpdateFlowVersionResponse Client::updateFlowVersionWithOptions(const UpdateFlowV
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11808,11 +11882,11 @@ UpdateFlowVersionResponse Client::updateFlowVersionWithOptions(const UpdateFlowV
 }
 
 /**
- * @summary Updates the Domain-Specific Language (DSL) data of a flow version on the canvas.
+ * @summary Updates the DSL data of a flow version, used for updating the flow version on the canvas.
  *
- * @description - You can call this operation to update the DSL data of a flow version. You can also update the DSL data on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To access the canvas, click the name of the flow.
- * - Before calling this operation, make sure that you have created a flow and its status is Unpublished.
- * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+ * @description - You can call this operation to update the DSL data of a flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
+ * - Before calling this operation, make sure that you have created a flow and the flow status is offline.
+ * - If you have not created a flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
  *
  * @param request UpdateFlowVersionRequest
  * @return UpdateFlowVersionResponse
@@ -11823,7 +11897,7 @@ UpdateFlowVersionResponse Client::updateFlowVersion(const UpdateFlowVersionReque
 }
 
 /**
- * @summary 群组改名
+ * @summary Renames a group.
  *
  * @param request UpdateGroupNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11870,7 +11944,7 @@ UpdateGroupNameResponse Client::updateGroupNameWithOptions(const UpdateGroupName
 }
 
 /**
- * @summary 群组改名
+ * @summary Renames a group.
  *
  * @param request UpdateGroupNameRequest
  * @return UpdateGroupNameResponse
@@ -12411,7 +12485,7 @@ UpdateWhatsappUserNameResponse Client::updateWhatsappUserName(const UpdateWhatsa
 }
 
 /**
- * @summary Places, answers, or ends WhatsApp voice calls.
+ * @summary Calls, answers, or hangs up a WhatsApp voice call. The WhatsApp voice call feature is currently in an invite-only phase. To use this feature, contact your account manager or customer service representative to request allowlisting. This feature cannot be used without allowlisting.
  *
  * @param tmpReq WhatsappCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12480,7 +12554,7 @@ WhatsappCallResponse Client::whatsappCallWithOptions(const WhatsappCallRequest &
 }
 
 /**
- * @summary Places, answers, or ends WhatsApp voice calls.
+ * @summary Calls, answers, or hangs up a WhatsApp voice call. The WhatsApp voice call feature is currently in an invite-only phase. To use this feature, contact your account manager or customer service representative to request allowlisting. This feature cannot be used without allowlisting.
  *
  * @param request WhatsappCallRequest
  * @return WhatsappCallResponse

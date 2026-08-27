@@ -198,7 +198,7 @@ namespace Models
       shared_ptr<string> countryId_ {};
       // The customer space ID.
       shared_ptr<string> custSpaceId_ {};
-      // The ID of the associated Facebook Business Manager account.
+      // The bound Facebook ID.
       shared_ptr<string> facebookBmId_ {};
       // The instance description.
       shared_ptr<string> instanceDescription_ {};
@@ -206,17 +206,17 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The ISV terms.
+      // The ISV/Client agreement file name.
       shared_ptr<string> isvTerms_ {};
-      // The office address.
+      // The enterprise address.
       shared_ptr<string> officeAddress_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the region where the resource is located.
+      // The region to which the resource belongs.
       shared_ptr<string> resourceRegionId_ {};
-      // The state of the instance.
+      // The status.
       shared_ptr<string> state_ {};
-      // The time when the instance was submitted.
+      // The submit time.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -275,27 +275,25 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The request status code.
+    // The response code.
     // 
-    // - `OK` indicates that the request was successful.
+    // - OK indicates that the request was successful.
     // 
-    // - For other error codes, see the [Error Code List](https://help.aliyun.com/document_detail/196974.html).
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // An array of objects, each representing an instance.
+    // The returned data.
     shared_ptr<vector<ListInstanceResponseBody::Data>> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
-    // 
-    // - **true**: The call succeeded.
-    // 
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries that match the specified criteria.
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

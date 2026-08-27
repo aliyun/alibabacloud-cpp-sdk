@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ReadFlowVersionShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
       DARABONBA_PTR_TO_JSON(BizExtend, bizExtendShrink_);
+      DARABONBA_PTR_TO_JSON(DraftVersion, draftVersion_);
       DARABONBA_PTR_TO_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_TO_JSON(FlowVersion, flowVersion_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ReadFlowVersionShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
       DARABONBA_PTR_FROM_JSON(BizExtend, bizExtendShrink_);
+      DARABONBA_PTR_FROM_JSON(DraftVersion, draftVersion_);
       DARABONBA_PTR_FROM_JSON(FlowCode, flowCode_);
       DARABONBA_PTR_FROM_JSON(FlowVersion, flowVersion_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizCode_ == nullptr
-        && this->bizExtendShrink_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->status_ == nullptr; };
+        && this->bizExtendShrink_ == nullptr && this->draftVersion_ == nullptr && this->flowCode_ == nullptr && this->flowVersion_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->status_ == nullptr; };
     // bizCode Field Functions 
     bool hasBizCode() const { return this->bizCode_ != nullptr;};
     void deleteBizCode() { this->bizCode_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteBizExtendShrink() { this->bizExtendShrink_ = nullptr;};
     inline string getBizExtendShrink() const { DARABONBA_PTR_GET_DEFAULT(bizExtendShrink_, "") };
     inline ReadFlowVersionShrinkRequest& setBizExtendShrink(string bizExtendShrink) { DARABONBA_PTR_SET_VALUE(bizExtendShrink_, bizExtendShrink) };
+
+
+    // draftVersion Field Functions 
+    bool hasDraftVersion() const { return this->draftVersion_ != nullptr;};
+    void deleteDraftVersion() { this->draftVersion_ = nullptr;};
+    inline string getDraftVersion() const { DARABONBA_PTR_GET_DEFAULT(draftVersion_, "") };
+    inline ReadFlowVersionShrinkRequest& setDraftVersion(string draftVersion) { DARABONBA_PTR_SET_VALUE(draftVersion_, draftVersion) };
 
 
     // flowCode Field Functions 
@@ -107,6 +116,8 @@ namespace Models
     shared_ptr<string> bizCode_ {};
     // The business extension information. Default value: an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
+    // The draft version.
+    shared_ptr<string> draftVersion_ {};
     // The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
     // The flow version. You can click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version, or call [ListFlowVersion](https://help.aliyun.com/document_detail/2937202.html) to retrieve the flow version.

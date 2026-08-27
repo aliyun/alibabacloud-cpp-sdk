@@ -130,16 +130,24 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: "{}".
     shared_ptr<string> bizExtendShrink_ {};
+    // The query conditions.
     shared_ptr<string> condition_ {};
+    // The country names.
     shared_ptr<string> countryNamesShrink_ {};
+    // The end time.
     shared_ptr<string> endDate_ {};
+    // The group ID.
     shared_ptr<string> groupId_ {};
+    // The contact group IDs.
     shared_ptr<string> groupIdsShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time.
     shared_ptr<string> startDate_ {};
   };
 

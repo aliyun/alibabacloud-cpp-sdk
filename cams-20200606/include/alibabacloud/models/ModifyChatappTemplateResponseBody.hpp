@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyChatappTemplateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
     };
     ModifyChatappTemplateResponseBody() = default ;
     ModifyChatappTemplateResponseBody(const ModifyChatappTemplateResponseBody &) = default ;
@@ -82,7 +84,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -120,12 +122,19 @@ namespace Models
     inline ModifyChatappTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline ModifyChatappTemplateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
   protected:
     // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The request status code.
+    // The response code.
     // 
-    // - OK indicates the request was successful.
+    // - OK indicates that the request was successful.
     // 
     // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
@@ -135,6 +144,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

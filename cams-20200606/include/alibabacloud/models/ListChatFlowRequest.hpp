@@ -15,28 +15,36 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListChatFlowRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
       DARABONBA_ANY_TO_JSON(BizExtend, bizExtend_);
+      DARABONBA_PTR_TO_JSON(FlowCode, flowCode_);
+      DARABONBA_PTR_TO_JSON(FlowStatus, flowStatus_);
       DARABONBA_PTR_TO_JSON(FlowTriggerType, flowTriggerType_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PhoneNumber, phoneNumber_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(ReturnWithOnlineVersion, returnWithOnlineVersion_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Title, title_);
     };
     friend void from_json(const Darabonba::Json& j, ListChatFlowRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
       DARABONBA_ANY_FROM_JSON(BizExtend, bizExtend_);
+      DARABONBA_PTR_FROM_JSON(FlowCode, flowCode_);
+      DARABONBA_PTR_FROM_JSON(FlowStatus, flowStatus_);
       DARABONBA_PTR_FROM_JSON(FlowTriggerType, flowTriggerType_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PhoneNumber, phoneNumber_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(ReturnWithOnlineVersion, returnWithOnlineVersion_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Title, title_);
     };
     ListChatFlowRequest() = default ;
     ListChatFlowRequest(const ListChatFlowRequest &) = default ;
@@ -50,8 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizCode_ == nullptr
-        && this->bizExtend_ == nullptr && this->flowTriggerType_ == nullptr && this->keyword_ == nullptr && this->ownerId_ == nullptr && this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->returnWithOnlineVersion_ == nullptr && this->status_ == nullptr; };
+        && this->bizExtend_ == nullptr && this->flowCode_ == nullptr && this->flowStatus_ == nullptr && this->flowTriggerType_ == nullptr && this->keyword_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->phoneNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->returnWithOnlineVersion_ == nullptr && this->status_ == nullptr && this->title_ == nullptr; };
     // bizCode Field Functions 
     bool hasBizCode() const { return this->bizCode_ != nullptr;};
     void deleteBizCode() { this->bizCode_ = nullptr;};
@@ -66,6 +75,20 @@ namespace Models
     Darabonba::Json & getBizExtend() { DARABONBA_GET(bizExtend_) };
     inline ListChatFlowRequest& setBizExtend(const Darabonba::Json & bizExtend) { DARABONBA_SET_VALUE(bizExtend_, bizExtend) };
     inline ListChatFlowRequest& setBizExtend(Darabonba::Json && bizExtend) { DARABONBA_SET_RVALUE(bizExtend_, bizExtend) };
+
+
+    // flowCode Field Functions 
+    bool hasFlowCode() const { return this->flowCode_ != nullptr;};
+    void deleteFlowCode() { this->flowCode_ = nullptr;};
+    inline string getFlowCode() const { DARABONBA_PTR_GET_DEFAULT(flowCode_, "") };
+    inline ListChatFlowRequest& setFlowCode(string flowCode) { DARABONBA_PTR_SET_VALUE(flowCode_, flowCode) };
+
+
+    // flowStatus Field Functions 
+    bool hasFlowStatus() const { return this->flowStatus_ != nullptr;};
+    void deleteFlowStatus() { this->flowStatus_ = nullptr;};
+    inline string getFlowStatus() const { DARABONBA_PTR_GET_DEFAULT(flowStatus_, "") };
+    inline ListChatFlowRequest& setFlowStatus(string flowStatus) { DARABONBA_PTR_SET_VALUE(flowStatus_, flowStatus) };
 
 
     // flowTriggerType Field Functions 
@@ -103,6 +126,13 @@ namespace Models
     inline ListChatFlowRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // phoneNumber Field Functions 
+    bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
+    void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline ListChatFlowRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -131,11 +161,22 @@ namespace Models
     inline ListChatFlowRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // title Field Functions 
+    bool hasTitle() const { return this->title_ != nullptr;};
+    void deleteTitle() { this->title_ = nullptr;};
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline ListChatFlowRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
   protected:
     // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
     // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // flowCode
+    shared_ptr<string> flowCode_ {};
+    // The flow status.
+    shared_ptr<string> flowStatus_ {};
     // The flow trigger type. Valid values:
     // - TriggeredManually
     // - TriggeredByWhatsApp
@@ -150,6 +191,8 @@ namespace Models
     shared_ptr<int64_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The phone number.
+    shared_ptr<string> phoneNumber_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to return the online status. Valid values:
@@ -160,6 +203,8 @@ namespace Models
     shared_ptr<bool> returnWithOnlineVersion_ {};
     // The flow status. Default value: NORMAL.
     shared_ptr<string> status_ {};
+    // The title.
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

@@ -103,26 +103,26 @@ namespace Models
 
 
   protected:
-    // The business number. You can call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the business number.
+    // The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
-    // The channel type. Valid value:
+    // The channel type. Valid values:
     // 
     // - **WHATSAPP**
     // 
-    // > This operation supports only the WhatsApp channel.
+    // > Only the WhatsApp channel type is supported.
     shared_ptr<string> channelType_ {};
-    // This is the instance ID for direct customers or the SpaceId for ISV sub-customers. You can find the ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
-    // The group ID. You can call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the group ID.
+    // The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The paging information.
+    // The pagination information.
     shared_ptr<string> pageShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsvCode, isvCode_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
+      DARABONBA_PTR_TO_JSON(ProductSetId, productSetId_);
       DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsvCode, isvCode_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MessageSendTtlSeconds, messageSendTtlSeconds_);
+      DARABONBA_PTR_FROM_JSON(ProductSetId, productSetId_);
       DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
         && this->categoryChangePaused_ == nullptr && this->componentsShrink_ == nullptr && this->custSpaceId_ == nullptr && this->custWabaId_ == nullptr && this->exampleShrink_ == nullptr
-        && this->isvCode_ == nullptr && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->templateCode_ == nullptr && this->templateName_ == nullptr
-        && this->templateType_ == nullptr; };
+        && this->isvCode_ == nullptr && this->language_ == nullptr && this->messageSendTtlSeconds_ == nullptr && this->productSetId_ == nullptr && this->templateCode_ == nullptr
+        && this->templateName_ == nullptr && this->templateType_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline ModifyChatappTemplateShrinkRequest& setMessageSendTtlSeconds(int32_t messageSendTtlSeconds) { DARABONBA_PTR_SET_VALUE(messageSendTtlSeconds_, messageSendTtlSeconds) };
 
 
+    // productSetId Field Functions 
+    bool hasProductSetId() const { return this->productSetId_ != nullptr;};
+    void deleteProductSetId() { this->productSetId_ = nullptr;};
+    inline string getProductSetId() const { DARABONBA_PTR_GET_DEFAULT(productSetId_, "") };
+    inline ModifyChatappTemplateShrinkRequest& setProductSetId(string productSetId) { DARABONBA_PTR_SET_VALUE(productSetId_, productSetId) };
+
+
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
@@ -142,32 +151,34 @@ namespace Models
   protected:
     // The templatetype cannot be modified.
     shared_ptr<string> category_ {};
-    // Specifies whether to pause sending when a Utility template is changed to Marketing type.
+    // When a Utility template is changed to Marketing type, the template is paused for sending.
     shared_ptr<bool> categoryChangePaused_ {};
     // The list of message template components.
     // 
-    // > When Category is set to AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is set to BODY or FOOTER and the Text content is empty, the content is automatically generated.
+    // > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is BODY/FOOTER, the Text content is empty and is automatically generated.
     // 
     // This parameter is required.
     shared_ptr<string> componentsShrink_ {};
-    // The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+    // The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
     shared_ptr<string> custSpaceId_ {};
     // The ISV customer WabaId.
     // 
-    // > Deprecated parameter. Use CustSpaceId instead.
+    // > This parameter is deprecated. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The examples for creating the template.
+    // The example for creating a template.
     shared_ptr<string> exampleShrink_ {};
-    // The ISV verification code used to verify whether the RAM user is authorized by the ISV.
+    // The ISV verification code used to verify whether the sub-account is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
     // The validity period for sending template messages in WhatsApp.
-    // - AUTHENTICATION: valid values are 30 to 900. 
-    // - UTILITY: valid values are 30 to 43200.
+    // - AUTHENTICATION: valid values range from 30 to 900. 
+    // - UTILITY: valid values range from 30 to 43200.
     shared_ptr<int32_t> messageSendTtlSeconds_ {};
+    // productSetId
+    shared_ptr<string> productSetId_ {};
     // The message template code.
     shared_ptr<string> templateCode_ {};
     // The template name.
