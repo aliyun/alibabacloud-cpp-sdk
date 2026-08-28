@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_AUTHORIZEFILEUPLOADRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_AUTHORIZEFILEUPLOADRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AuthorizeFileUploadResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessKeyId, accessKeyId_);
+      DARABONBA_PTR_TO_JSON(Authorizations, authorizations_);
       DARABONBA_PTR_TO_JSON(Bucket, bucket_);
       DARABONBA_PTR_TO_JSON(EncodedPolicy, encodedPolicy_);
       DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(ObjectKey, objectKey_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -28,11 +31,13 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AuthorizeFileUploadResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessKeyId, accessKeyId_);
+      DARABONBA_PTR_FROM_JSON(Authorizations, authorizations_);
       DARABONBA_PTR_FROM_JSON(Bucket, bucket_);
       DARABONBA_PTR_FROM_JSON(EncodedPolicy, encodedPolicy_);
       DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(ObjectKey, objectKey_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -51,15 +56,76 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Authorizations : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Authorizations& obj) { 
+        DARABONBA_PTR_TO_JSON(EncodedPolicy, encodedPolicy_);
+        DARABONBA_PTR_TO_JSON(ObjectKey, objectKey_);
+        DARABONBA_PTR_TO_JSON(Signature, signature_);
+      };
+      friend void from_json(const Darabonba::Json& j, Authorizations& obj) { 
+        DARABONBA_PTR_FROM_JSON(EncodedPolicy, encodedPolicy_);
+        DARABONBA_PTR_FROM_JSON(ObjectKey, objectKey_);
+        DARABONBA_PTR_FROM_JSON(Signature, signature_);
+      };
+      Authorizations() = default ;
+      Authorizations(const Authorizations &) = default ;
+      Authorizations(Authorizations &&) = default ;
+      Authorizations(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Authorizations() = default ;
+      Authorizations& operator=(const Authorizations &) = default ;
+      Authorizations& operator=(Authorizations &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->encodedPolicy_ == nullptr
+        && this->objectKey_ == nullptr && this->signature_ == nullptr; };
+      // encodedPolicy Field Functions 
+      bool hasEncodedPolicy() const { return this->encodedPolicy_ != nullptr;};
+      void deleteEncodedPolicy() { this->encodedPolicy_ = nullptr;};
+      inline string getEncodedPolicy() const { DARABONBA_PTR_GET_DEFAULT(encodedPolicy_, "") };
+      inline Authorizations& setEncodedPolicy(string encodedPolicy) { DARABONBA_PTR_SET_VALUE(encodedPolicy_, encodedPolicy) };
+
+
+      // objectKey Field Functions 
+      bool hasObjectKey() const { return this->objectKey_ != nullptr;};
+      void deleteObjectKey() { this->objectKey_ = nullptr;};
+      inline string getObjectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
+      inline Authorizations& setObjectKey(string objectKey) { DARABONBA_PTR_SET_VALUE(objectKey_, objectKey) };
+
+
+      // signature Field Functions 
+      bool hasSignature() const { return this->signature_ != nullptr;};
+      void deleteSignature() { this->signature_ = nullptr;};
+      inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+      inline Authorizations& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
+
+
+    protected:
+      shared_ptr<string> encodedPolicy_ {};
+      shared_ptr<string> objectKey_ {};
+      shared_ptr<string> signature_ {};
+    };
+
     virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && this->bucket_ == nullptr && this->encodedPolicy_ == nullptr && this->endpoint_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr
-        && this->httpStatusCode_ == nullptr && this->objectKey_ == nullptr && this->requestId_ == nullptr && this->securityToken_ == nullptr && this->signature_ == nullptr
-        && this->success_ == nullptr; };
+        && this->authorizations_ == nullptr && this->bucket_ == nullptr && this->encodedPolicy_ == nullptr && this->endpoint_ == nullptr && this->errorCode_ == nullptr
+        && this->errorMessage_ == nullptr && this->expireTime_ == nullptr && this->httpStatusCode_ == nullptr && this->objectKey_ == nullptr && this->requestId_ == nullptr
+        && this->securityToken_ == nullptr && this->signature_ == nullptr && this->success_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
     inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
     inline AuthorizeFileUploadResponseBody& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
+
+
+    // authorizations Field Functions 
+    bool hasAuthorizations() const { return this->authorizations_ != nullptr;};
+    void deleteAuthorizations() { this->authorizations_ = nullptr;};
+    inline const vector<AuthorizeFileUploadResponseBody::Authorizations> & getAuthorizations() const { DARABONBA_PTR_GET_CONST(authorizations_, vector<AuthorizeFileUploadResponseBody::Authorizations>) };
+    inline vector<AuthorizeFileUploadResponseBody::Authorizations> getAuthorizations() { DARABONBA_PTR_GET(authorizations_, vector<AuthorizeFileUploadResponseBody::Authorizations>) };
+    inline AuthorizeFileUploadResponseBody& setAuthorizations(const vector<AuthorizeFileUploadResponseBody::Authorizations> & authorizations) { DARABONBA_PTR_SET_VALUE(authorizations_, authorizations) };
+    inline AuthorizeFileUploadResponseBody& setAuthorizations(vector<AuthorizeFileUploadResponseBody::Authorizations> && authorizations) { DARABONBA_PTR_SET_RVALUE(authorizations_, authorizations) };
 
 
     // bucket Field Functions 
@@ -95,6 +161,13 @@ namespace Models
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
     inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline AuthorizeFileUploadResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+    // expireTime Field Functions 
+    bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+    void deleteExpireTime() { this->expireTime_ = nullptr;};
+    inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+    inline AuthorizeFileUploadResponseBody& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // httpStatusCode Field Functions 
@@ -142,6 +215,7 @@ namespace Models
   protected:
     // The temporary AccessKey ID used for OSS PostObject.
     shared_ptr<string> accessKeyId_ {};
+    shared_ptr<vector<AuthorizeFileUploadResponseBody::Authorizations>> authorizations_ {};
     // The destination OSS bucket.
     shared_ptr<string> bucket_ {};
     // The Base64-encoded PostObject policy, which includes the ObjectKey and file size limits.
@@ -152,13 +226,14 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
+    shared_ptr<int64_t> expireTime_ {};
     // The business-level HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The object key that must be used as-is for the upload.
     shared_ptr<string> objectKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Security Token Service (STS) token.
+    // The Security Token Service (STS) temporary security token.
     shared_ptr<string> securityToken_ {};
     // The policy signature.
     shared_ptr<string> signature_ {};

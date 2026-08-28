@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AuthorizeFileUploadRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+      DARABONBA_PTR_TO_JSON(BatchSize, batchSize_);
       DARABONBA_PTR_TO_JSON(FileFormat, fileFormat_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, AuthorizeFileUploadRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+      DARABONBA_PTR_FROM_JSON(BatchSize, batchSize_);
       DARABONBA_PTR_FROM_JSON(FileFormat, fileFormat_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentName_ == nullptr
-        && this->fileFormat_ == nullptr && this->regionId_ == nullptr; };
+        && this->batchSize_ == nullptr && this->fileFormat_ == nullptr && this->regionId_ == nullptr; };
     // agentName Field Functions 
     bool hasAgentName() const { return this->agentName_ != nullptr;};
     void deleteAgentName() { this->agentName_ = nullptr;};
     inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
     inline AuthorizeFileUploadRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+    // batchSize Field Functions 
+    bool hasBatchSize() const { return this->batchSize_ != nullptr;};
+    void deleteBatchSize() { this->batchSize_ = nullptr;};
+    inline string getBatchSize() const { DARABONBA_PTR_GET_DEFAULT(batchSize_, "") };
+    inline AuthorizeFileUploadRequest& setBatchSize(string batchSize) { DARABONBA_PTR_SET_VALUE(batchSize_, batchSize) };
 
 
     // fileFormat Field Functions 
@@ -59,6 +68,7 @@ namespace Models
   protected:
     // The Agent or client source that initiates the call, such as codex, cursor, or openapi. Maximum length: 32 characters. Used only for statistics and does not participate in authentication, throttling, quota, or billing.
     shared_ptr<string> agentName_ {};
+    shared_ptr<string> batchSize_ {};
     // The format of the file to be uploaded.
     shared_ptr<string> fileFormat_ {};
     // The region ID, such as cn-beijing.

@@ -144,6 +144,10 @@ AuthorizeFileUploadResponse Client::authorizeFileUploadWithOptions(const Authori
     query["AgentName"] = request.getAgentName();
   }
 
+  if (!!request.hasBatchSize()) {
+    query["BatchSize"] = request.getBatchSize();
+  }
+
   if (!!request.hasFileFormat()) {
     query["FileFormat"] = request.getFileFormat();
   }
