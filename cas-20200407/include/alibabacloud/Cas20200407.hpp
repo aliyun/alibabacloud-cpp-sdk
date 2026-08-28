@@ -296,6 +296,23 @@ namespace Cas20200407
       Models::CreateDeploymentJobResponse createDeploymentJob(const Models::CreateDeploymentJobRequest &request);
 
       /**
+       * @summary Rolls back a deployment.
+       *
+       * @param request CreateRollbackTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRollbackTaskResponse
+       */
+      Models::CreateRollbackTaskResponse createRollbackTaskWithOptions(const Models::CreateRollbackTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Rolls back a deployment.
+       *
+       * @param request CreateRollbackTaskRequest
+       * @return CreateRollbackTaskResponse
+       */
+      Models::CreateRollbackTaskResponse createRollbackTask(const Models::CreateRollbackTaskRequest &request);
+
+      /**
        * @summary Issues a single client certificate from the general user certificate repository.
        *
        * @description This API is limited to 10 QPS per user. Exceeding this limit triggers throttling, which can affect your business. Call this API at a reasonable rate to avoid disruption.
@@ -479,10 +496,10 @@ namespace Cas20200407
       /**
        * @summary Deletes an instance.
        *
-       * @description 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
-       * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
-       * ## QPS限制
-       * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+       * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+       * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,10 +510,10 @@ namespace Cas20200407
       /**
        * @summary Deletes an instance.
        *
-       * @description 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
-       * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
-       * ## QPS限制
-       * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+       * @description Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+       * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -1470,6 +1487,23 @@ namespace Cas20200407
        * @return RevokeWHClientCertificateResponse
        */
       Models::RevokeWHClientCertificateResponse revokeWHClientCertificate(const Models::RevokeWHClientCertificateRequest &request);
+
+      /**
+       * @summary 共享证书
+       *
+       * @param request ShareCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ShareCertificateResponse
+       */
+      Models::ShareCertificateResponse shareCertificateWithOptions(const Models::ShareCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 共享证书
+       *
+       * @param request ShareCertificateRequest
+       * @return ShareCertificateResponse
+       */
+      Models::ShareCertificateResponse shareCertificate(const Models::ShareCertificateRequest &request);
 
       /**
        * @summary This operation creates a digital signature with a PCA certificate from a certificate repository.

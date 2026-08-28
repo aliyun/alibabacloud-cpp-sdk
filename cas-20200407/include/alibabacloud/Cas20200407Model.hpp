@@ -41,6 +41,9 @@
 #include <alibabacloud/models/CreateDeploymentJobRequest.hpp>
 #include <alibabacloud/models/CreateDeploymentJobResponseBody.hpp>
 #include <alibabacloud/models/CreateDeploymentJobResponse.hpp>
+#include <alibabacloud/models/CreateRollbackTaskRequest.hpp>
+#include <alibabacloud/models/CreateRollbackTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateRollbackTaskResponse.hpp>
 #include <alibabacloud/models/CreateWHClientCertificateRequest.hpp>
 #include <alibabacloud/models/CreateWHClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/CreateWHClientCertificateResponse.hpp>
@@ -214,6 +217,9 @@
 #include <alibabacloud/models/RevokeWHClientCertificateRequest.hpp>
 #include <alibabacloud/models/RevokeWHClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/RevokeWHClientCertificateResponse.hpp>
+#include <alibabacloud/models/ShareCertificateRequest.hpp>
+#include <alibabacloud/models/ShareCertificateResponseBody.hpp>
+#include <alibabacloud/models/ShareCertificateResponse.hpp>
 #include <alibabacloud/models/SignRequest.hpp>
 #include <alibabacloud/models/SignResponseBody.hpp>
 #include <alibabacloud/models/SignResponse.hpp>
