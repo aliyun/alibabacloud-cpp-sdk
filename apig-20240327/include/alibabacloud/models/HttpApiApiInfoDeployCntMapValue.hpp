@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // deployedCnt
+    // The number of published API operations.
     shared_ptr<int64_t> deployedCnt_ {};
     shared_ptr<int64_t> cnt_ {};
   };

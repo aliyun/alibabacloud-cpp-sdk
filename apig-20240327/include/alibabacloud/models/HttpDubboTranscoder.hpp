@@ -114,7 +114,11 @@ namespace Models
       protected:
         // The key used to extract the input parameter.
         shared_ptr<string> extractKey_ {};
-        // The input parameter location. Valid values: ALL_QUERY_PARAMETER: request parameter. ALL_HEADER: request header. ALL_PATH: URI of the request. ALL_BODY: request body.
+        // The input parameter location. Valid values:
+        // - ALL_QUERY_PARAMETER: Request parameter.
+        // - ALL_HEADER: Request header.
+        // - ALL_PATH: URI of the request.
+        // - ALL_BODY: Request body.
         shared_ptr<string> extractKeySpec_ {};
         // The backend parameter type.
         shared_ptr<string> mappingType_ {};
@@ -177,7 +181,10 @@ namespace Models
       shared_ptr<string> methodPath_ {};
       // The parameter mapping list.
       shared_ptr<vector<MethodMapList::ParamMapsList>> paramMapsList_ {};
-      // The header pass-through type. Valid values: PASS_ALL: passes through all headers. PASS_NOT: does not pass through any headers. PASS_ASSIGN: passes through specified headers.
+      // The header pass-through type. Valid values:
+      // - PASS_ALL: Pass through all headers.
+      // - PASS_NOT: Do not pass through headers.
+      // - PASS_ASSIGN: Pass through specified headers.
       shared_ptr<string> passThroughAllHeaders_ {};
       // The list of specified pass-through headers.
       shared_ptr<vector<string>> passThroughList_ {};

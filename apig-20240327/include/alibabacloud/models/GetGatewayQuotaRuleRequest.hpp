@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(consumerPageNumber, consumerPageNumber_);
       DARABONBA_PTR_TO_JSON(consumerPageSize, consumerPageSize_);
       DARABONBA_PTR_TO_JSON(withConsumers, withConsumers_);
+      DARABONBA_PTR_TO_JSON(withSubjects, withSubjects_);
     };
     friend void from_json(const Darabonba::Json& j, GetGatewayQuotaRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(consumerPageNumber, consumerPageNumber_);
       DARABONBA_PTR_FROM_JSON(consumerPageSize, consumerPageSize_);
       DARABONBA_PTR_FROM_JSON(withConsumers, withConsumers_);
+      DARABONBA_PTR_FROM_JSON(withSubjects, withSubjects_);
     };
     GetGatewayQuotaRuleRequest() = default ;
     GetGatewayQuotaRuleRequest(const GetGatewayQuotaRuleRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consumerPageNumber_ == nullptr
-        && this->consumerPageSize_ == nullptr && this->withConsumers_ == nullptr; };
+        && this->consumerPageSize_ == nullptr && this->withConsumers_ == nullptr && this->withSubjects_ == nullptr; };
     // consumerPageNumber Field Functions 
     bool hasConsumerPageNumber() const { return this->consumerPageNumber_ != nullptr;};
     void deleteConsumerPageNumber() { this->consumerPageNumber_ = nullptr;};
@@ -56,13 +58,22 @@ namespace Models
     inline GetGatewayQuotaRuleRequest& setWithConsumers(bool withConsumers) { DARABONBA_PTR_SET_VALUE(withConsumers_, withConsumers) };
 
 
+    // withSubjects Field Functions 
+    bool hasWithSubjects() const { return this->withSubjects_ != nullptr;};
+    void deleteWithSubjects() { this->withSubjects_ = nullptr;};
+    inline bool getWithSubjects() const { DARABONBA_PTR_GET_DEFAULT(withSubjects_, false) };
+    inline GetGatewayQuotaRuleRequest& setWithSubjects(bool withSubjects) { DARABONBA_PTR_SET_VALUE(withSubjects_, withSubjects) };
+
+
   protected:
     // The page number of the consumer list.
     shared_ptr<string> consumerPageNumber_ {};
-    // The number of consumers per page.
+    // The page size of the consumer list.
     shared_ptr<string> consumerPageSize_ {};
-    // Specifies whether to include the consumer list in the response.
+    // Specifies whether to return the consumer list.
     shared_ptr<bool> withConsumers_ {};
+    // Specifies whether to return the general subject list. This parameter applies to both consumer and consumer group rules.
+    shared_ptr<bool> withSubjects_ {};
   };
 
   } // namespace Models

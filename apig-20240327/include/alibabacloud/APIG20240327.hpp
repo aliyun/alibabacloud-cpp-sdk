@@ -23,15 +23,15 @@ namespace APIG20240327
       /**
        * @summary Creates a gateway quota throttling rule.
        *
-       * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
        * > 
-       * >  Recommended call sequence:
-       * > - Step 1: Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun to true.
-       * > - - The response contains a conflict preview with a conflictHash value.
-       * > - Step 2: Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * >  Recommended call logic:
+       * > - 1. Perform a dry run to check for rule conflicts.
+       * > - - Set dryRun=true.
+       * > - - The response contains a conflict preview with conflictHash.
+       * > - 2. Submit the request after confirmation.
+       * > - - No conflicts: dryRun=false, overwrite=false.
+       * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
        *
        * @param request AddGatewayQuotaRuleRequest
        * @param headers map
@@ -43,15 +43,15 @@ namespace APIG20240327
       /**
        * @summary Creates a gateway quota throttling rule.
        *
-       * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
        * > 
-       * >  Recommended call sequence:
-       * > - Step 1: Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun to true.
-       * > - - The response contains a conflict preview with a conflictHash value.
-       * > - Step 2: Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * >  Recommended call logic:
+       * > - 1. Perform a dry run to check for rule conflicts.
+       * > - - Set dryRun=true.
+       * > - - The response contains a conflict preview with conflictHash.
+       * > - 2. Submit the request after confirmation.
+       * > - - No conflicts: dryRun=false, overwrite=false.
+       * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
        *
        * @param request AddGatewayQuotaRuleRequest
        * @return AddGatewayQuotaRuleResponse
@@ -165,6 +165,24 @@ namespace APIG20240327
        * @return BatchRemoveConsumerGroupConsumersResponse
        */
       Models::BatchRemoveConsumerGroupConsumersResponse batchRemoveConsumerGroupConsumers(const string &consumerGroupId, const Models::BatchRemoveConsumerGroupConsumersRequest &request);
+
+      /**
+       * @summary 批量更新消费者鉴权
+       *
+       * @param request BatchUpdateHttpApiOperationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchUpdateHttpApiOperationResponse
+       */
+      Models::BatchUpdateHttpApiOperationResponse batchUpdateHttpApiOperationWithOptions(const string &httpApiId, const Models::BatchUpdateHttpApiOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量更新消费者鉴权
+       *
+       * @param request BatchUpdateHttpApiOperationRequest
+       * @return BatchUpdateHttpApiOperationResponse
+       */
+      Models::BatchUpdateHttpApiOperationResponse batchUpdateHttpApiOperation(const string &httpApiId, const Models::BatchUpdateHttpApiOperationRequest &request);
 
       /**
        * @summary Moves a resource to a different resource group.
@@ -443,6 +461,28 @@ namespace APIG20240327
       Models::CreateHttpApiRouteResponse createHttpApiRoute(const string &httpApiId, const Models::CreateHttpApiRouteRequest &request);
 
       /**
+       * @summary 创建API版本
+       *
+       * @description 接口支持创建多个服务。
+       *
+       * @param request CreateHttpApiVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHttpApiVersionResponse
+       */
+      Models::CreateHttpApiVersionResponse createHttpApiVersionWithOptions(const string &httpApiId, const Models::CreateHttpApiVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建API版本
+       *
+       * @description 接口支持创建多个服务。
+       *
+       * @param request CreateHttpApiVersionRequest
+       * @return CreateHttpApiVersionResponse
+       */
+      Models::CreateHttpApiVersionResponse createHttpApiVersion(const string &httpApiId, const Models::CreateHttpApiVersionRequest &request);
+
+      /**
        * @summary Creates a Model Context Protocol (MCP) server.
        *
        * @param request CreateMcpServerRequest
@@ -459,6 +499,24 @@ namespace APIG20240327
        * @return CreateMcpServerResponse
        */
       Models::CreateMcpServerResponse createMcpServer(const Models::CreateMcpServerRequest &request);
+
+      /**
+       * @summary 创建迁移任务
+       *
+       * @param request CreateMigrationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMigrationTaskResponse
+       */
+      Models::CreateMigrationTaskResponse createMigrationTaskWithOptions(const Models::CreateMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建迁移任务
+       *
+       * @param request CreateMigrationTaskRequest
+       * @return CreateMigrationTaskResponse
+       */
+      Models::CreateMigrationTaskResponse createMigrationTask(const Models::CreateMigrationTaskRequest &request);
 
       /**
        * @summary Mounts a plug-in.
@@ -497,6 +555,24 @@ namespace APIG20240327
       Models::CreatePluginClassResponse createPluginClass(const Models::CreatePluginClassRequest &request);
 
       /**
+       * @summary 创建插件webide工作空间
+       *
+       * @param request CreatePluginWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePluginWorkspaceResponse
+       */
+      Models::CreatePluginWorkspaceResponse createPluginWorkspaceWithOptions(const Models::CreatePluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建插件webide工作空间
+       *
+       * @param request CreatePluginWorkspaceRequest
+       * @return CreatePluginWorkspaceResponse
+       */
+      Models::CreatePluginWorkspaceResponse createPluginWorkspace(const Models::CreatePluginWorkspaceRequest &request);
+
+      /**
        * @summary Creates a policy.
        *
        * @param request CreatePolicyRequest
@@ -531,6 +607,24 @@ namespace APIG20240327
        * @return CreatePolicyAttachmentResponse
        */
       Models::CreatePolicyAttachmentResponse createPolicyAttachment(const Models::CreatePolicyAttachmentRequest &request);
+
+      /**
+       * @summary 创建风险检查任务
+       *
+       * @param request CreateRiskCheckTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRiskCheckTaskResponse
+       */
+      Models::CreateRiskCheckTaskResponse createRiskCheckTaskWithOptions(const string &gatewayId, const Models::CreateRiskCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建风险检查任务
+       *
+       * @param request CreateRiskCheckTaskRequest
+       * @return CreateRiskCheckTaskResponse
+       */
+      Models::CreateRiskCheckTaskResponse createRiskCheckTask(const string &gatewayId, const Models::CreateRiskCheckTaskRequest &request);
 
       /**
        * @summary Generates a key.
@@ -853,6 +947,24 @@ namespace APIG20240327
       Models::DeleteMcpServerResponse deleteMcpServer(const string &mcpServerId);
 
       /**
+       * @summary 删除迁移任务
+       *
+       * @param request DeleteMigrationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMigrationTaskResponse
+       */
+      Models::DeleteMigrationTaskResponse deleteMigrationTaskWithOptions(const string &taskId, const Models::DeleteMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除迁移任务
+       *
+       * @param request DeleteMigrationTaskRequest
+       * @return DeleteMigrationTaskResponse
+       */
+      Models::DeleteMigrationTaskResponse deleteMigrationTask(const string &taskId, const Models::DeleteMigrationTaskRequest &request);
+
+      /**
        * @summary Deletes a plugin mount.
        *
        * @param headers map
@@ -1007,6 +1119,8 @@ namespace APIG20240327
       /**
        * @summary Publishes an MCP server.
        *
+       * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeployMcpServerResponse
@@ -1015,6 +1129,8 @@ namespace APIG20240327
 
       /**
        * @summary Publishes an MCP server.
+       *
+       * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
        *
        * @return DeployMcpServerResponse
        */
@@ -1037,6 +1153,24 @@ namespace APIG20240327
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary Disassociates and deletes a policy.
+       *
+       * @param request DetachAndDeletePolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachAndDeletePolicyResponse
+       */
+      Models::DetachAndDeletePolicyResponse detachAndDeletePolicyWithOptions(const string &policyId, const Models::DetachAndDeletePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disassociates and deletes a policy.
+       *
+       * @param request DetachAndDeletePolicyRequest
+       * @return DetachAndDeletePolicyResponse
+       */
+      Models::DetachAndDeletePolicyResponse detachAndDeletePolicy(const string &policyId, const Models::DetachAndDeletePolicyRequest &request);
 
       /**
        * @summary Exports a specified HTTP API.
@@ -1253,6 +1387,24 @@ namespace APIG20240327
       Models::GetGatewayResponse getGateway(const string &gatewayId);
 
       /**
+       * @summary 获取网关弹性策略
+       *
+       * @param request GetGatewayElasticPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayElasticPolicyResponse
+       */
+      Models::GetGatewayElasticPolicyResponse getGatewayElasticPolicyWithOptions(const string &gatewayId, const Models::GetGatewayElasticPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网关弹性策略
+       *
+       * @param request GetGatewayElasticPolicyRequest
+       * @return GetGatewayElasticPolicyResponse
+       */
+      Models::GetGatewayElasticPolicyResponse getGatewayElasticPolicy(const string &gatewayId, const Models::GetGatewayElasticPolicyRequest &request);
+
+      /**
        * @summary Queries the details of a gateway quota rate limiting rule.
        *
        * @description Queries the details of a consumer quota rule on an AI gateway.
@@ -1277,7 +1429,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @param headers map
@@ -1289,7 +1441,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -1367,6 +1519,42 @@ namespace APIG20240327
       Models::GetMcpServerResponse getMcpServer(const string &mcpServerId);
 
       /**
+       * @summary 获取迁移任务中的命名空间和服务映射
+       *
+       * @param request GetMigrationNamespacedServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMigrationNamespacedServicesResponse
+       */
+      Models::GetMigrationNamespacedServicesResponse getMigrationNamespacedServicesWithOptions(const string &taskId, const Models::GetMigrationNamespacedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取迁移任务中的命名空间和服务映射
+       *
+       * @param request GetMigrationNamespacedServicesRequest
+       * @return GetMigrationNamespacedServicesResponse
+       */
+      Models::GetMigrationNamespacedServicesResponse getMigrationNamespacedServices(const string &taskId, const Models::GetMigrationNamespacedServicesRequest &request);
+
+      /**
+       * @summary 获取迁移任务详情
+       *
+       * @param request GetMigrationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMigrationTaskResponse
+       */
+      Models::GetMigrationTaskResponse getMigrationTaskWithOptions(const string &taskId, const Models::GetMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取迁移任务详情
+       *
+       * @param request GetMigrationTaskRequest
+       * @return GetMigrationTaskResponse
+       */
+      Models::GetMigrationTaskResponse getMigrationTask(const string &taskId, const Models::GetMigrationTaskRequest &request);
+
+      /**
        * @summary Queries a plugin mount.
        *
        * @param headers map
@@ -1399,6 +1587,24 @@ namespace APIG20240327
        * @return GetPluginClassResponse
        */
       Models::GetPluginClassResponse getPluginClass(const string &pluginClassId, const Models::GetPluginClassRequest &request);
+
+      /**
+       * @summary 查询插件webide工作空间
+       *
+       * @param request GetPluginWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPluginWorkspaceResponse
+       */
+      Models::GetPluginWorkspaceResponse getPluginWorkspaceWithOptions(const string &workspaceId, const Models::GetPluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询插件webide工作空间
+       *
+       * @param request GetPluginWorkspaceRequest
+       * @return GetPluginWorkspaceResponse
+       */
+      Models::GetPluginWorkspaceResponse getPluginWorkspace(const string &workspaceId, const Models::GetPluginWorkspaceRequest &request);
 
       /**
        * @summary Retrieves a policy.
@@ -1449,6 +1655,24 @@ namespace APIG20240327
        * @return GetResourceOverviewResponse
        */
       Models::GetResourceOverviewResponse getResourceOverview(const Models::GetResourceOverviewRequest &request);
+
+      /**
+       * @summary 获取风险项通知配置
+       *
+       * @param request GetRiskNotificationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRiskNotificationResponse
+       */
+      Models::GetRiskNotificationResponse getRiskNotificationWithOptions(const string &gatewayId, const Models::GetRiskNotificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取风险项通知配置
+       *
+       * @param request GetRiskNotificationRequest
+       * @return GetRiskNotificationResponse
+       */
+      Models::GetRiskNotificationResponse getRiskNotification(const string &gatewayId, const Models::GetRiskNotificationRequest &request);
 
       /**
        * @summary Retrieves a key.
@@ -1575,6 +1799,34 @@ namespace APIG20240327
        * @return InstallPluginResponse
        */
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
+
+      /**
+       * @summary 调用AIAgent
+       *
+       * @param request InvokeAIAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeAIAgentResponse
+       */
+      FutureGenerator<Models::InvokeAIAgentResponse> invokeAIAgentWithSSE(const Models::InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用AIAgent
+       *
+       * @param request InvokeAIAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeAIAgentResponse
+       */
+      Models::InvokeAIAgentResponse invokeAIAgentWithOptions(const Models::InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用AIAgent
+       *
+       * @param request InvokeAIAgentRequest
+       * @return InvokeAIAgentResponse
+       */
+      Models::InvokeAIAgentResponse invokeAIAgent(const Models::InvokeAIAgentRequest &request);
 
       /**
        * @summary Queries the list of AI model cards.
@@ -1761,7 +2013,7 @@ namespace APIG20240327
       Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
 
       /**
-       * @summary Retrieves the external service information of a gateway.
+       * @summary Retrieves external service information for a gateway.
        *
        * @description This operation supports creating multiple services.
        *
@@ -1773,7 +2025,7 @@ namespace APIG20240327
       Models::ListExternalServicesResponse listExternalServicesWithOptions(const string &gatewayId, const Models::ListExternalServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the external service information of a gateway.
+       * @summary Retrieves external service information for a gateway.
        *
        * @description This operation supports creating multiple services.
        *
@@ -1781,6 +2033,60 @@ namespace APIG20240327
        * @return ListExternalServicesResponse
        */
       Models::ListExternalServicesResponse listExternalServices(const string &gatewayId, const Models::ListExternalServicesRequest &request);
+
+      /**
+       * @summary Queries the security groups of an instance that can be used for authorization.
+       *
+       * @param request ListGatewayAuthorizableSecurityGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayAuthorizableSecurityGroupsResponse
+       */
+      Models::ListGatewayAuthorizableSecurityGroupsResponse listGatewayAuthorizableSecurityGroupsWithOptions(const string &gatewayId, const Models::ListGatewayAuthorizableSecurityGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the security groups of an instance that can be used for authorization.
+       *
+       * @param request ListGatewayAuthorizableSecurityGroupsRequest
+       * @return ListGatewayAuthorizableSecurityGroupsResponse
+       */
+      Models::ListGatewayAuthorizableSecurityGroupsResponse listGatewayAuthorizableSecurityGroups(const string &gatewayId, const Models::ListGatewayAuthorizableSecurityGroupsRequest &request);
+
+      /**
+       * @summary Queries the security group rules of an instance that are in effect.
+       *
+       * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+       */
+      Models::ListGatewayAuthorizedSecurityGroupRulesResponse listGatewayAuthorizedSecurityGroupRulesWithOptions(const string &gatewayId, const Models::ListGatewayAuthorizedSecurityGroupRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the security group rules of an instance that are in effect.
+       *
+       * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
+       * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+       */
+      Models::ListGatewayAuthorizedSecurityGroupRulesResponse listGatewayAuthorizedSecurityGroupRules(const string &gatewayId, const Models::ListGatewayAuthorizedSecurityGroupRulesRequest &request);
+
+      /**
+       * @summary 获取网关的错误访问日志
+       *
+       * @param request ListGatewayErrorAccessLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayErrorAccessLogsResponse
+       */
+      Models::ListGatewayErrorAccessLogsResponse listGatewayErrorAccessLogsWithOptions(const string &gatewayId, const Models::ListGatewayErrorAccessLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网关的错误访问日志
+       *
+       * @param request ListGatewayErrorAccessLogsRequest
+       * @return ListGatewayErrorAccessLogsResponse
+       */
+      Models::ListGatewayErrorAccessLogsResponse listGatewayErrorAccessLogs(const string &gatewayId, const Models::ListGatewayErrorAccessLogsRequest &request);
 
       /**
        * @summary Queries the list of gateway attribute parameter settings.
@@ -1797,6 +2103,24 @@ namespace APIG20240327
        * @return ListGatewayFeaturesResponse
        */
       Models::ListGatewayFeaturesResponse listGatewayFeatures(const string &gatewayId);
+
+      /**
+       * @summary 获取网关负载均衡器列表
+       *
+       * @param request ListGatewayLoadBalancersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayLoadBalancersResponse
+       */
+      Models::ListGatewayLoadBalancersResponse listGatewayLoadBalancersWithOptions(const string &gatewayId, const Models::ListGatewayLoadBalancersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网关负载均衡器列表
+       *
+       * @param request ListGatewayLoadBalancersRequest
+       * @return ListGatewayLoadBalancersResponse
+       */
+      Models::ListGatewayLoadBalancersResponse listGatewayLoadBalancers(const string &gatewayId, const Models::ListGatewayLoadBalancersRequest &request);
 
       /**
        * @summary Queries the list of consumer quota rules bound to a gateway.
@@ -1837,6 +2161,24 @@ namespace APIG20240327
        * @return ListGatewaysResponse
        */
       Models::ListGatewaysResponse listGateways(const Models::ListGatewaysRequest &request);
+
+      /**
+       * @summary ListGlobalPolicies
+       *
+       * @param request ListGlobalPoliciesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGlobalPoliciesResponse
+       */
+      Models::ListGlobalPoliciesResponse listGlobalPoliciesWithOptions(const Models::ListGlobalPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListGlobalPolicies
+       *
+       * @param request ListGlobalPoliciesRequest
+       * @return ListGlobalPoliciesResponse
+       */
+      Models::ListGlobalPoliciesResponse listGlobalPolicies(const Models::ListGlobalPoliciesRequest &request);
 
       /**
        * @summary Retrieves the list of API operations.
@@ -1893,6 +2235,42 @@ namespace APIG20240327
       Models::ListHttpApisResponse listHttpApis(const Models::ListHttpApisRequest &request);
 
       /**
+       * @summary ListInstallableGateways
+       *
+       * @param request ListInstallableGatewaysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstallableGatewaysResponse
+       */
+      Models::ListInstallableGatewaysResponse listInstallableGatewaysWithOptions(const string &pluginClassId, const Models::ListInstallableGatewaysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListInstallableGateways
+       *
+       * @param request ListInstallableGatewaysRequest
+       * @return ListInstallableGatewaysResponse
+       */
+      Models::ListInstallableGatewaysResponse listInstallableGateways(const string &pluginClassId, const Models::ListInstallableGatewaysRequest &request);
+
+      /**
+       * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+       *
+       * @param request ListK8sClusterSourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListK8sClusterSourcesResponse
+       */
+      Models::ListK8sClusterSourcesResponse listK8sClusterSourcesWithOptions(const string &gatewayId, const Models::ListK8sClusterSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+       *
+       * @param request ListK8sClusterSourcesRequest
+       * @return ListK8sClusterSourcesResponse
+       */
+      Models::ListK8sClusterSourcesResponse listK8sClusterSources(const string &gatewayId, const Models::ListK8sClusterSourcesRequest &request);
+
+      /**
        * @summary Retrieves the list of MCP servers.
        *
        * @description The operation supports creating multiple services.
@@ -1913,6 +2291,42 @@ namespace APIG20240327
        * @return ListMcpServersResponse
        */
       Models::ListMcpServersResponse listMcpServers(const Models::ListMcpServersRequest &request);
+
+      /**
+       * @summary 获取迁移任务列表
+       *
+       * @param request ListMigrationTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMigrationTasksResponse
+       */
+      Models::ListMigrationTasksResponse listMigrationTasksWithOptions(const Models::ListMigrationTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取迁移任务列表
+       *
+       * @param request ListMigrationTasksRequest
+       * @return ListMigrationTasksResponse
+       */
+      Models::ListMigrationTasksResponse listMigrationTasks(const Models::ListMigrationTasksRequest &request);
+
+      /**
+       * @summary Queries the MSE Nacos instances that can be added as sources.
+       *
+       * @param request ListMseNacosSourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMseNacosSourcesResponse
+       */
+      Models::ListMseNacosSourcesResponse listMseNacosSourcesWithOptions(const string &gatewayId, const Models::ListMseNacosSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the MSE Nacos instances that can be added as sources.
+       *
+       * @param request ListMseNacosSourcesRequest
+       * @return ListMseNacosSourcesResponse
+       */
+      Models::ListMseNacosSourcesResponse listMseNacosSources(const string &gatewayId, const Models::ListMseNacosSourcesRequest &request);
 
       /**
        * @summary Retrieves the list of plugin mounts.
@@ -1953,6 +2367,42 @@ namespace APIG20240327
        * @return ListPluginClassesResponse
        */
       Models::ListPluginClassesResponse listPluginClasses(const Models::ListPluginClassesRequest &request);
+
+      /**
+       * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+       *
+       * @param request ListPluginRepositoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPluginRepositoriesResponse
+       */
+      Models::ListPluginRepositoriesResponse listPluginRepositoriesWithOptions(const Models::ListPluginRepositoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+       *
+       * @param request ListPluginRepositoriesRequest
+       * @return ListPluginRepositoriesResponse
+       */
+      Models::ListPluginRepositoriesResponse listPluginRepositories(const Models::ListPluginRepositoriesRequest &request);
+
+      /**
+       * @summary 获取用户插件webide工作空间列表
+       *
+       * @param request ListPluginWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPluginWorkspaceResponse
+       */
+      Models::ListPluginWorkspaceResponse listPluginWorkspaceWithOptions(const Models::ListPluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户插件webide工作空间列表
+       *
+       * @param request ListPluginWorkspaceRequest
+       * @return ListPluginWorkspaceResponse
+       */
+      Models::ListPluginWorkspaceResponse listPluginWorkspace(const Models::ListPluginWorkspaceRequest &request);
 
       /**
        * @summary Retrieves a list of plugins.
@@ -2007,6 +2457,24 @@ namespace APIG20240327
        * @return ListPolicyClassesResponse
        */
       Models::ListPolicyClassesResponse listPolicyClasses(const Models::ListPolicyClassesRequest &request);
+
+      /**
+       * @summary 查询风险检测结果
+       *
+       * @param request ListRiskCheckResultsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRiskCheckResultsResponse
+       */
+      Models::ListRiskCheckResultsResponse listRiskCheckResultsWithOptions(const string &gatewayId, const Models::ListRiskCheckResultsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询风险检测结果
+       *
+       * @param request ListRiskCheckResultsRequest
+       * @return ListRiskCheckResultsResponse
+       */
+      Models::ListRiskCheckResultsResponse listRiskCheckResults(const string &gatewayId, const Models::ListRiskCheckResultsRequest &request);
 
       /**
        * @summary Lists secret references.
@@ -2071,6 +2539,24 @@ namespace APIG20240327
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
 
       /**
+       * @summary Queries sources.
+       *
+       * @param request ListSourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSourcesResponse
+       */
+      Models::ListSourcesResponse listSourcesWithOptions(const Models::ListSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries sources.
+       *
+       * @param request ListSourcesRequest
+       * @return ListSourcesResponse
+       */
+      Models::ListSourcesResponse listSources(const Models::ListSourcesRequest &request);
+
+      /**
        * @summary Retrieves a list of certificates.
        *
        * @param request ListSslCertsRequest
@@ -2087,6 +2573,24 @@ namespace APIG20240327
        * @return ListSslCertsResponse
        */
       Models::ListSslCertsResponse listSslCerts(const Models::ListSslCertsRequest &request);
+
+      /**
+       * @summary 查询已同步的MCP Server列表
+       *
+       * @param request ListSyncMCPServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSyncMCPServerResponse
+       */
+      Models::ListSyncMCPServerResponse listSyncMCPServerWithOptions(const Models::ListSyncMCPServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询已同步的MCP Server列表
+       *
+       * @param request ListSyncMCPServerRequest
+       * @return ListSyncMCPServerResponse
+       */
+      Models::ListSyncMCPServerResponse listSyncMCPServer(const Models::ListSyncMCPServerRequest &request);
 
       /**
        * @summary Retrieves the list of resource labels.
@@ -2143,6 +2647,24 @@ namespace APIG20240327
       Models::QueryConsumerAuthorizationRulesResponse queryConsumerAuthorizationRules(const Models::QueryConsumerAuthorizationRulesRequest &request);
 
       /**
+       * @summary 刷新插件托管仓库的oauth code
+       *
+       * @param request RefreshPluginOAuthCodeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshPluginOAuthCodeResponse
+       */
+      Models::RefreshPluginOAuthCodeResponse refreshPluginOAuthCodeWithOptions(const Models::RefreshPluginOAuthCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 刷新插件托管仓库的oauth code
+       *
+       * @param request RefreshPluginOAuthCodeRequest
+       * @return RefreshPluginOAuthCodeResponse
+       */
+      Models::RefreshPluginOAuthCodeResponse refreshPluginOAuthCode(const Models::RefreshPluginOAuthCodeRequest &request);
+
+      /**
        * @summary Deletes an API consumer authorization rule.
        *
        * @param headers map
@@ -2161,15 +2683,15 @@ namespace APIG20240327
       /**
        * @summary Resets a quota throttling rule on a gateway.
        *
-       * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+       * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
        * > 
-       * >  Recommended call sequence:
+       * >  Recommended call logic:
        * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun to true.
+       * > - - Set dryRun=true.
        * > - - The response contains a conflict preview with conflictHash.
        * > - 2. Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * > - - No conflict: dryRun=false, overwrite=false.
+       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
        *
        * @param request ResetGatewayQuotaRuleRequest
        * @param headers map
@@ -2181,15 +2703,15 @@ namespace APIG20240327
       /**
        * @summary Resets a quota throttling rule on a gateway.
        *
-       * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+       * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
        * > 
-       * >  Recommended call sequence:
+       * >  Recommended call logic:
        * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun to true.
+       * > - - Set dryRun=true.
        * > - - The response contains a conflict preview with conflictHash.
        * > - 2. Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * > - - No conflict: dryRun=false, overwrite=false.
+       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
        *
        * @param request ResetGatewayQuotaRuleRequest
        * @return ResetGatewayQuotaRuleResponse
@@ -2211,6 +2733,24 @@ namespace APIG20240327
        * @return RestartGatewayResponse
        */
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
+
+      /**
+       * @summary 插件工作空间运行流水线
+       *
+       * @param request RunPluginPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunPluginPipelineResponse
+       */
+      Models::RunPluginPipelineResponse runPluginPipelineWithOptions(const string &workspaceId, const Models::RunPluginPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 插件工作空间运行流水线
+       *
+       * @param request RunPluginPipelineRequest
+       * @return RunPluginPipelineResponse
+       */
+      Models::RunPluginPipelineResponse runPluginPipeline(const string &workspaceId, const Models::RunPluginPipelineRequest &request);
 
       /**
        * @summary Syncs an external MCP server.
@@ -2371,6 +2911,24 @@ namespace APIG20240327
       Models::UpdateAndAttachPolicyResponse updateAndAttachPolicy(const string &policyId, const Models::UpdateAndAttachPolicyRequest &request);
 
       /**
+       * @summary 更新消费者授权规则
+       *
+       * @param request UpdateAuthorizationRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationRuleResponse
+       */
+      Models::UpdateAuthorizationRuleResponse updateAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const Models::UpdateAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新消费者授权规则
+       *
+       * @param request UpdateAuthorizationRuleRequest
+       * @return UpdateAuthorizationRuleResponse
+       */
+      Models::UpdateAuthorizationRuleResponse updateAuthorizationRule(const string &consumerAuthorizationRuleId, const Models::UpdateAuthorizationRuleRequest &request);
+
+      /**
        * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
@@ -2391,6 +2949,8 @@ namespace APIG20240327
       /**
        * @summary Updates a consumer authorization rule.
        *
+       * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+       *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2400,6 +2960,8 @@ namespace APIG20240327
 
       /**
        * @summary Updates a consumer authorization rule.
+       *
+       * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @return UpdateConsumerAuthorizationRuleResponse
@@ -2469,6 +3031,24 @@ namespace APIG20240327
       Models::UpdateEnvironmentResponse updateEnvironment(const string &environmentId, const Models::UpdateEnvironmentRequest &request);
 
       /**
+       * @summary 更新网关弹性策略
+       *
+       * @param request UpdateGatewayElasticPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayElasticPolicyResponse
+       */
+      Models::UpdateGatewayElasticPolicyResponse updateGatewayElasticPolicyWithOptions(const string &gatewayId, const Models::UpdateGatewayElasticPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关弹性策略
+       *
+       * @param request UpdateGatewayElasticPolicyRequest
+       * @return UpdateGatewayElasticPolicyResponse
+       */
+      Models::UpdateGatewayElasticPolicyResponse updateGatewayElasticPolicy(const string &gatewayId, const Models::UpdateGatewayElasticPolicyRequest &request);
+
+      /**
        * @summary Updates the attribute parameters of a gateway.
        *
        * @param request UpdateGatewayFeatureRequest
@@ -2485,6 +3065,42 @@ namespace APIG20240327
        * @return UpdateGatewayFeatureResponse
        */
       Models::UpdateGatewayFeatureResponse updateGatewayFeature(const string &gatewayId, const string &name, const Models::UpdateGatewayFeatureRequest &request);
+
+      /**
+       * @summary 更新网关负载均衡器
+       *
+       * @param request UpdateGatewayLoadBalancerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayLoadBalancerResponse
+       */
+      Models::UpdateGatewayLoadBalancerResponse updateGatewayLoadBalancerWithOptions(const string &gatewayId, const Models::UpdateGatewayLoadBalancerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关负载均衡器
+       *
+       * @param request UpdateGatewayLoadBalancerRequest
+       * @return UpdateGatewayLoadBalancerResponse
+       */
+      Models::UpdateGatewayLoadBalancerResponse updateGatewayLoadBalancer(const string &gatewayId, const Models::UpdateGatewayLoadBalancerRequest &request);
+
+      /**
+       * @summary 修改网关运维时间
+       *
+       * @param request UpdateGatewayMaintenancePeriodRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayMaintenancePeriodResponse
+       */
+      Models::UpdateGatewayMaintenancePeriodResponse updateGatewayMaintenancePeriodWithOptions(const string &gatewayId, const Models::UpdateGatewayMaintenancePeriodRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改网关运维时间
+       *
+       * @param request UpdateGatewayMaintenancePeriodRequest
+       * @return UpdateGatewayMaintenancePeriodResponse
+       */
+      Models::UpdateGatewayMaintenancePeriodResponse updateGatewayMaintenancePeriod(const string &gatewayId, const Models::UpdateGatewayMaintenancePeriodRequest &request);
 
       /**
        * @deprecated OpenAPI UpdateGatewayName is deprecated
@@ -2509,16 +3125,16 @@ namespace APIG20240327
       Models::UpdateGatewayNameResponse updateGatewayName(const string &gatewayId, const Models::UpdateGatewayNameRequest &request);
 
       /**
-       * @summary Edits a quota throttling rule on a gateway.
+       * @summary Edits a quota rate-limiting rule on a gateway.
        *
-       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+       * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
        * >  Recommended call logic:
-       * > - Step 1: Perform a dry run to check for rule conflicts.
+       * > - 1. Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
        * > - - The response contains a conflict preview with conflictHash.
-       * > - Step 2: Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * > - 2. Submit the request after confirmation.
+       * > - - No conflict: Set dryRun to false and overwrite to false.
+       * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request UpdateGatewayQuotaRuleRequest
        * @param headers map
@@ -2528,16 +3144,16 @@ namespace APIG20240327
       Models::UpdateGatewayQuotaRuleResponse updateGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::UpdateGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits a quota throttling rule on a gateway.
+       * @summary Edits a quota rate-limiting rule on a gateway.
        *
-       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+       * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
        * >  Recommended call logic:
-       * > - Step 1: Perform a dry run to check for rule conflicts.
+       * > - 1. Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
        * > - - The response contains a conflict preview with conflictHash.
-       * > - Step 2: Submit the request after confirmation.
-       * > - - No conflicts: Set dryRun to false and overwrite to false.
-       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+       * > - 2. Submit the request after confirmation.
+       * > - - No conflict: Set dryRun to false and overwrite to false.
+       * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request UpdateGatewayQuotaRuleRequest
        * @return UpdateGatewayQuotaRuleResponse
@@ -2643,6 +3259,42 @@ namespace APIG20240327
       Models::UpdateMcpServerResponse updateMcpServer(const string &mcpServerId, const Models::UpdateMcpServerRequest &request);
 
       /**
+       * @summary 更新迁移任务
+       *
+       * @param request UpdateMigrationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMigrationTaskResponse
+       */
+      Models::UpdateMigrationTaskResponse updateMigrationTaskWithOptions(const string &taskId, const Models::UpdateMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新迁移任务
+       *
+       * @param request UpdateMigrationTaskRequest
+       * @return UpdateMigrationTaskResponse
+       */
+      Models::UpdateMigrationTaskResponse updateMigrationTask(const string &taskId, const Models::UpdateMigrationTaskRequest &request);
+
+      /**
+       * @summary 更改网关网络访问类型
+       *
+       * @param request UpdateNetworkAccessRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNetworkAccessResponse
+       */
+      Models::UpdateNetworkAccessResponse updateNetworkAccessWithOptions(const string &gatewayId, const Models::UpdateNetworkAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更改网关网络访问类型
+       *
+       * @param request UpdateNetworkAccessRequest
+       * @return UpdateNetworkAccessResponse
+       */
+      Models::UpdateNetworkAccessResponse updateNetworkAccess(const string &gatewayId, const Models::UpdateNetworkAccessRequest &request);
+
+      /**
        * @summary Updates a plugin mount.
        *
        * @param request UpdatePluginAttachmentRequest
@@ -2677,6 +3329,24 @@ namespace APIG20240327
        * @return UpdatePolicyResponse
        */
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
+
+      /**
+       * @summary 更新风险项通知配置
+       *
+       * @param request UpdateRiskNotificationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRiskNotificationResponse
+       */
+      Models::UpdateRiskNotificationResponse updateRiskNotificationWithOptions(const string &gatewayId, const Models::UpdateRiskNotificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新风险项通知配置
+       *
+       * @param request UpdateRiskNotificationRequest
+       * @return UpdateRiskNotificationResponse
+       */
+      Models::UpdateRiskNotificationResponse updateRiskNotification(const string &gatewayId, const Models::UpdateRiskNotificationRequest &request);
 
       /**
        * @summary Updates a key pair.
@@ -2753,6 +3423,24 @@ namespace APIG20240327
        * @return UpgradeGatewayResponse
        */
       Models::UpgradeGatewayResponse upgradeGateway(const string &gatewayId, const Models::UpgradeGatewayRequest &request);
+
+      /**
+       * @summary 检查迁移任务
+       *
+       * @param request VerifyMigrationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyMigrationTaskResponse
+       */
+      Models::VerifyMigrationTaskResponse verifyMigrationTaskWithOptions(const string &taskId, const Models::VerifyMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查迁移任务
+       *
+       * @param request VerifyMigrationTaskRequest
+       * @return VerifyMigrationTaskResponse
+       */
+      Models::VerifyMigrationTaskResponse verifyMigrationTask(const string &taskId, const Models::VerifyMigrationTaskRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace APIG20240327

@@ -622,8 +622,8 @@ namespace Models
         // The list of listening ports.
         shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
         // The status of load balancing. Valid values:
-        // - Ready: active.
-        // - NotCreate: not associated with an instance.
+        // - Ready: Active.
+        // - NotCreate: No associated instance.
         shared_ptr<string> status_ {};
         // The load balancing type. Valid values:
         // - NLB: Network Load Balancer (NLB).
@@ -912,7 +912,9 @@ namespace Models
       shared_ptr<string> gatewayEdition_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter.
+      // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
+      // - ENTERPRISE: default.
+      // - STANDARD: allowed only for AI multi-tenant V2.
       shared_ptr<string> gatewayMode_ {};
       // The gateway type. Valid values:
       // - API: API gateway.

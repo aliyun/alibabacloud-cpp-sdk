@@ -77,18 +77,13 @@ namespace Models
   protected:
     // Specifies whether to return only services that have not been imported.
     shared_ptr<bool> importableOnly_ {};
-    // The maximum number of entries to return. Valid range: (0, 100]. Default value: 10.
+    // The maximum number of results to return. Valid range: (0, 100]. Default value: 10.
     shared_ptr<int32_t> limit_ {};
-    // The API name for fuzzy match.
+    // Fuzzy search by API name.
     shared_ptr<string> nameLike_ {};
     // The workspace ID of the PAI-EAS service.
     shared_ptr<string> paiWorkspaceId_ {};
-    // The service source type used to filter results. Valid values:
-    // - MSE_NACOS: services from MSE Nacos.
-    // - K8S: services from a Kubernetes cluster in Container Service.
-    // - FC3: services from Function Compute.
-    // - VIP: services from a fixed address.
-    // - DNS: services from a domain name.
+    // The service source type used to query services. This parameter is essentially required. If not provided, the API returns 400 InvalidParameter.WithValue. Valid values: SAE_K8S_SERVICE, PAI_EAS_SERVICE, CloudFlow, K8S, FC3, PAI_WORKSPACE, and MSE_NACOS.
     shared_ptr<string> sourceType_ {};
   };
 

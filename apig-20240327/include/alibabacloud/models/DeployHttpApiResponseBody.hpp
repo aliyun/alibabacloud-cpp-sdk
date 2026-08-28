@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // HTTP API ID。
+      // The ID of the HTTP API.
       shared_ptr<string> httpApiId_ {};
     };
 

@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(inputAmount, inputAmount_);
         DARABONBA_PTR_TO_JSON(outputAmount, outputAmount_);
         DARABONBA_PTR_TO_JSON(overLimit, overLimit_);
+        DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
         DARABONBA_PTR_TO_JSON(totalQuota, totalQuota_);
         DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(inputAmount, inputAmount_);
         DARABONBA_PTR_FROM_JSON(outputAmount, outputAmount_);
         DARABONBA_PTR_FROM_JSON(overLimit, overLimit_);
+        DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
         DARABONBA_PTR_FROM_JSON(totalQuota, totalQuota_);
         DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
       };
@@ -96,17 +98,21 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Items& obj) { 
             DARABONBA_PTR_TO_JSON(cachedAmount, cachedAmount_);
+            DARABONBA_PTR_TO_JSON(consumer, consumer_);
             DARABONBA_PTR_TO_JSON(inputAmount, inputAmount_);
             DARABONBA_PTR_TO_JSON(model, model_);
             DARABONBA_PTR_TO_JSON(outputAmount, outputAmount_);
+            DARABONBA_PTR_TO_JSON(requestId, requestId_);
             DARABONBA_PTR_TO_JSON(startTime, startTime_);
             DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
           };
           friend void from_json(const Darabonba::Json& j, Items& obj) { 
             DARABONBA_PTR_FROM_JSON(cachedAmount, cachedAmount_);
+            DARABONBA_PTR_FROM_JSON(consumer, consumer_);
             DARABONBA_PTR_FROM_JSON(inputAmount, inputAmount_);
             DARABONBA_PTR_FROM_JSON(model, model_);
             DARABONBA_PTR_FROM_JSON(outputAmount, outputAmount_);
+            DARABONBA_PTR_FROM_JSON(requestId, requestId_);
             DARABONBA_PTR_FROM_JSON(startTime, startTime_);
             DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
           };
@@ -122,12 +128,20 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->cachedAmount_ == nullptr
-        && this->inputAmount_ == nullptr && this->model_ == nullptr && this->outputAmount_ == nullptr && this->startTime_ == nullptr && this->usedAmount_ == nullptr; };
+        && this->consumer_ == nullptr && this->inputAmount_ == nullptr && this->model_ == nullptr && this->outputAmount_ == nullptr && this->requestId_ == nullptr
+        && this->startTime_ == nullptr && this->usedAmount_ == nullptr; };
           // cachedAmount Field Functions 
           bool hasCachedAmount() const { return this->cachedAmount_ != nullptr;};
           void deleteCachedAmount() { this->cachedAmount_ = nullptr;};
           inline int64_t getCachedAmount() const { DARABONBA_PTR_GET_DEFAULT(cachedAmount_, 0L) };
           inline Items& setCachedAmount(int64_t cachedAmount) { DARABONBA_PTR_SET_VALUE(cachedAmount_, cachedAmount) };
+
+
+          // consumer Field Functions 
+          bool hasConsumer() const { return this->consumer_ != nullptr;};
+          void deleteConsumer() { this->consumer_ = nullptr;};
+          inline string getConsumer() const { DARABONBA_PTR_GET_DEFAULT(consumer_, "") };
+          inline Items& setConsumer(string consumer) { DARABONBA_PTR_SET_VALUE(consumer_, consumer) };
 
 
           // inputAmount Field Functions 
@@ -151,6 +165,13 @@ namespace Models
           inline Items& setOutputAmount(int64_t outputAmount) { DARABONBA_PTR_SET_VALUE(outputAmount_, outputAmount) };
 
 
+          // requestId Field Functions 
+          bool hasRequestId() const { return this->requestId_ != nullptr;};
+          void deleteRequestId() { this->requestId_ = nullptr;};
+          inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+          inline Items& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
           // startTime Field Functions 
           bool hasStartTime() const { return this->startTime_ != nullptr;};
           void deleteStartTime() { this->startTime_ = nullptr;};
@@ -168,12 +189,16 @@ namespace Models
         protected:
           // The cached token consumption.
           shared_ptr<int64_t> cachedAmount_ {};
+          // The consumer name.
+          shared_ptr<string> consumer_ {};
           // The input token consumption.
           shared_ptr<int64_t> inputAmount_ {};
           // The model name.
           shared_ptr<string> model_ {};
           // The output token consumption.
           shared_ptr<int64_t> outputAmount_ {};
+          // The request ID.
+          shared_ptr<string> requestId_ {};
           // The consumption (request) time in the format of YYYY-MM-DD.
           shared_ptr<string> startTime_ {};
           // The total consumption.
@@ -224,8 +249,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->cachedAmount_ == nullptr
-        && this->details_ == nullptr && this->inputAmount_ == nullptr && this->outputAmount_ == nullptr && this->overLimit_ == nullptr && this->totalQuota_ == nullptr
-        && this->usedAmount_ == nullptr; };
+        && this->details_ == nullptr && this->inputAmount_ == nullptr && this->outputAmount_ == nullptr && this->overLimit_ == nullptr && this->subjectType_ == nullptr
+        && this->totalQuota_ == nullptr && this->usedAmount_ == nullptr; };
       // cachedAmount Field Functions 
       bool hasCachedAmount() const { return this->cachedAmount_ != nullptr;};
       void deleteCachedAmount() { this->cachedAmount_ = nullptr;};
@@ -263,6 +288,13 @@ namespace Models
       inline Data& setOverLimit(bool overLimit) { DARABONBA_PTR_SET_VALUE(overLimit_, overLimit) };
 
 
+      // subjectType Field Functions 
+      bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+      void deleteSubjectType() { this->subjectType_ = nullptr;};
+      inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+      inline Data& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
       // totalQuota Field Functions 
       bool hasTotalQuota() const { return this->totalQuota_ != nullptr;};
       void deleteTotalQuota() { this->totalQuota_ = nullptr;};
@@ -286,11 +318,15 @@ namespace Models
       shared_ptr<int64_t> inputAmount_ {};
       // The total output token consumption.
       shared_ptr<int64_t> outputAmount_ {};
-      // Indicates whether the limit is exceeded.
+      // Indicates whether the quota limit is exceeded.
       shared_ptr<bool> overLimit_ {};
+      // The subject type. Valid values:
+      // - consumer
+      // - consumer_group
+      shared_ptr<string> subjectType_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};
-      // The total used amount of the subject.
+      // The total used quota of the subject.
       shared_ptr<int64_t> usedAmount_ {};
     };
 

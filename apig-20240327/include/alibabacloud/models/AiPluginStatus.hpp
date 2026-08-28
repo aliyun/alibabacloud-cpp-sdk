@@ -64,7 +64,7 @@ namespace Models
     shared_ptr<vector<Darabonba::Json>> errorLogs_ {};
     // The plug-in instance ID.
     shared_ptr<string> pluginId_ {};
-    // Indicates whether the backend service that the plug-in depends on is healthy.
+    // Indicates whether the backend service that the plugin depends on is healthy.
     shared_ptr<bool> serviceHealthy_ {};
   };
 

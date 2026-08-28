@@ -9,6 +9,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::APIG20240327::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -66,15 +67,15 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
  * > 
- * >  Recommended call sequence:
- * > - Step 1: Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflicts: dryRun=false, overwrite=false.
+ * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request AddGatewayQuotaRuleRequest
  * @param headers map
@@ -124,6 +125,10 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
     body["ruleName"] = request.getRuleName();
   }
 
+  if (!!request.hasSubjectType()) {
+    body["subjectType"] = request.getSubjectType();
+  }
+
   if (!!request.hasTimezone()) {
     body["timezone"] = request.getTimezone();
   }
@@ -153,15 +158,15 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
  * > 
- * >  Recommended call sequence:
- * > - Step 1: Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * >  Recommended call logic:
+ * > - 1. Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflicts: dryRun=false, overwrite=false.
+ * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request AddGatewayQuotaRuleRequest
  * @return AddGatewayQuotaRuleResponse
@@ -500,6 +505,59 @@ BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsum
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return batchRemoveConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary 批量更新消费者鉴权
+ *
+ * @param request BatchUpdateHttpApiOperationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchUpdateHttpApiOperationResponse
+ */
+BatchUpdateHttpApiOperationResponse Client::batchUpdateHttpApiOperationWithOptions(const string &httpApiId, const BatchUpdateHttpApiOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuthConfig()) {
+    body["authConfig"] = request.getAuthConfig();
+  }
+
+  if (!!request.hasEnableAuth()) {
+    body["enableAuth"] = request.getEnableAuth();
+  }
+
+  if (!!request.hasOperationIds()) {
+    body["operationIds"] = request.getOperationIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchUpdateHttpApiOperation"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/operations")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchUpdateHttpApiOperationResponse>();
+}
+
+/**
+ * @summary 批量更新消费者鉴权
+ *
+ * @param request BatchUpdateHttpApiOperationRequest
+ * @return BatchUpdateHttpApiOperationResponse
+ */
+BatchUpdateHttpApiOperationResponse Client::batchUpdateHttpApiOperation(const string &httpApiId, const BatchUpdateHttpApiOperationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchUpdateHttpApiOperationWithOptions(httpApiId, request, headers, runtime);
 }
 
 /**
@@ -1517,6 +1575,55 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
 }
 
 /**
+ * @summary 创建API版本
+ *
+ * @description 接口支持创建多个服务。
+ *
+ * @param request CreateHttpApiVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHttpApiVersionResponse
+ */
+CreateHttpApiVersionResponse Client::createHttpApiVersionWithOptions(const string &httpApiId, const CreateHttpApiVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasVersionConfig()) {
+    body["versionConfig"] = request.getVersionConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateHttpApiVersion"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/versions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHttpApiVersionResponse>();
+}
+
+/**
+ * @summary 创建API版本
+ *
+ * @description 接口支持创建多个服务。
+ *
+ * @param request CreateHttpApiVersionRequest
+ * @return CreateHttpApiVersionResponse
+ */
+CreateHttpApiVersionResponse Client::createHttpApiVersion(const string &httpApiId, const CreateHttpApiVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createHttpApiVersionWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a Model Context Protocol (MCP) server.
  *
  * @param request CreateMcpServerRequest
@@ -1611,6 +1718,79 @@ CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createMcpServerWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建迁移任务
+ *
+ * @param request CreateMigrationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMigrationTaskResponse
+ */
+CreateMigrationTaskResponse Client::createMigrationTaskWithOptions(const CreateMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["clusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnvironmentId()) {
+    body["environmentId"] = request.getEnvironmentId();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasHttpApiId()) {
+    body["httpApiId"] = request.getHttpApiId();
+  }
+
+  if (!!request.hasIngressClass()) {
+    body["ingressClass"] = request.getIngressClass();
+  }
+
+  if (!!request.hasMigrationType()) {
+    body["migrationType"] = request.getMigrationType();
+  }
+
+  if (!!request.hasWatchNamespace()) {
+    body["watchNamespace"] = request.getWatchNamespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMigrationTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMigrationTaskResponse>();
+}
+
+/**
+ * @summary 创建迁移任务
+ *
+ * @param request CreateMigrationTaskRequest
+ * @return CreateMigrationTaskResponse
+ */
+CreateMigrationTaskResponse Client::createMigrationTask(const CreateMigrationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMigrationTaskWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1764,6 +1944,63 @@ CreatePluginClassResponse Client::createPluginClass(const CreatePluginClassReque
 }
 
 /**
+ * @summary 创建插件webide工作空间
+ *
+ * @param request CreatePluginWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePluginWorkspaceResponse
+ */
+CreatePluginWorkspaceResponse Client::createPluginWorkspaceWithOptions(const CreatePluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGatewayType()) {
+    body["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    body["organizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRepoName()) {
+    body["repoName"] = request.getRepoName();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    body["workspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePluginWorkspace"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-workspaces")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePluginWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建插件webide工作空间
+ *
+ * @param request CreatePluginWorkspaceRequest
+ * @return CreatePluginWorkspaceResponse
+ */
+CreatePluginWorkspaceResponse Client::createPluginWorkspace(const CreatePluginWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPluginWorkspaceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a policy.
  *
  * @param request CreatePolicyRequest
@@ -1879,6 +2116,45 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createPolicyAttachmentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建风险检查任务
+ *
+ * @param request CreateRiskCheckTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRiskCheckTaskResponse
+ */
+CreateRiskCheckTaskResponse Client::createRiskCheckTaskWithOptions(const string &gatewayId, const CreateRiskCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRiskCheckTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/risk-check/tasks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRiskCheckTaskResponse>();
+}
+
+/**
+ * @summary 创建风险检查任务
+ *
+ * @param request CreateRiskCheckTaskRequest
+ * @return CreateRiskCheckTaskResponse
+ */
+CreateRiskCheckTaskResponse Client::createRiskCheckTask(const string &gatewayId, const CreateRiskCheckTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRiskCheckTaskWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -2666,6 +2942,45 @@ DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
 }
 
 /**
+ * @summary 删除迁移任务
+ *
+ * @param request DeleteMigrationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMigrationTaskResponse
+ */
+DeleteMigrationTaskResponse Client::deleteMigrationTaskWithOptions(const string &taskId, const DeleteMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMigrationTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMigrationTaskResponse>();
+}
+
+/**
+ * @summary 删除迁移任务
+ *
+ * @param request DeleteMigrationTaskRequest
+ * @return DeleteMigrationTaskResponse
+ */
+DeleteMigrationTaskResponse Client::deleteMigrationTask(const string &taskId, const DeleteMigrationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMigrationTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a plugin mount.
  *
  * @param headers map
@@ -3016,6 +3331,8 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 /**
  * @summary Publishes an MCP server.
  *
+ * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeployMcpServerResponse
@@ -3040,6 +3357,8 @@ DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServ
 
 /**
  * @summary Publishes an MCP server.
+ *
+ * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
  *
  * @return DeployMcpServerResponse
  */
@@ -3092,6 +3411,51 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Disassociates and deletes a policy.
+ *
+ * @param request DetachAndDeletePolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DetachAndDeletePolicyResponse
+ */
+DetachAndDeletePolicyResponse Client::detachAndDeletePolicyWithOptions(const string &policyId, const DetachAndDeletePolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPolicyAttachmentId()) {
+    query["policyAttachmentId"] = request.getPolicyAttachmentId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DetachAndDeletePolicy"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/policies/" , Darabonba::Encode::Encoder::percentEncode(policyId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DetachAndDeletePolicyResponse>();
+}
+
+/**
+ * @summary Disassociates and deletes a policy.
+ *
+ * @param request DetachAndDeletePolicyRequest
+ * @return DetachAndDeletePolicyResponse
+ */
+DetachAndDeletePolicyResponse Client::detachAndDeletePolicy(const string &policyId, const DetachAndDeletePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return detachAndDeletePolicyWithOptions(policyId, request, headers, runtime);
 }
 
 /**
@@ -3632,6 +3996,45 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 }
 
 /**
+ * @summary 获取网关弹性策略
+ *
+ * @param request GetGatewayElasticPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayElasticPolicyResponse
+ */
+GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicyWithOptions(const string &gatewayId, const GetGatewayElasticPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayElasticPolicy"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/elastic-policy")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayElasticPolicyResponse>();
+}
+
+/**
+ * @summary 获取网关弹性策略
+ *
+ * @param request GetGatewayElasticPolicyRequest
+ * @return GetGatewayElasticPolicyResponse
+ */
+GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicy(const string &gatewayId, const GetGatewayElasticPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayElasticPolicyWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the details of a gateway quota rate limiting rule.
  *
  * @description Queries the details of a consumer quota rule on an AI gateway.
@@ -3654,6 +4057,10 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string 
 
   if (!!request.hasWithConsumers()) {
     query["withConsumers"] = request.getWithConsumers();
+  }
+
+  if (!!request.hasWithSubjects()) {
+    query["withSubjects"] = request.getWithSubjects();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3691,7 +4098,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -3734,7 +4141,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -3903,6 +4310,84 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
+ * @summary 获取迁移任务中的命名空间和服务映射
+ *
+ * @param request GetMigrationNamespacedServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMigrationNamespacedServicesResponse
+ */
+GetMigrationNamespacedServicesResponse Client::getMigrationNamespacedServicesWithOptions(const string &taskId, const GetMigrationNamespacedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMigrationNamespacedServices"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/namespaced-services")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMigrationNamespacedServicesResponse>();
+}
+
+/**
+ * @summary 获取迁移任务中的命名空间和服务映射
+ *
+ * @param request GetMigrationNamespacedServicesRequest
+ * @return GetMigrationNamespacedServicesResponse
+ */
+GetMigrationNamespacedServicesResponse Client::getMigrationNamespacedServices(const string &taskId, const GetMigrationNamespacedServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMigrationNamespacedServicesWithOptions(taskId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取迁移任务详情
+ *
+ * @param request GetMigrationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMigrationTaskResponse
+ */
+GetMigrationTaskResponse Client::getMigrationTaskWithOptions(const string &taskId, const GetMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMigrationTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMigrationTaskResponse>();
+}
+
+/**
+ * @summary 获取迁移任务详情
+ *
+ * @param request GetMigrationTaskRequest
+ * @return GetMigrationTaskResponse
+ */
+GetMigrationTaskResponse Client::getMigrationTask(const string &taskId, const GetMigrationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMigrationTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
  * @summary Queries a plugin mount.
  *
  * @param headers map
@@ -3975,6 +4460,45 @@ GetPluginClassResponse Client::getPluginClass(const string &pluginClassId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getPluginClassWithOptions(pluginClassId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询插件webide工作空间
+ *
+ * @param request GetPluginWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPluginWorkspaceResponse
+ */
+GetPluginWorkspaceResponse Client::getPluginWorkspaceWithOptions(const string &workspaceId, const GetPluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPluginWorkspace"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPluginWorkspaceResponse>();
+}
+
+/**
+ * @summary 查询插件webide工作空间
+ *
+ * @param request GetPluginWorkspaceRequest
+ * @return GetPluginWorkspaceResponse
+ */
+GetPluginWorkspaceResponse Client::getPluginWorkspace(const string &workspaceId, const GetPluginWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPluginWorkspaceWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -4092,6 +4616,51 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getResourceOverviewWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取风险项通知配置
+ *
+ * @param request GetRiskNotificationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRiskNotificationResponse
+ */
+GetRiskNotificationResponse Client::getRiskNotificationWithOptions(const string &gatewayId, const GetRiskNotificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRiskCode()) {
+    query["riskCode"] = request.getRiskCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRiskNotification"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/risk-check/notifications")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRiskNotificationResponse>();
+}
+
+/**
+ * @summary 获取风险项通知配置
+ *
+ * @param request GetRiskNotificationRequest
+ * @return GetRiskNotificationResponse
+ */
+GetRiskNotificationResponse Client::getRiskNotification(const string &gatewayId, const GetRiskNotificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRiskNotificationWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -4435,6 +5004,130 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return installPluginWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 调用AIAgent
+ *
+ * @param request InvokeAIAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeAIAgentResponse
+ */
+FutureGenerator<InvokeAIAgentResponse> Client::invokeAIAgentWithSSE(const InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentName()) {
+    body["agentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasBizParams()) {
+    body["bizParams"] = request.getBizParams();
+  }
+
+  if (!!request.hasHistory()) {
+    body["history"] = request.getHistory();
+  }
+
+  if (!!request.hasOutputLanguage()) {
+    body["outputLanguage"] = request.getOutputLanguage();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.getPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeAIAgent"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-agents/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<InvokeAIAgentResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 调用AIAgent
+ *
+ * @param request InvokeAIAgentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeAIAgentResponse
+ */
+InvokeAIAgentResponse Client::invokeAIAgentWithOptions(const InvokeAIAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentName()) {
+    body["agentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasBizParams()) {
+    body["bizParams"] = request.getBizParams();
+  }
+
+  if (!!request.hasHistory()) {
+    body["history"] = request.getHistory();
+  }
+
+  if (!!request.hasOutputLanguage()) {
+    body["outputLanguage"] = request.getOutputLanguage();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["prompt"] = request.getPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeAIAgent"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-agents/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InvokeAIAgentResponse>();
+}
+
+/**
+ * @summary 调用AIAgent
+ *
+ * @param request InvokeAIAgentRequest
+ * @return InvokeAIAgentResponse
+ */
+InvokeAIAgentResponse Client::invokeAIAgent(const InvokeAIAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return invokeAIAgentWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5048,7 +5741,7 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 }
 
 /**
- * @summary Retrieves the external service information of a gateway.
+ * @summary Retrieves external service information for a gateway.
  *
  * @description This operation supports creating multiple services.
  *
@@ -5099,7 +5792,7 @@ ListExternalServicesResponse Client::listExternalServicesWithOptions(const strin
 }
 
 /**
- * @summary Retrieves the external service information of a gateway.
+ * @summary Retrieves external service information for a gateway.
  *
  * @description This operation supports creating multiple services.
  *
@@ -5110,6 +5803,159 @@ ListExternalServicesResponse Client::listExternalServices(const string &gatewayI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listExternalServicesWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the security groups of an instance that can be used for authorization.
+ *
+ * @param request ListGatewayAuthorizableSecurityGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayAuthorizableSecurityGroupsResponse
+ */
+ListGatewayAuthorizableSecurityGroupsResponse Client::listGatewayAuthorizableSecurityGroupsWithOptions(const string &gatewayId, const ListGatewayAuthorizableSecurityGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCsClusterId()) {
+    query["csClusterId"] = request.getCsClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayAuthorizableSecurityGroups"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/authorizable-security-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayAuthorizableSecurityGroupsResponse>();
+}
+
+/**
+ * @summary Queries the security groups of an instance that can be used for authorization.
+ *
+ * @param request ListGatewayAuthorizableSecurityGroupsRequest
+ * @return ListGatewayAuthorizableSecurityGroupsResponse
+ */
+ListGatewayAuthorizableSecurityGroupsResponse Client::listGatewayAuthorizableSecurityGroups(const string &gatewayId, const ListGatewayAuthorizableSecurityGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayAuthorizableSecurityGroupsWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the security group rules of an instance that are in effect.
+ *
+ * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+ */
+ListGatewayAuthorizedSecurityGroupRulesResponse Client::listGatewayAuthorizedSecurityGroupRulesWithOptions(const string &gatewayId, const ListGatewayAuthorizedSecurityGroupRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayAuthorizedSecurityGroupRules"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/authorized-security-groups-rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayAuthorizedSecurityGroupRulesResponse>();
+}
+
+/**
+ * @summary Queries the security group rules of an instance that are in effect.
+ *
+ * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
+ * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+ */
+ListGatewayAuthorizedSecurityGroupRulesResponse Client::listGatewayAuthorizedSecurityGroupRules(const string &gatewayId, const ListGatewayAuthorizedSecurityGroupRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayAuthorizedSecurityGroupRulesWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取网关的错误访问日志
+ *
+ * @param request ListGatewayErrorAccessLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayErrorAccessLogsResponse
+ */
+ListGatewayErrorAccessLogsResponse Client::listGatewayErrorAccessLogsWithOptions(const string &gatewayId, const ListGatewayErrorAccessLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthority()) {
+    query["authority"] = request.getAuthority();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGatewayRequestId()) {
+    query["gatewayRequestId"] = request.getGatewayRequestId();
+  }
+
+  if (!!request.hasPath()) {
+    query["path"] = request.getPath();
+  }
+
+  if (!!request.hasResponseCode()) {
+    query["responseCode"] = request.getResponseCode();
+  }
+
+  if (!!request.hasRouteName()) {
+    query["routeName"] = request.getRouteName();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayErrorAccessLogs"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/error-access-logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayErrorAccessLogsResponse>();
+}
+
+/**
+ * @summary 获取网关的错误访问日志
+ *
+ * @param request ListGatewayErrorAccessLogsRequest
+ * @return ListGatewayErrorAccessLogsResponse
+ */
+ListGatewayErrorAccessLogsResponse Client::listGatewayErrorAccessLogs(const string &gatewayId, const ListGatewayErrorAccessLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayErrorAccessLogsWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -5146,6 +5992,71 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 获取网关负载均衡器列表
+ *
+ * @param request ListGatewayLoadBalancersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayLoadBalancersResponse
+ */
+ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancersWithOptions(const string &gatewayId, const ListGatewayLoadBalancersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["all"] = request.getAll();
+  }
+
+  if (!!request.hasLoadBalancerId()) {
+    query["loadBalancerId"] = request.getLoadBalancerId();
+  }
+
+  if (!!request.hasNetwork()) {
+    query["network"] = request.getNetwork();
+  }
+
+  if (!!request.hasRelated()) {
+    query["related"] = request.getRelated();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["vpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayLoadBalancers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/list-load-balancers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayLoadBalancersResponse>();
+}
+
+/**
+ * @summary 获取网关负载均衡器列表
+ *
+ * @param request ListGatewayLoadBalancersRequest
+ * @return ListGatewayLoadBalancersResponse
+ */
+ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancers(const string &gatewayId, const ListGatewayLoadBalancersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayLoadBalancersWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -5294,6 +6205,99 @@ ListGatewaysResponse Client::listGateways(const ListGatewaysRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listGatewaysWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ListGlobalPolicies
+ *
+ * @param request ListGlobalPoliciesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGlobalPoliciesResponse
+ */
+ListGlobalPoliciesResponse Client::listGlobalPoliciesWithOptions(const ListGlobalPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttachResourceType()) {
+    query["attachResourceType"] = request.getAttachResourceType();
+  }
+
+  if (!!request.hasClassName()) {
+    query["className"] = request.getClassName();
+  }
+
+  if (!!request.hasEnable()) {
+    query["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasEnvironmentId()) {
+    query["environmentId"] = request.getEnvironmentId();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasGlobalPolicyType()) {
+    query["globalPolicyType"] = request.getGlobalPolicyType();
+  }
+
+  if (!!request.hasIpAccessControlContent()) {
+    query["ipAccessControlContent"] = request.getIpAccessControlContent();
+  }
+
+  if (!!request.hasIpAccessControlProtocolLayer()) {
+    query["ipAccessControlProtocolLayer"] = request.getIpAccessControlProtocolLayer();
+  }
+
+  if (!!request.hasIpAccessControlResourceName()) {
+    query["ipAccessControlResourceName"] = request.getIpAccessControlResourceName();
+  }
+
+  if (!!request.hasIpAccessControlType()) {
+    query["ipAccessControlType"] = request.getIpAccessControlType();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGlobalPolicies"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/global-policies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGlobalPoliciesResponse>();
+}
+
+/**
+ * @summary ListGlobalPolicies
+ *
+ * @param request ListGlobalPoliciesRequest
+ * @return ListGlobalPoliciesResponse
+ */
+ListGlobalPoliciesResponse Client::listGlobalPolicies(const ListGlobalPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGlobalPoliciesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5600,6 +6604,104 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 }
 
 /**
+ * @summary ListInstallableGateways
+ *
+ * @param request ListInstallableGatewaysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstallableGatewaysResponse
+ */
+ListInstallableGatewaysResponse Client::listInstallableGatewaysWithOptions(const string &pluginClassId, const ListInstallableGatewaysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayType()) {
+    query["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstallableGateways"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-classes/" , Darabonba::Encode::Encoder::percentEncode(pluginClassId) , "/installable-gateways")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstallableGatewaysResponse>();
+}
+
+/**
+ * @summary ListInstallableGateways
+ *
+ * @param request ListInstallableGatewaysRequest
+ * @return ListInstallableGatewaysResponse
+ */
+ListInstallableGatewaysResponse Client::listInstallableGateways(const string &pluginClassId, const ListInstallableGatewaysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstallableGatewaysWithOptions(pluginClassId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+ *
+ * @param request ListK8sClusterSourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListK8sClusterSourcesResponse
+ */
+ListK8sClusterSourcesResponse Client::listK8sClusterSourcesWithOptions(const string &gatewayId, const ListK8sClusterSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVpcId()) {
+    query["vpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListK8sClusterSources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/service-sources/k8s-clusters")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListK8sClusterSourcesResponse>();
+}
+
+/**
+ * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+ *
+ * @param request ListK8sClusterSourcesRequest
+ * @return ListK8sClusterSourcesResponse
+ */
+ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewayId, const ListK8sClusterSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listK8sClusterSourcesWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the list of MCP servers.
  *
  * @description The operation supports creating multiple services.
@@ -5670,6 +6772,94 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMcpServersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取迁移任务列表
+ *
+ * @param request ListMigrationTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMigrationTasksResponse
+ */
+ListMigrationTasksResponse Client::listMigrationTasksWithOptions(const ListMigrationTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMigrationTasks"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMigrationTasksResponse>();
+}
+
+/**
+ * @summary 获取迁移任务列表
+ *
+ * @param request ListMigrationTasksRequest
+ * @return ListMigrationTasksResponse
+ */
+ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMigrationTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the MSE Nacos instances that can be added as sources.
+ *
+ * @param request ListMseNacosSourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMseNacosSourcesResponse
+ */
+ListMseNacosSourcesResponse Client::listMseNacosSourcesWithOptions(const string &gatewayId, const ListMseNacosSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMseNacosSources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/service-sources/mse-nacos-instances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMseNacosSourcesResponse>();
+}
+
+/**
+ * @summary Queries the MSE Nacos instances that can be added as sources.
+ *
+ * @param request ListMseNacosSourcesRequest
+ * @return ListMseNacosSourcesResponse
+ */
+ListMseNacosSourcesResponse Client::listMseNacosSources(const string &gatewayId, const ListMseNacosSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMseNacosSourcesWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -5836,6 +7026,90 @@ ListPluginClassesResponse Client::listPluginClasses(const ListPluginClassesReque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPluginClassesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+ *
+ * @param request ListPluginRepositoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPluginRepositoriesResponse
+ */
+ListPluginRepositoriesResponse Client::listPluginRepositoriesWithOptions(const ListPluginRepositoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPluginRepositories"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-repositories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPluginRepositoriesResponse>();
+}
+
+/**
+ * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+ *
+ * @param request ListPluginRepositoriesRequest
+ * @return ListPluginRepositoriesResponse
+ */
+ListPluginRepositoriesResponse Client::listPluginRepositories(const ListPluginRepositoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPluginRepositoriesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取用户插件webide工作空间列表
+ *
+ * @param request ListPluginWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPluginWorkspaceResponse
+ */
+ListPluginWorkspaceResponse Client::listPluginWorkspaceWithOptions(const ListPluginWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayType()) {
+    query["gatewayType"] = request.getGatewayType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPluginWorkspace"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-workspaces")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPluginWorkspaceResponse>();
+}
+
+/**
+ * @summary 获取用户插件webide工作空间列表
+ *
+ * @param request ListPluginWorkspaceRequest
+ * @return ListPluginWorkspaceResponse
+ */
+ListPluginWorkspaceResponse Client::listPluginWorkspace(const ListPluginWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPluginWorkspaceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6054,6 +7328,63 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
+ * @summary 查询风险检测结果
+ *
+ * @param request ListRiskCheckResultsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRiskCheckResultsResponse
+ */
+ListRiskCheckResultsResponse Client::listRiskCheckResultsWithOptions(const string &gatewayId, const ListRiskCheckResultsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRiskCheckResults"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/risk-check/results")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRiskCheckResultsResponse>();
+}
+
+/**
+ * @summary 查询风险检测结果
+ *
+ * @param request ListRiskCheckResultsRequest
+ * @return ListRiskCheckResultsResponse
+ */
+ListRiskCheckResultsResponse Client::listRiskCheckResults(const string &gatewayId, const ListRiskCheckResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRiskCheckResultsWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Lists secret references.
  *
  * @description This operation supports creating multiple services.
@@ -6237,6 +7568,67 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
+ * @summary Queries sources.
+ *
+ * @param request ListSourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSourcesResponse
+ */
+ListSourcesResponse Client::listSourcesWithOptions(const ListSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/sources")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSourcesResponse>();
+}
+
+/**
+ * @summary Queries sources.
+ *
+ * @param request ListSourcesRequest
+ * @return ListSourcesResponse
+ */
+ListSourcesResponse Client::listSources(const ListSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSourcesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a list of certificates.
  *
  * @param request ListSslCertsRequest
@@ -6291,6 +7683,59 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listSslCertsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询已同步的MCP Server列表
+ *
+ * @param request ListSyncMCPServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSyncMCPServerResponse
+ */
+ListSyncMCPServerResponse Client::listSyncMCPServerWithOptions(const ListSyncMCPServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSyncMCPServer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/sync-mcp-server/list")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSyncMCPServerResponse>();
+}
+
+/**
+ * @summary 查询已同步的MCP Server列表
+ *
+ * @param request ListSyncMCPServerRequest
+ * @return ListSyncMCPServerResponse
+ */
+ListSyncMCPServerResponse Client::listSyncMCPServer(const ListSyncMCPServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSyncMCPServerWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6503,6 +7948,51 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRules(
 }
 
 /**
+ * @summary 刷新插件托管仓库的oauth code
+ *
+ * @param request RefreshPluginOAuthCodeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshPluginOAuthCodeResponse
+ */
+RefreshPluginOAuthCodeResponse Client::refreshPluginOAuthCodeWithOptions(const RefreshPluginOAuthCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCode()) {
+    body["code"] = request.getCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RefreshPluginOAuthCode"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-oauth-codes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshPluginOAuthCodeResponse>();
+}
+
+/**
+ * @summary 刷新插件托管仓库的oauth code
+ *
+ * @param request RefreshPluginOAuthCodeRequest
+ * @return RefreshPluginOAuthCodeResponse
+ */
+RefreshPluginOAuthCodeResponse Client::refreshPluginOAuthCode(const RefreshPluginOAuthCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return refreshPluginOAuthCodeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes an API consumer authorization rule.
  *
  * @param headers map
@@ -6541,15 +8031,15 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+ * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
  * > 
- * >  Recommended call sequence:
+ * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
+ * > - - Set dryRun=true.
  * > - - The response contains a conflict preview with conflictHash.
  * > - 2. Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @param headers map
@@ -6612,15 +8102,15 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+ * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
  * > 
- * >  Recommended call sequence:
+ * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
+ * > - - Set dryRun=true.
  * > - - The response contains a conflict preview with conflictHash.
  * > - 2. Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - No conflict: dryRun=false, overwrite=false.
+ * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @return ResetGatewayQuotaRuleResponse
@@ -6665,6 +8155,45 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return restartGatewayWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 插件工作空间运行流水线
+ *
+ * @param request RunPluginPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunPluginPipelineResponse
+ */
+RunPluginPipelineResponse Client::runPluginPipelineWithOptions(const string &workspaceId, const RunPluginPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunPluginPipeline"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/plugin-workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/pipeline-run")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunPluginPipelineResponse>();
+}
+
+/**
+ * @summary 插件工作空间运行流水线
+ *
+ * @param request RunPluginPipelineRequest
+ * @return RunPluginPipelineResponse
+ */
+RunPluginPipelineResponse Client::runPluginPipeline(const string &workspaceId, const RunPluginPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return runPluginPipelineWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -7161,6 +8690,51 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicy(const string &policy
 }
 
 /**
+ * @summary 更新消费者授权规则
+ *
+ * @param request UpdateAuthorizationRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationRuleResponse
+ */
+UpdateAuthorizationRuleResponse Client::updateAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const UpdateAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasResources()) {
+    body["resources"] = request.getResources();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/authorization-rules/" , Darabonba::Encode::Encoder::percentEncode(consumerAuthorizationRuleId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationRuleResponse>();
+}
+
+/**
+ * @summary 更新消费者授权规则
+ *
+ * @param request UpdateAuthorizationRuleRequest
+ * @return UpdateAuthorizationRuleResponse
+ */
+UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const string &consumerAuthorizationRuleId, const UpdateAuthorizationRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAuthorizationRuleWithOptions(consumerAuthorizationRuleId, request, headers, runtime);
+}
+
+/**
  * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
@@ -7224,6 +8798,8 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 /**
  * @summary Updates a consumer authorization rule.
  *
+ * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+ *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -7264,6 +8840,8 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 
 /**
  * @summary Updates a consumer authorization rule.
+ *
+ * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @return UpdateConsumerAuthorizationRuleResponse
@@ -7466,6 +9044,51 @@ UpdateEnvironmentResponse Client::updateEnvironment(const string &environmentId,
 }
 
 /**
+ * @summary 更新网关弹性策略
+ *
+ * @param request UpdateGatewayElasticPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayElasticPolicyResponse
+ */
+UpdateGatewayElasticPolicyResponse Client::updateGatewayElasticPolicyWithOptions(const string &gatewayId, const UpdateGatewayElasticPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasElasticPolicy()) {
+    body["elasticPolicy"] = request.getElasticPolicy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayElasticPolicy"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/elastic-policy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayElasticPolicyResponse>();
+}
+
+/**
+ * @summary 更新网关弹性策略
+ *
+ * @param request UpdateGatewayElasticPolicyRequest
+ * @return UpdateGatewayElasticPolicyResponse
+ */
+UpdateGatewayElasticPolicyResponse Client::updateGatewayElasticPolicy(const string &gatewayId, const UpdateGatewayElasticPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayElasticPolicyWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Updates the attribute parameters of a gateway.
  *
  * @param request UpdateGatewayFeatureRequest
@@ -7508,6 +9131,104 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateGatewayFeatureWithOptions(gatewayId, name, request, headers, runtime);
+}
+
+/**
+ * @summary 更新网关负载均衡器
+ *
+ * @param request UpdateGatewayLoadBalancerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayLoadBalancerResponse
+ */
+UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancerWithOptions(const string &gatewayId, const UpdateGatewayLoadBalancerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLoadBalancerDTO()) {
+    body["loadBalancerDTO"] = request.getLoadBalancerDTO();
+  }
+
+  if (!!request.hasOption()) {
+    body["option"] = request.getOption();
+  }
+
+  if (!!request.hasPorts()) {
+    body["ports"] = request.getPorts();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayLoadBalancer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/update-load-balancer")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayLoadBalancerResponse>();
+}
+
+/**
+ * @summary 更新网关负载均衡器
+ *
+ * @param request UpdateGatewayLoadBalancerRequest
+ * @return UpdateGatewayLoadBalancerResponse
+ */
+UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancer(const string &gatewayId, const UpdateGatewayLoadBalancerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayLoadBalancerWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改网关运维时间
+ *
+ * @param request UpdateGatewayMaintenancePeriodRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayMaintenancePeriodResponse
+ */
+UpdateGatewayMaintenancePeriodResponse Client::updateGatewayMaintenancePeriodWithOptions(const string &gatewayId, const UpdateGatewayMaintenancePeriodRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMaintenancePeriod()) {
+    body["maintenancePeriod"] = request.getMaintenancePeriod();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayMaintenancePeriod"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/maintenance-period")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayMaintenancePeriodResponse>();
+}
+
+/**
+ * @summary 修改网关运维时间
+ *
+ * @param request UpdateGatewayMaintenancePeriodRequest
+ * @return UpdateGatewayMaintenancePeriodResponse
+ */
+UpdateGatewayMaintenancePeriodResponse Client::updateGatewayMaintenancePeriod(const string &gatewayId, const UpdateGatewayMaintenancePeriodRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayMaintenancePeriodWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -7560,16 +9281,16 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
 }
 
 /**
- * @summary Edits a quota throttling rule on a gateway.
+ * @summary Edits a quota rate-limiting rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+ * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
  * >  Recommended call logic:
- * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
  * > - - The response contains a conflict preview with conflictHash.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: Set dryRun to false and overwrite to false.
+ * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -7630,16 +9351,16 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Edits a quota throttling rule on a gateway.
+ * @summary Edits a quota rate-limiting rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+ * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
  * >  Recommended call logic:
- * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
  * > - - The response contains a conflict preview with conflictHash.
- * > - Step 2: Submit the request after confirmation.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - 2. Submit the request after confirmation.
+ * > - - No conflict: Set dryRun to false and overwrite to false.
+ * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -8010,6 +9731,124 @@ UpdateMcpServerResponse Client::updateMcpServer(const string &mcpServerId, const
 }
 
 /**
+ * @summary 更新迁移任务
+ *
+ * @param request UpdateMigrationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMigrationTaskResponse
+ */
+UpdateMigrationTaskResponse Client::updateMigrationTaskWithOptions(const string &taskId, const UpdateMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterNamespace()) {
+    body["clusterNamespace"] = request.getClusterNamespace();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasServiceName()) {
+    body["serviceName"] = request.getServiceName();
+  }
+
+  if (!!request.hasSlbId()) {
+    body["slbId"] = request.getSlbId();
+  }
+
+  if (!!request.hasSwitchType()) {
+    body["switchType"] = request.getSwitchType();
+  }
+
+  if (!!request.hasTarget()) {
+    body["target"] = request.getTarget();
+  }
+
+  if (!!request.hasVirtualServices()) {
+    body["virtualServices"] = request.getVirtualServices();
+  }
+
+  if (!!request.hasWeight()) {
+    body["weight"] = request.getWeight();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMigrationTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMigrationTaskResponse>();
+}
+
+/**
+ * @summary 更新迁移任务
+ *
+ * @param request UpdateMigrationTaskRequest
+ * @return UpdateMigrationTaskResponse
+ */
+UpdateMigrationTaskResponse Client::updateMigrationTask(const string &taskId, const UpdateMigrationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMigrationTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
+ * @summary 更改网关网络访问类型
+ *
+ * @param request UpdateNetworkAccessRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNetworkAccessResponse
+ */
+UpdateNetworkAccessResponse Client::updateNetworkAccessWithOptions(const string &gatewayId, const UpdateNetworkAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkAccessType()) {
+    query["networkAccessType"] = request.getNetworkAccessType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNetworkAccess"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/network-type")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNetworkAccessResponse>();
+}
+
+/**
+ * @summary 更改网关网络访问类型
+ *
+ * @param request UpdateNetworkAccessRequest
+ * @return UpdateNetworkAccessResponse
+ */
+UpdateNetworkAccessResponse Client::updateNetworkAccess(const string &gatewayId, const UpdateNetworkAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateNetworkAccessWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Updates a plugin mount.
  *
  * @param request UpdatePluginAttachmentRequest
@@ -8113,6 +9952,55 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新风险项通知配置
+ *
+ * @param request UpdateRiskNotificationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRiskNotificationResponse
+ */
+UpdateRiskNotificationResponse Client::updateRiskNotificationWithOptions(const string &gatewayId, const UpdateRiskNotificationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIsMute()) {
+    body["isMute"] = request.getIsMute();
+  }
+
+  if (!!request.hasRiskCode()) {
+    body["riskCode"] = request.getRiskCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateRiskNotification"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/risk-check/notifications")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRiskNotificationResponse>();
+}
+
+/**
+ * @summary 更新风险项通知配置
+ *
+ * @param request UpdateRiskNotificationRequest
+ * @return UpdateRiskNotificationResponse
+ */
+UpdateRiskNotificationResponse Client::updateRiskNotification(const string &gatewayId, const UpdateRiskNotificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateRiskNotificationWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -8333,6 +10221,45 @@ UpgradeGatewayResponse Client::upgradeGateway(const string &gatewayId, const Upg
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return upgradeGatewayWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary 检查迁移任务
+ *
+ * @param request VerifyMigrationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyMigrationTaskResponse
+ */
+VerifyMigrationTaskResponse Client::verifyMigrationTaskWithOptions(const string &taskId, const VerifyMigrationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyMigrationTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/migration-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/verify")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyMigrationTaskResponse>();
+}
+
+/**
+ * @summary 检查迁移任务
+ *
+ * @param request VerifyMigrationTaskRequest
+ * @return VerifyMigrationTaskResponse
+ */
+VerifyMigrationTaskResponse Client::verifyMigrationTask(const string &taskId, const VerifyMigrationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyMigrationTaskWithOptions(taskId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace APIG20240327

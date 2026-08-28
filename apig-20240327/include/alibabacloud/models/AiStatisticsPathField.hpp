@@ -121,28 +121,25 @@ namespace Models
 
 
   protected:
-    // The secondary category.
+    // The secondary business category of the field. Optional. Valid values: conversation (conversation content), config (configuration parameters), tools (tool calling), usage (usage statistics), metadata (metadata), choices (candidate results), identity (identity identifier), cache (cache information), media (multimedia content), logprobs (log probabilities), and custom (custom field). Set custom fields to custom.
     shared_ptr<string> category_ {};
     // The field description.
     shared_ptr<string> description_ {};
-    // The log key.
+    // The log key (field name).
     shared_ptr<string> fieldKey_ {};
-    // The request or response direction.
+    // The request or response attribution. The backend normalizes this to request or response based on source.
     shared_ptr<string> io_ {};
-    // The corresponding JSON path (GJSON syntax).
+    // The corresponding jsonPath (gjson syntax).
     shared_ptr<string> jsonPath_ {};
-    // The display name of the field.
+    // The annotation for the field key name.
     shared_ptr<string> name_ {};
-    // Specifies whether collection is enabled.
+    // Indicates whether collection is enabled to create a log record for the corresponding field in AI request logs.
     shared_ptr<bool> recordEnabled_ {};
-    // The rule used for streaming response extraction. Valid values:
-    // - append: appends content
-    // - first: retrieves the first value
-    // - replace: retrieves the last value
+    // The aggregation rule for streaming response fields. Valid values: append, first, and replace. append: appends the matched values from each streaming chunk in sequence. first: retains the first matched value. replace: uses the last matched value. When source is response_streaming_body and rule is not specified, first is used by default. This field is not required for non-streaming scenarios.
     shared_ptr<string> rule_ {};
-    // Indicates whether the field is sensitive.
+    // Specifies whether the field is sensitive.
     shared_ptr<bool> sensitive_ {};
-    // The data source.
+    // The source of the field value. Valid values: fixed_value (fixed value), request_body (request body), request_header (request header), response_header (response header), response_body (non-streaming response body), and response_streaming_body (streaming response body).
     shared_ptr<string> source_ {};
   };
 

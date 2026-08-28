@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
       DARABONBA_PTR_TO_JSON(quotaLimit, quotaLimit_);
       DARABONBA_PTR_TO_JSON(ruleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
       DARABONBA_PTR_TO_JSON(timezone, timezone_);
       DARABONBA_PTR_TO_JSON(windowAlignment, windowAlignment_);
     };
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
       DARABONBA_PTR_FROM_JSON(quotaLimit, quotaLimit_);
       DARABONBA_PTR_FROM_JSON(ruleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
       DARABONBA_PTR_FROM_JSON(timezone, timezone_);
       DARABONBA_PTR_FROM_JSON(windowAlignment, windowAlignment_);
     };
@@ -54,8 +56,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conflictHash_ == nullptr
         && this->consumerGroupIds_ == nullptr && this->consumerIds_ == nullptr && this->dryRun_ == nullptr && this->overwrite_ == nullptr && this->periodMultiplier_ == nullptr
-        && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleName_ == nullptr && this->timezone_ == nullptr
-        && this->windowAlignment_ == nullptr; };
+        && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr && this->ruleName_ == nullptr && this->subjectType_ == nullptr
+        && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
     // conflictHash Field Functions 
     bool hasConflictHash() const { return this->conflictHash_ != nullptr;};
     void deleteConflictHash() { this->conflictHash_ = nullptr;};
@@ -130,6 +132,13 @@ namespace Models
     inline AddGatewayQuotaRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+    // subjectType Field Functions 
+    bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+    void deleteSubjectType() { this->subjectType_ = nullptr;};
+    inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+    inline AddGatewayQuotaRuleRequest& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
     // timezone Field Functions 
     bool hasTimezone() const { return this->timezone_ != nullptr;};
     void deleteTimezone() { this->timezone_ = nullptr;};
@@ -145,31 +154,31 @@ namespace Models
 
 
   protected:
-    // The conflict snapshot hash, used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dry run (dryRun=true).
+    // The conflict snapshot hash, used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dryRun=true request.
     // 
-    // This parameter is not required in the following cases: no conflicts exist, the request is a dry run (dryRun=true), or overwrite is set to false.
+    // This parameter is not required in the following cases: no conflicts exist, the request is a dry run (dryRun=true), or overwrite=false (no overwrite confirmation).
     // 
-    // If dryRun is set to false and overwrite is set to true but this parameter is not specified or the value has expired, the system returns accepted=false with a new conflict preview. Perform a new dry run to confirm the updated conflicts.
+    // When dryRun=false and overwrite=true, if this parameter is not provided or the value has expired and no longer matches, the backend returns accepted=false with a new conflict preview. Perform a dry run again to confirm the new conflicts.
     shared_ptr<string> conflictHash_ {};
-    // The list of consumer group IDs. This parameter is not supported.
+    // The list of consumer group IDs (not supported currently).
     shared_ptr<vector<string>> consumerGroupIds_ {};
-    // The list of consumer IDs to bind to the rule. You can specify up to 1,000 consumers in a single request.
+    // The list of consumer IDs to bind to the rule. A maximum of 1000 consumers can be specified in a single request.
     shared_ptr<vector<string>> consumerIds_ {};
-    // Specifies whether to perform only a dry run without applying the configuration. A dry run checks whether conflicting rules exist on the bound consumers. For example, a consumer that already has a calendar-day quota rule cannot have another calendar-day quota rule added.
+    // Specifies whether to perform only a dry run without applying the configuration. A dry run checks whether conflicting rules exist on the bound consumers. For example, a consumer that already has a calendar-day quota cannot have another calendar-day quota rule added.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to allow overwriting when conflicts exist. If overwriting is allowed, the conflicting consumers are unbound from the old rule and bound to the new rule.
+    // Specifies whether to allow overwriting when conflicts exist. If overwriting is allowed, the conflicting subjects (consumers) are unbound from the old rule and bound to the new rule.
     shared_ptr<bool> overwrite_ {};
-    // The period multiplier, which specifies the number of periods after which the quota resets. This parameter is required for custom period rules. Minimum value: 1. Maximum value: 60.
+    // The period multiplier. This parameter applies to epoch period rules.
     shared_ptr<int64_t> periodMultiplier_ {};
-    // The period unit. For calendar periods, the value can be day, week, or month. For custom periods, only day is supported.
+    // The period type. For calendar periods, statistics are collected by day, week, or month. Valid values: day, week, and month. For epoch periods, only day is supported.
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // The quota dimension or throttling type. Valid values: token and credit. The credit quota applies only to dedicated instances of version 2.1.19 or later.
+    // The quota dimension or throttling type. Valid values: token and credit. The credit quota applies only to dedicated instances running version 2.1.19 or later.
     // 
     // This parameter is required.
     shared_ptr<string> quotaDimension_ {};
-    // The total available quota per period (the limit).
+    // The total available quota per period (limit).
     // 
     // This parameter is required.
     shared_ptr<int64_t> quotaLimit_ {};
@@ -177,12 +186,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
+    // The rule subject type. Valid values: consumer (a consumer) and consumer_group (a consumer group). Default value: consumer.
+    shared_ptr<string> subjectType_ {};
     // The time zone for the calendar period, in UTC+x format.
     shared_ptr<string> timezone_ {};
-    // The reset period type. Valid values:
-    // 
-    // - calendar: calendar period. The period starts from the beginning of a calendar day, week, or month.
-    // - epoch: custom period. The period starts from the time the rule is applied. The custom period applies only to dedicated instances of version 2.1.19 or later.
+    // The reset period type. Valid values: calendar (the period starts from the beginning of a calendar day, week, or month) and epoch (the period starts from when the rule is applied). The epoch type applies only to dedicated instances running version 2.1.19 or later.
     shared_ptr<string> windowAlignment_ {};
   };
 

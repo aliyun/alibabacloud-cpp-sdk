@@ -126,7 +126,7 @@ namespace Models
       protected:
         // mcp route path
         shared_ptr<string> exposedUriPath_ {};
-        // The MCP protocol
+        // The MCP protocol type.
         shared_ptr<string> protocol_ {};
       };
 
@@ -177,17 +177,17 @@ namespace Models
 
 
     protected:
-      // The creation type
+      // The creation type.
       shared_ptr<string> createFromType_ {};
-      // The imported instance ID
+      // The Nacos instance ID.
       shared_ptr<string> importInstanceId_ {};
-      // The imported Nacos MCP server ID
+      // The Nacos MCP server identifier.
       shared_ptr<string> importMcpServerId_ {};
-      // The imported namespace
+      // The Nacos namespace.
       shared_ptr<string> importNamespace_ {};
-      // The MCP route configuration
+      // The MCP route information.
       shared_ptr<McpServerInfo::McpRouteConfig> mcpRouteConfig_ {};
-      // The MCP server configuration content
+      // The MCP server metadata configuration.
       shared_ptr<string> mcpServerConfig_ {};
     };
 
@@ -274,13 +274,13 @@ namespace Models
 
 
       protected:
-        // The subdomain ID
+        // The domain name ID.
         shared_ptr<string> domainId_ {};
-        // The subdomain name
+        // The domain name.
         shared_ptr<string> name_ {};
-        // networkType
+        // The domain name access type.
         shared_ptr<string> networkType_ {};
-        // The subdomain protocol
+        // The domain name protocol.
         shared_ptr<string> protocol_ {};
       };
 
@@ -332,9 +332,9 @@ namespace Models
 
       protected:
         shared_ptr<string> gatewayEdition_ {};
-        // The gateway ID
+        // The gateway ID.
         shared_ptr<string> gatewayId_ {};
-        // The gateway name
+        // The gateway name.
         shared_ptr<string> name_ {};
       };
 
@@ -380,15 +380,15 @@ namespace Models
 
 
     protected:
-      // The environment alias
+      // The environment name alias.
       shared_ptr<string> alias_ {};
-      // The environment ID
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The gateway information
+      // The gateway information.
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
-      // The environment name
+      // The environment name.
       shared_ptr<string> name_ {};
-      // List of subdomain information
+      // The list of default second-level domain names of the environment.
       shared_ptr<vector<EnvironmentInfo::SubDomains>> subDomains_ {};
     };
 
@@ -439,11 +439,11 @@ namespace Models
 
 
     protected:
-      // The domain ID
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
-      // The domain name
+      // The domain name.
       shared_ptr<string> name_ {};
-      // The domain protocol
+      // The domain name protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -555,31 +555,31 @@ namespace Models
 
 
   protected:
-    // The backend configuration
+    // The backend service.
     shared_ptr<Backend> backend_ {};
-    // builtin
+    // Indicates whether the route is a built-in system route.
     shared_ptr<string> builtin_ {};
-    // The creation timestamp in milliseconds
+    // The creation time, in ms.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The deployment status
+    // The deployment status.
     shared_ptr<string> deployStatus_ {};
-    // The description of the route
+    // The route description.
     shared_ptr<string> description_ {};
-    // List of domain information
+    // The list of domain name information.
     shared_ptr<vector<HttpRoute::DomainInfos>> domainInfos_ {};
-    // The environment information
+    // The environment context of the routing.
     shared_ptr<HttpRoute::EnvironmentInfo> environmentInfo_ {};
-    // gatewayStatus
+    // The route publish status.
     shared_ptr<map<string, string>> gatewayStatus_ {};
-    // The route matching rules
+    // The route matching rule.
     shared_ptr<HttpRouteMatch> match_ {};
-    // The MCP server information
+    // The MCP server information.
     shared_ptr<HttpRoute::McpServerInfo> mcpServerInfo_ {};
-    // The name of the route
+    // The route name.
     shared_ptr<string> name_ {};
-    // The unique identifier of the route
+    // The HttpApi route ID.
     shared_ptr<string> routeId_ {};
-    // The last update timestamp in milliseconds
+    // The update time, in ms.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

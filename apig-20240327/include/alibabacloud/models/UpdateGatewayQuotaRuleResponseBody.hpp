@@ -91,12 +91,18 @@ namespace Models
             DARABONBA_PTR_TO_JSON(conflictType, conflictType_);
             DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
             DARABONBA_PTR_TO_JSON(consumerName, consumerName_);
+            DARABONBA_PTR_TO_JSON(subjectId, subjectId_);
+            DARABONBA_PTR_TO_JSON(subjectName, subjectName_);
+            DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
           };
           friend void from_json(const Darabonba::Json& j, Items& obj) { 
             DARABONBA_PTR_FROM_JSON(conflictPeriodType, conflictPeriodType_);
             DARABONBA_PTR_FROM_JSON(conflictType, conflictType_);
             DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
             DARABONBA_PTR_FROM_JSON(consumerName, consumerName_);
+            DARABONBA_PTR_FROM_JSON(subjectId, subjectId_);
+            DARABONBA_PTR_FROM_JSON(subjectName, subjectName_);
+            DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
           };
           Items() = default ;
           Items(const Items &) = default ;
@@ -110,7 +116,8 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->conflictPeriodType_ == nullptr
-        && this->conflictType_ == nullptr && this->consumerId_ == nullptr && this->consumerName_ == nullptr; };
+        && this->conflictType_ == nullptr && this->consumerId_ == nullptr && this->consumerName_ == nullptr && this->subjectId_ == nullptr && this->subjectName_ == nullptr
+        && this->subjectType_ == nullptr; };
           // conflictPeriodType Field Functions 
           bool hasConflictPeriodType() const { return this->conflictPeriodType_ != nullptr;};
           void deleteConflictPeriodType() { this->conflictPeriodType_ = nullptr;};
@@ -139,15 +146,42 @@ namespace Models
           inline Items& setConsumerName(string consumerName) { DARABONBA_PTR_SET_VALUE(consumerName_, consumerName) };
 
 
+          // subjectId Field Functions 
+          bool hasSubjectId() const { return this->subjectId_ != nullptr;};
+          void deleteSubjectId() { this->subjectId_ = nullptr;};
+          inline string getSubjectId() const { DARABONBA_PTR_GET_DEFAULT(subjectId_, "") };
+          inline Items& setSubjectId(string subjectId) { DARABONBA_PTR_SET_VALUE(subjectId_, subjectId) };
+
+
+          // subjectName Field Functions 
+          bool hasSubjectName() const { return this->subjectName_ != nullptr;};
+          void deleteSubjectName() { this->subjectName_ = nullptr;};
+          inline string getSubjectName() const { DARABONBA_PTR_GET_DEFAULT(subjectName_, "") };
+          inline Items& setSubjectName(string subjectName) { DARABONBA_PTR_SET_VALUE(subjectName_, subjectName) };
+
+
+          // subjectType Field Functions 
+          bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+          void deleteSubjectType() { this->subjectType_ = nullptr;};
+          inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+          inline Items& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
         protected:
-          // The period type of the existing conflicting rule on the consumer. Valid values: day: daily period. week: weekly period. month: monthly period.
+          // The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), and month (monthly period).
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer. Valid values: calendar: The conflicting rule is a calendar-period rule. epoch: The conflicting rule is a custom-period rule.
+          // The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
           shared_ptr<string> conflictType_ {};
           // The consumer ID.
           shared_ptr<string> consumerId_ {};
           // The consumer name.
           shared_ptr<string> consumerName_ {};
+          // The ID of the conflicting subject.
+          shared_ptr<string> subjectId_ {};
+          // The name of the conflicting subject.
+          shared_ptr<string> subjectName_ {};
+          // The type of the conflicting subject. Valid values: consumer and consumer_group.
+          shared_ptr<string> subjectType_ {};
         };
 
         virtual bool empty() const override { return this->conflictHash_ == nullptr
@@ -176,9 +210,9 @@ namespace Models
 
 
       protected:
-        // The hash of the conflict snapshot.
+        // The conflict hash.
         shared_ptr<string> conflictHash_ {};
-        // The list of conflicting principals (consumers).
+        // The list of conflicting subjects (consumers).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
         // The total number of conflicts.
         shared_ptr<int32_t> totalConflictCount_ {};
@@ -217,13 +251,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+      // Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
       // Indicates whether this is a dry run.
       shared_ptr<bool> dryRun_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -266,7 +300,7 @@ namespace Models
     shared_ptr<UpdateGatewayQuotaRuleResponseBody::Data> data_ {};
     // The message content.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

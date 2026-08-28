@@ -48,6 +48,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ruleId, ruleId_);
         DARABONBA_PTR_TO_JSON(ruleName, ruleName_);
         DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
+        DARABONBA_PTR_TO_JSON(subjectCount, subjectCount_);
+        DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
+        DARABONBA_PTR_TO_JSON(subjects, subjects_);
         DARABONBA_PTR_TO_JSON(timezone, timezone_);
         DARABONBA_PTR_TO_JSON(windowAlignment, windowAlignment_);
       };
@@ -61,6 +64,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ruleId, ruleId_);
         DARABONBA_PTR_FROM_JSON(ruleName, ruleName_);
         DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
+        DARABONBA_PTR_FROM_JSON(subjectCount, subjectCount_);
+        DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
+        DARABONBA_PTR_FROM_JSON(subjects, subjects_);
         DARABONBA_PTR_FROM_JSON(timezone, timezone_);
         DARABONBA_PTR_FROM_JSON(windowAlignment, windowAlignment_);
       };
@@ -75,6 +81,61 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Subjects : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Subjects& obj) { 
+          DARABONBA_PTR_TO_JSON(id, id_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
+        };
+        friend void from_json(const Darabonba::Json& j, Subjects& obj) { 
+          DARABONBA_PTR_FROM_JSON(id, id_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
+        };
+        Subjects() = default ;
+        Subjects(const Subjects &) = default ;
+        Subjects(Subjects &&) = default ;
+        Subjects(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Subjects() = default ;
+        Subjects& operator=(const Subjects &) = default ;
+        Subjects& operator=(Subjects &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->id_ == nullptr
+        && this->name_ == nullptr && this->subjectType_ == nullptr; };
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline Subjects& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Subjects& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // subjectType Field Functions 
+        bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+        void deleteSubjectType() { this->subjectType_ = nullptr;};
+        inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+        inline Subjects& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
+      protected:
+        // The subject ID.
+        shared_ptr<string> id_ {};
+        // The subject name.
+        shared_ptr<string> name_ {};
+        // The subject type. Valid values: consumer or consumer_group.
+        shared_ptr<string> subjectType_ {};
+      };
+
       class Consumers : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Consumers& obj) { 
@@ -113,15 +174,16 @@ namespace Models
 
 
       protected:
-        // The ID of the principal (consumer).
+        // The subject (consumer) ID.
         shared_ptr<string> id_ {};
-        // The name of the principal (consumer).
+        // The subject (consumer) name.
         shared_ptr<string> name_ {};
       };
 
       virtual bool empty() const override { return this->baseTimestamp_ == nullptr
         && this->consumerCount_ == nullptr && this->consumers_ == nullptr && this->periodType_ == nullptr && this->quotaDimension_ == nullptr && this->quotaLimit_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->subjectCount_ == nullptr && this->subjectType_ == nullptr
+        && this->subjects_ == nullptr && this->timezone_ == nullptr && this->windowAlignment_ == nullptr; };
       // baseTimestamp Field Functions 
       bool hasBaseTimestamp() const { return this->baseTimestamp_ != nullptr;};
       void deleteBaseTimestamp() { this->baseTimestamp_ = nullptr;};
@@ -187,6 +249,29 @@ namespace Models
       inline Data& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
+      // subjectCount Field Functions 
+      bool hasSubjectCount() const { return this->subjectCount_ != nullptr;};
+      void deleteSubjectCount() { this->subjectCount_ = nullptr;};
+      inline int64_t getSubjectCount() const { DARABONBA_PTR_GET_DEFAULT(subjectCount_, 0L) };
+      inline Data& setSubjectCount(int64_t subjectCount) { DARABONBA_PTR_SET_VALUE(subjectCount_, subjectCount) };
+
+
+      // subjectType Field Functions 
+      bool hasSubjectType() const { return this->subjectType_ != nullptr;};
+      void deleteSubjectType() { this->subjectType_ = nullptr;};
+      inline string getSubjectType() const { DARABONBA_PTR_GET_DEFAULT(subjectType_, "") };
+      inline Data& setSubjectType(string subjectType) { DARABONBA_PTR_SET_VALUE(subjectType_, subjectType) };
+
+
+      // subjects Field Functions 
+      bool hasSubjects() const { return this->subjects_ != nullptr;};
+      void deleteSubjects() { this->subjects_ = nullptr;};
+      inline const vector<Data::Subjects> & getSubjects() const { DARABONBA_PTR_GET_CONST(subjects_, vector<Data::Subjects>) };
+      inline vector<Data::Subjects> getSubjects() { DARABONBA_PTR_GET(subjects_, vector<Data::Subjects>) };
+      inline Data& setSubjects(const vector<Data::Subjects> & subjects) { DARABONBA_PTR_SET_VALUE(subjects_, subjects) };
+      inline Data& setSubjects(vector<Data::Subjects> && subjects) { DARABONBA_PTR_SET_RVALUE(subjects_, subjects) };
+
+
       // timezone Field Functions 
       bool hasTimezone() const { return this->timezone_ != nullptr;};
       void deleteTimezone() { this->timezone_ = nullptr;};
@@ -202,11 +287,11 @@ namespace Models
 
 
     protected:
-      // The base timestamp of the period.
+      // The period base timestamp.
       shared_ptr<int64_t> baseTimestamp_ {};
       // The number of consumers associated with the rule.
       shared_ptr<int64_t> consumerCount_ {};
-      // The list of principals (consumers) bound to this rule.
+      // The list of subjects (consumers) bound to this rule.
       shared_ptr<vector<Data::Consumers>> consumers_ {};
       // The quota period type.
       shared_ptr<string> periodType_ {};
@@ -220,7 +305,13 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The rule status.
       shared_ptr<string> ruleStatus_ {};
-      // The time zone for the calendar period, in UTC+x format.
+      // The number of associated subjects.
+      shared_ptr<int64_t> subjectCount_ {};
+      // The rule subject type. Valid values: consumer or consumer_group.
+      shared_ptr<string> subjectType_ {};
+      // The general subject list bound to this rule. Returned only when withSubjects is set to true.
+      shared_ptr<vector<Data::Subjects>> subjects_ {};
+      // The time zone corresponding to the calendar period, in UTC+x format.
       shared_ptr<string> timezone_ {};
       // The reset period type.
       shared_ptr<string> windowAlignment_ {};

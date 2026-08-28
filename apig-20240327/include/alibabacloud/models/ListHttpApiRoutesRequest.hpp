@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The deployment status of the route.
     shared_ptr<string> deployStatuses_ {};
-    // The domain name ID used to filter route information.
+    // Filters route information by domain name ID.
     shared_ptr<string> domainId_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
@@ -187,15 +187,15 @@ namespace Models
     shared_ptr<string> nameLike_ {};
     // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Valid values: 1 to 100. Default value: 10.
+    // The page size. Valid range: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // Fuzzy match by route path.
     shared_ptr<string> pathLike_ {};
-    // Specifies whether to include consumer authorization information in the response.
+    // Includes consumer authorization information in the response.
     shared_ptr<bool> withAuthPolicyInfo_ {};
-    // Specifies a consumer ID so that the response includes the authorization rule list for the specified consumer in each route.
+    // Includes the authorization rule list of the specified consumer ID for each route in the response.
     shared_ptr<string> withConsumerInfoById_ {};
-    // Specifies a plug-in ID so that the response includes the mount information of the specified plug-in in each route.
+    // Includes the plug-in attachment information of the specified plug-in ID for each route in the response.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
   };
 

@@ -210,7 +210,7 @@ namespace Models
     shared_ptr<ListExternalServicesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
