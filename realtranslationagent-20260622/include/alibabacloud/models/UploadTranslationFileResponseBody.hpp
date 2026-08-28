@@ -163,16 +163,29 @@ namespace Models
 
 
     protected:
+      // The description of the estimated Credits billing and time consumption for the task.
       shared_ptr<string> creditBreakdown_ {};
+      // Indicates whether the available Credits are sufficient for this translation task.
+      // - The estimate may be affected by various factors and may deviate. The actual result is based on the task submission operation.
       shared_ptr<bool> creditsAvailable_ {};
+      // The detected language type.
       shared_ptr<string> detectedLang_ {};
+      // The estimated Credits consumption.
       shared_ptr<double> estimatedCostCredits_ {};
+      // The estimated translation time in **seconds**.
       shared_ptr<int64_t> estimatedTime_ {};
+      // The languages that support font modification and the corresponding font lists. The key of the map identifies the language type.
+      // - Currently supported fonts include: English, French, Indonesian, and Japanese.
       shared_ptr<map<string, vector<string>>> fonts_ {};
+      // The page count of the uploaded file.
       shared_ptr<int64_t> pageCount_ {};
+      // Indicates whether sensitive information was detected.
       shared_ptr<bool> sensitiveDetected_ {};
+      // The keywords that matched sensitive information.
       shared_ptr<vector<string>> sensitiveTags_ {};
+      // The translation task ID, used for subsequent task submission.
       shared_ptr<string> taskId_ {};
+      // The word count of the uploaded file.
       shared_ptr<int64_t> wordCount_ {};
     };
 
@@ -216,10 +229,15 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<UploadTranslationFileResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

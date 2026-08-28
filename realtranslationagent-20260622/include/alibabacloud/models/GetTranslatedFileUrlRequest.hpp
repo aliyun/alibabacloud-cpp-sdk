@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The API key that identifies a member accounts identity. You can obtain the key from the RuiYiBao console.
     shared_ptr<string> APIKey_ {};
+    // The task ID.
+    // - The TaskId is returned after a task is submitted by calling SubmitTranslationTask.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

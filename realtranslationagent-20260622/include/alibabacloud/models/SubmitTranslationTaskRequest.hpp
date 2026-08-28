@@ -76,19 +76,25 @@ namespace Models
 
 
     protected:
+      // The source term.
       shared_ptr<string> sourceTerm_ {};
+      // The target term.
       shared_ptr<string> targetTerm_ {};
     };
 
     class Config : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Config& obj) { 
+        DARABONBA_PTR_TO_JSON(Agent, agent_);
+        DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(Font, font_);
         DARABONBA_PTR_TO_JSON(SourceLanguage, sourceLanguage_);
         DARABONBA_PTR_TO_JSON(Style, style_);
         DARABONBA_PTR_TO_JSON(TargetLanguage, targetLanguage_);
       };
       friend void from_json(const Darabonba::Json& j, Config& obj) { 
+        DARABONBA_PTR_FROM_JSON(Agent, agent_);
+        DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(Font, font_);
         DARABONBA_PTR_FROM_JSON(SourceLanguage, sourceLanguage_);
         DARABONBA_PTR_FROM_JSON(Style, style_);
@@ -105,8 +111,22 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->font_ == nullptr
-        && this->sourceLanguage_ == nullptr && this->style_ == nullptr && this->targetLanguage_ == nullptr; };
+      virtual bool empty() const override { return this->agent_ == nullptr
+        && this->agentId_ == nullptr && this->font_ == nullptr && this->sourceLanguage_ == nullptr && this->style_ == nullptr && this->targetLanguage_ == nullptr; };
+      // agent Field Functions 
+      bool hasAgent() const { return this->agent_ != nullptr;};
+      void deleteAgent() { this->agent_ = nullptr;};
+      inline string getAgent() const { DARABONBA_PTR_GET_DEFAULT(agent_, "") };
+      inline Config& setAgent(string agent) { DARABONBA_PTR_SET_VALUE(agent_, agent) };
+
+
+      // agentId Field Functions 
+      bool hasAgentId() const { return this->agentId_ != nullptr;};
+      void deleteAgentId() { this->agentId_ = nullptr;};
+      inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+      inline Config& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
       // font Field Functions 
       bool hasFont() const { return this->font_ != nullptr;};
       void deleteFont() { this->font_ = nullptr;};
@@ -136,10 +156,21 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> agent_ {};
+      // The agent ID passed to the Agent Console platform.
+      shared_ptr<string> agentId_ {};
+      // The font.
+      // - For new tasks, obtain this from UploadTranslationFile.
+      // - For retranslation of historical tasks, obtain this from GetTranslationTask.
       shared_ptr<string> font_ {};
+      // The language of the source file.
+      // 
       // This parameter is required.
       shared_ptr<string> sourceLanguage_ {};
+      // The translation style. Takes effect only when the translation file is a PPT file.
       shared_ptr<string> style_ {};
+      // The target language.
+      // 
       // This parameter is required.
       shared_ptr<string> targetLanguage_ {};
     };
@@ -186,11 +217,21 @@ namespace Models
 
 
   protected:
+    // The API key that identifies the identity of the member account. You can obtain this from the RuiYiBao console.
     shared_ptr<string> APIKey_ {};
+    // The translation task ID of a previously submitted translation task. Pass in this parameter when resubmitting a translation task.
+    // - You must pass in either this parameter or TaskId.
     shared_ptr<string> baseTaskId_ {};
+    // The translation configuration.
+    // 
     // This parameter is required.
     shared_ptr<SubmitTranslationTaskRequest::Config> config_ {};
+    // The custom terms.
+    // >Notice: Custom terms are for reference only. Actual translation results may differ. Refer to the final output for the definitive result.</notice>
     shared_ptr<vector<SubmitTranslationTaskRequest::CustomTerms>> customTerms_ {};
+    // The translation task ID.
+    // - Obtained from the TaskId returned by UploadTranslationFile.
+    // - You must pass in either this parameter or BaseTaskId.
     shared_ptr<string> taskId_ {};
   };
 

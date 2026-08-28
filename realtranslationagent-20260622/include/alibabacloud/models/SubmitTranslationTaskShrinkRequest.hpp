@@ -75,11 +75,21 @@ namespace Models
 
 
   protected:
+    // The API key that identifies the identity of the member account. You can obtain this from the RuiYiBao console.
     shared_ptr<string> APIKey_ {};
+    // The translation task ID of a previously submitted translation task. Pass in this parameter when resubmitting a translation task.
+    // - You must pass in either this parameter or TaskId.
     shared_ptr<string> baseTaskId_ {};
+    // The translation configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configShrink_ {};
+    // The custom terms.
+    // >Notice: Custom terms are for reference only. Actual translation results may differ. Refer to the final output for the definitive result.</notice>
     shared_ptr<string> customTermsShrink_ {};
+    // The translation task ID.
+    // - Obtained from the TaskId returned by UploadTranslationFile.
+    // - You must pass in either this parameter or BaseTaskId.
     shared_ptr<string> taskId_ {};
   };
 

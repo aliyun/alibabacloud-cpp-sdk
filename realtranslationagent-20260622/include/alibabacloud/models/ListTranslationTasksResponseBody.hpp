@@ -285,27 +285,58 @@ namespace Models
 
 
       protected:
+        // The task completion time, in 13-digit timestamp format.
         shared_ptr<string> completeTime_ {};
+        // The credits consumed by this task.
         shared_ptr<double> costCredits_ {};
+        // The time consumed, in milliseconds.
         shared_ptr<int64_t> costTime_ {};
+        // The creator ID.
         shared_ptr<string> creator_ {};
+        // The creator name.
         shared_ptr<string> creatorName_ {};
+        // The error message when the task fails.
         shared_ptr<string> errorMessage_ {};
+        // The parsed file format.
         shared_ptr<string> fileFormat_ {};
+        // The file name.
         shared_ptr<string> fileName_ {};
+        // The task creation time, in 13-digit timestamp format.
         shared_ptr<string> gmtCreate_ {};
+        // The organization ID.
         shared_ptr<string> orgId_ {};
+        // The source file address.
         shared_ptr<string> originalFileName_ {};
+        // The page count of the uploaded file.
         shared_ptr<int64_t> pageCount_ {};
+        // The task progress.
         shared_ptr<int32_t> progress_ {};
+        // The language of the source file.
         shared_ptr<string> sourceLanguage_ {};
+        // The task start time, in 13-digit timestamp format.
         shared_ptr<string> startTime_ {};
+        // The task status. Valid values:
+        // - CANCELLED: Cancelled.
+        // - COMPLETED: Completed.
+        // - FAILED: Failed.
+        // - PROCESSING: Processing.
+        // - PENDING: Pending.
+        // - ANALYZED: Analyzed.
         shared_ptr<string> status_ {};
+        // The target language.
         shared_ptr<string> targetLanguage_ {};
+        // The translation task ID.
         shared_ptr<string> taskId_ {};
+        // The task type. Valid values:
+        // 
+        // - DOCUMENT: document type.
         shared_ptr<string> taskType_ {};
+        // The translation template. Valid values:
+        // - common: General.
         shared_ptr<string> template_ {};
+        // The word count of the uploaded file.
         shared_ptr<int64_t> wordCount_ {};
+        // The workspace ID.
         shared_ptr<string> workSpaceId_ {};
       };
 
@@ -342,9 +373,15 @@ namespace Models
 
 
     protected:
+      // The data list.
       shared_ptr<vector<Data::List>> list_ {};
+      // The maximum number of results returned per request when using the NextToken-based pagination.
       shared_ptr<int32_t> maxResults_ {};
+      // Indicates whether a token exists for the next query. Valid values:
+      // - If **NextToken** is empty, no next query exists.
+      // - If **NextToken** has a value, the value is the token for the next query.
       shared_ptr<string> nextToken_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -388,10 +425,15 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<ListTranslationTasksResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The task status.
       shared_ptr<string> status_ {};
+      // The translation task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<SubmitTranslationTaskResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

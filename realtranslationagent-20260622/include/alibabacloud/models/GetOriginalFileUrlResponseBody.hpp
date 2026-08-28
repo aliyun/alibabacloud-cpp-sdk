@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // The file download URL.
       shared_ptr<string> downloadUrl_ {};
+      // The expiration time. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
     };
 
@@ -129,10 +132,15 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetOriginalFileUrlResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

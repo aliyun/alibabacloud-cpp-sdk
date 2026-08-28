@@ -136,7 +136,9 @@ namespace Models
 
 
       protected:
+        // The source term.
         shared_ptr<string> sourceTerm_ {};
+        // The translated term.
         shared_ptr<string> targetTerm_ {};
       };
 
@@ -205,10 +207,19 @@ namespace Models
 
 
       protected:
+        // The security level.
+        // - public: Standard confidentiality.
         shared_ptr<string> securityLevel_ {};
+        // The source file language.
         shared_ptr<string> sourceLanguage_ {};
+        // The translation style. This parameter takes effect only when the translation file is a PPT file.
+        // - normal: Standard. The original information is fully preserved.
+        // - minimal: More concise information with a more visually appealing layout.
         shared_ptr<string> style_ {};
+        // The target language.
         shared_ptr<string> targetLanguage_ {};
+        // The translation template.
+        // - common: General-purpose.
         shared_ptr<string> template_ {};
       };
 
@@ -371,26 +382,49 @@ namespace Models
 
 
     protected:
+      // The translation task ID of a previously submitted task. This parameter is passed in when resubmitting a translation task.
       shared_ptr<string> baseTaskId_ {};
+      // The translation configuration.
       shared_ptr<Data::Config> config_ {};
+      // The credits consumed by this task.
       shared_ptr<double> costCredits_ {};
+      // The time consumed, in milliseconds.
       shared_ptr<int64_t> costTime_ {};
+      // The error message when the task fails.
       shared_ptr<string> errorMessage_ {};
+      // The estimated credits to be consumed.
       shared_ptr<double> estimatedCostCredits_ {};
+      // The estimated translation time, in **seconds**.
       shared_ptr<int64_t> estimatedTime_ {};
+      // The terms used in this task.
       shared_ptr<vector<Data::ExtractedTerms>> extractedTerms_ {};
+      // The parsed file format.
       shared_ptr<string> fileFormat_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The task completion time, expressed as a 13-digit timestamp.
       shared_ptr<string> finishedAt_ {};
+      // The languages that support font modification and the corresponding font lists. The key of the map identifies the language type. Currently supported languages include English, French, Indonesian, and Japanese.
       shared_ptr<map<string, vector<string>>> fonts_ {};
+      // The organization ID.
       shared_ptr<string> orgId_ {};
+      // The source file address.
       shared_ptr<string> originalFileName_ {};
+      // The page count of the uploaded file.
       shared_ptr<int64_t> pageCount_ {};
+      // The progress, expressed as a percentage number.
       shared_ptr<int32_t> progress_ {};
+      // The task status.
       shared_ptr<string> status_ {};
+      // The translation task ID.
       shared_ptr<string> taskId_ {};
+      // The task type.
+      // 
+      // - DOCUMENT: Document type.
       shared_ptr<string> taskType_ {};
+      // The word count of the uploaded document.
       shared_ptr<int64_t> wordCount_ {};
+      // The workspace ID.
       shared_ptr<string> workSpaceId_ {};
     };
 
@@ -434,10 +468,15 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetTranslationTaskResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

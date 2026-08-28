@@ -121,15 +121,37 @@ namespace Models
 
 
   protected:
+    // The API key that identifies the identity of member accounts. You can obtain it from the RuiYiBao console.
     shared_ptr<string> APIKey_ {};
+    // The end time of the task.
+    // - Format: YYYY-MM-dd HH:mm:ss.
     shared_ptr<string> endTime_ {};
+    // The maximum number of results to return per request when using the NextToken-based pagination.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The name of the source file.
     shared_ptr<string> originalFileName_ {};
+    // The language of the source file.
     shared_ptr<string> sourceLanguage_ {};
+    // The start time of the task.
+    // - Format: YYYY-MM-dd HH:mm:ss.
     shared_ptr<string> startTime_ {};
+    // The task status. Valid values:
+    // - CANCELLED: Cancelled.
+    // - COMPLETED: Completed.
+    // - FAILED: Failed.
+    // - PROCESSING: Processing.
+    // - PENDING: Pending.
+    // - ANALYZED: Analyzed.
     shared_ptr<string> status_ {};
+    // The target language.
     shared_ptr<string> targetLanguage_ {};
+    // The translation task ID, which is the TaskId obtained from UploadTranslationFile.
     shared_ptr<string> taskId_ {};
   };
 
