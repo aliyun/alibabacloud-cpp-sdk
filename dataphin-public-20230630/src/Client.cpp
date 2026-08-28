@@ -19,11 +19,11 @@ namespace DataphinPublic20230630
 AlibabaCloud::DataphinPublic20230630::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-shenzhen" , "dataphin-public.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "dataphin-public.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "dataphin-public.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "dataphin-public.cn-beijing.aliyuncs.com"},
     {"cn-chengdu" , "dataphin-public.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "dataphin-public.cn-beijing.aliyuncs.com"}
+    {"cn-hangzhou" , "dataphin-public.cn-hangzhou.aliyuncs.com"},
+    {"cn-shanghai" , "dataphin-public.cn-shanghai.aliyuncs.com"},
+    {"cn-shenzhen" , "dataphin-public.cn-shenzhen.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataphin-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
