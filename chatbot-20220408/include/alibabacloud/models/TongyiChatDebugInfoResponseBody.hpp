@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(Pipeline, pipeline_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
     };
     friend void from_json(const Darabonba::Json& j, TongyiChatDebugInfoResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AnswerInfo, answerInfo_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(Pipeline, pipeline_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
     };
     TongyiChatDebugInfoResponseBody() = default ;
     TongyiChatDebugInfoResponseBody(const TongyiChatDebugInfoResponseBody &) = default ;
@@ -96,29 +98,22 @@ namespace Models
 
 
     protected:
-      // The input data for the node.
+      // The debugging input information.
       Darabonba::Json input_ {};
-      // The name of the strategy. Possible values include:
+      // The Policy Name. Valid values:
+      // - High-frequency Q&A direct response
+      // - Keyword-based transfer to agent
+      // - Global sensitive words
       // 
-      // - FAQ
-      // 
-      // - Hit Keywords
-      // 
-      // - Global Sensitive Words
-      // 
-      // This parameter is returned only when `NodeType` is set to `system_strategy`.
+      // This field is returned only when NodeType is system_strategy.
       shared_ptr<string> name_ {};
       // The node type. Valid values:
-      // 
-      // - **system_strategy**: system strategy.
-      // 
-      // - **rewrite_query**: retrieval query.
-      // 
-      // - **invoke_llm**: LLM invocation.
-      // 
-      // - **invoke_tools**: tool invocation.
+      // * **system_strategy**: system strategy.
+      // * **rewrite_query**: retrieval query.
+      // * **invoke_llm**: LLM invocation.
+      // * **invoke_tools**: tool calling.
       shared_ptr<string> nodeType_ {};
-      // The output data from the node.
+      // The output information.
       Darabonba::Json output_ {};
     };
 
@@ -442,7 +437,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->answerInfo_ == nullptr
-        && this->messageId_ == nullptr && this->pipeline_ == nullptr && this->requestId_ == nullptr; };
+        && this->messageId_ == nullptr && this->pipeline_ == nullptr && this->requestId_ == nullptr && this->sessionId_ == nullptr; };
     // answerInfo Field Functions 
     bool hasAnswerInfo() const { return this->answerInfo_ != nullptr;};
     void deleteAnswerInfo() { this->answerInfo_ = nullptr;};
@@ -475,14 +470,22 @@ namespace Models
     inline TongyiChatDebugInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sessionId Field Functions 
+    bool hasSessionId() const { return this->sessionId_ != nullptr;};
+    void deleteSessionId() { this->sessionId_ = nullptr;};
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline TongyiChatDebugInfoResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
   protected:
     shared_ptr<TongyiChatDebugInfoResponseBody::AnswerInfo> answerInfo_ {};
     // The ID of the response message in the current session.
     shared_ptr<string> messageId_ {};
-    // The array of nodes that constitute the Q\\&A workflow.
+    // The information about the entire Q&A pipeline.
     shared_ptr<vector<TongyiChatDebugInfoResponseBody::Pipeline>> pipeline_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

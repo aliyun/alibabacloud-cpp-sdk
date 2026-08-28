@@ -1401,9 +1401,9 @@ namespace Chatbot20220408
       Models::SearchFaqResponse searchFaq(const Models::SearchFaqRequest &request);
 
       /**
-       * @summary This operation returns debugging information for the large language model (LLM) Q&A process.
+       * @summary Debugging information for large language model Q&A.
        *
-       * @description This operation supports only the latest version of chatbots and can query data from only the last 90 days.
+       * @description Only supported for new version chatbots. Only data within the last 90 days can be queried.
        *
        * @param request TongyiChatDebugInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1412,9 +1412,9 @@ namespace Chatbot20220408
       Models::TongyiChatDebugInfoResponse tongyiChatDebugInfoWithOptions(const Models::TongyiChatDebugInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation returns debugging information for the large language model (LLM) Q&A process.
+       * @summary Debugging information for large language model Q&A.
        *
-       * @description This operation supports only the latest version of chatbots and can query data from only the last 90 days.
+       * @description Only supported for new version chatbots. Only data within the last 90 days can be queried.
        *
        * @param request TongyiChatDebugInfoRequest
        * @return TongyiChatDebugInfoResponse
