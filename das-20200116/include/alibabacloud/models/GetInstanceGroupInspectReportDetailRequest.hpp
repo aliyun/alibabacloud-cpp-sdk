@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the agent that the user purchased.
     shared_ptr<string> agentId_ {};
-    // The ID of the automated operations report.
+    // The ID of the operations report.
     // 
     // This parameter is required.
     shared_ptr<string> reportId_ {};

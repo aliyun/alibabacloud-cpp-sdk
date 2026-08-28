@@ -117,17 +117,17 @@ namespace Models
       protected:
         // The IP addresses in the whitelist template.
         // 
-        // > Separate multiple IP addresses with commas (,). A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP address whitelists.
+        // > Separate multiple IP addresses with commas (,). You can add up to 1,000 IP addresses or CIDR blocks across all IP whitelists.
         shared_ptr<string> GIpList_ {};
-        // The name of the IP address whitelist template. The name must meet the following requirements:
+        // The name of the IP whitelist template. The name must meet the following requirements:
         // 
-        // - It must consist of lowercase letters, digits, and underscores (_).
+        // - Contains only lowercase letters, digits, and underscores (_).
         // 
-        // - It must start with a letter and end with a letter or a digit.
+        // - Starts with a letter and ends with a letter or digit.
         // 
-        // - It must be 2 to 120 characters in length.
+        // - Contains 2 to 120 characters in length.
         shared_ptr<string> globalIgName_ {};
-        // The ID of the IP address whitelist template.
+        // The ID of the IP whitelist template.
         shared_ptr<string> globalSecurityGroupId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // The information about the cross-product IP address whitelist template that is attached to the instance.
+      // The binding information of the cross-engine IP whitelist template.
       shared_ptr<vector<Data::GlobalSecurityIPGroupRel>> globalSecurityIPGroupRel_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -200,19 +200,16 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // ListResult<InstanceSSL>
     shared_ptr<ModifySecurityIPGroupRelationResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // > If the request is successful, Successful is returned. If the request fails, an error message, such as an error code, is returned.
+    // >If the request is successful, Successful is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // * true: The request is successful.
+    // * false: The request fails.
     shared_ptr<string> success_ {};
   };
 

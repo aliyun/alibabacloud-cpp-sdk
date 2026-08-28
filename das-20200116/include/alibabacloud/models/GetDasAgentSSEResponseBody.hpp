@@ -103,13 +103,13 @@ namespace Models
 
 
     protected:
-      // The number of characters in the response.
+      // The number of characters in the answer.
       shared_ptr<int64_t> charCount_ {};
-      // The error code. This parameter is empty if no exception occurs.
+      // The error type returned when an exception occurs. This field is empty when no exception occurs.
       shared_ptr<int32_t> code_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The name of the tool used.
+      // The tool command that is called.
       shared_ptr<string> toolName_ {};
       // The tool parameters.
       shared_ptr<vector<string>> toolParams_ {};
@@ -148,11 +148,11 @@ namespace Models
 
 
   protected:
-    // The content of the response.
+    // The answer content.
     shared_ptr<string> answer_ {};
-    // The type of the response message.
+    // The type of the returned answer information.
     shared_ptr<string> event_ {};
-    // The session ID. This is the same as the SessionId in the request.
+    // The session ID, which is the same as the SessionId in the request parameters.
     shared_ptr<string> id_ {};
     // The metadata.
     shared_ptr<GetDasAgentSSEResponseBody::Metadata> metadata_ {};

@@ -75,7 +75,7 @@ namespace Models
 
 
     protected:
-      // The content of the automated operations report, including the report date and diagnostic details of managed instances.
+      // The content of the operations report, which mainly includes the report date and diagnostic details of managed instances.
       shared_ptr<string> reportDetail_ {};
       // The report ID.
       shared_ptr<string> reportId_ {};

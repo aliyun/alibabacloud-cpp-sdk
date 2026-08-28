@@ -78,6 +78,9 @@
 #include <alibabacloud/models/DescribeCloudbenchTaskConfigRequest.hpp>
 #include <alibabacloud/models/DescribeCloudbenchTaskConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudbenchTaskConfigResponse.hpp>
+#include <alibabacloud/models/DescribeDasOpsConfigRequest.hpp>
+#include <alibabacloud/models/DescribeDasOpsConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeDasOpsConfigResponse.hpp>
 #include <alibabacloud/models/DescribeDiagnosticReportListRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnosticReportListResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnosticReportListResponse.hpp>
@@ -318,6 +321,12 @@
 #include <alibabacloud/models/ModifyAutoScalingConfigRequest.hpp>
 #include <alibabacloud/models/ModifyAutoScalingConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyAutoScalingConfigResponse.hpp>
+#include <alibabacloud/models/ModifyDasOpsConfigRequest.hpp>
+#include <alibabacloud/models/ModifyDasOpsConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyDasOpsConfigResponse.hpp>
+#include <alibabacloud/models/ModifyForwardSqlLogConfigRequest.hpp>
+#include <alibabacloud/models/ModifyForwardSqlLogConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyForwardSqlLogConfigResponse.hpp>
 #include <alibabacloud/models/ModifySecurityIPGroupRequest.hpp>
 #include <alibabacloud/models/ModifySecurityIPGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifySecurityIPGroupResponse.hpp>

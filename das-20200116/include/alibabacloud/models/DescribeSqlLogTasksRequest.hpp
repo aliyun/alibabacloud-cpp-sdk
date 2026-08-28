@@ -82,7 +82,7 @@ namespace Models
     protected:
       // The filter parameter.
       // 
-      // > See **Additional information about request parameters** for the supported filter parameters and their valid values.
+      // > For supported filter parameters and their values, refer to **Supplementary description of request parameters**.
       shared_ptr<string> key_ {};
       // The value of the filter parameter.
       shared_ptr<string> value_ {};
@@ -143,21 +143,20 @@ namespace Models
 
 
   protected:
-    // The end time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end time of the query. Specify a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // An array of filter conditions.
+    // The list of query filter conditions.
     shared_ptr<vector<DescribeSqlLogTasksRequest::Filters>> filters_ {};
-    // The ID of the database instance.
+    // The database instance ID.
     shared_ptr<string> instanceId_ {};
     // The node ID.
-    // 
-    // > For cluster instances only. You can specify a node ID to query its offline tasks. If this parameter is omitted, the offline tasks of the primary node are returned by default.
+    // >This parameter is applicable only to Cluster Edition instances. You can specify a node to query its batch tasks. If you do not specify this parameter, the batch tasks of the primary node are returned by default.
     shared_ptr<string> nodeId_ {};
-    // The page number. The value must be a positive integer. Default value: 1.
+    // The page number for the paging query. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
+    // The maximum number of records per page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The start time of the query. Specify a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The database instance ID.
     shared_ptr<string> instanceId_ {};
-    // The page number. Pages are numbered starting from 1. Default value: 1.
+    // The page number for the paging query. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The page size. Maximum value: 100. Default value: 10.
+    // The maximum number of records per page for the paging query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
