@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The dynamic update of resources.
     shared_ptr<RescaleJobParam> rescaleJobParam_ {};
+    // The dynamic update of runtime parameters.
     shared_ptr<UpdateJobConfigParam> updateJobConfigParam_ {};
   };
 

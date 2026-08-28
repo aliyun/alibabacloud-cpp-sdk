@@ -1,0 +1,150 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_TRIGGERPATROLRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_TRIGGERPATROLRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ververica20220718
+{
+namespace Models
+{
+  class TriggerPatrolResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const TriggerPatrolResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(data, data_);
+      DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(httpCode, httpCode_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, TriggerPatrolResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(data, data_);
+      DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(httpCode, httpCode_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(success, success_);
+    };
+    TriggerPatrolResponseBody() = default ;
+    TriggerPatrolResponseBody(const TriggerPatrolResponseBody &) = default ;
+    TriggerPatrolResponseBody(TriggerPatrolResponseBody &&) = default ;
+    TriggerPatrolResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~TriggerPatrolResponseBody() = default ;
+    TriggerPatrolResponseBody& operator=(const TriggerPatrolResponseBody &) = default ;
+    TriggerPatrolResponseBody& operator=(TriggerPatrolResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(reportId, reportId_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(reportId, reportId_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->reportId_ == nullptr
+        && this->status_ == nullptr; };
+      // reportId Field Functions 
+      bool hasReportId() const { return this->reportId_ != nullptr;};
+      void deleteReportId() { this->reportId_ = nullptr;};
+      inline string getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+      inline Data& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The generated report ID.
+      shared_ptr<string> reportId_ {};
+      // The report status.
+      shared_ptr<string> status_ {};
+    };
+
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const TriggerPatrolResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, TriggerPatrolResponseBody::Data) };
+    inline TriggerPatrolResponseBody::Data getData() { DARABONBA_PTR_GET(data_, TriggerPatrolResponseBody::Data) };
+    inline TriggerPatrolResponseBody& setData(const TriggerPatrolResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline TriggerPatrolResponseBody& setData(TriggerPatrolResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // errorCode Field Functions 
+    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+    void deleteErrorCode() { this->errorCode_ = nullptr;};
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline TriggerPatrolResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline TriggerPatrolResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+    // httpCode Field Functions 
+    bool hasHttpCode() const { return this->httpCode_ != nullptr;};
+    void deleteHttpCode() { this->httpCode_ = nullptr;};
+    inline int32_t getHttpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
+    inline TriggerPatrolResponseBody& setHttpCode(int32_t httpCode) { DARABONBA_PTR_SET_VALUE(httpCode_, httpCode) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline TriggerPatrolResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline TriggerPatrolResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The response data of the triggered inspection.
+    shared_ptr<TriggerPatrolResponseBody::Data> data_ {};
+    // When success is false, this value is not empty and indicates the business error code. When success is true, this value is empty.
+    shared_ptr<string> errorCode_ {};
+    // When success is false, this value is not empty and indicates the business error message. When success is true, this value is empty.
+    shared_ptr<string> errorMessage_ {};
+    // The business status code, which is uniformly 200. Use success to determine whether the business request is successful.
+    shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the business request is successful.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ververica20220718
+#endif

@@ -89,11 +89,11 @@ namespace Models
   protected:
     // The complete SQL script information returned upon success. This value is valid when success is true.
     shared_ptr<SqlFile> data_ {};
-    // The business error code. This value is not empty when success is false, and is empty when success is true.
+    // The business error code. This value is not empty when success is false. This value is empty when success is true.
     shared_ptr<string> errorCode_ {};
-    // The business error message. This value is not empty when success is false, and is empty when success is true.
+    // The business error message. This value is not empty when success is false. This value is empty when success is true.
     shared_ptr<string> errorMessage_ {};
-    // The business status code, which is always 200. Use success to determine whether the request was successful.
+    // The business status code, which is uniformly 200. Use success to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

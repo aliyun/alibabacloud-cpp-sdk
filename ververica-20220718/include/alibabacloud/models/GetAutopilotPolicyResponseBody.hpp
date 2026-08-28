@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic tuning is enabled. A value of true indicates that automatic tuning is in the ACTIVE state. A value of false indicates that tuning is not enabled.
+      // Indicates whether automatic tuning is enabled. A value of true indicates that automatic tuning is active (ACTIVE). A value of false indicates that tuning is not enabled.
       shared_ptr<bool> enabled_ {};
       // The tuning policy configuration.
       shared_ptr<AutopilotPolicy> policyConfig_ {};
@@ -135,15 +135,15 @@ namespace Models
   protected:
     // The Autopilot tuning policy response data.
     shared_ptr<GetAutopilotPolicyResponseBody::Data> data_ {};
-    // The business error code. This field is not empty when success is false. This field is empty when success is true.
+    // The error code. This field is not empty when success is false. This field is empty when success is true.
     shared_ptr<string> errorCode_ {};
-    // The business error message. This field is not empty when success is false. This field is empty when success is true.
+    // The error message. This field is not empty when success is false. This field is empty when success is true.
     shared_ptr<string> errorMessage_ {};
-    // The business status code, which is always 200. Use the success field to determine whether the request was successful.
+    // The business status code, which is always 200. Use the success field to determine whether the request is successful.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

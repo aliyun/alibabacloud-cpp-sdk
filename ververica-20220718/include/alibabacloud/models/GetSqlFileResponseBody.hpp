@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The complete SQL script information returned when the request is successful. This field is valid when success is true.
+    // The complete SQL script information returned when the request succeeds. This field is valid when success is true.
     shared_ptr<SqlFile> data_ {};
     // The error code returned when success is false. This value is empty when success is true.
     shared_ptr<string> errorCode_ {};

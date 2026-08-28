@@ -97,8 +97,11 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores per TaskManager.
       shared_ptr<double> cpu_ {};
+      // The memory per TaskManager, in a format such as 4 Gi.
       shared_ptr<string> memory_ {};
+      // The parallelism.
       shared_ptr<int32_t> parallelism_ {};
     };
 
@@ -149,8 +152,11 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores per TaskManager.
       shared_ptr<double> cpu_ {};
+      // The memory per TaskManager, in a format such as 4 Gi.
       shared_ptr<string> memory_ {};
+      // The parallelism.
       shared_ptr<int32_t> parallelism_ {};
     };
 
@@ -241,16 +247,39 @@ namespace Models
 
 
   protected:
+    // The action type. Valid values:
+    // - SCALE_UP_PARALLELISM: scales up parallelism.
+    // - SCALE_DOWN_PARALLELISM: scales down parallelism.
+    // - SCALE_UP_MEMORY: scales up memory.
+    // - RESTART: restarts the job.
     shared_ptr<string> actionType_ {};
+    // The additional annotations.
     shared_ptr<map<string, string>> annotations_ {};
+    // The full path name of the deployment.
     shared_ptr<string> deploymentName_ {};
+    // Indicates whether this is a hot update. A value of true indicates that the change takes effect without restarting the job. A value of false indicates that the job must be restarted.
     shared_ptr<bool> isHotUpdate_ {};
+    // The ID of the associated job.
     shared_ptr<string> jobId_ {};
+    // The resource configuration after tuning. This value may be null if the tuning failed.
     shared_ptr<TuningHistory::NewResourceSetting> newResourceSetting_ {};
+    // The resource configuration before tuning.
     shared_ptr<TuningHistory::OldResourceSetting> oldResourceSetting_ {};
+    // The trigger timestamp in milliseconds.
     shared_ptr<int64_t> triggerTime_ {};
+    // The UUID of the tuning record.
     shared_ptr<string> tuningId_ {};
+    // The tuning message. This is an internationalized, human-readable string that is not recommended for programmatic parsing.
     shared_ptr<string> tuningMessage_ {};
+    // The tuning state. Valid values:
+    // - SUCCESS: The tuning succeeded.
+    // - FAILED: The tuning failed.
+    // - EXECUTING: The tuning is in progress.
+    // - TERMINATED: The tuning was terminated.
+    // - FAILED_WITH_ROLLBACK_SUCCESS: The tuning failed but the rollback succeeded.
+    // - FAILED_WITH_ROLLBACK_FAILED: The tuning failed and the rollback also failed.
+    // - FAILED_WITH_RESOURCE_LACK: The tuning failed due to insufficient resources.
+    // - FAILED_WITH_SAME_RESOURCE_SETTING: The tuning failed because the resource configuration did not change.
     shared_ptr<string> tuningState_ {};
   };
 

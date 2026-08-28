@@ -63,14 +63,13 @@ namespace Models
 
 
   protected:
-    // The resource parameters in basic mode.
+    // The resource settings for basic mode.
     shared_ptr<BasicResourceSetting> basicResourceSetting_ {};
-    // The resource parameters in expert mode.
+    // The resource settings for expert mode.
     shared_ptr<ExpertResourceSetting> expertResourceSetting_ {};
-    // The resource configuration mode used by a deployment that runs in streaming mode. Valid values:
-    // 
-    // *   EXPERT
-    // *   BASIC
+    // The resource mode used in stream mode. Valid values:
+    // - EXPERT: expert mode.
+    // - BASIC: basic mode.
     shared_ptr<string> resourceSettingMode_ {};
   };
 

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETCATALOGSHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_GETCATALOGSHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATEPATROLCONFIGHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEPATROLCONFIGHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace Ververica20220718
 {
 namespace Models
 {
-  class GetCatalogsHeaders : public Darabonba::Model {
+  class UpdatePatrolConfigHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetCatalogsHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdatePatrolConfigHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
-    friend void from_json(const Darabonba::Json& j, GetCatalogsHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdatePatrolConfigHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
-    GetCatalogsHeaders() = default ;
-    GetCatalogsHeaders(const GetCatalogsHeaders &) = default ;
-    GetCatalogsHeaders(GetCatalogsHeaders &&) = default ;
-    GetCatalogsHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetCatalogsHeaders() = default ;
-    GetCatalogsHeaders& operator=(const GetCatalogsHeaders &) = default ;
-    GetCatalogsHeaders& operator=(GetCatalogsHeaders &&) = default ;
+    UpdatePatrolConfigHeaders() = default ;
+    UpdatePatrolConfigHeaders(const UpdatePatrolConfigHeaders &) = default ;
+    UpdatePatrolConfigHeaders(UpdatePatrolConfigHeaders &&) = default ;
+    UpdatePatrolConfigHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdatePatrolConfigHeaders() = default ;
+    UpdatePatrolConfigHeaders& operator=(const UpdatePatrolConfigHeaders &) = default ;
+    UpdatePatrolConfigHeaders& operator=(UpdatePatrolConfigHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,15 +39,15 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline GetCatalogsHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline GetCatalogsHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline UpdatePatrolConfigHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline UpdatePatrolConfigHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
     inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
-    inline GetCatalogsHeaders& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+    inline UpdatePatrolConfigHeaders& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:

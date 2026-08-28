@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The hot update parameters.
     shared_ptr<HotUpdateJobParams> hotUpdateParams_ {};
+    // The hot update ID.
     shared_ptr<string> jobHotUpdateId_ {};
+    // The job instance ID.
     shared_ptr<string> jobId_ {};
+    // The hot update status.
     shared_ptr<HotUpdateJobStatus> status_ {};
+    // The target job resource configuration.
     shared_ptr<BriefResourceSetting> targetResourceSetting_ {};
   };
 

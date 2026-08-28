@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The SQL statements for metadata.
+    // The metadata-related SQL statement.
     shared_ptr<SqlStatementWithContext> body_ {};
   };
 

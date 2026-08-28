@@ -107,8 +107,11 @@ namespace Models
 
 
       protected:
+        // The start time. For the DAY level: 0-1439, representing the minute offset of the day (for example, 540 represents 9:00). For the WEEK level: 1-7, representing the day of the week (ISO 8601, 1=Monday, 7=Sunday).
         shared_ptr<int64_t> beginTime_ {};
+        // The end time. The format is the same as beginTime. For the WEEK level, if endTime is less than beginTime, it indicates a cross-week period (for example, beginTime=6, endTime=2 means silent from Saturday to the following Tuesday).
         shared_ptr<int64_t> endTime_ {};
+        // The silent level. DAY indicates daily repetition. WEEK indicates weekly repetition.
         shared_ptr<string> level_ {};
       };
 
@@ -131,7 +134,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable silent periods.
       shared_ptr<bool> enabled_ {};
+      // The list of silent periods. This is a full replacement, not an append operation.
       shared_ptr<vector<SilentPeriodConfig::SilentPeriods>> silentPeriods_ {};
     };
 
@@ -209,8 +214,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable slot busy scale-up.
         shared_ptr<bool> enabled_ {};
+        // The slot busy sampling interval. Format examples: 6min, 5m.
         shared_ptr<string> slotBusyScaleUpSampleInterval_ {};
+        // The slot busy scale-up threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when the slot busy ratio exceeds this value.
         shared_ptr<double> slotBusyScaleUpThreshold_ {};
       };
 
@@ -242,6 +250,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable OOM scale-up.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -283,7 +292,9 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable memory scale-up.
         shared_ptr<bool> enabled_ {};
+        // The memory scale-up threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when memory usage exceeds this value.
         shared_ptr<double> memUsageScaleUpThreshold_ {};
       };
 
@@ -334,8 +345,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable GC tuning.
         shared_ptr<bool> enabled_ {};
+        // The GC sampling interval. Format examples: 3min, 5m.
         shared_ptr<string> gcSampleInterval_ {};
+        // The GC time ratio threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when the GC time ratio exceeds this value.
         shared_ptr<double> gcTimeRatioThreshold_ {};
       };
 
@@ -386,8 +400,11 @@ namespace Models
 
 
       protected:
+        // The delay sampling interval. Format examples: 3min, 5m, 1h.
         shared_ptr<string> delaySampleInterval_ {};
+        // The latency threshold. Format examples: 1min, 10m. Scale-up is triggered when the delay continuously exceeds this threshold.
         shared_ptr<string> delayThreshold_ {};
+        // Specifies whether to enable delay detection scale-up.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -439,10 +456,15 @@ namespace Models
 
 
     protected:
+      // The delay detection scale-up rule. Scale-up is triggered when the job delay exceeds the threshold.
       shared_ptr<ScaleUpRules::DelayRule> delayRule_ {};
+      // The GC tuning rule. Scale-up is triggered when the GC time ratio exceeds the threshold.
       shared_ptr<ScaleUpRules::GcRule> gcRule_ {};
+      // The memory scale-up rule. Scale-up is triggered when memory usage exceeds the threshold.
       shared_ptr<ScaleUpRules::MemoryScaleUpRule> memoryScaleUpRule_ {};
+      // The OOM scale-up rule. Scale-up is triggered when an OOM risk is detected.
       shared_ptr<ScaleUpRules::OomScaleUpRule> oomScaleUpRule_ {};
+      // The slot busy scale-up rule. Scale-up is triggered when the slot busy ratio exceeds the threshold.
       shared_ptr<ScaleUpRules::SlotBusyScaleUpRule> slotBusyScaleUpRule_ {};
     };
 
@@ -514,8 +536,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable slot idle scale-down.
         shared_ptr<bool> enabled_ {};
+        // The slot idle sampling interval. Format examples: 4h, 5m.
         shared_ptr<string> slotBusyScaleDownSampleInterval_ {};
+        // The slot idle scale-down threshold. Valid values: 0.0 to 1.0. Scale-down is triggered when the slot busy ratio falls below this value. This value must be less than the scale-up threshold.
         shared_ptr<double> slotBusyScaleDownThreshold_ {};
       };
 
@@ -566,8 +591,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable memory scale-down.
         shared_ptr<bool> enabled_ {};
+        // The memory scale-down sampling interval. Format examples: 4h, 5m.
         shared_ptr<string> memUsageScaleDownSampleInterval_ {};
+        // The memory scale-down threshold. Valid values: 0.0 to 1.0. Scale-down is triggered when memory usage falls below this value. This value must be less than the scale-up threshold.
         shared_ptr<double> memUsageScaleDownThreshold_ {};
       };
 
@@ -592,7 +620,9 @@ namespace Models
 
 
     protected:
+      // The memory scale-down rule. Scale-down is triggered when memory usage falls below the threshold.
       shared_ptr<ScaleDownRules::MemoryScaleDownRule> memoryScaleDownRule_ {};
+      // The slot idle scale-down rule. Scale-down is triggered when the slot busy ratio falls below the threshold.
       shared_ptr<ScaleDownRules::SlotBusyScaleDownRule> slotBusyScaleDownRule_ {};
     };
 
@@ -661,10 +691,15 @@ namespace Models
 
 
     protected:
+      // The minimum cool-down time between two tuning operations, in minutes.
       shared_ptr<int64_t> coolDownMinutes_ {};
+      // The maximum CPU.
       shared_ptr<double> jobMaxCpu_ {};
+      // The maximum memory. Format examples: 4Gi, 256GiB.
       shared_ptr<string> jobMaxMemory_ {};
+      // The maximum parallelism.
       shared_ptr<int32_t> jobMaxParallelism_ {};
+      // The minimum parallelism.
       shared_ptr<int32_t> jobMinParallelism_ {};
     };
 
@@ -708,7 +743,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable advanced rules.
       shared_ptr<bool> enabled_ {};
+      // The advanced rule parameters. An empty map indicates that internal default parameters are used. You can override specific internal parameters by using key-value pairs. The entire map is replaced.
       shared_ptr<map<string, string>> parameters_ {};
     };
 
@@ -760,10 +797,15 @@ namespace Models
 
 
   protected:
+    // The advanced rule configuration. This includes advanced parameters such as chain-break optimization, minimum parallelism, and TM CPU scaling. Disabled by default and must be explicitly enabled.
     shared_ptr<AutopilotPolicy::AdvancedRules> advancedRules_ {};
+    // The upper and lower limits for tuning resources.
     shared_ptr<AutopilotPolicy::Limits> limits_ {};
+    // The scale-down rule configuration.
     shared_ptr<AutopilotPolicy::ScaleDownRules> scaleDownRules_ {};
+    // The scale-up rule configuration.
     shared_ptr<AutopilotPolicy::ScaleUpRules> scaleUpRules_ {};
+    // The silent period configuration. Automatic tuning operations are not performed during silent periods.
     shared_ptr<AutopilotPolicy::SilentPeriodConfig> silentPeriodConfig_ {};
   };
 

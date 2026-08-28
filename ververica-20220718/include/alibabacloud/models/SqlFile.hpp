@@ -112,23 +112,18 @@ namespace Models
 
 
   protected:
-    // The batch mode.
     shared_ptr<string> batchMode_ {};
-    // The description of the SQL file.
     shared_ptr<string> description_ {};
-    // The name of the SQL file.
+    // The query script name. This field is required when creating a SqlFile.
     shared_ptr<string> name_ {};
-    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The ID of the parent SQL file.
+    // The parent folder ID. This field is required when creating a SqlFile.
     shared_ptr<string> parentId_ {};
-    // The name of the session cluster.
+    // The session cluster for running the query script. This field is required when creating a SqlFile.
     shared_ptr<string> sessionClusterName_ {};
-    // The SQL file ID.
     shared_ptr<string> sqlFileId_ {};
-    // The SQL script content.
+    // The SQL script. This field is required when creating a SqlFile.
     shared_ptr<string> sqlScript_ {};
-    // The workspace ID.
     shared_ptr<string> workspace_ {};
   };
 

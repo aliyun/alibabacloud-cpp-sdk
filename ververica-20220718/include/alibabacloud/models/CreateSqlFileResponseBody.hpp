@@ -89,9 +89,9 @@ namespace Models
   protected:
     // The variable configuration settings.
     shared_ptr<SqlFile> data_ {};
-    // The error code returned when success is false. This value is empty when success is true.
+    // The business error code returned when success is false. This value is empty when success is true.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when success is false. This value is empty when success is true.
+    // The business error message returned when success is false. This value is empty when success is true.
     shared_ptr<string> errorMessage_ {};
     // The business status code, which is always 200. Use success to determine whether the request was successful.
     shared_ptr<int32_t> httpCode_ {};

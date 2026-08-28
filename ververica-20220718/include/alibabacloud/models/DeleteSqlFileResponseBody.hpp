@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The basic information about the deleted file returned after a successful deletion. Only metadata is included. The content field is not returned. This field is valid when success is set to true.
+    // The basic information about the deleted file returned after a successful deletion. Only metadata is included. The content field is not returned. This field is valid when success is true.
     shared_ptr<SqlFile> data_ {};
     // The error code returned when success is false. This value is empty when success is true.
     shared_ptr<string> errorCode_ {};

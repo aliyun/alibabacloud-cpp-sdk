@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the catalog. If this parameter is left empty, all catalogs are listed.
+    // The catalog name. If this parameter is left empty, all catalogs are listed.
     shared_ptr<string> catalogName_ {};
   };
 

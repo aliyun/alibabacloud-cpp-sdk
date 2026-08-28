@@ -22,24 +22,24 @@ namespace Ververica20220718
 AlibabaCloud::Ververica20220718::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
+    {"cn-qingdao" , "ververica.cn-qingdao.aliyuncs.com"},
+    {"cn-shenzhen" , "ververica.cn-shenzhen.aliyuncs.com"},
+    {"cn-wulanchabu" , "ververica.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "ververica.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "ververica.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "ververica.cn-chengdu.aliyuncs.com"},
+    {"cn-shanghai" , "ververica.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "ververica.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "ververica.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "ververica.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "ververica.ap-southeast-5.aliyuncs.com"},
+    {"cn-zhangjiakou" , "ververica.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "ververica.cn-hangzhou.aliyuncs.com"},
     {"us-west-1" , "ververica.us-west-1.aliyuncs.com"},
     {"us-east-1" , "ververica.us-east-1.aliyuncs.com"},
-    {"eu-west-1" , "ververica.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "ververica.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "ververica.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "ververica.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "ververica.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "ververica.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "ververica.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "ververica.cn-qingdao.aliyuncs.com"},
-    {"cn-hongkong" , "ververica.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "ververica.cn-hangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "ververica.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "ververica.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "ververica.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "ververica.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "ververica.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "ververica.ap-northeast-1.aliyuncs.com"}
+    {"eu-west-1" , "ververica.eu-west-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ververica.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ververica", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1678,7 +1678,7 @@ DeployDeploymentDraftAsyncResponse Client::deployDeploymentDraftAsync(const stri
 }
 
 /**
- * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+ * @summary Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @param headers ExecuteSqlStatementHeaders
@@ -1715,7 +1715,7 @@ ExecuteSqlStatementResponse Client::executeSqlStatementWithOptions(const string 
 }
 
 /**
- * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+ * @summary Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
  *
  * @param request ExecuteSqlStatementRequest
  * @return ExecuteSqlStatementResponse
@@ -2006,7 +2006,7 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlan(const string &_n
 }
 
 /**
- * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+ * @summary Retrieves the Autopilot tuning configuration.
  *
  * @param request GetAutopilotPolicyRequest
  * @param headers GetAutopilotPolicyHeaders
@@ -2042,7 +2042,7 @@ GetAutopilotPolicyResponse Client::getAutopilotPolicyWithOptions(const string &_
 }
 
 /**
- * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+ * @summary Retrieves the Autopilot tuning configuration.
  *
  * @param request GetAutopilotPolicyRequest
  * @return GetAutopilotPolicyResponse
@@ -2108,7 +2108,7 @@ GetCatalogsResponse Client::getCatalogs(const string &_namespace, const GetCatal
 }
 
 /**
- * @summary Retrieves information about one or more databases in a specified catalog.
+ * @summary Retrieves information about a specified database or lists all databases under a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @param headers GetDatabasesHeaders
@@ -2150,7 +2150,7 @@ GetDatabasesResponse Client::getDatabasesWithOptions(const string &_namespace, c
 }
 
 /**
- * @summary Retrieves information about one or more databases in a specified catalog.
+ * @summary Retrieves information about a specified database or lists all databases under a specified catalog.
  *
  * @param request GetDatabasesRequest
  * @return GetDatabasesResponse
@@ -2623,7 +2623,7 @@ GetEventsResponse Client::getEvents(const string &_namespace, const GetEventsReq
 }
 
 /**
- * @summary Retrieves specific folder information.
+ * @summary Retrieves the details of a specific folder.
  *
  * @param request GetFolderRequest
  * @param headers GetFolderHeaders
@@ -2669,7 +2669,7 @@ GetFolderResponse Client::getFolderWithOptions(const string &_namespace, const G
 }
 
 /**
- * @summary Retrieves specific folder information.
+ * @summary Retrieves the details of a specific folder.
  *
  * @param request GetFolderRequest
  * @return GetFolderResponse
@@ -3000,6 +3000,116 @@ GetMemberResponse Client::getMember(const string &_namespace, const string &memb
 }
 
 /**
+ * @summary Retrieves the inspection configuration.
+ *
+ * @param request GetPatrolConfigRequest
+ * @param headers GetPatrolConfigHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPatrolConfigResponse
+ */
+GetPatrolConfigResponse Client::getPatrolConfigWithOptions(const string &_namespace, const GetPatrolConfigRequest &request, const GetPatrolConfigHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPatrolConfig"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/patrol-config")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPatrolConfigResponse>();
+}
+
+/**
+ * @summary Retrieves the inspection configuration.
+ *
+ * @param request GetPatrolConfigRequest
+ * @return GetPatrolConfigResponse
+ */
+GetPatrolConfigResponse Client::getPatrolConfig(const string &_namespace, const GetPatrolConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetPatrolConfigHeaders headers = GetPatrolConfigHeaders();
+  return getPatrolConfigWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an inspection report.
+ *
+ * @param request GetPatrolReportDetailRequest
+ * @param headers GetPatrolReportDetailHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPatrolReportDetailResponse
+ */
+GetPatrolReportDetailResponse Client::getPatrolReportDetailWithOptions(const string &_namespace, const GetPatrolReportDetailRequest &request, const GetPatrolReportDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDate()) {
+    query["date"] = request.getDate();
+  }
+
+  if (!!request.hasReportId()) {
+    query["reportId"] = request.getReportId();
+  }
+
+  if (!!request.hasTimezone()) {
+    query["timezone"] = request.getTimezone();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPatrolReportDetail"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/patrol-reports/details")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPatrolReportDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an inspection report.
+ *
+ * @param request GetPatrolReportDetailRequest
+ * @return GetPatrolReportDetailResponse
+ */
+GetPatrolReportDetailResponse Client::getPatrolReportDetail(const string &_namespace, const GetPatrolReportDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetPatrolReportDetailHeaders headers = GetPatrolReportDetailHeaders();
+  return getPatrolReportDetailWithOptions(namespace, request, headers, runtime);
+}
+
+/**
  * @summary 获取上传文件URL
  *
  * @param request GetPreSignedUrlForPutObjectRequest
@@ -3192,7 +3302,7 @@ GetSqlFileResponse Client::getSqlFile(const string &_namespace, const string &sq
 }
 
 /**
- * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
+ * @summary Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
  *
  * @param request GetTablesRequest
  * @param headers GetTablesHeaders
@@ -3234,7 +3344,7 @@ GetTablesResponse Client::getTablesWithOptions(const string &_namespace, const s
 }
 
 /**
- * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
+ * @summary Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
  *
  * @param request GetTablesRequest
  * @return GetTablesResponse
@@ -3945,6 +4055,84 @@ ListMembersResponse Client::listMembers(const string &_namespace, const ListMemb
 }
 
 /**
+ * @summary Queries the list of inspection reports.
+ *
+ * @param request ListPatrolReportsRequest
+ * @param headers ListPatrolReportsHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPatrolReportsResponse
+ */
+ListPatrolReportsResponse Client::listPatrolReportsWithOptions(const string &_namespace, const ListPatrolReportsRequest &request, const ListPatrolReportsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasScopeType()) {
+    query["scopeType"] = request.getScopeType();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTriggerType()) {
+    query["triggerType"] = request.getTriggerType();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPatrolReports"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/patrol-reports")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPatrolReportsResponse>();
+}
+
+/**
+ * @summary Queries the list of inspection reports.
+ *
+ * @param request ListPatrolReportsRequest
+ * @return ListPatrolReportsResponse
+ */
+ListPatrolReportsResponse Client::listPatrolReports(const string &_namespace, const ListPatrolReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ListPatrolReportsHeaders headers = ListPatrolReportsHeaders();
+  return listPatrolReportsWithOptions(namespace, request, headers, runtime);
+}
+
+/**
  * @summary Obtains a list of savepoints or checkpoints.
  *
  * @param request ListSavepointsRequest
@@ -4497,7 +4685,7 @@ StartSessionClusterResponse Client::startSessionCluster(const string &_namespace
 }
 
 /**
- * @summary Executes an SQL query script task.
+ * @summary Executes an SQL data query script task.
  *
  * @param request StartSqlExecutionRequest
  * @param headers StartSqlExecutionHeaders
@@ -4534,7 +4722,7 @@ StartSqlExecutionResponse Client::startSqlExecutionWithOptions(const string &_na
 }
 
 /**
- * @summary Executes an SQL query script task.
+ * @summary Executes an SQL data query script task.
  *
  * @param request StartSqlExecutionRequest
  * @return StartSqlExecutionResponse
@@ -4785,6 +4973,64 @@ SubmitSqlPreviewResponse Client::submitSqlPreview(const string &_namespace, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   SubmitSqlPreviewHeaders headers = SubmitSqlPreviewHeaders();
   return submitSqlPreviewWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Triggers an inspection.
+ *
+ * @param request TriggerPatrolRequest
+ * @param headers TriggerPatrolHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TriggerPatrolResponse
+ */
+TriggerPatrolResponse Client::triggerPatrolWithOptions(const string &_namespace, const TriggerPatrolRequest &request, const TriggerPatrolHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasScopeConfig()) {
+    body["scopeConfig"] = request.getScopeConfig();
+  }
+
+  if (!!request.hasScopeType()) {
+    body["scopeType"] = request.getScopeType();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TriggerPatrol"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/patrol-reports/trigger")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TriggerPatrolResponse>();
+}
+
+/**
+ * @summary Triggers an inspection.
+ *
+ * @param request TriggerPatrolRequest
+ * @return TriggerPatrolResponse
+ */
+TriggerPatrolResponse Client::triggerPatrol(const string &_namespace, const TriggerPatrolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  TriggerPatrolHeaders headers = TriggerPatrolHeaders();
+  return triggerPatrolWithOptions(namespace, request, headers, runtime);
 }
 
 /**
@@ -5196,6 +5442,76 @@ UpdateMemberResponse Client::updateMember(const string &_namespace, const Update
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   UpdateMemberHeaders headers = UpdateMemberHeaders();
   return updateMemberWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the inspection configuration.
+ *
+ * @param request UpdatePatrolConfigRequest
+ * @param headers UpdatePatrolConfigHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePatrolConfigResponse
+ */
+UpdatePatrolConfigResponse Client::updatePatrolConfigWithOptions(const string &_namespace, const UpdatePatrolConfigRequest &request, const UpdatePatrolConfigHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCron()) {
+    body["cron"] = request.getCron();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasScopeConfig()) {
+    body["scopeConfig"] = request.getScopeConfig();
+  }
+
+  if (!!request.hasScopeType()) {
+    body["scopeType"] = request.getScopeType();
+  }
+
+  if (!!request.hasTimezone()) {
+    body["timezone"] = request.getTimezone();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePatrolConfig"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/patrol-config")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePatrolConfigResponse>();
+}
+
+/**
+ * @summary Updates the inspection configuration.
+ *
+ * @param request UpdatePatrolConfigRequest
+ * @return UpdatePatrolConfigResponse
+ */
+UpdatePatrolConfigResponse Client::updatePatrolConfig(const string &_namespace, const UpdatePatrolConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  UpdatePatrolConfigHeaders headers = UpdatePatrolConfigHeaders();
+  return updatePatrolConfigWithOptions(namespace, request, headers, runtime);
 }
 
 /**

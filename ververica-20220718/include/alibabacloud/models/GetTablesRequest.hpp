@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the table. If this parameter is left empty, information about all tables is returned.
+    // The table name. If this parameter is left empty, information about all tables is returned.
     shared_ptr<string> tableName_ {};
   };
 

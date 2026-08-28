@@ -65,11 +65,11 @@ namespace Models
 
 
   protected:
-    // The resource configuration for the deployment in batch mode. This parameter is required for a deployment in batch mode.
+    // The resource settings for running in batch mode. This parameter is required when batch mode is selected.
     shared_ptr<BatchResourceSetting> batchResourceSetting_ {};
-    // The Realtime Compute for Apache Flink configuration.
+    // The Flink configuration.
     Darabonba::Json flinkConf_ {};
-    // The resource configuration for the deployment in streaming mode. This parameter is required for a deployment in streaming mode.
+    // The resource settings for running in streaming mode. This parameter is required when streaming mode is selected.
     shared_ptr<StreamingResourceSetting> streamingResourceSetting_ {};
   };
 

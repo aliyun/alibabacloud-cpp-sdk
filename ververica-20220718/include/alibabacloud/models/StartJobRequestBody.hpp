@@ -63,11 +63,11 @@ namespace Models
 
 
   protected:
-    // The deployment ID.
+    // The ID of the deployed job.
     shared_ptr<string> deploymentId_ {};
-    // The resource configuration of the deployment.
+    // The job resource settings.
     shared_ptr<BriefResourceSetting> resourceSettingSpec_ {};
-    // The start offset of the job.
+    // The startup position settings for the job instance.
     shared_ptr<DeploymentRestoreStrategy> restoreStrategy_ {};
   };
 

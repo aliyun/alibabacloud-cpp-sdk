@@ -328,6 +328,14 @@
 #include <alibabacloud/models/GetMemberHeaders.hpp>
 #include <alibabacloud/models/GetMemberResponseBody.hpp>
 #include <alibabacloud/models/GetMemberResponse.hpp>
+#include <alibabacloud/models/GetPatrolConfigHeaders.hpp>
+#include <alibabacloud/models/GetPatrolConfigRequest.hpp>
+#include <alibabacloud/models/GetPatrolConfigResponseBody.hpp>
+#include <alibabacloud/models/GetPatrolConfigResponse.hpp>
+#include <alibabacloud/models/GetPatrolReportDetailHeaders.hpp>
+#include <alibabacloud/models/GetPatrolReportDetailRequest.hpp>
+#include <alibabacloud/models/GetPatrolReportDetailResponseBody.hpp>
+#include <alibabacloud/models/GetPatrolReportDetailResponse.hpp>
 #include <alibabacloud/models/GetPreSignedUrlForPutObjectHeaders.hpp>
 #include <alibabacloud/models/GetPreSignedUrlForPutObjectRequest.hpp>
 #include <alibabacloud/models/GetPreSignedUrlForPutObjectResponseBody.hpp>
@@ -389,6 +397,10 @@
 #include <alibabacloud/models/ListMembersRequest.hpp>
 #include <alibabacloud/models/ListMembersResponseBody.hpp>
 #include <alibabacloud/models/ListMembersResponse.hpp>
+#include <alibabacloud/models/ListPatrolReportsHeaders.hpp>
+#include <alibabacloud/models/ListPatrolReportsRequest.hpp>
+#include <alibabacloud/models/ListPatrolReportsResponseBody.hpp>
+#include <alibabacloud/models/ListPatrolReportsResponse.hpp>
 #include <alibabacloud/models/ListSavepointsHeaders.hpp>
 #include <alibabacloud/models/ListSavepointsRequest.hpp>
 #include <alibabacloud/models/ListSavepointsResponseBody.hpp>
@@ -449,6 +461,10 @@
 #include <alibabacloud/models/SubmitSqlPreviewRequest.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewResponseBody.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewResponse.hpp>
+#include <alibabacloud/models/TriggerPatrolHeaders.hpp>
+#include <alibabacloud/models/TriggerPatrolRequest.hpp>
+#include <alibabacloud/models/TriggerPatrolResponseBody.hpp>
+#include <alibabacloud/models/TriggerPatrolResponse.hpp>
 #include <alibabacloud/models/UpdateAutopilotPolicyHeaders.hpp>
 #include <alibabacloud/models/UpdateAutopilotPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateAutopilotPolicyResponseBody.hpp>
@@ -481,6 +497,10 @@
 #include <alibabacloud/models/UpdateMemberRequest.hpp>
 #include <alibabacloud/models/UpdateMemberResponseBody.hpp>
 #include <alibabacloud/models/UpdateMemberResponse.hpp>
+#include <alibabacloud/models/UpdatePatrolConfigHeaders.hpp>
+#include <alibabacloud/models/UpdatePatrolConfigRequest.hpp>
+#include <alibabacloud/models/UpdatePatrolConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdatePatrolConfigResponse.hpp>
 #include <alibabacloud/models/UpdateScheduledPlanHeaders.hpp>
 #include <alibabacloud/models/UpdateScheduledPlanRequest.hpp>
 #include <alibabacloud/models/UpdateScheduledPlanResponseBody.hpp>

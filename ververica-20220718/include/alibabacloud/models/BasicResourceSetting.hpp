@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The resource configuration of the JobManager.
+    // The JobManager resource settings.
     shared_ptr<BasicResourceSettingSpec> jobmanagerResourceSettingSpec_ {};
-    // The parallelism for a deployment.
+    // The concurrency.
     shared_ptr<int64_t> parallelism_ {};
-    // The resource configuration of a TaskManager.
+    // The TaskManager resource settings.
     shared_ptr<BasicResourceSettingSpec> taskmanagerResourceSettingSpec_ {};
   };
 

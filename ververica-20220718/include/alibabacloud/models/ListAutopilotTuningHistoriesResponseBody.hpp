@@ -162,11 +162,11 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // When success is false, this value is not empty and indicates the business error message. When success is true, this value is empty.
     shared_ptr<string> errorMessage_ {};
-    // The business status code, which is always 200. Use success to determine whether the business request is successful.
+    // The business status code, which is always 200. Use success to determine whether the business request was successful.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the business request is successful.
+    // Indicates whether the business request was successful.
     shared_ptr<bool> success_ {};
   };
 

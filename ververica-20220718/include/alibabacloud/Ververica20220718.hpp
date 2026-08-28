@@ -579,7 +579,7 @@ namespace Ververica20220718
       Models::DeployDeploymentDraftAsyncResponse deployDeploymentDraftAsync(const string &_namespace, const Models::DeployDeploymentDraftAsyncRequest &request);
 
       /**
-       * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+       * @summary Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
        *
        * @param request ExecuteSqlStatementRequest
        * @param headers ExecuteSqlStatementHeaders
@@ -589,7 +589,7 @@ namespace Ververica20220718
       Models::ExecuteSqlStatementResponse executeSqlStatementWithOptions(const string &_namespace, const Models::ExecuteSqlStatementRequest &request, const Models::ExecuteSqlStatementHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+       * @summary Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
        *
        * @param request ExecuteSqlStatementRequest
        * @return ExecuteSqlStatementResponse
@@ -687,7 +687,7 @@ namespace Ververica20220718
       Models::GetAppliedScheduledPlanResponse getAppliedScheduledPlan(const string &_namespace, const Models::GetAppliedScheduledPlanRequest &request);
 
       /**
-       * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+       * @summary Retrieves the Autopilot tuning configuration.
        *
        * @param request GetAutopilotPolicyRequest
        * @param headers GetAutopilotPolicyHeaders
@@ -697,7 +697,7 @@ namespace Ververica20220718
       Models::GetAutopilotPolicyResponse getAutopilotPolicyWithOptions(const string &_namespace, const string &deploymentId, const Models::GetAutopilotPolicyRequest &request, const Models::GetAutopilotPolicyHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+       * @summary Retrieves the Autopilot tuning configuration.
        *
        * @param request GetAutopilotPolicyRequest
        * @return GetAutopilotPolicyResponse
@@ -723,7 +723,7 @@ namespace Ververica20220718
       Models::GetCatalogsResponse getCatalogs(const string &_namespace, const Models::GetCatalogsRequest &request);
 
       /**
-       * @summary Retrieves information about one or more databases in a specified catalog.
+       * @summary Retrieves information about a specified database or lists all databases under a specified catalog.
        *
        * @param request GetDatabasesRequest
        * @param headers GetDatabasesHeaders
@@ -733,7 +733,7 @@ namespace Ververica20220718
       Models::GetDatabasesResponse getDatabasesWithOptions(const string &_namespace, const string &catalogName, const Models::GetDatabasesRequest &request, const Models::GetDatabasesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about one or more databases in a specified catalog.
+       * @summary Retrieves information about a specified database or lists all databases under a specified catalog.
        *
        * @param request GetDatabasesRequest
        * @return GetDatabasesResponse
@@ -887,7 +887,7 @@ namespace Ververica20220718
       Models::GetEventsResponse getEvents(const string &_namespace, const Models::GetEventsRequest &request);
 
       /**
-       * @summary Retrieves specific folder information.
+       * @summary Retrieves the details of a specific folder.
        *
        * @param request GetFolderRequest
        * @param headers GetFolderHeaders
@@ -897,7 +897,7 @@ namespace Ververica20220718
       Models::GetFolderResponse getFolderWithOptions(const string &_namespace, const Models::GetFolderRequest &request, const Models::GetFolderHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves specific folder information.
+       * @summary Retrieves the details of a specific folder.
        *
        * @param request GetFolderRequest
        * @return GetFolderResponse
@@ -1019,6 +1019,42 @@ namespace Ververica20220718
       Models::GetMemberResponse getMember(const string &_namespace, const string &member);
 
       /**
+       * @summary Retrieves the inspection configuration.
+       *
+       * @param request GetPatrolConfigRequest
+       * @param headers GetPatrolConfigHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPatrolConfigResponse
+       */
+      Models::GetPatrolConfigResponse getPatrolConfigWithOptions(const string &_namespace, const Models::GetPatrolConfigRequest &request, const Models::GetPatrolConfigHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the inspection configuration.
+       *
+       * @param request GetPatrolConfigRequest
+       * @return GetPatrolConfigResponse
+       */
+      Models::GetPatrolConfigResponse getPatrolConfig(const string &_namespace, const Models::GetPatrolConfigRequest &request);
+
+      /**
+       * @summary Retrieves the details of an inspection report.
+       *
+       * @param request GetPatrolReportDetailRequest
+       * @param headers GetPatrolReportDetailHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPatrolReportDetailResponse
+       */
+      Models::GetPatrolReportDetailResponse getPatrolReportDetailWithOptions(const string &_namespace, const Models::GetPatrolReportDetailRequest &request, const Models::GetPatrolReportDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an inspection report.
+       *
+       * @param request GetPatrolReportDetailRequest
+       * @return GetPatrolReportDetailResponse
+       */
+      Models::GetPatrolReportDetailResponse getPatrolReportDetail(const string &_namespace, const Models::GetPatrolReportDetailRequest &request);
+
+      /**
        * @summary 获取上传文件URL
        *
        * @param request GetPreSignedUrlForPutObjectRequest
@@ -1087,7 +1123,7 @@ namespace Ververica20220718
       Models::GetSqlFileResponse getSqlFile(const string &_namespace, const string &sqlFileId, const Models::GetSqlFileRequest &request);
 
       /**
-       * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
+       * @summary Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
        *
        * @param request GetTablesRequest
        * @param headers GetTablesHeaders
@@ -1097,7 +1133,7 @@ namespace Ververica20220718
       Models::GetTablesResponse getTablesWithOptions(const string &_namespace, const string &catalogName, const string &databaseName, const Models::GetTablesRequest &request, const Models::GetTablesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
+       * @summary Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
        *
        * @param request GetTablesRequest
        * @return GetTablesResponse
@@ -1313,6 +1349,24 @@ namespace Ververica20220718
       Models::ListMembersResponse listMembers(const string &_namespace, const Models::ListMembersRequest &request);
 
       /**
+       * @summary Queries the list of inspection reports.
+       *
+       * @param request ListPatrolReportsRequest
+       * @param headers ListPatrolReportsHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPatrolReportsResponse
+       */
+      Models::ListPatrolReportsResponse listPatrolReportsWithOptions(const string &_namespace, const Models::ListPatrolReportsRequest &request, const Models::ListPatrolReportsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of inspection reports.
+       *
+       * @param request ListPatrolReportsRequest
+       * @return ListPatrolReportsResponse
+       */
+      Models::ListPatrolReportsResponse listPatrolReports(const string &_namespace, const Models::ListPatrolReportsRequest &request);
+
+      /**
        * @summary Obtains a list of savepoints or checkpoints.
        *
        * @param request ListSavepointsRequest
@@ -1493,7 +1547,7 @@ namespace Ververica20220718
       Models::StartSessionClusterResponse startSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
-       * @summary Executes an SQL query script task.
+       * @summary Executes an SQL data query script task.
        *
        * @param request StartSqlExecutionRequest
        * @param headers StartSqlExecutionHeaders
@@ -1503,7 +1557,7 @@ namespace Ververica20220718
       Models::StartSqlExecutionResponse startSqlExecutionWithOptions(const string &_namespace, const Models::StartSqlExecutionRequest &request, const Models::StartSqlExecutionHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes an SQL query script task.
+       * @summary Executes an SQL data query script task.
        *
        * @param request StartSqlExecutionRequest
        * @return StartSqlExecutionResponse
@@ -1595,6 +1649,24 @@ namespace Ververica20220718
        * @return SubmitSqlPreviewResponse
        */
       Models::SubmitSqlPreviewResponse submitSqlPreview(const string &_namespace, const Models::SubmitSqlPreviewRequest &request);
+
+      /**
+       * @summary Triggers an inspection.
+       *
+       * @param request TriggerPatrolRequest
+       * @param headers TriggerPatrolHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerPatrolResponse
+       */
+      Models::TriggerPatrolResponse triggerPatrolWithOptions(const string &_namespace, const Models::TriggerPatrolRequest &request, const Models::TriggerPatrolHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Triggers an inspection.
+       *
+       * @param request TriggerPatrolRequest
+       * @return TriggerPatrolResponse
+       */
+      Models::TriggerPatrolResponse triggerPatrol(const string &_namespace, const Models::TriggerPatrolRequest &request);
 
       /**
        * @summary Updates an Autopilot tuning policy.
@@ -1743,6 +1815,24 @@ namespace Ververica20220718
        * @return UpdateMemberResponse
        */
       Models::UpdateMemberResponse updateMember(const string &_namespace, const Models::UpdateMemberRequest &request);
+
+      /**
+       * @summary Updates the inspection configuration.
+       *
+       * @param request UpdatePatrolConfigRequest
+       * @param headers UpdatePatrolConfigHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePatrolConfigResponse
+       */
+      Models::UpdatePatrolConfigResponse updatePatrolConfigWithOptions(const string &_namespace, const Models::UpdatePatrolConfigRequest &request, const Models::UpdatePatrolConfigHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the inspection configuration.
+       *
+       * @param request UpdatePatrolConfigRequest
+       * @return UpdatePatrolConfigResponse
+       */
+      Models::UpdatePatrolConfigResponse updatePatrolConfig(const string &_namespace, const Models::UpdatePatrolConfigRequest &request);
 
       /**
        * @summary Updates a scheduled plan.

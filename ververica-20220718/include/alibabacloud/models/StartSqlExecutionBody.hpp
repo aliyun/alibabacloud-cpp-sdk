@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The execution description.
     shared_ptr<string> description_ {};
+    // The ID of the associated query script. This is a required parameter. It provides the execution environment configuration (Session Cluster, Flink configuration, etc.) and also serves as the parentResourceId for deduplication.
     shared_ptr<string> sqlFileId_ {};
+    // The SQL script content to execute.
     shared_ptr<string> sqlScript_ {};
   };
 
