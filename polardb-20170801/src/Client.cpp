@@ -10250,10 +10250,10 @@ DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetrics(co
 }
 
 /**
- * @summary Retrieves the list of model operators for a specified PolarDB database instance.
+ * @summary Retrieves the list of template operators for a specified PolarDB database instance.
  *
- * @description ## Description
- * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * @description ## Request description
+ * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
  * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
  *
  * @param request DescribeAIDBClusterTasksRequest
@@ -10273,6 +10273,14 @@ DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasksWithOptions(con
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
@@ -10309,10 +10317,10 @@ DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasksWithOptions(con
 }
 
 /**
- * @summary Retrieves the list of model operators for a specified PolarDB database instance.
+ * @summary Retrieves the list of template operators for a specified PolarDB database instance.
  *
- * @description ## Description
- * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * @description ## Request description
+ * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
  * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
  *
  * @param request DescribeAIDBClusterTasksRequest
@@ -11544,9 +11552,9 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttribute(const DescribeAp
 }
 
 /**
- * @summary Retrieves the detailed information of a specified PolarDB application.
+ * @summary Retrieves the details of a specified PolarDB instance application.
  *
- * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+ * @description This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11577,9 +11585,9 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttributeWithOpt
 }
 
 /**
- * @summary Retrieves the detailed information of a specified PolarDB application.
+ * @summary Retrieves the details of a specified PolarDB instance application.
  *
- * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+ * @description This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @return DescribeApplicationAttributeResponse
@@ -11879,6 +11887,48 @@ DescribeApplicationPromptsResponse Client::describeApplicationPromptsWithOptions
 DescribeApplicationPromptsResponse Client::describeApplicationPrompts(const DescribeApplicationPromptsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApplicationPromptsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the SSL configuration of an application.
+ *
+ * @param request DescribeApplicationSSLRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationSSLResponse
+ */
+DescribeApplicationSSLResponse Client::describeApplicationSSLWithOptions(const DescribeApplicationSSLRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationSSL"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationSSLResponse>();
+}
+
+/**
+ * @summary Queries the SSL configuration of an application.
+ *
+ * @param request DescribeApplicationSSLRequest
+ * @return DescribeApplicationSSLResponse
+ */
+DescribeApplicationSSLResponse Client::describeApplicationSSL(const DescribeApplicationSSLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationSSLWithOptions(request, runtime);
 }
 
 /**
@@ -17280,7 +17330,7 @@ DescribeKnowledgeBaseAttributeResponse Client::describeKnowledgeBaseAttribute(co
 }
 
 /**
- * @summary Queries a list of knowledge bases.
+ * @summary Queries the list of knowledge bases.
  *
  * @param request DescribeKnowledgeBasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17331,7 +17381,7 @@ DescribeKnowledgeBasesResponse Client::describeKnowledgeBasesWithOptions(const D
 }
 
 /**
- * @summary Queries a list of knowledge bases.
+ * @summary Queries the list of knowledge bases.
  *
  * @param request DescribeKnowledgeBasesRequest
  * @return DescribeKnowledgeBasesResponse
@@ -20546,7 +20596,7 @@ DescribeVSwitchListResponse Client::describeVSwitchList(const DescribeVSwitchLis
 }
 
 /**
- * @summary Queries one or more vSwitches.
+ * @summary 查询交换机
  *
  * @param request DescribeVSwitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20621,7 +20671,7 @@ DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSw
 }
 
 /**
- * @summary Queries one or more vSwitches.
+ * @summary 查询交换机
  *
  * @param request DescribeVSwitchesRequest
  * @return DescribeVSwitchesResponse

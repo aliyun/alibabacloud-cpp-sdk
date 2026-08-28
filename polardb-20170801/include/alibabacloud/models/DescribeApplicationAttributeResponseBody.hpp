@@ -233,7 +233,7 @@ namespace Models
       shared_ptr<string> securityIPArrayName_ {};
       // The tag of the IP address group.
       shared_ptr<string> securityIPArrayTag_ {};
-      // The IP addresses in the whitelist, separated by commas (,).
+      // The whitelisted IP addresses, separated by commas (,).
       shared_ptr<string> securityIPList_ {};
       // The network type of the whitelisted IP addresses. Default value: `mix`.
       shared_ptr<string> securityIPNetType_ {};
@@ -303,7 +303,7 @@ namespace Models
       shared_ptr<string> netType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the security group.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
       // The name of the security group.
       shared_ptr<string> securityGroupName_ {};
@@ -374,6 +374,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LlmModelName, llmModelName_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(RerankerModelName, rerankerModelName_);
+        DARABONBA_PTR_TO_JSON(SessionStore, sessionStore_);
         DARABONBA_PTR_TO_JSON(UserName, userName_);
       };
       friend void from_json(const Darabonba::Json& j, MemApplicationAttribute& obj) { 
@@ -383,6 +384,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LlmModelName, llmModelName_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(RerankerModelName, rerankerModelName_);
+        DARABONBA_PTR_FROM_JSON(SessionStore, sessionStore_);
         DARABONBA_PTR_FROM_JSON(UserName, userName_);
       };
       MemApplicationAttribute() = default ;
@@ -396,9 +398,75 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SessionStore : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SessionStore& obj) { 
+          DARABONBA_PTR_TO_JSON(AccountMode, accountMode_);
+          DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+          DARABONBA_PTR_TO_JSON(DBName, DBName_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, SessionStore& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccountMode, accountMode_);
+          DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+          DARABONBA_PTR_FROM_JSON(DBName, DBName_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        SessionStore() = default ;
+        SessionStore(const SessionStore &) = default ;
+        SessionStore(SessionStore &&) = default ;
+        SessionStore(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SessionStore() = default ;
+        SessionStore& operator=(const SessionStore &) = default ;
+        SessionStore& operator=(SessionStore &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accountMode_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBName_ == nullptr && this->status_ == nullptr; };
+        // accountMode Field Functions 
+        bool hasAccountMode() const { return this->accountMode_ != nullptr;};
+        void deleteAccountMode() { this->accountMode_ = nullptr;};
+        inline string getAccountMode() const { DARABONBA_PTR_GET_DEFAULT(accountMode_, "") };
+        inline SessionStore& setAccountMode(string accountMode) { DARABONBA_PTR_SET_VALUE(accountMode_, accountMode) };
+
+
+        // DBClusterId Field Functions 
+        bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
+        void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
+        inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+        inline SessionStore& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+        // DBName Field Functions 
+        bool hasDBName() const { return this->DBName_ != nullptr;};
+        void deleteDBName() { this->DBName_ = nullptr;};
+        inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+        inline SessionStore& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline SessionStore& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The account source. Valid values: reuse_vector and existing. This parameter is returned only when the status is ENABLED.
+        shared_ptr<string> accountMode_ {};
+        // The PolarDB cluster ID used for session storage. This parameter is returned only when the status is ENABLED.
+        shared_ptr<string> DBClusterId_ {};
+        // The session database name. This parameter is returned only when the status is ENABLED.
+        shared_ptr<string> DBName_ {};
+        // The session storage status. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+        shared_ptr<string> status_ {};
+      };
+
       virtual bool empty() const override { return this->dbName_ == nullptr
         && this->embedderModelName_ == nullptr && this->graphLlmModelName_ == nullptr && this->llmModelName_ == nullptr && this->projectName_ == nullptr && this->rerankerModelName_ == nullptr
-        && this->userName_ == nullptr; };
+        && this->sessionStore_ == nullptr && this->userName_ == nullptr; };
       // dbName Field Functions 
       bool hasDbName() const { return this->dbName_ != nullptr;};
       void deleteDbName() { this->dbName_ = nullptr;};
@@ -441,6 +509,15 @@ namespace Models
       inline MemApplicationAttribute& setRerankerModelName(string rerankerModelName) { DARABONBA_PTR_SET_VALUE(rerankerModelName_, rerankerModelName) };
 
 
+      // sessionStore Field Functions 
+      bool hasSessionStore() const { return this->sessionStore_ != nullptr;};
+      void deleteSessionStore() { this->sessionStore_ = nullptr;};
+      inline const MemApplicationAttribute::SessionStore & getSessionStore() const { DARABONBA_PTR_GET_CONST(sessionStore_, MemApplicationAttribute::SessionStore) };
+      inline MemApplicationAttribute::SessionStore getSessionStore() { DARABONBA_PTR_GET(sessionStore_, MemApplicationAttribute::SessionStore) };
+      inline MemApplicationAttribute& setSessionStore(const MemApplicationAttribute::SessionStore & sessionStore) { DARABONBA_PTR_SET_VALUE(sessionStore_, sessionStore) };
+      inline MemApplicationAttribute& setSessionStore(MemApplicationAttribute::SessionStore && sessionStore) { DARABONBA_PTR_SET_RVALUE(sessionStore_, sessionStore) };
+
+
       // userName Field Functions 
       bool hasUserName() const { return this->userName_ != nullptr;};
       void deleteUserName() { this->userName_ = nullptr;};
@@ -453,6 +530,7 @@ namespace Models
       shared_ptr<string> dbName_ {};
       // The embedder model name.
       shared_ptr<string> embedderModelName_ {};
+      // The graph LLM model support.
       shared_ptr<string> graphLlmModelName_ {};
       // The LLM model name.
       shared_ptr<string> llmModelName_ {};
@@ -460,6 +538,8 @@ namespace Models
       shared_ptr<string> projectName_ {};
       // The reranker model name.
       shared_ptr<string> rerankerModelName_ {};
+      // The Mem0 full session information storage configuration.
+      shared_ptr<MemApplicationAttribute::SessionStore> sessionStore_ {};
       // The username.
       shared_ptr<string> userName_ {};
     };
@@ -655,11 +735,11 @@ namespace Models
 
 
       protected:
-        // The list of child node IDs or child node component types in the topology of the current application subcomponent.
+        // The list of topology child node IDs or child node subcomponent types of the current application subcomponent.
         shared_ptr<vector<string>> children_ {};
         // The topology layer of the current application subcomponent.
         shared_ptr<string> layer_ {};
-        // The list of parent node IDs or parent node component types in the topology of the current application subcomponent.
+        // The list of topology parent node IDs or parent node subcomponent types of the current application subcomponent.
         shared_ptr<vector<string>> parents_ {};
       };
 
@@ -732,7 +812,7 @@ namespace Models
         shared_ptr<string> securityIPArrayName_ {};
         // The tag of the IP address group.
         shared_ptr<string> securityIPArrayTag_ {};
-        // The IP addresses in the whitelist, separated by commas (,).
+        // The whitelisted IP addresses, separated by commas (,).
         shared_ptr<string> securityIPList_ {};
         // The network type of the whitelisted IP addresses. Default value: `mix`.
         shared_ptr<string> securityIPNetType_ {};
@@ -802,7 +882,7 @@ namespace Models
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the security group.
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
         // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
@@ -909,13 +989,13 @@ namespace Models
       shared_ptr<string> componentReplicaGroupName_ {};
       // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
-      // The list of security groups at the subcomponent level.
+      // The list of subcomponent-level security groups.
       // 
-      // If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
+      // If the subcomponent-level security groups are the same as the application-level security groups, this response element is omitted.
       shared_ptr<vector<Components::SecurityGroups>> securityGroups_ {};
-      // The list of whitelists at the subcomponent level.
+      // The list of subcomponent-level whitelist addresses.
       // 
-      // If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
+      // If the subcomponent-level whitelists are the same as the application-level whitelists, this response element is omitted.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
       // The component status. Valid values are the same as the application status.
       shared_ptr<string> status_ {};
@@ -1198,6 +1278,7 @@ namespace Models
     // The CPU architecture. Valid values:
     // - `x86`
     shared_ptr<string> architecture_ {};
+    // Indicates whether SNAT can be disabled.
     shared_ptr<bool> canDisableSnat_ {};
     // The list of subcomponents.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Components>> components_ {};
@@ -1207,15 +1288,15 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The list of endpoints of the application.
+    // The list of endpoints for the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
     // The expiration time.
     // 
-    // This value is empty when the billing method is Postpaid.
+    // This value is empty when the billing type is Postpaid.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the application has expired.
     shared_ptr<bool> expired_ {};
-    // Indicates whether the current version is the latest version.
+    // Indicates whether this is the latest version.
     shared_ptr<bool> isLatestVersion_ {};
     // The latest version number.
     shared_ptr<string> latestVersion_ {};
@@ -1224,45 +1305,47 @@ namespace Models
     // - Unlock: Not locked.
     // - Lock: Locked.
     shared_ptr<string> lockMode_ {};
-    // The end time of the maintenance window.
+    // The maintenance end time.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the maintenance window.
+    // The maintenance start time.
     shared_ptr<string> maintainStartTime_ {};
     // The Mem0 application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     // The minor version number.
     shared_ptr<string> minorVersion_ {};
+    // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The billing method.
+    // The billing type.
     shared_ptr<string> payType_ {};
     // The PolarClaw SaaS application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
-    // The instance ID of PolarFS cold storage or high-performance edition.
+    // The instance ID of PolarFS Cold Storage Edition or High Performance Edition.
     shared_ptr<string> polarFSInstanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of security groups at the application level.
+    // The list of application-level security groups.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
-    // The list of whitelists at the application level.
+    // The list of application-level whitelists.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     // The serverless type. Valid values:
     // - 2: agile.
     // - 3: steady.
     shared_ptr<string> serverlessType_ {};
+    // The SNAT status. Valid values: on and off.
     shared_ptr<string> snatStatus_ {};
     // The application status. Valid values:
     // 
     // - Creating: Being created.
     // - Activated: Running.
     // - Maintaining: Under maintenance.
-    // - ClassChanging: Changing specifications.
+    // - ClassChanging: Configuration is being changed.
     // - Transing: Being migrated.
-    // - MinorVersionUpgrading: Minor version being upgraded.
-    // - NetCreating: Endpoint being created.
-    // - NetDeleting: Endpoint being deleted.
-    // - NetModifying: Endpoint being modified.
+    // - MinorVersionUpgrading: Minor version is being upgraded.
+    // - NetCreating: Endpoint is being created.
+    // - NetDeleting: Endpoint is being deleted.
+    // - NetModifying: Endpoint is being modified.
     // - Restarting: Being restarted.
     // - Locking: Being locked.
     // - Locked: Locked.

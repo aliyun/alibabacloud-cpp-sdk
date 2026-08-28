@@ -17,17 +17,25 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(Items, items_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageRecordCount, pageRecordCount_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RelativeDBClusterId, relativeDBClusterId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
+      DARABONBA_PTR_TO_JSON(TotalRecordCount, totalRecordCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterTasksResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(Items, items_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageRecordCount, pageRecordCount_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RelativeDBClusterId, relativeDBClusterId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
+      DARABONBA_PTR_FROM_JSON(TotalRecordCount, totalRecordCount_);
     };
     DescribeAIDBClusterTasksResponseBody() = default ;
     DescribeAIDBClusterTasksResponseBody(const DescribeAIDBClusterTasksResponseBody &) = default ;
@@ -222,7 +230,7 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The node description.
       shared_ptr<string> DBNodeDescription_ {};
-      // The instance ID of the model operator.
+      // The template operator instance ID.
       shared_ptr<string> DBNodeId_ {};
       // The instance status. This parameter may not be returned.
       shared_ptr<string> DBNodeStatus_ {};
@@ -248,11 +256,13 @@ namespace Models
       shared_ptr<string> trainMode_ {};
       // The type.
       shared_ptr<string> trainType_ {};
+      // The tuning framework.
       shared_ptr<string> tuneArch_ {};
     };
 
     virtual bool empty() const override { return this->engine_ == nullptr
-        && this->engineVersion_ == nullptr && this->items_ == nullptr && this->relativeDBClusterId_ == nullptr && this->requestId_ == nullptr && this->taskType_ == nullptr; };
+        && this->engineVersion_ == nullptr && this->items_ == nullptr && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->pageSize_ == nullptr
+        && this->relativeDBClusterId_ == nullptr && this->requestId_ == nullptr && this->taskType_ == nullptr && this->totalRecordCount_ == nullptr; };
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
@@ -276,6 +286,27 @@ namespace Models
     inline DescribeAIDBClusterTasksResponseBody& setItems(vector<DescribeAIDBClusterTasksResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline DescribeAIDBClusterTasksResponseBody& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageRecordCount Field Functions 
+    bool hasPageRecordCount() const { return this->pageRecordCount_ != nullptr;};
+    void deletePageRecordCount() { this->pageRecordCount_ = nullptr;};
+    inline string getPageRecordCount() const { DARABONBA_PTR_GET_DEFAULT(pageRecordCount_, "") };
+    inline DescribeAIDBClusterTasksResponseBody& setPageRecordCount(string pageRecordCount) { DARABONBA_PTR_SET_VALUE(pageRecordCount_, pageRecordCount) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline DescribeAIDBClusterTasksResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // relativeDBClusterId Field Functions 
     bool hasRelativeDBClusterId() const { return this->relativeDBClusterId_ != nullptr;};
     void deleteRelativeDBClusterId() { this->relativeDBClusterId_ = nullptr;};
@@ -297,6 +328,13 @@ namespace Models
     inline DescribeAIDBClusterTasksResponseBody& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
+    // totalRecordCount Field Functions 
+    bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
+    void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
+    inline string getTotalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, "") };
+    inline DescribeAIDBClusterTasksResponseBody& setTotalRecordCount(string totalRecordCount) { DARABONBA_PTR_SET_VALUE(totalRecordCount_, totalRecordCount) };
+
+
   protected:
     // The cluster engine.
     shared_ptr<string> engine_ {};
@@ -304,12 +342,20 @@ namespace Models
     shared_ptr<string> engineVersion_ {};
     // The cluster endpoint details.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
+    // The page number.
+    shared_ptr<int64_t> pageNumber_ {};
+    // The total number of records on the current page.
+    shared_ptr<string> pageRecordCount_ {};
+    // The number of records per page.
+    shared_ptr<string> pageSize_ {};
     // The ID of the PolarDB cluster.
     shared_ptr<string> relativeDBClusterId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};
+    // The total number of records.
+    shared_ptr<string> totalRecordCount_ {};
   };
 
   } // namespace Models

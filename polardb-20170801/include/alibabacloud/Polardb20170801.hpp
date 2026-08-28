@@ -2770,10 +2770,10 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterTaskMetricsResponse describeAIDBClusterTaskMetrics(const Models::DescribeAIDBClusterTaskMetricsRequest &request);
 
       /**
-       * @summary Retrieves the list of model operators for a specified PolarDB database instance.
+       * @summary Retrieves the list of template operators for a specified PolarDB database instance.
        *
-       * @description ## Description
-       * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+       * @description ## Request description
+       * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
        * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
        *
        * @param request DescribeAIDBClusterTasksRequest
@@ -2783,10 +2783,10 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterTasksResponse describeAIDBClusterTasksWithOptions(const Models::DescribeAIDBClusterTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of model operators for a specified PolarDB database instance.
+       * @summary Retrieves the list of template operators for a specified PolarDB database instance.
        *
-       * @description ## Description
-       * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+       * @description ## Request description
+       * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
        * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
        *
        * @param request DescribeAIDBClusterTasksRequest
@@ -3109,9 +3109,9 @@ namespace Polardb20170801
       Models::DescribeApikeyAttributeResponse describeApikeyAttribute(const Models::DescribeApikeyAttributeRequest &request);
 
       /**
-       * @summary Retrieves the detailed information of a specified PolarDB application.
+       * @summary Retrieves the details of a specified PolarDB instance application.
        *
-       * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+       * @description This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3120,9 +3120,9 @@ namespace Polardb20170801
       Models::DescribeApplicationAttributeResponse describeApplicationAttributeWithOptions(const Models::DescribeApplicationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed information of a specified PolarDB application.
+       * @summary Retrieves the details of a specified PolarDB instance application.
        *
-       * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+       * @description This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @return DescribeApplicationAttributeResponse
@@ -3196,6 +3196,23 @@ namespace Polardb20170801
        * @return DescribeApplicationPromptsResponse
        */
       Models::DescribeApplicationPromptsResponse describeApplicationPrompts(const Models::DescribeApplicationPromptsRequest &request);
+
+      /**
+       * @summary Queries the SSL configuration of an application.
+       *
+       * @param request DescribeApplicationSSLRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationSSLResponse
+       */
+      Models::DescribeApplicationSSLResponse describeApplicationSSLWithOptions(const Models::DescribeApplicationSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the SSL configuration of an application.
+       *
+       * @param request DescribeApplicationSSLRequest
+       * @return DescribeApplicationSSLResponse
+       */
+      Models::DescribeApplicationSSLResponse describeApplicationSSL(const Models::DescribeApplicationSSLRequest &request);
 
       /**
        * @summary Queries the Serverless configuration for a PolarDB application.
@@ -4614,7 +4631,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAttributeResponse describeKnowledgeBaseAttribute(const Models::DescribeKnowledgeBaseAttributeRequest &request);
 
       /**
-       * @summary Queries a list of knowledge bases.
+       * @summary Queries the list of knowledge bases.
        *
        * @param request DescribeKnowledgeBasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4623,7 +4640,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBasesResponse describeKnowledgeBasesWithOptions(const Models::DescribeKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of knowledge bases.
+       * @summary Queries the list of knowledge bases.
        *
        * @param request DescribeKnowledgeBasesRequest
        * @return DescribeKnowledgeBasesResponse
@@ -5548,7 +5565,7 @@ namespace Polardb20170801
       Models::DescribeVSwitchListResponse describeVSwitchList(const Models::DescribeVSwitchListRequest &request);
 
       /**
-       * @summary Queries one or more vSwitches.
+       * @summary 查询交换机
        *
        * @param request DescribeVSwitchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5557,7 +5574,7 @@ namespace Polardb20170801
       Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries one or more vSwitches.
+       * @summary 查询交换机
        *
        * @param request DescribeVSwitchesRequest
        * @return DescribeVSwitchesResponse

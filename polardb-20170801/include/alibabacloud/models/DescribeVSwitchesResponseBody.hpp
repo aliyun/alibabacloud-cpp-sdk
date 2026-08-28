@@ -131,29 +131,13 @@ namespace Models
 
 
     protected:
-      // The number of available IP addresses in the vSwitch.
       shared_ptr<int64_t> availableIpAddressCount_ {};
-      // The IPv4 CIDR block of the vSwitch.
       shared_ptr<string> cidrBlock_ {};
-      // The description of the vSwitch.
       shared_ptr<string> description_ {};
-      // Indicates whether the vSwitch is the default vSwitch. Valid values:
-      // 
-      // - **true**: The vSwitch is the default vSwitch.
-      // 
-      // - **false**: The vSwitch is not the default vSwitch.
       shared_ptr<bool> isDefault_ {};
-      // The zone where the NAT Gateway is located.
       shared_ptr<string> izNo_ {};
-      // The status of the vSwitch. Valid values:
-      // 
-      // - **Pending**: The vSwitch is being configured.
-      // 
-      // - **Available**: The vSwitch is active.
       shared_ptr<string> status_ {};
-      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
     };
 
@@ -197,15 +181,10 @@ namespace Models
 
 
   protected:
-    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of vSwitches.
     shared_ptr<vector<DescribeVSwitchesResponseBody::VSwitchs>> vSwitchs_ {};
   };
 

@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(KnowledgeBaseId, knowledgeBaseId_);
+        DARABONBA_PTR_TO_JSON(KnowledgeBaseType, knowledgeBaseType_);
         DARABONBA_PTR_TO_JSON(KnowledgeSpaceId, knowledgeSpaceId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(KnowledgeBaseId, knowledgeBaseId_);
+        DARABONBA_PTR_FROM_JSON(KnowledgeBaseType, knowledgeBaseType_);
         DARABONBA_PTR_FROM_JSON(KnowledgeSpaceId, knowledgeSpaceId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -74,8 +76,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bindingAppCount_ == nullptr
-        && this->creationTime_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->knowledgeSpaceId_ == nullptr && this->name_ == nullptr
-        && this->status_ == nullptr && this->totalDocs_ == nullptr && this->totalSizeBytes_ == nullptr; };
+        && this->creationTime_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->knowledgeBaseType_ == nullptr && this->knowledgeSpaceId_ == nullptr
+        && this->name_ == nullptr && this->status_ == nullptr && this->totalDocs_ == nullptr && this->totalSizeBytes_ == nullptr; };
       // bindingAppCount Field Functions 
       bool hasBindingAppCount() const { return this->bindingAppCount_ != nullptr;};
       void deleteBindingAppCount() { this->bindingAppCount_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
       void deleteKnowledgeBaseId() { this->knowledgeBaseId_ = nullptr;};
       inline string getKnowledgeBaseId() const { DARABONBA_PTR_GET_DEFAULT(knowledgeBaseId_, "") };
       inline Items& setKnowledgeBaseId(string knowledgeBaseId) { DARABONBA_PTR_SET_VALUE(knowledgeBaseId_, knowledgeBaseId) };
+
+
+      // knowledgeBaseType Field Functions 
+      bool hasKnowledgeBaseType() const { return this->knowledgeBaseType_ != nullptr;};
+      void deleteKnowledgeBaseType() { this->knowledgeBaseType_ = nullptr;};
+      inline string getKnowledgeBaseType() const { DARABONBA_PTR_GET_DEFAULT(knowledgeBaseType_, "") };
+      inline Items& setKnowledgeBaseType(string knowledgeBaseType) { DARABONBA_PTR_SET_VALUE(knowledgeBaseType_, knowledgeBaseType) };
 
 
       // knowledgeSpaceId Field Functions 
@@ -148,6 +157,10 @@ namespace Models
       shared_ptr<string> description_ {};
       // The unique identifier of the knowledge base.
       shared_ptr<string> knowledgeBaseId_ {};
+      // The type of the knowledge base. Valid values:
+      // - PUBLIC: public.
+      // - PERSONAL: personal.
+      shared_ptr<string> knowledgeBaseType_ {};
       // The ID of the knowledge space.
       shared_ptr<string> knowledgeSpaceId_ {};
       // The name of the knowledge base.
