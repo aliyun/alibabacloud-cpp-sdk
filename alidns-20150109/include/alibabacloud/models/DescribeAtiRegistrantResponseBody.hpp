@@ -151,7 +151,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The identity type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted diagnostic message.
+      // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The reason for the authentication failure. Valid values:
       // - ExplicitDeny: explicit deny.
@@ -286,7 +286,7 @@ namespace Models
     shared_ptr<string> cc_ {};
     // The city. Default value: Hangzhou.
     shared_ptr<string> city_ {};
-    // The creation time (timestamp).
+    // The creation time (UNIX timestamp).
     shared_ptr<string> createTimestamp_ {};
     // The document number of the registrant. The number can be up to 50 characters in length.
     shared_ptr<string> documentCode_ {};
@@ -302,9 +302,9 @@ namespace Models
     shared_ptr<string> registrantId_ {};
     // The reason why the real-name verification was rejected.
     shared_ptr<string> rejectReason_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the public recursive service.
+    // The state or province.
     shared_ptr<string> state_ {};
     // The real-name verification status. Valid values:
     // 
@@ -314,7 +314,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The street address.
     shared_ptr<string> street_ {};
-    // The update time (timestamp).
+    // The update time (UNIX timestamp).
     shared_ptr<string> updateTimestamp_ {};
   };
 

@@ -125,21 +125,21 @@ namespace Models
     shared_ptr<string> agentDisplayName_ {};
     // The host address of the Agent.
     shared_ptr<string> agentHost_ {};
-    // The Agent ID, which is uniformly assigned by CNNIC after real-name verification through CNNIC. The AgentID serves as the unique identifier that binds the Agent to the real-name verified registrant.
+    // The Agent ID, which is uniformly assigned by CNNIC after real-name verification. The AgentID serves as the unique identifier that binds the Agent to the verified registrant.
     shared_ptr<string> agentId_ {};
     // The version of the Agent.
     shared_ptr<string> agentVersion_ {};
-    // Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The current page number. Minimum value: 1. Default value: 1.
+    // The current page number. The start value is 1. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size for the paged query. This parameter specifies the number of entries per page for paging.
+    // The page size for the paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

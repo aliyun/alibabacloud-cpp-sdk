@@ -144,27 +144,27 @@ namespace Models
     shared_ptr<string> cc_ {};
     // The city.
     shared_ptr<string> city_ {};
-    // Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
     // 
-    // If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+    // If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
-    // The document number of the registrant. Maximum length: 50 characters.
+    // The document number of the registrant. The number cannot exceed 50 characters in length.
     shared_ptr<string> documentCode_ {};
     // The document image of the registrant (Base64-encoded). The original file size must be between 50 KB and 3 MB.
     shared_ptr<string> documentImage_ {};
     // The document type of the registrant. For more information, see the appendix on document types.
     shared_ptr<string> documentType_ {};
-    // The email address. Maximum length: 300 characters.
+    // The email address. The address cannot exceed 300 characters in length.
     shared_ptr<string> email_ {};
-    // The name of the registrant. Maximum length: 255 characters.
+    // The name of the registrant. The name cannot exceed 255 characters in length.
     shared_ptr<string> name_ {};
-    // The phone number of the registrant. Maximum length: 128 characters. If the country is China, the area code of a non-mobile phone number must match the city.
+    // The phone number of the registrant. The number cannot exceed 128 characters in length. If the country is China and the number is not a mobile phone number, the area code must match the city.
     shared_ptr<string> phone_ {};
-    // The ID of the registrant profile.
+    // The ID of the real-name registrant.
     shared_ptr<string> registrantId_ {};
     // The state or province.
     shared_ptr<string> state_ {};
-    // The street.
+    // The street address.
     shared_ptr<string> street_ {};
   };
 

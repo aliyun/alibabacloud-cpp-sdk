@@ -117,12 +117,21 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that was attempted.
       shared_ptr<string> authAction_ {};
+      // The display name of the authorization principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The ID of the authorization principal owner.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The identity type.
       shared_ptr<string> authPrincipalType_ {};
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The reason for the authentication failure. Valid values:
+      // - ExplicitDeny: explicit deny.
+      // - ImplicitDeny: implicit deny.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -152,8 +161,13 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only when RAM authentication fails.
     shared_ptr<UpdateAtiAlertSettingsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

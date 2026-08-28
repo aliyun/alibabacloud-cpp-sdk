@@ -125,7 +125,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The identity type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The encoded complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The reason for the authentication failure. Valid values:
       // - ExplicitDeny: explicit deny.
@@ -161,7 +161,7 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This field is returned only when RAM authentication fails.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<UpdateAtiRegistrantResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

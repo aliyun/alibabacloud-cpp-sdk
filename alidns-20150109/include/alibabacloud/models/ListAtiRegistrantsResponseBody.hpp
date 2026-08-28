@@ -296,12 +296,21 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that was attempted.
       shared_ptr<string> authAction_ {};
+      // The display name of the authorization principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The owner ID of the authorization principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The identity type.
       shared_ptr<string> authPrincipalType_ {};
+      // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The reason for the authentication failure. Valid values:
+      // - ExplicitDeny: explicit deny.
+      // - ImplicitDeny: implicit deny.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -376,14 +385,22 @@ namespace Models
 
 
   protected:
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<ListAtiRegistrantsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The current page number. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of rows per page in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<ListAtiRegistrantsResponseBody::Registrants> registrants_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalItems_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

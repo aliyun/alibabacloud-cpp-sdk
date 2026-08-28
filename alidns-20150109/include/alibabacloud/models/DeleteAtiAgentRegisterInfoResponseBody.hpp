@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<DeleteAtiAgentRegisterInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation was successful:
     // 
     // - true: The operation was successful.
     // 

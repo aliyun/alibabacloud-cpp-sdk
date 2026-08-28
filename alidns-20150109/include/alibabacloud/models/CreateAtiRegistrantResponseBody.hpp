@@ -131,11 +131,11 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The identity type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted complete diagnostic message.
+      // The encrypted diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The reason for the authentication failure. Valid values:
-      // - ExplicitDeny: Explicit deny.
-      // - ImplicitDeny: Implicit deny.
+      // - ExplicitDeny: explicit deny.
+      // - ImplicitDeny: implicit deny.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -192,16 +192,16 @@ namespace Models
     shared_ptr<CreateAtiRegistrantResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The creation time (timestamp).
     shared_ptr<int64_t> createTimestamp_ {};
-    // The name of the real-name verified registrant.
+    // The name of the real-name registrant.
     shared_ptr<string> name_ {};
-    // The ID of the real-name verified registrant.
+    // The ID of the real-name registrant.
     shared_ptr<string> registrantId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The real-name verification status. Valid values:
     // 
     // - Approved.
-    // - Under review.
+    // - Pending review.
     // - Rejected.
     shared_ptr<string> status_ {};
   };

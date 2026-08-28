@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(TrustLevel, trustLevel_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAtiAgentRegisterInfoMarketRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentHost, agentHost_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(TrustLevel, trustLevel_);
     };
     DescribeAtiAgentRegisterInfoMarketRequest() = default ;
     DescribeAtiAgentRegisterInfoMarketRequest(const DescribeAtiAgentRegisterInfoMarketRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentHost_ == nullptr
-        && this->agentVersion_ == nullptr && this->clientToken_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+        && this->agentVersion_ == nullptr && this->clientToken_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->trustLevel_ == nullptr; };
     // agentHost Field Functions 
     bool hasAgentHost() const { return this->agentHost_ != nullptr;};
     void deleteAgentHost() { this->agentHost_ = nullptr;};
@@ -74,12 +76,25 @@ namespace Models
     inline DescribeAtiAgentRegisterInfoMarketRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // trustLevel Field Functions 
+    bool hasTrustLevel() const { return this->trustLevel_ != nullptr;};
+    void deleteTrustLevel() { this->trustLevel_ = nullptr;};
+    inline string getTrustLevel() const { DARABONBA_PTR_GET_DEFAULT(trustLevel_, "") };
+    inline DescribeAtiAgentRegisterInfoMarketRequest& setTrustLevel(string trustLevel) { DARABONBA_PTR_SET_VALUE(trustLevel_, trustLevel) };
+
+
   protected:
+    // The endpoint domain name through which the agent provides services externally.
     shared_ptr<string> agentHost_ {};
+    // The agent version.
     shared_ptr<string> agentVersion_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> trustLevel_ {};
   };
 
   } // namespace Models

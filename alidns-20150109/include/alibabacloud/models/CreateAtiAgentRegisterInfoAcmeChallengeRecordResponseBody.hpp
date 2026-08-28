@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEATIAGENTREGISTERINFOACMECHALLENGERECORDRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATEATIAGENTREGISTERINFOACMECHALLENGERECORDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RecordName, recordName_);
       DARABONBA_PTR_TO_JSON(RecordType, recordType_);
       DARABONBA_PTR_TO_JSON(RecordValue, recordValue_);
+      DARABONBA_PTR_TO_JSON(Records, records_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(UpdateTimestamp, updateTimestamp_);
     };
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
       DARABONBA_PTR_FROM_JSON(RecordType, recordType_);
       DARABONBA_PTR_FROM_JSON(RecordValue, recordValue_);
+      DARABONBA_PTR_FROM_JSON(Records, records_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(UpdateTimestamp, updateTimestamp_);
     };
@@ -45,6 +48,101 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Records : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Records& obj) { 
+        DARABONBA_PTR_TO_JSON(Record, record_);
+      };
+      friend void from_json(const Darabonba::Json& j, Records& obj) { 
+        DARABONBA_PTR_FROM_JSON(Record, record_);
+      };
+      Records() = default ;
+      Records(const Records &) = default ;
+      Records(Records &&) = default ;
+      Records(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Records() = default ;
+      Records& operator=(const Records &) = default ;
+      Records& operator=(Records &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Record : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Record& obj) { 
+          DARABONBA_PTR_TO_JSON(DomainScope, domainScope_);
+          DARABONBA_PTR_TO_JSON(RecordName, recordName_);
+          DARABONBA_PTR_TO_JSON(RecordType, recordType_);
+          DARABONBA_PTR_TO_JSON(RecordValue, recordValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, Record& obj) { 
+          DARABONBA_PTR_FROM_JSON(DomainScope, domainScope_);
+          DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
+          DARABONBA_PTR_FROM_JSON(RecordType, recordType_);
+          DARABONBA_PTR_FROM_JSON(RecordValue, recordValue_);
+        };
+        Record() = default ;
+        Record(const Record &) = default ;
+        Record(Record &&) = default ;
+        Record(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Record() = default ;
+        Record& operator=(const Record &) = default ;
+        Record& operator=(Record &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->domainScope_ == nullptr
+        && this->recordName_ == nullptr && this->recordType_ == nullptr && this->recordValue_ == nullptr; };
+        // domainScope Field Functions 
+        bool hasDomainScope() const { return this->domainScope_ != nullptr;};
+        void deleteDomainScope() { this->domainScope_ = nullptr;};
+        inline string getDomainScope() const { DARABONBA_PTR_GET_DEFAULT(domainScope_, "") };
+        inline Record& setDomainScope(string domainScope) { DARABONBA_PTR_SET_VALUE(domainScope_, domainScope) };
+
+
+        // recordName Field Functions 
+        bool hasRecordName() const { return this->recordName_ != nullptr;};
+        void deleteRecordName() { this->recordName_ = nullptr;};
+        inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+        inline Record& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
+
+
+        // recordType Field Functions 
+        bool hasRecordType() const { return this->recordType_ != nullptr;};
+        void deleteRecordType() { this->recordType_ = nullptr;};
+        inline string getRecordType() const { DARABONBA_PTR_GET_DEFAULT(recordType_, "") };
+        inline Record& setRecordType(string recordType) { DARABONBA_PTR_SET_VALUE(recordType_, recordType) };
+
+
+        // recordValue Field Functions 
+        bool hasRecordValue() const { return this->recordValue_ != nullptr;};
+        void deleteRecordValue() { this->recordValue_ = nullptr;};
+        inline string getRecordValue() const { DARABONBA_PTR_GET_DEFAULT(recordValue_, "") };
+        inline Record& setRecordValue(string recordValue) { DARABONBA_PTR_SET_VALUE(recordValue_, recordValue) };
+
+
+      protected:
+        shared_ptr<string> domainScope_ {};
+        shared_ptr<string> recordName_ {};
+        shared_ptr<string> recordType_ {};
+        shared_ptr<string> recordValue_ {};
+      };
+
+      virtual bool empty() const override { return this->record_ == nullptr; };
+      // record Field Functions 
+      bool hasRecord() const { return this->record_ != nullptr;};
+      void deleteRecord() { this->record_ = nullptr;};
+      inline const vector<Records::Record> & getRecord() const { DARABONBA_PTR_GET_CONST(record_, vector<Records::Record>) };
+      inline vector<Records::Record> getRecord() { DARABONBA_PTR_GET(record_, vector<Records::Record>) };
+      inline Records& setRecord(const vector<Records::Record> & record) { DARABONBA_PTR_SET_VALUE(record_, record) };
+      inline Records& setRecord(vector<Records::Record> && record) { DARABONBA_PTR_SET_RVALUE(record_, record) };
+
+
+    protected:
+      shared_ptr<vector<Records::Record>> record_ {};
+    };
+
     class AccessDeniedDetail : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const AccessDeniedDetail& obj) { 
@@ -149,7 +247,7 @@ namespace Models
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
         && this->agentRegisterInfoId_ == nullptr && this->createTimestamp_ == nullptr && this->expireTimestamp_ == nullptr && this->recordName_ == nullptr && this->recordType_ == nullptr
-        && this->recordValue_ == nullptr && this->requestId_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->recordValue_ == nullptr && this->records_ == nullptr && this->requestId_ == nullptr && this->updateTimestamp_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -201,6 +299,15 @@ namespace Models
     inline CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody& setRecordValue(string recordValue) { DARABONBA_PTR_SET_VALUE(recordValue_, recordValue) };
 
 
+    // records Field Functions 
+    bool hasRecords() const { return this->records_ != nullptr;};
+    void deleteRecords() { this->records_ = nullptr;};
+    inline const CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records & getRecords() const { DARABONBA_PTR_GET_CONST(records_, CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records) };
+    inline CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records getRecords() { DARABONBA_PTR_GET(records_, CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records) };
+    inline CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody& setRecords(const CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records & records) { DARABONBA_PTR_SET_VALUE(records_, records) };
+    inline CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody& setRecords(CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records && records) { DARABONBA_PTR_SET_RVALUE(records_, records) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -230,6 +337,7 @@ namespace Models
     shared_ptr<string> recordType_ {};
     // The record value of the DNS record for domain ownership verification.
     shared_ptr<string> recordValue_ {};
+    shared_ptr<CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody::Records> records_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The update time (timestamp).

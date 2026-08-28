@@ -924,7 +924,7 @@ namespace Alidns20150109
       Models::DeleteSubDomainRecordsResponse deleteSubDomainRecords(const Models::DeleteSubDomainRecordsRequest &request);
 
       /**
-       * @summary Queries the details of an Agent registration.
+       * @summary Queries the details of Agent registration information.
        *
        * @param request DescribeAtiAgentRegisterInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -933,7 +933,7 @@ namespace Alidns20150109
       Models::DescribeAtiAgentRegisterInfoResponse describeAtiAgentRegisterInfoWithOptions(const Models::DescribeAtiAgentRegisterInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an Agent registration.
+       * @summary Queries the details of Agent registration information.
        *
        * @param request DescribeAtiAgentRegisterInfoRequest
        * @return DescribeAtiAgentRegisterInfoResponse
@@ -941,7 +941,7 @@ namespace Alidns20150109
       Models::DescribeAtiAgentRegisterInfoResponse describeAtiAgentRegisterInfo(const Models::DescribeAtiAgentRegisterInfoRequest &request);
 
       /**
-       * @summary 为sdk查询agent信息功能
+       * @summary Queries agent information from the Agent marketplace for the SDK.
        *
        * @param request DescribeAtiAgentRegisterInfoMarketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +950,7 @@ namespace Alidns20150109
       Models::DescribeAtiAgentRegisterInfoMarketResponse describeAtiAgentRegisterInfoMarketWithOptions(const Models::DescribeAtiAgentRegisterInfoMarketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为sdk查询agent信息功能
+       * @summary Queries agent information from the Agent marketplace for the SDK.
        *
        * @param request DescribeAtiAgentRegisterInfoMarketRequest
        * @return DescribeAtiAgentRegisterInfoMarketResponse
@@ -2788,7 +2788,7 @@ namespace Alidns20150109
       Models::ListAtiAgentRegisterInfosResponse listAtiAgentRegisterInfos(const Models::ListAtiAgentRegisterInfosRequest &request);
 
       /**
-       * @summary Queries the list of real-name registered contacts.
+       * @summary Queries the list of real-name registrants.
        *
        * @param request ListAtiChangeLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2797,7 +2797,7 @@ namespace Alidns20150109
       Models::ListAtiChangeLogsResponse listAtiChangeLogsWithOptions(const Models::ListAtiChangeLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of real-name registered contacts.
+       * @summary Queries the list of real-name registrants.
        *
        * @param request ListAtiChangeLogsRequest
        * @return ListAtiChangeLogsResponse
@@ -2805,7 +2805,7 @@ namespace Alidns20150109
       Models::ListAtiChangeLogsResponse listAtiChangeLogs(const Models::ListAtiChangeLogsRequest &request);
 
       /**
-       * @summary 查询实名注册人列表
+       * @summary Queries the list of real-name verified registrants.
        *
        * @param request ListAtiRegistrantsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2814,7 +2814,7 @@ namespace Alidns20150109
       Models::ListAtiRegistrantsResponse listAtiRegistrantsWithOptions(const Models::ListAtiRegistrantsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实名注册人列表
+       * @summary Queries the list of real-name verified registrants.
        *
        * @param request ListAtiRegistrantsRequest
        * @return ListAtiRegistrantsResponse
@@ -3785,7 +3785,7 @@ namespace Alidns20150109
       Models::UpdateAtiAgentRegisterInfoResponse updateAtiAgentRegisterInfo(const Models::UpdateAtiAgentRegisterInfoRequest &request);
 
       /**
-       * @summary 更新告警设置
+       * @summary Updates alert settings.
        *
        * @param request UpdateAtiAlertSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3794,7 +3794,7 @@ namespace Alidns20150109
       Models::UpdateAtiAlertSettingsResponse updateAtiAlertSettingsWithOptions(const Models::UpdateAtiAlertSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新告警设置
+       * @summary Updates alert settings.
        *
        * @param request UpdateAtiAlertSettingsRequest
        * @return UpdateAtiAlertSettingsResponse
@@ -3802,7 +3802,7 @@ namespace Alidns20150109
       Models::UpdateAtiAlertSettingsResponse updateAtiAlertSettings(const Models::UpdateAtiAlertSettingsRequest &request);
 
       /**
-       * @summary Modifies a registrant profile.
+       * @summary Modifies a real-name registrant.
        *
        * @param request UpdateAtiRegistrantRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3811,7 @@ namespace Alidns20150109
       Models::UpdateAtiRegistrantResponse updateAtiRegistrantWithOptions(const Models::UpdateAtiRegistrantRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a registrant profile.
+       * @summary Modifies a real-name registrant.
        *
        * @param request UpdateAtiRegistrantRequest
        * @return UpdateAtiRegistrantResponse
@@ -4677,7 +4677,7 @@ namespace Alidns20150109
       Models::VerifyAtiAgentDnsRecordsResponse verifyAtiAgentDnsRecords(const Models::VerifyAtiAgentDnsRecordsRequest &request);
 
       /**
-       * @summary 触发 ACME 预检
+       * @summary Triggers an ACME pre-check.
        *
        * @param request VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4686,7 +4686,7 @@ namespace Alidns20150109
       Models::VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse verifyAtiAgentRegisterInfoAcmeChallengeRecordWithOptions(const Models::VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 触发 ACME 预检
+       * @summary Triggers an ACME pre-check.
        *
        * @param request VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
        * @return VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse

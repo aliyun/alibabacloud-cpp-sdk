@@ -20,9 +20,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentHost, agentHost_);
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(AgentRegisterInfoId, agentRegisterInfoId_);
+      DARABONBA_PTR_TO_JSON(AgentSubHost, agentSubHost_);
       DARABONBA_PTR_TO_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(AtiName, atiName_);
       DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
+      DARABONBA_PTR_TO_JSON(DomainMode, domainMode_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(IdentityCertSerialNumber, identityCertSerialNumber_);
       DARABONBA_PTR_TO_JSON(RegistrantId, registrantId_);
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TrustCard, trustCard_);
       DARABONBA_PTR_TO_JSON(TrustCardUrl, trustCardUrl_);
+      DARABONBA_PTR_TO_JSON(TrustLevel, trustLevel_);
       DARABONBA_PTR_TO_JSON(UpdateTimestamp, updateTimestamp_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAtiAgentRegisterInfoResponseBody& obj) { 
@@ -42,9 +45,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentHost, agentHost_);
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(AgentRegisterInfoId, agentRegisterInfoId_);
+      DARABONBA_PTR_FROM_JSON(AgentSubHost, agentSubHost_);
       DARABONBA_PTR_FROM_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(AtiName, atiName_);
       DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
+      DARABONBA_PTR_FROM_JSON(DomainMode, domainMode_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(IdentityCertSerialNumber, identityCertSerialNumber_);
       DARABONBA_PTR_FROM_JSON(RegistrantId, registrantId_);
@@ -55,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TrustCard, trustCard_);
       DARABONBA_PTR_FROM_JSON(TrustCardUrl, trustCardUrl_);
+      DARABONBA_PTR_FROM_JSON(TrustLevel, trustLevel_);
       DARABONBA_PTR_FROM_JSON(UpdateTimestamp, updateTimestamp_);
     };
     DescribeAtiAgentRegisterInfoResponseBody() = default ;
@@ -108,7 +114,7 @@ namespace Models
     protected:
       // The detailed information about the Agent registration failure.
       shared_ptr<string> message_ {};
-      // The type of the review failure. Valid values:
+      // The type of review failure. Valid values:
       // - ACME_VERIFY_FAILED: ACME verification failed.  
       // - INFO_AUDIT_FAILED: Agent information review failed.
       shared_ptr<string> type_ {};
@@ -338,9 +344,9 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The cause of the authentication failure. Valid values:
-      // - ExplicitDeny: explicit deny.
-      // - ImplicitDeny: implicit deny.
+      // The reason for the authentication failure. Valid values:
+      // - ExplicitDeny: Explicit deny.
+      // - ImplicitDeny: Implicit deny.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -348,9 +354,10 @@ namespace Models
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
         && this->agentDescription_ == nullptr && this->agentDisplayName_ == nullptr && this->agentHost_ == nullptr && this->agentId_ == nullptr && this->agentRegisterInfoId_ == nullptr
-        && this->agentVersion_ == nullptr && this->atiName_ == nullptr && this->createTimestamp_ == nullptr && this->endpoints_ == nullptr && this->identityCertSerialNumber_ == nullptr
-        && this->registrantId_ == nullptr && this->registrantName_ == nullptr && this->rejectReason_ == nullptr && this->requestId_ == nullptr && this->serverCertSerialNumber_ == nullptr
-        && this->status_ == nullptr && this->trustCard_ == nullptr && this->trustCardUrl_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->agentSubHost_ == nullptr && this->agentVersion_ == nullptr && this->atiName_ == nullptr && this->createTimestamp_ == nullptr && this->domainMode_ == nullptr
+        && this->endpoints_ == nullptr && this->identityCertSerialNumber_ == nullptr && this->registrantId_ == nullptr && this->registrantName_ == nullptr && this->rejectReason_ == nullptr
+        && this->requestId_ == nullptr && this->serverCertSerialNumber_ == nullptr && this->status_ == nullptr && this->trustCard_ == nullptr && this->trustCardUrl_ == nullptr
+        && this->trustLevel_ == nullptr && this->updateTimestamp_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -395,6 +402,13 @@ namespace Models
     inline DescribeAtiAgentRegisterInfoResponseBody& setAgentRegisterInfoId(string agentRegisterInfoId) { DARABONBA_PTR_SET_VALUE(agentRegisterInfoId_, agentRegisterInfoId) };
 
 
+    // agentSubHost Field Functions 
+    bool hasAgentSubHost() const { return this->agentSubHost_ != nullptr;};
+    void deleteAgentSubHost() { this->agentSubHost_ = nullptr;};
+    inline string getAgentSubHost() const { DARABONBA_PTR_GET_DEFAULT(agentSubHost_, "") };
+    inline DescribeAtiAgentRegisterInfoResponseBody& setAgentSubHost(string agentSubHost) { DARABONBA_PTR_SET_VALUE(agentSubHost_, agentSubHost) };
+
+
     // agentVersion Field Functions 
     bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
     void deleteAgentVersion() { this->agentVersion_ = nullptr;};
@@ -414,6 +428,13 @@ namespace Models
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
     inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
     inline DescribeAtiAgentRegisterInfoResponseBody& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
+
+
+    // domainMode Field Functions 
+    bool hasDomainMode() const { return this->domainMode_ != nullptr;};
+    void deleteDomainMode() { this->domainMode_ = nullptr;};
+    inline string getDomainMode() const { DARABONBA_PTR_GET_DEFAULT(domainMode_, "") };
+    inline DescribeAtiAgentRegisterInfoResponseBody& setDomainMode(string domainMode) { DARABONBA_PTR_SET_VALUE(domainMode_, domainMode) };
 
 
     // endpoints Field Functions 
@@ -490,6 +511,13 @@ namespace Models
     inline DescribeAtiAgentRegisterInfoResponseBody& setTrustCardUrl(string trustCardUrl) { DARABONBA_PTR_SET_VALUE(trustCardUrl_, trustCardUrl) };
 
 
+    // trustLevel Field Functions 
+    bool hasTrustLevel() const { return this->trustLevel_ != nullptr;};
+    void deleteTrustLevel() { this->trustLevel_ = nullptr;};
+    inline string getTrustLevel() const { DARABONBA_PTR_GET_DEFAULT(trustLevel_, "") };
+    inline DescribeAtiAgentRegisterInfoResponseBody& setTrustLevel(string trustLevel) { DARABONBA_PTR_SET_VALUE(trustLevel_, trustLevel) };
+
+
     // updateTimestamp Field Functions 
     bool hasUpdateTimestamp() const { return this->updateTimestamp_ != nullptr;};
     void deleteUpdateTimestamp() { this->updateTimestamp_ = nullptr;};
@@ -500,16 +528,17 @@ namespace Models
   protected:
     // The details about the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<DescribeAtiAgentRegisterInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The description of the Agent capabilities.
+    // The capability description of the Agent.
     shared_ptr<string> agentDescription_ {};
     // The display name of the Agent.
     shared_ptr<string> agentDisplayName_ {};
-    // The endpoint domain name through which the Agent provides services.
+    // The endpoint domain name through which the Agent provides external services.
     shared_ptr<string> agentHost_ {};
-    // The Agent ID, which is uniformly assigned by CNNIC after real-name verification. The AgentId serves as the unique identifier that binds the Agent to the verified registrant.
+    // The Agent ID, which is uniformly assigned by CNNIC after real-name authentication. The Agent ID serves as the unique identifier that binds the Agent to the authenticated registrant.
     shared_ptr<string> agentId_ {};
     // The Agent registration ID. This ID is automatically generated by the Alibaba Cloud ATS platform and is globally unique within the platform. It is automatically generated during the Agent registration process. In the multi-step registration process through the API, this ID must be carried throughout all steps to ensure that each step is associated with the same Agent and the complete registration process is completed.
     shared_ptr<string> agentRegisterInfoId_ {};
+    shared_ptr<string> agentSubHost_ {};
     // The version of the Agent.
     shared_ptr<string> agentVersion_ {};
     // The ATI name, which is a globally unique identifier in the ATI trust system. Example: ati://v1.0.0.www.example.com
@@ -519,32 +548,34 @@ namespace Models
     shared_ptr<string> atiName_ {};
     // The creation time (timestamp).
     shared_ptr<int64_t> createTimestamp_ {};
+    shared_ptr<string> domainMode_ {};
     shared_ptr<DescribeAtiAgentRegisterInfoResponseBody::Endpoints> endpoints_ {};
     // Ignore.
     shared_ptr<string> identityCertSerialNumber_ {};
-    // The ID of the verified registrant.
+    // The ID of the authenticated registrant.
     shared_ptr<string> registrantId_ {};
     // The name of the registrant.
     shared_ptr<string> registrantName_ {};
-    // The reason why the Agent registration review failed.
+    // The reason for Agent registration review failure.
     shared_ptr<DescribeAtiAgentRegisterInfoResponseBody::RejectReason> rejectReason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Ignore.
     shared_ptr<string> serverCertSerialNumber_ {};
-    // The status of the Agent. Valid values:
+    // The Agent status. Valid values:
     // 
-    // - Draft: The Agent registration form is being filled out and has not been formally submitted. In the Draft state, only modification and detail viewing operations are supported.
-    // - Private CA Pending Issuance: The Agent registration has been formally submitted. Alibaba Cloud has completed the ACME DNS-01 pre-check and submitted the registration information along with the generated DNS records to CNNIC. The system is waiting for CNNIC to approve and issue the Private CA and complete the TL sealing.
-    // - DNS Pending Verification: CNNIC has approved the registration, issued the Private CA certificate, and completed the TL sealing, but the DNS records of the user have not been verified. The user needs to add the corresponding DNS records in the domain name resolution and complete verification.
-    // - Active: All processes are complete. The Private CA certificate has been issued, the TL has been sealed, and the DNS records have been verified. The Agent is activated and can be discovered and trusted across the network.
-    // - Expired: The Agent identity certificate has expired because the user did not renew the certificate within the validity period.
-    // - Revoked: The Agent certificate has been revoked, the DNS records have been cleaned up, and the Agent can no longer be discovered or trusted. The Agent cannot be restored to the Active state.
+    // - Draft: The Agent registration form is being filled out and has not been formally submitted. In draft status, only modification and detail viewing operations are supported.
+    // - Private CA Pending Issuance: The Agent registration has been formally submitted. Alibaba Cloud has completed the ACME DNS-01 pre-check and submitted the registration information and generated DNS records to CNNIC. Currently waiting for CNNIC to approve and issue the Private CA and complete TL sealing.
+    // - DNS Pending Verification: CNNIC has approved and issued the Private CA certificate and completed TL sealing, but the DNS records of the user have not been verified. Waiting for the user to add the corresponding DNS records in domain name resolution and complete verification.
+    // - Active: All processes are complete. The Private CA certificate has been issued, TL has been sealed, and DNS records have been verified. The Agent is activated and can be discovered and trust-verified across the network.
+    // - Expired: The Agent identity certificate has expired, and the user did not complete certificate renewal within the validity period.
+    // - Revoked: The Agent certificate has been revoked, DNS records have been cleaned up, and the Agent cannot be discovered or trust-verified. It cannot be restored to active status.
     shared_ptr<string> status_ {};
     // Ignore.
     shared_ptr<string> trustCard_ {};
-    // Deprecated.
+    // **[Deprecated]**
     shared_ptr<string> trustCardUrl_ {};
+    shared_ptr<string> trustLevel_ {};
     // The update time (timestamp).
     shared_ptr<int64_t> updateTimestamp_ {};
   };

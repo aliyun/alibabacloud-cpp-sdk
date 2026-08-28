@@ -341,11 +341,11 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The identity type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted diagnostic message.
+      // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The reason for the authentication failure. Valid values:
-      // - ExplicitDeny: explicit deny.
-      // - ImplicitDeny: implicit deny.
+      // - ExplicitDeny: explicit deny
+      // - ImplicitDeny: implicit deny
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -415,7 +415,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries in the address list.
     shared_ptr<int32_t> totalItems_ {};

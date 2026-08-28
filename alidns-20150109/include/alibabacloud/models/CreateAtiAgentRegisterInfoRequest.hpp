@@ -17,8 +17,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentDescription, agentDescription_);
       DARABONBA_PTR_TO_JSON(AgentDisplayName, agentDisplayName_);
       DARABONBA_PTR_TO_JSON(AgentHost, agentHost_);
+      DARABONBA_PTR_TO_JSON(AgentSubHost, agentSubHost_);
       DARABONBA_PTR_TO_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DomainMode, domainMode_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(RegistrantId, registrantId_);
     };
@@ -26,8 +28,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentDescription, agentDescription_);
       DARABONBA_PTR_FROM_JSON(AgentDisplayName, agentDisplayName_);
       DARABONBA_PTR_FROM_JSON(AgentHost, agentHost_);
+      DARABONBA_PTR_FROM_JSON(AgentSubHost, agentSubHost_);
       DARABONBA_PTR_FROM_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DomainMode, domainMode_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(RegistrantId, registrantId_);
     };
@@ -126,8 +130,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentDescription_ == nullptr
-        && this->agentDisplayName_ == nullptr && this->agentHost_ == nullptr && this->agentVersion_ == nullptr && this->clientToken_ == nullptr && this->endpoints_ == nullptr
-        && this->registrantId_ == nullptr; };
+        && this->agentDisplayName_ == nullptr && this->agentHost_ == nullptr && this->agentSubHost_ == nullptr && this->agentVersion_ == nullptr && this->clientToken_ == nullptr
+        && this->domainMode_ == nullptr && this->endpoints_ == nullptr && this->registrantId_ == nullptr; };
     // agentDescription Field Functions 
     bool hasAgentDescription() const { return this->agentDescription_ != nullptr;};
     void deleteAgentDescription() { this->agentDescription_ = nullptr;};
@@ -149,6 +153,13 @@ namespace Models
     inline CreateAtiAgentRegisterInfoRequest& setAgentHost(string agentHost) { DARABONBA_PTR_SET_VALUE(agentHost_, agentHost) };
 
 
+    // agentSubHost Field Functions 
+    bool hasAgentSubHost() const { return this->agentSubHost_ != nullptr;};
+    void deleteAgentSubHost() { this->agentSubHost_ = nullptr;};
+    inline string getAgentSubHost() const { DARABONBA_PTR_GET_DEFAULT(agentSubHost_, "") };
+    inline CreateAtiAgentRegisterInfoRequest& setAgentSubHost(string agentSubHost) { DARABONBA_PTR_SET_VALUE(agentSubHost_, agentSubHost) };
+
+
     // agentVersion Field Functions 
     bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
     void deleteAgentVersion() { this->agentVersion_ = nullptr;};
@@ -161,6 +172,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateAtiAgentRegisterInfoRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // domainMode Field Functions 
+    bool hasDomainMode() const { return this->domainMode_ != nullptr;};
+    void deleteDomainMode() { this->domainMode_ = nullptr;};
+    inline string getDomainMode() const { DARABONBA_PTR_GET_DEFAULT(domainMode_, "") };
+    inline CreateAtiAgentRegisterInfoRequest& setDomainMode(string domainMode) { DARABONBA_PTR_SET_VALUE(domainMode_, domainMode) };
 
 
     // endpoints Field Functions 
@@ -190,12 +208,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> agentHost_ {};
+    shared_ptr<string> agentSubHost_ {};
     // The version of the agent.
     // 
     // This parameter is required.
     shared_ptr<string> agentVersion_ {};
     // Provides idempotency. Within 3 minutes, the same value takes effect only once.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> domainMode_ {};
     // The endpoint information of the agent.
     // 
     // This parameter is required.

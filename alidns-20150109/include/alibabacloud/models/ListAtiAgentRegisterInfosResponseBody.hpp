@@ -77,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
           DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(TrustLevel, trustLevel_);
           DARABONBA_PTR_TO_JSON(UpdateTimestamp, updateTimestamp_);
         };
         friend void from_json(const Darabonba::Json& j, AgentRegisterInfo& obj) { 
@@ -89,6 +90,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(TrustLevel, trustLevel_);
           DARABONBA_PTR_FROM_JSON(UpdateTimestamp, updateTimestamp_);
         };
         AgentRegisterInfo() = default ;
@@ -168,7 +170,7 @@ namespace Models
 
         virtual bool empty() const override { return this->agentDisplayName_ == nullptr
         && this->agentHost_ == nullptr && this->agentId_ == nullptr && this->agentRegisterInfoId_ == nullptr && this->agentVersion_ == nullptr && this->atiName_ == nullptr
-        && this->createTimestamp_ == nullptr && this->endpoints_ == nullptr && this->status_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->createTimestamp_ == nullptr && this->endpoints_ == nullptr && this->status_ == nullptr && this->trustLevel_ == nullptr && this->updateTimestamp_ == nullptr; };
         // agentDisplayName Field Functions 
         bool hasAgentDisplayName() const { return this->agentDisplayName_ != nullptr;};
         void deleteAgentDisplayName() { this->agentDisplayName_ = nullptr;};
@@ -234,6 +236,13 @@ namespace Models
         inline AgentRegisterInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+        // trustLevel Field Functions 
+        bool hasTrustLevel() const { return this->trustLevel_ != nullptr;};
+        void deleteTrustLevel() { this->trustLevel_ = nullptr;};
+        inline string getTrustLevel() const { DARABONBA_PTR_GET_DEFAULT(trustLevel_, "") };
+        inline AgentRegisterInfo& setTrustLevel(string trustLevel) { DARABONBA_PTR_SET_VALUE(trustLevel_, trustLevel) };
+
+
         // updateTimestamp Field Functions 
         bool hasUpdateTimestamp() const { return this->updateTimestamp_ != nullptr;};
         void deleteUpdateTimestamp() { this->updateTimestamp_ = nullptr;};
@@ -251,6 +260,7 @@ namespace Models
         shared_ptr<string> createTimestamp_ {};
         shared_ptr<AgentRegisterInfo::Endpoints> endpoints_ {};
         shared_ptr<string> status_ {};
+        shared_ptr<string> trustLevel_ {};
         shared_ptr<string> updateTimestamp_ {};
       };
 
@@ -360,11 +370,11 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The identity type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted diagnostic message.
+      // The encrypted complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The cause of the authentication failure. Valid values:
-      // - ExplicitDeny: Explicit denial.
-      // - ImplicitDeny: Implicit denial.
+      // The reason for the authentication failure. Valid values:
+      // - ExplicitDeny: explicit denial.
+      // - ImplicitDeny: implicit denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -444,17 +454,17 @@ namespace Models
     // The details about the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<ListAtiAgentRegisterInfosResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     shared_ptr<ListAtiAgentRegisterInfosResponseBody::AgentRegisterInfos> agentRegisterInfos_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The current page number. Minimum value: 1. Default value: 1.
+    // The current page number. The start value is 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page set for the paged query. This is the paging size. Maximum value: **100**. Default value: **20**. Settings determine how many rows are displayed per page.
+    // The number of entries per page in the Settings for the paging query. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalItems_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};

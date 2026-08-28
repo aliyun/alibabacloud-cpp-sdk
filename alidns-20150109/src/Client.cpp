@@ -19,6 +19,7 @@ namespace Alidns20150109
 AlibabaCloud::Alidns20150109::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
+    {"cn-hangzhou" , "alidns.aliyuncs.com"},
     {"public" , "alidns.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
@@ -1458,12 +1459,20 @@ CreateAtiAgentRegisterInfoResponse Client::createAtiAgentRegisterInfoWithOptions
     query["AgentHost"] = request.getAgentHost();
   }
 
+  if (!!request.hasAgentSubHost()) {
+    query["AgentSubHost"] = request.getAgentSubHost();
+  }
+
   if (!!request.hasAgentVersion()) {
     query["AgentVersion"] = request.getAgentVersion();
   }
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDomainMode()) {
+    query["DomainMode"] = request.getDomainMode();
   }
 
   if (!!request.hasEndpointsShrink()) {
@@ -2981,7 +2990,7 @@ DeleteSubDomainRecordsResponse Client::deleteSubDomainRecords(const DeleteSubDom
 }
 
 /**
- * @summary Queries the details of an Agent registration.
+ * @summary Queries the details of Agent registration information.
  *
  * @param request DescribeAtiAgentRegisterInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3016,7 +3025,7 @@ DescribeAtiAgentRegisterInfoResponse Client::describeAtiAgentRegisterInfoWithOpt
 }
 
 /**
- * @summary Queries the details of an Agent registration.
+ * @summary Queries the details of Agent registration information.
  *
  * @param request DescribeAtiAgentRegisterInfoRequest
  * @return DescribeAtiAgentRegisterInfoResponse
@@ -3027,7 +3036,7 @@ DescribeAtiAgentRegisterInfoResponse Client::describeAtiAgentRegisterInfo(const 
 }
 
 /**
- * @summary 为sdk查询agent信息功能
+ * @summary Queries agent information from the Agent marketplace for the SDK.
  *
  * @param request DescribeAtiAgentRegisterInfoMarketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3056,6 +3065,10 @@ DescribeAtiAgentRegisterInfoMarketResponse Client::describeAtiAgentRegisterInfoM
     query["NextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasTrustLevel()) {
+    query["TrustLevel"] = request.getTrustLevel();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3074,7 +3087,7 @@ DescribeAtiAgentRegisterInfoMarketResponse Client::describeAtiAgentRegisterInfoM
 }
 
 /**
- * @summary 为sdk查询agent信息功能
+ * @summary Queries agent information from the Agent marketplace for the SDK.
  *
  * @param request DescribeAtiAgentRegisterInfoMarketRequest
  * @return DescribeAtiAgentRegisterInfoMarketResponse
@@ -8879,7 +8892,7 @@ ListAtiAgentRegisterInfosResponse Client::listAtiAgentRegisterInfos(const ListAt
 }
 
 /**
- * @summary Queries the list of real-name registered contacts.
+ * @summary Queries the list of real-name registrants.
  *
  * @param request ListAtiChangeLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8942,7 +8955,7 @@ ListAtiChangeLogsResponse Client::listAtiChangeLogsWithOptions(const ListAtiChan
 }
 
 /**
- * @summary Queries the list of real-name registered contacts.
+ * @summary Queries the list of real-name registrants.
  *
  * @param request ListAtiChangeLogsRequest
  * @return ListAtiChangeLogsResponse
@@ -8953,7 +8966,7 @@ ListAtiChangeLogsResponse Client::listAtiChangeLogs(const ListAtiChangeLogsReque
 }
 
 /**
- * @summary 查询实名注册人列表
+ * @summary Queries the list of real-name verified registrants.
  *
  * @param request ListAtiRegistrantsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9008,7 +9021,7 @@ ListAtiRegistrantsResponse Client::listAtiRegistrantsWithOptions(const ListAtiRe
 }
 
 /**
- * @summary 查询实名注册人列表
+ * @summary Queries the list of real-name verified registrants.
  *
  * @param request ListAtiRegistrantsRequest
  * @return ListAtiRegistrantsResponse
@@ -12166,12 +12179,20 @@ UpdateAtiAgentRegisterInfoResponse Client::updateAtiAgentRegisterInfoWithOptions
     query["AgentRegisterInfoId"] = request.getAgentRegisterInfoId();
   }
 
+  if (!!request.hasAgentSubHost()) {
+    query["AgentSubHost"] = request.getAgentSubHost();
+  }
+
   if (!!request.hasAgentVersion()) {
     query["AgentVersion"] = request.getAgentVersion();
   }
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDomainMode()) {
+    query["DomainMode"] = request.getDomainMode();
   }
 
   if (!!request.hasEndpointsShrink()) {
@@ -12211,7 +12232,7 @@ UpdateAtiAgentRegisterInfoResponse Client::updateAtiAgentRegisterInfo(const Upda
 }
 
 /**
- * @summary 更新告警设置
+ * @summary Updates alert settings.
  *
  * @param request UpdateAtiAlertSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12250,7 +12271,7 @@ UpdateAtiAlertSettingsResponse Client::updateAtiAlertSettingsWithOptions(const U
 }
 
 /**
- * @summary 更新告警设置
+ * @summary Updates alert settings.
  *
  * @param request UpdateAtiAlertSettingsRequest
  * @return UpdateAtiAlertSettingsResponse
@@ -12261,7 +12282,7 @@ UpdateAtiAlertSettingsResponse Client::updateAtiAlertSettings(const UpdateAtiAle
 }
 
 /**
- * @summary Modifies a registrant profile.
+ * @summary Modifies a real-name registrant.
  *
  * @param request UpdateAtiRegistrantRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12336,7 +12357,7 @@ UpdateAtiRegistrantResponse Client::updateAtiRegistrantWithOptions(const UpdateA
 }
 
 /**
- * @summary Modifies a registrant profile.
+ * @summary Modifies a real-name registrant.
  *
  * @param request UpdateAtiRegistrantRequest
  * @return UpdateAtiRegistrantResponse
@@ -15262,6 +15283,10 @@ VerifyAtiAgentDnsRecordsResponse Client::verifyAtiAgentDnsRecordsWithOptions(con
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasTrustLevel()) {
+    query["TrustLevel"] = request.getTrustLevel();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -15291,7 +15316,7 @@ VerifyAtiAgentDnsRecordsResponse Client::verifyAtiAgentDnsRecords(const VerifyAt
 }
 
 /**
- * @summary 触发 ACME 预检
+ * @summary Triggers an ACME pre-check.
  *
  * @param request VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15326,7 +15351,7 @@ VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse Client::verifyAtiAgentRegi
 }
 
 /**
- * @summary 触发 ACME 预检
+ * @summary Triggers an ACME pre-check.
  *
  * @param request VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
  * @return VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse

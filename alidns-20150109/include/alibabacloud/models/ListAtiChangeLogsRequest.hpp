@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The agent ID that is assigned by CNNIC after real-name verification. The AgentID serves as the unique identifier that binds the agent to the real-name registered contact.
+    // The agent ID assigned by CNNIC after real-name authentication. The AgentID serves as the unique identifier that binds the agent to the real-name authenticated registrant.
     shared_ptr<string> agentId_ {};
-    // Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
     // 
-    // - If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+    // - If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
     // The end time of the query (timestamp).
     shared_ptr<int64_t> endTimestamp_ {};
@@ -134,7 +134,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The start time of the query (timestamp).
     shared_ptr<int64_t> startTimestamp_ {};
-    // Ignored.
+    // Ignore.
     shared_ptr<string> timeRange_ {};
   };
 

@@ -94,14 +94,29 @@ namespace Models
 
 
   protected:
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
+    // 
+    // - If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The name of the real-name verified registrant.
     shared_ptr<string> name_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The current page number. Minimum value: **1**. Default value: **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of rows per page in a paged query. Maximum value: 100. Default value: 20.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The real-name verification status. Valid values:
+    // 
+    // - Approved
+    // - Pending
+    // - Rejected
     shared_ptr<string> status_ {};
   };
 
