@@ -1,0 +1,156 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATEAGENTIMCHANNELCREDENTIALRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEAGENTIMCHANNELCREDENTIALRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <map>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AgentCore20260804
+{
+namespace Models
+{
+  class UpdateAgentIMChannelCredentialResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateAgentIMChannelCredentialResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(data, data_);
+      DARABONBA_PTR_TO_JSON(httpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateAgentIMChannelCredentialResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(data, data_);
+      DARABONBA_PTR_FROM_JSON(httpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(success, success_);
+    };
+    UpdateAgentIMChannelCredentialResponseBody() = default ;
+    UpdateAgentIMChannelCredentialResponseBody(const UpdateAgentIMChannelCredentialResponseBody &) = default ;
+    UpdateAgentIMChannelCredentialResponseBody(UpdateAgentIMChannelCredentialResponseBody &&) = default ;
+    UpdateAgentIMChannelCredentialResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateAgentIMChannelCredentialResponseBody() = default ;
+    UpdateAgentIMChannelCredentialResponseBody& operator=(const UpdateAgentIMChannelCredentialResponseBody &) = default ;
+    UpdateAgentIMChannelCredentialResponseBody& operator=(UpdateAgentIMChannelCredentialResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(configuredSecretFields, configuredSecretFields_);
+        DARABONBA_PTR_TO_JSON(nonSecretFields, nonSecretFields_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(configuredSecretFields, configuredSecretFields_);
+        DARABONBA_PTR_FROM_JSON(nonSecretFields, nonSecretFields_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->configuredSecretFields_ == nullptr
+        && this->nonSecretFields_ == nullptr; };
+      // configuredSecretFields Field Functions 
+      bool hasConfiguredSecretFields() const { return this->configuredSecretFields_ != nullptr;};
+      void deleteConfiguredSecretFields() { this->configuredSecretFields_ = nullptr;};
+      inline const vector<string> & getConfiguredSecretFields() const { DARABONBA_PTR_GET_CONST(configuredSecretFields_, vector<string>) };
+      inline vector<string> getConfiguredSecretFields() { DARABONBA_PTR_GET(configuredSecretFields_, vector<string>) };
+      inline Data& setConfiguredSecretFields(const vector<string> & configuredSecretFields) { DARABONBA_PTR_SET_VALUE(configuredSecretFields_, configuredSecretFields) };
+      inline Data& setConfiguredSecretFields(vector<string> && configuredSecretFields) { DARABONBA_PTR_SET_RVALUE(configuredSecretFields_, configuredSecretFields) };
+
+
+      // nonSecretFields Field Functions 
+      bool hasNonSecretFields() const { return this->nonSecretFields_ != nullptr;};
+      void deleteNonSecretFields() { this->nonSecretFields_ = nullptr;};
+      inline const map<string, string> & getNonSecretFields() const { DARABONBA_PTR_GET_CONST(nonSecretFields_, map<string, string>) };
+      inline map<string, string> getNonSecretFields() { DARABONBA_PTR_GET(nonSecretFields_, map<string, string>) };
+      inline Data& setNonSecretFields(const map<string, string> & nonSecretFields) { DARABONBA_PTR_SET_VALUE(nonSecretFields_, nonSecretFields) };
+      inline Data& setNonSecretFields(map<string, string> && nonSecretFields) { DARABONBA_PTR_SET_RVALUE(nonSecretFields_, nonSecretFields) };
+
+
+    protected:
+      // The list of configured secret field names. Secret values are not included.
+      shared_ptr<vector<string>> configuredSecretFields_ {};
+      // The non-sensitive credential fields and their values.
+      shared_ptr<map<string, string>> nonSecretFields_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline UpdateAgentIMChannelCredentialResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const UpdateAgentIMChannelCredentialResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, UpdateAgentIMChannelCredentialResponseBody::Data) };
+    inline UpdateAgentIMChannelCredentialResponseBody::Data getData() { DARABONBA_PTR_GET(data_, UpdateAgentIMChannelCredentialResponseBody::Data) };
+    inline UpdateAgentIMChannelCredentialResponseBody& setData(const UpdateAgentIMChannelCredentialResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline UpdateAgentIMChannelCredentialResponseBody& setData(UpdateAgentIMChannelCredentialResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // httpStatusCode Field Functions 
+    bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
+    void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline UpdateAgentIMChannelCredentialResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline UpdateAgentIMChannelCredentialResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline UpdateAgentIMChannelCredentialResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline UpdateAgentIMChannelCredentialResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The business status code. The value SUCCESS indicates success.
+    shared_ptr<string> code_ {};
+    // The summary of the updated IM channel credential.
+    shared_ptr<UpdateAgentIMChannelCredentialResponseBody::Data> data_ {};
+    // The HTTP status code. The value 200 indicates success.
+    shared_ptr<int32_t> httpStatusCode_ {};
+    // The result message of the request.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AgentCore20260804
+#endif

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<string> bodyShrink_ {};
+    // The client token used for idempotence. Not currently supported.
     shared_ptr<string> clientToken_ {};
   };
 
