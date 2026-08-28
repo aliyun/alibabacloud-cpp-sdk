@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};

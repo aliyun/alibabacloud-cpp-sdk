@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Query, query_);
+      DARABONBA_PTR_TO_JSON(QueryMode, queryMode_);
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstancesRequest& obj) { 
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
+      DARABONBA_PTR_FROM_JSON(QueryMode, queryMode_);
       DARABONBA_PTR_FROM_JSON(StatusList, statusList_);
     };
     ListAppInstancesRequest() = default ;
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->bizIds_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr && this->maxResults_ == nullptr
         && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->query_ == nullptr && this->statusList_ == nullptr; };
+        && this->query_ == nullptr && this->queryMode_ == nullptr && this->statusList_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -144,6 +146,13 @@ namespace Models
     inline ListAppInstancesRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
+    // queryMode Field Functions 
+    bool hasQueryMode() const { return this->queryMode_ != nullptr;};
+    void deleteQueryMode() { this->queryMode_ = nullptr;};
+    inline string getQueryMode() const { DARABONBA_PTR_GET_DEFAULT(queryMode_, "") };
+    inline ListAppInstancesRequest& setQueryMode(string queryMode) { DARABONBA_PTR_SET_VALUE(queryMode_, queryMode) };
+
+
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
@@ -157,9 +166,9 @@ namespace Models
     // The business ID.
     shared_ptr<string> bizId_ {};
     shared_ptr<vector<string>> bizIds_ {};
-    // The start of the expiration time range.
+    // The start time of the expiration range.
     shared_ptr<string> endTimeBegin_ {};
-    // The end of the expiration time range.
+    // The end time of the expiration range.
     shared_ptr<string> endTimeEnd_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
@@ -167,7 +176,7 @@ namespace Models
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
@@ -179,6 +188,8 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The query parameter.
     shared_ptr<string> query_ {};
+    // The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which only queries published sites and does not load aggregated information such as Profile, services, or AI Staff.
+    shared_ptr<string> queryMode_ {};
     // The status range.
     shared_ptr<vector<string>> statusList_ {};
   };

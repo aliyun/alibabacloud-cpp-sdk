@@ -13,10 +13,12 @@ namespace Models
   class SubmitMaterialTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitMaterialTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizGroupId, bizGroupId_);
       DARABONBA_PTR_TO_JSON(TaskParam, taskParam_);
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitMaterialTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizGroupId, bizGroupId_);
       DARABONBA_PTR_FROM_JSON(TaskParam, taskParam_);
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->taskParam_ == nullptr
-        && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->bizGroupId_ == nullptr
+        && this->taskParam_ == nullptr && this->taskType_ == nullptr; };
+    // bizGroupId Field Functions 
+    bool hasBizGroupId() const { return this->bizGroupId_ != nullptr;};
+    void deleteBizGroupId() { this->bizGroupId_ = nullptr;};
+    inline string getBizGroupId() const { DARABONBA_PTR_GET_DEFAULT(bizGroupId_, "") };
+    inline SubmitMaterialTaskRequest& setBizGroupId(string bizGroupId) { DARABONBA_PTR_SET_VALUE(bizGroupId_, bizGroupId) };
+
+
     // taskParam Field Functions 
     bool hasTaskParam() const { return this->taskParam_ != nullptr;};
     void deleteTaskParam() { this->taskParam_ = nullptr;};
@@ -48,11 +57,13 @@ namespace Models
 
 
   protected:
-    // The parameters of the task.
+    // The business group ID.
+    shared_ptr<string> bizGroupId_ {};
+    // The task parameters.
     // 
     // This parameter is required.
     shared_ptr<string> taskParam_ {};
-    // The type of the task.
+    // The task type.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

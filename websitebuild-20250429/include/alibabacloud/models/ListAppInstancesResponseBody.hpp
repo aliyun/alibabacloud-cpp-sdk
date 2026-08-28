@@ -227,7 +227,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // The request result.
+    // The request result. When QueryMode is set to CONTENT_CREATION, only BizId, Name, Domain, and Version are guaranteed to be valid. Version returns V2.0 only for 2.0 sites and is empty for 1.0 sites.
     shared_ptr<vector<AppInstanceAggregate>> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -241,7 +241,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
@@ -249,7 +249,7 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to the pagination limit, the server processes a maximum of 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};

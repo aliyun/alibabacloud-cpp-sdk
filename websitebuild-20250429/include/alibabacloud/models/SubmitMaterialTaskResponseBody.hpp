@@ -59,9 +59,11 @@ namespace Models
     class Module : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(BizGroupId, bizGroupId_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(BizGroupId, bizGroupId_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       };
       Module() = default ;
@@ -75,7 +77,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->taskId_ == nullptr; };
+      virtual bool empty() const override { return this->bizGroupId_ == nullptr
+        && this->taskId_ == nullptr; };
+      // bizGroupId Field Functions 
+      bool hasBizGroupId() const { return this->bizGroupId_ != nullptr;};
+      void deleteBizGroupId() { this->bizGroupId_ = nullptr;};
+      inline string getBizGroupId() const { DARABONBA_PTR_GET_DEFAULT(bizGroupId_, "") };
+      inline Module& setBizGroupId(string bizGroupId) { DARABONBA_PTR_SET_VALUE(bizGroupId_, bizGroupId) };
+
+
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -84,6 +94,8 @@ namespace Models
 
 
     protected:
+      // The business group ID.
+      shared_ptr<string> bizGroupId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
     };
@@ -209,7 +221,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The error code. The ErrorCode field is not returned if the request is successful. The ErrorCode field is returned if the request fails. For more information, see the error codes in this topic.
+    // The error code. The ErrorCode field is not returned if the request is successful. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};

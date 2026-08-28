@@ -451,6 +451,27 @@ namespace WebsiteBuild20250429
       Models::CreateAppTokenServiceResponse createAppTokenService(const Models::CreateAppTokenServiceRequest &request);
 
       /**
+       * @summary Distributes and generates channel drafts.
+       *
+       * @description Distributes and generates channel drafts.
+       *
+       * @param tmpReq CreateDistributionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDistributionResponse
+       */
+      Models::CreateDistributionResponse createDistributionWithOptions(const Models::CreateDistributionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Distributes and generates channel drafts.
+       *
+       * @description Distributes and generates channel drafts.
+       *
+       * @param request CreateDistributionRequest
+       * @return CreateDistributionResponse
+       */
+      Models::CreateDistributionResponse createDistribution(const Models::CreateDistributionRequest &request);
+
+      /**
        * @summary Creates a resource plan.
        *
        * @param request CreateInspirationRequest
@@ -1035,6 +1056,8 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the details of a website builder application instance.
        *
+       * @description Queries the details of a website builder application instance.
+       *
        * @param request GetAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAppInstanceResponse
@@ -1043,6 +1066,8 @@ namespace WebsiteBuild20250429
 
       /**
        * @summary Queries the details of a website builder application instance.
+       *
+       * @description Queries the details of a website builder application instance.
        *
        * @param request GetAppInstanceRequest
        * @return GetAppInstanceResponse
@@ -2289,6 +2314,8 @@ namespace WebsiteBuild20250429
       /**
        * @summary Modifies the specifications of a website building application instance.
        *
+       * @description Modifies the specifications of a website building application instance.
+       *
        * @param request ModifyAppInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAppInstanceSpecResponse
@@ -2297,6 +2324,8 @@ namespace WebsiteBuild20250429
 
       /**
        * @summary Modifies the specifications of a website building application instance.
+       *
+       * @description Modifies the specifications of a website building application instance.
        *
        * @param request ModifyAppInstanceSpecRequest
        * @return ModifyAppInstanceSpecResponse
@@ -2725,7 +2754,9 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialTaskDetailResponse queryMaterialTaskDetail(const Models::QueryMaterialTaskDetailRequest &request);
 
       /**
-       * @summary Query Material Generation Task List
+       * @summary Queries the list of material generation tasks.
+       *
+       * @description Queries the list of material generation tasks.
        *
        * @param tmpReq QueryMaterialTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2734,7 +2765,9 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialTaskListResponse queryMaterialTaskListWithOptions(const Models::QueryMaterialTaskListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Material Generation Task List
+       * @summary Queries the list of material generation tasks.
+       *
+       * @description Queries the list of material generation tasks.
        *
        * @param request QueryMaterialTaskListRequest
        * @return QueryMaterialTaskListResponse
@@ -2993,6 +3026,48 @@ namespace WebsiteBuild20250429
       Models::RenewAppSandboxResponse renewAppSandbox(const Models::RenewAppSandboxRequest &request);
 
       /**
+       * @summary Reports the publish result back to the system.
+       *
+       * @description Reports the publish result back to the system.
+       *
+       * @param request ReportChannelPublishResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReportChannelPublishResultResponse
+       */
+      Models::ReportChannelPublishResultResponse reportChannelPublishResultWithOptions(const Models::ReportChannelPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Reports the publish result back to the system.
+       *
+       * @description Reports the publish result back to the system.
+       *
+       * @param request ReportChannelPublishResultRequest
+       * @return ReportChannelPublishResultResponse
+       */
+      Models::ReportChannelPublishResultResponse reportChannelPublishResult(const Models::ReportChannelPublishResultRequest &request);
+
+      /**
+       * @summary Retries a publish operation.
+       *
+       * @description Retries a publish operation.
+       *
+       * @param request RetryChannelPublishRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryChannelPublishResponse
+       */
+      Models::RetryChannelPublishResponse retryChannelPublishWithOptions(const Models::RetryChannelPublishRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retries a publish operation.
+       *
+       * @description Retries a publish operation.
+       *
+       * @param request RetryChannelPublishRequest
+       * @return RetryChannelPublishResponse
+       */
+      Models::RetryChannelPublishResponse retryChannelPublish(const Models::RetryChannelPublishRequest &request);
+
+      /**
        * @summary Revokes a user role.
        *
        * @description Wanxiaozhi 2.0 AI conversation.
@@ -3012,6 +3087,27 @@ namespace WebsiteBuild20250429
        * @return RevokeRbacUserRoleResponse
        */
       Models::RevokeRbacUserRoleResponse revokeRbacUserRole(const Models::RevokeRbacUserRoleRequest &request);
+
+      /**
+       * @summary Rewrites a channel title using AI.
+       *
+       * @description Rewrites a channel title.
+       *
+       * @param request RewriteChannelTitleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RewriteChannelTitleResponse
+       */
+      Models::RewriteChannelTitleResponse rewriteChannelTitleWithOptions(const Models::RewriteChannelTitleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Rewrites a channel title using AI.
+       *
+       * @description Rewrites a channel title.
+       *
+       * @param request RewriteChannelTitleRequest
+       * @return RewriteChannelTitleResponse
+       */
+      Models::RewriteChannelTitleResponse rewriteChannelTitle(const Models::RewriteChannelTitleRequest &request);
 
       /**
        * @summary Rolls back a code snapshot.
@@ -3119,6 +3215,27 @@ namespace WebsiteBuild20250429
       Models::SaveAppSupabaseSecretsResponse saveAppSupabaseSecrets(const Models::SaveAppSupabaseSecretsRequest &request);
 
       /**
+       * @summary Saves a channel draft.
+       *
+       * @description Saves a channel draft.
+       *
+       * @param tmpReq SaveChannelDraftRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveChannelDraftResponse
+       */
+      Models::SaveChannelDraftResponse saveChannelDraftWithOptions(const Models::SaveChannelDraftRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Saves a channel draft.
+       *
+       * @description Saves a channel draft.
+       *
+       * @param request SaveChannelDraftRequest
+       * @return SaveChannelDraftResponse
+       */
+      Models::SaveChannelDraftResponse saveChannelDraft(const Models::SaveChannelDraftRequest &request);
+
+      /**
        * @summary Searches for images.
        *
        * @param tmpReq SearchImageRequest
@@ -3197,6 +3314,8 @@ namespace WebsiteBuild20250429
       /**
        * @summary Submits a material generation task.
        *
+       * @description Submits a material generation task.
+       *
        * @param request SubmitMaterialTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitMaterialTaskResponse
@@ -3205,6 +3324,8 @@ namespace WebsiteBuild20250429
 
       /**
        * @summary Submits a material generation task.
+       *
+       * @description Submits a material generation task.
        *
        * @param request SubmitMaterialTaskRequest
        * @return SubmitMaterialTaskResponse
@@ -3248,6 +3369,27 @@ namespace WebsiteBuild20250429
        * @return SyncAppInstanceForPartnerResponse
        */
       Models::SyncAppInstanceForPartnerResponse syncAppInstanceForPartner(const Models::SyncAppInstanceForPartnerRequest &request);
+
+      /**
+       * @summary Translates a channel draft.
+       *
+       * @description Translates a channel draft.
+       *
+       * @param request TranslateChannelDraftRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TranslateChannelDraftResponse
+       */
+      Models::TranslateChannelDraftResponse translateChannelDraftWithOptions(const Models::TranslateChannelDraftRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Translates a channel draft.
+       *
+       * @description Translates a channel draft.
+       *
+       * @param request TranslateChannelDraftRequest
+       * @return TranslateChannelDraftResponse
+       */
+      Models::TranslateChannelDraftResponse translateChannelDraft(const Models::TranslateChannelDraftRequest &request);
 
       /**
        * @summary Unbinds a domain name from a website and deletes the related DNS records.
@@ -3559,6 +3701,8 @@ namespace WebsiteBuild20250429
       /**
        * @summary Uploads a material file.
        *
+       * @description The Supabase instance information corresponding to the operation resource.
+       *
        * @param request UploadMaterialFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UploadMaterialFileResponse
@@ -3567,6 +3711,8 @@ namespace WebsiteBuild20250429
 
       /**
        * @summary Uploads a material file.
+       *
+       * @description The Supabase instance information corresponding to the operation resource.
        *
        * @param request UploadMaterialFileRequest
        * @return UploadMaterialFileResponse

@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OssKey, ossKey_);
     };
     friend void from_json(const Darabonba::Json& j, UploadMaterialFileRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OssKey, ossKey_);
     };
     UploadMaterialFileRequest() = default ;
     UploadMaterialFileRequest(const UploadMaterialFileRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->directoryId_ == nullptr && this->fileUrl_ == nullptr && this->name_ == nullptr; };
+        && this->directoryId_ == nullptr && this->fileUrl_ == nullptr && this->name_ == nullptr && this->ossKey_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline UploadMaterialFileRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // ossKey Field Functions 
+    bool hasOssKey() const { return this->ossKey_ != nullptr;};
+    void deleteOssKey() { this->ossKey_ = nullptr;};
+    inline string getOssKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
+    inline UploadMaterialFileRequest& setOssKey(string ossKey) { DARABONBA_PTR_SET_VALUE(ossKey_, ossKey) };
+
+
   protected:
     // The business ID of the application instance.
     // 
@@ -74,12 +83,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The path of the file.
-    // 
-    // This parameter is required.
+    // The file path.
     shared_ptr<string> fileUrl_ {};
-    // The name of the file.
+    // The file name.
     shared_ptr<string> name_ {};
+    // The OSS object key.
+    shared_ptr<string> ossKey_ {};
   };
 
   } // namespace Models

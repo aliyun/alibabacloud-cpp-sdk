@@ -158,7 +158,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request results.
+      // The query results.
       shared_ptr<vector<AppMaterialTask>> data_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -166,7 +166,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes up to the 1000 most recent records for the current query. If the results exceed 1000 records, **ResultLimit** is set to **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+      // Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -305,11 +305,11 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is currently not in use. Ignore this parameter.
+    // The dynamic message. Currently not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The returned error parameters.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The error code. The ErrorCode parameter is not returned if the request is successful. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes section.
+    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
@@ -323,13 +323,13 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The error code.
+    // The root error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Indicates whether synchronous processing is used.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

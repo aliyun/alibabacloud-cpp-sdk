@@ -14,6 +14,7 @@ namespace Models
   class AppMaterialTask : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AppMaterialTask& obj) { 
+      DARABONBA_PTR_TO_JSON(BizGroupId, bizGroupId_);
       DARABONBA_PTR_TO_JSON(CompleteTime, completeTime_);
       DARABONBA_PTR_TO_JSON(CompleteTimeFormat, completeTimeFormat_);
       DARABONBA_PTR_TO_JSON(FailReason, failReason_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, AppMaterialTask& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizGroupId, bizGroupId_);
       DARABONBA_PTR_FROM_JSON(CompleteTime, completeTime_);
       DARABONBA_PTR_FROM_JSON(CompleteTimeFormat, completeTimeFormat_);
       DARABONBA_PTR_FROM_JSON(FailReason, failReason_);
@@ -48,9 +50,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->completeTime_ == nullptr
-        && this->completeTimeFormat_ == nullptr && this->failReason_ == nullptr && this->finalFileUrls_ == nullptr && this->status_ == nullptr && this->subStatus_ == nullptr
-        && this->submitTime_ == nullptr && this->taskId_ == nullptr && this->taskParam_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->bizGroupId_ == nullptr
+        && this->completeTime_ == nullptr && this->completeTimeFormat_ == nullptr && this->failReason_ == nullptr && this->finalFileUrls_ == nullptr && this->status_ == nullptr
+        && this->subStatus_ == nullptr && this->submitTime_ == nullptr && this->taskId_ == nullptr && this->taskParam_ == nullptr && this->taskType_ == nullptr; };
+    // bizGroupId Field Functions 
+    bool hasBizGroupId() const { return this->bizGroupId_ != nullptr;};
+    void deleteBizGroupId() { this->bizGroupId_ = nullptr;};
+    inline string getBizGroupId() const { DARABONBA_PTR_GET_DEFAULT(bizGroupId_, "") };
+    inline AppMaterialTask& setBizGroupId(string bizGroupId) { DARABONBA_PTR_SET_VALUE(bizGroupId_, bizGroupId) };
+
+
     // completeTime Field Functions 
     bool hasCompleteTime() const { return this->completeTime_ != nullptr;};
     void deleteCompleteTime() { this->completeTime_ = nullptr;};
@@ -124,6 +133,8 @@ namespace Models
 
 
   protected:
+    // The business group ID.
+    shared_ptr<string> bizGroupId_ {};
     // The task completion time.
     shared_ptr<string> completeTime_ {};
     // The display format of the completion time.
@@ -140,7 +151,7 @@ namespace Models
     shared_ptr<string> submitTime_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The task parameter.
+    // The task parameters.
     shared_ptr<string> taskParam_ {};
     // The task type.
     shared_ptr<string> taskType_ {};

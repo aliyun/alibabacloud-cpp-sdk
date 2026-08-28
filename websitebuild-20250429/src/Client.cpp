@@ -1444,6 +1444,62 @@ CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppToken
 }
 
 /**
+ * @summary Distributes and generates channel drafts.
+ *
+ * @description Distributes and generates channel drafts.
+ *
+ * @param tmpReq CreateDistributionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDistributionResponse
+ */
+CreateDistributionResponse Client::createDistributionWithOptions(const CreateDistributionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDistributionShrinkRequest request = CreateDistributionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChannels()) {
+    request.setChannelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannels(), "Channels", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasArticleId()) {
+    query["ArticleId"] = request.getArticleId();
+  }
+
+  if (!!request.hasChannelsShrink()) {
+    query["Channels"] = request.getChannelsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDistribution"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDistributionResponse>();
+}
+
+/**
+ * @summary Distributes and generates channel drafts.
+ *
+ * @description Distributes and generates channel drafts.
+ *
+ * @param request CreateDistributionRequest
+ * @return CreateDistributionResponse
+ */
+CreateDistributionResponse Client::createDistribution(const CreateDistributionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDistributionWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a resource plan.
  *
  * @param request CreateInspirationRequest
@@ -2954,6 +3010,8 @@ GetAppFileContentResponse Client::getAppFileContent(const GetAppFileContentReque
 /**
  * @summary Queries the details of a website builder application instance.
  *
+ * @description Queries the details of a website builder application instance.
+ *
  * @param request GetAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppInstanceResponse
@@ -2984,6 +3042,8 @@ GetAppInstanceResponse Client::getAppInstanceWithOptions(const GetAppInstanceReq
 
 /**
  * @summary Queries the details of a website builder application instance.
+ *
+ * @description Queries the details of a website builder application instance.
  *
  * @param request GetAppInstanceRequest
  * @return GetAppInstanceResponse
@@ -5293,6 +5353,10 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
     query["Query"] = request.getQuery();
   }
 
+  if (!!request.hasQueryMode()) {
+    query["QueryMode"] = request.getQueryMode();
+  }
+
   if (!!request.hasStatusListShrink()) {
     query["StatusList"] = request.getStatusListShrink();
   }
@@ -6430,6 +6494,8 @@ ListRbacRolesResponse Client::listRbacRoles(const ListRbacRolesRequest &request)
 /**
  * @summary Modifies the specifications of a website building application instance.
  *
+ * @description Modifies the specifications of a website building application instance.
+ *
  * @param request ModifyAppInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAppInstanceSpecResponse
@@ -6484,6 +6550,8 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpecWithOptions(const Mod
 
 /**
  * @summary Modifies the specifications of a website building application instance.
+ *
+ * @description Modifies the specifications of a website building application instance.
  *
  * @param request ModifyAppInstanceSpecRequest
  * @return ModifyAppInstanceSpecResponse
@@ -7838,7 +7906,9 @@ QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetail(const QueryMater
 }
 
 /**
- * @summary Query Material Generation Task List
+ * @summary Queries the list of material generation tasks.
+ *
+ * @description Queries the list of material generation tasks.
  *
  * @param tmpReq QueryMaterialTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7857,6 +7927,10 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskListWithOptions(const Que
   }
 
   json query = {};
+  if (!!request.hasBizGroupId()) {
+    query["BizGroupId"] = request.getBizGroupId();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }
@@ -7907,7 +7981,9 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskListWithOptions(const Que
 }
 
 /**
- * @summary Query Material Generation Task List
+ * @summary Queries the list of material generation tasks.
+ *
+ * @description Queries the list of material generation tasks.
  *
  * @param request QueryMaterialTaskListRequest
  * @return QueryMaterialTaskListResponse
@@ -8697,6 +8773,114 @@ RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &re
 }
 
 /**
+ * @summary Reports the publish result back to the system.
+ *
+ * @description Reports the publish result back to the system.
+ *
+ * @param request ReportChannelPublishResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReportChannelPublishResultResponse
+ */
+ReportChannelPublishResultResponse Client::reportChannelPublishResultWithOptions(const ReportChannelPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftId()) {
+    query["DraftId"] = request.getDraftId();
+  }
+
+  if (!!request.hasExternalId()) {
+    query["ExternalId"] = request.getExternalId();
+  }
+
+  if (!!request.hasExternalUrl()) {
+    query["ExternalUrl"] = request.getExternalUrl();
+  }
+
+  if (!!request.hasFailReason()) {
+    query["FailReason"] = request.getFailReason();
+  }
+
+  if (!!request.hasSuccess()) {
+    query["Success"] = request.getSuccess();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReportChannelPublishResult"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReportChannelPublishResultResponse>();
+}
+
+/**
+ * @summary Reports the publish result back to the system.
+ *
+ * @description Reports the publish result back to the system.
+ *
+ * @param request ReportChannelPublishResultRequest
+ * @return ReportChannelPublishResultResponse
+ */
+ReportChannelPublishResultResponse Client::reportChannelPublishResult(const ReportChannelPublishResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return reportChannelPublishResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retries a publish operation.
+ *
+ * @description Retries a publish operation.
+ *
+ * @param request RetryChannelPublishRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryChannelPublishResponse
+ */
+RetryChannelPublishResponse Client::retryChannelPublishWithOptions(const RetryChannelPublishRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftId()) {
+    query["DraftId"] = request.getDraftId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryChannelPublish"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryChannelPublishResponse>();
+}
+
+/**
+ * @summary Retries a publish operation.
+ *
+ * @description Retries a publish operation.
+ *
+ * @param request RetryChannelPublishRequest
+ * @return RetryChannelPublishResponse
+ */
+RetryChannelPublishResponse Client::retryChannelPublish(const RetryChannelPublishRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retryChannelPublishWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes a user role.
  *
  * @description Wanxiaozhi 2.0 AI conversation.
@@ -8744,6 +8928,56 @@ RevokeRbacUserRoleResponse Client::revokeRbacUserRoleWithOptions(const RevokeRba
 RevokeRbacUserRoleResponse Client::revokeRbacUserRole(const RevokeRbacUserRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeRbacUserRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Rewrites a channel title using AI.
+ *
+ * @description Rewrites a channel title.
+ *
+ * @param request RewriteChannelTitleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RewriteChannelTitleResponse
+ */
+RewriteChannelTitleResponse Client::rewriteChannelTitleWithOptions(const RewriteChannelTitleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftId()) {
+    query["DraftId"] = request.getDraftId();
+  }
+
+  if (!!request.hasUserRequirement()) {
+    query["UserRequirement"] = request.getUserRequirement();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RewriteChannelTitle"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RewriteChannelTitleResponse>();
+}
+
+/**
+ * @summary Rewrites a channel title using AI.
+ *
+ * @description Rewrites a channel title.
+ *
+ * @param request RewriteChannelTitleRequest
+ * @return RewriteChannelTitleResponse
+ */
+RewriteChannelTitleResponse Client::rewriteChannelTitle(const RewriteChannelTitleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rewriteChannelTitleWithOptions(request, runtime);
 }
 
 /**
@@ -9004,6 +9238,70 @@ SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecretsWithOptions(const S
 SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecrets(const SaveAppSupabaseSecretsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return saveAppSupabaseSecretsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Saves a channel draft.
+ *
+ * @description Saves a channel draft.
+ *
+ * @param tmpReq SaveChannelDraftRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveChannelDraftResponse
+ */
+SaveChannelDraftResponse Client::saveChannelDraftWithOptions(const SaveChannelDraftRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SaveChannelDraftShrinkRequest request = SaveChannelDraftShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCoverImages()) {
+    request.setCoverImagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCoverImages(), "CoverImages", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAdaptedContent()) {
+    query["AdaptedContent"] = request.getAdaptedContent();
+  }
+
+  if (!!request.hasAdaptedTitle()) {
+    query["AdaptedTitle"] = request.getAdaptedTitle();
+  }
+
+  if (!!request.hasCoverImagesShrink()) {
+    query["CoverImages"] = request.getCoverImagesShrink();
+  }
+
+  if (!!request.hasDraftId()) {
+    query["DraftId"] = request.getDraftId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SaveChannelDraft"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveChannelDraftResponse>();
+}
+
+/**
+ * @summary Saves a channel draft.
+ *
+ * @description Saves a channel draft.
+ *
+ * @param request SaveChannelDraftRequest
+ * @return SaveChannelDraftResponse
+ */
+SaveChannelDraftResponse Client::saveChannelDraft(const SaveChannelDraftRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveChannelDraftWithOptions(request, runtime);
 }
 
 /**
@@ -9287,6 +9585,8 @@ SubmitAppSeoIndexResponse Client::submitAppSeoIndex(const SubmitAppSeoIndexReque
 /**
  * @summary Submits a material generation task.
  *
+ * @description Submits a material generation task.
+ *
  * @param request SubmitMaterialTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitMaterialTaskResponse
@@ -9294,6 +9594,10 @@ SubmitAppSeoIndexResponse Client::submitAppSeoIndex(const SubmitAppSeoIndexReque
 SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMaterialTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizGroupId()) {
+    query["BizGroupId"] = request.getBizGroupId();
+  }
+
   if (!!request.hasTaskParam()) {
     query["TaskParam"] = request.getTaskParam();
   }
@@ -9321,6 +9625,8 @@ SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMat
 
 /**
  * @summary Submits a material generation task.
+ *
+ * @description Submits a material generation task.
  *
  * @param request SubmitMaterialTaskRequest
  * @return SubmitMaterialTaskResponse
@@ -9446,6 +9752,52 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartnerWithOptions(c
 SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartner(const SyncAppInstanceForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return syncAppInstanceForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Translates a channel draft.
+ *
+ * @description Translates a channel draft.
+ *
+ * @param request TranslateChannelDraftRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TranslateChannelDraftResponse
+ */
+TranslateChannelDraftResponse Client::translateChannelDraftWithOptions(const TranslateChannelDraftRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftId()) {
+    query["DraftId"] = request.getDraftId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TranslateChannelDraft"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TranslateChannelDraftResponse>();
+}
+
+/**
+ * @summary Translates a channel draft.
+ *
+ * @description Translates a channel draft.
+ *
+ * @param request TranslateChannelDraftRequest
+ * @return TranslateChannelDraftResponse
+ */
+TranslateChannelDraftResponse Client::translateChannelDraft(const TranslateChannelDraftRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return translateChannelDraftWithOptions(request, runtime);
 }
 
 /**
@@ -10369,6 +10721,8 @@ UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFile(const Up
 /**
  * @summary Uploads a material file.
  *
+ * @description The Supabase instance information corresponding to the operation resource.
+ *
  * @param request UploadMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UploadMaterialFileResponse
@@ -10392,6 +10746,10 @@ UploadMaterialFileResponse Client::uploadMaterialFileWithOptions(const UploadMat
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasOssKey()) {
+    query["OssKey"] = request.getOssKey();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10411,6 +10769,8 @@ UploadMaterialFileResponse Client::uploadMaterialFileWithOptions(const UploadMat
 
 /**
  * @summary Uploads a material file.
+ *
+ * @description The Supabase instance information corresponding to the operation resource.
  *
  * @param request UploadMaterialFileRequest
  * @return UploadMaterialFileResponse
