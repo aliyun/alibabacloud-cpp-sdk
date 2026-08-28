@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // The product details.
+    // The product description.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The product attributes that describe the characteristics of the product, such as material. Specify the attribute names and attribute values.
+    // The product attributes that describe the characteristics of the product, such as material. Provide the attribute names and values.
     shared_ptr<string> itemSpec_ {};
-    // The SKU title of the product.
+    // The product SKU title.
     shared_ptr<string> sku_ {};
     // The product category on the source platform.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCategory_ {};
-    // The source platform from which products are sourced.
+    // The source platform where products are sourced from.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // The target listing platform. Currently, only temu is supported.
+    // The target listing platform. Currently only temu is supported.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};

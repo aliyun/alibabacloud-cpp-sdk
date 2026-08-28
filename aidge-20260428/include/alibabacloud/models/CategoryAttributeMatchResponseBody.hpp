@@ -211,9 +211,9 @@ namespace Models
       protected:
         // The attribute ID.
         shared_ptr<int32_t> attrId_ {};
-        // The matching confidence score. Valid values: 0 to 100.
+        // The matching confidence score, ranging from 0 to 100.
         shared_ptr<int32_t> confidence_ {};
-        // The input type of the attribute.
+        // The attribute input type.
         shared_ptr<string> inputType_ {};
         // Indicates whether the attribute is successfully matched. Valid values: true and false.
         shared_ptr<bool> matched_ {};
@@ -221,7 +221,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The English name of the attribute.
         shared_ptr<string> nameEn_ {};
-        // The reason for the matching result.
+        // The explanation for the matching result.
         shared_ptr<string> reason_ {};
         // The list of selected attribute value texts, such as ["iOS","Android"\\].
         shared_ptr<vector<string>> selectedValues_ {};
@@ -307,7 +307,7 @@ namespace Models
       shared_ptr<bool> matched_ {};
       // The total number of attributes under the category.
       shared_ptr<int32_t> totalAttributes_ {};
-      // The usage fields.
+      // The usage information.
       shared_ptr<Data::UsageMap> usageMap_ {};
     };
 
@@ -351,11 +351,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned for successful calls.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The response data.
     shared_ptr<CategoryAttributeMatchResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

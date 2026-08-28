@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID, used to query the audit result later through QueryAsyncTaskResult.
+      // The asynchronous task ID, which is used to query the review result by calling QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // The response code. 200 indicates a successful call. For other response codes, refer to the error code information.
+    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The asynchronous submission result data, which contains the asynchronous task ID.
+    // The submit status result data, which contains the asynchronous task ID.
     shared_ptr<PackageWeightSizeCheckResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for normal calls, and specific error information is returned for exceptions.
+    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
     shared_ptr<string> message_ {};
-    // The request ID, used to identify a unique request call.
+    // The request ID, which uniquely identifies the API call.
     shared_ptr<string> requestId_ {};
-    // Whether the call was successful. true indicates success, and false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

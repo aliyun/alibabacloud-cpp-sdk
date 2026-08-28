@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The corrected text.
       shared_ptr<string> correctedText_ {};
-      // Usage information, including the number of input characters.
+      // The usage information, including the number of input characters.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // Response code. Returns "success" during normal calls.
+    // The response code. The value "success" is returned if the call is successful.
     shared_ptr<string> code_ {};
-    // Intelligent error correction result data.
+    // The intelligent correction result data.
     shared_ptr<TextCorrectResponseBody::Data> data_ {};
-    // Error message. Returns "Success" during normal calls. Returns specific error information during exceptions, such as "The parameters contain sensitive information. Please try a different input."
+    // The error message. The value "Success" is returned if the call is successful. A specific error message is returned if an exception occurs, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
-    // Request ID, used to identify a unique request call.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // Whether the call was successful. true indicates success, false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

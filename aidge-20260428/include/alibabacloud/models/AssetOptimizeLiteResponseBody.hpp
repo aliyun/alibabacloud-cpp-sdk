@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // Asynchronous task ID, used for subsequent result queries
+      // The asynchronous task ID, used to query results later.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> code_ {};
-    // Asynchronous task submission result
+    // The submit result of the asynchronous task.
     shared_ptr<AssetOptimizeLiteResponseBody::Data> data_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the call was successful
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

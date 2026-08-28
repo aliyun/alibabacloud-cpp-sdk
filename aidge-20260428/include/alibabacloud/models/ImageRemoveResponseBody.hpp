@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The height of the result image, in pixels.
+      // The height of the result image in pixels.
       shared_ptr<int32_t> height_ {};
-      // The URL of the result image after erasure.
+      // The URL of the result image after removal.
       shared_ptr<string> imageUrl_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
-      // The width of the result image, in pixels.
+      // The width of the result image in pixels.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -146,9 +146,9 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The intelligent erasure result.
+    // The intelligent removal result.
     shared_ptr<ImageRemoveResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

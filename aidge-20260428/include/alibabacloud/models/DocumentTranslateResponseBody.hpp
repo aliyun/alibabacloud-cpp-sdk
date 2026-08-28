@@ -113,11 +113,12 @@ namespace Models
     shared_ptr<string> code_ {};
     // The asynchronous task information.
     shared_ptr<DocumentTranslateResponseBody::Data> data_ {};
-    // The error message. Not returned for successful calls.
+    // The error message, such as "The parameters contain sensitive information. Try other input."
+    // This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The unique request identity, used for troubleshooting and tracing.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. true: successful. false: failed.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

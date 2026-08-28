@@ -659,15 +659,15 @@ namespace Models
       protected:
         // The list of fonts used.
         shared_ptr<vector<string>> font_ {};
-        // The product area rectangles.
+        // The product area rectangle.
         shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
         // The product image URL.
         shared_ptr<string> goodsUrl_ {};
         // The list of target languages.
         shared_ptr<vector<string>> languages_ {};
-        // The original image URL.
+        // The URL of the original image.
         shared_ptr<string> pictUrl_ {};
-        // The repaired image URL.
+        // The URL of the repaired image.
         shared_ptr<string> repairedUrl_ {};
         // The list of repaired image URLs.
         shared_ptr<vector<string>> repairedUrls_ {};
@@ -709,9 +709,9 @@ namespace Models
     protected:
       // The edit information.
       shared_ptr<Data::EditInfo> editInfo_ {};
-      // The URL of the image generated after image translation.
+      // The URL of the image generated from the image translation result.
       shared_ptr<string> imageUrl_ {};
-      // The usage information, including the number of images processed.
+      // The usage information, including the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -759,9 +759,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data, including the translated image URL and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for successful calls, and returns specific error information for failed calls.
+    // The error message. "Success" is returned for successful calls, and a specific error message is returned for failed calls.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};

@@ -76,14 +76,15 @@ namespace Models
 
   protected:
     // Specifies the background type of the returned image. Valid values:
-    // - WHITE_BACKGROUND: white background image.
-    // - TRANSPARENT: transparent background image.
+    // 
+    // - WHITE_BACKGROUND: white background.
+    // - TRANSPARENT: transparent background.
     // 
     // This parameter is required.
     shared_ptr<string> backGroundType_ {};
     // BGColor
     shared_ptr<string> bgColor_ {};
-    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 and 3000 × 3000 pixels. The file size cannot exceed 10 MB.<br>**Example**: `"https://ae01.alicdn.com/kf/S342f0070dc9f4be09a6cbed34e90dc8fs.jpg"`
+    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format, with a resolution between 256 × 256 and 3000 × 3000 pixels, and a file size not exceeding 10 MB.<br>**Example**: `"https://ae01.alicdn.com/kf/S342f0070dc9f4be09a6cbed34e90dc8fs.jpg"`
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

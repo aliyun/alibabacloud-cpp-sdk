@@ -112,31 +112,31 @@ namespace Models
 
 
   protected:
-    // Custom glossary
+    // The custom glossary for term intervention.
     shared_ptr<string> glossary_ {};
-    // Whether to include product region translation
+    // Specifies whether product area translation is included.
     shared_ptr<bool> includingProductArea_ {};
-    // Whether translation is required
+    // Specifies whether translation is needed.
     // 
     // This parameter is required.
     shared_ptr<bool> needTrans_ {};
-    // Product Link URL
+    // The product URL.
     // 
     // This parameter is required.
     shared_ptr<string> productUrl_ {};
-    // Source language code, e.g., zh
+    // The source language code, such as zh.
     shared_ptr<string> sourceLanguage_ {};
-    // Source platform, e.g., 1688
+    // The source platform, such as 1688.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // Target language code, e.g., en
+    // The target language code, such as en.
     shared_ptr<string> targetLanguage_ {};
-    // Target platform, e.g., temu
+    // The target platform, such as temu.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};
-    // Whether to translate brand names in images, default false
+    // Specifies whether to translate brand names in images. Default value: false.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
   };
 

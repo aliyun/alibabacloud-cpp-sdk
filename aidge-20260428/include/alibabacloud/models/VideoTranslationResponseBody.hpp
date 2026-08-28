@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The asynchronous task submit status.
+    // The asynchronous task submit result.
     shared_ptr<VideoTranslationResponseBody::Data> data_ {};
-    // The description message.
+    // The description.
     shared_ptr<string> message_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

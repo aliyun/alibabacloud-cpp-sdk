@@ -77,15 +77,15 @@ namespace Models
   protected:
     // apiId
     shared_ptr<string> apiId_ {};
-    // The URL of the reference image. When this parameter is not empty, multi-image comparison mode is used.
+    // The URL of the reference image. Optional. When this parameter is not empty, the system performs multi-image differential comparison.
     shared_ptr<string> imageRefer_ {};
-    // The URL of the target image to inspect.
+    // The URL of the target image to be inspected.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The business request identity. This value is returned as-is in the response for Tracing Analysis purposes.
+    // The business request identity. Optional. This value is returned as-is in the response for Tracing Analysis purposes.
     shared_ptr<string> reqId_ {};
-    // The rule prompt in natural language that defines the inspection criteria.
+    // The rule prompt in natural language that describes the inspection criteria.
     shared_ptr<string> rules_ {};
   };
 

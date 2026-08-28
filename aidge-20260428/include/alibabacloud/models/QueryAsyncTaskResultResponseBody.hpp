@@ -97,9 +97,9 @@ namespace Models
     protected:
       // The task result.
       shared_ptr<string> result_ {};
-      // The status of the task.
+      // The task status.
       shared_ptr<string> status_ {};
-      // The ID of the downstream task.
+      // The downstream task ID.
       shared_ptr<string> taskId_ {};
       // The usage information.
       Darabonba::Json usageMap_ {};
@@ -147,14 +147,14 @@ namespace Models
   protected:
     // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
-    // The asynchronous node result.
+    // The asynchronous task result.
     shared_ptr<QueryAsyncTaskResultResponseBody::Data> data_ {};
     // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
     // - false: The call failed.
     shared_ptr<bool> success_ {};
   };

@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> productsShrink_ {};
-    // The ID of the customer-specific SKU vector database that determines which database is used for retrieval. The database must be created in advance through the database creation process.
+    // The ID of the customer-specific SKU vector store that determines which store is used for retrieval. The store must be created in advance through the store creation process.
     shared_ptr<string> ragId_ {};
     // The optional business request ID used for Tracing Analysis.
     shared_ptr<string> reqId_ {};

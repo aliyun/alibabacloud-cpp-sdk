@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // URL of the image to be processed
+    // The URL of the image to process.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Target height
+    // The target height.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetHeight_ {};
-    // Target width
+    // The target width.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetWidth_ {};

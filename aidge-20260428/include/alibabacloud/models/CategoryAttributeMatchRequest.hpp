@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The product details.
     shared_ptr<string> description_ {};
-    // The product image URLs. A maximum of 10 images are supported.
+    // The product image URLs (up to 10 images are supported).
     shared_ptr<vector<string>> imageUrl_ {};
     // The product attributes that describe the product characteristics.
     // 
@@ -122,11 +122,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceCategory_ {};
-    // The source platform from which the product originates.
+    // The source platform where the product originates.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // The target listing platform. Currently, only temu is supported.
+    // The target listing platform. Currently only temu is supported.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};

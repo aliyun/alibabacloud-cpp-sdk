@@ -259,7 +259,7 @@ namespace Models
       shared_ptr<int32_t> httpStatus_ {};
       // The downstream call latency, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
-      // The workflow description.
+      // The workflow description message.
       shared_ptr<string> message_ {};
       // The model request ID.
       shared_ptr<string> modelRequestId_ {};

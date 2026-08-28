@@ -68,13 +68,13 @@ namespace Models
   protected:
     // Specifies a custom API version. If you created a "My API" during the trial phase, you can find the corresponding ApiId in the product console under "Intelligent Inspection > API Management > My API".
     shared_ptr<string> apiId_ {};
-    // The URL of the shelf or floor-stack image to be recognized (accessible via the public network or OSS).
+    // The URL of the shelf or floor-stack image to be recognized (accessible over the public network or from OSS).
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The customer-specific SKU vector library ID that determines which library to retrieve from. The library must be created in advance through the library creation process.
+    // The ID of the customer\\"s dedicated SKU vector library, which determines which library is used for retrieval. The library must be created in advance through the library creation process.
     shared_ptr<string> ragId_ {};
-    // The business type (reserved for future routing by business line). The current release supports skincare & lotion.
+    // The business type (reserved for future routing by business line). The current phase supports skincare & lotion.
     shared_ptr<string> type_ {};
   };
 

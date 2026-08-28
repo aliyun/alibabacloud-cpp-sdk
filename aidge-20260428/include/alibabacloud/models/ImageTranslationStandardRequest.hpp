@@ -94,25 +94,28 @@ namespace Models
 
 
   protected:
-    // The glossary ID. Optional. Create a glossary in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+    // The intervention glossary ID. Optional. Create the glossary separately in the console and provide its ID. If the glossary ID is empty, translation results are not modified.
     shared_ptr<string> glossary_ {};
     // - Image URL: Must be publicly accessible.
+    // - Format: png, jpeg, jpg, bmp, webp
+    // - Pixels: Width and height must not exceed 4000
+    // - File size: Original file ≤ 10 MB
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the main subject of the image. Optional. Default value: false. This helps you protect information by avoiding translation of embedded information such as product names.
+    // Specifies whether to translate text on the product area. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
-    // The source language code. Required. For supported language pairs, see the supported language pair list.
+    // The source language code. Required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
-    // The target language code. Required. For supported language pairs, see the supported language pair list.
+    // The target language code. Required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names on the image. Optional. Default value: false. This helps you protect brand name information from being translated.
+    // Specifies whether to translate brand names on images. Optional. Default value: false. This helps protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layer information such as text position, font, and color. When set to true, layer information is returned for integration with image editors for secondary editing. Default value: false.
+    // Specifies whether to return layer information such as text position, font, and color. If set to true, layer information is returned for secondary editing through an image editor. Default value: false.
     shared_ptr<bool> useImageEditor_ {};
   };
 

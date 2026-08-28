@@ -1,3 +1,7 @@
+2026-08-28 Version: 5.2.1
+- Update API LanguageDetect: add request parameters Scene.
+
+
 2026-08-17 Version: 5.2.0
 - Support API DiduiAreaDeduction.
 - Support API ProductHotspotDetection.

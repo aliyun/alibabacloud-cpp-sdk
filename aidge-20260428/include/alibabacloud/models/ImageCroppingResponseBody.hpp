@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // Image height
+      // The image height.
       shared_ptr<int32_t> height_ {};
-      // URL of the cropped image
+      // The URL of the cropped image.
       shared_ptr<string> imageUrl_ {};
-      // Usage information
+      // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
-      // Image width
+      // The image width.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -146,15 +146,17 @@ namespace Models
 
 
   protected:
-    // Response code
+    // The response code.
     shared_ptr<string> code_ {};
-    // Crop result
+    // The cropping result.
     shared_ptr<ImageCroppingResponseBody::Data> data_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the call was successful: true indicates success, false indicates failure
+    // Indicates whether the call is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 
