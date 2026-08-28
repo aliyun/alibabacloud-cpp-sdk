@@ -13,22 +13,30 @@ namespace Models
   class CredentialSubmitIntlRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CredentialSubmitIntlRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CheckRuleConfig, checkRuleConfig_);
       DARABONBA_PTR_TO_JSON(CredentialOcrPictureBase64, credentialOcrPictureBase64_);
       DARABONBA_PTR_TO_JSON(CredentialOcrPictureUrl, credentialOcrPictureUrl_);
       DARABONBA_PTR_TO_JSON(DocType, docType_);
       DARABONBA_PTR_TO_JSON(FraudCheck, fraudCheck_);
+      DARABONBA_PTR_TO_JSON(IdQuality, idQuality_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(OcrArea, ocrArea_);
+      DARABONBA_PTR_TO_JSON(OcrTranslation, ocrTranslation_);
+      DARABONBA_PTR_TO_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(SceneCode, sceneCode_);
     };
     friend void from_json(const Darabonba::Json& j, CredentialSubmitIntlRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CheckRuleConfig, checkRuleConfig_);
       DARABONBA_PTR_FROM_JSON(CredentialOcrPictureBase64, credentialOcrPictureBase64_);
       DARABONBA_PTR_FROM_JSON(CredentialOcrPictureUrl, credentialOcrPictureUrl_);
       DARABONBA_PTR_FROM_JSON(DocType, docType_);
       DARABONBA_PTR_FROM_JSON(FraudCheck, fraudCheck_);
+      DARABONBA_PTR_FROM_JSON(IdQuality, idQuality_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(OcrArea, ocrArea_);
+      DARABONBA_PTR_FROM_JSON(OcrTranslation, ocrTranslation_);
+      DARABONBA_PTR_FROM_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(SceneCode, sceneCode_);
     };
@@ -43,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->credentialOcrPictureBase64_ == nullptr
-        && this->credentialOcrPictureUrl_ == nullptr && this->docType_ == nullptr && this->fraudCheck_ == nullptr && this->merchantBizId_ == nullptr && this->ocrArea_ == nullptr
-        && this->productCode_ == nullptr && this->sceneCode_ == nullptr; };
+    virtual bool empty() const override { return this->checkRuleConfig_ == nullptr
+        && this->credentialOcrPictureBase64_ == nullptr && this->credentialOcrPictureUrl_ == nullptr && this->docType_ == nullptr && this->fraudCheck_ == nullptr && this->idQuality_ == nullptr
+        && this->merchantBizId_ == nullptr && this->ocrArea_ == nullptr && this->ocrTranslation_ == nullptr && this->ocrValueStandard_ == nullptr && this->productCode_ == nullptr
+        && this->sceneCode_ == nullptr; };
+    // checkRuleConfig Field Functions 
+    bool hasCheckRuleConfig() const { return this->checkRuleConfig_ != nullptr;};
+    void deleteCheckRuleConfig() { this->checkRuleConfig_ = nullptr;};
+    inline string getCheckRuleConfig() const { DARABONBA_PTR_GET_DEFAULT(checkRuleConfig_, "") };
+    inline CredentialSubmitIntlRequest& setCheckRuleConfig(string checkRuleConfig) { DARABONBA_PTR_SET_VALUE(checkRuleConfig_, checkRuleConfig) };
+
+
     // credentialOcrPictureBase64 Field Functions 
     bool hasCredentialOcrPictureBase64() const { return this->credentialOcrPictureBase64_ != nullptr;};
     void deleteCredentialOcrPictureBase64() { this->credentialOcrPictureBase64_ = nullptr;};
@@ -74,6 +90,13 @@ namespace Models
     inline CredentialSubmitIntlRequest& setFraudCheck(string fraudCheck) { DARABONBA_PTR_SET_VALUE(fraudCheck_, fraudCheck) };
 
 
+    // idQuality Field Functions 
+    bool hasIdQuality() const { return this->idQuality_ != nullptr;};
+    void deleteIdQuality() { this->idQuality_ = nullptr;};
+    inline string getIdQuality() const { DARABONBA_PTR_GET_DEFAULT(idQuality_, "") };
+    inline CredentialSubmitIntlRequest& setIdQuality(string idQuality) { DARABONBA_PTR_SET_VALUE(idQuality_, idQuality) };
+
+
     // merchantBizId Field Functions 
     bool hasMerchantBizId() const { return this->merchantBizId_ != nullptr;};
     void deleteMerchantBizId() { this->merchantBizId_ = nullptr;};
@@ -86,6 +109,20 @@ namespace Models
     void deleteOcrArea() { this->ocrArea_ = nullptr;};
     inline string getOcrArea() const { DARABONBA_PTR_GET_DEFAULT(ocrArea_, "") };
     inline CredentialSubmitIntlRequest& setOcrArea(string ocrArea) { DARABONBA_PTR_SET_VALUE(ocrArea_, ocrArea) };
+
+
+    // ocrTranslation Field Functions 
+    bool hasOcrTranslation() const { return this->ocrTranslation_ != nullptr;};
+    void deleteOcrTranslation() { this->ocrTranslation_ = nullptr;};
+    inline string getOcrTranslation() const { DARABONBA_PTR_GET_DEFAULT(ocrTranslation_, "") };
+    inline CredentialSubmitIntlRequest& setOcrTranslation(string ocrTranslation) { DARABONBA_PTR_SET_VALUE(ocrTranslation_, ocrTranslation) };
+
+
+    // ocrValueStandard Field Functions 
+    bool hasOcrValueStandard() const { return this->ocrValueStandard_ != nullptr;};
+    void deleteOcrValueStandard() { this->ocrValueStandard_ = nullptr;};
+    inline string getOcrValueStandard() const { DARABONBA_PTR_GET_DEFAULT(ocrValueStandard_, "") };
+    inline CredentialSubmitIntlRequest& setOcrValueStandard(string ocrValueStandard) { DARABONBA_PTR_SET_VALUE(ocrValueStandard_, ocrValueStandard) };
 
 
     // productCode Field Functions 
@@ -103,36 +140,50 @@ namespace Models
 
 
   protected:
+    // The field validation rule configuration in JSON string format.
+    shared_ptr<string> checkRuleConfig_ {};
     // The Base64-encoded image. If you use this method to submit a photo, check the photo size and do not submit an excessively large photo.
     shared_ptr<string> credentialOcrPictureBase64_ {};
     // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
     // The credential type. Valid values:
-    // - 02: vehicle registration certificate.
+    // - 02: vehicle registration certificate
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
     // Specifies whether to enable tampering detection. Valid values:
-    // - true: Enable.
-    // - false: Disable.
+    // - true: Enabled.
+    // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // The merchant-side custom business unique identifier, used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+    // Specifies whether to enable quality detection. Valid values:
+    // - Y: Enabled.
+    // - N: Disabled.
+    shared_ptr<string> idQuality_ {};
+    // The merchant-defined unique business identifier, used for subsequent troubleshooting. The value can be a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
     // The extraction type. Valid values:
     // 
-    // - 0201: Thailand vehicle registration certificate.
+    // - 0201: Thailand vehicle registration certificate
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // The product solution to use. Set this parameter to CREDENTIAL_RECOGNITION.
+    // Specifies whether to enable translation. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
+    shared_ptr<string> ocrTranslation_ {};
+    // Specifies whether to enable OCR result standardization. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
+    shared_ptr<string> ocrValueStandard_ {};
+    // The product solution to use. Set this to CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
+    // The custom authentication scenario ID. You can use this ID to query related records in the console. The value can be a combination of letters, numbers, or underscores with a maximum length of 10 characters.
     // 
     // This parameter is required.
     shared_ptr<string> sceneCode_ {};

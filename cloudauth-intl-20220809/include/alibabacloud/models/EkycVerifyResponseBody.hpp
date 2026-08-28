@@ -100,11 +100,11 @@ namespace Models
 
 
     protected:
-      // The face verification result.
+      // The face verification result information.
       shared_ptr<string> extFaceInfo_ {};
-      // The document recognition result. This field is returned only when the API response is successful.
+      // The document recognition result. Returned only when the API response is successful.
       shared_ptr<string> extIdInfo_ {};
-      // Indicates whether the verification is passed. Valid values: T (passed) and F (not passed).
+      // Indicates whether the verification is passed. T indicates passed, and F indicates not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     shared_ptr<EkycVerifyResponseBody::Result> result_ {};
   };
 

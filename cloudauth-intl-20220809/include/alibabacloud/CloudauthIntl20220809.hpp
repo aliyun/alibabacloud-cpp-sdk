@@ -202,9 +202,9 @@ namespace CloudauthIntl20220809
       Models::CredentialGetResultIntlResponse credentialGetResultIntl(const Models::CredentialGetResultIntlRequest &request);
 
       /**
-       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+       * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
        *
-       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+       * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
        *
        * @param request CredentialRecognitionIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,9 +213,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntlWithOptions(const Models::CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+       * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
        *
-       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+       * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
        *
        * @param request CredentialRecognitionIntlRequest
        * @return CredentialRecognitionIntlResponse
@@ -225,7 +225,7 @@ namespace CloudauthIntl20220809
       /**
        * @summary Submits credential recognition information.
        *
-       * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
+       * @description Initializes the credential recognition OCR operation and returns a transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,7 +236,7 @@ namespace CloudauthIntl20220809
       /**
        * @summary Submits credential recognition information.
        *
-       * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
+       * @description Initializes the credential recognition OCR operation and returns a transactionId.
        *
        * @param request CredentialSubmitIntlRequest
        * @return CredentialSubmitIntlResponse
@@ -485,7 +485,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyResponse ekycVerify(const Models::EkycVerifyRequest &request);
 
       /**
-       * @summary The eKYC solution server-side API.
+       * @summary Provides a server-side-only API for the eKYC solution.
        *
        * @param request EkycVerifyV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -494,7 +494,7 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyV2Response ekycVerifyV2WithOptions(const Models::EkycVerifyV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The eKYC solution server-side API.
+       * @summary Provides a server-side-only API for the eKYC solution.
        *
        * @param request EkycVerifyV2Request
        * @return EkycVerifyV2Response
@@ -521,7 +521,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
 
       /**
-       * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+       * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
        *
        * @param request FaceCompareV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +530,7 @@ namespace CloudauthIntl20220809
       Models::FaceCompareV2Response faceCompareV2WithOptions(const Models::FaceCompareV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+       * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
        *
        * @param request FaceCompareV2Request
        * @return FaceCompareV2Response

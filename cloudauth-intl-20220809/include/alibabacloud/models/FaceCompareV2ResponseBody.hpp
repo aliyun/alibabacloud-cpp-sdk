@@ -181,10 +181,15 @@ namespace Models
         shared_ptr<double> occlusionScore_ {};
         // The sharpness score.
         shared_ptr<double> sharpnessScore_ {};
+        // The overall quality score of the target reference face image.
         shared_ptr<double> targetFaceQualityScore_ {};
+        // The illumination score of the target reference face image.
         shared_ptr<double> targetIlluminationScore_ {};
+        // The key area occlusion score of the target reference face image.
         shared_ptr<double> targetKaOcclusionScore_ {};
+        // The occlusion score of the target reference face image.
         shared_ptr<double> targetOcclusionScore_ {};
+        // The sharpness score of the target reference face image.
         shared_ptr<double> targetSharpnessScore_ {};
       };
 
@@ -221,16 +226,16 @@ namespace Models
 
 
     protected:
-      // The additional result information.
+      // The related result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The comparison score between the submitted face image and the reference face image during the verification process. Valid values: 0 to 100.
+      // The comparison score between the submitted face photo and the target reference face image during verification. Value range: 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
-      // Indicates whether the verification is passed. Valid values:
+      // Indicates whether the verification passed.
       // 
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> passed_ {};
-      // The unique ID of the verification request.
+      // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 

@@ -113,33 +113,33 @@ namespace Models
 
   protected:
     // Specifies whether to enable quality check for the input face images.
-    // >Danger: Deprecated.</danger>.
+    // >Danger: Deprecated
     shared_ptr<string> facePictureQualityCheck_ {};
     // Specifies whether to enable face quality check.
     shared_ptr<string> faceQualityCheck_ {};
-    // The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
+    // The merchant-defined unique business identifier, used for subsequent troubleshooting. Supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that this value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // The Base64-encoded source face image.
+    // The Base64-encoded source face photo.
     // 
     // > **Note**
     // 
-    // - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - If you choose this method to pass in the photo, check the photo size and do not pass in an excessively large photo.
     // - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
     shared_ptr<string> sourceFacePicture_ {};
     // The file stream of the source face image.
     shared_ptr<string> sourceFacePictureFile_ {};
     // The HTTPS or HTTP URL of the source face image.
     shared_ptr<string> sourceFacePictureUrl_ {};
-    // The Base64-encoded reference face image.
+    // The Base64-encoded target reference face photo.
     // 
     // > **Note**
     // 
-    // - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - If you choose this method to pass in the photo, check the photo size and do not pass in an excessively large photo.
     // - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
     shared_ptr<string> targetFacePicture_ {};
-    // The file stream of the reference face image.
+    // The file stream of the target reference face image.
     shared_ptr<string> targetFacePictureFile_ {};
-    // The HTTPS or HTTP URL of the reference face image.
+    // The HTTPS or HTTP URL of the target reference face image.
     shared_ptr<string> targetFacePictureUrl_ {};
   };
 

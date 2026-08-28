@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The response code.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The response result.
     shared_ptr<CredentialSubmitIntlResponseBody::Result> result_ {};
   };
 

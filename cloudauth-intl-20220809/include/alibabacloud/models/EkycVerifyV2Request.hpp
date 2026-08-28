@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureFile, idOcrPictureFile_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureUrl, idOcrPictureUrl_);
+      DARABONBA_PTR_TO_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_TO_JSON(IdThreshold, idThreshold_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(MerchantUserId, merchantUserId_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureFile, idOcrPictureFile_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureUrl, idOcrPictureUrl_);
+      DARABONBA_PTR_FROM_JSON(IdSpoof, idSpoof_);
       DARABONBA_PTR_FROM_JSON(IdThreshold, idThreshold_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(MerchantUserId, merchantUserId_);
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->authorize_ == nullptr
         && this->crop_ == nullptr && this->docName_ == nullptr && this->docNo_ == nullptr && this->docType_ == nullptr && this->facePictureBase64_ == nullptr
         && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQualityCheck_ == nullptr && this->idOcrPictureBase64_ == nullptr && this->idOcrPictureFile_ == nullptr
-        && this->idOcrPictureUrl_ == nullptr && this->idThreshold_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->productCode_ == nullptr; };
+        && this->idOcrPictureUrl_ == nullptr && this->idSpoof_ == nullptr && this->idThreshold_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr
+        && this->productCode_ == nullptr; };
     // authorize Field Functions 
     bool hasAuthorize() const { return this->authorize_ != nullptr;};
     void deleteAuthorize() { this->authorize_ = nullptr;};
@@ -147,6 +150,13 @@ namespace Models
     inline EkycVerifyV2Request& setIdOcrPictureUrl(string idOcrPictureUrl) { DARABONBA_PTR_SET_VALUE(idOcrPictureUrl_, idOcrPictureUrl) };
 
 
+    // idSpoof Field Functions 
+    bool hasIdSpoof() const { return this->idSpoof_ != nullptr;};
+    void deleteIdSpoof() { this->idSpoof_ = nullptr;};
+    inline string getIdSpoof() const { DARABONBA_PTR_GET_DEFAULT(idSpoof_, "") };
+    inline EkycVerifyV2Request& setIdSpoof(string idSpoof) { DARABONBA_PTR_SET_VALUE(idSpoof_, idSpoof) };
+
+
     // idThreshold Field Functions 
     bool hasIdThreshold() const { return this->idThreshold_ != nullptr;};
     void deleteIdThreshold() { this->idThreshold_ = nullptr;};
@@ -176,16 +186,16 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable authoritative identity verification. Currently, this feature is applicable only to second-generation ID cards of mainland China.
+    // Specifies whether to enable authoritative identity verification. Currently, this parameter applies only to second-generation mainland China ID cards.
     shared_ptr<string> authorize_ {};
-    // Specifies whether cropping is allowed. Not allowed by default. Valid values: T and F.
+    // Specifies whether cropping is allowed. By default, cropping is not allowed. Valid values:
     // 
-    // - T: Cropping is allowed.
-    // - F: Cropping is not allowed. (Default: F)
+    // - T: Detection is required.
+    // - F: Detection is required (default value: F).
     shared_ptr<string> crop_ {};
-    // The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports combinations of Chinese characters with a length of at least 1 character. Special characters are not supported, except for the middle dot (·) used in ethnic minority names.
+    // The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of Chinese characters with a minimum length of 1 character. No special characters are allowed, except for the middle dot (·) used in ethnic minority names.
     shared_ptr<string> docName_ {};
-    // The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports a combination of letters and digits with a length of 18 characters.
+    // The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of letters and numbers with a length of 18 characters.
     shared_ptr<string> docNo_ {};
     // The document type.
     shared_ptr<string> docType_ {};
@@ -193,31 +203,34 @@ namespace Models
     // 
     // Note:
     // 
-    // - If you use this method to pass the face image, check the photo size and do not pass an overly large photo.
-    // - You can only specify one of FacePictureBase64, FacePictureUrl, and FacePictureFile.
+    // - If you choose this method to pass in the face image, check the photo size and do not pass in an excessively large photo.
+    // - Specify one of the following parameters: FacePictureBase64, FacePictureUrl, or FacePictureFile.
     shared_ptr<string> facePictureBase64_ {};
     // The file stream of the face photo.
     shared_ptr<string> facePictureFile_ {};
     // The URL of the face photo.
     shared_ptr<string> facePictureUrl_ {};
+    // Specifies whether to enable face quality detection.
     shared_ptr<string> faceQualityCheck_ {};
-    // The Base64-encoded document image. Note:
+    // The Base64-encoded identity document image. Note:
     // 
-    // - If you use this method to pass the document image, check the photo size and do not pass an overly large photo.
-    // - You can only specify one of IdOcrPictureBase64, IdOcrPictureUrl, and IdOcrPictureFile.
+    // - If you choose this method to pass in the document image, check the photo size and do not pass in an excessively large photo.
+    // - Specify one of the following parameters: IdOcrPictureBase64, IdOcrPictureUrl, or IdOcrPictureFile.
     shared_ptr<string> idOcrPictureBase64_ {};
-    // The file stream of the front side of the document image.
+    // The file stream of the front side of the identity document image.
     shared_ptr<string> idOcrPictureFile_ {};
-    // The URL of the front side of the document image.
+    // The URL of the front side of the identity document image.
     shared_ptr<string> idOcrPictureUrl_ {};
-    // The custom OCR quality detection threshold mode:
+    // Specifies whether to enable document anti-spoofing.
+    shared_ptr<string> idSpoof_ {};
+    // The custom OCR quality detection threshold mode. Valid values:
     // 
-    // - 0: System default.
-    // - 1: Strict mode.
-    // - 2: Lenient mode.
-    // - 3 (Default): Quality detection is disabled.
+    // - 0: system default.
+    // - 1: strict mode.
+    // - 2: loose mode.
+    // - 3 (default): quality detection disabled.
     shared_ptr<string> idThreshold_ {};
-    // A unique business identifier customized by the merchant, used for subsequent troubleshooting. Supports a combination of letters and digits with a length of 32 characters. Ensure that the value is unique.
+    // A custom business unique identifier defined by the merchant, used for subsequent issue tracking and troubleshooting. Supports a combination of letters and numbers up to 32 characters in length. Ensure that this value is unique.
     shared_ptr<string> merchantBizId_ {};
     // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};

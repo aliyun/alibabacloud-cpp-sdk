@@ -87,7 +87,7 @@ namespace Models
       // The description of the authentication result.
       shared_ptr<string> subCode_ {};
       // The extraction result. Valid values:
-      // - S: Succeeded.
+      // - S: Successful.
       // - F: Failed.
       shared_ptr<string> success_ {};
     };

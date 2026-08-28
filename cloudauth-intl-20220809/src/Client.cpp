@@ -804,9 +804,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntl(const Credential
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+ * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
  *
  * @param request CredentialRecognitionIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -823,8 +823,20 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
     query["FraudCheck"] = request.getFraudCheck();
   }
 
+  if (!!request.hasIdQuality()) {
+    query["IdQuality"] = request.getIdQuality();
+  }
+
   if (!!request.hasOcrArea()) {
     query["OcrArea"] = request.getOcrArea();
+  }
+
+  if (!!request.hasOcrTranslation()) {
+    query["OcrTranslation"] = request.getOcrTranslation();
+  }
+
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
   }
 
   if (!!request.hasProductCode()) {
@@ -832,6 +844,10 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
   }
 
   json body = {};
+  if (!!request.hasCheckRuleConfig()) {
+    body["CheckRuleConfig"] = request.getCheckRuleConfig();
+  }
+
   if (!!request.hasCredentialOcrPictureBase64()) {
     body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
   }
@@ -859,9 +875,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 }
 
 /**
- * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+ * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
  *
- * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+ * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
  *
  * @param request CredentialRecognitionIntlRequest
  * @return CredentialRecognitionIntlResponse
@@ -874,7 +890,7 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const Creden
 /**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
+ * @description Initializes the credential recognition OCR operation and returns a transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,12 +907,24 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
     query["FraudCheck"] = request.getFraudCheck();
   }
 
+  if (!!request.hasIdQuality()) {
+    query["IdQuality"] = request.getIdQuality();
+  }
+
   if (!!request.hasMerchantBizId()) {
     query["MerchantBizId"] = request.getMerchantBizId();
   }
 
   if (!!request.hasOcrArea()) {
     query["OcrArea"] = request.getOcrArea();
+  }
+
+  if (!!request.hasOcrTranslation()) {
+    query["OcrTranslation"] = request.getOcrTranslation();
+  }
+
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
   }
 
   if (!!request.hasProductCode()) {
@@ -908,6 +936,10 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
   }
 
   json body = {};
+  if (!!request.hasCheckRuleConfig()) {
+    body["CheckRuleConfig"] = request.getCheckRuleConfig();
+  }
+
   if (!!request.hasCredentialOcrPictureBase64()) {
     body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
   }
@@ -937,7 +969,7 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 /**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and retrieves a transactionId.
+ * @description Initializes the credential recognition OCR operation and returns a transactionId.
  *
  * @param request CredentialSubmitIntlRequest
  * @return CredentialSubmitIntlResponse
@@ -2141,6 +2173,10 @@ EkycVerifyResponse Client::ekycVerifyWithOptions(const EkycVerifyRequest &reques
     query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
   }
 
+  if (!!request.hasIdSpoof()) {
+    query["IdSpoof"] = request.getIdSpoof();
+  }
+
   if (!!request.hasIdThreshold()) {
     query["IdThreshold"] = request.getIdThreshold();
   }
@@ -2196,7 +2232,7 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
- * @summary The eKYC solution server-side API.
+ * @summary Provides a server-side-only API for the eKYC solution.
  *
  * @param request EkycVerifyV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2235,6 +2271,10 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 
   if (!!request.hasIdOcrPictureUrl()) {
     query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
+  }
+
+  if (!!request.hasIdSpoof()) {
+    query["IdSpoof"] = request.getIdSpoof();
   }
 
   if (!!request.hasIdThreshold()) {
@@ -2289,7 +2329,7 @@ EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &
 }
 
 /**
- * @summary The eKYC solution server-side API.
+ * @summary Provides a server-side-only API for the eKYC solution.
  *
  * @param request EkycVerifyV2Request
  * @return EkycVerifyV2Response
@@ -2477,7 +2517,7 @@ FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
 }
 
 /**
- * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+ * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
  *
  * @param request FaceCompareV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -2542,7 +2582,7 @@ FaceCompareV2Response Client::faceCompareV2WithOptions(const FaceCompareV2Reques
 }
 
 /**
- * @summary Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+ * @summary Compares two face images using face recognition technology and returns the comparison result and similarity score.
  *
  * @param request FaceCompareV2Request
  * @return FaceCompareV2Response
