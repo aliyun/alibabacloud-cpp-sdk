@@ -630,7 +630,7 @@ GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
 }
 
 /**
- * @summary 查询账单概览
+ * @summary Queries the bill overview.
  *
  * @param tmpReq GetBillingOverviewRequest
  * @param headers map
@@ -697,7 +697,7 @@ GetBillingOverviewResponse Client::getBillingOverviewWithOptions(const GetBillin
 }
 
 /**
- * @summary 查询账单概览
+ * @summary Queries the bill overview.
  *
  * @param request GetBillingOverviewRequest
  * @return GetBillingOverviewResponse
@@ -709,7 +709,7 @@ GetBillingOverviewResponse Client::getBillingOverview(const GetBillingOverviewRe
 }
 
 /**
- * @summary 查询账单趋势
+ * @summary Queries bill trends.
  *
  * @param tmpReq GetBillingTrendRequest
  * @param headers map
@@ -784,7 +784,7 @@ GetBillingTrendResponse Client::getBillingTrendWithOptions(const GetBillingTrend
 }
 
 /**
- * @summary 查询账单趋势
+ * @summary Queries bill trends.
  *
  * @param request GetBillingTrendRequest
  * @return GetBillingTrendResponse
@@ -1413,7 +1413,7 @@ ListModelsResponse Client::listModels(const ListModelsRequest &request) {
 }
 
 /**
- * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+ * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
  *
  * @param request ListOrganizationMembersRequest
  * @param headers map
@@ -1462,7 +1462,7 @@ ListOrganizationMembersResponse Client::listOrganizationMembersWithOptions(const
 }
 
 /**
- * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+ * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
  *
  * @param request ListOrganizationMembersRequest
  * @return ListOrganizationMembersResponse

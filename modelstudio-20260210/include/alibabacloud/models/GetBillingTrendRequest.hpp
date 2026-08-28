@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The end time.
       shared_ptr<string> end_ {};
+      // The start time.
       shared_ptr<string> start_ {};
     };
 
@@ -114,6 +116,7 @@ namespace Models
 
 
     protected:
+      // The grouping dimension code. For more information, see the "Additional information" section below.
       shared_ptr<string> code_ {};
     };
 
@@ -185,8 +188,11 @@ namespace Models
 
 
       protected:
+        // The filter dimension code. For more information, see the "Additional information" section below.
         shared_ptr<string> code_ {};
+        // The filter method.
         shared_ptr<string> selectType_ {};
+        // The filter value list.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -201,6 +207,7 @@ namespace Models
 
 
     protected:
+      // The dimension filter list.
       shared_ptr<vector<Filter::Dimensions>> dimensions_ {};
     };
 
@@ -270,13 +277,21 @@ namespace Models
 
 
   protected:
+    // The dimension filter conditions.
     shared_ptr<GetBillingTrendRequest::Filter> filter_ {};
+    // The query granularity. This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The grouping conditions. This parameter must contain one and only one element.
     shared_ptr<vector<GetBillingTrendRequest::GroupBy>> groupBy_ {};
+    // The response language. Default value: en-US.
     shared_ptr<string> locale_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The query time range, including the start time and end time. This parameter is required.
     shared_ptr<GetBillingTrendRequest::TimePeriod> timePeriod_ {};
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
     shared_ptr<int32_t> topNum_ {};
+    // Specifies whether to filter out groups with a zero amount. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

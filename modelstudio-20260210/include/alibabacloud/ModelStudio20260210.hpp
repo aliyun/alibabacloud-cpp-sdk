@@ -267,7 +267,7 @@ namespace ModelStudio20260210
       Models::GetApiKeyResponse getApiKey(const string &apiKeyId);
 
       /**
-       * @summary 查询账单概览
+       * @summary Queries the bill overview.
        *
        * @param tmpReq GetBillingOverviewRequest
        * @param headers map
@@ -277,7 +277,7 @@ namespace ModelStudio20260210
       Models::GetBillingOverviewResponse getBillingOverviewWithOptions(const Models::GetBillingOverviewRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询账单概览
+       * @summary Queries the bill overview.
        *
        * @param request GetBillingOverviewRequest
        * @return GetBillingOverviewResponse
@@ -285,7 +285,7 @@ namespace ModelStudio20260210
       Models::GetBillingOverviewResponse getBillingOverview(const Models::GetBillingOverviewRequest &request);
 
       /**
-       * @summary 查询账单趋势
+       * @summary Queries bill trends.
        *
        * @param tmpReq GetBillingTrendRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace ModelStudio20260210
       Models::GetBillingTrendResponse getBillingTrendWithOptions(const Models::GetBillingTrendRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询账单趋势
+       * @summary Queries bill trends.
        *
        * @param request GetBillingTrendRequest
        * @return GetBillingTrendResponse
@@ -533,7 +533,7 @@ namespace ModelStudio20260210
       Models::ListModelsResponse listModels(const Models::ListModelsRequest &request);
 
       /**
-       * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+       * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
        *
        * @param request ListOrganizationMembersRequest
        * @param headers map
@@ -543,7 +543,7 @@ namespace ModelStudio20260210
       Models::ListOrganizationMembersResponse listOrganizationMembersWithOptions(const Models::ListOrganizationMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+       * @summary Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
        *
        * @param request ListOrganizationMembersRequest
        * @return ListOrganizationMembersResponse

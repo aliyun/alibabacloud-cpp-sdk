@@ -132,10 +132,15 @@ namespace Models
 
 
       protected:
+        // The amount of the current group.
         shared_ptr<string> amount_ {};
+        // The list of commodity codes associated with the current group.
         shared_ptr<vector<string>> articleCodes_ {};
+        // The grouping dimension value. A null value is returned as DIMENSION_FILTER_NULL_VALUE.
         shared_ptr<string> key_ {};
+        // The display name of the group, which is affected by the locale parameter. A null value is displayed as -.
         shared_ptr<string> name_ {};
+        // The ratio of the group amount to the total amount of the top N groups.
         shared_ptr<string> percentage_ {};
       };
 
@@ -179,10 +184,15 @@ namespace Models
 
 
     protected:
+      // The currency of the amount.
       shared_ptr<string> currency_ {};
+      // The top N groups sorted by amount in descending order.
       shared_ptr<vector<Data::Groups>> groups_ {};
+      // The total pretax amount.
       shared_ptr<string> pretaxAmount_ {};
+      // The total tax amount.
       shared_ptr<string> taxAmount_ {};
+      // The total amount.
       shared_ptr<string> totalAmount_ {};
     };
 
@@ -226,10 +236,15 @@ namespace Models
 
 
   protected:
+    // The request result code.
     shared_ptr<string> code_ {};
+    // The bill overview data.
     shared_ptr<GetBillingOverviewResponseBody::Data> data_ {};
+    // The request result message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

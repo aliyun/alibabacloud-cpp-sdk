@@ -140,9 +140,13 @@ namespace Models
 
 
         protected:
+          // The total amount for the current period.
           shared_ptr<string> amount_ {};
+          // The currency of the amount for the current period.
           shared_ptr<string> currency_ {};
+          // The pretax amount for the current period.
           shared_ptr<string> pretaxAmount_ {};
+          // The tax amount for the current period.
           shared_ptr<string> taxAmount_ {};
         };
 
@@ -220,11 +224,17 @@ namespace Models
 
 
         protected:
+          // The amount of the group within the current period.
           shared_ptr<string> amount_ {};
+          // The grouping dimension value. Data beyond the top N uses DIMENSION_GROUP_OTHERS_VALUE.
           shared_ptr<string> key_ {};
+          // The display name of the group. This value is affected by the locale parameter.
           shared_ptr<string> name_ {};
+          // The ratio of the current group amount to the total amount of the current period.
           shared_ptr<string> percentage_ {};
+          // The pretax amount of the group within the current period.
           shared_ptr<string> pretaxAmount_ {};
+          // The tax amount of the group within the current period.
           shared_ptr<string> taxAmount_ {};
         };
 
@@ -256,8 +266,11 @@ namespace Models
 
 
       protected:
+        // The statistical period. DAY returns yyyyMMdd. MONTH returns yyyyMM.
         shared_ptr<string> period_ {};
+        // The cost groups that actually exist in the current period.
         shared_ptr<vector<ResultByTime::PeriodDetails>> periodDetails_ {};
+        // The total cost for the current period.
         shared_ptr<ResultByTime::Total> total_ {};
       };
 
@@ -326,10 +339,15 @@ namespace Models
 
 
       protected:
+        // The total amount of the current group.
         shared_ptr<string> amount_ {};
+        // The grouping dimension value.
         shared_ptr<string> key_ {};
+        // The display name of the group. This value is affected by the locale parameter.
         shared_ptr<string> name_ {};
+        // The pretax amount of the current group.
         shared_ptr<string> pretaxAmount_ {};
+        // The tax amount of the current group.
         shared_ptr<string> taxAmount_ {};
       };
 
@@ -389,9 +407,13 @@ namespace Models
 
 
       protected:
+        // The total amount.
         shared_ptr<string> amount_ {};
+        // The currency of the amount.
         shared_ptr<string> currency_ {};
+        // The pretax amount.
         shared_ptr<string> pretaxAmount_ {};
+        // The tax amount.
         shared_ptr<string> taxAmount_ {};
       };
 
@@ -425,8 +447,11 @@ namespace Models
 
 
     protected:
+      // The total cost for the entire query time range, including the top N groups and "Others".
       shared_ptr<Data::CostTotals> costTotals_ {};
+      // The total cost of the top N groups and the optional "Others" group within the period.
       shared_ptr<vector<Data::GroupByTotal>> groupByTotal_ {};
+      // The cost trend list sorted by time in ascending order.
       shared_ptr<vector<Data::ResultByTime>> resultByTime_ {};
     };
 
@@ -470,10 +495,15 @@ namespace Models
 
 
   protected:
+    // The request result code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetBillingTrendResponseBody::Data> data_ {};
+    // The request result description.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

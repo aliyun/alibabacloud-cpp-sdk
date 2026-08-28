@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The billing month. This parameter is required.
     shared_ptr<string> billMonth_ {};
+    // The filter condition.
     shared_ptr<string> filterShrink_ {};
+    // The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
     shared_ptr<string> groupByShrink_ {};
+    // The response language. Default value: en-US.
     shared_ptr<string> locale_ {};
+    // The region.
     shared_ptr<string> regionId_ {};
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20.
     shared_ptr<int32_t> topNum_ {};
+    // Specifies whether to filter out groups with a zero amount. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

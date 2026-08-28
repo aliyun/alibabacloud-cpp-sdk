@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The dimension filter conditions.
     shared_ptr<string> filterShrink_ {};
+    // The query granularity. This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The grouping conditions. This parameter must contain one and only one element.
     shared_ptr<string> groupByShrink_ {};
+    // The response language. Default value: en-US.
     shared_ptr<string> locale_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The query time range, including the start time and end time. This parameter is required.
     shared_ptr<string> timePeriodShrink_ {};
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
     shared_ptr<int32_t> topNum_ {};
+    // Specifies whether to filter out groups with a zero amount. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 

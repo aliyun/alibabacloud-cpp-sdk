@@ -70,6 +70,7 @@ namespace Models
 
 
     protected:
+      // The grouping dimension code. For more information, see the "Additional information" section below.
       shared_ptr<string> code_ {};
     };
 
@@ -141,8 +142,11 @@ namespace Models
 
 
       protected:
+        // The filter field. For more information, see the "Additional information" section below.
         shared_ptr<string> code_ {};
+        // The filter type.
         shared_ptr<string> selectType_ {};
+        // The list of filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -157,6 +161,7 @@ namespace Models
 
 
     protected:
+      // The list of dimension filters.
       shared_ptr<vector<Filter::Dimensions>> dimensions_ {};
     };
 
@@ -217,12 +222,19 @@ namespace Models
 
 
   protected:
+    // The billing month. This parameter is required.
     shared_ptr<string> billMonth_ {};
+    // The filter condition.
     shared_ptr<GetBillingOverviewRequest::Filter> filter_ {};
+    // The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
     shared_ptr<vector<GetBillingOverviewRequest::GroupBy>> groupBy_ {};
+    // The response language. Default value: en-US.
     shared_ptr<string> locale_ {};
+    // The region.
     shared_ptr<string> regionId_ {};
+    // The number of groups to return. Valid values: 1 to 20. Default value: 20.
     shared_ptr<int32_t> topNum_ {};
+    // Specifies whether to filter out groups with a zero amount. Default value: true.
     shared_ptr<bool> zeroFilter_ {};
   };
 
