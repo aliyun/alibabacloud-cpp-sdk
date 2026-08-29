@@ -3369,8 +3369,16 @@ ListMcpsResponse Client::listMcpsWithOptions(const string &workspaceId, const Li
     query["maxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchType()) {
+    query["searchType"] = request.getSearchType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3409,6 +3417,8 @@ ListMcpsResponse Client::listMcps(const string &workspaceId, const ListMcpsReque
 /**
  * @summary 查询模型连接列表
  *
+ * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+ *
  * @param request ListModelConnectionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3441,6 +3451,10 @@ ListModelConnectionsResponse Client::listModelConnectionsWithOptions(const strin
     query["providerType"] = request.getProviderType();
   }
 
+  if (!!request.hasSearchType()) {
+    query["searchType"] = request.getSearchType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3461,6 +3475,8 @@ ListModelConnectionsResponse Client::listModelConnectionsWithOptions(const strin
 
 /**
  * @summary 查询模型连接列表
+ *
+ * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
  *
  * @param request ListModelConnectionsRequest
  * @return ListModelConnectionsResponse

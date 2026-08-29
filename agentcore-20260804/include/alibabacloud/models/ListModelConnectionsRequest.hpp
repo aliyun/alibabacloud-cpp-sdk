@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(providerType, providerType_);
+      DARABONBA_PTR_TO_JSON(searchType, searchType_);
     };
     friend void from_json(const Darabonba::Json& j, ListModelConnectionsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(includeModels, includeModels_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(providerType, providerType_);
+      DARABONBA_PTR_FROM_JSON(searchType, searchType_);
     };
     ListModelConnectionsRequest() = default ;
     ListModelConnectionsRequest(const ListModelConnectionsRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->includeModels_ == nullptr
-        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->protocol_ == nullptr && this->providerType_ == nullptr; };
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->protocol_ == nullptr && this->providerType_ == nullptr
+        && this->searchType_ == nullptr; };
     // includeModels Field Functions 
     bool hasIncludeModels() const { return this->includeModels_ != nullptr;};
     void deleteIncludeModels() { this->includeModels_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline ListModelConnectionsRequest& setProviderType(string providerType) { DARABONBA_PTR_SET_VALUE(providerType_, providerType) };
 
 
+    // searchType Field Functions 
+    bool hasSearchType() const { return this->searchType_ != nullptr;};
+    void deleteSearchType() { this->searchType_ = nullptr;};
+    inline string getSearchType() const { DARABONBA_PTR_GET_DEFAULT(searchType_, "") };
+    inline ListModelConnectionsRequest& setSearchType(string searchType) { DARABONBA_PTR_SET_VALUE(searchType_, searchType) };
+
+
   protected:
     shared_ptr<bool> includeModels_ {};
     shared_ptr<int32_t> maxResults_ {};
@@ -90,6 +100,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> protocol_ {};
     shared_ptr<string> providerType_ {};
+    shared_ptr<string> searchType_ {};
   };
 
   } // namespace Models

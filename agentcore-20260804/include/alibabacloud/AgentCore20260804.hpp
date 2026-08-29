@@ -1463,6 +1463,8 @@ namespace AgentCore20260804
       /**
        * @summary 查询模型连接列表
        *
+       * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+       *
        * @param request ListModelConnectionsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1472,6 +1474,8 @@ namespace AgentCore20260804
 
       /**
        * @summary 查询模型连接列表
+       *
+       * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
        *
        * @param request ListModelConnectionsRequest
        * @return ListModelConnectionsResponse
