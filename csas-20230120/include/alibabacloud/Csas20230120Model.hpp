@@ -63,6 +63,9 @@
 #include <alibabacloud/models/BatchDeletePrivateAccessPolicyRequest.hpp>
 #include <alibabacloud/models/BatchDeletePrivateAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/BatchDeletePrivateAccessPolicyResponse.hpp>
+#include <alibabacloud/models/BindSaseUserTagRequest.hpp>
+#include <alibabacloud/models/BindSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/BindSaseUserTagResponse.hpp>
 #include <alibabacloud/models/CancelVirusScanTasksRequest.hpp>
 #include <alibabacloud/models/CancelVirusScanTasksResponseBody.hpp>
 #include <alibabacloud/models/CancelVirusScanTasksResponse.hpp>
@@ -128,6 +131,9 @@
 #include <alibabacloud/models/CreateRegistrationPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRegistrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateRegistrationPolicyResponse.hpp>
+#include <alibabacloud/models/CreateSaseUserTagRequest.hpp>
+#include <alibabacloud/models/CreateSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/CreateSaseUserTagResponse.hpp>
 #include <alibabacloud/models/CreateSoftwarelibDistributeTaskRequest.hpp>
 #include <alibabacloud/models/CreateSoftwarelibDistributeTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateSoftwarelibDistributeTaskResponse.hpp>
@@ -228,6 +234,9 @@
 #include <alibabacloud/models/DeleteRegistrationPoliciesRequest.hpp>
 #include <alibabacloud/models/DeleteRegistrationPoliciesResponseBody.hpp>
 #include <alibabacloud/models/DeleteRegistrationPoliciesResponse.hpp>
+#include <alibabacloud/models/DeleteSaseUserTagRequest.hpp>
+#include <alibabacloud/models/DeleteSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/DeleteSaseUserTagResponse.hpp>
 #include <alibabacloud/models/DeleteUserDevicesRequest.hpp>
 #include <alibabacloud/models/DeleteUserDevicesResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserDevicesResponse.hpp>
@@ -321,6 +330,9 @@
 #include <alibabacloud/models/GetRegistrationPolicyRequest.hpp>
 #include <alibabacloud/models/GetRegistrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetRegistrationPolicyResponse.hpp>
+#include <alibabacloud/models/GetSaseUserTagRequest.hpp>
+#include <alibabacloud/models/GetSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/GetSaseUserTagResponse.hpp>
 #include <alibabacloud/models/GetUserDeviceRequest.hpp>
 #include <alibabacloud/models/GetUserDeviceResponseBody.hpp>
 #include <alibabacloud/models/GetUserDeviceResponse.hpp>
@@ -387,6 +399,12 @@
 #include <alibabacloud/models/ListDevicesForVulnerabilityRequest.hpp>
 #include <alibabacloud/models/ListDevicesForVulnerabilityResponseBody.hpp>
 #include <alibabacloud/models/ListDevicesForVulnerabilityResponse.hpp>
+#include <alibabacloud/models/ListDlpOutboundLogsRequest.hpp>
+#include <alibabacloud/models/ListDlpOutboundLogsResponseBody.hpp>
+#include <alibabacloud/models/ListDlpOutboundLogsResponse.hpp>
+#include <alibabacloud/models/ListDomainAccessLogsRequest.hpp>
+#include <alibabacloud/models/ListDomainAccessLogsResponseBody.hpp>
+#include <alibabacloud/models/ListDomainAccessLogsResponse.hpp>
 #include <alibabacloud/models/ListDomainItemsRequest.hpp>
 #include <alibabacloud/models/ListDomainItemsResponseBody.hpp>
 #include <alibabacloud/models/ListDomainItemsResponse.hpp>
@@ -573,6 +591,9 @@
 #include <alibabacloud/models/RevokeUserSessionRequest.hpp>
 #include <alibabacloud/models/RevokeUserSessionResponseBody.hpp>
 #include <alibabacloud/models/RevokeUserSessionResponse.hpp>
+#include <alibabacloud/models/UnbindSaseUserTagRequest.hpp>
+#include <alibabacloud/models/UnbindSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/UnbindSaseUserTagResponse.hpp>
 #include <alibabacloud/models/UpdateAntiVirusRealTimeDefenceStrategyRequest.hpp>
 #include <alibabacloud/models/UpdateAntiVirusRealTimeDefenceStrategyResponseBody.hpp>
 #include <alibabacloud/models/UpdateAntiVirusRealTimeDefenceStrategyResponse.hpp>
@@ -649,6 +670,9 @@
 #include <alibabacloud/models/UpdateRiskStatusRequest.hpp>
 #include <alibabacloud/models/UpdateRiskStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateRiskStatusResponse.hpp>
+#include <alibabacloud/models/UpdateSaseUserTagRequest.hpp>
+#include <alibabacloud/models/UpdateSaseUserTagResponseBody.hpp>
+#include <alibabacloud/models/UpdateSaseUserTagResponse.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusRequest.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusResponse.hpp>

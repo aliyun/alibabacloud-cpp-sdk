@@ -173,6 +173,23 @@ namespace Csas20230120
       Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicy(const Models::BatchDeletePrivateAccessPolicyRequest &request);
 
       /**
+       * @summary Associates user labels.
+       *
+       * @param request BindSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindSaseUserTagResponse
+       */
+      Models::BindSaseUserTagResponse bindSaseUserTagWithOptions(const Models::BindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associates user labels.
+       *
+       * @param request BindSaseUserTagRequest
+       * @return BindSaseUserTagResponse
+       */
+      Models::BindSaseUserTagResponse bindSaseUserTag(const Models::BindSaseUserTagRequest &request);
+
+      /**
        * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
        *
        * @param request CancelVirusScanTasksRequest
@@ -531,6 +548,23 @@ namespace Csas20230120
        * @return CreateRegistrationPolicyResponse
        */
       Models::CreateRegistrationPolicyResponse createRegistrationPolicy(const Models::CreateRegistrationPolicyRequest &request);
+
+      /**
+       * @summary Creates a user tag.
+       *
+       * @param request CreateSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSaseUserTagResponse
+       */
+      Models::CreateSaseUserTagResponse createSaseUserTagWithOptions(const Models::CreateSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a user tag.
+       *
+       * @param request CreateSaseUserTagRequest
+       * @return CreateSaseUserTagResponse
+       */
+      Models::CreateSaseUserTagResponse createSaseUserTag(const Models::CreateSaseUserTagRequest &request);
 
       /**
        * @summary Creates a software distribution task.
@@ -1123,6 +1157,23 @@ namespace Csas20230120
       Models::DeleteRegistrationPoliciesResponse deleteRegistrationPolicies(const Models::DeleteRegistrationPoliciesRequest &request);
 
       /**
+       * @summary Deletes user tags.
+       *
+       * @param request DeleteSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSaseUserTagResponse
+       */
+      Models::DeleteSaseUserTagResponse deleteSaseUserTagWithOptions(const Models::DeleteSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes user tags.
+       *
+       * @param request DeleteSaseUserTagRequest
+       * @return DeleteSaseUserTagResponse
+       */
+      Models::DeleteSaseUserTagResponse deleteSaseUserTag(const Models::DeleteSaseUserTagRequest &request);
+
+      /**
        * @summary Deletes user endpoint devices in batches.
        *
        * @description You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
@@ -1668,6 +1719,23 @@ namespace Csas20230120
       Models::GetRegistrationPolicyResponse getRegistrationPolicy(const Models::GetRegistrationPolicyRequest &request);
 
       /**
+       * @summary Retrieves a single user tag.
+       *
+       * @param request GetSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSaseUserTagResponse
+       */
+      Models::GetSaseUserTagResponse getSaseUserTagWithOptions(const Models::GetSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a single user tag.
+       *
+       * @param request GetSaseUserTagRequest
+       * @return GetSaseUserTagResponse
+       */
+      Models::GetSaseUserTagResponse getSaseUserTag(const Models::GetSaseUserTagRequest &request);
+
+      /**
        * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
        *
        * @param request GetUserDeviceRequest
@@ -2040,6 +2108,44 @@ namespace Csas20230120
        * @return ListDevicesForVulnerabilityResponse
        */
       Models::ListDevicesForVulnerabilityResponse listDevicesForVulnerability(const Models::ListDevicesForVulnerabilityRequest &request);
+
+      /**
+       * @summary Lists DLP outbound file transfer logs.
+       *
+       * @param request ListDlpOutboundLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDlpOutboundLogsResponse
+       */
+      Models::ListDlpOutboundLogsResponse listDlpOutboundLogsWithOptions(const Models::ListDlpOutboundLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists DLP outbound file transfer logs.
+       *
+       * @param request ListDlpOutboundLogsRequest
+       * @return ListDlpOutboundLogsResponse
+       */
+      Models::ListDlpOutboundLogsResponse listDlpOutboundLogs(const Models::ListDlpOutboundLogsRequest &request);
+
+      /**
+       * @summary Queries the Internet access logs of endpoints by using paging.
+       *
+       * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+       *
+       * @param request ListDomainAccessLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDomainAccessLogsResponse
+       */
+      Models::ListDomainAccessLogsResponse listDomainAccessLogsWithOptions(const Models::ListDomainAccessLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Internet access logs of endpoints by using paging.
+       *
+       * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+       *
+       * @param request ListDomainAccessLogsRequest
+       * @return ListDomainAccessLogsResponse
+       */
+      Models::ListDomainAccessLogsResponse listDomainAccessLogs(const Models::ListDomainAccessLogsRequest &request);
 
       /**
        * @summary Queries domain name entries in a domain name list by paging.
@@ -3125,6 +3231,23 @@ namespace Csas20230120
       Models::RevokeUserSessionResponse revokeUserSession(const Models::RevokeUserSessionRequest &request);
 
       /**
+       * @summary Unbinds user labels.
+       *
+       * @param request UnbindSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindSaseUserTagResponse
+       */
+      Models::UnbindSaseUserTagResponse unbindSaseUserTagWithOptions(const Models::UnbindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unbinds user labels.
+       *
+       * @param request UnbindSaseUserTagRequest
+       * @return UnbindSaseUserTagResponse
+       */
+      Models::UnbindSaseUserTagResponse unbindSaseUserTag(const Models::UnbindSaseUserTagRequest &request);
+
+      /**
        * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
        *
        * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
@@ -3553,6 +3676,23 @@ namespace Csas20230120
        * @return UpdateRiskStatusResponse
        */
       Models::UpdateRiskStatusResponse updateRiskStatus(const Models::UpdateRiskStatusRequest &request);
+
+      /**
+       * @summary Updates a user tag.
+       *
+       * @param request UpdateSaseUserTagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSaseUserTagResponse
+       */
+      Models::UpdateSaseUserTagResponse updateSaseUserTagWithOptions(const Models::UpdateSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a user tag.
+       *
+       * @param request UpdateSaseUserTagRequest
+       * @return UpdateSaseUserTagResponse
+       */
+      Models::UpdateSaseUserTagResponse updateSaseUserTag(const Models::UpdateSaseUserTagRequest &request);
 
       /**
        * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.

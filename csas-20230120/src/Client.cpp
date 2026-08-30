@@ -458,6 +458,56 @@ BatchDeletePrivateAccessPolicyResponse Client::batchDeletePrivateAccessPolicy(co
 }
 
 /**
+ * @summary Associates user labels.
+ *
+ * @param request BindSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindSaseUserTagResponse
+ */
+BindSaseUserTagResponse Client::bindSaseUserTagWithOptions(const BindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasSaseUserIds()) {
+    bodyFlat["SaseUserIds"] = request.getSaseUserIds();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BindSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindSaseUserTagResponse>();
+}
+
+/**
+ * @summary Associates user labels.
+ *
+ * @param request BindSaseUserTagRequest
+ * @return BindSaseUserTagResponse
+ */
+BindSaseUserTagResponse Client::bindSaseUserTag(const BindSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindSaseUserTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
  *
  * @param request CancelVirusScanTasksRequest
@@ -1869,6 +1919,52 @@ CreateRegistrationPolicyResponse Client::createRegistrationPolicyWithOptions(con
 CreateRegistrationPolicyResponse Client::createRegistrationPolicy(const CreateRegistrationPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRegistrationPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a user tag.
+ *
+ * @param request CreateSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSaseUserTagResponse
+ */
+CreateSaseUserTagResponse Client::createSaseUserTagWithOptions(const CreateSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSaseUserTagResponse>();
+}
+
+/**
+ * @summary Creates a user tag.
+ *
+ * @param request CreateSaseUserTagRequest
+ * @return CreateSaseUserTagResponse
+ */
+CreateSaseUserTagResponse Client::createSaseUserTag(const CreateSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSaseUserTagWithOptions(request, runtime);
 }
 
 /**
@@ -3834,6 +3930,52 @@ DeleteRegistrationPoliciesResponse Client::deleteRegistrationPolicies(const Dele
 }
 
 /**
+ * @summary Deletes user tags.
+ *
+ * @param request DeleteSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSaseUserTagResponse
+ */
+DeleteSaseUserTagResponse Client::deleteSaseUserTagWithOptions(const DeleteSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSaseUserTagResponse>();
+}
+
+/**
+ * @summary Deletes user tags.
+ *
+ * @param request DeleteSaseUserTagRequest
+ * @return DeleteSaseUserTagResponse
+ */
+DeleteSaseUserTagResponse Client::deleteSaseUserTag(const DeleteSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSaseUserTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes user endpoint devices in batches.
  *
  * @description You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
@@ -5172,6 +5314,48 @@ GetRegistrationPolicyResponse Client::getRegistrationPolicy(const GetRegistratio
 }
 
 /**
+ * @summary Retrieves a single user tag.
+ *
+ * @param request GetSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSaseUserTagResponse
+ */
+GetSaseUserTagResponse Client::getSaseUserTagWithOptions(const GetSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTagId()) {
+    body["TagId"] = request.getTagId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSaseUserTagResponse>();
+}
+
+/**
+ * @summary Retrieves a single user tag.
+ *
+ * @param request GetSaseUserTagRequest
+ * @return GetSaseUserTagResponse
+ */
+GetSaseUserTagResponse Client::getSaseUserTag(const GetSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSaseUserTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
  *
  * @param request GetUserDeviceRequest
@@ -6039,6 +6223,122 @@ ListDevicesForVulnerabilityResponse Client::listDevicesForVulnerabilityWithOptio
 ListDevicesForVulnerabilityResponse Client::listDevicesForVulnerability(const ListDevicesForVulnerabilityRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDevicesForVulnerabilityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists DLP outbound file transfer logs.
+ *
+ * @param request ListDlpOutboundLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDlpOutboundLogsResponse
+ */
+ListDlpOutboundLogsResponse Client::listDlpOutboundLogsWithOptions(const ListDlpOutboundLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCurrentPage()) {
+    body["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLogId()) {
+    body["LogId"] = request.getLogId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolicyAction()) {
+    body["PolicyAction"] = request.getPolicyAction();
+  }
+
+  if (!!request.hasSrcFileName()) {
+    body["SrcFileName"] = request.getSrcFileName();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasSubChannelType()) {
+    body["SubChannelType"] = request.getSubChannelType();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDlpOutboundLogs"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDlpOutboundLogsResponse>();
+}
+
+/**
+ * @summary Lists DLP outbound file transfer logs.
+ *
+ * @param request ListDlpOutboundLogsRequest
+ * @return ListDlpOutboundLogsResponse
+ */
+ListDlpOutboundLogsResponse Client::listDlpOutboundLogs(const ListDlpOutboundLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDlpOutboundLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the Internet access logs of endpoints by using paging.
+ *
+ * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+ *
+ * @param request ListDomainAccessLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDomainAccessLogsResponse
+ */
+ListDomainAccessLogsResponse Client::listDomainAccessLogsWithOptions(const ListDomainAccessLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDomainAccessLogs"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDomainAccessLogsResponse>();
+}
+
+/**
+ * @summary Queries the Internet access logs of endpoints by using paging.
+ *
+ * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+ *
+ * @param request ListDomainAccessLogsRequest
+ * @return ListDomainAccessLogsResponse
+ */
+ListDomainAccessLogsResponse Client::listDomainAccessLogs(const ListDomainAccessLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDomainAccessLogsWithOptions(request, runtime);
 }
 
 /**
@@ -8912,6 +9212,56 @@ RevokeUserSessionResponse Client::revokeUserSession(const RevokeUserSessionReque
 }
 
 /**
+ * @summary Unbinds user labels.
+ *
+ * @param request UnbindSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindSaseUserTagResponse
+ */
+UnbindSaseUserTagResponse Client::unbindSaseUserTagWithOptions(const UnbindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasSaseUserIds()) {
+    bodyFlat["SaseUserIds"] = request.getSaseUserIds();
+  }
+
+  if (!!request.hasTagIds()) {
+    bodyFlat["TagIds"] = request.getTagIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UnbindSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindSaseUserTagResponse>();
+}
+
+/**
+ * @summary Unbinds user labels.
+ *
+ * @param request UnbindSaseUserTagRequest
+ * @return UnbindSaseUserTagResponse
+ */
+UnbindSaseUserTagResponse Client::unbindSaseUserTag(const UnbindSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unbindSaseUserTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
  *
  * @param request UpdateAntiVirusRealTimeDefenceStrategyRequest
@@ -10597,6 +10947,56 @@ UpdateRiskStatusResponse Client::updateRiskStatusWithOptions(const UpdateRiskSta
 UpdateRiskStatusResponse Client::updateRiskStatus(const UpdateRiskStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRiskStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a user tag.
+ *
+ * @param request UpdateSaseUserTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSaseUserTagResponse
+ */
+UpdateSaseUserTagResponse Client::updateSaseUserTagWithOptions(const UpdateSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasTagId()) {
+    body["TagId"] = request.getTagId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateSaseUserTag"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSaseUserTagResponse>();
+}
+
+/**
+ * @summary Updates a user tag.
+ *
+ * @param request UpdateSaseUserTagRequest
+ * @return UpdateSaseUserTagResponse
+ */
+UpdateSaseUserTagResponse Client::updateSaseUserTag(const UpdateSaseUserTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSaseUserTagWithOptions(request, runtime);
 }
 
 /**
