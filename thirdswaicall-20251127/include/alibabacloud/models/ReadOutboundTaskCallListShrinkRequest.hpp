@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_TO_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_TO_JSON(DisplayStatusList, displayStatusListShrink_);
+      DARABONBA_PTR_TO_JSON(DurationRangeList, durationRangeListShrink_);
       DARABONBA_PTR_TO_JSON(LabelTags, labelTagsShrink_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_FROM_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_FROM_JSON(DisplayStatusList, displayStatusListShrink_);
+      DARABONBA_PTR_FROM_JSON(DurationRangeList, durationRangeListShrink_);
       DARABONBA_PTR_FROM_JSON(LabelTags, labelTagsShrink_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -59,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callEndTimeBegin_ == nullptr
         && this->callEndTimeEnd_ == nullptr && this->callStartTimeBegin_ == nullptr && this->callStartTimeEnd_ == nullptr && this->callerUacAccountId_ == nullptr && this->current_ == nullptr
-        && this->currentWorkspaceId_ == nullptr && this->customerNameOrPhone_ == nullptr && this->displayStatusListShrink_ == nullptr && this->labelTagsShrink_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->size_ == nullptr && this->taskId_ == nullptr && this->userId_ == nullptr; };
+        && this->currentWorkspaceId_ == nullptr && this->customerNameOrPhone_ == nullptr && this->displayStatusListShrink_ == nullptr && this->durationRangeListShrink_ == nullptr && this->labelTagsShrink_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->size_ == nullptr && this->taskId_ == nullptr && this->userId_ == nullptr; };
     // callEndTimeBegin Field Functions 
     bool hasCallEndTimeBegin() const { return this->callEndTimeBegin_ != nullptr;};
     void deleteCallEndTimeBegin() { this->callEndTimeBegin_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
     inline ReadOutboundTaskCallListShrinkRequest& setDisplayStatusListShrink(string displayStatusListShrink) { DARABONBA_PTR_SET_VALUE(displayStatusListShrink_, displayStatusListShrink) };
 
 
+    // durationRangeListShrink Field Functions 
+    bool hasDurationRangeListShrink() const { return this->durationRangeListShrink_ != nullptr;};
+    void deleteDurationRangeListShrink() { this->durationRangeListShrink_ = nullptr;};
+    inline string getDurationRangeListShrink() const { DARABONBA_PTR_GET_DEFAULT(durationRangeListShrink_, "") };
+    inline ReadOutboundTaskCallListShrinkRequest& setDurationRangeListShrink(string durationRangeListShrink) { DARABONBA_PTR_SET_VALUE(durationRangeListShrink_, durationRangeListShrink) };
+
+
     // labelTagsShrink Field Functions 
     bool hasLabelTagsShrink() const { return this->labelTagsShrink_ != nullptr;};
     void deleteLabelTagsShrink() { this->labelTagsShrink_ = nullptr;};
@@ -176,6 +185,7 @@ namespace Models
     shared_ptr<string> currentWorkspaceId_ {};
     shared_ptr<string> customerNameOrPhone_ {};
     shared_ptr<string> displayStatusListShrink_ {};
+    shared_ptr<string> durationRangeListShrink_ {};
     shared_ptr<string> labelTagsShrink_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};

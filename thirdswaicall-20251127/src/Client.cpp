@@ -178,6 +178,10 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
     request.setDisplayStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDisplayStatusList(), "DisplayStatusList", "json"));
   }
 
+  if (!!tmpReq.hasDurationRangeList()) {
+    request.setDurationRangeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDurationRangeList(), "DurationRangeList", "json"));
+  }
+
   if (!!tmpReq.hasLabelTags()) {
     request.setLabelTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelTags(), "LabelTags", "json"));
   }
@@ -217,6 +221,10 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
 
   if (!!request.hasDisplayStatusListShrink()) {
     body["DisplayStatusList"] = request.getDisplayStatusListShrink();
+  }
+
+  if (!!request.hasDurationRangeListShrink()) {
+    body["DurationRangeList"] = request.getDurationRangeListShrink();
   }
 
   if (!!request.hasLabelTagsShrink()) {
