@@ -121,23 +121,23 @@ namespace Models
 
 
   protected:
-    // This parameter is required for renewal scenarios.
+    // The expiration time.
     shared_ptr<string> endTime_ {};
-    // The list of cluster IDs.
+    // The cluster ID list.
     shared_ptr<vector<string>> hiveIds_ {};
-    // The list of payload IDs.
+    // The workload ID list.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The page number of the query. The value starts from 1. Default value: 1.
+    // The page number of the query list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. The maximum value is 100. Default value: 10.
+    // The number of entries per page for a paginated query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of package IDs.
+    // The plan ID list.
     shared_ptr<vector<string>> planIds_ {};
-    // Specification
+    // The specification.
     shared_ptr<string> spec_ {};
-    // The parameter for filtering by time range. The time must be in ISO 8601 format and use UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+    // The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // The list of statuses.
+    // The status list.
     shared_ptr<vector<string>> statuses_ {};
   };
 

@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The specification family.
       shared_ptr<string> class_ {};
+      // The number of cores.
       shared_ptr<int32_t> cores_ {};
+      // The memory size.
       shared_ptr<int32_t> memory_ {};
+      // The number of cards per single load.
       shared_ptr<int32_t> shard_ {};
+      // `RenderingSpec`
       shared_ptr<string> specification_ {};
+      // The maximum storage capacity. Unit: GB.
       shared_ptr<int32_t> storage_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The result objects.
     shared_ptr<vector<ListSpecificationsResponseBody::Items>> items_ {};
+    // The page number of the query list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

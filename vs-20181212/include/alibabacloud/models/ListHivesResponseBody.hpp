@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> creationTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The cluster ID.
       shared_ptr<string> hiveId_ {};
+      // The name.
       shared_ptr<string> name_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The list of clusters.
     shared_ptr<vector<ListHivesResponseBody::Hives>> hives_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

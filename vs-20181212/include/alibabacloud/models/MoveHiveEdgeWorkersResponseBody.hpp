@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
-      // The result message. For a successful operation, the value is typically `SUCCESS`.
+      // The message.
       shared_ptr<string> message_ {};
     };
 
@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
       // The error message.
       shared_ptr<string> message_ {};
@@ -168,15 +168,15 @@ namespace Models
 
 
   protected:
-    // The number of instances that failed to move.
+    // The number of failed operations.
     shared_ptr<int32_t> failedInstanceCount_ {};
-    // Details of the instances that failed to move.
+    // The list of workloads that failed to be moved.
     shared_ptr<vector<MoveHiveEdgeWorkersResponseBody::FailedInstances>> failedInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of successfully moved instances.
+    // The number of successful operations.
     shared_ptr<int32_t> successInstanceCount_ {};
-    // Details of the successfully moved instances.
+    // The list of workloads that were successfully moved.
     shared_ptr<vector<MoveHiveEdgeWorkersResponseBody::SuccessInstances>> successInstances_ {};
   };
 

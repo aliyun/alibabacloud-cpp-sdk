@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The time range filter parameter. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // The cloud application service group ID.
     shared_ptr<string> hiveId_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The page number of the query list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The creation time.
     shared_ptr<string> startTime_ {};
   };
 

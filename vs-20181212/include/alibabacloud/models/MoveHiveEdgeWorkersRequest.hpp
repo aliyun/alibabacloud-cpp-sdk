@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The ID of the target Hive.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};
-    // The IDs of the cloud application service instances to move.
+    // The list of workload IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};

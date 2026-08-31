@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The page number of the query list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for paging. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The specification.
     shared_ptr<string> specification_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
+      // The message.
       shared_ptr<string> message_ {};
     };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
+      // The failure reason.
       shared_ptr<string> message_ {};
     };
 
@@ -164,10 +168,15 @@ namespace Models
 
 
   protected:
+    // The number of workload instances that failed to be unbound.
     shared_ptr<int32_t> failedInstanceCount_ {};
+    // The list of workload instances that failed to be unbound.
     shared_ptr<vector<DelHiveEdgeWorkersResponseBody::FailedInstances>> failedInstances_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
+    // The number of workload instances that were successfully unbound.
     shared_ptr<int32_t> successInstanceCount_ {};
+    // The list of workload instances that were successfully unbound.
     shared_ptr<vector<DelHiveEdgeWorkersResponseBody::SuccessInstances>> successInstances_ {};
   };
 

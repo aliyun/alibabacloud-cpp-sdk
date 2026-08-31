@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeComfyTasksRequest& obj) { 
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TaskState, taskState_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeComfyTasksRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TaskState, taskState_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->taskState_ == nullptr && this->workflowId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->taskId_ == nullptr && this->taskState_ == nullptr && this->workflowId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeComfyTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline DescribeComfyTasksRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskState Field Functions 
@@ -68,11 +77,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of tasks per page.
+    // The number of records to display per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The task state. If specified, the operation returns only tasks in that state.
+    // The Comfy workflow ID used as a filter condition.
+    shared_ptr<string> taskId_ {};
+    // The task status used as a filter condition.
     shared_ptr<string> taskState_ {};
-    // If you specify this parameter, the operation returns only tasks for the specified workflow.
+    // The Comfy workflow ID used as a filter condition.
     shared_ptr<string> workflowId_ {};
   };
 

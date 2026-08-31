@@ -48,8 +48,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(HiveId, hiveId_);
+        DARABONBA_PTR_TO_JSON(TaskErrorMessage, taskErrorMessage_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_PTR_TO_JSON(TaskState, taskState_);
+        DARABONBA_PTR_TO_JSON(TaskStateMessage, taskStateMessage_);
         DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
         DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
       };
@@ -57,8 +59,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(HiveId, hiveId_);
+        DARABONBA_PTR_FROM_JSON(TaskErrorMessage, taskErrorMessage_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
         DARABONBA_PTR_FROM_JSON(TaskState, taskState_);
+        DARABONBA_PTR_FROM_JSON(TaskStateMessage, taskStateMessage_);
         DARABONBA_PTR_FROM_JSON(UpdatedTime, updatedTime_);
         DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
       };
@@ -74,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->creationTime_ == nullptr
-        && this->endTime_ == nullptr && this->hiveId_ == nullptr && this->taskId_ == nullptr && this->taskState_ == nullptr && this->updatedTime_ == nullptr
-        && this->workflowId_ == nullptr; };
+        && this->endTime_ == nullptr && this->hiveId_ == nullptr && this->taskErrorMessage_ == nullptr && this->taskId_ == nullptr && this->taskState_ == nullptr
+        && this->taskStateMessage_ == nullptr && this->updatedTime_ == nullptr && this->workflowId_ == nullptr; };
       // creationTime Field Functions 
       bool hasCreationTime() const { return this->creationTime_ != nullptr;};
       void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -97,6 +101,13 @@ namespace Models
       inline Tasks& setHiveId(string hiveId) { DARABONBA_PTR_SET_VALUE(hiveId_, hiveId) };
 
 
+      // taskErrorMessage Field Functions 
+      bool hasTaskErrorMessage() const { return this->taskErrorMessage_ != nullptr;};
+      void deleteTaskErrorMessage() { this->taskErrorMessage_ = nullptr;};
+      inline string getTaskErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(taskErrorMessage_, "") };
+      inline Tasks& setTaskErrorMessage(string taskErrorMessage) { DARABONBA_PTR_SET_VALUE(taskErrorMessage_, taskErrorMessage) };
+
+
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -109,6 +120,13 @@ namespace Models
       void deleteTaskState() { this->taskState_ = nullptr;};
       inline string getTaskState() const { DARABONBA_PTR_GET_DEFAULT(taskState_, "") };
       inline Tasks& setTaskState(string taskState) { DARABONBA_PTR_SET_VALUE(taskState_, taskState) };
+
+
+      // taskStateMessage Field Functions 
+      bool hasTaskStateMessage() const { return this->taskStateMessage_ != nullptr;};
+      void deleteTaskStateMessage() { this->taskStateMessage_ = nullptr;};
+      inline string getTaskStateMessage() const { DARABONBA_PTR_GET_DEFAULT(taskStateMessage_, "") };
+      inline Tasks& setTaskStateMessage(string taskStateMessage) { DARABONBA_PTR_SET_VALUE(taskStateMessage_, taskStateMessage) };
 
 
       // updatedTime Field Functions 
@@ -126,19 +144,23 @@ namespace Models
 
 
     protected:
-      // The creation time of the task.
+      // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The end time of the task.
+      // The task end time.
       shared_ptr<string> endTime_ {};
-      // The ID of the resource pool used by the task.
+      // The resource pool ID used by the task.
       shared_ptr<string> hiveId_ {};
+      // The task status.
+      shared_ptr<string> taskErrorMessage_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task state.
+      // The task status.
       shared_ptr<string> taskState_ {};
-      // The last modified time of the task.
+      // The task status.
+      shared_ptr<string> taskStateMessage_ {};
+      // The last modified time.
       shared_ptr<string> updatedTime_ {};
-      // The ID of the Comfy workflow associated with the task.
+      // The Comfy workflow ID used by the task.
       shared_ptr<string> workflowId_ {};
     };
 
@@ -197,21 +219,20 @@ namespace Models
 
 
   protected:
-    // The error code. A value of 0 indicates a successful request.
+    // The error code.
     shared_ptr<int64_t> code_ {};
-    // The message that provides details about the result of the request.
+    // The description.
     shared_ptr<string> message_ {};
-    // The page number of the returned data. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of tasks per page.
-    // 
-    // > This parameter applies only to recording queries.
+    // The page size.
+    // > Only applicable to recording queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of Comfy tasks.
+    // The task list.
     shared_ptr<vector<DescribeComfyTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of tasks that match the filter criteria.
+    // The number of tasks.
     shared_ptr<int32_t> total_ {};
   };
 

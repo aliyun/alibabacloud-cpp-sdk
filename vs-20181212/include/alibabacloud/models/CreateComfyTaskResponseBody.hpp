@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 0 indicates a successful request. For a list of other values, see Error Codes.
+    // The error code returned if the call fails. For more information, see error codes.
     shared_ptr<int64_t> code_ {};
-    // The returned message. It provides more details about the request status.
+    // The description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the asynchronous task. You can use this ID to query the task status on the Task Query tab in the Intelligent Media Management console.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

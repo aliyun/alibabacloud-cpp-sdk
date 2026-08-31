@@ -20,9 +20,9 @@ AlibabaCloud::Vs20181212::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-shenzhen" , "vs.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "vs.cn-shanghai.aliyuncs.com"},
     {"cn-qingdao" , "vs.cn-qingdao.aliyuncs.com"},
-    {"cn-beijing" , "vs.cn-beijing.aliyuncs.com"}
+    {"cn-beijing" , "vs.cn-beijing.aliyuncs.com"},
+    {"cn-shanghai" , "vs.cn-shanghai.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("vs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1688,7 +1688,7 @@ ContinuousMoveResponse Client::continuousMove(const ContinuousMoveRequest &reque
 /**
  * @summary Starts a Comfy task.
  *
- * @description > You must first enable the on-demand screenshot feature in the associated screenshot template.
+ * @description > You must enable on-demand snapshot in the associated snapshot template in advance.
  *
  * @param request CreateComfyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1729,7 +1729,7 @@ CreateComfyTaskResponse Client::createComfyTaskWithOptions(const CreateComfyTask
 /**
  * @summary Starts a Comfy task.
  *
- * @description > You must first enable the on-demand screenshot feature in the associated screenshot template.
+ * @description > You must enable on-demand snapshot in the associated snapshot template in advance.
  *
  * @param request CreateComfyTaskRequest
  * @return CreateComfyTaskResponse
@@ -2742,12 +2742,12 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
- * @summary 从集群删除负载
+ * @summary Unbinds one or more workload instances from a specified cluster.
  *
- * @description ## 请求说明
- * - **HiveId** 是必填参数，表示要操作的集群ID。
- * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
- * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
+ * @description ## Request description
+ * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
+ * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
+ * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
  *
  * @param tmpReq DelHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2788,12 +2788,12 @@ DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkersWithOptions(const DelHiveEd
 }
 
 /**
- * @summary 从集群删除负载
+ * @summary Unbinds one or more workload instances from a specified cluster.
  *
- * @description ## 请求说明
- * - **HiveId** 是必填参数，表示要操作的集群ID。
- * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
- * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
+ * @description ## Request description
+ * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
+ * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
+ * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
  *
  * @param request DelHiveEdgeWorkersRequest
  * @return DelHiveEdgeWorkersResponse
@@ -3164,11 +3164,11 @@ DeleteGroupResponse Client::deleteGroup(const DeleteGroupRequest &request) {
 }
 
 /**
- * @summary 删除集群
+ * @summary Deletes an empty cluster by the specified ID.
  *
- * @description ## 请求说明
- * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
- * - `HiveId` 是必填参数，用于标识待删除的集群。
+ * @description ## Operation description
+ * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
+ * - `HiveId` is a required parameter that identifies the cluster to be deleted.
  *
  * @param request DeleteHiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3199,11 +3199,11 @@ DeleteHiveResponse Client::deleteHiveWithOptions(const DeleteHiveRequest &reques
 }
 
 /**
- * @summary 删除集群
+ * @summary Deletes an empty cluster by the specified ID.
  *
- * @description ## 请求说明
- * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
- * - `HiveId` 是必填参数，用于标识待删除的集群。
+ * @description ## Operation description
+ * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
+ * - `HiveId` is a required parameter that identifies the cluster to be deleted.
  *
  * @param request DeleteHiveRequest
  * @return DeleteHiveResponse
@@ -3842,9 +3842,9 @@ DescribeComfyProductionsResponse Client::describeComfyProductions(const Describe
 }
 
 /**
- * @summary Queries a list of Comfy tasks.
+ * @summary Queries the list of Comfy tasks.
  *
- * @description > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
+ * @description > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
  *
  * @param request DescribeComfyTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3859,6 +3859,10 @@ DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeC
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskState()) {
@@ -3887,9 +3891,9 @@ DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeC
 }
 
 /**
- * @summary Queries a list of Comfy tasks.
+ * @summary Queries the list of Comfy tasks.
  *
- * @description > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
+ * @description > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
  *
  * @param request DescribeComfyTasksRequest
  * @return DescribeComfyTasksResponse
@@ -7656,13 +7660,13 @@ ListCloudAppsResponse Client::listCloudApps(const ListCloudAppsRequest &request)
 }
 
 /**
- * @summary Queries payload information for cloud application services. This operation supports paged queries.
+ * @summary Queries workload information with pagination.
  *
- * @description ## Request description
- * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
- * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
- * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
- * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
+ * @description ## Description
+ * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+ * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
+ * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
+ * - Use the StartTime and EndTime parameters to specify the time range for queries.
  *
  * @param tmpReq ListEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7743,13 +7747,13 @@ ListEdgeWorkersResponse Client::listEdgeWorkersWithOptions(const ListEdgeWorkers
 }
 
 /**
- * @summary Queries payload information for cloud application services. This operation supports paged queries.
+ * @summary Queries workload information with pagination.
  *
- * @description ## Request description
- * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
- * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
- * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
- * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
+ * @description ## Description
+ * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+ * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
+ * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
+ * - Use the StartTime and EndTime parameters to specify the time range for queries.
  *
  * @param request ListEdgeWorkersRequest
  * @return ListEdgeWorkersResponse
@@ -7836,13 +7840,13 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary 查询所有集群信息，支持分页查询。
+ * @summary Queries all cluster information by using paging and supports filtering by conditions.
  *
- * @description ## 请求说明
- * - 该 API 用于查询用户创建的所有集群信息。
- * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
- * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
- * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
+ * @description ## Operation description
+ * - This API operation queries information about all clusters created by the user.
+ * - You can use the `HiveId` and `Name` parameters to filter query results.
+ * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+ * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
  *
  * @param request ListHivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7893,13 +7897,13 @@ ListHivesResponse Client::listHivesWithOptions(const ListHivesRequest &request, 
 }
 
 /**
- * @summary 查询所有集群信息，支持分页查询。
+ * @summary Queries all cluster information by using paging and supports filtering by conditions.
  *
- * @description ## 请求说明
- * - 该 API 用于查询用户创建的所有集群信息。
- * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
- * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
- * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
+ * @description ## Operation description
+ * - This API operation queries information about all clusters created by the user.
+ * - You can use the `HiveId` and `Name` parameters to filter query results.
+ * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+ * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
  *
  * @param request ListHivesRequest
  * @return ListHivesResponse
@@ -8354,12 +8358,12 @@ ListRenderingSessionsResponse Client::listRenderingSessions(const ListRenderingS
 }
 
 /**
- * @summary 查询规格信息，支持分页查询。
+ * @summary Queries all cloud application service specification information. Paging is supported.
  *
- * @description ## 请求说明
- * - 该 API 用于查询所有可用的云应用服务规格信息。
- * - 支持通过 `Specification` 参数过滤特定规格。
- * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
+ * @description ## Operation description
+ * - This API operation queries all active cloud application service specifications.
+ * - You can use the `Specification` parameter to filter specific specifications.
+ * - For paging, use the `PageNumber` and `PageSize` parameters to control the data volume returned.
  *
  * @param request ListSpecificationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8398,12 +8402,12 @@ ListSpecificationsResponse Client::listSpecificationsWithOptions(const ListSpeci
 }
 
 /**
- * @summary 查询规格信息，支持分页查询。
+ * @summary Queries all cloud application service specification information. Paging is supported.
  *
- * @description ## 请求说明
- * - 该 API 用于查询所有可用的云应用服务规格信息。
- * - 支持通过 `Specification` 参数过滤特定规格。
- * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
+ * @description ## Operation description
+ * - This API operation queries all active cloud application service specifications.
+ * - You can use the `Specification` parameter to filter specific specifications.
+ * - For paging, use the `PageNumber` and `PageSize` parameters to control the data volume returned.
  *
  * @param request ListSpecificationsRequest
  * @return ListSpecificationsResponse
@@ -9430,10 +9434,13 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 }
 
 /**
- * @summary Moves the specified cloud application service instances from their current cluster to the target Hive.
+ * @summary Moves specified workloads to a target cluster.
  *
- * @description ## Request
- * - Ensure the target Hive has sufficient resources to accommodate the instances.
+ * @description ## Request description
+ * - **HiveId**: The target cluster ID. Required.
+ * - **InstanceIds**: The list of workload IDs to move. Required.
+ * - This operation moves the specified workloads from the current cluster to the target cluster.
+ * - Ensure that the target cluster exists to accept the new workloads.
  *
  * @param tmpReq MoveHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9474,10 +9481,13 @@ MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkersWithOptions(const MoveHiv
 }
 
 /**
- * @summary Moves the specified cloud application service instances from their current cluster to the target Hive.
+ * @summary Moves specified workloads to a target cluster.
  *
- * @description ## Request
- * - Ensure the target Hive has sufficient resources to accommodate the instances.
+ * @description ## Request description
+ * - **HiveId**: The target cluster ID. Required.
+ * - **InstanceIds**: The list of workload IDs to move. Required.
+ * - This operation moves the specified workloads from the current cluster to the target cluster.
+ * - Ensure that the target cluster exists to accept the new workloads.
  *
  * @param request MoveHiveEdgeWorkersRequest
  * @return MoveHiveEdgeWorkersResponse
