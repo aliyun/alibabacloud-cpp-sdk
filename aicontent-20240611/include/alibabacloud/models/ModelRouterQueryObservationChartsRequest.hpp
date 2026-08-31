@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<int64_t> apiKeyId_ {};
     // The client ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
-    // The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with client_id.
+    // The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
     shared_ptr<string> clientIds_ {};
     // The custom end time.
     shared_ptr<string> endTime_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<int64_t> modelId_ {};
     // The custom start time.
     shared_ptr<string> startTime_ {};
-    // The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
+    // The time range. Valid values: 1h, 6h, 24h, 7d, 30d.
     shared_ptr<string> timeRange_ {};
   };
 

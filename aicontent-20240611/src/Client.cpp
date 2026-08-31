@@ -4034,7 +4034,9 @@ ModelRouterExportMemberBalanceOrdersResponse Client::modelRouterExportMemberBala
 }
 
 /**
- * @summary Queries the total cost trend of bills in the Billing Center.
+ * @summary Billing Center/Queries the total cost trend of bills.
+ *
+ * @description Queries user role assignments.
  *
  * @param request ModelRouterGetBillingBillSummaryRequest
  * @param headers map
@@ -4103,7 +4105,9 @@ ModelRouterGetBillingBillSummaryResponse Client::modelRouterGetBillingBillSummar
 }
 
 /**
- * @summary Queries the total cost trend of bills in the Billing Center.
+ * @summary Billing Center/Queries the total cost trend of bills.
+ *
+ * @description Queries user role assignments.
  *
  * @param request ModelRouterGetBillingBillSummaryRequest
  * @return ModelRouterGetBillingBillSummaryResponse
@@ -4749,6 +4753,108 @@ ModelRouterListSubscriptionsResponse Client::modelRouterListSubscriptions(const 
 }
 
 /**
+ * @summary Retrieves a pre-signed URL for downloading a Migu source file.
+ *
+ * @description Creates a user.
+ *
+ * @param request ModelRouterMiguDownloadSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterMiguDownloadSourceResponse
+ */
+ModelRouterMiguDownloadSourceResponse Client::modelRouterMiguDownloadSourceWithOptions(const ModelRouterMiguDownloadSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceId()) {
+    query["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterMiguDownloadSource"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/pipeline/api/aigc/source/download")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterMiguDownloadSourceResponse>();
+}
+
+/**
+ * @summary Retrieves a pre-signed URL for downloading a Migu source file.
+ *
+ * @description Creates a user.
+ *
+ * @param request ModelRouterMiguDownloadSourceRequest
+ * @return ModelRouterMiguDownloadSourceResponse
+ */
+ModelRouterMiguDownloadSourceResponse Client::modelRouterMiguDownloadSource(const ModelRouterMiguDownloadSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterMiguDownloadSourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Manages Migu source files and retrieves a pre-signed URL for source file upload.
+ *
+ * @description Updates a user.
+ *
+ * @param request ModelRouterMiguUploadSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterMiguUploadSourceResponse
+ */
+ModelRouterMiguUploadSourceResponse Client::modelRouterMiguUploadSourceWithOptions(const ModelRouterMiguUploadSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileType()) {
+    body["fileType"] = request.getFileType();
+  }
+
+  if (!!request.hasServiceName()) {
+    body["serviceName"] = request.getServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterMiguUploadSource"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/pipeline/api/aigc/source/upload")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterMiguUploadSourceResponse>();
+}
+
+/**
+ * @summary Manages Migu source files and retrieves a pre-signed URL for source file upload.
+ *
+ * @description Updates a user.
+ *
+ * @param request ModelRouterMiguUploadSourceRequest
+ * @return ModelRouterMiguUploadSourceResponse
+ */
+ModelRouterMiguUploadSourceResponse Client::modelRouterMiguUploadSource(const ModelRouterMiguUploadSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterMiguUploadSourceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the details of an API key.
  *
  * @param headers map
@@ -4880,6 +4986,8 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 /**
  * @summary Queries billing details in batches.
  *
+ * @description Queries the user list.
+ *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4961,6 +5069,8 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 /**
  * @summary Queries billing details in batches.
  *
+ * @description Queries the user list.
+ *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @return ModelRouterQueryBillingCostBreakdownResponse
  */
@@ -4968,6 +5078,95 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryBillingCostBreakdownWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries request-granularity billing details from the Billing Center.
+ *
+ * @description Queries the user list.
+ *
+ * @param request ModelRouterQueryBillingDetailsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryBillingDetailsResponse
+ */
+ModelRouterQueryBillingDetailsResponse Client::modelRouterQueryBillingDetailsWithOptions(const ModelRouterQueryBillingDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientIds()) {
+    query["clientIds"] = request.getClientIds();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasModelCodes()) {
+    query["modelCodes"] = request.getModelCodes();
+  }
+
+  if (!!request.hasModelId()) {
+    query["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRequestId()) {
+    query["requestId"] = request.getRequestId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryBillingDetails"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/details")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryBillingDetailsResponse>();
+}
+
+/**
+ * @summary Queries request-granularity billing details from the Billing Center.
+ *
+ * @description Queries the user list.
+ *
+ * @param request ModelRouterQueryBillingDetailsRequest
+ * @return ModelRouterQueryBillingDetailsResponse
+ */
+ModelRouterQueryBillingDetailsResponse Client::modelRouterQueryBillingDetails(const ModelRouterQueryBillingDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryBillingDetailsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6297,7 +6496,9 @@ ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTags(const ModelR
 }
 
 /**
- * @summary Retrieves observation chart data for model monitoring.
+ * @summary Retrieves monitoring chart data for model observation.
+ *
+ * @description Queries a list of users.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @param headers map
@@ -6358,7 +6559,9 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary Retrieves observation chart data for model monitoring.
+ * @summary Retrieves monitoring chart data for model observation.
+ *
+ * @description Queries a list of users.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @return ModelRouterQueryObservationChartsResponse

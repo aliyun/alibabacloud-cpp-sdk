@@ -108,13 +108,15 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<BillingBillSummaryRespDTO> data_ {};
-    // The fault code.
+    // The error message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

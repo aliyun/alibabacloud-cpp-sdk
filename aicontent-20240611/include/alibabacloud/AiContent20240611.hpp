@@ -1279,7 +1279,9 @@ namespace AiContent20240611
       Models::ModelRouterExportMemberBalanceOrdersResponse modelRouterExportMemberBalanceOrders(const string &clientId, const string &id, const Models::ModelRouterExportMemberBalanceOrdersRequest &request);
 
       /**
-       * @summary Queries the total cost trend of bills in the Billing Center.
+       * @summary Billing Center/Queries the total cost trend of bills.
+       *
+       * @description Queries user role assignments.
        *
        * @param request ModelRouterGetBillingBillSummaryRequest
        * @param headers map
@@ -1289,7 +1291,9 @@ namespace AiContent20240611
       Models::ModelRouterGetBillingBillSummaryResponse modelRouterGetBillingBillSummaryWithOptions(const Models::ModelRouterGetBillingBillSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the total cost trend of bills in the Billing Center.
+       * @summary Billing Center/Queries the total cost trend of bills.
+       *
+       * @description Queries user role assignments.
        *
        * @param request ModelRouterGetBillingBillSummaryRequest
        * @return ModelRouterGetBillingBillSummaryResponse
@@ -1525,6 +1529,50 @@ namespace AiContent20240611
       Models::ModelRouterListSubscriptionsResponse modelRouterListSubscriptions(const string &id, const Models::ModelRouterListSubscriptionsRequest &request);
 
       /**
+       * @summary Retrieves a pre-signed URL for downloading a Migu source file.
+       *
+       * @description Creates a user.
+       *
+       * @param request ModelRouterMiguDownloadSourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterMiguDownloadSourceResponse
+       */
+      Models::ModelRouterMiguDownloadSourceResponse modelRouterMiguDownloadSourceWithOptions(const Models::ModelRouterMiguDownloadSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a pre-signed URL for downloading a Migu source file.
+       *
+       * @description Creates a user.
+       *
+       * @param request ModelRouterMiguDownloadSourceRequest
+       * @return ModelRouterMiguDownloadSourceResponse
+       */
+      Models::ModelRouterMiguDownloadSourceResponse modelRouterMiguDownloadSource(const Models::ModelRouterMiguDownloadSourceRequest &request);
+
+      /**
+       * @summary Manages Migu source files and retrieves a pre-signed URL for source file upload.
+       *
+       * @description Updates a user.
+       *
+       * @param request ModelRouterMiguUploadSourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterMiguUploadSourceResponse
+       */
+      Models::ModelRouterMiguUploadSourceResponse modelRouterMiguUploadSourceWithOptions(const Models::ModelRouterMiguUploadSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manages Migu source files and retrieves a pre-signed URL for source file upload.
+       *
+       * @description Updates a user.
+       *
+       * @param request ModelRouterMiguUploadSourceRequest
+       * @return ModelRouterMiguUploadSourceResponse
+       */
+      Models::ModelRouterMiguUploadSourceResponse modelRouterMiguUploadSource(const Models::ModelRouterMiguUploadSourceRequest &request);
+
+      /**
        * @summary Retrieves the details of an API key.
        *
        * @param headers map
@@ -1561,6 +1609,8 @@ namespace AiContent20240611
       /**
        * @summary Queries billing details in batches.
        *
+       * @description Queries the user list.
+       *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1571,10 +1621,34 @@ namespace AiContent20240611
       /**
        * @summary Queries billing details in batches.
        *
+       * @description Queries the user list.
+       *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @return ModelRouterQueryBillingCostBreakdownResponse
        */
       Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdown(const Models::ModelRouterQueryBillingCostBreakdownRequest &request);
+
+      /**
+       * @summary Queries request-granularity billing details from the Billing Center.
+       *
+       * @description Queries the user list.
+       *
+       * @param request ModelRouterQueryBillingDetailsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryBillingDetailsResponse
+       */
+      Models::ModelRouterQueryBillingDetailsResponse modelRouterQueryBillingDetailsWithOptions(const Models::ModelRouterQueryBillingDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries request-granularity billing details from the Billing Center.
+       *
+       * @description Queries the user list.
+       *
+       * @param request ModelRouterQueryBillingDetailsRequest
+       * @return ModelRouterQueryBillingDetailsResponse
+       */
+      Models::ModelRouterQueryBillingDetailsResponse modelRouterQueryBillingDetails(const Models::ModelRouterQueryBillingDetailsRequest &request);
 
       /**
        * @summary Billing management / Query billing rule list
@@ -1957,7 +2031,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosTagsResponse modelRouterQueryNacosTags(const Models::ModelRouterQueryNacosTagsRequest &request);
 
       /**
-       * @summary Retrieves observation chart data for model monitoring.
+       * @summary Retrieves monitoring chart data for model observation.
+       *
+       * @description Queries a list of users.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @param headers map
@@ -1967,7 +2043,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationChartsResponse modelRouterQueryObservationChartsWithOptions(const Models::ModelRouterQueryObservationChartsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves observation chart data for model monitoring.
+       * @summary Retrieves monitoring chart data for model observation.
+       *
+       * @description Queries a list of users.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @return ModelRouterQueryObservationChartsResponse

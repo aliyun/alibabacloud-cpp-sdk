@@ -121,25 +121,27 @@ namespace Models
 
 
   protected:
-    // The API key ID used to filter results. This parameter is optional and linked to the department. You must specify clientId first.
+    // The API Key ID used to filter results. This parameter is optional and linked with the department. You must specify clientId first.
     shared_ptr<int64_t> apiKeyId_ {};
     // The department ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
     // The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
     shared_ptr<string> clientIds_ {};
-    // The end time, in UNIX timestamp format (seconds).
+    // The end time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The member IDs used to filter results, separated by commas. This parameter is optional. If not specified, the query returns data for the department and all its members. If an empty value is specified, the query returns data for the department only, excluding members.
+    // The member IDs used to filter results, separated by commas. This parameter is optional. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
     shared_ptr<string> memberUserIds_ {};
     // The model ID. This parameter is optional and used to filter by model.
     shared_ptr<int64_t> modelId_ {};
     // The model types, separated by commas.
     shared_ptr<string> modelTypes_ {};
+    // nextToken
     shared_ptr<string> nextToken_ {};
-    // The start time, in UNIX timestamp format (seconds).
+    // The start time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

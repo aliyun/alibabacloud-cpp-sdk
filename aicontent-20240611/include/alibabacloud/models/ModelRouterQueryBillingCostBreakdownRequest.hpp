@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
+    // Optional. Filters results by API Key ID. This parameter is linked with the department, and clientId must be specified first.
     shared_ptr<int64_t> apiKeyId_ {};
     // Optional. Filters results by department ID.
     shared_ptr<int64_t> clientId_ {};
@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> granularity_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Filters results by member IDs, separated by commas. If not specified, the query returns data for the department and all its members. If an empty value is specified, the query returns data for the department only, excluding members.
+    // Optional. Filters results by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is passed, only the department is included without members.
     shared_ptr<string> memberUserIds_ {};
     // Optional. Filters results by model ID.
     shared_ptr<int64_t> modelId_ {};

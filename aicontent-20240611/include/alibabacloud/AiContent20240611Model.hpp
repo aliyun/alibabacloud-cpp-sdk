@@ -48,6 +48,8 @@
 #include <alibabacloud/models/MemberApiKeyDTO.hpp>
 #include <alibabacloud/models/MetricKVPairDTO.hpp>
 #include <alibabacloud/models/MetricValueDTO.hpp>
+#include <alibabacloud/models/MiguSourceDownloadDTO.hpp>
+#include <alibabacloud/models/MiguSourceUploadDTO.hpp>
 #include <alibabacloud/models/ModelCreateCmd.hpp>
 #include <alibabacloud/models/ModelDTO.hpp>
 #include <alibabacloud/models/ModelGroupClientKeyItemDTO.hpp>
@@ -318,6 +320,12 @@
 #include <alibabacloud/models/ModelRouterListSubscriptionsRequest.hpp>
 #include <alibabacloud/models/ModelRouterListSubscriptionsResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterListSubscriptionsResponse.hpp>
+#include <alibabacloud/models/ModelRouterMiguDownloadSourceRequest.hpp>
+#include <alibabacloud/models/ModelRouterMiguDownloadSourceResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterMiguDownloadSourceResponse.hpp>
+#include <alibabacloud/models/ModelRouterMiguUploadSourceRequest.hpp>
+#include <alibabacloud/models/ModelRouterMiguUploadSourceResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterMiguUploadSourceResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyListRequest.hpp>
@@ -326,6 +334,9 @@
 #include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownResponse.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingDetailsRequest.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingDetailsResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingDetailsResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListResponse.hpp>
