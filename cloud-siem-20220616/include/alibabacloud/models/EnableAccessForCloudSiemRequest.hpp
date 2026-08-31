@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EnableAccessForCloudSiemRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoSubmit, autoSubmit_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
     };
     friend void from_json(const Darabonba::Json& j, EnableAccessForCloudSiemRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoSubmit, autoSubmit_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_FROM_JSON(RoleType, roleType_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoSubmit_ == nullptr
-        && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
+        && this->clientToken_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // autoSubmit Field Functions 
     bool hasAutoSubmit() const { return this->autoSubmit_ != nullptr;};
     void deleteAutoSubmit() { this->autoSubmit_ = nullptr;};
     inline int32_t getAutoSubmit() const { DARABONBA_PTR_GET_DEFAULT(autoSubmit_, 0) };
     inline EnableAccessForCloudSiemRequest& setAutoSubmit(int32_t autoSubmit) { DARABONBA_PTR_SET_VALUE(autoSubmit_, autoSubmit) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline EnableAccessForCloudSiemRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // regionId Field Functions 
@@ -66,21 +75,20 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically add alert logs from Security Center, Web Application Firewall (WAF), and Cloud Firewall. By default, alert logs are automatically added.
+    // Specifies whether to automatically integrate alert logs from Security Center, Web Application Firewall (WAF), and Cloud Firewall. By default, the logs are automatically integrated.
     shared_ptr<int32_t> autoSubmit_ {};
-    // The region of the Data Management center for Threat Analysis. Select the region based on where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
-    // 
-    // - ap-southeast-1: Your assets are in regions outside China.
+    // The idempotency token.
+    shared_ptr<string> clientToken_ {};
+    // The region where the threat detection and response data management center resides. Select the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: assets in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: assets outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. An administrator can use this parameter to switch to the perspective of the specified member.
+    // The ID of the member account to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view.
+    // The view type.
     // 
-    // - 0: The view of the current Alibaba Cloud account.
-    // 
-    // - 1: The view of all member accounts.
+    // - 0: the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

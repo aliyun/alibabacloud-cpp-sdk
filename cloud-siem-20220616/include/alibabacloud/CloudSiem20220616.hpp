@@ -871,7 +871,7 @@ namespace CloudSiem20220616
       Models::DescribeWhiteRuleListResponse describeWhiteRuleList(const Models::DescribeWhiteRuleListRequest &request);
 
       /**
-       * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+       * @summary Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
        *
        * @param request EnableAccessForCloudSiemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +880,7 @@ namespace CloudSiem20220616
       Models::EnableAccessForCloudSiemResponse enableAccessForCloudSiemWithOptions(const Models::EnableAccessForCloudSiemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+       * @summary Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
        *
        * @param request EnableAccessForCloudSiemRequest
        * @return EnableAccessForCloudSiemResponse

@@ -3042,7 +3042,7 @@ DescribeWhiteRuleListResponse Client::describeWhiteRuleList(const DescribeWhiteR
 }
 
 /**
- * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+ * @summary Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
  *
  * @param request EnableAccessForCloudSiemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3053,6 +3053,10 @@ EnableAccessForCloudSiemResponse Client::enableAccessForCloudSiemWithOptions(con
   json body = {};
   if (!!request.hasAutoSubmit()) {
     body["AutoSubmit"] = request.getAutoSubmit();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
@@ -3085,7 +3089,7 @@ EnableAccessForCloudSiemResponse Client::enableAccessForCloudSiemWithOptions(con
 }
 
 /**
- * @summary Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+ * @summary Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
  *
  * @param request EnableAccessForCloudSiemRequest
  * @return EnableAccessForCloudSiemResponse
@@ -5119,6 +5123,10 @@ PostCustomizeRuleTestResponse Client::postCustomizeRuleTest(const PostCustomizeR
 PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleListWithOptions(const PostEventDisposeAndWhiteruleListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDisposeStrategyIds()) {
     body["DisposeStrategyIds"] = request.getDisposeStrategyIds();
   }

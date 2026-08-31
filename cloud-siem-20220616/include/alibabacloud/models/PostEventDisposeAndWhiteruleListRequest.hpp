@@ -13,6 +13,7 @@ namespace Models
   class PostEventDisposeAndWhiteruleListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PostEventDisposeAndWhiteruleListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DisposeStrategyIds, disposeStrategyIds_);
       DARABONBA_PTR_TO_JSON(EventDispose, eventDispose_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ThreatLevel, threatLevel_);
     };
     friend void from_json(const Darabonba::Json& j, PostEventDisposeAndWhiteruleListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DisposeStrategyIds, disposeStrategyIds_);
       DARABONBA_PTR_FROM_JSON(EventDispose, eventDispose_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->disposeStrategyIds_ == nullptr
-        && this->eventDispose_ == nullptr && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->receiverInfo_ == nullptr && this->regionId_ == nullptr
-        && this->remark_ == nullptr && this->responseSource_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr && this->status_ == nullptr
-        && this->threatLevel_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->disposeStrategyIds_ == nullptr && this->eventDispose_ == nullptr && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->receiverInfo_ == nullptr
+        && this->regionId_ == nullptr && this->remark_ == nullptr && this->responseSource_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr
+        && this->status_ == nullptr && this->threatLevel_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline PostEventDisposeAndWhiteruleListRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // disposeStrategyIds Field Functions 
     bool hasDisposeStrategyIds() const { return this->disposeStrategyIds_ != nullptr;};
     void deleteDisposeStrategyIds() { this->disposeStrategyIds_ = nullptr;};
@@ -140,6 +149,8 @@ namespace Models
 
 
   protected:
+    // 幂等令牌。
+    shared_ptr<string> clientToken_ {};
     // A comma-separated list of response strategy IDs.
     shared_ptr<string> disposeStrategyIds_ {};
     // A JSON object that defines the incident response configuration.
