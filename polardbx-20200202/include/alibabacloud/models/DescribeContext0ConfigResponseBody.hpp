@@ -98,10 +98,15 @@ namespace Models
 
 
     protected:
+      // The administrator key of the context service.
       shared_ptr<string> context0AdminKey_ {};
+      // The name of the context service instance.
       shared_ptr<string> context0InstanceName_ {};
+      // The owner key of the context service.
       shared_ptr<string> context0OwnerKey_ {};
+      // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
+      // The name of the PolarDB-X Search instance.
       shared_ptr<string> openSearchInstanceName_ {};
     };
 
@@ -189,12 +194,19 @@ namespace Models
 
 
     protected:
+      // The authentication action.
       shared_ptr<string> authAction_ {};
+      // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -226,8 +238,11 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<DescribeContext0ConfigResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The paginated result of the instance list.
     shared_ptr<DescribeContext0ConfigResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

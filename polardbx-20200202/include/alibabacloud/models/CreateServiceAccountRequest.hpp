@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The service account type.
+    // The type of the service account.
     // 
     // This parameter is required.
     shared_ptr<string> serviceAccountType_ {};

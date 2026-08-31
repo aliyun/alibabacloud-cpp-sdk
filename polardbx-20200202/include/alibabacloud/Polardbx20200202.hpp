@@ -542,9 +542,9 @@ namespace Polardbx20200202
       Models::CreateOpenSearchResponse createOpenSearch(const Models::CreateOpenSearchRequest &request);
 
       /**
-       * @summary 创建OpenSearch实例账号
+       * @summary Creates an account for a PolarDB-X Search instance.
        *
-       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
        * @param request CreateOpenSearchAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -553,9 +553,9 @@ namespace Polardbx20200202
       Models::CreateOpenSearchAccountResponse createOpenSearchAccountWithOptions(const Models::CreateOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建OpenSearch实例账号
+       * @summary Creates an account for a PolarDB-X Search instance.
        *
-       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
        * @param request CreateOpenSearchAccountRequest
        * @return CreateOpenSearchAccountResponse
@@ -968,9 +968,9 @@ namespace Polardbx20200202
       Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
 
       /**
-       * @summary 释放OpenSearch实例
+       * @summary Releases a PolarDB-X Search instance.
        *
-       * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
        *
        * @param request DeleteOpenSearchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -979,9 +979,9 @@ namespace Polardbx20200202
       Models::DeleteOpenSearchResponse deleteOpenSearchWithOptions(const Models::DeleteOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 释放OpenSearch实例
+       * @summary Releases a PolarDB-X Search instance.
        *
-       * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
        *
        * @param request DeleteOpenSearchRequest
        * @return DeleteOpenSearchResponse
@@ -989,9 +989,9 @@ namespace Polardbx20200202
       Models::DeleteOpenSearchResponse deleteOpenSearch(const Models::DeleteOpenSearchRequest &request);
 
       /**
-       * @summary 删除OpenSearch实例账号
+       * @summary Deletes a PolarDB-X Search instance account.
        *
-       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
        * @param request DeleteOpenSearchAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1000,9 +1000,9 @@ namespace Polardbx20200202
       Models::DeleteOpenSearchAccountResponse deleteOpenSearchAccountWithOptions(const Models::DeleteOpenSearchAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除OpenSearch实例账号
+       * @summary Deletes a PolarDB-X Search instance account.
        *
-       * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
        *
        * @param request DeleteOpenSearchAccountRequest
        * @return DeleteOpenSearchAccountResponse
@@ -1010,11 +1010,11 @@ namespace Polardbx20200202
       Models::DeleteOpenSearchAccountResponse deleteOpenSearchAccount(const Models::DeleteOpenSearchAccountRequest &request);
 
       /**
-       * @summary 删除OpenSearch实例白名单分组
+       * @summary Deletes a PolarDB-X Search whitelist group.
        *
-       * @description - binlog文件默认保存15天。
-       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
-       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
        *
        * @param request DeleteOpenSearchWhitelistGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1023,11 +1023,11 @@ namespace Polardbx20200202
       Models::DeleteOpenSearchWhitelistGroupResponse deleteOpenSearchWhitelistGroupWithOptions(const Models::DeleteOpenSearchWhitelistGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除OpenSearch实例白名单分组
+       * @summary Deletes a PolarDB-X Search whitelist group.
        *
-       * @description - binlog文件默认保存15天。
-       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
-       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+       * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
        *
        * @param request DeleteOpenSearchWhitelistGroupRequest
        * @return DeleteOpenSearchWhitelistGroupResponse
@@ -1495,9 +1495,9 @@ namespace Polardbx20200202
       Models::DescribeComponentPropetiesResponse describeComponentPropeties(const Models::DescribeComponentPropetiesRequest &request);
 
       /**
-       * @summary 查询Context0管理凭证
+       * @summary Queries the management credentials of the context service.
        *
-       * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+       * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
        * @param request DescribeContext0ConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1506,9 +1506,9 @@ namespace Polardbx20200202
       Models::DescribeContext0ConfigResponse describeContext0ConfigWithOptions(const Models::DescribeContext0ConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Context0管理凭证
+       * @summary Queries the management credentials of the context service.
        *
-       * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+       * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
        *
        * @param request DescribeContext0ConfigRequest
        * @return DescribeContext0ConfigResponse
@@ -2086,9 +2086,9 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchInfoResponse describeOpenSearchInfo(const Models::DescribeOpenSearchInfoRequest &request);
 
       /**
-       * @summary 查询OpenSearch实例列表
+       * @summary Queries the list of PolarDBX Search instances.
        *
-       * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+       * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
        *
        * @param request DescribeOpenSearchInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2097,9 +2097,9 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchInstancesResponse describeOpenSearchInstancesWithOptions(const Models::DescribeOpenSearchInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询OpenSearch实例列表
+       * @summary Queries the list of PolarDBX Search instances.
        *
-       * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+       * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
        *
        * @param request DescribeOpenSearchInstancesRequest
        * @return DescribeOpenSearchInstancesResponse
@@ -2149,11 +2149,11 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchResourceUsageResponse describeOpenSearchResourceUsage(const Models::DescribeOpenSearchResourceUsageRequest &request);
 
       /**
-       * @summary 查询OpenSearch实例拓扑
+       * @summary Queries the node topology of a PolarDB-X Search cluster.
        *
-       * @description - binlog文件默认保存15天。
-       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
-       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
        *
        * @param request DescribeOpenSearchTopologyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2162,11 +2162,11 @@ namespace Polardbx20200202
       Models::DescribeOpenSearchTopologyResponse describeOpenSearchTopologyWithOptions(const Models::DescribeOpenSearchTopologyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询OpenSearch实例拓扑
+       * @summary Queries the node topology of a PolarDB-X Search cluster.
        *
-       * @description - binlog文件默认保存15天。
-       * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
-       * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+       * @description - Binary log files are retained for 15 days by default.
+       * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+       * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
        *
        * @param request DescribeOpenSearchTopologyRequest
        * @return DescribeOpenSearchTopologyResponse
@@ -3425,6 +3425,59 @@ namespace Polardbx20200202
       Models::PreCheckSqlFlashbackTaskResponse preCheckSqlFlashbackTask(const Models::PreCheckSqlFlashbackTaskRequest &request);
 
       /**
+       * @summary Queries column store audit logs.
+       *
+       * @description ****
+       *
+       * @param request QueryColumnarLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryColumnarLogResponse
+       */
+      Models::QueryColumnarLogResponse queryColumnarLogWithOptions(const Models::QueryColumnarLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries column store audit logs.
+       *
+       * @description ****
+       *
+       * @param request QueryColumnarLogRequest
+       * @return QueryColumnarLogResponse
+       */
+      Models::QueryColumnarLogResponse queryColumnarLog(const Models::QueryColumnarLogRequest &request);
+
+      /**
+       * @summary Queries complete column store audit logs by using streaming.
+       *
+       * @description ****
+       *
+       * @param request QueryColumnarLogSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryColumnarLogSSEResponse
+       */
+      FutureGenerator<Models::QueryColumnarLogSSEResponse> queryColumnarLogSSEWithSSE(const Models::QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries complete column store audit logs by using streaming.
+       *
+       * @description ****
+       *
+       * @param request QueryColumnarLogSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryColumnarLogSSEResponse
+       */
+      Models::QueryColumnarLogSSEResponse queryColumnarLogSSEWithOptions(const Models::QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries complete column store audit logs by using streaming.
+       *
+       * @description ****
+       *
+       * @param request QueryColumnarLogSSERequest
+       * @return QueryColumnarLogSSEResponse
+       */
+      Models::QueryColumnarLogSSEResponse queryColumnarLogSSE(const Models::QueryColumnarLogSSERequest &request);
+
+      /**
        * @summary Refreshes the metadata of an import task.
        *
        * @param request RefreshImportMetaRequest
@@ -3653,7 +3706,7 @@ namespace Polardbx20200202
       Models::RestartDataImportTaskResponse restartDataImportTask(const Models::RestartDataImportTaskRequest &request);
 
       /**
-       * @summary 重启OpenSearch实例
+       * @summary Restarts a PolarDB-X Search instance.
        *
        * @description ****
        *
@@ -3664,7 +3717,7 @@ namespace Polardbx20200202
       Models::RestartOpenSearchResponse restartOpenSearchWithOptions(const Models::RestartOpenSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启OpenSearch实例
+       * @summary Restarts a PolarDB-X Search instance.
        *
        * @description ****
        *

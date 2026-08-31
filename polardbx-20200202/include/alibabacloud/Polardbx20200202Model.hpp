@@ -530,6 +530,12 @@
 #include <alibabacloud/models/PreCheckSqlFlashbackTaskRequest.hpp>
 #include <alibabacloud/models/PreCheckSqlFlashbackTaskResponseBody.hpp>
 #include <alibabacloud/models/PreCheckSqlFlashbackTaskResponse.hpp>
+#include <alibabacloud/models/QueryColumnarLogRequest.hpp>
+#include <alibabacloud/models/QueryColumnarLogResponseBody.hpp>
+#include <alibabacloud/models/QueryColumnarLogResponse.hpp>
+#include <alibabacloud/models/QueryColumnarLogSSERequest.hpp>
+#include <alibabacloud/models/QueryColumnarLogSSEResponseBody.hpp>
+#include <alibabacloud/models/QueryColumnarLogSSEResponse.hpp>
 #include <alibabacloud/models/RefreshImportMetaRequest.hpp>
 #include <alibabacloud/models/RefreshImportMetaResponseBody.hpp>
 #include <alibabacloud/models/RefreshImportMetaResponse.hpp>

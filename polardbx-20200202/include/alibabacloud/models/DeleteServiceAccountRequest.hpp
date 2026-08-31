@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The region where the instance resides.
+    // The region in which the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The service account type.
+    // The type of the service account.
     // 
     // This parameter is required.
     shared_ptr<string> serviceAccountType_ {};

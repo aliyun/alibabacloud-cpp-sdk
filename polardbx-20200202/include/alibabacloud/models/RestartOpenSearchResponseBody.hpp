@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The backend task ID.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -148,12 +149,19 @@ namespace Models
 
 
     protected:
+      // The authentication action.
       shared_ptr<string> authAction_ {};
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -185,8 +193,11 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<RestartOpenSearchResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The response data.
     shared_ptr<RestartOpenSearchResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

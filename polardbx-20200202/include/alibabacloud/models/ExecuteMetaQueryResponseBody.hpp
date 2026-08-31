@@ -41,12 +41,22 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AppliedOffset, appliedOffset_);
+        DARABONBA_PTR_TO_JSON(AppliedRowLimit, appliedRowLimit_);
         DARABONBA_PTR_TO_JSON(Columns, columns_);
+        DARABONBA_PTR_TO_JSON(HasMore, hasMore_);
+        DARABONBA_PTR_TO_JSON(RecordsSizeBytes, recordsSizeBytes_);
+        DARABONBA_PTR_TO_JSON(ReturnedRowCount, returnedRowCount_);
         DARABONBA_PTR_TO_JSON(RowCount, rowCount_);
         DARABONBA_PTR_TO_JSON(Rows, rows_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AppliedOffset, appliedOffset_);
+        DARABONBA_PTR_FROM_JSON(AppliedRowLimit, appliedRowLimit_);
         DARABONBA_PTR_FROM_JSON(Columns, columns_);
+        DARABONBA_PTR_FROM_JSON(HasMore, hasMore_);
+        DARABONBA_PTR_FROM_JSON(RecordsSizeBytes, recordsSizeBytes_);
+        DARABONBA_PTR_FROM_JSON(ReturnedRowCount, returnedRowCount_);
         DARABONBA_PTR_FROM_JSON(RowCount, rowCount_);
         DARABONBA_PTR_FROM_JSON(Rows, rows_);
       };
@@ -61,8 +71,23 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->columns_ == nullptr
+      virtual bool empty() const override { return this->appliedOffset_ == nullptr
+        && this->appliedRowLimit_ == nullptr && this->columns_ == nullptr && this->hasMore_ == nullptr && this->recordsSizeBytes_ == nullptr && this->returnedRowCount_ == nullptr
         && this->rowCount_ == nullptr && this->rows_ == nullptr; };
+      // appliedOffset Field Functions 
+      bool hasAppliedOffset() const { return this->appliedOffset_ != nullptr;};
+      void deleteAppliedOffset() { this->appliedOffset_ = nullptr;};
+      inline int64_t getAppliedOffset() const { DARABONBA_PTR_GET_DEFAULT(appliedOffset_, 0L) };
+      inline Data& setAppliedOffset(int64_t appliedOffset) { DARABONBA_PTR_SET_VALUE(appliedOffset_, appliedOffset) };
+
+
+      // appliedRowLimit Field Functions 
+      bool hasAppliedRowLimit() const { return this->appliedRowLimit_ != nullptr;};
+      void deleteAppliedRowLimit() { this->appliedRowLimit_ = nullptr;};
+      inline int64_t getAppliedRowLimit() const { DARABONBA_PTR_GET_DEFAULT(appliedRowLimit_, 0L) };
+      inline Data& setAppliedRowLimit(int64_t appliedRowLimit) { DARABONBA_PTR_SET_VALUE(appliedRowLimit_, appliedRowLimit) };
+
+
       // columns Field Functions 
       bool hasColumns() const { return this->columns_ != nullptr;};
       void deleteColumns() { this->columns_ = nullptr;};
@@ -70,6 +95,27 @@ namespace Models
       inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
       inline Data& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
       inline Data& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+      // hasMore Field Functions 
+      bool hasHasMore() const { return this->hasMore_ != nullptr;};
+      void deleteHasMore() { this->hasMore_ = nullptr;};
+      inline bool getHasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
+      inline Data& setHasMore(bool hasMore) { DARABONBA_PTR_SET_VALUE(hasMore_, hasMore) };
+
+
+      // recordsSizeBytes Field Functions 
+      bool hasRecordsSizeBytes() const { return this->recordsSizeBytes_ != nullptr;};
+      void deleteRecordsSizeBytes() { this->recordsSizeBytes_ = nullptr;};
+      inline int64_t getRecordsSizeBytes() const { DARABONBA_PTR_GET_DEFAULT(recordsSizeBytes_, 0L) };
+      inline Data& setRecordsSizeBytes(int64_t recordsSizeBytes) { DARABONBA_PTR_SET_VALUE(recordsSizeBytes_, recordsSizeBytes) };
+
+
+      // returnedRowCount Field Functions 
+      bool hasReturnedRowCount() const { return this->returnedRowCount_ != nullptr;};
+      void deleteReturnedRowCount() { this->returnedRowCount_ = nullptr;};
+      inline int64_t getReturnedRowCount() const { DARABONBA_PTR_GET_DEFAULT(returnedRowCount_, 0L) };
+      inline Data& setReturnedRowCount(int64_t returnedRowCount) { DARABONBA_PTR_SET_VALUE(returnedRowCount_, returnedRowCount) };
 
 
       // rowCount Field Functions 
@@ -89,8 +135,13 @@ namespace Models
 
 
     protected:
+      shared_ptr<int64_t> appliedOffset_ {};
+      shared_ptr<int64_t> appliedRowLimit_ {};
       // The column names.
       shared_ptr<vector<string>> columns_ {};
+      shared_ptr<bool> hasMore_ {};
+      shared_ptr<int64_t> recordsSizeBytes_ {};
+      shared_ptr<int64_t> returnedRowCount_ {};
       // The total number of data rows.
       shared_ptr<int32_t> rowCount_ {};
       // The number of affected or returned rows. This field is available only for compute nodes (CNs).
@@ -216,11 +267,11 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details about the access denial.
     shared_ptr<ExecuteMetaQueryResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The list of instance details.
     shared_ptr<ExecuteMetaQueryResponseBody::Data> data_ {};
-    // The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
+    // The additional information returned by the operation. success is returned if the request is successful. Otherwise, an error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

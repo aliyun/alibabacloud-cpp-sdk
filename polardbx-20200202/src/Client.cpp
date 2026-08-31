@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Polardbx20200202::Models;
@@ -1906,9 +1907,9 @@ CreateOpenSearchResponse Client::createOpenSearch(const CreateOpenSearchRequest 
 }
 
 /**
- * @summary 创建OpenSearch实例账号
+ * @summary Creates an account for a PolarDB-X Search instance.
  *
- * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
  * @param request CreateOpenSearchAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1951,9 +1952,9 @@ CreateOpenSearchAccountResponse Client::createOpenSearchAccountWithOptions(const
 }
 
 /**
- * @summary 创建OpenSearch实例账号
+ * @summary Creates an account for a PolarDB-X Search instance.
  *
- * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
  * @param request CreateOpenSearchAccountRequest
  * @return CreateOpenSearchAccountResponse
@@ -3184,9 +3185,9 @@ DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
 }
 
 /**
- * @summary 释放OpenSearch实例
+ * @summary Releases a PolarDB-X Search instance.
  *
- * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+ * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
  *
  * @param request DeleteOpenSearchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3221,9 +3222,9 @@ DeleteOpenSearchResponse Client::deleteOpenSearchWithOptions(const DeleteOpenSea
 }
 
 /**
- * @summary 释放OpenSearch实例
+ * @summary Releases a PolarDB-X Search instance.
  *
- * @description 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+ * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
  *
  * @param request DeleteOpenSearchRequest
  * @return DeleteOpenSearchResponse
@@ -3234,9 +3235,9 @@ DeleteOpenSearchResponse Client::deleteOpenSearch(const DeleteOpenSearchRequest 
 }
 
 /**
- * @summary 删除OpenSearch实例账号
+ * @summary Deletes a PolarDB-X Search instance account.
  *
- * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
  * @param request DeleteOpenSearchAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3275,9 +3276,9 @@ DeleteOpenSearchAccountResponse Client::deleteOpenSearchAccountWithOptions(const
 }
 
 /**
- * @summary 删除OpenSearch实例账号
+ * @summary Deletes a PolarDB-X Search instance account.
  *
- * @description <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
  * @param request DeleteOpenSearchAccountRequest
  * @return DeleteOpenSearchAccountResponse
@@ -3288,11 +3289,11 @@ DeleteOpenSearchAccountResponse Client::deleteOpenSearchAccount(const DeleteOpen
 }
 
 /**
- * @summary 删除OpenSearch实例白名单分组
+ * @summary Deletes a PolarDB-X Search whitelist group.
  *
- * @description - binlog文件默认保存15天。
- * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
- * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
  *
  * @param request DeleteOpenSearchWhitelistGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3331,11 +3332,11 @@ DeleteOpenSearchWhitelistGroupResponse Client::deleteOpenSearchWhitelistGroupWit
 }
 
 /**
- * @summary 删除OpenSearch实例白名单分组
+ * @summary Deletes a PolarDB-X Search whitelist group.
  *
- * @description - binlog文件默认保存15天。
- * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
- * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
  *
  * @param request DeleteOpenSearchWhitelistGroupRequest
  * @return DeleteOpenSearchWhitelistGroupResponse
@@ -4550,9 +4551,9 @@ DescribeComponentPropetiesResponse Client::describeComponentPropeties(const Desc
 }
 
 /**
- * @summary 查询Context0管理凭证
+ * @summary Queries the management credentials of the context service.
  *
- * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+ * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0ConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4587,9 +4588,9 @@ DescribeContext0ConfigResponse Client::describeContext0ConfigWithOptions(const D
 }
 
 /**
- * @summary 查询Context0管理凭证
+ * @summary Queries the management credentials of the context service.
  *
- * @description > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+ * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0ConfigRequest
  * @return DescribeContext0ConfigResponse
@@ -6172,9 +6173,9 @@ DescribeOpenSearchInfoResponse Client::describeOpenSearchInfo(const DescribeOpen
 }
 
 /**
- * @summary 查询OpenSearch实例列表
+ * @summary Queries the list of PolarDBX Search instances.
  *
- * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+ * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
  *
  * @param request DescribeOpenSearchInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6225,9 +6226,9 @@ DescribeOpenSearchInstancesResponse Client::describeOpenSearchInstancesWithOptio
 }
 
 /**
- * @summary 查询OpenSearch实例列表
+ * @summary Queries the list of PolarDBX Search instances.
  *
- * @description 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+ * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
  *
  * @param request DescribeOpenSearchInstancesRequest
  * @return DescribeOpenSearchInstancesResponse
@@ -6338,11 +6339,11 @@ DescribeOpenSearchResourceUsageResponse Client::describeOpenSearchResourceUsage(
 }
 
 /**
- * @summary 查询OpenSearch实例拓扑
+ * @summary Queries the node topology of a PolarDB-X Search cluster.
  *
- * @description - binlog文件默认保存15天。
- * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
- * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
  *
  * @param request DescribeOpenSearchTopologyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6377,11 +6378,11 @@ DescribeOpenSearchTopologyResponse Client::describeOpenSearchTopologyWithOptions
 }
 
 /**
- * @summary 查询OpenSearch实例拓扑
+ * @summary Queries the node topology of a PolarDB-X Search cluster.
  *
- * @description - binlog文件默认保存15天。
- * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
- * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+ * @description - Binary log files are retained for 15 days by default.
+ * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
  *
  * @param request DescribeOpenSearchTopologyRequest
  * @return DescribeOpenSearchTopologyResponse
@@ -8257,6 +8258,10 @@ ExecuteMetaQueryResponse Client::executeMetaQueryWithOptions(const ExecuteMetaQu
     query["DBInstanceName"] = request.getDBInstanceName();
   }
 
+  if (!!request.hasMaxResultRows()) {
+    query["MaxResultRows"] = request.getMaxResultRows();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -10116,6 +10121,181 @@ PreCheckSqlFlashbackTaskResponse Client::preCheckSqlFlashbackTask(const PreCheck
 }
 
 /**
+ * @summary Queries column store audit logs.
+ *
+ * @description ****
+ *
+ * @param request QueryColumnarLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryColumnarLogResponse
+ */
+QueryColumnarLogResponse Client::queryColumnarLogWithOptions(const QueryColumnarLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMaxResultRows()) {
+    query["MaxResultRows"] = request.getMaxResultRows();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSQL()) {
+    query["SQL"] = request.getSQL();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryColumnarLog"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryColumnarLogResponse>();
+}
+
+/**
+ * @summary Queries column store audit logs.
+ *
+ * @description ****
+ *
+ * @param request QueryColumnarLogRequest
+ * @return QueryColumnarLogResponse
+ */
+QueryColumnarLogResponse Client::queryColumnarLog(const QueryColumnarLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryColumnarLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries complete column store audit logs by using streaming.
+ *
+ * @description ****
+ *
+ * @param request QueryColumnarLogSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryColumnarLogSSEResponse
+ */
+FutureGenerator<QueryColumnarLogSSEResponse> Client::queryColumnarLogSSEWithSSE(const QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMaxResultRows()) {
+    query["MaxResultRows"] = request.getMaxResultRows();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSQL()) {
+    query["SQL"] = request.getSQL();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryColumnarLogSSE"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<QueryColumnarLogSSEResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Queries complete column store audit logs by using streaming.
+ *
+ * @description ****
+ *
+ * @param request QueryColumnarLogSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryColumnarLogSSEResponse
+ */
+QueryColumnarLogSSEResponse Client::queryColumnarLogSSEWithOptions(const QueryColumnarLogSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMaxResultRows()) {
+    query["MaxResultRows"] = request.getMaxResultRows();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSQL()) {
+    query["SQL"] = request.getSQL();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryColumnarLogSSE"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryColumnarLogSSEResponse>();
+}
+
+/**
+ * @summary Queries complete column store audit logs by using streaming.
+ *
+ * @description ****
+ *
+ * @param request QueryColumnarLogSSERequest
+ * @return QueryColumnarLogSSEResponse
+ */
+QueryColumnarLogSSEResponse Client::queryColumnarLogSSE(const QueryColumnarLogSSERequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryColumnarLogSSEWithOptions(request, runtime);
+}
+
+/**
  * @summary Refreshes the metadata of an import task.
  *
  * @param request RefreshImportMetaRequest
@@ -10772,7 +10952,7 @@ RestartDataImportTaskResponse Client::restartDataImportTask(const RestartDataImp
 }
 
 /**
- * @summary 重启OpenSearch实例
+ * @summary Restarts a PolarDB-X Search instance.
  *
  * @description ****
  *
@@ -10809,7 +10989,7 @@ RestartOpenSearchResponse Client::restartOpenSearchWithOptions(const RestartOpen
 }
 
 /**
- * @summary 重启OpenSearch实例
+ * @summary Restarts a PolarDB-X Search instance.
  *
  * @description ****
  *

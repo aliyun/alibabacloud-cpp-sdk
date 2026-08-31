@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The name of the account to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
       shared_ptr<string> message_ {};
     };
 
@@ -148,12 +149,19 @@ namespace Models
 
 
     protected:
+      // The authentication action.
       shared_ptr<string> authAction_ {};
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -185,8 +193,11 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<DeleteOpenSearchWhitelistGroupResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The monitoring data.
     shared_ptr<DeleteOpenSearchWhitelistGroupResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

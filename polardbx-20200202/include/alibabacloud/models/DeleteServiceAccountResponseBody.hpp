@@ -117,7 +117,7 @@ namespace Models
       shared_ptr<bool> deleted_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The service account type.
+      // The type of the service account.
       shared_ptr<string> serviceAccountType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
@@ -192,11 +192,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The authentication principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -248,7 +248,7 @@ namespace Models
     shared_ptr<DeleteServiceAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The data struct.
     shared_ptr<DeleteServiceAccountResponseBody::Data> data_ {};
-    // The error message. This parameter is empty if the request is successful.
+    // The error message returned if the request failed. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
