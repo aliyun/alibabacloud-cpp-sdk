@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The note ID.
     shared_ptr<int64_t> noteId_ {};
   };
 

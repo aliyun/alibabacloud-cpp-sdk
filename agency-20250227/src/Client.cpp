@@ -95,7 +95,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建客户小记
+ * @summary Creates a customer note.
  *
  * @param request CustomerNoteCreateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -146,7 +146,7 @@ CustomerNoteCreateResponse Client::customerNoteCreateWithOptions(const CustomerN
 }
 
 /**
- * @summary 创建客户小记
+ * @summary Creates a customer note.
  *
  * @param request CustomerNoteCreateRequest
  * @return CustomerNoteCreateResponse
@@ -157,7 +157,7 @@ CustomerNoteCreateResponse Client::customerNoteCreate(const CustomerNoteCreateRe
 }
 
 /**
- * @summary 编辑客户小记
+ * @summary Edits a customer note.
  *
  * @param request CustomerNoteEditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +204,7 @@ CustomerNoteEditResponse Client::customerNoteEditWithOptions(const CustomerNoteE
 }
 
 /**
- * @summary 编辑客户小记
+ * @summary Edits a customer note.
  *
  * @param request CustomerNoteEditRequest
  * @return CustomerNoteEditResponse
@@ -215,7 +215,7 @@ CustomerNoteEditResponse Client::customerNoteEdit(const CustomerNoteEditRequest 
 }
 
 /**
- * @summary 分页查询客户小记列表
+ * @summary Queries a paged query list of customer notes with paging support.
  *
  * @param request CustomerNoteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -254,7 +254,7 @@ CustomerNoteListResponse Client::customerNoteListWithOptions(const CustomerNoteL
 }
 
 /**
- * @summary 分页查询客户小记列表
+ * @summary Queries a paged query list of customer notes with paging support.
  *
  * @param request CustomerNoteListRequest
  * @return CustomerNoteListResponse
@@ -265,7 +265,7 @@ CustomerNoteListResponse Client::customerNoteList(const CustomerNoteListRequest 
 }
 
 /**
- * @summary 查询客户小记详情
+ * @summary Queries the details of a customer note.
  *
  * @param request CustomerNoteListDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -296,7 +296,7 @@ CustomerNoteListDetailResponse Client::customerNoteListDetailWithOptions(const C
 }
 
 /**
- * @summary 查询客户小记详情
+ * @summary Queries the details of a customer note.
  *
  * @param request CustomerNoteListDetailRequest
  * @return CustomerNoteListDetailResponse

@@ -128,8 +128,11 @@ namespace Models
 
 
       protected:
+        // The current page number.
         shared_ptr<int32_t> page_ {};
+        // The number of entries per page.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of entries.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -235,14 +238,23 @@ namespace Models
 
 
       protected:
+        // The name of the contact.
         shared_ptr<string> contactName_ {};
+        // The UID of the creator.
         shared_ptr<int64_t> creator_ {};
+        // The logon name of the creator.
         shared_ptr<string> creatorName_ {};
+        // The creation time in the format of yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
+        // The content of the note.
         shared_ptr<string> noteContent_ {};
+        // The ID of the note.
         shared_ptr<int64_t> noteId_ {};
+        // The type of the note (CUSTOMER).
         shared_ptr<string> noteType_ {};
+        // The label of the note type.
         shared_ptr<string> noteTypeLabel_ {};
+        // The touch date (timestamp).
         shared_ptr<string> touchDate_ {};
       };
 
@@ -331,16 +343,27 @@ namespace Models
 
 
     protected:
+      // The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
       shared_ptr<string> accessDeniedDetail_ {};
+      // The result code.
       shared_ptr<string> code_ {};
+      // The returned data.
       shared_ptr<vector<Data::DataItem>> data_ {};
+      // The HTTP status code returned by the POP API.
       shared_ptr<int32_t> httpStatusCode_ {};
+      // The prompt message.
       shared_ptr<string> message_ {};
+      // The prompt message, same as message.
       shared_ptr<string> msg_ {};
+      // The pagination information compatible with the legacy interface (deprecated).
       shared_ptr<Data::PageInfo> pageInfo_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNo_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -399,12 +422,19 @@ namespace Models
 
 
   protected:
+    // The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The result code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CustomerNoteListResponseBody::Data> data_ {};
+    // The HTTP status code returned by the POP API.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The prompt message, same as message.
     shared_ptr<string> msg_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -21,7 +21,7 @@ namespace Agency20250227
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建客户小记
+       * @summary Creates a customer note.
        *
        * @param request CustomerNoteCreateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Agency20250227
       Models::CustomerNoteCreateResponse customerNoteCreateWithOptions(const Models::CustomerNoteCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建客户小记
+       * @summary Creates a customer note.
        *
        * @param request CustomerNoteCreateRequest
        * @return CustomerNoteCreateResponse
@@ -38,7 +38,7 @@ namespace Agency20250227
       Models::CustomerNoteCreateResponse customerNoteCreate(const Models::CustomerNoteCreateRequest &request);
 
       /**
-       * @summary 编辑客户小记
+       * @summary Edits a customer note.
        *
        * @param request CustomerNoteEditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Agency20250227
       Models::CustomerNoteEditResponse customerNoteEditWithOptions(const Models::CustomerNoteEditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑客户小记
+       * @summary Edits a customer note.
        *
        * @param request CustomerNoteEditRequest
        * @return CustomerNoteEditResponse
@@ -55,7 +55,7 @@ namespace Agency20250227
       Models::CustomerNoteEditResponse customerNoteEdit(const Models::CustomerNoteEditRequest &request);
 
       /**
-       * @summary 分页查询客户小记列表
+       * @summary Queries a paged query list of customer notes with paging support.
        *
        * @param request CustomerNoteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Agency20250227
       Models::CustomerNoteListResponse customerNoteListWithOptions(const Models::CustomerNoteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询客户小记列表
+       * @summary Queries a paged query list of customer notes with paging support.
        *
        * @param request CustomerNoteListRequest
        * @return CustomerNoteListResponse
@@ -72,7 +72,7 @@ namespace Agency20250227
       Models::CustomerNoteListResponse customerNoteList(const Models::CustomerNoteListRequest &request);
 
       /**
-       * @summary 查询客户小记详情
+       * @summary Queries the details of a customer note.
        *
        * @param request CustomerNoteListDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Agency20250227
       Models::CustomerNoteListDetailResponse customerNoteListDetailWithOptions(const Models::CustomerNoteListDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询客户小记详情
+       * @summary Queries the details of a customer note.
        *
        * @param request CustomerNoteListDetailRequest
        * @return CustomerNoteListDetailResponse

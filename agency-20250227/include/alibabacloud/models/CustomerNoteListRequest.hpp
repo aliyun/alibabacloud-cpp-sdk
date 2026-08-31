@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The UID of the customer.
     shared_ptr<string> customerUid_ {};
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

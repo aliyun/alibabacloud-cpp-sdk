@@ -90,6 +90,7 @@ namespace Models
       class Attachment : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Attachment& obj) { 
+          DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(Signature, signature_);
@@ -97,6 +98,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Attachment& obj) { 
+          DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(Signature, signature_);
@@ -114,8 +116,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->id_ == nullptr
-        && this->name_ == nullptr && this->signature_ == nullptr && this->size_ == nullptr && this->type_ == nullptr; };
+        virtual bool empty() const override { return this->downloadUrl_ == nullptr
+        && this->id_ == nullptr && this->name_ == nullptr && this->signature_ == nullptr && this->size_ == nullptr && this->type_ == nullptr; };
+        // downloadUrl Field Functions 
+        bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
+        void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
+        inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+        inline Attachment& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
+
+
         // id Field Functions 
         bool hasId() const { return this->id_ != nullptr;};
         void deleteId() { this->id_ = nullptr;};
@@ -152,10 +161,17 @@ namespace Models
 
 
       protected:
+        // The attachment signature.
+        shared_ptr<string> downloadUrl_ {};
+        // The attachment ID.
         shared_ptr<int64_t> id_ {};
+        // The attachment name.
         shared_ptr<string> name_ {};
+        // The attachment signature.
         shared_ptr<string> signature_ {};
+        // The attachment size in bytes.
         shared_ptr<int64_t> size_ {};
+        // The attachment type.
         shared_ptr<string> type_ {};
       };
 
@@ -264,19 +280,33 @@ namespace Models
 
 
     protected:
+      // The AI parsing result (JSON string).
       shared_ptr<string> aiResult_ {};
+      // The attachment list.
       shared_ptr<vector<Data::Attachment>> attachment_ {};
+      // The contact information.
       shared_ptr<string> contactInformation_ {};
+      // The contact name.
       shared_ptr<string> contactName_ {};
+      // The UID of the creator.
       shared_ptr<int64_t> creator_ {};
+      // The logon name of the creator.
       shared_ptr<string> creatorName_ {};
+      // The customer name.
       shared_ptr<string> customerName_ {};
+      // The customer UID.
       shared_ptr<int64_t> customerUid_ {};
+      // The creation time in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtCreate_ {};
+      // The note content.
       shared_ptr<string> noteContent_ {};
+      // The note ID.
       shared_ptr<int64_t> noteId_ {};
+      // The note type (CUSTOMER).
       shared_ptr<string> noteType_ {};
+      // The note type label.
       shared_ptr<string> noteTypeLabel_ {};
+      // The touch date (timestamp).
       shared_ptr<string> touchDate_ {};
     };
 
@@ -335,12 +365,19 @@ namespace Models
 
 
   protected:
+    // The access denied details returned by the POP API when RAM permissions are missing.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CustomerNoteListDetailResponseBody::Data> data_ {};
+    // The HTTP status code returned by the POP API.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The prompt message. This is the same as Message.
     shared_ptr<string> msg_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
