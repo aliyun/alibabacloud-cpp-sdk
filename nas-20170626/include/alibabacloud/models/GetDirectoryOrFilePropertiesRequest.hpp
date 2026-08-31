@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The absolute path of the directory or file.
+    // The absolute path of the specified directory.
     // 
     // The path must start with a forward slash (/) and must be an existing path in the mount target.
     // 

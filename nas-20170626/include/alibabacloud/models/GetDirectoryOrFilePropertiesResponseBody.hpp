@@ -170,79 +170,77 @@ namespace Models
 
 
     protected:
-      // The time when the file was last accessed.
+      // The time when the file was queried.
       // 
-      // The time is displayed in the ISO 8601 standard format and is returned in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       shared_ptr<string> ATime_ {};
-      // The time when the metadata of the file was last modified.
+      // The time when the metadata was modified.
       // 
-      // The time is displayed in the ISO 8601 standard format and is returned in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       shared_ptr<string> CTime_ {};
-      // Indicates whether the directory contains an archive file.
+      // Indicates whether the directory contains Archive storage class files.
       // 
-      // This parameter is returned only if Type is set to Directory.
+      // This parameter is returned only when Type is Directory.
       // 
       // Valid values:
       // 
-      // - true: The directory contains at least one archive file.
-      // 
-      // - false: The directory does not contain archive files.
+      // - true: The directory contains Archive storage class files.
+      // - false: The directory does not contain Archive storage class files.
       shared_ptr<bool> hasArchiveFile_ {};
-      // Indicates whether the directory contains an Infrequent Access (IA) file.
+      // Indicates whether the directory contains IA storage class files.
       // 
-      // This parameter is returned only if Type is set to Directory.
+      // This parameter is returned only when Type is Directory.
       // 
       // Valid values:
       // 
-      // - true: The directory contains at least one IA file.
-      // 
-      // - false: The directory does not contain IA files.
+      // - true: The directory contains IA storage class files.
+      // - false: The directory does not contain IA storage class files.
       shared_ptr<bool> hasInfrequentAccessFile_ {};
       // The inode of the file or directory.
       shared_ptr<string> inode_ {};
-      // The time when the file was last modified.
+      // The time when the file was modified.
       // 
-      // The time is displayed in the ISO 8601 standard format and is returned in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       shared_ptr<string> MTime_ {};
-      // The name of the file or directory.
+      // The file name or directory name.
       shared_ptr<string> name_ {};
+      // The total duration for which the file has been stored as an Archive file. Unit: seconds.
       shared_ptr<int64_t> offlineDuration_ {};
+      // The total duration for which the file has remained unchanged since it was stored as an Archive file. Unit: seconds.
       shared_ptr<int64_t> offlineUnchangedDuration_ {};
-      // The time when the last data retrieval task was run.
+      // The time when the most recent data retrieval task was executed.
       // 
-      // The time is displayed in the ISO 8601 standard format and is returned in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       shared_ptr<string> retrieveTime_ {};
       // The size of the file.
       // 
       // Unit: bytes.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       shared_ptr<int64_t> size_ {};
-      // The storage type of the file.
+      // The storage type of the returned file.
       // 
-      // This parameter is returned only if Type is set to File.
+      // This parameter is returned only when Type is File.
       // 
       // Valid values:
       // 
-      // - Standard: General-purpose NAS file systems
-      // 
-      // - InfrequentAccess: IA storage medium
+      // - Standard: General-purpose NAS storage.
+      // - InfrequentAccess: IA storage class.
       shared_ptr<string> storageType_ {};
-      // The type of the returned entry.
+      // The type of the returned result.
       // 
       // Valid values:
       // 
-      // - File: The entry is a file.
-      // 
-      // - Directory: The entry is a directory.
+      // - File: file
+      // - Directory: directory
       shared_ptr<string> type_ {};
     };
 
@@ -265,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The properties of the directory or file.
+    // The directory or file information.
     shared_ptr<GetDirectoryOrFilePropertiesResponseBody::Entry> entry_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

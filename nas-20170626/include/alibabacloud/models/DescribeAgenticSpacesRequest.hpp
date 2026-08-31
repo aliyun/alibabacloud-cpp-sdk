@@ -78,7 +78,7 @@ namespace Models
       // - AgenticSpaceIds
       shared_ptr<string> key_ {};
       // The value of the filter key. This parameter does not support wildcards.
-      // - AgenticSpaceIds: Only a single ID can be specified.
+      // - AgenticSpaceIds: Only one ID can be specified.
       shared_ptr<string> value_ {};
     };
 
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The collection of filter key information.
     shared_ptr<vector<DescribeAgenticSpacesRequest::Filters>> filters_ {};
-    // The number of results for each query.
+    // The number of results per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int64_t> maxResults_ {};

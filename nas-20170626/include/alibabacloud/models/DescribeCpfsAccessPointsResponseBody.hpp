@@ -111,7 +111,15 @@ namespace Models
 
 
       protected:
+        // The root directory.
         shared_ptr<string> rootPath_ {};
+        // The current status of the root directory.
+        // 
+        // Valid values:
+        // 
+        // - Unknown: The root path status is unknown.
+        // - NotExist: The root path does not exist. It may have been deleted by the user.
+        // - Ready: The root path status is normal.
         shared_ptr<string> rootPathStatus_ {};
       };
 
@@ -184,14 +192,32 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud Resource Name (ARN) of the access point.
       shared_ptr<string> ARN_ {};
+      // The access point ID.
       shared_ptr<string> accessPointId_ {};
+      // The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
+      // The description of the access point.
       shared_ptr<string> description_ {};
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
+      // The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTime_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The root directory information.
       shared_ptr<AccessPoints::RootDirectory> rootDirectory_ {};
+      // The current status of the access point.
+      // 
+      // Valid values:
+      // 
+      // - Active: available
+      // - Inactive: unavailable
+      // - Pending: being created
+      // - Deleting: being deleted
+      // 
+      // > The file system can be mounted only when the status is Active.
       shared_ptr<string> status_ {};
     };
 
@@ -235,10 +261,17 @@ namespace Models
 
 
   protected:
+    // The access point information.
     shared_ptr<vector<DescribeCpfsAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page.
+    // Valid values: 1 to 100.                              
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of access points.
     shared_ptr<int32_t> totalCount_ {};
   };
 

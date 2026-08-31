@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The IDs of Advanced Extreme NAS file systems.
+    // The IDs of the Advanced Extreme NAS file systems.
     // 
     // You can specify up to 100 file system IDs in a single request. Separate multiple file system IDs with commas (,).
     // 

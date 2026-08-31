@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The access point ID.
     shared_ptr<string> accessPointId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

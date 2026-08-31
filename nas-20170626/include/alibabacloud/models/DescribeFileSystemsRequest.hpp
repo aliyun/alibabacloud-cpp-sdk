@@ -83,12 +83,19 @@ namespace Models
 
     protected:
       // The tag key.
+      // 
+      // Limits:
+      // 
+      // - Valid values of N: 1 to 20.
+      // - The tag key can be up to 128 characters in length.
+      // - The tag key cannot start with `aliyun` or `acs:`.
+      // - The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
       // Limits:
       // 
-      // - Valid values of N: 1 to 20.
+      // - N can be an integer from 1 to 20.
       // - The tag value can be up to 128 characters in length.
       // - The tag value cannot start with `aliyun` or `acs:`.
       // - The tag value cannot contain `http://` or `https://`.
@@ -170,30 +177,22 @@ namespace Models
     // - all (default): queries all types.
     // - standard: General-purpose NAS.
     // - extreme: Extreme NAS.
-    // - cpfs: Cloud Parallel File Storage (locally redundant).
-    // - cpfsse: Cloud Parallel File Storage SE (zone-redundant).
+    // - cpfs: Cloud Parallel File Storage (CPFS) with locally redundant storage.
+    // - cpfsse: CPFS SE with zone-redundant storage.
     // 
     // > To query multiple types, separate them with commas (,).
     shared_ptr<string> fileSystemType_ {};
     // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of file systems on each page during a paged query.
+    // The number of file systems on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
     // 
     // You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
     shared_ptr<string> resourceGroupId_ {};
-    // The storage type.
-    // 
-    // Valid values:
-    // 
-    // - General-purpose NAS: Capacity, Performance, and Premium.
-    // - Extreme NAS: standard and advance.
-    // - CPFS: advance_100 (100 MB/s/TiB baseline), advance_200 (200 MB/s/TiB baseline), and economic.
-    // - CPFS SE: advance_100 (100 MB/s/TiB baseline).
-    // - AgenticFS: Agentic (available only when FileSystemType is set to standard).
+    // The storage type. Currently, only CPFS for Lingjun specifications are supported for a filtered query. Other FileSystemType values are not supported. The following specifications are supported:
     shared_ptr<string> storageType_ {};
-    // The collection of tag information.
+    // The tag information.
     shared_ptr<vector<DescribeFileSystemsRequest::Tag>> tag_ {};
     // The VPC ID.
     shared_ptr<string> vpcId_ {};

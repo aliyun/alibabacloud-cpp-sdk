@@ -89,7 +89,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run for this request.
     // 
-    // A dry run checks parameter validity and resource availability without actually creating or modifying the instance, and does not incur fees.
+    // A dry run checks parameter validity and resource availability without actually creating or modifying the instance, and no fees are incurred.
     // 
     // Valid values:
     // 

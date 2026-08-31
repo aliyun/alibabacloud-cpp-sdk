@@ -211,8 +211,7 @@ namespace Models
       shared_ptr<string> agenticSpaceId_ {};
       // The zone ID.
       shared_ptr<string> azone_ {};
-      // The time when the AgenticSpace was created.
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The time when the AgenticSpace was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTimeUtc_ {};
       // AgenticSpace Description。
       shared_ptr<string> description_ {};
@@ -229,8 +228,7 @@ namespace Models
       // The status of the AgenticSpace. Valid values:
       // - Running
       shared_ptr<string> status_ {};
-      // The time when the AgenticSpace was last updated.
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The time when the AgenticSpace was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> updateTimeUtc_ {};
     };
 

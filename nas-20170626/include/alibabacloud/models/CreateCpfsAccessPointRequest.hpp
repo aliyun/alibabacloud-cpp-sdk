@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The root directory of the access point. The value must start and end with a forward slash (/).
       shared_ptr<string> rootPath_ {};
     };
 
@@ -99,11 +100,26 @@ namespace Models
 
 
   protected:
+    // The description of the access point.
+    // 
+    // Limits:
+    // - The description must be 2 to 128 characters in length.
+    // - The description must start with a letter.It cannot start with http:// or https://.
+    // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> description_ {};
+    // The file system ID.
+    // 
+    // - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+    // 
+    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The root directory of the access point. Default value: "/".
     shared_ptr<CreateCpfsAccessPointRequest::RootDirectory> rootDirectory_ {};
   };
 

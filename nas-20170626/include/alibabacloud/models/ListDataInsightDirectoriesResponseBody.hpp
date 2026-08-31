@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileCount, fileCount_);
         DARABONBA_PTR_TO_JSON(FileCountOffline, fileCountOffline_);
         DARABONBA_PTR_TO_JSON(FileCountOnline, fileCountOnline_);
+        DARABONBA_PTR_TO_JSON(Inode, inode_);
         DARABONBA_PTR_TO_JSON(SubDirectories, subDirectories_);
       };
       friend void from_json(const Darabonba::Json& j, Directory& obj) { 
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileCount, fileCount_);
         DARABONBA_PTR_FROM_JSON(FileCountOffline, fileCountOffline_);
         DARABONBA_PTR_FROM_JSON(FileCountOnline, fileCountOnline_);
+        DARABONBA_PTR_FROM_JSON(Inode, inode_);
         DARABONBA_PTR_FROM_JSON(SubDirectories, subDirectories_);
       };
       Directory() = default ;
@@ -81,6 +83,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FileCount, fileCount_);
           DARABONBA_PTR_TO_JSON(FileCountOffline, fileCountOffline_);
           DARABONBA_PTR_TO_JSON(FileCountOnline, fileCountOnline_);
+          DARABONBA_PTR_TO_JSON(Inode, inode_);
           DARABONBA_PTR_TO_JSON(LastAccessTime, lastAccessTime_);
           DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
         };
@@ -94,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(FileCount, fileCount_);
           DARABONBA_PTR_FROM_JSON(FileCountOffline, fileCountOffline_);
           DARABONBA_PTR_FROM_JSON(FileCountOnline, fileCountOnline_);
+          DARABONBA_PTR_FROM_JSON(Inode, inode_);
           DARABONBA_PTR_FROM_JSON(LastAccessTime, lastAccessTime_);
           DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
         };
@@ -110,7 +114,8 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->dirCapacity_ == nullptr && this->dirCapacityOffline_ == nullptr && this->dirCapacityOnline_ == nullptr && this->dirLevel_ == nullptr && this->dirName_ == nullptr
-        && this->fileCount_ == nullptr && this->fileCountOffline_ == nullptr && this->fileCountOnline_ == nullptr && this->lastAccessTime_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->fileCount_ == nullptr && this->fileCountOffline_ == nullptr && this->fileCountOnline_ == nullptr && this->inode_ == nullptr && this->lastAccessTime_ == nullptr
+        && this->updatedAt_ == nullptr; };
         // createdAt Field Functions 
         bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
         void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -174,6 +179,13 @@ namespace Models
         inline SubDirectories& setFileCountOnline(int64_t fileCountOnline) { DARABONBA_PTR_SET_VALUE(fileCountOnline_, fileCountOnline) };
 
 
+        // inode Field Functions 
+        bool hasInode() const { return this->inode_ != nullptr;};
+        void deleteInode() { this->inode_ = nullptr;};
+        inline int64_t getInode() const { DARABONBA_PTR_GET_DEFAULT(inode_, 0L) };
+        inline SubDirectories& setInode(int64_t inode) { DARABONBA_PTR_SET_VALUE(inode_, inode) };
+
+
         // lastAccessTime Field Functions 
         bool hasLastAccessTime() const { return this->lastAccessTime_ != nullptr;};
         void deleteLastAccessTime() { this->lastAccessTime_ = nullptr;};
@@ -189,22 +201,35 @@ namespace Models
 
 
       protected:
+        // The time when the directory was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> createdAt_ {};
+        // The capacity of the subdirectory.
         shared_ptr<int64_t> dirCapacity_ {};
+        // The capacity of IA files in the subdirectory.
         shared_ptr<int64_t> dirCapacityOffline_ {};
+        // The capacity of standard files in the subdirectory.
         shared_ptr<int64_t> dirCapacityOnline_ {};
+        // The subdirectory level.
         shared_ptr<int32_t> dirLevel_ {};
+        // The subdirectory name.
         shared_ptr<string> dirName_ {};
+        // The number of files in the subdirectory.
         shared_ptr<int64_t> fileCount_ {};
+        // The number of IA files in the subdirectory.
         shared_ptr<int64_t> fileCountOffline_ {};
+        // The number of standard files in the subdirectory.
         shared_ptr<int64_t> fileCountOnline_ {};
+        // The inode number of the subdirectory.
+        shared_ptr<int64_t> inode_ {};
+        // The time when the database directory data record was last updated. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> lastAccessTime_ {};
+        // The time when the directory was last accessed. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> updatedAt_ {};
       };
 
       virtual bool empty() const override { return this->dirCapacity_ == nullptr
         && this->dirCapacityOffline_ == nullptr && this->dirCapacityOnline_ == nullptr && this->fileCount_ == nullptr && this->fileCountOffline_ == nullptr && this->fileCountOnline_ == nullptr
-        && this->subDirectories_ == nullptr; };
+        && this->inode_ == nullptr && this->subDirectories_ == nullptr; };
       // dirCapacity Field Functions 
       bool hasDirCapacity() const { return this->dirCapacity_ != nullptr;};
       void deleteDirCapacity() { this->dirCapacity_ = nullptr;};
@@ -247,6 +272,13 @@ namespace Models
       inline Directory& setFileCountOnline(int64_t fileCountOnline) { DARABONBA_PTR_SET_VALUE(fileCountOnline_, fileCountOnline) };
 
 
+      // inode Field Functions 
+      bool hasInode() const { return this->inode_ != nullptr;};
+      void deleteInode() { this->inode_ = nullptr;};
+      inline int64_t getInode() const { DARABONBA_PTR_GET_DEFAULT(inode_, 0L) };
+      inline Directory& setInode(int64_t inode) { DARABONBA_PTR_SET_VALUE(inode_, inode) };
+
+
       // subDirectories Field Functions 
       bool hasSubDirectories() const { return this->subDirectories_ != nullptr;};
       void deleteSubDirectories() { this->subDirectories_ = nullptr;};
@@ -257,12 +289,21 @@ namespace Models
 
 
     protected:
+      // The directory capacity.
       shared_ptr<int64_t> dirCapacity_ {};
+      // The capacity of IA files.
       shared_ptr<int64_t> dirCapacityOffline_ {};
+      // The capacity of standard files.
       shared_ptr<int64_t> dirCapacityOnline_ {};
+      // The number of files.
       shared_ptr<int64_t> fileCount_ {};
+      // The number of Infrequent Access (IA) files.
       shared_ptr<int64_t> fileCountOffline_ {};
+      // The number of standard files.
       shared_ptr<int64_t> fileCountOnline_ {};
+      // The inode number of the directory.
+      shared_ptr<int64_t> inode_ {};
+      // The subdirectory information.
       shared_ptr<vector<Directory::SubDirectories>> subDirectories_ {};
     };
 
@@ -306,10 +347,15 @@ namespace Models
 
 
   protected:
+    // The directory information.
     shared_ptr<ListDataInsightDirectoriesResponseBody::Directory> directory_ {};
+    // The file system ID.
     shared_ptr<string> fileSystemId_ {};
+    // The maximum number of directories returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

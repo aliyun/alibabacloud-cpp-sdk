@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The ID of the lifecycle policy.
+    // The ID of the lifecycle management policy.
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The page number of the list.
+    // The page number.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

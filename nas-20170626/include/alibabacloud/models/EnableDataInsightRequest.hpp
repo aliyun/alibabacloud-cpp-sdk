@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // The file system ID.
+    // 
+    // - CPFS for Lingjun: The value must start with `bmcpfs-`, such as bmcpfs-125487\\*\\*\\*\\*.
+    // > Only CPFS for Lingjun file systems are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
   };

@@ -114,7 +114,7 @@ namespace Models
         // The attribute of the rule.
         // 
         // Valid values:
-        // - Atime: the access time of the file.
+        // - Atime: the last access time of the file.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule.
         // 
@@ -212,7 +212,7 @@ namespace Models
         // The attribute of the rule.
         // 
         // Valid values:
-        // - Atime: the access time of the file.
+        // - Atime: the last access time of the file.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule.
         // 
@@ -361,7 +361,7 @@ namespace Models
 
 
   protected:
-    // The execution logs of the lifecycle policy.
+    // The execution logs of the lifecycle management policy.
     shared_ptr<vector<DescribeLifecyclePolicyLogsResponseBody::LifecyclePolicyLogs>> lifecyclePolicyLogs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -369,9 +369,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The request status.
-    // 
-    // Valid values:
+    // The request status. Valid values:
     // 
     // - true: The request was successful.
     // - false: The request failed.

@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The access point ID.
     shared_ptr<string> accessPointId_ {};
+    // The file system ID.
+    // 
+    // - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
+    // 
+    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per query.
+    // Valid values: 1 to 100.
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
