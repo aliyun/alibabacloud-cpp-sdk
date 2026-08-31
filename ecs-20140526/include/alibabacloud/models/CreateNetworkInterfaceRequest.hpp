@@ -138,9 +138,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag for the network interface controller (NIC). Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`.
+      // The tag key of the network interface controller (NIC). Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag for the network interface controller (NIC). Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the network interface controller (NIC). Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -209,15 +209,63 @@ namespace Models
 
 
     protected:
-      // The communication mode of the network interface controller (NIC).
+      // The communication pattern of the network interface controller (NIC).
       shared_ptr<string> networkInterfaceTrafficMode_ {};
       // The number of queues for the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
       // The number of queues for the RDMA ENI.
       shared_ptr<int32_t> queuePairNumber_ {};
       // The inbound queue depth of the network interface controller (NIC).
+      // 
+      // 
+      // <props="china">
+      // 
+      // >This parameter is in invitational preview and is not publicly available. If you want to use this parameter, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) to request access.
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // > This parameter is in invitational preview and is not publicly available. If you want to use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl) to request access.
+      // 
+      // 
+      // 
+      // Take note of the following items:
+      // 
+      // - This parameter applies only to seventh-generation and later ECS instance types.
+      // 
+      // - This parameter currently applies only to Linux images.
+      // 
+      // - A larger inbound queue depth of the network interface controller (NIC) increases inbound throughput and reduces packet loss probability but consumes more memory.
       shared_ptr<int32_t> rxQueueSize_ {};
       // The outbound queue depth of the network interface controller (NIC).
+      // 
+      // 
+      // <props="china">
+      // 
+      // >This parameter is in invitational preview and is not publicly available. If you want to use this parameter, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) to request access.
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // <props="intl">
+      // 
+      // > This parameter is in invitational preview and is not publicly available. If you want to use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl) to request access.
+      // 
+      // 
+      // 
+      // Take note of the following items:
+      // 
+      // - This parameter applies only to seventh-generation and later ECS instance types.
+      // 
+      // - This parameter currently applies only to Linux images.
+      // 
+      // - A larger outbound queue depth of the network interface controller (NIC) increases outbound throughput and reduces packet loss probability but consumes more memory.
       shared_ptr<int32_t> txQueueSize_ {};
     };
 
@@ -342,11 +390,21 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the closed or time-wait state. Unit: seconds. Valid values: integers from 3 to 15.
+      // The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
+      // 
+      // Default value: 3.
+      // 
+      // > If your ECS instance is used with NLB/CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
       // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+      // 
+      // Default value: 910.
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
       // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
+      // 
+      // Default value: 30.
+      // 
+      // > If your ECS instance is used with NLB/CLB, the default value is 100 seconds.
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
@@ -631,48 +689,92 @@ namespace Models
   protected:
     // > This parameter is deprecated.
     shared_ptr<string> businessType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The network connectivity tracking configuration of the ENI.
+    // The network connectivity tracking configuration.
+    // 
+    // Before you use this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
     shared_ptr<CreateNetworkInterfaceRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
     // Specifies whether to retain the ENI when the associated instance is released. Valid values:
+    // 
+    // - true: does not retain the ENI.
+    // 
+    // - false: retains the ENI.
     shared_ptr<bool> deleteOnRelease_ {};
     // The description of the network interface controller (NIC). The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // 
+    // Default value: empty.
     shared_ptr<string> description_ {};
     shared_ptr<bool> enablePrimaryIPv6_ {};
     // > This parameter is not publicly available.
     shared_ptr<CreateNetworkInterfaceRequest::EnhancedNetwork> enhancedNetwork_ {};
-    // The type of the network interface controller (NIC). Valid values:
+    // The type of the Elastic Network Interface (ENI). Valid values:
+    // 
+    // - Secondary: secondary ENI.
+    // - Trunk: trunk network interface controller (NIC) (in invitational preview).
+    // 
+    // Default value: Secondary.
     shared_ptr<string> instanceType_ {};
     // One or more IPv4 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
+    // > If you want to set IPv4 prefixes for the network interface controller (NIC), you must set either the parameter Ipv4Prefix.N or the parameter Ipv4PrefixCount but not both.
     shared_ptr<vector<string>> ipv4Prefix_ {};
     // The number of IPv4 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
+    // > If you want to set IPv4 prefixes for the network interface controller (NIC), you must set either the parameter Ipv4Prefix.N or the parameter Ipv4PrefixCount but not both.
     shared_ptr<int32_t> ipv4PrefixCount_ {};
     // One or more IPv6 addresses to assign to the network interface controller (NIC). You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
+    // 
+    // Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
+    // 
+    // > If you want to set IPv6 addresses for the network interface controller (NIC), you must set either the parameter `Ipv6Addresses.N` or the parameter `Ipv6AddressCount` but not both.
     shared_ptr<vector<string>> ipv6Address_ {};
-    // The number of randomly generated IPv6 addresses to assign to the network interface controller (NIC). Valid values: 1 to 10.
+    // The number of IPv6 addresses to randomly generate for the network interface controller (NIC). Valid values: 1 to 10.
+    // 
+    // > If you want to set IPv6 addresses for the network interface controller (NIC), you must set either the parameter `Ipv6Addresses.N` or the parameter `Ipv6AddressCount` but not both.
     shared_ptr<int32_t> ipv6AddressCount_ {};
     // One or more IPv6 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
+    // > If you want to set IPv6 prefixes for the network interface controller (NIC), you must set either the parameter Ipv6Prefix.N or the parameter Ipv6PrefixCount but not both.
     shared_ptr<vector<string>> ipv6Prefix_ {};
     // The number of IPv6 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
+    // > If you want to set IPv6 prefixes for the network interface controller (NIC), you must set either the parameter Ipv6Prefix.N or the parameter Ipv6PrefixCount but not both.
     shared_ptr<int32_t> ipv6PrefixCount_ {};
-    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain letters in the Unicode letter categorization (including English and Chinese characters) and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain characters from the Unicode letter categorization (including English and Chinese characters) and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+    // 
+    // Default value: empty.
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameter set of the network interface controller (NIC).
+    // The traffic configuration parameter set of the network interface controller (NIC).
     shared_ptr<CreateNetworkInterfaceRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
-    // The communication mode of the network interface controller (NIC). Valid values:
+    // The communication pattern of the network interface controller (NIC). Valid values:
+    // 
+    // - Standard: uses the TCP communication pattern.
+    // - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication pattern.
+    // 
+    // > A network interface controller (NIC) in RDMA communication pattern can be attached only to an instance whose instance type supports ERI. The number of ENIs in RDMA pattern cannot exceed the limit of the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) and [Configure eRDMA on enterprise-level instances](https://help.aliyun.com/document_detail/336853.html)<props="china"> and [Configure eRDMA on GPU-accelerated instances](https://help.aliyun.com/document_detail/2248432.html).
+    // 
+    // Default value: Standard.
     shared_ptr<string> networkInterfaceTrafficMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The primary private IP address of the network interface controller (NIC).
+    // 
+    // The specified IP address must be an idle address within the CIDR block of the vSwitch. If you do not specify this parameter, an idle private IP address in the vSwitch CIDR block is randomly allocated by default.
     shared_ptr<string> primaryIpAddress_ {};
-    // One or more secondary private IP addresses selected from the idle IP addresses within the CIDR block of the vSwitch to which the network interface controller (NIC) belongs. Valid values of N: 0 to 10.
+    // One or more secondary private IP addresses selected from the idle addresses within the CIDR block of the vSwitch to which the network interface controller (NIC) belongs. Valid values of N: 0 to 10.
+    // 
+    // > When you allocate secondary private IP addresses, you cannot specify both the parameter `PrivateIpAddress.N` and the parameter `SecondaryPrivateIpAddressCount` at the same time.
     shared_ptr<vector<string>> privateIpAddress_ {};
     // The number of queues for the network interface controller (NIC). Valid values: 1 to 2048.
+    // 
+    // When you attach the ENI to an instance, the value must be less than the maximum number of queues per network interface controller (NIC) supported by the instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the `MaximumQueueNumberPerEni` field.
+    // 
+    // Default value: empty. When the ENI is attached, the default queue number for the instance type is used. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the `SecondaryEniQueueNumber` field.
     shared_ptr<int32_t> queueNumber_ {};
     // The number of queues for the RDMA ENI.
+    // 
+    // If you want to attach multiple RDMA ENIs to an instance, we recommend that you manually specify QueuePairNumber for each ENI based on the upper limit of `QueuePairNumber` supported by the instance type and the number of ENIs you plan to use. Make sure that the total QueuePairNumber of all ENIs does not exceed the maximum value allowed by the instance type. Call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the upper limit for the instance type.
+    // 
+    // >Notice: If QueuePairNumber is not specified for an RDMA ENI, the upper limit of QueuePairNumber for all RDMA ENIs supported by the instance type is used by default. Therefore, after an RDMA ENI without a specified QueuePairNumber is attached, no more RDMA ENIs can be added (regular ENIs are not affected by this limit).</notice>
     shared_ptr<int32_t> queuePairNumber_ {};
-    // The region ID of the network interface controller (NIC) to be created. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the network interface controller (NIC) to create. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -681,20 +783,50 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The inbound queue depth of the network interface controller (NIC).
+    // 
+    // Take note of the following items:
+    // 
+    // - The inbound queue depth of the network interface controller (NIC) must be equal to the outbound queue depth. Valid values: 8192 to 16384. The value must be a power of 2.
+    // 
+    // - A larger inbound queue depth increases inbound throughput but consumes more memory.
+    // 
+    // > This parameter is not publicly available.
     shared_ptr<int32_t> rxQueueSize_ {};
     // The number of private IP addresses for automatic creation by ECS. Valid values: 1 to 49.
     shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
-    // The ID of the security group to which the network interface controller (NIC) is added. The security group and the network interface controller (NIC) must belong to the same VPC.
+    // The ID of the security group to which the network interface controller (NIC) belongs. The security group and the ENI must be in the same VPC.
+    // 
+    // > When you invoke this operation, you must set either `SecurityGroupId` or `SecurityGroupIds.N` but not both.
     shared_ptr<string> securityGroupId_ {};
-    // The IDs of one or more security groups to which the network interface controller (NIC) is added. The security groups and the network interface controller (NIC) must belong to the same VPC. The valid values of N depend on the quota for the maximum number of security groups to which an ENI can be added. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+    // The IDs of one or more security groups to which the network interface controller (NIC) belongs. The security groups and the ENI must be in the same VPC. The valid values of N depend on the quota for the maximum number of security groups to which an ENI can belong. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+    // 
+    // > When you invoke this operation, you must set either `SecurityGroupId` or `SecurityGroupIds.N` but not both.
     shared_ptr<vector<string>> securityGroupIds_ {};
     // Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
+    // 
+    // - true: enabled.
+    // 
+    // - false: disabled.
+    // 
+    // Default value: false.
+    // 
+    // > This feature is supported only in specific regions. Before you use this feature, read [Source/destination checking](https://help.aliyun.com/document_detail/2863210.html).
     shared_ptr<bool> sourceDestCheck_ {};
     // The tags of the network interface controller (NIC).
     shared_ptr<vector<CreateNetworkInterfaceRequest::Tag>> tag_ {};
     // The outbound queue depth of the network interface controller (NIC).
+    // 
+    // Take note of the following items:
+    // 
+    // - The outbound queue depth of the network interface controller (NIC) must be equal to the inbound queue depth. Valid values: 8192 to 16384. The value must be a power of 2.
+    // 
+    // - A larger outbound queue depth increases outbound throughput but consumes more memory.
+    // 
+    // > This parameter is not publicly available.
     shared_ptr<int32_t> txQueueSize_ {};
-    // The vSwitch ID of the network interface controller (NIC). The private IP address of the network interface controller (NIC) is allocated from the idle IP addresses within the CIDR block of the vSwitch.
+    // The vSwitch ID of the network interface controller (NIC). The private IP address of the ENI is allocated from the idle addresses within the CIDR block of the vSwitch.
+    // 
+    // >Notice: The network interface controller (NIC) and the instance to which you want to attach the ENI must be in the same zone but can belong to different vSwitches.</notice>
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

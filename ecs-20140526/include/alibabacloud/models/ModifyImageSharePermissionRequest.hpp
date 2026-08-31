@@ -135,16 +135,16 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID for which you want to grant authorization to share the image. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
+    // The Alibaba Cloud account ID to which you want to grant authorization for the shared image. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
     shared_ptr<vector<string>> addAccount_ {};
     shared_ptr<bool> dryRun_ {};
     // The ID of the custom image to be shared.
     // 
-    // >Notice: Images encrypted with a service key can no longer be shared. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image that uses service key encryption.
+    // >Notice: Images encrypted with a service key can no longer be shared. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image that is encrypted with a service key.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // Specifies whether to publish or delist the community image. Valid values:
+    // Specifies whether to publish or delist the image as a community image. Valid values:
     // 
     // - true: Publishes the image as a community image.
     // - false: Delists the image to a regular image. If the image is already a regular image, no change is made.

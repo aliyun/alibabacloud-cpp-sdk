@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // The disk ID.
+    // The ID of the disk.
     shared_ptr<string> diskId_ {};
-    // The order ID.
+    // The ID of the order.
+    // 
+    // > An order ID is returned only when you create a subscription disk.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

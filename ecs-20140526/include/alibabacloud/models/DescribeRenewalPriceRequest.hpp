@@ -121,22 +121,22 @@ namespace Models
 
 
   protected:
-    // The unified expiration date. After you specify this parameter, the price for renewing the instance to the unified expiration date is queried. Valid values: 1 to 28.
+    // The unified expiration date. If you specify this parameter, the price for renewing the instance to the unified expiration date is queried. Valid values: 1 to 28.
     // 
-    // For more information about the unified expiration date feature, see [Synchronize the expiration dates of instances](https://help.aliyun.com/document_detail/108486.html).
+    // For more information about the unified expiration date feature, see [Unified instance expiration date](https://help.aliyun.com/document_detail/108486.html).
     // 
-    // > The renewal duration parameters (Period and PeriodUnit) and the unified expiration date parameter (ExpectedRenewDay) cannot be set at the same time.
+    // > The renewal duration parameters (`Period` and `PeriodUnit`) and the unified expiration date parameter (`ExpectedRenewDay`) cannot be set at the same time.
     shared_ptr<int32_t> expectedRenewDay_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The renewal duration. Valid values:
     // 
-    // - When PriceUnit is set to Month: 1 to 9.
-    // - When PriceUnit is set to Year: 1 to 3.
+    // - When `PriceUnit` is set to `Month`: 1 to 9.
+    // - When `PriceUnit` is set to `Year`: 1 to 3.
     // 
     // Default value: 1.
     // 
-    // > The renewal duration parameters (Period and PeriodUnit) and the unified expiration date parameter (ExpectedRenewDay) cannot be set at the same time.
+    // > The renewal duration parameters (`Period` and `PeriodUnit`) and the unified expiration date parameter (`ExpectedRenewDay`) cannot be set at the same time.
     shared_ptr<int32_t> period_ {};
     // The unit of the renewal duration. Valid values:
     // 
@@ -149,13 +149,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource whose renewal price you want to query. When ResourceType is set to instance, ResourceId is equivalent to InstanceId.
+    // The ID of the resource for which to query the renewal price. When `ResourceType` is set to `instance`, `ResourceId` is equivalent to `InstanceId`.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource whose renewal price you want to query. Valid values: instance.
+    // The type of the resource for which to query the renewal price. Valid values: instance.
     // 
     // Default value: instance.
     shared_ptr<string> resourceType_ {};

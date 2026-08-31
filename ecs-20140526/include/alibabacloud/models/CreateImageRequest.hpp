@@ -110,9 +110,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key of the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value of the image. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -144,6 +144,10 @@ namespace Models
 
 
     protected:
+      // Specifies whether the image supports Secure Boot. Valid values:
+      // - supported: Secure Boot is supported.
+      // - unsupported: Secure Boot is not supported.
+      // > Secure Boot supports only the UEFI or UEFI-Preferred boot mode.
       shared_ptr<string> secureBootSupport_ {};
     };
 
@@ -176,10 +180,10 @@ namespace Models
 
     protected:
       // The metadata access mode of the image. Valid values:
-      // - v1: When you use this image to create an ECS instance, the metadata access mode cannot be set to hardened mode only.
-      // - v2: When you use this image to create an ECS instance, the metadata access mode can be set to hardened mode only.
+      // - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to "hardened mode only".
+      // - v2: When you create an ECS instance from this image, you can set the metadata access mode to "hardened mode only".
       // 
-      // Default value: When you create an image from a snapshot, the default value is v1. When you create an image from an instance, the default value is the ImdsSupport value of the image used to create the instance.
+      // Default value: When you create an image from a snapshot, the default value is v1. When you create an image from an instance, the default value is the ImdsSupport property value of the image used to create the instance.
       shared_ptr<string> imdsSupport_ {};
     };
 
@@ -240,15 +244,22 @@ namespace Models
 
     protected:
       // The device name in the custom image. Valid values:
-      shared_ptr<string> device_ {};
-      // The disk type in the new image. You can use this parameter to specify a data disk snapshot as the system disk of the image. If you do not specify this parameter, the disk type defaults to the type of the disk corresponding to the snapshot. Valid values:
-      shared_ptr<string> diskType_ {};
-      // The size of the disk. Unit: GiB. The valid values and default value of DiskDeviceMapping.N.Size depend on the value of DiskDeviceMapping.N.SnapshotId:
       // 
-      // - If SnapshotId is not specified, the valid values and default value of Size are as follows:
+      // - The device name of the system disk must be /dev/xvda.
+      // 
+      // - The device names of data disks are in alphabetical order from /dev/xvdb to /dev/xvdz and cannot be duplicated.
+      shared_ptr<string> device_ {};
+      // The type of the disk in the new image. You can use this parameter to specify a data disk snapshot as the system disk of the image. If you do not specify this parameter, the disk type defaults to the type of the disk from which the snapshot was created. Valid values:
+      // 
+      // - system: system disk. Only one system disk snapshot can be specified.
+      // - data: data disk. Up to 16 data disk snapshots can be specified.
+      shared_ptr<string> diskType_ {};
+      // The size of the disk, in GiB. The valid values and default value of DiskDeviceMapping.N.Size depend on DiskDeviceMapping.N.SnapshotId:
+      // 
+      // - If SnapshotId is not specified, the valid values and default value of Size are:
       //     - Basic disk: 5 to 2000 GiB. Default value: 5.
-      //     - Other disk categories: 20 to 32768 GiB. Default value: 20.
-      // - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the specified snapshot. Default value: the size of the specified snapshot.
+      //     - Other disk types: 20 to 32768 GiB. Default value: 20.
+      // - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot. Default value: the size of the snapshot.
       shared_ptr<int32_t> size_ {};
       // The snapshot ID.
       shared_ptr<string> snapshotId_ {};
@@ -423,11 +434,11 @@ namespace Models
 
 
   protected:
-    // The system architecture. After you specify a data disk snapshot as the system disk, you must use this parameter to determine the system architecture of the system disk. Valid values:
+    // The system architecture. After a data disk snapshot is specified as the system disk of the image, use this parameter to specify the system architecture of the system disk. Valid values:
     // 
-    // - i386
-    // - x86_64
-    // - arm64
+    // - i386.
+    // - x86_64.
+    // - arm64.
     // 
     // Default value: x86_64.
     shared_ptr<string> architecture_ {};
@@ -435,11 +446,11 @@ namespace Models
     // 
     // - BIOS: BIOS boot mode.
     // - UEFI: UEFI boot mode.
-    // - (Default) UEFI-Preferred: dual boot mode.
+    // - UEFI-Preferred: dual boot mode.  
     // 
     // <notice>
     // 
-    // To prevent an instance from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the image before you specify this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
+    // To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before specifying this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
     // 
     // </notice>
     shared_ptr<string> bootMode_ {};
@@ -447,14 +458,14 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The description of the image. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The image detection policy. If you do not configure this parameter, detection is not triggered. Only the Standard detection mode is supported.
+    // The image detection strategy. If this parameter is not specified, detection is not triggered. Only the Standard detection mode is supported. 
     // 
-    // > Most Linux and Windows versions are supported. For more information about image detection items and operating system limits, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limits for image detection](https://help.aliyun.com/document_detail/475800.html).
+    // > Most Linux and Windows versions are supported. For more information about image detection items and operating system limitations, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limitations for image detection](https://help.aliyun.com/document_detail/475800.html).
     shared_ptr<string> detectionStrategy_ {};
-    // The information about the disks and snapshots used to create the custom image. If you want to create a custom image from system disk snapshots and data disk snapshots, use this parameter to specify the snapshots.
+    // The disk and snapshot information used to create the custom image. If you want to create a custom image from system disk and data disk snapshots, use this parameter to specify the snapshots.
     shared_ptr<vector<CreateImageRequest::DiskDeviceMapping>> diskDeviceMapping_ {};
     shared_ptr<bool> dryRun_ {};
-    // The attributes related to image features.
+    // The image feature-related properties.
     shared_ptr<CreateImageRequest::Features> features_ {};
     // The image family name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with aliyun or acs:. It cannot contain http:// or https://. It can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> imageFamily_ {};
@@ -462,13 +473,13 @@ namespace Models
     shared_ptr<string> imageName_ {};
     // The image version.
     // 
-    // > If you specify an instance ID (InstanceId) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be set to the same value as the ImageVersion of the current instance image or left empty.
+    // > If you specify an instance ID (`InstanceId`) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be the same as the `ImageVersion` of the current instance image or left empty.
     shared_ptr<string> imageVersion_ {};
     // The instance ID. This parameter is required when you create a custom image from an instance.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The operating system. If you use a data disk snapshot to create the image as the system disk, specify the operating system distribution of the system disk by using Platform. Valid values:
+    // The operating system distribution. After a data disk snapshot is specified as the system disk of the image, use this parameter to specify the operating system distribution of the system disk. Valid values:
     // 
     // - Aliyun
     // - Anolis
@@ -503,14 +514,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the custom image belongs. If you do not specify this parameter, the image belongs to the default resource group.
+    // The ID of the resource group to which the custom image belongs. If you do not set this parameter to a value, the created image belongs to the default resource group.
+    // 
+    // > If you invoke this operation as a Resource Access Management (RAM) user and `ResourceGroupId` is left empty, note that when the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Set a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group by using the corresponding Alibaba Cloud account before invoking this operation again.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The Secure Boot-related parameters.
     shared_ptr<CreateImageRequest::SecureBootOptions> secureBootOptions_ {};
-    // The ID of the snapshot used to create the custom image.
+    // The snapshot ID used to create the custom image.
     // 
-    // > If you want to create a custom image only from the system disk snapshot of an instance, you can use this parameter or the DiskDeviceMapping.N.SnapshotId parameter. If you want to add data disk snapshots, you can only use the DiskDeviceMapping.N.SnapshotId parameter to specify snapshots.
+    // > If you want to create a custom image only from the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. If you want to add data disk snapshots, use only the `DiskDeviceMapping.N.SnapshotId` parameter to specify snapshots.
     shared_ptr<string> snapshotId_ {};
     // The tags.
     shared_ptr<vector<CreateImageRequest::Tag>> tag_ {};

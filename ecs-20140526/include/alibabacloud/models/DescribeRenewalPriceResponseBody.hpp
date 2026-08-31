@@ -205,9 +205,17 @@ namespace Models
 
 
         protected:
+          // The currency unit.
+          // 
+          // China site: CNY.
+          // 
+          // International site: USD.
           shared_ptr<string> currency_ {};
+          // The discount.
           shared_ptr<float> discountPrice_ {};
+          // The original price.
           shared_ptr<float> originalPrice_ {};
+          // The transaction price, which is equal to the original price minus the discount.
           shared_ptr<float> tradePrice_ {};
         };
 
@@ -222,6 +230,7 @@ namespace Models
 
 
       protected:
+        // The Alibaba Cloud Marketplace image price.
         shared_ptr<RelatedPrice::MarketplaceImagePrice> marketplaceImagePrice_ {};
       };
 
@@ -521,6 +530,7 @@ namespace Models
     protected:
       // The price.
       shared_ptr<PriceInfo::Price> price_ {};
+      // The related price.
       shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
     };

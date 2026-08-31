@@ -206,6 +206,10 @@ namespace Models
 
         protected:
           // The currency unit.
+          // 
+          // China site: CNY.
+          // 
+          // International site: USD.
           shared_ptr<string> currency_ {};
           // The discount.
           shared_ptr<float> discountPrice_ {};
@@ -489,6 +493,10 @@ namespace Models
 
       protected:
         // The currency unit.
+        // 
+        // China site: CNY.
+        // 
+        // International site: USD.
         shared_ptr<string> currency_ {};
         shared_ptr<Price::DetailInfos> detailInfos_ {};
         // The discount.

@@ -905,6 +905,9 @@
 #include <alibabacloud/models/ModifyInstanceNetworkSpecRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceNetworkSpecResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceNetworkSpecResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceSecurityOptionsRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceSecurityOptionsResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceSecurityOptionsResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceSpecRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceSpecResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceSpecResponse.hpp>
