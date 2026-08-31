@@ -131,7 +131,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an evaluation task.
        *
-       * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
        * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
        *
        * @param request CreateEvaluationTaskRequest
@@ -144,7 +144,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an evaluation task.
        *
-       * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
        * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
        *
        * @param request CreateEvaluationTaskRequest
@@ -191,7 +191,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @param headers map
@@ -203,7 +203,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @return CreateExperimentPlanResponse
@@ -901,7 +901,7 @@ namespace AgentLoop20260520
       Models::ListExperimentPlansResponse listExperimentPlans(const string &agentSpace, const Models::ListExperimentPlansRequest &request);
 
       /**
-       * @summary Queries the list of experiment run records.
+       * @summary Queries a list of experiment run records.
        *
        * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
        *
@@ -913,7 +913,7 @@ namespace AgentLoop20260520
       Models::ListExperimentRunsResponse listExperimentRunsWithOptions(const string &agentSpace, const Models::ListExperimentRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of experiment run records.
+       * @summary Queries a list of experiment run records.
        *
        * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
        *
@@ -977,14 +977,14 @@ namespace AgentLoop20260520
       Models::PausePipelineResponse pausePipeline(const string &agentSpace, const string &pipelineName, const Models::PausePipelineRequest &request);
 
       /**
-       * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+       * @summary Previews a pipeline. Without creating pipeline resources, this operation performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records to authenticate parameter settings and preview processing results.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
        * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
        * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
-       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
-       * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
+       * - A maximum of 5 records are returned. Internal fields of the data source system are automatically filtered out.
        *
        * @param request PreviewPipelineRequest
        * @param headers map
@@ -994,14 +994,14 @@ namespace AgentLoop20260520
       Models::PreviewPipelineResponse previewPipelineWithOptions(const string &agentSpace, const Models::PreviewPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+       * @summary Previews a pipeline. Without creating pipeline resources, this operation performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records to authenticate parameter settings and preview processing results.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
        * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
        * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
-       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
-       * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
+       * - A maximum of 5 records are returned. Internal fields of the data source system are automatically filtered out.
        *
        * @param request PreviewPipelineRequest
        * @return PreviewPipelineResponse
@@ -1209,7 +1209,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
        *
        * @param request UpdateExperimentPlanRequest
        * @param headers map
@@ -1221,7 +1221,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
        *
        * @param request UpdateExperimentPlanRequest
        * @return UpdateExperimentPlanResponse

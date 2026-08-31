@@ -141,22 +141,23 @@ namespace Models
 
 
   protected:
-    // The associated dataset ID.
+    // The ID of the associated dataset.
     shared_ptr<string> datasetId_ {};
     // Optional.
     shared_ptr<string> datasetProject_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The evaluator list. Omitting this field indicates no modification. Passing an empty array clears the list.
+    // The list of evaluators. Omitting this field indicates no modification. Passing an empty array clears the list.
     shared_ptr<vector<Evaluator>> evaluators_ {};
     // The experiment type.
     shared_ptr<string> experimentType_ {};
-    // The experiment configuration list. When specified, the entire list is replaced. The number of items must be 1 to 5.
+    // The list of experiment configurations. When specified, the entire list is replaced. The number of configurations must be 1 to 5.
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
+    // The name of the associated data processing pipeline. This parameter is optional. If not specified, the value is not updated. If an empty character string is specified, the association is dissociated. After association, when an experiment under this plan finishes execution and writes results to the experiment result Logstore, the system filters by the traceId of the experiment trace and calls PreviewPipeline. The pipeline-processed results are then written together.
     shared_ptr<string> pipelineName_ {};
-    // The experiment plan name.
+    // The name of the experiment plan.
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in partial dataset mode.
     shared_ptr<string> querySql_ {};

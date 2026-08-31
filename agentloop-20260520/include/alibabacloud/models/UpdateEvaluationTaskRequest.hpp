@@ -117,19 +117,19 @@ namespace Models
   protected:
     // The new task configuration. Some fields that are set during creation cannot be modified.
     shared_ptr<map<string, string>> config_ {};
-    // The filter condition for evaluation data. A JSON object or JSON string is supported.
+    // The filter conditions for evaluation data. JSON objects and JSON strings are supported.
     shared_ptr<string> dataFilter_ {};
     // The description of the evaluation task.
     shared_ptr<string> description_ {};
     // The new list of evaluator configurations. When specified, this list entirely replaces the existing evaluator list of the task, and the system re-validates evaluator uniqueness and variable mappings.
     shared_ptr<vector<Evaluator>> evaluators_ {};
-    // The new task execution strategies. A JSON object or JSON string is supported. If the task is in `Completed`, `Terminated`, or `Failed` status and the new strategy enables backfill or continuous mode, the backend resets the task to `Pending` and triggers orchestration.
+    // The new task execution strategies. JSON objects and JSON strings are supported. If the task is in the `Completed`, `Terminated`, or `Failed` state and the new strategy enables backfill or continuous mode, the backend restores the task to the `Pending` state and triggers orchestration.
     shared_ptr<RunStrategies> runStrategies_ {};
-    // The task status. Currently the backend only allows users to explicitly set this to `Terminated`. Other statuses are managed by the system.
+    // The task status. Currently, the backend only allows users to manually set this to `Terminated`. Other statuses are managed by the system.
     shared_ptr<string> status_ {};
     // The key-value pairs of task tags. You do not need to specify this parameter by default. Specify this parameter only when you want to associate or filter tasks by business tags.
     shared_ptr<map<string, string>> tags_ {};
-    // The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+    // The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
     shared_ptr<string> clientToken_ {};
   };
 

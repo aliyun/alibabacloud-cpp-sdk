@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether to write to the target Dataset. Default value: true.
       shared_ptr<bool> dataset_ {};
+      // Specifies whether to return inline results in the response. Default value: false.
       shared_ptr<bool> inline_ {};
     };
 
@@ -101,8 +103,11 @@ namespace Models
 
 
   protected:
+    // The start of the data processing window, in UNIX seconds. This parameter is required for SQL Pipeline and time window-based WorkItem Source. This parameter is optional for checkpoint-based WorkItem Source types such as Dataset and Logstore Pull.
     shared_ptr<int64_t> fromTime_ {};
+    // The output control settings. SQL Pipeline supports overriding. WorkItem Pipeline uses the saved Sink configuration and must keep the default value.
     shared_ptr<RunPipelineRequest::Output> output_ {};
+    // The end of the data processing window, in UNIX seconds. This parameter must be provided together with fromTime and must be greater than fromTime. This parameter is optional for checkpoint-based WorkItem Source types.
     shared_ptr<int64_t> toTime_ {};
   };
 

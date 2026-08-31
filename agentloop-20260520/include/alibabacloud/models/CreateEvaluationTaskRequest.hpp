@@ -142,25 +142,25 @@ namespace Models
 
 
   protected:
-    // The task source. If this parameter is not specified, the backend uses `default`.
+    // The task source. If not specified, the backend defaults to `default`.
     shared_ptr<string> channel_ {};
-    // The data source and execution configuration. When `dataType` is set to `trace`, the backend automatically populates the SLS Project and sets `storeName` to `logstore-tracing`. For trace-level evaluation, set `dataScope` to `trace`.
+    // The data source and execution configuration. When `dataType=trace`, the backend automatically populates the SLS Project and sets `storeName=logstore-tracing`. For trace-level evaluation, set `dataScope=trace`.
     shared_ptr<map<string, string>> config_ {};
-    // The filter conditions for evaluation data. This parameter supports a JSON object or a JSON string. Common fields include `query`, `provided`, `maxRecords`, and `samplingRate`.
+    // The evaluation data filter conditions. Supports a JSON object or JSON string. Common fields include `query`, `provided`, `maxRecords`, and `samplingRate`.
     shared_ptr<string> dataFilter_ {};
-    // The data source type of the evaluation object. Set this parameter to `trace` for trace-based evaluation.
+    // The data source type of the evaluation target. Use `trace` for trace-based evaluation.
     shared_ptr<string> dataType_ {};
-    // The description of the evaluation task.
+    // The evaluation task description.
     shared_ptr<string> description_ {};
-    // The list of evaluator configurations. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence as the unique identifier. Otherwise, `name` is used.
+    // The evaluator configuration list. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence as the unique identifier. Otherwise, `name` is used.
     shared_ptr<vector<Evaluator>> evaluators_ {};
-    // The task execution strategy. This parameter supports a JSON object or a JSON string. Set this parameter to `backfill` for historical data backfill or `continuous` for continuous evaluation of new data.
+    // The task execution strategies. Supports a JSON object or JSON string. `backfill` is used for historical data backfill, and `continuous` is used for continuous evaluation of new data.
     shared_ptr<RunStrategies> runStrategies_ {};
-    // The key-value pairs of task tags. You do not need to specify this parameter by default. Specify this parameter only when you want to associate or filter tasks by business tags.
+    // The task tag key-value pairs. You do not need to specify this parameter by default. Specify this parameter only when you need to associate or filter tasks by business tags.
     shared_ptr<map<string, string>> tags_ {};
-    // The evaluation task mode. Set this parameter to `batch` to create a persistent evaluation task.
+    // The evaluation task mode. `batch` creates a persistent evaluation task.
     shared_ptr<string> taskMode_ {};
-    // The task name. The name must be unique among non-deleted tasks within the same user and AgentSpace. The name can be up to 256 characters in length.
+    // The task name. The name must be unique among non-deleted tasks under the same user and AgentSpace. The name can be up to 256 characters in length.
     shared_ptr<string> taskName_ {};
     // The idempotency token. This query parameter is declared in CloudSpec, but the backend does not currently perform idempotency comparison.
     shared_ptr<string> clientToken_ {};

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_AGENTLOOP20260520MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/BackfillStrategy.hpp>
+#include <alibabacloud/models/EvaluatorVariableExtractorMappingValue.hpp>
 #include <alibabacloud/models/Evaluator.hpp>
 #include <alibabacloud/models/ModelParameters.hpp>
 #include <alibabacloud/models/PromptTemplateItem.hpp>

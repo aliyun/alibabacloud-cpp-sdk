@@ -202,11 +202,11 @@ namespace Models
     shared_ptr<string> agentSpace_ {};
     // The task source.
     shared_ptr<string> channel_ {};
-    // The data source and execution configuration. Tasks with `dataType=trace` typically include `project`, `storeName`, and `dataScope` fields populated by the backend.
+    // The data source and execution configuration. Tasks with `dataType=trace` typically contain `project`, `storeName`, and `dataScope` fields that are populated by the backend.
     shared_ptr<map<string, string>> config_ {};
     // The creation time, in seconds-level UNIX timestamp.
     shared_ptr<int64_t> createdAt_ {};
-    // The filter conditions for evaluation data, returned by the backend as a JSON string.
+    // The evaluation data filter condition, returned by the backend as a JSON string.
     shared_ptr<string> dataFilter_ {};
     // The data source type of the evaluation object.
     shared_ptr<string> dataType_ {};

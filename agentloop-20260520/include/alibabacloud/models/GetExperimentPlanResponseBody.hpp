@@ -178,7 +178,7 @@ namespace Models
 
 
   protected:
-    // The creation time. This value is a millisecond-level UNIX timestamp.
+    // The creation time, in millisecond-level UNIX timestamp.
     shared_ptr<int64_t> createdAt_ {};
     // The associated dataset ID.
     shared_ptr<string> datasetId_ {};
@@ -192,6 +192,7 @@ namespace Models
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
+    // The name of the associated data processing pipeline. This value is empty if no pipeline is associated.
     shared_ptr<string> pipelineName_ {};
     // The experiment plan ID.
     shared_ptr<string> planId_ {};
@@ -201,11 +202,11 @@ namespace Models
     shared_ptr<string> querySql_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of selected data item IDs in partial dataset mode.
+    // The list of data item IDs selected in partial dataset mode.
     shared_ptr<vector<string>> selectedItemIds_ {};
     // The plan status.
     shared_ptr<string> status_ {};
-    // The update time. This value is a millisecond-level UNIX timestamp.
+    // The update time, in millisecond-level UNIX timestamp.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

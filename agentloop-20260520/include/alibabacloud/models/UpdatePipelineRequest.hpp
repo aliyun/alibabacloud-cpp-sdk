@@ -43,10 +43,14 @@ namespace Models
     class Source : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Source& obj) { 
+        DARABONBA_PTR_TO_JSON(dataset, dataset_);
+        DARABONBA_PTR_TO_JSON(inputFields, inputFields_);
         DARABONBA_PTR_TO_JSON(logstore, logstore_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Source& obj) { 
+        DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+        DARABONBA_PTR_FROM_JSON(inputFields, inputFields_);
         DARABONBA_PTR_FROM_JSON(logstore, logstore_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
@@ -65,10 +69,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Logstore& obj) { 
           DARABONBA_PTR_TO_JSON(logstore, logstore_);
+          DARABONBA_PTR_TO_JSON(project, project_);
           DARABONBA_PTR_TO_JSON(query, query_);
         };
         friend void from_json(const Darabonba::Json& j, Logstore& obj) { 
           DARABONBA_PTR_FROM_JSON(logstore, logstore_);
+          DARABONBA_PTR_FROM_JSON(project, project_);
           DARABONBA_PTR_FROM_JSON(query, query_);
         };
         Logstore() = default ;
@@ -83,12 +89,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->logstore_ == nullptr
-        && this->query_ == nullptr; };
+        && this->project_ == nullptr && this->query_ == nullptr; };
         // logstore Field Functions 
         bool hasLogstore() const { return this->logstore_ != nullptr;};
         void deleteLogstore() { this->logstore_ = nullptr;};
         inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
         inline Logstore& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
+
+
+        // project Field Functions 
+        bool hasProject() const { return this->project_ != nullptr;};
+        void deleteProject() { this->project_ = nullptr;};
+        inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+        inline Logstore& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
         // query Field Functions 
@@ -101,12 +114,120 @@ namespace Models
       protected:
         // The name of the SLS Logstore.
         shared_ptr<string> logstore_ {};
+        // The name of the SLS project.
+        shared_ptr<string> project_ {};
         // The data filtered query statement in SLS query/analysis syntax.
         shared_ptr<string> query_ {};
       };
 
-      virtual bool empty() const override { return this->logstore_ == nullptr
+      class InputFields : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InputFields& obj) { 
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, InputFields& obj) { 
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        InputFields() = default ;
+        InputFields(const InputFields &) = default ;
+        InputFields(InputFields &&) = default ;
+        InputFields(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InputFields() = default ;
+        InputFields& operator=(const InputFields &) = default ;
+        InputFields& operator=(InputFields &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
         && this->type_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline InputFields& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline InputFields& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The field name.
+        shared_ptr<string> name_ {};
+        // The field type. Valid values: text, long, double, and json.
+        shared_ptr<string> type_ {};
+      };
+
+      class Dataset : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
+          DARABONBA_PTR_TO_JSON(dataset, dataset_);
+          DARABONBA_PTR_TO_JSON(filter, filter_);
+        };
+        friend void from_json(const Darabonba::Json& j, Dataset& obj) { 
+          DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+          DARABONBA_PTR_FROM_JSON(filter, filter_);
+        };
+        Dataset() = default ;
+        Dataset(const Dataset &) = default ;
+        Dataset(Dataset &&) = default ;
+        Dataset(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Dataset() = default ;
+        Dataset& operator=(const Dataset &) = default ;
+        Dataset& operator=(Dataset &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dataset_ == nullptr
+        && this->filter_ == nullptr; };
+        // dataset Field Functions 
+        bool hasDataset() const { return this->dataset_ != nullptr;};
+        void deleteDataset() { this->dataset_ = nullptr;};
+        inline string getDataset() const { DARABONBA_PTR_GET_DEFAULT(dataset_, "") };
+        inline Dataset& setDataset(string dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+
+
+        // filter Field Functions 
+        bool hasFilter() const { return this->filter_ != nullptr;};
+        void deleteFilter() { this->filter_ = nullptr;};
+        inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+        inline Dataset& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
+
+
+      protected:
+        // The name of the source dataset.
+        shared_ptr<string> dataset_ {};
+        // The filter condition for the dataset data.
+        shared_ptr<string> filter_ {};
+      };
+
+      virtual bool empty() const override { return this->dataset_ == nullptr
+        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->type_ == nullptr; };
+      // dataset Field Functions 
+      bool hasDataset() const { return this->dataset_ != nullptr;};
+      void deleteDataset() { this->dataset_ = nullptr;};
+      inline const Source::Dataset & getDataset() const { DARABONBA_PTR_GET_CONST(dataset_, Source::Dataset) };
+      inline Source::Dataset getDataset() { DARABONBA_PTR_GET(dataset_, Source::Dataset) };
+      inline Source& setDataset(const Source::Dataset & dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+      inline Source& setDataset(Source::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
+
+
+      // inputFields Field Functions 
+      bool hasInputFields() const { return this->inputFields_ != nullptr;};
+      void deleteInputFields() { this->inputFields_ = nullptr;};
+      inline const vector<Source::InputFields> & getInputFields() const { DARABONBA_PTR_GET_CONST(inputFields_, vector<Source::InputFields>) };
+      inline vector<Source::InputFields> getInputFields() { DARABONBA_PTR_GET(inputFields_, vector<Source::InputFields>) };
+      inline Source& setInputFields(const vector<Source::InputFields> & inputFields) { DARABONBA_PTR_SET_VALUE(inputFields_, inputFields) };
+      inline Source& setInputFields(vector<Source::InputFields> && inputFields) { DARABONBA_PTR_SET_RVALUE(inputFields_, inputFields) };
+
+
       // logstore Field Functions 
       bool hasLogstore() const { return this->logstore_ != nullptr;};
       void deleteLogstore() { this->logstore_ = nullptr;};
@@ -124,19 +245,25 @@ namespace Models
 
 
     protected:
+      // The dataset datasource config within the current AgentSpace.
+      shared_ptr<Source::Dataset> dataset_ {};
+      // The input fields and their types. This parameter applies to all data source types.
+      shared_ptr<vector<Source::InputFields>> inputFields_ {};
       // The SLS Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The data source type, such as SLS.
+      // The data source type. Valid values: logstore and dataset.
       shared_ptr<string> type_ {};
     };
 
     class Sink : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Sink& obj) { 
+        DARABONBA_PTR_TO_JSON(condition, condition_);
         DARABONBA_PTR_TO_JSON(dataset, dataset_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Sink& obj) { 
+        DARABONBA_PTR_FROM_JSON(condition, condition_);
         DARABONBA_PTR_FROM_JSON(dataset, dataset_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
@@ -189,13 +316,319 @@ namespace Models
 
 
       protected:
+        // The name of the AgentSpace to which the destination dataset belongs.
         shared_ptr<string> agentSpace_ {};
         // The name of the destination dataset.
         shared_ptr<string> dataset_ {};
       };
 
-      virtual bool empty() const override { return this->dataset_ == nullptr
+      class Condition : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Condition& obj) { 
+          DARABONBA_PTR_TO_JSON(defaultSink, defaultSink_);
+          DARABONBA_PTR_TO_JSON(matchMode, matchMode_);
+          DARABONBA_PTR_TO_JSON(routes, routes_);
+        };
+        friend void from_json(const Darabonba::Json& j, Condition& obj) { 
+          DARABONBA_PTR_FROM_JSON(defaultSink, defaultSink_);
+          DARABONBA_PTR_FROM_JSON(matchMode, matchMode_);
+          DARABONBA_PTR_FROM_JSON(routes, routes_);
+        };
+        Condition() = default ;
+        Condition(const Condition &) = default ;
+        Condition(Condition &&) = default ;
+        Condition(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Condition() = default ;
+        Condition& operator=(const Condition &) = default ;
+        Condition& operator=(Condition &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Routes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Routes& obj) { 
+            DARABONBA_PTR_TO_JSON(expression, expression_);
+            DARABONBA_PTR_TO_JSON(id, id_);
+            DARABONBA_PTR_TO_JSON(sink, sink_);
+          };
+          friend void from_json(const Darabonba::Json& j, Routes& obj) { 
+            DARABONBA_PTR_FROM_JSON(expression, expression_);
+            DARABONBA_PTR_FROM_JSON(id, id_);
+            DARABONBA_PTR_FROM_JSON(sink, sink_);
+          };
+          Routes() = default ;
+          Routes(const Routes &) = default ;
+          Routes(Routes &&) = default ;
+          Routes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Routes() = default ;
+          Routes& operator=(const Routes &) = default ;
+          Routes& operator=(Routes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Sink : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Sink& obj) { 
+              DARABONBA_PTR_TO_JSON(dataset, dataset_);
+              DARABONBA_PTR_TO_JSON(type, type_);
+            };
+            friend void from_json(const Darabonba::Json& j, Sink& obj) { 
+              DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+              DARABONBA_PTR_FROM_JSON(type, type_);
+            };
+            Sink() = default ;
+            Sink(const Sink &) = default ;
+            Sink(Sink &&) = default ;
+            Sink(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Sink() = default ;
+            Sink& operator=(const Sink &) = default ;
+            Sink& operator=(Sink &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Dataset : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
+                DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
+                DARABONBA_PTR_TO_JSON(dataset, dataset_);
+              };
+              friend void from_json(const Darabonba::Json& j, Dataset& obj) { 
+                DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
+                DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+              };
+              Dataset() = default ;
+              Dataset(const Dataset &) = default ;
+              Dataset(Dataset &&) = default ;
+              Dataset(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Dataset() = default ;
+              Dataset& operator=(const Dataset &) = default ;
+              Dataset& operator=(Dataset &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->agentSpace_ == nullptr
+        && this->dataset_ == nullptr; };
+              // agentSpace Field Functions 
+              bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
+              void deleteAgentSpace() { this->agentSpace_ = nullptr;};
+              inline string getAgentSpace() const { DARABONBA_PTR_GET_DEFAULT(agentSpace_, "") };
+              inline Dataset& setAgentSpace(string agentSpace) { DARABONBA_PTR_SET_VALUE(agentSpace_, agentSpace) };
+
+
+              // dataset Field Functions 
+              bool hasDataset() const { return this->dataset_ != nullptr;};
+              void deleteDataset() { this->dataset_ = nullptr;};
+              inline string getDataset() const { DARABONBA_PTR_GET_DEFAULT(dataset_, "") };
+              inline Dataset& setDataset(string dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+
+
+            protected:
+              // The name of the AgentSpace to which the destination dataset belongs.
+              shared_ptr<string> agentSpace_ {};
+              // The name of the destination dataset.
+              shared_ptr<string> dataset_ {};
+            };
+
+            virtual bool empty() const override { return this->dataset_ == nullptr
         && this->type_ == nullptr; };
+            // dataset Field Functions 
+            bool hasDataset() const { return this->dataset_ != nullptr;};
+            void deleteDataset() { this->dataset_ = nullptr;};
+            inline const Sink::Dataset & getDataset() const { DARABONBA_PTR_GET_CONST(dataset_, Sink::Dataset) };
+            inline Sink::Dataset getDataset() { DARABONBA_PTR_GET(dataset_, Sink::Dataset) };
+            inline Sink& setDataset(const Sink::Dataset & dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+            inline Sink& setDataset(Sink::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
+
+
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline Sink& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          protected:
+            // The destination dataset for the route.
+            shared_ptr<Sink::Dataset> dataset_ {};
+            // The route destination type. Currently, only dataset is supported.
+            shared_ptr<string> type_ {};
+          };
+
+          virtual bool empty() const override { return this->expression_ == nullptr
+        && this->id_ == nullptr && this->sink_ == nullptr; };
+          // expression Field Functions 
+          bool hasExpression() const { return this->expression_ != nullptr;};
+          void deleteExpression() { this->expression_ = nullptr;};
+          inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+          inline Routes& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
+
+
+          // id Field Functions 
+          bool hasId() const { return this->id_ != nullptr;};
+          void deleteId() { this->id_ = nullptr;};
+          inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+          inline Routes& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+          // sink Field Functions 
+          bool hasSink() const { return this->sink_ != nullptr;};
+          void deleteSink() { this->sink_ = nullptr;};
+          inline const Routes::Sink & getSink() const { DARABONBA_PTR_GET_CONST(sink_, Routes::Sink) };
+          inline Routes::Sink getSink() { DARABONBA_PTR_GET(sink_, Routes::Sink) };
+          inline Routes& setSink(const Routes::Sink & sink) { DARABONBA_PTR_SET_VALUE(sink_, sink) };
+          inline Routes& setSink(Routes::Sink && sink) { DARABONBA_PTR_SET_RVALUE(sink_, sink) };
+
+
+        protected:
+          // The route expression in SPL. Only where, project, and extend are supported.
+          shared_ptr<string> expression_ {};
+          // The route ID.
+          shared_ptr<string> id_ {};
+          // The write destination for the route.
+          shared_ptr<Routes::Sink> sink_ {};
+        };
+
+        class DefaultSink : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DefaultSink& obj) { 
+            DARABONBA_PTR_TO_JSON(dataset, dataset_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, DefaultSink& obj) { 
+            DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          DefaultSink() = default ;
+          DefaultSink(const DefaultSink &) = default ;
+          DefaultSink(DefaultSink &&) = default ;
+          DefaultSink(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DefaultSink() = default ;
+          DefaultSink& operator=(const DefaultSink &) = default ;
+          DefaultSink& operator=(DefaultSink &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Dataset : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
+              DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
+              DARABONBA_PTR_TO_JSON(dataset, dataset_);
+            };
+            friend void from_json(const Darabonba::Json& j, Dataset& obj) { 
+              DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
+              DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+            };
+            Dataset() = default ;
+            Dataset(const Dataset &) = default ;
+            Dataset(Dataset &&) = default ;
+            Dataset(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Dataset() = default ;
+            Dataset& operator=(const Dataset &) = default ;
+            Dataset& operator=(Dataset &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->agentSpace_ == nullptr
+        && this->dataset_ == nullptr; };
+            // agentSpace Field Functions 
+            bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
+            void deleteAgentSpace() { this->agentSpace_ = nullptr;};
+            inline string getAgentSpace() const { DARABONBA_PTR_GET_DEFAULT(agentSpace_, "") };
+            inline Dataset& setAgentSpace(string agentSpace) { DARABONBA_PTR_SET_VALUE(agentSpace_, agentSpace) };
+
+
+            // dataset Field Functions 
+            bool hasDataset() const { return this->dataset_ != nullptr;};
+            void deleteDataset() { this->dataset_ = nullptr;};
+            inline string getDataset() const { DARABONBA_PTR_GET_DEFAULT(dataset_, "") };
+            inline Dataset& setDataset(string dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+
+
+          protected:
+            // The name of the AgentSpace to which the default destination dataset belongs.
+            shared_ptr<string> agentSpace_ {};
+            // The name of the default destination dataset.
+            shared_ptr<string> dataset_ {};
+          };
+
+          virtual bool empty() const override { return this->dataset_ == nullptr
+        && this->type_ == nullptr; };
+          // dataset Field Functions 
+          bool hasDataset() const { return this->dataset_ != nullptr;};
+          void deleteDataset() { this->dataset_ = nullptr;};
+          inline const DefaultSink::Dataset & getDataset() const { DARABONBA_PTR_GET_CONST(dataset_, DefaultSink::Dataset) };
+          inline DefaultSink::Dataset getDataset() { DARABONBA_PTR_GET(dataset_, DefaultSink::Dataset) };
+          inline DefaultSink& setDataset(const DefaultSink::Dataset & dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+          inline DefaultSink& setDataset(DefaultSink::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline DefaultSink& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          // The default destination dataset.
+          shared_ptr<DefaultSink::Dataset> dataset_ {};
+          // The default destination type. Currently, only dataset is supported.
+          shared_ptr<string> type_ {};
+        };
+
+        virtual bool empty() const override { return this->defaultSink_ == nullptr
+        && this->matchMode_ == nullptr && this->routes_ == nullptr; };
+        // defaultSink Field Functions 
+        bool hasDefaultSink() const { return this->defaultSink_ != nullptr;};
+        void deleteDefaultSink() { this->defaultSink_ = nullptr;};
+        inline const Condition::DefaultSink & getDefaultSink() const { DARABONBA_PTR_GET_CONST(defaultSink_, Condition::DefaultSink) };
+        inline Condition::DefaultSink getDefaultSink() { DARABONBA_PTR_GET(defaultSink_, Condition::DefaultSink) };
+        inline Condition& setDefaultSink(const Condition::DefaultSink & defaultSink) { DARABONBA_PTR_SET_VALUE(defaultSink_, defaultSink) };
+        inline Condition& setDefaultSink(Condition::DefaultSink && defaultSink) { DARABONBA_PTR_SET_RVALUE(defaultSink_, defaultSink) };
+
+
+        // matchMode Field Functions 
+        bool hasMatchMode() const { return this->matchMode_ != nullptr;};
+        void deleteMatchMode() { this->matchMode_ = nullptr;};
+        inline string getMatchMode() const { DARABONBA_PTR_GET_DEFAULT(matchMode_, "") };
+        inline Condition& setMatchMode(string matchMode) { DARABONBA_PTR_SET_VALUE(matchMode_, matchMode) };
+
+
+        // routes Field Functions 
+        bool hasRoutes() const { return this->routes_ != nullptr;};
+        void deleteRoutes() { this->routes_ = nullptr;};
+        inline const vector<Condition::Routes> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<Condition::Routes>) };
+        inline vector<Condition::Routes> getRoutes() { DARABONBA_PTR_GET(routes_, vector<Condition::Routes>) };
+        inline Condition& setRoutes(const vector<Condition::Routes> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
+        inline Condition& setRoutes(vector<Condition::Routes> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
+
+
+      protected:
+        // The default write destination used when no conditional route is matched.
+        shared_ptr<Condition::DefaultSink> defaultSink_ {};
+        // The route matching mode. Currently, only all is supported.
+        shared_ptr<string> matchMode_ {};
+        // The list of conditional routes.
+        shared_ptr<vector<Condition::Routes>> routes_ {};
+      };
+
+      virtual bool empty() const override { return this->condition_ == nullptr
+        && this->dataset_ == nullptr && this->type_ == nullptr; };
+      // condition Field Functions 
+      bool hasCondition() const { return this->condition_ != nullptr;};
+      void deleteCondition() { this->condition_ = nullptr;};
+      inline const Sink::Condition & getCondition() const { DARABONBA_PTR_GET_CONST(condition_, Sink::Condition) };
+      inline Sink::Condition getCondition() { DARABONBA_PTR_GET(condition_, Sink::Condition) };
+      inline Sink& setCondition(const Sink::Condition & condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
+      inline Sink& setCondition(Sink::Condition && condition) { DARABONBA_PTR_SET_RVALUE(condition_, condition) };
+
+
       // dataset Field Functions 
       bool hasDataset() const { return this->dataset_ != nullptr;};
       void deleteDataset() { this->dataset_ = nullptr;};
@@ -213,9 +646,11 @@ namespace Models
 
 
     protected:
-      // The destination dataset configuration.
+      // The conditional routing configuration. This parameter takes effect only when sink.type is set to condition.
+      shared_ptr<Sink::Condition> condition_ {};
+      // The destination dataset configuration for the dataset sink. This parameter takes effect only when sink.type is set to dataset.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The sink type, such as Dataset.
+      // The sink type. Valid values: dataset and condition.
       shared_ptr<string> type_ {};
     };
 
@@ -289,7 +724,7 @@ namespace Models
       protected:
         // The node ID.
         shared_ptr<string> id_ {};
-        // The node parameters in key-value format. The parameters vary by node type.
+        // The node parameters in key-value format. The parameters vary depending on the node type.
         Darabonba::Json parameters_ {};
         // The node type.
         shared_ptr<string> type_ {};
@@ -373,7 +808,7 @@ namespace Models
       protected:
         // The scheduling start time, in UNIX millisecond timestamp.
         shared_ptr<int64_t> fromTime_ {};
-        // The scheduling interval, such as 1h.
+        // The scheduling interval. For example, 1h.
         shared_ptr<string> interval_ {};
       };
 
@@ -415,9 +850,9 @@ namespace Models
 
 
       protected:
-        // The data processing start time, in UNIX millisecond timestamp.
+        // The start time for data processing, in UNIX millisecond timestamp.
         shared_ptr<int64_t> fromTime_ {};
-        // The data processing end time, in UNIX millisecond timestamp.
+        // The end time for data processing, in UNIX millisecond timestamp.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -449,7 +884,7 @@ namespace Models
 
 
     protected:
-      // The scheduling mode, such as Scheduled (timed scheduling) or RunOnce (one-time execution).
+      // The scheduling mode. For example, Scheduled (timed scheduling) or RunOnce (one-time execution).
       shared_ptr<string> mode_ {};
       // The configuration for one-time execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
@@ -512,14 +947,15 @@ namespace Models
   protected:
     // The description of the pipeline, which helps users understand its purpose.
     shared_ptr<string> description_ {};
-    // The execution policy. If specified, the existing execution policy is entirely overwritten.
+    // The scheduling policy. If provided, the entire scheduling policy is overwritten.
     shared_ptr<UpdatePipelineRequest::ExecutePolicy> executePolicy_ {};
     // The pipeline configuration (node orchestration). If specified, the existing pipeline configuration is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::Pipeline> pipeline_ {};
-    // The pipeline sink (data write destination). If specified, the existing sink configuration is entirely overwritten.
+    // The pipeline sink (data write destination). If provided, the entire sink configuration is overwritten.
     shared_ptr<UpdatePipelineRequest::Sink> sink_ {};
     // The pipeline data source. If specified, the existing source configuration is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::Source> source_ {};
+    // The idempotency token. A unique string generated by the client to ensure the idempotency of the update operation.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The prompt message.
     shared_ptr<string> message_ {};
-    // The experiment plan ID.
+    // The ID of the experiment plan.
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The update result. The value is updated if the operation is successful.
+    // The update result. A value of updated indicates success.
     shared_ptr<string> status_ {};
   };
 

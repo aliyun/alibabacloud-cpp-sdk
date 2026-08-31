@@ -219,7 +219,7 @@ namespace Models
     protected:
       // The aggregation analysis SPL statement.
       shared_ptr<string> aggQuery_ {};
-      // The `meta.columnTypes` field provides a mapping from column names to data types (string / long / double / json).
+      // `meta.columnTypes` provides the mapping from column names to data types (string / long / double / json).
       shared_ptr<vector<string>> columnTypes_ {};
       // The number of matched log entries.
       shared_ptr<int32_t> count_ {};
@@ -235,19 +235,19 @@ namespace Models
       shared_ptr<bool> isAccurate_ {};
       // The list of result column names.
       shared_ptr<vector<string>> keys_ {};
-      // The maximum number of result rows returned.
+      // The maximum number of rows that can be returned.
       shared_ptr<int32_t> limited_ {};
       // The query mode identifier.
       shared_ptr<int32_t> mode_ {};
-      // The number of processed data bytes.
+      // The number of data bytes processed.
       shared_ptr<int64_t> processedBytes_ {};
       // The number of processed log rows.
       shared_ptr<int64_t> processedRows_ {};
-      // The SLS query progress. A value of Complete indicates that the query is complete.
+      // The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is complete.
       shared_ptr<string> progress_ {};
       // The number of raw data bytes scanned.
       shared_ptr<int64_t> scanBytes_ {};
-      // The column type and aggregation information.
+      // The type and aggregation information of columns.
       shared_ptr<vector<Darabonba::Json>> terms_ {};
       // The filter condition SPL statement.
       shared_ptr<string> whereQuery_ {};
@@ -281,7 +281,7 @@ namespace Models
 
 
   protected:
-    // The `data` field is a collection of sample rows (an array of maps) that contains only the first N rows (up to 5 by default) and does not reflect the complete write plan.
+    // `data` is a collection of sample rows (maps within an array) that contains only the first N rows (up to 5 by default) and does not reflect the complete write plan.
     shared_ptr<vector<map<string, string>>> data_ {};
     // The query metadata.
     shared_ptr<PreviewPipelineResponseBody::Meta> meta_ {};

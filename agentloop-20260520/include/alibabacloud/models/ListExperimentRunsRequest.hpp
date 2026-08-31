@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters results by fuzzy match on experiment plan name.
+    // Filters results by fuzzy match on the experiment plan name.
     shared_ptr<string> planName_ {};
     // Filters results by status.
     shared_ptr<string> status_ {};

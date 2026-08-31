@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_EVALUATOR_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/EvaluatorVariableExtractorMappingValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resultName, resultName_);
       DARABONBA_PTR_TO_JSON(resultType, resultType_);
       DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(variableExtractorMapping, variableExtractorMapping_);
       DARABONBA_PTR_TO_JSON(variableMapping, variableMapping_);
     };
     friend void from_json(const Darabonba::Json& j, Evaluator& obj) { 
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resultName, resultName_);
       DARABONBA_PTR_FROM_JSON(resultType, resultType_);
       DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(variableExtractorMapping, variableExtractorMapping_);
       DARABONBA_PTR_FROM_JSON(variableMapping, variableMapping_);
     };
     Evaluator() = default ;
@@ -46,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
         && this->evaluatorRef_ == nullptr && this->filters_ == nullptr && this->name_ == nullptr && this->resultName_ == nullptr && this->resultType_ == nullptr
-        && this->type_ == nullptr && this->variableMapping_ == nullptr; };
+        && this->type_ == nullptr && this->variableExtractorMapping_ == nullptr && this->variableMapping_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -100,6 +103,15 @@ namespace Models
     inline Evaluator& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // variableExtractorMapping Field Functions 
+    bool hasVariableExtractorMapping() const { return this->variableExtractorMapping_ != nullptr;};
+    void deleteVariableExtractorMapping() { this->variableExtractorMapping_ = nullptr;};
+    inline const map<string, EvaluatorVariableExtractorMappingValue> & getVariableExtractorMapping() const { DARABONBA_PTR_GET_CONST(variableExtractorMapping_, map<string, EvaluatorVariableExtractorMappingValue>) };
+    inline map<string, EvaluatorVariableExtractorMappingValue> getVariableExtractorMapping() { DARABONBA_PTR_GET(variableExtractorMapping_, map<string, EvaluatorVariableExtractorMappingValue>) };
+    inline Evaluator& setVariableExtractorMapping(const map<string, EvaluatorVariableExtractorMappingValue> & variableExtractorMapping) { DARABONBA_PTR_SET_VALUE(variableExtractorMapping_, variableExtractorMapping) };
+    inline Evaluator& setVariableExtractorMapping(map<string, EvaluatorVariableExtractorMappingValue> && variableExtractorMapping) { DARABONBA_PTR_SET_RVALUE(variableExtractorMapping_, variableExtractorMapping) };
+
+
     // variableMapping Field Functions 
     bool hasVariableMapping() const { return this->variableMapping_ != nullptr;};
     void deleteVariableMapping() { this->variableMapping_ = nullptr;};
@@ -110,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The evaluator runtime configuration. For inline LLM evaluators, this must include configurations such as prompt. When referencing an existing evaluator, this parameter is typically not required and is only specified when runtime parameters such as version need to be set.
+    // The runtime configuration of the evaluator. For inline LLM evaluators, this must include configurations such as prompt. When referencing an existing evaluator, this parameter is typically not required and should only be specified when runtime parameters such as version need to be set.
     Darabonba::Json config_ {};
     // The reference name of a registered evaluator. When specified, the evaluator definition is loaded by this reference with higher priority. Both built-in evaluators and custom evaluators are supported.
     shared_ptr<string> evaluatorRef_ {};
@@ -120,10 +132,12 @@ namespace Models
     shared_ptr<string> name_ {};
     // The field name for the evaluation result. Required for inline evaluators. When referencing an existing evaluator, the metricName defined in the evaluator definition is used if this parameter is not specified.
     shared_ptr<string> resultName_ {};
-    // The evaluation result type. Required for inline evaluators. Defaults to score when referencing an existing evaluator and this parameter is not specified.
+    // The evaluation result type. Required for inline evaluators. When referencing an existing evaluator, defaults to score if not specified.
     shared_ptr<string> resultType_ {};
-    // The evaluator type. Defaults to LLM if not specified. Inline CODE evaluators are currently not supported. For CODE type evaluators, reference a previously created evaluator by using evaluatorRef.
+    // The evaluator type. Defaults to LLM if not specified. Inline CODE evaluators are not currently supported. For the CODE type, reference a previously created evaluator by using evaluatorRef.
     shared_ptr<string> type_ {};
+    // The variable extraction rule mapping that maps evaluator variables to a portion of the content within an evaluation data field. This is applicable when the variable value is not the entire field but a subset of the field content. This parameter shares the same variable name key space as variableMapping. Each variable can use only one of the two. Duplicate configurations cause an error. When referencing an existing evaluator, the variable names must exist in the evaluator definition. Call ListTraceFieldExtractionsPreview to perform a trial run for validation before saving.
+    shared_ptr<map<string, EvaluatorVariableExtractorMappingValue>> variableExtractorMapping_ {};
     // The variable mapping that maps evaluator variables to evaluation data fields. Required for LLM/AGENT inline evaluators. When referencing an existing evaluator, the variable names must exist in the evaluator definition.
     shared_ptr<map<string, string>> variableMapping_ {};
   };

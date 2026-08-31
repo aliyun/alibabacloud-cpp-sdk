@@ -136,26 +136,27 @@ namespace Models
     shared_ptr<string> datasetId_ {};
     // The description of the experiment plan.
     shared_ptr<string> description_ {};
-    // The list of evaluators. After configuration, evaluation can be automatically triggered when the experiment completes.
+    // The list of evaluators. When configured, evaluation can be automatically triggered upon experiment completion.
     shared_ptr<vector<Evaluator>> evaluators_ {};
     // The experiment type. Set this parameter to `OFFLINE` or `ONLINE`.
     // 
     // This parameter is required.
     shared_ptr<string> experimentType_ {};
-    // The list of experiment configurations. A maximum of 5 configurations are supported. For offline experiments, this parameter can be omitted or set to an empty array. For online experiments, at least one configuration is required.
+    // The list of experiment configurations. A maximum of five configurations are supported. For offline experiments, this parameter can be omitted or set to an empty array. For online experiments, at least one configuration is required.
     // 
     // This parameter is required.
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
+    // The name of the associated data processing pipeline (optional). After association, when the experiment execution under this plan writes results to the experiment result Logstore, the system filters by the traceId of the experiment trace, calls PreviewPipeline, and writes the pipeline-processed results together.
     shared_ptr<string> pipelineName_ {};
-    // The experiment plan name. The name must be unique within the same AgentSpace and account.
+    // The experiment plan name. The name must be unique within the same AgentSpace under the same account.
     // 
     // This parameter is required.
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in partial dataset mode. This parameter can be used when `selectedItemIds` is empty.
     shared_ptr<string> querySql_ {};
-    // The list of selected data item IDs in partial dataset mode. This parameter must be used together with `datasetId`.
+    // The list of selected data item IDs in partial dataset mode. Use this parameter together with `datasetId`.
     shared_ptr<vector<string>> selectedItemIds_ {};
   };
 
