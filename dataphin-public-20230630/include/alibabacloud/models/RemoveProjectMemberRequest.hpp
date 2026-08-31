@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RemoveProjectMemberRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(RemoveCommand, removeCommand_);
     };
     friend void from_json(const Darabonba::Json& j, RemoveProjectMemberRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(RemoveCommand, removeCommand_);
     };
     RemoveProjectMemberRequest() = default ;
@@ -83,7 +85,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->opTenantId_ == nullptr && this->removeCommand_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->removeCommand_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline RemoveProjectMemberRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline RemoveProjectMemberRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // removeCommand Field Functions 
@@ -116,6 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The command to remove a member.
     // 
     // This parameter is required.

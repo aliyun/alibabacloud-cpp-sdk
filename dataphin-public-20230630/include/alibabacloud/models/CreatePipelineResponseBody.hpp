@@ -104,17 +104,17 @@ namespace Models
 
 
     protected:
-      // Server-side execution machine name and IP
+      // The name and IP address of the server machine that executes the task.
       shared_ptr<string> hostMachine_ {};
-      // Scheduling node ID of the pipeline/workflow task after successful creation
+      // The scheduling node ID of the pipeline or workflow task after successful creation.
       shared_ptr<string> nodeId_ {};
-      // Pipeline/workflow ID after successful creation
+      // The pipeline or workflow ID after successful creation.
       shared_ptr<int64_t> pipelineId_ {};
-      // Submit ID of the pending release list generated after successfully submitting the pipeline, used for release through the release domain.
-      // Workflow tasks only support PROD, so this value is not applicable.
+      // The submit ID of the pending publish list generated after the pipeline is submitted. Use this ID to publish through the publish domain.
+      // Workflow tasks support only PROD, so this value is not returned for workflow tasks.
       shared_ptr<int64_t> submitId_ {};
-      // Pending release version number generated after pipeline submission.
-      // Workflow tasks only support PROD, so this value is not applicable.
+      // The pending publish version number generated after the pipeline is submitted.
+      // Workflow tasks support only PROD, so this value is not returned for workflow tasks.
       shared_ptr<string> version_ {};
     };
 
@@ -165,17 +165,17 @@ namespace Models
 
 
   protected:
-    // Backend response code
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // Integration pipeline/workflow task creation result
+    // The creation result of the integration pipeline or workflow task.
     shared_ptr<CreatePipelineResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend response exception details
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

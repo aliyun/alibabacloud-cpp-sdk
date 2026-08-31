@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const OnlineBizEntityRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OnlineCommand, onlineCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, OnlineBizEntityRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OnlineCommand, onlineCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     OnlineBizEntityRequest() = default ;
     OnlineBizEntityRequest(const OnlineBizEntityRequest &) = default ;
@@ -108,7 +110,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->onlineCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // onlineCommand Field Functions 
     bool hasOnlineCommand() const { return this->onlineCommand_ != nullptr;};
     void deleteOnlineCommand() { this->onlineCommand_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline OnlineBizEntityRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline OnlineBizEntityRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The online request.
     // 
@@ -134,6 +143,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

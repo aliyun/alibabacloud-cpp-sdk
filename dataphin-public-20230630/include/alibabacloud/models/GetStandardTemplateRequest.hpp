@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Nullable, nullable_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, GetStandardTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FilterQuery, filterQuery_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Nullable, nullable_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     GetStandardTemplateRequest() = default ;
     GetStandardTemplateRequest(const GetStandardTemplateRequest &) = default ;
@@ -68,7 +70,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->filterQuery_ == nullptr
-        && this->id_ == nullptr && this->nullable_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->id_ == nullptr && this->nullable_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // filterQuery Field Functions 
     bool hasFilterQuery() const { return this->filterQuery_ != nullptr;};
     void deleteFilterQuery() { this->filterQuery_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline GetStandardTemplateRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetStandardTemplateRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The filter condition.
     shared_ptr<GetStandardTemplateRequest::FilterQuery> filterQuery_ {};
@@ -112,6 +121,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

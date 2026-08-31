@@ -44,7 +44,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 
 /**
  * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
- * Online version: v6.0.0.
+ * Release version: v6.0.0.
  *
  * @param tmpReq AddDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -61,6 +61,10 @@ AddDataServiceAppMemberResponse Client::addDataServiceAppMemberWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -88,7 +92,7 @@ AddDataServiceAppMemberResponse Client::addDataServiceAppMemberWithOptions(const
 
 /**
  * @summary Adds a regular member to a data service application. Only the application owner can perform this operation.
- * Online version: v6.0.0.
+ * Release version: v6.0.0.
  *
  * @param request AddDataServiceAppMemberRequest
  * @return AddDataServiceAppMemberResponse
@@ -116,6 +120,10 @@ AddDataServiceProjectMemberResponse Client::addDataServiceProjectMemberWithOptio
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -180,6 +188,10 @@ AddProjectMemberResponse Client::addProjectMemberWithOptions(const AddProjectMem
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasAddCommandShrink()) {
     body["AddCommand"] = request.getAddCommandShrink();
@@ -234,6 +246,10 @@ AddRegisterLineageResponse Client::addRegisterLineageWithOptions(const AddRegist
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasAddRegisterLineageCommandShrink()) {
     body["AddRegisterLineageCommand"] = request.getAddRegisterLineageCommandShrink();
@@ -286,6 +302,10 @@ AddTenantMembersResponse Client::addTenantMembersWithOptions(const AddTenantMemb
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -396,6 +416,10 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasAddCommandShrink()) {
     body["AddCommand"] = request.getAddCommandShrink();
@@ -448,6 +472,10 @@ ApplyDataServiceApiResponse Client::applyDataServiceApiWithOptions(const ApplyDa
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -506,6 +534,10 @@ ApplyDataServiceAppResponse Client::applyDataServiceAppWithOptions(const ApplyDa
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -567,6 +599,10 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasAssignCommandShrink()) {
     body["AssignCommand"] = request.getAssignCommandShrink();
@@ -603,7 +639,7 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
- * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+ * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
  *
  * @param tmpReq BatchCreateKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -620,6 +656,10 @@ BatchCreateKgEntityResponse Client::batchCreateKgEntityWithOptions(const BatchCr
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -650,7 +690,7 @@ BatchCreateKgEntityResponse Client::batchCreateKgEntityWithOptions(const BatchCr
 }
 
 /**
- * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+ * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
  *
  * @param request BatchCreateKgEntityRequest
  * @return BatchCreateKgEntityResponse
@@ -678,6 +718,10 @@ BatchCreateKgRelationResponse Client::batchCreateKgRelationWithOptions(const Bat
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -738,6 +782,10 @@ CheckComputeSourceConnectivityResponse Client::checkComputeSourceConnectivityWit
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCheckCommandShrink()) {
     body["CheckCommand"] = request.getCheckCommandShrink();
@@ -790,6 +838,10 @@ CheckComputeSourceConnectivityByIdResponse Client::checkComputeSourceConnectivit
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -836,6 +888,10 @@ CheckDataSourceConnectivityResponse Client::checkDataSourceConnectivityWithOptio
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -890,6 +946,10 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityByIdW
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -934,6 +994,10 @@ CheckProjectHasDependencyResponse Client::checkProjectHasDependencyWithOptions(c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -982,6 +1046,10 @@ CheckResourcePermissionResponse Client::checkResourcePermissionWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1038,6 +1106,10 @@ CreateAdHocFileResponse Client::createAdHocFileWithOptions(const CreateAdHocFile
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1090,6 +1162,10 @@ CreateBasicProjectResponse Client::createBasicProjectWithOptions(const CreateBas
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1146,6 +1222,10 @@ CreateBatchTaskResponse Client::createBatchTaskWithOptions(const CreateBatchTask
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1198,6 +1278,10 @@ CreateBizEntityResponse Client::createBizEntityWithOptions(const CreateBizEntity
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1255,6 +1339,10 @@ CreateBizMetricResponse Client::createBizMetricWithOptions(const CreateBizMetric
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateBizMetricCommandShrink()) {
     body["CreateBizMetricCommand"] = request.getCreateBizMetricCommandShrink();
@@ -1310,6 +1398,10 @@ CreateBizUnitResponse Client::createBizUnitWithOptions(const CreateBizUnitReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1345,6 +1437,64 @@ CreateBizUnitResponse Client::createBizUnit(const CreateBizUnitRequest &request)
 }
 
 /**
+ * @summary Creates a cluster. Online since version v6.3.0.
+ *
+ * @param tmpReq CreateComputeClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateComputeClusterResponse
+ */
+CreateComputeClusterResponse Client::createComputeClusterWithOptions(const CreateComputeClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateComputeClusterShrinkRequest request = CreateComputeClusterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasClusterConfig()) {
+    request.setClusterConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClusterConfig(), "ClusterConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasClusterConfigShrink()) {
+    body["ClusterConfig"] = request.getClusterConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateComputeCluster"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateComputeClusterResponse>();
+}
+
+/**
+ * @summary Creates a cluster. Online since version v6.3.0.
+ *
+ * @param request CreateComputeClusterRequest
+ * @return CreateComputeClusterResponse
+ */
+CreateComputeClusterResponse Client::createComputeCluster(const CreateComputeClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createComputeClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param tmpReq CreateComputeSourceRequest
@@ -1362,6 +1512,10 @@ CreateComputeSourceResponse Client::createComputeSourceWithOptions(const CreateC
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1418,6 +1572,10 @@ CreateDataDomainResponse Client::createDataDomainWithOptions(const CreateDataDom
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1472,6 +1630,10 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1507,7 +1669,7 @@ CreateDataServiceApiResponse Client::createDataServiceApi(const CreateDataServic
 }
 
 /**
- * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+ * @summary Creates a data service application. Only super administrators or system administration administrators can perform this operation.
  * Online version: v6.0.0.
  *
  * @param tmpReq CreateDataServiceAppRequest
@@ -1525,6 +1687,10 @@ CreateDataServiceAppResponse Client::createDataServiceAppWithOptions(const Creat
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1551,7 +1717,7 @@ CreateDataServiceAppResponse Client::createDataServiceAppWithOptions(const Creat
 }
 
 /**
- * @summary Creates a data service application. Only super administrators or system administrators can perform this operation.
+ * @summary Creates a data service application. Only super administrators or system administration administrators can perform this operation.
  * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppRequest
@@ -1563,7 +1729,7 @@ CreateDataServiceAppResponse Client::createDataServiceApp(const CreateDataServic
 }
 
 /**
- * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+ * @summary Creates a data service application group. Only super administrators and system administrators can perform this operation.
  * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppGroupRequest
@@ -1579,6 +1745,10 @@ CreateDataServiceAppGroupResponse Client::createDataServiceAppGroupWithOptions(c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1599,7 +1769,7 @@ CreateDataServiceAppGroupResponse Client::createDataServiceAppGroupWithOptions(c
 }
 
 /**
- * @summary Creates a data service application group. Only superusers and system administrators can perform this operation.
+ * @summary Creates a data service application group. Only super administrators and system administrators can perform this operation.
  * Online version: v6.0.0.
  *
  * @param request CreateDataServiceAppGroupRequest
@@ -1628,6 +1798,10 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -1691,6 +1865,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -1760,6 +1938,10 @@ CreateDevProdProjectResponse Client::createDevProdProjectWithOptions(const Creat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1814,6 +1996,10 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -1866,6 +2052,10 @@ CreateKgEntityResponse Client::createKgEntityWithOptions(const CreateKgEntityReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -1926,6 +2116,10 @@ CreateKgRelationResponse Client::createKgRelationWithOptions(const CreateKgRelat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -1965,9 +2159,9 @@ CreateKgRelationResponse Client::createKgRelation(const CreateKgRelationRequest 
 }
 
 /**
- * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
- * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
- * 2. Task execution will incur computing costs and storage costs.
+ * @summary General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+ * 1. Generates data backfill instances that run and affect data output of related tables.
+ * 2. Triggers node execution, which incurs compute and storage costs.
  *
  * @param tmpReq CreateNodeSupplementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1988,6 +2182,10 @@ CreateNodeSupplementResponse Client::createNodeSupplementWithOptions(const Creat
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2014,9 +2212,9 @@ CreateNodeSupplementResponse Client::createNodeSupplementWithOptions(const Creat
 }
 
 /**
- * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
- * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
- * 2. Task execution will incur computing costs and storage costs.
+ * @summary General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+ * 1. Generates data backfill instances that run and affect data output of related tables.
+ * 2. Triggers node execution, which incurs compute and storage costs.
  *
  * @param request CreateNodeSupplementRequest
  * @return CreateNodeSupplementResponse
@@ -2027,7 +2225,7 @@ CreateNodeSupplementResponse Client::createNodeSupplement(const CreateNodeSupple
 }
 
 /**
- * @summary Create an integration pipeline/unstructured workflow task.
+ * @summary Creates an integration pipeline or unstructured workflow node.
  *
  * @param tmpReq CreatePipelineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2048,6 +2246,10 @@ CreatePipelineResponse Client::createPipelineWithOptions(const CreatePipelineReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2078,7 +2280,7 @@ CreatePipelineResponse Client::createPipelineWithOptions(const CreatePipelineReq
 }
 
 /**
- * @summary Create an integration pipeline/unstructured workflow task.
+ * @summary Creates an integration pipeline or unstructured workflow node.
  *
  * @param request CreatePipelineRequest
  * @return CreatePipelineResponse
@@ -2110,6 +2312,10 @@ CreatePipelineByAsyncResponse Client::createPipelineByAsyncWithOptions(const Cre
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2170,6 +2376,10 @@ CreatePipelineNodeResponse Client::createPipelineNodeWithOptions(const CreatePip
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreatePipelineNodeCommandShrink()) {
     body["CreatePipelineNodeCommand"] = request.getCreatePipelineNodeCommandShrink();
@@ -2222,6 +2432,10 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2280,6 +2494,10 @@ CreateRowPermissionResponse Client::createRowPermissionWithOptions(const CreateR
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateRowPermissionCommandShrink()) {
     body["CreateRowPermissionCommand"] = request.getCreateRowPermissionCommandShrink();
@@ -2317,7 +2535,7 @@ CreateRowPermissionResponse Client::createRowPermission(const CreateRowPermissio
 }
 
 /**
- * @summary Creates a data classification. Available since v5.4.2.
+ * @summary Creates a data category. Available since v5.4.2.
  *
  * @param tmpReq CreateSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2334,6 +2552,10 @@ CreateSecurityClassifyResponse Client::createSecurityClassifyWithOptions(const C
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2360,7 +2582,7 @@ CreateSecurityClassifyResponse Client::createSecurityClassifyWithOptions(const C
 }
 
 /**
- * @summary Creates a data classification. Available since v5.4.2.
+ * @summary Creates a data category. Available since v5.4.2.
  *
  * @param request CreateSecurityClassifyRequest
  * @return CreateSecurityClassifyResponse
@@ -2388,6 +2610,10 @@ CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalogWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2445,6 +2671,10 @@ CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResultWithOpt
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -2500,6 +2730,10 @@ CreateSecurityLevelResponse Client::createSecurityLevelWithOptions(const CreateS
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -2553,6 +2787,10 @@ CreateStandardResponse Client::createStandardWithOptions(const CreateStandardReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2611,6 +2849,10 @@ CreateStandardLookupTableResponse Client::createStandardLookupTableWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -2667,6 +2909,10 @@ CreateStandardMappingResponse Client::createStandardMappingWithOptions(const Cre
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -2703,7 +2949,8 @@ CreateStandardMappingResponse Client::createStandardMapping(const CreateStandard
 }
 
 /**
- * @summary Creates a standard association. Release version: v5.4.2.
+ * @summary Creates a standard association relationship.
+ * Online version: v5.4.2.
  *
  * @param tmpReq CreateStandardRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2720,6 +2967,10 @@ CreateStandardRelationsResponse Client::createStandardRelationsWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2746,7 +2997,8 @@ CreateStandardRelationsResponse Client::createStandardRelationsWithOptions(const
 }
 
 /**
- * @summary Creates a standard association. Release version: v5.4.2.
+ * @summary Creates a standard association relationship.
+ * Online version: v5.4.2.
  *
  * @param request CreateStandardRelationsRequest
  * @return CreateStandardRelationsResponse
@@ -2775,6 +3027,10 @@ CreateStandardSetResponse Client::createStandardSetWithOptions(const CreateStand
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2833,6 +3089,10 @@ CreateStandardTemplateResponse Client::createStandardTemplateWithOptions(const C
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -2887,6 +3147,10 @@ CreateStandardWordRootResponse Client::createStandardWordRootWithOptions(const C
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -2944,6 +3208,10 @@ CreateStreamBatchJobMappingResponse Client::createStreamBatchJobMappingWithOptio
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasStreamBatchJobMappingCreateCommandShrink()) {
     body["StreamBatchJobMappingCreateCommand"] = request.getStreamBatchJobMappingCreateCommandShrink();
@@ -2996,6 +3264,10 @@ CreateUdfResponse Client::createUdfWithOptions(const CreateUdfRequest &tmpReq, c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3052,6 +3324,10 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
     body["CreateCommand"] = request.getCreateCommandShrink();
@@ -3087,7 +3363,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+ * @summary Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
  *
  * @param tmpReq CreateWorkFlowByJsonRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3108,6 +3384,10 @@ CreateWorkFlowByJsonResponse Client::createWorkFlowByJsonWithOptions(const Creat
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3138,7 +3418,7 @@ CreateWorkFlowByJsonResponse Client::createWorkFlowByJsonWithOptions(const Creat
 }
 
 /**
- * @summary Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+ * @summary Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
  *
  * @param request CreateWorkFlowByJsonRequest
  * @return CreateWorkFlowByJsonResponse
@@ -3164,6 +3444,10 @@ DeleteAdHocFileResponse Client::deleteAdHocFileWithOptions(const DeleteAdHocFile
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -3216,6 +3500,10 @@ DeleteBatchTaskResponse Client::deleteBatchTaskWithOptions(const DeleteBatchTask
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3274,6 +3562,10 @@ DeleteBizEntityResponse Client::deleteBizEntityWithOptions(const DeleteBizEntity
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasType()) {
     query["Type"] = request.getType();
   }
@@ -3325,6 +3617,10 @@ DeleteBizMetricResponse Client::deleteBizMetricWithOptions(const DeleteBizMetric
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3380,6 +3676,10 @@ DeleteBizUnitResponse Client::deleteBizUnitWithOptions(const DeleteBizUnitReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3409,6 +3709,56 @@ DeleteBizUnitResponse Client::deleteBizUnit(const DeleteBizUnitRequest &request)
 }
 
 /**
+ * @summary 删除集群。
+ *
+ * @param request DeleteComputeClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComputeClusterResponse
+ */
+DeleteComputeClusterResponse Client::deleteComputeClusterWithOptions(const DeleteComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComputeCluster"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComputeClusterResponse>();
+}
+
+/**
+ * @summary 删除集群。
+ *
+ * @param request DeleteComputeClusterRequest
+ * @return DeleteComputeClusterResponse
+ */
+DeleteComputeClusterResponse Client::deleteComputeCluster(const DeleteComputeClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComputeClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a compute source.
  *
  * @param request DeleteComputeSourceRequest
@@ -3424,6 +3774,10 @@ DeleteComputeSourceResponse Client::deleteComputeSourceWithOptions(const DeleteC
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3476,6 +3830,10 @@ DeleteDataDomainResponse Client::deleteDataDomainWithOptions(const DeleteDataDom
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3521,6 +3879,10 @@ DeleteDataServiceAppResponse Client::deleteDataServiceAppWithOptions(const Delet
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3571,6 +3933,10 @@ DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroupWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3618,6 +3984,10 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3672,6 +4042,10 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -3720,6 +4094,10 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -3776,6 +4154,10 @@ DeleteKgEntityResponse Client::deleteKgEntityWithOptions(const DeleteKgEntityReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -3820,6 +4202,10 @@ DeleteKgRelationResponse Client::deleteKgRelationWithOptions(const DeleteKgRelat
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasRelationId()) {
@@ -3880,6 +4266,10 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3927,6 +4317,10 @@ DeleteQualityRulesResponse Client::deleteQualityRulesWithOptions(const DeleteQua
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -3985,6 +4379,10 @@ DeleteQualitySchedulesResponse Client::deleteQualitySchedulesWithOptions(const D
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
     body["DeleteCommand"] = request.getDeleteCommandShrink();
@@ -4039,6 +4437,10 @@ DeleteQualityTemplatesResponse Client::deleteQualityTemplatesWithOptions(const D
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4097,6 +4499,10 @@ DeleteQualityWatchesResponse Client::deleteQualityWatchesWithOptions(const Delet
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
     body["DeleteCommand"] = request.getDeleteCommandShrink();
@@ -4133,7 +4539,7 @@ DeleteQualityWatchesResponse Client::deleteQualityWatches(const DeleteQualityWat
 }
 
 /**
- * @summary Deletes registered lineage. Available since version v5.4.0.
+ * @summary Deletes registered data lineage. Available since v5.4.0.
  *
  * @param tmpReq DeleteRegisterLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4150,6 +4556,10 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const Del
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4176,7 +4586,7 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const Del
 }
 
 /**
- * @summary Deletes registered lineage. Available since version v5.4.0.
+ * @summary Deletes registered data lineage. Available since v5.4.0.
  *
  * @param request DeleteRegisterLineageRequest
  * @return DeleteRegisterLineageResponse
@@ -4206,6 +4616,10 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const DeleteResourceReq
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -4258,6 +4672,10 @@ DeleteRowPermissionResponse Client::deleteRowPermissionWithOptions(const DeleteR
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4314,6 +4732,10 @@ DeleteSecurityClassifyResponse Client::deleteSecurityClassifyWithOptions(const D
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
     body["DeleteCommand"] = request.getDeleteCommandShrink();
@@ -4349,7 +4771,7 @@ DeleteSecurityClassifyResponse Client::deleteSecurityClassify(const DeleteSecuri
 }
 
 /**
- * @summary Deletes a data classification catalog. Release version: v5.4.2.
+ * @summary Deletes a data classification catalog. Available since v5.4.2.
  *
  * @param tmpReq DeleteSecurityClassifyCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4366,6 +4788,10 @@ DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalogWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4392,7 +4818,7 @@ DeleteSecurityClassifyCatalogResponse Client::deleteSecurityClassifyCatalogWithO
 }
 
 /**
- * @summary Deletes a data classification catalog. Release version: v5.4.2.
+ * @summary Deletes a data classification catalog. Available since v5.4.2.
  *
  * @param request DeleteSecurityClassifyCatalogRequest
  * @return DeleteSecurityClassifyCatalogResponse
@@ -4420,6 +4846,10 @@ DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResultsWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4476,6 +4906,10 @@ DeleteSecurityLevelResponse Client::deleteSecurityLevelWithOptions(const DeleteS
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
     body["DeleteCommand"] = request.getDeleteCommandShrink();
@@ -4529,6 +4963,10 @@ DeleteStandardResponse Client::deleteStandardWithOptions(const DeleteStandardReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4587,6 +5025,10 @@ DeleteStandardInValidMappingResponse Client::deleteStandardInValidMappingWithOpt
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
     body["DeleteCommand"] = request.getDeleteCommandShrink();
@@ -4640,6 +5082,10 @@ DeleteStandardLookupTableResponse Client::deleteStandardLookupTableWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4687,6 +5133,10 @@ DeleteStandardRelationsResponse Client::deleteStandardRelationsWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4743,6 +5193,10 @@ DeleteStandardSetResponse Client::deleteStandardSetWithOptions(const DeleteStand
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4791,6 +5245,10 @@ DeleteStandardValidMappingResponse Client::deleteStandardValidMappingWithOptions
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -4847,6 +5305,10 @@ DeleteStandardWordRootResponse Client::deleteStandardWordRootWithOptions(const D
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4898,6 +5360,10 @@ DeleteUdfResponse Client::deleteUdfWithOptions(const DeleteUdfRequest &request, 
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -4942,6 +5408,10 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasUserGroupId()) {
@@ -4996,6 +5466,10 @@ ExecKgCypherResponse Client::execKgCypherWithOptions(const ExecKgCypherRequest &
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -5035,6 +5509,68 @@ ExecKgCypherResponse Client::execKgCypher(const ExecKgCypherRequest &request) {
 }
 
 /**
+ * @summary Executes a custom Cypher query. Available since v6.3.0.
+ *
+ * @param tmpReq ExecKgGremlinRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecKgGremlinResponse
+ */
+ExecKgGremlinResponse Client::execKgGremlinWithOptions(const ExecKgGremlinRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExecKgGremlinShrinkRequest request = ExecKgGremlinShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExecCommand()) {
+    request.setExecCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecCommand(), "ExecCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasExecCommandShrink()) {
+    body["ExecCommand"] = request.getExecCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecKgGremlin"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecKgGremlinResponse>();
+}
+
+/**
+ * @summary Executes a custom Cypher query. Available since v6.3.0.
+ *
+ * @param request ExecKgGremlinRequest
+ * @return ExecKgGremlinResponse
+ */
+ExecKgGremlinResponse Client::execKgGremlin(const ExecKgGremlinRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return execKgGremlinWithOptions(request, runtime);
+}
+
+/**
  * @summary Executes an ad hoc query task.
  *
  * @param tmpReq ExecuteAdHocTaskRequest
@@ -5052,6 +5588,10 @@ ExecuteAdHocTaskResponse Client::executeAdHocTaskWithOptions(const ExecuteAdHocT
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -5174,6 +5714,10 @@ ExecuteManualNodeResponse Client::executeManualNodeWithOptions(const ExecuteManu
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasExecuteCommandShrink()) {
     body["ExecuteCommand"] = request.getExecuteCommandShrink();
@@ -5238,6 +5782,10 @@ ExecuteTriggerNodeResponse Client::executeTriggerNodeWithOptions(const ExecuteTr
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -5282,6 +5830,10 @@ ExportKgSchemaResponse Client::exportKgSchemaWithOptions(const ExportKgSchemaReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasOutputFormat()) {
@@ -5348,6 +5900,10 @@ FixDataResponse Client::fixDataWithOptions(const FixDataRequest &tmpReq, const D
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasFixDataCommandShrink()) {
     body["FixDataCommand"] = request.getFixDataCommandShrink();
@@ -5402,6 +5958,10 @@ GetAccountByRowPermissionIdResponse Client::getAccountByRowPermissionIdWithOptio
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasGetAccountByRowPermissionIdQueryShrink()) {
     body["GetAccountByRowPermissionIdQuery"] = request.getGetAccountByRowPermissionIdQueryShrink();
@@ -5454,6 +6014,10 @@ GetAdHocFileResponse Client::getAdHocFileWithOptions(const GetAdHocFileRequest &
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -5502,6 +6066,10 @@ GetAdHocTaskLogResponse Client::getAdHocTaskLogWithOptions(const GetAdHocTaskLog
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5556,6 +6124,10 @@ GetAdHocTaskResultResponse Client::getAdHocTaskResultWithOptions(const GetAdHocT
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5616,6 +6188,10 @@ GetAlertEventResponse Client::getAlertEventWithOptions(const GetAlertEventReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -5645,6 +6221,64 @@ GetAlertEventResponse Client::getAlertEvent(const GetAlertEventRequest &request)
 }
 
 /**
+ * @summary Queries asset property values. Online version: v6.3.0.
+ *
+ * @param tmpReq GetAssetAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAssetAttributesResponse
+ */
+GetAssetAttributesResponse Client::getAssetAttributesWithOptions(const GetAssetAttributesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetAssetAttributesShrinkRequest request = GetAssetAttributesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasQueryCommand()) {
+    request.setQueryCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryCommand(), "QueryCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasQueryCommandShrink()) {
+    body["QueryCommand"] = request.getQueryCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAssetAttributes"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAssetAttributesResponse>();
+}
+
+/**
+ * @summary Queries asset property values. Online version: v6.3.0.
+ *
+ * @param request GetAssetAttributesRequest
+ * @return GetAssetAttributesResponse
+ */
+GetAssetAttributesResponse Client::getAssetAttributes(const GetAssetAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAssetAttributesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries mapping relationships by asset object GUID.
  * Available since: v5.4.2.
  *
@@ -5663,6 +6297,10 @@ GetAssetMappingRelationsResponse Client::getAssetMappingRelationsWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -5701,6 +6339,56 @@ GetAssetMappingRelationsResponse Client::getAssetMappingRelations(const GetAsset
 }
 
 /**
+ * @summary Queries asset property definitions. Online version: v6.3.0.
+ *
+ * @param request GetAssetTypeAttributeCodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAssetTypeAttributeCodesResponse
+ */
+GetAssetTypeAttributeCodesResponse Client::getAssetTypeAttributeCodesWithOptions(const GetAssetTypeAttributeCodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetType()) {
+    query["AssetType"] = request.getAssetType();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAssetTypeAttributeCodes"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAssetTypeAttributeCodesResponse>();
+}
+
+/**
+ * @summary Queries asset property definitions. Online version: v6.3.0.
+ *
+ * @param request GetAssetTypeAttributeCodesRequest
+ * @return GetAssetTypeAttributeCodesResponse
+ */
+GetAssetTypeAttributeCodesResponse Client::getAssetTypeAttributeCodes(const GetAssetTypeAttributeCodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAssetTypeAttributeCodesWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of an offline compute node.
  *
  * @param request GetBatchTaskInfoRequest
@@ -5724,6 +6412,10 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfoWithOptions(const GetBatchTaskI
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5759,7 +6451,7 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfo(const GetBatchTaskInfoRequest 
 }
 
 /**
- * @summary Retrieves the details of a specified version of a batch task.
+ * @summary Retrieves the details of a specific version of a batch task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5774,6 +6466,10 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersionWithOptions(c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5802,7 +6498,7 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersionWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a specified version of a batch task.
+ * @summary Retrieves the details of a specific version of a batch task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @return GetBatchTaskInfoByVersionResponse
@@ -5828,6 +6524,10 @@ GetBatchTaskUdfLineagesResponse Client::getBatchTaskUdfLineagesWithOptions(const
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5880,6 +6580,10 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersionsWithOptions(const GetBa
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -5928,6 +6632,10 @@ GetBatchTemplateVersionsResponse Client::getBatchTemplateVersionsWithOptions(con
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -5987,6 +6695,10 @@ GetBelongAssetMappingResponse Client::getBelongAssetMappingWithOptions(const Get
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasAssetMappingQueryShrink()) {
     body["AssetMappingQuery"] = request.getAssetMappingQueryShrink();
@@ -6040,6 +6752,10 @@ GetBizEntityInfoResponse Client::getBizEntityInfoWithOptions(const GetBizEntityI
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasType()) {
     query["Type"] = request.getType();
   }
@@ -6088,6 +6804,10 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersionWithOptions(c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasType()) {
@@ -6147,6 +6867,10 @@ GetBizMetricByNameResponse Client::getBizMetricByNameWithOptions(const GetBizMet
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasBizMetricByNameQueryShrink()) {
     body["BizMetricByNameQuery"] = request.getBizMetricByNameQueryShrink();
@@ -6200,6 +6924,10 @@ GetBizUnitInfoResponse Client::getBizUnitInfoWithOptions(const GetBizUnitInfoReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6229,7 +6957,7 @@ GetBizUnitInfoResponse Client::getBizUnitInfo(const GetBizUnitInfoRequest &reque
 }
 
 /**
- * @summary Queries asset details. Release version: v6.1.0.
+ * @summary Queries asset details. Online version: v6.1.0.
  *
  * @param tmpReq GetCatalogAssetDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6246,6 +6974,10 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetailsWithOptions(const G
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -6272,7 +7004,7 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetailsWithOptions(const G
 }
 
 /**
- * @summary Queries asset details. Release version: v6.1.0.
+ * @summary Queries asset details. Online version: v6.1.0.
  *
  * @param request GetCatalogAssetDetailsRequest
  * @return GetCatalogAssetDetailsResponse
@@ -6301,6 +7033,10 @@ GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobsWithOptions(con
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6352,6 +7088,10 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnvWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -6389,6 +7129,60 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnv(const GetClust
 }
 
 /**
+ * @summary Queries cluster details. Available since v6.3.0.
+ *
+ * @description Queries the details of a tested connectivity task based on the datasource ID.
+ *
+ * @param request GetComputeClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetComputeClusterResponse
+ */
+GetComputeClusterResponse Client::getComputeClusterWithOptions(const GetComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetComputeCluster"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetComputeClusterResponse>();
+}
+
+/**
+ * @summary Queries cluster details. Available since v6.3.0.
+ *
+ * @description Queries the details of a tested connectivity task based on the datasource ID.
+ *
+ * @param request GetComputeClusterRequest
+ * @return GetComputeClusterResponse
+ */
+GetComputeClusterResponse Client::getComputeCluster(const GetComputeClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getComputeClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a compute source by compute source ID.
  *
  * @param request GetComputeSourceRequest
@@ -6404,6 +7198,10 @@ GetComputeSourceResponse Client::getComputeSourceWithOptions(const GetComputeSou
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6435,6 +7233,68 @@ GetComputeSourceResponse Client::getComputeSource(const GetComputeSourceRequest 
 }
 
 /**
+ * @summary Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+ *
+ * @description Retrieves the details of a Query Governance object by governance item ID.
+ *
+ * @param tmpReq GetDataAssetsGovernObjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAssetsGovernObjectResponse
+ */
+GetDataAssetsGovernObjectResponse Client::getDataAssetsGovernObjectWithOptions(const GetDataAssetsGovernObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDataAssetsGovernObjectShrinkRequest request = GetDataAssetsGovernObjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCommand()) {
+    request.setCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCommand(), "Command", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasCommandShrink()) {
+    body["Command"] = request.getCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDataAssetsGovernObject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAssetsGovernObjectResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+ *
+ * @description Retrieves the details of a Query Governance object by governance item ID.
+ *
+ * @param request GetDataAssetsGovernObjectRequest
+ * @return GetDataAssetsGovernObjectResponse
+ */
+GetDataAssetsGovernObjectResponse Client::getDataAssetsGovernObject(const GetDataAssetsGovernObjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAssetsGovernObjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a data domain.
  *
  * @param request GetDataDomainInfoRequest
@@ -6450,6 +7310,10 @@ GetDataDomainInfoResponse Client::getDataDomainInfoWithOptions(const GetDataDoma
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6496,6 +7360,10 @@ GetDataServiceApiCallSummaryResponse Client::getDataServiceApiCallSummaryWithOpt
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -6552,6 +7420,10 @@ GetDataServiceApiCallTrendResponse Client::getDataServiceApiCallTrendWithOptions
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -6606,6 +7478,10 @@ GetDataServiceApiDocumentResponse Client::getDataServiceApiDocumentWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasVersionId()) {
     query["VersionId"] = request.getVersionId();
   }
@@ -6656,6 +7532,10 @@ GetDataServiceApiErrorImpactResponse Client::getDataServiceApiErrorImpactWithOpt
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -6704,6 +7584,10 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroupsWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -6757,6 +7641,10 @@ GetDataServiceAppResponse Client::getDataServiceAppWithOptions(const GetDataServ
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6804,6 +7692,10 @@ GetDataServiceAppAuthorizedUsersResponse Client::getDataServiceAppAuthorizedUser
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -6848,6 +7740,10 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroupsWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -6901,6 +7797,10 @@ GetDataServiceAppMembersResponse Client::getDataServiceAppMembersWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6946,6 +7846,10 @@ GetDataServiceAppsByGroupIdResponse Client::getDataServiceAppsByGroupIdWithOptio
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -6998,6 +7902,10 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -7044,6 +7952,10 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -7086,6 +7998,10 @@ GetDataServiceMyProjectsResponse Client::getDataServiceMyProjectsWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -7126,6 +8042,10 @@ GetDataServiceProjectAddableUsersResponse Client::getDataServiceProjectAddableUs
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -7178,6 +8098,10 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependenciesWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -7224,6 +8148,10 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -7286,6 +8214,10 @@ GetDevObjectDependencyResponse Client::getDevObjectDependencyWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -7336,6 +8268,10 @@ GetDirectoryTreeResponse Client::getDirectoryTreeWithOptions(const GetDirectoryT
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -7380,6 +8316,10 @@ GetFileStorageCredentialResponse Client::getFileStorageCredentialWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -7450,6 +8390,10 @@ GetInstanceDownStreamResponse Client::getInstanceDownStreamWithOptions(const Get
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasRunStatus()) {
     query["RunStatus"] = request.getRunStatus();
   }
@@ -7516,6 +8460,10 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStreamWithOptions(const
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -7559,6 +8507,52 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStream(const GetInstanc
 }
 
 /**
+ * @summary Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+ *
+ * @param request GetKgAuthorizedWorkspacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKgAuthorizedWorkspacesResponse
+ */
+GetKgAuthorizedWorkspacesResponse Client::getKgAuthorizedWorkspacesWithOptions(const GetKgAuthorizedWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKgAuthorizedWorkspaces"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKgAuthorizedWorkspacesResponse>();
+}
+
+/**
+ * @summary Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+ *
+ * @param request GetKgAuthorizedWorkspacesRequest
+ * @return GetKgAuthorizedWorkspacesResponse
+ */
+GetKgAuthorizedWorkspacesResponse Client::getKgAuthorizedWorkspaces(const GetKgAuthorizedWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKgAuthorizedWorkspacesWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
  *
  * @param request GetKgEntityRequest
@@ -7578,6 +8572,10 @@ GetKgEntityResponse Client::getKgEntityWithOptions(const GetKgEntityRequest &req
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -7640,6 +8638,10 @@ GetKgNeighborResponse Client::getKgNeighborWithOptions(const GetKgNeighborReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -7690,6 +8692,10 @@ GetKgRelationResponse Client::getKgRelationWithOptions(const GetKgRelationReques
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasRelationId()) {
@@ -7744,6 +8750,10 @@ GetKgSchemaPublishResultResponse Client::getKgSchemaPublishResultWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasVersionId()) {
@@ -7802,6 +8812,10 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetailWithOptions(const Get
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasSubmitDetailQueryShrink()) {
     body["SubmitDetailQuery"] = request.getSubmitDetailQueryShrink();
@@ -7837,6 +8851,102 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetail(const GetLatestSubmi
 }
 
 /**
+ * @summary Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+ *
+ * @param request GetLlmModelProviderByNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLlmModelProviderByNameResponse
+ */
+GetLlmModelProviderByNameResponse Client::getLlmModelProviderByNameWithOptions(const GetLlmModelProviderByNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLlmModelProviderByName"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLlmModelProviderByNameResponse>();
+}
+
+/**
+ * @summary Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+ *
+ * @param request GetLlmModelProviderByNameRequest
+ * @return GetLlmModelProviderByNameResponse
+ */
+GetLlmModelProviderByNameResponse Client::getLlmModelProviderByName(const GetLlmModelProviderByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLlmModelProviderByNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询所有大模型服务供应商和可用模型列表
+ *
+ * @param request GetLlmModelProvidersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLlmModelProvidersResponse
+ */
+GetLlmModelProvidersResponse Client::getLlmModelProvidersWithOptions(const GetLlmModelProvidersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLlmModelProviders"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLlmModelProvidersResponse>();
+}
+
+/**
+ * @summary 查询所有大模型服务供应商和可用模型列表
+ *
+ * @param request GetLlmModelProvidersRequest
+ * @return GetLlmModelProvidersResponse
+ */
+GetLlmModelProvidersResponse Client::getLlmModelProviders(const GetLlmModelProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLlmModelProvidersWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of roles for the current user.
  *
  * @param request GetMyRolesRequest
@@ -7848,6 +8958,10 @@ GetMyRolesResponse Client::getMyRolesWithOptions(const GetMyRolesRequest &reques
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7896,6 +9010,10 @@ GetMyTenantsResponse Client::getMyTenantsWithOptions(const GetMyTenantsRequest &
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -7960,6 +9078,10 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStreamWithOptions(const GetNode
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -8022,6 +9144,10 @@ GetOperationRecordByIdResponse Client::getOperationRecordByIdWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDetailCommandShrink()) {
     body["DetailCommand"] = request.getDetailCommandShrink();
@@ -8076,6 +9202,10 @@ GetOperationRecordDetailResponse Client::getOperationRecordDetailWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasRecordDetailCommandShrink()) {
     body["RecordDetailCommand"] = request.getRecordDetailCommandShrink();
@@ -8128,6 +9258,10 @@ GetOperationRecordRunCodeResponse Client::getOperationRecordRunCodeWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -8186,6 +9320,10 @@ GetOperationSubmitStatusResponse Client::getOperationSubmitStatusWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8234,6 +9372,10 @@ GetPhysicalInstanceResponse Client::getPhysicalInstanceWithOptions(const GetPhys
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -8290,6 +9432,10 @@ GetPhysicalInstanceLogResponse Client::getPhysicalInstanceLogWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -8344,6 +9490,10 @@ GetPhysicalNodeResponse Client::getPhysicalNodeWithOptions(const GetPhysicalNode
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8388,6 +9538,10 @@ GetPhysicalNodeByOutputNameResponse Client::getPhysicalNodeByOutputNameWithOptio
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasOutputName()) {
@@ -8444,6 +9598,10 @@ GetPhysicalNodeContentResponse Client::getPhysicalNodeContentWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8492,6 +9650,10 @@ GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLogWithOptio
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8544,6 +9706,10 @@ GetPipelineAsyncResultResponse Client::getPipelineAsyncResultWithOptions(const G
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -8602,6 +9768,10 @@ GetPipelineByIdResponse Client::getPipelineByIdWithOptions(const GetPipelineById
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -8664,6 +9834,10 @@ GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &reques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8710,6 +9884,10 @@ GetProjectByNameResponse Client::getProjectByNameWithOptions(const GetProjectByN
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8750,6 +9928,10 @@ GetProjectProduceUserResponse Client::getProjectProduceUserWithOptions(const Get
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -8802,6 +9984,10 @@ GetProjectWhiteListsResponse Client::getProjectWhiteListsWithOptions(const GetPr
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8844,6 +10030,10 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWatchId()) {
     query["WatchId"] = request.getWatchId();
   }
@@ -8877,6 +10067,56 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
 }
 
 /**
+ * @summary Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+ *
+ * @param request GetQualityArchiveTableProgressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQualityArchiveTableProgressResponse
+ */
+GetQualityArchiveTableProgressResponse Client::getQualityArchiveTableProgressWithOptions(const GetQualityArchiveTableProgressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  if (!!request.hasProgressId()) {
+    query["ProgressId"] = request.getProgressId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQualityArchiveTableProgress"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQualityArchiveTableProgressResponse>();
+}
+
+/**
+ * @summary Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+ *
+ * @param request GetQualityArchiveTableProgressRequest
+ * @return GetQualityArchiveTableProgressResponse
+ */
+GetQualityArchiveTableProgressResponse Client::getQualityArchiveTableProgress(const GetQualityArchiveTableProgressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQualityArchiveTableProgressWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a quality rule object.
  * Release version: v5.4.2.
  *
@@ -8893,6 +10133,10 @@ GetQualityRuleResponse Client::getQualityRuleWithOptions(const GetQualityRuleReq
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8936,6 +10180,10 @@ GetQualityRuleTaskResponse Client::getQualityRuleTaskWithOptions(const GetQualit
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasRuleTaskId()) {
@@ -8983,6 +10231,10 @@ GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLogWithOptions(const Get
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasRuleTaskId()) {
@@ -9037,6 +10289,10 @@ GetQualityScheduleResponse Client::getQualityScheduleWithOptions(const GetQualit
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9079,6 +10335,10 @@ GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchIdWithOpt
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWatchId()) {
@@ -9133,6 +10393,10 @@ GetQualityTemplateResponse Client::getQualityTemplateWithOptions(const GetQualit
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9163,8 +10427,8 @@ GetQualityTemplateResponse Client::getQualityTemplate(const GetQualityTemplateRe
 }
 
 /**
- * @summary Retrieves a quality monitored object.
- * Release version: v5.4.2.
+ * @summary Retrieves a quality monitoring object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9179,6 +10443,10 @@ GetQualityWatchResponse Client::getQualityWatchWithOptions(const GetQualityWatch
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9199,8 +10467,8 @@ GetQualityWatchResponse Client::getQualityWatchWithOptions(const GetQualityWatch
 }
 
 /**
- * @summary Retrieves a quality monitored object.
- * Release version: v5.4.2.
+ * @summary Retrieves a quality monitoring object.
+ * Online version: v5.4.2.
  *
  * @param request GetQualityWatchRequest
  * @return GetQualityWatchResponse
@@ -9223,6 +10491,10 @@ GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectIdWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWatchObjectId()) {
@@ -9277,6 +10549,10 @@ GetQualityWatchTaskResponse Client::getQualityWatchTaskWithOptions(const GetQual
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWatchTaskId()) {
     query["WatchTaskId"] = request.getWatchTaskId();
   }
@@ -9323,6 +10599,10 @@ GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLogWithOptions(const G
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWatchTaskId()) {
@@ -9378,6 +10658,10 @@ GetQueueEngineVersionByEnvResponse Client::getQueueEngineVersionByEnvWithOptions
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -9438,6 +10722,10 @@ GetResourceResponse Client::getResourceWithOptions(const GetResourceRequest &req
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -9471,7 +10759,7 @@ GetResourceResponse Client::getResource(const GetResourceRequest &request) {
 }
 
 /**
- * @summary Gets the details of a specified version of a resource file.
+ * @summary Retrieves the details of a specified version of a resource file.
  *
  * @param request GetResourceByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9486,6 +10774,10 @@ GetResourceByVersionResponse Client::getResourceByVersionWithOptions(const GetRe
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -9514,7 +10806,7 @@ GetResourceByVersionResponse Client::getResourceByVersionWithOptions(const GetRe
 }
 
 /**
- * @summary Gets the details of a specified version of a resource file.
+ * @summary Retrieves the details of a specified version of a resource file.
  *
  * @param request GetResourceByVersionRequest
  * @return GetResourceByVersionResponse
@@ -9542,6 +10834,10 @@ GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuidsWithOpt
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -9596,6 +10892,10 @@ GetSecurityClassifyResponse Client::getSecurityClassifyWithOptions(const GetSecu
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9641,6 +10941,10 @@ GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResultWithOptions(c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9690,6 +10994,10 @@ GetSecurityLevelResponse Client::getSecurityLevelWithOptions(const GetSecurityLe
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9736,6 +11044,10 @@ GetSecuritySecretKeyResponse Client::getSecuritySecretKeyWithOptions(const GetSe
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9780,6 +11092,10 @@ GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfoWithOptions(const
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -9833,6 +11149,10 @@ GetStandardResponse Client::getStandardWithOptions(const GetStandardRequest &tmp
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -9893,6 +11213,10 @@ GetStandardLookupTableResponse Client::getStandardLookupTableWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9945,6 +11269,10 @@ GetStandardSetResponse Client::getStandardSetWithOptions(const GetStandardSetReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9993,6 +11321,10 @@ GetStandardStatisticsResponse Client::getStandardStatisticsWithOptions(const Get
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -10059,6 +11391,10 @@ GetStandardTemplateResponse Client::getStandardTemplateWithOptions(const GetStan
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasFilterQueryShrink()) {
     body["FilterQuery"] = request.getFilterQueryShrink();
@@ -10117,6 +11453,10 @@ GetStandardWordRootResponse Client::getStandardWordRootWithOptions(const GetStan
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10162,6 +11502,10 @@ GetStreamJobsResponse Client::getStreamJobsWithOptions(const GetStreamJobsReques
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -10212,6 +11556,10 @@ GetSupplementDagrunResponse Client::getSupplementDagrunWithOptions(const GetSupp
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasSupplementId()) {
@@ -10268,6 +11616,10 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstanceWithOptio
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10314,6 +11666,10 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskIdWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -10371,6 +11727,10 @@ GetTableColumnLineagesResponse Client::getTableColumnLineagesWithOptions(const G
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasTableGuid()) {
     query["TableGuid"] = request.getTableGuid();
   }
@@ -10411,8 +11771,7 @@ GetTableColumnLineagesResponse Client::getTableColumnLineages(const GetTableColu
 }
 
 /**
- * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
- * Release version: v5.4.2.
+ * @summary Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
  *
  * @param request GetTableColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10427,6 +11786,10 @@ GetTableColumnsResponse Client::getTableColumnsWithOptions(const GetTableColumns
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasTableName()) {
@@ -10451,8 +11814,7 @@ GetTableColumnsResponse Client::getTableColumnsWithOptions(const GetTableColumns
 }
 
 /**
- * @summary Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
- * Release version: v5.4.2.
+ * @summary Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
  *
  * @param request GetTableColumnsRequest
  * @return GetTableColumnsResponse
@@ -10480,6 +11842,10 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskIdWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -10537,6 +11903,10 @@ GetTableLineagesResponse Client::getTableLineagesWithOptions(const GetTableLinea
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasTableGuid()) {
     query["TableGuid"] = request.getTableGuid();
   }
@@ -10590,6 +11960,10 @@ GetTransferInfoResponse Client::getTransferInfoWithOptions(const GetTransferInfo
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProposalId()) {
     query["ProposalId"] = request.getProposalId();
   }
@@ -10638,6 +12012,10 @@ GetUdfResponse Client::getUdfWithOptions(const GetUdfRequest &request, const Dar
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -10690,6 +12068,10 @@ GetUdfByVersionResponse Client::getUdfByVersionWithOptions(const GetUdfByVersion
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -10727,7 +12109,53 @@ GetUdfByVersionResponse Client::getUdfByVersion(const GetUdfByVersionRequest &re
 }
 
 /**
- * @summary Retrieves user details by original user ID.
+ * @summary Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+ *
+ * @param request GetUserByAccessKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserByAccessKeyResponse
+ */
+GetUserByAccessKeyResponse Client::getUserByAccessKeyWithOptions(const GetUserByAccessKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserByAccessKey"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserByAccessKeyResponse>();
+}
+
+/**
+ * @summary Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+ *
+ * @param request GetUserByAccessKeyRequest
+ * @return GetUserByAccessKeyResponse
+ */
+GetUserByAccessKeyResponse Client::getUserByAccessKey(const GetUserByAccessKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserByAccessKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves user details by the original user ID.
  *
  * @param request GetUserBySourceIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10740,8 +12168,16 @@ GetUserBySourceIdResponse Client::getUserBySourceIdWithOptions(const GetUserBySo
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasSourceId()) {
     query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10762,7 +12198,7 @@ GetUserBySourceIdResponse Client::getUserBySourceIdWithOptions(const GetUserBySo
 }
 
 /**
- * @summary Retrieves user details by original user ID.
+ * @summary Retrieves user details by the original user ID.
  *
  * @param request GetUserBySourceIdRequest
  * @return GetUserBySourceIdResponse
@@ -10784,6 +12220,10 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasUserGroupId()) {
@@ -10838,6 +12278,10 @@ GetUsersResponse Client::getUsersWithOptions(const GetUsersRequest &tmpReq, cons
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUserIdListShrink()) {
     body["UserIdList"] = request.getUserIdListShrink();
@@ -10890,6 +12334,10 @@ GrantDataServiceApiResponse Client::grantDataServiceApiWithOptions(const GrantDa
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -10950,6 +12398,10 @@ GrantResourcePermissionResponse Client::grantResourcePermissionWithOptions(const
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasGrantCommandShrink()) {
     body["GrantCommand"] = request.getGrantCommandShrink();
@@ -11004,6 +12456,10 @@ ImportKgSchemaResponse Client::importKgSchemaWithOptions(const ImportKgSchemaReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -11056,6 +12512,10 @@ ListAddableRolesResponse Client::listAddableRolesWithOptions(const ListAddableRo
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11102,6 +12562,10 @@ ListAddableUsersResponse Client::listAddableUsersWithOptions(const ListAddableUs
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -11158,6 +12622,10 @@ ListAlertEventsResponse Client::listAlertEventsWithOptions(const ListAlertEvents
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -11210,6 +12678,10 @@ ListAlertNotificationsResponse Client::listAlertNotificationsWithOptions(const L
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -11268,6 +12740,10 @@ ListApiByAppResponse Client::listApiByAppWithOptions(const ListApiByAppRequest &
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasPageQueryShrink()) {
     body["PageQuery"] = request.getPageQueryShrink();
@@ -11305,6 +12781,180 @@ ListApiByAppResponse Client::listApiByApp(const ListApiByAppRequest &request) {
 }
 
 /**
+ * @summary Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+ *
+ * @param tmpReq ListApprovalTasksByUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApprovalTasksByUserResponse
+ */
+ListApprovalTasksByUserResponse Client::listApprovalTasksByUserWithOptions(const ListApprovalTasksByUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListApprovalTasksByUserShrinkRequest request = ListApprovalTasksByUserShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListApprovalTasksByUser"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApprovalTasksByUserResponse>();
+}
+
+/**
+ * @summary Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+ *
+ * @param request ListApprovalTasksByUserRequest
+ * @return ListApprovalTasksByUserResponse
+ */
+ListApprovalTasksByUserResponse Client::listApprovalTasksByUser(const ListApprovalTasksByUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApprovalTasksByUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+ *
+ * @param tmpReq ListAssetDirectoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAssetDirectoriesResponse
+ */
+ListAssetDirectoriesResponse Client::listAssetDirectoriesWithOptions(const ListAssetDirectoriesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAssetDirectoriesShrinkRequest request = ListAssetDirectoriesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAssetDirectories"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAssetDirectoriesResponse>();
+}
+
+/**
+ * @summary Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+ *
+ * @param request ListAssetDirectoriesRequest
+ * @return ListAssetDirectoriesResponse
+ */
+ListAssetDirectoriesResponse Client::listAssetDirectories(const ListAssetDirectoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAssetDirectoriesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of published asset listing topics. Online version: v6.3.0.
+ *
+ * @param tmpReq ListAssetTopicsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAssetTopicsResponse
+ */
+ListAssetTopicsResponse Client::listAssetTopicsWithOptions(const ListAssetTopicsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAssetTopicsShrinkRequest request = ListAssetTopicsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAssetTopics"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAssetTopicsResponse>();
+}
+
+/**
+ * @summary Queries the list of published asset listing topics. Online version: v6.3.0.
+ *
+ * @param request ListAssetTopicsRequest
+ * @return ListAssetTopicsResponse
+ */
+ListAssetTopicsResponse Client::listAssetTopics(const ListAssetTopicsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAssetTopicsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the specific field list of APIs that an application has requested.
  *
  * @description ## Request description.
@@ -11324,6 +12974,10 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -11386,6 +13040,10 @@ ListBatchTemplatesResponse Client::listBatchTemplatesWithOptions(const ListBatch
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -11444,6 +13102,10 @@ ListBizEntitiesResponse Client::listBizEntitiesWithOptions(const ListBizEntities
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -11490,6 +13152,10 @@ ListBizUnitsResponse Client::listBizUnitsWithOptions(const ListBizUnitsRequest &
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11540,6 +13206,10 @@ ListCatalogAssetsResponse Client::listCatalogAssetsWithOptions(const ListCatalog
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListCatalogAssetsQueryShrink()) {
     body["ListCatalogAssetsQuery"] = request.getListCatalogAssetsQueryShrink();
@@ -11575,6 +13245,76 @@ ListCatalogAssetsResponse Client::listCatalogAssets(const ListCatalogAssetsReque
 }
 
 /**
+ * @summary Queries the list of clusters. Release version: v6.3.0.
+ *
+ * @description Retrieves the list of clusters.
+ *
+ * @param tmpReq ListComputeClustersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListComputeClustersResponse
+ */
+ListComputeClustersResponse Client::listComputeClustersWithOptions(const ListComputeClustersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListComputeClustersShrinkRequest request = ListComputeClustersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListComputeClusters"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListComputeClustersResponse>();
+}
+
+/**
+ * @summary Queries the list of clusters. Release version: v6.3.0.
+ *
+ * @description Retrieves the list of clusters.
+ *
+ * @param request ListComputeClustersRequest
+ * @return ListComputeClustersResponse
+ */
+ListComputeClustersResponse Client::listComputeClusters(const ListComputeClustersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listComputeClustersWithOptions(request, runtime);
+}
+
+/**
  * @summary Query the list of compute sources.
  *
  * @param tmpReq ListComputeSourcesRequest
@@ -11592,6 +13332,10 @@ ListComputeSourcesResponse Client::listComputeSourcesWithOptions(const ListCompu
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -11648,6 +13392,10 @@ ListDataDomainsResponse Client::listDataDomainsWithOptions(const ListDataDomains
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -11700,6 +13448,10 @@ ListDataServiceApiCallStatisticsResponse Client::listDataServiceApiCallStatistic
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -11760,6 +13512,10 @@ ListDataServiceApiCallsResponse Client::listDataServiceApiCallsWithOptions(const
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -11816,6 +13572,10 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpactsWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -11877,6 +13637,10 @@ ListDataServiceAppsResponse Client::listDataServiceAppsWithOptions(const ListDat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -11930,6 +13694,10 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedAppsWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -11990,6 +13758,10 @@ ListDataServiceMyApiPermissionsResponse Client::listDataServiceMyApiPermissionsW
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -12046,6 +13818,10 @@ ListDataServiceMyAppPermissionsResponse Client::listDataServiceMyAppPermissionsW
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -12106,6 +13882,10 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -12162,6 +13942,10 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfigWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12221,6 +14005,10 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasDatasetQueryShrink()) {
     body["DatasetQuery"] = request.getDatasetQueryShrink();
@@ -12278,6 +14066,10 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &tmpReq, c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -12313,7 +14105,71 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary Paginate and query instances.
+ * @summary Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+ *
+ * @description ## Operation description
+ * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+ *
+ * @param tmpReq ListGovernObjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGovernObjectsResponse
+ */
+ListGovernObjectsResponse Client::listGovernObjectsWithOptions(const ListGovernObjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListGovernObjectsShrinkRequest request = ListGovernObjectsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListGovernObjects"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGovernObjectsResponse>();
+}
+
+/**
+ * @summary Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+ *
+ * @description ## Operation description
+ * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+ *
+ * @param request ListGovernObjectsRequest
+ * @return ListGovernObjectsResponse
+ */
+ListGovernObjectsResponse Client::listGovernObjects(const ListGovernObjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGovernObjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries instances by paging.
  *
  * @param tmpReq ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12334,6 +14190,10 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12360,7 +14220,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Paginate and query instances.
+ * @summary Queries instances by paging.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -12392,6 +14252,10 @@ ListKgEntityResponse Client::listKgEntityWithOptions(const ListKgEntityRequest &
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -12452,6 +14316,10 @@ ListKgRelationResponse Client::listKgRelationWithOptions(const ListKgRelationReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasRelationType()) {
     query["RelationType"] = request.getRelationType();
   }
@@ -12495,7 +14363,7 @@ ListKgRelationResponse Client::listKgRelation(const ListKgRelationRequest &reque
 }
 
 /**
- * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+ * @summary Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
  *
  * @param tmpReq ListNodeDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12516,6 +14384,10 @@ ListNodeDownStreamResponse Client::listNodeDownStreamWithOptions(const ListNodeD
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12542,7 +14414,7 @@ ListNodeDownStreamResponse Client::listNodeDownStreamWithOptions(const ListNodeD
 }
 
 /**
- * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+ * @summary Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
  *
  * @param request ListNodeDownStreamRequest
  * @return ListNodeDownStreamResponse
@@ -12553,7 +14425,7 @@ ListNodeDownStreamResponse Client::listNodeDownStream(const ListNodeDownStreamRe
 }
 
 /**
- * @summary Retrieves a list of scheduling nodes.
+ * @summary Retrieves a list of scheduled nodes.
  *
  * @param tmpReq ListNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12574,6 +14446,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12600,7 +14476,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 }
 
 /**
- * @summary Retrieves a list of scheduling nodes.
+ * @summary Retrieves a list of scheduled nodes.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -12628,6 +14504,10 @@ ListOperationRecordResponse Client::listOperationRecordWithOptions(const ListOpe
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12665,7 +14545,7 @@ ListOperationRecordResponse Client::listOperationRecord(const ListOperationRecor
 }
 
 /**
- * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+ * @summary Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
  *
  * @param tmpReq ListPipelinesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12686,6 +14566,10 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const ListPipelinesReques
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12716,7 +14600,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const ListPipelinesReques
 }
 
 /**
- * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+ * @summary Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -12748,6 +14632,10 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12804,6 +14692,10 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -12858,6 +14750,10 @@ ListPublishRecordsResponse Client::listPublishRecordsWithOptions(const ListPubli
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -12893,6 +14789,64 @@ ListPublishRecordsResponse Client::listPublishRecords(const ListPublishRecordsRe
 }
 
 /**
+ * @summary Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+ *
+ * @param tmpReq ListQualityArchiveTablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQualityArchiveTablesResponse
+ */
+ListQualityArchiveTablesResponse Client::listQualityArchiveTablesWithOptions(const ListQualityArchiveTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListQualityArchiveTablesShrinkRequest request = ListQualityArchiveTablesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListQualityArchiveTables"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQualityArchiveTablesResponse>();
+}
+
+/**
+ * @summary Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+ *
+ * @param request ListQualityArchiveTablesRequest
+ * @return ListQualityArchiveTablesResponse
+ */
+ListQualityArchiveTablesResponse Client::listQualityArchiveTables(const ListQualityArchiveTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQualityArchiveTablesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries quality rule tasks by paging.
  * Online version: v5.4.2.
  *
@@ -12911,6 +14865,10 @@ ListQualityRuleTasksResponse Client::listQualityRuleTasksWithOptions(const ListQ
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -12969,6 +14927,10 @@ ListQualityRulesResponse Client::listQualityRulesWithOptions(const ListQualityRu
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -13025,6 +14987,10 @@ ListQualityTemplatesResponse Client::listQualityTemplatesWithOptions(const ListQ
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -13061,7 +15027,7 @@ ListQualityTemplatesResponse Client::listQualityTemplates(const ListQualityTempl
 }
 
 /**
- * @summary Queries quality monitoring nodes by paged query.
+ * @summary Queries quality monitoring nodes by paging.
  * Online version: v5.4.2.
  *
  * @param tmpReq ListQualityWatchTasksRequest
@@ -13079,6 +15045,10 @@ ListQualityWatchTasksResponse Client::listQualityWatchTasksWithOptions(const Lis
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13105,7 +15075,7 @@ ListQualityWatchTasksResponse Client::listQualityWatchTasksWithOptions(const Lis
 }
 
 /**
- * @summary Queries quality monitoring nodes by paged query.
+ * @summary Queries quality monitoring nodes by paging.
  * Online version: v5.4.2.
  *
  * @param request ListQualityWatchTasksRequest
@@ -13135,6 +15105,10 @@ ListQualityWatchesResponse Client::listQualityWatchesWithOptions(const ListQuali
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13300,6 +15274,10 @@ ListRowPermissionResponse Client::listRowPermissionWithOptions(const ListRowPerm
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasPageRowPermissionQueryShrink()) {
     body["PageRowPermissionQuery"] = request.getPageRowPermissionQueryShrink();
@@ -13352,6 +15330,10 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserIdWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13443,7 +15425,7 @@ ListSecurityClassifyResponse Client::listSecurityClassify(const ListSecurityClas
 }
 
 /**
- * @summary Queries identification records of security identification results by paging.
+ * @summary Queries identification records of security identification results by using paging.
  * Online version: v5.4.2.
  *
  * @param tmpReq ListSecurityIdentifyRecordsRequest
@@ -13461,6 +15443,10 @@ ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecordsWithOptio
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13487,7 +15473,7 @@ ListSecurityIdentifyRecordsResponse Client::listSecurityIdentifyRecordsWithOptio
 }
 
 /**
- * @summary Queries identification records of security identification results by paging.
+ * @summary Queries identification records of security identification results by using paging.
  * Online version: v5.4.2.
  *
  * @param request ListSecurityIdentifyRecordsRequest
@@ -13517,6 +15503,10 @@ ListSecurityIdentifyResultsResponse Client::listSecurityIdentifyResultsWithOptio
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13575,6 +15565,10 @@ ListStandardsResponse Client::listStandardsWithOptions(const ListStandardsReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -13628,6 +15622,10 @@ ListSubmitRecordsResponse Client::listSubmitRecordsWithOptions(const ListSubmitR
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13685,6 +15683,10 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -13738,6 +15740,10 @@ ListTenantMembersResponse Client::listTenantMembersWithOptions(const ListTenantM
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13794,6 +15800,10 @@ ListUserGroupMembersResponse Client::listUserGroupMembersWithOptions(const ListU
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasListQueryShrink()) {
     body["ListQuery"] = request.getListQueryShrink();
@@ -13846,6 +15856,10 @@ ListUserGroupsResponse Client::listUserGroupsWithOptions(const ListUserGroupsReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -13904,6 +15918,10 @@ OfflineBatchTaskResponse Client::offlineBatchTaskWithOptions(const OfflineBatchT
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -13954,6 +15972,10 @@ OfflineBizEntityResponse Client::offlineBizEntityWithOptions(const OfflineBizEnt
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14012,6 +16034,10 @@ OfflinePipelineResponse Client::offlinePipelineWithOptions(const OfflinePipeline
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14076,6 +16102,10 @@ OfflinePipelineByAsyncResponse Client::offlinePipelineByAsyncWithOptions(const O
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasContextShrink()) {
     body["Context"] = request.getContextShrink();
@@ -14135,6 +16165,10 @@ OfflineStandardResponse Client::offlineStandardWithOptions(const OfflineStandard
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasOfflineCommandShrink()) {
     body["OfflineCommand"] = request.getOfflineCommandShrink();
@@ -14188,6 +16222,10 @@ OnlineBizEntityResponse Client::onlineBizEntityWithOptions(const OnlineBizEntity
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14248,6 +16286,10 @@ OperateInstanceResponse Client::operateInstanceWithOptions(const OperateInstance
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasOperateCommandShrink()) {
     body["OperateCommand"] = request.getOperateCommandShrink();
@@ -14300,6 +16342,10 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependencyWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14360,6 +16406,10 @@ PausePhysicalNodeResponse Client::pausePhysicalNodeWithOptions(const PausePhysic
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasPauseCommandShrink()) {
     body["PauseCommand"] = request.getPauseCommandShrink();
@@ -14410,6 +16460,10 @@ PublishDataServiceApiResponse Client::publishDataServiceApiWithOptions(const Pub
 
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -14466,6 +16520,10 @@ PublishKgSchemaResponse Client::publishKgSchemaWithOptions(const PublishKgSchema
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -14526,6 +16584,10 @@ PublishObjectListResponse Client::publishObjectListWithOptions(const PublishObje
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasPublishCommandShrink()) {
     body["PublishCommand"] = request.getPublishCommandShrink();
@@ -14579,6 +16641,10 @@ PublishStandardResponse Client::publishStandardWithOptions(const PublishStandard
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14635,6 +16701,10 @@ RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMemberWithOptions
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14696,6 +16766,10 @@ RemoveProjectMemberResponse Client::removeProjectMemberWithOptions(const RemoveP
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasRemoveCommandShrink()) {
     body["RemoveCommand"] = request.getRemoveCommandShrink();
@@ -14749,6 +16823,10 @@ RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedulesWithOptions
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14806,6 +16884,10 @@ RemoveTenantMemberResponse Client::removeTenantMemberWithOptions(const RemoveTen
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasRemoveCommandShrink()) {
     body["RemoveCommand"] = request.getRemoveCommandShrink();
@@ -14858,6 +16940,10 @@ RemoveUserGroupMemberResponse Client::removeUserGroupMemberWithOptions(const Rem
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -14918,6 +17004,10 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteListsWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasReplaceCommandShrink()) {
     body["ReplaceCommand"] = request.getReplaceCommandShrink();
@@ -14971,6 +17061,10 @@ ResetDataServiceAppSecretResponse Client::resetDataServiceAppSecretWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15032,6 +17126,10 @@ ResumePhysicalNodeResponse Client::resumePhysicalNodeWithOptions(const ResumePhy
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasResumeCommandShrink()) {
     body["ResumeCommand"] = request.getResumeCommandShrink();
@@ -15086,6 +17184,10 @@ RetryTransferOwnershipResponse Client::retryTransferOwnershipWithOptions(const R
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasPrivilegeTransferRecordShrink()) {
     body["PrivilegeTransferRecord"] = request.getPrivilegeTransferRecordShrink();
@@ -15138,6 +17240,10 @@ RevokeDataServiceApiResponse Client::revokeDataServiceApiWithOptions(const Revok
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -15196,6 +17302,10 @@ RevokeResourcePermissionResponse Client::revokeResourcePermissionWithOptions(con
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15304,6 +17414,10 @@ StopAdHocTaskResponse Client::stopAdHocTaskWithOptions(const StopAdHocTaskReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -15341,6 +17455,122 @@ StopAdHocTaskResponse Client::stopAdHocTask(const StopAdHocTaskRequest &request)
 }
 
 /**
+ * @summary Submits asset delisting. Online version: v6.3.0.
+ *
+ * @param tmpReq SubmitAssetsOffShelveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAssetsOffShelveResponse
+ */
+SubmitAssetsOffShelveResponse Client::submitAssetsOffShelveWithOptions(const SubmitAssetsOffShelveRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitAssetsOffShelveShrinkRequest request = SubmitAssetsOffShelveShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSubmitCommand()) {
+    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitCommand(), "SubmitCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasSubmitCommandShrink()) {
+    body["SubmitCommand"] = request.getSubmitCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitAssetsOffShelve"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAssetsOffShelveResponse>();
+}
+
+/**
+ * @summary Submits asset delisting. Online version: v6.3.0.
+ *
+ * @param request SubmitAssetsOffShelveRequest
+ * @return SubmitAssetsOffShelveResponse
+ */
+SubmitAssetsOffShelveResponse Client::submitAssetsOffShelve(const SubmitAssetsOffShelveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAssetsOffShelveWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits assets for listing. Online version: v6.3.0.
+ *
+ * @param tmpReq SubmitAssetsOnShelveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAssetsOnShelveResponse
+ */
+SubmitAssetsOnShelveResponse Client::submitAssetsOnShelveWithOptions(const SubmitAssetsOnShelveRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitAssetsOnShelveShrinkRequest request = SubmitAssetsOnShelveShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSubmitCommand()) {
+    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitCommand(), "SubmitCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasSubmitCommandShrink()) {
+    body["SubmitCommand"] = request.getSubmitCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitAssetsOnShelve"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAssetsOnShelveResponse>();
+}
+
+/**
+ * @summary Submits assets for listing. Online version: v6.3.0.
+ *
+ * @param request SubmitAssetsOnShelveRequest
+ * @return SubmitAssetsOnShelveResponse
+ */
+SubmitAssetsOnShelveResponse Client::submitAssetsOnShelve(const SubmitAssetsOnShelveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAssetsOnShelveWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a batch task.
  *
  * @param tmpReq SubmitBatchTaskRequest
@@ -15358,6 +17588,10 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15477,6 +17711,10 @@ SubmitQualityRuleTasksResponse Client::submitQualityRuleTasksWithOptions(const S
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasSubmitCommandShrink()) {
     body["SubmitCommand"] = request.getSubmitCommandShrink();
@@ -15531,6 +17769,10 @@ SubmitQualityWatchTasksResponse Client::submitQualityWatchTasksWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15590,6 +17832,10 @@ SyncDepartmentResponse Client::syncDepartmentWithOptions(const SyncDepartmentReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasSyncDepartmentCommandShrink()) {
     body["SyncDepartmentCommand"] = request.getSyncDepartmentCommandShrink();
@@ -15646,6 +17892,10 @@ SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepar
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasSyncDepartmentUserCommandShrink()) {
     body["SyncDepartmentUserCommand"] = request.getSyncDepartmentUserCommandShrink();
@@ -15698,6 +17948,10 @@ TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObjectWithO
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15754,6 +18008,10 @@ UpdateAdHocFileResponse Client::updateAdHocFileWithOptions(const UpdateAdHocFile
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -15789,6 +18047,64 @@ UpdateAdHocFileResponse Client::updateAdHocFile(const UpdateAdHocFileRequest &re
 }
 
 /**
+ * @summary Updates asset property values. Online version: v6.3.0.
+ *
+ * @param tmpReq UpdateAssetAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAssetAttributesResponse
+ */
+UpdateAssetAttributesResponse Client::updateAssetAttributesWithOptions(const UpdateAssetAttributesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateAssetAttributesShrinkRequest request = UpdateAssetAttributesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAssetAttributes"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAssetAttributesResponse>();
+}
+
+/**
+ * @summary Updates asset property values. Online version: v6.3.0.
+ *
+ * @param request UpdateAssetAttributesRequest
+ * @return UpdateAssetAttributesResponse
+ */
+UpdateAssetAttributesResponse Client::updateAssetAttributes(const UpdateAssetAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAssetAttributesWithOptions(request, runtime);
+}
+
+/**
  * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
  *
  * @param tmpReq UpdateBasicProjectRequest
@@ -15806,6 +18122,10 @@ UpdateBasicProjectResponse Client::updateBasicProjectWithOptions(const UpdateBas
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -15862,6 +18182,10 @@ UpdateBatchTaskResponse Client::updateBatchTaskWithOptions(const UpdateBatchTask
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -15916,6 +18240,10 @@ UpdateBatchTaskUdfLineagesResponse Client::updateBatchTaskUdfLineagesWithOptions
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -15968,6 +18296,10 @@ UpdateBizEntityResponse Client::updateBizEntityWithOptions(const UpdateBizEntity
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16025,6 +18357,10 @@ UpdateBizMetricResponse Client::updateBizMetricWithOptions(const UpdateBizMetric
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateBizMetricCommandShrink()) {
     body["UpdateBizMetricCommand"] = request.getUpdateBizMetricCommandShrink();
@@ -16080,6 +18416,10 @@ UpdateBizUnitResponse Client::updateBizUnitWithOptions(const UpdateBizUnitReques
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -16115,6 +18455,68 @@ UpdateBizUnitResponse Client::updateBizUnit(const UpdateBizUnitRequest &request)
 }
 
 /**
+ * @summary 修改集群。
+ *
+ * @param tmpReq UpdateComputeClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateComputeClusterResponse
+ */
+UpdateComputeClusterResponse Client::updateComputeClusterWithOptions(const UpdateComputeClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateComputeClusterShrinkRequest request = UpdateComputeClusterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasClusterConfig()) {
+    request.setClusterConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClusterConfig(), "ClusterConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasClusterConfigShrink()) {
+    body["ClusterConfig"] = request.getClusterConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateComputeCluster"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateComputeClusterResponse>();
+}
+
+/**
+ * @summary 修改集群。
+ *
+ * @param request UpdateComputeClusterRequest
+ * @return UpdateComputeClusterResponse
+ */
+UpdateComputeClusterResponse Client::updateComputeCluster(const UpdateComputeClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateComputeClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
  *
  * @param tmpReq UpdateComputeSourceRequest
@@ -16132,6 +18534,10 @@ UpdateComputeSourceResponse Client::updateComputeSourceWithOptions(const UpdateC
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16169,6 +18575,70 @@ UpdateComputeSourceResponse Client::updateComputeSource(const UpdateComputeSourc
 }
 
 /**
+ * @summary 根据治理项id，批量修改问题清单对象的状态。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+ *
+ * @param tmpReq UpdateDataAssetsGovernObjectStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataAssetsGovernObjectStatusResponse
+ */
+UpdateDataAssetsGovernObjectStatusResponse Client::updateDataAssetsGovernObjectStatusWithOptions(const UpdateDataAssetsGovernObjectStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDataAssetsGovernObjectStatusShrinkRequest request = UpdateDataAssetsGovernObjectStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataAssetsGovernObjectStatus"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataAssetsGovernObjectStatusResponse>();
+}
+
+/**
+ * @summary 根据治理项id，批量修改问题清单对象的状态。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+ *
+ * @param request UpdateDataAssetsGovernObjectStatusRequest
+ * @return UpdateDataAssetsGovernObjectStatusResponse
+ */
+UpdateDataAssetsGovernObjectStatusResponse Client::updateDataAssetsGovernObjectStatus(const UpdateDataAssetsGovernObjectStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataAssetsGovernObjectStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates a data domain.
  *
  * @param tmpReq UpdateDataDomainRequest
@@ -16186,6 +18656,10 @@ UpdateDataDomainResponse Client::updateDataDomainWithOptions(const UpdateDataDom
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16241,6 +18715,10 @@ UpdateDataServiceAppResponse Client::updateDataServiceAppWithOptions(const Updat
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16299,6 +18777,10 @@ UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroupWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -16353,6 +18835,10 @@ UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMemberWithOptions
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16410,6 +18896,10 @@ UpdateDataSourceBasicInfoResponse Client::updateDataSourceBasicInfoWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -16462,6 +18952,10 @@ UpdateDataSourceConfigResponse Client::updateDataSourceConfigWithOptions(const U
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16518,6 +19012,10 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasProjectId()) {
@@ -16580,6 +19078,10 @@ UpdateDevProdProjectResponse Client::updateDevProdProjectWithOptions(const Updat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -16636,6 +19138,10 @@ UpdateFileDirectoryResponse Client::updateFileDirectoryWithOptions(const UpdateF
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -16690,6 +19196,10 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -16740,6 +19250,10 @@ UpdateKgEntityResponse Client::updateKgEntityWithOptions(const UpdateKgEntityReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -16800,6 +19314,10 @@ UpdateKgRelationResponse Client::updateKgRelationWithOptions(const UpdateKgRelat
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -16839,6 +19357,64 @@ UpdateKgRelationResponse Client::updateKgRelation(const UpdateKgRelationRequest 
 }
 
 /**
+ * @summary Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+ *
+ * @param tmpReq UpdateNodeOpsOwnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNodeOpsOwnerResponse
+ */
+UpdateNodeOpsOwnerResponse Client::updateNodeOpsOwnerWithOptions(const UpdateNodeOpsOwnerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateNodeOpsOwnerShrinkRequest request = UpdateNodeOpsOwnerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCommand()) {
+    request.setCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCommand(), "Command", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasCommandShrink()) {
+    body["Command"] = request.getCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateNodeOpsOwner"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNodeOpsOwnerResponse>();
+}
+
+/**
+ * @summary Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+ *
+ * @param request UpdateNodeOpsOwnerRequest
+ * @return UpdateNodeOpsOwnerResponse
+ */
+UpdateNodeOpsOwnerResponse Client::updateNodeOpsOwner(const UpdateNodeOpsOwnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNodeOpsOwnerWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates an integration pipeline or unstructured workflow node.
  *
  * @param tmpReq UpdatePipelineRequest
@@ -16860,6 +19436,10 @@ UpdatePipelineResponse Client::updatePipelineWithOptions(const UpdatePipelineReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -16924,6 +19504,10 @@ UpdatePipelineByAsyncResponse Client::updatePipelineByAsyncWithOptions(const Upd
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasContextShrink()) {
     body["Context"] = request.getContextShrink();
@@ -16986,6 +19570,10 @@ UpdateProjectMemberResponse Client::updateProjectMemberWithOptions(const UpdateP
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17039,6 +19627,10 @@ UpdateQualityRuleSwitchResponse Client::updateQualityRuleSwitchWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17097,6 +19689,10 @@ UpdateQualityWatchSwitchResponse Client::updateQualityWatchSwitchWithOptions(con
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17152,6 +19748,10 @@ UpdateResourceResponse Client::updateResourceWithOptions(const UpdateResourceReq
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17204,6 +19804,10 @@ UpdateRowPermissionResponse Client::updateRowPermissionWithOptions(const UpdateR
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17261,6 +19865,10 @@ UpdateSecurityClassifyResponse Client::updateSecurityClassifyWithOptions(const U
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17316,6 +19924,10 @@ UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalogWithO
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17369,6 +19981,10 @@ UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultS
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17427,6 +20043,10 @@ UpdateSecurityLevelResponse Client::updateSecurityLevelWithOptions(const UpdateS
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17481,6 +20101,10 @@ UpdateStandardResponse Client::updateStandardWithOptions(const UpdateStandardReq
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17539,6 +20163,10 @@ UpdateStandardLookupTableResponse Client::updateStandardLookupTableWithOptions(c
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17593,6 +20221,10 @@ UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalidWit
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17651,6 +20283,10 @@ UpdateStandardSetResponse Client::updateStandardSetWithOptions(const UpdateStand
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17705,6 +20341,10 @@ UpdateStandardTemplateResponse Client::updateStandardTemplateWithOptions(const U
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17763,6 +20403,10 @@ UpdateStandardWordRootResponse Client::updateStandardWordRootWithOptions(const U
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17816,6 +20460,10 @@ UpdateTenantComputeEngineResponse Client::updateTenantComputeEngineWithOptions(c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17872,6 +20520,10 @@ UpdateTenantMemberResponse Client::updateTenantMemberWithOptions(const UpdateTen
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -17924,6 +20576,10 @@ UpdateUdfResponse Client::updateUdfWithOptions(const UpdateUdfRequest &tmpReq, c
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -17980,6 +20636,10 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
     body["UpdateCommand"] = request.getUpdateCommandShrink();
@@ -18032,6 +20692,10 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitchWithOptions(const Upd
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   if (!!request.hasUserGroupId()) {
     query["UserGroupId"] = request.getUserGroupId();
   }
@@ -18065,7 +20729,123 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitch(const UpdateUserGrou
 }
 
 /**
- * @summary Create or modify a quality rule.
+ * @summary Uploads a datasource authentication file. Available since v6.3.0.
+ *
+ * @param tmpReq UploadDataSourceFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadDataSourceFileResponse
+ */
+UploadDataSourceFileResponse Client::uploadDataSourceFileWithOptions(const UploadDataSourceFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UploadDataSourceFileShrinkRequest request = UploadDataSourceFileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUploadCommand()) {
+    request.setUploadCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUploadCommand(), "UploadCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasUploadCommandShrink()) {
+    body["UploadCommand"] = request.getUploadCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UploadDataSourceFile"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadDataSourceFileResponse>();
+}
+
+/**
+ * @summary Uploads a datasource authentication file. Available since v6.3.0.
+ *
+ * @param request UploadDataSourceFileRequest
+ * @return UploadDataSourceFileResponse
+ */
+UploadDataSourceFileResponse Client::uploadDataSourceFile(const UploadDataSourceFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadDataSourceFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+ *
+ * @param tmpReq UpsertQualityArchiveTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertQualityArchiveTableResponse
+ */
+UpsertQualityArchiveTableResponse Client::upsertQualityArchiveTableWithOptions(const UpsertQualityArchiveTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpsertQualityArchiveTableShrinkRequest request = UpsertQualityArchiveTableShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpsertCommand()) {
+    request.setUpsertCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpsertCommand(), "UpsertCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasUpsertCommandShrink()) {
+    body["UpsertCommand"] = request.getUpsertCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertQualityArchiveTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertQualityArchiveTableResponse>();
+}
+
+/**
+ * @summary Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+ *
+ * @param request UpsertQualityArchiveTableRequest
+ * @return UpsertQualityArchiveTableResponse
+ */
+UpsertQualityArchiveTableResponse Client::upsertQualityArchiveTable(const UpsertQualityArchiveTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertQualityArchiveTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates or updates a quality rule.
  * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityRuleRequest
@@ -18083,6 +20863,10 @@ UpsertQualityRuleResponse Client::upsertQualityRuleWithOptions(const UpsertQuali
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -18109,7 +20893,7 @@ UpsertQualityRuleResponse Client::upsertQualityRuleWithOptions(const UpsertQuali
 }
 
 /**
- * @summary Create or modify a quality rule.
+ * @summary Creates or updates a quality rule.
  * Release version: v5.4.2.
  *
  * @param request UpsertQualityRuleRequest
@@ -18121,7 +20905,7 @@ UpsertQualityRuleResponse Client::upsertQualityRule(const UpsertQualityRuleReque
 }
 
 /**
- * @summary Creates or updates scheduling settings.
+ * @summary Creates or updates a schedule setting.
  * Release version: v5.4.2.
  *
  * @param tmpReq UpsertQualityScheduleRequest
@@ -18139,6 +20923,10 @@ UpsertQualityScheduleResponse Client::upsertQualityScheduleWithOptions(const Ups
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -18165,7 +20953,7 @@ UpsertQualityScheduleResponse Client::upsertQualityScheduleWithOptions(const Ups
 }
 
 /**
- * @summary Creates or updates scheduling settings.
+ * @summary Creates or updates a schedule setting.
  * Release version: v5.4.2.
  *
  * @param request UpsertQualityScheduleRequest
@@ -18195,6 +20983,10 @@ UpsertQualityTemplateResponse Client::upsertQualityTemplateWithOptions(const Ups
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};
@@ -18253,6 +21045,10 @@ UpsertQualityWatchResponse Client::upsertQualityWatchWithOptions(const UpsertQua
     query["OpTenantId"] = request.getOpTenantId();
   }
 
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
   json body = {};
   if (!!request.hasUpsertCommandShrink()) {
     body["UpsertCommand"] = request.getUpsertCommandShrink();
@@ -18307,6 +21103,10 @@ UpsertQualityWatchAlertResponse Client::upsertQualityWatchAlertWithOptions(const
   json query = {};
   if (!!request.hasOpTenantId()) {
     query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
   }
 
   json body = {};

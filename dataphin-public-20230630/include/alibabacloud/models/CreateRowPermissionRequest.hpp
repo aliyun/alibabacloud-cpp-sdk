@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateRowPermissionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreateRowPermissionCommand, createRowPermissionCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRowPermissionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateRowPermissionCommand, createRowPermissionCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreateRowPermissionRequest() = default ;
     CreateRowPermissionRequest(const CreateRowPermissionRequest &) = default ;
@@ -511,7 +513,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->createRowPermissionCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // createRowPermissionCommand Field Functions 
     bool hasCreateRowPermissionCommand() const { return this->createRowPermissionCommand_ != nullptr;};
     void deleteCreateRowPermissionCommand() { this->createRowPermissionCommand_ = nullptr;};
@@ -528,6 +530,13 @@ namespace Models
     inline CreateRowPermissionRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateRowPermissionRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request command.
     // 
@@ -537,6 +546,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

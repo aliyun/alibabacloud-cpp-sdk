@@ -271,55 +271,54 @@ namespace Models
 
 
     protected:
-      // The business unit ID of the input table.
+      // The ID of the business unit to which the input table belongs.
       shared_ptr<int64_t> inputBizUnitId_ {};
-      // The data source ID of the input table.
+      // The ID of the data source to which the input table belongs.
       shared_ptr<int64_t> inputDataSourceId_ {};
-      // The storage type of the input table.
+      // The storage format of the input table.
       shared_ptr<string> inputDataSourceType_ {};
-      // The data source type of the input table.
+      // The type of the input data source.
       shared_ptr<string> inputDbType_ {};
-      // The environment of the input table: DEV or PROD.
+      // The environment to which the input table belongs. Valid values: DEV and PROD.
       shared_ptr<string> inputEnv_ {};
-      // The project ID of the input table.
+      // The ID of the project to which the input table belongs.
       shared_ptr<int64_t> inputProjectId_ {};
-      // Indicates whether the input table is deleted.
+      // Indicates whether the input table has been deleted.
       shared_ptr<bool> inputTableDeleted_ {};
       // The GUID of the input table. Each asset has a unique GUID in the following format:
-      // 
       // - Logical table: dp_table.[TenantId].[BusinessUnitName].[TableName]
       // - Compute source physical table: [EngineType].[TenantId].[ProjectName].[TableName]
       // - Data source table: dp_ds_table.[TenantId].[DataSourceId].[SchemaName].[TableName]
       shared_ptr<string> inputTableId_ {};
       // The name of the input table.
       shared_ptr<string> inputTableName_ {};
-      // The type of the input table. 
+      // The type of the input table. Valid values: 
       // 
-      // - PHYSICAL_TABLE Physical table (compute source)
-      // - DIM_LOGIC_TABLE Dimension logical table
-      // - FACT_LOGIC_TABLE Fact logical table
-      // - SUM_LOGIC_TABLE Aggregate logical table
-      // - REAL_TIME_LOGIC_TABLE Real-time meta table
-      // - REAL_TIME_MIRROR_TABLE Real-time mirror table
-      // - PHYSICAL_VIEW Physical view
-      // - LOGICAL_VIEW Logical view
-      // - DATA_SOURCE_PHYSICAL_TABLE Data source table
-      // - DATA_SOURCE_VIEW Data source view
-      // - DATA_SOURCE_MATERIALIZED_VIEW Data source materialized view
+      // - PHYSICAL_TABLE: physical table (compute source).
+      // - DIM_LOGIC_TABLE: logical dimension table.
+      // - FACT_LOGIC_TABLE: fact logical table.
+      // - SUM_LOGIC_TABLE: aggregate logical table.
+      // - REAL_TIME_LOGIC_TABLE: real-time meta table.
+      // - REAL_TIME_MIRROR_TABLE: real-time mirror table.
+      // - PHYSICAL_VIEW: physical view.
+      // - LOGICAL_VIEW: logical view.
+      // - DATA_SOURCE_PHYSICAL_TABLE: data source table.
+      // - DATA_SOURCE_VIEW: data source view.
+      // - DATA_SOURCE_MATERIALIZED_VIEW: data source materialized view.
       shared_ptr<string> inputTableType_ {};
-      // The business unit ID of the output table.
+      // The ID of the business unit to which the output table belongs.
       shared_ptr<int64_t> outputBizUnitId_ {};
-      // The data source ID of the output table.
+      // The ID of the data source to which the output table belongs.
       shared_ptr<int64_t> outputDataSourceId_ {};
-      // The storage type of the output table.
+      // The storage format of the output table.
       shared_ptr<string> outputDataSourceType_ {};
-      // The data source type of the output table.
+      // The type of the output data source.
       shared_ptr<string> outputDbType_ {};
-      // The environment of the output table: DEV or PROD.
+      // The environment to which the output table belongs. Valid values: DEV and PROD.
       shared_ptr<string> outputEnv_ {};
-      // The project ID of the output table.
+      // The ID of the project to which the output table belongs.
       shared_ptr<int64_t> outputProjectId_ {};
-      // Indicates whether the output table is deleted.
+      // Indicates whether the output table has been deleted.
       shared_ptr<bool> outputTableDeleted_ {};
       // The GUID of the output table. Each asset has a unique GUID. For the format, see InputTableId.
       shared_ptr<string> outputTableId_ {};
@@ -327,9 +326,9 @@ namespace Models
       shared_ptr<string> outputTableName_ {};
       // The type of the output table. For valid values, see InputTableType.
       shared_ptr<string> outputTableType_ {};
-      // The environment of the task (node) associated with the lineage: DEV or PROD.
+      // The environment of the node associated with the lineage. Valid values: DEV and PROD.
       shared_ptr<string> taskEnv_ {};
-      // The task (node) ID associated with the lineage.
+      // The ID of the node associated with the lineage.
       shared_ptr<string> taskId_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
@@ -382,11 +381,11 @@ namespace Models
 
 
   protected:
-    // The error code. OK indicates a successful request.
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The query results.
+    // The query result.
     shared_ptr<vector<GetTableLineageByTaskIdResponseBody::Data>> data_ {};
-    // The HTTP status code.
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};

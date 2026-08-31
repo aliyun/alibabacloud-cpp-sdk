@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The node ID in the node directory tree.
+      // The node ID in the folder tree.
       shared_ptr<int64_t> fileId_ {};
     };
 

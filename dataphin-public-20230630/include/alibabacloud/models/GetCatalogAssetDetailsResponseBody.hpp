@@ -91,6 +91,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProfilingReportViewScopeUserIds, profilingReportViewScopeUserIds_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_TO_JSON(QualityScoreRadar, qualityScoreRadar_);
         DARABONBA_PTR_TO_JSON(ReadCount, readCount_);
         DARABONBA_PTR_TO_JSON(ShelveViewScopeType, shelveViewScopeType_);
         DARABONBA_PTR_TO_JSON(ShelveViewScopeUserGroups, shelveViewScopeUserGroups_);
@@ -151,6 +152,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProfilingReportViewScopeUserIds, profilingReportViewScopeUserIds_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
+        DARABONBA_PTR_FROM_JSON(QualityScoreRadar, qualityScoreRadar_);
         DARABONBA_PTR_FROM_JSON(ReadCount, readCount_);
         DARABONBA_PTR_FROM_JSON(ShelveViewScopeType, shelveViewScopeType_);
         DARABONBA_PTR_FROM_JSON(ShelveViewScopeUserGroups, shelveViewScopeUserGroups_);
@@ -360,22 +362,188 @@ namespace Models
       protected:
         // The business unit to which the node belongs.
         shared_ptr<string> bizUnit_ {};
-        // The environment to which the node belongs.
+        // The environment to which the asset belongs.
         shared_ptr<string> env_ {};
         // The node ID.
         shared_ptr<string> nodeId_ {};
         // The node name.
         shared_ptr<string> nodeName_ {};
-        // The scheduling method. Valid values:
-        // - NORMAL: Timed scheduling.
-        // - MANUAL: Manual scheduling.
+        // The scheduling type. Valid values: NORMAL (timed scheduling), MANUAL (manual scheduling).
         shared_ptr<string> nodeScheduleType_ {};
         // The list of O&M owners.
         shared_ptr<vector<SimpleNodeInfos::Owners>> owners_ {};
         // The project to which the node belongs.
         shared_ptr<SimpleNodeInfos::Project> project_ {};
-        // The node type. Example valid values: DLINK (offline integration) and PYTHON37 (Python compute node).
+        // The node type. Example valid values: DLINK (offline integration), PYTHON37 (Python compute node).
         shared_ptr<string> subBizType_ {};
+      };
+
+      class QualityScoreRadar : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const QualityScoreRadar& obj) { 
+          DARABONBA_PTR_TO_JSON(CatalogScores, catalogScores_);
+          DARABONBA_PTR_TO_JSON(PassRuleCount, passRuleCount_);
+          DARABONBA_PTR_TO_JSON(TotalScore, totalScore_);
+          DARABONBA_PTR_TO_JSON(ValidateRuleCount, validateRuleCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, QualityScoreRadar& obj) { 
+          DARABONBA_PTR_FROM_JSON(CatalogScores, catalogScores_);
+          DARABONBA_PTR_FROM_JSON(PassRuleCount, passRuleCount_);
+          DARABONBA_PTR_FROM_JSON(TotalScore, totalScore_);
+          DARABONBA_PTR_FROM_JSON(ValidateRuleCount, validateRuleCount_);
+        };
+        QualityScoreRadar() = default ;
+        QualityScoreRadar(const QualityScoreRadar &) = default ;
+        QualityScoreRadar(QualityScoreRadar &&) = default ;
+        QualityScoreRadar(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~QualityScoreRadar() = default ;
+        QualityScoreRadar& operator=(const QualityScoreRadar &) = default ;
+        QualityScoreRadar& operator=(QualityScoreRadar &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class CatalogScores : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CatalogScores& obj) { 
+            DARABONBA_PTR_TO_JSON(Catalog, catalog_);
+            DARABONBA_PTR_TO_JSON(FieldRuleCount, fieldRuleCount_);
+            DARABONBA_PTR_TO_JSON(PassRate, passRate_);
+            DARABONBA_PTR_TO_JSON(PassRuleCount, passRuleCount_);
+            DARABONBA_PTR_TO_JSON(Score, score_);
+            DARABONBA_PTR_TO_JSON(TableRuleCount, tableRuleCount_);
+            DARABONBA_PTR_TO_JSON(ValidateRuleCount, validateRuleCount_);
+          };
+          friend void from_json(const Darabonba::Json& j, CatalogScores& obj) { 
+            DARABONBA_PTR_FROM_JSON(Catalog, catalog_);
+            DARABONBA_PTR_FROM_JSON(FieldRuleCount, fieldRuleCount_);
+            DARABONBA_PTR_FROM_JSON(PassRate, passRate_);
+            DARABONBA_PTR_FROM_JSON(PassRuleCount, passRuleCount_);
+            DARABONBA_PTR_FROM_JSON(Score, score_);
+            DARABONBA_PTR_FROM_JSON(TableRuleCount, tableRuleCount_);
+            DARABONBA_PTR_FROM_JSON(ValidateRuleCount, validateRuleCount_);
+          };
+          CatalogScores() = default ;
+          CatalogScores(const CatalogScores &) = default ;
+          CatalogScores(CatalogScores &&) = default ;
+          CatalogScores(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CatalogScores() = default ;
+          CatalogScores& operator=(const CatalogScores &) = default ;
+          CatalogScores& operator=(CatalogScores &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->catalog_ == nullptr
+        && this->fieldRuleCount_ == nullptr && this->passRate_ == nullptr && this->passRuleCount_ == nullptr && this->score_ == nullptr && this->tableRuleCount_ == nullptr
+        && this->validateRuleCount_ == nullptr; };
+          // catalog Field Functions 
+          bool hasCatalog() const { return this->catalog_ != nullptr;};
+          void deleteCatalog() { this->catalog_ = nullptr;};
+          inline string getCatalog() const { DARABONBA_PTR_GET_DEFAULT(catalog_, "") };
+          inline CatalogScores& setCatalog(string catalog) { DARABONBA_PTR_SET_VALUE(catalog_, catalog) };
+
+
+          // fieldRuleCount Field Functions 
+          bool hasFieldRuleCount() const { return this->fieldRuleCount_ != nullptr;};
+          void deleteFieldRuleCount() { this->fieldRuleCount_ = nullptr;};
+          inline int32_t getFieldRuleCount() const { DARABONBA_PTR_GET_DEFAULT(fieldRuleCount_, 0) };
+          inline CatalogScores& setFieldRuleCount(int32_t fieldRuleCount) { DARABONBA_PTR_SET_VALUE(fieldRuleCount_, fieldRuleCount) };
+
+
+          // passRate Field Functions 
+          bool hasPassRate() const { return this->passRate_ != nullptr;};
+          void deletePassRate() { this->passRate_ = nullptr;};
+          inline double getPassRate() const { DARABONBA_PTR_GET_DEFAULT(passRate_, 0.0) };
+          inline CatalogScores& setPassRate(double passRate) { DARABONBA_PTR_SET_VALUE(passRate_, passRate) };
+
+
+          // passRuleCount Field Functions 
+          bool hasPassRuleCount() const { return this->passRuleCount_ != nullptr;};
+          void deletePassRuleCount() { this->passRuleCount_ = nullptr;};
+          inline int32_t getPassRuleCount() const { DARABONBA_PTR_GET_DEFAULT(passRuleCount_, 0) };
+          inline CatalogScores& setPassRuleCount(int32_t passRuleCount) { DARABONBA_PTR_SET_VALUE(passRuleCount_, passRuleCount) };
+
+
+          // score Field Functions 
+          bool hasScore() const { return this->score_ != nullptr;};
+          void deleteScore() { this->score_ = nullptr;};
+          inline double getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+          inline CatalogScores& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+          // tableRuleCount Field Functions 
+          bool hasTableRuleCount() const { return this->tableRuleCount_ != nullptr;};
+          void deleteTableRuleCount() { this->tableRuleCount_ = nullptr;};
+          inline int32_t getTableRuleCount() const { DARABONBA_PTR_GET_DEFAULT(tableRuleCount_, 0) };
+          inline CatalogScores& setTableRuleCount(int32_t tableRuleCount) { DARABONBA_PTR_SET_VALUE(tableRuleCount_, tableRuleCount) };
+
+
+          // validateRuleCount Field Functions 
+          bool hasValidateRuleCount() const { return this->validateRuleCount_ != nullptr;};
+          void deleteValidateRuleCount() { this->validateRuleCount_ = nullptr;};
+          inline int32_t getValidateRuleCount() const { DARABONBA_PTR_GET_DEFAULT(validateRuleCount_, 0) };
+          inline CatalogScores& setValidateRuleCount(int32_t validateRuleCount) { DARABONBA_PTR_SET_VALUE(validateRuleCount_, validateRuleCount) };
+
+
+        protected:
+          // The dimension name.
+          shared_ptr<string> catalog_ {};
+          // The number of field-level rules.
+          shared_ptr<int32_t> fieldRuleCount_ {};
+          // The pass rate.
+          shared_ptr<double> passRate_ {};
+          // The number of passed rules.
+          shared_ptr<int32_t> passRuleCount_ {};
+          // The dimension score.
+          shared_ptr<double> score_ {};
+          // The number of table-level rules.
+          shared_ptr<int32_t> tableRuleCount_ {};
+          // The number of validated rules.
+          shared_ptr<int32_t> validateRuleCount_ {};
+        };
+
+        virtual bool empty() const override { return this->catalogScores_ == nullptr
+        && this->passRuleCount_ == nullptr && this->totalScore_ == nullptr && this->validateRuleCount_ == nullptr; };
+        // catalogScores Field Functions 
+        bool hasCatalogScores() const { return this->catalogScores_ != nullptr;};
+        void deleteCatalogScores() { this->catalogScores_ = nullptr;};
+        inline const vector<QualityScoreRadar::CatalogScores> & getCatalogScores() const { DARABONBA_PTR_GET_CONST(catalogScores_, vector<QualityScoreRadar::CatalogScores>) };
+        inline vector<QualityScoreRadar::CatalogScores> getCatalogScores() { DARABONBA_PTR_GET(catalogScores_, vector<QualityScoreRadar::CatalogScores>) };
+        inline QualityScoreRadar& setCatalogScores(const vector<QualityScoreRadar::CatalogScores> & catalogScores) { DARABONBA_PTR_SET_VALUE(catalogScores_, catalogScores) };
+        inline QualityScoreRadar& setCatalogScores(vector<QualityScoreRadar::CatalogScores> && catalogScores) { DARABONBA_PTR_SET_RVALUE(catalogScores_, catalogScores) };
+
+
+        // passRuleCount Field Functions 
+        bool hasPassRuleCount() const { return this->passRuleCount_ != nullptr;};
+        void deletePassRuleCount() { this->passRuleCount_ = nullptr;};
+        inline int32_t getPassRuleCount() const { DARABONBA_PTR_GET_DEFAULT(passRuleCount_, 0) };
+        inline QualityScoreRadar& setPassRuleCount(int32_t passRuleCount) { DARABONBA_PTR_SET_VALUE(passRuleCount_, passRuleCount) };
+
+
+        // totalScore Field Functions 
+        bool hasTotalScore() const { return this->totalScore_ != nullptr;};
+        void deleteTotalScore() { this->totalScore_ = nullptr;};
+        inline double getTotalScore() const { DARABONBA_PTR_GET_DEFAULT(totalScore_, 0.0) };
+        inline QualityScoreRadar& setTotalScore(double totalScore) { DARABONBA_PTR_SET_VALUE(totalScore_, totalScore) };
+
+
+        // validateRuleCount Field Functions 
+        bool hasValidateRuleCount() const { return this->validateRuleCount_ != nullptr;};
+        void deleteValidateRuleCount() { this->validateRuleCount_ = nullptr;};
+        inline int32_t getValidateRuleCount() const { DARABONBA_PTR_GET_DEFAULT(validateRuleCount_, 0) };
+        inline QualityScoreRadar& setValidateRuleCount(int32_t validateRuleCount) { DARABONBA_PTR_SET_VALUE(validateRuleCount_, validateRuleCount) };
+
+
+      protected:
+        // The list of dimension scores.
+        shared_ptr<vector<QualityScoreRadar::CatalogScores>> catalogScores_ {};
+        // The number of passed rules.
+        shared_ptr<int32_t> passRuleCount_ {};
+        // The total quality score.
+        shared_ptr<double> totalScore_ {};
+        // The number of validated rules.
+        shared_ptr<int32_t> validateRuleCount_ {};
       };
 
       class Owner : public Darabonba::Model {
@@ -513,14 +681,20 @@ namespace Models
       class Directories : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Directories& obj) { 
+          DARABONBA_PTR_TO_JSON(DirectoryChain, directoryChain_);
+          DARABONBA_PTR_TO_JSON(DirectoryDescription, directoryDescription_);
           DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
           DARABONBA_PTR_TO_JSON(DirectoryName, directoryName_);
+          DARABONBA_PTR_TO_JSON(TopicDescription, topicDescription_);
           DARABONBA_PTR_TO_JSON(TopicId, topicId_);
           DARABONBA_PTR_TO_JSON(TopicName, topicName_);
         };
         friend void from_json(const Darabonba::Json& j, Directories& obj) { 
+          DARABONBA_PTR_FROM_JSON(DirectoryChain, directoryChain_);
+          DARABONBA_PTR_FROM_JSON(DirectoryDescription, directoryDescription_);
           DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
           DARABONBA_PTR_FROM_JSON(DirectoryName, directoryName_);
+          DARABONBA_PTR_FROM_JSON(TopicDescription, topicDescription_);
           DARABONBA_PTR_FROM_JSON(TopicId, topicId_);
           DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
         };
@@ -535,8 +709,91 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->directoryId_ == nullptr
-        && this->directoryName_ == nullptr && this->topicId_ == nullptr && this->topicName_ == nullptr; };
+        class DirectoryChain : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DirectoryChain& obj) { 
+            DARABONBA_PTR_TO_JSON(DirectoryDescription, directoryDescription_);
+            DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
+            DARABONBA_PTR_TO_JSON(DirectoryName, directoryName_);
+            DARABONBA_PTR_TO_JSON(Level, level_);
+          };
+          friend void from_json(const Darabonba::Json& j, DirectoryChain& obj) { 
+            DARABONBA_PTR_FROM_JSON(DirectoryDescription, directoryDescription_);
+            DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
+            DARABONBA_PTR_FROM_JSON(DirectoryName, directoryName_);
+            DARABONBA_PTR_FROM_JSON(Level, level_);
+          };
+          DirectoryChain() = default ;
+          DirectoryChain(const DirectoryChain &) = default ;
+          DirectoryChain(DirectoryChain &&) = default ;
+          DirectoryChain(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DirectoryChain() = default ;
+          DirectoryChain& operator=(const DirectoryChain &) = default ;
+          DirectoryChain& operator=(DirectoryChain &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->directoryDescription_ == nullptr
+        && this->directoryId_ == nullptr && this->directoryName_ == nullptr && this->level_ == nullptr; };
+          // directoryDescription Field Functions 
+          bool hasDirectoryDescription() const { return this->directoryDescription_ != nullptr;};
+          void deleteDirectoryDescription() { this->directoryDescription_ = nullptr;};
+          inline string getDirectoryDescription() const { DARABONBA_PTR_GET_DEFAULT(directoryDescription_, "") };
+          inline DirectoryChain& setDirectoryDescription(string directoryDescription) { DARABONBA_PTR_SET_VALUE(directoryDescription_, directoryDescription) };
+
+
+          // directoryId Field Functions 
+          bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
+          void deleteDirectoryId() { this->directoryId_ = nullptr;};
+          inline int64_t getDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, 0L) };
+          inline DirectoryChain& setDirectoryId(int64_t directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
+
+
+          // directoryName Field Functions 
+          bool hasDirectoryName() const { return this->directoryName_ != nullptr;};
+          void deleteDirectoryName() { this->directoryName_ = nullptr;};
+          inline string getDirectoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
+          inline DirectoryChain& setDirectoryName(string directoryName) { DARABONBA_PTR_SET_VALUE(directoryName_, directoryName) };
+
+
+          // level Field Functions 
+          bool hasLevel() const { return this->level_ != nullptr;};
+          void deleteLevel() { this->level_ = nullptr;};
+          inline int32_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
+          inline DirectoryChain& setLevel(int32_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+        protected:
+          // The directory description.
+          shared_ptr<string> directoryDescription_ {};
+          // The directory ID.
+          shared_ptr<int64_t> directoryId_ {};
+          // The directory name.
+          shared_ptr<string> directoryName_ {};
+          // The folder level.
+          shared_ptr<int32_t> level_ {};
+        };
+
+        virtual bool empty() const override { return this->directoryChain_ == nullptr
+        && this->directoryDescription_ == nullptr && this->directoryId_ == nullptr && this->directoryName_ == nullptr && this->topicDescription_ == nullptr && this->topicId_ == nullptr
+        && this->topicName_ == nullptr; };
+        // directoryChain Field Functions 
+        bool hasDirectoryChain() const { return this->directoryChain_ != nullptr;};
+        void deleteDirectoryChain() { this->directoryChain_ = nullptr;};
+        inline const vector<Directories::DirectoryChain> & getDirectoryChain() const { DARABONBA_PTR_GET_CONST(directoryChain_, vector<Directories::DirectoryChain>) };
+        inline vector<Directories::DirectoryChain> getDirectoryChain() { DARABONBA_PTR_GET(directoryChain_, vector<Directories::DirectoryChain>) };
+        inline Directories& setDirectoryChain(const vector<Directories::DirectoryChain> & directoryChain) { DARABONBA_PTR_SET_VALUE(directoryChain_, directoryChain) };
+        inline Directories& setDirectoryChain(vector<Directories::DirectoryChain> && directoryChain) { DARABONBA_PTR_SET_RVALUE(directoryChain_, directoryChain) };
+
+
+        // directoryDescription Field Functions 
+        bool hasDirectoryDescription() const { return this->directoryDescription_ != nullptr;};
+        void deleteDirectoryDescription() { this->directoryDescription_ = nullptr;};
+        inline string getDirectoryDescription() const { DARABONBA_PTR_GET_DEFAULT(directoryDescription_, "") };
+        inline Directories& setDirectoryDescription(string directoryDescription) { DARABONBA_PTR_SET_VALUE(directoryDescription_, directoryDescription) };
+
+
         // directoryId Field Functions 
         bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
         void deleteDirectoryId() { this->directoryId_ = nullptr;};
@@ -549,6 +806,13 @@ namespace Models
         void deleteDirectoryName() { this->directoryName_ = nullptr;};
         inline string getDirectoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
         inline Directories& setDirectoryName(string directoryName) { DARABONBA_PTR_SET_VALUE(directoryName_, directoryName) };
+
+
+        // topicDescription Field Functions 
+        bool hasTopicDescription() const { return this->topicDescription_ != nullptr;};
+        void deleteTopicDescription() { this->topicDescription_ = nullptr;};
+        inline string getTopicDescription() const { DARABONBA_PTR_GET_DEFAULT(topicDescription_, "") };
+        inline Directories& setTopicDescription(string topicDescription) { DARABONBA_PTR_SET_VALUE(topicDescription_, topicDescription) };
 
 
         // topicId Field Functions 
@@ -566,10 +830,16 @@ namespace Models
 
 
       protected:
+        // The complete directory hierarchy chain from the top-level directory to the current directory, including the current directory.
+        shared_ptr<vector<Directories::DirectoryChain>> directoryChain_ {};
+        // The directory description.
+        shared_ptr<string> directoryDescription_ {};
         // The directory ID.
         shared_ptr<int64_t> directoryId_ {};
         // The directory name.
         shared_ptr<string> directoryName_ {};
+        // The topic description.
+        shared_ptr<string> topicDescription_ {};
         // The topic ID.
         shared_ptr<int64_t> topicId_ {};
         // The topic name.
@@ -632,10 +902,7 @@ namespace Models
 
 
       protected:
-        // The attribute type. Valid values:
-        // - BUSINESS: Business attribute.
-        // - MANAGEMENT: Management attribute.
-        // - TECHNOLOGY: Technical attribute.
+        // The attribute type. Valid values: BUSINESS (business attribute), MANAGEMENT (management attribute), TECHNOLOGY (technical attribute).
         shared_ptr<string> attrType_ {};
         // The attribute code.
         shared_ptr<string> code_ {};
@@ -731,11 +998,11 @@ namespace Models
 
 
         protected:
-          // The standard code.
+          // The code of the standard.
           shared_ptr<string> code_ {};
-          // The standard ID.
+          // The ID of the standard.
           shared_ptr<int64_t> id_ {};
-          // The standard name.
+          // The name of the standard.
           shared_ptr<string> name_ {};
         };
 
@@ -804,15 +1071,15 @@ namespace Models
 
 
         protected:
-          // The business unit ID.
+          // The ID of the business unit.
           shared_ptr<int64_t> bizUnitId_ {};
-          // The business unit name.
+          // The name of the business unit.
           shared_ptr<string> bizUnitName_ {};
-          // The dimension display name.
+          // The display name of the dimension.
           shared_ptr<string> dimensionDisplayName_ {};
-          // The dimension ID.
+          // The ID of the dimension.
           shared_ptr<int64_t> dimensionId_ {};
-          // The dimension name.
+          // The name of the dimension.
           shared_ptr<string> dimensionName_ {};
         };
 
@@ -901,26 +1168,26 @@ namespace Models
 
 
       protected:
-        // The associated entity. Returned when the business type is DIMENSION.
+        // The associated entity. This parameter is returned when the business type is DIMENSION.
         shared_ptr<Columns::AssociatedEntity> associatedEntity_ {};
         // The business type. Valid values:
-        // - INDEX: Metric.
-        // - STAT_PERIOD: Statistical period.
-        // - DIMENSION: Dimension.
+        // - INDEX: metric.
+        // - STAT_PERIOD: statistical period.
+        // - DIMENSION: dimension.
         shared_ptr<string> bizType_ {};
         // The data classification.
         shared_ptr<string> classifyName_ {};
-        // The field data type.
+        // The data type of the column.
         shared_ptr<string> dataType_ {};
-        // The field description.
+        // The description of the column.
         shared_ptr<string> description_ {};
-        // The field display name.
+        // The display name of the column.
         shared_ptr<string> displayName_ {};
-        // The field GUID.
+        // The GUID of the column.
         shared_ptr<string> guid_ {};
-        // The data sensitivity level.
+        // The data classification level.
         shared_ptr<string> levelShortName_ {};
-        // The field name.
+        // The name of the column.
         shared_ptr<string> name_ {};
         // The quality score.
         shared_ptr<double> qualityScore_ {};
@@ -938,9 +1205,9 @@ namespace Models
         && this->isPartitionTable_ == nullptr && this->lastDdlTime_ == nullptr && this->lastDmlTime_ == nullptr && this->lastOnShelveTime_ == nullptr && this->lastOnShelveUser_ == nullptr
         && this->maintainUserGroups_ == nullptr && this->maintainUserIds_ == nullptr && this->maxSecurityLevel_ == nullptr && this->modifyTime_ == nullptr && this->owner_ == nullptr
         && this->partitionKey_ == nullptr && this->primaryKey_ == nullptr && this->profilingReportViewScopeType_ == nullptr && this->profilingReportViewScopeUserGroups_ == nullptr && this->profilingReportViewScopeUserIds_ == nullptr
-        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->readCount_ == nullptr && this->shelveViewScopeType_ == nullptr && this->shelveViewScopeUserGroups_ == nullptr
-        && this->shelveViewScopeUserIds_ == nullptr && this->simpleNodeInfos_ == nullptr && this->subType_ == nullptr && this->sumTableGuid_ == nullptr && this->sumTableName_ == nullptr
-        && this->tableLifeCycle_ == nullptr && this->tableSizeInBytes_ == nullptr; };
+        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->qualityScoreRadar_ == nullptr && this->readCount_ == nullptr && this->shelveViewScopeType_ == nullptr
+        && this->shelveViewScopeUserGroups_ == nullptr && this->shelveViewScopeUserIds_ == nullptr && this->simpleNodeInfos_ == nullptr && this->subType_ == nullptr && this->sumTableGuid_ == nullptr
+        && this->sumTableName_ == nullptr && this->tableLifeCycle_ == nullptr && this->tableSizeInBytes_ == nullptr; };
       // apiCallMode Field Functions 
       bool hasApiCallMode() const { return this->apiCallMode_ != nullptr;};
       void deleteApiCallMode() { this->apiCallMode_ = nullptr;};
@@ -1299,6 +1566,15 @@ namespace Models
       inline Data& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
+      // qualityScoreRadar Field Functions 
+      bool hasQualityScoreRadar() const { return this->qualityScoreRadar_ != nullptr;};
+      void deleteQualityScoreRadar() { this->qualityScoreRadar_ = nullptr;};
+      inline const Data::QualityScoreRadar & getQualityScoreRadar() const { DARABONBA_PTR_GET_CONST(qualityScoreRadar_, Data::QualityScoreRadar) };
+      inline Data::QualityScoreRadar getQualityScoreRadar() { DARABONBA_PTR_GET(qualityScoreRadar_, Data::QualityScoreRadar) };
+      inline Data& setQualityScoreRadar(const Data::QualityScoreRadar & qualityScoreRadar) { DARABONBA_PTR_SET_VALUE(qualityScoreRadar_, qualityScoreRadar) };
+      inline Data& setQualityScoreRadar(Data::QualityScoreRadar && qualityScoreRadar) { DARABONBA_PTR_SET_RVALUE(qualityScoreRadar_, qualityScoreRadar) };
+
+
       // readCount Field Functions 
       bool hasReadCount() const { return this->readCount_ != nullptr;};
       void deleteReadCount() { this->readCount_ = nullptr;};
@@ -1376,108 +1652,115 @@ namespace Models
 
 
     protected:
-      // The API call mode. Returned when the asset type is API. Valid values: 1 (synchronous call) and 2 (asynchronous call).
+      // The API call mode. Returned when the asset type is API. Valid values: 1=Synchronous call, 2=Asynchronous call.
       shared_ptr<string> apiCallMode_ {};
       // The API group name. Returned when the asset type is API.
       shared_ptr<string> apiGroupName_ {};
       // The API ID. Returned when the asset type is API.
       shared_ptr<int64_t> apiId_ {};
-      // The API operation type. Returned when the asset type is API. Valid values: 1 (Get), 2 (List), 3 (Create), 4 (Update), and 5 (Delete).
+      // The API operation type. Returned when the asset type is API. Valid values: 1=Get, 2=List, 3=Create, 4=Update, 5=Delete.
       shared_ptr<string> apiRequestMethod_ {};
-      // The asset description.
+      // The description of the asset.
       shared_ptr<string> assetDescription_ {};
-      // The URL of the asset catalog details page.
+      // The URL of the asset catalog detail page.
       shared_ptr<string> assetDetailUrl_ {};
-      // The asset display name. Returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
+      // The display name of the asset. This parameter is returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
       shared_ptr<string> assetDisplayName_ {};
-      // The asset source. For TABLE (physical table), the value is in the format of "Dataphin-Workspace Type-Project Chinese Name (Project English Name)". For TABLE (logical table), the value is in the format of "Dataphin-Workspace Type-Data Domain Chinese Name (Data Domain English Name)". For TABLE (data source table), the value is in the format of "Source System Name-Data Source Name-Database/Schema Name". For INDEX (standard modeling metric), the value is the asset source of the associated aggregate table. For INDEX (custom metric), the value is the asset source of the source table. For API, the value is the data service project name. For PAGE, the value is the application system name.
+      // The source of the asset. TABLE (physical table) returns "Dataphin-workspace type-project Chinese name (project English name)". TABLE (logical table) returns "Dataphin-workspace type-data domain Chinese name (data domain English name)". TABLE (data source table) returns "source system name-data source name-database/schema name". INDEX (standard modeling metric) returns the asset source of the associated aggregate logical table. INDEX (custom metric) returns the asset source of the source table. API returns "data service project name". PAGE returns "application system name".
       shared_ptr<string> assetFrom_ {};
-      // The full name of the asset. Returned when the asset type is TABLE or INDEX.
+      // The full name of the asset. This parameter is returned when the asset type is TABLE or INDEX.
       shared_ptr<string> assetFullName_ {};
-      // The asset name.
+      // The name of the asset.
       shared_ptr<string> assetName_ {};
-      // The asset tags.
+      // The tags of the asset.
       shared_ptr<vector<string>> assetTags_ {};
-      // The asset type. Valid values: TABLE (table, including views and materialized views), INDEX (technical metric), BIZ_INDEX (business metric), API, and PAGE (dashboard).
+      // The asset type. Valid values:
+      // - TABLE: table, including views and materialized views.
+      // - INDEX: technical metric.
+      // - BIZ_INDEX: business metric.
+      // - API: API.
+      // - PAGE: dashboard.
       shared_ptr<string> assetType_ {};
-      // The BI workspace or directory to which the asset belongs. Returned when the asset type is PAGE (dashboard).
+      // The BI workspace or folder to which the asset belongs. Returned when the asset type is PAGE (dashboard).
       shared_ptr<string> biCatalog_ {};
-      // The ID of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+      // The ID of the data domain to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<int64_t> bizUnitId_ {};
-      // The name of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+      // The name of the data domain to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> bizUnitName_ {};
       // The total number of charts. Returned when the asset type is PAGE (dashboard).
       shared_ptr<int64_t> chartCount_ {};
-      // The number of favorites.
+      // The collection count.
       shared_ptr<int64_t> collectionCount_ {};
-      // The field list. Returned when the asset type is TABLE.
+      // The list of columns. This parameter is returned when the asset type is TABLE.
       shared_ptr<vector<Data::Columns>> columns_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
       // The custom attributes. Returned when includeDetailedAttributes is set to true.
       shared_ptr<vector<Data::CustomAttributes>> customAttributes_ {};
-      // The ID of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+      // The ID of the data domain. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> dataCellId_ {};
-      // The name of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+      // The name of the data domain. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
       shared_ptr<string> dataCellName_ {};
-      // The name of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+      // The name of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
       shared_ptr<string> dataSourceName_ {};
-      // The ID of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+      // The ID of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
       shared_ptr<int64_t> datasourceId_ {};
       // The directories to which the asset belongs, including topic ID, topic name, directory ID, and directory name.
       shared_ptr<vector<Data::Directories>> directories_ {};
-      // The first listing time.
+      // The time of the first listing.
       shared_ptr<string> firstOnShelveTime_ {};
-      // The user who first listed the asset.
+      // The user who performed the first listing.
       shared_ptr<Data::FirstOnShelveUser> firstOnShelveUser_ {};
       // The statistical granularity name of the technical metric. Returned when the asset type is INDEX.
       shared_ptr<string> granularity_ {};
-      // The asset GUID, which serves as the unique identifier of the asset.
+      // The GUID of the asset, which serves as the unique identifier of the asset.
       shared_ptr<string> guid_ {};
       // The usage instructions.
       shared_ptr<string> instruction_ {};
       // Indicates whether the asset is deleted.
       shared_ptr<bool> isDeleted_ {};
       // Indicates whether the table is a partitioned table. Returned when the asset type is TABLE. Valid values:
-      // - true: Yes.
-      // - false: No.
+      // - true: The table is a partitioned table.
+      // - false: The table is not a partitioned table.
       shared_ptr<bool> isPartitionTable_ {};
-      // The last DDL change time.
+      // The time of the last DDL change.
       shared_ptr<string> lastDdlTime_ {};
-      // The last DML update time.
+      // The time of the last DML update.
       shared_ptr<string> lastDmlTime_ {};
-      // The last listing time.
+      // The time of the last listing.
       shared_ptr<string> lastOnShelveTime_ {};
-      // The user who last listed the asset.
+      // The user who performed the last listing.
       shared_ptr<Data::LastOnShelveUser> lastOnShelveUser_ {};
       // The listing maintenance user groups.
       shared_ptr<vector<string>> maintainUserGroups_ {};
-      // The listing maintenance personnel.
+      // The IDs of the listing maintenance users.
       shared_ptr<vector<string>> maintainUserIds_ {};
-      // The highest sensitivity level. Returned when the asset type is TABLE.
+      // The maximum sensitivity level. This parameter is returned when the asset type is TABLE.
       shared_ptr<string> maxSecurityLevel_ {};
       // The modification time.
       shared_ptr<string> modifyTime_ {};
       // The owner.
       shared_ptr<Data::Owner> owner_ {};
-      // The partition field. Returned when the asset type is TABLE.
+      // The partition key. Returned when the asset type is TABLE.
       shared_ptr<string> partitionKey_ {};
       // The primary key. Returned when the asset type is TABLE.
       shared_ptr<string> primaryKey_ {};
-      // The visibility scope type of the profiling report. Returned when the asset type is TABLE or INDEX. Valid values:
+      // The visibility scope type of the profiling report. This parameter is returned only when the asset type is TABLE or INDEX. Valid values:
       // - ALL_USERS_CAN_VIEW: Visible to all users.
       // - PART_USERS_CAN_VIEW: Visible to some users.
-      // - ALL_USERS_CAN_NOT_VIEW: Not visible to any user.
+      // - ALL_USERS_CAN_NOT_VIEW: Not visible to any users.
       shared_ptr<string> profilingReportViewScopeType_ {};
       // The user groups within the profiling report visibility scope.
       shared_ptr<vector<string>> profilingReportViewScopeUserGroups_ {};
       // The users within the profiling report visibility scope.
       shared_ptr<vector<string>> profilingReportViewScopeUserIds_ {};
-      // The ID of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+      // The ID of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
       shared_ptr<int64_t> projectId_ {};
-      // The name of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+      // The name of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
       shared_ptr<string> projectName_ {};
-      // The number of views.
+      // The quality score radar chart information. This parameter is returned only when includeDetailedAttributes is set to true. It contains the total score, the number of passed/validated rules, and the score details for each dimension.
+      shared_ptr<Data::QualityScoreRadar> qualityScoreRadar_ {};
+      // The view count.
       shared_ptr<int64_t> readCount_ {};
       // The visibility scope type. Valid values:
       // - ALL_USERS_CAN_VIEW: Visible to all users.
@@ -1490,7 +1773,21 @@ namespace Models
       shared_ptr<vector<string>> shelveViewScopeUserIds_ {};
       // The output nodes. Returned when the asset type is TABLE.
       shared_ptr<vector<Data::SimpleNodeInfos>> simpleNodeInfos_ {};
-      // The subtype. Valid values: DIM_NORMAL (common logical dimension table), DIM_ENUM (enumeration logical dimension table), DIM_VIRTUAL (virtual logical dimension table), SUM_BIZ_UNIT (aggregate table), FACT_EVENT (event fact logical table), FACT_SNAPSHOT (snapshot fact logical table), DATASOURCE_TABLE (data source table), PHYSICAL_TABLE (physical table), DATASOURCE_VIEW (data source view), PHYSICAL_VIEW (physical view), MATERIALIZED_VIEW (materialized view), BIZ_INDEX (business metric), INDEX (technical metric - standard modeling metric), and CUSTOM_INDEX (technical metric - custom metric).
+      // The subtype. Valid values:
+      // - DIM_NORMAL: common logical dimension table.
+      // - DIM_ENUM: enumeration logical dimension table.
+      // - DIM_VIRTUAL: virtual logical dimension table.
+      // - SUM_BIZ_UNIT: aggregate logical table.
+      // - FACT_EVENT: event fact logical table.
+      // - FACT_SNAPSHOT: snapshot fact logical table.
+      // - DATASOURCE_TABLE: data source table.
+      // - PHYSICAL_TABLE: physical table.
+      // - DATASOURCE_VIEW: view (data source view).
+      // - PHYSICAL_VIEW: physical view.
+      // - MATERIALIZED_VIEW: materialized view.
+      // - BIZ_INDEX: business metric.
+      // - INDEX: technical metric (standard modeling metric).
+      // - CUSTOM_INDEX: technical metric (custom metric).
       shared_ptr<string> subType_ {};
       // The GUID of the aggregate table to which the asset belongs. Returned when the asset type is INDEX.
       shared_ptr<string> sumTableGuid_ {};
@@ -1498,7 +1795,7 @@ namespace Models
       shared_ptr<string> sumTableName_ {};
       // The lifecycle. Returned when the asset type is TABLE.
       shared_ptr<string> tableLifeCycle_ {};
-      // The storage size in bytes. Returned when the asset type is TABLE.
+      // The storage size. This parameter is returned only when the asset type is TABLE.
       shared_ptr<int64_t> tableSizeInBytes_ {};
     };
 
@@ -1555,7 +1852,7 @@ namespace Models
     shared_ptr<GetCatalogAssetDetailsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response exception.
+    // The backend response exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

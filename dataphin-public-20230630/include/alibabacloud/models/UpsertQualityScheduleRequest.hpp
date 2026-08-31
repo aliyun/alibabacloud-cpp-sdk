@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpsertQualityScheduleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(UpsertCommand, upsertCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpsertQualityScheduleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(UpsertCommand, upsertCommand_);
     };
     UpsertQualityScheduleRequest() = default ;
@@ -177,42 +179,42 @@ namespace Models
     protected:
       // The cron expression for timed scheduling.
       shared_ptr<string> cronExpression_ {};
-      // The ID of the schedule resource. If specified, the operation updates the existing resource. If not specified, the operation creates a new resource.
+      // The schedule object ID. If this parameter is specified, the schedule is updated. If this parameter is not specified, a schedule is created.
       shared_ptr<int64_t> id_ {};
-      // The name of the schedule resource.
+      // The name of the schedule object.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The partition expression for custom expressions.
+      // The custom partition expression.
       shared_ptr<string> partitionExpression_ {};
       // The partition type. Valid values:
       // - EVERY_DAY: every day.
-      // - PRE_DAY: previous day.
-      // - TODAY: current day.
+      // - PRE_DAY: yesterday.
+      // - TODAY: today.
       // - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
       // - CUSTOM: custom.
       shared_ptr<string> partitionType_ {};
-      // The scheduling interval type for timed scheduling. Valid values:
+      // The schedule interval type for timed scheduling. Valid values:
       // - DAILY: day.
       // - WEEKLY: week.
       // - MONTHLY: month.
       // - HOURLY: hour.
       // - MINUTELY: minute.
       shared_ptr<string> periodScheduleIntervalType_ {};
-      // The scheduling interval values for timed scheduling.
+      // The schedule interval values for timed scheduling.
       shared_ptr<vector<string>> periodScheduleParamList_ {};
       // The trigger method for fixed task triggers. Valid values:
-      // - ALL_TASKS_FINISHED
-      // - ONE_TASKS_FINISHED
-      // - PRE_ONE_TASKS_START.
+      // - ALL_TASKS_FINISHED: triggered when all tasks are finished.
+      // - ONE_TASKS_FINISHED: triggered when one task is finished.
+      // - PRE_ONE_TASKS_START: triggered when the previous task starts.
       shared_ptr<string> staticTaskTriggerType_ {};
-      // The checklist of trigger nodes for trigger scheduling.
+      // The list of trigger nodes for trigger scheduling.
       shared_ptr<vector<string>> triggerNodeList_ {};
       // The trigger method for trigger scheduling. Valid values:
       // - STATIC_TASK_TRIGGER: fixed task trigger.
       // - CODE_CHECK_TRIGGER: code check trigger.
       shared_ptr<string> triggerType_ {};
-      // The scheduling type. Valid values:
+      // The schedule type. Valid values:
       // - PERIOD_SCHEDULE: timed scheduling.
       // - MANUAL_SCHEDULE: manual trigger.
       // - CODE_CHECK_TRIGGER: code check trigger.
@@ -225,19 +227,26 @@ namespace Models
       // - TASK_REFERRED_PARTITION: task update partition.
       // - USER_DEFINED_PARTITION: custom partition.
       shared_ptr<string> validatePartitionType_ {};
-      // The ID of the monitored object.
+      // The monitored object ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->upsertCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->upsertCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpsertQualityScheduleRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpsertQualityScheduleRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // upsertCommand Field Functions 
@@ -254,6 +263,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The update instruction.
     // 
     // This parameter is required.

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(UpStreamDepth, upStreamDepth_);
     };
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(UpStreamDepth, upStreamDepth_);
     };
@@ -89,7 +91,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->downStreamDepth_ == nullptr
-        && this->env_ == nullptr && this->instanceId_ == nullptr && this->opTenantId_ == nullptr && this->projectId_ == nullptr && this->upStreamDepth_ == nullptr; };
+        && this->env_ == nullptr && this->instanceId_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->projectId_ == nullptr
+        && this->upStreamDepth_ == nullptr; };
     // downStreamDepth Field Functions 
     bool hasDownStreamDepth() const { return this->downStreamDepth_ != nullptr;};
     void deleteDownStreamDepth() { this->downStreamDepth_ = nullptr;};
@@ -118,6 +121,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetInstanceUpDownStreamRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetInstanceUpDownStreamRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // projectId Field Functions 
@@ -149,6 +159,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The project ID.
     // 
     // This parameter is required.

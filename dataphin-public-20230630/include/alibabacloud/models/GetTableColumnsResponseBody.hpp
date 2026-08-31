@@ -280,53 +280,53 @@ namespace Models
 
 
     protected:
-      // Data classification ID.
+      // The ID of the data classification.
       shared_ptr<int64_t> classifyId_ {};
-      // Data classification name.
+      // The name of the data classification.
       shared_ptr<string> classifyName_ {};
-      // Column comment.
+      // The comment of the field.
       shared_ptr<string> comment_ {};
-      // Creation time.
+      // The creation time of the field.
       shared_ptr<string> createTime_ {};
-      // Creator.
+      // The creator of the field.
       shared_ptr<string> creator_ {};
-      // Data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> dataSourceId_ {};
-      // Data source type.
+      // The type of the data source.
       shared_ptr<string> dataSourceType_ {};
-      // Data type.
+      // The data type of the field.
       shared_ptr<string> dataType_ {};
-      // Default value.
+      // The default value of the field.
       shared_ptr<string> defaultValue_ {};
-      // Column display name.
+      // The display name of the field.
       shared_ptr<string> displayName_ {};
-      // Environment: dev or prod.
+      // The environment to which the column belongs. Valid values: dev and prod.
       shared_ptr<string> env_ {};
-      // Column GUID.
+      // The GUID of the column.
       shared_ptr<string> guid_ {};
-      // Whether this is a foreign key.
+      // Indicates whether the field is a foreign key.
       shared_ptr<bool> isForeignKey_ {};
-      // Whether this is a partition column.
+      // Indicates whether the field is a partition key.
       shared_ptr<bool> isPartitionColumn_ {};
-      // Whether this is a primary key.
+      // Indicates whether the field is a primary key.
       shared_ptr<bool> isPrimaryKey_ {};
-      // Last modifier.
+      // The last modifier of the field.
       shared_ptr<string> lastModifier_ {};
-      // Data level abbreviation.
+      // The abbreviation of the data level.
       shared_ptr<string> levelAbbreviation_ {};
-      // Modification time.
+      // The modification time of the field.
       shared_ptr<string> modifyTime_ {};
-      // Column name.
+      // The name of the field.
       shared_ptr<string> name_ {};
-      // Whether null values are allowed.
+      // Indicates whether the field allows null values.
       shared_ptr<bool> nullable_ {};
-      // Sequence number.
+      // The sequence number of the column.
       shared_ptr<int32_t> seqNumber_ {};
-      // Table GUID.
+      // The GUID of the table.
       shared_ptr<string> tableGuid_ {};
-      // Table name.
+      // The table name.
       shared_ptr<string> tableName_ {};
-      // Query count in the last 30 days.
+      // The number of queries in the last 30 days.
       shared_ptr<int64_t> visitCount30d_ {};
     };
 
@@ -377,17 +377,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // List of asset table columns.
+    // The list of asset table columns.
     shared_ptr<vector<GetTableColumnsResponseBody::ColumnList>> columnList_ {};
-    // HTTP response code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend response exception details.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

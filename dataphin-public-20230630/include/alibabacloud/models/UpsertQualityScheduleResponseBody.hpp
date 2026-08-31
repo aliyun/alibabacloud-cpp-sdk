@@ -86,11 +86,11 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The ID of the schedule resource.
+    // The schedule object ID.
     shared_ptr<int64_t> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

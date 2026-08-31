@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetTableLineagesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FilterQuery, filterQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(TableGuid, tableGuid_);
     };
     friend void from_json(const Darabonba::Json& j, GetTableLineagesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FilterQuery, filterQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(TableGuid, tableGuid_);
     };
     GetTableLineagesRequest() = default ;
@@ -114,7 +116,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->filterQuery_ == nullptr
-        && this->opTenantId_ == nullptr && this->tableGuid_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->tableGuid_ == nullptr; };
     // filterQuery Field Functions 
     bool hasFilterQuery() const { return this->filterQuery_ != nullptr;};
     void deleteFilterQuery() { this->filterQuery_ = nullptr;};
@@ -131,6 +133,13 @@ namespace Models
     inline GetTableLineagesRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetTableLineagesRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
@@ -145,6 +154,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The GUID of the table, which is the unique identifier of each asset.
     // 
     // This parameter is required.

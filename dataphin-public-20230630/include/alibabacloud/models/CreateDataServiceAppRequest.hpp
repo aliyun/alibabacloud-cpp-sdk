@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateDataServiceAppRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataServiceAppRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreateDataServiceAppRequest() = default ;
     CreateDataServiceAppRequest(const CreateDataServiceAppRequest &) = default ;
@@ -120,7 +122,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> appName_ {};
-      // The app secret.
+      // The application secret.
       // If this parameter is not specified, the system automatically generates a new AppSecret value.
       // The secret must be 8 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
       // This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
@@ -129,14 +131,14 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<string>> ownerIds_ {};
-      // Common scenarios.
+      // The common scenarios.
       // 
       // This parameter is required.
       shared_ptr<string> scenarios_ {};
     };
 
     virtual bool empty() const override { return this->createCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // createCommand Field Functions 
     bool hasCreateCommand() const { return this->createCommand_ != nullptr;};
     void deleteCreateCommand() { this->createCommand_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
     inline CreateDataServiceAppRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateDataServiceAppRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The command to create a data service application.
     // 
@@ -162,6 +171,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

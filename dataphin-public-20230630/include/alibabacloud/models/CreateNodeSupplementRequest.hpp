@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNodeSupplementRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreateNodeSupplementRequest() = default ;
     CreateNodeSupplementRequest(const CreateNodeSupplementRequest &) = default ;
@@ -49,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeParamsList, nodeParamsList_);
         DARABONBA_PTR_TO_JSON(Parallelism, parallelism_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_TO_JSON(RunImmediately, runImmediately_);
         DARABONBA_PTR_TO_JSON(StartBizDate, startBizDate_);
       };
       friend void from_json(const Darabonba::Json& j, CreateCommand& obj) { 
@@ -64,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeParamsList, nodeParamsList_);
         DARABONBA_PTR_FROM_JSON(Parallelism, parallelism_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_FROM_JSON(RunImmediately, runImmediately_);
         DARABONBA_PTR_FROM_JSON(StartBizDate, startBizDate_);
       };
       CreateCommand() = default ;
@@ -136,9 +140,9 @@ namespace Models
 
 
         protected:
-          // Parameter key
+          // The parameter.
           shared_ptr<string> key_ {};
-          // Parameter value
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -161,9 +165,9 @@ namespace Models
 
 
       protected:
-        // Node ID
+        // The node ID.
         shared_ptr<string> nodeId_ {};
-        // Parameter list
+        // The parameter list.
         shared_ptr<vector<NodeParamsList::ParamList>> paramList_ {};
       };
 
@@ -207,9 +211,9 @@ namespace Models
 
 
       protected:
-        // Field ID list: Can be specified when the node is a logical table node ID. If not specified, the entire table is used by default.
+        // The list of field IDs. This parameter is applicable when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
         shared_ptr<vector<string>> fieldIdList_ {};
-        // Node ID
+        // The node ID.
         // 
         // This parameter is required.
         shared_ptr<string> id_ {};
@@ -253,9 +257,9 @@ namespace Models
 
 
       protected:
-        // Parameter key
+        // The parameter.
         shared_ptr<string> key_ {};
-        // Parameter value
+        // The parameter value.
         shared_ptr<string> value_ {};
       };
 
@@ -310,7 +314,7 @@ namespace Models
       protected:
         // Specifies whether to exclude the matched items. Default value: false.
         shared_ptr<bool> exclude_ {};
-        // Filter key. Valid values:
+        // The filter key. Valid values:
         // - PROJECT: project
         // - NODE_OUTPUT_NAME: node output name
         // - NODE_NAME: node name
@@ -318,7 +322,7 @@ namespace Models
         // - TARGETS: specified endpoints
         // - SOURCES: specified start points
         shared_ptr<string> key_ {};
-        // Filter value list
+        // The list of filter values.
         shared_ptr<vector<string>> valueList_ {};
       };
 
@@ -362,16 +366,16 @@ namespace Models
 
 
       protected:
-        // Field ID
+        // The field ID.
         shared_ptr<vector<string>> fieldIdList_ {};
-        // Node ID
+        // The node ID.
         shared_ptr<string> id_ {};
       };
 
       virtual bool empty() const override { return this->containAllDownStream_ == nullptr
         && this->downStreamNodeIdList_ == nullptr && this->endBizDate_ == nullptr && this->filterList_ == nullptr && this->globalParamList_ == nullptr && this->maxDueTime_ == nullptr
         && this->minDueTime_ == nullptr && this->name_ == nullptr && this->nodeIdList_ == nullptr && this->nodeParamsList_ == nullptr && this->parallelism_ == nullptr
-        && this->projectId_ == nullptr && this->startBizDate_ == nullptr; };
+        && this->projectId_ == nullptr && this->runImmediately_ == nullptr && this->startBizDate_ == nullptr; };
       // containAllDownStream Field Functions 
       bool hasContainAllDownStream() const { return this->containAllDownStream_ != nullptr;};
       void deleteContainAllDownStream() { this->containAllDownStream_ = nullptr;};
@@ -466,6 +470,13 @@ namespace Models
       inline CreateCommand& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
+      // runImmediately Field Functions 
+      bool hasRunImmediately() const { return this->runImmediately_ != nullptr;};
+      void deleteRunImmediately() { this->runImmediately_ = nullptr;};
+      inline bool getRunImmediately() const { DARABONBA_PTR_GET_DEFAULT(runImmediately_, false) };
+      inline CreateCommand& setRunImmediately(bool runImmediately) { DARABONBA_PTR_SET_VALUE(runImmediately_, runImmediately) };
+
+
       // startBizDate Field Functions 
       bool hasStartBizDate() const { return this->startBizDate_ != nullptr;};
       void deleteStartBizDate() { this->startBizDate_ = nullptr;};
@@ -474,44 +485,46 @@ namespace Models
 
 
     protected:
-      // Bulk mode: Include all downstream nodes. Default value: false.
+      // Specifies whether to include all downstream nodes in batch mode. Default value: false.
       shared_ptr<bool> containAllDownStream_ {};
-      // Downstream node IDs. Specifies downstream nodes for execution.
+      // The IDs of downstream nodes to run. This parameter takes effect only when ContainAllDownStream is set to false.
       shared_ptr<vector<CreateCommand::DownStreamNodeIdList>> downStreamNodeIdList_ {};
-      // End business date
+      // The end business date.
       // 
       // This parameter is required.
       shared_ptr<string> endBizDate_ {};
-      // Filter list: Used together with ContainAllDownStream. You can include or exclude items based on project, node, and other criteria. Default value: empty.
+      // The list of filters. This parameter is used together with ContainAllDownStream to include or exclude nodes based on criteria such as project or node. Default value: empty.
       shared_ptr<vector<CreateCommand::FilterList>> filterList_ {};
-      // Runtime global parameters
+      // The runtime global parameters.
       shared_ptr<vector<CreateCommand::GlobalParamList>> globalParamList_ {};
-      // Latest trigger time (HH:MM). This parameter applies only to hourly tasks.
+      // The latest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
       shared_ptr<string> maxDueTime_ {};
-      // Earliest trigger time (HH:MM). This parameter applies only to hourly tasks.
+      // The earliest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
       shared_ptr<string> minDueTime_ {};
-      // Backfill name. If not specified, a name is automatically generated by the system.
+      // The name of the data backfill. If this parameter is not specified, the system automatically generates a name.
       shared_ptr<string> name_ {};
-      // Root nodes for backfill. Multiple root nodes are supported.
+      // The root nodes for data backfill. Multiple root nodes are supported.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::NodeIdList>> nodeIdList_ {};
-      // Runtime custom parameters, configured per node
+      // The runtime custom parameters configured by node.
       shared_ptr<vector<CreateCommand::NodeParamsList>> nodeParamsList_ {};
-      // Concurrency. Default value: 1.
+      // The concurrency. Default value: 1.
       shared_ptr<int32_t> parallelism_ {};
-      // Project ID
+      // The project ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // Start business date
+      // Corresponds to the "Task Run Time" option in the data backfill dialog box. If this parameter is set to true, the scheduled run time of instances is ignored and all instances run immediately. If this parameter is set to false, instances wait for their scheduled run time before running. Default value: true.
+      shared_ptr<bool> runImmediately_ {};
+      // The start business date.
       // 
       // This parameter is required.
       shared_ptr<string> startBizDate_ {};
     };
 
     virtual bool empty() const override { return this->createCommand_ == nullptr
-        && this->env_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->env_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // createCommand Field Functions 
     bool hasCreateCommand() const { return this->createCommand_ != nullptr;};
     void deleteCreateCommand() { this->createCommand_ = nullptr;};
@@ -535,19 +548,28 @@ namespace Models
     inline CreateNodeSupplementRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateNodeSupplementRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
-    // Create backfill request
+    // The data backfill request.
     // 
     // This parameter is required.
     shared_ptr<CreateNodeSupplementRequest::CreateCommand> createCommand_ {};
-    // Environment identifier.
-    // - DEV: development environment.
-    // - PROD (default): production environment.
+    // The environment identifier. Valid values:
+    // - DEV: Development environment. 
+    // - PROD (default): Production environment.
     shared_ptr<string> env_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

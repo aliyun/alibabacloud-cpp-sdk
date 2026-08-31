@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdatePipelineRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Context, context_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(UpdateCommand, updateCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpdatePipelineRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Context, context_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(UpdateCommand, updateCommand_);
     };
     UpdatePipelineRequest() = default ;
@@ -155,18 +157,18 @@ namespace Models
 
 
         protected:
-          // Specifies the data distribution method when the current component has multiple downstream components. Valid values:
+          // Specifies the data distribution mode when the current component has multiple downstream components. Valid values:
           // 
-          // - true (default): The data from the current component is distributed to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records.
-          // - false: The full data from the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, each downstream component receives 100 records.
+          // - true: Data from the current component is distributed to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. Default value: true.
+          // - false: Full data from the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, both downstream components receive 100 records.
           // 
           // This parameter is not applicable to workflow nodes.
           shared_ptr<bool> isDistribute_ {};
-          // The plugin ID. Each plugin or operator has a unique identifier. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
+          // The plugin ID. Each plugin or operator has a unique identifier. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
           // 
           // This parameter is required.
           shared_ptr<string> key_ {};
-          // The specific component configuration in JSON string format. Refer to the toJsonString method of the relevant subclasses of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (or com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig for workflow operators). Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the node configuration created on the Dataphin console.
+          // The specific component configuration in JSON string format. Refer to the toJsonString method of the relevant subclasses of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (for workflow operators, use com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig). Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the node configuration created on the Dataphin console.
           // 
           // This parameter is required.
           shared_ptr<string> pluginConfig_ {};
@@ -181,7 +183,7 @@ namespace Models
           // - transfrom: a transform component.
           // - process: a flow control component.
           // 
-          // For workflow nodes, this parameter specifies the operator type, such as image for images and text for text. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
+          // For workflow nodes, this parameter indicates the operator type, such as image for images and text for text. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
           // 
           // This parameter is required.
           shared_ptr<string> stepType_ {};
@@ -234,13 +236,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether the downstream condition is true for a conditional distribution component. Set this parameter to true if the downstream condition is true, or false otherwise. This parameter is not applicable to workflow nodes.
+          // Specifies the conditional distribution setting for a conditional distribution component. Set this parameter to true if the downstream connection condition is true, or false otherwise. This parameter is not applicable to workflow nodes.
           shared_ptr<bool> sendTo_ {};
-          // The name of the input step, which corresponds to Steps[*].StepName.
+          // The name of the source step, which corresponds to Steps[*].StepName.
           // 
           // This parameter is required.
           shared_ptr<string> source_ {};
-          // The name of the output step, which corresponds to Steps[*].StepName.
+          // The name of the target step, which corresponds to Steps[*].StepName.
           // 
           // This parameter is required.
           shared_ptr<string> target_ {};
@@ -267,11 +269,11 @@ namespace Models
 
 
       protected:
-        // The DAG (directed acyclic graph) link configuration that describes the connection relationships among all components or operators.
+        // The directed acyclic graph (DAG) link configuration that describes the connections between all components or operators.
         // 
         // This parameter is required.
         shared_ptr<vector<PipelineConfig::Hops>> hops_ {};
-        // The component or operator configurations, including the detailed configurations of all components or operators used.
+        // The component or operator configurations, including detailed configurations for all components or operators used.
         // 
         // This parameter is required.
         shared_ptr<vector<PipelineConfig::Steps>> steps_ {};
@@ -342,17 +344,17 @@ namespace Models
 
 
       protected:
-        // The folder of the integration pipeline or workflow node (defaults to the root folder). The folder must exist. If it does not exist, call the relevant API operation to create a folder of type offlinePipeline (or unstructuredPipeline for workflows).
+        // The folder of the integration pipeline or workflow node. Default value: root directory. The folder must already exist. If it does not exist, call the relevant API operation to create a folder of type offlinePipeline (or unstructuredPipeline for workflow nodes).
         shared_ptr<string> directory_ {};
-        // The file ID of the pipeline or workflow. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+        // The pipeline or workflow file ID. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
         shared_ptr<int64_t> fileId_ {};
-        // The scheduling node ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+        // The schedule node ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
         shared_ptr<string> nodeId_ {};
         // The name of the integration pipeline or workflow node.
         // 
         // This parameter is required.
         shared_ptr<string> nodeName_ {};
-        // The ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+        // The pipeline or workflow node ID. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
         shared_ptr<int64_t> pipelineId_ {};
       };
 
@@ -427,16 +429,16 @@ namespace Models
 
 
     protected:
-      // The remarks.
+      // The comment.
       shared_ptr<string> comment_ {};
       // The integration pipeline configuration mode. Valid values:
       // 
-      // - PIPELINE (default): pipeline mode.
+      // - PIPELINE: pipeline mode (default).
       // - JSON: script mode.
       // 
       // This parameter is not applicable to workflow nodes.
       shared_ptr<string> mode_ {};
-      // The basic information about the integration pipeline or workflow node.
+      // The basic information of the integration pipeline or workflow node.
       // 
       // This parameter is required.
       shared_ptr<UpdateCommand::NodeInfo> nodeInfo_ {};
@@ -448,17 +450,18 @@ namespace Models
       shared_ptr<string> pipelineJson_ {};
       // The node type. Valid values:
       // 
-      // - 0 (default): batch integration.
+      // - 0: offline integration (default).
       // - 1: real-time integration.
       // - 14: workflow node.
+      // - 15: real-time workflow.
       shared_ptr<int32_t> pipelineType_ {};
-      // The scheduling configuration in JSON string format. Refer to the toJsonString method of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig.
+      // The schedule configuration in JSON string format. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
       // 
       // This parameter is required.
       shared_ptr<string> scheduleConfig_ {};
-      // The channel configuration in JSON string format. Refer to the toJsonString method of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting.
+      // The channel configuration in JSON string format. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting#toJsonString method.
       shared_ptr<string> settings_ {};
-      // Specifies whether to submit the node. Default value: true.
+      // Specifies whether to submit the node. The node is submitted by default.
       shared_ptr<bool> submit_ {};
     };
 
@@ -503,18 +506,20 @@ namespace Models
       // The current operating environment. Valid values:
       // 
       // - DEV: the development environment.
-      // - PROD: the production environment. For workflow nodes, only PROD is supported.
+      // - PROD: the production environment.
+      // 
+      // For workflow nodes, only PROD is supported.
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
-      // The ID of the project to which the integration pipeline or workflow node belongs.
+      // The project ID to which the integration pipeline or workflow node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
 
     virtual bool empty() const override { return this->context_ == nullptr
-        && this->opTenantId_ == nullptr && this->updateCommand_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->updateCommand_ == nullptr; };
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
@@ -529,6 +534,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdatePipelineRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpdatePipelineRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // updateCommand Field Functions 
@@ -549,6 +561,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
     // The configuration for updating the pipeline or workflow node.
     // 
     // This parameter is required.

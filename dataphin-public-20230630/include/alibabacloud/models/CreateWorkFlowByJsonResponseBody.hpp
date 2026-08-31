@@ -106,11 +106,11 @@ namespace Models
     protected:
       // The name and IP address of the server-side execution machine.
       shared_ptr<string> hostMachine_ {};
-      // The scheduling node ID of the workflow node after successful creation.
+      // The scheduling node ID of the workflow node created.
       shared_ptr<string> nodeId_ {};
-      // The workflow ID after successful creation.
+      // The workflow ID generated after successful creation.
       shared_ptr<int64_t> pipelineId_ {};
-      // The submit ID generated for the pending publish list after submission. Use this ID to publish through the publish domain. You can ignore this value for BASIC projects.
+      // The submit ID of the pending publish list generated after a successful submission. Use this ID to publish through the publish domain. You can ignore this value for BASIC projects.
       shared_ptr<int64_t> submitId_ {};
       // The pending publish version number generated after the workflow is submitted. You can ignore this value for BASIC projects.
       shared_ptr<string> version_ {};
@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<CreateWorkFlowByJsonResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error details returned by the backend.
+    // The error message returned by the backend.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

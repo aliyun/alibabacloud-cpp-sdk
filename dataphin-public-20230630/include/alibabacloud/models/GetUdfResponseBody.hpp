@@ -171,11 +171,11 @@ namespace Models
     protected:
       // The category. Valid values:
       // - 1: window function.
-      // - 2: aggregate function.
-      // - 3: numeric function.
+      // - 2: statistical function.
+      // - 3: numerical function.
       // - 4: string function.
       // - 5: time function.
-      // - 6: IP address utility function.
+      // - 6: IP address helper function.
       // - 7: URL-related function.
       // - 8: encoding and decoding function.
       // - 9: business-related function.
@@ -185,17 +185,17 @@ namespace Models
       shared_ptr<string> className_ {};
       // The command help information.
       shared_ptr<string> commandHelp_ {};
-      // The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
+      // The compute engine type. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
       shared_ptr<string> computeEngineType_ {};
       // The creator.
       shared_ptr<string> creator_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The directory where the function is stored.
+      // The storage folder.
       shared_ptr<string> directory_ {};
-      // The creation time, in the yyyy-MM-d HH:mm:ss format.
+      // The creation time. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time, in the yyyy-MM-d HH:mm:ss format.
+      // The update time. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
       // The user-defined function ID.
       shared_ptr<int64_t> id_ {};
@@ -256,7 +256,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

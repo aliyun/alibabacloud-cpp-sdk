@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetCatalogAssetDetailsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(GetCatalogAssetDetailsQuery, getCatalogAssetDetailsQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, GetCatalogAssetDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(GetCatalogAssetDetailsQuery, getCatalogAssetDetailsQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     GetCatalogAssetDetailsRequest() = default ;
     GetCatalogAssetDetailsRequest(const GetCatalogAssetDetailsRequest &) = default ;
@@ -93,7 +95,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->getCatalogAssetDetailsQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // getCatalogAssetDetailsQuery Field Functions 
     bool hasGetCatalogAssetDetailsQuery() const { return this->getCatalogAssetDetailsQuery_ != nullptr;};
     void deleteGetCatalogAssetDetailsQuery() { this->getCatalogAssetDetailsQuery_ = nullptr;};
@@ -110,8 +112,15 @@ namespace Models
     inline GetCatalogAssetDetailsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetCatalogAssetDetailsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
-    // The paging query for the listing asset catalog list.
+    // The paged query for the listed asset catalog.
     // 
     // This parameter is required.
     shared_ptr<GetCatalogAssetDetailsRequest::GetCatalogAssetDetailsQuery> getCatalogAssetDetailsQuery_ {};
@@ -119,6 +128,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

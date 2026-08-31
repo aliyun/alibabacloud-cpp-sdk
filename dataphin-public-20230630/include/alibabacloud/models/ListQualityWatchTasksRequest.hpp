@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListQualityWatchTasksRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListQualityWatchTasksRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListQualityWatchTasksRequest() = default ;
     ListQualityWatchTasksRequest(const ListQualityWatchTasksRequest &) = default ;
@@ -234,36 +236,36 @@ namespace Models
     protected:
       // The business date filter.
       shared_ptr<string> bizDate_ {};
-      // The business unit names.
+      // The name of the business unit to which the object belongs.
       shared_ptr<vector<string>> bizUnitNameList_ {};
-      // Specifies whether to query only the quality monitoring node objects owned by the current user.
+      // Specifies whether to query only the watchtask objects owned by the current user.
       shared_ptr<bool> currentUserOwned_ {};
-      // The data source IDs.
+      // The data source ID.
       shared_ptr<vector<string>> dataSourceIdList_ {};
-      // The data source owners.
+      // The data source owner.
       shared_ptr<vector<string>> dataSourceOwnerList_ {};
-      // The data source scopes. Valid values:
+      // The data source scope. Valid values:
       // - STREAMING: real-time only.
       // - OFFLINE: offline only.
       // - ALL: real-time and offline.
       shared_ptr<vector<string>> dataSourceScopeList_ {};
-      // The data source types, such as MAX_COMPUTE, HADOOP, and MYSQL.
+      // The data source type, such as MAX_COMPUTE, HADOOP, or MYSQL.
       shared_ptr<vector<string>> dataSourceTypeList_ {};
-      // The rule exception types. Valid values:
+      // The rule exception type. Valid values:
       // - STRONG: strong.
       // - WEAK: weak.
       shared_ptr<vector<string>> errorRuleStrengthList_ {};
-      // The search keyword, which is the name of the monitored table.
+      // The search keyword. This parameter specifies the name of the monitored table.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
       // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The project names.
+      // The name of the project to which the object belongs.
       shared_ptr<vector<string>> projectNameList_ {};
-      // The quality owners.
+      // The quality owner.
       shared_ptr<vector<string>> qualityOwnerList_ {};
-      // The task statuses. Valid values:
+      // The task status. Valid values:
       // - NOT_RUN: not executed.
       // - WAITING: waiting.
       // - RUNNING: running.
@@ -273,9 +275,9 @@ namespace Models
       // - TIMEOUT: timed out.
       // - OFFLINE: offline.
       shared_ptr<vector<string>> statusList_ {};
-      // The table owners.
+      // The table owner.
       shared_ptr<vector<string>> tableOwnerList_ {};
-      // The table types. Valid values:
+      // The table type. Valid values:
       // - LOGIC_DIM_TABLE: logical dimension table.
       // - LOGIC_FACT_TABLE: logical fact table.
       // - LOGIC_SUM_TABLE: logical aggregate table.
@@ -283,9 +285,9 @@ namespace Models
       // - PHYSICAL_TABLE: physical table.
       // - REALTIME_LOGICAL_TABLE: real-time meta table.
       shared_ptr<vector<string>> tableTypeList_ {};
-      // The monitored object types. Valid values:
+      // The monitored object type. Valid values:
       // - TABLE: Dataphin table.
-      // - DATASOURCE_TABLE: global table.
+      // - DATASOURCE_TABLE: global domain table.
       // - DATASOURCE: data source.
       // - INDEX: metric.
       // - REALTIME_LOGICAL_TABLE: real-time meta table.
@@ -293,7 +295,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->listQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // listQuery Field Functions 
     bool hasListQuery() const { return this->listQuery_ != nullptr;};
     void deleteListQuery() { this->listQuery_ = nullptr;};
@@ -310,6 +312,13 @@ namespace Models
     inline ListQualityWatchTasksRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListQualityWatchTasksRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The paged query conditions.
     shared_ptr<ListQualityWatchTasksRequest::ListQuery> listQuery_ {};
@@ -317,6 +326,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

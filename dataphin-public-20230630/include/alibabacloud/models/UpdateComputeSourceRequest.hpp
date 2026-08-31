@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateComputeSourceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(UpdateCommand, updateCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateComputeSourceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(UpdateCommand, updateCommand_);
     };
     UpdateComputeSourceRequest() = default ;
@@ -35,18 +37,24 @@ namespace Models
     class UpdateCommand : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const UpdateCommand& obj) { 
+        DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
         DARABONBA_PTR_TO_JSON(ConfigList, configList_);
+        DARABONBA_PTR_TO_JSON(CreateType, createType_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(TypeVersion, typeVersion_);
       };
       friend void from_json(const Darabonba::Json& j, UpdateCommand& obj) { 
+        DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
         DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
+        DARABONBA_PTR_FROM_JSON(CreateType, createType_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(TypeVersion, typeVersion_);
       };
       UpdateCommand() = default ;
       UpdateCommand(const UpdateCommand &) = default ;
@@ -97,18 +105,26 @@ namespace Models
 
 
       protected:
-        // The key of the configuration item.
+        // The configuration item.
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The value of the configuration item.
+        // The configuration item value.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
 
-      virtual bool empty() const override { return this->configList_ == nullptr
-        && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->configList_ == nullptr && this->createType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
+        && this->type_ == nullptr && this->typeVersion_ == nullptr; };
+      // clusterId Field Functions 
+      bool hasClusterId() const { return this->clusterId_ != nullptr;};
+      void deleteClusterId() { this->clusterId_ = nullptr;};
+      inline int64_t getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, 0L) };
+      inline UpdateCommand& setClusterId(int64_t clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
       // configList Field Functions 
       bool hasConfigList() const { return this->configList_ != nullptr;};
       void deleteConfigList() { this->configList_ = nullptr;};
@@ -116,6 +132,13 @@ namespace Models
       inline vector<UpdateCommand::ConfigList> getConfigList() { DARABONBA_PTR_GET(configList_, vector<UpdateCommand::ConfigList>) };
       inline UpdateCommand& setConfigList(const vector<UpdateCommand::ConfigList> & configList) { DARABONBA_PTR_SET_VALUE(configList_, configList) };
       inline UpdateCommand& setConfigList(vector<UpdateCommand::ConfigList> && configList) { DARABONBA_PTR_SET_RVALUE(configList_, configList) };
+
+
+      // createType Field Functions 
+      bool hasCreateType() const { return this->createType_ != nullptr;};
+      void deleteCreateType() { this->createType_ = nullptr;};
+      inline string getCreateType() const { DARABONBA_PTR_GET_DEFAULT(createType_, "") };
+      inline UpdateCommand& setCreateType(string createType) { DARABONBA_PTR_SET_VALUE(createType_, createType) };
 
 
       // description Field Functions 
@@ -146,36 +169,58 @@ namespace Models
       inline UpdateCommand& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+      // typeVersion Field Functions 
+      bool hasTypeVersion() const { return this->typeVersion_ != nullptr;};
+      void deleteTypeVersion() { this->typeVersion_ = nullptr;};
+      inline string getTypeVersion() const { DARABONBA_PTR_GET_DEFAULT(typeVersion_, "") };
+      inline UpdateCommand& setTypeVersion(string typeVersion) { DARABONBA_PTR_SET_VALUE(typeVersion_, typeVersion) };
+
+
     protected:
+      // The associated cluster ID. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE (to create a compute source that references a cluster). This parameter is mutually exclusive with CreateType=CLUSTER.
+      shared_ptr<int64_t> clusterId_ {};
       // The connection configuration items.
       // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::ConfigList>> configList_ {};
+      // The creation entity type. Valid values:
+      // - CLUSTER: Creates the entity as a cluster. ClusterId cannot be specified.
+      // - COMPUTE_SOURCE: Creates the entity as a compute source. This is the default value.
+      shared_ptr<string> createType_ {};
       // The description.
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
-      // The ID of the compute source.
+      // The compute source ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
-      // The name of the compute source.
+      // The compute source name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The type of the compute source.
+      // The compute source type.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
+      // The compute source type version.
+      shared_ptr<string> typeVersion_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->updateCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->updateCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdateComputeSourceRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpdateComputeSourceRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // updateCommand Field Functions 
@@ -192,6 +237,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
+    shared_ptr<string> opUserId_ {};
     // The edit command.
     // 
     // This parameter is required.

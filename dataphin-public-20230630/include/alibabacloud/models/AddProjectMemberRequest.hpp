@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AddCommand, addCommand_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, AddProjectMemberRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddCommand, addCommand_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     AddProjectMemberRequest() = default ;
     AddProjectMemberRequest(const AddProjectMemberRequest &) = default ;
@@ -95,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The member role. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
+        // The member roles. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
         // 
         // This parameter is required.
         shared_ptr<vector<int32_t>> roleList_ {};
@@ -124,7 +126,7 @@ namespace Models
 
 
     protected:
-      // The environment identifier. Valid values: DEV and PROD.
+      // The environment identifier. Valid values: DEV, PROD.
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
@@ -135,7 +137,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->addCommand_ == nullptr
-        && this->id_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->id_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // addCommand Field Functions 
     bool hasAddCommand() const { return this->addCommand_ != nullptr;};
     void deleteAddCommand() { this->addCommand_ = nullptr;};
@@ -159,8 +161,15 @@ namespace Models
     inline AddProjectMemberRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline AddProjectMemberRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
-    // The command to add members.
+    // The command for adding members.
     // 
     // This parameter is required.
     shared_ptr<AddProjectMemberRequest::AddCommand> addCommand_ {};
@@ -172,6 +181,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

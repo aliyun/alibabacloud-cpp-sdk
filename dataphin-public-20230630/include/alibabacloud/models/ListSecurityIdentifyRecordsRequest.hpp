@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListSecurityIdentifyRecordsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSecurityIdentifyRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListSecurityIdentifyRecordsRequest() = default ;
     ListSecurityIdentifyRecordsRequest(const ListSecurityIdentifyRecordsRequest &) = default ;
@@ -133,23 +135,23 @@ namespace Models
 
 
     protected:
-      // The datasource environment identifier. This parameter is required only for datasource tables.
+      // The data source environment identifier. This parameter is required only for data source tables.
       shared_ptr<string> datasourceEnv_ {};
-      // The datasource name. This parameter is required only for datasource tables.
+      // The data source name. This parameter is required only for data source tables.
       shared_ptr<string> datasourceName_ {};
       // The field name.
       // 
       // This parameter is required.
       shared_ptr<string> fieldName_ {};
-      // Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
+      // Specifies whether the table is a data source table. Default value: false (treated as a Dataphin table).
       shared_ptr<bool> isDatasourceTable_ {};
-      // The search keyword. The search scope is the field name.
+      // The search keyword. The search scope is field names.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
       // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The table catalog. For datasource tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
+      // The table catalog. For data source tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
       // 
       // This parameter is required.
       shared_ptr<string> tableCatalog_ {};
@@ -160,7 +162,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->listQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // listQuery Field Functions 
     bool hasListQuery() const { return this->listQuery_ != nullptr;};
     void deleteListQuery() { this->listQuery_ = nullptr;};
@@ -177,6 +179,13 @@ namespace Models
     inline ListSecurityIdentifyRecordsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListSecurityIdentifyRecordsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The query conditions.
     // 
@@ -186,6 +195,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

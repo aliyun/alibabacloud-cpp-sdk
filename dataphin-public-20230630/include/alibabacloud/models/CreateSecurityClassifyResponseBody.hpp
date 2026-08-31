@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The data classification ID.
+    // The data category ID.
     shared_ptr<int64_t> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

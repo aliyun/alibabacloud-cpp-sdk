@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const BatchCreateKgEntityRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, BatchCreateKgEntityRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     BatchCreateKgEntityRequest() = default ;
@@ -169,7 +171,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->createCommand_ == nullptr
-        && this->opTenantId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->workspaceId_ == nullptr; };
     // createCommand Field Functions 
     bool hasCreateCommand() const { return this->createCommand_ != nullptr;};
     void deleteCreateCommand() { this->createCommand_ = nullptr;};
@@ -186,6 +188,13 @@ namespace Models
     inline BatchCreateKgEntityRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline BatchCreateKgEntityRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -194,7 +203,7 @@ namespace Models
 
 
   protected:
-    // The create instruction.
+    // The create command.
     // 
     // This parameter is required.
     shared_ptr<BatchCreateKgEntityRequest::CreateCommand> createCommand_ {};
@@ -202,6 +211,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 
     // This parameter is required.

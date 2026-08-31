@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpsertQualityRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(UpsertCommand, upsertCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpsertQualityRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(UpsertCommand, upsertCommand_);
     };
     UpsertQualityRuleRequest() = default ;
@@ -35,6 +37,8 @@ namespace Models
     class UpsertCommand : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const UpsertCommand& obj) { 
+        DARABONBA_PTR_TO_JSON(ArchiveMode, archiveMode_);
+        DARABONBA_PTR_TO_JSON(ArchiveStoreType, archiveStoreType_);
         DARABONBA_PTR_TO_JSON(AttributeWithValueList, attributeWithValueList_);
         DARABONBA_PTR_TO_JSON(CatalogList, catalogList_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -49,6 +53,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WatchId, watchId_);
       };
       friend void from_json(const Darabonba::Json& j, UpsertCommand& obj) { 
+        DARABONBA_PTR_FROM_JSON(ArchiveMode, archiveMode_);
+        DARABONBA_PTR_FROM_JSON(ArchiveStoreType, archiveStoreType_);
         DARABONBA_PTR_FROM_JSON(AttributeWithValueList, attributeWithValueList_);
         DARABONBA_PTR_FROM_JSON(CatalogList, catalogList_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -147,15 +153,25 @@ namespace Models
 
 
       protected:
-        // The ID of the condition node.
+        // The condition node ID.
         shared_ptr<string> id_ {};
         // The metric.
         shared_ptr<string> metric_ {};
-        // The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
+        // The operator. Valid values:
+        // - EQUAL
+        // - NOT_EQUAL
+        // - LARGER
+        // - SMALLER
+        // - LARGE_OR_EQUAL
+        // - SMALLER_OR_EQUAL
+        // - AND
+        // - OR
         shared_ptr<string> operator_ {};
-        // The ID of the parent condition node.
+        // The parent condition node ID.
         shared_ptr<string> parentId_ {};
-        // The condition type. Valid values: RELATION, EXPRESSION.
+        // The condition type. Valid values:
+        // - RELATION: relationship.
+        // - EXPRESSION: expression.
         shared_ptr<string> type_ {};
         // The value.
         shared_ptr<string> value_ {};
@@ -208,7 +224,7 @@ namespace Models
 
 
       protected:
-        // The component type.
+        // The control type.
         shared_ptr<string> componentType_ {};
         // The property name.
         shared_ptr<string> name_ {};
@@ -304,15 +320,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to include the maximum value.
+          // Indicates whether the maximum value is included.
           shared_ptr<bool> includeMaxValue_ {};
-          // Specifies whether to include the minimum value.
+          // Indicates whether the minimum value is included.
           shared_ptr<bool> includeMinValue_ {};
-          // The maximum value. Applicable to range interval attributes.
+          // The maximum value. This parameter applies to range interval properties.
           shared_ptr<string> maxValue_ {};
-          // The minimum value. Applicable to range interval attributes.
+          // The minimum value. This parameter applies to range interval properties.
           shared_ptr<string> minValue_ {};
-          // The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
+          // The property value list. This parameter applies to properties whose input method is custom input, single-select dropdown, or multi-select dropdown.
           shared_ptr<vector<string>> valueList_ {};
         };
 
@@ -441,15 +457,15 @@ namespace Models
 
 
             protected:
-              // Specifies whether to include the maximum value.
+              // Indicates whether the maximum value is included.
               shared_ptr<bool> includeMaxValue_ {};
-              // Specifies whether to include the minimum value.
+              // Indicates whether the minimum value is included.
               shared_ptr<bool> includeMinValue_ {};
-              // The maximum value. Applicable to range interval attributes.
+              // The maximum value. This parameter applies to range interval properties.
               shared_ptr<string> maxValue_ {};
-              // The minimum value. Applicable to range interval attributes.
+              // The minimum value. This parameter applies to range interval properties.
               shared_ptr<string> minValue_ {};
-              // The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
+              // The property value list. This parameter applies to properties whose input method is custom input, single-select dropdown, or multi-select dropdown.
               shared_ptr<vector<string>> valueList_ {};
             };
 
@@ -495,15 +511,25 @@ namespace Models
 
 
           protected:
-            // The attribute field type. Valid values: STRING (Text), BIGINT (Integer), DOUBLE (Floating-point), BOOLEAN (Boolean), DATE (Date), DATETIME (Datetime).
+            // The property field data type. Valid values:
+            // - STRING: text.
+            // - BIGINT: integer.
+            // - DOUBLE: floating-point.
+            // - BOOLEAN: Boolean.
+            // - DATE: date.
+            // - DATETIME: datetime.
             shared_ptr<string> dataType_ {};
-            // The attribute default value.
+            // The property default value.
             shared_ptr<ValueConfig::DefaultValue> defaultValue_ {};
-            // The attribute field length. Used to constrain the maximum length of text-type attribute values.
+            // The property field length. You can use this parameter to constrain the maximum length of text-type property values.
             shared_ptr<int32_t> length_ {};
-            // The attribute value input method. Valid values: CUSTOMIZED (Custom input), SINGLE_ENUM (Single-select dropdown), MULTIPLE_ENUMS (Multi-select dropdown), RANGE (Range interval).
+            // The property value input method. Valid values:
+            // - CUSTOMIZED: custom input.
+            // - SINGLE_ENUM: single-select dropdown.
+            // - MULTIPLE_ENUMS: multi-select dropdown.
+            // - RANGE: range interval.
             shared_ptr<string> type_ {};
-            // The attribute option values. Only applicable to attributes with the single-select dropdown or multi-select dropdown input method.
+            // The property option values. This parameter applies only to properties whose input method is single-select dropdown or multi-select dropdown.
             shared_ptr<vector<string>> valueEnumList_ {};
           };
 
@@ -564,17 +590,17 @@ namespace Models
         protected:
           // The description.
           shared_ptr<string> description_ {};
-          // Specifies whether to enable the attribute.
+          // Indicates whether the property is enabled.
           shared_ptr<bool> enabled_ {};
-          // The attribute ID.
+          // The property ID.
           shared_ptr<int64_t> id_ {};
-          // The attribute name.
+          // The property name.
           shared_ptr<string> name_ {};
-          // Specifies whether the attribute is required.
+          // Indicates whether the property is required.
           shared_ptr<bool> required_ {};
-          // Specifies whether the attribute is searchable.
+          // Indicates whether the property is searchable.
           shared_ptr<bool> searchable_ {};
-          // The attribute value configuration details.
+          // The property value configuration details.
           shared_ptr<AttributeInfo::ValueConfig> valueConfig_ {};
         };
 
@@ -599,16 +625,30 @@ namespace Models
 
 
       protected:
-        // The attribute details.
+        // The property details.
         shared_ptr<AttributeWithValueList::AttributeInfo> attributeInfo_ {};
-        // The attribute value.
+        // The property value.
         shared_ptr<AttributeWithValueList::AttributeValue> attributeValue_ {};
       };
 
-      virtual bool empty() const override { return this->attributeWithValueList_ == nullptr
-        && this->catalogList_ == nullptr && this->description_ == nullptr && this->enableErrorArchive_ == nullptr && this->formPropertyList_ == nullptr && this->id_ == nullptr
-        && this->name_ == nullptr && this->strength_ == nullptr && this->templateId_ == nullptr && this->templateType_ == nullptr && this->validateConditionList_ == nullptr
-        && this->watchId_ == nullptr; };
+      virtual bool empty() const override { return this->archiveMode_ == nullptr
+        && this->archiveStoreType_ == nullptr && this->attributeWithValueList_ == nullptr && this->catalogList_ == nullptr && this->description_ == nullptr && this->enableErrorArchive_ == nullptr
+        && this->formPropertyList_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->strength_ == nullptr && this->templateId_ == nullptr
+        && this->templateType_ == nullptr && this->validateConditionList_ == nullptr && this->watchId_ == nullptr; };
+      // archiveMode Field Functions 
+      bool hasArchiveMode() const { return this->archiveMode_ != nullptr;};
+      void deleteArchiveMode() { this->archiveMode_ = nullptr;};
+      inline string getArchiveMode() const { DARABONBA_PTR_GET_DEFAULT(archiveMode_, "") };
+      inline UpsertCommand& setArchiveMode(string archiveMode) { DARABONBA_PTR_SET_VALUE(archiveMode_, archiveMode) };
+
+
+      // archiveStoreType Field Functions 
+      bool hasArchiveStoreType() const { return this->archiveStoreType_ != nullptr;};
+      void deleteArchiveStoreType() { this->archiveStoreType_ = nullptr;};
+      inline string getArchiveStoreType() const { DARABONBA_PTR_GET_DEFAULT(archiveStoreType_, "") };
+      inline UpsertCommand& setArchiveStoreType(string archiveStoreType) { DARABONBA_PTR_SET_VALUE(archiveStoreType_, archiveStoreType) };
+
+
       // attributeWithValueList Field Functions 
       bool hasAttributeWithValueList() const { return this->attributeWithValueList_ != nullptr;};
       void deleteAttributeWithValueList() { this->attributeWithValueList_ = nullptr;};
@@ -702,25 +742,47 @@ namespace Models
 
 
     protected:
-      // The rule business attribute configuration.
+      // The exception archive mode. Valid values:
+      // - ONLY_ERROR_FIELD: Archives only the exception fields.
+      // - FULL_RECORD: Archives the complete record.
+      // 
+      // Default value: ONLY_ERROR_FIELD.
+      shared_ptr<string> archiveMode_ {};
+      // The exception archive storage type. Valid values:
+      // - FILE_SYSTEM: File system.
+      // - CUSTOM_TABLE: Custom table.
+      // 
+      // Default value: FILE_SYSTEM.
+      shared_ptr<string> archiveStoreType_ {};
+      // The rule business property configuration.
       shared_ptr<vector<UpsertCommand::AttributeWithValueList>> attributeWithValueList_ {};
-      // The rule category. Valid values: CONSISTENT (Consistency), EFFECTIVE (Effectiveness), TIMELINESE (Timeliness), ACCURATE (Accuracy), UNIQUENESS (Uniqueness), COMPLETENESS (Completeness), STABILITY (Stability), CUSTOM (Custom).
+      // The rule catalog. Valid values:
+      // - CONSISTENT: consistency.
+      // - EFFECTIVE: validity.
+      // - TIMELINESE: timeliness.
+      // - ACCURATE: accuracy.
+      // - UNIQUENESS: uniqueness.
+      // - COMPLETENESS: completeness.
+      // - STABILITY: stability.
+      // - CUSTOM: custom.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> catalogList_ {};
-      // The description of the quality rule.
+      // The description.
       shared_ptr<string> description_ {};
       // Specifies whether to enable error archiving.
       shared_ptr<bool> enableErrorArchive_ {};
-      // The rule configuration key-value pairs. The configuration varies based on the template type. Different template types return different form key-value pair configurations.
+      // The rule configuration key-value pairs. These are related to the templatetype. Different template types return different form key-value pair configurations.
       shared_ptr<vector<UpsertCommand::FormPropertyList>> formPropertyList_ {};
-      // Rule ID. A non-empty value indicates a modification, and an empty value indicates a creation.
+      // The rule ID. If this parameter is not empty, the operation updates the rule. If this parameter is empty, the operation creates a rule.
       shared_ptr<int64_t> id_ {};
       // The name of the quality rule.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The rule strength. Valid values: STRONG, WEAK.
+      // The rule strength. Valid values:
+      // - STRONG
+      // - WEAK
       // 
       // This parameter is required.
       shared_ptr<string> strength_ {};
@@ -728,56 +790,63 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> templateId_ {};
-      // The template type. Valid values:
-      //   - FIELD_NULL_VALUE_VALIDATE: Field null value validation
-      //   - FIELD_EMPTY_STRING_VALIDATE: Field empty string validation
-      //   - FIELD_UNIQUE_VALIDATE: Field uniqueness validation
-      //   - FIELD_GROUP_COUNT_VALIDATE: Field unique value count validation
-      //   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count validation
-      //   - FUNCTION_TIME_COMPARE: Time function comparison
-      //   - SINGLE_TABLE_TIME_COMPARE: Single-table time field comparison
-      //   - DOUBLE_TABLE_TIME_COMPARE: Cross-table time field comparison
-      //   - FIELD_FORMAT_VALIDATE: Field format validation
-      //   - FIELD_LENGTH_VALIDATE: Field length validation
-      //   - FIELD_VALUE_RANGE_VALIDATE: Field value range validation
-      //   - CODE_TABLE_COMPARE: Code table reference comparison
-      //   - STANDARD_CODE_TABLE_COMPARE: Data standard code table reference comparison
-      //   - SINGLE_TABLE_FIELD_VALUE_COMPARE: Single-table field value consistency comparison
-      //   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Single-table field statistical value consistency comparison
-      //   - SINGLE_TABLE_FIELD_EXP_COMPARE: Single-table field business logic consistency comparison
-      //   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Cross-table field value consistency comparison
-      //   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-table field statistical value consistency comparison
-      //   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source cross-table field statistical value consistency comparison
-      //   - DOUBLE_TABLE_FIELD_EXP_COMPARE: Cross-table field business logic consistency comparison
-      //   - TABLE_STABILITY_VALIDATE: Table stability validation
-      //   - TABLE_FLUCTUATION_VALIDATE: Table fluctuation validation
-      //   - FIELD_STABILITY_VALIDATE: Field stability validation
-      //   - FIELD_FLUCTUATION_VALIDATE: Field fluctuation validation
-      //   - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric validation
-      //   - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details validation
-      //   - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check
-      //   - TABLE_SCHEMA_CHECK: Table schema change monitoring
-      //   - REAL_TIME_OFFLINE_COMPARE: Real-time offline comparison
-      //   - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value monitoring
-      //   - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-chain comparison, etc.
+      // The templatetype. Valid values:
+      // - FIELD_NULL_VALUE_VALIDATE: field null value check.
+      // - FIELD_EMPTY_STRING_VALIDATE: field empty string check.
+      // - FIELD_UNIQUE_VALIDATE: field uniqueness check.
+      // - FIELD_GROUP_COUNT_VALIDATE: field unique value count check.
+      // - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count check.
+      // - FUNCTION_TIME_COMPARE: time function comparison.
+      // - SINGLE_TABLE_TIME_COMPARE: single-table time field comparison.
+      // - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison.
+      // - FIELD_FORMAT_VALIDATE: field format check.
+      // - FIELD_LENGTH_VALIDATE: field length check.
+      // - FIELD_VALUE_RANGE_VALIDATE: field value range check.
+      // - CODE_TABLE_COMPARE: lookup table reference comparison.
+      // - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison.
+      // - SINGLE_TABLE_FIELD_VALUE_COMPARE: single-table field value consistency comparison.
+      // - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: single-table field statistical value consistency comparison.
+      // - SINGLE_TABLE_FIELD_EXP_COMPARE: single-table field business logic consistency comparison.
+      // - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison.
+      // - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison.
+      // - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison.
+      // - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison.
+      // - TABLE_STABILITY_VALIDATE: table stability check.
+      // - TABLE_FLUCTUATION_VALIDATE: table fluctuation check.
+      // - FIELD_STABILITY_VALIDATE: field stability check.
+      // - FIELD_FLUCTUATION_VALIDATE: field fluctuation check.
+      // - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check.
+      // - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check.
+      // - DATASOURCE_AVAILABLE_CHECK: datasource connectivity monitoring.
+      // - TABLE_SCHEMA_CHECK: table schema change monitoring.
+      // - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison.
+      // - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring.
+      // - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison.
       // 
       // This parameter is required.
       shared_ptr<string> templateType_ {};
       // The validation conditions.
       shared_ptr<vector<UpsertCommand::ValidateConditionList>> validateConditionList_ {};
-      // The ID of the associated monitor.
+      // The ID of the associated watch.
       // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->upsertCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->upsertCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpsertQualityRuleRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpsertQualityRuleRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // upsertCommand Field Functions 
@@ -790,11 +859,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The upsert command.
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpsertQualityRuleRequest::UpsertCommand> upsertCommand_ {};

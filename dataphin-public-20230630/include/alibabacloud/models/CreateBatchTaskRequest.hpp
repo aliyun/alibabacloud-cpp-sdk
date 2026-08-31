@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateBatchTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateBatchTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreateBatchTaskRequest() = default ;
     CreateBatchTaskRequest(const CreateBatchTaskRequest &) = default ;
@@ -39,9 +41,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceSchema, dataSourceSchema_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_TO_JSON(Directory, directory_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(OpsOwnerIdList, opsOwnerIdList_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(PythonModuleList, pythonModuleList_);
         DARABONBA_PTR_TO_JSON(ScheduleType, scheduleType_);
@@ -52,9 +56,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceSchema, dataSourceSchema_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(Directory, directory_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(OpsOwnerIdList, opsOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(PythonModuleList, pythonModuleList_);
         DARABONBA_PTR_FROM_JSON(ScheduleType, scheduleType_);
@@ -72,8 +78,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->dataSourceCatalog_ == nullptr
-        && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr && this->description_ == nullptr && this->directory_ == nullptr && this->engine_ == nullptr
-        && this->name_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr && this->scheduleType_ == nullptr && this->taskType_ == nullptr; };
+        && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr && this->description_ == nullptr && this->developOwnerIdList_ == nullptr && this->directory_ == nullptr
+        && this->engine_ == nullptr && this->name_ == nullptr && this->opsOwnerIdList_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr
+        && this->scheduleType_ == nullptr && this->taskType_ == nullptr; };
       // dataSourceCatalog Field Functions 
       bool hasDataSourceCatalog() const { return this->dataSourceCatalog_ != nullptr;};
       void deleteDataSourceCatalog() { this->dataSourceCatalog_ = nullptr;};
@@ -102,6 +109,15 @@ namespace Models
       inline CreateCommand& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // developOwnerIdList Field Functions 
+      bool hasDevelopOwnerIdList() const { return this->developOwnerIdList_ != nullptr;};
+      void deleteDevelopOwnerIdList() { this->developOwnerIdList_ = nullptr;};
+      inline const vector<string> & getDevelopOwnerIdList() const { DARABONBA_PTR_GET_CONST(developOwnerIdList_, vector<string>) };
+      inline vector<string> getDevelopOwnerIdList() { DARABONBA_PTR_GET(developOwnerIdList_, vector<string>) };
+      inline CreateCommand& setDevelopOwnerIdList(const vector<string> & developOwnerIdList) { DARABONBA_PTR_SET_VALUE(developOwnerIdList_, developOwnerIdList) };
+      inline CreateCommand& setDevelopOwnerIdList(vector<string> && developOwnerIdList) { DARABONBA_PTR_SET_RVALUE(developOwnerIdList_, developOwnerIdList) };
+
+
       // directory Field Functions 
       bool hasDirectory() const { return this->directory_ != nullptr;};
       void deleteDirectory() { this->directory_ = nullptr;};
@@ -121,6 +137,15 @@ namespace Models
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline CreateCommand& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // opsOwnerIdList Field Functions 
+      bool hasOpsOwnerIdList() const { return this->opsOwnerIdList_ != nullptr;};
+      void deleteOpsOwnerIdList() { this->opsOwnerIdList_ = nullptr;};
+      inline const vector<string> & getOpsOwnerIdList() const { DARABONBA_PTR_GET_CONST(opsOwnerIdList_, vector<string>) };
+      inline vector<string> getOpsOwnerIdList() { DARABONBA_PTR_GET(opsOwnerIdList_, vector<string>) };
+      inline CreateCommand& setOpsOwnerIdList(const vector<string> & opsOwnerIdList) { DARABONBA_PTR_SET_VALUE(opsOwnerIdList_, opsOwnerIdList) };
+      inline CreateCommand& setOpsOwnerIdList(vector<string> && opsOwnerIdList) { DARABONBA_PTR_SET_RVALUE(opsOwnerIdList_, opsOwnerIdList) };
 
 
       // projectId Field Functions 
@@ -154,36 +179,40 @@ namespace Models
 
 
     protected:
-      // The catalog for a database SQL node. This parameter takes effect only for data source types that require a catalog, such as Presto.
+      // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The data source ID for a database SQL node.
+      // The data source ID for database SQL nodes.
       shared_ptr<string> dataSourceId_ {};
-      // The schema for a database SQL node. This parameter takes effect only for data source types that require a schema, such as Oracle.
+      // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
       // The description.
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
+      // The list of development owner IDs.
+      shared_ptr<vector<string>> developOwnerIdList_ {};
       // The folder path in the menu tree to which the node belongs.
       // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
-      // The execution engine for the node, such as a Python node. Valid values:
-      // - 1: PYTHON2_7
-      // - 2: PYTHON3_7
-      // - 3: PYTHON3_11.
+      // The execution engine for the node, such as for Python nodes. Valid values:
+      // - 1. PYTHON2_7
+      // - 2. PYTHON3_7
+      // - 3. PYTHON3_11
       shared_ptr<string> engine_ {};
       // The name of the batch task.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The list of O&M owner IDs.
+      shared_ptr<vector<string>> opsOwnerIdList_ {};
       // The ID of the project to which the node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The list of third-party Python packages that the node depends on.
+      // The list of Python third-party packages that the node depends on.
       shared_ptr<vector<string>> pythonModuleList_ {};
-      // The scheduling type. Valid values:
+      // The schedule type. Valid values:
       // - 1: periodic node.
       // - 3: manual node.
       // 
@@ -233,14 +262,14 @@ namespace Models
       // - SPARK_SQL: 80
       // - GAUSS_SQL: 81
       // - DATABASE_SQL: 998
-      // - EXTERNAL_TRIGGER: 997.
+      // - EXTERNAL_TRIGGER: 997
       // 
       // This parameter is required.
       shared_ptr<int32_t> taskType_ {};
     };
 
     virtual bool empty() const override { return this->createCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // createCommand Field Functions 
     bool hasCreateCommand() const { return this->createCommand_ != nullptr;};
     void deleteCreateCommand() { this->createCommand_ = nullptr;};
@@ -257,6 +286,13 @@ namespace Models
     inline CreateBatchTaskRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateBatchTaskRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The create command.
     // 
@@ -266,6 +302,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

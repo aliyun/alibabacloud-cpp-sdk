@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDatasetRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(UpdateCommand, updateCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDatasetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(UpdateCommand, updateCommand_);
     };
@@ -37,6 +39,7 @@ namespace Models
     class UpdateCommand : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const UpdateCommand& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiInfo, apiInfo_);
         DARABONBA_PTR_TO_JSON(ContentType, contentType_);
         DARABONBA_PTR_TO_JSON(DataCellId, dataCellId_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -52,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VersionConfig, versionConfig_);
       };
       friend void from_json(const Darabonba::Json& j, UpdateCommand& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiInfo, apiInfo_);
         DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
         DARABONBA_PTR_FROM_JSON(DataCellId, dataCellId_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -903,10 +907,301 @@ namespace Models
         shared_ptr<string> versionDescription_ {};
       };
 
-      virtual bool empty() const override { return this->contentType_ == nullptr
-        && this->dataCellId_ == nullptr && this->description_ == nullptr && this->fileId_ == nullptr && this->id_ == nullptr && this->metadataStorageType_ == nullptr
-        && this->name_ == nullptr && this->owner_ == nullptr && this->scenario_ == nullptr && this->storageType_ == nullptr && this->type_ == nullptr
-        && this->version_ == nullptr && this->versionConfig_ == nullptr; };
+      class ApiInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ApiInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(ExecTimeout, execTimeout_);
+          DARABONBA_PTR_TO_JSON(ExecuteMode, executeMode_);
+          DARABONBA_PTR_TO_JSON(OsApiGroup, osApiGroup_);
+          DARABONBA_PTR_TO_JSON(OsProject, osProject_);
+          DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+          DARABONBA_PTR_TO_JSON(RequestMethod, requestMethod_);
+          DARABONBA_PTR_TO_JSON(RequestParamList, requestParamList_);
+          DARABONBA_PTR_TO_JSON(ResponseParamList, responseParamList_);
+          DARABONBA_PTR_TO_JSON(Timeout, timeout_);
+        };
+        friend void from_json(const Darabonba::Json& j, ApiInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(ExecTimeout, execTimeout_);
+          DARABONBA_PTR_FROM_JSON(ExecuteMode, executeMode_);
+          DARABONBA_PTR_FROM_JSON(OsApiGroup, osApiGroup_);
+          DARABONBA_PTR_FROM_JSON(OsProject, osProject_);
+          DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+          DARABONBA_PTR_FROM_JSON(RequestMethod, requestMethod_);
+          DARABONBA_PTR_FROM_JSON(RequestParamList, requestParamList_);
+          DARABONBA_PTR_FROM_JSON(ResponseParamList, responseParamList_);
+          DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
+        };
+        ApiInfo() = default ;
+        ApiInfo(const ApiInfo &) = default ;
+        ApiInfo(ApiInfo &&) = default ;
+        ApiInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ApiInfo() = default ;
+        ApiInfo& operator=(const ApiInfo &) = default ;
+        ApiInfo& operator=(ApiInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class ResponseParamList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ResponseParamList& obj) { 
+            DARABONBA_PTR_TO_JSON(Descr, descr_);
+            DARABONBA_PTR_TO_JSON(IsUrl, isUrl_);
+            DARABONBA_PTR_TO_JSON(ParamName, paramName_);
+            DARABONBA_PTR_TO_JSON(ParamType, paramType_);
+            DARABONBA_PTR_TO_JSON(Sample, sample_);
+          };
+          friend void from_json(const Darabonba::Json& j, ResponseParamList& obj) { 
+            DARABONBA_PTR_FROM_JSON(Descr, descr_);
+            DARABONBA_PTR_FROM_JSON(IsUrl, isUrl_);
+            DARABONBA_PTR_FROM_JSON(ParamName, paramName_);
+            DARABONBA_PTR_FROM_JSON(ParamType, paramType_);
+            DARABONBA_PTR_FROM_JSON(Sample, sample_);
+          };
+          ResponseParamList() = default ;
+          ResponseParamList(const ResponseParamList &) = default ;
+          ResponseParamList(ResponseParamList &&) = default ;
+          ResponseParamList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ResponseParamList() = default ;
+          ResponseParamList& operator=(const ResponseParamList &) = default ;
+          ResponseParamList& operator=(ResponseParamList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->descr_ == nullptr
+        && this->isUrl_ == nullptr && this->paramName_ == nullptr && this->paramType_ == nullptr && this->sample_ == nullptr; };
+          // descr Field Functions 
+          bool hasDescr() const { return this->descr_ != nullptr;};
+          void deleteDescr() { this->descr_ = nullptr;};
+          inline string getDescr() const { DARABONBA_PTR_GET_DEFAULT(descr_, "") };
+          inline ResponseParamList& setDescr(string descr) { DARABONBA_PTR_SET_VALUE(descr_, descr) };
+
+
+          // isUrl Field Functions 
+          bool hasIsUrl() const { return this->isUrl_ != nullptr;};
+          void deleteIsUrl() { this->isUrl_ = nullptr;};
+          inline bool getIsUrl() const { DARABONBA_PTR_GET_DEFAULT(isUrl_, false) };
+          inline ResponseParamList& setIsUrl(bool isUrl) { DARABONBA_PTR_SET_VALUE(isUrl_, isUrl) };
+
+
+          // paramName Field Functions 
+          bool hasParamName() const { return this->paramName_ != nullptr;};
+          void deleteParamName() { this->paramName_ = nullptr;};
+          inline string getParamName() const { DARABONBA_PTR_GET_DEFAULT(paramName_, "") };
+          inline ResponseParamList& setParamName(string paramName) { DARABONBA_PTR_SET_VALUE(paramName_, paramName) };
+
+
+          // paramType Field Functions 
+          bool hasParamType() const { return this->paramType_ != nullptr;};
+          void deleteParamType() { this->paramType_ = nullptr;};
+          inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+          inline ResponseParamList& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
+
+
+          // sample Field Functions 
+          bool hasSample() const { return this->sample_ != nullptr;};
+          void deleteSample() { this->sample_ = nullptr;};
+          inline string getSample() const { DARABONBA_PTR_GET_DEFAULT(sample_, "") };
+          inline ResponseParamList& setSample(string sample) { DARABONBA_PTR_SET_VALUE(sample_, sample) };
+
+
+        protected:
+          shared_ptr<string> descr_ {};
+          shared_ptr<bool> isUrl_ {};
+          shared_ptr<string> paramName_ {};
+          shared_ptr<string> paramType_ {};
+          shared_ptr<string> sample_ {};
+        };
+
+        class RequestParamList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RequestParamList& obj) { 
+            DARABONBA_PTR_TO_JSON(DefaultValue, defaultValue_);
+            DARABONBA_PTR_TO_JSON(Descr, descr_);
+            DARABONBA_PTR_TO_JSON(IsUrl, isUrl_);
+            DARABONBA_PTR_TO_JSON(Must, must_);
+            DARABONBA_PTR_TO_JSON(ParamName, paramName_);
+            DARABONBA_PTR_TO_JSON(ParamType, paramType_);
+            DARABONBA_PTR_TO_JSON(Sample, sample_);
+          };
+          friend void from_json(const Darabonba::Json& j, RequestParamList& obj) { 
+            DARABONBA_PTR_FROM_JSON(DefaultValue, defaultValue_);
+            DARABONBA_PTR_FROM_JSON(Descr, descr_);
+            DARABONBA_PTR_FROM_JSON(IsUrl, isUrl_);
+            DARABONBA_PTR_FROM_JSON(Must, must_);
+            DARABONBA_PTR_FROM_JSON(ParamName, paramName_);
+            DARABONBA_PTR_FROM_JSON(ParamType, paramType_);
+            DARABONBA_PTR_FROM_JSON(Sample, sample_);
+          };
+          RequestParamList() = default ;
+          RequestParamList(const RequestParamList &) = default ;
+          RequestParamList(RequestParamList &&) = default ;
+          RequestParamList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RequestParamList() = default ;
+          RequestParamList& operator=(const RequestParamList &) = default ;
+          RequestParamList& operator=(RequestParamList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->defaultValue_ == nullptr
+        && this->descr_ == nullptr && this->isUrl_ == nullptr && this->must_ == nullptr && this->paramName_ == nullptr && this->paramType_ == nullptr
+        && this->sample_ == nullptr; };
+          // defaultValue Field Functions 
+          bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
+          void deleteDefaultValue() { this->defaultValue_ = nullptr;};
+          inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+          inline RequestParamList& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
+
+
+          // descr Field Functions 
+          bool hasDescr() const { return this->descr_ != nullptr;};
+          void deleteDescr() { this->descr_ = nullptr;};
+          inline string getDescr() const { DARABONBA_PTR_GET_DEFAULT(descr_, "") };
+          inline RequestParamList& setDescr(string descr) { DARABONBA_PTR_SET_VALUE(descr_, descr) };
+
+
+          // isUrl Field Functions 
+          bool hasIsUrl() const { return this->isUrl_ != nullptr;};
+          void deleteIsUrl() { this->isUrl_ = nullptr;};
+          inline bool getIsUrl() const { DARABONBA_PTR_GET_DEFAULT(isUrl_, false) };
+          inline RequestParamList& setIsUrl(bool isUrl) { DARABONBA_PTR_SET_VALUE(isUrl_, isUrl) };
+
+
+          // must Field Functions 
+          bool hasMust() const { return this->must_ != nullptr;};
+          void deleteMust() { this->must_ = nullptr;};
+          inline bool getMust() const { DARABONBA_PTR_GET_DEFAULT(must_, false) };
+          inline RequestParamList& setMust(bool must) { DARABONBA_PTR_SET_VALUE(must_, must) };
+
+
+          // paramName Field Functions 
+          bool hasParamName() const { return this->paramName_ != nullptr;};
+          void deleteParamName() { this->paramName_ = nullptr;};
+          inline string getParamName() const { DARABONBA_PTR_GET_DEFAULT(paramName_, "") };
+          inline RequestParamList& setParamName(string paramName) { DARABONBA_PTR_SET_VALUE(paramName_, paramName) };
+
+
+          // paramType Field Functions 
+          bool hasParamType() const { return this->paramType_ != nullptr;};
+          void deleteParamType() { this->paramType_ = nullptr;};
+          inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+          inline RequestParamList& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
+
+
+          // sample Field Functions 
+          bool hasSample() const { return this->sample_ != nullptr;};
+          void deleteSample() { this->sample_ = nullptr;};
+          inline string getSample() const { DARABONBA_PTR_GET_DEFAULT(sample_, "") };
+          inline RequestParamList& setSample(string sample) { DARABONBA_PTR_SET_VALUE(sample_, sample) };
+
+
+        protected:
+          shared_ptr<string> defaultValue_ {};
+          shared_ptr<string> descr_ {};
+          shared_ptr<bool> isUrl_ {};
+          shared_ptr<bool> must_ {};
+          shared_ptr<string> paramName_ {};
+          shared_ptr<string> paramType_ {};
+          shared_ptr<string> sample_ {};
+        };
+
+        virtual bool empty() const override { return this->execTimeout_ == nullptr
+        && this->executeMode_ == nullptr && this->osApiGroup_ == nullptr && this->osProject_ == nullptr && this->protocol_ == nullptr && this->requestMethod_ == nullptr
+        && this->requestParamList_ == nullptr && this->responseParamList_ == nullptr && this->timeout_ == nullptr; };
+        // execTimeout Field Functions 
+        bool hasExecTimeout() const { return this->execTimeout_ != nullptr;};
+        void deleteExecTimeout() { this->execTimeout_ = nullptr;};
+        inline int32_t getExecTimeout() const { DARABONBA_PTR_GET_DEFAULT(execTimeout_, 0) };
+        inline ApiInfo& setExecTimeout(int32_t execTimeout) { DARABONBA_PTR_SET_VALUE(execTimeout_, execTimeout) };
+
+
+        // executeMode Field Functions 
+        bool hasExecuteMode() const { return this->executeMode_ != nullptr;};
+        void deleteExecuteMode() { this->executeMode_ = nullptr;};
+        inline int32_t getExecuteMode() const { DARABONBA_PTR_GET_DEFAULT(executeMode_, 0) };
+        inline ApiInfo& setExecuteMode(int32_t executeMode) { DARABONBA_PTR_SET_VALUE(executeMode_, executeMode) };
+
+
+        // osApiGroup Field Functions 
+        bool hasOsApiGroup() const { return this->osApiGroup_ != nullptr;};
+        void deleteOsApiGroup() { this->osApiGroup_ = nullptr;};
+        inline int32_t getOsApiGroup() const { DARABONBA_PTR_GET_DEFAULT(osApiGroup_, 0) };
+        inline ApiInfo& setOsApiGroup(int32_t osApiGroup) { DARABONBA_PTR_SET_VALUE(osApiGroup_, osApiGroup) };
+
+
+        // osProject Field Functions 
+        bool hasOsProject() const { return this->osProject_ != nullptr;};
+        void deleteOsProject() { this->osProject_ = nullptr;};
+        inline int32_t getOsProject() const { DARABONBA_PTR_GET_DEFAULT(osProject_, 0) };
+        inline ApiInfo& setOsProject(int32_t osProject) { DARABONBA_PTR_SET_VALUE(osProject_, osProject) };
+
+
+        // protocol Field Functions 
+        bool hasProtocol() const { return this->protocol_ != nullptr;};
+        void deleteProtocol() { this->protocol_ = nullptr;};
+        inline int32_t getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, 0) };
+        inline ApiInfo& setProtocol(int32_t protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+        // requestMethod Field Functions 
+        bool hasRequestMethod() const { return this->requestMethod_ != nullptr;};
+        void deleteRequestMethod() { this->requestMethod_ = nullptr;};
+        inline int32_t getRequestMethod() const { DARABONBA_PTR_GET_DEFAULT(requestMethod_, 0) };
+        inline ApiInfo& setRequestMethod(int32_t requestMethod) { DARABONBA_PTR_SET_VALUE(requestMethod_, requestMethod) };
+
+
+        // requestParamList Field Functions 
+        bool hasRequestParamList() const { return this->requestParamList_ != nullptr;};
+        void deleteRequestParamList() { this->requestParamList_ = nullptr;};
+        inline const vector<ApiInfo::RequestParamList> & getRequestParamList() const { DARABONBA_PTR_GET_CONST(requestParamList_, vector<ApiInfo::RequestParamList>) };
+        inline vector<ApiInfo::RequestParamList> getRequestParamList() { DARABONBA_PTR_GET(requestParamList_, vector<ApiInfo::RequestParamList>) };
+        inline ApiInfo& setRequestParamList(const vector<ApiInfo::RequestParamList> & requestParamList) { DARABONBA_PTR_SET_VALUE(requestParamList_, requestParamList) };
+        inline ApiInfo& setRequestParamList(vector<ApiInfo::RequestParamList> && requestParamList) { DARABONBA_PTR_SET_RVALUE(requestParamList_, requestParamList) };
+
+
+        // responseParamList Field Functions 
+        bool hasResponseParamList() const { return this->responseParamList_ != nullptr;};
+        void deleteResponseParamList() { this->responseParamList_ = nullptr;};
+        inline const vector<ApiInfo::ResponseParamList> & getResponseParamList() const { DARABONBA_PTR_GET_CONST(responseParamList_, vector<ApiInfo::ResponseParamList>) };
+        inline vector<ApiInfo::ResponseParamList> getResponseParamList() { DARABONBA_PTR_GET(responseParamList_, vector<ApiInfo::ResponseParamList>) };
+        inline ApiInfo& setResponseParamList(const vector<ApiInfo::ResponseParamList> & responseParamList) { DARABONBA_PTR_SET_VALUE(responseParamList_, responseParamList) };
+        inline ApiInfo& setResponseParamList(vector<ApiInfo::ResponseParamList> && responseParamList) { DARABONBA_PTR_SET_RVALUE(responseParamList_, responseParamList) };
+
+
+        // timeout Field Functions 
+        bool hasTimeout() const { return this->timeout_ != nullptr;};
+        void deleteTimeout() { this->timeout_ = nullptr;};
+        inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+        inline ApiInfo& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
+
+
+      protected:
+        shared_ptr<int32_t> execTimeout_ {};
+        shared_ptr<int32_t> executeMode_ {};
+        shared_ptr<int32_t> osApiGroup_ {};
+        shared_ptr<int32_t> osProject_ {};
+        shared_ptr<int32_t> protocol_ {};
+        shared_ptr<int32_t> requestMethod_ {};
+        shared_ptr<vector<ApiInfo::RequestParamList>> requestParamList_ {};
+        shared_ptr<vector<ApiInfo::ResponseParamList>> responseParamList_ {};
+        shared_ptr<int32_t> timeout_ {};
+      };
+
+      virtual bool empty() const override { return this->apiInfo_ == nullptr
+        && this->contentType_ == nullptr && this->dataCellId_ == nullptr && this->description_ == nullptr && this->fileId_ == nullptr && this->id_ == nullptr
+        && this->metadataStorageType_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->scenario_ == nullptr && this->storageType_ == nullptr
+        && this->type_ == nullptr && this->version_ == nullptr && this->versionConfig_ == nullptr; };
+      // apiInfo Field Functions 
+      bool hasApiInfo() const { return this->apiInfo_ != nullptr;};
+      void deleteApiInfo() { this->apiInfo_ = nullptr;};
+      inline const UpdateCommand::ApiInfo & getApiInfo() const { DARABONBA_PTR_GET_CONST(apiInfo_, UpdateCommand::ApiInfo) };
+      inline UpdateCommand::ApiInfo getApiInfo() { DARABONBA_PTR_GET(apiInfo_, UpdateCommand::ApiInfo) };
+      inline UpdateCommand& setApiInfo(const UpdateCommand::ApiInfo & apiInfo) { DARABONBA_PTR_SET_VALUE(apiInfo_, apiInfo) };
+      inline UpdateCommand& setApiInfo(UpdateCommand::ApiInfo && apiInfo) { DARABONBA_PTR_SET_RVALUE(apiInfo_, apiInfo) };
+
+
       // contentType Field Functions 
       bool hasContentType() const { return this->contentType_ != nullptr;};
       void deleteContentType() { this->contentType_ = nullptr;};
@@ -1001,6 +1296,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<UpdateCommand::ApiInfo> apiInfo_ {};
       // **The content type.**
       shared_ptr<string> contentType_ {};
       // The subject area ID.
@@ -1034,12 +1330,19 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->projectId_ == nullptr && this->updateCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->projectId_ == nullptr && this->updateCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdateDatasetRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpdateDatasetRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // projectId Field Functions 
@@ -1063,6 +1366,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The project ID.
     // 
     // This parameter is required.

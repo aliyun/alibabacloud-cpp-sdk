@@ -192,13 +192,13 @@ namespace Models
 
 
         protected:
-          // The directory ID.
+          // The ID of the directory.
           shared_ptr<int64_t> directoryId_ {};
-          // The directory name.
+          // The name of the directory.
           shared_ptr<string> directoryName_ {};
-          // The topic ID.
+          // The ID of the topic.
           shared_ptr<int64_t> topicId_ {};
-          // The topic name.
+          // The name of the topic.
           shared_ptr<string> topicName_ {};
         };
 
@@ -418,8 +418,8 @@ namespace Models
 
       protected:
         // The API call mode. Returned when the asset type is API. Valid values:
-        // - 1: synchronous call.
-        // - 2: asynchronous call.
+        // - 1: Synchronous call.
+        // - 2: Asynchronous call.
         shared_ptr<string> apiCallMode_ {};
         // The API group name. Returned when the asset type is API.
         shared_ptr<string> apiGroupName_ {};
@@ -432,55 +432,74 @@ namespace Models
         // - 4: Update.
         // - 5: Delete.
         shared_ptr<string> apiRequestMethod_ {};
-        // The asset description.
+        // The description of the asset.
         shared_ptr<string> assetDescription_ {};
-        // The asset display name. Returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
+        // The display name of the asset. This parameter is returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
         shared_ptr<string> assetDisplayName_ {};
-        // The asset source. For TABLE (physical table), the value is in the format "Dataphin-workspace type-project Chinese name (project English name)". For TABLE (logical table), the value is in the format "Dataphin-workspace type-data domain Chinese name (data domain English name)". For TABLE (data source table), the value is in the format "source system name-data source name-database/schema name". For INDEX (standard modeling metric), the value is the asset source of the associated aggregate table. For INDEX (custom metric), the value is the asset source of the source table. For API, the value is the data service project name. For PAGE, the value is the application system name.
+        // The source of the asset. For TABLE (physical table), the value is returned in the format of "Dataphin-Workspace Type-Project Chinese Name (Project English Name)". For TABLE (logical table), the value is returned in the format of "Dataphin-Workspace Type-Data Domain Chinese Name (Data Domain English Name)". For TABLE (data source table), the value is returned in the format of "Source System Name-Data Source Name-Database/Schema Name". For INDEX (standard modeling metric), the value is the asset source of the associated aggregate table. For INDEX (custom metric), the value is the asset source of the source table. For API, the value is the data service project name. For PAGE, the value is the application system name.
         shared_ptr<string> assetFrom_ {};
-        // The asset full name. Returned when the asset type is TABLE or INDEX.
+        // The full name of the asset. This parameter is returned when the asset type is TABLE or INDEX.
         shared_ptr<string> assetFullName_ {};
-        // The asset name.
+        // The name of the asset.
         shared_ptr<string> assetName_ {};
-        // The asset tags.
+        // The tags of the asset.
         shared_ptr<vector<string>> assetTags_ {};
-        // The asset type. Valid values: TABLE (table, including views and materialized views), INDEX (technical metric), BIZ_INDEX (business metric), API, and PAGE (dashboard).
+        // The asset type. Valid values:
+        // - TABLE: table, including views and materialized views.
+        // - INDEX: technical metric.
+        // - BIZ_INDEX: business metric.
+        // - API: API.
+        // - PAGE: dashboard.
         shared_ptr<string> assetType_ {};
-        // The BI workspace or directory to which the asset belongs. Returned when the asset type is PAGE (dashboard).
+        // The BI space or folder to which the asset belongs. Returned when the asset type is PAGE (dashboard).
         shared_ptr<string> biCatalog_ {};
-        // The ID of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+        // The ID of the business unit to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
         shared_ptr<int64_t> bizUnitId_ {};
-        // The name of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+        // The name of the business unit to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
         shared_ptr<string> bizUnitName_ {};
         // The total number of charts. Returned when the asset type is PAGE (dashboard).
         shared_ptr<int64_t> chartCount_ {};
-        // The ID of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+        // The ID of the data domain to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
         shared_ptr<string> dataCellId_ {};
-        // The name of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+        // The name of the data domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
         shared_ptr<string> dataCellName_ {};
-        // The name of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+        // The name of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
         shared_ptr<string> dataSourceName_ {};
-        // The ID of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+        // The ID of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
         shared_ptr<int64_t> datasourceId_ {};
         // The directories to which the asset belongs, including topic ID, topic name, directory ID, and directory name.
         shared_ptr<vector<AssetList::Directories>> directories_ {};
-        // The statistical granularity name of the technical metric. Returned when the asset type is INDEX.
+        // The statistical granularity name of the technical metric. This parameter is returned when the asset type is INDEX.
         shared_ptr<string> granularity_ {};
-        // The asset GUID, which serves as the unique identifier of the asset.
+        // The GUID of the asset, which serves as the unique identifier of the asset.
         shared_ptr<string> guid_ {};
         // Indicates whether the asset is deleted.
         shared_ptr<bool> isDeleted_ {};
-        // The highest sensitivity level. Returned when the asset type is TABLE.
+        // The maximum sensitivity level. This parameter is returned when the asset type is TABLE.
         shared_ptr<string> maxSecurityLevel_ {};
-        // The ID of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+        // The ID of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
         shared_ptr<int64_t> projectId_ {};
-        // The name of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+        // The name of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
         shared_ptr<string> projectName_ {};
-        // The subtype. Valid values: DIM_NORMAL (common logical dimension table), DIM_ENUM (enumeration logical dimension table), DIM_VIRTUAL (virtual logical dimension table), SUM_BIZ_UNIT (aggregate logical table), FACT_EVENT (event fact logical table), FACT_SNAPSHOT (snapshot fact logical table), DATASOURCE_TABLE (data source table), PHYSICAL_TABLE (physical table), DATASOURCE_VIEW (view - data source view), PHYSICAL_VIEW (physical view), MATERIALIZED_VIEW (materialized view), BIZ_INDEX (business metric), INDEX (technical metric - standard modeling metric), and CUSTOM_INDEX (technical metric - custom metric).
+        // The subtype of the asset. Valid values:
+        // - DIM_NORMAL: common logical dimension table.
+        // - DIM_ENUM: enumeration logical dimension table.
+        // - DIM_VIRTUAL: virtual logical dimension table.
+        // - SUM_BIZ_UNIT: aggregate table.
+        // - FACT_EVENT: event fact logical table.
+        // - FACT_SNAPSHOT: snapshot fact logical table.
+        // - DATASOURCE_TABLE: data source table.
+        // - PHYSICAL_TABLE: physical table.
+        // - DATASOURCE_VIEW: view (data source view).
+        // - PHYSICAL_VIEW: physical view.
+        // - MATERIALIZED_VIEW: materialized view.
+        // - BIZ_INDEX: business metric.
+        // - INDEX: technical metric (standard modeling metric).
+        // - CUSTOM_INDEX: technical metric (custom metric).
         shared_ptr<string> subType_ {};
-        // The GUID of the aggregate table to which the asset belongs. Returned when the asset type is INDEX.
+        // The GUID of the aggregate table to which the asset belongs. This parameter is returned when the asset type is INDEX.
         shared_ptr<string> sumTableGuid_ {};
-        // The name of the aggregate table to which the asset belongs. Returned when the asset type is INDEX.
+        // The name of the aggregate table to which the asset belongs. This parameter is returned when the asset type is INDEX.
         shared_ptr<string> sumTableName_ {};
       };
 
@@ -562,7 +581,7 @@ namespace Models
     shared_ptr<ListCatalogAssetsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response exception.
+    // The backend response exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

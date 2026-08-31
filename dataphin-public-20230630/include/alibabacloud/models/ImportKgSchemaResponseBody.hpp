@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The import result.
     shared_ptr<ImportKgSchemaResponseBody::ImportResult> importResult_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

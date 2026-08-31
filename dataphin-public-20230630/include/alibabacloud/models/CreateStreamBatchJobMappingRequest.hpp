@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateStreamBatchJobMappingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(StreamBatchJobMappingCreateCommand, streamBatchJobMappingCreateCommand_);
     };
     friend void from_json(const Darabonba::Json& j, CreateStreamBatchJobMappingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(StreamBatchJobMappingCreateCommand, streamBatchJobMappingCreateCommand_);
     };
     CreateStreamBatchJobMappingRequest() = default ;
@@ -183,12 +185,19 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->streamBatchJobMappingCreateCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->streamBatchJobMappingCreateCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline CreateStreamBatchJobMappingRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateStreamBatchJobMappingRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // streamBatchJobMappingCreateCommand Field Functions 
@@ -205,6 +214,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The stream-batch integrated node information.
     // 
     // This parameter is required.

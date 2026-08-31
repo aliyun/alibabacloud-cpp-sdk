@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetBizMetricByNameRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizMetricByNameQuery, bizMetricByNameQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, GetBizMetricByNameRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizMetricByNameQuery, bizMetricByNameQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     GetBizMetricByNameRequest() = default ;
     GetBizMetricByNameRequest(const GetBizMetricByNameRequest &) = default ;
@@ -80,7 +82,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bizMetricByNameQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // bizMetricByNameQuery Field Functions 
     bool hasBizMetricByNameQuery() const { return this->bizMetricByNameQuery_ != nullptr;};
     void deleteBizMetricByNameQuery() { this->bizMetricByNameQuery_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline GetBizMetricByNameRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetBizMetricByNameRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // Query request.
     // 
@@ -106,6 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The ID of the node in the folder tree.
+      // The node ID in the folder tree.
       shared_ptr<int64_t> fileId_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates a successful request.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};

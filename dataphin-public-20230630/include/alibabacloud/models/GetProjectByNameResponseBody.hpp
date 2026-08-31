@@ -295,9 +295,9 @@ namespace Models
       shared_ptr<string> bizUnitDisplayName_ {};
       // The ID of the business unit to which the project belongs.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The ID of the associated compute source.
+      // The ID of the bound compute source.
       shared_ptr<int64_t> computeSourceId_ {};
-      // The name of the associated compute source.
+      // The name of the bound compute source.
       shared_ptr<string> computeSourceName_ {};
       // The project description.
       shared_ptr<string> description_ {};
@@ -305,9 +305,9 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The environment identifier.
       shared_ptr<string> env_ {};
-      // The creation time, in the format of yyyy-MM-dd HH:mm:ss.
+      // The creation time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtCreate_ {};
-      // The update time, in the format of yyyy-MM-dd HH:mm:ss.
+      // The modification time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtModified_ {};
       // The project ID.
       shared_ptr<int64_t> id_ {};
@@ -316,20 +316,22 @@ namespace Models
       // The project name.
       shared_ptr<string> name_ {};
       // The namespace type. Valid values:
-      // - PUBLIC: public type
-      // - APPLICATION: application type
+      // 
+      // - PUBLIC: common pattern.
+      // - APPLICATION: application type.
       // - BASE: base type.
       shared_ptr<string> nameSpaceTag_ {};
       // The project owner.
       shared_ptr<string> owner_ {};
       // The project owner.
       shared_ptr<string> ownerName_ {};
-      // The ID of the associated real-time compute source.
+      // The ID of the bound streaming compute source.
       shared_ptr<int64_t> streamComputeSourceId_ {};
-      // The name of the associated real-time compute source.
+      // The name of the bound streaming compute source.
       shared_ptr<string> streamComputeSourceName_ {};
       // The project type. Valid values:
-      // - DISTILL: distillation project
+      // 
+      // - DISTILL: distillation project.
       // - GENERAL: general project.
       shared_ptr<string> type_ {};
       // The whitelists.
@@ -387,7 +389,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The project details.
     shared_ptr<GetProjectByNameResponseBody::ProjectInfo> projectInfo_ {};

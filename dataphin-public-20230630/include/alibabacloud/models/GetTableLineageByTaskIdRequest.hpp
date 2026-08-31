@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetTableLineageByTaskIdRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(TableLineageByTaskIdQuery, tableLineageByTaskIdQuery_);
     };
     friend void from_json(const Darabonba::Json& j, GetTableLineageByTaskIdRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(TableLineageByTaskIdQuery, tableLineageByTaskIdQuery_);
     };
     GetTableLineageByTaskIdRequest() = default ;
@@ -80,21 +82,28 @@ namespace Models
     protected:
       // Specifies whether to return tables that do not exist in the asset inventory. If this parameter is not specified, non-existent tables are not returned.
       shared_ptr<bool> needNotExistObject_ {};
-      // The environment of the task to query: DEV or PROD.
+      // The environment of the node used to filter the query. Valid values: DEV and PROD.
       shared_ptr<string> taskEnv_ {};
-      // The task (node) ID used to filter the query.
+      // The ID of the node used to filter the query.
       // 
       // This parameter is required.
       shared_ptr<string> taskId_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->tableLineageByTaskIdQuery_ == nullptr; };
+        && this->opUserId_ == nullptr && this->tableLineageByTaskIdQuery_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetTableLineageByTaskIdRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetTableLineageByTaskIdRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // tableLineageByTaskIdQuery Field Functions 
@@ -111,6 +120,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
     // The data structure for querying table lineage.
     // 
     // This parameter is required.

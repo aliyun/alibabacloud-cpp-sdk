@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListInstancesRequest() = default ;
     ListInstancesRequest(const ListInstancesRequest &) = default ;
@@ -56,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ScheduleType, scheduleType_);
         DARABONBA_PTR_TO_JSON(SearchText, searchText_);
         DARABONBA_PTR_TO_JSON(SubBizTypeList, subBizTypeList_);
+        DARABONBA_PTR_TO_JSON(TagList, tagList_);
       };
       friend void from_json(const Darabonba::Json& j, ListQuery& obj) { 
         DARABONBA_PTR_FROM_JSON(BizType, bizType_);
@@ -77,6 +80,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ScheduleType, scheduleType_);
         DARABONBA_PTR_FROM_JSON(SearchText, searchText_);
         DARABONBA_PTR_FROM_JSON(SubBizTypeList, subBizTypeList_);
+        DARABONBA_PTR_FROM_JSON(TagList, tagList_);
       };
       ListQuery() = default ;
       ListQuery(const ListQuery &) = default ;
@@ -93,7 +97,7 @@ namespace Models
         && this->bizUnitId_ == nullptr && this->flowId_ == nullptr && this->maxBizDate_ == nullptr && this->maxRunDate_ == nullptr && this->minBizDate_ == nullptr
         && this->minRunDate_ == nullptr && this->nodeId_ == nullptr && this->ownerList_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
         && this->priorityList_ == nullptr && this->projectId_ == nullptr && this->runStatusList_ == nullptr && this->schedulePaused_ == nullptr && this->schedulePeriodList_ == nullptr
-        && this->scheduleType_ == nullptr && this->searchText_ == nullptr && this->subBizTypeList_ == nullptr; };
+        && this->scheduleType_ == nullptr && this->searchText_ == nullptr && this->subBizTypeList_ == nullptr && this->tagList_ == nullptr; };
       // bizType Field Functions 
       bool hasBizType() const { return this->bizType_ != nullptr;};
       void deleteBizType() { this->bizType_ = nullptr;};
@@ -237,60 +241,69 @@ namespace Models
       inline ListQuery& setSubBizTypeList(vector<string> && subBizTypeList) { DARABONBA_PTR_SET_RVALUE(subBizTypeList_, subBizTypeList) };
 
 
+      // tagList Field Functions 
+      bool hasTagList() const { return this->tagList_ != nullptr;};
+      void deleteTagList() { this->tagList_ = nullptr;};
+      inline const vector<string> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<string>) };
+      inline vector<string> getTagList() { DARABONBA_PTR_GET(tagList_, vector<string>) };
+      inline ListQuery& setTagList(const vector<string> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
+      inline ListQuery& setTagList(vector<string> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
+
+
     protected:
-      // Business Type
+      // The business type. Valid values:
       // 
-      // - SCRIPT: Script Instance
-      // - LOGICAL_TABLE: Logical Table
+      // - SCRIPT: Script instance.
+      // - LOGICAL_TABLE: Logical table.
       shared_ptr<string> bizType_ {};
-      // Business unit ID. Required when querying summary logical tables.
+      // The business unit ID. Required when querying aggregate logical tables.
       shared_ptr<int64_t> bizUnitId_ {};
-      // Workflow ID
+      // The workflow ID.
       shared_ptr<string> flowId_ {};
-      // End business date and time. The time format must conform to the partition format specified by the business unit.
+      // The end business date and time. The time format must match the partition format specified by the business unit.
       shared_ptr<string> maxBizDate_ {};
-      // Maximum instance run time
+      // The maximum instance run time.
       shared_ptr<string> maxRunDate_ {};
-      // Start business date and time. The time format must conform to the partition format specified by the business unit.
+      // The start business date and time. The time format must match the partition format specified by the business unit.
       shared_ptr<string> minBizDate_ {};
-      // Minimum instance run time
+      // The minimum instance run time.
       shared_ptr<string> minRunDate_ {};
-      // Node ID
+      // The node ID.
       shared_ptr<string> nodeId_ {};
-      // Node Owner
+      // The node owners.
       shared_ptr<vector<string>> ownerList_ {};
-      // Page Number
+      // The page number.
       // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
-      // Page Size
+      // The number of entries per page.
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
-      // Priority
+      // The priority. Valid values:
       // - HIGHEST
       // - HIGH
       // - MIDDLE
       // - LOW
       // - LOWEST
       shared_ptr<vector<string>> priorityList_ {};
-      // Project ID
+      // The project ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // Running status
-      // - INIT: Initialized
-      // - WAIT_SUBMISSION: Waiting for Submission
-      // - WAIT_SCHEDULE: Waiting for Schedule Time
-      // - DISPATCH_BLOCKED: Throttled
-      // - WAIT_RESOURCE: Waiting for Scheduling Resources
-      // - RUNNING: Running
-      // - SUCCESS: Succeeded
-      // - FAILED: Failed
+      // The run status. Valid values:
+      // - INIT: Init.
+      // - WAIT_SUBMISSION: Waiting for submission.
+      // - WAIT_SCHEDULE: Waiting for schedule time.
+      // - DISPATCH_BLOCKED: Throttled.
+      // - WAIT_RESOURCE: Waiting for schedule resource.
+      // - RUNNING: Running.
+      // - SUCCESS: Succeeded.
+      // - FAILED: Failed.
       shared_ptr<vector<string>> runStatusList_ {};
-      // Whether scheduling is paused
+      // Specifies whether scheduling is paused.
       shared_ptr<bool> schedulePaused_ {};
-      // Schedule Period
+      // The scheduling period. Valid values:
       // - YEARLY
       // - MONTHLY
       // - WEEKLY
@@ -298,15 +311,15 @@ namespace Models
       // - HOURLY
       // - MINUTELY
       shared_ptr<vector<string>> schedulePeriodList_ {};
-      // Instance schedule type
-      // - NORMAL (Periodic Instance)
-      // - MANUAL (Manual Instance)
+      // The instance scheduling type. Valid values:
+      // - NORMAL: Periodic instance.
+      // - MANUAL: Manual instance.
       // 
       // This parameter is required.
       shared_ptr<string> scheduleType_ {};
-      // Fuzzy match by node name or exact match by node ID
+      // Fuzzy match by node name or exact match by node ID.
       shared_ptr<string> searchText_ {};
-      // Sub-business Type
+      // The sub-business type. Valid values:
       // - MAX_COMPUTE_SQL
       // - HIVE_SQL
       // - SHELL
@@ -314,10 +327,12 @@ namespace Models
       // - ONE_SERVICE_SQL
       // - DATABASE_SQL
       shared_ptr<vector<string>> subBizTypeList_ {};
+      // The node tag filter list. Each element is a numeric string of a node tag ID (such as "123"). Filters the instance list by node tags. If not specified or empty, no filtering is applied and all instances are returned. Multiple tags use OR logic. Invalid elements (non-numeric or overflow) are ignored.
+      shared_ptr<vector<string>> tagList_ {};
     };
 
     virtual bool empty() const override { return this->env_ == nullptr
-        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
@@ -341,17 +356,26 @@ namespace Models
     inline ListInstancesRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListInstancesRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
-    // Environment identifier
-    // - DEV: Development environment
-    // - PROD (default): Production environment
+    // The environment identifier. Valid values:
+    // - DEV: Development environment. 
+    // - PROD (default): Production environment.
     shared_ptr<string> env_ {};
-    // Query Request
+    // The query request.
     shared_ptr<ListInstancesRequest::ListQuery> listQuery_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

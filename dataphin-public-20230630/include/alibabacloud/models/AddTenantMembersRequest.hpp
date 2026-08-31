@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AddTenantMembersRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddCommand, addCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, AddTenantMembersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddCommand, addCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     AddTenantMembersRequest() = default ;
     AddTenantMembersRequest(const AddTenantMembersRequest &) = default ;
@@ -123,7 +125,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->addCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // addCommand Field Functions 
     bool hasAddCommand() const { return this->addCommand_ != nullptr;};
     void deleteAddCommand() { this->addCommand_ = nullptr;};
@@ -140,6 +142,13 @@ namespace Models
     inline AddTenantMembersRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline AddTenantMembersRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request command.
     // 
@@ -149,6 +158,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

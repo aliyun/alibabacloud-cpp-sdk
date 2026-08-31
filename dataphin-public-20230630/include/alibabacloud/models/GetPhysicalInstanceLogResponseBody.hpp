@@ -114,15 +114,15 @@ namespace Models
 
 
     protected:
-      // The execution duration of the task. Unit: seconds.
+      // The task execution duration, in seconds.
       shared_ptr<string> duration_ {};
       // The time when the task finished running.
       shared_ptr<string> endTime_ {};
-      // The execution log content. This value is empty if the task has not been run.
+      // The run log content. This value is empty if the task has not been run.
       shared_ptr<string> logContent_ {};
       // The time when the task started running.
       shared_ptr<string> startTime_ {};
-      // The execution status.
+      // The run status.
       shared_ptr<string> status_ {};
       // The task ID for each run.
       shared_ptr<string> taskrunId_ {};
@@ -179,7 +179,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

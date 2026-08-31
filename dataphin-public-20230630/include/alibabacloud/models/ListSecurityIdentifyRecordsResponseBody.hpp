@@ -353,31 +353,31 @@ namespace Models
         shared_ptr<string> bizDate_ {};
         // The display name of the business unit.
         shared_ptr<string> bizUnitDisplayName_ {};
-        // The business unit ID.
+        // The ID of the business unit.
         shared_ptr<int64_t> bizUnitId_ {};
-        // The business unit name.
+        // The name of the business unit.
         shared_ptr<string> bizUnitName_ {};
-        // The classification abbreviation.
+        // The abbreviation of the classification.
         shared_ptr<string> classifyAbbreviation_ {};
-        // The classification ID.
+        // The ID of the classification.
         shared_ptr<int64_t> classifyId_ {};
-        // The classification name.
+        // The name of the classification.
         shared_ptr<string> classifyName_ {};
-        // The classification effective status. Valid values:
-        // - ENABLE: enabled.
-        // - DISABLE: disabled.
+        // The status of the classification. Valid values:
+        // - ENABLE: Enabled.
+        // - DISABLE: Disabled.
         shared_ptr<string> classifyStatus_ {};
-        // The datasource ID.
+        // The ID of the data source.
         shared_ptr<int64_t> datasourceId_ {};
-        // The datasource name.
+        // The name of the data source.
         shared_ptr<string> datasourceName_ {};
-        // The field description.
+        // The description of the field.
         shared_ptr<string> fieldDescription_ {};
-        // The field ID.
+        // The ID of the field.
         shared_ptr<string> fieldId_ {};
         // The field name.
         shared_ptr<string> fieldName_ {};
-        // The identification record ID.
+        // The ID of the identification record.
         shared_ptr<int64_t> id_ {};
         // Indicates whether this is a better match.
         shared_ptr<bool> isBetterMatch_ {};
@@ -385,31 +385,31 @@ namespace Models
         shared_ptr<bool> isCustomIdentify_ {};
         // Indicates whether the record is locked.
         shared_ptr<bool> isLocked_ {};
-        // The classification level abbreviation.
+        // The abbreviated name of the level.
         shared_ptr<string> levelAbbreviation_ {};
-        // The classification level index.
+        // The level index.
         shared_ptr<int64_t> levelIndex_ {};
-        // The classification level name.
+        // The name of the level.
         shared_ptr<string> levelName_ {};
         // The display name of the project.
         shared_ptr<string> projectDisplayName_ {};
-        // The project ID.
+        // The ID of the project.
         shared_ptr<int64_t> projectId_ {};
-        // The project name.
+        // The name of the project.
         shared_ptr<string> projectName_ {};
-        // The table description.
+        // The description of the table.
         shared_ptr<string> tableDescription_ {};
         // The table environment.
         shared_ptr<string> tableEnv_ {};
-        // The table ID.
+        // The ID of the table.
         shared_ptr<string> tableId_ {};
         // The table name.
         shared_ptr<string> tableName_ {};
-        // The table type. Valid values:
+        // The type of the table. Valid values:
         // - LOGIC_TABLE: logical table.
         // - LOGIC_DIM_TABLE: logical dimension table.
         // - LOGIC_FACT_TABLE: logical fact table.
-        // - LOGIC_SUM_TABLE: logical aggregate table.
+        // - LOGIC_SUM_TABLE: logical summary table.
         // - LOGIC_ODM_SOURCE: source table.
         // - LOGIC_LABEL_TABLE: logical label table.
         // - PHYSICAL_TABLE: physical table.
@@ -493,9 +493,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
-    // The paging query result.
+    // The paged query result.
     shared_ptr<ListSecurityIdentifyRecordsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

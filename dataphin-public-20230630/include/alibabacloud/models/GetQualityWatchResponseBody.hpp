@@ -262,8 +262,9 @@ namespace Models
         // The description.
         shared_ptr<string> description_ {};
         // The environment identifier. Valid values:
-        // - DEV
-        // - PROD.
+        // 
+        // - DEV: development environment.
+        // - PROD: production environment.
         shared_ptr<string> env_ {};
         // The table ID.
         shared_ptr<string> id_ {};
@@ -280,6 +281,7 @@ namespace Models
         // The project name.
         shared_ptr<string> projectName_ {};
         // The type. Valid values:
+        // 
         // - LOGIC_DIM_TABLE: logical dimension table.
         // - LOGIC_FACT_TABLE: logical fact table.
         // - LOGIC_SUM_TABLE: logical aggregate table.
@@ -482,11 +484,7 @@ namespace Models
         shared_ptr<string> catalog_ {};
         // The cell aggregate table name.
         shared_ptr<string> cellSumLogicTableName_ {};
-        // The metric computation type. Valid values:
-        // - AUTO
-        // - CUSTOM
-        // - MOUNT
-        // - COMBINE.
+        // The metric computation type. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
         shared_ptr<string> computeType_ {};
         // The metric data type.
         shared_ptr<string> dateType_ {};
@@ -512,8 +510,7 @@ namespace Models
         shared_ptr<int64_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // The metric type. Valid values:
-        // - INDEX.
+        // The metric type. Valid values: INDEX.
         shared_ptr<string> type_ {};
       };
 
@@ -632,11 +629,12 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
-        // The creator name.
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
         // The environment identifier. Valid values:
-        // - PROD
-        // - DEV.
+        // 
+        // - PROD: production environment.
+        // - DEV: development environment.
         shared_ptr<string> env_ {};
         // The data source ID.
         shared_ptr<string> id_ {};
@@ -649,8 +647,9 @@ namespace Models
         // The name of the owner.
         shared_ptr<string> ownerName_ {};
         // The data source type. Valid values:
+        // 
         // - MAX_COMPUTE
-        // - HADOOP.
+        // - HADOOP
         shared_ptr<string> type_ {};
       };
 
@@ -796,19 +795,19 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The creator name.
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The datasource config details.
+      // The data source details.
       shared_ptr<QualityWatchInfo::DataSourceInfo> dataSourceInfo_ {};
       // The number of enabled rules.
       shared_ptr<int64_t> enabledRuleCount_ {};
-      // The monitor ID.
+      // The watchtask ID.
       shared_ptr<int64_t> id_ {};
       // The metric details.
       shared_ptr<QualityWatchInfo::IndexInfo> indexInfo_ {};
-      // The ID of the most recent quality watchtask for the monitored object.
+      // The ID of the latest quality watchtask.
       shared_ptr<int64_t> latestWatchTaskId_ {};
-      // The status of the most recent quality watchtask for the monitored object.
+      // The status of the latest quality watchtask.
       shared_ptr<string> latestWatchTaskStatus_ {};
       // The user ID of the last modifier.
       shared_ptr<string> modifier_ {};
@@ -823,14 +822,16 @@ namespace Models
       // The number of rules.
       shared_ptr<int64_t> ruleCount_ {};
       // The status. Valid values:
-      // - ENABLE
-      // - DISABLE.
+      // 
+      // - ENABLE: Enabled.
+      // - DISABLE: Disabled.
       shared_ptr<string> status_ {};
       // The monitored table object.
       shared_ptr<QualityWatchInfo::TableInfo> tableInfo_ {};
       // The monitored object type. Valid values:
+      // 
       // - TABLE: Dataphin table.
-      // - DATASOURCE_TABLE: full-domain table.
+      // - DATASOURCE_TABLE: global table.
       // - DATASOURCE: data source.
       // - INDEX: metric.
       // - REALTIME_LOGICAL_TABLE: real-time meta table.
@@ -888,9 +889,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // The details of the monitored object.
+    // The monitoring object details.
     shared_ptr<GetQualityWatchResponseBody::QualityWatchInfo> qualityWatchInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListDatasetsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DatasetQuery, datasetQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatasetsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DatasetQuery, datasetQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListDatasetsRequest() = default ;
     ListDatasetsRequest(const ListDatasetsRequest &) = default ;
@@ -195,7 +197,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->datasetQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // datasetQuery Field Functions 
     bool hasDatasetQuery() const { return this->datasetQuery_ != nullptr;};
     void deleteDatasetQuery() { this->datasetQuery_ = nullptr;};
@@ -212,6 +214,13 @@ namespace Models
     inline ListDatasetsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListDatasetsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request body.
     shared_ptr<ListDatasetsRequest::DatasetQuery> datasetQuery_ {};
@@ -219,6 +228,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Context, context_);
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkFlowByJsonRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Context, context_);
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreateWorkFlowByJsonRequest() = default ;
     CreateWorkFlowByJsonRequest(const CreateWorkFlowByJsonRequest &) = default ;
@@ -117,19 +119,19 @@ namespace Models
 
 
     protected:
-      // The description of the node.
+      // The node description.
       shared_ptr<string> description_ {};
       // The folder to which the node belongs. If this parameter is left empty, the root folder is used.
       shared_ptr<string> directory_ {};
-      // The schedule configuration. This parameter is required for periodic nodes. The value is a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
+      // The schedule configuration (required for periodic nodes). The value is a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
       shared_ptr<string> scheduleConfig_ {};
       // Specifies whether to submit the node. Default value: true.
       shared_ptr<bool> submit_ {};
-      // The name of the node.
+      // The node name.
       // 
       // This parameter is required.
       shared_ptr<string> taskName_ {};
-      // The scheduling type of the node. Valid values:
+      // The node scheduling type. Valid values:
       // 
       // - 1: periodic scheduling.
       // - 3: manual scheduling.
@@ -197,7 +199,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->context_ == nullptr
-        && this->createCommand_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->createCommand_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
@@ -223,6 +225,13 @@ namespace Models
     inline CreateWorkFlowByJsonRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreateWorkFlowByJsonRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request context information.
     // 
@@ -236,6 +245,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

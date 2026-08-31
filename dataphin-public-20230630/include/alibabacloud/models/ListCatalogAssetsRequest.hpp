@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCATALOGASSETSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTCATALOGASSETSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListCatalogAssetsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ListCatalogAssetsQuery, listCatalogAssetsQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListCatalogAssetsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ListCatalogAssetsQuery, listCatalogAssetsQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListCatalogAssetsRequest() = default ;
     ListCatalogAssetsRequest(const ListCatalogAssetsRequest &) = default ;
@@ -40,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
         DARABONBA_PTR_TO_JSON(QueryMode, queryMode_);
+        DARABONBA_PTR_TO_JSON(ShelveDirectoryIds, shelveDirectoryIds_);
       };
       friend void from_json(const Darabonba::Json& j, ListCatalogAssetsQuery& obj) { 
         DARABONBA_PTR_FROM_JSON(AssetType, assetType_);
@@ -48,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
         DARABONBA_PTR_FROM_JSON(QueryMode, queryMode_);
+        DARABONBA_PTR_FROM_JSON(ShelveDirectoryIds, shelveDirectoryIds_);
       };
       ListCatalogAssetsQuery() = default ;
       ListCatalogAssetsQuery(const ListCatalogAssetsQuery &) = default ;
@@ -61,7 +66,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->assetType_ == nullptr
-        && this->keyword_ == nullptr && this->name_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->queryMode_ == nullptr; };
+        && this->keyword_ == nullptr && this->name_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->queryMode_ == nullptr
+        && this->shelveDirectoryIds_ == nullptr; };
       // assetType Field Functions 
       bool hasAssetType() const { return this->assetType_ != nullptr;};
       void deleteAssetType() { this->assetType_ = nullptr;};
@@ -104,30 +110,41 @@ namespace Models
       inline ListCatalogAssetsQuery& setQueryMode(string queryMode) { DARABONBA_PTR_SET_VALUE(queryMode_, queryMode) };
 
 
+      // shelveDirectoryIds Field Functions 
+      bool hasShelveDirectoryIds() const { return this->shelveDirectoryIds_ != nullptr;};
+      void deleteShelveDirectoryIds() { this->shelveDirectoryIds_ = nullptr;};
+      inline const vector<int64_t> & getShelveDirectoryIds() const { DARABONBA_PTR_GET_CONST(shelveDirectoryIds_, vector<int64_t>) };
+      inline vector<int64_t> getShelveDirectoryIds() { DARABONBA_PTR_GET(shelveDirectoryIds_, vector<int64_t>) };
+      inline ListCatalogAssetsQuery& setShelveDirectoryIds(const vector<int64_t> & shelveDirectoryIds) { DARABONBA_PTR_SET_VALUE(shelveDirectoryIds_, shelveDirectoryIds) };
+      inline ListCatalogAssetsQuery& setShelveDirectoryIds(vector<int64_t> && shelveDirectoryIds) { DARABONBA_PTR_SET_RVALUE(shelveDirectoryIds_, shelveDirectoryIds) };
+
+
     protected:
       // The asset type. Default value: TABLE. Valid values:
-      // - TABLE: table, including views and materialized views.
-      // - INDEX: technical metric.
-      // - BIZ_INDEX: business metric.
-      // - API: API.
-      // - PAGE: dashboard.
+      // - TABLE: tables, including views and materialized views.
+      // - INDEX: technical metrics.
+      // - BIZ_INDEX: business metrics.
+      // - API
+      // - PAGE: dashboards.
       shared_ptr<string> assetType_ {};
-      // The search keyword. Used when queryMode is set to ASSET_SEARCH. Supports keyword matching against the asset full name, asset name, asset display name, and asset description. If this parameter is not specified, all assets are queried.
+      // The search keyword. Used when queryMode is set to ASSET_SEARCH. Supports keyword matching against the asset full name, asset name, asset display name, and asset description. If not specified, all assets are returned by default.
       shared_ptr<string> keyword_ {};
-      // The asset name. Used when queryMode is set to EXACT_MATCH. If this parameter is not specified, all assets are queried.
+      // The asset name. Used when queryMode is set to EXACT_MATCH. If not specified, all assets are returned by default.
       shared_ptr<string> name_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The page size. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
-      // The query type. Determines whether to use name for exact matching or keyword for fuzzy search. Default value: EXACT_MATCH. Valid values:
+      // The query type. Determines whether to use name for exact match or keyword for fuzzy search. Default value: EXACT_MATCH. Valid values:
       // - EXACT_MATCH: exact match.
       // - ASSET_SEARCH: fuzzy search.
       shared_ptr<string> queryMode_ {};
+      // The list of folder IDs to which the assets belong. Multiple folders are matched with OR logic. Only the specified folders are matched, and subfolders are not included.
+      shared_ptr<vector<int64_t>> shelveDirectoryIds_ {};
     };
 
     virtual bool empty() const override { return this->listCatalogAssetsQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // listCatalogAssetsQuery Field Functions 
     bool hasListCatalogAssetsQuery() const { return this->listCatalogAssetsQuery_ != nullptr;};
     void deleteListCatalogAssetsQuery() { this->listCatalogAssetsQuery_ = nullptr;};
@@ -144,6 +161,13 @@ namespace Models
     inline ListCatalogAssetsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListCatalogAssetsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The query parameters.
     // 
@@ -153,6 +177,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

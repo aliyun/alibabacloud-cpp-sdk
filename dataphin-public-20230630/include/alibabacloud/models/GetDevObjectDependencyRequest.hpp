@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ObjectId, objectId_);
       DARABONBA_PTR_TO_JSON(ObjectType, objectType_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
     };
     friend void from_json(const Darabonba::Json& j, GetDevObjectDependencyRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ObjectId, objectId_);
       DARABONBA_PTR_FROM_JSON(ObjectType, objectType_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
     };
     GetDevObjectDependencyRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->objectFrom_ == nullptr
-        && this->objectId_ == nullptr && this->objectType_ == nullptr && this->opTenantId_ == nullptr && this->projectId_ == nullptr; };
+        && this->objectId_ == nullptr && this->objectType_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->projectId_ == nullptr; };
     // objectFrom Field Functions 
     bool hasObjectFrom() const { return this->objectFrom_ != nullptr;};
     void deleteObjectFrom() { this->objectFrom_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetDevObjectDependencyRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetDevObjectDependencyRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // projectId Field Functions 
@@ -96,6 +105,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // Project ID.
     // 
     // This parameter is required.

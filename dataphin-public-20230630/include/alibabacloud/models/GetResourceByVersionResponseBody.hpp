@@ -178,31 +178,31 @@ namespace Models
 
 
     protected:
-      // Compute engine type.
+      // The compute engine source type.
       shared_ptr<string> computeEngineType_ {};
-      // Creator.
+      // The creator.
       shared_ptr<string> creator_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Storage directory.
+      // The storage folder.
       shared_ptr<string> directory_ {};
-      // Creation time, format: yyyy-MM-dd HH:mm:ss.
+      // The creation time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtCreate_ {};
-      // Modification time, format: yyyy-MM-dd HH:mm:ss.
+      // The update time, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> gmtModified_ {};
-      // Resource ID.
+      // The resource ID.
       shared_ptr<int64_t> id_ {};
-      // Last modifier.
+      // The last modifier.
       shared_ptr<string> lastModifier_ {};
-      // Resource file name.
+      // The name of the resource file.
       shared_ptr<string> name_ {};
-      // Project ID.
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
-      // Resource type.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // Resource size, unit: bytes.
+      // The size of the resource, in bytes.
       shared_ptr<int64_t> size_ {};
-      // Resource storage address.
+      // The storage address of the resource.
       shared_ptr<string> storageAddress_ {};
     };
 
@@ -253,15 +253,15 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend error details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Resource file details.
+    // The details of the resource file.
     shared_ptr<GetResourceByVersionResponseBody::ResourceInfo> resourceInfo_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

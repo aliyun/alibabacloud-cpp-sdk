@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
+        DARABONBA_PTR_TO_JSON(DevelopOwnerNameList, developOwnerNameList_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(HasDevNode, hasDevNode_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -61,6 +63,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
         DARABONBA_PTR_TO_JSON(OperatorUserId, operatorUserId_);
+        DARABONBA_PTR_TO_JSON(OpsOwnerIdList, opsOwnerIdList_);
+        DARABONBA_PTR_TO_JSON(OpsOwnerNameList, opsOwnerNameList_);
         DARABONBA_PTR_TO_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
         DARABONBA_PTR_TO_JSON(ParamList, paramList_);
@@ -85,6 +89,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
+        DARABONBA_PTR_FROM_JSON(DevelopOwnerNameList, developOwnerNameList_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(HasDevNode, hasDevNode_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -96,6 +102,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
         DARABONBA_PTR_FROM_JSON(OperatorUserId, operatorUserId_);
+        DARABONBA_PTR_FROM_JSON(OpsOwnerIdList, opsOwnerIdList_);
+        DARABONBA_PTR_FROM_JSON(OpsOwnerNameList, opsOwnerNameList_);
         DARABONBA_PTR_FROM_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
         DARABONBA_PTR_FROM_JSON(ParamList, paramList_);
@@ -206,7 +214,7 @@ namespace Models
           // - CURRENT_PERIOD
           // - LAST_PERIOD
           // - LAST_N_PERIOD
-          // - LAST_24_HOUR.
+          // - LAST_24_HOUR
           shared_ptr<string> periodType_ {};
         };
 
@@ -299,13 +307,13 @@ namespace Models
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
         // The dependency strategy. Valid values: ALL, FIRST, LAST, NEAR.
         shared_ptr<string> dependStrategy_ {};
-        // The fields of the dependent logical table.
+        // The dependent logical table fields.
         shared_ptr<vector<string>> fieldList_ {};
         // The type of the upstream dependency node. Valid values:
         // - PHYSICAL: physical node.
         // - LOGICAL: logical table dependency.
         shared_ptr<string> nodeType_ {};
-        // The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
+        // The period difference. A value of 0 indicates a same-cycle dependency. A positive number indicates a dependency on the previous N cycles.
         shared_ptr<int32_t> periodDiff_ {};
         // Indicates whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
@@ -349,7 +357,7 @@ namespace Models
 
 
       protected:
-        // The Spark client version.
+        // The Spark client version name.
         shared_ptr<string> sparkClientVersion_ {};
       };
 
@@ -476,12 +484,13 @@ namespace Models
 
       virtual bool empty() const override { return this->code_ == nullptr
         && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dagId_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr
-        && this->dataSourceSchema_ == nullptr && this->fileId_ == nullptr && this->hasDevNode_ == nullptr && this->name_ == nullptr && this->needPublish_ == nullptr
-        && this->nodeDescription_ == nullptr && this->nodeFrom_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->nodeOutputNameList_ == nullptr
-        && this->nodeStatus_ == nullptr && this->operatorUserId_ == nullptr && this->ownerName_ == nullptr && this->ownerUserId_ == nullptr && this->paramList_ == nullptr
-        && this->paused_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr && this->published_ == nullptr && this->remark_ == nullptr
-        && this->rerunable_ == nullptr && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr && this->status_ == nullptr
-        && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
+        && this->dataSourceSchema_ == nullptr && this->developOwnerIdList_ == nullptr && this->developOwnerNameList_ == nullptr && this->fileId_ == nullptr && this->hasDevNode_ == nullptr
+        && this->name_ == nullptr && this->needPublish_ == nullptr && this->nodeDescription_ == nullptr && this->nodeFrom_ == nullptr && this->nodeId_ == nullptr
+        && this->nodeName_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->operatorUserId_ == nullptr && this->opsOwnerIdList_ == nullptr
+        && this->opsOwnerNameList_ == nullptr && this->ownerName_ == nullptr && this->ownerUserId_ == nullptr && this->paramList_ == nullptr && this->paused_ == nullptr
+        && this->priority_ == nullptr && this->projectId_ == nullptr && this->published_ == nullptr && this->remark_ == nullptr && this->rerunable_ == nullptr
+        && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr
+        && this->upStreamList_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
@@ -531,6 +540,24 @@ namespace Models
       void deleteDataSourceSchema() { this->dataSourceSchema_ = nullptr;};
       inline string getDataSourceSchema() const { DARABONBA_PTR_GET_DEFAULT(dataSourceSchema_, "") };
       inline TaskInfo& setDataSourceSchema(string dataSourceSchema) { DARABONBA_PTR_SET_VALUE(dataSourceSchema_, dataSourceSchema) };
+
+
+      // developOwnerIdList Field Functions 
+      bool hasDevelopOwnerIdList() const { return this->developOwnerIdList_ != nullptr;};
+      void deleteDevelopOwnerIdList() { this->developOwnerIdList_ = nullptr;};
+      inline const vector<string> & getDevelopOwnerIdList() const { DARABONBA_PTR_GET_CONST(developOwnerIdList_, vector<string>) };
+      inline vector<string> getDevelopOwnerIdList() { DARABONBA_PTR_GET(developOwnerIdList_, vector<string>) };
+      inline TaskInfo& setDevelopOwnerIdList(const vector<string> & developOwnerIdList) { DARABONBA_PTR_SET_VALUE(developOwnerIdList_, developOwnerIdList) };
+      inline TaskInfo& setDevelopOwnerIdList(vector<string> && developOwnerIdList) { DARABONBA_PTR_SET_RVALUE(developOwnerIdList_, developOwnerIdList) };
+
+
+      // developOwnerNameList Field Functions 
+      bool hasDevelopOwnerNameList() const { return this->developOwnerNameList_ != nullptr;};
+      void deleteDevelopOwnerNameList() { this->developOwnerNameList_ = nullptr;};
+      inline const vector<string> & getDevelopOwnerNameList() const { DARABONBA_PTR_GET_CONST(developOwnerNameList_, vector<string>) };
+      inline vector<string> getDevelopOwnerNameList() { DARABONBA_PTR_GET(developOwnerNameList_, vector<string>) };
+      inline TaskInfo& setDevelopOwnerNameList(const vector<string> & developOwnerNameList) { DARABONBA_PTR_SET_VALUE(developOwnerNameList_, developOwnerNameList) };
+      inline TaskInfo& setDevelopOwnerNameList(vector<string> && developOwnerNameList) { DARABONBA_PTR_SET_RVALUE(developOwnerNameList_, developOwnerNameList) };
 
 
       // fileId Field Functions 
@@ -610,6 +637,24 @@ namespace Models
       void deleteOperatorUserId() { this->operatorUserId_ = nullptr;};
       inline string getOperatorUserId() const { DARABONBA_PTR_GET_DEFAULT(operatorUserId_, "") };
       inline TaskInfo& setOperatorUserId(string operatorUserId) { DARABONBA_PTR_SET_VALUE(operatorUserId_, operatorUserId) };
+
+
+      // opsOwnerIdList Field Functions 
+      bool hasOpsOwnerIdList() const { return this->opsOwnerIdList_ != nullptr;};
+      void deleteOpsOwnerIdList() { this->opsOwnerIdList_ = nullptr;};
+      inline const vector<string> & getOpsOwnerIdList() const { DARABONBA_PTR_GET_CONST(opsOwnerIdList_, vector<string>) };
+      inline vector<string> getOpsOwnerIdList() { DARABONBA_PTR_GET(opsOwnerIdList_, vector<string>) };
+      inline TaskInfo& setOpsOwnerIdList(const vector<string> & opsOwnerIdList) { DARABONBA_PTR_SET_VALUE(opsOwnerIdList_, opsOwnerIdList) };
+      inline TaskInfo& setOpsOwnerIdList(vector<string> && opsOwnerIdList) { DARABONBA_PTR_SET_RVALUE(opsOwnerIdList_, opsOwnerIdList) };
+
+
+      // opsOwnerNameList Field Functions 
+      bool hasOpsOwnerNameList() const { return this->opsOwnerNameList_ != nullptr;};
+      void deleteOpsOwnerNameList() { this->opsOwnerNameList_ = nullptr;};
+      inline const vector<string> & getOpsOwnerNameList() const { DARABONBA_PTR_GET_CONST(opsOwnerNameList_, vector<string>) };
+      inline vector<string> getOpsOwnerNameList() { DARABONBA_PTR_GET(opsOwnerNameList_, vector<string>) };
+      inline TaskInfo& setOpsOwnerNameList(const vector<string> & opsOwnerNameList) { DARABONBA_PTR_SET_VALUE(opsOwnerNameList_, opsOwnerNameList) };
+      inline TaskInfo& setOpsOwnerNameList(vector<string> && opsOwnerNameList) { DARABONBA_PTR_SET_RVALUE(opsOwnerNameList_, opsOwnerNameList) };
 
 
       // ownerName Field Functions 
@@ -724,13 +769,13 @@ namespace Models
 
 
     protected:
-      // The node code.
+      // The task code.
       shared_ptr<string> code_ {};
-      // The cron expression for automatic scheduling. For more information, refer to the Linux cron expression syntax.
+      // The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
       shared_ptr<string> cronExpression_ {};
       // The custom scheduling interval configuration.
       shared_ptr<TaskInfo::CustomScheduleConfig> customScheduleConfig_ {};
-      // The ID of the DAG to which the node belongs.
+      // The ID of the DAG to which the task belongs.
       shared_ptr<string> dagId_ {};
       // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
@@ -738,15 +783,19 @@ namespace Models
       shared_ptr<string> dataSourceId_ {};
       // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
-      // The node ID in the node directory tree.
+      // The list of development owner IDs.
+      shared_ptr<vector<string>> developOwnerIdList_ {};
+      // The list of development owner names.
+      shared_ptr<vector<string>> developOwnerNameList_ {};
+      // The node ID in the directory tree.
       shared_ptr<int64_t> fileId_ {};
-      // Indicates whether the node has a development environment node.
+      // Indicates whether the task has a development environment node.
       shared_ptr<bool> hasDevNode_ {};
-      // The node name.
+      // The task name.
       shared_ptr<string> name_ {};
-      // Indicates whether the node needs to be published.
+      // Indicates whether the task needs to be published.
       shared_ptr<bool> needPublish_ {};
-      // The node description.
+      // The task description.
       shared_ptr<string> nodeDescription_ {};
       // The source of the node, indicating the organization or application that created the node.
       shared_ptr<string> nodeFrom_ {};
@@ -763,19 +812,23 @@ namespace Models
       shared_ptr<int32_t> nodeStatus_ {};
       // The user ID of the current operator.
       shared_ptr<string> operatorUserId_ {};
+      // The list of O&M owner IDs.
+      shared_ptr<vector<string>> opsOwnerIdList_ {};
+      // The list of O&M owner names.
+      shared_ptr<vector<string>> opsOwnerNameList_ {};
       // The name of the node owner.
       shared_ptr<string> ownerName_ {};
       // The user ID of the node owner.
       shared_ptr<string> ownerUserId_ {};
-      // The list of custom node parameters.
+      // The list of custom parameters for the node.
       shared_ptr<vector<TaskInfo::ParamList>> paramList_ {};
-      // Indicates whether the node scheduling is paused.
+      // Indicates whether the node is paused for scheduling.
       shared_ptr<bool> paused_ {};
       // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
       // The project ID.
       shared_ptr<int64_t> projectId_ {};
-      // Indicates whether the node has been published.
+      // Indicates whether the task is published.
       shared_ptr<bool> published_ {};
       // The remarks.
       shared_ptr<string> remark_ {};
@@ -787,20 +840,20 @@ namespace Models
       // - WEEKLY
       // - DAILY
       // - HOURLY
-      // - MINUTELY.
+      // - MINUTELY
       shared_ptr<string> schedulePeriod_ {};
-      // The scheduling type. Valid values:
+      // The node type. Valid values:
       // - 1: periodic node.
       // - 3: manual node.
       shared_ptr<int32_t> scheduleType_ {};
       // The Spark client information.
       shared_ptr<TaskInfo::SparkClientInfo> sparkClientInfo_ {};
-      // The publish status. Valid values:
+      // The submit status. Valid values:
       // - 0: draft.
       // - 1: submitted.
       // - 100: in development.
       shared_ptr<string> status_ {};
-      // The node type. For more information, see the API operation for creating a batch task.
+      // The task type. For more information, refer to the API operation for creating batch tasks.
       shared_ptr<int32_t> taskType_ {};
       // The upstream dependencies.
       shared_ptr<vector<TaskInfo::UpStreamList>> upStreamList_ {};
@@ -863,7 +916,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The node details.
+    // The task details.
     shared_ptr<GetBatchTaskInfoByVersionResponseBody::TaskInfo> taskInfo_ {};
   };
 

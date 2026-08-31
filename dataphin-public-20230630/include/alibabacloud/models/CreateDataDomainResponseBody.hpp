@@ -124,7 +124,7 @@ namespace Models
     shared_ptr<CreateDataDomainResponseBody::CreateResult> createResult_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

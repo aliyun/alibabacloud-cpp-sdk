@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Context, context_);
       DARABONBA_PTR_TO_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePipelineByAsyncRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Context, context_);
       DARABONBA_PTR_FROM_JSON(CreateCommand, createCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     CreatePipelineByAsyncRequest() = default ;
     CreatePipelineByAsyncRequest(const CreatePipelineByAsyncRequest &) = default ;
@@ -490,7 +492,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->context_ == nullptr
-        && this->createCommand_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->createCommand_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // context Field Functions 
     bool hasContext() const { return this->context_ != nullptr;};
     void deleteContext() { this->context_ = nullptr;};
@@ -516,6 +518,13 @@ namespace Models
     inline CreatePipelineByAsyncRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline CreatePipelineByAsyncRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // Request context information
     // 
@@ -529,6 +538,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

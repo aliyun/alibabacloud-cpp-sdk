@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ReplaceProjectWhiteListsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(ReplaceCommand, replaceCommand_);
     };
     friend void from_json(const Darabonba::Json& j, ReplaceProjectWhiteListsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(ReplaceCommand, replaceCommand_);
     };
     ReplaceProjectWhiteListsRequest() = default ;
@@ -130,7 +132,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->opTenantId_ == nullptr && this->replaceCommand_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->replaceCommand_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -143,6 +145,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline ReplaceProjectWhiteListsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ReplaceProjectWhiteListsRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // replaceCommand Field Functions 
@@ -163,6 +172,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The edit command.
     // 
     // This parameter is required.

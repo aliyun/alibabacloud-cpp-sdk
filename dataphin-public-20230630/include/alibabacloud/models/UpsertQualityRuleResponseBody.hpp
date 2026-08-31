@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // The rule ID.
+    // The task rule ID.
     shared_ptr<int64_t> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

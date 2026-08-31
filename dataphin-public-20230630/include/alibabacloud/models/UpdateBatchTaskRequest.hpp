@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateBatchTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(UpdateCommand, updateCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateBatchTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(UpdateCommand, updateCommand_);
     };
     UpdateBatchTaskRequest() = default ;
@@ -41,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -63,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -164,7 +168,7 @@ namespace Models
         protected:
           // The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
-          // The dependency period type. Valid values:
+          // The type of the dependency period. Valid values:
           // - CURRENT_PERIOD: current period.
           // - LAST_PERIOD: previous period.
           // - LAST_N_PERIOD: last N days.
@@ -259,11 +263,11 @@ namespace Models
         // - PHYSICAL: physical node.
         // - LOGICAL: logical table dependency.
         shared_ptr<string> nodeType_ {};
-        // The period offset. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
+        // The period difference. A value of 0 indicates same-period dependency. A positive number indicates dependency on the previous N periods.
         // 
         // This parameter is required.
         shared_ptr<int32_t> periodDiff_ {};
-        // Specifies whether the upstream node is enabled.
+        // Indicates whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
         // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
@@ -431,18 +435,18 @@ namespace Models
         // This parameter is required.
         shared_ptr<int32_t> interval_ {};
         // The interval unit. Valid values:
-        // - MINUTE: minute
+        // - MINUTE: minute.
         // - HOUR: hour.
         // 
         // This parameter is required.
         shared_ptr<string> intervalUnit_ {};
-        // The scheduling period. Valid values:
+        // The schedule period. Valid values:
         // - YEARLY
         // - MONTHLY
         // - WEEKLY
         // - DAILY
         // - HOURLY
-        // - MINUTELY.
+        // - MINUTELY
         // 
         // This parameter is required.
         shared_ptr<string> schedulePeriod_ {};
@@ -454,9 +458,9 @@ namespace Models
 
       virtual bool empty() const override { return this->code_ == nullptr
         && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr
-        && this->engine_ == nullptr && this->fileId_ == nullptr && this->name_ == nullptr && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr
-        && this->nodeStatus_ == nullptr && this->paramList_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr
-        && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
+        && this->developOwnerIdList_ == nullptr && this->engine_ == nullptr && this->fileId_ == nullptr && this->name_ == nullptr && this->nodeDescription_ == nullptr
+        && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->paramList_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr
+        && this->pythonModuleList_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
@@ -499,6 +503,15 @@ namespace Models
       void deleteDataSourceSchema() { this->dataSourceSchema_ = nullptr;};
       inline string getDataSourceSchema() const { DARABONBA_PTR_GET_DEFAULT(dataSourceSchema_, "") };
       inline UpdateCommand& setDataSourceSchema(string dataSourceSchema) { DARABONBA_PTR_SET_VALUE(dataSourceSchema_, dataSourceSchema) };
+
+
+      // developOwnerIdList Field Functions 
+      bool hasDevelopOwnerIdList() const { return this->developOwnerIdList_ != nullptr;};
+      void deleteDevelopOwnerIdList() { this->developOwnerIdList_ = nullptr;};
+      inline const vector<string> & getDevelopOwnerIdList() const { DARABONBA_PTR_GET_CONST(developOwnerIdList_, vector<string>) };
+      inline vector<string> getDevelopOwnerIdList() { DARABONBA_PTR_GET(developOwnerIdList_, vector<string>) };
+      inline UpdateCommand& setDevelopOwnerIdList(const vector<string> & developOwnerIdList) { DARABONBA_PTR_SET_VALUE(developOwnerIdList_, developOwnerIdList) };
+      inline UpdateCommand& setDevelopOwnerIdList(vector<string> && developOwnerIdList) { DARABONBA_PTR_SET_RVALUE(developOwnerIdList_, developOwnerIdList) };
 
 
       // engine Field Functions 
@@ -610,26 +623,28 @@ namespace Models
 
 
     protected:
-      // The node code.
+      // The code of the node.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+      // The cron expression for automatic scheduling. Refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
-      // The custom scheduling interval configuration.
+      // The custom schedule interval configuration.
       shared_ptr<UpdateCommand::CustomScheduleConfig> customScheduleConfig_ {};
-      // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+      // The catalog for database SQL nodes. This parameter applies only to datasource types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The data source ID for database SQL nodes.
+      // The datasource ID for database SQL nodes.
       shared_ptr<string> dataSourceId_ {};
-      // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+      // The schema for database SQL nodes. This parameter applies only to datasource types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
-      // The execution engine for the node, such as a Python node. Valid values:
+      // The list of development owner IDs.
+      shared_ptr<vector<string>> developOwnerIdList_ {};
+      // The execution engine for the node, such as for Python nodes. Valid values:
       // - PYTHON2_7
       // - PYTHON3_7
-      // - PYTHON3_11.
+      // - PYTHON3_11
       shared_ptr<string> engine_ {};
-      // The ID of the node in the folder tree.
+      // The node ID in the folder tree.
       // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
@@ -654,15 +669,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The third-party Python packages that the node depends on.
+      // The third-party Python packages required by the node.
       shared_ptr<vector<string>> pythonModuleList_ {};
-      // The scheduling period. Valid values:
+      // The schedule period. Valid values:
       // - YEARLY
       // - MONTHLY
       // - WEEKLY
       // - DAILY
       // - HOURLY
-      // - MINUTELY.
+      // - MINUTELY
       shared_ptr<string> schedulePeriod_ {};
       // The Spark client information.
       shared_ptr<UpdateCommand::SparkClientInfo> sparkClientInfo_ {};
@@ -679,12 +694,19 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && this->updateCommand_ == nullptr; };
+        && this->opUserId_ == nullptr && this->updateCommand_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdateBatchTaskRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline UpdateBatchTaskRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // updateCommand Field Functions 
@@ -701,6 +723,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
     // The update request.
     // 
     // This parameter is required.

@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetBelongAssetMappingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AssetMappingQuery, assetMappingQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, GetBelongAssetMappingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssetMappingQuery, assetMappingQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     GetBelongAssetMappingRequest() = default ;
     GetBelongAssetMappingRequest(const GetBelongAssetMappingRequest &) = default ;
@@ -78,7 +80,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->assetMappingQuery_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // assetMappingQuery Field Functions 
     bool hasAssetMappingQuery() const { return this->assetMappingQuery_ != nullptr;};
     void deleteAssetMappingQuery() { this->assetMappingQuery_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline GetBelongAssetMappingRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetBelongAssetMappingRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // Query command.
     shared_ptr<GetBelongAssetMappingRequest::AssetMappingQuery> assetMappingQuery_ {};
@@ -102,6 +111,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

@@ -191,9 +191,9 @@ namespace Models
 
 
           protected:
-            // User ID
+            // The user ID.
             shared_ptr<string> id_ {};
-            // Username
+            // The username.
             shared_ptr<string> name_ {};
           };
 
@@ -235,9 +235,9 @@ namespace Models
 
 
           protected:
-            // Username
+            // The username.
             shared_ptr<string> id_ {};
-            // Username
+            // The username.
             shared_ptr<string> name_ {};
           };
 
@@ -279,9 +279,9 @@ namespace Models
 
 
           protected:
-            // User ID
+            // The user ID.
             shared_ptr<string> id_ {};
-            // Username
+            // The username.
             shared_ptr<string> name_ {};
           };
 
@@ -436,46 +436,46 @@ namespace Models
 
 
         protected:
-          // Business Unit
+          // The business unit.
           shared_ptr<string> bizUnitName_ {};
-          // Creation Time
+          // The creation time.
           shared_ptr<string> createTime_ {};
-          // Node Creator
+          // The creator of the node.
           shared_ptr<NodeInfo::Creator> creator_ {};
-          // Node Description
+          // The description of the node.
           shared_ptr<string> description_ {};
-          // Whether to dry run
+          // Indicates whether the node is a dry run.
           shared_ptr<bool> dryRun_ {};
-          // Node Source
+          // The source of the node.
           shared_ptr<string> from_ {};
-          // Whether a development environment exists
+          // Indicates whether the node has a development environment.
           shared_ptr<bool> hasDev_ {};
-          // Whether a production environment exists
+          // Indicates whether the node has a production environment.
           shared_ptr<bool> hasProd_ {};
-          // Node ID
+          // The node ID.
           shared_ptr<string> id_ {};
-          // Last Modified Time
+          // The modification time.
           shared_ptr<string> lastModifiedTime_ {};
-          // Modifier
+          // The modifier of the node.
           shared_ptr<NodeInfo::Modifier> modifier_ {};
-          // Node Name
+          // The name of the node.
           shared_ptr<string> name_ {};
-          // Owner
+          // The owner.
           shared_ptr<vector<NodeInfo::OwnerList>> ownerList_ {};
-          // Priority
+          // The priority. Valid values:
           // - HIGHEST
           // - HIGH
           // - MIDDLE
           // - LOW
           // - LOWEST
           shared_ptr<vector<string>> priorityList_ {};
-          // Running Resource Group
+          // The schedule resource groups for execution.
           shared_ptr<vector<string>> resourceGroupList_ {};
-          // Whether scheduling is paused
+          // Specifies whether scheduling is paused.
           shared_ptr<bool> schedulePaused_ {};
-          // Schedule Period
+          // The scheduling period.
           shared_ptr<vector<string>> schedulePeriodList_ {};
-          // Sub-business Type
+          // The sub-business type. Valid values:
           // - MAX_COMPUTE_SQL
           // - HIVE_SQL
           // - SHELL
@@ -483,9 +483,9 @@ namespace Models
           // - ONE_SERVICE_SQL
           // - DATABASE_SQL
           shared_ptr<string> subDetailType_ {};
-          // Node Business Type
-          // - SCRIPT: Script
-          // - LOGICAL_TABLE: Logical Table
+          // The business type of the node. Valid values:
+          // - SCRIPT: script.
+          // - LOGICAL_TABLE: logical table.
           shared_ptr<string> type_ {};
         };
 
@@ -567,25 +567,25 @@ namespace Models
 
 
       protected:
-        // Business Date
+        // The business date.
         shared_ptr<string> bizDate_ {};
-        // Schedule Time
+        // The scheduling time.
         shared_ptr<string> dueTime_ {};
-        // Running duration, in seconds
+        // The execution duration. Unit: seconds.
         shared_ptr<string> duration_ {};
-        // Execution End Time
+        // The execution end time.
         shared_ptr<int64_t> endExecuteTime_ {};
-        // Node extended information: specific information for instances from different business systems, such as pipeline fileId, whether the logical table has hierarchical dimensions, mid node information, and instance output name
+        // The extended node information, which contains properties specific to different business system instances, such as the fileId of a pipeline, whether a logical table uses hierarchy dimensions, mid node information, and instance output names.
         shared_ptr<string> extendInfo_ {};
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> id_ {};
-        // Hourly/Minutely instance sequence number
+        // The sequence number of the hourly or minutely instance.
         shared_ptr<int32_t> index_ {};
-        // Node Details
+        // The node details.
         shared_ptr<Data::NodeInfo> nodeInfo_ {};
-        // Execution start time
+        // The execution start time.
         shared_ptr<int64_t> startExecuteTime_ {};
-        // Instance Status
+        // The instance status.
         shared_ptr<vector<string>> statusList_ {};
       };
 
@@ -608,9 +608,9 @@ namespace Models
 
 
     protected:
-      // Paginated records
+      // The paginated records.
       shared_ptr<vector<PageResult::Data>> data_ {};
-      // Total number of records
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -661,17 +661,17 @@ namespace Models
 
 
   protected:
-    // Request error code. OK indicates a normal request.
+    // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Backend response HTTP code
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request error message
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
-    // Paginated result
+    // The paginated result.
     shared_ptr<ListInstancesResponseBody::PageResult> pageResult_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

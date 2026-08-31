@@ -133,9 +133,9 @@ namespace Models
 
 
     protected:
-      // The number of failed records.
+      // The number of entity records that failed to be created.
       shared_ptr<int32_t> failCount_ {};
-      // The number of successfully created records.
+      // The number of successfully created entity records.
       shared_ptr<int32_t> successCount_ {};
       // The list of IDs of successfully created entity records.
       shared_ptr<vector<CreateResult::SuccessEntityList>> successEntityList_ {};

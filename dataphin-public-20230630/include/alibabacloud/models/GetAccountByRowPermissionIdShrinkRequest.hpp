@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetAccountByRowPermissionIdShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(GetAccountByRowPermissionIdQuery, getAccountByRowPermissionIdQueryShrink_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, GetAccountByRowPermissionIdShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(GetAccountByRowPermissionIdQuery, getAccountByRowPermissionIdQueryShrink_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     GetAccountByRowPermissionIdShrinkRequest() = default ;
     GetAccountByRowPermissionIdShrinkRequest(const GetAccountByRowPermissionIdShrinkRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->getAccountByRowPermissionIdQueryShrink_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // getAccountByRowPermissionIdQueryShrink Field Functions 
     bool hasGetAccountByRowPermissionIdQueryShrink() const { return this->getAccountByRowPermissionIdQueryShrink_ != nullptr;};
     void deleteGetAccountByRowPermissionIdQueryShrink() { this->getAccountByRowPermissionIdQueryShrink_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline GetAccountByRowPermissionIdShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetAccountByRowPermissionIdShrinkRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request command.
     // 
@@ -56,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

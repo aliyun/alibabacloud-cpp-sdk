@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetBatchTaskInfoByVersionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FileId, fileId_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(VersionId, versionId_);
     };
     friend void from_json(const Darabonba::Json& j, GetBatchTaskInfoByVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileId, fileId_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileId_ == nullptr
-        && this->opTenantId_ == nullptr && this->projectId_ == nullptr && this->versionId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->projectId_ == nullptr && this->versionId_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetBatchTaskInfoByVersionRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline GetBatchTaskInfoByVersionRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // projectId Field Functions 
@@ -66,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The node ID in the node directory tree.
+    // The node ID in the directory tree.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
@@ -74,6 +83,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
     // The ID of the project to which the node belongs.
     // 
     // This parameter is required.

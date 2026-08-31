@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListNodesRequest() = default ;
     ListNodesRequest(const ListNodesRequest &) = default ;
@@ -175,18 +177,18 @@ namespace Models
       // Specifies whether to perform a dry run.
       shared_ptr<bool> dryRun_ {};
       // The node business type. Valid values:
-      // - SCRIPT: script
+      // - SCRIPT: script.
       // - LOGICAL_TABLE: logical table.
       // 
       // This parameter is required.
       shared_ptr<string> nodeBizType_ {};
-      // The sub-business types. Valid values:
+      // The sub-business type. Valid values:
       // - MAX_COMPUTE_SQL
       // - HIVE_SQL
       // - SHELL
       // - PYTHON
       // - ONE_SERVICE_SQL
-      // - DATABASE_SQL.
+      // - DATABASE_SQL, etc.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> nodeSubBizTypeList_ {};
@@ -194,14 +196,14 @@ namespace Models
       shared_ptr<vector<string>> ownerList_ {};
       // The page number.
       shared_ptr<int32_t> page_ {};
-      // The number of entries per page.
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The node priorities. Valid values:
+      // The node priority. Valid values:
       // - HIGHEST
       // - HIGH
       // - MIDDLE
       // - LOW
-      // - LOWEST.
+      // - LOWEST
       shared_ptr<vector<string>> priorityList_ {};
       // The project ID.
       // 
@@ -209,25 +211,25 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // Specifies whether scheduling is paused.
       shared_ptr<bool> schedulePaused_ {};
-      // The scheduling periods. Valid values:
+      // The scheduling period. Valid values:
       // - YEARLY
       // - MONTHLY
       // - WEEKLY
       // - DAILY
       // - HOURLY
-      // - MINUTELY.
+      // - MINUTELY
       shared_ptr<vector<string>> schedulePeriodList_ {};
       // The node scheduling type. Valid values:
-      // - NORMAL: periodic scheduling
-      // - SUPPLEMENT: data backfill
-      // - MANUAL: manual scheduling.
+      // - NORMAL: Periodic.
+      // - SUPPLEMENT: Data backfill.
+      // - MANUAL: Manual.
       shared_ptr<string> scheduleType_ {};
-      // The search keyword. Fuzzy search by node name and exact search by node ID are supported.
+      // The search keyword. Supports fuzzy match by node name and exact match by node ID.
       shared_ptr<string> searchText_ {};
     };
 
     virtual bool empty() const override { return this->env_ == nullptr
-        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
@@ -251,10 +253,17 @@ namespace Models
     inline ListNodesRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListNodesRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The environment identifier. Valid values:
-    // - DEV: development environment 
-    // - PROD (default): production environment.
+    // - DEV: Development environment. 
+    // - PROD (default): Production environment.
     shared_ptr<string> env_ {};
     // The query conditions.
     // 
@@ -264,6 +273,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

@@ -137,7 +137,7 @@ namespace Models
         protected:
           // The property code.
           shared_ptr<string> code_ {};
-          // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (boolean), DATE (date), LIST (list), and others.
+          // The data type of the property. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
           shared_ptr<string> dataType_ {};
           // The property value.
           shared_ptr<string> value_ {};
@@ -183,7 +183,7 @@ namespace Models
 
 
       protected:
-        // The relationship record property list.
+        // The list of properties for the relationship record.
         shared_ptr<vector<RelationList::PropertyList>> propertyList_ {};
         // The relationship record ID.
         shared_ptr<string> relationId_ {};
@@ -214,7 +214,7 @@ namespace Models
 
 
     protected:
-      // The paged relationship record list.
+      // The list of paged relationship records.
       shared_ptr<vector<PageResult::RelationList>> relationList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};

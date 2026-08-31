@@ -91,9 +91,9 @@ namespace Models
 
 
     protected:
-      // The list of full paths of child catalogs that were also deleted.
+      // The list of full paths of child catalogs that were deleted as a result of the cascading deletion.
       shared_ptr<vector<string>> childCatalogFullPathList_ {};
-      // The list of classification IDs that were also deleted.
+      // The list of classification IDs that were deleted as a result of the cascading deletion.
       shared_ptr<vector<int64_t>> classifyIdList_ {};
       // Indicates whether the deletion was successful.
       shared_ptr<bool> success_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<DeleteSecurityClassifyCatalogResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

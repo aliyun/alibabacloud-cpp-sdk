@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListNodeDownStreamRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(ListQuery, listQuery_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     ListNodeDownStreamRequest() = default ;
     ListNodeDownStreamRequest(const ListNodeDownStreamRequest &) = default ;
@@ -99,7 +101,7 @@ namespace Models
 
 
       protected:
-        // The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
+        // The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, the full table is used by default.
         shared_ptr<vector<string>> fieldIdList_ {};
         // The node ID.
         shared_ptr<string> id_ {};
@@ -159,7 +161,7 @@ namespace Models
         // The filter key. Valid values:
         // - PROJECT: project
         // - PHYSICAL_NODE_ID: physical node ID
-        // - LOGICAL_TABLE_NODE_ID: logical table ID.
+        // - LOGICAL_TABLE_NODE_ID: logical table ID
         shared_ptr<string> key_ {};
         // The list of filter values.
         shared_ptr<vector<string>> valueList_ {};
@@ -200,9 +202,9 @@ namespace Models
 
 
     protected:
-      // The depth. Default value: 3.
+      // The depth of the downstream query. Default value: 3.
       shared_ptr<int32_t> downStreamDepth_ {};
-      // The filters. You can include or exclude results based on projects or nodes. Default value: empty.
+      // The list of filters. You can include or exclude results based on projects and nodes. Default value: empty.
       shared_ptr<vector<ListQuery::FilterList>> filterList_ {};
       // The list of nodes.
       // 
@@ -213,7 +215,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->env_ == nullptr
-        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr; };
+        && this->listQuery_ == nullptr && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
     inline ListNodeDownStreamRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListNodeDownStreamRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The environment identifier. Valid values:
     // - DEV: development environment. 
@@ -250,6 +259,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

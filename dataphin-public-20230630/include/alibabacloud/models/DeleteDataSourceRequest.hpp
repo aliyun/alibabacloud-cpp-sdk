@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteDataSourceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DeleteCommand, deleteCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteDataSourceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeleteCommand, deleteCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
     };
     DeleteDataSourceRequest() = default ;
     DeleteDataSourceRequest(const DeleteDataSourceRequest &) = default ;
@@ -82,7 +84,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->deleteCommand_ == nullptr
-        && this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr; };
     // deleteCommand Field Functions 
     bool hasDeleteCommand() const { return this->deleteCommand_ != nullptr;};
     void deleteDeleteCommand() { this->deleteCommand_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline DeleteDataSourceRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline DeleteDataSourceRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
+
+
   protected:
     // The request for deleting a data source.
     // 
@@ -108,6 +117,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
   };
 
   } // namespace Models

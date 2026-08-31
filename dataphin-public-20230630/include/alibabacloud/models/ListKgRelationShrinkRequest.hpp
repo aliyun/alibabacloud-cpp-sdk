@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListKgRelationShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ListQuery, listQueryShrink_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(RelationType, relationType_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListKgRelationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ListQuery, listQueryShrink_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(RelationType, relationType_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->listQueryShrink_ == nullptr
-        && this->opTenantId_ == nullptr && this->relationType_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->relationType_ == nullptr && this->workspaceId_ == nullptr; };
     // listQueryShrink Field Functions 
     bool hasListQueryShrink() const { return this->listQueryShrink_ != nullptr;};
     void deleteListQueryShrink() { this->listQueryShrink_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline ListKgRelationShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ListKgRelationShrinkRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // relationType Field Functions 
@@ -66,12 +75,14 @@ namespace Models
 
 
   protected:
-    // The paged search filter conditions.
+    // The paged query filter conditions.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
+    shared_ptr<string> opUserId_ {};
     // The relationship type code.
     // 
     // This parameter is required.

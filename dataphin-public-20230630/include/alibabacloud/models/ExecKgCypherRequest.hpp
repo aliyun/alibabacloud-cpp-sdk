@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ExecKgCypherRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ExecCommand, execCommand_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ExecKgCypherRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExecCommand, execCommand_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(OpUserId, opUserId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ExecKgCypherRequest() = default ;
@@ -147,7 +149,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->execCommand_ == nullptr
-        && this->opTenantId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->opUserId_ == nullptr && this->workspaceId_ == nullptr; };
     // execCommand Field Functions 
     bool hasExecCommand() const { return this->execCommand_ != nullptr;};
     void deleteExecCommand() { this->execCommand_ = nullptr;};
@@ -162,6 +164,13 @@ namespace Models
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline ExecKgCypherRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // opUserId Field Functions 
+    bool hasOpUserId() const { return this->opUserId_ != nullptr;};
+    void deleteOpUserId() { this->opUserId_ = nullptr;};
+    inline string getOpUserId() const { DARABONBA_PTR_GET_DEFAULT(opUserId_, "") };
+    inline ExecKgCypherRequest& setOpUserId(string opUserId) { DARABONBA_PTR_SET_VALUE(opUserId_, opUserId) };
 
 
     // workspaceId Field Functions 
@@ -180,6 +189,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    shared_ptr<string> opUserId_ {};
     // The model ID.
     // 
     // This parameter is required.
