@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
-    // 按 baseline_state 过滤 findings。值为 new/unchanged/absent/updated 之一。
+    // Filters results by incremental scan baseline status. Valid values: new, unchanged, absent, updated.
     shared_ptr<string> baselineState_ {};
+    // The language. Valid values:
+    // * zh: Chinese (default).
+    // * en: English.
     shared_ptr<string> lang_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token. Do not pass nextToken or pass an empty string for the first page. To retrieve the next page, pass the nextToken value from the previous response without any modification. When the nextToken in the response is empty, you have reached the last page.
     shared_ptr<string> nextToken_ {};
+    // Performs a fuzzy match by component name. This parameter takes effect only when engine is set to sca.
     shared_ptr<string> packageName_ {};
   };
 

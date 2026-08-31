@@ -103,6 +103,7 @@ namespace Models
 
 
       protected:
+        // The project type.
         shared_ptr<string> type_ {};
       };
 
@@ -144,7 +145,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether SAST is supported.
         shared_ptr<bool> sast_ {};
+        // Indicates whether SCA is supported.
         shared_ptr<bool> sca_ {};
       };
 
@@ -226,17 +229,25 @@ namespace Models
 
 
     protected:
+      // The project configuration version number.
       shared_ptr<int64_t> configRevision_ {};
-      // 扫描项目创建时间（RFC3339）
+      // The creation time.
       shared_ptr<string> createdAt_ {};
+      // The user ID of the project creator.
       shared_ptr<string> createdBy_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The engine switches for the project or scan snapshot (SAST and SCA only).
       shared_ptr<Items::Engines> engines_ {};
+      // The project ID.
       shared_ptr<int64_t> id_ {};
+      // The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
       shared_ptr<string> instructionPrompt_ {};
+      // The project name.
       shared_ptr<string> name_ {};
+      // The project source.
       shared_ptr<Items::Source> source_ {};
-      // 扫描项目更新时间（RFC3339）
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -280,10 +291,17 @@ namespace Models
 
 
   protected:
+    // The list of projects.
     shared_ptr<vector<DescribeProjectsResponseBody::Items>> items_ {};
+    // The page size.
+    // 
+    // > If not specified, all projects are displayed.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

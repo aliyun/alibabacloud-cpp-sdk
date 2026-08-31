@@ -18,7 +18,11 @@ namespace CodeSec20260401
 {
 
 AlibabaCloud::CodeSec20260401::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-southeast-1" , "codesec.ap-southeast-1.aliyuncs.com"},
+    {"cn-hangzhou" , "codesec.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("codesec", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary List projects for tenant
+ * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
  *
  * @param request DescribeProjectsRequest
  * @param headers map
@@ -78,7 +82,7 @@ DescribeProjectsResponse Client::describeProjectsWithOptions(const DescribeProje
 }
 
 /**
- * @summary List projects for tenant
+ * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
  *
  * @param request DescribeProjectsRequest
  * @return DescribeProjectsResponse
@@ -90,7 +94,7 @@ DescribeProjectsResponse Client::describeProjects(const DescribeProjectsRequest 
 }
 
 /**
- * @summary List findings for one engine (SAST / SCA)
+ * @summary Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
  *
  * @param request DescribeScanResultsByEngineRequest
  * @param headers map
@@ -139,7 +143,7 @@ DescribeScanResultsByEngineResponse Client::describeScanResultsByEngineWithOptio
 }
 
 /**
- * @summary List findings for one engine (SAST / SCA)
+ * @summary Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
  *
  * @param request DescribeScanResultsByEngineRequest
  * @return DescribeScanResultsByEngineResponse
@@ -151,7 +155,7 @@ DescribeScanResultsByEngineResponse Client::describeScanResultsByEngine(const st
 }
 
 /**
- * @summary List scans for project
+ * @summary Lists scan tasks under a specified project with pagination.
  *
  * @param request DescribeScansRequest
  * @param headers map
@@ -196,7 +200,7 @@ DescribeScansResponse Client::describeScansWithOptions(const string &projectId, 
 }
 
 /**
- * @summary List scans for project
+ * @summary Lists scan tasks under a specified project with pagination.
  *
  * @param request DescribeScansRequest
  * @return DescribeScansResponse

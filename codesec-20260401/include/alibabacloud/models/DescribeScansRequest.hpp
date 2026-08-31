@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
     shared_ptr<string> nextToken_ {};
+    // The task status. Valid values:
+    // * running: Running.
+    // * completed: Completed.
+    // * failed: Failed.
     shared_ptr<string> status_ {};
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

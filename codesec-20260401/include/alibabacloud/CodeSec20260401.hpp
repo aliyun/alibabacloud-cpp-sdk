@@ -21,7 +21,7 @@ namespace CodeSec20260401
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary List projects for tenant
+       * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
        *
        * @param request DescribeProjectsRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace CodeSec20260401
       Models::DescribeProjectsResponse describeProjectsWithOptions(const Models::DescribeProjectsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List projects for tenant
+       * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
        *
        * @param request DescribeProjectsRequest
        * @return DescribeProjectsResponse
@@ -39,7 +39,7 @@ namespace CodeSec20260401
       Models::DescribeProjectsResponse describeProjects(const Models::DescribeProjectsRequest &request);
 
       /**
-       * @summary List findings for one engine (SAST / SCA)
+       * @summary Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
        *
        * @param request DescribeScanResultsByEngineRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace CodeSec20260401
       Models::DescribeScanResultsByEngineResponse describeScanResultsByEngineWithOptions(const string &projectId, const string &scanId, const string &engine, const Models::DescribeScanResultsByEngineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List findings for one engine (SAST / SCA)
+       * @summary Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
        *
        * @param request DescribeScanResultsByEngineRequest
        * @return DescribeScanResultsByEngineResponse
@@ -57,7 +57,7 @@ namespace CodeSec20260401
       Models::DescribeScanResultsByEngineResponse describeScanResultsByEngine(const string &projectId, const string &scanId, const string &engine, const Models::DescribeScanResultsByEngineRequest &request);
 
       /**
-       * @summary List scans for project
+       * @summary Lists scan tasks under a specified project with pagination.
        *
        * @param request DescribeScansRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace CodeSec20260401
       Models::DescribeScansResponse describeScansWithOptions(const string &projectId, const Models::DescribeScansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List scans for project
+       * @summary Lists scan tasks under a specified project with pagination.
        *
        * @param request DescribeScansRequest
        * @return DescribeScansResponse

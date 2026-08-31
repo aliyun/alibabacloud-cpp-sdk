@@ -185,11 +185,21 @@ namespace Models
 
 
       protected:
+        // The code.
         shared_ptr<string> code_ {};
+        // The file path.
         shared_ptr<string> file_ {};
+        // The role type in the taint propagation chain. Valid values:
+        // * source: taint source.
+        // * propagator: propagation node.	
+        // * validation: validation or scrubbing center.	
+        // * sink: dangerous sink.
         shared_ptr<string> kind_ {};
+        // The line number.
         shared_ptr<int32_t> line_ {};
+        // The remarks.
         shared_ptr<string> note_ {};
+        // The step number, starting from 0 and incrementing.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -300,11 +310,21 @@ namespace Models
 
 
         protected:
+          // The associated CWE ID.
           shared_ptr<string> cveId_ {};
+          // The CVSS score.
           shared_ptr<double> cvss_ {};
+          // The CVSS version.
           shared_ptr<string> cvssVersion_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The reference information.
           shared_ptr<vector<string>> references_ {};
+          // The severity level. Valid values:
+          // * critical
+          // * high
+          // * medium
+          // * low
           shared_ptr<string> severity_ {};
         };
 
@@ -365,12 +385,19 @@ namespace Models
 
 
       protected:
+        // The number of CVEs.
         shared_ptr<int64_t> cveCount_ {};
+        // The list of CVE details associated with a component in the SCA finding.
         shared_ptr<vector<ScaComponent::CveDetails>> cveDetails_ {};
+        // The list of dependency introduction paths in the SCA component information. This field is returned only when engine is set to sca.
         shared_ptr<vector<string>> introPaths_ {};
+        // Indicates whether the component is a direct dependency.
         shared_ptr<bool> isDirect_ {};
+        // The component coordinate.
         shared_ptr<string> packageName_ {};
+        // The component-level remediation suggestion.
         shared_ptr<string> remediation_ {};
+        // The component version.
         shared_ptr<string> version_ {};
       };
 
@@ -560,31 +587,62 @@ namespace Models
 
 
     protected:
+      // Filters results by incremental scan baseline status. Valid values: new, unchanged, absent, updated.
       shared_ptr<string> baselineState_ {};
+      // The category. The system classifies files based on file name extensions and MIME types. Common categories include doc, image, audio, and video.
       shared_ptr<string> category_ {};
+      // The code snippet near the primary location (SAST).
       shared_ptr<string> codeSnippet_ {};
+      // The rule confidence level, ranging from 0 to 1. This field is common in SAST results and is omitted if not applicable.
       shared_ptr<double> confidence_ {};
-      // 发现记录创建时间（RFC3339）
+      // The time when the finding record was created (RFC 3339 format).
       shared_ptr<string> createdAt_ {};
+      // The associated CWE ID.
       shared_ptr<string> cweId_ {};
+      // The issue description.
       shared_ptr<string> description_ {};
+      // The end line number.
       shared_ptr<int64_t> endLine_ {};
+      // The file path.
       shared_ptr<string> filePath_ {};
+      // The project ID.
       shared_ptr<int64_t> id_ {};
+      // The brief summary of the finding. Unlike description, this field is more of a conclusion statement.
       shared_ptr<string> itemSummary_ {};
+      // The OWASP category.
       shared_ptr<string> owaspCategory_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The remediation code example.
       shared_ptr<string> remediationCodeExample_ {};
+      // The remediation suggestion.
       shared_ptr<string> remediationSuggestion_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
+      // The SCA component information. This field is returned only when engine is set to sca.
       shared_ptr<Items::ScaComponent> scaComponent_ {};
+      // The task ID.
       shared_ptr<int64_t> scanId_ {};
+      // The severity level. Valid values:
+      // * critical 
+      // * high 
+      // * medium 
+      // * low
       shared_ptr<string> severity_ {};
+      // The source.
       shared_ptr<string> source_ {};
+      // The start line number.
       shared_ptr<int64_t> startLine_ {};
+      // The status. Valid values:
+      // * running: Running.
+      // * completed: Completed.
+      // * failed: Failed.
       shared_ptr<string> status_ {};
+      // The SAST taint analysis call chain that describes the complete propagation path of sensitive data from the taint source to the dangerous sink. This field is returned only when engine is set to sast.
       shared_ptr<vector<Items::TaintFlow>> taintFlow_ {};
+      // The text summary of the taint call chain. This field is returned only when engine is set to sast.
       shared_ptr<string> taintFlowSummary_ {};
+      // The issue title.
       shared_ptr<string> title_ {};
     };
 
@@ -650,13 +708,23 @@ namespace Models
 
 
   protected:
+    // The engine type. Valid values:
+    // * sast
+    // * sca
     shared_ptr<string> engine_ {};
+    // The result list.
     shared_ptr<vector<DescribeScanResultsByEngineResponseBody::Items>> items_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token. Do not pass nextToken or pass an empty string for the first page. To retrieve the next page, pass the nextToken value from the previous response without any modification. When the nextToken in the response is empty, you have reached the last page.
     shared_ptr<string> nextToken_ {};
+    // The project ID.
     shared_ptr<int64_t> projectId_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<int64_t> scanId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

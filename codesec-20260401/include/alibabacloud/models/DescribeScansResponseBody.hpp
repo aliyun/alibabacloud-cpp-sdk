@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(codeBundleId, codeBundleId_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
+        DARABONBA_PTR_TO_JSON(currentPhase, currentPhase_);
         DARABONBA_PTR_TO_JSON(engineSnapshot, engineSnapshot_);
         DARABONBA_PTR_TO_JSON(finishedAt, finishedAt_);
         DARABONBA_PTR_TO_JSON(id, id_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(codeBundleId, codeBundleId_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
+        DARABONBA_PTR_FROM_JSON(currentPhase, currentPhase_);
         DARABONBA_PTR_FROM_JSON(engineSnapshot, engineSnapshot_);
         DARABONBA_PTR_FROM_JSON(finishedAt, finishedAt_);
         DARABONBA_PTR_FROM_JSON(id, id_);
@@ -141,9 +143,13 @@ namespace Models
 
 
       protected:
+        // The number of credits consumed by the task.
         shared_ptr<float> credit_ {};
+        // The number of files.
         shared_ptr<int64_t> fileCount_ {};
+        // The number of lines of code.
         shared_ptr<int64_t> linesOfCode_ {};
+        // Deprecated.
         shared_ptr<int64_t> tokenTotal_ {};
       };
 
@@ -185,14 +191,16 @@ namespace Models
 
 
       protected:
+        // Indicates whether SAST is supported.
         shared_ptr<bool> sast_ {};
+        // Indicates whether SCA is supported.
         shared_ptr<bool> sca_ {};
       };
 
       virtual bool empty() const override { return this->codeBundleId_ == nullptr
-        && this->createdAt_ == nullptr && this->createdBy_ == nullptr && this->engineSnapshot_ == nullptr && this->finishedAt_ == nullptr && this->id_ == nullptr
-        && this->kind_ == nullptr && this->projectId_ == nullptr && this->scanMetrics_ == nullptr && this->scanProgress_ == nullptr && this->startedAt_ == nullptr
-        && this->status_ == nullptr && this->taskName_ == nullptr && this->updatedAt_ == nullptr && this->workerId_ == nullptr; };
+        && this->createdAt_ == nullptr && this->createdBy_ == nullptr && this->currentPhase_ == nullptr && this->engineSnapshot_ == nullptr && this->finishedAt_ == nullptr
+        && this->id_ == nullptr && this->kind_ == nullptr && this->projectId_ == nullptr && this->scanMetrics_ == nullptr && this->scanProgress_ == nullptr
+        && this->startedAt_ == nullptr && this->status_ == nullptr && this->taskName_ == nullptr && this->updatedAt_ == nullptr && this->workerId_ == nullptr; };
       // codeBundleId Field Functions 
       bool hasCodeBundleId() const { return this->codeBundleId_ != nullptr;};
       void deleteCodeBundleId() { this->codeBundleId_ = nullptr;};
@@ -212,6 +220,13 @@ namespace Models
       void deleteCreatedBy() { this->createdBy_ = nullptr;};
       inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
       inline Items& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
+
+
+      // currentPhase Field Functions 
+      bool hasCurrentPhase() const { return this->currentPhase_ != nullptr;};
+      void deleteCurrentPhase() { this->currentPhase_ = nullptr;};
+      inline string getCurrentPhase() const { DARABONBA_PTR_GET_DEFAULT(currentPhase_, "") };
+      inline Items& setCurrentPhase(string currentPhase) { DARABONBA_PTR_SET_VALUE(currentPhase_, currentPhase) };
 
 
       // engineSnapshot Field Functions 
@@ -303,24 +318,49 @@ namespace Models
 
 
     protected:
+      // The code bundle ID.
       shared_ptr<int64_t> codeBundleId_ {};
-      // 扫描任务创建时间（RFC3339）
+      // The time when the task was created.
       shared_ptr<string> createdAt_ {};
+      // The user ID of the task creator.
       shared_ptr<string> createdBy_ {};
+      // The scan phase. Valid values:
+      // * threat_model: Threat modeling.
+      // * discovery: Vulnerability discovery.
+      // * panel: Vulnerability review.
+      // * adversarial: Adversarial verification.
+      // * finalize: Report generation.
+      shared_ptr<string> currentPhase_ {};
+      // The supported scan types.
       shared_ptr<Items::EngineSnapshot> engineSnapshot_ {};
-      // 扫描结束时间（RFC3339）
+      // The time when the scan finished.
       shared_ptr<string> finishedAt_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The scan type. Valid values:
+      // * full: Full scan.
+      // * incremental: Incremental scan.
       shared_ptr<string> kind_ {};
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
+      // The scan result statistics information.
       shared_ptr<Items::ScanMetrics> scanMetrics_ {};
+      // The task progress.
       shared_ptr<int64_t> scanProgress_ {};
-      // 扫描开始时间（RFC3339）
+      // The time when the task started.
       shared_ptr<string> startedAt_ {};
+      // The task status. Valid values:
+      // * running: Running.
+      // * completed: Completed.
+      // * failed: Failed.
+      // * canceling: Being canceled. 
+      // * canceled: Canceled.
       shared_ptr<string> status_ {};
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // 扫描任务更新时间（RFC3339）
+      // The time when the task was last updated.
       shared_ptr<string> updatedAt_ {};
+      // Deprecated.
       shared_ptr<string> workerId_ {};
     };
 
@@ -364,10 +404,15 @@ namespace Models
 
 
   protected:
+    // The task list.
     shared_ptr<vector<DescribeScansResponseBody::Items>> items_ {};
+    // The page size.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 
