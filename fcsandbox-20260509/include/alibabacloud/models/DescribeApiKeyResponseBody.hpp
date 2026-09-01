@@ -98,6 +98,7 @@ namespace Models
     // The error code.
     shared_ptr<string> code_ {};
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The IP whitelist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The response message.
     shared_ptr<string> message_ {};

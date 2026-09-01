@@ -57,6 +57,24 @@ namespace FCSandbox20260509
       Models::CreateTeamResponse createTeam(const Models::CreateTeamRequest &request);
 
       /**
+       * @summary Creates a template.
+       *
+       * @param request CreateTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a template.
+       *
+       * @param request CreateTemplateRequest
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
+
+      /**
        * @summary Creates a volume.
        *
        * @param request CreateVolumeRequest
@@ -127,6 +145,24 @@ namespace FCSandbox20260509
        * @return DeleteTeamResponse
        */
       Models::DeleteTeamResponse deleteTeam(const string &teamID, const Models::DeleteTeamRequest &request);
+
+      /**
+       * @summary Deletes a template.
+       *
+       * @param request DeleteTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateID, const Models::DeleteTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a template.
+       *
+       * @param request DeleteTemplateRequest
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplate(const string &templateID, const Models::DeleteTemplateRequest &request);
 
       /**
        * @summary Deletes a Volume.
@@ -201,6 +237,24 @@ namespace FCSandbox20260509
       Models::GetTeamResponse getTeam(const string &teamID, const Models::GetTeamRequest &request);
 
       /**
+       * @summary Queries a template.
+       *
+       * @param request GetTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplateWithOptions(const string &templateID, const Models::GetTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a template.
+       *
+       * @param request GetTemplateRequest
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplate(const string &templateID, const Models::GetTemplateRequest &request);
+
+      /**
        * @summary Queries a Volume.
        *
        * @param request GetVolumeRequest
@@ -271,6 +325,24 @@ namespace FCSandbox20260509
        * @return ListTeamsResponse
        */
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
+
+      /**
+       * @summary Queries a list of templates.
+       *
+       * @param request ListTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplatesResponse
+       */
+      Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of templates.
+       *
+       * @param request ListTemplatesRequest
+       * @return ListTemplatesResponse
+       */
+      Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
        * @summary Queries volumes by using paging.

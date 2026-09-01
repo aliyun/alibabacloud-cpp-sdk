@@ -25,7 +25,9 @@ AlibabaCloud::FCSandbox20260509::Client::Client(Config &config): OpenApiClient(c
     {"cn-shanghai" , "fcsandbox.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "fcsandbox.cn-hongkong.aliyuncs.com"},
     {"ap-southeast-1" , "fcsandbox.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou" , "fcsandbox.cn-hangzhou.aliyuncs.com"}
+    {"cn-hangzhou" , "fcsandbox.cn-hangzhou.aliyuncs.com"},
+    {"us-west-1" , "fcsandbox.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "fcsandbox.us-east-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("fcsandbox", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -122,6 +124,46 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createTeamWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a template.
+ *
+ * @param request CreateTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTemplate"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/templates")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTemplateResponse>();
+}
+
+/**
+ * @summary Creates a template.
+ *
+ * @param request CreateTemplateRequest
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTemplateWithOptions(request, headers, runtime);
 }
 
 /**
@@ -285,6 +327,51 @@ DeleteTeamResponse Client::deleteTeam(const string &teamID, const DeleteTeamRequ
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteTeamWithOptions(teamID, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a template.
+ *
+ * @param request DeleteTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplateWithOptions(const string &templateID, const DeleteTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTemplate"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/templates/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a template.
+ *
+ * @param request DeleteTemplateRequest
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplate(const string &templateID, const DeleteTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteTemplateWithOptions(templateID, request, headers, runtime);
 }
 
 /**
@@ -453,6 +540,51 @@ GetTeamResponse Client::getTeam(const string &teamID, const GetTeamRequest &requ
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getTeamWithOptions(teamID, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a template.
+ *
+ * @param request GetTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplateWithOptions(const string &templateID, const GetTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTemplate"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/templates/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTemplateResponse>();
+}
+
+/**
+ * @summary Queries a template.
+ *
+ * @param request GetTemplateRequest
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplate(const string &templateID, const GetTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTemplateWithOptions(templateID, request, headers, runtime);
 }
 
 /**
@@ -677,6 +809,59 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listTeamsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of templates.
+ *
+ * @param request ListTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTemplatesResponse
+ */
+ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTemplates"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/templates")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTemplatesResponse>();
+}
+
+/**
+ * @summary Queries a list of templates.
+ *
+ * @param request ListTemplatesRequest
+ * @return ListTemplatesResponse
+ */
+ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTemplatesWithOptions(request, headers, runtime);
 }
 
 /**
