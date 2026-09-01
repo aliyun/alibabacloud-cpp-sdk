@@ -51,14 +51,14 @@ namespace Models
 
 
   protected:
-    // The tags.
+    // The labels.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> labelList_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

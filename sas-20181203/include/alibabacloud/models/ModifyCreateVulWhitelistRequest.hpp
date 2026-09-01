@@ -13,12 +13,16 @@ namespace Models
   class ModifyCreateVulWhitelistRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyCreateVulWhitelistRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Reason, reason_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(TargetInfo, targetInfo_);
       DARABONBA_PTR_TO_JSON(Whitelist, whitelist_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyCreateVulWhitelistRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Reason, reason_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(TargetInfo, targetInfo_);
       DARABONBA_PTR_FROM_JSON(Whitelist, whitelist_);
     };
@@ -33,13 +37,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->reason_ == nullptr
-        && this->targetInfo_ == nullptr && this->whitelist_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->reason_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->targetInfo_ == nullptr && this->whitelist_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyCreateVulWhitelistRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
     inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline ModifyCreateVulWhitelistRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ModifyCreateVulWhitelistRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // targetInfo Field Functions 
@@ -57,56 +75,43 @@ namespace Models
 
 
   protected:
-    // The reason why you add the vulnerability to the whitelist.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The reason for adding the vulnerability to the whitelist.
     shared_ptr<string> reason_ {};
-    // The applicable scope of the whitelist. The value of this parameter is in the JSON format and contains the following fields:
-    // 
-    // *   **type**: the type of the applicable scope. Valid values:
-    // 
-    //     *   **GroupId**: the ID of a server group.
-    //     *   **Uuid**: the UUID of a server.
-    // 
-    // *   **uuids**: the UUIDs of servers. This field is of the string type.
-    // 
-    // *   **groupIds**: the IDs of server groups. This field is of the long type.
-    // 
-    // >  If you leave this parameter empty, the applicable scope is all servers. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // The scope in which the whitelist takes effect. The value is a JSON string that contains the following fields:
+    // - **type**: The scope type. Valid values:
+    //     - **GroupId**: server group
+    //     - **Uuid**: host asset
+    // - **uuids**: The collection of host asset UUIDs. The field type is String.
+    // - **groupIds**: The collection of server group IDs. The field type is Long.
+    // > If this parameter is left empty, the whitelist takes effect on all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
     shared_ptr<string> targetInfo_ {};
-    // The information about the vulnerability that you want to add to the whitelist. The value is a JSON string that contains the following fields:
+    // The information about the vulnerability to add to the whitelist. The value is a JSON string that contains the following fields:
     // 
-    // *   **Status**: the status of the vulnerability.
+    // - **Status**: The vulnerability status.
+    // - **GmtLast**: The timestamp when the vulnerability was last detected. Unit: milliseconds.
+    // - **LaterCount**: The number of medium-priority vulnerabilities.
+    // - **AsapCount**: The number of high-priority vulnerabilities.
+    // - **Name**: The vulnerability name.
+    // - **Type**: The vulnerability type. Valid values:
     // 
-    // *   **GmtLast**: the timestamp when the vulnerability was last detected. Unit: milliseconds.
+    //     - **cve**: Linux software vulnerability
+    //     - **sys**: Windows system vulnerability
+    //     - **cms**: Web-CMS vulnerability
+    //     - **app**: application vulnerability
+    //     - **emg**: emergency vulnerability
     // 
-    // *   **LaterCount**: the number of vulnerabilities that have the medium priority.
+    // - **Related**: The CVE ID of the vulnerability.
+    // - **HandledCount**: The number of handled vulnerabilities.
+    // - **AliasName**: The alias of the vulnerability.
+    // - **RuleModifyTime**: The time when the vulnerability was last published.
+    // - **NntfCount**: The number of low-priority vulnerabilities.
+    // - **TotalFixCount**: The total number of fixed vulnerabilities.
+    // - **Tags**: The vulnerability tags.
     // 
-    // *   **AsapCount**: the number of vulnerabilities that have the high priority.
-    // 
-    // *   **Name**: the name of the vulnerability.
-    // 
-    // *   **Type**: the type of the vulnerability. Valid values:
-    // 
-    //     *   **cve**: Linux software vulnerability
-    //     *   **sys**: Windows system vulnerability
-    //     *   **cms**: Web-CMS vulnerability
-    //     *   **app**: application vulnerability
-    //     *   **emg**: urgent vulnerability
-    // 
-    // *   **Related**: the Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
-    // 
-    // *   **HandledCount**: the number of handled vulnerabilities.
-    // 
-    // *   **AliasName**: the alias of the vulnerability.
-    // 
-    // *   **RuleModifyTime**: the time when the vulnerability was last disclosed.
-    // 
-    // *   **NntfCount**: the number of vulnerabilities that have the low priority.
-    // 
-    // *   **TotalFixCount**: the total number of fixed vulnerabilities.
-    // 
-    // *   **Tags**: the tag that is added to the vulnerability.
-    // 
-    // >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to query the information about the vulnerability that you want to add to the whitelist.
+    // > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the vulnerability information to add to the whitelist.
     // 
     // This parameter is required.
     shared_ptr<string> whitelist_ {};

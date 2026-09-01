@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteSecurityEventMarkMissListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Ids, ids_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteSecurityEventMarkMissListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Ids, ids_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     DeleteSecurityEventMarkMissListRequest() = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ids_ == nullptr
-        && this->resourceOwnerId_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
@@ -41,6 +43,13 @@ namespace Models
     inline vector<int64_t> getIds() { DARABONBA_PTR_GET(ids_, vector<int64_t>) };
     inline DeleteSecurityEventMarkMissListRequest& setIds(const vector<int64_t> & ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
     inline DeleteSecurityEventMarkMissListRequest& setIds(vector<int64_t> && ids) { DARABONBA_PTR_SET_RVALUE(ids_, ids) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DeleteSecurityEventMarkMissListRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // resourceOwnerId Field Functions 
@@ -53,6 +62,7 @@ namespace Models
   protected:
     // The IDs of custom defense rule.
     shared_ptr<vector<int64_t>> ids_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };
 

@@ -13,12 +13,16 @@ namespace Models
   class CreateSimilarSecurityEventsQueryTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSimilarSecurityEventsQueryTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityEventId, securityEventId_);
       DARABONBA_PTR_TO_JSON(SimilarEventScenarioCode, similarEventScenarioCode_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSimilarSecurityEventsQueryTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityEventId, securityEventId_);
       DARABONBA_PTR_FROM_JSON(SimilarEventScenarioCode, similarEventScenarioCode_);
@@ -35,8 +39,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->resourceOwnerId_ == nullptr
-        && this->securityEventId_ == nullptr && this->similarEventScenarioCode_ == nullptr && this->sourceIp_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityEventId_ == nullptr && this->similarEventScenarioCode_ == nullptr && this->sourceIp_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateSimilarSecurityEventsQueryTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline CreateSimilarSecurityEventsQueryTaskRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
@@ -66,8 +84,11 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the alert event.
+    // The ID of the security alert.
     // 
     // This parameter is required.
     shared_ptr<int64_t> securityEventId_ {};

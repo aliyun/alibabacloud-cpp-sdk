@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Number of items per page in a paginated query. The maximum value is 100. Range: 10 - 100, default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // Used for paginated queries. Leave it empty for the first request, and fill in the NextToken value returned from the previous response for subsequent requests.
+    // The token used for paging. Leave this parameter empty for the first request. For subsequent requests, set this parameter to the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

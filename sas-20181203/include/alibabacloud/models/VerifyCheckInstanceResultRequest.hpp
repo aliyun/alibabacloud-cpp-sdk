@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const VerifyCheckInstanceResultRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckId, checkId_);
       DARABONBA_PTR_TO_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(TaskSource, taskSource_);
     };
     friend void from_json(const Darabonba::Json& j, VerifyCheckInstanceResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckId, checkId_);
       DARABONBA_PTR_FROM_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(TaskSource, taskSource_);
     };
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkId_ == nullptr
-        && this->checkIds_ == nullptr && this->instanceIds_ == nullptr && this->taskSource_ == nullptr; };
+        && this->checkIds_ == nullptr && this->clientToken_ == nullptr && this->instanceIds_ == nullptr && this->taskSource_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline VerifyCheckInstanceResultRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline VerifyCheckInstanceResultRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline VerifyCheckInstanceResultRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // instanceIds Field Functions 
@@ -73,15 +82,17 @@ namespace Models
   protected:
     // The ID of the check item.
     // 
-    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
     shared_ptr<int64_t> checkId_ {};
-    // The list of IDs of the check items.
+    // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // The list of instance IDs of the assets affected by the check item.
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The list of instance IDs of the affected assets under the check item.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The source of the task. Valid values:
+    // The task source. Valid values:
     // 
-    // - **YAO_CHI**: YaoChi console.
+    // - **YAO_CHI**: ApsaraDB console.
     shared_ptr<string> taskSource_ {};
   };
 

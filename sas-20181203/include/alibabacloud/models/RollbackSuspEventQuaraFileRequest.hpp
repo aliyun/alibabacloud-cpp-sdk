@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RollbackSuspEventQuaraFileRequest& obj) { 
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(QuaraFileId, quaraFileId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, RollbackSuspEventQuaraFileRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(QuaraFileId, quaraFileId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
     };
     RollbackSuspEventQuaraFileRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && this->quaraFileId_ == nullptr && this->sourceIp_ == nullptr; };
+        && this->quaraFileId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->sourceIp_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteQuaraFileId() { this->quaraFileId_ = nullptr;};
     inline int32_t getQuaraFileId() const { DARABONBA_PTR_GET_DEFAULT(quaraFileId_, 0) };
     inline RollbackSuspEventQuaraFileRequest& setQuaraFileId(int32_t quaraFileId) { DARABONBA_PTR_SET_VALUE(quaraFileId_, quaraFileId) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline RollbackSuspEventQuaraFileRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
@@ -62,6 +71,7 @@ namespace Models
     // The ID of the quarantined file.   
     // > If you do not configure this parameter, you cannot call the RollbackSuspEventQuaraFile operation to restore a quarantined file. You can call the [DescribeSuspEventQuaraFiles](~~DescribeSuspEventQuaraFiles~~) operation to query the IDs of quarantined files.
     shared_ptr<int32_t> quaraFileId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };

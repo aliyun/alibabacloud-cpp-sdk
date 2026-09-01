@@ -13,10 +13,14 @@ namespace Models
   class ModifyStartVulScanRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyStartVulScanRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Types, types_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyStartVulScanRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Types, types_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
     };
@@ -31,8 +35,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->types_ == nullptr
-        && this->uuids_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->types_ == nullptr && this->uuids_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyStartVulScanRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ModifyStartVulScanRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // types Field Functions 
     bool hasTypes() const { return this->types_ != nullptr;};
     void deleteTypes() { this->types_ = nullptr;};
@@ -48,17 +66,20 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // Settings for the types of vulnerabilities to detect by using the one-click scan feature. Valid values:
     // - **cve**: Linux software vulnerability.
     // - **sys**: Windows system vulnerability.
     // - **cms**: Web-CMS vulnerability.
-    // - **app**: Application vulnerability detected by the web scanner.
-    // - **emg**: Emergency vulnerability.
-    // - **image**: Container image vulnerability.
-    // - **sca**: Application vulnerability detected by software constituency parsing.
+    // - **app**: application vulnerability detected by the web scanner.
+    // - **emg**: urgent vulnerability.
+    // - **image**: container image vulnerability.
+    // - **sca**: application vulnerability detected by software constituency parsing.
     // > If this parameter is left empty, all vulnerability types are detected.
     shared_ptr<string> types_ {};
-    // The list of server UUIDs. Separate multiple UUIDs with commas (,).
+    // The UUIDs of the servers. Separate multiple UUIDs with commas (,).
     // 
     // > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/421726.html) operation to obtain this parameter.
     shared_ptr<string> uuids_ {};

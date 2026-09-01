@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RepoNamespace, repoNamespace_);
       DARABONBA_PTR_TO_JSON(RepoRegionId, repoRegionId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RepoNamespace, repoNamespace_);
       DARABONBA_PTR_FROM_JSON(RepoRegionId, repoRegionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_FROM_JSON(StatusList, statusList_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -82,8 +84,8 @@ namespace Models
         && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->containerId_ == nullptr && this->currentPage_ == nullptr && this->dealed_ == nullptr
         && this->digest_ == nullptr && this->image_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr
         && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->pod_ == nullptr && this->regionId_ == nullptr && this->repoId_ == nullptr
-        && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->scanRange_ == nullptr
-        && this->statusList_ == nullptr && this->tag_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
+        && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
+        && this->scanRange_ == nullptr && this->statusList_ == nullptr && this->tag_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -224,6 +226,13 @@ namespace Models
     inline DescribeCanFixVulListRequest& setRepoRegionId(string repoRegionId) { DARABONBA_PTR_SET_VALUE(repoRegionId_, repoRegionId) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeCanFixVulListRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
@@ -340,6 +349,7 @@ namespace Models
     // - **eu-central-1**: Germany (Frankfurt)
     // - **eu-west-1**: UK (London).
     shared_ptr<string> repoRegionId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The scan scope. Valid values:
     // 
     // - **image**: Image.

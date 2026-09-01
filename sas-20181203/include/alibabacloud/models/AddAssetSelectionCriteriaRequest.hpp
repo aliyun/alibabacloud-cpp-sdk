@@ -14,12 +14,14 @@ namespace Models
   class AddAssetSelectionCriteriaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AddAssetSelectionCriteriaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(CriteriaOperation, criteriaOperation_);
       DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
       DARABONBA_PTR_TO_JSON(TargetOperationList, targetOperationList_);
     };
     friend void from_json(const Darabonba::Json& j, AddAssetSelectionCriteriaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(CriteriaOperation, criteriaOperation_);
       DARABONBA_PTR_FROM_JSON(SelectionKey, selectionKey_);
@@ -74,17 +76,24 @@ namespace Models
 
 
     protected:
-      // The type of the operation. Valid values:
+      // The operation type. Valid values:
       // 
-      // *   **add**
-      // *   **del**
+      // - **add**: adds the asset.
+      // - **del**: deletes the asset.
       shared_ptr<string> operation_ {};
-      // The ID of the asset.
+      // The asset ID. If you select assets by machine, the value is the UUID of the machine. If you select assets by group, the value is the group ID. If you select assets by VPC, the value is the VPC ID.
       shared_ptr<string> target_ {};
     };
 
-    virtual bool empty() const override { return this->criteria_ == nullptr
-        && this->criteriaOperation_ == nullptr && this->selectionKey_ == nullptr && this->targetOperationList_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->criteria_ == nullptr && this->criteriaOperation_ == nullptr && this->selectionKey_ == nullptr && this->targetOperationList_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline AddAssetSelectionCriteriaRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // criteria Field Functions 
     bool hasCriteria() const { return this->criteria_ != nullptr;};
     void deleteCriteria() { this->criteria_ = nullptr;};
@@ -116,16 +125,17 @@ namespace Models
 
 
   protected:
-    // The search conditions that are used to query assets. The value of this parameter is in the JSON format and is case-sensitive.
-    // 
-    // > A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The conditions for searching assets. This parameter is in JSON format. Pay attention to the letter case when you specify this parameter.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // The type of the operation on search conditions. Valid values:
+    // The operation type for criteria. Valid values:
     // 
-    // *   **add**: adds assets.
-    // *   **del**: deletes assets.
+    // - **add**: adds assets.
+    // - **del**: deletes assets.
     shared_ptr<string> criteriaOperation_ {};
-    // The unique ID of the asset.
+    // The unique identifier of the asset selection.
     // 
     // This parameter is required.
     shared_ptr<string> selectionKey_ {};

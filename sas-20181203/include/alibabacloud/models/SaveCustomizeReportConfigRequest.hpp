@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReportStatus, reportStatus_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(ReportVersion, reportVersion_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SendEndTime, sendEndTime_);
       DARABONBA_PTR_TO_JSON(SendPeriodDays, sendPeriodDays_);
       DARABONBA_PTR_TO_JSON(SendPeriodType, sendPeriodType_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReportStatus, reportStatus_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(ReportVersion, reportVersion_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SendEndTime, sendEndTime_);
       DARABONBA_PTR_FROM_JSON(SendPeriodDays, sendPeriodDays_);
       DARABONBA_PTR_FROM_JSON(SendPeriodType, sendPeriodType_);
@@ -70,8 +72,8 @@ namespace Models
     virtual bool empty() const override { return this->groupType_ == nullptr
         && this->memberAccountSyncFlag_ == nullptr && this->pinnedTime_ == nullptr && this->recipients_ == nullptr && this->reportDays_ == nullptr && this->reportEndDate_ == nullptr
         && this->reportId_ == nullptr && this->reportLang_ == nullptr && this->reportSendType_ == nullptr && this->reportStartDate_ == nullptr && this->reportStatus_ == nullptr
-        && this->reportType_ == nullptr && this->reportVersion_ == nullptr && this->sendEndTime_ == nullptr && this->sendPeriodDays_ == nullptr && this->sendPeriodType_ == nullptr
-        && this->sendStartTime_ == nullptr && this->targetGroups_ == nullptr && this->targetUids_ == nullptr && this->title_ == nullptr; };
+        && this->reportType_ == nullptr && this->reportVersion_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->sendEndTime_ == nullptr && this->sendPeriodDays_ == nullptr
+        && this->sendPeriodType_ == nullptr && this->sendStartTime_ == nullptr && this->targetGroups_ == nullptr && this->targetUids_ == nullptr && this->title_ == nullptr; };
     // groupType Field Functions 
     bool hasGroupType() const { return this->groupType_ != nullptr;};
     void deleteGroupType() { this->groupType_ = nullptr;};
@@ -161,6 +163,13 @@ namespace Models
     void deleteReportVersion() { this->reportVersion_ = nullptr;};
     inline string getReportVersion() const { DARABONBA_PTR_GET_DEFAULT(reportVersion_, "") };
     inline SaveCustomizeReportConfigRequest& setReportVersion(string reportVersion) { DARABONBA_PTR_SET_VALUE(reportVersion_, reportVersion) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline SaveCustomizeReportConfigRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sendEndTime Field Functions 
@@ -283,6 +292,7 @@ namespace Models
     // *   **1.0.0**
     // *   **2.0.0**
     shared_ptr<string> reportVersion_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The end time at which the report is sent. The value is in the HH:mm:ss format.
     // 
     // >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.

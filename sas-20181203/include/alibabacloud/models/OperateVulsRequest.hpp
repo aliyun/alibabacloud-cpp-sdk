@@ -15,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OperateVulsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(OperateType, operateType_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
       DARABONBA_PTR_TO_JSON(VulNames, vulNames_);
     };
     friend void from_json(const Darabonba::Json& j, OperateVulsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
       DARABONBA_PTR_FROM_JSON(VulNames, vulNames_);
@@ -37,12 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operateType_ == nullptr
-        && this->type_ == nullptr && this->uuids_ == nullptr && this->vulNames_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr && this->vulNames_ == nullptr; };
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
     inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateVulsRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline OperateVulsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // type Field Functions 
@@ -75,6 +84,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operateType_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of vulnerability to fix. Set the value to **cve**, which indicates a Linux software vulnerability.
     // 
     // This parameter is required.

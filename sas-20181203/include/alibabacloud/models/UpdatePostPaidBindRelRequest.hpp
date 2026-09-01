@@ -17,12 +17,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_TO_JSON(AutoBindVersion, autoBindVersion_);
       DARABONBA_PTR_TO_JSON(BindAction, bindAction_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(UpdateIfNecessary, updateIfNecessary_);
     };
     friend void from_json(const Darabonba::Json& j, UpdatePostPaidBindRelRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_FROM_JSON(AutoBindVersion, autoBindVersion_);
       DARABONBA_PTR_FROM_JSON(BindAction, bindAction_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(UpdateIfNecessary, updateIfNecessary_);
     };
     UpdatePostPaidBindRelRequest() = default ;
@@ -40,11 +44,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const BindAction& obj) { 
         DARABONBA_PTR_TO_JSON(BindAll, bindAll_);
+        DARABONBA_PTR_TO_JSON(FreeType, freeType_);
         DARABONBA_PTR_TO_JSON(UuidList, uuidList_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, BindAction& obj) { 
         DARABONBA_PTR_FROM_JSON(BindAll, bindAll_);
+        DARABONBA_PTR_FROM_JSON(FreeType, freeType_);
         DARABONBA_PTR_FROM_JSON(UuidList, uuidList_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
@@ -60,12 +66,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bindAll_ == nullptr
-        && this->uuidList_ == nullptr && this->version_ == nullptr; };
+        && this->freeType_ == nullptr && this->uuidList_ == nullptr && this->version_ == nullptr; };
       // bindAll Field Functions 
       bool hasBindAll() const { return this->bindAll_ != nullptr;};
       void deleteBindAll() { this->bindAll_ = nullptr;};
       inline bool getBindAll() const { DARABONBA_PTR_GET_DEFAULT(bindAll_, false) };
       inline BindAction& setBindAll(bool bindAll) { DARABONBA_PTR_SET_VALUE(bindAll_, bindAll) };
+
+
+      // freeType Field Functions 
+      bool hasFreeType() const { return this->freeType_ != nullptr;};
+      void deleteFreeType() { this->freeType_ = nullptr;};
+      inline string getFreeType() const { DARABONBA_PTR_GET_DEFAULT(freeType_, "") };
+      inline BindAction& setFreeType(string freeType) { DARABONBA_PTR_SET_VALUE(freeType_, freeType) };
 
 
       // uuidList Field Functions 
@@ -85,24 +98,25 @@ namespace Models
 
 
     protected:
-      // Whether to bind all. Default is **false**. Values:
+      // Specifies whether to bind all servers. Default value: **false**. Valid values:
       // 
-      // - **true**: Yes
-      // - **false**: No
+      // - **true**: yes
+      // - **false**: no
       shared_ptr<bool> bindAll_ {};
-      // List of specified server UUIDs.
+      shared_ptr<string> freeType_ {};
+      // The list of server UUIDs.
       shared_ptr<vector<string>> uuidList_ {};
-      // The Cloud Security Center protection version that needs to be bound. Values:  
-      // - **1**: Basic Edition 
+      // The protection edition of Security Center to bind. Valid values:  
+      // - **1**: Free Edition 
       // - **3**: Enterprise Edition
       // - **5**: Advanced Edition
-      // - **6**: Antivirus Edition    
-      // - **7**: Container Edition
+      // - **6**: Anti-virus Edition    
+      // - **7**: Ultimate Edition
       shared_ptr<string> version_ {};
     };
 
     virtual bool empty() const override { return this->autoBind_ == nullptr
-        && this->autoBindVersion_ == nullptr && this->bindAction_ == nullptr && this->updateIfNecessary_ == nullptr; };
+        && this->autoBindVersion_ == nullptr && this->bindAction_ == nullptr && this->clientToken_ == nullptr && this->productCode_ == nullptr && this->updateIfNecessary_ == nullptr; };
     // autoBind Field Functions 
     bool hasAutoBind() const { return this->autoBind_ != nullptr;};
     void deleteAutoBind() { this->autoBind_ = nullptr;};
@@ -126,6 +140,20 @@ namespace Models
     inline UpdatePostPaidBindRelRequest& setBindAction(vector<UpdatePostPaidBindRelRequest::BindAction> && bindAction) { DARABONBA_PTR_SET_RVALUE(bindAction_, bindAction) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UpdatePostPaidBindRelRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline UpdatePostPaidBindRelRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
     // updateIfNecessary Field Functions 
     bool hasUpdateIfNecessary() const { return this->updateIfNecessary_ != nullptr;};
     void deleteUpdateIfNecessary() { this->updateIfNecessary_ = nullptr;};
@@ -134,21 +162,24 @@ namespace Models
 
 
   protected:
-    // Enable automatic binding for new assets. Values:
+    // Specifies whether to enable automatic binding for new assets. Valid values:
     // 
-    // - **0**: Off
-    // - **1**: On
+    // - **0**: disabled
+    // - **1**: enabled
     shared_ptr<int32_t> autoBind_ {};
-    // Version to automatically bind when adding new assets. Values:
-    // - **1**: Basic Edition 
+    // The edition to automatically bind when new assets are added. Valid values:
+    // - **1**: Free Edition 
     // - **3**: Enterprise Edition
     // - **5**: Advanced Edition
-    // - **6**: Antivirus Edition    
-    // - **7**: Container Edition
+    // - **6**: Anti-virus Edition    
+    // - **7**: Ultimate Edition
     shared_ptr<int32_t> autoBindVersion_ {};
-    // Parameters for the binding action.
+    // The binding action parameter.
     shared_ptr<vector<UpdatePostPaidBindRelRequest::BindAction>> bindAction_ {};
-    // Whether to force upgrade the version.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> productCode_ {};
+    // Specifies whether to forcibly upgrade the edition.
     shared_ptr<bool> updateIfNecessary_ {};
   };
 

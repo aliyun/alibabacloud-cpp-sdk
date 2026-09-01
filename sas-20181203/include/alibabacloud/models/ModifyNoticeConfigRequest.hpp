@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNoticeConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(FocusLevel, focusLevel_);
       DARABONBA_PTR_TO_JSON(Project, project_);
       DARABONBA_PTR_TO_JSON(Route, route_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyNoticeConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(FocusLevel, focusLevel_);
       DARABONBA_PTR_FROM_JSON(Project, project_);
       DARABONBA_PTR_FROM_JSON(Route, route_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && this->focusLevel_ == nullptr && this->project_ == nullptr && this->route_ == nullptr && this->sourceIp_ == nullptr && this->timeLimit_ == nullptr; };
+        && this->clientToken_ == nullptr && this->focusLevel_ == nullptr && this->project_ == nullptr && this->route_ == nullptr && this->sourceIp_ == nullptr
+        && this->timeLimit_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline ModifyNoticeConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyNoticeConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // focusLevel Field Functions 
@@ -84,18 +94,20 @@ namespace Models
 
 
   protected:
-    // The notification configuration type. By default, notifications are sent by SMS, email, or internal message. Valid values:
+    // The notification configuration type. By default, notifications are sent through SMS, email, or internal message. Valid values:
     // 
     // - **cms**: CloudMonitor push.
     shared_ptr<string> bizType_ {};
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
     // The focus level. Separate multiple levels with commas (,).
     // 
     // When **Project** is **yundun_soar_incident_generate** or **yundun_soar_incident_update**, valid values:
     // 
     // - **CRITICAL**: Critical.
-    // - **HIGH**: High-risk.
-    // - **MEDIUM**: Medium-risk.
-    // - **LOW**: Low-risk.
+    // - **HIGH**: High.
+    // - **MEDIUM**: Medium.
+    // - **LOW**: Low.
     // - **INFO**: Informational.
     // 
     // When **Project** is **yundun_sas_antiransomware_task**, valid values:
@@ -108,8 +120,8 @@ namespace Models
     // #### When the BizType field is empty: valid values
     // - **yundun_security_Weekreport**: Security weekly report (email only)
     // - **sas_healthcheck**: Baseline check
-    // - **yundun_defennce_antiRansomware_overflow**: Anti-ransomware storage space exceeded
-    // - **yundun_sas_cloudsiem_log**: Cloud Threat Detection and Response (CTDR) log excess notification
+    // - **yundun_defennce_antiRansomware_overflow**: Anti-ransomware storage exceeded
+    // - **yundun_sas_cloudsiem_log**: Threat analysis log excess notification
     // - **sas_suspicious**: Security alert
     // - **yundun_aegis_AV_true**: Precise defense
     // - **yundun_sas_ak_leakage AccessKey**: AccessKey leak intelligence
@@ -120,12 +132,12 @@ namespace Models
     // - **yundun_sas_cloud_native_firewall_Defense**: Container firewall active defense notification (email only)
     // - **yundun_IP_Blocking**: Malicious IP blocking alerting notification
     // - **yundun_sas_anti_virus_config**: Virus scan notification
-    // - **yundun_sas_log**: Log storage exceeded
+    // - **yundun_sas_log**: Log excess
     // - **yundun_honeypot_alarm**: Cloud honeypot alerting
     // - **aliyun_rasp_alarm**: Application protection alerting
     // - **yundun_soar_incident_generate**: New security incident
     // - **yundun_soar_incident_update**: Updated security incident
-    // > **yundun_security_Weekreport** sends a weekly report to notify you of unresolved vulnerabilities.
+    // > **yundun_security_Weekreport** sends a weekly report to notify about unresolved vulnerabilities.
     // 
     // ---
     // 
@@ -136,7 +148,7 @@ namespace Models
     // - **Vul_summary**: Vulnerability result summary
     // - **Agentless_event**: Agentless detection result details
     // - **Filedetect_event**: Malicious file SDK result details
-    // - **Rasp_event**: Application protection result details.
+    // - **Rasp_event**: Application protection result details
     shared_ptr<string> project_ {};
     // ### Notification method
     // 
@@ -152,18 +164,18 @@ namespace Models
     // 
     // #### When BizType is `cms`
     // - 0: CloudMonitor push disabled
-    // - 1: CloudMonitor push enabled.
+    // - 1: CloudMonitor push enabled
     shared_ptr<int32_t> route_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // ### Notification time limit
     // 
     // #### When the BizType field is empty: valid values
-    // - **0**: No limit.
-    // - **1**: Notifications are sent only between 08:00 and 22:00.
+    // - **0**: No limit
+    // - **1**: Notifications are sent only during 08:00-22:00
     // 
-    // #### When the BizType field is `cms`
-    // Specifies the push frequency limit, in seconds. The minimum value is **60**.
+    // #### When the BizType field is `cms`: description
+    // Specifies the push frequency limit in seconds. The minimum value is **60**.
     shared_ptr<int32_t> timeLimit_ {};
   };
 

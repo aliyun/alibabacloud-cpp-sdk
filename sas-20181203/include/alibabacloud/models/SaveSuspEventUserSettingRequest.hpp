@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SaveSuspEventUserSettingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(LevelsOn, levelsOn_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, SaveSuspEventUserSettingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(LevelsOn, levelsOn_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     SaveSuspEventUserSettingRequest() = default ;
     SaveSuspEventUserSettingRequest(const SaveSuspEventUserSettingRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && this->levelsOn_ == nullptr; };
+        && this->levelsOn_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline SaveSuspEventUserSettingRequest& setLevelsOn(string levelsOn) { DARABONBA_PTR_SET_VALUE(levelsOn_, levelsOn) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline SaveSuspEventUserSettingRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
   protected:
     // The data source of the exception. Set the value to sas.
     shared_ptr<string> from_ {};
@@ -56,6 +65,7 @@ namespace Models
     // *   **suspicious**
     // *   **serious**
     shared_ptr<string> levelsOn_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

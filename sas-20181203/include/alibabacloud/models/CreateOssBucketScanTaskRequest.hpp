@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KeySuffixList, keySuffixList_);
       DARABONBA_PTR_TO_JSON(LastModifiedStartTime, lastModifiedStartTime_);
       DARABONBA_PTR_TO_JSON(ScanMode, scanMode_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
     };
     friend void from_json(const Darabonba::Json& j, CreateOssBucketScanTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllKeyPrefix, allKeyPrefix_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KeySuffixList, keySuffixList_);
       DARABONBA_PTR_FROM_JSON(LastModifiedStartTime, lastModifiedStartTime_);
       DARABONBA_PTR_FROM_JSON(ScanMode, scanMode_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
     };
     CreateOssBucketScanTaskRequest() = default ;
     CreateOssBucketScanTaskRequest(const CreateOssBucketScanTaskRequest &) = default ;
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
         && this->bucketNameList_ == nullptr && this->decompressMaxFileCount_ == nullptr && this->decompressMaxLayer_ == nullptr && this->decryptionList_ == nullptr && this->excludeKeySuffixList_ == nullptr
-        && this->keyPrefixList_ == nullptr && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->scanMode_ == nullptr; };
+        && this->keyPrefixList_ == nullptr && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->scanMode_ == nullptr && this->source_ == nullptr; };
     // allKeyPrefix Field Functions 
     bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
     void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};
@@ -131,34 +133,46 @@ namespace Models
     inline CreateOssBucketScanTaskRequest& setScanMode(int32_t scanMode) { DARABONBA_PTR_SET_VALUE(scanMode_, scanMode) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline CreateOssBucketScanTaskRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
   protected:
-    // Specifies whether to match the prefixes of all objects.
+    // Specifies whether to match all prefixes. If this parameter is set to true, the KeyPrefixList parameter does not take effect.
     shared_ptr<bool> allKeyPrefix_ {};
-    // The names of the buckets.
+    // The list of bucket names.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> bucketNameList_ {};
-    // The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+    // The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
-    // The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+    // The maximum number of decompression layers when multiple levels of compressed packages are nested. The minimum value is 1 and the maximum value is 5. When the maximum number of decompression layers is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxLayer_ {};
-    // The decryption methods.
+    // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
-    // The suffixes of the objects that you do not want to check.
+    // The list of file suffixes to exclude from detection.
     shared_ptr<vector<string>> excludeKeySuffixList_ {};
-    // The prefixes of the objects.
+    // The prefix list of files.
     shared_ptr<vector<string>> keyPrefixList_ {};
-    // The suffixes of the objects that you want to check.
+    // The list of file suffixes.
     shared_ptr<vector<string>> keySuffixList_ {};
-    // The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
+    // Specifies that only files whose last modification time is after the specified timestamp are detected. Unit: milliseconds.
     shared_ptr<int64_t> lastModifiedStartTime_ {};
-    // The check mode. Valid values:
+    // The detection mode. Valid values:
     // 
-    // *   **1**: checks all objects in the bucket.
-    // *   **2**: checks only new objects in the bucket.
+    // - **1**: Full file detection.
+    // 
+    // - **2**: Incremental file detection.
     // 
     // This parameter is required.
     shared_ptr<int32_t> scanMode_ {};
+    // The business source. Valid values:
+    // - **OSS**: OSS
+    // - **NAS**: NAS
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

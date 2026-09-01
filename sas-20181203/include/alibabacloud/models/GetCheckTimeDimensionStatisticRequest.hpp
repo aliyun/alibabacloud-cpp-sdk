@@ -15,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetCheckTimeDimensionStatisticRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EndTimeStamp, endTimeStamp_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(StartTimeStamp, startTimeStamp_);
       DARABONBA_PTR_TO_JSON(StatisticType, statisticType_);
       DARABONBA_PTR_TO_JSON(Vendors, vendors_);
     };
     friend void from_json(const Darabonba::Json& j, GetCheckTimeDimensionStatisticRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTimeStamp, endTimeStamp_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(StartTimeStamp, startTimeStamp_);
       DARABONBA_PTR_FROM_JSON(StatisticType, statisticType_);
       DARABONBA_PTR_FROM_JSON(Vendors, vendors_);
@@ -37,12 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTimeStamp_ == nullptr
-        && this->startTimeStamp_ == nullptr && this->statisticType_ == nullptr && this->vendors_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->startTimeStamp_ == nullptr && this->statisticType_ == nullptr && this->vendors_ == nullptr; };
     // endTimeStamp Field Functions 
     bool hasEndTimeStamp() const { return this->endTimeStamp_ != nullptr;};
     void deleteEndTimeStamp() { this->endTimeStamp_ = nullptr;};
     inline int64_t getEndTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(endTimeStamp_, 0L) };
     inline GetCheckTimeDimensionStatisticRequest& setEndTimeStamp(int64_t endTimeStamp) { DARABONBA_PTR_SET_VALUE(endTimeStamp_, endTimeStamp) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetCheckTimeDimensionStatisticRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // startTimeStamp Field Functions 
@@ -71,6 +80,7 @@ namespace Models
   protected:
     // The end time in timestamp format.
     shared_ptr<int64_t> endTimeStamp_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The start time in timestamp format.
     shared_ptr<int64_t> startTimeStamp_ {};
     // The type of data statistics. Valid values:

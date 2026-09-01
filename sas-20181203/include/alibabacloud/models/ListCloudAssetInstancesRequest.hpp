@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudAssetInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CloudAssetQueryData, cloudAssetQueryData_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     ListCloudAssetInstancesRequest() = default ;
     ListCloudAssetInstancesRequest(const ListCloudAssetInstancesRequest &) = default ;
@@ -155,7 +157,7 @@ namespace Models
 
     virtual bool empty() const override { return this->cloudAssetQueryData_ == nullptr
         && this->cloudAssetTypes_ == nullptr && this->criteria_ == nullptr && this->currentPage_ == nullptr && this->isSaleData_ == nullptr && this->logicalExp_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // cloudAssetQueryData Field Functions 
     bool hasCloudAssetQueryData() const { return this->cloudAssetQueryData_ != nullptr;};
     void deleteCloudAssetQueryData() { this->cloudAssetQueryData_ = nullptr;};
@@ -216,6 +218,13 @@ namespace Models
     inline ListCloudAssetInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ListCloudAssetInstancesRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
   protected:
     // The data list queried by keyword.
     shared_ptr<vector<ListCloudAssetInstancesRequest::CloudAssetQueryData>> cloudAssetQueryData_ {};
@@ -241,6 +250,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

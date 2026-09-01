@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContainerIds, containerIds_);
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(MultiAccountActionType, multiAccountActionType_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEventLevelCountRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ContainerIds, containerIds_);
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(MultiAccountActionType, multiAccountActionType_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
     };
     DescribeEventLevelCountRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
         && this->containerFieldName_ == nullptr && this->containerFieldValue_ == nullptr && this->containerIds_ == nullptr && this->from_ == nullptr && this->multiAccountActionType_ == nullptr
-        && this->targetType_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->targetType_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline DescribeEventLevelCountRequest& setMultiAccountActionType(int32_t multiAccountActionType) { DARABONBA_PTR_SET_VALUE(multiAccountActionType_, multiAccountActionType) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeEventLevelCountRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
@@ -124,6 +133,7 @@ namespace Models
     // *   **0**: the current account.
     // *   **1**: all accounts.
     shared_ptr<int32_t> multiAccountActionType_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of the query condition. Valid values:
     // 
     // *   **containerId**: the ID of the container

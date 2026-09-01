@@ -13,6 +13,7 @@ namespace Models
   class CreateCycleTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCycleTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Enable, enable_);
       DARABONBA_PTR_TO_JSON(FirstDateStr, firstDateStr_);
       DARABONBA_PTR_TO_JSON(IntervalPeriod, intervalPeriod_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCycleTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
       DARABONBA_PTR_FROM_JSON(FirstDateStr, firstDateStr_);
       DARABONBA_PTR_FROM_JSON(IntervalPeriod, intervalPeriod_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->enable_ == nullptr
-        && this->firstDateStr_ == nullptr && this->intervalPeriod_ == nullptr && this->param_ == nullptr && this->periodUnit_ == nullptr && this->source_ == nullptr
-        && this->targetEndTime_ == nullptr && this->targetStartTime_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->enable_ == nullptr && this->firstDateStr_ == nullptr && this->intervalPeriod_ == nullptr && this->param_ == nullptr && this->periodUnit_ == nullptr
+        && this->source_ == nullptr && this->targetEndTime_ == nullptr && this->targetStartTime_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateCycleTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
@@ -121,53 +130,51 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to enable the task. Valid values:
-    // 
-    // *   **1**: yes
-    // *   **0**: no
+    // - **1**: enabled.
+    // - **0**: disabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> enable_ {};
-    // The first time when the task is performed.
+    // The first execution time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> firstDateStr_ {};
-    // The interval of the task.
+    // The interval period.
     // 
     // This parameter is required.
     shared_ptr<int32_t> intervalPeriod_ {};
-    // The additional information.
+    // The extended information field.
     shared_ptr<string> param_ {};
     // The unit of the scan interval. Valid values:
-    // 
-    // *   **day**: days
-    // *   **hour**: hours
+    // - **day**: day.
+    // - **hour**: hour.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The additional source for the task.
+    // The source from which the task is added.
     shared_ptr<string> source_ {};
-    // The time when the task ends. Unit: hours.
+    // The task end time, in hours.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetEndTime_ {};
-    // The time when the task is started. Unit: hours.
+    // The task start time, in hours.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetStartTime_ {};
-    // The name of the task. Valid values:
-    // 
-    // *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-    // *   **IMAGE_SCAN**: image scan task
-    // *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+    // The task name. Valid values:
+    // - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+    // - **IMAGE_SCAN**: image scan.
+    // - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The type of the task. Valid values:
-    // 
-    // *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-    // *   **IMAGE_SCAN**: image scan task
-    // *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+    // The task type. Valid values:
+    // - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+    // - **IMAGE_SCAN**: image scan.
+    // - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

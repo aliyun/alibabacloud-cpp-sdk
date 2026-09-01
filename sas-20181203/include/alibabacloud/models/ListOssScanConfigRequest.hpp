@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
     };
     friend void from_json(const Darabonba::Json& j, ListOssScanConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
     };
     ListOssScanConfigRequest() = default ;
     ListOssScanConfigRequest(const ListOssScanConfigRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->name_ == nullptr && this->pageSize_ == nullptr; };
+        && this->name_ == nullptr && this->pageSize_ == nullptr && this->source_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -56,13 +58,24 @@ namespace Models
     inline ListOssScanConfigRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ListOssScanConfigRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
   protected:
-    // The page number.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // The business source. Valid values:
+    // - **OSS**: OSS
+    // - **NAS**: NAS
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

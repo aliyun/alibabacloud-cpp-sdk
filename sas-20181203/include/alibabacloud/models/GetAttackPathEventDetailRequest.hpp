@@ -62,11 +62,11 @@ namespace Models
     shared_ptr<int64_t> eventId_ {};
     // The data source. Default value: **default**. Valid values:
     // - **caasm**: attack surface
-    // - **default**: attack path.
+    // - **default**: attack path
     shared_ptr<string> eventSource_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

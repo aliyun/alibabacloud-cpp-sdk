@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const OperationSuspEventsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(Operation, operation_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(SubOperation, subOperation_);
       DARABONBA_PTR_TO_JSON(SuspiciousEventIds, suspiciousEventIds_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, OperationSuspEventsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(Operation, operation_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(SubOperation, subOperation_);
       DARABONBA_PTR_FROM_JSON(SuspiciousEventIds, suspiciousEventIds_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && this->operation_ == nullptr && this->sourceIp_ == nullptr && this->subOperation_ == nullptr && this->suspiciousEventIds_ == nullptr && this->warnType_ == nullptr; };
+        && this->operation_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->sourceIp_ == nullptr && this->subOperation_ == nullptr && this->suspiciousEventIds_ == nullptr
+        && this->warnType_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteOperation() { this->operation_ = nullptr;};
     inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline OperationSuspEventsRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline OperationSuspEventsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
@@ -98,6 +108,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // The sub-operation type to perform when quarantining the alert event. Valid values:

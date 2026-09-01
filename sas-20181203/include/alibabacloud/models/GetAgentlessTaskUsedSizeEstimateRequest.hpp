@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Asset selection identifier.
+    // The asset selection identifier.
     // 
     // This parameter is required.
     shared_ptr<string> assetSelectionType_ {};

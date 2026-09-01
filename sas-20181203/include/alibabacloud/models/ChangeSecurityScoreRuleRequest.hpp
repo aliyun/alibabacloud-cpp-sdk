@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChangeSecurityScoreRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CalType, calType_);
       DARABONBA_PTR_TO_JSON(ResetSecurityScoreRule, resetSecurityScoreRule_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SecurityScoreCategoryList, securityScoreCategoryList_);
       DARABONBA_PTR_TO_JSON(SecurityScoreRuleList, securityScoreRuleList_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeSecurityScoreRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalType, calType_);
       DARABONBA_PTR_FROM_JSON(ResetSecurityScoreRule, resetSecurityScoreRule_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SecurityScoreCategoryList, securityScoreCategoryList_);
       DARABONBA_PTR_FROM_JSON(SecurityScoreRuleList, securityScoreRuleList_);
     };
@@ -392,7 +394,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->calType_ == nullptr
-        && this->resetSecurityScoreRule_ == nullptr && this->securityScoreCategoryList_ == nullptr && this->securityScoreRuleList_ == nullptr; };
+        && this->resetSecurityScoreRule_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->securityScoreCategoryList_ == nullptr && this->securityScoreRuleList_ == nullptr; };
     // calType Field Functions 
     bool hasCalType() const { return this->calType_ != nullptr;};
     void deleteCalType() { this->calType_ = nullptr;};
@@ -405,6 +407,13 @@ namespace Models
     void deleteResetSecurityScoreRule() { this->resetSecurityScoreRule_ = nullptr;};
     inline bool getResetSecurityScoreRule() const { DARABONBA_PTR_GET_DEFAULT(resetSecurityScoreRule_, false) };
     inline ChangeSecurityScoreRuleRequest& setResetSecurityScoreRule(bool resetSecurityScoreRule) { DARABONBA_PTR_SET_VALUE(resetSecurityScoreRule_, resetSecurityScoreRule) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ChangeSecurityScoreRuleRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // securityScoreCategoryList Field Functions 
@@ -433,6 +442,7 @@ namespace Models
     // *   true: yes
     // *   false: no
     shared_ptr<bool> resetSecurityScoreRule_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The information about the new version of the security score rule.
     shared_ptr<vector<ChangeSecurityScoreRuleRequest::SecurityScoreCategoryList>> securityScoreCategoryList_ {};
     // The information about the old version of the security score rule.

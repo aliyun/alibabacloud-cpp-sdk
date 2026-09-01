@@ -144,38 +144,35 @@ namespace Models
     protected:
       // Indicates whether automatic upgrade is enabled. Valid values:
       // 
-      // *   **1**: yes.
-      // *   **0**: no.
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int32_t> autoUpgrade_ {};
-      // Indicates whether you can enable custom upgrade for the Security Center agent. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the current user supports custom upgrades in Security Center. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> bigCustomer_ {};
-      // The version of the Security Center agent.
+      // The current version.
       shared_ptr<string> curVersion_ {};
-      // The timestamp when the Security Center agent was forcibly upgraded.
+      // The timestamp for the forced client upgrade.
       shared_ptr<int64_t> forceUpgradeTime_ {};
       // Indicates whether the canary release policy is enabled. Valid values:
-      // 
-      // *   **1**: yes.
-      // *   .**0**: no.
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int32_t> graySwitchStatus_ {};
-      // The latest version of the Security Center agent.
+      // The latest client version number.
       shared_ptr<string> latestVersion_ {};
-      // The timestamp when the latest version of the Security Center agent was created.
+      // The timestamp when the latest client version was created.
       shared_ptr<int64_t> latestVersionCreate_ {};
-      // The description of about the latest version.
+      // The description of the latest version.
       shared_ptr<string> latestVersionDesc_ {};
-      // The publish status of the Security Center agent. Valid values:
-      // 
-      // *   **0**: not started.
-      // *   **1**: publishing.
-      // *   **2**: published.
-      // *   **3**: publish suspended.
-      // *   **4**: forcibly upgrading.
+      // The release status of the current version. Valid values:
+      // - **0**: Not started.
+      // - **1**: Being released.
+      // - **2**: Release completed.
+      // - **3**: Release paused.
+      // - **4**: Forced upgrade in progress.
       shared_ptr<int32_t> publishStatus_ {};
-      // The destination version of the Security Center agent.
+      // The target version to upgrade to.
       shared_ptr<string> upgradeVersion_ {};
     };
 
@@ -198,9 +195,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The data details.
     shared_ptr<GetCurrentVersionPublishResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

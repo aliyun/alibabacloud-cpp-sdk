@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCLUSTERINTERCEPTIONCONFIGREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTCLUSTERINTERCEPTIONCONFIGREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(ExcludeClusterTypes, excludeClusterTypes_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListClusterInterceptionConfigRequest& obj) { 
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(ExcludeClusterTypes, excludeClusterTypes_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
     };
     ListClusterInterceptionConfigRequest() = default ;
@@ -38,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterCNNFStatus_ == nullptr
-        && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->currentPage_ == nullptr && this->pageSize_ == nullptr; };
+        && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->currentPage_ == nullptr && this->excludeClusterTypes_ == nullptr && this->pageSize_ == nullptr; };
     // clusterCNNFStatus Field Functions 
     bool hasClusterCNNFStatus() const { return this->clusterCNNFStatus_ != nullptr;};
     void deleteClusterCNNFStatus() { this->clusterCNNFStatus_ = nullptr;};
@@ -67,6 +70,15 @@ namespace Models
     inline ListClusterInterceptionConfigRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
+    // excludeClusterTypes Field Functions 
+    bool hasExcludeClusterTypes() const { return this->excludeClusterTypes_ != nullptr;};
+    void deleteExcludeClusterTypes() { this->excludeClusterTypes_ = nullptr;};
+    inline const vector<string> & getExcludeClusterTypes() const { DARABONBA_PTR_GET_CONST(excludeClusterTypes_, vector<string>) };
+    inline vector<string> getExcludeClusterTypes() { DARABONBA_PTR_GET(excludeClusterTypes_, vector<string>) };
+    inline ListClusterInterceptionConfigRequest& setExcludeClusterTypes(const vector<string> & excludeClusterTypes) { DARABONBA_PTR_SET_VALUE(excludeClusterTypes_, excludeClusterTypes) };
+    inline ListClusterInterceptionConfigRequest& setExcludeClusterTypes(vector<string> && excludeClusterTypes) { DARABONBA_PTR_SET_RVALUE(excludeClusterTypes_, excludeClusterTypes) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -79,7 +91,7 @@ namespace Models
     // - **-1**: unknown
     // - **0**: abnormal
     // - **1**: normal
-    // - **2**: normal pending confirmation.
+    // - **2**: normal pending confirmation
     shared_ptr<int32_t> clusterCNNFStatus_ {};
     // The ID of the container cluster.
     // >You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to obtain this parameter.
@@ -88,7 +100,9 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The page number of the page to return. Default value: 1, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of entries per page in a paged query. Default value: 20.
+    // The list of excluded cluster types.
+    shared_ptr<vector<string>> excludeClusterTypes_ {};
+    // The maximum number of entries per page in a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

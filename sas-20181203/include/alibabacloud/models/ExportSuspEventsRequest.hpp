@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ParentEventTypes, parentEventTypes_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ParentEventTypes, parentEventTypes_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
@@ -78,8 +80,8 @@ namespace Models
         && this->clusterId_ == nullptr && this->containerFieldName_ == nullptr && this->containerFieldValue_ == nullptr && this->currentPage_ == nullptr && this->dealed_ == nullptr
         && this->from_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->lang_ == nullptr && this->levels_ == nullptr
         && this->name_ == nullptr && this->operateErrorCodeList_ == nullptr && this->pageSize_ == nullptr && this->parentEventTypes_ == nullptr && this->remark_ == nullptr
-        && this->sourceIp_ == nullptr && this->status_ == nullptr && this->targetType_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr
-        && this->uniqueInfo_ == nullptr && this->uuid_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->sourceIp_ == nullptr && this->status_ == nullptr && this->targetType_ == nullptr && this->timeEnd_ == nullptr
+        && this->timeStart_ == nullptr && this->uniqueInfo_ == nullptr && this->uuid_ == nullptr; };
     // assetsTypeList Field Functions 
     bool hasAssetsTypeList() const { return this->assetsTypeList_ != nullptr;};
     void deleteAssetsTypeList() { this->assetsTypeList_ = nullptr;};
@@ -194,6 +196,13 @@ namespace Models
     void deleteRemark() { this->remark_ = nullptr;};
     inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline ExportSuspEventsRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ExportSuspEventsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
@@ -327,6 +336,7 @@ namespace Models
     shared_ptr<string> parentEventTypes_ {};
     // The remarks.
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The source IP address of the request. The value of this parameter is specified by the system.
     shared_ptr<string> sourceIp_ {};
     // The handling status of the exception. Valid values:

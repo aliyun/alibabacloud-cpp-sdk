@@ -14,11 +14,13 @@ namespace Models
   class DescribeVulCheckTaskStatusDetailRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVulCheckTaskStatusDetailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(TaskIds, taskIds_);
       DARABONBA_PTR_TO_JSON(Types, types_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVulCheckTaskStatusDetailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(TaskIds, taskIds_);
       DARABONBA_PTR_FROM_JSON(Types, types_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->taskIds_ == nullptr
-        && this->types_ == nullptr && this->uuid_ == nullptr; };
+    virtual bool empty() const override { return this->resourceDirectoryAccountId_ == nullptr
+        && this->taskIds_ == nullptr && this->types_ == nullptr && this->uuid_ == nullptr; };
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeVulCheckTaskStatusDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
@@ -62,6 +71,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The task IDs.
     shared_ptr<vector<string>> taskIds_ {};
     // The types of the vulnerabilities that are detected by the tasks.

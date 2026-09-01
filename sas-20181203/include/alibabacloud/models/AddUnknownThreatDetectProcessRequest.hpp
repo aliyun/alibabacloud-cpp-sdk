@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AddUnknownThreatDetectProcessRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EventIdList, eventIdList_);
+      DARABONBA_PTR_TO_JSON(HandleRemark, handleRemark_);
       DARABONBA_PTR_TO_JSON(ProcessList, processList_);
       DARABONBA_PTR_TO_JSON(UuidList, uuidList_);
     };
     friend void from_json(const Darabonba::Json& j, AddUnknownThreatDetectProcessRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventIdList, eventIdList_);
+      DARABONBA_PTR_FROM_JSON(HandleRemark, handleRemark_);
       DARABONBA_PTR_FROM_JSON(ProcessList, processList_);
       DARABONBA_PTR_FROM_JSON(UuidList, uuidList_);
     };
@@ -90,18 +92,18 @@ namespace Models
 
 
     protected:
-      // The MD5 hash of the process file.
+      // The MD5 hash of the process.
       shared_ptr<string> md5_ {};
-      // The path to the process executable.
+      // The process path.
       shared_ptr<string> processPath_ {};
-      // A remark for the process.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // The SHA-256 hash of the process file.
+      // The SHA-256 hash of the process.
       shared_ptr<string> sha256_ {};
     };
 
     virtual bool empty() const override { return this->eventIdList_ == nullptr
-        && this->processList_ == nullptr && this->uuidList_ == nullptr; };
+        && this->handleRemark_ == nullptr && this->processList_ == nullptr && this->uuidList_ == nullptr; };
     // eventIdList Field Functions 
     bool hasEventIdList() const { return this->eventIdList_ != nullptr;};
     void deleteEventIdList() { this->eventIdList_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
     inline vector<int64_t> getEventIdList() { DARABONBA_PTR_GET(eventIdList_, vector<int64_t>) };
     inline AddUnknownThreatDetectProcessRequest& setEventIdList(const vector<int64_t> & eventIdList) { DARABONBA_PTR_SET_VALUE(eventIdList_, eventIdList) };
     inline AddUnknownThreatDetectProcessRequest& setEventIdList(vector<int64_t> && eventIdList) { DARABONBA_PTR_SET_RVALUE(eventIdList_, eventIdList) };
+
+
+    // handleRemark Field Functions 
+    bool hasHandleRemark() const { return this->handleRemark_ != nullptr;};
+    void deleteHandleRemark() { this->handleRemark_ = nullptr;};
+    inline string getHandleRemark() const { DARABONBA_PTR_GET_DEFAULT(handleRemark_, "") };
+    inline AddUnknownThreatDetectProcessRequest& setHandleRemark(string handleRemark) { DARABONBA_PTR_SET_VALUE(handleRemark_, handleRemark) };
 
 
     // processList Field Functions 
@@ -130,11 +139,12 @@ namespace Models
 
 
   protected:
-    // A list of associated event IDs.
+    // The list of specified event IDs.
     shared_ptr<vector<int64_t>> eventIdList_ {};
-    // The list of processes to add.
+    shared_ptr<string> handleRemark_ {};
+    // The list of processes.
     shared_ptr<vector<AddUnknownThreatDetectProcessRequest::ProcessList>> processList_ {};
-    // The UUIDs of assets on which the processes are located.
+    // The list of asset UUIDs for which processes are to be added.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

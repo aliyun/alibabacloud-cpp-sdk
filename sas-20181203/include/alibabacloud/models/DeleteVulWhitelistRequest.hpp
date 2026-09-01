@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteVulWhitelistRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Whitelist, whitelist_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteVulWhitelistRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Whitelist, whitelist_);
     };
     DeleteVulWhitelistRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->whitelist_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->whitelist_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline DeleteVulWhitelistRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DeleteVulWhitelistRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // whitelist Field Functions 
@@ -51,6 +60,7 @@ namespace Models
     // The ID of the vulnerability whitelist.
     // > To delete a vulnerability whitelist, provide the vulnerability whitelist ID. You can obtain this ID by calling the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation.
     shared_ptr<string> id_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The vulnerability whitelist information to delete. The value is a JSON string that contains the following fields:
     // 
     // - **Name**: The name of the vulnerability.

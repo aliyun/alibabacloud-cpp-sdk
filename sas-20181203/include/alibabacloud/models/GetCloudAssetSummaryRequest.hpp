@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetCloudAssetSummaryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_TO_JSON(IsSaleData, isSaleData_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Vendors, vendors_);
     };
     friend void from_json(const Darabonba::Json& j, GetCloudAssetSummaryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_FROM_JSON(IsSaleData, isSaleData_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Vendors, vendors_);
     };
     GetCloudAssetSummaryRequest() = default ;
@@ -81,104 +83,103 @@ namespace Models
 
 
     protected:
-      // The subtype of the cloud service.
-      // The asset type-subtype. Valid values:
+      // The subtype of the cloud service. The value is in the format of asset type - subtype. Valid values:
       // 
-      // - **0**: Elastic Compute Service (ECS) 
-      //     *  **1**: Disk (Storage)
-      //     *  **2**: Security Group
-      //     *  **100**: Instance
-      // - **1**: Server Load Balancer
-      //     *  **0**: Server Load Balancer (SLB)
+      // - **0**: Elastic Compute Service (ECS) server
+      //     *  **1**: cloud disk (storage)
+      //     *  **2**: security group
+      //     *  **100**: instance
+      // - **1**: load balancing
+      //     *  **0**: load balancing
       //     *  **1**: Application Load Balancer (ALB)
-      // - **3**: ApsaraDB RDS
-      //     *  **0**: Instance
-      // - **4**: ApsaraDB for MongoDB
-      //     *  **0**: Instance
-      // - **5**: ApsaraDB for Tair (compatible with Redis)
-      //     *  **0**: Instance
+      // - **3**: ApsaraDB RDS database
+      //     *  **0**: instance
+      // - **4**: ApsaraDB for MongoDB database
+      //     *  **0**: instance
+      // - **5**: Tair (Redis® OSS-Compatible) database
+      //     *  **0**: instance
       // - **6**: Container Registry
       //     *  **1**: Enterprise Edition
       //     *  **2**: Personal Edition
       // - **8**: Container Service for Kubernetes (ACK)
-      //     *  **0**: Cluster
+      //     *  **0**: cluster
       // - **9**: Virtual Private Cloud (VPC)
-      //     *  **0**: NAT Gateway
+      //     *  **0**: NAT gateway
       //     *  **1**: EIP
       //     *  **2**: VPN
       //     *  **3**: FLOW_LOG
       // - **11**: ActionTrail
-      //     *  **0**: Trail
-      // - **12**: Alibaba Cloud CDN
-      //     *  **0**: Instance
+      //     *  **0**: trail
+      // - **12**: CDN
+      //     *  **0**: instance
       // - **13**: Certificate Management Service (formerly SSL Certificates Service)
-      //     *  **0**: Certificate
+      //     *  **0**: certificate
       // - **14**: Apsara Devops
-      //     *  **0**: Organization
+      //     *  **0**: organization
       // - **16**: Anti-DDoS
-      //     *  **0**: Instance
+      //     *  **0**: instance
       // - **17**: Web Application Firewall (WAF)
-      //     *  **0**: Domain name
+      //     *  **0**: domain name
       // - **18**: Object Storage Service (OSS)
       //     *  **0**: Bucket
-      // - **19**: PolarDB
-      //     *  **0**: Cluster
-      // - **20**: ApsaraDB RDS for PostgreSQL
-      //     *  **0**: Instance
+      // - **19**: cloud-native relational database PolarDB
+      //     *  **0**: cluster
+      // - **20**: ApsaraDB RDS for PostgreSQL database
+      //     *  **0**: instance
       // - **21**: Microservices Engine (MSE)
-      //     *  **0**: Cluster
+      //     *  **0**: cluster
       // - **22**: Apsara File Storage NAS
-      //     *  **0**: File system
+      //     *  **0**: file system
       // - **23**: Data Security Center (DSC)
-      //     *  **0**: Instance
+      //     *  **0**: instance
       // - **24**: Elastic IP Address (EIP)
       //     *  **0**: Anycast EIP
-      // - **25**: Identity as a Service - EIAM
-      //     *  **0**: Instance
+      // - **25**: Alibaba Cloud IDaaS EIAM
+      //     *  **0**: instance
       // - **26**: PolarDB-X
-      //     *  **0**: Instance
+      //     *  **0**: instance
       // - **27**: Elasticsearch
-      //     *  **0**: Instance
+      //     *  **0**: instance
       shared_ptr<int32_t> assetSubType_ {};
-      // The type of asset. Valid values:
+      // The type of the asset. Valid values:
       // 
-      // - **0**: Elastic Compute Service (ECS)
-      // - **1**: Server Load Balancer (SLB)
-      // - **3**: ApsaraDB RDS
-      // - **4**: ApsaraDB for MongoDB
-      // - **5**: ApsaraDB for Tair (compatible with Redis)
+      // - **0**: Elastic Compute Service (ECS) server
+      // - **1**: load balancing
+      // - **3**: ApsaraDB RDS database
+      // - **4**: ApsaraDB for MongoDB database
+      // - **5**: Tair (Redis® OSS-Compatible) database
       // - **6**: Container Registry
       // - **8**: Container Service for Kubernetes (ACK)
       // - **9**: Virtual Private Cloud (VPC)
       // - **11**: ActionTrail
-      // - **12**: Alibaba Cloud CDN
+      // - **12**: CDN
       // - **13**: Certificate Management Service (formerly SSL Certificates Service)
       // - **14**: Apsara Devops
       // - **16**: Anti-DDoS
       // - **17**: Web Application Firewall (WAF)
       // - **18**: Object Storage Service (OSS)
-      // - **19**: PolarDB
-      // - **20**: ApsaraDB RDS for PostgreSQL
+      // - **19**: cloud-native relational database PolarDB
+      // - **20**: ApsaraDB RDS for PostgreSQL database
       // - **21**: Microservices Engine (MSE)
       // - **22**: Apsara File Storage NAS
       // - **23**: Data Security Center (DSC)
       // - **24**: Elastic IP Address (EIP)
-      // - **25**: Identity as a Service - EIAM
+      // - **25**: Alibaba Cloud IDaaS EIAM
       // - **26**: PolarDB-X
       // - **27**: Elasticsearch
       shared_ptr<int32_t> assetType_ {};
-      // Server vendor. Valid values:
+      // The server vendor. Valid values:
       // 
-      // - **0**: Alibaba Cloud assets
-      // - **1**: Off-cloud assets
-      // - **2**: IDC assets
-      // - **3**, **4**, **5**, **7**: Other cloud assets
-      // - **8**: Lightweight assets
+      // - **0**: Alibaba Cloud asset
+      // - **1**: non-cloud asset
+      // - **2**: IDC asset
+      // - **3**, **4**, **5**, **7**: third-party cloud asset
+      // - **8**: lightweight asset
       shared_ptr<int32_t> vendor_ {};
     };
 
     virtual bool empty() const override { return this->cloudAssetTypes_ == nullptr
-        && this->isSaleData_ == nullptr && this->vendors_ == nullptr; };
+        && this->isSaleData_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->vendors_ == nullptr; };
     // cloudAssetTypes Field Functions 
     bool hasCloudAssetTypes() const { return this->cloudAssetTypes_ != nullptr;};
     void deleteCloudAssetTypes() { this->cloudAssetTypes_ = nullptr;};
@@ -195,6 +196,13 @@ namespace Models
     inline GetCloudAssetSummaryRequest& setIsSaleData(bool isSaleData) { DARABONBA_PTR_SET_VALUE(isSaleData_, isSaleData) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetCloudAssetSummaryRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // vendors Field Functions 
     bool hasVendors() const { return this->vendors_ != nullptr;};
     void deleteVendors() { this->vendors_ = nullptr;};
@@ -205,9 +213,13 @@ namespace Models
 
 
   protected:
-    // The list of asset type information of cloud assets.
+    // The list of asset type information for cloud assets.
     shared_ptr<vector<GetCloudAssetSummaryRequest::CloudAssetTypes>> cloudAssetTypes_ {};
+    // Specifies whether to return sale-related data. Valid values:
+    // - **true**: Returns sale-related data.
+    // - **false**: Does not return sale-related data.
     shared_ptr<bool> isSaleData_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The list of cloud vendors to query.
     shared_ptr<vector<int32_t>> vendors_ {};
   };

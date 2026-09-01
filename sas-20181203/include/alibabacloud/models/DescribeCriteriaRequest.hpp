@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCriteriaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(MachineTypes, machineTypes_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SupportAutoTag, supportAutoTag_);
       DARABONBA_PTR_TO_JSON(Value, value_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCriteriaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MachineTypes, machineTypes_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SupportAutoTag, supportAutoTag_);
       DARABONBA_PTR_FROM_JSON(Value, value_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->machineTypes_ == nullptr
-        && this->supportAutoTag_ == nullptr && this->value_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->supportAutoTag_ == nullptr && this->value_ == nullptr; };
     // machineTypes Field Functions 
     bool hasMachineTypes() const { return this->machineTypes_ != nullptr;};
     void deleteMachineTypes() { this->machineTypes_ = nullptr;};
     inline string getMachineTypes() const { DARABONBA_PTR_GET_DEFAULT(machineTypes_, "") };
     inline DescribeCriteriaRequest& setMachineTypes(string machineTypes) { DARABONBA_PTR_SET_VALUE(machineTypes_, machineTypes) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeCriteriaRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // supportAutoTag Field Functions 
@@ -61,6 +70,7 @@ namespace Models
     // 
     // *   Set the value to **ecs**, which specifies to query all Elastic Compute Service (ECS) instances.
     shared_ptr<string> machineTypes_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // Specifies whether the keyword that you specify for fuzzy search can be automatically matched. Default value: **false**. Valid values:
     // 
     // *   **true**

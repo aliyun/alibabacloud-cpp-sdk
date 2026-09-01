@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of alerting events displayed on the current page in a paged query. This parameter is used for paging.
+      // The number of alerting events displayed on the current page in a paging query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page in a paged query. This parameter is used for paging.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries displayed on each page in a paged query. This parameter is used for paging.
+      // The maximum number of entries displayed on each page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -109,6 +109,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_TO_JSON(Count, count_);
         DARABONBA_PTR_TO_JSON(FirstTime, firstTime_);
+        DARABONBA_PTR_TO_JSON(HandleRemark, handleRemark_);
         DARABONBA_PTR_TO_JSON(HandleType, handleType_);
         DARABONBA_PTR_TO_JSON(HashKey, hashKey_);
         DARABONBA_PTR_TO_JSON(Id, id_);
@@ -133,6 +134,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_FROM_JSON(Count, count_);
         DARABONBA_PTR_FROM_JSON(FirstTime, firstTime_);
+        DARABONBA_PTR_FROM_JSON(HandleRemark, handleRemark_);
         DARABONBA_PTR_FROM_JSON(HandleType, handleType_);
         DARABONBA_PTR_FROM_JSON(HashKey, hashKey_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -163,10 +165,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->analyzeDesc_ == nullptr
         && this->analyzeResult_ == nullptr && this->cmdChain_ == nullptr && this->cmdline_ == nullptr && this->count_ == nullptr && this->firstTime_ == nullptr
-        && this->handleType_ == nullptr && this->hashKey_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr
-        && this->intranetIp_ == nullptr && this->lastTime_ == nullptr && this->md5_ == nullptr && this->parentCmdline_ == nullptr && this->parentPid_ == nullptr
-        && this->parentProcessPath_ == nullptr && this->pid_ == nullptr && this->processPath_ == nullptr && this->sha256_ == nullptr && this->status_ == nullptr
-        && this->uuid_ == nullptr; };
+        && this->handleRemark_ == nullptr && this->handleType_ == nullptr && this->hashKey_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr
+        && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->lastTime_ == nullptr && this->md5_ == nullptr && this->parentCmdline_ == nullptr
+        && this->parentPid_ == nullptr && this->parentProcessPath_ == nullptr && this->pid_ == nullptr && this->processPath_ == nullptr && this->sha256_ == nullptr
+        && this->status_ == nullptr && this->uuid_ == nullptr; };
       // analyzeDesc Field Functions 
       bool hasAnalyzeDesc() const { return this->analyzeDesc_ != nullptr;};
       void deleteAnalyzeDesc() { this->analyzeDesc_ = nullptr;};
@@ -207,6 +209,13 @@ namespace Models
       void deleteFirstTime() { this->firstTime_ = nullptr;};
       inline int64_t getFirstTime() const { DARABONBA_PTR_GET_DEFAULT(firstTime_, 0L) };
       inline Data& setFirstTime(int64_t firstTime) { DARABONBA_PTR_SET_VALUE(firstTime_, firstTime) };
+
+
+      // handleRemark Field Functions 
+      bool hasHandleRemark() const { return this->handleRemark_ != nullptr;};
+      void deleteHandleRemark() { this->handleRemark_ = nullptr;};
+      inline string getHandleRemark() const { DARABONBA_PTR_GET_DEFAULT(handleRemark_, "") };
+      inline Data& setHandleRemark(string handleRemark) { DARABONBA_PTR_SET_VALUE(handleRemark_, handleRemark) };
 
 
       // handleType Field Functions 
@@ -332,6 +341,7 @@ namespace Models
       shared_ptr<int32_t> count_ {};
       // The timestamp of the first occurrence.
       shared_ptr<int64_t> firstTime_ {};
+      shared_ptr<string> handleRemark_ {};
       shared_ptr<string> handleType_ {};
       // The unique identifier of the file.
       shared_ptr<string> hashKey_ {};

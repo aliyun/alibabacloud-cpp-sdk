@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MachineTypes, machineTypes_);
       DARABONBA_PTR_TO_JSON(NoPage, noPage_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SaleVersionCheckCode, saleVersionCheckCode_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
       DARABONBA_PTR_TO_JSON(Vendors, vendors_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MachineTypes, machineTypes_);
       DARABONBA_PTR_FROM_JSON(NoPage, noPage_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SaleVersionCheckCode, saleVersionCheckCode_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
       DARABONBA_PTR_FROM_JSON(Vendors, vendors_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
         && this->fieldValue_ == nullptr && this->groupField_ == nullptr && this->lang_ == nullptr && this->machineTypes_ == nullptr && this->noPage_ == nullptr
-        && this->pageSize_ == nullptr && this->saleVersionCheckCode_ == nullptr && this->vendor_ == nullptr && this->vendors_ == nullptr; };
+        && this->pageSize_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->saleVersionCheckCode_ == nullptr && this->vendor_ == nullptr && this->vendors_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline DescribeGroupedInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeGroupedInstancesRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // saleVersionCheckCode Field Functions 
     bool hasSaleVersionCheckCode() const { return this->saleVersionCheckCode_ != nullptr;};
     void deleteSaleVersionCheckCode() { this->saleVersionCheckCode_ = nullptr;};
@@ -145,6 +154,7 @@ namespace Models
     shared_ptr<bool> noPage_ {};
     // The number of entries per page in a paginated query. Default value: **20**, indicating that 20 entries of asset information are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The edition filter for querying assets. Valid values:
     // 
     // - **sas_gte_advanced**: Advanced edition or higher

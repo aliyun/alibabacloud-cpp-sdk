@@ -95,7 +95,7 @@ namespace Models
     // The status code of the binding result. Valid values:
     // 
     // - **0**: Succeeded.
-    // - **1**: Invalid parameters.
+    // - **1**: Parameter error.
     // - **2**: Insufficient server authorization quota.
     // - **3**: Insufficient server core authorization quota.
     shared_ptr<int32_t> resultCode_ {};

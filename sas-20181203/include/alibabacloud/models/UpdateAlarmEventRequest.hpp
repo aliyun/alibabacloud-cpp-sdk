@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlarmEventIdList, alarmEventIdList_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(OperationCode, operationCode_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAlarmEventRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AlarmEventIdList, alarmEventIdList_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(OperationCode, operationCode_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     UpdateAlarmEventRequest() = default ;
     UpdateAlarmEventRequest(const UpdateAlarmEventRequest &) = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alarmEventIdList_ == nullptr
-        && this->lang_ == nullptr && this->operationCode_ == nullptr; };
+        && this->lang_ == nullptr && this->operationCode_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // alarmEventIdList Field Functions 
     bool hasAlarmEventIdList() const { return this->alarmEventIdList_ != nullptr;};
     void deleteAlarmEventIdList() { this->alarmEventIdList_ = nullptr;};
@@ -59,6 +61,13 @@ namespace Models
     inline UpdateAlarmEventRequest& setOperationCode(string operationCode) { DARABONBA_PTR_SET_VALUE(operationCode_, operationCode) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline UpdateAlarmEventRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
   protected:
     // The IDs of the alert events.
     shared_ptr<vector<int64_t>> alarmEventIdList_ {};
@@ -73,6 +82,7 @@ namespace Models
     // *   **ignore**: igore the alert events.
     // *   **cancel_ignore**: remove the alert events from the whitelist.
     shared_ptr<string> operationCode_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

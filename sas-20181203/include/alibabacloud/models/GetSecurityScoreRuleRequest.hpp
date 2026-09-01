@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetSecurityScoreRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CalType, calType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, GetSecurityScoreRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalType, calType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     GetSecurityScoreRuleRequest() = default ;
     GetSecurityScoreRuleRequest(const GetSecurityScoreRuleRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calType_ == nullptr
-        && this->lang_ == nullptr; };
+        && this->lang_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // calType Field Functions 
     bool hasCalType() const { return this->calType_ != nullptr;};
     void deleteCalType() { this->calType_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline GetSecurityScoreRuleRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetSecurityScoreRuleRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
   protected:
     // Specifies whether to query the new or legacy security score rules. If the value is **home_security_score**, the new security score rules are queried. Otherwise, the legacy security score rules are queried by default.
     shared_ptr<string> calType_ {};
@@ -54,6 +63,7 @@ namespace Models
     // - **zh**: Chinese
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

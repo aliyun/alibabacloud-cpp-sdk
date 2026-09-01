@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp when the root task ends. Unit: milliseconds.
     shared_ptr<int64_t> endTimeQuery_ {};
-    // The number of client tasks per page in a paged query. Default value: **20**.
+    // Settings for the number of client tasks on each page in a paged query. Default value: **20**, which indicates that each page contains 20 client tasks.
     shared_ptr<int32_t> pageSize_ {};
     // The root task ID.
     // > **TaskType** and **RootTaskId** cannot both be empty.
@@ -125,6 +125,7 @@ namespace Models
     // - **CLIENT_PROBLEM_CHECK**: client node
     // - **CLIENT_DEV_OPS**: cloud O&M node
     // - **ASSET_SECURITY_CHECK**: asset information collection node
+    // - **ASSET_REFRESH_HOST**: host asset synchronization node
     // > **TaskType** and **RootTaskId** cannot both be empty.
     shared_ptr<string> taskType_ {};
   };

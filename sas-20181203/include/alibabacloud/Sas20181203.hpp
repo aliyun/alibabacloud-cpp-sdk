@@ -21,7 +21,7 @@ namespace Sas20181203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Select an operation for assets.
+       * @summary Adds assets to an asset selection operation.
        *
        * @param request AddAssetSelectionCriteriaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Sas20181203
       Models::AddAssetSelectionCriteriaResponse addAssetSelectionCriteriaWithOptions(const Models::AddAssetSelectionCriteriaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Select an operation for assets.
+       * @summary Adds assets to an asset selection operation.
        *
        * @param request AddAssetSelectionCriteriaRequest
        * @return AddAssetSelectionCriteriaResponse
@@ -55,7 +55,7 @@ namespace Sas20181203
       Models::AddBaselineCheckWhiteRecordResponse addBaselineCheckWhiteRecord(const Models::AddBaselineCheckWhiteRecordRequest &request);
 
       /**
-       * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+       * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
        *
        * @param request AddCheckInstanceResultWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Sas20181203
       Models::AddCheckInstanceResultWhiteListResponse addCheckInstanceResultWhiteListWithOptions(const Models::AddCheckInstanceResultWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+       * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
        *
        * @param request AddCheckInstanceResultWhiteListRequest
        * @return AddCheckInstanceResultWhiteListResponse
@@ -72,7 +72,7 @@ namespace Sas20181203
       Models::AddCheckInstanceResultWhiteListResponse addCheckInstanceResultWhiteList(const Models::AddCheckInstanceResultWhiteListRequest &request);
 
       /**
-       * @summary Adds the check items of the configuration assessment feature to the whitelist.
+       * @summary Adds check items to the whitelist for cloud platform configuration checks.
        *
        * @param request AddCheckResultWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Sas20181203
       Models::AddCheckResultWhiteListResponse addCheckResultWhiteListWithOptions(const Models::AddCheckResultWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds the check items of the configuration assessment feature to the whitelist.
+       * @summary Adds check items to the whitelist for cloud platform configuration checks.
        *
        * @param request AddCheckResultWhiteListRequest
        * @return AddCheckResultWhiteListResponse
@@ -89,7 +89,7 @@ namespace Sas20181203
       Models::AddCheckResultWhiteListResponse addCheckResultWhiteList(const Models::AddCheckResultWhiteListRequest &request);
 
       /**
-       * @summary Create a custom defense rule.
+       * @summary Creates a user-defined defense rule.
        *
        * @param request AddClientUserDefineRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Sas20181203
       Models::AddClientUserDefineRuleResponse addClientUserDefineRuleWithOptions(const Models::AddClientUserDefineRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a custom defense rule.
+       * @summary Creates a user-defined defense rule.
        *
        * @param request AddClientUserDefineRuleRequest
        * @return AddClientUserDefineRuleResponse
@@ -386,7 +386,7 @@ namespace Sas20181203
       Models::AddUninstallClientsByUuidsResponse addUninstallClientsByUuids(const Models::AddUninstallClientsByUuidsRequest &request);
 
       /**
-       * @summary Adds one or more processes for intelligent behavior analysis.
+       * @summary Adds processes for intelligent behavior analytics.
        *
        * @param request AddUnknownThreatDetectProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -395,7 +395,7 @@ namespace Sas20181203
       Models::AddUnknownThreatDetectProcessResponse addUnknownThreatDetectProcessWithOptions(const Models::AddUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more processes for intelligent behavior analysis.
+       * @summary Adds processes for intelligent behavior analytics.
        *
        * @param request AddUnknownThreatDetectProcessRequest
        * @return AddUnknownThreatDetectProcessResponse
@@ -573,7 +573,7 @@ namespace Sas20181203
       Models::ChangeAssetRefreshTaskConfigResponse changeAssetRefreshTaskConfig(const Models::ChangeAssetRefreshTaskConfigRequest &request);
 
       /**
-       * @summary Modifies the configuration items of the configuration assessment feature.
+       * @summary Modifies the configuration of a cloud platform configuration check.
        *
        * @param tmpReq ChangeCheckConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +582,7 @@ namespace Sas20181203
       Models::ChangeCheckConfigResponse changeCheckConfigWithOptions(const Models::ChangeCheckConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration items of the configuration assessment feature.
+       * @summary Modifies the configuration of a cloud platform configuration check.
        *
        * @param request ChangeCheckConfigRequest
        * @return ChangeCheckConfigResponse
@@ -605,6 +605,23 @@ namespace Sas20181203
        * @return ChangeCheckCustomConfigResponse
        */
       Models::ChangeCheckCustomConfigResponse changeCheckCustomConfig(const Models::ChangeCheckCustomConfigRequest &request);
+
+      /**
+       * @summary Modifies the configuration instance of a check scope.
+       *
+       * @param request ChangeCheckScopeConfigInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeCheckScopeConfigInstanceResponse
+       */
+      Models::ChangeCheckScopeConfigInstanceResponse changeCheckScopeConfigInstanceWithOptions(const Models::ChangeCheckScopeConfigInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the configuration instance of a check scope.
+       *
+       * @param request ChangeCheckScopeConfigInstanceRequest
+       * @return ChangeCheckScopeConfigInstanceResponse
+       */
+      Models::ChangeCheckScopeConfigInstanceResponse changeCheckScopeConfigInstance(const Models::ChangeCheckScopeConfigInstanceRequest &request);
 
       /**
        * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
@@ -779,7 +796,7 @@ namespace Sas20181203
       Models::CreateAntiBruteForceRuleResponse createAntiBruteForceRule(const Models::CreateAntiBruteForceRuleRequest &request);
 
       /**
-       * @summary Create asset selection configurations.
+       * @summary Creates an asset selection configuration.
        *
        * @param request CreateAssetSelectionConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,7 +805,7 @@ namespace Sas20181203
       Models::CreateAssetSelectionConfigResponse createAssetSelectionConfigWithOptions(const Models::CreateAssetSelectionConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create asset selection configurations.
+       * @summary Creates an asset selection configuration.
        *
        * @param request CreateAssetSelectionConfigRequest
        * @return CreateAssetSelectionConfigResponse
@@ -1000,7 +1017,7 @@ namespace Sas20181203
       Models::CreateCustomizedDictResponse createCustomizedDict(const Models::CreateCustomizedDictRequest &request);
 
       /**
-       * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+       * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
        *
        * @param request CreateCycleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1026,7 @@ namespace Sas20181203
       Models::CreateCycleTaskResponse createCycleTaskWithOptions(const Models::CreateCycleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+       * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
        *
        * @param request CreateCycleTaskRequest
        * @return CreateCycleTaskResponse
@@ -1038,22 +1055,20 @@ namespace Sas20181203
       Models::CreateDynamicDictResponse createDynamicDict(const Models::CreateDynamicDictRequest &request);
 
       /**
-       * @summary Submits a file to the cloud for detection.
+       * @summary Pushes a file to the cloud for detection.
        *
-       * @description Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-       * ### File submission methods
-       * Submit a file by either pre-uploading it or providing a download link.
-       * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-       * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-       * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-       * ### Unique identifier
-       * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-       * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-       * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-       * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-       * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-       * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-       * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+       * @description Pushes a file to the cloud for detection.
+       * ### File upload methods
+       * Two file upload methods are supported: pre-upload and download URL.
+       * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+       * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+       * ### File unique identifier
+       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+       * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+       * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+       * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+       * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+       * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
        *
        * @param request CreateFileDetectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1062,22 +1077,20 @@ namespace Sas20181203
       Models::CreateFileDetectResponse createFileDetectWithOptions(const Models::CreateFileDetectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a file to the cloud for detection.
+       * @summary Pushes a file to the cloud for detection.
        *
-       * @description Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-       * ### File submission methods
-       * Submit a file by either pre-uploading it or providing a download link.
-       * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-       * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-       * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-       * ### Unique identifier
-       * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-       * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-       * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-       * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-       * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-       * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-       * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+       * @description Pushes a file to the cloud for detection.
+       * ### File upload methods
+       * Two file upload methods are supported: pre-upload and download URL.
+       * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+       * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+       * ### File unique identifier
+       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+       * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+       * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+       * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+       * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+       * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
        *
        * @param request CreateFileDetectRequest
        * @return CreateFileDetectResponse
@@ -1475,7 +1488,7 @@ namespace Sas20181203
       Models::CreateOrUpdateDingTalkResponse createOrUpdateDingTalk(const Models::CreateOrUpdateDingTalkRequest &request);
 
       /**
-       * @summary Creates a bucket check task.
+       * @summary Creates a bucket detection task.
        *
        * @param request CreateOssBucketScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1484,7 +1497,7 @@ namespace Sas20181203
       Models::CreateOssBucketScanTaskResponse createOssBucketScanTaskWithOptions(const Models::CreateOssBucketScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a bucket check task.
+       * @summary Creates a bucket detection task.
        *
        * @param request CreateOssBucketScanTaskRequest
        * @return CreateOssBucketScanTaskResponse
@@ -1492,7 +1505,9 @@ namespace Sas20181203
       Models::CreateOssBucketScanTaskResponse createOssBucketScanTask(const Models::CreateOssBucketScanTaskRequest &request);
 
       /**
-       * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+       * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+       *
+       * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
        *
        * @param request CreateOssScanConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1501,7 +1516,9 @@ namespace Sas20181203
       Models::CreateOssScanConfigResponse createOssScanConfigWithOptions(const Models::CreateOssScanConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+       * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+       *
+       * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
        *
        * @param request CreateOssScanConfigRequest
        * @return CreateOssScanConfigResponse
@@ -1547,7 +1564,7 @@ namespace Sas20181203
       Models::CreateRestoreJobResponse createRestoreJob(const Models::CreateRestoreJobRequest &request);
 
       /**
-       * @summary Applies for a trial of Security Center.
+       * @summary Starts a trial of Security Center.
        *
        * @param tmpReq CreateSasTrialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1556,7 +1573,7 @@ namespace Sas20181203
       Models::CreateSasTrialResponse createSasTrialWithOptions(const Models::CreateSasTrialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for a trial of Security Center.
+       * @summary Starts a trial of Security Center.
        *
        * @param request CreateSasTrialRequest
        * @return CreateSasTrialResponse
@@ -1612,7 +1629,7 @@ namespace Sas20181203
       Models::CreateServiceTrailResponse createServiceTrail(const Models::CreateServiceTrailRequest &request);
 
       /**
-       * @summary Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+       * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
        *
        * @param request CreateSimilarSecurityEventsQueryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1621,7 +1638,7 @@ namespace Sas20181203
       Models::CreateSimilarSecurityEventsQueryTaskResponse createSimilarSecurityEventsQueryTaskWithOptions(const Models::CreateSimilarSecurityEventsQueryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+       * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
        *
        * @param request CreateSimilarSecurityEventsQueryTaskRequest
        * @return CreateSimilarSecurityEventsQueryTaskResponse
@@ -1701,7 +1718,7 @@ namespace Sas20181203
       Models::CreateUniRestorePlanResponse createUniRestorePlan(const Models::CreateUniRestorePlanRequest &request);
 
       /**
-       * @summary Creates an intelligent behavior analysis strategy.
+       * @summary Creates an intelligent behavior analytics policy.
        *
        * @param request CreateUnknownThreatDetectStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1710,7 +1727,7 @@ namespace Sas20181203
       Models::CreateUnknownThreatDetectStrategyResponse createUnknownThreatDetectStrategyWithOptions(const Models::CreateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an intelligent behavior analysis strategy.
+       * @summary Creates an intelligent behavior analytics policy.
        *
        * @param request CreateUnknownThreatDetectStrategyRequest
        * @return CreateUnknownThreatDetectStrategyResponse
@@ -1735,7 +1752,7 @@ namespace Sas20181203
       Models::CreateUserSettingResponse createUserSetting(const Models::CreateUserSettingRequest &request);
 
       /**
-       * @summary Creates a one-time virus scan task that is immediately executed.
+       * @summary Creates a one-time virus scan task.
        *
        * @param request CreateVirusScanOnceTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1744,7 +1761,7 @@ namespace Sas20181203
       Models::CreateVirusScanOnceTaskResponse createVirusScanOnceTaskWithOptions(const Models::CreateVirusScanOnceTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a one-time virus scan task that is immediately executed.
+       * @summary Creates a one-time virus scan task.
        *
        * @param request CreateVirusScanOnceTaskRequest
        * @return CreateVirusScanOnceTaskResponse
@@ -3635,9 +3652,9 @@ namespace Sas20181203
       Models::DescribeClientProblemTypeResponse describeClientProblemType(const Models::DescribeClientProblemTypeRequest &request);
 
       /**
-       * @summary Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+       * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
        *
        * @param request DescribeCloudCenterInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3646,9 +3663,9 @@ namespace Sas20181203
       Models::DescribeCloudCenterInstancesResponse describeCloudCenterInstancesWithOptions(const Models::DescribeCloudCenterInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+       * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
        *
        * @param request DescribeCloudCenterInstancesRequest
        * @return DescribeCloudCenterInstancesResponse
@@ -3794,7 +3811,7 @@ namespace Sas20181203
       Models::DescribeClusterInfoListResponse describeClusterInfoList(const Models::DescribeClusterInfoListRequest &request);
 
       /**
-       * @summary Retrieves information about the network topology edge by cluster.
+       * @summary Queries the network topology edge information at the cluster level.
        *
        * @param request DescribeClusterNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3803,7 +3820,7 @@ namespace Sas20181203
       Models::DescribeClusterNetworkResponse describeClusterNetworkWithOptions(const Models::DescribeClusterNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about the network topology edge by cluster.
+       * @summary Queries the network topology edge information at the cluster level.
        *
        * @param request DescribeClusterNetworkRequest
        * @return DescribeClusterNetworkResponse
@@ -3811,7 +3828,7 @@ namespace Sas20181203
       Models::DescribeClusterNetworkResponse describeClusterNetwork(const Models::DescribeClusterNetworkRequest &request);
 
       /**
-       * @summary Query the status of cluster scanning components.
+       * @summary Queries the scanner status information for a Kubernetes cluster.
        *
        * @param request DescribeClusterScannerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3820,7 +3837,7 @@ namespace Sas20181203
       Models::DescribeClusterScannerListResponse describeClusterScannerListWithOptions(const Models::DescribeClusterScannerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the status of cluster scanning components.
+       * @summary Queries the scanner status information for a Kubernetes cluster.
        *
        * @param request DescribeClusterScannerListRequest
        * @return DescribeClusterScannerListResponse
@@ -5983,7 +6000,7 @@ namespace Sas20181203
       Models::DescribeOfflineMachinesResponse describeOfflineMachines(const Models::DescribeOfflineMachinesRequest &request);
 
       /**
-       * @summary Queries the list of client tasks.
+       * @summary Queries a list of client tasks.
        *
        * @param request DescribeOnceTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5992,7 +6009,7 @@ namespace Sas20181203
       Models::DescribeOnceTaskResponse describeOnceTaskWithOptions(const Models::DescribeOnceTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of client tasks.
+       * @summary Queries a list of client tasks.
        *
        * @param request DescribeOnceTaskRequest
        * @return DescribeOnceTaskResponse
@@ -6153,7 +6170,7 @@ namespace Sas20181203
       Models::DescribePropertyProcItemResponse describePropertyProcItem(const Models::DescribePropertyProcItemRequest &request);
 
       /**
-       * @summary Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+       * @summary Queries the details of the middleware list on the Asset Fingerprints investigation page.
        *
        * @param request DescribePropertyScaDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6162,7 +6179,7 @@ namespace Sas20181203
       Models::DescribePropertyScaDetailResponse describePropertyScaDetailWithOptions(const Models::DescribePropertyScaDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+       * @summary Queries the details of the middleware list on the Asset Fingerprints investigation page.
        *
        * @param request DescribePropertyScaDetailRequest
        * @return DescribePropertyScaDetailResponse
@@ -6681,9 +6698,9 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
        *
-       * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+       * @summary Queries the custom check cycle and time period configured by the user.
        *
-       * @description This operation is phased out. You can use the GetCheckConfig operation.
+       * @description This operation is deprecated. Use the GetCheckConfig operation instead.
        *
        * @param request DescribeSecurityCheckScheduleConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6694,9 +6711,9 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
        *
-       * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+       * @summary Queries the custom check cycle and time period configured by the user.
        *
-       * @description This operation is phased out. You can use the GetCheckConfig operation.
+       * @description This operation is deprecated. Use the GetCheckConfig operation instead.
        *
        * @param request DescribeSecurityCheckScheduleConfigRequest
        * @return DescribeSecurityCheckScheduleConfigResponse
@@ -7208,7 +7225,7 @@ namespace Sas20181203
       Models::DescribeSuspEventUserSettingResponse describeSuspEventUserSetting(const Models::DescribeSuspEventUserSettingRequest &request);
 
       /**
-       * @summary Queries a list of alert events that are generated without aggregation.
+       * @summary Queries the list of security alert events that have not been aggregated.
        *
        * @param tmpReq DescribeSuspEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7217,7 +7234,7 @@ namespace Sas20181203
       Models::DescribeSuspEventsResponse describeSuspEventsWithOptions(const Models::DescribeSuspEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of alert events that are generated without aggregation.
+       * @summary Queries the list of security alert events that have not been aggregated.
        *
        * @param request DescribeSuspEventsRequest
        * @return DescribeSuspEventsResponse
@@ -8450,12 +8467,12 @@ namespace Sas20181203
       Models::ExportSuspEventsResponse exportSuspEvents(const Models::ExportSuspEventsRequest &request);
 
       /**
-       * @summary Export vulnerability list
+       * @summary Exports a vulnerability list.
        *
-       * @description This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-       * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+       * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+       * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
        * ### QPS limit
-       * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
        *
        * @param request ExportVulRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8464,12 +8481,12 @@ namespace Sas20181203
       Models::ExportVulResponse exportVulWithOptions(const Models::ExportVulRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export vulnerability list
+       * @summary Exports a vulnerability list.
        *
-       * @description This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-       * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+       * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+       * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
        * ### QPS limit
-       * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
        *
        * @param request ExportVulRequest
        * @return ExportVulResponse
@@ -8617,7 +8634,7 @@ namespace Sas20181203
       Models::GenerateOnceTaskResponse generateOnceTask(const Models::GenerateOnceTaskRequest &request);
 
       /**
-       * @summary Obtains account tags.
+       * @summary Retrieves account labels.
        *
        * @param request GetAccountLabelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8626,7 +8643,7 @@ namespace Sas20181203
       Models::GetAccountLabelResponse getAccountLabelWithOptions(const Models::GetAccountLabelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains account tags.
+       * @summary Retrieves account labels.
        *
        * @param request GetAccountLabelRequest
        * @return GetAccountLabelResponse
@@ -8689,7 +8706,7 @@ namespace Sas20181203
       Models::GetAgentlessTaskCountResponse getAgentlessTaskCount(const Models::GetAgentlessTaskCountRequest &request);
 
       /**
-       * @summary Query the estimated volume for agentless detection.
+       * @summary Retrieves the estimated scan volume for agentless detection.
        *
        * @param request GetAgentlessTaskUsedSizeEstimateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8698,7 +8715,7 @@ namespace Sas20181203
       Models::GetAgentlessTaskUsedSizeEstimateResponse getAgentlessTaskUsedSizeEstimateWithOptions(const Models::GetAgentlessTaskUsedSizeEstimateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the estimated volume for agentless detection.
+       * @summary Retrieves the estimated scan volume for agentless detection.
        *
        * @param request GetAgentlessTaskUsedSizeEstimateRequest
        * @return GetAgentlessTaskUsedSizeEstimateResponse
@@ -9019,17 +9036,19 @@ namespace Sas20181203
       /**
        * @summary Retrieves the check item configurations for cloud platform configuration checks.
        *
+       * @param request GetCheckConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCheckConfigResponse
        */
-      Models::GetCheckConfigResponse getCheckConfigWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::GetCheckConfigResponse getCheckConfigWithOptions(const Models::GetCheckConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Retrieves the check item configurations for cloud platform configuration checks.
        *
+       * @param request GetCheckConfigRequest
        * @return GetCheckConfigResponse
        */
-      Models::GetCheckConfigResponse getCheckConfig();
+      Models::GetCheckConfigResponse getCheckConfig(const Models::GetCheckConfigRequest &request);
 
       /**
        * @summary Queries statistics on the number of risk items in cloud security posture management (CSPM) for cloud services.
@@ -9115,6 +9134,23 @@ namespace Sas20181203
        * @return GetCheckSaleResponse
        */
       Models::GetCheckSaleResponse getCheckSale(const Models::GetCheckSaleRequest &request);
+
+      /**
+       * @summary Queries the check scope configuration.
+       *
+       * @param request GetCheckScopeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCheckScopeConfigResponse
+       */
+      Models::GetCheckScopeConfigResponse getCheckScopeConfigWithOptions(const Models::GetCheckScopeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the check scope configuration.
+       *
+       * @param request GetCheckScopeConfigRequest
+       * @return GetCheckScopeConfigResponse
+       */
+      Models::GetCheckScopeConfigResponse getCheckScopeConfig(const Models::GetCheckScopeConfigRequest &request);
 
       /**
        * @summary Queries the directory structure of the check item list.
@@ -9240,7 +9276,7 @@ namespace Sas20181203
       Models::GetCloudAssetDetailResponse getCloudAssetDetail(const Models::GetCloudAssetDetailRequest &request);
 
       /**
-       * @summary Queries the summary of cloud assets.
+       * @summary Retrieves the summary of cloud assets.
        *
        * @param request GetCloudAssetSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9249,7 +9285,7 @@ namespace Sas20181203
       Models::GetCloudAssetSummaryResponse getCloudAssetSummaryWithOptions(const Models::GetCloudAssetSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the summary of cloud assets.
+       * @summary Retrieves the summary of cloud assets.
        *
        * @param request GetCloudAssetSummaryRequest
        * @return GetCloudAssetSummaryResponse
@@ -9408,7 +9444,7 @@ namespace Sas20181203
       Models::GetContainerDefenseRuleDetailResponse getContainerDefenseRuleDetail(const Models::GetContainerDefenseRuleDetailRequest &request);
 
       /**
-       * @summary Queries the publish details of the Security Center agent.
+       * @summary Retrieves the release information of the current client version.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCurrentVersionPublishResponse
@@ -9416,7 +9452,7 @@ namespace Sas20181203
       Models::GetCurrentVersionPublishResponse getCurrentVersionPublishWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the publish details of the Security Center agent.
+       * @summary Retrieves the release information of the current client version.
        *
        * @return GetCurrentVersionPublishResponse
        */
@@ -9521,16 +9557,13 @@ namespace Sas20181203
       Models::GetFileDetectReportResponse getFileDetectReport(const Models::GetFileDetectReportRequest &request);
 
       /**
-       * @summary Retrieves file detection results in batches using `HashKey` values.
+       * @summary Retrieves file detection results in batches by HashKey.
        *
-       * @description You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-       * ### Unique file identifier
-       * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-       * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-       * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+       * ### File unique identifier
+       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
        * ### Query detection results
-       * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-       * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+       * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
        *
        * @param request GetFileDetectResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9539,16 +9572,13 @@ namespace Sas20181203
       Models::GetFileDetectResultResponse getFileDetectResultWithOptions(const Models::GetFileDetectResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves file detection results in batches using `HashKey` values.
+       * @summary Retrieves file detection results in batches by HashKey.
        *
-       * @description You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-       * ### Unique file identifier
-       * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-       * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-       * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+       * ### File unique identifier
+       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
        * ### Query detection results
-       * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-       * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+       * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
        *
        * @param request GetFileDetectResultRequest
        * @return GetFileDetectResultResponse
@@ -9926,7 +9956,7 @@ namespace Sas20181203
       Models::GetInstanceAlarmStatisticsResponse getInstanceAlarmStatistics(const Models::GetInstanceAlarmStatisticsRequest &request);
 
       /**
-       * @summary Get Instance Authorization Value Range
+       * @summary Retrieves the valid value ranges for instance authorization.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceAuthRangeResponse
@@ -9934,7 +9964,7 @@ namespace Sas20181203
       Models::GetInstanceAuthRangeResponse getInstanceAuthRangeWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Instance Authorization Value Range
+       * @summary Retrieves the valid value ranges for instance authorization.
        *
        * @return GetInstanceAuthRangeResponse
        */
@@ -9958,7 +9988,7 @@ namespace Sas20181203
       Models::GetInterceptionRuleDetailResponse getInterceptionRuleDetail(const Models::GetInterceptionRuleDetailRequest &request);
 
       /**
-       * @summary Queries the statistics of the container firewall feature.
+       * @summary Queries the micro-segmentation defense overview.
        *
        * @param request GetInterceptionSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9967,7 +9997,7 @@ namespace Sas20181203
       Models::GetInterceptionSummaryResponse getInterceptionSummaryWithOptions(const Models::GetInterceptionSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics of the container firewall feature.
+       * @summary Queries the micro-segmentation defense overview.
        *
        * @param request GetInterceptionSummaryRequest
        * @return GetInterceptionSummaryResponse
@@ -10626,7 +10656,7 @@ namespace Sas20181203
       Models::GetUserLangResponse getUserLang();
 
       /**
-       * @summary Get Valid Resource Package Instances
+       * @summary Retrieves active resource plan instances.
        *
        * @param request GetValidDeductInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10635,7 +10665,7 @@ namespace Sas20181203
       Models::GetValidDeductInstancesResponse getValidDeductInstancesWithOptions(const Models::GetValidDeductInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Valid Resource Package Instances
+       * @summary Retrieves active resource plan instances.
        *
        * @param request GetValidDeductInstancesRequest
        * @return GetValidDeductInstancesResponse
@@ -11010,9 +11040,9 @@ namespace Sas20181203
       Models::JoinWebLockProcessWhiteListResponse joinWebLockProcessWhiteList(const Models::JoinWebLockProcessWhiteListRequest &request);
 
       /**
-       * @summary Retrieves the list of managed accounts for multi-account governance.
+       * @summary Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
        *
-       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * @description Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAccountsInResourceDirectoryResponse
@@ -11020,9 +11050,9 @@ namespace Sas20181203
       Models::ListAccountsInResourceDirectoryResponse listAccountsInResourceDirectoryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of managed accounts for multi-account governance.
+       * @summary Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
        *
-       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * @description Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
        *
        * @return ListAccountsInResourceDirectoryResponse
        */
@@ -11246,7 +11276,7 @@ namespace Sas20181203
       Models::ListAssetSelectionTargetResponse listAssetSelectionTarget(const Models::ListAssetSelectionTargetRequest &request);
 
       /**
-       * @summary Get Attack Analysis Event List
+       * @summary Retrieves the list of attack analysis events.
        *
        * @param request ListAttackEventInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11255,7 +11285,7 @@ namespace Sas20181203
       Models::ListAttackEventInfoResponse listAttackEventInfoWithOptions(const Models::ListAttackEventInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Attack Analysis Event List
+       * @summary Retrieves the list of attack analysis events.
        *
        * @param request ListAttackEventInfoRequest
        * @return ListAttackEventInfoResponse
@@ -11399,7 +11429,7 @@ namespace Sas20181203
       Models::ListCheckInstanceResultResponse listCheckInstanceResult(const Models::ListCheckInstanceResultRequest &request);
 
       /**
-       * @summary Queries the check items that can be customized.
+       * @summary Retrieves the list of check items that can be configured with custom settings.
        *
        * @param request ListCheckItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11408,7 +11438,7 @@ namespace Sas20181203
       Models::ListCheckItemResponse listCheckItemWithOptions(const Models::ListCheckItemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the check items that can be customized.
+       * @summary Retrieves the list of check items that can be configured with custom settings.
        *
        * @param request ListCheckItemRequest
        * @return ListCheckItemResponse
@@ -12416,9 +12446,9 @@ namespace Sas20181203
       Models::ListMaliciousFileWhitelistConfigsResponse listMaliciousFileWhitelistConfigs(const Models::ListMaliciousFileWhitelistConfigsRequest &request);
 
       /**
-       * @summary Query Multi-Account Authorization Allocation List
+       * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
        *
-       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12427,9 +12457,9 @@ namespace Sas20181203
       Models::ListMultiUserInstancesResponse listMultiUserInstancesWithOptions(const Models::ListMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Multi-Account Authorization Allocation List
+       * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
        *
-       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @return ListMultiUserInstancesResponse
@@ -12585,7 +12615,7 @@ namespace Sas20181203
       Models::ListOssBucketScanInfoResponse listOssBucketScanInfo(const Models::ListOssBucketScanInfoRequest &request);
 
       /**
-       * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
+       * @summary Queries the list of OSS file scan policy configurations.
        *
        * @param request ListOssScanConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12594,7 +12624,7 @@ namespace Sas20181203
       Models::ListOssScanConfigResponse listOssScanConfigWithOptions(const Models::ListOssScanConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
+       * @summary Queries the list of OSS file scan policy configurations.
        *
        * @param request ListOssScanConfigRequest
        * @return ListOssScanConfigResponse
@@ -12938,7 +12968,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectEventResponse listUnknownThreatDetectEvent(const Models::ListUnknownThreatDetectEventRequest &request);
 
       /**
-       * @summary View instances identified by intelligent behavior analytics.
+       * @summary Queries the list of machines for intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectMachineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12947,7 +12977,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectMachineResponse listUnknownThreatDetectMachineWithOptions(const Models::ListUnknownThreatDetectMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View instances identified by intelligent behavior analytics.
+       * @summary Queries the list of machines for intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectMachineRequest
        * @return ListUnknownThreatDetectMachineResponse
@@ -12972,7 +13002,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcess(const Models::ListUnknownThreatDetectProcessRequest &request);
 
       /**
-       * @summary Lists the strategies for intelligent behavior analytics.
+       * @summary Queries the list of intelligent behavior analysis policies.
        *
        * @param request ListUnknownThreatDetectStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12981,7 +13011,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectStrategyResponse listUnknownThreatDetectStrategyWithOptions(const Models::ListUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the strategies for intelligent behavior analytics.
+       * @summary Queries the list of intelligent behavior analysis policies.
        *
        * @param request ListUnknownThreatDetectStrategyRequest
        * @return ListUnknownThreatDetectStrategyResponse
@@ -13057,7 +13087,7 @@ namespace Sas20181203
       Models::ListVirusScanMachineResponse listVirusScanMachine(const Models::ListVirusScanMachineRequest &request);
 
       /**
-       * @summary Queries virus alerts detected by virus scanning on a specific server.
+       * @summary Queries virus alerts detected by a virus scan on a specific server.
        *
        * @param request ListVirusScanMachineEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13066,7 +13096,7 @@ namespace Sas20181203
       Models::ListVirusScanMachineEventResponse listVirusScanMachineEventWithOptions(const Models::ListVirusScanMachineEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries virus alerts detected by virus scanning on a specific server.
+       * @summary Queries virus alerts detected by a virus scan on a specific server.
        *
        * @param request ListVirusScanMachineEventRequest
        * @return ListVirusScanMachineEventResponse
@@ -13562,7 +13592,7 @@ namespace Sas20181203
       Models::ModifyContainerScanConfigResponse modifyContainerScanConfig(const Models::ModifyContainerScanConfigRequest &request);
 
       /**
-       * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+       * @summary Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
        *
        * @param request ModifyCreateVulWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13571,7 +13601,7 @@ namespace Sas20181203
       Models::ModifyCreateVulWhitelistResponse modifyCreateVulWhitelistWithOptions(const Models::ModifyCreateVulWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+       * @summary Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
        *
        * @param request ModifyCreateVulWhitelistRequest
        * @return ModifyCreateVulWhitelistResponse
@@ -13920,7 +13950,7 @@ namespace Sas20181203
       Models::ModifyOpenLogShipperResponse modifyOpenLogShipper(const Models::ModifyOpenLogShipperRequest &request);
 
       /**
-       * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+       * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
        *
        * @param request ModifyOperateVulRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13929,7 +13959,7 @@ namespace Sas20181203
       Models::ModifyOperateVulResponse modifyOperateVulWithOptions(const Models::ModifyOperateVulRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+       * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
        *
        * @param request ModifyOperateVulRequest
        * @return ModifyOperateVulResponse
@@ -14062,9 +14092,9 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
        *
-       * @summary Specifies the time when an automatic configuration check on cloud services runs.
+       * @summary Sets the automatic detection time for cloud platform configuration check items.
        *
-       * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+       * @description This operation is deprecated. Use the ChangeCheckConfig operation instead.
        *
        * @param request ModifySecurityCheckScheduleConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14075,9 +14105,9 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
        *
-       * @summary Specifies the time when an automatic configuration check on cloud services runs.
+       * @summary Sets the automatic detection time for cloud platform configuration check items.
        *
-       * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+       * @description This operation is deprecated. Use the ChangeCheckConfig operation instead.
        *
        * @param request ModifySecurityCheckScheduleConfigRequest
        * @return ModifySecurityCheckScheduleConfigResponse
@@ -14140,7 +14170,7 @@ namespace Sas20181203
       Models::ModifySoarStrategySubscribeResponse modifySoarStrategySubscribe(const Models::ModifySoarStrategySubscribeRequest &request);
 
       /**
-       * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+       * @summary Starts the one-click scan feature on the vulnerability management page of the console.
        *
        * @param request ModifyStartVulScanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14149,7 +14179,7 @@ namespace Sas20181203
       Models::ModifyStartVulScanResponse modifyStartVulScanWithOptions(const Models::ModifyStartVulScanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+       * @summary Starts the one-click scan feature on the vulnerability management page of the console.
        *
        * @param request ModifyStartVulScanRequest
        * @return ModifyStartVulScanResponse
@@ -14560,7 +14590,7 @@ namespace Sas20181203
       Models::OperateApplicationResponse operateApplication(const Models::OperateApplicationRequest &request);
 
       /**
-       * @summary Manages an Object Storage Service (OSS) bucket check task.
+       * @summary Operates on a bucket detection task.
        *
        * @param request OperateBucketScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14569,7 +14599,7 @@ namespace Sas20181203
       Models::OperateBucketScanTaskResponse operateBucketScanTaskWithOptions(const Models::OperateBucketScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manages an Object Storage Service (OSS) bucket check task.
+       * @summary Operates on a bucket detection task.
        *
        * @param request OperateBucketScanTaskRequest
        * @return OperateBucketScanTaskResponse
@@ -14577,7 +14607,7 @@ namespace Sas20181203
       Models::OperateBucketScanTaskResponse operateBucketScanTask(const Models::OperateBucketScanTaskRequest &request);
 
       /**
-       * @summary Enables or disables a feature by type.
+       * @summary Sets a global switch by type.
        *
        * @param request OperateCommonOverallConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14586,7 +14616,7 @@ namespace Sas20181203
       Models::OperateCommonOverallConfigResponse operateCommonOverallConfigWithOptions(const Models::OperateCommonOverallConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables a feature by type.
+       * @summary Sets a global switch by type.
        *
        * @param request OperateCommonOverallConfigRequest
        * @return OperateCommonOverallConfigResponse
@@ -15126,17 +15156,19 @@ namespace Sas20181203
       /**
        * @summary Refreshes the bucket list.
        *
+       * @param request RefreshOssBucketScanInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RefreshOssBucketScanInfoResponse
        */
-      Models::RefreshOssBucketScanInfoResponse refreshOssBucketScanInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::RefreshOssBucketScanInfoResponse refreshOssBucketScanInfoWithOptions(const Models::RefreshOssBucketScanInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Refreshes the bucket list.
        *
+       * @param request RefreshOssBucketScanInfoRequest
        * @return RefreshOssBucketScanInfoResponse
        */
-      Models::RefreshOssBucketScanInfoResponse refreshOssBucketScanInfo();
+      Models::RefreshOssBucketScanInfoResponse refreshOssBucketScanInfo(const Models::RefreshOssBucketScanInfoRequest &request);
 
       /**
        * @summary Updates an image token.
@@ -15657,7 +15689,7 @@ namespace Sas20181203
       Models::StopHoneypotResponse stopHoneypot(const Models::StopHoneypotRequest &request);
 
       /**
-       * @summary Submits a configuration assessment task.
+       * @summary Submits a cloud service configuration check.
        *
        * @param request SubmitCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15666,7 +15698,7 @@ namespace Sas20181203
       Models::SubmitCheckResponse submitCheckWithOptions(const Models::SubmitCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a configuration assessment task.
+       * @summary Submits a cloud service configuration check.
        *
        * @param request SubmitCheckRequest
        * @return SubmitCheckResponse
@@ -15918,6 +15950,23 @@ namespace Sas20181203
        * @return UpdateCheckPolicyResponse
        */
       Models::UpdateCheckPolicyResponse updateCheckPolicy(const Models::UpdateCheckPolicyRequest &request);
+
+      /**
+       * @summary Updates the check scope configuration.
+       *
+       * @param request UpdateCheckScopeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCheckScopeConfigResponse
+       */
+      Models::UpdateCheckScopeConfigResponse updateCheckScopeConfigWithOptions(const Models::UpdateCheckScopeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the check scope configuration.
+       *
+       * @param request UpdateCheckScopeConfigRequest
+       * @return UpdateCheckScopeConfigResponse
+       */
+      Models::UpdateCheckScopeConfigResponse updateCheckScopeConfig(const Models::UpdateCheckScopeConfigRequest &request);
 
       /**
        * @summary Modifies alerting settings for servers.
@@ -16277,7 +16326,7 @@ namespace Sas20181203
       Models::UpdateMaliciousFileWhitelistConfigResponse updateMaliciousFileWhitelistConfig(const Models::UpdateMaliciousFileWhitelistConfigRequest &request);
 
       /**
-       * @summary Modify Multi-Account Instance Configuration
+       * @summary Manages authorization assignments for member accounts in multi-account authorization management.
        *
        * @param request UpdateMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16286,7 +16335,7 @@ namespace Sas20181203
       Models::UpdateMultiUserInstancesResponse updateMultiUserInstancesWithOptions(const Models::UpdateMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Multi-Account Instance Configuration
+       * @summary Manages authorization assignments for member accounts in multi-account authorization management.
        *
        * @param request UpdateMultiUserInstancesRequest
        * @return UpdateMultiUserInstancesResponse
@@ -16311,7 +16360,7 @@ namespace Sas20181203
       Models::UpdateOpaStrategyNewResponse updateOpaStrategyNew(const Models::UpdateOpaStrategyNewRequest &request);
 
       /**
-       * @summary Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+       * @summary Updates the OSS file scan policy configuration for the malicious file detection feature.
        *
        * @param request UpdateOssScanConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16320,7 +16369,7 @@ namespace Sas20181203
       Models::UpdateOssScanConfigResponse updateOssScanConfigWithOptions(const Models::UpdateOssScanConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+       * @summary Updates the OSS file scan policy configuration for the malicious file detection feature.
        *
        * @param request UpdateOssScanConfigRequest
        * @return UpdateOssScanConfigResponse
@@ -16328,7 +16377,7 @@ namespace Sas20181203
       Models::UpdateOssScanConfigResponse updateOssScanConfig(const Models::UpdateOssScanConfigRequest &request);
 
       /**
-       * @summary Change Postpaid Asset Authorization Version
+       * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
        *
        * @param request UpdatePostPaidBindRelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16337,7 +16386,7 @@ namespace Sas20181203
       Models::UpdatePostPaidBindRelResponse updatePostPaidBindRelWithOptions(const Models::UpdatePostPaidBindRelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Change Postpaid Asset Authorization Version
+       * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
        *
        * @param request UpdatePostPaidBindRelRequest
        * @return UpdatePostPaidBindRelResponse
@@ -16415,7 +16464,7 @@ namespace Sas20181203
       Models::UpdatePublishGraySwitchResponse updatePublishGraySwitch(const Models::UpdatePublishGraySwitchRequest &request);
 
       /**
-       * @summary Modifies the key that corresponds to a specified type.
+       * @summary Modifies the key corresponding to a specified type.
        *
        * @param request UpdateSelectionKeyByTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16424,7 +16473,7 @@ namespace Sas20181203
       Models::UpdateSelectionKeyByTypeResponse updateSelectionKeyByTypeWithOptions(const Models::UpdateSelectionKeyByTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the key that corresponds to a specified type.
+       * @summary Modifies the key corresponding to a specified type.
        *
        * @param request UpdateSelectionKeyByTypeRequest
        * @return UpdateSelectionKeyByTypeResponse
@@ -16483,7 +16532,7 @@ namespace Sas20181203
       Models::UpdateUnknownThreatDetectProcessResponse updateUnknownThreatDetectProcess(const Models::UpdateUnknownThreatDetectProcessRequest &request);
 
       /**
-       * @summary Updates the unknown threat detection strategy.
+       * @summary Updates an intelligent behavior analytics policy.
        *
        * @param request UpdateUnknownThreatDetectStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16492,7 +16541,7 @@ namespace Sas20181203
       Models::UpdateUnknownThreatDetectStrategyResponse updateUnknownThreatDetectStrategyWithOptions(const Models::UpdateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the unknown threat detection strategy.
+       * @summary Updates an intelligent behavior analytics policy.
        *
        * @param request UpdateUnknownThreatDetectStrategyRequest
        * @return UpdateUnknownThreatDetectStrategyResponse
@@ -16640,7 +16689,7 @@ namespace Sas20181203
       Models::VerifyCheckCustomConfigResponse verifyCheckCustomConfig(const Models::VerifyCheckCustomConfigRequest &request);
 
       /**
-       * @summary Verifies the instance dimensions under a check item.
+       * @summary Verifies instances under a check item.
        *
        * @param request VerifyCheckInstanceResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16649,7 +16698,7 @@ namespace Sas20181203
       Models::VerifyCheckInstanceResultResponse verifyCheckInstanceResultWithOptions(const Models::VerifyCheckInstanceResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies the instance dimensions under a check item.
+       * @summary Verifies instances under a check item.
        *
        * @param request VerifyCheckInstanceResultRequest
        * @return VerifyCheckInstanceResultResponse
@@ -16657,7 +16706,7 @@ namespace Sas20181203
       Models::VerifyCheckInstanceResultResponse verifyCheckInstanceResult(const Models::VerifyCheckInstanceResultRequest &request);
 
       /**
-       * @summary Performs check item-level validation.
+       * @summary Validates check items.
        *
        * @param request VerifyCheckResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16666,7 +16715,7 @@ namespace Sas20181203
       Models::VerifyCheckResultResponse verifyCheckResultWithOptions(const Models::VerifyCheckResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs check item-level validation.
+       * @summary Validates check items.
        *
        * @param request VerifyCheckResultRequest
        * @return VerifyCheckResultResponse

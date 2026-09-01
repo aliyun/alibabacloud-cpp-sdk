@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Resource package instance ID, can be queried through [QueryResourcePackageInstances]().
+    // Instance ID of the resource plan instance. You can call [QueryResourcePackageInstances]() to query instance ID.
     shared_ptr<string> instanceId_ {};
-    // Resource package name code, values:
+    // The code of the resource plan. Valid values:
     // 
-    // - Vulnerability resource package: **sas_vul_dp_cn**
-    // - CSPM resource package: **sas_cspm_dp_cn**
-    // - Anti-virus resource package: **sas_viruspackage_dp_cn**
+    // - Vulnerability resource plan: **sas_vul_dp_cn**
+    // - CSPM resource plan: **sas_cspm_dp_cn**
+    // - Anti-virus Edition resource plan: **sas_viruspackage_dp_cn**
     shared_ptr<string> modules_ {};
-    // Resource package status, default is valid (valid), not modifiable.
+    // The status of the resource plan. The default value is valid. This parameter does not support modification.
     shared_ptr<int32_t> status_ {};
   };
 

@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetSuspiciousStatisticsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(GroupIdList, groupIdList_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, GetSuspiciousStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(GroupIdList, groupIdList_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
     };
     GetSuspiciousStatisticsRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupIdList_ == nullptr
-        && this->sourceIp_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->sourceIp_ == nullptr; };
     // groupIdList Field Functions 
     bool hasGroupIdList() const { return this->groupIdList_ != nullptr;};
     void deleteGroupIdList() { this->groupIdList_ = nullptr;};
     inline string getGroupIdList() const { DARABONBA_PTR_GET_DEFAULT(groupIdList_, "") };
     inline GetSuspiciousStatisticsRequest& setGroupIdList(string groupIdList) { DARABONBA_PTR_SET_VALUE(groupIdList_, groupIdList) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetSuspiciousStatisticsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // sourceIp Field Functions 
@@ -53,6 +62,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupIdList_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };

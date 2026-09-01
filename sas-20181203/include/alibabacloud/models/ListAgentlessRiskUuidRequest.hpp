@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<string> intranetIp_ {};
     // The instance name.
     shared_ptr<string> machineName_ {};
-    // The maximum number of entries per page when using paging.
+    // The maximum number of entries to return per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether risks exist. Valid values:
     // 

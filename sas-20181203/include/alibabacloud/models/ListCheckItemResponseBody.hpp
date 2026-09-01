@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -109,6 +109,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CustomConfigs, customConfigs_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(EstimatedCount, estimatedCount_);
+        DARABONBA_PTR_TO_JSON(InstanceEstimatedCount, instanceEstimatedCount_);
         DARABONBA_PTR_TO_JSON(InstanceSubType, instanceSubType_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
@@ -122,6 +123,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CustomConfigs, customConfigs_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(EstimatedCount, estimatedCount_);
+        DARABONBA_PTR_FROM_JSON(InstanceEstimatedCount, instanceEstimatedCount_);
         DARABONBA_PTR_FROM_JSON(InstanceSubType, instanceSubType_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
@@ -177,11 +179,11 @@ namespace Models
 
 
       protected:
-        // The type of the description of the check item. Valid value:
+        // The type of the check description property. Valid values:
         // 
-        // - **text**
+        // - **text**: text
         shared_ptr<string> type_ {};
-        // The content of the description for the check item when the Type parameter is text.
+        // The text content when the description type of the check item risk is text.
         shared_ptr<string> value_ {};
       };
 
@@ -250,21 +252,22 @@ namespace Models
 
 
       protected:
-        // The default value of the check item. The value is a string.
+        // The default value string of the custom configuration item for the check item.
         shared_ptr<string> defaultValue_ {};
-        // The name of the check item.
+        // The name of the custom check configuration.
         shared_ptr<string> name_ {};
-        // The display name of the check item.
+        // The display name of the custom check configuration.
         shared_ptr<string> showName_ {};
-        // The type of the check item. The value is a JSON string.
+        // The JSON string that defines the type of the custom configuration item for the check item.
         shared_ptr<string> typeDefine_ {};
-        // The specified value of the check item. The value is a string.
+        // The user-configured value string of the custom configuration item for the check item.
         shared_ptr<string> value_ {};
       };
 
       virtual bool empty() const override { return this->checkId_ == nullptr
         && this->checkShowName_ == nullptr && this->checkType_ == nullptr && this->customConfigs_ == nullptr && this->description_ == nullptr && this->estimatedCount_ == nullptr
-        && this->instanceSubType_ == nullptr && this->instanceType_ == nullptr && this->riskLevel_ == nullptr && this->sectionIds_ == nullptr && this->vendor_ == nullptr; };
+        && this->instanceEstimatedCount_ == nullptr && this->instanceSubType_ == nullptr && this->instanceType_ == nullptr && this->riskLevel_ == nullptr && this->sectionIds_ == nullptr
+        && this->vendor_ == nullptr; };
       // checkId Field Functions 
       bool hasCheckId() const { return this->checkId_ != nullptr;};
       void deleteCheckId() { this->checkId_ = nullptr;};
@@ -311,6 +314,13 @@ namespace Models
       inline CheckItems& setEstimatedCount(int32_t estimatedCount) { DARABONBA_PTR_SET_VALUE(estimatedCount_, estimatedCount) };
 
 
+      // instanceEstimatedCount Field Functions 
+      bool hasInstanceEstimatedCount() const { return this->instanceEstimatedCount_ != nullptr;};
+      void deleteInstanceEstimatedCount() { this->instanceEstimatedCount_ = nullptr;};
+      inline int32_t getInstanceEstimatedCount() const { DARABONBA_PTR_GET_DEFAULT(instanceEstimatedCount_, 0) };
+      inline CheckItems& setInstanceEstimatedCount(int32_t instanceEstimatedCount) { DARABONBA_PTR_SET_VALUE(instanceEstimatedCount_, instanceEstimatedCount) };
+
+
       // instanceSubType Field Functions 
       bool hasInstanceSubType() const { return this->instanceSubType_ != nullptr;};
       void deleteInstanceSubType() { this->instanceSubType_ = nullptr;};
@@ -353,119 +363,75 @@ namespace Models
       shared_ptr<int64_t> checkId_ {};
       // The name of the check item.
       shared_ptr<string> checkShowName_ {};
-      // The source type of the Situation Awareness check item:
-      // 
-      // - **CUSTOM**: User-defined
-      // 
-      // - **SYSTEM**: Predefined by the Situation Awareness platform
+      // The source type of the Threat Detection Service check item. Valid values:
+      //  - **CUSTOM**: user-defined
+      //  - **SYSTEM**: predefined by the Threat Detection Service platform
       shared_ptr<string> checkType_ {};
-      // The check items.
+      // The list of custom check configuration information.
       shared_ptr<vector<CheckItems::CustomConfigs>> customConfigs_ {};
       // The description of the check item.
       shared_ptr<CheckItems::Description> description_ {};
-      // The estimated quota that will be consumed by this check item.
+      // The estimated number of authorizations that the check item will consume.
       shared_ptr<int32_t> estimatedCount_ {};
+      shared_ptr<int32_t> instanceEstimatedCount_ {};
       // The asset subtype of the cloud service. Valid values:
       // 
-      // - If **InstanceType** is set to **ECS**, this parameter supports the following valid values:
-      // 
-      //   - **INSTANCE**
-      // 
-      //   - **DISK**
-      // 
-      //   - **SECURITY_GROUP**
-      // 
-      // - If **InstanceType** is set to **ACR**, this parameter supports the following valid values:
-      // 
-      //   - **REPOSITORY_ENTERPRISE**
-      // 
-      //   - **REPOSITORY_PERSON**
-      // 
-      // - If **InstanceType** is set to **RAM**, this parameter supports the following valid values:
-      // 
-      //   - **ALIAS**
-      // 
-      //   - **USER**
-      // 
-      //   - **POLICY**
-      // 
-      //   - **GROUP**
-      // 
-      // - If **InstanceType** is set to **WAF**, this parameter supports the following valid value:
-      // 
-      //   - **DOMAIN**
-      // 
-      // - If **InstanceType** is set to other values, this parameter supports the following valid values:
-      // 
-      //   - **INSTANCE**
+      // - If **InstanceType** is set to **ECS**, valid values of this parameter:
+      //     - **INSTANCE**
+      //     - **DISK**
+      //     - **SECURITY_GROUP**
+      // - If **InstanceType** is set to **ACR**, valid values of this parameter:
+      //     - **REPOSITORY_ENTERPRISE**
+      //     - **REPOSITORY_PERSON**
+      // - If **InstanceType** is set to **RAM**, valid values of this parameter:
+      //     - **ALIAS**
+      //     - **USER**
+      //     - **POLICY**
+      //     - **GROUP**
+      // - If **InstanceType** is set to **WAF**, valid values of this parameter:
+      //     - **DOMAIN**
+      // - If **InstanceType** is set to other values, valid values of this parameter:
+      //     - **INSTANCE**
       shared_ptr<string> instanceSubType_ {};
       // The asset type of the cloud service. Valid values:
       // 
-      // - **ECS**: Elastic Compute Service (ECS).
-      // 
-      // - **SLB**: Server Load Balancer (SLB).
-      // 
-      // - **RDS**: ApsaraDB RDS.
-      // 
-      // - **MONGODB**: ApsaraDB for MongoDB (MongoDB).
-      // 
-      // - **KVSTORE**: ApsaraDB for Redis (Redis).
-      // 
-      // - **ACR**: Container Registry.
-      // 
-      // - **CSK**: Container Service for Kubernetes (ACK).
-      // 
-      // - **VPC**: Virtual Private Cloud (VPC).
-      // 
-      // - **ACTIONTRAIL**: ActionTrail.
-      // 
-      // - **CDN**: Alibaba Cloud CDN (CDN).
-      // 
-      // - **CAS**: Certificate Management Service (formerly SSL Certificates Service).
-      // 
-      // - **RDC**: Apsara Devops.
-      // 
-      // - **RAM**: Resource Access Management (RAM).
-      // 
-      // - **DDOS**: Anti-DDoS.
-      // 
-      // - **WAF**: Web Application Firewall (WAF).
-      // 
-      // - **OSS**: Object Storage Service (OSS).
-      // 
-      // - **POLARDB**: PolarDB.
-      // 
-      // - **POSTGRESQL**: ApsaraDB RDS for PostgreSQL.
-      // 
-      // - **MSE**: Microservices Engine (MSE).
-      // 
-      // - **NAS**: File Storage NAS (NAS).
-      // 
-      // - **SDDP**: Sensitive Data Discovery and Protection (SDDP).
-      // 
-      // - **EIP**: Elastic IP Address (EIP).
+      // - **ECS**: Elastic Compute Service server
+      // - **SLB**: load balancing
+      // - **RDS**: ApsaraDB RDS database
+      // - **MONGODB**: ApsaraDB for MongoDB database
+      // - **KVSTORE**: ApsaraDB for Redis database
+      // - **ACR**: ACR
+      // - **CSK**: CSK
+      // - **VPC**: VPC
+      // - **ACTIONTRAIL**: ActionTrail
+      // - **CDN**: CDN
+      // - **CAS**: Certificate Management Service (formerly SSL Certificates)
+      // - **RDC**: Apsara Devops
+      // - **RAM**: RAM
+      // - **DDOS**: distributed deny-of-service
+      // - **WAF**: WAF
+      // - **OSS**: Access Control
+      // - **POLARDB**: POLARDB
+      // - **POSTGRESQL**: PostgreSQL
+      // - **MSE**: MSE
+      // - **NAS**: NAS
+      // - **SDDP**: SDDP
+      // - **EIP**: EIP
       shared_ptr<string> instanceType_ {};
       // The risk level of the check item. Valid values:
-      // 
-      // - **HIGH**
-      // 
-      // - **MEDIUM**
-      // 
-      // - **LOW**
+      // - **HIGH**: high
+      // - **MEDIUM**: medium
+      // - **LOW**: low
       shared_ptr<string> riskLevel_ {};
-      // The IDs of the sections associated with the check items.
+      // The list of section IDs associated with the check item.
       shared_ptr<vector<int64_t>> sectionIds_ {};
-      // The type of the cloud asset. Valid values:
+      // The cloud asset vendor. Valid values:
       // 
-      // - **0**: an asset provided by Alibaba Cloud.
-      // 
-      // - **1**: an asset outside Alibaba Cloud.
-      // 
-      // - **2**: an asset in a data center.
-      // 
-      // - **3**, **4**, **5**, and **7**: other cloud asset.
-      // 
-      // - **8**: a simple application server.
+      // - **0**: Alibaba Cloud asset
+      // - **1**: asset outside the cloud
+      // - **2**: IDC asset
+      // - **3**, **4**, **5**, **7**: other cloud assets
+      // - **8**: simple application server
       shared_ptr<string> vendor_ {};
     };
 
@@ -497,11 +463,11 @@ namespace Models
 
 
   protected:
-    // The check items.
+    // The list of check item information.
     shared_ptr<vector<ListCheckItemResponseBody::CheckItems>> checkItems_ {};
-    // The pagination information.
+    // The page information in a paged query.
     shared_ptr<ListCheckItemResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

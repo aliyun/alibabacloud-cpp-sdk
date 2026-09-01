@@ -157,7 +157,7 @@ namespace Models
     // The name of the malicious file to query.
     // > Fuzzy match is supported.
     shared_ptr<string> fuzzyMaliciousName_ {};
-    // The language type for the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<string> levels_ {};
     // The MD5 hash of the malicious file.
     shared_ptr<string> maliciousMd5_ {};
-    // The alert type.
+    // The Alarm Metric.
     // 
     // If Lang is set to zh, valid values:
     // 
@@ -187,7 +187,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
+    // The asset information to query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
     // The file source.
     shared_ptr<vector<string>> scanRange_ {};

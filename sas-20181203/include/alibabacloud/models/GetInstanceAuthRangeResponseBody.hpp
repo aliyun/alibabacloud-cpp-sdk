@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ContainerCore, containerCore_);
         DARABONBA_PTR_TO_JSON(ContainerCount, containerCount_);
         DARABONBA_PTR_TO_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_TO_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_TO_JSON(EnterpriseCount, enterpriseCount_);
         DARABONBA_PTR_TO_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_TO_JSON(ImageScanCapacity, imageScanCapacity_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ContainerCore, containerCore_);
         DARABONBA_PTR_FROM_JSON(ContainerCount, containerCount_);
         DARABONBA_PTR_FROM_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_FROM_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_FROM_JSON(EnterpriseCount, enterpriseCount_);
         DARABONBA_PTR_FROM_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_FROM_JSON(ImageScanCapacity, imageScanCapacity_);
@@ -82,8 +84,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->advancedCount_ == nullptr
         && this->antiRansomwareCapacity_ == nullptr && this->antiRansomwareService_ == nullptr && this->antiVirusCore_ == nullptr && this->containerCore_ == nullptr && this->containerCount_ == nullptr
-        && this->cspmCapacity_ == nullptr && this->enterpriseCount_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr && this->raspCapacity_ == nullptr
-        && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->webLockCapacity_ == nullptr; };
+        && this->cspmCapacity_ == nullptr && this->cspmInstanceCapacity_ == nullptr && this->enterpriseCount_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr
+        && this->raspCapacity_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr
+        && this->webLockCapacity_ == nullptr; };
       // advancedCount Field Functions 
       bool hasAdvancedCount() const { return this->advancedCount_ != nullptr;};
       void deleteAdvancedCount() { this->advancedCount_ = nullptr;};
@@ -131,6 +134,13 @@ namespace Models
       void deleteCspmCapacity() { this->cspmCapacity_ = nullptr;};
       inline string getCspmCapacity() const { DARABONBA_PTR_GET_DEFAULT(cspmCapacity_, "") };
       inline InstanceAuthRange& setCspmCapacity(string cspmCapacity) { DARABONBA_PTR_SET_VALUE(cspmCapacity_, cspmCapacity) };
+
+
+      // cspmInstanceCapacity Field Functions 
+      bool hasCspmInstanceCapacity() const { return this->cspmInstanceCapacity_ != nullptr;};
+      void deleteCspmInstanceCapacity() { this->cspmInstanceCapacity_ = nullptr;};
+      inline string getCspmInstanceCapacity() const { DARABONBA_PTR_GET_DEFAULT(cspmInstanceCapacity_, "") };
+      inline InstanceAuthRange& setCspmInstanceCapacity(string cspmInstanceCapacity) { DARABONBA_PTR_SET_VALUE(cspmInstanceCapacity_, cspmInstanceCapacity) };
 
 
       // enterpriseCount Field Functions 
@@ -197,101 +207,84 @@ namespace Models
 
 
     protected:
-      // Advanced version count. Values:
+      // The number of instances for the Advanced Edition. Valid values:
       // 
-      // - **1-2000000000**: Range
-      // 
-      // - **1**: Step
+      // - **1-2000000000**: range
+      // - **1**: step
       shared_ptr<string> advancedCount_ {};
-      // Anti-ransomware capacity. Values:
+      // The anti-ransomware capacity. Valid values:
       // 
-      // - **1-9000000000**: Range
-      // 
-      // - **10**: Step
+      // - **1-9000000000**: range
+      // - **10**: step
       shared_ptr<string> antiRansomwareCapacity_ {};
-      // Anti-ransomware service. Values:
-      // 
-      // - **0**: Not enabled
-      // 
-      // - **1**: Enabled
+      // The anti-ransomware managed service. Valid values:
+      // - **0**: Not activated.
+      // - **1**: Activated.
       shared_ptr<int32_t> antiRansomwareService_ {};
-      // Anti-virus core count. Values:
+      // The number of cores for Anti-virus Edition. Valid values:
       // 
-      // - **1-2000000000**: Range
-      // 
-      // - **1**: Step
+      // - **1-2000000000**: range
+      // - **1**: step
       shared_ptr<string> antiVirusCore_ {};
-      // Flagship version core count. Values:
+      // The number of cores for the Ultimate Edition. Valid values:
       // 
-      // - **1-2000000000**: Range
-      // 
-      // - **1**: Step
+      // - **1-2000000000**: range
+      // - **1**: step
       shared_ptr<string> containerCore_ {};
-      // Flagship version count. Values:
+      // The number of instances for the Ultimate Edition. Valid values:
       // 
-      // - **1-2000000000**: Range
-      // 
-      // - **1**: Step
+      // - **1-2000000000**: range
+      // - **1**: step
       shared_ptr<string> containerCount_ {};
-      // Number of cloud platform configuration check scans. Value:
+      // The number of cloud platform configuration check scans. Valid values:
       // 
-      // - **15000-9999999999**:Range
-      // 
-      // - **55000**:Step
+      // - **15000-9999999999**: range
+      // - **55000**: step
       shared_ptr<string> cspmCapacity_ {};
-      // Enterprise version count. Range:
-      // 
+      shared_ptr<string> cspmInstanceCapacity_ {};
+      // The number of instances for the Enterprise Edition. Valid values:
       // - **Value**: 1-2000000000
-      // 
       // - **Step**: 1
       shared_ptr<string> enterpriseCount_ {};
-      // Number of authorized honeypots. Value:
+      // The number of honeypot authorizations. Valid values:
       // 
-      // - **20-500**:Range
-      // 
-      // - **1**:Step
+      // - **20-500**: range
+      // - **1**: step
       shared_ptr<string> honeypotCapacity_ {};
-      // Image scan authorization count. Values:
+      // The number of image scan authorizations. Valid values:
       // 
-      // - **1-200000**: Range
-      // 
-      // - **20**: Step
+      // - **1-200000**: range
+      // - **20**: step
       shared_ptr<string> imageScanCapacity_ {};
-      // Application protection count. Values:
+      // The number of application protection authorizations. Valid values:
       // 
-      // - **1-100000000**: Range
-      // 
-      // - **1**: Step
+      // - **1-100000000**: range
+      // - **1**: step
       shared_ptr<string> raspCapacity_ {};
-      // Number of authorized malicious file detection SDKs. Value:
+      // The number of malicious file detection SDK authorizations. Valid values:
       // 
-      // - **10-9999999999**:Range
-      // 
-      // - **10**:Step
+      // - **10-9999999999**: range
+      // - **10**: step
       shared_ptr<string> sdkCapacity_ {};
-      // Log storage capacity. Values:
+      // The log storage capacity. Valid values:
       // 
-      // - **1-600000000**: Range
-      // 
-      // - **10**: Step
+      // - **1-600000000**: range
+      // - **10**: step
       shared_ptr<string> slsCapacity_ {};
-      // Threat analysis capacity. Values:
+      // The threat analysis capacity. Valid values:
       // 
-      // - **1-9999999999**: Range
-      // 
-      // - **1000**: Step
+      // - **1-9999999999**: range
+      // - **1000**: step
       shared_ptr<string> threatAnalysisCapacity_ {};
-      // Threat analysis and response log access traffic. Values:
+      // The log ingestion traffic for threat detection and response. Valid values:
       // 
-      // - **1-9999999999**: Range
-      // 
-      // - **100**: Step
+      // - **1-9999999999**: range
+      // - **100**: step
       shared_ptr<string> threatAnalysisFlow_ {};
-      // Web tamper-proof authorization count. Values:
+      // The number of web tamper-proofing authorizations. Valid values:
       // 
-      // - **1-9999**: Range
-      // 
-      // - **1**: Step
+      // - **1-9999**: range
+      // - **1**: step
       shared_ptr<string> webLockCapacity_ {};
     };
 
@@ -314,9 +307,9 @@ namespace Models
 
 
   protected:
-    // Instance range validation
+    // The instance authorization range validation.
     shared_ptr<GetInstanceAuthRangeResponseBody::InstanceAuthRange> instanceAuthRange_ {};
-    // The ID of the current call request, which is a unique identifier generated by Alibaba Cloud for this request and can be used to troubleshoot and locate issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChartId, chartId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(ReportId, reportId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(TimeEnd, timeEnd_);
       DARABONBA_PTR_TO_JSON(TimeStart, timeStart_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChartId, chartId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(ReportId, reportId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(TimeEnd, timeEnd_);
       DARABONBA_PTR_FROM_JSON(TimeStart, timeStart_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->charId_ == nullptr
-        && this->chartId_ == nullptr && this->lang_ == nullptr && this->reportId_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
+        && this->chartId_ == nullptr && this->lang_ == nullptr && this->reportId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->timeEnd_ == nullptr
+        && this->timeStart_ == nullptr; };
     // charId Field Functions 
     bool hasCharId() const { return this->charId_ != nullptr;};
     void deleteCharId() { this->charId_ = nullptr;};
@@ -67,6 +70,13 @@ namespace Models
     void deleteReportId() { this->reportId_ = nullptr;};
     inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline DescribeChartDataRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeChartDataRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // timeEnd Field Functions 
@@ -101,6 +111,7 @@ namespace Models
     // 
     // > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
     shared_ptr<int64_t> reportId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The end timestamp for statistics. Unit: milliseconds.
     shared_ptr<int64_t> timeEnd_ {};
     // The start timestamp for statistics. Unit: milliseconds.

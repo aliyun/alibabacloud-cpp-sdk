@@ -81,7 +81,7 @@ namespace Models
 
 
     protected:
-      // The page number of the current page when using paging.
+      // The current page number when using paging.
       shared_ptr<int32_t> currentPage_ {};
       // The maximum number of entries per page when using paging.
       shared_ptr<int32_t> pageSize_ {};
@@ -98,6 +98,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_TO_JSON(IntranetIp, intranetIp_);
         DARABONBA_PTR_TO_JSON(MaliciousCount, maliciousCount_);
+        DARABONBA_PTR_TO_JSON(ReportUrlHtml, reportUrlHtml_);
         DARABONBA_PTR_TO_JSON(ScanTime, scanTime_);
         DARABONBA_PTR_TO_JSON(TargetId, targetId_);
         DARABONBA_PTR_TO_JSON(TargetName, targetName_);
@@ -111,6 +112,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_FROM_JSON(IntranetIp, intranetIp_);
         DARABONBA_PTR_FROM_JSON(MaliciousCount, maliciousCount_);
+        DARABONBA_PTR_FROM_JSON(ReportUrlHtml, reportUrlHtml_);
         DARABONBA_PTR_FROM_JSON(ScanTime, scanTime_);
         DARABONBA_PTR_FROM_JSON(TargetId, targetId_);
         DARABONBA_PTR_FROM_JSON(TargetName, targetName_);
@@ -130,7 +132,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->baselineCount_ == nullptr
         && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->maliciousCount_ == nullptr
-        && this->scanTime_ == nullptr && this->targetId_ == nullptr && this->targetName_ == nullptr && this->uuid_ == nullptr && this->vulCount_ == nullptr; };
+        && this->reportUrlHtml_ == nullptr && this->scanTime_ == nullptr && this->targetId_ == nullptr && this->targetName_ == nullptr && this->uuid_ == nullptr
+        && this->vulCount_ == nullptr; };
       // baselineCount Field Functions 
       bool hasBaselineCount() const { return this->baselineCount_ != nullptr;};
       void deleteBaselineCount() { this->baselineCount_ = nullptr;};
@@ -171,6 +174,13 @@ namespace Models
       void deleteMaliciousCount() { this->maliciousCount_ = nullptr;};
       inline int32_t getMaliciousCount() const { DARABONBA_PTR_GET_DEFAULT(maliciousCount_, 0) };
       inline List& setMaliciousCount(int32_t maliciousCount) { DARABONBA_PTR_SET_VALUE(maliciousCount_, maliciousCount) };
+
+
+      // reportUrlHtml Field Functions 
+      bool hasReportUrlHtml() const { return this->reportUrlHtml_ != nullptr;};
+      void deleteReportUrlHtml() { this->reportUrlHtml_ = nullptr;};
+      inline string getReportUrlHtml() const { DARABONBA_PTR_GET_DEFAULT(reportUrlHtml_, "") };
+      inline List& setReportUrlHtml(string reportUrlHtml) { DARABONBA_PTR_SET_VALUE(reportUrlHtml_, reportUrlHtml) };
 
 
       // scanTime Field Functions 
@@ -221,6 +231,8 @@ namespace Models
       shared_ptr<string> intranetIp_ {};
       // The number of malicious samples.
       shared_ptr<int32_t> maliciousCount_ {};
+      // The URL of the latest parallel sandbox HTML report.
+      shared_ptr<string> reportUrlHtml_ {};
       // The timestamp of the scan. Unit: milliseconds.
       shared_ptr<int64_t> scanTime_ {};
       // The ID of the scan target.
@@ -263,9 +275,9 @@ namespace Models
   protected:
     // The list of servers.
     shared_ptr<vector<ListAgentlessRiskUuidResponseBody::List>> list_ {};
-    // The paging information for the query.
+    // The paging information.
     shared_ptr<ListAgentlessRiskUuidResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

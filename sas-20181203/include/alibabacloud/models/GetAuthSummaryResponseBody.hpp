@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_TO_JSON(ClusterNodeCheck, clusterNodeCheck_);
       DARABONBA_PTR_TO_JSON(DefaultAuthToAll, defaultAuthToAll_);
+      DARABONBA_PTR_TO_JSON(EdrSummary, edrSummary_);
       DARABONBA_PTR_TO_JSON(HasPreBindSetting, hasPreBindSetting_);
       DARABONBA_PTR_TO_JSON(HighestVersion, highestVersion_);
       DARABONBA_PTR_TO_JSON(InvalidBindStatus, invalidBindStatus_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_FROM_JSON(ClusterNodeCheck, clusterNodeCheck_);
       DARABONBA_PTR_FROM_JSON(DefaultAuthToAll, defaultAuthToAll_);
+      DARABONBA_PTR_FROM_JSON(EdrSummary, edrSummary_);
       DARABONBA_PTR_FROM_JSON(HasPreBindSetting, hasPreBindSetting_);
       DARABONBA_PTR_FROM_JSON(HighestVersion, highestVersion_);
       DARABONBA_PTR_FROM_JSON(InvalidBindStatus, invalidBindStatus_);
@@ -187,7 +189,7 @@ namespace Models
       // - CORE: consumes authorized core count.
       // - ASSET_AND_CORE: consumes both authorized asset count and authorized core count.
       shared_ptr<string> authBindType_ {};
-      // The index of the current edition. A larger value indicates a higher edition. This parameter is used for sorting. Valid values:
+      // The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
       // - **1**: Free Edition. 
       // - **2**: Anti-virus Edition.    
       // - **3**: Premium Edition.
@@ -212,10 +214,10 @@ namespace Models
       // The number of unused authorized assets.
       // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> unusedEcsAuthCount_ {};
-      // The number of authorized cores that are used.
+      // The number of authorized cores that have been used.
       // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int32_t> usedCoreCount_ {};
-      // The number of authorized assets that are used.
+      // The number of authorized assets that have been used.
       // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> usedEcsCount_ {};
       // The purchased edition of Security Center. Valid values:  
@@ -225,7 +227,7 @@ namespace Models
       // - **6**: Anti-virus Edition.    
       // - **7**: Ultimate Edition.   
       // - **8**: Multi-version.   
-      // - **10**: Only value-added services are purchased.
+      // - **10**: Value-added services only.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -233,6 +235,9 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PostPaidVersionSummary& obj) { 
         DARABONBA_PTR_TO_JSON(AuthBindType, authBindType_);
+        DARABONBA_PTR_TO_JSON(FreeCoreCount, freeCoreCount_);
+        DARABONBA_PTR_TO_JSON(FreeEcsCount, freeEcsCount_);
+        DARABONBA_PTR_TO_JSON(FreeType, freeType_);
         DARABONBA_PTR_TO_JSON(Index, index_);
         DARABONBA_PTR_TO_JSON(UsedCoreCount, usedCoreCount_);
         DARABONBA_PTR_TO_JSON(UsedEcsCount, usedEcsCount_);
@@ -240,6 +245,9 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, PostPaidVersionSummary& obj) { 
         DARABONBA_PTR_FROM_JSON(AuthBindType, authBindType_);
+        DARABONBA_PTR_FROM_JSON(FreeCoreCount, freeCoreCount_);
+        DARABONBA_PTR_FROM_JSON(FreeEcsCount, freeEcsCount_);
+        DARABONBA_PTR_FROM_JSON(FreeType, freeType_);
         DARABONBA_PTR_FROM_JSON(Index, index_);
         DARABONBA_PTR_FROM_JSON(UsedCoreCount, usedCoreCount_);
         DARABONBA_PTR_FROM_JSON(UsedEcsCount, usedEcsCount_);
@@ -257,12 +265,34 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->authBindType_ == nullptr
-        && this->index_ == nullptr && this->usedCoreCount_ == nullptr && this->usedEcsCount_ == nullptr && this->version_ == nullptr; };
+        && this->freeCoreCount_ == nullptr && this->freeEcsCount_ == nullptr && this->freeType_ == nullptr && this->index_ == nullptr && this->usedCoreCount_ == nullptr
+        && this->usedEcsCount_ == nullptr && this->version_ == nullptr; };
       // authBindType Field Functions 
       bool hasAuthBindType() const { return this->authBindType_ != nullptr;};
       void deleteAuthBindType() { this->authBindType_ = nullptr;};
       inline string getAuthBindType() const { DARABONBA_PTR_GET_DEFAULT(authBindType_, "") };
       inline PostPaidVersionSummary& setAuthBindType(string authBindType) { DARABONBA_PTR_SET_VALUE(authBindType_, authBindType) };
+
+
+      // freeCoreCount Field Functions 
+      bool hasFreeCoreCount() const { return this->freeCoreCount_ != nullptr;};
+      void deleteFreeCoreCount() { this->freeCoreCount_ = nullptr;};
+      inline int32_t getFreeCoreCount() const { DARABONBA_PTR_GET_DEFAULT(freeCoreCount_, 0) };
+      inline PostPaidVersionSummary& setFreeCoreCount(int32_t freeCoreCount) { DARABONBA_PTR_SET_VALUE(freeCoreCount_, freeCoreCount) };
+
+
+      // freeEcsCount Field Functions 
+      bool hasFreeEcsCount() const { return this->freeEcsCount_ != nullptr;};
+      void deleteFreeEcsCount() { this->freeEcsCount_ = nullptr;};
+      inline int32_t getFreeEcsCount() const { DARABONBA_PTR_GET_DEFAULT(freeEcsCount_, 0) };
+      inline PostPaidVersionSummary& setFreeEcsCount(int32_t freeEcsCount) { DARABONBA_PTR_SET_VALUE(freeEcsCount_, freeEcsCount) };
+
+
+      // freeType Field Functions 
+      bool hasFreeType() const { return this->freeType_ != nullptr;};
+      void deleteFreeType() { this->freeType_ = nullptr;};
+      inline string getFreeType() const { DARABONBA_PTR_GET_DEFAULT(freeType_, "") };
+      inline PostPaidVersionSummary& setFreeType(string freeType) { DARABONBA_PTR_SET_VALUE(freeType_, freeType) };
 
 
       // index Field Functions 
@@ -299,20 +329,23 @@ namespace Models
       // - **CORE**: consumes authorized core count.
       // - **ASSET_AND_CORE**: consumes both authorized asset count and authorized core count.
       shared_ptr<string> authBindType_ {};
-      // The index of the current edition. A larger value indicates a higher edition. This parameter is used for sorting. Valid values:
+      shared_ptr<int32_t> freeCoreCount_ {};
+      shared_ptr<int32_t> freeEcsCount_ {};
+      shared_ptr<string> freeType_ {};
+      // The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
       // - **1**: Free Edition. 
       // - **2**: Anti-virus Edition.    
       // - **3**: Premium Edition.
       // - **4**: Enterprise Edition.
       // - **5**: Ultimate Edition.
       shared_ptr<int32_t> index_ {};
-      // The number of authorized cores that are used.
+      // The number of authorized cores that have been used.
       // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int64_t> usedCoreCount_ {};
-      // The number of authorized assets that are used.
+      // The number of authorized assets that have been used.
       // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int64_t> usedEcsCount_ {};
-      // The pay-as-you-go edition that is bound to host assets. Valid values:  
+      // The pay-as-you-go edition bound to host assets. Valid values:  
       // - **1**: Free Edition. 
       // - **3**: Enterprise Edition.
       // - **5**: Premium Edition.
@@ -436,9 +469,9 @@ namespace Models
       shared_ptr<int32_t> bindCoreCount_ {};
       // The number of bound assets.
       shared_ptr<int32_t> bindEcsCount_ {};
-      // The number of cores of assets that are bound with pay-as-you-go authorization.
+      // The number of cores of assets bound with pay-as-you-go authorization.
       shared_ptr<int32_t> postPaidBindCoreCount_ {};
-      // The number of assets that are bound with pay-as-you-go authorization.
+      // The number of assets bound with pay-as-you-go authorization.
       shared_ptr<int32_t> postPaidBindEcsCount_ {};
       // The number of cores of assets that have security risks.
       shared_ptr<int32_t> riskCoreCount_ {};
@@ -454,11 +487,63 @@ namespace Models
       shared_ptr<int32_t> unBindEcsCount_ {};
     };
 
+    class EdrSummary : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EdrSummary& obj) { 
+        DARABONBA_PTR_TO_JSON(BoundCount, boundCount_);
+        DARABONBA_PTR_TO_JSON(HybridPaidAutoBind, hybridPaidAutoBind_);
+        DARABONBA_PTR_TO_JSON(PostPaidAutoBind, postPaidAutoBind_);
+      };
+      friend void from_json(const Darabonba::Json& j, EdrSummary& obj) { 
+        DARABONBA_PTR_FROM_JSON(BoundCount, boundCount_);
+        DARABONBA_PTR_FROM_JSON(HybridPaidAutoBind, hybridPaidAutoBind_);
+        DARABONBA_PTR_FROM_JSON(PostPaidAutoBind, postPaidAutoBind_);
+      };
+      EdrSummary() = default ;
+      EdrSummary(const EdrSummary &) = default ;
+      EdrSummary(EdrSummary &&) = default ;
+      EdrSummary(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EdrSummary() = default ;
+      EdrSummary& operator=(const EdrSummary &) = default ;
+      EdrSummary& operator=(EdrSummary &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->boundCount_ == nullptr
+        && this->hybridPaidAutoBind_ == nullptr && this->postPaidAutoBind_ == nullptr; };
+      // boundCount Field Functions 
+      bool hasBoundCount() const { return this->boundCount_ != nullptr;};
+      void deleteBoundCount() { this->boundCount_ = nullptr;};
+      inline string getBoundCount() const { DARABONBA_PTR_GET_DEFAULT(boundCount_, "") };
+      inline EdrSummary& setBoundCount(string boundCount) { DARABONBA_PTR_SET_VALUE(boundCount_, boundCount) };
+
+
+      // hybridPaidAutoBind Field Functions 
+      bool hasHybridPaidAutoBind() const { return this->hybridPaidAutoBind_ != nullptr;};
+      void deleteHybridPaidAutoBind() { this->hybridPaidAutoBind_ = nullptr;};
+      inline string getHybridPaidAutoBind() const { DARABONBA_PTR_GET_DEFAULT(hybridPaidAutoBind_, "") };
+      inline EdrSummary& setHybridPaidAutoBind(string hybridPaidAutoBind) { DARABONBA_PTR_SET_VALUE(hybridPaidAutoBind_, hybridPaidAutoBind) };
+
+
+      // postPaidAutoBind Field Functions 
+      bool hasPostPaidAutoBind() const { return this->postPaidAutoBind_ != nullptr;};
+      void deletePostPaidAutoBind() { this->postPaidAutoBind_ = nullptr;};
+      inline string getPostPaidAutoBind() const { DARABONBA_PTR_GET_DEFAULT(postPaidAutoBind_, "") };
+      inline EdrSummary& setPostPaidAutoBind(string postPaidAutoBind) { DARABONBA_PTR_SET_VALUE(postPaidAutoBind_, postPaidAutoBind) };
+
+
+    protected:
+      shared_ptr<string> boundCount_ {};
+      shared_ptr<string> hybridPaidAutoBind_ {};
+      shared_ptr<string> postPaidAutoBind_ {};
+    };
+
     virtual bool empty() const override { return this->allowPartialBuy_ == nullptr
         && this->allowUpgradePartialBuy_ == nullptr && this->allowUserUnbind_ == nullptr && this->autoBind_ == nullptr && this->clusterNodeCheck_ == nullptr && this->defaultAuthToAll_ == nullptr
-        && this->hasPreBindSetting_ == nullptr && this->highestVersion_ == nullptr && this->invalidBindStatus_ == nullptr && this->isMultiVersion_ == nullptr && this->machine_ == nullptr
-        && this->postPaidHighestVersion_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPaidVersionSummary_ == nullptr && this->requestId_ == nullptr
-        && this->versionSummary_ == nullptr; };
+        && this->edrSummary_ == nullptr && this->hasPreBindSetting_ == nullptr && this->highestVersion_ == nullptr && this->invalidBindStatus_ == nullptr && this->isMultiVersion_ == nullptr
+        && this->machine_ == nullptr && this->postPaidHighestVersion_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPaidVersionSummary_ == nullptr
+        && this->requestId_ == nullptr && this->versionSummary_ == nullptr; };
     // allowPartialBuy Field Functions 
     bool hasAllowPartialBuy() const { return this->allowPartialBuy_ != nullptr;};
     void deleteAllowPartialBuy() { this->allowPartialBuy_ = nullptr;};
@@ -499,6 +584,15 @@ namespace Models
     void deleteDefaultAuthToAll() { this->defaultAuthToAll_ = nullptr;};
     inline int32_t getDefaultAuthToAll() const { DARABONBA_PTR_GET_DEFAULT(defaultAuthToAll_, 0) };
     inline GetAuthSummaryResponseBody& setDefaultAuthToAll(int32_t defaultAuthToAll) { DARABONBA_PTR_SET_VALUE(defaultAuthToAll_, defaultAuthToAll) };
+
+
+    // edrSummary Field Functions 
+    bool hasEdrSummary() const { return this->edrSummary_ != nullptr;};
+    void deleteEdrSummary() { this->edrSummary_ = nullptr;};
+    inline const GetAuthSummaryResponseBody::EdrSummary & getEdrSummary() const { DARABONBA_PTR_GET_CONST(edrSummary_, GetAuthSummaryResponseBody::EdrSummary) };
+    inline GetAuthSummaryResponseBody::EdrSummary getEdrSummary() { DARABONBA_PTR_GET(edrSummary_, GetAuthSummaryResponseBody::EdrSummary) };
+    inline GetAuthSummaryResponseBody& setEdrSummary(const GetAuthSummaryResponseBody::EdrSummary & edrSummary) { DARABONBA_PTR_SET_VALUE(edrSummary_, edrSummary) };
+    inline GetAuthSummaryResponseBody& setEdrSummary(GetAuthSummaryResponseBody::EdrSummary && edrSummary) { DARABONBA_PTR_SET_RVALUE(edrSummary_, edrSummary) };
 
 
     // hasPreBindSetting Field Functions 
@@ -593,7 +687,7 @@ namespace Models
     // - **0**: Not allowed.
     // - **1**: Allowed.
     shared_ptr<int32_t> allowUpgradePartialBuy_ {};
-    // Indicates whether you can immediately unbind all bound assets. Valid values:
+    // Indicates whether immediate unbinding of all bound assets is allowed. Valid values:
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> allowUserUnbind_ {};
@@ -602,7 +696,7 @@ namespace Models
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
-    // Indicates whether the cluster node requires machine version verification. Valid values:
+    // Indicates whether cluster nodes require agent version verification. Valid values:
     // - **0**: Not required.
     // - **1**: Required.
     shared_ptr<int32_t> clusterNodeCheck_ {};
@@ -610,22 +704,23 @@ namespace Models
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> defaultAuthToAll_ {};
-    // Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration that is selected in advance during purchase. Valid values:
-    // - **0**: No.
-    // - **1**: Yes.
+    shared_ptr<GetAuthSummaryResponseBody::EdrSummary> edrSummary_ {};
+    // Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration selected in advance during purchase. Valid values:
+    // - **0**: Does not exist.
+    // - **1**: Exists.
     shared_ptr<bool> hasPreBindSetting_ {};
-    // The highest edition of Security Center that is purchased. Valid values:
+    // The highest purchased edition of Security Center. Valid values:
     // - **1**: Free Edition.
     // - **3**: Enterprise Edition.
     // - **5**: Premium Edition.
     // - **6**: Anti-virus Edition.
     // - **7**: Ultimate Edition.
-    // - **10**: Only value-added services are purchased.
-    // > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest edition among the sub-editions.
+    // - **10**: Value-added services only.
+    // > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest sub-edition.
     shared_ptr<int32_t> highestVersion_ {};
     // The binding validity status. Valid values:
-    // - **NORMAL**: valid.
-    // - **INVALID_NODE_VERSION**: invalid.
+    // - **NORMAL**: Valid.
+    // - **INVALID_NODE_VERSION**: Invalid.
     shared_ptr<string> invalidBindStatus_ {};
     // Indicates whether multiple versions exist. Valid values:
     // - **0**: No.
@@ -633,14 +728,14 @@ namespace Models
     shared_ptr<int32_t> isMultiVersion_ {};
     // The asset authorization statistics information.
     shared_ptr<GetAuthSummaryResponseBody::Machine> machine_ {};
-    // The protection edition of the host and container security pay-as-you-go service. This value indicates the highest protection edition among all bound hosts. Valid values:  
+    // The protection edition of the host and container security pay-as-you-go service. This is the highest protection edition among all bound hosts. Valid values:  
     // - **1**: Free Edition. 
     // - **3**: Enterprise Edition.
     // - **5**: Premium Edition.
     // - **6**: Anti-virus Edition.    
     // - **7**: Ultimate Edition.
     shared_ptr<string> postPaidHighestVersion_ {};
-    // Indicates whether new hosts are automatically bound for the host and container security pay-as-you-go service. Valid values:
+    // Indicates whether automatic binding of new hosts is enabled for the host and container security pay-as-you-go service. Valid values:
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<string> postPaidHostAutoBind_ {};

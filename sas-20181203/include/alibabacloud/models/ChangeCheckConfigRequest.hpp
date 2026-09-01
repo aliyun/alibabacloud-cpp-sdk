@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChangeCheckConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddedCheck, addedCheck_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ConfigRequirementIds, configRequirementIds_);
       DARABONBA_PTR_TO_JSON(ConfigStandardIds, configStandardIds_);
       DARABONBA_PTR_TO_JSON(Configure, configure_);
@@ -32,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ChangeCheckConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddedCheck, addedCheck_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ConfigRequirementIds, configRequirementIds_);
       DARABONBA_PTR_FROM_JSON(ConfigStandardIds, configStandardIds_);
       DARABONBA_PTR_FROM_JSON(Configure, configure_);
@@ -98,7 +100,7 @@ namespace Models
     protected:
       // The ID of the check item.
       // 
-      // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+      // > Call [ListCheckResult](~~ListCheckResult~~) to obtain check item IDs.
       shared_ptr<int64_t> checkId_ {};
       // The section ID of the check item.
       shared_ptr<int64_t> sectionId_ {};
@@ -146,9 +148,9 @@ namespace Models
 
 
     protected:
-      // The standard IDs that you want to add to the policy.
+      // The list of standard IDs to add to the policy.
       shared_ptr<vector<int64_t>> addIds_ {};
-      // The standard IDs that you want to remove from the policy.
+      // The list of standard IDs to remove from the policy.
       shared_ptr<vector<int64_t>> removeIds_ {};
     };
 
@@ -194,9 +196,9 @@ namespace Models
 
 
     protected:
-      // The requirement IDs that you want to add to the policy.
+      // The list of requirement IDs to add to the policy.
       shared_ptr<vector<int64_t>> addIds_ {};
-      // The requirement IDs that you want to remove from the policy.
+      // The list of requirement IDs to remove from the policy.
       shared_ptr<vector<int64_t>> removeIds_ {};
     };
 
@@ -240,16 +242,16 @@ namespace Models
     protected:
       // The ID of the check item.
       // 
-      // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+      // > Call [ListCheckResult](~~ListCheckResult~~) to obtain check item IDs.
       shared_ptr<int64_t> checkId_ {};
       // The section ID of the check item.
       shared_ptr<int64_t> sectionId_ {};
     };
 
     virtual bool empty() const override { return this->addedCheck_ == nullptr
-        && this->configRequirementIds_ == nullptr && this->configStandardIds_ == nullptr && this->configure_ == nullptr && this->cycleDays_ == nullptr && this->enableAddCheck_ == nullptr
-        && this->enableAutoCheck_ == nullptr && this->endTime_ == nullptr && this->regionId_ == nullptr && this->removedCheck_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
-        && this->standardIds_ == nullptr && this->startTime_ == nullptr && this->systemConfig_ == nullptr && this->vendors_ == nullptr; };
+        && this->clientToken_ == nullptr && this->configRequirementIds_ == nullptr && this->configStandardIds_ == nullptr && this->configure_ == nullptr && this->cycleDays_ == nullptr
+        && this->enableAddCheck_ == nullptr && this->enableAutoCheck_ == nullptr && this->endTime_ == nullptr && this->regionId_ == nullptr && this->removedCheck_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->standardIds_ == nullptr && this->startTime_ == nullptr && this->systemConfig_ == nullptr && this->vendors_ == nullptr; };
     // addedCheck Field Functions 
     bool hasAddedCheck() const { return this->addedCheck_ != nullptr;};
     void deleteAddedCheck() { this->addedCheck_ = nullptr;};
@@ -257,6 +259,13 @@ namespace Models
     inline vector<ChangeCheckConfigRequest::AddedCheck> getAddedCheck() { DARABONBA_PTR_GET(addedCheck_, vector<ChangeCheckConfigRequest::AddedCheck>) };
     inline ChangeCheckConfigRequest& setAddedCheck(const vector<ChangeCheckConfigRequest::AddedCheck> & addedCheck) { DARABONBA_PTR_SET_VALUE(addedCheck_, addedCheck) };
     inline ChangeCheckConfigRequest& setAddedCheck(vector<ChangeCheckConfigRequest::AddedCheck> && addedCheck) { DARABONBA_PTR_SET_RVALUE(addedCheck_, addedCheck) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ChangeCheckConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // configRequirementIds Field Functions 
@@ -370,62 +379,67 @@ namespace Models
 
 
   protected:
-    // The list of check items that you want to add to the policy.
-    // 
-    // >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
+    // The list of check items to add to the policy.
+    // <notice> If ConfigStandardIds or ConfigRequirementIds is specified, this parameter does not take effect.
     shared_ptr<vector<ChangeCheckConfigRequest::AddedCheck>> addedCheck_ {};
-    // The requirement IDs that you want to specify for the check policy.
+    // The client token used to ensure request idempotency. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // Configures the check policy by specifying requirement IDs.
     // 
-    // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the requirement ID. If the ConfigStandardIds parameter is configured, this parameter does not take effect.
+    // > Call [ListCheckResult](~~ListCheckResult~~) to obtain requirement IDs. If ConfigStandardIds is specified, this parameter does not take effect.
     shared_ptr<ChangeCheckConfigRequest::ConfigRequirementIds> configRequirementIds_ {};
-    // The standard IDs that you want to specify for the check policy.
+    // Configures the check policy by specifying standard IDs.
     // 
-    // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the standard ID.
+    // > Call [ListCheckResult](~~ListCheckResult~~) to obtain standard IDs.
     shared_ptr<ChangeCheckConfigRequest::ConfigStandardIds> configStandardIds_ {};
-    // The configuration of the check item. Valid value:
+    // The field configuration. Valid values:
     // 
-    // *   **all**: Add all check items.
+    // - **all:** Adds all check items.
     shared_ptr<string> configure_ {};
-    // The days in a week on which a check is performed.
+    // The scheduled check days.
     shared_ptr<vector<int32_t>> cycleDays_ {};
-    // Specifies whether to check the new check items in the selected requirement item. Valid values:
-    // - **true**
-    // - **false**
+    // Specifies whether to automatically include newly added check items from the selected requirements. Valid values:
+    // 
+    // - **true:** Enabled.
+    // - **false:** Disabled.
     shared_ptr<bool> enableAddCheck_ {};
-    // Specifies whether to enable the automatic periodical check feature. Valid values:
+    // Specifies whether to enable automatic scheduled checks. Valid values:
     // 
-    // - **true**
-    // - **false**
+    // - **true:** Enabled.
+    // - **false:** Disabled.
     shared_ptr<bool> enableAutoCheck_ {};
-    // The end time of the check. The value specifies a point in time in a day. The time period that is specified by the start time and end time must be one of the following time periods:
+    // The end hour of the check time window, expressed as an hour of the day. The start and end times must fall within one of the following time ranges. Valid values: 6, 12, 18, 24.
     // 
-    // *   **00:00 to 06:00:** If you set the StartTime parameter to 0, you must set the EndTime parameter to 6.
-    // *   **06:00 to 12:00**: If you set the StartTime parameter to 6, you must set the EndTime parameter to 12.
-    // *   **12:00 to 18:00**: If you set the StartTime parameter to 12, you must set the EndTime parameter to 18.
-    // *  **18:00 to 24:00:** If you set the StartTime parameter to 18, you must set the EndTime parameter to 24.
+    // - **0~6:** If the start time is 0, set the end time to 6.
+    // - **6~12:** If the start time is 6, set the end time to 12.
+    // - **12~18:** If the start time is 12, set the end time to 18.
+    // - **18~24:** If the start time is 18, set the end time to 24.
     shared_ptr<int32_t> endTime_ {};
-    // The region ID of the bastion host to query.
+    // The region of the Security Center instance. Valid values:
     // 
-    // >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // - **cn-hangzhou:** China (Hangzhou)
+    // - **ap-southeast-1:** Singapore
     shared_ptr<string> regionId_ {};
-    // The list of the check items that you want to remove from the policy.
-    // 
-    // >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
+    // The list of check items to remove from the policy.
+    // <notice> If ConfigStandardIds or ConfigRequirementIds is specified, this parameter does not take effect.
     shared_ptr<vector<ChangeCheckConfigRequest::RemovedCheck>> removedCheck_ {};
-    // The Alibaba Cloud account ID of the member in the resource directory.
-    // 
-    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    // The ID of the resource directory member accounts (Alibaba Cloud account).
+    // > Call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // An array that consists of the information about the check item.
+    // This parameter is deprecated. You do not need to configure it.
     shared_ptr<vector<int64_t>> standardIds_ {};
-    // The start time of the check. The value specifies a point in time in a day.
-    shared_ptr<int32_t> startTime_ {};
-    // Specifies whether to use the configuration automatically generated by the system. Valid values:
+    // The start hour of the check time window, expressed as an hour of the day. The start and end times must fall within one of the following time ranges. Valid values: 0, 6, 12, 18.
     // 
-    // *   **true**
-    // *   **false**
+    // - **0~6:** If the start time is 0, set the end time to 6.
+    // - **6~12:** If the start time is 6, set the end time to 12.
+    // - **12~18:** If the start time is 12, set the end time to 18.
+    // - **18~24:** If the start time is 18, set the end time to 24.
+    shared_ptr<int32_t> startTime_ {};
+    // Specifies whether to use the system-generated configuration. Valid values:
+    // - **true:** Yes.
+    // - **false:** No.
     shared_ptr<bool> systemConfig_ {};
-    // The cloud service providers.
+    // The list of cloud vendors.
     shared_ptr<vector<string>> vendors_ {};
   };
 

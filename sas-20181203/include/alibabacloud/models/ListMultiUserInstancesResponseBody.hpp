@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
         DARABONBA_PTR_TO_JSON(AntiRansomwareCapacity, antiRansomwareCapacity_);
         DARABONBA_PTR_TO_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_TO_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_TO_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_TO_JSON(ImageScanCapacity, imageScanCapacity_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
         DARABONBA_PTR_FROM_JSON(AntiRansomwareCapacity, antiRansomwareCapacity_);
         DARABONBA_PTR_FROM_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_FROM_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_FROM_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_FROM_JSON(ImageScanCapacity, imageScanCapacity_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -125,9 +127,9 @@ namespace Models
 
 
       protected:
-        // Number of web tamper-proof authorizations allocated.
+        // The allocated number of web tamper-proofing authorizations.
         shared_ptr<int64_t> count_ {};
-        // Number of web tamper-proof authorizations used.
+        // The used number of web tamper-proofing authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -203,11 +205,11 @@ namespace Models
 
 
         protected:
-          // Number of purchased licenses allocated.
+          // The assigned number of purchased authorized servers.
           shared_ptr<int64_t> assigned_ {};
-          // Number of ECS authorizations allocated.
+          // The allocated number of authorized servers.
           shared_ptr<int64_t> count_ {};
-          // Number of ECS authorizations used.
+          // The used number of authorized servers.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -258,11 +260,11 @@ namespace Models
 
 
         protected:
-          // Assigned number of cores.
+          // The assigned number of authorized cores.
           shared_ptr<int64_t> assigned_ {};
-          // Allocated number of cores.
+          // The allocated number of authorized cores.
           shared_ptr<int64_t> count_ {};
-          // Number of cores used.
+          // The used number of authorized cores.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -301,33 +303,13 @@ namespace Models
 
 
       protected:
-        // Authorization type consumed during binding, with values:
-        // 
-        // - **ASSET**:Consumes the number of authorized instances
-        // 
-        // - **CORE**:Consumes the number of authorized cores
-        // 
-        // - **ASSET_AND_CORE**:Consumes both the number of authorized instances and cores.
+        // The authorization type consumed during binding. Valid values:
         shared_ptr<string> authBindType_ {};
-        // Usage of core authorization for the member account.
+        // The authorization quota usage for cores of the member account.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
-        // Usage details of ECS authorizations for the member account.
+        // The authorization quota usage for servers of the member account.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // Version of the Cloud Security Center for the member account. Values:
-        // 
-        // - **1**: Free Edition
-        // 
-        // - **3**: Enterprise Edition
-        // 
-        // - **5**: Advanced Edition
-        // 
-        // - **6**: Anti-Virus Edition
-        // 
-        // - **7**: Flagship Edition
-        // 
-        // - **8**: Multiple Versions
-        // 
-        // - **10**: Value-Added Services Only
+        // The Security Center edition of the member account. Valid values:
         shared_ptr<int32_t> version_ {};
       };
 
@@ -369,9 +351,9 @@ namespace Models
 
 
       protected:
-        // Allocated threat analysis and response log ingestion traffic. Unit: GB/day.
+        // The allocated threat detection and response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> count_ {};
-        // Used threat analysis and response log ingestion traffic. Unit: GB/day.
+        // The used threat detection and response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -413,9 +395,9 @@ namespace Models
 
 
       protected:
-        // Allocated threat analysis capacity. Unit: GB.
+        // The allocated threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used threat analysis capacity. Unit: GB.
+        // The used threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -457,9 +439,9 @@ namespace Models
 
 
       protected:
-        // Allocated log storage capacity, in GB.
+        // The allocated log storage capacity. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used log storage capacity, in GB.
+        // The used log storage capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -501,9 +483,9 @@ namespace Models
 
 
       protected:
-        // Number of malicious file detection SDK authorizations allocated.
+        // The allocated number of malicious file detection SDK authorizations.
         shared_ptr<int64_t> count_ {};
-        // Number of malicious file detection SDK authorizations used.
+        // The used number of malicious file detection SDK authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -545,9 +527,9 @@ namespace Models
 
 
       protected:
-        // Allocated RASP capacity. Unit: per month.
+        // The allocated number of application protection quotas. Unit: quotas/month.
         shared_ptr<int64_t> count_ {};
-        // Used RASP capacity. Unit: per month.
+        // The used number of application protection quotas. Unit: quotas/month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -589,9 +571,9 @@ namespace Models
 
 
       protected:
-        // Allocated image scanning authorizations.
+        // The allocated number of image scan authorizations.
         shared_ptr<int64_t> count_ {};
-        // Used image scanning authorizations.
+        // The used number of image scan authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -633,9 +615,51 @@ namespace Models
 
 
       protected:
-        // Number of honeypot authorizations allocated.
+        // The allocated number of cloud honeypot authorizations.
         shared_ptr<int64_t> count_ {};
-        // Number of honeypot authorizations used.
+        // The used number of cloud honeypot authorizations.
+        shared_ptr<int64_t> used_ {};
+      };
+
+      class CspmInstanceCapacity : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CspmInstanceCapacity& obj) { 
+          DARABONBA_PTR_TO_JSON(Count, count_);
+          DARABONBA_PTR_TO_JSON(Used, used_);
+        };
+        friend void from_json(const Darabonba::Json& j, CspmInstanceCapacity& obj) { 
+          DARABONBA_PTR_FROM_JSON(Count, count_);
+          DARABONBA_PTR_FROM_JSON(Used, used_);
+        };
+        CspmInstanceCapacity() = default ;
+        CspmInstanceCapacity(const CspmInstanceCapacity &) = default ;
+        CspmInstanceCapacity(CspmInstanceCapacity &&) = default ;
+        CspmInstanceCapacity(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CspmInstanceCapacity() = default ;
+        CspmInstanceCapacity& operator=(const CspmInstanceCapacity &) = default ;
+        CspmInstanceCapacity& operator=(CspmInstanceCapacity &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->count_ == nullptr
+        && this->used_ == nullptr; };
+        // count Field Functions 
+        bool hasCount() const { return this->count_ != nullptr;};
+        void deleteCount() { this->count_ = nullptr;};
+        inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+        inline CspmInstanceCapacity& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+        // used Field Functions 
+        bool hasUsed() const { return this->used_ != nullptr;};
+        void deleteUsed() { this->used_ = nullptr;};
+        inline int64_t getUsed() const { DARABONBA_PTR_GET_DEFAULT(used_, 0L) };
+        inline CspmInstanceCapacity& setUsed(int64_t used) { DARABONBA_PTR_SET_VALUE(used_, used) };
+
+
+      protected:
+        shared_ptr<int64_t> count_ {};
         shared_ptr<int64_t> used_ {};
       };
 
@@ -677,9 +701,9 @@ namespace Models
 
 
       protected:
-        // Allocated CSPM scan count. Unit: per month.
+        // The allocated number of cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> count_ {};
-        // Used CSPM scan count. Unit: per month.
+        // The used number of cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -721,17 +745,17 @@ namespace Models
 
 
       protected:
-        // Allocated anti-ransomware capacity, in GB.
+        // The allocated anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used anti-ransomware capacity, in GB.
+        // The used anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->antiRansomwareCapacity_ == nullptr && this->cspmCapacity_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr && this->instanceId_ == nullptr
-        && this->instancePurchaseType_ == nullptr && this->raspCapacity_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->status_ == nullptr
-        && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->userType_ == nullptr && this->version_ == nullptr && this->versionSummary_ == nullptr
-        && this->webLockCapacity_ == nullptr; };
+        && this->antiRansomwareCapacity_ == nullptr && this->cspmCapacity_ == nullptr && this->cspmInstanceCapacity_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr
+        && this->instanceId_ == nullptr && this->instancePurchaseType_ == nullptr && this->raspCapacity_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr
+        && this->status_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->userType_ == nullptr && this->version_ == nullptr
+        && this->versionSummary_ == nullptr && this->webLockCapacity_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -755,6 +779,15 @@ namespace Models
       inline SaleInstanceList::CspmCapacity getCspmCapacity() { DARABONBA_PTR_GET(cspmCapacity_, SaleInstanceList::CspmCapacity) };
       inline SaleInstanceList& setCspmCapacity(const SaleInstanceList::CspmCapacity & cspmCapacity) { DARABONBA_PTR_SET_VALUE(cspmCapacity_, cspmCapacity) };
       inline SaleInstanceList& setCspmCapacity(SaleInstanceList::CspmCapacity && cspmCapacity) { DARABONBA_PTR_SET_RVALUE(cspmCapacity_, cspmCapacity) };
+
+
+      // cspmInstanceCapacity Field Functions 
+      bool hasCspmInstanceCapacity() const { return this->cspmInstanceCapacity_ != nullptr;};
+      void deleteCspmInstanceCapacity() { this->cspmInstanceCapacity_ = nullptr;};
+      inline const SaleInstanceList::CspmInstanceCapacity & getCspmInstanceCapacity() const { DARABONBA_PTR_GET_CONST(cspmInstanceCapacity_, SaleInstanceList::CspmInstanceCapacity) };
+      inline SaleInstanceList::CspmInstanceCapacity getCspmInstanceCapacity() { DARABONBA_PTR_GET(cspmInstanceCapacity_, SaleInstanceList::CspmInstanceCapacity) };
+      inline SaleInstanceList& setCspmInstanceCapacity(const SaleInstanceList::CspmInstanceCapacity & cspmInstanceCapacity) { DARABONBA_PTR_SET_VALUE(cspmInstanceCapacity_, cspmInstanceCapacity) };
+      inline SaleInstanceList& setCspmInstanceCapacity(SaleInstanceList::CspmInstanceCapacity && cspmInstanceCapacity) { DARABONBA_PTR_SET_RVALUE(cspmInstanceCapacity_, cspmInstanceCapacity) };
 
 
       // honeypotCapacity Field Functions 
@@ -874,65 +907,40 @@ namespace Models
 
 
     protected:
-      // UID of the member account.
+      // The UID of the member account.
       shared_ptr<int64_t> aliUid_ {};
-      // Anti-ransomware capacity usage of the member account.
+      // The anti-ransomware capacity usage of the member account.
       shared_ptr<SaleInstanceList::AntiRansomwareCapacity> antiRansomwareCapacity_ {};
-      // Member account CSPM (Cloud Security Posture Management) scan usage.
+      // The cloud platform configuration check scan usage of the member account.
       shared_ptr<SaleInstanceList::CspmCapacity> cspmCapacity_ {};
-      // Usage details of honeypot authorizations for the member account.
+      shared_ptr<SaleInstanceList::CspmInstanceCapacity> cspmInstanceCapacity_ {};
+      // The cloud honeypot authorization usage of the member account.
       shared_ptr<SaleInstanceList::HoneypotCapacity> honeypotCapacity_ {};
-      // Member account image scanning authorization usage.
+      // The image scan authorization usage of the member account.
       shared_ptr<SaleInstanceList::ImageScanCapacity> imageScanCapacity_ {};
-      // Cloud Security Center instance ID purchased by the member account.
+      // The Security Center instance ID purchased by the member account.
       shared_ptr<string> instanceId_ {};
-      // Instance purchase type. Values:
-      // 
-      // - **0**: Self-purchased.
-      // 
-      // - **1**: Allocated.
+      // The instance purchase type. Valid values:
       shared_ptr<int32_t> instancePurchaseType_ {};
-      // Member account RASP (Runtime Application Self-Protection) usage.
+      // The application protection usage of the member account.
       shared_ptr<SaleInstanceList::RaspCapacity> raspCapacity_ {};
-      // Usage details of malicious file detection SDK authorizations for the member account.
+      // The malicious file detection SDK authorization usage of the member account.
       shared_ptr<SaleInstanceList::SdkCapacity> sdkCapacity_ {};
-      // Log storage capacity usage of the member account.
+      // The log storage capacity usage of the member account.
       shared_ptr<SaleInstanceList::SlsCapacity> slsCapacity_ {};
-      // Status of the member account instance. Values:
-      // 
-      // - **1**: Active.
-      // 
-      // - **2**: Inactive.
+      // The instance status of the member account. Valid values:
       shared_ptr<int32_t> status_ {};
-      // Member account threat analysis capacity usage.
+      // The threat analysis capacity usage of the member account.
       shared_ptr<SaleInstanceList::ThreatAnalysisCapacity> threatAnalysisCapacity_ {};
-      // Member account threat analysis and response log ingestion traffic usage.
+      // The threat detection and response log ingestion traffic usage of the member account.
       shared_ptr<SaleInstanceList::ThreatAnalysisFlow> threatAnalysisFlow_ {};
-      // User type. Values:
-      // 
-      // - **Administrator User**:1
-      // 
-      // - **Regular User**:2
+      // The user type. Valid values:
       shared_ptr<int32_t> userType_ {};
-      // Version of the Cloud Security Center for the member account. Values:
-      // 
-      // - **1**: Free Edition
-      // 
-      // - **3**: Enterprise Edition
-      // 
-      // - **5**: Advanced Edition
-      // 
-      // - **6**: Anti-Virus Edition
-      // 
-      // - **7**: Flagship Edition
-      // 
-      // - **8**: Multiple Versions
-      // 
-      // - **10**: Only Purchased Value-Added Services
+      // The Security Center edition of the member account. Valid values:
       shared_ptr<int32_t> version_ {};
-      // Authorization usage statistics for the member account.
+      // The authorization usage statistics of the member account.
       shared_ptr<vector<SaleInstanceList::VersionSummary>> versionSummary_ {};
-      // Member account web lock (anti-tampering) authorization usage.
+      // The web tamper-proofing authorization usage of the member account.
       shared_ptr<SaleInstanceList::WebLockCapacity> webLockCapacity_ {};
     };
 
@@ -1001,15 +1009,15 @@ namespace Models
 
 
     protected:
-      // The current page number in a paginated query.
+      // The current page number in paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of items to return in each batch query.
+      // The number of entries per batch in a batched query.
       shared_ptr<int32_t> maxResults_ {};
-      // The NextToken value returned when using the NextToken method.
+      // The NextToken value returned when the NextToken-based pagination method is used.
       shared_ptr<string> nextToken_ {};
-      // The maximum number of items to return per page in a paginated query.
+      // The maximum number of entries per page in paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1019,6 +1027,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
         DARABONBA_PTR_TO_JSON(AntiRansomwareCapacity, antiRansomwareCapacity_);
         DARABONBA_PTR_TO_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_TO_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_TO_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_TO_JSON(ImageScanCapacity, imageScanCapacity_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -1038,6 +1047,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
         DARABONBA_PTR_FROM_JSON(AntiRansomwareCapacity, antiRansomwareCapacity_);
         DARABONBA_PTR_FROM_JSON(CspmCapacity, cspmCapacity_);
+        DARABONBA_PTR_FROM_JSON(CspmInstanceCapacity, cspmInstanceCapacity_);
         DARABONBA_PTR_FROM_JSON(HoneypotCapacity, honeypotCapacity_);
         DARABONBA_PTR_FROM_JSON(ImageScanCapacity, imageScanCapacity_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -1111,11 +1121,11 @@ namespace Models
 
 
       protected:
-        // Assigned web lock (anti-tampering) authorization count.
+        // The assigned tamper-proofing quota.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased web lock (anti-tampering) authorization count.
+        // The purchased tamper-proofing quota.
         shared_ptr<int64_t> count_ {};
-        // Used web lock (anti-tampering) authorization count.
+        // The used tamper-proofing quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1191,11 +1201,11 @@ namespace Models
 
 
         protected:
-          // Assigned number of purchased ECS instance licenses.
+          // The assigned number of purchased authorized servers.
           shared_ptr<int64_t> assigned_ {};
-          // Purchased number of ECS instance licenses.
+          // The purchased authorized server quota.
           shared_ptr<int64_t> count_ {};
-          // Used number of purchased ECS instance licenses.
+          // The used authorized server quota.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -1246,11 +1256,11 @@ namespace Models
 
 
         protected:
-          // Assigned number of core licenses.
+          // The assigned number of authorized cores.
           shared_ptr<int64_t> assigned_ {};
-          // Purchased number of core licenses.
+          // The purchased authorized core quota.
           shared_ptr<int64_t> count_ {};
-          // Used number of core licenses.
+          // The used number of authorized cores.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -1289,33 +1299,13 @@ namespace Models
 
 
       protected:
-        // The type of authorization consumed during binding. Values:
-        // 
-        // - ASSET: consumes the number of authorized instances
-        // 
-        // - CORE: consumes the number of authorized cores
-        // 
-        // - ASSET_AND_CORE: consumes both the number of authorized instances and cores
+        // The authorization type consumed during binding. Valid values:
         shared_ptr<string> authBindType_ {};
-        // Usage and allocation details of the core licenses for the administrator account.
+        // The usage and allocation of authorized core quotas for the administrator account.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
-        // Usage and allocation details of the ECS instance licenses for the administrator account.
+        // The usage and allocation of authorized server quotas for the administrator account.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // Purchased version of Cloud Security Center. Values:
-        // 
-        // - **1**: Free Edition
-        // 
-        // - **3**: Enterprise Edition
-        // 
-        // - **5**: Advanced Edition
-        // 
-        // - **6**: Antivirus Edition
-        // 
-        // - **7**: Flagship Edition
-        // 
-        // - **8**: Multiple Editions
-        // 
-        // - **10**: Only Value-Added Services Purchased
+        // The purchased Security Center edition. Valid values:
         shared_ptr<int32_t> version_ {};
       };
 
@@ -1366,11 +1356,11 @@ namespace Models
 
 
       protected:
-        // Assigned threat analysis and response log inbound traffic. Unit: GB/day.
+        // The assigned threat detection and response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased threat analysis and response log inbound traffic. Unit: GB/day.
+        // The purchased threat detection and response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> count_ {};
-        // Used threat analysis and response log inbound traffic. Unit: GB/day.
+        // The used threat detection and response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1421,11 +1411,11 @@ namespace Models
 
 
       protected:
-        // Assigned threat analysis capacity. Unit: GB.
+        // The assigned threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased threat analysis capacity. Unit: GB.
+        // The purchased threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used threat analysis capacity. Unit: GB.
+        // The used threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1476,11 +1466,11 @@ namespace Models
 
 
       protected:
-        // Allocated log storage capacity, in GB.
+        // The assigned log storage capacity. Unit: GB.
         shared_ptr<int64_t> assigned_ {};
-        // Administrator account log storage capacity, in GB.
+        // The log storage capacity of the administrator account. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used log storage capacity, in GB.
+        // The used log storage capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1531,11 +1521,11 @@ namespace Models
 
 
       protected:
-        // Assigned number of malicious file detection SDK licenses.
+        // The assigned malicious file detection SDK quota.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased number of malicious file detection SDK licenses.
+        // The purchased malicious file detection SDK quota.
         shared_ptr<int64_t> count_ {};
-        // Used number of malicious file detection SDK licenses.
+        // The used number of malicious file detection SDK authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1586,11 +1576,11 @@ namespace Models
 
 
       protected:
-        // Allocated RASP capacity. Unit: per month.
+        // The assigned number of application protection quotas. Unit: quotas/month.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased RASP capacity. Unit: per month.
+        // The purchased number of application protection quotas. Unit: quotas/month.
         shared_ptr<int64_t> count_ {};
-        // Used RASP capacity. Unit: per month.
+        // The used number of application protection quotas. Unit: quotas/month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1641,11 +1631,11 @@ namespace Models
 
 
       protected:
-        // Assigned image scan authorization count.
+        // The assigned image scan quota.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased image scan authorization count.
+        // The purchased image scan quota.
         shared_ptr<int64_t> count_ {};
-        // Used purchased image scan authorization count.
+        // The used image scan quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1696,11 +1686,63 @@ namespace Models
 
 
       protected:
-        // Assigned number of honeypot licenses.
+        // The assigned honeypot quota.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased honeypot authorization count.
+        // The purchased honeypot quota.
         shared_ptr<int64_t> count_ {};
-        // Used honeypot authorization count.
+        // The used number of cloud honeypot authorizations.
+        shared_ptr<int64_t> used_ {};
+      };
+
+      class CspmInstanceCapacity : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CspmInstanceCapacity& obj) { 
+          DARABONBA_PTR_TO_JSON(Assigned, assigned_);
+          DARABONBA_PTR_TO_JSON(Count, count_);
+          DARABONBA_PTR_TO_JSON(Used, used_);
+        };
+        friend void from_json(const Darabonba::Json& j, CspmInstanceCapacity& obj) { 
+          DARABONBA_PTR_FROM_JSON(Assigned, assigned_);
+          DARABONBA_PTR_FROM_JSON(Count, count_);
+          DARABONBA_PTR_FROM_JSON(Used, used_);
+        };
+        CspmInstanceCapacity() = default ;
+        CspmInstanceCapacity(const CspmInstanceCapacity &) = default ;
+        CspmInstanceCapacity(CspmInstanceCapacity &&) = default ;
+        CspmInstanceCapacity(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CspmInstanceCapacity() = default ;
+        CspmInstanceCapacity& operator=(const CspmInstanceCapacity &) = default ;
+        CspmInstanceCapacity& operator=(CspmInstanceCapacity &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->assigned_ == nullptr
+        && this->count_ == nullptr && this->used_ == nullptr; };
+        // assigned Field Functions 
+        bool hasAssigned() const { return this->assigned_ != nullptr;};
+        void deleteAssigned() { this->assigned_ = nullptr;};
+        inline int64_t getAssigned() const { DARABONBA_PTR_GET_DEFAULT(assigned_, 0L) };
+        inline CspmInstanceCapacity& setAssigned(int64_t assigned) { DARABONBA_PTR_SET_VALUE(assigned_, assigned) };
+
+
+        // count Field Functions 
+        bool hasCount() const { return this->count_ != nullptr;};
+        void deleteCount() { this->count_ = nullptr;};
+        inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+        inline CspmInstanceCapacity& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+        // used Field Functions 
+        bool hasUsed() const { return this->used_ != nullptr;};
+        void deleteUsed() { this->used_ = nullptr;};
+        inline int64_t getUsed() const { DARABONBA_PTR_GET_DEFAULT(used_, 0L) };
+        inline CspmInstanceCapacity& setUsed(int64_t used) { DARABONBA_PTR_SET_VALUE(used_, used) };
+
+
+      protected:
+        shared_ptr<int64_t> assigned_ {};
+        shared_ptr<int64_t> count_ {};
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1751,11 +1793,11 @@ namespace Models
 
 
       protected:
-        // Allocated CSPM scan count. Unit: per month.
+        // The assigned number of cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> assigned_ {};
-        // Purchased CSPM scan count. Unit: per month.
+        // The purchased number of cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> count_ {};
-        // Used CSPM scan count. Unit: per month.
+        // The used number of cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1806,19 +1848,19 @@ namespace Models
 
 
       protected:
-        // Allocated anti-ransomware capacity, in GB.
+        // The assigned anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> assigned_ {};
-        // Administrator account anti-ransomware capacity, in GB.
+        // The anti-ransomware capacity of the administrator account. Unit: GB.
         shared_ptr<int64_t> count_ {};
-        // Used anti-ransomware capacity, in GB.
+        // The used anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->antiRansomwareCapacity_ == nullptr && this->cspmCapacity_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr && this->instanceId_ == nullptr
-        && this->instancePurchaseType_ == nullptr && this->raspCapacity_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->status_ == nullptr
-        && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->userType_ == nullptr && this->version_ == nullptr && this->versionSummary_ == nullptr
-        && this->webLockCapacity_ == nullptr; };
+        && this->antiRansomwareCapacity_ == nullptr && this->cspmCapacity_ == nullptr && this->cspmInstanceCapacity_ == nullptr && this->honeypotCapacity_ == nullptr && this->imageScanCapacity_ == nullptr
+        && this->instanceId_ == nullptr && this->instancePurchaseType_ == nullptr && this->raspCapacity_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr
+        && this->status_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->userType_ == nullptr && this->version_ == nullptr
+        && this->versionSummary_ == nullptr && this->webLockCapacity_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -1842,6 +1884,15 @@ namespace Models
       inline DaInstance::CspmCapacity getCspmCapacity() { DARABONBA_PTR_GET(cspmCapacity_, DaInstance::CspmCapacity) };
       inline DaInstance& setCspmCapacity(const DaInstance::CspmCapacity & cspmCapacity) { DARABONBA_PTR_SET_VALUE(cspmCapacity_, cspmCapacity) };
       inline DaInstance& setCspmCapacity(DaInstance::CspmCapacity && cspmCapacity) { DARABONBA_PTR_SET_RVALUE(cspmCapacity_, cspmCapacity) };
+
+
+      // cspmInstanceCapacity Field Functions 
+      bool hasCspmInstanceCapacity() const { return this->cspmInstanceCapacity_ != nullptr;};
+      void deleteCspmInstanceCapacity() { this->cspmInstanceCapacity_ = nullptr;};
+      inline const DaInstance::CspmInstanceCapacity & getCspmInstanceCapacity() const { DARABONBA_PTR_GET_CONST(cspmInstanceCapacity_, DaInstance::CspmInstanceCapacity) };
+      inline DaInstance::CspmInstanceCapacity getCspmInstanceCapacity() { DARABONBA_PTR_GET(cspmInstanceCapacity_, DaInstance::CspmInstanceCapacity) };
+      inline DaInstance& setCspmInstanceCapacity(const DaInstance::CspmInstanceCapacity & cspmInstanceCapacity) { DARABONBA_PTR_SET_VALUE(cspmInstanceCapacity_, cspmInstanceCapacity) };
+      inline DaInstance& setCspmInstanceCapacity(DaInstance::CspmInstanceCapacity && cspmInstanceCapacity) { DARABONBA_PTR_SET_RVALUE(cspmInstanceCapacity_, cspmInstanceCapacity) };
 
 
       // honeypotCapacity Field Functions 
@@ -1961,65 +2012,40 @@ namespace Models
 
 
     protected:
-      // AliUid of the administrator account.
+      // The aliuid of the administrator account.
       shared_ptr<int64_t> aliUid_ {};
-      // Usage and allocation of administrator account anti-ransomware capacity.
+      // The anti-ransomware capacity usage and allocation of the administrator account.
       shared_ptr<DaInstance::AntiRansomwareCapacity> antiRansomwareCapacity_ {};
-      // Usage and allocation of administrator account CSPM (Cloud Security Posture Management) scan count.
+      // The cloud platform configuration check scan usage and allocation of the administrator account.
       shared_ptr<DaInstance::CspmCapacity> cspmCapacity_ {};
-      // Usage and allocation of honeypot authorization count for the administrator account.
+      shared_ptr<DaInstance::CspmInstanceCapacity> cspmInstanceCapacity_ {};
+      // The usage and allocation of honeypot quotas for the administrator account.
       shared_ptr<DaInstance::HoneypotCapacity> honeypotCapacity_ {};
-      // Usage and allocation of image scan authorization count for the administrator account.
+      // The usage and allocation of image scan quotas for the administrator account.
       shared_ptr<DaInstance::ImageScanCapacity> imageScanCapacity_ {};
-      // Cloud Security Center instance ID purchased by the administrator account.
+      // The Security Center instance ID purchased by the administrator account.
       shared_ptr<string> instanceId_ {};
-      // Instance purchase type. Values:
-      // 
-      // - **0**:Self-purchased.
-      // 
-      // - **1**:Allocated.
+      // The instance purchase type. Valid values:
       shared_ptr<int32_t> instancePurchaseType_ {};
-      // Usage and allocation of administrator account RASP (Runtime Application Self-Protection) capacity.
+      // The application protection usage and allocation of the administrator account.
       shared_ptr<DaInstance::RaspCapacity> raspCapacity_ {};
-      // Usage and allocation details of the malicious file detection SDK licenses for the administrator account.
+      // The usage and allocation of malicious file detection SDK quotas for the administrator account.
       shared_ptr<DaInstance::SdkCapacity> sdkCapacity_ {};
-      // Usage and allocation of administrator account log storage capacity.
+      // The log storage capacity usage and allocation of the administrator account.
       shared_ptr<DaInstance::SlsCapacity> slsCapacity_ {};
-      // Administrator account instance status. Values:
-      // 
-      // - **1**: Active.
-      // 
-      // - **2**: Inactive.
+      // The instance status of the administrator account. Valid values:
       shared_ptr<int32_t> status_ {};
-      // Usage and allocation of administrator account threat analysis capacity.
+      // The threat analysis capacity usage and allocation of the administrator account.
       shared_ptr<DaInstance::ThreatAnalysisCapacity> threatAnalysisCapacity_ {};
-      // Usage and allocation of threat analysis and response log inbound traffic for the administrator account.
+      // The usage and allocation of threat detection and response log ingestion traffic for the administrator account.
       shared_ptr<DaInstance::ThreatAnalysisFlow> threatAnalysisFlow_ {};
-      // User type. Values:
-      // 
-      // - **Administrator User**: 1
-      // 
-      // - **Regular User**: 2
+      // The user type. Valid values:
       shared_ptr<int32_t> userType_ {};
-      // Purchased version of Cloud Security Center. Values:
-      // 
-      // - **1**:Free Edition
-      // 
-      // - **3**:Enterprise Edition
-      // 
-      // - **5**:Advanced Edition
-      // 
-      // - **6**:Anti-Virus Edition
-      // 
-      // - **7**:Flagship Edition
-      // 
-      // - **8**:Multiple Editions
-      // 
-      // - **10**:Value-Added Services Only
+      // The purchased Security Center edition. Valid values:
       shared_ptr<int32_t> version_ {};
-      // Authorization usage statistics for the administrator account.
+      // The authorization usage statistics information for the administrator account.
       shared_ptr<vector<DaInstance::VersionSummary>> versionSummary_ {};
-      // Usage and allocation of web lock (anti-tampering) authorization count for the administrator account.
+      // The usage and allocation of tamper-proofing quotas for the administrator account.
       shared_ptr<DaInstance::WebLockCapacity> webLockCapacity_ {};
     };
 
@@ -2060,13 +2086,13 @@ namespace Models
 
 
   protected:
-    // Details of the administrator account.
+    // The details of the administrator account.
     shared_ptr<ListMultiUserInstancesResponseBody::DaInstance> daInstance_ {};
-    // Pagination information.
+    // The pagination information.
     shared_ptr<ListMultiUserInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
+    // The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Details of member accounts.
+    // The details of member accounts.
     shared_ptr<vector<ListMultiUserInstancesResponseBody::SaleInstanceList>> saleInstanceList_ {};
   };
 

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AddCheckInstanceResultWhiteListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckGroupId, checkGroupId_);
       DARABONBA_PTR_TO_JSON(CheckId, checkId_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AddCheckInstanceResultWhiteListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckGroupId, checkGroupId_);
       DARABONBA_PTR_FROM_JSON(CheckId, checkId_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
@@ -78,18 +80,17 @@ namespace Models
 
 
     protected:
-      // The instance ID of the asset.
-      // 
-      // >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the instance IDs of assets.
+      // The asset instance ID.
+      // > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
       shared_ptr<string> instanceId_ {};
-      // The region ID of the asset.
-      // 
-      // >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the region ID of the asset.
+      // The region where the asset resides.
+      // > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
       shared_ptr<string> regionId_ {};
     };
 
     virtual bool empty() const override { return this->checkGroupId_ == nullptr
-        && this->checkId_ == nullptr && this->instanceIds_ == nullptr && this->instanceList_ == nullptr && this->remark_ == nullptr && this->ruleType_ == nullptr; };
+        && this->checkId_ == nullptr && this->clientToken_ == nullptr && this->instanceIds_ == nullptr && this->instanceList_ == nullptr && this->remark_ == nullptr
+        && this->ruleType_ == nullptr; };
     // checkGroupId Field Functions 
     bool hasCheckGroupId() const { return this->checkGroupId_ != nullptr;};
     void deleteCheckGroupId() { this->checkGroupId_ = nullptr;};
@@ -102,6 +103,13 @@ namespace Models
     void deleteCheckId() { this->checkId_ = nullptr;};
     inline int64_t getCheckId() const { DARABONBA_PTR_GET_DEFAULT(checkId_, 0L) };
     inline AddCheckInstanceResultWhiteListRequest& setCheckId(int64_t checkId) { DARABONBA_PTR_SET_VALUE(checkId_, checkId) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline AddCheckInstanceResultWhiteListRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // instanceIds Field Functions 
@@ -137,21 +145,21 @@ namespace Models
 
 
   protected:
-    // The ID of the group to which the check item belongs.
+    // The ID of the check group to which the check item belongs.
     shared_ptr<string> checkGroupId_ {};
     // The ID of the check item.
-    // 
-    // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
     shared_ptr<int64_t> checkId_ {};
-    // The instance IDs of the assets.
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The collection of asset instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The asset instances.
+    // The collection of asset instance information.
     shared_ptr<vector<AddCheckInstanceResultWhiteListRequest::InstanceList>> instanceList_ {};
-    // The description. The value of this parameter can be up to 65,535 bytes in length.
+    // The remarks. Maximum length: 65535 bytes.
     shared_ptr<string> remark_ {};
-    // The type of the rule. Default value: **WHITE**. Valid value:
-    // 
-    // *   WHITE: adds check items to the whitelist.
+    // The rule type. Default value: **WHITE**. Valid values:
+    // - WHITE: whitelist
     shared_ptr<string> ruleType_ {};
   };
 

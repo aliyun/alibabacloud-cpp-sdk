@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListOssBucketRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
     };
     friend void from_json(const Darabonba::Json& j, ListOssBucketRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
     };
     ListOssBucketRequest() = default ;
     ListOssBucketRequest(const ListOssBucketRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->lang_ == nullptr; };
+        && this->lang_ == nullptr && this->source_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -47,14 +49,25 @@ namespace Models
     inline ListOssBucketRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ListOssBucketRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
   protected:
     // The bucket name.
     shared_ptr<string> bucketName_ {};
     // The language type for requests and responses. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The business source. Valid values:
+    // - **OSS**: OSS
+    // - **NAS**: NAS
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

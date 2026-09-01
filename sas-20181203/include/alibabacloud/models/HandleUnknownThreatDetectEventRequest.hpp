@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const HandleUnknownThreatDetectEventRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EventIdList, eventIdList_);
+      DARABONBA_PTR_TO_JSON(HandleRemark, handleRemark_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, HandleUnknownThreatDetectEventRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventIdList, eventIdList_);
+      DARABONBA_PTR_FROM_JSON(HandleRemark, handleRemark_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     HandleUnknownThreatDetectEventRequest() = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventIdList_ == nullptr
-        && this->status_ == nullptr; };
+        && this->handleRemark_ == nullptr && this->status_ == nullptr; };
     // eventIdList Field Functions 
     bool hasEventIdList() const { return this->eventIdList_ != nullptr;};
     void deleteEventIdList() { this->eventIdList_ = nullptr;};
@@ -41,6 +43,13 @@ namespace Models
     inline vector<string> getEventIdList() { DARABONBA_PTR_GET(eventIdList_, vector<string>) };
     inline HandleUnknownThreatDetectEventRequest& setEventIdList(const vector<string> & eventIdList) { DARABONBA_PTR_SET_VALUE(eventIdList_, eventIdList) };
     inline HandleUnknownThreatDetectEventRequest& setEventIdList(vector<string> && eventIdList) { DARABONBA_PTR_SET_RVALUE(eventIdList_, eventIdList) };
+
+
+    // handleRemark Field Functions 
+    bool hasHandleRemark() const { return this->handleRemark_ != nullptr;};
+    void deleteHandleRemark() { this->handleRemark_ = nullptr;};
+    inline string getHandleRemark() const { DARABONBA_PTR_GET_DEFAULT(handleRemark_, "") };
+    inline HandleUnknownThreatDetectEventRequest& setHandleRemark(string handleRemark) { DARABONBA_PTR_SET_VALUE(handleRemark_, handleRemark) };
 
 
     // status Field Functions 
@@ -53,6 +62,7 @@ namespace Models
   protected:
     // The list of event IDs.
     shared_ptr<vector<string>> eventIdList_ {};
+    shared_ptr<string> handleRemark_ {};
     // The event handling status. Valid values:
     // 
     // - **1**: Unhandled.

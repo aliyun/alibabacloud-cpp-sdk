@@ -13,6 +13,8 @@ namespace Models
   class ModifyPostPayModuleSwitchShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyPostPayModuleSwitchShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -20,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PostPayModuleSwitchObj, postPayModuleSwitchObjShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyPostPayModuleSwitchShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -37,8 +41,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->postPaidHostAutoBind_ == nullptr
-        && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObjShrink_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->edrModuleSwitchShrink_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
+        && this->postPayModuleSwitchObjShrink_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyPostPayModuleSwitchShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // edrModuleSwitchShrink Field Functions 
+    bool hasEdrModuleSwitchShrink() const { return this->edrModuleSwitchShrink_ != nullptr;};
+    void deleteEdrModuleSwitchShrink() { this->edrModuleSwitchShrink_ = nullptr;};
+    inline string getEdrModuleSwitchShrink() const { DARABONBA_PTR_GET_DEFAULT(edrModuleSwitchShrink_, "") };
+    inline ModifyPostPayModuleSwitchShrinkRequest& setEdrModuleSwitchShrink(string edrModuleSwitchShrink) { DARABONBA_PTR_SET_VALUE(edrModuleSwitchShrink_, edrModuleSwitchShrink) };
+
+
     // postPaidHostAutoBind Field Functions 
     bool hasPostPaidHostAutoBind() const { return this->postPaidHostAutoBind_ != nullptr;};
     void deletePostPaidHostAutoBind() { this->postPaidHostAutoBind_ = nullptr;};
@@ -75,12 +94,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically bind newly added assets for host and container protection. Valid values:
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> edrModuleSwitchShrink_ {};
+    // Specifies whether to automatically bind new assets for host and container protection. Valid values:
     // 
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> postPaidHostAutoBind_ {};
-    // The version to which newly added assets are automatically bound for host and container protection. Valid values:
+    // The edition to which new assets are automatically bound for host and container protection. Valid values:
     // - **1**: Free Edition. 
     // - **3**: Enterprise Edition.
     // - **5**: Advanced Edition.
@@ -93,7 +115,7 @@ namespace Models
     shared_ptr<string> postPayInstanceId_ {};
     // The switch status of pay-as-you-go modules in JSON string format. Valid values:
     // - Key:
-    //   - **VUL**: vulnerability fix module
+    //   - **VUL**: vulnerability management module
     //   - **CSPM**: Cloud Security Posture Management (CSPM) module
     //   - **AGENTLESS**: agentless detection module
     //   - **SERVERLESS**: serverless security module
@@ -107,10 +129,10 @@ namespace Models
     // 
     // > Modules for which no value is specified remain unchanged.
     // 
-    // <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+    // <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
     shared_ptr<string> postPayModuleSwitch_ {};
     // The pay-as-you-go module switch.
-    // >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+    // >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
     shared_ptr<string> postPayModuleSwitchObjShrink_ {};
   };
 

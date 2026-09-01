@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RepoNamespace, repoNamespace_);
       DARABONBA_PTR_TO_JSON(RepoRegionId, repoRegionId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(RuleTag, ruleTag_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RepoNamespace, repoNamespace_);
       DARABONBA_PTR_FROM_JSON(RepoRegionId, repoRegionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(RuleTag, ruleTag_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -78,8 +80,8 @@ namespace Models
         && this->clusterId_ == nullptr && this->currentPage_ == nullptr && this->cveId_ == nullptr && this->groupId_ == nullptr && this->imageDigest_ == nullptr
         && this->imageLayer_ == nullptr && this->imageTag_ == nullptr && this->isLatest_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr
         && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->patchId_ == nullptr && this->repoId_ == nullptr && this->repoInstanceId_ == nullptr
-        && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->ruleTag_ == nullptr && this->scanRange_ == nullptr
-        && this->type_ == nullptr && this->uuids_ == nullptr; };
+        && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->ruleTag_ == nullptr
+        && this->scanRange_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -213,6 +215,13 @@ namespace Models
     inline DescribeImageGroupedVulListRequest& setRepoRegionId(string repoRegionId) { DARABONBA_PTR_SET_VALUE(repoRegionId_, repoRegionId) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeImageGroupedVulListRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // ruleTag Field Functions 
     bool hasRuleTag() const { return this->ruleTag_ != nullptr;};
     void deleteRuleTag() { this->ruleTag_ = nullptr;};
@@ -291,6 +300,7 @@ namespace Models
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository.
     shared_ptr<string> repoRegionId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The vulnerability tag. Valid values:
     // 
     //  - **AI**: vulnerabilities related to AI components.

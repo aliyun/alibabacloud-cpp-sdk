@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries displayed on the current page.
       shared_ptr<int32_t> count_ {};
-      // The current page number.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries displayed on each page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of matching entries.
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -186,20 +186,19 @@ namespace Models
     protected:
       // The asset selection identifier.
       shared_ptr<string> assetSelectionType_ {};
-      // The duration, in days, of the learning phase after model creation.
+      // The number of days after the model is initially created before learning ends.
       shared_ptr<int32_t> durationDaysAfterInit_ {};
-      // The number of consecutive days without new process detections before the learning phase automatically ends.
+      // The number of days after which the model ends when no new processes are added.
       shared_ptr<int32_t> durationDaysAfterStop_ {};
-      // The strategy ID.
+      // The policy ID.
       shared_ptr<int64_t> id_ {};
       // The number of servers.
       shared_ptr<int32_t> machineCount_ {};
-      // The strategy name.
+      // The policy name.
       shared_ptr<string> name_ {};
       // The whitelist mode. Valid values:
       // 
       // - **hash**: process hash
-      // 
       // - **path**: process path
       shared_ptr<string> studyMode_ {};
     };
@@ -232,11 +231,11 @@ namespace Models
 
 
   protected:
-    // An array of strategies.
+    // The returned data.
     shared_ptr<vector<ListUnknownThreatDetectStrategyResponseBody::Data>> data_ {};
     // The pagination information.
     shared_ptr<ListUnknownThreatDetectStrategyResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

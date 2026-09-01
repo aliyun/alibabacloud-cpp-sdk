@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OperationCancelIgnoreSuspEventRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SecurityEventIds, securityEventIds_);
     };
     friend void from_json(const Darabonba::Json& j, OperationCancelIgnoreSuspEventRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SecurityEventIds, securityEventIds_);
     };
     OperationCancelIgnoreSuspEventRequest() = default ;
@@ -33,12 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->remark_ == nullptr
-        && this->securityEventIds_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->securityEventIds_ == nullptr; };
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
     inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline OperationCancelIgnoreSuspEventRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline OperationCancelIgnoreSuspEventRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // securityEventIds Field Functions 
@@ -53,6 +62,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IDs of alert events.
     // 
     // This parameter is required.

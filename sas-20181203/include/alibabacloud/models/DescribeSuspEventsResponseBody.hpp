@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ContainerImageId, containerImageId_);
         DARABONBA_PTR_TO_JSON(ContainerImageName, containerImageName_);
         DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
+        DARABONBA_PTR_TO_JSON(DeepAnalyzeReportUrl, deepAnalyzeReportUrl_);
         DARABONBA_PTR_TO_JSON(Desc, desc_);
         DARABONBA_PTR_TO_JSON(Details, details_);
         DARABONBA_PTR_TO_JSON(DetectSource, detectSource_);
@@ -117,6 +118,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ContainerImageId, containerImageId_);
         DARABONBA_PTR_FROM_JSON(ContainerImageName, containerImageName_);
         DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
+        DARABONBA_PTR_FROM_JSON(DeepAnalyzeReportUrl, deepAnalyzeReportUrl_);
         DARABONBA_PTR_FROM_JSON(Desc, desc_);
         DARABONBA_PTR_FROM_JSON(Details, details_);
         DARABONBA_PTR_FROM_JSON(DetectSource, detectSource_);
@@ -209,9 +211,9 @@ namespace Models
 
 
       protected:
-        // The tactic name of ATT\\&CK.
+        // The ATT&CK tactic name.
         shared_ptr<string> tacticDisplayName_ {};
-        // The stage information about ATT\\&CK.
+        // The ATT&CK attack stage information.
         shared_ptr<string> tacticId_ {};
       };
 
@@ -262,11 +264,11 @@ namespace Models
 
 
       protected:
-        // The note.
+        // The remark information.
         shared_ptr<string> note_ {};
-        // The ID of the note.
+        // The event record ID.
         shared_ptr<int64_t> noteId_ {};
-        // The time when the note was created.
+        // The event record time.
         shared_ptr<string> noteTime_ {};
       };
 
@@ -326,29 +328,29 @@ namespace Models
 
 
       protected:
-        // The display name of the alert event.
+        // The display name of the security alert.
         shared_ptr<string> nameDisplay_ {};
-        // The type of the alert event.
+        // The alerting event type.
         shared_ptr<string> type_ {};
-        // The path of the alert event.
+        // The path where the security alert occurred.
         shared_ptr<string> value_ {};
-        // The display name of the path of the alert event.
+        // The path where the security alert occurred.
         shared_ptr<string> valueDisplay_ {};
       };
 
       virtual bool empty() const override { return this->advanced_ == nullptr
         && this->alarmEventName_ == nullptr && this->alarmEventNameDisplay_ == nullptr && this->alarmEventType_ == nullptr && this->alarmEventTypeDisplay_ == nullptr && this->alarmUniqueInfo_ == nullptr
         && this->appName_ == nullptr && this->autoBreaking_ == nullptr && this->canBeDealOnLine_ == nullptr && this->canCancelFault_ == nullptr && this->containHwMode_ == nullptr
-        && this->containerId_ == nullptr && this->containerImageId_ == nullptr && this->containerImageName_ == nullptr && this->dataSource_ == nullptr && this->desc_ == nullptr
-        && this->details_ == nullptr && this->detectSource_ == nullptr && this->displaySandboxResult_ == nullptr && this->eventNotes_ == nullptr && this->eventStatus_ == nullptr
-        && this->eventSubType_ == nullptr && this->hasTraceInfo_ == nullptr && this->id_ == nullptr && this->imageUuid_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->k8sClusterId_ == nullptr && this->k8sClusterName_ == nullptr
-        && this->k8sNamespace_ == nullptr && this->k8sNodeId_ == nullptr && this->k8sNodeName_ == nullptr && this->k8sPodName_ == nullptr && this->largeModel_ == nullptr
-        && this->lastTime_ == nullptr && this->lastTimeStamp_ == nullptr && this->level_ == nullptr && this->maliciousRuleStatus_ == nullptr && this->markList_ == nullptr
-        && this->markMisRules_ == nullptr && this->name_ == nullptr && this->occurrenceTime_ == nullptr && this->occurrenceTimeStamp_ == nullptr && this->operateErrorCode_ == nullptr
-        && this->operateMsg_ == nullptr && this->operateTime_ == nullptr && this->saleVersion_ == nullptr && this->securityEventIds_ == nullptr && this->sourceAliUid_ == nullptr
-        && this->stages_ == nullptr && this->supportOperateCode_ == nullptr && this->tacticItems_ == nullptr && this->uniqueInfo_ == nullptr && this->uuid_ == nullptr
-        && this->clusterId_ == nullptr; };
+        && this->containerId_ == nullptr && this->containerImageId_ == nullptr && this->containerImageName_ == nullptr && this->dataSource_ == nullptr && this->deepAnalyzeReportUrl_ == nullptr
+        && this->desc_ == nullptr && this->details_ == nullptr && this->detectSource_ == nullptr && this->displaySandboxResult_ == nullptr && this->eventNotes_ == nullptr
+        && this->eventStatus_ == nullptr && this->eventSubType_ == nullptr && this->hasTraceInfo_ == nullptr && this->id_ == nullptr && this->imageUuid_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->k8sClusterId_ == nullptr
+        && this->k8sClusterName_ == nullptr && this->k8sNamespace_ == nullptr && this->k8sNodeId_ == nullptr && this->k8sNodeName_ == nullptr && this->k8sPodName_ == nullptr
+        && this->largeModel_ == nullptr && this->lastTime_ == nullptr && this->lastTimeStamp_ == nullptr && this->level_ == nullptr && this->maliciousRuleStatus_ == nullptr
+        && this->markList_ == nullptr && this->markMisRules_ == nullptr && this->name_ == nullptr && this->occurrenceTime_ == nullptr && this->occurrenceTimeStamp_ == nullptr
+        && this->operateErrorCode_ == nullptr && this->operateMsg_ == nullptr && this->operateTime_ == nullptr && this->saleVersion_ == nullptr && this->securityEventIds_ == nullptr
+        && this->sourceAliUid_ == nullptr && this->stages_ == nullptr && this->supportOperateCode_ == nullptr && this->tacticItems_ == nullptr && this->uniqueInfo_ == nullptr
+        && this->uuid_ == nullptr && this->clusterId_ == nullptr; };
       // advanced Field Functions 
       bool hasAdvanced() const { return this->advanced_ != nullptr;};
       void deleteAdvanced() { this->advanced_ = nullptr;};
@@ -452,6 +454,13 @@ namespace Models
       void deleteDataSource() { this->dataSource_ = nullptr;};
       inline string getDataSource() const { DARABONBA_PTR_GET_DEFAULT(dataSource_, "") };
       inline SuspEvents& setDataSource(string dataSource) { DARABONBA_PTR_SET_VALUE(dataSource_, dataSource) };
+
+
+      // deepAnalyzeReportUrl Field Functions 
+      bool hasDeepAnalyzeReportUrl() const { return this->deepAnalyzeReportUrl_ != nullptr;};
+      void deleteDeepAnalyzeReportUrl() { this->deepAnalyzeReportUrl_ = nullptr;};
+      inline string getDeepAnalyzeReportUrl() const { DARABONBA_PTR_GET_DEFAULT(deepAnalyzeReportUrl_, "") };
+      inline SuspEvents& setDeepAnalyzeReportUrl(string deepAnalyzeReportUrl) { DARABONBA_PTR_SET_VALUE(deepAnalyzeReportUrl_, deepAnalyzeReportUrl) };
 
 
       // desc Field Functions 
@@ -757,81 +766,64 @@ namespace Models
 
 
     protected:
-      // Indicates whether the alert event was analyzed offline.
+      // Indicates whether this is an offline analysis alert.
       shared_ptr<bool> advanced_ {};
-      // The name of the alert event.
+      // The name of the security alert.
       shared_ptr<string> alarmEventName_ {};
-      // The name of the alert.
+      // The alert name.
       shared_ptr<string> alarmEventNameDisplay_ {};
-      // The type of the alert event.
+      // The alerting event type.
       shared_ptr<string> alarmEventType_ {};
-      // The display name of the type of the alert event.
+      // The alerting event type.
       shared_ptr<string> alarmEventTypeDisplay_ {};
       // The unique ID of the alert event.
       shared_ptr<string> alarmUniqueInfo_ {};
-      // The name of the application to which the alert event belongs.
+      // The name of the application to which the security alert belongs.
       shared_ptr<string> appName_ {};
       // Indicates whether automatic defense is enabled.
       shared_ptr<bool> autoBreaking_ {};
-      // Indicates whether you can handle the alert event online, such as quarantining the source file of the malicious process. Valid values:
+      // Indicates whether the alert event can be handled online, such as quarantine. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Online handling is supported.
+      // - **false**: Online handling is not supported.
       shared_ptr<bool> canBeDealOnLine_ {};
-      // Indicates whether you can cancel marking the alert event as a false positive. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the false positive mark can be unmarked. Valid values:
       shared_ptr<bool> canCancelFault_ {};
-      // Indicates whether the safeguard mode for major activities is enabled for the server. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether critical event protection mode is enabled for the server. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> containHwMode_ {};
-      // The ID of the container.
+      // The container ID.
       shared_ptr<string> containerId_ {};
-      // The ID of the container image.
+      // The container image ID.
       shared_ptr<string> containerImageId_ {};
-      // The name of the container image.
+      // The container image name.
       shared_ptr<string> containerImageName_ {};
-      // The source of data. This parameter can be ignored.
+      // The data source. You can ignore this parameter.
       shared_ptr<string> dataSource_ {};
-      // The impact of the alert event.
+      // The download URL of the file deep analysis report.
+      shared_ptr<string> deepAnalyzeReportUrl_ {};
+      // The description of the impact of the security alert.
       shared_ptr<string> desc_ {};
-      // The details of the alert event.
+      // The details of the security alert.
       shared_ptr<vector<SuspEvents::Details>> details_ {};
-      // Source of discovery (invalid field)
+      // The discovery source. This parameter is invalid.
       shared_ptr<string> detectSource_ {};
-      // Indicates whether the alert event can be detected by cloud sandbox. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether cloud sandbox detection is supported. Valid values:
       shared_ptr<bool> displaySandboxResult_ {};
-      // The note information about the alert event.
+      // The remarks of the security alert.
       shared_ptr<vector<SuspEvents::EventNotes>> eventNotes_ {};
-      // The status of the alert event. Valid values:
-      // 
-      // *   **1**: pending handling
-      // *   **2**: ignored
-      // *   **4**: confirmed
-      // *   **8**: marked as a false positive
-      // *   **16**: handling
-      // *   **32**: handled
-      // *   **64**: expired
-      // *   **604**: marked as a false positive by the system
+      // The status of the security alert. Valid values:
       shared_ptr<int32_t> eventStatus_ {};
-      // The subtype of the alert event.
+      // The subtype of the security alert.
       shared_ptr<string> eventSubType_ {};
-      // Indicates whether the alert event has tracing information. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the security alert has tracing information. Valid values:
       shared_ptr<bool> hasTraceInfo_ {};
       // The unique ID of the alert event.
       shared_ptr<int64_t> id_ {};
-      // The UUID of the image.
+      // The image UUID.
       shared_ptr<string> imageUuid_ {};
-      // The instance ID of the affected asset.
+      // The ID of the asset instance affected by the security alert.
       shared_ptr<string> instanceId_ {};
       // The name of the associated instance.
       shared_ptr<string> instanceName_ {};
@@ -839,77 +831,71 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The ID of the Kubernetes cluster.
+      // The Kubernetes cluster ID.
       shared_ptr<string> k8sClusterId_ {};
       // The name of the Kubernetes cluster.
       shared_ptr<string> k8sClusterName_ {};
-      // The namespace of the Kubernetes cluster.
+      // The Kubernetes namespace.
       shared_ptr<string> k8sNamespace_ {};
-      // The ID of the Kubernetes node.
+      // The Kubernetes node ID.
       shared_ptr<string> k8sNodeId_ {};
-      // The name of the Kubernetes node.
+      // The Kubernetes node name.
       shared_ptr<string> k8sNodeName_ {};
-      // The name of the Kubernetes pod.
+      // The Kubernetes pod name.
       shared_ptr<string> k8sPodName_ {};
-      // Indicates whether the large model analysis tag is supported. Valid values:
+      // Indicates whether large model analysis tags are supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> largeModel_ {};
-      // The time when the alert event was last detected.
+      // The most recent time when the security alert occurred.
       shared_ptr<string> lastTime_ {};
-      // The timestamp when the alert event was last detected. Unit: milliseconds.
+      // The timestamp of the last occurrence, in milliseconds.
       shared_ptr<int64_t> lastTimeStamp_ {};
-      // The severity of the alert event. Valid values:
+      // The risk level of the alert event. Valid values:
       // 
-      // *   **serious**
-      // *   **suspicious**
-      // *   **remind**
+      // - **serious**: critical
+      // - **suspicious**: suspicious
+      // - **remind**: reminder
       shared_ptr<string> level_ {};
       // The status of the malicious behavior defense rule. Valid values:
-      // 
-      // *   **open**
-      // *   **close**
       shared_ptr<string> maliciousRuleStatus_ {};
-      // The tags of the alert events.
+      // The collection of security alert tags.
       shared_ptr<vector<string>> markList_ {};
-      // The advanced whitelist rule.
+      // The advanced whitelisting rules.
       shared_ptr<string> markMisRules_ {};
-      // The complete name of the alert event.
+      // The full name of the security alert.
       shared_ptr<string> name_ {};
-      // The time when the alert event was first detected.
+      // The time when the security alert first occurred.
       shared_ptr<string> occurrenceTime_ {};
-      // The timestamp when the alert event was first detected. Unit: milliseconds.
+      // The timestamp of the first occurrence, in milliseconds.
       shared_ptr<int64_t> occurrenceTimeStamp_ {};
-      // The handling result code of the alert event.
+      // The error code of the security alert operation.
       shared_ptr<string> operateErrorCode_ {};
-      // The handing result message of the alert event.
+      // The remarks of the security alert operation.
       shared_ptr<string> operateMsg_ {};
-      // The handling timestamp of the alert event. Unit: milliseconds.
+      // The timestamp of the security alert operation, in milliseconds.
       shared_ptr<int64_t> operateTime_ {};
-      // The edition of Security Center in which the alert event can be detected. Valid values:
-      // 
-      // *   **0**: Basic edition
-      // *   **1**: Enterprise edition
+      // The product edition that supports the detection of this security alert. Valid values:
       shared_ptr<string> saleVersion_ {};
-      // The ID of the associated alert event.
+      // The IDs of the security alerts associated with this security alert.
       shared_ptr<string> securityEventIds_ {};
-      // The ID of the Alibaba Cloud account within which an alert is generated.
+      // The Alibaba Cloud account ID that generated the alert.
       shared_ptr<int64_t> sourceAliUid_ {};
-      // The stage at which the attack is detected.
+      // The attack stage.
       shared_ptr<string> stages_ {};
-      // Supported alarm operation types: 
-      // - **AI.false_positive**: Suspected false positive 
-      // - **AI.real_attack**: Real attack 
-      // - **AI.Insufficient_information_to_evaluate**: Insufficient information to evaluate
+      // The operation types supported by the alert. Valid values:
+      // - **AI.false_positive**: suspected false positive.
+      // - **AI.real_attack**: real attack.
+      // - **AI.Insufficient_information_to_evaluate**: unable to determine.
       shared_ptr<string> supportOperateCode_ {};
       // The display name of the attack stage.
       shared_ptr<vector<SuspEvents::TacticItems>> tacticItems_ {};
-      // The unique key of the alert.
+      // The unique key of the security alert.
       shared_ptr<string> uniqueInfo_ {};
-      // The unique ID of the associated instance.
+      // The unique identifier of the associated instance.
       shared_ptr<string> uuid_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
     };
 
@@ -960,17 +946,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on the current page.
+    // The number of entries on the current page in a paging query.
     shared_ptr<int32_t> count_ {};
-    // The page number of the returned page.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
-    // The information about the alert events.
+    // The security alert information.
     shared_ptr<vector<DescribeSuspEventsResponseBody::SuspEvents>> suspEvents_ {};
-    // The total number of alert events.
+    // The total number of security alerts.
     shared_ptr<int32_t> totalCount_ {};
   };
 

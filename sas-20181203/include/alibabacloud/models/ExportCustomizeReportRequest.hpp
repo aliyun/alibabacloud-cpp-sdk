@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ExportCustomizeReportRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ExportType, exportType_);
       DARABONBA_PTR_TO_JSON(ReportId, reportId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, ExportCustomizeReportRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExportType, exportType_);
       DARABONBA_PTR_FROM_JSON(ReportId, reportId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     ExportCustomizeReportRequest() = default ;
     ExportCustomizeReportRequest(const ExportCustomizeReportRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportType_ == nullptr
-        && this->reportId_ == nullptr; };
+        && this->reportId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
@@ -45,6 +47,13 @@ namespace Models
     void deleteReportId() { this->reportId_ = nullptr;};
     inline int64_t getReportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, 0L) };
     inline ExportCustomizeReportRequest& setReportId(int64_t reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ExportCustomizeReportRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
   protected:
@@ -61,6 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

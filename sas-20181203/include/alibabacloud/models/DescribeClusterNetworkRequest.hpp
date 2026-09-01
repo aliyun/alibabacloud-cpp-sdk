@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The end timestamp of the query. Unit: milliseconds.
+    // The end timestamp. Unit: milliseconds.
     // 
-    // > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+    // > The difference between the start timestamp and end timestamp cannot exceed **7** days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The start timestamp of the query. Unit: milliseconds.
+    // The start timestamp. Unit: milliseconds.
     // 
-    // > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
+    // > The difference between the start timestamp and end timestamp cannot exceed **7** days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

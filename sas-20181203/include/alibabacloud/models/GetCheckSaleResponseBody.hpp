@@ -130,16 +130,16 @@ namespace Models
       shared_ptr<int64_t> instanceHybridPostLatestCycledResourceCount_ {};
       shared_ptr<int64_t> instancePostConsumeCount_ {};
       shared_ptr<int64_t> instancePurchaseCount_ {};
-      // Indicates whether the user is an existing user who used the cloud service configuration check feature before the sales feature was released on July 7, 2023. Valid values:
+      // Indicates whether the user is an existing user who used the cloud service configuration check feature before the sales feature was released (July 7, 2023). Valid values:
       // - **true**: The user is an existing user.
       // - **false**: The user is not an existing user.
       shared_ptr<bool> loyalUser_ {};
       // The number of purchased authorized quotas.
       shared_ptr<int64_t> purchaseCount_ {};
-      // The type of the sales user. Valid values:
-      // - **1**: full-feature user who can use all check items.
-      // - **2**: user who needs to upgrade and can only use check items that were available before the sales feature was released on July 7, 2023.
-      // - **3**: user who needs to purchase the feature and cannot use the cloud service configuration check feature.
+      // The sales user type. Valid values:
+      // - **1**: Full-feature user. The user can use all check items.
+      // - **2**: Upgrade-required user. The user can use only the check items that were available before the sales feature was released (July 7, 2023).
+      // - **3**: Purchase-required user. The user cannot use the cloud service configuration check feature.
       shared_ptr<int32_t> saleUserType_ {};
     };
 
@@ -164,7 +164,7 @@ namespace Models
   protected:
     // The sales information of cloud service configuration check.
     shared_ptr<GetCheckSaleResponseBody::CheckSale> checkSale_ {};
-    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
+    // The ID of the request. The China Cloud generates a unique identifier for the request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
   };
 

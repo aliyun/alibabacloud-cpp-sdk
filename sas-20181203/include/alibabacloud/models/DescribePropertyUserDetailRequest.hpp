@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(User, user_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(User, user_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
         && this->extend_ == nullptr && this->isRoot_ == nullptr && this->lastLoginTimeEnd_ == nullptr && this->lastLoginTimeStart_ == nullptr && this->nextToken_ == nullptr
-        && this->pageSize_ == nullptr && this->remark_ == nullptr && this->useNextToken_ == nullptr && this->user_ == nullptr && this->uuid_ == nullptr; };
+        && this->pageSize_ == nullptr && this->remark_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->useNextToken_ == nullptr && this->user_ == nullptr
+        && this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
     inline DescribePropertyUserDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribePropertyUserDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // useNextToken Field Functions 
     bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
     void deleteUseNextToken() { this->useNextToken_ = nullptr;};
@@ -151,6 +161,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The name or IP address of the server to query.
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
     // 
     // - **true**: Uses the NextToken method.

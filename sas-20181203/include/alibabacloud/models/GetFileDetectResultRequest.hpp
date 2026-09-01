@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // An array of up to 100 unique file identifiers.
+    // The list of file identifiers. A maximum of 100 elements can be specified.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> hashKeyList_ {};
@@ -68,9 +68,7 @@ namespace Models
     shared_ptr<string> sourceIp_ {};
     // The type of file to detect. Valid values:
     // 
-    // - **0**: malicious file detection
-    // 
-    // - **6**: Skill compressed package detection
+    // -  **0**: malicious file detection
     // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};

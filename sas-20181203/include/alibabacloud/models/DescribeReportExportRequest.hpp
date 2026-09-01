@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeReportExportRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ExportId, exportId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeReportExportRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExportId, exportId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     DescribeReportExportRequest() = default ;
     DescribeReportExportRequest(const DescribeReportExportRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportId_ == nullptr
-        && this->lang_ == nullptr; };
+        && this->lang_ == nullptr && this->resourceDirectoryAccountId_ == nullptr; };
     // exportId Field Functions 
     bool hasExportId() const { return this->exportId_ != nullptr;};
     void deleteExportId() { this->exportId_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline DescribeReportExportRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeReportExportRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
   protected:
     // The ID of the export task.
     // > Call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
@@ -57,6 +66,7 @@ namespace Models
     // - **zh**: Chinese
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

@@ -18,11 +18,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_TO_JSON(Bind, bind_);
       DARABONBA_PTR_TO_JSON(BindAll, bindAll_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(IsPreBind, isPreBind_);
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_TO_JSON(PreBindOrderId, preBindOrderId_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(UnBind, unBind_);
     };
@@ -31,11 +33,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoBind, autoBind_);
       DARABONBA_PTR_FROM_JSON(Bind, bind_);
       DARABONBA_PTR_FROM_JSON(BindAll, bindAll_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(IsPreBind, isPreBind_);
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_FROM_JSON(PreBindOrderId, preBindOrderId_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(UnBind, unBind_);
     };
@@ -51,8 +55,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authVersion_ == nullptr
-        && this->autoBind_ == nullptr && this->bind_ == nullptr && this->bindAll_ == nullptr && this->criteria_ == nullptr && this->isPreBind_ == nullptr
-        && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->unBind_ == nullptr; };
+        && this->autoBind_ == nullptr && this->bind_ == nullptr && this->bindAll_ == nullptr && this->clientToken_ == nullptr && this->criteria_ == nullptr
+        && this->isPreBind_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr && this->productCode_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->unBind_ == nullptr; };
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};
@@ -81,6 +86,13 @@ namespace Models
     void deleteBindAll() { this->bindAll_ = nullptr;};
     inline bool getBindAll() const { DARABONBA_PTR_GET_DEFAULT(bindAll_, false) };
     inline BindAuthToMachineRequest& setBindAll(bool bindAll) { DARABONBA_PTR_SET_VALUE(bindAll_, bindAll) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline BindAuthToMachineRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // criteria Field Functions 
@@ -118,6 +130,13 @@ namespace Models
     inline BindAuthToMachineRequest& setPreBindOrderId(int64_t preBindOrderId) { DARABONBA_PTR_SET_VALUE(preBindOrderId_, preBindOrderId) };
 
 
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline BindAuthToMachineRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
     // resourceDirectoryAccountId Field Functions 
     bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
     void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
@@ -136,18 +155,18 @@ namespace Models
 
   protected:
     // The authorization version of the asset. Valid values:
-    // - **6**: Anti-virus Edition
-    // - **5**: Advanced Edition
-    // - **3**: Enterprise Edition
-    // - **7**: Ultimate Edition
-    // - **10**: Value-added Service Edition.
+    // - **6**: Anti-virus Edition.
+    // - **5**: Premium Edition.
+    // - **3**: Enterprise Edition.
+    // - **7**: Ultimate Edition.
+    // - **10**: Value-added service Edition.
     shared_ptr<int32_t> authVersion_ {};
     // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: Disable automatic binding.
+    // - **1**: Enable automatic binding.
     shared_ptr<int32_t> autoBind_ {};
-    // The UUIDs of the servers to bind.
+    // The collection of UUIDs to bind.
     // 
     // > **Bind** and **UnBind** cannot both be empty.
     shared_ptr<vector<string>> bind_ {};
@@ -156,7 +175,9 @@ namespace Models
     // - **true**: Bind all assets.
     // - **false**: Do not bind all assets.
     shared_ptr<bool> bindAll_ {};
-    // The search conditions for assets. This parameter is in JSON format. Note that the parameter values are case-sensitive.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The conditions for searching assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
     // > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
     // Specifies whether this is a pre-binding operation. Valid values:
@@ -168,23 +189,24 @@ namespace Models
     // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
     shared_ptr<int32_t> isPreBind_ {};
     // The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
-    // - **OR**: The search conditions are evaluated with a logical OR.
-    // - **AND**: The search conditions are evaluated with a logical AND.
+    // - **OR**: The search conditions are evaluated using a logical OR.
+    // - **AND**: The search conditions are evaluated using a logical AND.
     shared_ptr<string> logicalExp_ {};
-    // The order version associated with the pre-binding. Valid values:
+    // The order version associated with the pre-binding operation. Valid values:
     // 
-    // - **level7**: Anti-virus Edition
-    // - **level3**: Advanced Edition
-    // - **level2**: Enterprise Edition
-    // - **level8**: Ultimate Edition
+    // - **level7**: Anti-virus Edition.
+    // - **level3**: Premium Edition.
+    // - **level2**: Enterprise Edition.
+    // - **level8**: Ultimate Edition.
     // - **level10**: Value-added service only.
     shared_ptr<string> ntmVersion_ {};
-    // The order ID associated with the pre-binding.
+    // The order ID associated with the pre-binding operation.
     shared_ptr<int64_t> preBindOrderId_ {};
-    // The ID of the member accounts in the resource folder (Alibaba Cloud account).
-    // > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    shared_ptr<string> productCode_ {};
+    // The ID of the member accounts (Alibaba Cloud account) in the resource directory.
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The UUIDs of the servers to unbind.
+    // The collection of UUIDs to unbind.
     // > **Bind** and **UnBind** cannot both be empty.
     shared_ptr<vector<string>> unBind_ {};
   };

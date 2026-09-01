@@ -123,11 +123,11 @@ namespace Models
       protected:
         // The key of the check content.
         shared_ptr<string> key_ {};
-        // The display name that corresponds to the key of the check content.
+        // The display name corresponding to the check content key.
         shared_ptr<string> showName_ {};
         // The display type. Valid values:
-        // - **grid**: grid
-        // - **text**: text.
+        // - **grid**: check grid
+        // - **text**: text
         shared_ptr<string> type_ {};
       };
 
@@ -168,11 +168,11 @@ namespace Models
       shared_ptr<vector<CheckDetailColumns::Grids>> grids_ {};
       // The key of the check content.
       shared_ptr<string> key_ {};
-      // The display name that corresponds to the key of the check content.
+      // The display name corresponding to the check content key.
       shared_ptr<string> showName_ {};
       // The display type. Valid values:
-      // - **grid**: grid
-      // - **text**: text.
+      // - **grid**: check grid
+      // - **text**: text
       shared_ptr<string> type_ {};
     };
 
@@ -258,7 +258,7 @@ namespace Models
     shared_ptr<string> advice_ {};
     // The list of checked asset details.
     shared_ptr<vector<map<string, string>>> checkDetailAssetInfo_ {};
-    // The details of the check content.
+    // The check content details.
     shared_ptr<vector<DescribeCheckWarningDetailResponseBody::CheckDetailColumns>> checkDetailColumns_ {};
     // The ID of the check item.
     shared_ptr<int64_t> checkId_ {};

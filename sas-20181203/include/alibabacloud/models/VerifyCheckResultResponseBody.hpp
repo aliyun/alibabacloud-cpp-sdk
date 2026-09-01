@@ -85,7 +85,7 @@ namespace Models
       shared_ptr<string> operateCode_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The rate limit duration. Unit: seconds.
+      // The throttling duration. Unit: seconds.
       shared_ptr<int32_t> throttlingTimeSecond_ {};
     };
 

@@ -189,10 +189,10 @@ namespace Models
         // Valid values:
         // 
         // - **text**: plain text
-        // - **html**: rich text.
+        // - **html**: rich text
         shared_ptr<string> type_ {};
         // The additional attribute information of the exception event.
-        // For example, the logon time or logon location of an unusual logon alert, or the trojan file path or trojan type of an alert.
+        // For example, the logon time or logon location for an unusual logon alert, or the trojan file path or trojan type for a trojan alert.
         shared_ptr<string> valueDisplay_ {};
       };
 

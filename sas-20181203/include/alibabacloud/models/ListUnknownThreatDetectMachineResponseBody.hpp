@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page.
+      // The number of entries on the current page when using paging.
       shared_ptr<int32_t> count_ {};
-      // The current page number.
+      // The page number of the current page when using paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries per page when using paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -107,8 +107,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_TO_JSON(IntranetIp, intranetIp_);
+        DARABONBA_PTR_TO_JSON(MaliciousProcessCount, maliciousProcessCount_);
+        DARABONBA_PTR_TO_JSON(NormalEventCount, normalEventCount_);
         DARABONBA_PTR_TO_JSON(PluginStatus, pluginStatus_);
         DARABONBA_PTR_TO_JSON(ProcessCount, processCount_);
+        DARABONBA_PTR_TO_JSON(RecentDeviationBehaviorCount, recentDeviationBehaviorCount_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StudyMode, studyMode_);
         DARABONBA_PTR_TO_JSON(StudyRemainDays, studyRemainDays_);
@@ -120,8 +123,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_FROM_JSON(IntranetIp, intranetIp_);
+        DARABONBA_PTR_FROM_JSON(MaliciousProcessCount, maliciousProcessCount_);
+        DARABONBA_PTR_FROM_JSON(NormalEventCount, normalEventCount_);
         DARABONBA_PTR_FROM_JSON(PluginStatus, pluginStatus_);
         DARABONBA_PTR_FROM_JSON(ProcessCount, processCount_);
+        DARABONBA_PTR_FROM_JSON(RecentDeviationBehaviorCount, recentDeviationBehaviorCount_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StudyMode, studyMode_);
         DARABONBA_PTR_FROM_JSON(StudyRemainDays, studyRemainDays_);
@@ -140,8 +146,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->effectDays_ == nullptr
-        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->pluginStatus_ == nullptr && this->processCount_ == nullptr
-        && this->status_ == nullptr && this->studyMode_ == nullptr && this->studyRemainDays_ == nullptr && this->studyStartTime_ == nullptr && this->uuid_ == nullptr; };
+        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->maliciousProcessCount_ == nullptr && this->normalEventCount_ == nullptr
+        && this->pluginStatus_ == nullptr && this->processCount_ == nullptr && this->recentDeviationBehaviorCount_ == nullptr && this->status_ == nullptr && this->studyMode_ == nullptr
+        && this->studyRemainDays_ == nullptr && this->studyStartTime_ == nullptr && this->uuid_ == nullptr; };
       // effectDays Field Functions 
       bool hasEffectDays() const { return this->effectDays_ != nullptr;};
       void deleteEffectDays() { this->effectDays_ = nullptr;};
@@ -170,6 +177,20 @@ namespace Models
       inline Data& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
 
 
+      // maliciousProcessCount Field Functions 
+      bool hasMaliciousProcessCount() const { return this->maliciousProcessCount_ != nullptr;};
+      void deleteMaliciousProcessCount() { this->maliciousProcessCount_ = nullptr;};
+      inline int64_t getMaliciousProcessCount() const { DARABONBA_PTR_GET_DEFAULT(maliciousProcessCount_, 0L) };
+      inline Data& setMaliciousProcessCount(int64_t maliciousProcessCount) { DARABONBA_PTR_SET_VALUE(maliciousProcessCount_, maliciousProcessCount) };
+
+
+      // normalEventCount Field Functions 
+      bool hasNormalEventCount() const { return this->normalEventCount_ != nullptr;};
+      void deleteNormalEventCount() { this->normalEventCount_ = nullptr;};
+      inline int64_t getNormalEventCount() const { DARABONBA_PTR_GET_DEFAULT(normalEventCount_, 0L) };
+      inline Data& setNormalEventCount(int64_t normalEventCount) { DARABONBA_PTR_SET_VALUE(normalEventCount_, normalEventCount) };
+
+
       // pluginStatus Field Functions 
       bool hasPluginStatus() const { return this->pluginStatus_ != nullptr;};
       void deletePluginStatus() { this->pluginStatus_ = nullptr;};
@@ -182,6 +203,13 @@ namespace Models
       void deleteProcessCount() { this->processCount_ = nullptr;};
       inline int32_t getProcessCount() const { DARABONBA_PTR_GET_DEFAULT(processCount_, 0) };
       inline Data& setProcessCount(int32_t processCount) { DARABONBA_PTR_SET_VALUE(processCount_, processCount) };
+
+
+      // recentDeviationBehaviorCount Field Functions 
+      bool hasRecentDeviationBehaviorCount() const { return this->recentDeviationBehaviorCount_ != nullptr;};
+      void deleteRecentDeviationBehaviorCount() { this->recentDeviationBehaviorCount_ = nullptr;};
+      inline int64_t getRecentDeviationBehaviorCount() const { DARABONBA_PTR_GET_DEFAULT(recentDeviationBehaviorCount_, 0L) };
+      inline Data& setRecentDeviationBehaviorCount(int64_t recentDeviationBehaviorCount) { DARABONBA_PTR_SET_VALUE(recentDeviationBehaviorCount_, recentDeviationBehaviorCount) };
 
 
       // status Field Functions 
@@ -227,25 +255,25 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address.
       shared_ptr<string> intranetIp_ {};
+      shared_ptr<int64_t> maliciousProcessCount_ {};
+      shared_ptr<int64_t> normalEventCount_ {};
       shared_ptr<string> pluginStatus_ {};
-      // The process count.
+      // The number of processes.
       shared_ptr<int32_t> processCount_ {};
-      // The instance status. Valid values:
+      shared_ptr<int64_t> recentDeviationBehaviorCount_ {};
+      // The running status of the machine. Valid values:
       // 
-      // - **monitoring**: The instance is being monitored for threats.
-      // 
-      // - **blocking**: The instance is blocking unauthorized processes.
-      // 
-      // - **studying**: The instance is in a learning phase.
+      // - **monitoring**: Warning.
+      // - **blocking**: Blocking.
+      // - **studying**: Learning.
       shared_ptr<string> status_ {};
       // The whitelist mode. Valid values:
       // 
       // - **hash**: process hash
-      // 
       // - **path**: process path
       shared_ptr<string> studyMode_ {};
       shared_ptr<int64_t> studyRemainDays_ {};
-      // The timestamp when the learning phase started. Unit: seconds.
+      // The timestamp when learning started.
       shared_ptr<int64_t> studyStartTime_ {};
       // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
@@ -279,11 +307,11 @@ namespace Models
 
 
   protected:
-    // An array of instance details.
+    // The returned data.
     shared_ptr<vector<ListUnknownThreatDetectMachineResponseBody::Data>> data_ {};
     // The pagination information.
     shared_ptr<ListUnknownThreatDetectMachineResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

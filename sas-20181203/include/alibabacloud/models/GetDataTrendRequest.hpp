@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizTypes, bizTypes_);
       DARABONBA_PTR_TO_JSON(EndTimestamp, endTimestamp_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(StartTimestamp, startTimestamp_);
     };
     friend void from_json(const Darabonba::Json& j, GetDataTrendRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizTypes, bizTypes_);
       DARABONBA_PTR_FROM_JSON(EndTimestamp, endTimestamp_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(StartTimestamp, startTimestamp_);
     };
     GetDataTrendRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizTypes_ == nullptr
-        && this->endTimestamp_ == nullptr && this->interval_ == nullptr && this->startTimestamp_ == nullptr; };
+        && this->endTimestamp_ == nullptr && this->interval_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->startTimestamp_ == nullptr; };
     // bizTypes Field Functions 
     bool hasBizTypes() const { return this->bizTypes_ != nullptr;};
     void deleteBizTypes() { this->bizTypes_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteInterval() { this->interval_ = nullptr;};
     inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline GetDataTrendRequest& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetDataTrendRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // startTimestamp Field Functions 
@@ -86,6 +95,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> interval_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The start timestamp of the query. Unit: milliseconds.
     // 
     // This parameter is required.

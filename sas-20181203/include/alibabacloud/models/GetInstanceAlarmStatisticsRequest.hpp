@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceAlarmStatisticsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(From, from_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceAlarmStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(From, from_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     GetInstanceAlarmStatisticsRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && this->uuid_ == nullptr; };
+        && this->resourceDirectoryAccountId_ == nullptr && this->uuid_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
     inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline GetInstanceAlarmStatisticsRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline GetInstanceAlarmStatisticsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // uuid Field Functions 
@@ -53,6 +62,7 @@ namespace Models
     // - *aqs*: Alarm event data
     // - *honeypot*: Honeypot
     shared_ptr<string> from_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The UUID of the server to be queried.
     // > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
     shared_ptr<string> uuid_ {};

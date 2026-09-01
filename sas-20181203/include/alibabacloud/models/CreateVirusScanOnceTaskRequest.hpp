@@ -14,12 +14,14 @@ namespace Models
   class CreateVirusScanOnceTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateVirusScanOnceTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Param, param_);
       DARABONBA_PTR_TO_JSON(ScanPath, scanPath_);
       DARABONBA_PTR_TO_JSON(ScanType, scanType_);
       DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
     };
     friend void from_json(const Darabonba::Json& j, CreateVirusScanOnceTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Param, param_);
       DARABONBA_PTR_FROM_JSON(ScanPath, scanPath_);
       DARABONBA_PTR_FROM_JSON(ScanType, scanType_);
@@ -36,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->param_ == nullptr
-        && this->scanPath_ == nullptr && this->scanType_ == nullptr && this->selectionKey_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->param_ == nullptr && this->scanPath_ == nullptr && this->scanType_ == nullptr && this->selectionKey_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateVirusScanOnceTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // param Field Functions 
     bool hasParam() const { return this->param_ != nullptr;};
     void deleteParam() { this->param_ = nullptr;};
@@ -69,19 +78,19 @@ namespace Models
 
 
   protected:
-    // Additional information fields: 
-    // - **additionType**: The type of extended scan
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The extended information field:
+    // - **additionType**: the extended scan type
     shared_ptr<string> param_ {};
-    // The information about the scan path that is required for a custom scan.
+    // The scan path information to be transmitted if the scan type is custom scan.
     shared_ptr<vector<string>> scanPath_ {};
-    // The type of the virus scan. Valid values:
-    // 
-    // *   **system**: system scan.
-    // *   **user**: custom scan.
+    // The scan type of the virus scan. Valid values:
+    // - **system**: system scan
+    // - **user**: custom scan.
     shared_ptr<string> scanType_ {};
-    // The key that stores the asset information.
-    // 
-    // > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain the key value.
+    // The key that stores asset information.
+    // > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain this parameter.
     shared_ptr<string> selectionKey_ {};
   };
 

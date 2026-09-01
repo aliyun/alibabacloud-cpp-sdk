@@ -69,17 +69,17 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid value:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // 
     // 
     // - **zh**: Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: **20**.
+    // The maximum number of entries per page in a paged query. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // List of task sources.
+    // The list of task sources.
     shared_ptr<vector<string>> taskSources_ {};
   };
 

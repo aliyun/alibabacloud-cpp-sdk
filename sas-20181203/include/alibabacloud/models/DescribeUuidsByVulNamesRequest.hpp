@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Level, level_);
       DARABONBA_PTR_TO_JSON(Necessity, necessity_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SearchTags, searchTags_);
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Level, level_);
       DARABONBA_PTR_FROM_JSON(Necessity, necessity_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SearchTags, searchTags_);
       DARABONBA_PTR_FROM_JSON(StatusList, statusList_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -60,8 +62,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dealed_ == nullptr
         && this->fieldName_ == nullptr && this->fieldValue_ == nullptr && this->groupId_ == nullptr && this->lang_ == nullptr && this->level_ == nullptr
-        && this->necessity_ == nullptr && this->remark_ == nullptr && this->searchTags_ == nullptr && this->statusList_ == nullptr && this->tag_ == nullptr
-        && this->targetType_ == nullptr && this->type_ == nullptr && this->vpcInstanceIds_ == nullptr && this->vulNames_ == nullptr; };
+        && this->necessity_ == nullptr && this->remark_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->searchTags_ == nullptr && this->statusList_ == nullptr
+        && this->tag_ == nullptr && this->targetType_ == nullptr && this->type_ == nullptr && this->vpcInstanceIds_ == nullptr && this->vulNames_ == nullptr; };
     // dealed Field Functions 
     bool hasDealed() const { return this->dealed_ != nullptr;};
     void deleteDealed() { this->dealed_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
     void deleteRemark() { this->remark_ = nullptr;};
     inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribeUuidsByVulNamesRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeUuidsByVulNamesRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // searchTags Field Functions 
@@ -198,6 +207,7 @@ namespace Models
     shared_ptr<string> necessity_ {};
     // The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The tag for querying vulnerabilities.
     shared_ptr<string> searchTags_ {};
     // The fix status of the vulnerability. Separate multiple statuses with commas (,). Valid values:

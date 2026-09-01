@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const VerifyCheckResultRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_TO_JSON(Force, force_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(TaskSource, taskSource_);
     };
     friend void from_json(const Darabonba::Json& j, VerifyCheckResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_FROM_JSON(Force, force_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(TaskSource, taskSource_);
     };
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkIds_ == nullptr
-        && this->instanceIds_ == nullptr && this->taskSource_ == nullptr; };
+        && this->force_ == nullptr && this->instanceIds_ == nullptr && this->taskSource_ == nullptr; };
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
@@ -43,6 +45,13 @@ namespace Models
     inline vector<int64_t> getCheckIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline VerifyCheckResultRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline VerifyCheckResultRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
+
+
+    // force Field Functions 
+    bool hasForce() const { return this->force_ != nullptr;};
+    void deleteForce() { this->force_ = nullptr;};
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline VerifyCheckResultRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // instanceIds Field Functions 
@@ -64,6 +73,11 @@ namespace Models
   protected:
     // The list of check item IDs.
     shared_ptr<vector<int64_t>> checkIds_ {};
+    // Specifies whether to forcibly run the specified check items. Default value: false.
+    // 
+    // - true: Forcibly runs the specified check items. Forced execution bypasses frequency and quantity limits and initiates the check directly, which may cause duplicate checks to run multiple times within a short period.
+    // - false (default): Does not forcibly run the specified check items. This ensures that the same check item is executed only once within a short period.
+    shared_ptr<bool> force_ {};
     // The list of instance IDs of the assets associated with the check items.
     shared_ptr<vector<string>> instanceIds_ {};
     // The task source. Valid values:

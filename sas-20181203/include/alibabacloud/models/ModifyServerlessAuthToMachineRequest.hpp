@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindAppList, bindAppList_);
       DARABONBA_PTR_TO_JSON(BindAssetType, bindAssetType_);
       DARABONBA_PTR_TO_JSON(BindUuidList, bindUuidList_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(NtmVersion, ntmVersion_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BindAppList, bindAppList_);
       DARABONBA_PTR_FROM_JSON(BindAssetType, bindAssetType_);
       DARABONBA_PTR_FROM_JSON(BindUuidList, bindUuidList_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(NtmVersion, ntmVersion_);
@@ -60,8 +62,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCriteria_ == nullptr
         && this->authItem_ == nullptr && this->autoBind_ == nullptr && this->bindAll_ == nullptr && this->bindAppList_ == nullptr && this->bindAssetType_ == nullptr
-        && this->bindUuidList_ == nullptr && this->criteria_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBind_ == nullptr
-        && this->preBindOrderId_ == nullptr && this->resourceDirectoryUid_ == nullptr && this->unBindAppList_ == nullptr && this->unBindUuidList_ == nullptr; };
+        && this->bindUuidList_ == nullptr && this->clientToken_ == nullptr && this->criteria_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr
+        && this->preBind_ == nullptr && this->preBindOrderId_ == nullptr && this->resourceDirectoryUid_ == nullptr && this->unBindAppList_ == nullptr && this->unBindUuidList_ == nullptr; };
     // appCriteria Field Functions 
     bool hasAppCriteria() const { return this->appCriteria_ != nullptr;};
     void deleteAppCriteria() { this->appCriteria_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline vector<string> getBindUuidList() { DARABONBA_PTR_GET(bindUuidList_, vector<string>) };
     inline ModifyServerlessAuthToMachineRequest& setBindUuidList(const vector<string> & bindUuidList) { DARABONBA_PTR_SET_VALUE(bindUuidList_, bindUuidList) };
     inline ModifyServerlessAuthToMachineRequest& setBindUuidList(vector<string> && bindUuidList) { DARABONBA_PTR_SET_RVALUE(bindUuidList_, bindUuidList) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyServerlessAuthToMachineRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // criteria Field Functions 
@@ -183,8 +192,8 @@ namespace Models
     shared_ptr<string> authItem_ {};
     // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Disabled.
-    // - **1**: Enabled.
+    // - **0**: Disable automatic binding.
+    // - **1**: Enable automatic binding.
     shared_ptr<int32_t> autoBind_ {};
     // Specifies whether to bind all assets. Default value: **false**. Valid values:
     // 
@@ -193,16 +202,18 @@ namespace Models
     shared_ptr<bool> bindAll_ {};
     // The list of application IDs to bind.
     // 
-    // > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+    // > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> bindAppList_ {};
     // The Asset Type for the operation. Valid values:
-    // - **INSTANCE**: instance.
-    // - **APP**: application.
+    // - **INSTANCE**: Instance.
+    // - **APP**: Application.
     shared_ptr<string> bindAssetType_ {};
     // The list of asset UUIDs to bind.
     shared_ptr<vector<string>> bindUuidList_ {};
-    // The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when specifying this parameter.
-    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query supported search conditions.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
     // The logical relationship among multiple search conditions. Valid values:
     // - **OR**: The search conditions are evaluated with a logical OR.
@@ -210,13 +221,13 @@ namespace Models
     shared_ptr<string> logicalExp_ {};
     // The NTM version code for pre-binding.
     shared_ptr<string> ntmVersion_ {};
-    // Specifies whether to perform a pre-binding operation. Valid values:
+    // Specifies whether to enable pre-binding. Valid values:
     // 
     // - **0**: No.
     // - **1**: Yes.
     // 
     // 
-    // > After pre-binding is enabled, the corresponding edition authorization quota is automatically bound to the specified servers after the purchase is completed.
+    // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
     shared_ptr<int32_t> preBind_ {};
     // The pre-binding order ID.
     shared_ptr<int64_t> preBindOrderId_ {};
@@ -224,7 +235,7 @@ namespace Models
     shared_ptr<int64_t> resourceDirectoryUid_ {};
     // The list of application IDs to unbind.
     // 
-    // > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+    // > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> unBindAppList_ {};
     // The list of asset UUIDs to unbind.
     shared_ptr<vector<string>> unBindUuidList_ {};

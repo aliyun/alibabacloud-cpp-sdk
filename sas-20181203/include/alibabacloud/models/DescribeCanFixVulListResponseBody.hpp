@@ -237,7 +237,7 @@ namespace Models
           shared_ptr<string> fullVersion_ {};
           // The SHA256 value of the container image layer digest.
           shared_ptr<string> layer_ {};
-          // The details of the vulnerability match.
+          // The detailed information about the vulnerability match.
           shared_ptr<string> matchDetail_ {};
           // The rule hits.
           shared_ptr<vector<string>> matchList_ {};
@@ -245,7 +245,7 @@ namespace Models
           shared_ptr<string> name_ {};
           // The path of the software that contains the vulnerability.
           shared_ptr<string> path_ {};
-          // The command to fix the vulnerability.
+          // The command used to fix the vulnerability.
           shared_ptr<string> updateCmd_ {};
           // The version number of the software package.
           shared_ptr<string> version_ {};
@@ -549,7 +549,7 @@ namespace Models
       shared_ptr<string> containerId_ {};
       // The extended content of the vulnerability information.
       shared_ptr<VulRecords::ExtendContentJson> extendContentJson_ {};
-      // The timestamp when the vulnerability was first detected. Unit: milliseconds.
+      // The timestamp when the vulnerability was first detected, in milliseconds.
       shared_ptr<int64_t> firstTs_ {};
       // The image name.
       shared_ptr<string> image_ {};
@@ -563,7 +563,7 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the asset.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp when the vulnerability was last detected. Unit: milliseconds.
+      // The timestamp when the vulnerability was last detected, in milliseconds.
       shared_ptr<int64_t> lastTs_ {};
       // The list of container image layers.
       shared_ptr<vector<string>> layers_ {};
@@ -573,7 +573,7 @@ namespace Models
       // - **image**: Image.
       // - **container**: Container.
       shared_ptr<string> maliciousSource_ {};
-      // The timestamp when the vulnerability status was modified. Unit: milliseconds.
+      // The timestamp when the vulnerability status was modified, in milliseconds.
       shared_ptr<int64_t> modifyTs_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
@@ -597,7 +597,7 @@ namespace Models
       shared_ptr<string> repoName_ {};
       // The namespace of the container image repository.
       shared_ptr<string> repoNamespace_ {};
-      // The timestamp of the scan. Unit: milliseconds.
+      // The timestamp of the scan, in milliseconds.
       shared_ptr<int64_t> scanTime_ {};
       // The fix status of the vulnerability. Valid values:
       // - **1**: Unfixed.

@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // Number of items displayed on the current page in pagination queries.
+      // The number of entries returned on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // Page number in pagination queries.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // Maximum number of items per page in pagination queries.
+      // The maximum number of entries to return on each page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -274,107 +274,74 @@ namespace Models
 
 
     protected:
-      // Attack type. Values:
-      // 
-      // - 9: SQL Server brute force attack
-      // 
-      // - 5: SSH brute force attack
-      // 
-      // - 6: RDP brute force attack
-      // 
-      // - 101: Java Struts2 attack interception
-      // 
-      // - 102: Redis attack interception
-      // 
-      // - 103: Chinese AntSword WebShell communication
-      // 
-      // - 104: Chinese Chopper WebShell communication
-      // 
+      // The attack type. Valid values:
+      // - 9: SQL Server brute-force attacks
+      // - 5: SSH brute-force attacks
+      // - 6: RDP brute-force attacks
+      // - 101: Java Struts2 attack blocked
+      // - 102: Redis attack blocked
+      // - 103: China Chopper (AntSword) WebShell communication
+      // - 104: China Chopper WebShell communication
       // - 133: XISE WebShell communication
-      // 
       // - 161: WebShell upload
-      // 
       // - 209: PHP WebShell upload
-      // 
       // - 210: JSP WebShell upload
-      // 
       // - 211: ASP WebShell upload
-      // 
-      // - 215: Special suffix WebShell upload
-      // 
-      // - ai_webshell: Intelligent defense for WebShell upload
-      // 
-      // - java_common_rce: Java common RCE vulnerability interception
-      // 
+      // - 215: Special extension WebShell upload
+      // - ai_webshell: WebShell upload intelligent defense
+      // - java_common_rce: Java common RCE vulnerability blocked
       // - alinet_webrce: Adaptive web attack defense
-      // 
       // - other: Other
       shared_ptr<string> attackType_ {};
-      // Mapped name of the attack type. Values:
-      // 
-      // - 9: SQL Server brute force
-      // 
-      // - 5: SSH brute force
-      // 
-      // - 6: RDP brute force
-      // 
-      // - 101: Java Struts2 attack interception
-      // 
-      // - 102: Redis attack interception
-      // 
-      // - 103: Chinese AntSword WebShell communication
-      // 
-      // - 104: Chinese Chopper WebShell communication
-      // 
+      // The mapped name of the attack type. Valid values:
+      // - 9: SQL Server brute-force attacks
+      // - 5: SSH brute-force attacks
+      // - 6: RDP brute-force attacks
+      // - 101: Java Struts2 attack blocked
+      // - 102: Redis attack blocked
+      // - 103: China Chopper (AntSword) WebShell communication
+      // - 104: China Chopper WebShell communication
       // - 133: XISE WebShell communication
-      // 
       // - 161: WebShell upload
-      // 
       // - 209: PHP WebShell upload
-      // 
       // - 210: JSP WebShell upload
-      // 
       // - 211: ASP WebShell upload
-      // 
-      // - 215: Special suffix WebShell upload
-      // 
-      // - ai_webshell: Intelligent defense for WebShell upload
-      // 
-      // - java_common_rce: Java common RCE vulnerability interception
-      // 
+      // - 215: Special extension WebShell upload
+      // - ai_webshell: WebShell upload intelligent defense
+      // - java_common_rce: Java common RCE vulnerability blocked
       // - alinet_webrce: Adaptive web attack defense
-      // 
       // - other: Other
       shared_ptr<string> attackTypeName_ {};
-      // Number of attacks.
+      // The number of attacks.
       shared_ptr<int32_t> count_ {};
-      // Target port of the attack.
+      // The Attack Target Ports of the Attack Target.
       shared_ptr<string> dstPort_ {};
-      // First occurrence time of the attack event, in timestamp format.
+      // The time when the attack event first occurred, in timestamp format.
       shared_ptr<int64_t> firstTime_ {};
-      // String representation of the first occurrence time of the attack event.
+      // The time when the attack event first occurred, in string format.
       shared_ptr<string> firstTimeStr_ {};
-      // ID of the attack event.
+      // The ID of the attack event.
       shared_ptr<string> id_ {};
-      // Instance name of the attacked asset.
+      // The instance name of the attacked asset.
       shared_ptr<string> instanceName_ {};
-      // Public IP of the attacked asset.
+      // The public IP address of the attacked asset.
       shared_ptr<string> internetIp_ {};
-      // Private IP of the attacked asset.
+      // The private IP address of the attacked asset.
       shared_ptr<string> intranetIp_ {};
-      // Timestamp of the most recent occurrence of the attack event.
-      shared_ptr<int64_t> latestTime_ {};
-      // String representation of the most recent occurrence time of the attack event.
-      shared_ptr<string> latestTimeStr_ {};
-      // MD5 string of the attack payload.
-      shared_ptr<string> payloadMd5_ {};
-      // Source IP of the attack.
-      shared_ptr<string> srcIp_ {};
-      // Attack status. Values:
+      // The time when the attack event most recently occurred.
       // 
-      // - block: Blocked (defended)
+      // This field is a UNIX timestamp. Unit: milliseconds.
+      shared_ptr<int64_t> latestTime_ {};
+      // The time when the attack event most recently occurred, in string format.
+      shared_ptr<string> latestTimeStr_ {};
+      // The MD5 hash of the attack payload.
+      shared_ptr<string> payloadMd5_ {};
+      // The Attack Source IP Addresses.
+      shared_ptr<string> srcIp_ {};
+      // The attack status. Valid values:
+      // - block: Blocked (defended).
       shared_ptr<string> status_ {};
-      // UUID of the attacked asset instance.
+      // The UUID of the attacked asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -435,23 +402,21 @@ namespace Models
 
 
   protected:
-    // Result code, **200** indicates success, any other value indicates failure. The caller can use this field to determine the reason for the failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // HTTP status code, 200 indicates a successful request.
+    // The HTTP status code. A value of 200 indicates that the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // List of attack events.
+    // The list of attack events.
     shared_ptr<vector<ListAttackEventInfoResponseBody::List>> list_ {};
-    // Return message of the request result.
+    // The returned message of the request result.
     shared_ptr<string> message_ {};
-    // Pagination information.
+    // The pagination information.
     shared_ptr<ListAttackEventInfoResponseBody::PageInfo> pageInfo_ {};
-    // The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and pinpoint issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful. Values:
-    // 
-    // - **true**: Success
-    // 
-    // - **false**: Failure
+    // Indicates whether the API call is successful. Valid values:
+    // - **true**: The call is successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

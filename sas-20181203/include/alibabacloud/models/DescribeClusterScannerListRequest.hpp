@@ -62,16 +62,16 @@ namespace Models
 
 
   protected:
-    // List of cluster IDs.
+    // The list of cluster IDs.
     shared_ptr<vector<string>> clusterIdList_ {};
-    // The language type for requests and responses.
+    // The language type for the request and response messages.
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // List of scanner statuses. Values:
-    // - **online**: Running
-    // - **offline**: Offline
-    // - **not_installed**: Not Installed
+    // The list of scanner statuses. Valid values:
+    // - **online**: running
+    // - **offline**: offline
+    // - **not_installed**: not installed
     shared_ptr<vector<string>> statusList_ {};
   };
 

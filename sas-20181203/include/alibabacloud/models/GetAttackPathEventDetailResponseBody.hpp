@@ -41,6 +41,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PathDetailDesc, pathDetailDesc_);
         DARABONBA_PTR_TO_JSON(PathEventEdgeList, pathEventEdgeList_);
         DARABONBA_PTR_TO_JSON(PathEventNodeList, pathEventNodeList_);
+        DARABONBA_PTR_TO_JSON(PathInterpretationStatus, pathInterpretationStatus_);
+        DARABONBA_PTR_TO_JSON(PathInterpretationUrl, pathInterpretationUrl_);
         DARABONBA_PTR_TO_JSON(PathName, pathName_);
         DARABONBA_PTR_TO_JSON(PathNameDesc, pathNameDesc_);
         DARABONBA_PTR_TO_JSON(PathType, pathType_);
@@ -55,6 +57,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PathDetailDesc, pathDetailDesc_);
         DARABONBA_PTR_FROM_JSON(PathEventEdgeList, pathEventEdgeList_);
         DARABONBA_PTR_FROM_JSON(PathEventNodeList, pathEventNodeList_);
+        DARABONBA_PTR_FROM_JSON(PathInterpretationStatus, pathInterpretationStatus_);
+        DARABONBA_PTR_FROM_JSON(PathInterpretationUrl, pathInterpretationUrl_);
         DARABONBA_PTR_FROM_JSON(PathName, pathName_);
         DARABONBA_PTR_FROM_JSON(PathNameDesc, pathNameDesc_);
         DARABONBA_PTR_FROM_JSON(PathType, pathType_);
@@ -471,8 +475,8 @@ namespace Models
 
       virtual bool empty() const override { return this->dstAsset_ == nullptr
         && this->firstTime_ == nullptr && this->lastTime_ == nullptr && this->pathDetailDesc_ == nullptr && this->pathEventEdgeList_ == nullptr && this->pathEventNodeList_ == nullptr
-        && this->pathName_ == nullptr && this->pathNameDesc_ == nullptr && this->pathType_ == nullptr && this->pathTypeDesc_ == nullptr && this->riskLevel_ == nullptr
-        && this->srcAsset_ == nullptr; };
+        && this->pathInterpretationStatus_ == nullptr && this->pathInterpretationUrl_ == nullptr && this->pathName_ == nullptr && this->pathNameDesc_ == nullptr && this->pathType_ == nullptr
+        && this->pathTypeDesc_ == nullptr && this->riskLevel_ == nullptr && this->srcAsset_ == nullptr; };
       // dstAsset Field Functions 
       bool hasDstAsset() const { return this->dstAsset_ != nullptr;};
       void deleteDstAsset() { this->dstAsset_ = nullptr;};
@@ -519,6 +523,20 @@ namespace Models
       inline vector<AttackPathEvent::PathEventNodeList> getPathEventNodeList() { DARABONBA_PTR_GET(pathEventNodeList_, vector<AttackPathEvent::PathEventNodeList>) };
       inline AttackPathEvent& setPathEventNodeList(const vector<AttackPathEvent::PathEventNodeList> & pathEventNodeList) { DARABONBA_PTR_SET_VALUE(pathEventNodeList_, pathEventNodeList) };
       inline AttackPathEvent& setPathEventNodeList(vector<AttackPathEvent::PathEventNodeList> && pathEventNodeList) { DARABONBA_PTR_SET_RVALUE(pathEventNodeList_, pathEventNodeList) };
+
+
+      // pathInterpretationStatus Field Functions 
+      bool hasPathInterpretationStatus() const { return this->pathInterpretationStatus_ != nullptr;};
+      void deletePathInterpretationStatus() { this->pathInterpretationStatus_ = nullptr;};
+      inline string getPathInterpretationStatus() const { DARABONBA_PTR_GET_DEFAULT(pathInterpretationStatus_, "") };
+      inline AttackPathEvent& setPathInterpretationStatus(string pathInterpretationStatus) { DARABONBA_PTR_SET_VALUE(pathInterpretationStatus_, pathInterpretationStatus) };
+
+
+      // pathInterpretationUrl Field Functions 
+      bool hasPathInterpretationUrl() const { return this->pathInterpretationUrl_ != nullptr;};
+      void deletePathInterpretationUrl() { this->pathInterpretationUrl_ = nullptr;};
+      inline string getPathInterpretationUrl() const { DARABONBA_PTR_GET_DEFAULT(pathInterpretationUrl_, "") };
+      inline AttackPathEvent& setPathInterpretationUrl(string pathInterpretationUrl) { DARABONBA_PTR_SET_VALUE(pathInterpretationUrl_, pathInterpretationUrl) };
 
 
       // pathName Field Functions 
@@ -578,6 +596,8 @@ namespace Models
       shared_ptr<vector<AttackPathEvent::PathEventEdgeList>> pathEventEdgeList_ {};
       // The list of path nodes.
       shared_ptr<vector<AttackPathEvent::PathEventNodeList>> pathEventNodeList_ {};
+      shared_ptr<string> pathInterpretationStatus_ {};
+      shared_ptr<string> pathInterpretationUrl_ {};
       // The path name.
       shared_ptr<string> pathName_ {};
       // The description of the path name.

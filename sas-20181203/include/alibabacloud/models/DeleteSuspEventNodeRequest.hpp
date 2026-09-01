@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteSuspEventNodeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(NoteId, noteId_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteSuspEventNodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(NoteId, noteId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     DeleteSuspEventNodeRequest() = default ;
     DeleteSuspEventNodeRequest(const DeleteSuspEventNodeRequest &) = default ;
@@ -29,12 +31,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->noteId_ == nullptr; };
+    virtual bool empty() const override { return this->noteId_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr; };
     // noteId Field Functions 
     bool hasNoteId() const { return this->noteId_ != nullptr;};
     void deleteNoteId() { this->noteId_ = nullptr;};
     inline int64_t getNoteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, 0L) };
     inline DeleteSuspEventNodeRequest& setNoteId(int64_t noteId) { DARABONBA_PTR_SET_VALUE(noteId_, noteId) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DeleteSuspEventNodeRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
   protected:
@@ -44,6 +54,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> noteId_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 
   } // namespace Models

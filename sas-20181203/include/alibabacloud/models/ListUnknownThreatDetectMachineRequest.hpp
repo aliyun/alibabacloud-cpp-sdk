@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListUnknownThreatDetectMachineRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(EventStatus, eventStatus_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListUnknownThreatDetectMachineRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(EventStatus, eventStatus_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->pageSize_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->studyMode_ == nullptr && this->studyTimeEnd_ == nullptr
-        && this->studyTimeStart_ == nullptr && this->uuid_ == nullptr; };
+        && this->eventStatus_ == nullptr && this->pageSize_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->studyMode_ == nullptr
+        && this->studyTimeEnd_ == nullptr && this->studyTimeStart_ == nullptr && this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListUnknownThreatDetectMachineRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // eventStatus Field Functions 
+    bool hasEventStatus() const { return this->eventStatus_ != nullptr;};
+    void deleteEventStatus() { this->eventStatus_ = nullptr;};
+    inline int32_t getEventStatus() const { DARABONBA_PTR_GET_DEFAULT(eventStatus_, 0) };
+    inline ListUnknownThreatDetectMachineRequest& setEventStatus(int32_t eventStatus) { DARABONBA_PTR_SET_VALUE(eventStatus_, eventStatus) };
 
 
     // pageSize Field Functions 
@@ -103,31 +112,28 @@ namespace Models
 
 
   protected:
-    // The page number to return.
+    // The page number of the current page when using paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of entries to return per page.
+    shared_ptr<int32_t> eventStatus_ {};
+    // The maximum number of entries per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
     // The server name or IP address.
     shared_ptr<string> remark_ {};
-    // The status of the machine. Valid values:
+    // The running status of the machine. Valid values:
     // 
-    // - **monitoring**: Monitoring
-    // 
-    // - **blocking**: Blocking
-    // 
-    // - **studying**: Learning
-    // 
-    // - **study_finish**: Learning complete
+    // - **monitoring**: Warning.
+    // - **blocking**: Blocking.
+    // - **studying**: Learning.
+    // - **study_finish**: Learning completed.
     shared_ptr<string> status_ {};
     // The whitelist mode. Valid values:
     // 
     // - **hash**: process hash
-    // 
     // - **path**: process path
     shared_ptr<string> studyMode_ {};
-    // The end of the time range for model creation, specified as a timestamp in milliseconds.
+    // The end of the model creation time range. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeEnd_ {};
-    // The start of the time range for model creation, specified as a timestamp in milliseconds.
+    // The start of the model creation time range. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> studyTimeStart_ {};
     // The UUID of the server.
     shared_ptr<string> uuid_ {};

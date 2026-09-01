@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssetType, assetType_);
       DARABONBA_PTR_TO_JSON(CloudAssetSubType, cloudAssetSubType_);
       DARABONBA_PTR_TO_JSON(CloudAssetType, cloudAssetType_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
     };
     friend void from_json(const Darabonba::Json& j, RefreshAssetsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssetType, assetType_);
       DARABONBA_PTR_FROM_JSON(CloudAssetSubType, cloudAssetSubType_);
       DARABONBA_PTR_FROM_JSON(CloudAssetType, cloudAssetType_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
     };
     RefreshAssetsRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetType_ == nullptr
-        && this->cloudAssetSubType_ == nullptr && this->cloudAssetType_ == nullptr && this->vendor_ == nullptr; };
+        && this->cloudAssetSubType_ == nullptr && this->cloudAssetType_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->vendor_ == nullptr; };
     // assetType Field Functions 
     bool hasAssetType() const { return this->assetType_ != nullptr;};
     void deleteAssetType() { this->assetType_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteCloudAssetType() { this->cloudAssetType_ = nullptr;};
     inline int32_t getCloudAssetType() const { DARABONBA_PTR_GET_DEFAULT(cloudAssetType_, 0) };
     inline RefreshAssetsRequest& setCloudAssetType(int32_t cloudAssetType) { DARABONBA_PTR_SET_VALUE(cloudAssetType_, cloudAssetType) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline RefreshAssetsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // vendor Field Functions 
@@ -101,6 +110,7 @@ namespace Models
     // *   **23**: Data Security Center (DSC)
     // *   **24**: Elastic IP Address (EIP)
     shared_ptr<int32_t> cloudAssetType_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of the server. Valid values:
     // 
     // *   **0**: an asset provided by Alibaba Cloud

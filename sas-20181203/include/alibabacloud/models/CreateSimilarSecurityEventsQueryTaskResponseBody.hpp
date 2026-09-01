@@ -102,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The response for creating a task to query similar alert events.
+    // The response information of the task for querying similar security alerts.
     shared_ptr<CreateSimilarSecurityEventsQueryTaskResponseBody::CreateSimilarSecurityEventsQueryTaskResponse> createSimilarSecurityEventsQueryTaskResponse_ {};
     // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};

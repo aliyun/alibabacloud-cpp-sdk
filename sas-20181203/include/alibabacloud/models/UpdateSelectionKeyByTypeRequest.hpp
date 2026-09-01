@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSelectionKeyByTypeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSelectionKeyByTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(SelectionKey, selectionKey_);
     };
     UpdateSelectionKeyByTypeRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && this->selectionKey_ == nullptr; };
+        && this->clientToken_ == nullptr && this->selectionKey_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
     inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline UpdateSelectionKeyByTypeRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UpdateSelectionKeyByTypeRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // selectionKey Field Functions 
@@ -51,11 +60,13 @@ namespace Models
     // The business type of the asset selection. Valid values:
     // 
     // - **VIRUS_SCAN_CYCLE_CONFIG**: virus scan configuration.
-    // - **VIRUS_SCAN_ONCE_TASK**: one-time virus scan.
+    // - **VIRUS_SCAN_ONCE_TASK**: one-time virus scan task.
     // - **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**: agentless detection alert whitelisting rule.
     // - **AGENTLESS_VUL_WHITE_LIST_[ID]**: agentless detection vulnerability whitelisting rule.
     // - **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection.
     shared_ptr<string> businessType_ {};
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
     // The unique identifier of the asset selection.
     shared_ptr<string> selectionKey_ {};
   };

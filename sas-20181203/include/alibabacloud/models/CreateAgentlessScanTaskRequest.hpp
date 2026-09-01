@@ -16,6 +16,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAgentlessScanTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AssetSelectionType, assetSelectionType_);
       DARABONBA_PTR_TO_JSON(AutoDeleteDays, autoDeleteDays_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ReleaseAfterScan, releaseAfterScan_);
       DARABONBA_PTR_TO_JSON(ScanDataDisk, scanDataDisk_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
@@ -24,6 +26,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateAgentlessScanTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AssetSelectionType, assetSelectionType_);
       DARABONBA_PTR_FROM_JSON(AutoDeleteDays, autoDeleteDays_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ReleaseAfterScan, releaseAfterScan_);
       DARABONBA_PTR_FROM_JSON(ScanDataDisk, scanDataDisk_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
@@ -41,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetSelectionType_ == nullptr
-        && this->autoDeleteDays_ == nullptr && this->releaseAfterScan_ == nullptr && this->scanDataDisk_ == nullptr && this->targetType_ == nullptr && this->uuidList_ == nullptr; };
+        && this->autoDeleteDays_ == nullptr && this->clientToken_ == nullptr && this->regionId_ == nullptr && this->releaseAfterScan_ == nullptr && this->scanDataDisk_ == nullptr
+        && this->targetType_ == nullptr && this->uuidList_ == nullptr; };
     // assetSelectionType Field Functions 
     bool hasAssetSelectionType() const { return this->assetSelectionType_ != nullptr;};
     void deleteAssetSelectionType() { this->assetSelectionType_ = nullptr;};
@@ -54,6 +59,20 @@ namespace Models
     void deleteAutoDeleteDays() { this->autoDeleteDays_ = nullptr;};
     inline int32_t getAutoDeleteDays() const { DARABONBA_PTR_GET_DEFAULT(autoDeleteDays_, 0) };
     inline CreateAgentlessScanTaskRequest& setAutoDeleteDays(int32_t autoDeleteDays) { DARABONBA_PTR_SET_VALUE(autoDeleteDays_, autoDeleteDays) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateAgentlessScanTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CreateAgentlessScanTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // releaseAfterScan Field Functions 
@@ -87,29 +106,39 @@ namespace Models
 
 
   protected:
-    // Identification of asset selection.
+    // The asset selection identifier.
     shared_ptr<string> assetSelectionType_ {};
-    // The retention period of images. Unit: days.
+    // The image retention period, in days. This parameter takes effect only for host detection and does not take effect for user snapshot detection or user custom image detection.
     shared_ptr<int32_t> autoDeleteDays_ {};
+    // The idempotency key.
+    shared_ptr<string> clientToken_ {};
+    // The region ID of the instance to query. Valid values:
+    // 
+    // - **cn-hangzhou** (default): China.
+    // - **ap-southeast-1**: outside China.
+    shared_ptr<string> regionId_ {};
     // Specifies whether to enable the cost-saving mode. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> releaseAfterScan_ {};
-    // Specifies whether to check data disks. Valid values:
+    // Specifies whether to detect data cloud disks. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Detected.
+    // - **false**: Not detected.
     shared_ptr<bool> scanDataDisk_ {};
-    // The type of the detection object. Valid values:
+    // The target type. Valid values:
     // 
-    // *   **2**: image
+    // - **1**: Host detection - detection by snapshot.
+    // - **2**: Host detection - detection by image.
+    // - **3**: User snapshot detection.
+    // - **2**: User custom image detection.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetType_ {};
-    // The UUIDs of the assets on which you want to run the detection task.
+    // The UUIDs of the assets to be detected.
     // 
-    // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs of servers.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

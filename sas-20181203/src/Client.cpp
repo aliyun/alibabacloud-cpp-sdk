@@ -77,7 +77,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Select an operation for assets.
+ * @summary Adds assets to an asset selection operation.
  *
  * @param request AddAssetSelectionCriteriaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -86,6 +86,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 AddAssetSelectionCriteriaResponse Client::addAssetSelectionCriteriaWithOptions(const AddAssetSelectionCriteriaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCriteria()) {
     query["Criteria"] = request.getCriteria();
   }
@@ -120,7 +124,7 @@ AddAssetSelectionCriteriaResponse Client::addAssetSelectionCriteriaWithOptions(c
 }
 
 /**
- * @summary Select an operation for assets.
+ * @summary Adds assets to an asset selection operation.
  *
  * @param request AddAssetSelectionCriteriaRequest
  * @return AddAssetSelectionCriteriaResponse
@@ -189,7 +193,7 @@ AddBaselineCheckWhiteRecordResponse Client::addBaselineCheckWhiteRecord(const Ad
 }
 
 /**
- * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+ * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -204,6 +208,10 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteListW
 
   if (!!request.hasCheckId()) {
     query["CheckId"] = request.getCheckId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -240,7 +248,7 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteListW
 }
 
 /**
- * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+ * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @return AddCheckInstanceResultWhiteListResponse
@@ -251,7 +259,7 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteList(
 }
 
 /**
- * @summary Adds the check items of the configuration assessment feature to the whitelist.
+ * @summary Adds check items to the whitelist for cloud platform configuration checks.
  *
  * @param request AddCheckResultWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -262,6 +270,10 @@ AddCheckResultWhiteListResponse Client::addCheckResultWhiteListWithOptions(const
   json query = {};
   if (!!request.hasCheckIds()) {
     query["CheckIds"] = request.getCheckIds();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -294,7 +306,7 @@ AddCheckResultWhiteListResponse Client::addCheckResultWhiteListWithOptions(const
 }
 
 /**
- * @summary Adds the check items of the configuration assessment feature to the whitelist.
+ * @summary Adds check items to the whitelist for cloud platform configuration checks.
  *
  * @param request AddCheckResultWhiteListRequest
  * @return AddCheckResultWhiteListResponse
@@ -305,7 +317,7 @@ AddCheckResultWhiteListResponse Client::addCheckResultWhiteList(const AddCheckRe
 }
 
 /**
- * @summary Create a custom defense rule.
+ * @summary Creates a user-defined defense rule.
  *
  * @param request AddClientUserDefineRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +416,7 @@ AddClientUserDefineRuleResponse Client::addClientUserDefineRuleWithOptions(const
 }
 
 /**
- * @summary Create a custom defense rule.
+ * @summary Creates a user-defined defense rule.
  *
  * @param request AddClientUserDefineRuleRequest
  * @return AddClientUserDefineRuleResponse
@@ -1409,7 +1421,7 @@ AddUninstallClientsByUuidsResponse Client::addUninstallClientsByUuids(const AddU
 }
 
 /**
- * @summary Adds one or more processes for intelligent behavior analysis.
+ * @summary Adds processes for intelligent behavior analytics.
  *
  * @param request AddUnknownThreatDetectProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1420,6 +1432,10 @@ AddUnknownThreatDetectProcessResponse Client::addUnknownThreatDetectProcessWithO
   json query = {};
   if (!!request.hasEventIdList()) {
     query["EventIdList"] = request.getEventIdList();
+  }
+
+  if (!!request.hasHandleRemark()) {
+    query["HandleRemark"] = request.getHandleRemark();
   }
 
   if (!!request.hasProcessList()) {
@@ -1448,7 +1464,7 @@ AddUnknownThreatDetectProcessResponse Client::addUnknownThreatDetectProcessWithO
 }
 
 /**
- * @summary Adds one or more processes for intelligent behavior analysis.
+ * @summary Adds processes for intelligent behavior analytics.
  *
  * @param request AddUnknownThreatDetectProcessRequest
  * @return AddUnknownThreatDetectProcessResponse
@@ -1516,6 +1532,10 @@ AdvanceSecurityEventOperationsResponse Client::advanceSecurityEventOperationsWit
 
   if (!!request.hasEventType()) {
     query["EventType"] = request.getEventType();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasResourceOwnerId()) {
@@ -1752,6 +1772,10 @@ BindAuthToMachineResponse Client::bindAuthToMachineWithOptions(const BindAuthToM
     query["BindAll"] = request.getBindAll();
   }
 
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCriteria()) {
     query["Criteria"] = request.getCriteria();
   }
@@ -1770,6 +1794,10 @@ BindAuthToMachineResponse Client::bindAuthToMachineWithOptions(const BindAuthToM
 
   if (!!request.hasPreBindOrderId()) {
     query["PreBindOrderId"] = request.getPreBindOrderId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasResourceDirectoryAccountId()) {
@@ -1943,7 +1971,7 @@ ChangeAssetRefreshTaskConfigResponse Client::changeAssetRefreshTaskConfig(const 
 }
 
 /**
- * @summary Modifies the configuration items of the configuration assessment feature.
+ * @summary Modifies the configuration of a cloud platform configuration check.
  *
  * @param tmpReq ChangeCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1964,6 +1992,10 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
   json query = {};
   if (!!request.hasAddedCheck()) {
     query["AddedCheck"] = request.getAddedCheck();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConfigRequirementIdsShrink()) {
@@ -2040,7 +2072,7 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 }
 
 /**
- * @summary Modifies the configuration items of the configuration assessment feature.
+ * @summary Modifies the configuration of a cloud platform configuration check.
  *
  * @param request ChangeCheckConfigRequest
  * @return ChangeCheckConfigResponse
@@ -2105,6 +2137,56 @@ ChangeCheckCustomConfigResponse Client::changeCheckCustomConfig(const ChangeChec
 }
 
 /**
+ * @summary Modifies the configuration instance of a check scope.
+ *
+ * @param request ChangeCheckScopeConfigInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeCheckScopeConfigInstanceResponse
+ */
+ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstanceWithOptions(const ChangeCheckScopeConfigInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddAssetUuids()) {
+    query["AddAssetUuids"] = request.getAddAssetUuids();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasDeleteAssetUuids()) {
+    query["DeleteAssetUuids"] = request.getDeleteAssetUuids();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChangeCheckScopeConfigInstance"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeCheckScopeConfigInstanceResponse>();
+}
+
+/**
+ * @summary Modifies the configuration instance of a check scope.
+ *
+ * @param request ChangeCheckScopeConfigInstanceRequest
+ * @return ChangeCheckScopeConfigInstanceResponse
+ */
+ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstance(const ChangeCheckScopeConfigInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return changeCheckScopeConfigInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
  *
  * @param request ChangeSecurityScoreRuleRequest
@@ -2120,6 +2202,10 @@ ChangeSecurityScoreRuleResponse Client::changeSecurityScoreRuleWithOptions(const
 
   if (!!request.hasResetSecurityScoreRule()) {
     query["ResetSecurityScoreRule"] = request.getResetSecurityScoreRule();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSecurityScoreCategoryList()) {
@@ -2496,6 +2582,14 @@ CreateAgentlessScanTaskResponse Client::createAgentlessScanTaskWithOptions(const
     query["AutoDeleteDays"] = request.getAutoDeleteDays();
   }
 
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
   if (!!request.hasReleaseAfterScan()) {
     query["ReleaseAfterScan"] = request.getReleaseAfterScan();
   }
@@ -2621,7 +2715,7 @@ CreateAntiBruteForceRuleResponse Client::createAntiBruteForceRule(const CreateAn
 }
 
 /**
- * @summary Create asset selection configurations.
+ * @summary Creates an asset selection configuration.
  *
  * @param request CreateAssetSelectionConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2632,6 +2726,10 @@ CreateAssetSelectionConfigResponse Client::createAssetSelectionConfigWithOptions
   json query = {};
   if (!!request.hasBusinessType()) {
     query["BusinessType"] = request.getBusinessType();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasPlatform()) {
@@ -2660,7 +2758,7 @@ CreateAssetSelectionConfigResponse Client::createAssetSelectionConfigWithOptions
 }
 
 /**
- * @summary Create asset selection configurations.
+ * @summary Creates an asset selection configuration.
  *
  * @param request CreateAssetSelectionConfigRequest
  * @return CreateAssetSelectionConfigResponse
@@ -3383,7 +3481,7 @@ CreateCustomizedDictResponse Client::createCustomizedDict(const CreateCustomized
 }
 
 /**
- * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+ * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
  *
  * @param request CreateCycleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3392,6 +3490,10 @@ CreateCustomizedDictResponse Client::createCustomizedDict(const CreateCustomized
 CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasEnable()) {
     query["Enable"] = request.getEnable();
   }
@@ -3450,7 +3552,7 @@ CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTask
 }
 
 /**
- * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+ * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
  *
  * @param request CreateCycleTaskRequest
  * @return CreateCycleTaskResponse
@@ -3511,22 +3613,20 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
 }
 
 /**
- * @summary Submits a file to the cloud for detection.
+ * @summary Pushes a file to the cloud for detection.
  *
- * @description Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
- * ### File submission methods
- * Submit a file by either pre-uploading it or providing a download link.
- * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
- * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
- * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
- * ### Unique identifier
- * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
- * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
- * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
- * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
- * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
- * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
- * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+ * @description Pushes a file to the cloud for detection.
+ * ### File upload methods
+ * Two file upload methods are supported: pre-upload and download URL.
+ * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+ * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+ * ### File unique identifier
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+ * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+ * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+ * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+ * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+ * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
  *
  * @param request CreateFileDetectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3585,22 +3685,20 @@ CreateFileDetectResponse Client::createFileDetectWithOptions(const CreateFileDet
 }
 
 /**
- * @summary Submits a file to the cloud for detection.
+ * @summary Pushes a file to the cloud for detection.
  *
- * @description Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
- * ### File submission methods
- * Submit a file by either pre-uploading it or providing a download link.
- * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
- * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
- * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
- * ### Unique identifier
- * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
- * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
- * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
- * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
- * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
- * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
- * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+ * @description Pushes a file to the cloud for detection.
+ * ### File upload methods
+ * Two file upload methods are supported: pre-upload and download URL.
+ * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+ * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+ * ### File unique identifier
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+ * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+ * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+ * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+ * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+ * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
  *
  * @param request CreateFileDetectRequest
  * @return CreateFileDetectResponse
@@ -5069,7 +5167,7 @@ CreateOrUpdateDingTalkResponse Client::createOrUpdateDingTalk(const CreateOrUpda
 }
 
 /**
- * @summary Creates a bucket check task.
+ * @summary Creates a bucket detection task.
  *
  * @param request CreateOssBucketScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5118,6 +5216,10 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTaskWithOptions(const
     query["ScanMode"] = request.getScanMode();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -5136,7 +5238,7 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTaskWithOptions(const
 }
 
 /**
- * @summary Creates a bucket check task.
+ * @summary Creates a bucket detection task.
  *
  * @param request CreateOssBucketScanTaskRequest
  * @return CreateOssBucketScanTaskResponse
@@ -5147,7 +5249,9 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTask(const CreateOssB
 }
 
 /**
- * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+ * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+ *
+ * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5160,8 +5264,16 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
     query["AllKeyPrefix"] = request.getAllKeyPrefix();
   }
 
+  if (!!request.hasAutoAdd()) {
+    query["AutoAdd"] = request.getAutoAdd();
+  }
+
   if (!!request.hasBucketNameList()) {
     query["BucketNameList"] = request.getBucketNameList();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDecompressMaxFileCount()) {
@@ -5208,6 +5320,10 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
     query["ScanDayList"] = request.getScanDayList();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
@@ -5230,7 +5346,9 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
 }
 
 /**
- * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+ * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+ *
+ * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @return CreateOssScanConfigResponse
@@ -5357,7 +5475,7 @@ CreateRestoreJobResponse Client::createRestoreJob(const CreateRestoreJobRequest 
 }
 
 /**
- * @summary Applies for a trial of Security Center.
+ * @summary Starts a trial of Security Center.
  *
  * @param tmpReq CreateSasTrialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,6 +5487,11 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRequestForm()) {
     request.setRequestFormShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequestForm(), "RequestForm", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   json body = {};
@@ -5393,8 +5516,9 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "CreateSasTrial"},
     {"version" , "2018-12-03"},
@@ -5410,7 +5534,7 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
 }
 
 /**
- * @summary Applies for a trial of Security Center.
+ * @summary Starts a trial of Security Center.
  *
  * @param request CreateSasTrialRequest
  * @return CreateSasTrialResponse
@@ -5432,6 +5556,10 @@ CreateSasTrialResponse Client::createSasTrial(const CreateSasTrialRequest &reque
 CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const CreateServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasServiceLinkedRole()) {
     query["ServiceLinkedRole"] = request.getServiceLinkedRole();
   }
@@ -5519,7 +5647,7 @@ CreateServiceTrailResponse Client::createServiceTrail(const CreateServiceTrailRe
 }
 
 /**
- * @summary Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+ * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
  *
  * @param request CreateSimilarSecurityEventsQueryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5528,6 +5656,14 @@ CreateServiceTrailResponse Client::createServiceTrail(const CreateServiceTrailRe
 CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEventsQueryTaskWithOptions(const CreateSimilarSecurityEventsQueryTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
@@ -5562,7 +5698,7 @@ CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEvents
 }
 
 /**
- * @summary Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+ * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
  *
  * @param request CreateSimilarSecurityEventsQueryTaskRequest
  * @return CreateSimilarSecurityEventsQueryTaskResponse
@@ -5650,6 +5786,10 @@ CreateSuspEventNoteResponse Client::createSuspEventNoteWithOptions(const CreateS
 
   if (!!request.hasNote()) {
     query["Note"] = request.getNote();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5843,7 +5983,7 @@ CreateUniRestorePlanResponse Client::createUniRestorePlan(const CreateUniRestore
 }
 
 /**
- * @summary Creates an intelligent behavior analysis strategy.
+ * @summary Creates an intelligent behavior analytics policy.
  *
  * @param request CreateUnknownThreatDetectStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5890,7 +6030,7 @@ CreateUnknownThreatDetectStrategyResponse Client::createUnknownThreatDetectStrat
 }
 
 /**
- * @summary Creates an intelligent behavior analysis strategy.
+ * @summary Creates an intelligent behavior analytics policy.
  *
  * @param request CreateUnknownThreatDetectStrategyRequest
  * @return CreateUnknownThreatDetectStrategyResponse
@@ -5951,7 +6091,7 @@ CreateUserSettingResponse Client::createUserSetting(const CreateUserSettingReque
 }
 
 /**
- * @summary Creates a one-time virus scan task that is immediately executed.
+ * @summary Creates a one-time virus scan task.
  *
  * @param request CreateVirusScanOnceTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5960,6 +6100,10 @@ CreateUserSettingResponse Client::createUserSetting(const CreateUserSettingReque
 CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTaskWithOptions(const CreateVirusScanOnceTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasParam()) {
     query["Param"] = request.getParam();
   }
@@ -5994,7 +6138,7 @@ CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTaskWithOptions(const
 }
 
 /**
- * @summary Creates a one-time virus scan task that is immediately executed.
+ * @summary Creates a one-time virus scan task.
  *
  * @param request CreateVirusScanOnceTaskRequest
  * @return CreateVirusScanOnceTaskResponse
@@ -8212,6 +8356,10 @@ DeleteSecurityEventMarkMissListResponse Client::deleteSecurityEventMarkMissListW
     query["Ids"] = request.getIds();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
@@ -8396,6 +8544,10 @@ DeleteSuspEventNodeResponse Client::deleteSuspEventNodeWithOptions(const DeleteS
   json query = {};
   if (!!request.hasNoteId()) {
     query["NoteId"] = request.getNoteId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8710,6 +8862,10 @@ DeleteVulWhitelistResponse Client::deleteVulWhitelistWithOptions(const DeleteVul
   json query = {};
   if (!!request.hasId()) {
     query["Id"] = request.getId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasWhitelist()) {
@@ -9176,6 +9332,10 @@ DescribeAlarmEventDetailResponse Client::describeAlarmEventDetailWithOptions(con
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -9410,6 +9570,10 @@ DescribeAllRegionsStatisticsResponse Client::describeAllRegionsStatisticsWithOpt
 
   if (!!request.hasRemark()) {
     query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSourceIp()) {
@@ -10594,6 +10758,10 @@ DescribeCanFixVulListResponse Client::describeCanFixVulListWithOptions(const Des
     query["RepoRegionId"] = request.getRepoRegionId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasScanRange()) {
     query["ScanRange"] = request.getScanRange();
   }
@@ -10698,6 +10866,10 @@ DescribeChartDataResponse Client::describeChartDataWithOptions(const DescribeCha
 
   if (!!request.hasReportId()) {
     query["ReportId"] = request.getReportId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasTimeEnd()) {
@@ -11423,9 +11595,9 @@ DescribeClientProblemTypeResponse Client::describeClientProblemType(const Descri
 }
 
 /**
- * @summary Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+ * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11504,9 +11676,9 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstancesWithOpt
 }
 
 /**
- * @summary Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+ * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @return DescribeCloudCenterInstancesResponse
@@ -11943,7 +12115,7 @@ DescribeClusterInfoListResponse Client::describeClusterInfoList(const DescribeCl
 }
 
 /**
- * @summary Retrieves information about the network topology edge by cluster.
+ * @summary Queries the network topology edge information at the cluster level.
  *
  * @param request DescribeClusterNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11978,7 +12150,7 @@ DescribeClusterNetworkResponse Client::describeClusterNetworkWithOptions(const D
 }
 
 /**
- * @summary Retrieves information about the network topology edge by cluster.
+ * @summary Queries the network topology edge information at the cluster level.
  *
  * @param request DescribeClusterNetworkRequest
  * @return DescribeClusterNetworkResponse
@@ -11989,7 +12161,7 @@ DescribeClusterNetworkResponse Client::describeClusterNetwork(const DescribeClus
 }
 
 /**
- * @summary Query the status of cluster scanning components.
+ * @summary Queries the scanner status information for a Kubernetes cluster.
  *
  * @param request DescribeClusterScannerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12028,7 +12200,7 @@ DescribeClusterScannerListResponse Client::describeClusterScannerListWithOptions
 }
 
 /**
- * @summary Query the status of cluster scanning components.
+ * @summary Queries the scanner status information for a Kubernetes cluster.
  *
  * @param request DescribeClusterScannerListRequest
  * @return DescribeClusterScannerListResponse
@@ -12916,6 +13088,10 @@ DescribeCriteriaResponse Client::describeCriteriaWithOptions(const DescribeCrite
     query["MachineTypes"] = request.getMachineTypes();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSupportAutoTag()) {
     query["SupportAutoTag"] = request.getSupportAutoTag();
   }
@@ -13090,6 +13266,10 @@ DescribeCustomizeReportConfigDetailResponse Client::describeCustomizeReportConfi
     query["ReportId"] = request.getReportId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -13150,6 +13330,10 @@ DescribeCustomizeReportListResponse Client::describeCustomizeReportListWithOptio
 
   if (!!request.hasReportVersion()) {
     query["ReportVersion"] = request.getReportVersion();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasTitle()) {
@@ -13806,6 +13990,10 @@ DescribeDomainSecureScoreResponse Client::describeDomainSecureScoreWithOptions(c
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -14212,6 +14400,10 @@ DescribeEventLevelCountResponse Client::describeEventLevelCountWithOptions(const
     query["MultiAccountActionType"] = request.getMultiAccountActionType();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasTargetType()) {
     query["TargetType"] = request.getTargetType();
   }
@@ -14256,6 +14448,10 @@ DescribeEventOnStageResponse Client::describeEventOnStageWithOptions(const Descr
   json query = {};
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15062,6 +15258,10 @@ DescribeGroupedInstancesResponse Client::describeGroupedInstancesWithOptions(con
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSaleVersionCheckCode()) {
@@ -16696,6 +16896,10 @@ DescribeImageGroupedVulListResponse Client::describeImageGroupedVulListWithOptio
     query["RepoRegionId"] = request.getRepoRegionId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasRuleTag()) {
     query["RuleTag"] = request.getRuleTag();
   }
@@ -17750,6 +17954,10 @@ DescribeImageVulListResponse Client::describeImageVulListWithOptions(const Descr
 
   if (!!request.hasRepoRegionId()) {
     query["RepoRegionId"] = request.getRepoRegionId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasRuleTag()) {
@@ -18839,7 +19047,7 @@ DescribeOfflineMachinesResponse Client::describeOfflineMachines(const DescribeOf
 }
 
 /**
- * @summary Queries the list of client tasks.
+ * @summary Queries a list of client tasks.
  *
  * @param request DescribeOnceTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18898,7 +19106,7 @@ DescribeOnceTaskResponse Client::describeOnceTaskWithOptions(const DescribeOnceT
 }
 
 /**
- * @summary Queries the list of client tasks.
+ * @summary Queries a list of client tasks.
  *
  * @param request DescribeOnceTaskRequest
  * @return DescribeOnceTaskResponse
@@ -19102,6 +19310,10 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
 
   if (!!request.hasRemark()) {
     query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSource()) {
@@ -19483,7 +19695,7 @@ DescribePropertyProcItemResponse Client::describePropertyProcItem(const Describe
 }
 
 /**
- * @summary Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+ * @summary Queries the details of the middleware list on the Asset Fingerprints investigation page.
  *
  * @param request DescribePropertyScaDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19538,6 +19750,10 @@ DescribePropertyScaDetailResponse Client::describePropertyScaDetailWithOptions(c
 
   if (!!request.hasRemark()) {
     query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasScaName()) {
@@ -19602,7 +19818,7 @@ DescribePropertyScaDetailResponse Client::describePropertyScaDetailWithOptions(c
 }
 
 /**
- * @summary Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+ * @summary Queries the details of the middleware list on the Asset Fingerprints investigation page.
  *
  * @param request DescribePropertyScaDetailRequest
  * @return DescribePropertyScaDetailResponse
@@ -20064,6 +20280,10 @@ DescribePropertyUserDetailResponse Client::describePropertyUserDetailWithOptions
     query["Remark"] = request.getRemark();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasUseNextToken()) {
     query["UseNextToken"] = request.getUseNextToken();
   }
@@ -20220,6 +20440,10 @@ DescribeReportExportResponse Client::describeReportExportWithOptions(const Descr
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21020,6 +21244,10 @@ DescribeScreenScoreThreadResponse Client::describeScreenScoreThreadWithOptions(c
     query["EndTime"] = request.getEndTime();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSource()) {
     query["Source"] = request.getSource();
   }
@@ -21167,9 +21395,9 @@ DescribeSecureSuggestionResponse Client::describeSecureSuggestion(const Describe
 /**
  * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
  *
- * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+ * @summary Queries the custom check cycle and time period configured by the user.
  *
- * @description This operation is phased out. You can use the GetCheckConfig operation.
+ * @description This operation is deprecated. Use the GetCheckConfig operation instead.
  *
  * @param request DescribeSecurityCheckScheduleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21210,9 +21438,9 @@ DescribeSecurityCheckScheduleConfigResponse Client::describeSecurityCheckSchedul
 /**
  * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
  *
- * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+ * @summary Queries the custom check cycle and time period configured by the user.
  *
- * @description This operation is phased out. You can use the GetCheckConfig operation.
+ * @description This operation is deprecated. Use the GetCheckConfig operation instead.
  *
  * @param request DescribeSecurityCheckScheduleConfigRequest
  * @return DescribeSecurityCheckScheduleConfigResponse
@@ -22631,7 +22859,7 @@ DescribeSuspEventUserSettingResponse Client::describeSuspEventUserSetting(const 
 }
 
 /**
- * @summary Queries a list of alert events that are generated without aggregation.
+ * @summary Queries the list of security alert events that have not been aggregated.
  *
  * @param tmpReq DescribeSuspEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22814,7 +23042,7 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
 }
 
 /**
- * @summary Queries a list of alert events that are generated without aggregation.
+ * @summary Queries the list of security alert events that have not been aggregated.
  *
  * @param request DescribeSuspEventsRequest
  * @return DescribeSuspEventsResponse
@@ -23776,6 +24004,10 @@ DescribeUuidsByVulNamesResponse Client::describeUuidsByVulNamesWithOptions(const
     query["Remark"] = request.getRemark();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSearchTags()) {
     query["SearchTags"] = request.getSearchTags();
   }
@@ -24106,6 +24338,10 @@ DescribeVpcListResponse Client::describeVpcList() {
 DescribeVulCheckTaskStatusDetailResponse Client::describeVulCheckTaskStatusDetailWithOptions(const DescribeVulCheckTaskStatusDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasTaskIds()) {
     query["TaskIds"] = request.getTaskIds();
   }
@@ -24744,6 +24980,10 @@ DescribeVulWhitelistResponse Client::describeVulWhitelistWithOptions(const Descr
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -26332,6 +26572,10 @@ ExportCustomizeReportResponse Client::exportCustomizeReportWithOptions(const Exp
     query["ReportId"] = request.getReportId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -26496,6 +26740,10 @@ ExportSuspEventsResponse Client::exportSuspEventsWithOptions(const ExportSuspEve
     query["Remark"] = request.getRemark();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -26553,12 +26801,12 @@ ExportSuspEventsResponse Client::exportSuspEvents(const ExportSuspEventsRequest 
 }
 
 /**
- * @summary Export vulnerability list
+ * @summary Exports a vulnerability list.
  *
- * @description This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
- * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+ * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+ * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
  * ### QPS limit
- * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
  *
  * @param request ExportVulRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26569,6 +26817,10 @@ ExportVulResponse Client::exportVulWithOptions(const ExportVulRequest &request, 
   json query = {};
   if (!!request.hasAliasName()) {
     query["AliasName"] = request.getAliasName();
+  }
+
+  if (!!request.hasAssetType()) {
+    query["AssetType"] = request.getAssetType();
   }
 
   if (!!request.hasAttachTypes()) {
@@ -26661,12 +26913,12 @@ ExportVulResponse Client::exportVulWithOptions(const ExportVulRequest &request, 
 }
 
 /**
- * @summary Export vulnerability list
+ * @summary Exports a vulnerability list.
  *
- * @description This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
- * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+ * @description Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+ * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
  * ### QPS limit
- * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
  *
  * @param request ExportVulRequest
  * @return ExportVulResponse
@@ -27203,7 +27455,7 @@ GenerateOnceTaskResponse Client::generateOnceTask(const GenerateOnceTaskRequest 
 }
 
 /**
- * @summary Obtains account tags.
+ * @summary Retrieves account labels.
  *
  * @param request GetAccountLabelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27238,7 +27490,7 @@ GetAccountLabelResponse Client::getAccountLabelWithOptions(const GetAccountLabel
 }
 
 /**
- * @summary Obtains account tags.
+ * @summary Retrieves account labels.
  *
  * @param request GetAccountLabelRequest
  * @return GetAccountLabelResponse
@@ -27395,7 +27647,7 @@ GetAgentlessTaskCountResponse Client::getAgentlessTaskCount(const GetAgentlessTa
 }
 
 /**
- * @summary Query the estimated volume for agentless detection.
+ * @summary Retrieves the estimated scan volume for agentless detection.
  *
  * @param request GetAgentlessTaskUsedSizeEstimateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27426,7 +27678,7 @@ GetAgentlessTaskUsedSizeEstimateResponse Client::getAgentlessTaskUsedSizeEstimat
 }
 
 /**
- * @summary Query the estimated volume for agentless detection.
+ * @summary Retrieves the estimated scan volume for agentless detection.
  *
  * @param request GetAgentlessTaskUsedSizeEstimateRequest
  * @return GetAgentlessTaskUsedSizeEstimateResponse
@@ -27448,6 +27700,10 @@ GetAlarmMachineCountResponse Client::getAlarmMachineCountWithOptions(const GetAl
   json query = {};
   if (!!request.hasFrom()) {
     query["From"] = request.getFrom();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -28269,11 +28525,20 @@ GetCanTrySasResponse Client::getCanTrySas(const GetCanTrySasRequest &request) {
 /**
  * @summary Retrieves the check item configurations for cloud platform configuration checks.
  *
+ * @param request GetCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCheckConfigResponse
  */
-GetCheckConfigResponse Client::getCheckConfigWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+GetCheckConfigResponse Client::getCheckConfigWithOptions(const GetCheckConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetCheckConfig"},
     {"version" , "2018-12-03"},
@@ -28291,11 +28556,12 @@ GetCheckConfigResponse Client::getCheckConfigWithOptions(const Darabonba::Runtim
 /**
  * @summary Retrieves the check item configurations for cloud platform configuration checks.
  *
+ * @param request GetCheckConfigRequest
  * @return GetCheckConfigResponse
  */
-GetCheckConfigResponse Client::getCheckConfig() {
+GetCheckConfigResponse Client::getCheckConfig(const GetCheckConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getCheckConfigWithOptions(runtime);
+  return getCheckConfigWithOptions(request, runtime);
 }
 
 /**
@@ -28412,6 +28678,10 @@ GetCheckDetailResponse Client::getCheckDetail(const GetCheckDetailRequest &reque
 GetCheckProcessResponse Client::getCheckProcessWithOptions(const GetCheckProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasTaskId()) {
     query["TaskId"] = request.getTaskId();
   }
@@ -28534,6 +28804,52 @@ GetCheckSaleResponse Client::getCheckSaleWithOptions(const GetCheckSaleRequest &
 GetCheckSaleResponse Client::getCheckSale(const GetCheckSaleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCheckSaleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the check scope configuration.
+ *
+ * @param request GetCheckScopeConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCheckScopeConfigResponse
+ */
+GetCheckScopeConfigResponse Client::getCheckScopeConfigWithOptions(const GetCheckScopeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCheckScopeConfig"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCheckScopeConfigResponse>();
+}
+
+/**
+ * @summary Queries the check scope configuration.
+ *
+ * @param request GetCheckScopeConfigRequest
+ * @return GetCheckScopeConfigResponse
+ */
+GetCheckScopeConfigResponse Client::getCheckScopeConfig(const GetCheckScopeConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCheckScopeConfigWithOptions(request, runtime);
 }
 
 /**
@@ -28668,6 +28984,10 @@ GetCheckTimeDimensionStatisticResponse Client::getCheckTimeDimensionStatisticWit
   json query = {};
   if (!!request.hasEndTimeStamp()) {
     query["EndTimeStamp"] = request.getEndTimeStamp();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasStartTimeStamp()) {
@@ -28907,7 +29227,7 @@ GetCloudAssetDetailResponse Client::getCloudAssetDetail(const GetCloudAssetDetai
 }
 
 /**
- * @summary Queries the summary of cloud assets.
+ * @summary Retrieves the summary of cloud assets.
  *
  * @param request GetCloudAssetSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28922,6 +29242,10 @@ GetCloudAssetSummaryResponse Client::getCloudAssetSummaryWithOptions(const GetCl
 
   if (!!request.hasIsSaleData()) {
     query["IsSaleData"] = request.getIsSaleData();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasVendors()) {
@@ -28946,7 +29270,7 @@ GetCloudAssetSummaryResponse Client::getCloudAssetSummaryWithOptions(const GetCl
 }
 
 /**
- * @summary Queries the summary of cloud assets.
+ * @summary Retrieves the summary of cloud assets.
  *
  * @param request GetCloudAssetSummaryRequest
  * @return GetCloudAssetSummaryResponse
@@ -29341,7 +29665,7 @@ GetContainerDefenseRuleDetailResponse Client::getContainerDefenseRuleDetail(cons
 }
 
 /**
- * @summary Queries the publish details of the Security Center agent.
+ * @summary Retrieves the release information of the current client version.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCurrentVersionPublishResponse
@@ -29363,7 +29687,7 @@ GetCurrentVersionPublishResponse Client::getCurrentVersionPublishWithOptions(con
 }
 
 /**
- * @summary Queries the publish details of the Security Center agent.
+ * @summary Retrieves the release information of the current client version.
  *
  * @return GetCurrentVersionPublishResponse
  */
@@ -29392,6 +29716,10 @@ GetDataTrendResponse Client::getDataTrendWithOptions(const GetDataTrendRequest &
 
   if (!!request.hasInterval()) {
     query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasStartTimestamp()) {
@@ -29633,16 +29961,13 @@ GetFileDetectReportResponse Client::getFileDetectReport(const GetFileDetectRepor
 }
 
 /**
- * @summary Retrieves file detection results in batches using `HashKey` values.
+ * @summary Retrieves file detection results in batches by HashKey.
  *
- * @description You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
- * ### Unique file identifier
- * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
- * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
- * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+ * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+ * ### File unique identifier
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
  * ### Query detection results
- * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
- * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+ * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
  *
  * @param request GetFileDetectResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29681,16 +30006,13 @@ GetFileDetectResultResponse Client::getFileDetectResultWithOptions(const GetFile
 }
 
 /**
- * @summary Retrieves file detection results in batches using `HashKey` values.
+ * @summary Retrieves file detection results in batches by HashKey.
  *
- * @description You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
- * ### Unique file identifier
- * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
- * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
- * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+ * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+ * ### File unique identifier
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
  * ### Query detection results
- * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
- * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+ * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
  *
  * @param request GetFileDetectResultRequest
  * @return GetFileDetectResultResponse
@@ -30665,6 +30987,10 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatisticsWithOptions
     query["From"] = request.getFrom();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasUuid()) {
     query["Uuid"] = request.getUuid();
   }
@@ -30698,7 +31024,7 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatistics(const GetI
 }
 
 /**
- * @summary Get Instance Authorization Value Range
+ * @summary Retrieves the valid value ranges for instance authorization.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceAuthRangeResponse
@@ -30720,7 +31046,7 @@ GetInstanceAuthRangeResponse Client::getInstanceAuthRangeWithOptions(const Darab
 }
 
 /**
- * @summary Get Instance Authorization Value Range
+ * @summary Retrieves the valid value ranges for instance authorization.
  *
  * @return GetInstanceAuthRangeResponse
  */
@@ -30776,7 +31102,7 @@ GetInterceptionRuleDetailResponse Client::getInterceptionRuleDetail(const GetInt
 }
 
 /**
- * @summary Queries the statistics of the container firewall feature.
+ * @summary Queries the micro-segmentation defense overview.
  *
  * @param request GetInterceptionSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30787,6 +31113,10 @@ GetInterceptionSummaryResponse Client::getInterceptionSummaryWithOptions(const G
   json query = {};
   if (!!request.hasClusterId()) {
     query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasExcludeClusterTypes()) {
+    query["ExcludeClusterTypes"] = request.getExcludeClusterTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -30807,7 +31137,7 @@ GetInterceptionSummaryResponse Client::getInterceptionSummaryWithOptions(const G
 }
 
 /**
- * @summary Queries the statistics of the container firewall feature.
+ * @summary Queries the micro-segmentation defense overview.
  *
  * @param request GetInterceptionSummaryRequest
  * @return GetInterceptionSummaryResponse
@@ -31999,6 +32329,10 @@ GetSecurityScoreRuleResponse Client::getSecurityScoreRuleWithOptions(const GetSe
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -32317,6 +32651,10 @@ GetSuspiciousStatisticsResponse Client::getSuspiciousStatisticsWithOptions(const
     query["GroupIdList"] = request.getGroupIdList();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -32495,7 +32833,7 @@ GetUserLangResponse Client::getUserLang() {
 }
 
 /**
- * @summary Get Valid Resource Package Instances
+ * @summary Retrieves active resource plan instances.
  *
  * @param request GetValidDeductInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32534,7 +32872,7 @@ GetValidDeductInstancesResponse Client::getValidDeductInstancesWithOptions(const
 }
 
 /**
- * @summary Get Valid Resource Package Instances
+ * @summary Retrieves active resource plan instances.
  *
  * @param request GetValidDeductInstancesRequest
  * @return GetValidDeductInstancesResponse
@@ -33042,6 +33380,10 @@ HandleSimilarSecurityEventsResponse Client::handleSimilarSecurityEventsWithOptio
     query["Remark"] = request.getRemark();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
@@ -33094,6 +33436,10 @@ HandleUnknownThreatDetectEventResponse Client::handleUnknownThreatDetectEventWit
   json query = {};
   if (!!request.hasEventIdList()) {
     query["EventIdList"] = request.getEventIdList();
+  }
+
+  if (!!request.hasHandleRemark()) {
+    query["HandleRemark"] = request.getHandleRemark();
   }
 
   if (!!request.hasStatus()) {
@@ -33667,9 +34013,9 @@ JoinWebLockProcessWhiteListResponse Client::joinWebLockProcessWhiteList(const Jo
 }
 
 /**
- * @summary Retrieves the list of managed accounts for multi-account governance.
+ * @summary Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
  *
- * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * @description Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAccountsInResourceDirectoryResponse
@@ -33691,9 +34037,9 @@ ListAccountsInResourceDirectoryResponse Client::listAccountsInResourceDirectoryW
 }
 
 /**
- * @summary Retrieves the list of managed accounts for multi-account governance.
+ * @summary Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
  *
- * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * @description Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
  *
  * @return ListAccountsInResourceDirectoryResponse
  */
@@ -34459,7 +34805,7 @@ ListAssetSelectionTargetResponse Client::listAssetSelectionTarget(const ListAsse
 }
 
 /**
- * @summary Get Attack Analysis Event List
+ * @summary Retrieves the list of attack analysis events.
  *
  * @param request ListAttackEventInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34522,7 +34868,7 @@ ListAttackEventInfoResponse Client::listAttackEventInfoWithOptions(const ListAtt
 }
 
 /**
- * @summary Get Attack Analysis Event List
+ * @summary Retrieves the list of attack analysis events.
  *
  * @param request ListAttackEventInfoRequest
  * @return ListAttackEventInfoResponse
@@ -35019,7 +35365,7 @@ ListCheckInstanceResultResponse Client::listCheckInstanceResult(const ListCheckI
 }
 
 /**
- * @summary Queries the check items that can be customized.
+ * @summary Retrieves the list of check items that can be configured with custom settings.
  *
  * @param request ListCheckItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35062,7 +35408,7 @@ ListCheckItemResponse Client::listCheckItemWithOptions(const ListCheckItemReques
 }
 
 /**
- * @summary Queries the check items that can be customized.
+ * @summary Retrieves the list of check items that can be configured with custom settings.
  *
  * @param request ListCheckItemRequest
  * @return ListCheckItemResponse
@@ -35828,6 +36174,10 @@ ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -36146,6 +36496,10 @@ ListClusterInterceptionConfigResponse Client::listClusterInterceptionConfigWithO
 
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasExcludeClusterTypes()) {
+    query["ExcludeClusterTypes"] = request.getExcludeClusterTypes();
   }
 
   if (!!request.hasPageSize()) {
@@ -38304,9 +38658,9 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 }
 
 /**
- * @summary Query Multi-Account Authorization Allocation List
+ * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
  *
- * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38341,9 +38695,9 @@ ListMultiUserInstancesResponse Client::listMultiUserInstancesWithOptions(const L
 }
 
 /**
- * @summary Query Multi-Account Authorization Allocation List
+ * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
  *
- * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @return ListMultiUserInstancesResponse
@@ -38751,6 +39105,10 @@ ListOssBucketResponse Client::listOssBucketWithOptions(const ListOssBucketReques
     query["Lang"] = request.getLang();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -38801,6 +39159,10 @@ ListOssBucketScanInfoResponse Client::listOssBucketScanInfoWithOptions(const Lis
     query["FuzzBucketName"] = request.getFuzzBucketName();
   }
 
+  if (!!request.hasFuzzFileSystemName()) {
+    query["FuzzFileSystemName"] = request.getFuzzFileSystemName();
+  }
+
   if (!!request.hasHasRisk()) {
     query["HasRisk"] = request.getHasRisk();
   }
@@ -38811,6 +39173,10 @@ ListOssBucketScanInfoResponse Client::listOssBucketScanInfoWithOptions(const Lis
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasStatus()) {
@@ -38846,7 +39212,7 @@ ListOssBucketScanInfoResponse Client::listOssBucketScanInfo(const ListOssBucketS
 }
 
 /**
- * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
+ * @summary Queries the list of OSS file scan policy configurations.
  *
  * @param request ListOssScanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38873,7 +39239,7 @@ ListOssScanConfigResponse Client::listOssScanConfigWithOptions(const ListOssScan
 }
 
 /**
- * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
+ * @summary Queries the list of OSS file scan policy configurations.
  *
  * @param request ListOssScanConfigRequest
  * @return ListOssScanConfigResponse
@@ -39870,7 +40236,7 @@ ListUnknownThreatDetectEventResponse Client::listUnknownThreatDetectEvent(const 
 }
 
 /**
- * @summary View instances identified by intelligent behavior analytics.
+ * @summary Queries the list of machines for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39881,6 +40247,10 @@ ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachineWit
   json query = {};
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEventStatus()) {
+    query["EventStatus"] = request.getEventStatus();
   }
 
   if (!!request.hasPageSize()) {
@@ -39929,7 +40299,7 @@ ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachineWit
 }
 
 /**
- * @summary View instances identified by intelligent behavior analytics.
+ * @summary Queries the list of machines for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectMachineRequest
  * @return ListUnknownThreatDetectMachineResponse
@@ -40022,7 +40392,7 @@ ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcess(co
 }
 
 /**
- * @summary Lists the strategies for intelligent behavior analytics.
+ * @summary Queries the list of intelligent behavior analysis policies.
  *
  * @param request ListUnknownThreatDetectStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40069,7 +40439,7 @@ ListUnknownThreatDetectStrategyResponse Client::listUnknownThreatDetectStrategyW
 }
 
 /**
- * @summary Lists the strategies for intelligent behavior analytics.
+ * @summary Queries the list of intelligent behavior analysis policies.
  *
  * @param request ListUnknownThreatDetectStrategyRequest
  * @return ListUnknownThreatDetectStrategyResponse
@@ -40292,7 +40662,7 @@ ListVirusScanMachineResponse Client::listVirusScanMachine(const ListVirusScanMac
 }
 
 /**
- * @summary Queries virus alerts detected by virus scanning on a specific server.
+ * @summary Queries virus alerts detected by a virus scan on a specific server.
  *
  * @param request ListVirusScanMachineEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40339,7 +40709,7 @@ ListVirusScanMachineEventResponse Client::listVirusScanMachineEventWithOptions(c
 }
 
 /**
- * @summary Queries virus alerts detected by virus scanning on a specific server.
+ * @summary Queries virus alerts detected by a virus scan on a specific server.
  *
  * @param request ListVirusScanMachineEventRequest
  * @return ListVirusScanMachineEventResponse
@@ -42012,7 +42382,7 @@ ModifyContainerScanConfigResponse Client::modifyContainerScanConfig(const Modify
 }
 
 /**
- * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+ * @summary Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
  *
  * @param request ModifyCreateVulWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42021,8 +42391,16 @@ ModifyContainerScanConfigResponse Client::modifyContainerScanConfig(const Modify
 ModifyCreateVulWhitelistResponse Client::modifyCreateVulWhitelistWithOptions(const ModifyCreateVulWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasReason()) {
     query["Reason"] = request.getReason();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasTargetInfo()) {
@@ -42051,7 +42429,7 @@ ModifyCreateVulWhitelistResponse Client::modifyCreateVulWhitelistWithOptions(con
 }
 
 /**
- * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+ * @summary Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
  *
  * @param request ModifyCreateVulWhitelistRequest
  * @return ModifyCreateVulWhitelistResponse
@@ -42257,6 +42635,10 @@ ModifyDingTalkStatusResponse Client::modifyDingTalkStatus(const ModifyDingTalkSt
 ModifyEmgVulSubmitResponse Client::modifyEmgVulSubmitWithOptions(const ModifyEmgVulSubmitRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
   }
@@ -43049,6 +43431,10 @@ ModifyNoticeConfigResponse Client::modifyNoticeConfigWithOptions(const ModifyNot
     query["BizType"] = request.getBizType();
   }
 
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasFocusLevel()) {
     query["FocusLevel"] = request.getFocusLevel();
   }
@@ -43158,7 +43544,7 @@ ModifyOpenLogShipperResponse Client::modifyOpenLogShipper(const ModifyOpenLogShi
 }
 
 /**
- * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+ * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
  *
  * @param request ModifyOperateVulRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -43167,6 +43553,10 @@ ModifyOpenLogShipperResponse Client::modifyOpenLogShipper(const ModifyOpenLogShi
 ModifyOperateVulResponse Client::modifyOperateVulWithOptions(const ModifyOperateVulRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasFrom()) {
     query["From"] = request.getFrom();
   }
@@ -43181,6 +43571,10 @@ ModifyOperateVulResponse Client::modifyOperateVulWithOptions(const ModifyOperate
 
   if (!!request.hasReason()) {
     query["Reason"] = request.getReason();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasType()) {
@@ -43205,7 +43599,7 @@ ModifyOperateVulResponse Client::modifyOperateVulWithOptions(const ModifyOperate
 }
 
 /**
- * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+ * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
  *
  * @param request ModifyOperateVulRequest
  * @return ModifyOperateVulResponse
@@ -43226,11 +43620,23 @@ ModifyPostPayModuleSwitchResponse Client::modifyPostPayModuleSwitchWithOptions(c
   tmpReq.validate();
   ModifyPostPayModuleSwitchShrinkRequest request = ModifyPostPayModuleSwitchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEdrModuleSwitch()) {
+    request.setEdrModuleSwitchShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEdrModuleSwitch(), "EdrModuleSwitch", "json"));
+  }
+
   if (!!tmpReq.hasPostPayModuleSwitchObj()) {
     request.setPostPayModuleSwitchObjShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPostPayModuleSwitchObj(), "PostPayModuleSwitchObj", "json"));
   }
 
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEdrModuleSwitchShrink()) {
+    query["EdrModuleSwitch"] = request.getEdrModuleSwitchShrink();
+  }
+
   if (!!request.hasPostPaidHostAutoBind()) {
     query["PostPaidHostAutoBind"] = request.getPostPaidHostAutoBind();
   }
@@ -43586,9 +43992,9 @@ ModifySearchConditionResponse Client::modifySearchCondition(const ModifySearchCo
 /**
  * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
  *
- * @summary Specifies the time when an automatic configuration check on cloud services runs.
+ * @summary Sets the automatic detection time for cloud platform configuration check items.
  *
- * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+ * @description This operation is deprecated. Use the ChangeCheckConfig operation instead.
  *
  * @param request ModifySecurityCheckScheduleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -43641,9 +44047,9 @@ ModifySecurityCheckScheduleConfigResponse Client::modifySecurityCheckScheduleCon
 /**
  * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
  *
- * @summary Specifies the time when an automatic configuration check on cloud services runs.
+ * @summary Sets the automatic detection time for cloud platform configuration check items.
  *
- * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+ * @description This operation is deprecated. Use the ChangeCheckConfig operation instead.
  *
  * @param request ModifySecurityCheckScheduleConfigRequest
  * @return ModifySecurityCheckScheduleConfigResponse
@@ -43663,6 +44069,10 @@ ModifySecurityCheckScheduleConfigResponse Client::modifySecurityCheckScheduleCon
 ModifySecurityEventMarkMissIndividuallyResponse Client::modifySecurityEventMarkMissIndividuallyWithOptions(const ModifySecurityEventMarkMissIndividuallyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -43749,6 +44159,10 @@ ModifyServerlessAuthToMachineResponse Client::modifyServerlessAuthToMachineWithO
 
   if (!!request.hasBindUuidList()) {
     query["BindUuidList"] = request.getBindUuidList();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCriteria()) {
@@ -43862,7 +44276,7 @@ ModifySoarStrategySubscribeResponse Client::modifySoarStrategySubscribe(const Mo
 }
 
 /**
- * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+ * @summary Starts the one-click scan feature on the vulnerability management page of the console.
  *
  * @param request ModifyStartVulScanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -43871,6 +44285,14 @@ ModifySoarStrategySubscribeResponse Client::modifySoarStrategySubscribe(const Mo
 ModifyStartVulScanResponse Client::modifyStartVulScanWithOptions(const ModifyStartVulScanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasTypes()) {
     query["Types"] = request.getTypes();
   }
@@ -43897,7 +44319,7 @@ ModifyStartVulScanResponse Client::modifyStartVulScanWithOptions(const ModifySta
 }
 
 /**
- * @summary Enables the one-click scan feature on the vulnerability management page of the console.
+ * @summary Starts the one-click scan feature on the vulnerability management page of the console.
  *
  * @param request ModifyStartVulScanRequest
  * @return ModifyStartVulScanResponse
@@ -44245,6 +44667,10 @@ ModifyVpcHoneyPotResponse Client::modifyVpcHoneyPot(const ModifyVpcHoneyPotReque
 ModifyVulConfigResponse Client::modifyVulConfigWithOptions(const ModifyVulConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasConfig()) {
     query["Config"] = request.getConfig();
   }
@@ -45224,7 +45650,7 @@ OperateApplicationResponse Client::operateApplication(const OperateApplicationRe
 }
 
 /**
- * @summary Manages an Object Storage Service (OSS) bucket check task.
+ * @summary Operates on a bucket detection task.
  *
  * @param request OperateBucketScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45239,6 +45665,10 @@ OperateBucketScanTaskResponse Client::operateBucketScanTaskWithOptions(const Ope
 
   if (!!request.hasOperateCode()) {
     query["OperateCode"] = request.getOperateCode();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -45259,7 +45689,7 @@ OperateBucketScanTaskResponse Client::operateBucketScanTaskWithOptions(const Ope
 }
 
 /**
- * @summary Manages an Object Storage Service (OSS) bucket check task.
+ * @summary Operates on a bucket detection task.
  *
  * @param request OperateBucketScanTaskRequest
  * @return OperateBucketScanTaskResponse
@@ -45270,7 +45700,7 @@ OperateBucketScanTaskResponse Client::operateBucketScanTask(const OperateBucketS
 }
 
 /**
- * @summary Enables or disables a feature by type.
+ * @summary Sets a global switch by type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45279,6 +45709,10 @@ OperateBucketScanTaskResponse Client::operateBucketScanTask(const OperateBucketS
 OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions(const OperateCommonOverallConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasConfig()) {
     query["Config"] = request.getConfig();
   }
@@ -45313,7 +45747,7 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions
 }
 
 /**
- * @summary Enables or disables a feature by type.
+ * @summary Sets a global switch by type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @return OperateCommonOverallConfigResponse
@@ -45769,6 +46203,10 @@ OperateVulsResponse Client::operateVulsWithOptions(const OperateVulsRequest &req
     query["OperateType"] = request.getOperateType();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasType()) {
     query["Type"] = request.getType();
   }
@@ -45873,6 +46311,10 @@ OperationCancelIgnoreSuspEventResponse Client::operationCancelIgnoreSuspEventWit
     query["Remark"] = request.getRemark();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSecurityEventIds()) {
     query["SecurityEventIds"] = request.getSecurityEventIds();
   }
@@ -45967,6 +46409,10 @@ OperationSuspEventsResponse Client::operationSuspEventsWithOptions(const Operati
 
   if (!!request.hasOperation()) {
     query["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSourceIp()) {
@@ -46387,6 +46833,10 @@ PublicSyncAndCreateImageScanTaskResponse Client::publicSyncAndCreateImageScanTas
 QueryAttackCountResponse Client::queryAttackCountWithOptions(const QueryAttackCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -46835,6 +47285,10 @@ RefreshAssetsResponse Client::refreshAssetsWithOptions(const RefreshAssetsReques
     query["CloudAssetType"] = request.getCloudAssetType();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasVendor()) {
     query["Vendor"] = request.getVendor();
   }
@@ -46912,11 +47366,20 @@ RefreshContainerAssetsResponse Client::refreshContainerAssets(const RefreshConta
 /**
  * @summary Refreshes the bucket list.
  *
+ * @param request RefreshOssBucketScanInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RefreshOssBucketScanInfoResponse
  */
-RefreshOssBucketScanInfoResponse Client::refreshOssBucketScanInfoWithOptions(const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest();
+RefreshOssBucketScanInfoResponse Client::refreshOssBucketScanInfoWithOptions(const RefreshOssBucketScanInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "RefreshOssBucketScanInfo"},
     {"version" , "2018-12-03"},
@@ -46934,11 +47397,12 @@ RefreshOssBucketScanInfoResponse Client::refreshOssBucketScanInfoWithOptions(con
 /**
  * @summary Refreshes the bucket list.
  *
+ * @param request RefreshOssBucketScanInfoRequest
  * @return RefreshOssBucketScanInfoResponse
  */
-RefreshOssBucketScanInfoResponse Client::refreshOssBucketScanInfo() {
+RefreshOssBucketScanInfoResponse Client::refreshOssBucketScanInfo(const RefreshOssBucketScanInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return refreshOssBucketScanInfoWithOptions(runtime);
+  return refreshOssBucketScanInfoWithOptions(request, runtime);
 }
 
 /**
@@ -47331,6 +47795,10 @@ RollbackSuspEventQuaraFileResponse Client::rollbackSuspEventQuaraFileWithOptions
     query["QuaraFileId"] = request.getQuaraFileId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.getSourceIp();
   }
@@ -47467,6 +47935,10 @@ SaveCustomizeReportConfigResponse Client::saveCustomizeReportConfigWithOptions(c
     query["ReportVersion"] = request.getReportVersion();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasSendEndTime()) {
     query["SendEndTime"] = request.getSendEndTime();
   }
@@ -47601,6 +48073,10 @@ SaveSuspEventUserSettingResponse Client::saveSuspEventUserSettingWithOptions(con
 
   if (!!request.hasLevelsOn()) {
     query["LevelsOn"] = request.getLevelsOn();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -47763,6 +48239,10 @@ SendCustomizeReportResponse Client::sendCustomizeReportWithOptions(const SendCus
   json query = {};
   if (!!request.hasReportId()) {
     query["ReportId"] = request.getReportId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -48456,7 +48936,7 @@ StopHoneypotResponse Client::stopHoneypot(const StopHoneypotRequest &request) {
 }
 
 /**
- * @summary Submits a configuration assessment task.
+ * @summary Submits a cloud service configuration check.
  *
  * @param request SubmitCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48465,6 +48945,10 @@ StopHoneypotResponse Client::stopHoneypot(const StopHoneypotRequest &request) {
 SubmitCheckResponse Client::submitCheckWithOptions(const SubmitCheckRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   if (!!request.hasScanRange()) {
     query["ScanRange"] = request.getScanRange();
   }
@@ -48491,7 +48975,7 @@ SubmitCheckResponse Client::submitCheckWithOptions(const SubmitCheckRequest &req
 }
 
 /**
- * @summary Submits a configuration assessment task.
+ * @summary Submits a cloud service configuration check.
  *
  * @param request SubmitCheckRequest
  * @return SubmitCheckResponse
@@ -48870,6 +49354,11 @@ UninstallUniBackupAgentResponse Client::uninstallUniBackupAgent(const UninstallU
  */
 UpdateAlarmEventResponse Client::updateAlarmEventWithOptions(const UpdateAlarmEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   json body = {};
   if (!!request.hasAlarmEventIdList()) {
     body["AlarmEventIdList"] = request.getAlarmEventIdList();
@@ -48884,8 +49373,9 @@ UpdateAlarmEventResponse Client::updateAlarmEventWithOptions(const UpdateAlarmEv
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "UpdateAlarmEvent"},
     {"version" , "2018-12-03"},
@@ -49249,6 +49739,64 @@ UpdateCheckPolicyResponse Client::updateCheckPolicyWithOptions(const UpdateCheck
 UpdateCheckPolicyResponse Client::updateCheckPolicy(const UpdateCheckPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCheckPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the check scope configuration.
+ *
+ * @param request UpdateCheckScopeConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCheckScopeConfigResponse
+ */
+UpdateCheckScopeConfigResponse Client::updateCheckScopeConfigWithOptions(const UpdateCheckScopeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoConfig()) {
+    query["AutoConfig"] = request.getAutoConfig();
+  }
+
+  if (!!request.hasAutoType()) {
+    query["AutoType"] = request.getAutoType();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCheckScopeConfig"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCheckScopeConfigResponse>();
+}
+
+/**
+ * @summary Updates the check scope configuration.
+ *
+ * @param request UpdateCheckScopeConfigRequest
+ * @return UpdateCheckScopeConfigResponse
+ */
+UpdateCheckScopeConfigResponse Client::updateCheckScopeConfig(const UpdateCheckScopeConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCheckScopeConfigWithOptions(request, runtime);
 }
 
 /**
@@ -50598,7 +51146,7 @@ UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistC
 }
 
 /**
- * @summary Modify Multi-Account Instance Configuration
+ * @summary Manages authorization assignments for member accounts in multi-account authorization management.
  *
  * @param request UpdateMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50629,7 +51177,7 @@ UpdateMultiUserInstancesResponse Client::updateMultiUserInstancesWithOptions(con
 }
 
 /**
- * @summary Modify Multi-Account Instance Configuration
+ * @summary Manages authorization assignments for member accounts in multi-account authorization management.
  *
  * @param request UpdateMultiUserInstancesRequest
  * @return UpdateMultiUserInstancesResponse
@@ -50740,7 +51288,7 @@ UpdateOpaStrategyNewResponse Client::updateOpaStrategyNew(const UpdateOpaStrateg
 }
 
 /**
- * @summary Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+ * @summary Updates the OSS file scan policy configuration for the malicious file detection feature.
  *
  * @param request UpdateOssScanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50751,6 +51299,10 @@ UpdateOssScanConfigResponse Client::updateOssScanConfigWithOptions(const UpdateO
   json query = {};
   if (!!request.hasAllKeyPrefix()) {
     query["AllKeyPrefix"] = request.getAllKeyPrefix();
+  }
+
+  if (!!request.hasAutoAdd()) {
+    query["AutoAdd"] = request.getAutoAdd();
   }
 
   if (!!request.hasBucketNameList()) {
@@ -50805,6 +51357,10 @@ UpdateOssScanConfigResponse Client::updateOssScanConfigWithOptions(const UpdateO
     query["ScanDayList"] = request.getScanDayList();
   }
 
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
@@ -50827,7 +51383,7 @@ UpdateOssScanConfigResponse Client::updateOssScanConfigWithOptions(const UpdateO
 }
 
 /**
- * @summary Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+ * @summary Updates the OSS file scan policy configuration for the malicious file detection feature.
  *
  * @param request UpdateOssScanConfigRequest
  * @return UpdateOssScanConfigResponse
@@ -50838,7 +51394,7 @@ UpdateOssScanConfigResponse Client::updateOssScanConfig(const UpdateOssScanConfi
 }
 
 /**
- * @summary Change Postpaid Asset Authorization Version
+ * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50857,6 +51413,14 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
 
   if (!!request.hasBindAction()) {
     query["BindAction"] = request.getBindAction();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasUpdateIfNecessary()) {
@@ -50881,7 +51445,7 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
 }
 
 /**
- * @summary Change Postpaid Asset Authorization Version
+ * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @return UpdatePostPaidBindRelResponse
@@ -51090,7 +51654,7 @@ UpdatePublishGraySwitchResponse Client::updatePublishGraySwitch(const UpdatePubl
 }
 
 /**
- * @summary Modifies the key that corresponds to a specified type.
+ * @summary Modifies the key corresponding to a specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51101,6 +51665,10 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByTypeWithOptions(con
   json query = {};
   if (!!request.hasBusinessType()) {
     query["BusinessType"] = request.getBusinessType();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasSelectionKey()) {
@@ -51125,7 +51693,7 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByTypeWithOptions(con
 }
 
 /**
- * @summary Modifies the key that corresponds to a specified type.
+ * @summary Modifies the key corresponding to a specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @return UpdateSelectionKeyByTypeResponse
@@ -51278,7 +51846,7 @@ UpdateUnknownThreatDetectProcessResponse Client::updateUnknownThreatDetectProces
 }
 
 /**
- * @summary Updates the unknown threat detection strategy.
+ * @summary Updates an intelligent behavior analytics policy.
  *
  * @param request UpdateUnknownThreatDetectStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51325,7 +51893,7 @@ UpdateUnknownThreatDetectStrategyResponse Client::updateUnknownThreatDetectStrat
 }
 
 /**
- * @summary Updates the unknown threat detection strategy.
+ * @summary Updates an intelligent behavior analytics policy.
  *
  * @param request UpdateUnknownThreatDetectStrategyRequest
  * @return UpdateUnknownThreatDetectStrategyResponse
@@ -51762,7 +52330,7 @@ VerifyCheckCustomConfigResponse Client::verifyCheckCustomConfig(const VerifyChec
 }
 
 /**
- * @summary Verifies the instance dimensions under a check item.
+ * @summary Verifies instances under a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51777,6 +52345,10 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
 
   if (!!request.hasCheckIds()) {
     query["CheckIds"] = request.getCheckIds();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -51805,7 +52377,7 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
 }
 
 /**
- * @summary Verifies the instance dimensions under a check item.
+ * @summary Verifies instances under a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @return VerifyCheckInstanceResultResponse
@@ -51816,7 +52388,7 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResult(const Verify
 }
 
 /**
- * @summary Performs check item-level validation.
+ * @summary Validates check items.
  *
  * @param request VerifyCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51827,6 +52399,10 @@ VerifyCheckResultResponse Client::verifyCheckResultWithOptions(const VerifyCheck
   json query = {};
   if (!!request.hasCheckIds()) {
     query["CheckIds"] = request.getCheckIds();
+  }
+
+  if (!!request.hasForce()) {
+    query["Force"] = request.getForce();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -51855,7 +52431,7 @@ VerifyCheckResultResponse Client::verifyCheckResultWithOptions(const VerifyCheck
 }
 
 /**
- * @summary Performs check item-level validation.
+ * @summary Validates check items.
  *
  * @param request VerifyCheckResultRequest
  * @return VerifyCheckResultResponse

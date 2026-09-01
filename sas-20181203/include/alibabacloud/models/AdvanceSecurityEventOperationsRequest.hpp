@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AdvanceSecurityEventOperationsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EventName, eventName_);
       DARABONBA_PTR_TO_JSON(EventType, eventType_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
     };
     friend void from_json(const Darabonba::Json& j, AdvanceSecurityEventOperationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventName, eventName_);
       DARABONBA_PTR_FROM_JSON(EventType, eventType_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventName_ == nullptr
-        && this->eventType_ == nullptr && this->resourceOwnerId_ == nullptr && this->ruleId_ == nullptr; };
+        && this->eventType_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->resourceOwnerId_ == nullptr && this->ruleId_ == nullptr; };
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteEventType() { this->eventType_ = nullptr;};
     inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline AdvanceSecurityEventOperationsRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline AdvanceSecurityEventOperationsRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // resourceOwnerId Field Functions 
@@ -96,6 +105,7 @@ namespace Models
     // 
     // For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
     shared_ptr<string> eventType_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The rule ID.
     shared_ptr<int32_t> ruleId_ {};

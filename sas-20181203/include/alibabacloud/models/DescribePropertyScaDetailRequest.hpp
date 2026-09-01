@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProcessStartedEnd, processStartedEnd_);
       DARABONBA_PTR_TO_JSON(ProcessStartedStart, processStartedStart_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ScaName, scaName_);
       DARABONBA_PTR_TO_JSON(ScaNamePattern, scaNamePattern_);
       DARABONBA_PTR_TO_JSON(ScaVersion, scaVersion_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProcessStartedEnd, processStartedEnd_);
       DARABONBA_PTR_FROM_JSON(ProcessStartedStart, processStartedStart_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ScaName, scaName_);
       DARABONBA_PTR_FROM_JSON(ScaNamePattern, scaNamePattern_);
       DARABONBA_PTR_FROM_JSON(ScaVersion, scaVersion_);
@@ -121,9 +123,9 @@ namespace Models
     virtual bool empty() const override { return this->biz_ == nullptr
         && this->bizType_ == nullptr && this->currentPage_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr
         && this->pageSize_ == nullptr && this->pid_ == nullptr && this->port_ == nullptr && this->processStartedEnd_ == nullptr && this->processStartedStart_ == nullptr
-        && this->remark_ == nullptr && this->scaName_ == nullptr && this->scaNamePattern_ == nullptr && this->scaVersion_ == nullptr && this->searchCriteriaList_ == nullptr
-        && this->searchInfo_ == nullptr && this->searchInfoSub_ == nullptr && this->searchItem_ == nullptr && this->searchItemSub_ == nullptr && this->useNextToken_ == nullptr
-        && this->user_ == nullptr && this->uuid_ == nullptr; };
+        && this->remark_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->scaName_ == nullptr && this->scaNamePattern_ == nullptr && this->scaVersion_ == nullptr
+        && this->searchCriteriaList_ == nullptr && this->searchInfo_ == nullptr && this->searchInfoSub_ == nullptr && this->searchItem_ == nullptr && this->searchItemSub_ == nullptr
+        && this->useNextToken_ == nullptr && this->user_ == nullptr && this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
@@ -206,6 +208,13 @@ namespace Models
     void deleteRemark() { this->remark_ = nullptr;};
     inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribePropertyScaDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribePropertyScaDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // scaName Field Functions 
@@ -294,46 +303,47 @@ namespace Models
     // - **sca_database**: database
     // - **sca_web**: web service
     // 
-    // > If this parameter is not set, the default value **sca** is used, which queries Asset Fingerprints information of the middleware type.
+    // > If you do not settings this parameter, the default value **sca** is used, which indicates that middleware Asset Fingerprints information is queried.
     shared_ptr<string> biz_ {};
-    // The type of middleware, database, or web service to query. Valid values:  
+    // The type of the middleware, database, or web service to query. Valid values:  
     // - **system_service**: system service
     // - **software_library**: software library
     // - **docker_component**: container component
     // - **database**: database
     // - **web_container**: web container
     // - **jar**: JAR package
-    // - **web_framework**: web framework.
+    // - **web_framework**: web framework
     shared_ptr<string> bizType_ {};
-    // The page number of the page to return in the query results. Default value: **1**, which indicates that the results are displayed starting from page 1.
+    // The page number of the page to return in the query results. Default value: **1**, which indicates that the results start from page 1.
     shared_ptr<int32_t> currentPage_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the middleware, database, or web service.
-    // > This parameter is deprecated. You do not need to specify this parameter.
+    // > This parameter is deprecated. You do not need to configure it.
     shared_ptr<int64_t> name_ {};
-    // The token that marks the current position from which to start reading. Leave this parameter empty to start reading from the beginning.
+    // The token that marks the current position from which to start reading. Leave this parameter empty to start from the beginning.
     // 
-    // > Do not specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response contains the NextToken value for the next call.
+    // > You do not need to set this parameter for the first call. The response includes the NextToken value for the next call. Each subsequent response contains the NextToken value for the following call.
     shared_ptr<string> nextToken_ {};
-    // Sets the number of Asset Fingerprints entries per page in a paged query. Default value: **10**, which indicates that 10 Asset Fingerprints entries are displayed per page.
+    // Settings the number of entries per page in a paged query for Asset Fingerprints information. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
     // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
     // The process ID.
     shared_ptr<string> pid_ {};
     // The port on which the process listens.
     shared_ptr<string> port_ {};
-    // The end of the time range for querying the process start timestamp. Unit: seconds.
+    // The end of the time range to query for process startup timestamps. Unit: seconds.
     shared_ptr<int64_t> processStartedEnd_ {};
-    // The start of the time range for querying the process start timestamp. Unit: seconds.
+    // The start of the time range to query for process startup timestamps. Unit: seconds.
     shared_ptr<int64_t> processStartedStart_ {};
     // The search condition (server name or IP address).
     // > Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The name of the Asset Fingerprints entry to query.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // The name of the Asset Fingerprints to query.
     shared_ptr<string> scaName_ {};
     // The process name.
     shared_ptr<string> scaNamePattern_ {};
@@ -341,9 +351,9 @@ namespace Models
     shared_ptr<string> scaVersion_ {};
     // The list of search criteria.
     shared_ptr<vector<DescribePropertyScaDetailRequest::SearchCriteriaList>> searchCriteriaList_ {};
-    // The content to query. Depending on the value of **SearchItem**, you need to enter different query content:
-    // - If **SearchItem** is set to **name**, enter the name of the asset fingerprint as the query condition.
-    // - If **SearchItem** is set to **type**, select the type of asset fingerprint to query. Valid values:   
+    // The content to query. The content varies based on the value of **SearchItem**:
+    // - If **SearchItem** is settings to **name**, enter the name of the Asset Fingerprints.
+    // - If **SearchItem** is settings to **type**, select the type of the Asset Fingerprints. Valid values:   
     //     - **system_service**: system service
     //     - **software_library**: software library
     //     - **docker_component**: container component
@@ -352,27 +362,27 @@ namespace Models
     //     - **jar**: JAR package
     //     - **web_framework**: web framework  
     // 
-    // > The **SearchItem** and **SearchInfo** parameters must be used together. Setting only one of them has no effect. By setting both parameters, you can view all data for asset fingerprints of a specified name or type.
+    // > The **SearchItem** and **SearchInfo** parameters must be used together. You must settings both parameters for the query to take effect (settings only one is invalid). This allows you to view all data of the specified Asset Fingerprints by name or type.
     shared_ptr<string> searchInfo_ {};
-    // The content of the sub-query condition. Depending on the value of **SearchItemSub**, you need to enter different query content:
-    // - If **SearchItemSub** is set to **port**, enter the port as the sub-query condition.
-    // - If **SearchItemSub** is set to **pid**, enter the process ID as the sub-query condition.
-    // - If **SearchItemSub** is set to **version**, enter the middleware, database, or web service version as the sub-query condition.
-    // - If **SearchItemSub** is set to **user**, enter the username as the sub-query condition.
+    // The content of the sub-query condition. The content varies based on the value of **SearchItemSub**:
+    // - If **SearchItemSub** is set to **port**, enter the port number.
+    // - If **SearchItemSub** is set to **pid**, enter the process ID.
+    // - If **SearchItemSub** is set to **version**, enter the version of the middleware, database, or web service.
+    // - If **SearchItemSub** is set to **user**, enter the username.
     // 
     // > Sub-query conditions help you search for the data list of a specific middleware, database, or web service.
     shared_ptr<string> searchInfoSub_ {};
-    // The type of query condition. Valid values:
+    // Settings the type of the conditional query. Valid values:
     // - **name**: the name of the middleware, database, or web service.
     // - **type**: the type of the middleware, database, or web service.
     // 
-    // > The **SearchItem** and **SearchInfo** parameters must be used together. Setting only one of them has no effect. By setting both parameters, you can view all data for asset fingerprints of a specified name or type.
+    // > The **SearchItem** and **SearchInfo** parameters must be used together. You must settings both parameters for the query to take effect (settings only one is invalid). This allows you to view all data of the specified Asset Fingerprints by name or type.
     shared_ptr<string> searchItem_ {};
-    // The type of sub-query condition. Valid values:
+    // The type of the sub-query condition. Valid values:
     // - **port**: port
     // - **pid**: process ID
     // - **version**: version
-    // - **user**: user.
+    // - **user**: user
     shared_ptr<string> searchItemSub_ {};
     // Specifies whether to use the NextToken method to retrieve asset list data. If this parameter is used, TotalCount is no longer returned. Valid values:
     // 

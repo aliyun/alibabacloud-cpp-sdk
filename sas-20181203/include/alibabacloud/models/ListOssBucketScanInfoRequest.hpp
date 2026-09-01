@@ -16,18 +16,22 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(FuzzBucketName, fuzzBucketName_);
+      DARABONBA_PTR_TO_JSON(FuzzFileSystemName, fuzzFileSystemName_);
       DARABONBA_PTR_TO_JSON(HasRisk, hasRisk_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListOssBucketScanInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(FuzzBucketName, fuzzBucketName_);
+      DARABONBA_PTR_FROM_JSON(FuzzFileSystemName, fuzzFileSystemName_);
       DARABONBA_PTR_FROM_JSON(HasRisk, hasRisk_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListOssBucketScanInfoRequest() = default ;
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->currentPage_ == nullptr && this->fuzzBucketName_ == nullptr && this->hasRisk_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
-        && this->status_ == nullptr; };
+        && this->currentPage_ == nullptr && this->fuzzBucketName_ == nullptr && this->fuzzFileSystemName_ == nullptr && this->hasRisk_ == nullptr && this->lang_ == nullptr
+        && this->pageSize_ == nullptr && this->source_ == nullptr && this->status_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -63,6 +67,13 @@ namespace Models
     void deleteFuzzBucketName() { this->fuzzBucketName_ = nullptr;};
     inline string getFuzzBucketName() const { DARABONBA_PTR_GET_DEFAULT(fuzzBucketName_, "") };
     inline ListOssBucketScanInfoRequest& setFuzzBucketName(string fuzzBucketName) { DARABONBA_PTR_SET_VALUE(fuzzBucketName_, fuzzBucketName) };
+
+
+    // fuzzFileSystemName Field Functions 
+    bool hasFuzzFileSystemName() const { return this->fuzzFileSystemName_ != nullptr;};
+    void deleteFuzzFileSystemName() { this->fuzzFileSystemName_ = nullptr;};
+    inline string getFuzzFileSystemName() const { DARABONBA_PTR_GET_DEFAULT(fuzzFileSystemName_, "") };
+    inline ListOssBucketScanInfoRequest& setFuzzFileSystemName(string fuzzFileSystemName) { DARABONBA_PTR_SET_VALUE(fuzzFileSystemName_, fuzzFileSystemName) };
 
 
     // hasRisk Field Functions 
@@ -86,6 +97,13 @@ namespace Models
     inline ListOssBucketScanInfoRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ListOssBucketScanInfoRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -96,25 +114,31 @@ namespace Models
   protected:
     // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The page number of the current page in a paging query.
+    // The page number of the current page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
     // The bucket name for fuzzy match.
     shared_ptr<string> fuzzBucketName_ {};
+    // The NAS file system name for fuzzy match.
+    shared_ptr<string> fuzzFileSystemName_ {};
     // Specifies whether risky files are detected. Valid values:
     // 
     // - **0**: No risks detected.
     // - **1**: Risky files exist.
     shared_ptr<int32_t> hasRisk_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page in a paging query.
+    // The maximum number of entries to return on each page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The business source. Valid values:
+    // - **OSS**: OSS
+    // - **NAS**: NAS
+    shared_ptr<string> source_ {};
     // The detection status. Valid values:
     // 
     // - **1**: Not scanned.

@@ -195,10 +195,10 @@ namespace Models
 
 
   protected:
-    // The action of the custom defense rule. Valid values:
+    // The action type. Valid values:
     // 
-    // *   **0**: allow
-    // *   **1**: block
+    // - **0**: allow
+    // - **1**: block
     // 
     // This parameter is required.
     shared_ptr<int32_t> actionType_ {};
@@ -210,51 +210,51 @@ namespace Models
     shared_ptr<string> filePath_ {};
     // The IP address.
     shared_ptr<string> IP_ {};
-    // The hash values of processes.
+    // The list of process hashes.
     shared_ptr<string> md5List_ {};
-    // The name of the custom defense rule.
+    // The name of the custom rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The new file path after the file is renamed.
+    // The new file path for file rename.
     shared_ptr<string> newFilePath_ {};
     // The parent command line.
     shared_ptr<string> parentCmdline_ {};
-    // The path to the parent process.
+    // The parent process path.
     shared_ptr<string> parentProcPath_ {};
-    // The type of the operating system. Valid values:
+    // The operating system type. Valid values:
     // 
-    // *   **windows**: Windows
-    // *   **linux**: Linux
-    // *   **all**: all types
+    // - **windows**: Windows
+    // - **linux**: Linux
+    // - **all**: all
     shared_ptr<string> platform_ {};
     // The port number. This parameter is deprecated.
     shared_ptr<int32_t> port_ {};
     // The port number. Valid values: **1 to 65535**.
     shared_ptr<string> portStr_ {};
-    // The path to the process.
+    // The process path.
     shared_ptr<string> procPath_ {};
     // The registry value.
     shared_ptr<string> registryContent_ {};
     // The registry key.
     shared_ptr<string> registryKey_ {};
-    // Whether machines are automatically added to the rule. Default value: add. Valid values:  
+    // Specifies whether machines are automatically added to the rule. Default value: add. Valid values:
     // 
-    // - **add**: Added by default  
-    // - **del**: Not added by default
+    // - **add**: Automatically added by default.
+    // - **del**: Not automatically added by default.
     shared_ptr<string> targetDefault_ {};
-    // The type of the custom defense rule. Valid values:
+    // The rule type. Valid values:
     // 
-    // *   **1**: Process hash
-    // *   **2**: Command line
-    // *   **3**: Process Network
-    // *   **4**: File Read and Write
-    // *   **5**: Operation on Registry
-    // *   **6**: Dynamic-link Library Loading
-    // *   **7**: File Renaming
-    // *   **8**: Network domain name
-    // *   **9**: Network ip
-    // *   **10**: File Path
+    // - **1**: process hash
+    // - **2**: command line
+    // - **3**: process network
+    // - **4**: file read/write
+    // - **5**: registry operation
+    // - **6**: dynamic-link library loading
+    // - **7**: file rename
+    // - **8**: network domain name
+    // - **9**: network IP
+    // - **10**: file path
     // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};

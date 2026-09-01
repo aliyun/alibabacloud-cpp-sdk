@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number of the current page in a paging query.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries returned per page in a paging query.
+      // The maximum number of entries returned per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -95,6 +95,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
         DARABONBA_PTR_TO_JSON(ConfigStatus, configStatus_);
         DARABONBA_PTR_TO_JSON(DecompressStatus, decompressStatus_);
+        DARABONBA_PTR_TO_JSON(FileSystemName, fileSystemName_);
         DARABONBA_PTR_TO_JSON(HighRisk, highRisk_);
         DARABONBA_PTR_TO_JSON(LastScanEndTime, lastScanEndTime_);
         DARABONBA_PTR_TO_JSON(LastScanTime, lastScanTime_);
@@ -113,6 +114,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
         DARABONBA_PTR_FROM_JSON(ConfigStatus, configStatus_);
         DARABONBA_PTR_FROM_JSON(DecompressStatus, decompressStatus_);
+        DARABONBA_PTR_FROM_JSON(FileSystemName, fileSystemName_);
         DARABONBA_PTR_FROM_JSON(HighRisk, highRisk_);
         DARABONBA_PTR_FROM_JSON(LastScanEndTime, lastScanEndTime_);
         DARABONBA_PTR_FROM_JSON(LastScanTime, lastScanTime_);
@@ -139,9 +141,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->configStatus_ == nullptr && this->decompressStatus_ == nullptr && this->highRisk_ == nullptr && this->lastScanEndTime_ == nullptr && this->lastScanTime_ == nullptr
-        && this->lowRisk_ == nullptr && this->mediumRisk_ == nullptr && this->message_ == nullptr && this->regionId_ == nullptr && this->scanObject_ == nullptr
-        && this->scanned_ == nullptr && this->status_ == nullptr && this->storageClass_ == nullptr && this->support_ == nullptr && this->totalObject_ == nullptr; };
+        && this->configStatus_ == nullptr && this->decompressStatus_ == nullptr && this->fileSystemName_ == nullptr && this->highRisk_ == nullptr && this->lastScanEndTime_ == nullptr
+        && this->lastScanTime_ == nullptr && this->lowRisk_ == nullptr && this->mediumRisk_ == nullptr && this->message_ == nullptr && this->regionId_ == nullptr
+        && this->scanObject_ == nullptr && this->scanned_ == nullptr && this->status_ == nullptr && this->storageClass_ == nullptr && this->support_ == nullptr
+        && this->totalObject_ == nullptr; };
       // bucketName Field Functions 
       bool hasBucketName() const { return this->bucketName_ != nullptr;};
       void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -161,6 +164,13 @@ namespace Models
       void deleteDecompressStatus() { this->decompressStatus_ = nullptr;};
       inline int32_t getDecompressStatus() const { DARABONBA_PTR_GET_DEFAULT(decompressStatus_, 0) };
       inline Data& setDecompressStatus(int32_t decompressStatus) { DARABONBA_PTR_SET_VALUE(decompressStatus_, decompressStatus) };
+
+
+      // fileSystemName Field Functions 
+      bool hasFileSystemName() const { return this->fileSystemName_ != nullptr;};
+      void deleteFileSystemName() { this->fileSystemName_ = nullptr;};
+      inline string getFileSystemName() const { DARABONBA_PTR_GET_DEFAULT(fileSystemName_, "") };
+      inline Data& setFileSystemName(string fileSystemName) { DARABONBA_PTR_SET_VALUE(fileSystemName_, fileSystemName) };
 
 
       // highRisk Field Functions 
@@ -267,6 +277,8 @@ namespace Models
       // - **0**: Decompression not configured.
       // - **1**: Decompression configured.
       shared_ptr<int32_t> decompressStatus_ {};
+      // The file system name.
+      shared_ptr<string> fileSystemName_ {};
       // The number of high-risk files.
       shared_ptr<int64_t> highRisk_ {};
       // The end timestamp of the latest scan, in milliseconds.
@@ -297,10 +309,10 @@ namespace Models
       shared_ptr<int32_t> status_ {};
       // The storage class of the bucket. Valid values:
       // 
-      // - **Standard**: Standard LRS
-      // - **IA**: Infrequent Access LRS
-      // - **Archive**: Archive LRS
-      // - **ColdArchive**: Cold Archive LRS.
+      // - **Standard**: Standard storage
+      // - **IA**: Infrequent Access
+      // - **Archive**: Archive storage
+      // - **ColdArchive**: Cold Archive storage
       shared_ptr<string> storageClass_ {};
       // Indicates whether scanning is supported. Valid values:
       // 
@@ -343,9 +355,9 @@ namespace Models
   protected:
     // The data details.
     shared_ptr<vector<ListOssBucketScanInfoResponseBody::Data>> data_ {};
-    // The paging information in a paging query.
+    // The paging information for the paged query.
     shared_ptr<ListOssBucketScanInfoResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request. The China value is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

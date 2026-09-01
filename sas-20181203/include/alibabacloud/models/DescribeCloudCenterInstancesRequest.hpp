@@ -149,62 +149,54 @@ namespace Models
 
 
   protected:
-    // The search conditions for assets. This parameter is in JSON format. Pay attention to the case sensitivity when you specify this parameter.
-    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // The conditions for searching assets. This parameter is in JSON format. Note that the parameter values are case-sensitive.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // The page number to return from the query results. Default value: **1**, which indicates that query results are returned starting from page 1.
+    // The page number of the first page to return. Default value: **1**, which indicates that the query results are returned starting from page 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The asset vendor. Separate multiple vendors with commas (,). Valid values:
-    // 
-    // - **0**: Alibaba Cloud asset
-    // - **1**: non-cloud asset
-    // - **2**: IDC asset
-    // - **3**, **4**, **5**, **7**, **14**, **16**: third-party cloud asset
-    // - **8**: lightweight asset
-    // - **9**: SAE
-    // - **10**: PAI
+    // The asset vendor. Separate multiple asset vendors with commas (,). Valid values:
     shared_ptr<string> flags_ {};
     // The importance level of the asset. Valid values:
-    // - **2**: important asset
-    // - **1**: normal asset
-    // - **0**: test asset
+    // - **2**: Important asset.
+    // - **1**: General asset.
+    // - **0**: Test asset.
     shared_ptr<int32_t> importance_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The logical relationship between multiple search conditions. Default value: **OR**. Valid values:
     // 
-    // - **OR**: The search conditions are in the **OR** relationship.
-    // - **AND**: The search conditions are in the **AND** relationship.
+    // - **OR**: The search conditions have an **OR** relationship.
+    // - **AND**: The search conditions have an **AND** relationship.
     shared_ptr<string> logicalExp_ {};
-    // The type of the asset that you want to query. Valid values:
+    // The type of asset to query. Valid values:
     // 
-    // - **ecs**: server
-    // - **cloud_product**: cloud product
-    // - **eci**: elastic container instance
-    // - **rund**: RunD container instance
-    // - **runc**: RunC container instance
+    // - **ecs**: server.
+    // - **cloud_product**: cloud product.
+    // - **eci**: elastic container instance.
+    // - **rund**: RunD container instance.
+    // - **runc**: RunC container instance.
     shared_ptr<string> machineTypes_ {};
     // The NextToken value returned when the NextToken method is used. Leave this parameter empty for the first request.
     shared_ptr<string> nextToken_ {};
-    // Specifies whether to internationalize the default group name **Ungrouped**. Default value: **false**. Valid values:
+    // Specifies whether to disable internationalization for the default group name **未分组**. Default value: **false**. Valid values:
     // 
-    // - **true**: does not internationalize the group name. If the value of the GroupTrace response parameter is the default group **Ungrouped** in Security Center, the group name is still displayed as **Ungrouped** in Chinese.
-    // - **false**: internationalizes the group name. If the value of the GroupTrace response parameter is the default group **Ungrouped** in Security Center, the group name is displayed as **default**.
+    // - **true**: Internationalization is disabled. If the value of the GroupTrace response parameter is the default Security Center group **未分组**, the value is still displayed as **未分组**.
+    // - **false**: Internationalization is enabled. If the value of the GroupTrace response parameter is the default Security Center group **未分组**, the value is displayed as **default**.
     shared_ptr<bool> noGroupTrace_ {};
-    // The number of entries per page in a paginated query. Default value: **20**, which indicates that 20 entries of asset information are displayed per page.
+    // The number of assets to display on each page in a paged conditional query. Default value: **20**, which indicates that 20 asset records are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the instance you want to query resides.
+    // The region ID of the instance to query.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud account ID of the member account in the resource directory.
-    // >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the Alibaba Cloud account that corresponds to the member account in the resource directory.
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Specifies whether to use the NextToken method to retrieve asset list data. If this parameter is used, the TotalCount parameter is no longer returned. Valid values:
+    // Specifies whether to use the NextToken method to retrieve asset list data. If this parameter is set to true, TotalCount is no longer returned. Valid values:
     // 
-    // - **true**: uses the NextToken method.
-    // - **false**: does not use the NextToken method.
+    // - **true**: Uses the NextToken method.
+    // - **false**: Does not use the NextToken method.
     shared_ptr<bool> useNextToken_ {};
   };
 

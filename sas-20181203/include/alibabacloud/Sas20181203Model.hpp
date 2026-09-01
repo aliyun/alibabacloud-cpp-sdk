@@ -107,6 +107,9 @@
 #include <alibabacloud/models/ChangeCheckCustomConfigRequest.hpp>
 #include <alibabacloud/models/ChangeCheckCustomConfigResponseBody.hpp>
 #include <alibabacloud/models/ChangeCheckCustomConfigResponse.hpp>
+#include <alibabacloud/models/ChangeCheckScopeConfigInstanceRequest.hpp>
+#include <alibabacloud/models/ChangeCheckScopeConfigInstanceResponseBody.hpp>
+#include <alibabacloud/models/ChangeCheckScopeConfigInstanceResponse.hpp>
 #include <alibabacloud/models/ChangeSecurityScoreRuleRequest.hpp>
 #include <alibabacloud/models/ChangeSecurityScoreRuleResponseBody.hpp>
 #include <alibabacloud/models/ChangeSecurityScoreRuleResponse.hpp>
@@ -1517,6 +1520,7 @@
 #include <alibabacloud/models/GetCanTrySasRequest.hpp>
 #include <alibabacloud/models/GetCanTrySasResponseBody.hpp>
 #include <alibabacloud/models/GetCanTrySasResponse.hpp>
+#include <alibabacloud/models/GetCheckConfigRequest.hpp>
 #include <alibabacloud/models/GetCheckConfigResponseBody.hpp>
 #include <alibabacloud/models/GetCheckConfigResponse.hpp>
 #include <alibabacloud/models/GetCheckCountStatisticRequest.hpp>
@@ -1534,6 +1538,9 @@
 #include <alibabacloud/models/GetCheckSaleRequest.hpp>
 #include <alibabacloud/models/GetCheckSaleResponseBody.hpp>
 #include <alibabacloud/models/GetCheckSaleResponse.hpp>
+#include <alibabacloud/models/GetCheckScopeConfigRequest.hpp>
+#include <alibabacloud/models/GetCheckScopeConfigResponseBody.hpp>
+#include <alibabacloud/models/GetCheckScopeConfigResponse.hpp>
 #include <alibabacloud/models/GetCheckStructureRequest.hpp>
 #include <alibabacloud/models/GetCheckStructureResponseBody.hpp>
 #include <alibabacloud/models/GetCheckStructureResponse.hpp>
@@ -2559,6 +2566,7 @@
 #include <alibabacloud/models/RefreshContainerAssetsRequest.hpp>
 #include <alibabacloud/models/RefreshContainerAssetsResponseBody.hpp>
 #include <alibabacloud/models/RefreshContainerAssetsResponse.hpp>
+#include <alibabacloud/models/RefreshOssBucketScanInfoRequest.hpp>
 #include <alibabacloud/models/RefreshOssBucketScanInfoResponseBody.hpp>
 #include <alibabacloud/models/RefreshOssBucketScanInfoResponse.hpp>
 #include <alibabacloud/models/RefreshRegistryTokenRequest.hpp>
@@ -2694,6 +2702,9 @@
 #include <alibabacloud/models/UpdateCheckPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateCheckPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateCheckPolicyResponse.hpp>
+#include <alibabacloud/models/UpdateCheckScopeConfigRequest.hpp>
+#include <alibabacloud/models/UpdateCheckScopeConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateCheckScopeConfigResponse.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeRequest.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeResponseBody.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeResponse.hpp>

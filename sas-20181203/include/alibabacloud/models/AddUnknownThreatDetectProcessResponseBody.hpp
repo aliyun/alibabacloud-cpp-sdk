@@ -60,7 +60,7 @@ namespace Models
 
 
     protected:
-      // The ID generated for the added process.
+      // The process ID.
       shared_ptr<string> id_ {};
     };
 
@@ -83,9 +83,9 @@ namespace Models
 
 
   protected:
-    // A list of results for the added processes.
+    // The list of process IDs.
     shared_ptr<vector<AddUnknownThreatDetectProcessResponseBody::IdList>> idList_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

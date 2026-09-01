@@ -13,6 +13,7 @@ namespace Models
   class CreateSasTrialRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSasTrialRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(FromEcs, fromEcs_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(RequestForm, requestForm_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TryVersion, tryVersion_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSasTrialRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(FromEcs, fromEcs_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(RequestForm, requestForm_);
@@ -65,12 +67,19 @@ namespace Models
 
 
     protected:
-      // The reason why you apply for the trial.
+      // The reason for applying for a trial.
       shared_ptr<string> tryReason_ {};
     };
 
-    virtual bool empty() const override { return this->fromEcs_ == nullptr
-        && this->lang_ == nullptr && this->requestForm_ == nullptr && this->tryType_ == nullptr && this->tryVersion_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->fromEcs_ == nullptr && this->lang_ == nullptr && this->requestForm_ == nullptr && this->tryType_ == nullptr && this->tryVersion_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateSasTrialRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // fromEcs Field Functions 
     bool hasFromEcs() const { return this->fromEcs_ != nullptr;};
     void deleteFromEcs() { this->fromEcs_ = nullptr;};
@@ -109,32 +118,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether the request is redirected from the Elastic Compute Service (ECS) console. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether the request is from the ECS console. Valid values:
+    // - **true**: yes.
+    // - **false**: no.
     shared_ptr<bool> fromEcs_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The reason why you apply for the trial. You must specify the reason for the second trial.
+    // The reason for applying for a trial. This parameter is required for a second trial.
     shared_ptr<CreateSasTrialRequest::RequestForm> requestForm_ {};
     // The trial type. Valid values:
+    // - **0**: trial not allowed.
+    // - **1**: first trial.
+    // - **2**: second trial.
     // 
-    // *   **0**: trial prohibited
-    // *   **1**: first trial
-    // *   **2**: second trial
     // 
-    // >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial type. You can start a trial only if this parameter is not set to 0.
+    // > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter. A trial can be started only when the value is not 0.
     shared_ptr<int32_t> tryType_ {};
-    // The trial edition. Valid values:
+    // The trial version. Valid values:
+    // - **3**: Enterprise Edition.
+    // - **7**: Ultimate Edition.
     // 
-    // *   **3**: Enterprise
-    // *   **7**: Ultimate
-    // 
-    // >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial edition.
+    // >Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
     shared_ptr<int32_t> tryVersion_ {};
   };
 

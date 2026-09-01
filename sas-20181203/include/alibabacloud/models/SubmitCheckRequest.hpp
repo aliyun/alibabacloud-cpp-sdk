@@ -13,10 +13,12 @@ namespace Models
   class SubmitCheckRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitCheckRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_TO_JSON(TaskSource, taskSource_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitCheckRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(ScanRange, scanRange_);
       DARABONBA_PTR_FROM_JSON(TaskSource, taskSource_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->scanRange_ == nullptr
-        && this->taskSource_ == nullptr; };
+    virtual bool empty() const override { return this->resourceDirectoryAccountId_ == nullptr
+        && this->scanRange_ == nullptr && this->taskSource_ == nullptr; };
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline SubmitCheckRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // scanRange Field Functions 
     bool hasScanRange() const { return this->scanRange_ != nullptr;};
     void deleteScanRange() { this->scanRange_ = nullptr;};
@@ -48,12 +57,14 @@ namespace Models
 
 
   protected:
-    // The check items that are scanned. Valid values:
-    // 
-    // *   **FULL**: All check items are scanned.
-    // *   **FULL**: Only the check items that are configured are scanned.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // The scan range. Valid values:
+    // - **FULL**: scans all check items
+    // - **POLICY**: scans custom-configured check items
     shared_ptr<string> scanRange_ {};
-    // The source of task.
+    // The task source. Valid values:
+    // 
+    // - **YAO_CHI**: Alibaba Cloud ApsaraDB console.
     shared_ptr<string> taskSource_ {};
   };
 

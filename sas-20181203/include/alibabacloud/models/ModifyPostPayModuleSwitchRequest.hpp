@@ -13,6 +13,8 @@ namespace Models
   class ModifyPostPayModuleSwitchRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyPostPayModuleSwitchRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitch_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -20,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PostPayModuleSwitchObj, postPayModuleSwitchObj_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyPostPayModuleSwitchRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitch_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
@@ -180,17 +184,17 @@ namespace Models
       // - **0**: Disabled.
       // - **1**: Enabled.
       shared_ptr<int32_t> agentless_ {};
-      // The AI digitalization module.
+      // The AI digital human module.
       shared_ptr<int32_t> aiDigital_ {};
       // The anti-ransomware module. Valid values:
       // - **0**: Disabled.
       // - **1**: Enabled.
       shared_ptr<int32_t> antiRansomware_ {};
       // The basic service module. Valid values:
-      // - **0**: shutdown.
-      // - **1**: enabling status.
+      // - **0**: Disabled.
+      // - **1**: Enabled.
       // 
-      // >Notice: The basic service module switch cannot be manually modified. This module is in the enabling status when any other module is in the enabling status, and is in the shutdown state only when all other modules are in the shutdown state.
+      // >Notice: The basic service module switch cannot be manually modified. This module is enabled when any other module is enabled, and is disabled when all other modules are disabled.
       shared_ptr<int32_t> basicService_ {};
       // The cloud security configuration check module. Valid values:
       // - **0**: Disabled.
@@ -220,18 +224,77 @@ namespace Models
       // - **0**: Disabled.
       // - **1**: Enabled.
       shared_ptr<int32_t> serverless_ {};
-      // The vulnerability fix module. Valid values:
+      // The vulnerability management module. Valid values:
       // - **0**: Disabled.
       // - **1**: Enabled.
       shared_ptr<int32_t> vul_ {};
-      // The tamper-proofing module. Valid values:
+      // The file tamper-proofing module. Valid values:
       // - **0**: Disabled.
       // - **1**: Enabled.
       shared_ptr<int32_t> webLock_ {};
     };
 
-    virtual bool empty() const override { return this->postPaidHostAutoBind_ == nullptr
-        && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObj_ == nullptr; };
+    class EdrModuleSwitch : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EdrModuleSwitch& obj) { 
+        DARABONBA_PTR_TO_JSON(AutoBind, autoBind_);
+        DARABONBA_PTR_TO_JSON(EDR_HOST_USAGE, EDR_HOST_USAGE_);
+      };
+      friend void from_json(const Darabonba::Json& j, EdrModuleSwitch& obj) { 
+        DARABONBA_PTR_FROM_JSON(AutoBind, autoBind_);
+        DARABONBA_PTR_FROM_JSON(EDR_HOST_USAGE, EDR_HOST_USAGE_);
+      };
+      EdrModuleSwitch() = default ;
+      EdrModuleSwitch(const EdrModuleSwitch &) = default ;
+      EdrModuleSwitch(EdrModuleSwitch &&) = default ;
+      EdrModuleSwitch(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EdrModuleSwitch() = default ;
+      EdrModuleSwitch& operator=(const EdrModuleSwitch &) = default ;
+      EdrModuleSwitch& operator=(EdrModuleSwitch &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->autoBind_ == nullptr
+        && this->EDR_HOST_USAGE_ == nullptr; };
+      // autoBind Field Functions 
+      bool hasAutoBind() const { return this->autoBind_ != nullptr;};
+      void deleteAutoBind() { this->autoBind_ = nullptr;};
+      inline int32_t getAutoBind() const { DARABONBA_PTR_GET_DEFAULT(autoBind_, 0) };
+      inline EdrModuleSwitch& setAutoBind(int32_t autoBind) { DARABONBA_PTR_SET_VALUE(autoBind_, autoBind) };
+
+
+      // EDR_HOST_USAGE Field Functions 
+      bool hasEDR_HOST_USAGE() const { return this->EDR_HOST_USAGE_ != nullptr;};
+      void deleteEDR_HOST_USAGE() { this->EDR_HOST_USAGE_ = nullptr;};
+      inline int64_t getEDR_HOST_USAGE() const { DARABONBA_PTR_GET_DEFAULT(EDR_HOST_USAGE_, 0L) };
+      inline EdrModuleSwitch& setEDR_HOST_USAGE(int64_t EDR_HOST_USAGE) { DARABONBA_PTR_SET_VALUE(EDR_HOST_USAGE_, EDR_HOST_USAGE) };
+
+
+    protected:
+      shared_ptr<int32_t> autoBind_ {};
+      shared_ptr<int64_t> EDR_HOST_USAGE_ {};
+    };
+
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->edrModuleSwitch_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
+        && this->postPayModuleSwitchObj_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyPostPayModuleSwitchRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // edrModuleSwitch Field Functions 
+    bool hasEdrModuleSwitch() const { return this->edrModuleSwitch_ != nullptr;};
+    void deleteEdrModuleSwitch() { this->edrModuleSwitch_ = nullptr;};
+    inline const ModifyPostPayModuleSwitchRequest::EdrModuleSwitch & getEdrModuleSwitch() const { DARABONBA_PTR_GET_CONST(edrModuleSwitch_, ModifyPostPayModuleSwitchRequest::EdrModuleSwitch) };
+    inline ModifyPostPayModuleSwitchRequest::EdrModuleSwitch getEdrModuleSwitch() { DARABONBA_PTR_GET(edrModuleSwitch_, ModifyPostPayModuleSwitchRequest::EdrModuleSwitch) };
+    inline ModifyPostPayModuleSwitchRequest& setEdrModuleSwitch(const ModifyPostPayModuleSwitchRequest::EdrModuleSwitch & edrModuleSwitch) { DARABONBA_PTR_SET_VALUE(edrModuleSwitch_, edrModuleSwitch) };
+    inline ModifyPostPayModuleSwitchRequest& setEdrModuleSwitch(ModifyPostPayModuleSwitchRequest::EdrModuleSwitch && edrModuleSwitch) { DARABONBA_PTR_SET_RVALUE(edrModuleSwitch_, edrModuleSwitch) };
+
+
     // postPaidHostAutoBind Field Functions 
     bool hasPostPaidHostAutoBind() const { return this->postPaidHostAutoBind_ != nullptr;};
     void deletePostPaidHostAutoBind() { this->postPaidHostAutoBind_ = nullptr;};
@@ -270,12 +333,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically bind newly added assets for host and container protection. Valid values:
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<ModifyPostPayModuleSwitchRequest::EdrModuleSwitch> edrModuleSwitch_ {};
+    // Specifies whether to automatically bind new assets for host and container protection. Valid values:
     // 
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> postPaidHostAutoBind_ {};
-    // The version to which newly added assets are automatically bound for host and container protection. Valid values:
+    // The edition to which new assets are automatically bound for host and container protection. Valid values:
     // - **1**: Free Edition. 
     // - **3**: Enterprise Edition.
     // - **5**: Advanced Edition.
@@ -288,7 +354,7 @@ namespace Models
     shared_ptr<string> postPayInstanceId_ {};
     // The switch status of pay-as-you-go modules in JSON string format. Valid values:
     // - Key:
-    //   - **VUL**: vulnerability fix module
+    //   - **VUL**: vulnerability management module
     //   - **CSPM**: Cloud Security Posture Management (CSPM) module
     //   - **AGENTLESS**: agentless detection module
     //   - **SERVERLESS**: serverless security module
@@ -302,10 +368,10 @@ namespace Models
     // 
     // > Modules for which no value is specified remain unchanged.
     // 
-    // <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+    // <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
     shared_ptr<string> postPayModuleSwitch_ {};
     // The pay-as-you-go module switch.
-    // >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+    // >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
     shared_ptr<ModifyPostPayModuleSwitchRequest::PostPayModuleSwitchObj> postPayModuleSwitchObj_ {};
   };
 

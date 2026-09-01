@@ -36,6 +36,8 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AllKeyPrefix, allKeyPrefix_);
+        DARABONBA_PTR_TO_JSON(AutoAdd, autoAdd_);
+        DARABONBA_PTR_TO_JSON(AutoAddConfigName, autoAddConfigName_);
         DARABONBA_PTR_TO_JSON(BucketCount, bucketCount_);
         DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
         DARABONBA_PTR_TO_JSON(BucketNameList, bucketNameList_);
@@ -52,10 +54,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(RealTimeIncr, realTimeIncr_);
         DARABONBA_PTR_TO_JSON(ScanDayList, scanDayList_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AllKeyPrefix, allKeyPrefix_);
+        DARABONBA_PTR_FROM_JSON(AutoAdd, autoAdd_);
+        DARABONBA_PTR_FROM_JSON(AutoAddConfigName, autoAddConfigName_);
         DARABONBA_PTR_FROM_JSON(BucketCount, bucketCount_);
         DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
         DARABONBA_PTR_FROM_JSON(BucketNameList, bucketNameList_);
@@ -72,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(RealTimeIncr, realTimeIncr_);
         DARABONBA_PTR_FROM_JSON(ScanDayList, scanDayList_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       };
       Data() = default ;
@@ -86,15 +92,29 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
-        && this->bucketCount_ == nullptr && this->bucketName_ == nullptr && this->bucketNameList_ == nullptr && this->decompressMaxFileCount_ == nullptr && this->decompressMaxLayer_ == nullptr
-        && this->decryptionList_ == nullptr && this->enable_ == nullptr && this->endTime_ == nullptr && this->id_ == nullptr && this->keyPrefixList_ == nullptr
-        && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->lastUpdateTime_ == nullptr && this->name_ == nullptr && this->realTimeIncr_ == nullptr
-        && this->scanDayList_ == nullptr && this->startTime_ == nullptr; };
+        && this->autoAdd_ == nullptr && this->autoAddConfigName_ == nullptr && this->bucketCount_ == nullptr && this->bucketName_ == nullptr && this->bucketNameList_ == nullptr
+        && this->decompressMaxFileCount_ == nullptr && this->decompressMaxLayer_ == nullptr && this->decryptionList_ == nullptr && this->enable_ == nullptr && this->endTime_ == nullptr
+        && this->id_ == nullptr && this->keyPrefixList_ == nullptr && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->lastUpdateTime_ == nullptr
+        && this->name_ == nullptr && this->realTimeIncr_ == nullptr && this->scanDayList_ == nullptr && this->source_ == nullptr && this->startTime_ == nullptr; };
       // allKeyPrefix Field Functions 
       bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
       void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};
       inline bool getAllKeyPrefix() const { DARABONBA_PTR_GET_DEFAULT(allKeyPrefix_, false) };
       inline Data& setAllKeyPrefix(bool allKeyPrefix) { DARABONBA_PTR_SET_VALUE(allKeyPrefix_, allKeyPrefix) };
+
+
+      // autoAdd Field Functions 
+      bool hasAutoAdd() const { return this->autoAdd_ != nullptr;};
+      void deleteAutoAdd() { this->autoAdd_ = nullptr;};
+      inline int32_t getAutoAdd() const { DARABONBA_PTR_GET_DEFAULT(autoAdd_, 0) };
+      inline Data& setAutoAdd(int32_t autoAdd) { DARABONBA_PTR_SET_VALUE(autoAdd_, autoAdd) };
+
+
+      // autoAddConfigName Field Functions 
+      bool hasAutoAddConfigName() const { return this->autoAddConfigName_ != nullptr;};
+      void deleteAutoAddConfigName() { this->autoAddConfigName_ = nullptr;};
+      inline string getAutoAddConfigName() const { DARABONBA_PTR_GET_DEFAULT(autoAddConfigName_, "") };
+      inline Data& setAutoAddConfigName(string autoAddConfigName) { DARABONBA_PTR_SET_VALUE(autoAddConfigName_, autoAddConfigName) };
 
 
       // bucketCount Field Functions 
@@ -219,6 +239,13 @@ namespace Models
       inline Data& setScanDayList(vector<int32_t> && scanDayList) { DARABONBA_PTR_SET_RVALUE(scanDayList_, scanDayList) };
 
 
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Data& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
       // startTime Field Functions 
       bool hasStartTime() const { return this->startTime_ != nullptr;};
       void deleteStartTime() { this->startTime_ = nullptr;};
@@ -229,21 +256,23 @@ namespace Models
     protected:
       // Indicates whether all prefixes are matched.
       shared_ptr<bool> allKeyPrefix_ {};
+      shared_ptr<int32_t> autoAdd_ {};
+      shared_ptr<string> autoAddConfigName_ {};
       // The number of buckets.
       shared_ptr<int32_t> bucketCount_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
       // The list of bucket names.
       shared_ptr<vector<string>> bucketNameList_ {};
-      // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. If the number of files exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
+      // The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The scanning of files that have already been decompressed is not affected.
       shared_ptr<int32_t> decompressMaxFileCount_ {};
-      // The maximum number of decompression layers for nested compressed files. Minimum value: 1. Maximum value: 5. If the number of layers exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
+      // The maximum number of decompression layers when nested compressed files exist. The minimum value is 1 and the maximum value is 5. When the maximum decompression layer is exceeded, the decompression operation ends immediately. The scanning of files that have already been decompressed is not affected.
       shared_ptr<int32_t> decompressMaxLayer_ {};
       // The list of decryption types.
       shared_ptr<vector<string>> decryptionList_ {};
       // Indicates whether the policy is enabled. Valid values:
-      // - **1**: enabled
-      // - **0**: disabled.
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int32_t> enable_ {};
       // The scan end time in the HH:mm:ss format.
       shared_ptr<string> endTime_ {};
@@ -253,16 +282,20 @@ namespace Models
       shared_ptr<vector<string>> keyPrefixList_ {};
       // The list of file suffixes to scan.
       shared_ptr<vector<string>> keySuffixList_ {};
-      // Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
+      // Scans files whose last modification time is after the specified timestamp, in milliseconds.
       shared_ptr<int64_t> lastModifiedStartTime_ {};
-      // The timestamp of the last update.
+      // The last update timestamp.
       shared_ptr<int64_t> lastUpdateTime_ {};
       // The policy name.
       shared_ptr<string> name_ {};
-      // Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+      // Specifies whether to enable real-time incremental scanning. When this parameter is set to true, the parameters ScanDayList, StartTime, and EndTime do not take effect.
       shared_ptr<bool> realTimeIncr_ {};
-      // The scan days. Each number represents a day of the week.
+      // The scan days. The numbers represent the day of the week.
       shared_ptr<vector<int32_t>> scanDayList_ {};
+      // The business source. Valid values:
+      // - **OSS**: OSS
+      // - **NAS**: NAS
+      shared_ptr<string> source_ {};
       // The scan start time in the HH:mm:ss format.
       shared_ptr<string> startTime_ {};
     };
@@ -288,7 +321,7 @@ namespace Models
   protected:
     // The data details.
     shared_ptr<GetOssScanConfigResponseBody::Data> data_ {};
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The request ID. It is a unique identifier generated by Alibaba Cloud for this request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

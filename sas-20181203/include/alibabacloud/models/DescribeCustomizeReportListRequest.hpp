@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReportStatus, reportStatus_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(ReportVersion, reportVersion_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Title, title_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCustomizeReportListRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReportStatus, reportStatus_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(ReportVersion, reportVersion_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
     };
     DescribeCustomizeReportListRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->pinned_ == nullptr && this->reportStatus_ == nullptr && this->reportType_ == nullptr && this->reportVersion_ == nullptr && this->title_ == nullptr; };
+        && this->pinned_ == nullptr && this->reportStatus_ == nullptr && this->reportType_ == nullptr && this->reportVersion_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
+        && this->title_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -74,6 +77,13 @@ namespace Models
     void deleteReportVersion() { this->reportVersion_ = nullptr;};
     inline string getReportVersion() const { DARABONBA_PTR_GET_DEFAULT(reportVersion_, "") };
     inline DescribeCustomizeReportListRequest& setReportVersion(string reportVersion) { DARABONBA_PTR_SET_VALUE(reportVersion_, reportVersion) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeCustomizeReportListRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // title Field Functions 
@@ -111,6 +121,7 @@ namespace Models
     // *   **1.0.0**
     // *   **2.0.0**
     shared_ptr<string> reportVersion_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The name of the report.
     shared_ptr<string> title_ {};
   };
