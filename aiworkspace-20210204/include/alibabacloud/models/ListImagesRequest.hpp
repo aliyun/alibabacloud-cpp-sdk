@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageUri, imageUri_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageUri, imageUri_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->imageUri_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->query_ == nullptr && this->sortBy_ == nullptr && this->verbose_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->imageUri_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->order_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->sortBy_ == nullptr && this->verbose_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -78,6 +81,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListImagesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // options Field Functions 
+    bool hasOptions() const { return this->options_ != nullptr;};
+    void deleteOptions() { this->options_ = nullptr;};
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline ListImagesRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
     // order Field Functions 
@@ -179,6 +189,7 @@ namespace Models
     shared_ptr<string> labels_ {};
     // The name of the image. Fuzzy search is supported.
     shared_ptr<string> name_ {};
+    shared_ptr<string> options_ {};
     // The order in which to sort the results of a paged query. This parameter is used with SortBy. The default value is ASC.
     // 
     // - ASC: ascending order.

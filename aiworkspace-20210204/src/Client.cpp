@@ -4891,6 +4891,10 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &reques
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasOptions()) {
+    query["Options"] = request.getOptions();
+  }
+
   if (!!request.hasOrder()) {
     query["Order"] = request.getOrder();
   }
