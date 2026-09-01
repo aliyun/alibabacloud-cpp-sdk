@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The synchronization link ID.
     shared_ptr<string> linkId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

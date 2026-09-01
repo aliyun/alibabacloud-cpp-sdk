@@ -162,10 +162,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to immediately execute or schedule the parameter modification and restart. Valid values:
+    // 
+    // - false (default): Schedule the execution.
+    // - true: Immediately execute.
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The latest time to start executing the target scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
     shared_ptr<string> plannedEndTime_ {};
+    // The earliest time to start executing the scheduled task (that is, the task is executed within the target time period). Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
     shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

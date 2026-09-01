@@ -171,7 +171,9 @@ namespace Models
 
 
           protected:
+            // The Markdown table processing mode. Valid values: auto, on, or off.
             shared_ptr<string> markdownTables_ {};
+            // The maximum number of tokens in a single chunk for matched content.
             shared_ptr<int32_t> maxTokens_ {};
           };
 
@@ -194,7 +196,9 @@ namespace Models
 
 
         protected:
+          // The parameter details.
           shared_ptr<Strategy::Parameters> parameters_ {};
+          // The chunking strategy type used when a rule is matched.
           shared_ptr<string> type_ {};
         };
 
@@ -226,6 +230,7 @@ namespace Models
 
 
         protected:
+          // The content type. Currently, table is supported.
           shared_ptr<string> contentType_ {};
         };
 
@@ -250,7 +255,9 @@ namespace Models
 
 
       protected:
+        // The content type. Currently, table is supported.
         shared_ptr<Rules::Match> match_ {};
+        // The chunking strategy.
         shared_ptr<Rules::Strategy> strategy_ {};
       };
 
@@ -313,7 +320,9 @@ namespace Models
 
 
         protected:
+          // The maximum number of tokens in a single chunk.
           shared_ptr<int32_t> maxTokens_ {};
+          // Specifies whether to merge adjacent small chunks under the same heading.
           shared_ptr<bool> mergePeers_ {};
         };
 
@@ -336,7 +345,9 @@ namespace Models
 
 
       protected:
+        // The parameter details.
         shared_ptr<DefaultStrategy::Parameters> parameters_ {};
+        // The type of the default chunking strategy. Valid values: hybrid or hierarchical.
         shared_ptr<string> type_ {};
       };
 
@@ -361,7 +372,9 @@ namespace Models
 
 
     protected:
+      // The default chunking strategy. This strategy is used when no rule is matched.
       shared_ptr<ShardingStrategyConfig::DefaultStrategy> defaultStrategy_ {};
+      // The list of override rules that are matched in order.
       shared_ptr<vector<ShardingStrategyConfig::Rules>> rules_ {};
     };
 
@@ -520,26 +533,51 @@ namespace Models
 
 
   protected:
+    // The access control list (ACL) mode of the knowledge space. Valid values:
+    // - DISABLED
+    // - ENFORCED
     shared_ptr<string> ACLMode_ {};
+    // The time when the knowledge space was created.
     shared_ptr<string> creationTime_ {};
+    // The ID of the PolarDB instance.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the database.
     shared_ptr<string> DBName_ {};
+    // The type of the database engine. Valid values:
+    // * MySQL
+    // * PostgreSQL
     shared_ptr<string> DBType_ {};
+    // The description of the knowledge space.
     shared_ptr<string> description_ {};
+    // The vector dimensions.
     shared_ptr<int32_t> embeddingDimension_ {};
+    // The embedding model.
     shared_ptr<string> embeddingModel_ {};
+    // The total number of knowledge bases.
     shared_ptr<int32_t> knowledgeBaseCount_ {};
+    // The unique identifier of the knowledge space.
     shared_ptr<string> knowledgeSpaceId_ {};
+    // The large language model.
     shared_ptr<string> LLMModel_ {};
+    // The name of the knowledge space.
     shared_ptr<string> name_ {};
+    // OSS Bucket
     shared_ptr<string> OSSBucket_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The reranking model.
     shared_ptr<string> rerankModel_ {};
+    // The chunk size in tokens.
     shared_ptr<int32_t> shardSize_ {};
+    // The default chunking strategy configuration of the knowledge space. This parameter may be empty if existing instances do not have the complete configuration saved.
     shared_ptr<DescribeKnowledgeSpaceAttributeResponseBody::ShardingStrategyConfig> shardingStrategyConfig_ {};
+    // The instance status.
     shared_ptr<string> status_ {};
+    // The chunking strategy.
     shared_ptr<string> strategy_ {};
+    // The total number of documents.
     shared_ptr<int32_t> totalDocs_ {};
+    // The total size in bytes.
     shared_ptr<int64_t> totalSizeBytes_ {};
   };
 

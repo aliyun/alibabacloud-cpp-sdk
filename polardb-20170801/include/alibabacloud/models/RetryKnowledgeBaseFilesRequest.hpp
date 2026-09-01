@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The IDs of the files to retry. Separate multiple IDs with commas (,). A maximum of 30 IDs can be specified.
+    // 
     // This parameter is required.
     shared_ptr<string> fileIds_ {};
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

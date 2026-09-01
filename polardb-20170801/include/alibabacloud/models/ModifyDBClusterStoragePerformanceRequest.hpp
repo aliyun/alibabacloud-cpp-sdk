@@ -112,61 +112,43 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): uses coupons.
+    // * false: does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
-    // Specifies if the I/O performance burst feature is enabled for an ESSD AutoPL disk. Valid values:
+    // Specifies whether to enable I/O performance burst for the ESSD AutoPL cloud disk. Valid values:
     // 
-    // - **true**: Enabled
+    // - **true**: enabled.
+    // - **false**: disabled (default).
     // 
-    // - **false**: Disabled (Default)
-    // 
-    // > This parameter applies only when StorageType is set to ESSDAUTOPL.
+    // > This parameter is supported only when StorageType is set to ESSDAUTOPL.
     shared_ptr<string> burstingEnabled_ {};
-    // A client-generated token that ensures request idempotence. The token must be unique for each request. It is case-sensitive and can be up to 64 ASCII characters long.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token is case-sensitive and can contain only ASCII characters. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The modification type. Valid values:
-    // 
-    // - **Upgrade**: Upgrades the storage performance.
-    // 
-    // - **Downgrade**: Downgrades the storage performance.
+    // The type of the specification change. Valid values: 
+    // * **Upgrade**: upgrades the specifications.
+    // * **Downgrade**: downgrades the specifications.
     shared_ptr<string> modifyType_ {};
+    // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
-    // <props="china">
-    // 
-    // Valid values: 0 to min{50,000, 1000 \\* capacity - baseline performance}.
-    // 
-    // 
-    // 
-    // <props="china">
-    // 
-    // Baseline performance = min{1,800 + 50 \\* capacity, 50,000}.
-    // 
-    // 
-    // 
-    // <props="china">
-    // 
-    // > This parameter applies only when StorageType is set to ESSDAUTOPL.
+    // <p id="p_wyg_t4a_glm" props="china" icmsditafragmentmagic=1>The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}.</p>
+    // <p id="p_6de_jxy_k2g" props="china" icmsditafragmentmagic=1>Baseline performance = min{1,800 + 50 × Capacity, 50000}.</p>
+    // <note id="note_7kj_j0o_rgs" props="china" icmsditafragmentmagic=1>This parameter is supported only when StorageType is set to ESSDAUTOPL.</note>
     shared_ptr<int32_t> provisionedIops_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The target storage type. Valid values for Enterprise Edition:
-    // 
+    // The target storage type. Valid values for PolarDB Enterprise Edition:
     // - **PSL5**
-    // 
     // - **PSL4**
     // 
-    // Valid values for Standard Edition:
-    // 
+    // Valid values for PolarDB for MySQL Standard Edition:
     // - **ESSDPL0**
-    // 
     // - **ESSDPL1**
-    // 
     // - **ESSDPL2**
-    // 
     // - **ESSDPL3**
-    // 
     // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
   };

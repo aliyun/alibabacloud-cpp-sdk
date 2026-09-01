@@ -130,19 +130,33 @@ namespace Models
 
 
   protected:
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The maximum number of context characters. Valid values: 1000 to 32000.
     shared_ptr<int32_t> maxContextChars_ {};
+    // The user query text.
+    // 
     // This parameter is required.
     shared_ptr<string> queryText_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Specifies whether to enable reranking. Default value: false.
     shared_ptr<bool> rerankEnabled_ {};
+    // Specifies whether to return citation sources. Default value: true.
     shared_ptr<bool> returnSources_ {};
+    // The similarity score threshold.
     shared_ptr<double> scoreThreshold_ {};
+    // The search mode. Valid values: knn, rrf, precise, semantic, and balanced.
     shared_ptr<string> searchMode_ {};
+    // The system prompt.
     shared_ptr<string> systemPrompt_ {};
+    // The number of results to recall during retrieval.
     shared_ptr<int32_t> topK_ {};
+    // The supplementary user instructions.
     shared_ptr<string> userInstructions_ {};
   };
 

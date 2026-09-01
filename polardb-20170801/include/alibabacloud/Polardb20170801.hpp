@@ -193,7 +193,7 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
-       * @summary 知识库单轮问答
+       * @summary Performs a single-round knowledge base question answering.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +202,7 @@ namespace Polardb20170801
       Models::AnswerKnowledgeBaseResponse answerKnowledgeBaseWithOptions(const Models::AnswerKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 知识库单轮问答
+       * @summary Performs a single-round knowledge base question answering.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @return AnswerKnowledgeBaseResponse
@@ -2055,7 +2055,7 @@ namespace Polardb20170801
       Models::DeleteDBClusterResponse deleteDBCluster(const Models::DeleteDBClusterRequest &request);
 
       /**
-       * @summary Deletes a custom cluster endpoint for a PolarDB cluster.
+       * @summary Releases a custom cluster endpoint of a PolarDB cluster.
        *
        * @param request DeleteDBClusterEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2064,7 +2064,7 @@ namespace Polardb20170801
       Models::DeleteDBClusterEndpointResponse deleteDBClusterEndpointWithOptions(const Models::DeleteDBClusterEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom cluster endpoint for a PolarDB cluster.
+       * @summary Releases a custom cluster endpoint of a PolarDB cluster.
        *
        * @param request DeleteDBClusterEndpointRequest
        * @return DeleteDBClusterEndpointResponse
@@ -2349,7 +2349,7 @@ namespace Polardb20170801
       Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const Models::DeleteKnowledgeBaseRequest &request);
 
       /**
-       * @summary 删除知识库文件
+       * @summary Deletes a knowledge base file.
        *
        * @param request DeleteKnowledgeBaseFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2358,7 +2358,7 @@ namespace Polardb20170801
       Models::DeleteKnowledgeBaseFileResponse deleteKnowledgeBaseFileWithOptions(const Models::DeleteKnowledgeBaseFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除知识库文件
+       * @summary Deletes a knowledge base file.
        *
        * @param request DeleteKnowledgeBaseFileRequest
        * @return DeleteKnowledgeBaseFileResponse
@@ -4056,9 +4056,9 @@ namespace Polardb20170801
       Models::DescribeDBClusterTDEResponse describeDBClusterTDE(const Models::DescribeDBClusterTDERequest &request);
 
       /**
-       * @summary Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+       * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
        *
-       * @description > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
+       * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
        *
        * @param request DescribeDBClusterVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4067,9 +4067,9 @@ namespace Polardb20170801
       Models::DescribeDBClusterVersionResponse describeDBClusterVersionWithOptions(const Models::DescribeDBClusterVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+       * @summary Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
        *
-       * @description > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
+       * @description >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
        *
        * @param request DescribeDBClusterVersionRequest
        * @return DescribeDBClusterVersionResponse
@@ -4699,7 +4699,7 @@ namespace Polardb20170801
       Models::DescribeKBSyncLinksResponse describeKBSyncLinks(const Models::DescribeKBSyncLinksRequest &request);
 
       /**
-       * @summary 查询知识库单轮问答结果
+       * @summary Queries the result of a single-turn Q&A task in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4708,7 +4708,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAnswerResponse describeKnowledgeBaseAnswerWithOptions(const Models::DescribeKnowledgeBaseAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识库单轮问答结果
+       * @summary Queries the result of a single-turn Q&A task in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @return DescribeKnowledgeBaseAnswerResponse
@@ -4733,7 +4733,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAttributeResponse describeKnowledgeBaseAttribute(const Models::DescribeKnowledgeBaseAttributeRequest &request);
 
       /**
-       * @summary 查询知识库文件分片列表
+       * @summary Queries the list of file shards in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseFileShardsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4742,7 +4742,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseFileShardsResponse describeKnowledgeBaseFileShardsWithOptions(const Models::DescribeKnowledgeBaseFileShardsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识库文件分片列表
+       * @summary Queries the list of file shards in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseFileShardsRequest
        * @return DescribeKnowledgeBaseFileShardsResponse
@@ -4750,7 +4750,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseFileShardsResponse describeKnowledgeBaseFileShards(const Models::DescribeKnowledgeBaseFileShardsRequest &request);
 
       /**
-       * @summary 查询知识库文件列表
+       * @summary Queries the list of files in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4759,7 +4759,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseFilesResponse describeKnowledgeBaseFilesWithOptions(const Models::DescribeKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识库文件列表
+       * @summary Queries the list of files in a knowledge base.
        *
        * @param request DescribeKnowledgeBaseFilesRequest
        * @return DescribeKnowledgeBaseFilesResponse
@@ -4784,7 +4784,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBasesResponse describeKnowledgeBases(const Models::DescribeKnowledgeBasesRequest &request);
 
       /**
-       * @summary 查询知识空间详情
+       * @summary Queries the details of a knowledge space.
        *
        * @param request DescribeKnowledgeSpaceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4793,7 +4793,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeSpaceAttributeResponse describeKnowledgeSpaceAttributeWithOptions(const Models::DescribeKnowledgeSpaceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识空间详情
+       * @summary Queries the details of a knowledge space.
        *
        * @param request DescribeKnowledgeSpaceAttributeRequest
        * @return DescribeKnowledgeSpaceAttributeResponse
@@ -5803,7 +5803,7 @@ namespace Polardb20170801
       Models::DisableDBClusterOrcaResponse disableDBClusterOrca(const Models::DisableDBClusterOrcaRequest &request);
 
       /**
-       * @summary Disables steady-state serverless.
+       * @summary Disables steady-state Serverless.
        *
        * @param request DisableDBClusterServerlessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5812,7 +5812,7 @@ namespace Polardb20170801
       Models::DisableDBClusterServerlessResponse disableDBClusterServerlessWithOptions(const Models::DisableDBClusterServerlessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables steady-state serverless.
+       * @summary Disables steady-state Serverless.
        *
        * @param request DisableDBClusterServerlessRequest
        * @return DisableDBClusterServerlessResponse
@@ -7029,10 +7029,10 @@ namespace Polardb20170801
       Models::ModifyDBClusterMonitorResponse modifyDBClusterMonitor(const Models::ModifyDBClusterMonitorRequest &request);
 
       /**
-       * @summary Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
+       * @summary Modifies the parameters of a PolarDB cluster or applies an existing parameter template to the specified cluster.
        *
-       * @description The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
-       * > The parameter template feature is available only for PolarDB for MySQL.
+       * @description PolarDB provides the parameter template feature. You can use parameter templates to centrally manage parameters and quickly apply them to clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+       * > Currently, only PolarDB for MySQL supports the parameter template feature.
        *
        * @param request ModifyDBClusterParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7041,10 +7041,10 @@ namespace Polardb20170801
       Models::ModifyDBClusterParametersResponse modifyDBClusterParametersWithOptions(const Models::ModifyDBClusterParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
+       * @summary Modifies the parameters of a PolarDB cluster or applies an existing parameter template to the specified cluster.
        *
-       * @description The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
-       * > The parameter template feature is available only for PolarDB for MySQL.
+       * @description PolarDB provides the parameter template feature. You can use parameter templates to centrally manage parameters and quickly apply them to clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+       * > Currently, only PolarDB for MySQL supports the parameter template feature.
        *
        * @param request ModifyDBClusterParametersRequest
        * @return ModifyDBClusterParametersResponse
@@ -7086,7 +7086,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterResourceGroupResponse modifyDBClusterResourceGroup(const Models::ModifyDBClusterResourceGroupRequest &request);
 
       /**
-       * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+       * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7095,7 +7095,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterSSLResponse modifyDBClusterSSLWithOptions(const Models::ModifyDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+       * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @return ModifyDBClusterSSLResponse
@@ -8095,7 +8095,7 @@ namespace Polardb20170801
       Models::RestoreTableResponse restoreTable(const Models::RestoreTableRequest &request);
 
       /**
-       * @summary 检索知识库
+       * @summary Retrieves information from a knowledge base.
        *
        * @param request RetrievalKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8104,7 +8104,7 @@ namespace Polardb20170801
       Models::RetrievalKnowledgeBaseResponse retrievalKnowledgeBaseWithOptions(const Models::RetrievalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检索知识库
+       * @summary Retrieves information from a knowledge base.
        *
        * @param request RetrievalKnowledgeBaseRequest
        * @return RetrievalKnowledgeBaseResponse
@@ -8112,7 +8112,7 @@ namespace Polardb20170801
       Models::RetrievalKnowledgeBaseResponse retrievalKnowledgeBase(const Models::RetrievalKnowledgeBaseRequest &request);
 
       /**
-       * @summary 批量重试知识库失败文件
+       * @summary Retries failed files in a knowledge base in batches.
        *
        * @param request RetryKnowledgeBaseFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8121,7 +8121,7 @@ namespace Polardb20170801
       Models::RetryKnowledgeBaseFilesResponse retryKnowledgeBaseFilesWithOptions(const Models::RetryKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量重试知识库失败文件
+       * @summary Retries failed files in a knowledge base in batches.
        *
        * @param request RetryKnowledgeBaseFilesRequest
        * @return RetryKnowledgeBaseFilesResponse
@@ -8277,7 +8277,7 @@ namespace Polardb20170801
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Temporarily Modifies the configuration of a node.
+       * @summary Temporarily changes the specifications of a cluster.
        *
        * @param request TempModifyDBNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8286,7 +8286,7 @@ namespace Polardb20170801
       Models::TempModifyDBNodeResponse tempModifyDBNodeWithOptions(const Models::TempModifyDBNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Temporarily Modifies the configuration of a node.
+       * @summary Temporarily changes the specifications of a cluster.
        *
        * @param request TempModifyDBNodeRequest
        * @return TempModifyDBNodeResponse
@@ -8296,11 +8296,9 @@ namespace Polardb20170801
       /**
        * @summary Changes the billing method of a PolarDB cluster.
        *
-       * @description > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-       * >
-       * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
-       * >
-       * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
+       * @description > - PolarDB clusters support subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+       * >- If your Alibaba Cloud account balance is insufficient, you cannot change the pay-as-you-go billing method to subscription.
+       * >- When you change the billing method from subscription to pay-as-you-go, the system automatically refunds the remaining balance of the fees that you have paid.
        *
        * @param request TransformDBClusterPayTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8311,11 +8309,9 @@ namespace Polardb20170801
       /**
        * @summary Changes the billing method of a PolarDB cluster.
        *
-       * @description > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-       * >
-       * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
-       * >
-       * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
+       * @description > - PolarDB clusters support subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+       * >- If your Alibaba Cloud account balance is insufficient, you cannot change the pay-as-you-go billing method to subscription.
+       * >- When you change the billing method from subscription to pay-as-you-go, the system automatically refunds the remaining balance of the fees that you have paid.
        *
        * @param request TransformDBClusterPayTypeRequest
        * @return TransformDBClusterPayTypeResponse
@@ -8323,7 +8319,7 @@ namespace Polardb20170801
       Models::TransformDBClusterPayTypeResponse transformDBClusterPayType(const Models::TransformDBClusterPayTypeRequest &request);
 
       /**
-       * @summary 触发知识库同步
+       * @summary Triggers knowledge base synchronization.
        *
        * @param request TriggerKnowledgeBaseSyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8332,7 +8328,7 @@ namespace Polardb20170801
       Models::TriggerKnowledgeBaseSyncResponse triggerKnowledgeBaseSyncWithOptions(const Models::TriggerKnowledgeBaseSyncRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 触发知识库同步
+       * @summary Triggers knowledge base synchronization.
        *
        * @param request TriggerKnowledgeBaseSyncRequest
        * @return TriggerKnowledgeBaseSyncResponse
@@ -8471,7 +8467,7 @@ namespace Polardb20170801
       Models::UpdateKBSyncLinkResponse updateKBSyncLink(const Models::UpdateKBSyncLinkRequest &request);
 
       /**
-       * @summary 更新知识库
+       * @summary Updates a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8480,7 +8476,7 @@ namespace Polardb20170801
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const Models::UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识库
+       * @summary Updates a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @return UpdateKnowledgeBaseResponse
@@ -8488,7 +8484,7 @@ namespace Polardb20170801
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 更新知识库文件分块策略
+       * @summary Updates the chunking strategy for a file in a knowledge base.
        *
        * @param tmpReq UpdateKnowledgeBaseFileShardingStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8497,7 +8493,7 @@ namespace Polardb20170801
       Models::UpdateKnowledgeBaseFileShardingStrategyResponse updateKnowledgeBaseFileShardingStrategyWithOptions(const Models::UpdateKnowledgeBaseFileShardingStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识库文件分块策略
+       * @summary Updates the chunking strategy for a file in a knowledge base.
        *
        * @param request UpdateKnowledgeBaseFileShardingStrategyRequest
        * @return UpdateKnowledgeBaseFileShardingStrategyResponse
@@ -8505,7 +8501,7 @@ namespace Polardb20170801
       Models::UpdateKnowledgeBaseFileShardingStrategyResponse updateKnowledgeBaseFileShardingStrategy(const Models::UpdateKnowledgeBaseFileShardingStrategyRequest &request);
 
       /**
-       * @summary 更新知识空间
+       * @summary Updates a knowledge space.
        *
        * @param tmpReq UpdateKnowledgeSpaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8514,7 +8510,7 @@ namespace Polardb20170801
       Models::UpdateKnowledgeSpaceResponse updateKnowledgeSpaceWithOptions(const Models::UpdateKnowledgeSpaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识空间
+       * @summary Updates a knowledge space.
        *
        * @param request UpdateKnowledgeSpaceRequest
        * @return UpdateKnowledgeSpaceResponse

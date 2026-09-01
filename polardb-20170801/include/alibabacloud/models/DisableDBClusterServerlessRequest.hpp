@@ -107,10 +107,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to immediately run the task or run it during a scheduled time window. Valid values:
+    // 
+    // - false (default): The task is run during a scheduled time window.
+    // - true: The task is immediately run.
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The latest time to start running the scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
     shared_ptr<string> plannedEndTime_ {};
+    // The earliest time to start running the scheduled task (that is, the task is run within the specified time range). Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
     shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

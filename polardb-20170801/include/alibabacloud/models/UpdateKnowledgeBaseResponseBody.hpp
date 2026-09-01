@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique ID of the knowledge base.
     shared_ptr<string> knowledgeBaseId_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

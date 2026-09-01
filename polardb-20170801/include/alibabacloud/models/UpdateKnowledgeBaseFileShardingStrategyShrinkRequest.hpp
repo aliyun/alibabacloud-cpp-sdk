@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The unique ID of the knowledge base file.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // Specifies whether to restore inheritance of the chunking strategy from the knowledge space. When this parameter is set to true, ShardingStrategyConfig cannot be specified at the same time.
     shared_ptr<bool> inheritSpaceStrategy_ {};
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The ID of the region where the knowledge base resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The file-level chunking strategy configuration. This parameter is required when InheritSpaceStrategy is not set to true.
     shared_ptr<string> shardingStrategyConfigShrink_ {};
   };
 

@@ -190,7 +190,9 @@ namespace Models
 
 
             protected:
+              // The Markdown table processing mode. Valid values: auto, on, and off.
               shared_ptr<string> markdownTables_ {};
+              // The maximum number of tokens per shard for matched content.
               shared_ptr<int32_t> maxTokens_ {};
             };
 
@@ -213,7 +215,9 @@ namespace Models
 
 
           protected:
+            // The parameter list.
             shared_ptr<Strategy::Parameters> parameters_ {};
+            // The chunking strategy type applied after a rule is matched.
             shared_ptr<string> type_ {};
           };
 
@@ -245,6 +249,7 @@ namespace Models
 
 
           protected:
+            // The content type. Currently, table is supported.
             shared_ptr<string> contentType_ {};
           };
 
@@ -269,7 +274,9 @@ namespace Models
 
 
         protected:
+          // The content type. Currently, table is supported.
           shared_ptr<Rules::Match> match_ {};
+          // The chunking strategy.
           shared_ptr<Rules::Strategy> strategy_ {};
         };
 
@@ -332,7 +339,9 @@ namespace Models
 
 
           protected:
+            // The maximum number of tokens per shard.
             shared_ptr<int32_t> maxTokens_ {};
+            // Specifies whether to merge adjacent small shards under the same heading.
             shared_ptr<bool> mergePeers_ {};
           };
 
@@ -355,7 +364,9 @@ namespace Models
 
 
         protected:
+          // The parameter list.
           shared_ptr<DefaultStrategy::Parameters> parameters_ {};
+          // The default chunking strategy type. Valid values: hybrid and hierarchical.
           shared_ptr<string> type_ {};
         };
 
@@ -380,7 +391,9 @@ namespace Models
 
 
       protected:
+        // The default chunking strategy type. Valid values: hybrid and hierarchical.
         shared_ptr<ShardingStrategyConfig::DefaultStrategy> defaultStrategy_ {};
+        // The list of override rules matched in order.
         shared_ptr<vector<ShardingStrategyConfig::Rules>> rules_ {};
       };
 
@@ -505,21 +518,37 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The file ID.
       shared_ptr<string> fileId_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The file size, in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The file type.
       shared_ptr<string> fileType_ {};
+      // Indicates whether the chunking strategy is inherited from the knowledge space.
       shared_ptr<bool> inheritSpaceStrategy_ {};
+      // The knowledge base ID.
       shared_ptr<string> knowledgeBaseId_ {};
+      // The knowledge space ID.
       shared_ptr<string> knowledgeSpaceId_ {};
+      // The document metadata.
       Darabonba::Json metadata_ {};
+      // The OSS file path.
       shared_ptr<string> OSSPath_ {};
+      // The number of shards.
       shared_ptr<int32_t> shardCount_ {};
+      // The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing objects.
       shared_ptr<Items::ShardingStrategyConfig> shardingStrategyConfig_ {};
+      // The source type.
       shared_ptr<string> sourceType_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updatedAt_ {};
+      // The upload time.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -570,11 +599,19 @@ namespace Models
 
 
   protected:
+    // The list of files.
     shared_ptr<vector<DescribeKnowledgeBaseFilesResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of records per page. Valid values: **30**, **50**, and **100**.
+    //                               
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

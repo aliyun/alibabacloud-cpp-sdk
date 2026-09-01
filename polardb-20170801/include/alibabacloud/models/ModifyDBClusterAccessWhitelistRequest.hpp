@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The attribute of the IP whitelist group. If this parameter is set to **hidden**, the group is not displayed in the console.
+    // The attribute of the IP whitelist group. If you set this parameter to **hidden**, the group is not displayed in the console.
     // 
     // > - IP whitelist groups that are already displayed in the console cannot be hidden.
     // > - This parameter takes effect only when **WhiteListType** is set to **IP**.
@@ -151,7 +151,7 @@ namespace Models
     // - If the specified whitelist group name already exists, the whitelist group is modified.
     // - If this parameter is not specified, the default group is modified. 
     // 
-    // > - A maximum of 50 IP whitelist groups are supported for a cluster.
+    // > - A cluster supports up to 50 IP whitelist groups.
     // > - This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> DBClusterIPArrayName_ {};
     // The cluster ID.
@@ -159,26 +159,27 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The method used to modify the IP whitelist. Valid values:
-    // - **Cover**: overwrites the original IP whitelist (default value).
-    // - **Append**: appends IP addresses to the whitelist.
-    // - **Delete**: removes IP addresses from the whitelist.
+    // - **Cover**: overwrites the original IP whitelist. This is the default value.
+    // - **Append**: appends IP addresses to the IP whitelist.
+    // - **Delete**: removes IP addresses from the IP whitelist.
     // 
     // > This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> modifyMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The file system instance ID.
     shared_ptr<string> pfsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The security group IDs. Separate multiple security group IDs with commas (,).
     // 
-    // > - A maximum of 3 security groups are supported for a cluster.
+    // > - A cluster supports up to 3 security groups.
     // > - This parameter takes effect only when **WhiteListType** is set to **SecurityGroup**.
     shared_ptr<string> securityGroupIds_ {};
-    // The IP addresses or CIDR blocks in the IP whitelist group. A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP whitelist groups. Separate multiple IP addresses with commas (,). The following two formats are supported: 
+    // The IP addresses or CIDR blocks in the IP whitelist group. You can add up to 1,000 IP addresses or CIDR blocks across all IP whitelist groups. Separate multiple IP addresses with commas (,). The following two formats are supported: 
     // 
     // - IP address format, such as 10.23.12.24.
-    // - CIDR format, such as 10.23.12.24/24, where 24 indicates the prefix length of the CIDR block. The prefix length ranges from 1 to 32.
+    // - CIDR format, such as 10.23.12.24/24, where 24 indicates the length of the prefix in the IP address. The prefix length ranges from 1 to 32.
     // 
     // > This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> securityIps_ {};

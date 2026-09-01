@@ -81,11 +81,10 @@ namespace Models
     // 
     // - **Prepaid**: subscription
     shared_ptr<string> chargeType_ {};
-    // The ID of the PolarDB cluster.
+    // The PolarDB cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The expiration time of the instance.
-    // 
-    // > This parameter is returned only when **PayType** is set to **Prepaid**.
+    // > This response parameter is returned only when **PayType** is set to **Prepaid**.
     shared_ptr<string> expiredTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

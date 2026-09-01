@@ -98,12 +98,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the custom cluster endpoint.
+    // The custom cluster endpoint ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBEndpointId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PolarFs instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

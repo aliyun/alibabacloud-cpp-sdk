@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the knowledge space.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeSpaceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

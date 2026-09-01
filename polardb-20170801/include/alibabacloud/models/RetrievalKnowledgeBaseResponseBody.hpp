@@ -133,13 +133,21 @@ namespace Models
 
 
     protected:
+      // The unique ID of the file.
       shared_ptr<string> fileId_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The chain of section headings to which the shard belongs.
       shared_ptr<vector<string>> headings_ {};
+      // The metadata.
       shared_ptr<string> metadata_ {};
+      // The list of page numbers to which the shard belongs.
       shared_ptr<vector<int32_t>> pageNumbers_ {};
+      // The text content of the shard.
       shared_ptr<string> shardContent_ {};
+      // The shard index.
       shared_ptr<int32_t> shardIndex_ {};
+      // The similarity score.
       shared_ptr<double> similarityScore_ {};
     };
 
@@ -176,9 +184,13 @@ namespace Models
 
 
   protected:
+    // The query text.
     shared_ptr<string> queryText_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The number of results.
     shared_ptr<int32_t> resultCount_ {};
+    // The search results.
     shared_ptr<vector<RetrievalKnowledgeBaseResponseBody::Results>> results_ {};
   };
 

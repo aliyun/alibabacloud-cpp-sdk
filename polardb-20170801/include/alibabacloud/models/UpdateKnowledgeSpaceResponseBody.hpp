@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the knowledge space.
     shared_ptr<string> knowledgeSpaceId_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The ID of the asynchronous workflow task. This value is empty if no actual model change occurs.
     shared_ptr<int32_t> taskId_ {};
   };
 

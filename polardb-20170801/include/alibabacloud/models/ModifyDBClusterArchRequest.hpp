@@ -84,25 +84,27 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): Uses coupons.
+    // * false: Does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable a hot standby cluster. Valid values:
+    // Specifies whether to enable the hot standby cluster. Valid values:
     // 
-    // - **on**: Enables a hot standby cluster.
-    // 
-    // - **equal**: Enables a peer cluster.
+    // - **on**: Enables the hot standby cluster.
+    // - **equal**: Enables the peer cluster.
     shared_ptr<string> hotStandbyCluster_ {};
+    // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
-    // > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region information.
     shared_ptr<string> regionId_ {};
-    // The zone for the hot standby storage cluster. Valid values:
+    // The zone of the hot standby storage cluster. Valid values:
     // 
-    // - **auto** (default): The system automatically selects a zone.
-    // 
-    // > The default value is valid only when \\`HotStandbyCluster\\` is set to \\`on\\`. A specific zone is required when \\`HotStandbyCluster\\` is set to \\`equal\\`. For more information about zones, see [DescribeZones](https://help.aliyun.com/document_detail/98041.html).
+    // - **auto** (default): Automatically selected.
+    // > When the HotStandbyCluster parameter is set to on, you can use the default value. When the HotStandbyCluster parameter is set to equal, you must specify a specific zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/98041.html) operation to query zone details.
     shared_ptr<string> standbyAZ_ {};
   };
 

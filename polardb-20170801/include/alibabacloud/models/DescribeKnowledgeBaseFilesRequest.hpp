@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The list of file IDs, separated by commas (,).
     shared_ptr<string> fileIds_ {};
+    // The keyword used to filter file names.
     shared_ptr<string> keyword_ {};
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The unique ID of the synchronization link.
     shared_ptr<string> linkId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
   };
 

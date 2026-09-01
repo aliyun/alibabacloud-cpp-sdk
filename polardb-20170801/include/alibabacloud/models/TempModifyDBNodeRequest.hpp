@@ -90,13 +90,12 @@ namespace Models
 
 
     protected:
-      // The specifications of the node to upgrade or add.
+      // The specifications of the node to be upgraded or added.
       // 
-      // > - When you add a node, the node specifications must be the same as the specifications of the existing nodes.
-      // >
-      // > - For more information about the specifications of existing cluster nodes, see [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html).
+      // > - When you add a node, the node specifications must be the same as those of the existing nodes.
+      // > - For the specifications of existing cluster nodes, see [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html).
       shared_ptr<string> targetClass_ {};
-      // The zone for the new node. The zone must be the same as the zone of the existing nodes.
+      // The zone of the node to be added. The zone must be the same as that of the existing nodes.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -191,37 +190,40 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): Uses coupons.
+    // * false: Does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
-    // A client token to ensure the idempotence of the request. Generate a unique token for each request. The token is case-sensitive and can be up to 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token is case-sensitive and can contain only ASCII characters. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The information about the nodes to upgrade or add.
+    // The information about the node to be upgraded or added.
     // 
     // This parameter is required.
     shared_ptr<vector<TempModifyDBNodeRequest::DBNode>> DBNode_ {};
-    // The modification type. The value is fixed to **TempUpgrade**.
+    // The change type. The value is fixed as **TempUpgrade**.
     // 
     // This parameter is required.
     shared_ptr<string> modifyType_ {};
     // The operation type. Valid values:
     // 
-    // - **Modify**: temporary upgrade
-    // 
-    // - **Add**: temporarily add a node
+    // - **Modify**: temporarily upgrades specifications.
+    // - **Add**: temporarily adds nodes.
     // 
     // This parameter is required.
     shared_ptr<string> operationType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The time to revert the temporary upgrade. The format is YYYY-MM-DD hh:mm:ss.
+    // The restore time for the temporary upgrade. Specify the time in the YYYY-MM-DD hh:mm:ss format.
     // 
-    // > The revert time must be at least 1 hour later than the current time. It must also be at least 1 day before the cluster expires.
+    // > The restore time cannot be earlier than 1 hour after the current time or later than 1 day before the cluster expiration time.
     // 
     // This parameter is required.
     shared_ptr<string> restoreTime_ {};

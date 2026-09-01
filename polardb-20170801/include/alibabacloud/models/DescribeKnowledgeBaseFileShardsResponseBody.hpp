@@ -100,9 +100,13 @@ namespace Models
 
 
     protected:
+      // The chain of section headings to which the shard belongs.
       shared_ptr<vector<string>> headings_ {};
+      // The list of page numbers to which the shard belongs.
       shared_ptr<vector<string>> pageNumbers_ {};
+      // The text content of the shard.
       shared_ptr<string> shardContent_ {};
+      // The shard index.
       shared_ptr<int32_t> shardIndex_ {};
     };
 
@@ -153,11 +157,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The shard information.
     shared_ptr<vector<DescribeKnowledgeBaseFileShardsResponseBody::Shards>> shards_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

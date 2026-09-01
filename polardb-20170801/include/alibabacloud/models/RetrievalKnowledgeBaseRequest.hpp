@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The query text.
+    // 
     // This parameter is required.
     shared_ptr<string> queryText_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Specifies whether to enable reranking. Default value: true.
     shared_ptr<bool> rerankEnabled_ {};
+    // The similarity score threshold.
     shared_ptr<double> scoreThreshold_ {};
+    // The number of results to return.
     shared_ptr<int32_t> topK_ {};
   };
 

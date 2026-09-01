@@ -139,7 +139,12 @@ namespace Models
 
 
           protected:
+            // The Markdown table processing mode. Valid values:
+            // - auto: Automatically determines the processing mode.
+            // - on: Forcefully enables Markdown table processing.
+            // - off: Disables Markdown table processing.
             shared_ptr<string> markdownTables_ {};
+            // The maximum number of tokens per chunk for matched content. The value must be a positive integer. This parameter takes effect only when Type is set to hybrid.
             shared_ptr<int32_t> maxTokens_ {};
           };
 
@@ -162,7 +167,12 @@ namespace Models
 
 
         protected:
+          // The chunking strategy parameters of the override rule. MaxTokens takes effect only when Type is set to hybrid. MarkdownTables supports auto, on, or off.
           shared_ptr<Strategy::Parameters> parameters_ {};
+          // The chunking strategy type of the override rule. Valid values:
+          // - hybrid
+          // - hierarchical
+          // 
           // This parameter is required.
           shared_ptr<string> type_ {};
         };
@@ -195,6 +205,7 @@ namespace Models
 
 
         protected:
+          // The content type. Currently, only table is supported, which matches content that is parsed as tables.
           shared_ptr<string> contentType_ {};
         };
 
@@ -219,8 +230,12 @@ namespace Models
 
 
       protected:
+        // The rule match condition. Currently, only exact matching by content type for table content is supported.
+        // 
         // This parameter is required.
         shared_ptr<Rules::Match> match_ {};
+        // The chunking strategy to use when the rule is matched.
+        // 
         // This parameter is required.
         shared_ptr<Rules::Strategy> strategy_ {};
       };
@@ -284,7 +299,9 @@ namespace Models
 
 
         protected:
+          // The maximum number of tokens per chunk. The value must be a positive integer. This parameter takes effect only when Type is set to hybrid.
           shared_ptr<int32_t> maxTokens_ {};
+          // Specifies whether to merge adjacent small chunks under the same heading. This parameter takes effect only when Type is set to hybrid.
           shared_ptr<bool> mergePeers_ {};
         };
 
@@ -307,7 +324,12 @@ namespace Models
 
 
       protected:
+        // The parameters of the default chunking strategy. MaxTokens and MergePeers are supported only when Type is set to hybrid.
         shared_ptr<DefaultStrategy::Parameters> parameters_ {};
+        // The type of the default chunking strategy. Valid values:
+        // - hybrid: Splits by document structure and limits the token count.
+        // - hierarchical: Splits only by document structure.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -333,8 +355,11 @@ namespace Models
 
 
     protected:
+      // The default chunking strategy. This strategy is used when no rule is matched.
+      // 
       // This parameter is required.
       shared_ptr<ShardingStrategyConfig::DefaultStrategy> defaultStrategy_ {};
+      // The list of override rules that are matched in order. Currently, a maximum of one exact-match rule with ContentType set to table is supported.
       shared_ptr<vector<ShardingStrategyConfig::Rules>> rules_ {};
     };
 
@@ -378,13 +403,21 @@ namespace Models
 
 
   protected:
+    // The unique ID of the knowledge base file.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // Specifies whether to restore inheritance of the chunking strategy from the knowledge space. When this parameter is set to true, ShardingStrategyConfig cannot be specified at the same time.
     shared_ptr<bool> inheritSpaceStrategy_ {};
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The ID of the region where the knowledge base resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The file-level chunking strategy configuration. This parameter is required when InheritSpaceStrategy is not set to true.
     shared_ptr<UpdateKnowledgeBaseFileShardingStrategyRequest::ShardingStrategyConfig> shardingStrategyConfig_ {};
   };
 

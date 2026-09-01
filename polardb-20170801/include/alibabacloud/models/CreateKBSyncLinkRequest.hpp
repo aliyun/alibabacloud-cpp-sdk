@@ -18,11 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(KnowledgeBaseId, knowledgeBaseId_);
       DARABONBA_PTR_TO_JSON(LinkName, linkName_);
+      DARABONBA_PTR_TO_JSON(McpEndpoint, mcpEndpoint_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(SheetMcpEndpoint, sheetMcpEndpoint_);
       DARABONBA_PTR_TO_JSON(SourceDir, sourceDir_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(SyncIntervalMinutes, syncIntervalMinutes_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateKBSyncLinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
@@ -30,11 +33,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(KnowledgeBaseId, knowledgeBaseId_);
       DARABONBA_PTR_FROM_JSON(LinkName, linkName_);
+      DARABONBA_PTR_FROM_JSON(McpEndpoint, mcpEndpoint_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(SheetMcpEndpoint, sheetMcpEndpoint_);
       DARABONBA_PTR_FROM_JSON(SourceDir, sourceDir_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(SyncIntervalMinutes, syncIntervalMinutes_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     CreateKBSyncLinkRequest() = default ;
     CreateKBSyncLinkRequest(const CreateKBSyncLinkRequest &) = default ;
@@ -48,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->clientSecret_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->linkName_ == nullptr && this->regionId_ == nullptr
-        && this->sourceDir_ == nullptr && this->sourceType_ == nullptr && this->syncIntervalMinutes_ == nullptr && this->tenantId_ == nullptr; };
+        && this->clientSecret_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->linkName_ == nullptr && this->mcpEndpoint_ == nullptr
+        && this->regionId_ == nullptr && this->sheetMcpEndpoint_ == nullptr && this->sourceDir_ == nullptr && this->sourceType_ == nullptr && this->syncIntervalMinutes_ == nullptr
+        && this->tenantId_ == nullptr && this->userId_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -85,11 +92,25 @@ namespace Models
     inline CreateKBSyncLinkRequest& setLinkName(string linkName) { DARABONBA_PTR_SET_VALUE(linkName_, linkName) };
 
 
+    // mcpEndpoint Field Functions 
+    bool hasMcpEndpoint() const { return this->mcpEndpoint_ != nullptr;};
+    void deleteMcpEndpoint() { this->mcpEndpoint_ = nullptr;};
+    inline string getMcpEndpoint() const { DARABONBA_PTR_GET_DEFAULT(mcpEndpoint_, "") };
+    inline CreateKBSyncLinkRequest& setMcpEndpoint(string mcpEndpoint) { DARABONBA_PTR_SET_VALUE(mcpEndpoint_, mcpEndpoint) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateKBSyncLinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // sheetMcpEndpoint Field Functions 
+    bool hasSheetMcpEndpoint() const { return this->sheetMcpEndpoint_ != nullptr;};
+    void deleteSheetMcpEndpoint() { this->sheetMcpEndpoint_ = nullptr;};
+    inline string getSheetMcpEndpoint() const { DARABONBA_PTR_GET_DEFAULT(sheetMcpEndpoint_, "") };
+    inline CreateKBSyncLinkRequest& setSheetMcpEndpoint(string sheetMcpEndpoint) { DARABONBA_PTR_SET_VALUE(sheetMcpEndpoint_, sheetMcpEndpoint) };
 
 
     // sourceDir Field Functions 
@@ -120,6 +141,13 @@ namespace Models
     inline CreateKBSyncLinkRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline CreateKBSyncLinkRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> clientId_ {};
@@ -130,14 +158,17 @@ namespace Models
     shared_ptr<string> knowledgeBaseId_ {};
     // This parameter is required.
     shared_ptr<string> linkName_ {};
+    shared_ptr<string> mcpEndpoint_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> sheetMcpEndpoint_ {};
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     shared_ptr<string> tenantId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

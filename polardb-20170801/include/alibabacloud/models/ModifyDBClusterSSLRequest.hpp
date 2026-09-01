@@ -140,7 +140,9 @@ namespace Models
 
 
   protected:
+    // The validity period of the SSL certificate. Unit: days. Valid values: 365 and 1095.
     shared_ptr<string> certValidDays_ {};
+    // The connection string.
     shared_ptr<string> connectionString_ {};
     // The cluster ID.
     // 
@@ -149,34 +151,35 @@ namespace Models
     // The endpoint ID.
     // 
     // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
     // >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
     shared_ptr<string> DBEndpointId_ {};
-    // The network type of the endpoint. The value must be consistent with the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
+    // The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
     // * **Public**: public network
     // * **Private**: private network
     // * **Inner**: private network (classic network)
     // 
     // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
     shared_ptr<string> netType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PFS instance ID.
     shared_ptr<string> pfsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable automatic SSL certificate rotation. Valid values:
     // 
-    // - **Enable**: Enables automatic rotation.
+    // - **Enable**: Enabled.
     // 
-    // - **Disable**: Disables automatic rotation.
+    // - **Disable**: Disabled.
     shared_ptr<string> SSLAutoRotate_ {};
-    // The SSL status. Valid values:
-    // * **Disable**: Shutdown of Secure Sockets Layer (SSL) encryption.
-    // * **Enable**: Enables Secure Sockets Layer (SSL) encryption.
+    // The SSL status to set. Valid values:
+    // * **Disable**: Shutdown SSL encryption.
+    // * **Enable**: Enables SSL encryption.
     // * **Update**: Updates the CA certificate.
     // 
-    // > After you enable Secure Sockets Layer (SSL) encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+    // > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
     shared_ptr<string> SSLEnabled_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The file ID. To delete multiple files at a time, separate the file IDs with commas (,). A maximum of 500 file IDs are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // The unique ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
