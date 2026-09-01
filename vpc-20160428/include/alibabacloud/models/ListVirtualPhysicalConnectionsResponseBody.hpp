@@ -157,11 +157,11 @@ namespace Models
       protected:
         // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
         // 
-        // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+        // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
         // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
         // 
-        // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag value cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+        // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -403,7 +403,7 @@ namespace Models
       // The business status of the Express Connect circuit. Valid values:
       // 
       // - **Normal**: Enabled.
-      // - **FinancialLocked**: Financial lock.
+      // - **FinancialLocked**: Locked due to overdue payment.
       // - **SecurityLocked**: Locked for security reasons.
       shared_ptr<string> businessStatus_ {};
       // The billing method of the Express Connect circuit.
@@ -412,21 +412,21 @@ namespace Models
       shared_ptr<string> chargeType_ {};
       // The circuit code provided by the carrier for the Express Connect circuit.
       shared_ptr<string> circuitCode_ {};
-      // The time when the Express Connect circuit was created.
+      // The time when the Express Connect circuit was created. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The description of the Express Connect circuit.
       shared_ptr<string> description_ {};
-      // The time when the Express Connect circuit was enabled.
+      // The time when the Express Connect circuit was enabled. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> enabledTime_ {};
       // The expiration time of the shared Express Connect circuits.
       // 
-      // The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+      // The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> endTime_ {};
-      // The expected bandwidth of the shared Express Connect circuits. The expected bandwidth takes effect only after payment is complete.
+      // The expected bandwidth value of the shared Express Connect circuits. The expected bandwidth value takes effect only after payment is completed.
       // 
       // Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
       shared_ptr<string> expectSpec_ {};
-      // The carrier that provides the physical connection. Valid values:
+      // The carrier that provides the physical line for access. Valid values:
       // 
       // - **CT**: China Telecom.
       // - **CU**: China Unicom.
@@ -452,7 +452,7 @@ namespace Models
       // - **PayByPhysicalConnectionOwner**: The owner of the Express Connect circuit associated with the shared Express Connect circuits is the payer.
       // - **PayByVirtualPhysicalConnectionOwner**: The owner of the shared Express Connect circuits is the payer.
       shared_ptr<string> orderMode_ {};
-      // The Alibaba Cloud account ID to which the Express Connect circuit belongs.
+      // The Alibaba Cloud account ID that owns the Express Connect circuit.
       shared_ptr<string> parentPhysicalConnectionAliUid_ {};
       // The instance ID of the Express Connect circuit.
       shared_ptr<string> parentPhysicalConnectionId_ {};
@@ -462,10 +462,10 @@ namespace Models
       shared_ptr<string> physicalConnectionId_ {};
       // The port number of the access device for the Express Connect circuit.
       shared_ptr<string> portNumber_ {};
-      // The port type of the Express Connect circuit. Valid values:
+      // The port type of the access device for the Express Connect circuit. Valid values:
       // 
       // - **100Base-T**: 100M Ethernet port.
-      // - **1000Base-T**: 1 GE electrical port.
+      // - **1000Base-T**: GE electrical port.
       // - **1000Base-LX**: GE single-mode optical port (10 km).
       // - **10GBase-T**: 10 GE electrical port.
       // - **10GBase-LR**: 10 GE single-mode optical port (10 km).
@@ -481,7 +481,7 @@ namespace Models
       shared_ptr<string> redundantPhysicalConnectionId_ {};
       // The ID of the resource group to which the shared Express Connect circuits belong.
       shared_ptr<string> resourceGroupId_ {};
-      // The bandwidth of the shared Express Connect circuits.
+      // The bandwidth value of the shared Express Connect circuits.
       // 
       // Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
       shared_ptr<string> spec_ {};
@@ -491,7 +491,7 @@ namespace Models
       // - **Approved**: The application is approved.
       // - **Allocating**: Resources are being allocated.
       // - **Allocated**: Under construction.
-      // - **Confirmed**: Pending confirmation.
+      // - **Confirmed**: Waiting for user confirmation.
       // - **Enabled**: Enabled.
       // - **Rejected**: The application is rejected.
       // - **Canceled**: Canceled.
@@ -554,9 +554,9 @@ namespace Models
   protected:
     // The number of entries returned in the current query.
     shared_ptr<int32_t> count_ {};
-    // Indicates whether a next query token is available. Valid values:
-    // - If **NextToken** is empty, no next query is available.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // Indicates whether a next query token exists. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a return value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

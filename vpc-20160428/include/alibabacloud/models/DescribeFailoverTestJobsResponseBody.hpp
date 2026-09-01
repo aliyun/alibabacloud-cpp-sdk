@@ -157,15 +157,15 @@ namespace Models
       // 
       // The description is 0 to 256 characters in length and cannot start with **http://** or **https://**.
       shared_ptr<string> description_ {};
-      // The test duration. Unit: minutes. Valid values: **1 to 4320**.
+      // The test duration. Unit: minutes. Valid values: **1** to **4320**.
       shared_ptr<string> jobDuration_ {};
       // The failover test job ID.
       shared_ptr<string> jobId_ {};
       // The failover test type. Valid values:
       // 
-      // - **StartNow**: The test starts immediately after the failover test job is created.
+      // - **StartNow**: starts the test immediately after the failover test job is created.
       // 
-      // - **StartLater**: Only the test job is created. The test is not started.
+      // - **StartLater**: creates the failover test job without starting the test.
       shared_ptr<string> jobType_ {};
       // The name of the failover test job.
       // 
@@ -179,15 +179,15 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The status of the failover test job. Valid values:
       // 
-      // - **Init**: Pending.
+      // - **Init**: pending.
       // 
-      // - **Starting**: Starting.
+      // - **Starting**: starting.
       // 
-      // - **Testing**: In progress.
+      // - **Testing**: in progress.
       // 
-      // - **Stopping**: Stopping.
+      // - **Stopping**: stopping.
       // 
-      // - **Stopped**: Completed.
+      // - **Stopped**: completed.
       shared_ptr<string> status_ {};
       // The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format based on the ISO 8601 standard.
       shared_ptr<string> stopTime_ {};
@@ -240,21 +240,21 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> count_ {};
     // The list of failover test jobs.
     shared_ptr<vector<DescribeFailoverTestJobsResponseBody::FailoverTestJobList>> failoverTestJobList_ {};
-    // The number of entries per page for paginated queries. Valid values: **1 to 100**. Default value: 20.
+    // The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The pagination token. Valid values:
     // 
-    // - Leave this parameter empty for the first query or if no next query exists.
+    // - Leave this parameter empty for the first query or if no subsequent query is required.
     // 
-    // - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+    // - If a subsequent query is required, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

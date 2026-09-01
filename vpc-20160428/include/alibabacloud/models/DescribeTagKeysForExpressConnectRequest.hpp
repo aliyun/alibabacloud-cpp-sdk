@@ -149,6 +149,8 @@ namespace Models
     // - **VIRTUALBORDERROUTER**: Virtual Border Router.
     // - **ROUTERINTERFACE**: VBR uplink.
     // - **TRAFFICQOS**: QoS policy.
+    // 
+    // > This parameter is essentially required. If it is not specified, the service returns MissingParameter (400).
     shared_ptr<string> resourceType_ {};
   };
 

@@ -188,26 +188,18 @@ namespace Models
       // The authentication key of the BGP routing protocol.
       shared_ptr<string> authKey_ {};
       // The enabling status of the BGP routing protocol.
-      // 
-      // - **true**: BGP routing is enabled.
-      // 
-      // - **false**: BGP routing is disabled.
       shared_ptr<string> enableBgp_ {};
       // The autonomous system number on the Alibaba Cloud side.
       shared_ptr<int64_t> localAsn_ {};
-      // The BGP address on the Alibaba Cloud side.
+      // The BGP IP address on the Alibaba Cloud side.
       shared_ptr<string> localBgpIp_ {};
       // The autonomous system number of the peer.
       shared_ptr<int64_t> peerAsn_ {};
-      // The BGP address of the peer.
+      // The BGP IP address of the peer.
       shared_ptr<string> peerBgpIp_ {};
       // The negotiation status of the BGP routing protocol.
-      // 
-      // - **success**: Normal.
-      // 
-      // - **failed**: Abnormal.
       shared_ptr<string> status_ {};
-      // The BGP CIDR block of the IPsec-VPN connection. The CIDR block is a subnet of 169.254.0.0/16 with a subnet mask length of 30.
+      // The BGP CIDR block of the IPsec-VPN connection. The CIDR block is a subnet with a subnet mask of 30 bits in mask length within 169.254.0.0/16.
       shared_ptr<string> tunnelCidr_ {};
     };
 
@@ -298,26 +290,20 @@ namespace Models
       // The destination IP address.
       shared_ptr<string> dip_ {};
       // Indicates whether health check is enabled for the IPsec-VPN connection.
-      // - **false**: Health check is disabled.
       // 
-      // - **true**: Health check is enabled.
+      // - **false**: Not enabled.
+      // 
+      // - **true**: Enabled.
       shared_ptr<string> enable_ {};
       // The retry interval of the health check. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // Specifies whether to withdraw published routes when the health check fails.
-      // 
-      // - **revoke_route**: Routes are withdrawn.
-      // - **reserve_route**: Routes are not withdrawn.
+      // Indicates whether published routes are withdrawn when the health check fails.
       shared_ptr<string> policy_ {};
-      // The number of retry packets sent for the health check.
+      // The number of health check retries.
       shared_ptr<int32_t> retry_ {};
       // The source IP address.
       shared_ptr<string> sip_ {};
       // The health check status.
-      // 
-      // - **failed**: Abnormal.
-      // 
-      // - **success**: Normal.
       shared_ptr<string> status_ {};
     };
 
@@ -1031,9 +1017,6 @@ namespace Models
       // The IKE phase lifetime. Unit: seconds.
       shared_ptr<int64_t> ikeLifetime_ {};
       // The IKE negotiation mode.
-      // 
-      // - **main**: Main mode. The negotiation process is more secure.
-      // - **aggressive**: Aggressive mode. The negotiation is faster and has a higher success rate.
       shared_ptr<string> ikeMode_ {};
       // The DH group in the IKE phase.
       shared_ptr<string> ikePfs_ {};
@@ -1297,50 +1280,33 @@ namespace Models
 
 
   protected:
-    // The instance ID of the CEN instance to which the transit router instance belongs.
+    // The instance ID of the Cloud Enterprise Network (CEN) instance to which the transit router instance belongs.
     shared_ptr<string> attachInstanceId_ {};
-    // The type of resource to which the IPsec-VPN connection is attached.
+    // The type of resource attached to the IPsec-VPN connection.
     // 
-    // - **CEN**: The IPsec-VPN connection is attached to a transit router instance under a Cloud Enterprise Network (CEN) instance.
+    // - **CEN**: The IPsec-VPN connection is attached to a transit router of a Cloud Enterprise Network (CEN) instance.
     // - **NO_ASSOCIATED**: The IPsec-VPN connection is not attached to any resource.
     // - **VPNGW**: The IPsec-VPN connection is attached to a VPN gateway instance.
     shared_ptr<string> attachType_ {};
     // The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the IPsec-VPN connection was created.
     shared_ptr<int64_t> createTime_ {};
-    // Indicates whether the IPsec-VPN connection is attached to a transit router instance that belongs to a different Alibaba Cloud account.
-    // 
-    // - **true**: The IPsec-VPN connection is attached to a cross-account transit router instance.
-    // - **false**: The IPsec-VPN connection is not attached to a cross-account transit router instance.
+    // Indicates whether the IPsec-VPN connection is bound to a transit router instance under a different account.
     shared_ptr<bool> crossAccountAuthorized_ {};
     // The ID of the customer gateway associated with the IPsec-VPN connection.
     shared_ptr<string> customerGatewayId_ {};
-    // Indicates whether the IPsec-VPN connection configuration takes effect immediately.
+    // Indicates whether the IPsec-VPN connection configurations take effect immediately.
     // 
-    // - **true**: The configuration takes effect immediately. A reconnection is triggered after the configuration is changed.
+    // - **true**: The configurations take effect immediately. A reconnection is triggered after the configuration change is complete.
     // 
-    // - **false**: The configuration does not take effect immediately. A reconnection is triggered when traffic is detected.
+    // - **false**: The configurations do not take effect immediately. A reconnection is triggered when traffic is detected.
     shared_ptr<bool> effectImmediately_ {};
     // Indicates whether Dead Peer Detection (DPD) is enabled for the IPsec-VPN connection.
-    // - **false**: DPD is disabled.
-    // 
-    // - **true**: DPD is enabled.
-    // 
-    // After DPD is enabled, the IPsec initiator sends DPD packets to check whether the peer device is alive. If no correct response is received within the specified period of time, the peer is considered disconnected. The ISAKMP SA and the corresponding IPsec SA are then deleted, and the security tunnel is also removed.
     shared_ptr<bool> enableDpd_ {};
     // Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
-    // 
-    // - **true**: NAT traversal is enabled.
-    // 
-    // - **false**: NAT traversal is disabled.
-    // 
-    // After NAT traversal is enabled, the IKE negotiation process removes the verification of the UDP port number and can discover NAT gateway devices along the VPN tunnel.
     shared_ptr<bool> enableNatTraversal_ {};
-    // The enabling status of BGP for the tunnels.
-    // 
-    // - **true**: BGP is enabled.
-    // - **false**: BGP is disabled.
+    // The enabling status of tunnel BGP.
     shared_ptr<bool> enableTunnelsBgp_ {};
     // The configuration of Phase 1 negotiation.
     shared_ptr<DescribeVpnConnectionResponseBody::IkeConfig> ikeConfig_ {};
@@ -1349,21 +1315,17 @@ namespace Models
     // The configuration of Phase 2 negotiation.
     shared_ptr<DescribeVpnConnectionResponseBody::IpsecConfig> ipsecConfig_ {};
     // The CIDR block on the Alibaba Cloud side of the IPsec-VPN connection.
-    // 
-    // Multiple CIDR blocks are separated by commas (,).
     shared_ptr<string> localSubnet_ {};
     // The name of the IPsec-VPN connection.
     shared_ptr<string> name_ {};
     // The network type of the IPsec-VPN connection.
     // 
-    // - **public**: The IPsec-VPN connection establishes an encrypted communication channel over the Internet.
-    // - **private**: The IPsec-VPN connection establishes an encrypted communication channel over a private network.
+    // - **public**: public network. The IPsec-VPN connection establishes an encrypted communication channel over the Internet.
+    // - **private**: private network. The IPsec-VPN connection establishes an encrypted communication channel over a private network.
     shared_ptr<string> networkType_ {};
     // The CA certificate of the peer.
     shared_ptr<string> remoteCaCertificate_ {};
     // The CIDR block on the on-premises data center side.
-    // 
-    // Multiple CIDR blocks are separated by commas (,).
     shared_ptr<string> remoteSubnet_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -1373,18 +1335,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The bandwidth specification of the IPsec-VPN connection. Unit: **Mbps**.
     shared_ptr<string> spec_ {};
-    // The binding status of the IPsec-VPN connection and the transit router instance.
-    // 
-    // - **active**: The IPsec-VPN connection is attached to a VPN gateway instance and is in a normal state.
-    // - **init**: The IPsec-VPN connection is not attached to any resource and is in the initialization state.
-    // - **attaching**: The IPsec-VPN connection is being attached to a transit router instance.
-    // - **attached**: The IPsec-VPN connection is attached to a transit router instance.
-    // - **detaching**: The IPsec-VPN connection is being detached from a transit router instance.
-    // - **financialLocked**: Financial lock due to overdue payment.
-    // - **provisioning**: Resources are being prepared.
-    // - **updating**: The IPsec-VPN connection is being updated.
-    // - **upgrading**: The IPsec-VPN connection is being upgraded.
-    // - **deleted**: The IPsec-VPN connection is deleted.
+    // The binding status between the IPsec-VPN connection and the transit router instance.
     shared_ptr<string> state_ {};
     // The status of the IPsec-VPN connection.
     // 
@@ -1397,13 +1348,11 @@ namespace Models
     // - **ipsec_sa_established**: Phase 2 negotiation succeeded.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeVpnConnectionResponseBody::Tags> tags_ {};
-    // The instance ID of the transit router to which the IPsec-VPN connection is attached.
+    // The instance ID of the transit router instance attached to the IPsec-VPN connection.
     shared_ptr<string> transitRouterId_ {};
     // The name of the transit router instance.
     shared_ptr<string> transitRouterName_ {};
     // The bandwidth specification of a single VPN tunnel. Valid values:
-    // - Standard (default): Standard type with a default bandwidth of 1 Gbps.
-    // - Large: Large type with a default bandwidth of 3 Gbps.
     shared_ptr<string> tunnelBandwidth_ {};
     shared_ptr<DescribeVpnConnectionResponseBody::TunnelOptionsSpecification> tunnelOptionsSpecification_ {};
     // The health check information of the IPsec-VPN connection.

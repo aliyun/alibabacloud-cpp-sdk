@@ -195,12 +195,12 @@ namespace Models
 
 
     protected:
-      // The type of resource to which the IPsec-VPN connection is associated. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
+      // The type of resource to which the IPsec-VPN connection is attached. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
       shared_ptr<string> attachType_ {};
       // Indicates whether the IPsec-VPN connection is associated with a transit router instance that belongs to a different Alibaba Cloud account.
       // 
-      // - **true**: Yes.
-      // - **false**: No.
+      // - **true**: The IPsec-VPN connection is associated with a cross-account transit router instance.
+      // - **false**: The IPsec-VPN connection is not associated with a cross-account transit router instance.
       shared_ptr<bool> crossAccountAuthorized_ {};
       // The description of the IPsec-VPN connection.
       shared_ptr<string> description_ {};
@@ -210,7 +210,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The system tags of the IPsec-VPN connection.
       // 
-      // You can use system tags to check whether the IPsec-VPN connection supports BGP. You can ignore other properties.
+      // You can use the system tags to check whether the IPsec-VPN connection supports BGP. You can ignore the other properties.
       // 
       // **BGPSupport**: indicates whether the IPsec-VPN connection supports BGP.
       //    - **true**: Supported.
@@ -223,8 +223,8 @@ namespace Models
       // The name of the transit router instance.
       shared_ptr<string> transitRouterName_ {};
       // The bandwidth specification of a single VPN tunnel. Valid values:
-      // Standard (default): standard. The default bandwidth is 1 Gbps.
-      // Large: large. The default bandwidth is 3 Gbps.
+      // Standard (default): Standard. The default bandwidth is 1 Gbit/s.
+      // Large: Large. The default bandwidth is 3 Gbit/s.
       shared_ptr<string> tunnelBandwidth_ {};
     };
 
@@ -270,13 +270,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paging queries.
+    // The number of entries per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of IPsec-VPN connections associated with transit router instances.
+    // The list of IPsec-VPN connections that are associated with transit router instances.
     shared_ptr<vector<DescribeVpnAttachmentsResponseBody::VpnAttachments>> vpnAttachments_ {};
   };
 

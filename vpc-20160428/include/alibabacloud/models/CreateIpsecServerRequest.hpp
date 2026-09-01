@@ -164,7 +164,7 @@ namespace Models
     // 
     // - **false** (default): Negotiation starts when inbound traffic is detected.
     shared_ptr<bool> effectImmediately_ {};
-    // The Phase 1 negotiation parameter settings. Valid values:
+    // The parameter settings of Phase 1 negotiations. Valid values:
     // 
     // - **IkeVersion**: The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev2**.
     // 
@@ -186,7 +186,7 @@ namespace Models
     // 
     // The name must be 1 to 100 characters in length.
     shared_ptr<string> ipSecServerName_ {};
-    // The Phase 2 negotiation parameter settings. Valid values:
+    // The parameter settings of Phase 2 negotiations. Valid values:
     // 
     // - **IpsecEncAlg**: The encryption algorithm used in Phase 2 negotiations. Default value: **aes**.
     // 

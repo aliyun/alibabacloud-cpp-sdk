@@ -88,7 +88,7 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+    // > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Checks private network connectivity between specified addresses. Valid values:
     // 

@@ -121,20 +121,20 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable routing automatic propagation for the VPN gateway. Valid values:
+    // Specifies whether to enable the routing automatic propagation feature for the VPN gateway. Valid values:
     // 
     // - **true**: enabled.
     // 
-    //     After routing automatic propagation is enabled, the VPN gateway instance performs automatic learning of system routes in the system route table of the VPC-connected instance and automatically propagates routes of the on-premises data center to the system route table of the VPC-connected instance.
+    //     After routing automatic propagation is enabled, the VPN gateway instance uses automatic learning to obtain system routes from the system route table of the VPC-connected instance and automatically propagates routes of the on-premises data center to the system route table of the VPC-connected instance.
     // - **false**: disabled.
     //     
     //     Before you disable routing automatic propagation, make sure that the BGP dynamic route feature is disabled for all IPsec-VPN connections under the VPN gateway.
     shared_ptr<bool> autoPropagate_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The new description of the VPN gateway.  
     //  
@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VPN gateway instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // The region ID of the VPN gateway instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

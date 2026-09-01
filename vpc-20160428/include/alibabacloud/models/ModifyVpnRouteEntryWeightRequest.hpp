@@ -144,7 +144,7 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
     shared_ptr<string> clientToken_ {};
     // The new weight of the destination route. Valid values:
     // 
@@ -176,7 +176,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};
-    // The original weight of the destination route before modification. Valid values:
+    // The original weight of the destination route. Valid values:
     // 
     // - **0**: low priority.
     // 

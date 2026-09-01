@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The authentication key of the BGP route routing protocol for the on-premises data center gateway device.
     // 
-    // The key must be 1 to 64 characters in length and can contain only ASCII characters. It cannot contain spaces, Chinese characters, or half-width question marks (?).
+    // The key must be 1 to 64 characters in length, can contain only ASCII characters, and cannot contain spaces, Chinese characters, or half-width question marks (?).
     shared_ptr<string> authKey_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 

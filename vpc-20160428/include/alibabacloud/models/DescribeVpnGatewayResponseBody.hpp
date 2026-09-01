@@ -245,9 +245,9 @@ namespace Models
 
 
     protected:
-      // If the pending order type is **TEMP_UPGRADE** (temporary upgrade), this parameter indicates the revert time of the temporary upgrade.
+      // If the pending order type is **TEMP_UPGRADE** (temporary upgrade), this parameter indicates the revert time for the temporary upgrade.
       // 
-      // If the pending order type is **RENEWCHANGE** (renewal with Upgrade/Downgrade) or **RENEW** (renewal), this parameter indicates the effective period when the renewal or renewal with specification change takes effect.
+      // If the pending order type is **RENEWCHANGE** (renewal with specification change) or **RENEW** (renewal), this parameter indicates the effective period when the renewal or renewal with specification change takes effect.
       shared_ptr<string> reservationEndTime_ {};
       // The enabling status of the IPsec-VPN feature for the pending order. Valid values:
       // 
@@ -277,7 +277,7 @@ namespace Models
       // 
       // - **1**: the renewal or renewal with specification change order has not taken effect.
       // 
-      // - **2**: the temporary upgrade order has taken effect. After the restoration time is reached, the system restores the VPN gateway to the specification before the temporary upgrade. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the specification before the temporary upgrade.
+      // - **2**: the temporary upgrade order has taken effect. After the restoration time is reached, the system restores the VPN gateway to the specification before the temporary upgrade. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the specifications before the temporary upgrade.
       shared_ptr<string> status_ {};
     };
 
@@ -553,7 +553,7 @@ namespace Models
     shared_ptr<string> chargeType_ {};
     // The timestamp when the VPN gateway was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
     // The description of the VPN gateway.
     shared_ptr<string> description_ {};
@@ -573,7 +573,7 @@ namespace Models
     shared_ptr<bool> enableBgp_ {};
     // The timestamp when the VPN gateway expires. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<DescribeVpnGatewayResponseBody::EniInstanceIds> eniInstanceIds_ {};
     // The type of the VPN gateway. Valid values:
@@ -619,7 +619,7 @@ namespace Models
     // 
     // - **disable**: disabled.
     shared_ptr<string> sslVpn_ {};
-    // The IP address of the SSL-VPN connection.
+    // The IP address for SSL-VPN connections.
     // 
     // This parameter is returned only when the SSL-VPN feature is enabled on a VPN gateway instance that has a public network type and supports creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> sslVpnInternetIp_ {};

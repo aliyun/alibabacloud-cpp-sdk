@@ -536,7 +536,7 @@ namespace Models
     shared_ptr<int32_t> bandwidth_ {};
     // The business status of the router interface. Valid values:
     // 
-    // - **Normal**: Normal.
+    // - **Normal**: normal.
     // 
     // - **FinancialLocked**: locked due to overdue payment.
     // 
@@ -549,24 +549,24 @@ namespace Models
     shared_ptr<string> chargeType_ {};
     // The HTTP status code.
     shared_ptr<string> code_ {};
-    // The time when the connection was established.
+    // The time when the connection was established. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> connectedTime_ {};
-    // The time when the router interface was created.
+    // The time when the router interface was created. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> creationTime_ {};
-    // Indicates whether the connection is a cross-border connection. Valid values:
+    // Indicates whether this is a cross-border connection. Valid values:
     // 
-    // - **false**: The connection is not a cross-border connection.
+    // - **false**: No.
     // 
-    // - **true**: The connection is a cross-border connection.
+    // - **true**: Yes.
     shared_ptr<bool> crossBorder_ {};
     // The description of the router interface.
     shared_ptr<string> description_ {};
-    // The end time of the data retrieval.
+    // The end time of the data retrieval. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on the VBR and VPC to be automatically connected after they are created. Valid values:
+    // Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on both the VBR and VPC sides to automatically connect after creation. Valid values:
     // 
-    // - **true**: The router interface was created in fast link mode.
-    // - **false** (default): The router interface was not created in fast link mode.
+    // - **true**: Yes.
+    // - **false** (default): No.
     // 
     // 
     // > -  This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
@@ -576,26 +576,26 @@ namespace Models
     shared_ptr<string> gmtModified_ {};
     // Indicates whether renewal data exists. Valid values:
     // 
-    // - **false**: No renewal data exists.
+    // - **false**: No.
     // 
-    // - **true**: Renewal data exists.
+    // - **true**: Yes.
     shared_ptr<string> hasReservationData_ {};
     // The health check rate. Unit: seconds. This value indicates the interval between consecutive probe packets sent during a health check.
     shared_ptr<int32_t> hcRate_ {};
     // The health check threshold. This value indicates the number of probe packets sent during a health check. Unit: packets.
     shared_ptr<int32_t> hcThreshold_ {};
-    // The source IP address of the health check.
+    // The health check source IP address.
     shared_ptr<string> healthCheckSourceIp_ {};
     // The health check status. Valid values:
     // 
     // - **Abnormal**: abnormal.
-    // - **Normal**: Normal.
+    // - **Normal**: normal.
     // - **NoRedundantRoute**: no redundant route configured.
     // - **NoHealthCheckConfig**: no health check configured.
     shared_ptr<string> healthCheckStatus_ {};
-    // The target IP address of the health check.
+    // The health check target IP address.
     shared_ptr<string> healthCheckTargetIp_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The name of the router interface.
     shared_ptr<string> name_ {};
@@ -604,7 +604,7 @@ namespace Models
     // The bandwidth of the peer router interface. Unit: Mbps.
     shared_ptr<int32_t> oppositeBandwidth_ {};
     // The business status of the peer router interface. Valid values:
-    // - **Normal**: Normal.
+    // - **Normal**: normal.
     // - **FinancialLocked**: locked due to overdue payment.
     // - **SecurityLocked**: locked due to security risk control.
     shared_ptr<string> oppositeInterfaceBusinessStatus_ {};
@@ -654,13 +654,13 @@ namespace Models
     shared_ptr<string> oppositeVpcInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The renewal active time.
+    // The renewal active time. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> reservationActiveTime_ {};
     // The renewal bandwidth. Unit: Mbps.
     shared_ptr<string> reservationBandwidth_ {};
     // The renewal billing type. Valid values: **PayByBandwidth**, which indicates pay-by-bandwidth.
     shared_ptr<string> reservationInternetChargeType_ {};
-    // The type of the renewal order. Valid values: **RENEW**, which indicates a renewal order.
+    // The renewal order type. Valid values: **RENEW**, which indicates a renewal order.
     shared_ptr<string> reservationOrderType_ {};
     // The resource group ID.
     // 
@@ -708,7 +708,7 @@ namespace Models
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeRouterInterfaceAttributeResponseBody::Tags> tags_ {};
-    // The ID of the virtual private cloud (VPC) to which the routing interface belongs.
+    // The ID of the virtual private cloud (VPC) to which the router interface belongs.
     shared_ptr<string> vpcInstanceId_ {};
   };
 

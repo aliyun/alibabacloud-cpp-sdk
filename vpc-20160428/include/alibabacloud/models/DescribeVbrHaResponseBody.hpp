@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The time when the VBR was created.
+    // The time when the VBR was created. The time is displayed in the ISO 8601 standard in UTC. The format is YYYY-MM-DDThh:mm:ss.
     shared_ptr<string> creationTime_ {};
     // The description of the VBR failover group.
     // 

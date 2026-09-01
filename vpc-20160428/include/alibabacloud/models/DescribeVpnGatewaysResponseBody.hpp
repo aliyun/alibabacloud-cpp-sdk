@@ -627,7 +627,7 @@ namespace Models
   protected:
     // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries.
+    // The number of entries per page in a paged query. This is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The VPN gateway instance ID.
+    // The instance ID of the VPN gateway.
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};

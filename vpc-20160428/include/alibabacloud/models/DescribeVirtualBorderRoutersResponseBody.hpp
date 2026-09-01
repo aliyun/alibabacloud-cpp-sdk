@@ -934,9 +934,9 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

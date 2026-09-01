@@ -405,13 +405,13 @@ namespace Models
 
 
       protected:
-        // The IPsec phase authentication algorithm.
+        // The authentication algorithm of the IPsec phase.
         shared_ptr<string> ipsecAuthAlg_ {};
-        // The IPsec phase encryption algorithm.
+        // The encryption algorithm of the IPsec phase.
         shared_ptr<string> ipsecEncAlg_ {};
-        // The IPsec phase lifetime. Unit: seconds.
+        // The lifetime of the IPsec phase. Unit: seconds.
         shared_ptr<int64_t> ipsecLifetime_ {};
-        // The DH group in the IPsec phase.
+        // The DH group of the IPsec phase.
         shared_ptr<string> ipsecPfs_ {};
       };
 
@@ -517,18 +517,18 @@ namespace Models
 
 
       protected:
-        // The IKE phase authentication algorithm.
+        // The authentication algorithm of the IKE phase.
         shared_ptr<string> ikeAuthAlg_ {};
-        // The IKE phase encryption algorithm.
+        // The encryption algorithm of the IKE phase.
         shared_ptr<string> ikeEncAlg_ {};
-        // The IKE phase lifetime. Unit: seconds.
+        // The lifetime of the IKE phase. Unit: seconds.
         shared_ptr<int64_t> ikeLifetime_ {};
-        // The IKE negotiation mode. Valid values:
+        // The IKE negotiation mode.
         // 
-        // - **main**: Main mode. This mode provides high security during negotiation.
-        // - **aggressive**: Aggressive mode. This mode supports fast negotiation and a higher success rate.
+        // - **main**: Main mode. This mode offers high negotiation security.
+        // - **aggressive**: Aggressive mode. This mode supports fast negotiation and a high negotiation success rate.
         shared_ptr<string> ikeMode_ {};
-        // The DH group in the IKE phase.
+        // The DH group of the IKE phase.
         shared_ptr<string> ikePfs_ {};
         // The version of the IKE protocol.
         shared_ptr<string> ikeVersion_ {};

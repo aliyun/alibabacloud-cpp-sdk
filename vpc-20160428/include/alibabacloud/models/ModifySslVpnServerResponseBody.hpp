@@ -223,7 +223,7 @@ namespace Models
     shared_ptr<int32_t> connections_ {};
     // The time when the SSL-VPN server was created.
     shared_ptr<int64_t> createTime_ {};
-    // Indicates whether two-factor identity authentication is enabled.
+    // Indicates whether two-factor authentication is enabled.
     // 
     // - **true**: enabled.
     // 

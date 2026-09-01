@@ -119,15 +119,19 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The QoS policy ID.
+    // The QoS policy ID returned by the CreateExpressConnectTrafficQos operation.
+    // 
+    // > This parameter is required. If you do not specify this parameter, the service returns IllegalParam.QosId (400).
     shared_ptr<string> qosId_ {};
-    // The QoS queue ID.
+    // The QoS queue ID returned by the CreateExpressConnectTrafficQosQueue operation.
+    // 
+    // > This parameter is required. If you do not specify this parameter, the service returns IllegalParam.QueueId (400).
     shared_ptr<string> queueId_ {};
     // The region ID of the QoS policy.
     // 
@@ -136,9 +140,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The QoS rule IDs.
+    // The list of QoS rule IDs.
     shared_ptr<vector<string>> ruleIdList_ {};
-    // The QoS rule names.
+    // The list of QoS rule names.
     shared_ptr<vector<string>> ruleNameList_ {};
   };
 

@@ -112,19 +112,19 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the IPsec-VPN connection belongs.
+      // The ID of the Alibaba Cloud account that owns the IPsec-VPN connection.
       shared_ptr<int64_t> aliUid_ {};
-      // The instance ID of the CEN instance to which the IPsec-VPN connection grants authorization.
+      // The instance ID of the CEN instance to which the IPsec-VPN connection authorization is granted.
       shared_ptr<string> bindInstance_ {};
       // The type of resource to which the IPsec-VPN connection is authorized.
       // 
-      // The value is **CEN** only, which indicates that the IPsec-VPN connection is authorized to a cross-account Cloud Enterprise Network (CEN) instance. The IPsec-VPN connection can be attached to a transit router instance under the cross-account CEN instance.
+      // The value is **CEN** only, which indicates that the IPsec-VPN connection is authorized to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account. The IPsec-VPN connection can be attached to a transit router instance under the cross-account CEN instance.
       shared_ptr<string> bindProduct_ {};
       // The ID of the Alibaba Cloud account to which the IPsec-VPN connection is authorized.
       shared_ptr<int64_t> bindUid_ {};
-      // The timestamp when the cross-account authorization of the IPsec-VPN connection was created.
+      // The timestamp when the cross-account authorization was created for the IPsec-VPN connection.
       // 
-      // The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the cross-account authorization was created.
+      // The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the cross-account authorization was created.
       shared_ptr<int64_t> creationTime_ {};
       // The ID of the IPsec-VPN connection.
       shared_ptr<string> vpnConnectionId_ {};

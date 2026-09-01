@@ -100,11 +100,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -231,11 +231,11 @@ namespace Models
     shared_ptr<string> dhcpOptionsSetId_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // 
-    // - **false** (default): sends a normal request, and the resource status is directly queried after the request passes the check. An HTTP 2xx status code is returned.
+    // - **false** (default): sends a Normal request, and the resource status is directly queried after the request passes the authorization check. An HTTP 2xx status code is returned.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is applied based on IPv6 enablement. Valid values:
+    // Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is performed based on IPv6 enablement. Valid values:
     // 
     // - **false**: IPv6 is not enabled.
     // - **true**: IPv6 is enabled.
@@ -266,11 +266,11 @@ namespace Models
     shared_ptr<vector<DescribeVpcsRequest::Tag>> tag_ {};
     // The ID of the VPC. 
     // 
-    // You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
+    // You can specify up to 20 VPC IDs. Separate multiple VPC IDs with commas (,).
     shared_ptr<string> vpcId_ {};
     // The name of the VPC.
     shared_ptr<string> vpcName_ {};
-    // The Alibaba Cloud account ID of the VPC owner.
+    // The Alibaba Cloud account ID that owns the VPC.
     shared_ptr<int64_t> vpcOwnerId_ {};
   };
 

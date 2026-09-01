@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the failover test job.
+    // The failover test job ID.
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

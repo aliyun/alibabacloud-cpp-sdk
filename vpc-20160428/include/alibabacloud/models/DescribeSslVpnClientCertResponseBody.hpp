@@ -159,11 +159,11 @@ namespace Models
     shared_ptr<string> clientKey_ {};
     // The timestamp when the SSL client certificate was created. Unit: milliseconds.
     // 
-    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the Unix format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the SSL client certificate was created.
     shared_ptr<int64_t> createTime_ {};
     // The timestamp when the SSL client certificate expires. Unit: milliseconds.
     // 
-    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the Unix format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the SSL client certificate expires.
     shared_ptr<int64_t> endTime_ {};
     // The name of the SSL client certificate.
     shared_ptr<string> name_ {};
@@ -177,7 +177,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the SSL client certificate.
     shared_ptr<string> sslVpnClientCertId_ {};
-    // The ID of the SSL server.
+    // The SSL server ID.
     shared_ptr<string> sslVpnServerId_ {};
     // The status of the SSL client certificate. Valid values:
     // 

@@ -151,13 +151,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The failover test duration. Unit: minutes. Valid values: **1 to 4320**.
       shared_ptr<string> jobDuration_ {};
-      // The ID of the failover test job.
+      // The failover test job ID.
       shared_ptr<string> jobId_ {};
       // The failover test type. Valid values:
       // 
-      // - **StartNow**: starts immediately. The failover test starts immediately after the job is created.
+      // - **StartNow**: start immediately. The test starts immediately after the job is created.
       // 
-      // - **StartLater**: starts later. Only the job is created without starting the test.
+      // - **StartLater**: start later. Only the test job is created without starting the test.
       shared_ptr<string> jobType_ {};
       // The name of the failover test job.
       // 
@@ -165,9 +165,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The list of failover test resource IDs.
       shared_ptr<vector<string>> resourceId_ {};
-      // The resource type for the failover test. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
+      // The failover test resource type. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
       shared_ptr<string> resourceType_ {};
-      // The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+      // The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format as defined by ISO 8601.
       shared_ptr<string> startTime_ {};
       // The status of the failover test job. Valid values:
       // 
@@ -181,7 +181,7 @@ namespace Models
       // 
       // - **Stopped**: completed.
       shared_ptr<string> status_ {};
-      // The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+      // The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format as defined by ISO 8601.
       shared_ptr<string> stopTime_ {};
     };
 

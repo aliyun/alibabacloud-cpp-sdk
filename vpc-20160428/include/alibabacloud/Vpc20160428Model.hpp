@@ -1012,6 +1012,9 @@
 #include <alibabacloud/models/ModifyVpcAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyVpcAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyVpcAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyVpcCidrBlockRequest.hpp>
+#include <alibabacloud/models/ModifyVpcCidrBlockResponseBody.hpp>
+#include <alibabacloud/models/ModifyVpcCidrBlockResponse.hpp>
 #include <alibabacloud/models/ModifyVpcPrefixListRequest.hpp>
 #include <alibabacloud/models/ModifyVpcPrefixListResponseBody.hpp>
 #include <alibabacloud/models/ModifyVpcPrefixListResponse.hpp>

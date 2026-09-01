@@ -205,7 +205,7 @@ namespace Models
     shared_ptr<string> authKey_ {};
     // The timestamp when the customer gateway was created. Unit: milliseconds.
     // 
-    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the customer gateway was created.
+    // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
     // The instance ID of the customer gateway.
     shared_ptr<string> customerGatewayId_ {};
@@ -219,7 +219,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the customer gateway belongs.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
+    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeCustomerGatewayResponseBody::Tags> tags_ {};
   };

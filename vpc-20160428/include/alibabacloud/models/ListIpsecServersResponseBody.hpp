@@ -256,7 +256,7 @@ namespace Models
         shared_ptr<string> ikeEncAlg_ {};
         // The IKE lifetime. Unit: seconds.
         shared_ptr<int64_t> ikeLifetime_ {};
-        // The IKE negotiation mode. Valid values:
+        // The IKE version negotiation mode. Valid values:
         // 
         // **main**: main mode. Negotiations are highly secure.
         shared_ptr<string> ikeMode_ {};
@@ -264,9 +264,9 @@ namespace Models
         shared_ptr<string> ikePfs_ {};
         // The IKE version.
         shared_ptr<string> ikeVersion_ {};
-        // The identifier of the IPsec server. FQDN and IP address formats are supported. The default value is the public IP address of the selected VPN gateway.
+        // The identifier of the IPsec server. The value can be in the FQDN or IP address format. The default value is the public IP address of the selected VPN gateway.
         shared_ptr<string> localId_ {};
-        // The identifier of the peer. FQDN and IP address formats are supported. The default value is empty.
+        // The identifier of the peer. The value can be in the FQDN or IP address format. The default value is empty.
         shared_ptr<string> remoteId_ {};
       };
 
@@ -410,7 +410,7 @@ namespace Models
       shared_ptr<string> clientIpPool_ {};
       // The time when the IPsec server was created.
       // 
-      // T is the delimiter. Z indicates UTC.
+      // T is the delimiter and Z indicates UTC (Coordinated Universal Time).
       shared_ptr<string> creationTime_ {};
       // Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated.
       // 
@@ -433,7 +433,7 @@ namespace Models
       // The local CIDR block, which is the VPC-side CIDR block that needs to communicate with the client CIDR block.
       shared_ptr<string> localSubnet_ {};
       // The maximum number of SSL-VPN connections supported by the VPN gateway.
-      // > SSL-VPN and the IPsec server share SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
+      // > SSL-VPN and the IPsec server share the SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
       shared_ptr<int32_t> maxConnections_ {};
       // Indicates whether two-factor authentication is enabled.
       // 
@@ -449,7 +449,7 @@ namespace Models
       shared_ptr<bool> pskEnabled_ {};
       // The region ID of the IPsec server.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the IPsec server belongs.
+      // The resource group ID of the IPsec server.
       // 
       // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
       shared_ptr<string> resourceGroupId_ {};
@@ -503,7 +503,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Valid values:
     // 
-    // - If **NextToken** is empty, no subsequent query is to be sent.
+    // - If **NextToken** is empty, no subsequent query exists.
     // 
     // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};

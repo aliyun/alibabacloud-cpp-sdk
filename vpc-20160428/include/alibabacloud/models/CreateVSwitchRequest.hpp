@@ -213,11 +213,11 @@ namespace Models
     // 
     // - The mask length of the vSwitch CIDR block must be 16 to 29 bits.  
     // 
-    // - The vSwitch CIDR block must be a subset of the VPC CIDR block to which the vSwitch belongs. 
+    // - The CIDR block of the vSwitch must be a subset of the CIDR block of the VPC to which the vSwitch belongs. 
     // 
-    // - The vSwitch CIDR block cannot be the same as the destination CIDR block of a route in the VPC, but it can be a subset of the destination CIDR block. 
+    // - The CIDR block of the vSwitch cannot be the same as the destination CIDR block of a route in the VPC, but can be a subset of the destination CIDR block. 
     // 
-    // - The vSwitch CIDR block cannot be 100.64.0.0/10 or its subnets.
+    // - The CIDR block of the vSwitch cannot be within the following reserved address ranges: 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, or 224.0.0.0/4.
     // 
     // > After a vSwitch is created, you cannot modify its CIDR block.
     // 
@@ -225,22 +225,22 @@ namespace Models
     shared_ptr<string> cidrBlock_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the vSwitch.  
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
-    // You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This parameter allows you to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is assigned, it cannot be changed. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
+    // You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This allows you to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
     shared_ptr<int32_t> ipv6CidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the vSwitch to create.
+    // The region ID of the vSwitch that you want to create.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region IDs.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -258,7 +258,7 @@ namespace Models
     shared_ptr<string> vpcIpv6CidrBlock_ {};
     // The ID of the zone in which to create the vSwitch.
     // 
-    // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the zone IDs.
+    // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

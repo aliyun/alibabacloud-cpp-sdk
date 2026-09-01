@@ -106,11 +106,11 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, the value cannot be an empty string.
       // 
       // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, the value can be an empty string.
       // 
       // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -266,7 +266,7 @@ namespace Models
 
 
   protected:
-    // The ID of the access point for the Express Connect circuit.
+    // The ID of the access point where the Express Connect circuit is located.
     // 
     // This parameter is required.
     shared_ptr<string> accessPointId_ {};
@@ -274,17 +274,17 @@ namespace Models
     shared_ptr<string> circuitCode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the Express Connect circuit. 
     // 
-    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The list of advanced device capabilities.
+    // The list of device advanced capabilities.
     shared_ptr<vector<string>> deviceAdvancedCapacity_ {};
-    // The carrier that provides the Express Connect circuit. Valid values:
+    // The carrier that provides the physical line for the Express Connect circuit. Valid values:
     // 
     // - **CT**: China Telecom.
     // 
@@ -302,9 +302,9 @@ namespace Models
     shared_ptr<string> lineOperator_ {};
     // The name of the Express Connect circuit.  
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
-    // The optical module model supported by the Express Connect circuit access point. Valid values:
+    // The optical module model supported at the access point of the Express Connect circuit. Valid values:
     // - 1000Base-LX : 
     //   - `SFP-GE-LR-SM1310,10KM`
     //   - `SFP-GE-ER-SM1310,40KM`
@@ -342,7 +342,9 @@ namespace Models
     // 
     // - **100GBase-LR**: 100 GE single-mode optical port.
     // 
-    // > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
+    // Different access points support different port types. Before you call this operation, call ListBusinessAccessPoints to query the **SupportPortTypes** of the target access point. For optical ports, also verify the **OpticalModuleModels**.
+    // 
+    // > 40GBase-LR and 100GBase-LR ports are created based on the actual backend port availability. Contact your account manager for details.
     shared_ptr<string> portType_ {};
     // The instance ID of the redundant Express Connect circuit. The circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
     shared_ptr<string> redundantPhysicalConnectionId_ {};

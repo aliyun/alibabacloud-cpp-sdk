@@ -128,7 +128,7 @@ namespace Models
     // - **true**: Accurate.
     // - **false**: Not accurate.
     shared_ptr<bool> isCompleted_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};

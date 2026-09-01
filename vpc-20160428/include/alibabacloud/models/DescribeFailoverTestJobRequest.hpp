@@ -90,7 +90,7 @@ namespace Models
     // 
     // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID of the failover test job.
+    // The failover test job ID. Before calling this operation, use CreateFailoverTestJob to create a job and obtain this ID. If the test resource is an Express Connect circuit, the circuit must be in the **Enabled** state and its business status must be **Normal**.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the failover test job. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
   };

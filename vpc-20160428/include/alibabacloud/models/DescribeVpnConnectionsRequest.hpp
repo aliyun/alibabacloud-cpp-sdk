@@ -90,15 +90,15 @@ namespace Models
 
 
     protected:
-      // The tag key. If you specify this parameter, the value cannot be an empty string.
+      // The tag key. This value cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       // 
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       // 
       // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
@@ -199,25 +199,23 @@ namespace Models
     shared_ptr<string> customerGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page in a paging query. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the IPsec-VPN connection. 
+    // The region ID of the IPsec-VPN connection.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the IPsec-VPN connection belongs.
     // 
-    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The list of tags bound to the IPsec-VPN connection.
-    // 
-    // You can specify up to 20 tags at a time.
     shared_ptr<vector<DescribeVpnConnectionsRequest::Tag>> tag_ {};
     // The ID of the IPsec-VPN connection.
     shared_ptr<string> vpnConnectionId_ {};

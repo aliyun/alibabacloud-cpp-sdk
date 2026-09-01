@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The status code returned by the current task. **200** indicates that the task is successful.
+    // The status code returned by the current task. A value of **200** indicates that the task is successful.
     shared_ptr<string> code_ {};
     // The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the IPsec-VPN connection was created.
     shared_ptr<int64_t> createTime_ {};
     // The message returned by the current task.
     shared_ptr<string> message_ {};
@@ -109,7 +109,7 @@ namespace Models
     // Indicates whether the current task is successfully executed.
     // 
     // - **true**: Successfully executed.
-    // - **false**: Failed to execute.
+    // - **false**: Not successfully executed.
     shared_ptr<bool> success_ {};
     // The IPsec-VPN connection ID.
     shared_ptr<string> vpnConnectionId_ {};

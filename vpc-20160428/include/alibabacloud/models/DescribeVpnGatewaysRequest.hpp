@@ -238,11 +238,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Valid values: **1** to **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the VPN gateway. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

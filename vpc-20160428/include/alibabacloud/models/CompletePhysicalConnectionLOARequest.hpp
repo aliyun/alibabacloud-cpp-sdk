@@ -142,29 +142,29 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // The client generates the value. Ensure that the value is unique among different requests.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // Specifies whether the construction is completed. Valid values:
-    // * **true**: The construction is completed.
+    // * **true**: Construction is completed.
     // * **false**: Line O&M.
     shared_ptr<bool> finishWork_ {};
     // The instance ID of the Express Connect circuit.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The line code of the telecommunications service provider.
+    // The line code of the carrier.
     shared_ptr<string> lineCode_ {};
     // The cable label in the data center building.
     shared_ptr<string> lineLabel_ {};
-    // The O&M contact information of the line.
+    // The O&M contact information of the line carrier.
     shared_ptr<string> lineSPContactInfo_ {};
-    // The telecommunications service provider. Valid values:
-    // - **中国电信**
-    // - **中国联通**
-    // - **中国移动**
-    // - **中国其他**
+    // The carrier. Valid values:
+    // - **中国电信**.
+    // - **中国联通**.
+    // - **中国移动**.
+    // - **中国其他**.
     shared_ptr<string> lineServiceProvider_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

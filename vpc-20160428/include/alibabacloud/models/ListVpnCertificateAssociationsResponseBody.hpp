@@ -163,9 +163,9 @@ namespace Models
   protected:
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The pagination token. Valid values:
     // 
-    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is empty, no subsequent query exists.
     // 
     // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};

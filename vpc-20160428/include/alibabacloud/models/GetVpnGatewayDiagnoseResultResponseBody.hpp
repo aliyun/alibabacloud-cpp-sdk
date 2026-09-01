@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The diagnostic item.
+      // The diagnosis item.
       // 
       // - **RouteEntryConflict**: route conflict.
       // - **VpnRouteQuota**: VPN gateway destination route quota.
@@ -105,11 +105,11 @@ namespace Models
       // - **VcoUserInternetIpConnectivity**: public network connectivity of the customer gateway.
       // - **VcoPrivateConnectivity**: private network connectivity.
       // 
-      // For more information about each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
+      // For more information about each diagnosis item, see [Background information about one-click diagnosis](https://help.aliyun.com/document_detail/190330.html).
       shared_ptr<string> diagnoseName_ {};
-      // The diagnostic result of the diagnostic item.
+      // The diagnosis result of the diagnosis item.
       // 
-      // The operation returns different information for each diagnostic item:
+      // The operation returns different information for each diagnosis item:
       // 
       // - **RouteEntryConflict**: The system returns information about the route conflict.
       // - **VpnRouteQuota**:
@@ -139,13 +139,13 @@ namespace Models
       //     - **rtt**: The latency when the source IP address accesses the destination IP address. Unit: ms.
       //     - **lossRate**: The packet loss rate when the source IP address accesses the destination IP address.
       shared_ptr<string> diagnoseResultDescription_ {};
-      // The diagnostic result level of the diagnostic item.
+      // The diagnosis result level of the diagnosis item.
       // 
       // - **normal**: Normal.
       // - **warning**: Warning.
       // - **error**: Error.
       // 
-      // For more information about the diagnostic result levels of each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
+      // For more information about the diagnosis result levels of each diagnosis item, see [Background information about one-click diagnosis](https://help.aliyun.com/document_detail/190330.html).
       shared_ptr<string> diagnoseResultLevel_ {};
     };
 
@@ -225,19 +225,19 @@ namespace Models
 
 
   protected:
-    // The time when the diagnostic started.
+    // The time when the diagnosis started.
     // 
     // The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> beginTime_ {};
-    // The diagnostic ID.
+    // The diagnosis ID.
     shared_ptr<string> diagnoseId_ {};
-    // The list of diagnostic items.
+    // The list of diagnosis items.
     shared_ptr<vector<GetVpnGatewayDiagnoseResultResponseBody::DiagnoseResult>> diagnoseResult_ {};
-    // The time when the diagnostic ended.
+    // The time when the diagnosis ended.
     // 
     // The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> finishTime_ {};
-    // The number of diagnostic items that have been completed.
+    // The number of diagnosis items that have been completed.
     shared_ptr<int32_t> finishedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -247,7 +247,7 @@ namespace Models
     // 
     // Valid values: **IPsec**, which indicates an IPsec-VPN connection.
     shared_ptr<string> resourceType_ {};
-    // The total number of diagnostic items.
+    // The total number of diagnosis items.
     shared_ptr<int32_t> totalCount_ {};
     // The VPN gateway instance ID.
     shared_ptr<string> vpnGatewayId_ {};

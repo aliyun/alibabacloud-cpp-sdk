@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateVSwitchCidrReservationRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(IpPrefixNumber, ipPrefixNumber_);
       DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -33,6 +34,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateVSwitchCidrReservationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(IpPrefixNumber, ipPrefixNumber_);
       DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -107,9 +109,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->ipVersion_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->vSwitchCidrReservationCidr_ == nullptr && this->vSwitchCidrReservationDescription_ == nullptr
-        && this->vSwitchCidrReservationMask_ == nullptr && this->vSwitchCidrReservationName_ == nullptr && this->vSwitchCidrReservationType_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->ipPrefixNumber_ == nullptr && this->ipVersion_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->vSwitchCidrReservationCidr_ == nullptr
+        && this->vSwitchCidrReservationDescription_ == nullptr && this->vSwitchCidrReservationMask_ == nullptr && this->vSwitchCidrReservationName_ == nullptr && this->vSwitchCidrReservationType_ == nullptr && this->vSwitchId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -122,6 +124,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateVSwitchCidrReservationRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // ipPrefixNumber Field Functions 
+    bool hasIpPrefixNumber() const { return this->ipPrefixNumber_ != nullptr;};
+    void deleteIpPrefixNumber() { this->ipPrefixNumber_ = nullptr;};
+    inline int32_t getIpPrefixNumber() const { DARABONBA_PTR_GET_DEFAULT(ipPrefixNumber_, 0) };
+    inline CreateVSwitchCidrReservationRequest& setIpPrefixNumber(int32_t ipPrefixNumber) { DARABONBA_PTR_SET_VALUE(ipPrefixNumber_, ipPrefixNumber) };
 
 
     // ipVersion Field Functions 
@@ -225,9 +234,11 @@ namespace Models
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // - **true**: sends a check request without creating the reserved CIDR block for a vSwitch. The system checks whether the required parameters are specified, the request format is valid, and the service limits are not exceeded. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
-    // - **false** (default): sends a Normal request. After the check passes, an HTTP 2xx status code is returned and the reserved CIDR block for a vSwitch is created.
+    // - **true**: sends a check request without creating the reserved CIDR block for a vSwitch. The system checks whether the required parameters are specified, the request format is valid, and the service limits are not exceeded. If the check fails, the corresponding error message is returned. If the check passes, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a Normal request. After the check passes, an HTTP 2xx status code is returned and the vSwitch reserved CIDR block for a vSwitch is created.
     shared_ptr<bool> dryRun_ {};
+    // The expected number of IP prefixes to reserve. Valid values: 1 to 32.
+    shared_ptr<int32_t> ipPrefixNumber_ {};
     // The IP version of the reserved CIDR block for a vSwitch. Valid values:
     // 
     // - **IPv4** (default)
@@ -253,7 +264,7 @@ namespace Models
     // - If **IpVersion** is set to **IPv6**, the reserved CIDR block for a vSwitch must be a proper subset of the IPv6 CIDR block of the vSwitch, and the mask length cannot exceed 80.
     // 
     // > - You must specify either the **VSwitchCidrReservationMask** parameter or the **VSwitchCidrReservationCidr** parameter.
-    // > - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
+    // > - The reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch.
     shared_ptr<string> vSwitchCidrReservationCidr_ {};
     // The description of the reserved CIDR block for a vSwitch. If you leave this parameter empty, the default value is empty.
     // 
@@ -265,17 +276,17 @@ namespace Models
     // - If **IpVersion** is set to **IPv6**, the mask length of the reserved CIDR block must be longer than the IPv6 CIDR block mask of the vSwitch and cannot exceed 80.
     // 
     // > - You must specify either the **VSwitchCidrReservationMask** parameter or the **VSwitchCidrReservationCidr** parameter.
-    // > - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
+    // > - The reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch.
     shared_ptr<string> vSwitchCidrReservationMask_ {};
     // The name of the reserved CIDR block for a vSwitch.
     // 
     // The name must be 1 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     shared_ptr<string> vSwitchCidrReservationName_ {};
-    // The type of the reserved CIDR block for a vSwitch. Valid values: **prefix**, which indicates that addresses are allocated by CIDR block.
+    // The type of the reserved CIDR block for a vSwitch. Valid values: **prefix**, which indicates that IP addresses are allocated by CIDR block.
     // 
-    // > When users or cloud services automatically assign CIDR blocks to elastic network interfaces (ENIs), the CIDR blocks must be allocated from the reserved CIDR block. If the addresses in the reserved CIDR block are exhausted, the system returns an error.
+    // > When users or cloud services automatically assign CIDR blocks to elastic network interfaces (ENIs), the CIDR blocks must be allocated from the reserved CIDR block for a vSwitch. If the IP addresses in the reserved CIDR block for a vSwitch are exhausted, the system returns an error.
     shared_ptr<string> vSwitchCidrReservationType_ {};
-    // The ID of the vSwitch for which you want to create the reserved CIDR block for a vSwitch.
+    // The ID of the vSwitch for which you want to create a reserved CIDR block for a vSwitch.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

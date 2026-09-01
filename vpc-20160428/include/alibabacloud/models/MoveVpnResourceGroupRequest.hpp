@@ -121,11 +121,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Valid values:
+    // The resource type.
     // 
     // - **VpnGateway**: VPN gateway instance.
     // 
-    //   After you change the resource group of a VPN gateway instance, the resource group of the IPsec server, SSL server, SSL client certificate, and IPsec-VPN connection (an IPsec-VPN connection associated with the VPN gateway instance) under the VPN gateway instance is also changed.
+    //   After you change the resource group to which a VPN gateway instance belongs, the resource group of the IPsec server, SSL server, SSL client certificate, and IPsec-VPN connection (the IPsec-VPN connection associated with the VPN gateway instance) under the VPN gateway instance is also changed.
     // - **CustomerGateway**: customer gateway instance.
     // - **VpnAttachment**: IPsec-VPN connection instance.
     //     

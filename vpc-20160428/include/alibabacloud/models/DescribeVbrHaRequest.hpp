@@ -114,15 +114,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run without starting the instance. The system checks whether required parameters are specified, whether the request format is valid, and whether the instance status is valid. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
     // 
-    // - **false** (default): sends a normal request. After the request passes the check, the instance is directly started.
+    // - **false** (default): sends the request. After the request passes the check, the instance is started.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -132,9 +132,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The VBR failover group instance ID.
+    // The VBR failover group instance ID. You must specify at least one of **VbrHaId** and **VbrId**. If both are omitted, the service returns MissingParam.VbrHaIdOrVbrId (400).
     shared_ptr<string> vbrHaId_ {};
-    // The VBR instance ID.
+    // The VBR instance ID. You must specify at least one of **VbrId** and **VbrHaId**. If both are omitted, the service returns MissingParam.VbrHaIdOrVbrId (400).
     shared_ptr<string> vbrId_ {};
   };
 

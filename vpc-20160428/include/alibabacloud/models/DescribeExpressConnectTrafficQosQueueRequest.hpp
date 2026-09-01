@@ -112,11 +112,13 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value may be different for each API request.
+    // >If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value may be different for each API request.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The QoS policy ID.
+    // The QoS policy ID returned by the CreateExpressConnectTrafficQos operation.
+    // 
+    // > This parameter is required. If you do not specify this parameter, the IllegalParam.QosId (400) error is returned.
     shared_ptr<string> qosId_ {};
     // The collection of QoS queue IDs.
     shared_ptr<vector<string>> queueIdList_ {};
@@ -124,7 +126,7 @@ namespace Models
     shared_ptr<vector<string>> queueNameList_ {};
     // The region ID of the QoS policy.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

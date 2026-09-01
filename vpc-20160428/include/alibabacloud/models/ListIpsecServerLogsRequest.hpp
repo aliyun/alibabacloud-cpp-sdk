@@ -106,9 +106,9 @@ namespace Models
     // 
     // > If you do not specify **From** or **To**, you must specify **MinutePeriod**.
     shared_ptr<int32_t> minutePeriod_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries per page for paging. Valid values: **1** to **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the IPsec server.
     // 

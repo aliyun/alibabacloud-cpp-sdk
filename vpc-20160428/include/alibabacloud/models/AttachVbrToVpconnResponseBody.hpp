@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The instance ID of the shared Express Connect circuits.
+    // The shared Express Connect circuits instance ID.
     shared_ptr<string> virtualPhysicalConnection_ {};
   };
 

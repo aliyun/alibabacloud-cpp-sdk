@@ -103,9 +103,9 @@ namespace Models
     protected:
       // The destination CIDR block of the route entry that failed to be deleted. IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix list CIDR blocks are supported.
       shared_ptr<string> dstCidrBlock_ {};
-      // The error code returned for the failure.
+      // The error code of the failure.
       shared_ptr<string> failedCode_ {};
-      // The error message returned for the failure.
+      // The error message of the failure.
       shared_ptr<string> failedMessage_ {};
       // The instance ID of the next hop that failed to be deleted.
       shared_ptr<string> nextHop_ {};

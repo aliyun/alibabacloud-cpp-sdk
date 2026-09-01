@@ -101,11 +101,11 @@ namespace Models
     shared_ptr<string> certificateType_ {};
     // The number of entries per page. Valid values: **1** to **20**. Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The pagination token. Valid values:
     // 
-    // - If this is the first query or no next query exists, leave this parameter empty.
+    // - If this is the first query or no subsequent query exists, leave this parameter empty.
     // 
-    // - If a next query exists, set this parameter to the **NextToken** value returned by the previous API call.
+    // - If a subsequent query exists, set this parameter to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The region ID of the VPN gateway.
     // 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The diagnostic ID.
+    // The diagnosis ID.
     // 
-    // After this operation returns the diagnostic ID, you can call the [GetVpnGatewayDiagnoseResult](https://help.aliyun.com/document_detail/2521963.html) operation to query the diagnostic report.
+    // After this operation returns the diagnosis ID, you can call the [GetVpnGatewayDiagnoseResult](https://help.aliyun.com/document_detail/2521963.html) operation to query the diagnostic report.
     shared_ptr<string> diagnoseId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

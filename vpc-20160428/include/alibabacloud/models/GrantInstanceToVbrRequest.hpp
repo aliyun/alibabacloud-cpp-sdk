@@ -87,30 +87,30 @@ namespace Models
 
 
   protected:
-    // The scope of VBR instances to be granted authorization. Valid values:
+    // The scope of the VBR instances to be authorized. Valid values:
     // 
     // - **All**: Grants authorization of the VPC-connected instance to all VBR instances in the specified region under the specified Alibaba Cloud account. In this case, the **VbrInstanceIds** parameter can be left empty.
     // - **Specify**: Grants authorization of the VPC-connected instance to the specified VBR instances. In this case, the **VbrInstanceIds** parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> grantType_ {};
-    // The ID of the VPC-connected instance for which to grant authorization.
+    // The ID of the VPC-connected instance for which authorization is to be granted.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the VPC-connected instance for which to grant authorization.
+    // The region ID of the VPC-connected instance for which authorization is to be granted.
     // 
     // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of VBR instances to be granted authorization.
+    // The list of VBR instances to be authorized.
     shared_ptr<vector<string>> vbrInstanceIds_ {};
-    // The Alibaba Cloud account ID that owns the VBR instance to be granted authorization.
+    // The ID of the Alibaba Cloud account that owns the VBR instance to be authorized. This account must be different from the caller\\"s account. You cannot specify the caller\\"s own account ID. This operation is used for cross-account authorization.
     // 
     // This parameter is required.
     shared_ptr<int64_t> vbrOwnerUid_ {};
-    // The region ID of the VBR instance to be granted authorization.
+    // The region ID of the VBR instance to be authorized.
     // 
     // This parameter is required.
     shared_ptr<string> vbrRegionNo_ {};

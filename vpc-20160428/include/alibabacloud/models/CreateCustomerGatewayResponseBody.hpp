@@ -88,7 +88,7 @@ namespace Models
     // 
     // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The instance ID of the customer gateway instance.
+    // The instance ID of the customer gateway.
     shared_ptr<string> customerGatewayId_ {};
     // The description of the customer gateway.
     shared_ptr<string> description_ {};

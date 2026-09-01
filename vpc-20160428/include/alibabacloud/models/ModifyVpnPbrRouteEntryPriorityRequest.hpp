@@ -155,9 +155,9 @@ namespace Models
     // 
     // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The new policy priority of the policy-based routing entry. Valid values: **1** to **100**.
+    // The new policy priority of the policy-based routing. Valid values: **1** to **100**.
     // 
-    // A smaller value indicates a higher policy priority for the routing entry.
+    // A smaller policy priority value indicates a higher priority of the routing.
     // 
     // This parameter is required.
     shared_ptr<int32_t> newPriority_ {};
@@ -167,13 +167,13 @@ namespace Models
     shared_ptr<string> nextHop_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The original policy priority of the policy-based routing entry. Valid values: **1** to **100**.
+    // The original policy priority of the policy-based routing. Valid values: **1** to **100**.
     // 
-    // A smaller value indicates a higher policy priority for the routing entry.
+    // A smaller policy priority value indicates a higher priority of the routing.
     shared_ptr<int32_t> priority_ {};
     // The region ID of the VPN gateway instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

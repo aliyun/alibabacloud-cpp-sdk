@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The secondary CIDR block added to the VPC.
     shared_ptr<string> cidrBlock_ {};
-    // The IP address type of the secondary CIDR block.
+    // The IP address version of the secondary CIDR block.
     shared_ptr<string> ipVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -291,8 +291,9 @@ namespace Models
       shared_ptr<string> companyLocalizedName_ {};
       // The name of the organization that requires the Express Connect circuit deployment.
       shared_ptr<string> companyName_ {};
-      // The time when the construction crew enters the site.
+      // The time when the construction starts. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> constructionTime_ {};
+      // The LOA error code.
       shared_ptr<string> description_ {};
       // The instance ID of the Express Connect circuit.
       shared_ptr<string> instanceId_ {};
@@ -300,13 +301,13 @@ namespace Models
       shared_ptr<string> lineCode_ {};
       // The cable label in the data center building.
       shared_ptr<string> lineLabel_ {};
-      // The contact information of the line O&M personnel.
+      // The contact information for line O&M.
       shared_ptr<string> lineSPContactInfo_ {};
       // The telecommunications service provider. Valid values:
-      // - **China Telecom**
-      // - **China Unicom**
-      // - **China Mobile**
-      // - **China Other**
+      // - **中国电信**
+      // - **中国联通**
+      // - **中国移动**
+      // - **中国其他**
       shared_ptr<string> lineServiceProvider_ {};
       // The type of the Express Connect circuit. Valid values:
       // 
@@ -318,7 +319,7 @@ namespace Models
       // The download URL of the LOA file.
       shared_ptr<string> loaUrl_ {};
       shared_ptr<PhysicalConnectionLOAType::PMInfo> PMInfo_ {};
-      // The construction company that enters the site.
+      // The construction company.
       shared_ptr<string> SI_ {};
       // The status of the LOA. Valid values:
       // 

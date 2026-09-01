@@ -136,8 +136,8 @@ namespace Models
     shared_ptr<string> accessPointId_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **false** (default): disables automatic payment.
-    // - **true**: enables automatic payment.
+    // - **false** (default): Automatic payment is disabled.
+    // - **true**: Automatic payment is enabled.
     shared_ptr<bool> autoPay_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -153,11 +153,11 @@ namespace Models
     // 
     // - **CM**: China Mobile
     // 
-    // - **CO**: other carriers in the Chinese mainland
+    // - **CO**: Other carriers in the Chinese mainland
     // 
     // - **Equinix**: Equinix
     // 
-    // - **Other**: other carriers outside the Chinese mainland
+    // - **Other**: Other carriers outside the Chinese mainland
     // 
     // This parameter is required.
     shared_ptr<string> lineOperator_ {};
@@ -167,11 +167,11 @@ namespace Models
     // 
     // - **100Base-T**: 100M Ethernet port.
     // 
-    // - **1000Base-T** (default): 1 GE port.
+    // - **1000Base-T** (default): 1 GE electrical port.
     // 
     // - **1000Base-LX**: GE single-mode optical port (10 km).
     // 
-    // - **10GBase-T**: 10 GE port.
+    // - **10GBase-T**: 10 GE electrical port.
     // 
     // - **10GBase-LR**: 10 GE single-mode optical port (10 km).
     // 
@@ -179,13 +179,15 @@ namespace Models
     // 
     // - **100GBase-LR**: 100 GE single-mode optical port.
     // 
-    // > 40GBase-LR and 100GBase-LR ports are created based on the actual port availability. Contact your account manager for details.
+    // The default value **1000Base-T** is available only at access points that support this port type. Before calling this operation, call ListBusinessAccessPoints to query the **SupportPortTypes** of the target access point. For optical ports, also verify the **OpticalModuleModels**.
+    // 
+    // > 40GBase-LR and 100GBase-LR must be created based on the actual backend port availability. Contact your account manager for details.
     shared_ptr<string> portType_ {};
     // The ID of the redundant Express Connect circuit. The circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
     shared_ptr<string> redundantPhysicalConnectionId_ {};
     // The region ID of the Express Connect circuit. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
