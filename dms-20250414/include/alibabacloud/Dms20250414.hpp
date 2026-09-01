@@ -267,6 +267,23 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
+       * @summary Creates and registers a DataAgent skill.
+       *
+       * @param request CreateDataAgentSkillMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentSkillMetaResponse
+       */
+      Models::CreateDataAgentSkillMetaResponse createDataAgentSkillMetaWithOptions(const Models::CreateDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates and registers a DataAgent skill.
+       *
+       * @param request CreateDataAgentSkillMetaRequest
+       * @return CreateDataAgentSkillMetaResponse
+       */
+      Models::CreateDataAgentSkillMetaResponse createDataAgentSkillMeta(const Models::CreateDataAgentSkillMetaRequest &request);
+
+      /**
        * @summary Creates a DataAgent theme.
        *
        * @param request CreateDataAgentThemeRequest
@@ -507,6 +524,23 @@ namespace Dms20250414
        * @return DeleteDataAgentMemoryResponse
        */
       Models::DeleteDataAgentMemoryResponse deleteDataAgentMemory(const Models::DeleteDataAgentMemoryRequest &request);
+
+      /**
+       * @summary Deletes a DataAgent skill.
+       *
+       * @param request DeleteDataAgentSkillMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentSkillMetaResponse
+       */
+      Models::DeleteDataAgentSkillMetaResponse deleteDataAgentSkillMetaWithOptions(const Models::DeleteDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a DataAgent skill.
+       *
+       * @param request DeleteDataAgentSkillMetaRequest
+       * @return DeleteDataAgentSkillMetaResponse
+       */
+      Models::DeleteDataAgentSkillMetaResponse deleteDataAgentSkillMeta(const Models::DeleteDataAgentSkillMetaRequest &request);
 
       /**
        * @summary Deletes a DataAgent workspace.
@@ -836,6 +870,23 @@ namespace Dms20250414
       Models::DescribeKnowledgeBaseUploadSignatureResponse describeKnowledgeBaseUploadSignature(const Models::DescribeKnowledgeBaseUploadSignatureRequest &request);
 
       /**
+       * @summary Retrieves the signature information for uploading skill files.
+       *
+       * @param request DescribeSkillFileUploadSignatureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSkillFileUploadSignatureResponse
+       */
+      Models::DescribeSkillFileUploadSignatureResponse describeSkillFileUploadSignatureWithOptions(const Models::DescribeSkillFileUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the signature information for uploading skill files.
+       *
+       * @param request DescribeSkillFileUploadSignatureRequest
+       * @return DescribeSkillFileUploadSignatureResponse
+       */
+      Models::DescribeSkillFileUploadSignatureResponse describeSkillFileUploadSignature(const Models::DescribeSkillFileUploadSignatureRequest &request);
+
+      /**
        * @summary Calls back after a file is uploaded.
        *
        * @param request FileUploadCallbackRequest
@@ -961,18 +1012,18 @@ namespace Dms20250414
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
-       * @param request GetDataAgentTaskModelUsageRequest
+       * @param tmpReq GetDataAgentTaskModelUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDataAgentTaskModelUsageResponse
        */
-      Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsageWithOptions(const Models::GetDataAgentTaskModelUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsageWithOptions(const Models::GetDataAgentTaskModelUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
        * @param request GetDataAgentTaskModelUsageRequest
        * @return GetDataAgentTaskModelUsageResponse
@@ -984,11 +1035,11 @@ namespace Dms20250414
        *
        * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
        *
-       * @param request GetDataAgentTaskModelUsageMetricsRequest
+       * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDataAgentTaskModelUsageMetricsResponse
        */
-      Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetricsWithOptions(const Models::GetDataAgentTaskModelUsageMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetricsWithOptions(const Models::GetDataAgentTaskModelUsageMetricsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
@@ -1494,6 +1545,23 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
 
       /**
+       * @summary Retrieves the list of DataAgent skills.
+       *
+       * @param request ListDataAgentSkillMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentSkillMetaResponse
+       */
+      Models::ListDataAgentSkillMetaResponse listDataAgentSkillMetaWithOptions(const Models::ListDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of DataAgent skills.
+       *
+       * @param request ListDataAgentSkillMetaRequest
+       * @return ListDataAgentSkillMetaResponse
+       */
+      Models::ListDataAgentSkillMetaResponse listDataAgentSkillMeta(const Models::ListDataAgentSkillMetaRequest &request);
+
+      /**
        * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
        *
        * @param request ListDataAgentThemeRequest
@@ -1910,7 +1978,7 @@ namespace Dms20250414
       Models::ModifyDataAgentMcpResponse modifyDataAgentMcp(const Models::ModifyDataAgentMcpRequest &request);
 
       /**
-       * @summary ModifyDataAgentTheme
+       * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
        *
        * @param request ModifyDataAgentThemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1919,7 +1987,7 @@ namespace Dms20250414
       Models::ModifyDataAgentThemeResponse modifyDataAgentThemeWithOptions(const Models::ModifyDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyDataAgentTheme
+       * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
        *
        * @param request ModifyDataAgentThemeRequest
        * @return ModifyDataAgentThemeResponse

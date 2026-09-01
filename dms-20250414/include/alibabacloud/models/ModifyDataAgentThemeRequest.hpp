@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the theme. Maximum length: 255 characters. A value of null indicates that the field is not modified. An empty string clears the field.
     shared_ptr<string> description_ {};
+    // The business identifier of the theme.
     shared_ptr<string> themeId_ {};
+    // The display name of the theme. Maximum length: 64 characters. A value of null indicates that the field is not modified. An empty string clears the field.
     shared_ptr<string> themeName_ {};
   };
 

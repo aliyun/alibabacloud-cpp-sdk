@@ -1047,6 +1047,60 @@ CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAg
 }
 
 /**
+ * @summary Creates and registers a DataAgent skill.
+ *
+ * @param request CreateDataAgentSkillMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentSkillMetaResponse
+ */
+CreateDataAgentSkillMetaResponse Client::createDataAgentSkillMetaWithOptions(const CreateDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasUploadLocation()) {
+    query["UploadLocation"] = request.getUploadLocation();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentSkillMeta"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentSkillMetaResponse>();
+}
+
+/**
+ * @summary Creates and registers a DataAgent skill.
+ *
+ * @param request CreateDataAgentSkillMetaRequest
+ * @return CreateDataAgentSkillMetaResponse
+ */
+CreateDataAgentSkillMetaResponse Client::createDataAgentSkillMeta(const CreateDataAgentSkillMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentSkillMetaWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a DataAgent theme.
  *
  * @param request CreateDataAgentThemeRequest
@@ -1856,6 +1910,52 @@ DeleteDataAgentMemoryResponse Client::deleteDataAgentMemoryWithOptions(const Del
 DeleteDataAgentMemoryResponse Client::deleteDataAgentMemory(const DeleteDataAgentMemoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDataAgentMemoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a DataAgent skill.
+ *
+ * @param request DeleteDataAgentSkillMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentSkillMetaResponse
+ */
+DeleteDataAgentSkillMetaResponse Client::deleteDataAgentSkillMetaWithOptions(const DeleteDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentSkillMeta"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentSkillMetaResponse>();
+}
+
+/**
+ * @summary Deletes a DataAgent skill.
+ *
+ * @param request DeleteDataAgentSkillMetaRequest
+ * @return DeleteDataAgentSkillMetaResponse
+ */
+DeleteDataAgentSkillMetaResponse Client::deleteDataAgentSkillMeta(const DeleteDataAgentSkillMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentSkillMetaWithOptions(request, runtime);
 }
 
 /**
@@ -2813,6 +2913,48 @@ DescribeKnowledgeBaseUploadSignatureResponse Client::describeKnowledgeBaseUpload
 }
 
 /**
+ * @summary Retrieves the signature information for uploading skill files.
+ *
+ * @param request DescribeSkillFileUploadSignatureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSkillFileUploadSignatureResponse
+ */
+DescribeSkillFileUploadSignatureResponse Client::describeSkillFileUploadSignatureWithOptions(const DescribeSkillFileUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSkillFileUploadSignature"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSkillFileUploadSignatureResponse>();
+}
+
+/**
+ * @summary Retrieves the signature information for uploading skill files.
+ *
+ * @param request DescribeSkillFileUploadSignatureRequest
+ * @return DescribeSkillFileUploadSignatureResponse
+ */
+DescribeSkillFileUploadSignatureResponse Client::describeSkillFileUploadSignature(const DescribeSkillFileUploadSignatureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSkillFileUploadSignatureWithOptions(request, runtime);
+}
+
+/**
  * @summary Calls back after a file is uploaded.
  *
  * @param request FileUploadCallbackRequest
@@ -3184,14 +3326,20 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetD
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
- * @param request GetDataAgentTaskModelUsageRequest
+ * @param tmpReq GetDataAgentTaskModelUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDataAgentTaskModelUsageResponse
  */
-GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions(const GetDataAgentTaskModelUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions(const GetDataAgentTaskModelUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDataAgentTaskModelUsageShrinkRequest request = GetDataAgentTaskModelUsageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasBeginTime()) {
     query["BeginTime"] = request.getBeginTime();
@@ -3203,6 +3351,10 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
   }
 
   if (!!request.hasPayLevel()) {
@@ -3233,7 +3385,7 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
  * @param request GetDataAgentTaskModelUsageRequest
  * @return GetDataAgentTaskModelUsageResponse
@@ -3248,12 +3400,18 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsage(const GetD
  *
  * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
  *
- * @param request GetDataAgentTaskModelUsageMetricsRequest
+ * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDataAgentTaskModelUsageMetricsResponse
  */
-GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetricsWithOptions(const GetDataAgentTaskModelUsageMetricsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetricsWithOptions(const GetDataAgentTaskModelUsageMetricsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDataAgentTaskModelUsageMetricsShrinkRequest request = GetDataAgentTaskModelUsageMetricsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasBeginTime()) {
     query["BeginTime"] = request.getBeginTime();
@@ -3265,6 +3423,10 @@ GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetr
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
   }
 
   if (!!request.hasPayLevel()) {
@@ -4915,6 +5077,72 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of DataAgent skills.
+ *
+ * @param request ListDataAgentSkillMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentSkillMetaResponse
+ */
+ListDataAgentSkillMetaResponse Client::listDataAgentSkillMetaWithOptions(const ListDataAgentSkillMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasSkillFrom()) {
+    query["SkillFrom"] = request.getSkillFrom();
+  }
+
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentSkillMeta"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentSkillMetaResponse>();
+}
+
+/**
+ * @summary Retrieves the list of DataAgent skills.
+ *
+ * @param request ListDataAgentSkillMetaRequest
+ * @return ListDataAgentSkillMetaResponse
+ */
+ListDataAgentSkillMetaResponse Client::listDataAgentSkillMeta(const ListDataAgentSkillMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentSkillMetaWithOptions(request, runtime);
 }
 
 /**
@@ -6614,7 +6842,7 @@ ModifyDataAgentMcpResponse Client::modifyDataAgentMcp(const ModifyDataAgentMcpRe
 }
 
 /**
- * @summary ModifyDataAgentTheme
+ * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
  *
  * @param request ModifyDataAgentThemeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6653,7 +6881,7 @@ ModifyDataAgentThemeResponse Client::modifyDataAgentThemeWithOptions(const Modif
 }
 
 /**
- * @summary ModifyDataAgentTheme
+ * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
  *
  * @param request ModifyDataAgentThemeRequest
  * @return ModifyDataAgentThemeResponse

@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETDATAAGENTTASKMODELUSAGEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_GETDATAAGENTTASKMODELUSAGEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETDATAAGENTTASKMODELUSAGESHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETDATAAGENTTASKMODELUSAGESHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,79 +10,77 @@ namespace Dms20250414
 {
 namespace Models
 {
-  class GetDataAgentTaskModelUsageRequest : public Darabonba::Model {
+  class GetDataAgentTaskModelUsageShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetDataAgentTaskModelUsageRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetDataAgentTaskModelUsageShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
-      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_TO_JSON(PayLevel, payLevel_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
-    friend void from_json(const Darabonba::Json& j, GetDataAgentTaskModelUsageRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetDataAgentTaskModelUsageShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
-      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_FROM_JSON(PayLevel, payLevel_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
-    GetDataAgentTaskModelUsageRequest() = default ;
-    GetDataAgentTaskModelUsageRequest(const GetDataAgentTaskModelUsageRequest &) = default ;
-    GetDataAgentTaskModelUsageRequest(GetDataAgentTaskModelUsageRequest &&) = default ;
-    GetDataAgentTaskModelUsageRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetDataAgentTaskModelUsageRequest() = default ;
-    GetDataAgentTaskModelUsageRequest& operator=(const GetDataAgentTaskModelUsageRequest &) = default ;
-    GetDataAgentTaskModelUsageRequest& operator=(GetDataAgentTaskModelUsageRequest &&) = default ;
+    GetDataAgentTaskModelUsageShrinkRequest() = default ;
+    GetDataAgentTaskModelUsageShrinkRequest(const GetDataAgentTaskModelUsageShrinkRequest &) = default ;
+    GetDataAgentTaskModelUsageShrinkRequest(GetDataAgentTaskModelUsageShrinkRequest &&) = default ;
+    GetDataAgentTaskModelUsageShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetDataAgentTaskModelUsageShrinkRequest() = default ;
+    GetDataAgentTaskModelUsageShrinkRequest& operator=(const GetDataAgentTaskModelUsageShrinkRequest &) = default ;
+    GetDataAgentTaskModelUsageShrinkRequest& operator=(GetDataAgentTaskModelUsageShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginTime_ == nullptr
-        && this->DMSUnit_ == nullptr && this->endTime_ == nullptr && this->instanceIds_ == nullptr && this->payLevel_ == nullptr && this->regionId_ == nullptr; };
+        && this->DMSUnit_ == nullptr && this->endTime_ == nullptr && this->instanceIdsShrink_ == nullptr && this->payLevel_ == nullptr && this->regionId_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
     inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
-    inline GetDataAgentTaskModelUsageRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // DMSUnit Field Functions 
     bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
     void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
     inline string getDMSUnit() const { DARABONBA_PTR_GET_DEFAULT(DMSUnit_, "") };
-    inline GetDataAgentTaskModelUsageRequest& setDMSUnit(string DMSUnit) { DARABONBA_PTR_SET_VALUE(DMSUnit_, DMSUnit) };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setDMSUnit(string DMSUnit) { DARABONBA_PTR_SET_VALUE(DMSUnit_, DMSUnit) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
-    inline GetDataAgentTaskModelUsageRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
-    // instanceIds Field Functions 
-    bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
-    void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
-    inline GetDataAgentTaskModelUsageRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
-    inline GetDataAgentTaskModelUsageRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+    // instanceIdsShrink Field Functions 
+    bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
+    void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
     // payLevel Field Functions 
     bool hasPayLevel() const { return this->payLevel_ != nullptr;};
     void deletePayLevel() { this->payLevel_ = nullptr;};
     inline string getPayLevel() const { DARABONBA_PTR_GET_DEFAULT(payLevel_, "") };
-    inline GetDataAgentTaskModelUsageRequest& setPayLevel(string payLevel) { DARABONBA_PTR_SET_VALUE(payLevel_, payLevel) };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setPayLevel(string payLevel) { DARABONBA_PTR_SET_VALUE(payLevel_, payLevel) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline GetDataAgentTaskModelUsageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+    inline GetDataAgentTaskModelUsageShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
@@ -93,7 +90,7 @@ namespace Models
     shared_ptr<string> DMSUnit_ {};
     // The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
     shared_ptr<int64_t> endTime_ {};
-    shared_ptr<vector<string>> instanceIds_ {};
+    shared_ptr<string> instanceIdsShrink_ {};
     shared_ptr<string> payLevel_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The start time of the statistical interval for this time series point. The value is a UNIX timestamp in seconds.
+      // The start time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> beginTime_ {};
-      // The end time of the statistical interval for this time series point. The value is a UNIX timestamp in seconds.
+      // The end time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The TPM for this time series point, which is the number of tokens consumed within the statistical interval.
+      // The TPM for this time series data point, which is the number of tokens consumed within the statistical interval.
       shared_ptr<int64_t> tpm_ {};
     };
 

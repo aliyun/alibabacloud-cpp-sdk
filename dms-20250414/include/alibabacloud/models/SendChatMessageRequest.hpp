@@ -157,6 +157,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_TO_JSON(Mode, mode_);
+        DARABONBA_PTR_TO_JSON(PermissionConfig, permissionConfig_);
         DARABONBA_PTR_TO_JSON(PlanMode, planMode_);
         DARABONBA_PTR_TO_JSON(ReportWaterMark, reportWaterMark_);
         DARABONBA_PTR_TO_JSON(SkipAskHuman, skipAskHuman_);
@@ -173,6 +174,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_FROM_JSON(Mode, mode_);
+        DARABONBA_PTR_FROM_JSON(PermissionConfig, permissionConfig_);
         DARABONBA_PTR_FROM_JSON(PlanMode, planMode_);
         DARABONBA_PTR_FROM_JSON(ReportWaterMark, reportWaterMark_);
         DARABONBA_PTR_FROM_JSON(SkipAskHuman, skipAskHuman_);
@@ -192,10 +194,42 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PermissionConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PermissionConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(DefaultAction, defaultAction_);
+        };
+        friend void from_json(const Darabonba::Json& j, PermissionConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(DefaultAction, defaultAction_);
+        };
+        PermissionConfig() = default ;
+        PermissionConfig(const PermissionConfig &) = default ;
+        PermissionConfig(PermissionConfig &&) = default ;
+        PermissionConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PermissionConfig() = default ;
+        PermissionConfig& operator=(const PermissionConfig &) = default ;
+        PermissionConfig& operator=(PermissionConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->defaultAction_ == nullptr; };
+        // defaultAction Field Functions 
+        bool hasDefaultAction() const { return this->defaultAction_ != nullptr;};
+        void deleteDefaultAction() { this->defaultAction_ = nullptr;};
+        inline string getDefaultAction() const { DARABONBA_PTR_GET_DEFAULT(defaultAction_, "") };
+        inline PermissionConfig& setDefaultAction(string defaultAction) { DARABONBA_PTR_SET_VALUE(defaultAction_, defaultAction) };
+
+
+      protected:
+        // 未配置表的默认行为：allow=放行（默认），deny=拒绝
+        shared_ptr<string> defaultAction_ {};
+      };
+
       virtual bool empty() const override { return this->customAgentId_ == nullptr
         && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->kbUuidList_ == nullptr && this->language_ == nullptr && this->mcpServerIds_ == nullptr
-        && this->mode_ == nullptr && this->planMode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr && this->skipPlan_ == nullptr
-        && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr && this->userSpecifiedSkillList_ == nullptr; };
+        && this->mode_ == nullptr && this->permissionConfig_ == nullptr && this->planMode_ == nullptr && this->reportWaterMark_ == nullptr && this->skipAskHuman_ == nullptr
+        && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr && this->userSpecifiedSkillList_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -243,6 +277,15 @@ namespace Models
       void deleteMode() { this->mode_ = nullptr;};
       inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
       inline SessionConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      // permissionConfig Field Functions 
+      bool hasPermissionConfig() const { return this->permissionConfig_ != nullptr;};
+      void deletePermissionConfig() { this->permissionConfig_ = nullptr;};
+      inline const SessionConfig::PermissionConfig & getPermissionConfig() const { DARABONBA_PTR_GET_CONST(permissionConfig_, SessionConfig::PermissionConfig) };
+      inline SessionConfig::PermissionConfig getPermissionConfig() { DARABONBA_PTR_GET(permissionConfig_, SessionConfig::PermissionConfig) };
+      inline SessionConfig& setPermissionConfig(const SessionConfig::PermissionConfig & permissionConfig) { DARABONBA_PTR_SET_VALUE(permissionConfig_, permissionConfig) };
+      inline SessionConfig& setPermissionConfig(SessionConfig::PermissionConfig && permissionConfig) { DARABONBA_PTR_SET_RVALUE(permissionConfig_, permissionConfig) };
 
 
       // planMode Field Functions 
@@ -314,6 +357,8 @@ namespace Models
       //  - **ANALYSIS**: analysis mode.
       //  - **INSIGHT**: insight mode.
       shared_ptr<string> mode_ {};
+      // session 级权限生效机制配置，仅含未配置表的默认行为
+      shared_ptr<SessionConfig::PermissionConfig> permissionConfig_ {};
       // Specifies whether to enable the plan. Valid values: disable, enable, force. Default value: enable.
       shared_ptr<string> planMode_ {};
       // The text (up to 64 characters) used as a watermark in the generated PDF report.
@@ -393,11 +438,13 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Tables& obj) { 
             DARABONBA_PTR_TO_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_TO_JSON(DisallowedColumns, disallowedColumns_);
             DARABONBA_PTR_TO_JSON(RequiredRowFilter, requiredRowFilter_);
             DARABONBA_PTR_TO_JSON(TableName, tableName_);
           };
           friend void from_json(const Darabonba::Json& j, Tables& obj) { 
             DARABONBA_PTR_FROM_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_FROM_JSON(DisallowedColumns, disallowedColumns_);
             DARABONBA_PTR_FROM_JSON(RequiredRowFilter, requiredRowFilter_);
             DARABONBA_PTR_FROM_JSON(TableName, tableName_);
           };
@@ -413,7 +460,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->allowedColumns_ == nullptr
-        && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
+        && this->disallowedColumns_ == nullptr && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
           // allowedColumns Field Functions 
           bool hasAllowedColumns() const { return this->allowedColumns_ != nullptr;};
           void deleteAllowedColumns() { this->allowedColumns_ = nullptr;};
@@ -421,6 +468,15 @@ namespace Models
           inline vector<string> getAllowedColumns() { DARABONBA_PTR_GET(allowedColumns_, vector<string>) };
           inline Tables& setAllowedColumns(const vector<string> & allowedColumns) { DARABONBA_PTR_SET_VALUE(allowedColumns_, allowedColumns) };
           inline Tables& setAllowedColumns(vector<string> && allowedColumns) { DARABONBA_PTR_SET_RVALUE(allowedColumns_, allowedColumns) };
+
+
+          // disallowedColumns Field Functions 
+          bool hasDisallowedColumns() const { return this->disallowedColumns_ != nullptr;};
+          void deleteDisallowedColumns() { this->disallowedColumns_ = nullptr;};
+          inline const vector<string> & getDisallowedColumns() const { DARABONBA_PTR_GET_CONST(disallowedColumns_, vector<string>) };
+          inline vector<string> getDisallowedColumns() { DARABONBA_PTR_GET(disallowedColumns_, vector<string>) };
+          inline Tables& setDisallowedColumns(const vector<string> & disallowedColumns) { DARABONBA_PTR_SET_VALUE(disallowedColumns_, disallowedColumns) };
+          inline Tables& setDisallowedColumns(vector<string> && disallowedColumns) { DARABONBA_PTR_SET_RVALUE(disallowedColumns_, disallowedColumns) };
 
 
           // requiredRowFilter Field Functions 
@@ -440,6 +496,7 @@ namespace Models
         protected:
           // The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
+          shared_ptr<vector<string>> disallowedColumns_ {};
           // The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
           // The table name to which the permission constraint rule applies.
@@ -644,11 +701,13 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Tables& obj) { 
             DARABONBA_PTR_TO_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_TO_JSON(DisallowedColumns, disallowedColumns_);
             DARABONBA_PTR_TO_JSON(RequiredRowFilter, requiredRowFilter_);
             DARABONBA_PTR_TO_JSON(TableName, tableName_);
           };
           friend void from_json(const Darabonba::Json& j, Tables& obj) { 
             DARABONBA_PTR_FROM_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_FROM_JSON(DisallowedColumns, disallowedColumns_);
             DARABONBA_PTR_FROM_JSON(RequiredRowFilter, requiredRowFilter_);
             DARABONBA_PTR_FROM_JSON(TableName, tableName_);
           };
@@ -664,7 +723,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->allowedColumns_ == nullptr
-        && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
+        && this->disallowedColumns_ == nullptr && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
           // allowedColumns Field Functions 
           bool hasAllowedColumns() const { return this->allowedColumns_ != nullptr;};
           void deleteAllowedColumns() { this->allowedColumns_ = nullptr;};
@@ -672,6 +731,15 @@ namespace Models
           inline vector<string> getAllowedColumns() { DARABONBA_PTR_GET(allowedColumns_, vector<string>) };
           inline Tables& setAllowedColumns(const vector<string> & allowedColumns) { DARABONBA_PTR_SET_VALUE(allowedColumns_, allowedColumns) };
           inline Tables& setAllowedColumns(vector<string> && allowedColumns) { DARABONBA_PTR_SET_RVALUE(allowedColumns_, allowedColumns) };
+
+
+          // disallowedColumns Field Functions 
+          bool hasDisallowedColumns() const { return this->disallowedColumns_ != nullptr;};
+          void deleteDisallowedColumns() { this->disallowedColumns_ = nullptr;};
+          inline const vector<string> & getDisallowedColumns() const { DARABONBA_PTR_GET_CONST(disallowedColumns_, vector<string>) };
+          inline vector<string> getDisallowedColumns() { DARABONBA_PTR_GET(disallowedColumns_, vector<string>) };
+          inline Tables& setDisallowedColumns(const vector<string> & disallowedColumns) { DARABONBA_PTR_SET_VALUE(disallowedColumns_, disallowedColumns) };
+          inline Tables& setDisallowedColumns(vector<string> && disallowedColumns) { DARABONBA_PTR_SET_RVALUE(disallowedColumns_, disallowedColumns) };
 
 
           // requiredRowFilter Field Functions 
@@ -691,6 +759,7 @@ namespace Models
         protected:
           // The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
+          shared_ptr<vector<string>> disallowedColumns_ {};
           // The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
           // The table name to which the permission constraint rule applies.

@@ -186,16 +186,16 @@ namespace Models
   protected:
     // The summary data of model usage for DataAgent analysis tasks.
     shared_ptr<GetDataAgentTaskModelUsageResponseBody::Data> data_ {};
-    // The error code returned if the request fails.
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

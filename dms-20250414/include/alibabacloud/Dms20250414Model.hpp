@@ -10,6 +10,7 @@
 #include <alibabacloud/models/AgenticDatabaseObject.hpp>
 #include <alibabacloud/models/AgenticDmsInstanceSyncTask.hpp>
 #include <alibabacloud/models/AgenticDmsInstanceSyncTaskInstance.hpp>
+#include <alibabacloud/models/AgenticKnowledgeView.hpp>
 #include <alibabacloud/models/AgenticTableEngineMeta.hpp>
 #include <alibabacloud/models/AgenticTableBaseInfo.hpp>
 #include <alibabacloud/models/AgenticTableColumnEngineMeta.hpp>
@@ -104,6 +105,9 @@
 #include <alibabacloud/models/CreateDataAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/CreateDataAgentSkillMetaRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentSkillMetaResponseBody.hpp>
+#include <alibabacloud/models/CreateDataAgentSkillMetaResponse.hpp>
 #include <alibabacloud/models/CreateDataAgentThemeRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentThemeResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentThemeResponse.hpp>
@@ -151,6 +155,9 @@
 #include <alibabacloud/models/DeleteDataAgentMemoryRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentMemoryResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentMemoryResponse.hpp>
+#include <alibabacloud/models/DeleteDataAgentSkillMetaRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentSkillMetaResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataAgentSkillMetaResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponse.hpp>
@@ -210,6 +217,9 @@
 #include <alibabacloud/models/DescribeKnowledgeBaseUploadSignatureRequest.hpp>
 #include <alibabacloud/models/DescribeKnowledgeBaseUploadSignatureResponseBody.hpp>
 #include <alibabacloud/models/DescribeKnowledgeBaseUploadSignatureResponse.hpp>
+#include <alibabacloud/models/DescribeSkillFileUploadSignatureRequest.hpp>
+#include <alibabacloud/models/DescribeSkillFileUploadSignatureResponseBody.hpp>
+#include <alibabacloud/models/DescribeSkillFileUploadSignatureResponse.hpp>
 #include <alibabacloud/models/FileUploadCallbackRequest.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponseBody.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponse.hpp>
@@ -229,9 +239,11 @@
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponse.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageRequest.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageShrinkRequest.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageResponse.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsRequest.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsShrinkRequest.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponse.hpp>
 #include <alibabacloud/models/GetDataAgentThemeUploadSignatureRequest.hpp>
@@ -316,6 +328,9 @@
 #include <alibabacloud/models/ListDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponse.hpp>
+#include <alibabacloud/models/ListDataAgentSkillMetaRequest.hpp>
+#include <alibabacloud/models/ListDataAgentSkillMetaResponseBody.hpp>
+#include <alibabacloud/models/ListDataAgentSkillMetaResponse.hpp>
 #include <alibabacloud/models/ListDataAgentThemeRequest.hpp>
 #include <alibabacloud/models/ListDataAgentThemeResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentThemeResponse.hpp>
