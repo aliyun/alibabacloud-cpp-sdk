@@ -233,6 +233,23 @@ namespace Dms20250414
       Models::CreateDataAgentAccuracyTestResponse createDataAgentAccuracyTest(const Models::CreateDataAgentAccuracyTestRequest &request);
 
       /**
+       * @summary Data Agent点赞点踩功能
+       *
+       * @param request CreateDataAgentFeedbackRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentFeedbackResponse
+       */
+      Models::CreateDataAgentFeedbackResponse createDataAgentFeedbackWithOptions(const Models::CreateDataAgentFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Data Agent点赞点踩功能
+       *
+       * @param request CreateDataAgentFeedbackRequest
+       * @return CreateDataAgentFeedbackResponse
+       */
+      Models::CreateDataAgentFeedbackResponse createDataAgentFeedback(const Models::CreateDataAgentFeedbackRequest &request);
+
+      /**
        * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
        *
        * @param request CreateDataAgentKnowledgeBaseRequest
@@ -2092,7 +2109,7 @@ namespace Dms20250414
        *
        * @description ## Request description
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
        *
@@ -2107,7 +2124,7 @@ namespace Dms20250414
        *
        * @description ## Request description
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
        *

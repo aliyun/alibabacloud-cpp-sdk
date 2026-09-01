@@ -925,6 +925,76 @@ CreateDataAgentAccuracyTestResponse Client::createDataAgentAccuracyTest(const Cr
 }
 
 /**
+ * @summary Data Agent点赞点踩功能
+ *
+ * @param request CreateDataAgentFeedbackRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentFeedbackResponse
+ */
+CreateDataAgentFeedbackResponse Client::createDataAgentFeedbackWithOptions(const CreateDataAgentFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasFeedbackContent()) {
+    query["FeedbackContent"] = request.getFeedbackContent();
+  }
+
+  if (!!request.hasFeedbackType()) {
+    query["FeedbackType"] = request.getFeedbackType();
+  }
+
+  if (!!request.hasLikeValue()) {
+    query["LikeValue"] = request.getLikeValue();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasTargetId()) {
+    query["TargetId"] = request.getTargetId();
+  }
+
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.getTargetType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentFeedback"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentFeedbackResponse>();
+}
+
+/**
+ * @summary Data Agent点赞点踩功能
+ *
+ * @param request CreateDataAgentFeedbackRequest
+ * @return CreateDataAgentFeedbackResponse
+ */
+CreateDataAgentFeedbackResponse Client::createDataAgentFeedback(const CreateDataAgentFeedbackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentFeedbackWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
  *
  * @param request CreateDataAgentKnowledgeBaseRequest
@@ -7208,7 +7278,7 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
  *
  * @description ## Request description
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
- * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
  *
@@ -7319,7 +7389,7 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  *
  * @description ## Request description
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
- * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
  *

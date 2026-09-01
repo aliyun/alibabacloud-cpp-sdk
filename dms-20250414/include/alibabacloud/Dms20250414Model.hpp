@@ -98,6 +98,9 @@
 #include <alibabacloud/models/CreateDataAgentAccuracyTestRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentAccuracyTestResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentAccuracyTestResponse.hpp>
+#include <alibabacloud/models/CreateDataAgentFeedbackRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentFeedbackResponseBody.hpp>
+#include <alibabacloud/models/CreateDataAgentFeedbackResponse.hpp>
 #include <alibabacloud/models/CreateDataAgentKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentKnowledgeBaseResponseBody.hpp>
 #include <alibabacloud/models/CreateDataAgentKnowledgeBaseResponse.hpp>
