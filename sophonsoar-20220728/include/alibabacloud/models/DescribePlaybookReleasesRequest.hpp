@@ -68,16 +68,17 @@ namespace Models
   protected:
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
-    shared_ptr<string> lang_ {};
-    // The page number. Default value: 1. Pages start from page 1.
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
+    // - **zh**: Chinese
     // 
-    // >  We recommend that you do not leave this parameter empty.
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // The page number of the page to return. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20. If you do not specify this parameter, 10 entries are returned.
+    // 
+    // > Specify a value for this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -114,11 +114,11 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<string> data_ {};
     // The pagination information.
     shared_ptr<RunNotifyComponentWithEmailResponseBody::Page> page_ {};
-    // The request ID.
+    // The ID of the request. Use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

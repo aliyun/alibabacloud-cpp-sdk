@@ -265,57 +265,57 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account that is used to submit the handling task.
+      // The Alibaba Cloud account ID that submitted the disposal task.
       shared_ptr<string> creator_ {};
-      // The name of the handling entity.
+      // The name of the disposed entity.
       shared_ptr<string> entityName_ {};
-      // The type of the handling entity.
+      // The type of the disposed entity.
       shared_ptr<string> entityType_ {};
-      // The UUID of the handling entity.
+      // The UUID of the entity.
       shared_ptr<string> entityUuid_ {};
-      // The error code returned if the call failed.
+      // The error code.
       shared_ptr<string> errCode_ {};
-      // The error message returned if the call failed.
+      // The error message.
       shared_ptr<string> errMsg_ {};
-      // The error tip returned if the call failed.
+      // The error tip.
       shared_ptr<string> errTip_ {};
       // The UUID of the event.
       shared_ptr<string> eventUuid_ {};
-      // The creation time of the handling task. The value is a 13-digit timestamp.
+      // The creation time of the disposal task. Format: 13-digit timestamp.
       shared_ptr<int64_t> gmtCreateMillis_ {};
-      // The modification time of the handling task. The value is a 13-digit timestamp.
+      // The modification time of the disposal task. Format: 13-digit timestamp.
       shared_ptr<int64_t> gmtModifiedMillis_ {};
-      // The input parameter of the handling task.
+      // The input parameters of the disposal task.
       shared_ptr<string> inputParams_ {};
-      // The ID of the associated policy.
+      // The ID of the associated strategy.
       shared_ptr<string> processStrategyUuid_ {};
-      // The delivery time of the handling task. The value is a 13-digit timestamp.
+      // The time when the disposal task was dispatched. Format: 13-digit timestamp.
       shared_ptr<int64_t> processTime_ {};
-      // The unblocking time of the handling task. The value is a 13-digit timestamp.
+      // The unblocking time of the disposal task. Format: 13-digit timestamp.
       shared_ptr<int64_t> removeTime_ {};
       // The UUID of the playbook execution record.
       shared_ptr<string> reqUuid_ {};
-      // The scenario code of the handling task.
+      // The scene code of the disposal task.
       shared_ptr<string> sceneCode_ {};
-      // The scenario name of the handling task.
+      // The scene name of the disposal task.
       shared_ptr<string> sceneName_ {};
-      // The ID of the Alibaba Cloud account that is specified in the handling task.
+      // The Alibaba Cloud account ID for the disposal.
       shared_ptr<string> scope_ {};
-      // The submission source of the handling task.
+      // The submission source of the disposal task.
       shared_ptr<string> source_ {};
-      // The unique identifier of the handling task.
+      // The unique identifier of the disposal task.
       shared_ptr<string> taskId_ {};
-      // The status of the handling task.
+      // The status of the disposal task.
       shared_ptr<int32_t> taskStatus_ {};
-      // The triggering source of the handling task. Valid values:
+      // The trigger source of the disposal task. Valid values:
       // 
-      // *   **system**: triggered when you manually handle an event.
-      // *   **custom**: triggered by an event based on an automatic response rule.
-      // *   **custom_alert**: triggered by an alert based on an automatic response rule.
-      // *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-      // *   **soar-mdr**: triggered by Managed Security Service.
+      // - **system**: Triggered by manual event disposal.
+      // - **custom**: Triggered by an automatic response rule based on an event.
+      // - **custom_alert**: Triggered by an automatic response rule based on an alert.
+      // - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+      // - **soar-mdr**: Triggered by the Managed Security Service.
       shared_ptr<string> triggerSource_ {};
-      // The code of the cloud service that is associated with the handling task.
+      // The code of the cloud product associated with the disposal task.
       shared_ptr<string> yunCode_ {};
     };
 
@@ -366,9 +366,9 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number in the paging query.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries returned per page in the paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -404,9 +404,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeProcessTasksResponseBody::Page> page_ {};
-    // The handling tasks.
+    // The list of disposal tasks.
     shared_ptr<vector<DescribeProcessTasksResponseBody::ProcessTasks>> processTasks_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

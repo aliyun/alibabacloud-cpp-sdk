@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The Python code snippet.
+    // The Python code snippet to verify.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};

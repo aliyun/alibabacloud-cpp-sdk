@@ -112,7 +112,7 @@ namespace Models
 
 
     protected:
-      // The parameter description.
+      // The description of the parameter.
       shared_ptr<string> description_ {};
       // The example value.
       shared_ptr<string> exampleValue_ {};
@@ -120,16 +120,33 @@ namespace Models
       shared_ptr<string> name_ {};
       // Indicates whether the parameter is required.
       // 
-      // *   true
-      // *   false
-      shared_ptr<bool> required_ {};
-      shared_ptr<string> style_ {};
-      // The data type of the parameter field. Valid values:
+      // - **true**: required.
       // 
-      // *   **string**
-      // *   **boolean**
-      // *   **integer**
-      // *   **long**
+      // - **false**: not required.
+      shared_ptr<bool> required_ {};
+      // The serialization method for an array parameter. Valid values:
+      // 
+      // - **repeatList**: An array is serialized in the XXX.N format. Example: Instance.1=i-instance1&\\&Instance.2=i-instance2.
+      // 
+      // - **simple**: An array is serialized as a comma-separated string. Example: i-instance1,i-instance2.
+      // 
+      // - **spaceDelimited**: An array is serialized as a space-separated string. Example: i-instance1 i-instance2.
+      // 
+      // - **pipeDelimited**: An array is serialized as a pipe-separated string. Example: i-instance1|i-instance2.
+      // 
+      // - **json**: An array is serialized in JSON format. Example: ["i-instance1","i-instance2"].
+      // 
+      // - **flat**: An array is serialized in the XXX.N format. Example: Instance.1=i-instance1\\&Instance.2=i-instance2.
+      shared_ptr<string> style_ {};
+      // The data type of the parameter. Valid values:
+      // 
+      // - **string**: a string.
+      // 
+      // - **boolean**: a Boolean value.
+      // 
+      // - **integer**: an integer.
+      // 
+      // - **long**: a long integer.
       shared_ptr<string> type_ {};
     };
 
@@ -175,13 +192,13 @@ namespace Models
   protected:
     // The name of the API.
     shared_ptr<string> apiName_ {};
-    // The information about the API.
+    // List of API information.
     shared_ptr<vector<DescribePopApiResponseBody::OpenApiMetaList>> openApiMetaList_ {};
-    // The POP code of the Alibaba Cloud service.
+    // The POP code of the Alibaba Cloud product API.
     shared_ptr<string> popCode_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The version of the API.
+    // The version number of the API.
     shared_ptr<string> version_ {};
   };
 

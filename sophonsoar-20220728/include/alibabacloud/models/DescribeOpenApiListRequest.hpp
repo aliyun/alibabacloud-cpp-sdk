@@ -84,29 +84,31 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform.
+    // The API name.
     shared_ptr<string> apiName_ {};
-    // The version number of the API.
+    // The API version number.
     // 
-    // >  You can call the [DescribeGroupProductions](~~DescribeGroupProductions~~) operation to query the version number.
+    // > Call the [DescribeGroupProductions](~~DescribeGroupProductions~~) API to get this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> apiVersion_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for requests and responses. The default value is **zh**. Values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The POP code of the Alibaba Cloud service.
+    // The POP CODE of the Alibaba Cloud product API.
     // 
     // This parameter is required.
     shared_ptr<string> popCode_ {};
-    // The ID of the user who switches from the current view to the destination view by using the management account.
+    // The user ID of the member whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Default value: 0. Valid values:
+    // The view type. The default is 0. Values:
     // 
-    // *   0: the view of the current Alibaba Cloud account.
-    // *   1: the view of all accounts for the enterprise.
+    // - 0: Current Alibaba Cloud account view.
+    // 
+    // - 1: View of all accounts under the enterprise.
     shared_ptr<string> roleType_ {};
   };
 

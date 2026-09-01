@@ -143,52 +143,63 @@ namespace Models
 
 
   protected:
-    // The action name of the playbook.
+    // The name of the playbook action.
     // 
     // This parameter is required.
     shared_ptr<string> actionName_ {};
-    // The user ID receiving the message.
+    // The ID of the user who receives the message.
     // 
     // This parameter is required.
     shared_ptr<string> aliuid_ {};
-    // Resource instance ID. This parameter is currently deprecated and no longer in use.
+    // The ID of the asset. This parameter is deprecated.
     shared_ptr<string> assetId_ {};
-    // Collection of channel types. If not provided, all channels will be used by default, and it is not required to provide this parameter by default.
+    // A collection of channel types. If you do not specify this parameter, messages are sent through all channels by default.
     shared_ptr<vector<string>> channelTypeList_ {};
-    // The component name of the playbook.
+    // The name of the playbook component.
     // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
-    // Cloud Pigeon\\"s message event ID. Values:
-    // - yundun_soar_incident_generate: Incident generation.
-    // - yundun_soar_alert_generate: Alert generation.
-    // - yundun_soar_incident_update: Incident update.
+    // The ID of the message event in Message Center. Valid values:
+    // 
+    // - yundun_soar_incident_generate: An event is generated.
+    // 
+    // - yundun_soar_alert_generate: An alert is generated.
+    // 
+    // - yundun_soar_incident_update: An event is updated.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The language type for requesting and receiving messages. Values:
-    // - **zh** (default): Chinese.
-    // - **en**: English.
+    // The language of the request and response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The node name of the playbook.
+    // The name of the playbook node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // Template parameters for the message event.
-    // - For incident generation: aliyunUID, incidentName, incidentID, startTime
-    // - For alert generation: aliyunUID, alertName, alertID, startTime
-    // - For incident update: aliyunUID, incidentName, incidentID, startTime, endTime, status, level
+    // The template parameters for the message event.
+    // 
+    // - Event generation: aliyunUID, incidentName, incidentID, startTime
+    // 
+    // - Alert generation: aliyunUID, alertName, alertID, startTime
+    // 
+    // - Event update: aliyunUID, incidentName, incidentID, startTime, endTime, status, level
     shared_ptr<string> params_ {};
     // The UUID of the playbook.
-    // > You can obtain this parameter by calling the [DescribePlaybooks](~~DescribePlaybooks~~) interface.
+    // 
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};
-    // The user ID when an administrator switches to another member\\"s perspective.
+    // The user ID of the member. This parameter is used when an administrator calls the operation on behalf of a member.
     shared_ptr<int64_t> roleFor_ {};
-    // View type. Values:
-    // - 0 (default): Current Alibaba Cloud account view.
-    // - 1: View for all accounts under the enterprise.
+    // The view type. Valid values:
+    // 
+    // - 0 (default): The view of the current Alibaba Cloud account.
+    // 
+    // - 1: The view of all accounts that belong to the enterprise.
     shared_ptr<string> roleType_ {};
   };
 

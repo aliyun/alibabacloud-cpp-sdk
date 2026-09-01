@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries returned. This parameter is available only for paged queries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> data_ {};
     // The pagination information.
     shared_ptr<RunNotifyComponentWithWebhookResponseBody::Page> page_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

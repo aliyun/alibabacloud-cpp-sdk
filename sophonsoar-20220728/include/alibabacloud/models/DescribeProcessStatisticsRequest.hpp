@@ -14,11 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeProcessStatisticsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ProcessActionEnd, processActionEnd_);
+      DARABONBA_PTR_TO_JSON(ProcessActionStart, processActionStart_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProcessStatisticsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ProcessActionEnd, processActionEnd_);
+      DARABONBA_PTR_FROM_JSON(ProcessActionStart, processActionStart_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_FROM_JSON(RoleType, roleType_);
     };
@@ -34,12 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
+        && this->processActionEnd_ == nullptr && this->processActionStart_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeProcessStatisticsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // processActionEnd Field Functions 
+    bool hasProcessActionEnd() const { return this->processActionEnd_ != nullptr;};
+    void deleteProcessActionEnd() { this->processActionEnd_ = nullptr;};
+    inline int64_t getProcessActionEnd() const { DARABONBA_PTR_GET_DEFAULT(processActionEnd_, 0L) };
+    inline DescribeProcessStatisticsRequest& setProcessActionEnd(int64_t processActionEnd) { DARABONBA_PTR_SET_VALUE(processActionEnd_, processActionEnd) };
+
+
+    // processActionStart Field Functions 
+    bool hasProcessActionStart() const { return this->processActionStart_ != nullptr;};
+    void deleteProcessActionStart() { this->processActionStart_ = nullptr;};
+    inline int64_t getProcessActionStart() const { DARABONBA_PTR_GET_DEFAULT(processActionStart_, 0L) };
+    inline DescribeProcessStatisticsRequest& setProcessActionStart(int64_t processActionStart) { DARABONBA_PTR_SET_VALUE(processActionStart_, processActionStart) };
 
 
     // roleFor Field Functions 
@@ -57,17 +75,21 @@ namespace Models
 
 
   protected:
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   **zh** (default): Chinese.
-    // *   **en**: English.
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the user who switches from the current view to the destination view by using the management account.
+    // The end time of the query for response tasks. The value is a 13-digit UNIX timestamp.
+    shared_ptr<int64_t> processActionEnd_ {};
+    // The start time of the query for response tasks. The value is a 13-digit UNIX timestamp.
+    shared_ptr<int64_t> processActionStart_ {};
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<string> roleFor_ {};
-    // The type of the view. Valid values:
+    // The view type. Valid values:
     // 
-    // *   0 (default): the view of the current Alibaba Cloud account.
-    // *   1: the view of all accounts for the enterprise.
+    // - 0 (default): the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<string> roleType_ {};
   };
 

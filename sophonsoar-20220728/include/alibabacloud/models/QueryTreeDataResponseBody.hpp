@@ -48,9 +48,15 @@ namespace Models
 
 
   protected:
-    // The returned information about the playbook. The value is a JSON string.
+    // A list of playbooks in JSON string format. The string contains the following fields:
+    // 
+    // - **active**: Indicates whether the playbook is active. A value of **true** means the playbook is active. A value of **false** means the playbook is inactive.
+    // 
+    // - **displayName**: The name of the playbook.
+    // 
+    // - **playbookUuid**: The UUID of the playbook.
     shared_ptr<string> playbooks_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

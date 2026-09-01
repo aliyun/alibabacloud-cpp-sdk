@@ -66,26 +66,27 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response.
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the second version.
+    // The UUID of the second published version for comparison.
     // 
-    // >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
+    // > To obtain the UUID of a historical version, call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation. The system automatically generates a UUID for a new version.
     // 
     // This parameter is required.
     shared_ptr<int32_t> newPlaybookReleaseId_ {};
-    // The ID of the first version.
+    // The UUID of the first published version for comparison.
     // 
-    // >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
+    // > To obtain the UUID of a historical version, call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation. The system automatically generates a UUID for a new version.
     // 
     // This parameter is required.
     shared_ptr<int32_t> oldPlaybookReleaseId_ {};
     // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

@@ -80,15 +80,17 @@ namespace Models
     protected:
       // The description of the comparison result.
       shared_ptr<string> description_ {};
-      // Indicates whether the second version provides more information than the first version. Valid values:
+      // Indicates whether the second version used for comparison is a new version.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The version is new.
+      // 
+      // - **false**: The version is not new.
       shared_ptr<bool> new_ {};
-      // Indicates whether the configurations of the two versions are the same. Valid values:
+      // Indicates whether the two versions are identical.
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Identical.
+      // 
+      // - **false**: Not identical.
       shared_ptr<bool> same_ {};
     };
 
@@ -111,9 +113,9 @@ namespace Models
 
 
   protected:
-    // The comparison result.
+    // The result of the comparison.
     shared_ptr<ComparePlaybooksResponseBody::CompareResult> compareResult_ {};
-    // The request ID.
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

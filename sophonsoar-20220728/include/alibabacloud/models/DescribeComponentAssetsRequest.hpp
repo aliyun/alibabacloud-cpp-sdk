@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The name of the component.
+    // The component name.
     // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response.
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

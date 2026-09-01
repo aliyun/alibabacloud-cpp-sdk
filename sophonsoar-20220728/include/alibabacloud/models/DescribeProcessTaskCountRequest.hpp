@@ -69,22 +69,23 @@ namespace Models
 
 
   protected:
-    // Collection of entity UUIDs.
+    // The UUIDs of the entities.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> entityUuidList_ {};
-    // Language type for request and response messages. Values:
+    // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // User ID for administrators to switch to other member\\"s perspective.
+    // The UID of the member whose permissions you want to use to call the operation.
     shared_ptr<int64_t> roleFor_ {};
-    // View type.
+    // The view type.
     // 
-    // - **0**: Current Alibaba Cloud account view.
-    // - **1**: View for all accounts under the enterprise.
+    // - **0**: The view of the current Alibaba Cloud account.
+    // 
+    // - **1**: The view of all accounts that belong to the enterprise.
     shared_ptr<string> roleType_ {};
   };
 

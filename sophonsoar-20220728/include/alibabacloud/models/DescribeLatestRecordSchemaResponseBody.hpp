@@ -153,9 +153,9 @@ namespace Models
 
 
   protected:
-    // The output structure information of the playbook.
+    // The output structure of the playbook.
     shared_ptr<DescribeLatestRecordSchemaResponseBody::PlaybookNodeSchema> playbookNodeSchema_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

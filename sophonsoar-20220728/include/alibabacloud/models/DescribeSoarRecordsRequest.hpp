@@ -158,38 +158,61 @@ namespace Models
 
 
   protected:
+    // The start time when the task was completed. The value is a 13-digit UNIX timestamp.
     shared_ptr<int64_t> completedBeginTime_ {};
+    // The end time when the task was completed. The value is a 13-digit UNIX timestamp.
     shared_ptr<int64_t> completedEndTime_ {};
-    // The end time of the task execution, in 13-digit timestamp format.
+    // The end time of the task run. The value is a 13-digit UNIX timestamp.
     shared_ptr<int64_t> endMillis_ {};
-    // Set the language type for requests and received messages. The default is **zh**. Values:
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // 
     // - **zh**: Chinese
+    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // Set which page to start displaying the query results from. The default value is 1, indicating the first page.
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Specify the maximum number of data entries per page when performing a paginated query. The default number of entries per page is 20. If the PageSize parameter is empty, it will return 10 entries by default.
-    // > It is recommended not to leave the PageSize value empty.
+    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 10 entries are returned on each page.
+    // 
+    // > Specify a value for PageSize.
     shared_ptr<int32_t> pageSize_ {};
     // The UUID of the playbook.
-    // > You can obtain this parameter by calling the [DescribePlaybooks](~~DescribePlaybooks~~) interface.
-    shared_ptr<string> playbookUuid_ {};
-    shared_ptr<string> queryValue_ {};
-    // UUID of the playbook task execution.
-    // > You can obtain this parameter by calling the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) interface.
-    shared_ptr<string> requestUuid_ {};
-    // The start time of the task execution, in 13-digit timestamp format.
-    shared_ptr<int64_t> startMillis_ {};
-    // The status of the task execution. Values:
     // 
-    // - **success**: Successful task.
-    // - **failed**: Failed task.
-    // - **inprogress**: Task in progress
+    // > For more information, see [DescribePlaybooks](~~DescribePlaybooks~~).
+    shared_ptr<string> playbookUuid_ {};
+    // The input parameter of the playbook.
+    shared_ptr<string> queryValue_ {};
+    // The UUID of the playbook task execution.
+    // 
+    // > For more information, see [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html).
+    shared_ptr<string> requestUuid_ {};
+    // The start time of the task run. The value is a 13-digit UNIX timestamp.
+    shared_ptr<int64_t> startMillis_ {};
+    // The status of the task run. Valid values:
+    // 
+    // - **success**: The task is successful.
+    // 
+    // - **failed**: The task failed.
+    // 
+    // - **inprogress**: The task is in progress.
     shared_ptr<string> taskStatus_ {};
     // The MD5 value of the playbook configuration.
     shared_ptr<string> taskflowMd5_ {};
+    // The trigger type of the task. Valid values:
+    // 
+    // - **stream**: stream
+    // 
+    // - **debug**: test
+    // 
+    // - **manual**: manual
+    // 
+    // - **timer**: scheduled
+    // 
+    // - **SubInvoke**: child flow
+    // 
+    // - **siem**: triggered by a SIEM product
     shared_ptr<string> triggerType_ {};
-    // The Alibaba Cloud account ID that executed the playbook task.
+    // The ID of the Alibaba Cloud account that runs the playbook task.
     shared_ptr<string> triggerUser_ {};
   };
 

@@ -113,14 +113,15 @@ namespace Models
 
 
       protected:
-        // The regular expression that is used to check the format of the parameter value. If the parameter is left empty, the check is not performed.
+        // The regular expression that is used to check the format of the field. If this parameter is empty, no check is performed.
         shared_ptr<string> checkField_ {};
-        // The name of the parameter.
+        // The name of the parameter field.
         shared_ptr<string> field_ {};
         // Indicates whether the parameter is required. Valid values:
         // 
-        // *   **true** (default)
-        // *   **false**
+        // - **true**: The parameter is required. This is the default value.
+        // 
+        // - **false**: The parameter is optional.
         shared_ptr<bool> necessary_ {};
         // The value of the parameter.
         shared_ptr<string> value_ {};
@@ -165,7 +166,7 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The name of the command.
       shared_ptr<string> name_ {};
-      // The parameter configurations.
+      // The parameter settings.
       shared_ptr<vector<Data::ParamConfig>> paramConfig_ {};
     };
 
@@ -188,9 +189,9 @@ namespace Models
 
 
   protected:
-    // The commands.
+    // The list of returned commands.
     shared_ptr<vector<DescribeSophonCommandsResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

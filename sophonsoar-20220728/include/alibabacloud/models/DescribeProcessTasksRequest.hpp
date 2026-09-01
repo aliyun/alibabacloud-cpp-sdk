@@ -13,11 +13,13 @@ namespace Models
   class DescribeProcessTasksRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeProcessTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlertId, alertId_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(EntityName, entityName_);
       DARABONBA_PTR_TO_JSON(EntityType, entityType_);
       DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
       DARABONBA_PTR_TO_JSON(EventUuid, eventUuid_);
+      DARABONBA_PTR_TO_JSON(ExecuteUuid, executeUuid_);
       DARABONBA_PTR_TO_JSON(OrderField, orderField_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -28,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProcessRemoveStart, processRemoveStart_);
       DARABONBA_PTR_TO_JSON(ProcessStrategyUuid, processStrategyUuid_);
       DARABONBA_PTR_TO_JSON(ReqUuid, reqUuid_);
+      DARABONBA_PTR_TO_JSON(ResponseRuleId, responseRuleId_);
       DARABONBA_PTR_TO_JSON(SceneCode, sceneCode_);
       DARABONBA_PTR_TO_JSON(Scope, scope_);
       DARABONBA_PTR_TO_JSON(Source, source_);
@@ -37,11 +40,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(YunCode, yunCode_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProcessTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlertId, alertId_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
       DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
       DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
       DARABONBA_PTR_FROM_JSON(EventUuid, eventUuid_);
+      DARABONBA_PTR_FROM_JSON(ExecuteUuid, executeUuid_);
       DARABONBA_PTR_FROM_JSON(OrderField, orderField_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -52,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProcessRemoveStart, processRemoveStart_);
       DARABONBA_PTR_FROM_JSON(ProcessStrategyUuid, processStrategyUuid_);
       DARABONBA_PTR_FROM_JSON(ReqUuid, reqUuid_);
+      DARABONBA_PTR_FROM_JSON(ResponseRuleId, responseRuleId_);
       DARABONBA_PTR_FROM_JSON(SceneCode, sceneCode_);
       DARABONBA_PTR_FROM_JSON(Scope, scope_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -71,12 +77,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->direction_ == nullptr
-        && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->eventUuid_ == nullptr && this->orderField_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paramContent_ == nullptr && this->processActionEnd_ == nullptr && this->processActionStart_ == nullptr
-        && this->processRemoveEnd_ == nullptr && this->processRemoveStart_ == nullptr && this->processStrategyUuid_ == nullptr && this->reqUuid_ == nullptr && this->sceneCode_ == nullptr
-        && this->scope_ == nullptr && this->source_ == nullptr && this->taskId_ == nullptr && this->taskStatus_ == nullptr && this->triggerSource_ == nullptr
-        && this->yunCode_ == nullptr; };
+    virtual bool empty() const override { return this->alertId_ == nullptr
+        && this->direction_ == nullptr && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->eventUuid_ == nullptr
+        && this->executeUuid_ == nullptr && this->orderField_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paramContent_ == nullptr
+        && this->processActionEnd_ == nullptr && this->processActionStart_ == nullptr && this->processRemoveEnd_ == nullptr && this->processRemoveStart_ == nullptr && this->processStrategyUuid_ == nullptr
+        && this->reqUuid_ == nullptr && this->responseRuleId_ == nullptr && this->sceneCode_ == nullptr && this->scope_ == nullptr && this->source_ == nullptr
+        && this->taskId_ == nullptr && this->taskStatus_ == nullptr && this->triggerSource_ == nullptr && this->yunCode_ == nullptr; };
+    // alertId Field Functions 
+    bool hasAlertId() const { return this->alertId_ != nullptr;};
+    void deleteAlertId() { this->alertId_ = nullptr;};
+    inline string getAlertId() const { DARABONBA_PTR_GET_DEFAULT(alertId_, "") };
+    inline DescribeProcessTasksRequest& setAlertId(string alertId) { DARABONBA_PTR_SET_VALUE(alertId_, alertId) };
+
+
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
@@ -110,6 +123,13 @@ namespace Models
     void deleteEventUuid() { this->eventUuid_ = nullptr;};
     inline string getEventUuid() const { DARABONBA_PTR_GET_DEFAULT(eventUuid_, "") };
     inline DescribeProcessTasksRequest& setEventUuid(string eventUuid) { DARABONBA_PTR_SET_VALUE(eventUuid_, eventUuid) };
+
+
+    // executeUuid Field Functions 
+    bool hasExecuteUuid() const { return this->executeUuid_ != nullptr;};
+    void deleteExecuteUuid() { this->executeUuid_ = nullptr;};
+    inline string getExecuteUuid() const { DARABONBA_PTR_GET_DEFAULT(executeUuid_, "") };
+    inline DescribeProcessTasksRequest& setExecuteUuid(string executeUuid) { DARABONBA_PTR_SET_VALUE(executeUuid_, executeUuid) };
 
 
     // orderField Field Functions 
@@ -182,6 +202,13 @@ namespace Models
     inline DescribeProcessTasksRequest& setReqUuid(string reqUuid) { DARABONBA_PTR_SET_VALUE(reqUuid_, reqUuid) };
 
 
+    // responseRuleId Field Functions 
+    bool hasResponseRuleId() const { return this->responseRuleId_ != nullptr;};
+    void deleteResponseRuleId() { this->responseRuleId_ = nullptr;};
+    inline string getResponseRuleId() const { DARABONBA_PTR_GET_DEFAULT(responseRuleId_, "") };
+    inline DescribeProcessTasksRequest& setResponseRuleId(string responseRuleId) { DARABONBA_PTR_SET_VALUE(responseRuleId_, responseRuleId) };
+
+
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
@@ -232,91 +259,92 @@ namespace Models
 
 
   protected:
-    // The sort order. Valid values:
+    shared_ptr<string> alertId_ {};
+    // The sort direction. Valid values:
     // 
-    // *   **desc** (default).
-    // *   **asc**.
+    // - **desc**: Descending (default).
+    // - **asc**: Ascending.
     shared_ptr<string> direction_ {};
-    // The name of the handling entity.
+    // The name of the entity to be disposed.
     shared_ptr<string> entityName_ {};
-    // The type of the handling entity. Valid values:
+    // The type of the entity to be disposed. Valid values:
     // 
-    // *   **ip**.
-    // *   **file**.
-    // *   **process**.
+    // - **ip**: IP address entity.
+    // - **file**: File entity.
+    // - **process**: Process entity.
     shared_ptr<string> entityType_ {};
-    // The UUID of the handling entity.
+    // The UUID of the entity.
     shared_ptr<string> entityUuid_ {};
     // The UUID of the event.
     shared_ptr<string> eventUuid_ {};
-    // The field that you use to sort the result.
+    shared_ptr<string> executeUuid_ {};
+    // The field used to sort the results.
     // 
-    // >  You can obtain the field from the response result.
+    // > You can obtain the sort field from the response of this operation.
     shared_ptr<string> orderField_ {};
-    // The page number. Default value: 1. Pages start from page 1.
+    // The page number of the page to return. Default value: 1, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries to return on each page for paging queries. Default value: 20. If the PageSize parameter is left empty, 10 entries are returned by default.
+    // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
-    // The handling entity, handling scenario, or handling parameter that is used for fuzzy match.
+    // The fuzzy match content. This parameter queries the entity, disposal scene, and disposal parameter fields.
     shared_ptr<string> paramContent_ {};
-    // The end of the time range for a handling task. The value is a 13-digit timestamp.
+    // The end time of the query range for the disposal time. Format: 13-digit timestamp.
     shared_ptr<int64_t> processActionEnd_ {};
-    // The beginning of the time range for a handling task. The value is a 13-digit timestamp.
+    // The start time of the query range for the disposal time. Format: 13-digit timestamp.
     shared_ptr<int64_t> processActionStart_ {};
-    // The end of the time range for an unblocking task. The value is a 13-digit timestamp.
+    // The end time of the query range for the unblocking time. Format: 13-digit timestamp.
     shared_ptr<int64_t> processRemoveEnd_ {};
-    // The beginning of the time range for an unblocking task. The value is a 13-digit timestamp.
+    // The start time of the query range for the unblocking time. Format: 13-digit timestamp.
     shared_ptr<int64_t> processRemoveStart_ {};
-    // The UUID of the handling policy.
-    // 
-    // >  You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to query the UUID of the handling policy.
+    // The UUID of the disposal strategy.
+    // >You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to obtain this parameter.
     shared_ptr<string> processStrategyUuid_ {};
+    // The trigger ID of the playbook.
     shared_ptr<string> reqUuid_ {};
-    // The scenario code of the handling task.
-    // 
-    // >  You can call the [DescribeEnumItems](~~DescribeEnumItems~~) operation to query the scenario code of the handling task. This parameter is available when you set **EnumType** to **process**.
+    shared_ptr<string> responseRuleId_ {};
+    // The scene code of the disposal task.
+    // >You can call the [DescribeEnumItems](~~DescribeEnumItems~~) operation to obtain this parameter.
     shared_ptr<string> sceneCode_ {};
-    // The ID of the Alibaba Cloud account that is specified in the handling task.
+    // The Alibaba Cloud account ID for the disposal.
     shared_ptr<string> scope_ {};
-    // The triggering source of the handling task. The value is a string array. Valid values:
+    // The trigger source of the disposal task, in array string format. Valid values:
     // 
-    // *   **system**: triggered when you manually handle an event.
-    // *   **custom**: triggered by an event based on an automatic response rule.
-    // *   **custom_alert**: triggered by an alert based on an automatic response rule.
-    // *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-    // *   **soar-mdr**: triggered by Managed Security Service.
+    // - **system**: Triggered by manual event disposal.
+    // - **custom**: Triggered by an automatic response rule based on an event.
+    // - **custom_alert**: Triggered by an automatic response rule based on an alert.
+    // - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+    // - **soar-mdr**: Triggered by the Managed Security Service.
     shared_ptr<string> source_ {};
-    // The unique identifier of the handling task.
+    // The unique identifier of the disposal task.
     // 
-    // >  This parameter is used to query a specific task. You can obtain the value from the response result.
+    // > This parameter is used to query a specific task. You can obtain the value from the response of this operation.
     shared_ptr<string> taskId_ {};
-    // The status of the handling task. The value is a string. Valid values:
+    // The status list of the disposal task, in data string format. Valid values:
     // 
-    // *   **11**: being handled.
-    // *   **21**: being blocked.
-    // *   **22**: being quarantined.
-    // *   **23**: completed.
-    // *   **24**: added to the whitelist.
-    // *   **20**: successful.
-    // *   **90**: failed.
-    // *   **91**: unblocking failed.
-    // *   **92**: restoring quarantined files failed
+    // - **11**: Disposing.
+    // - **21**: Blocking.
+    // - **22**: Isolating.
+    // - **23**: Ended.
+    // - **24**: Whitelisted.
+    // - **20**: Succeeded.
+    // - **90**: Failed.
+    // - **91**: Unblocking failed.
+    // - **92**: Unisolation failed.
     shared_ptr<string> taskStatus_ {};
-    // The triggering source of the handling task. Valid values:
+    // The trigger source of the disposal task. Valid values:
     // 
-    // *   **system**: triggered when you manually handle an event.
-    // *   **custom**: triggered by an event based on an automatic response rule.
-    // *   **custom_alert**: triggered by an alert based on an automatic response rule.
-    // *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-    // *   **soar-mdr**: triggered by Managed Security Service.
+    // - **system**: Triggered by manual event disposal.
+    // - **custom**: Triggered by an automatic response rule based on an event.
+    // - **custom_alert**: Triggered by an automatic response rule based on an alert.
+    // - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+    // - **soar-mdr**: Triggered by the Managed Security Service.
     shared_ptr<string> triggerSource_ {};
-    // The cloud service that is associated with the handling task. The value is a string. Valid values:
+    // The cloud product associated with the disposal task, in data string format. Valid values:
     // 
-    // *   **WAF**: Web Application Firewall (WAF).
-    // *   **CFW**: Cloud Firewall.
-    // *   **Aegis**: Security Center.
+    // - **WAF**: Web Application Firewall.
+    // - **CFW**: Cloud Firewall.
+    // - **Aegis**: Security Center.
     shared_ptr<string> yunCode_ {};
   };
 

@@ -21,7 +21,7 @@ namespace Sophonsoar20220728
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Compares configurations between two versions of a published playbook.
+       * @summary Compares the configurations of two published playbook versions.
        *
        * @param request ComparePlaybooksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Sophonsoar20220728
       Models::ComparePlaybooksResponse comparePlaybooksWithOptions(const Models::ComparePlaybooksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Compares configurations between two versions of a published playbook.
+       * @summary Compares the configurations of two published playbook versions.
        *
        * @param request ComparePlaybooksRequest
        * @return ComparePlaybooksResponse
@@ -80,9 +80,7 @@ namespace Sophonsoar20220728
       Models::CopyPlaybookResponse copyPlaybook(const Models::CopyPlaybookRequest &request);
 
       /**
-       * @summary New Playbook.
-       *
-       * @description Create Playbook.
+       * @summary Creates a new playbook.
        *
        * @param request CreatePlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -91,9 +89,7 @@ namespace Sophonsoar20220728
       Models::CreatePlaybookResponse createPlaybookWithOptions(const Models::CreatePlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary New Playbook.
-       *
-       * @description Create Playbook.
+       * @summary Creates a new playbook.
        *
        * @param request CreatePlaybookRequest
        * @return CreatePlaybookResponse
@@ -118,7 +114,7 @@ namespace Sophonsoar20220728
       Models::DebugPlaybookResponse debugPlaybook(const Models::DebugPlaybookRequest &request);
 
       /**
-       * @summary Deletes the assets in a component.
+       * @summary Deletes a component asset.
        *
        * @param request DeleteComponentAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -127,7 +123,7 @@ namespace Sophonsoar20220728
       Models::DeleteComponentAssetResponse deleteComponentAssetWithOptions(const Models::DeleteComponentAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the assets in a component.
+       * @summary Deletes a component asset.
        *
        * @param request DeleteComponentAssetRequest
        * @return DeleteComponentAssetResponse
@@ -135,7 +131,7 @@ namespace Sophonsoar20220728
       Models::DeleteComponentAssetResponse deleteComponentAsset(const Models::DeleteComponentAssetRequest &request);
 
       /**
-       * @summary Deletes a custom playbook.
+       * @summary Deletes a specified custom playbook.
        *
        * @param request DeletePlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -144,7 +140,7 @@ namespace Sophonsoar20220728
       Models::DeletePlaybookResponse deletePlaybookWithOptions(const Models::DeletePlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom playbook.
+       * @summary Deletes a specified custom playbook.
        *
        * @param request DeletePlaybookRequest
        * @return DeletePlaybookResponse
@@ -152,7 +148,7 @@ namespace Sophonsoar20220728
       Models::DeletePlaybookResponse deletePlaybook(const Models::DeletePlaybookRequest &request);
 
       /**
-       * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+       * @summary Obtains the metadata for a component asset, which defines the fields that constitute the asset.
        *
        * @param request DescribeComponentAssetFormRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -161,7 +157,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentAssetFormResponse describeComponentAssetFormWithOptions(const Models::DescribeComponentAssetFormRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+       * @summary Obtains the metadata for a component asset, which defines the fields that constitute the asset.
        *
        * @param request DescribeComponentAssetFormRequest
        * @return DescribeComponentAssetFormResponse
@@ -169,7 +165,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentAssetFormResponse describeComponentAssetForm(const Models::DescribeComponentAssetFormRequest &request);
 
       /**
-       * @summary Queries a list of assets in a component.
+       * @summary Retrieves the asset list for a component.
        *
        * @param request DescribeComponentAssetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +174,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentAssetsResponse describeComponentAssetsWithOptions(const Models::DescribeComponentAssetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of assets in a component.
+       * @summary Retrieves the asset list for a component.
        *
        * @param request DescribeComponentAssetsRequest
        * @return DescribeComponentAssetsResponse
@@ -186,7 +182,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentAssetsResponse describeComponentAssets(const Models::DescribeComponentAssetsRequest &request);
 
       /**
-       * @summary Queries a list of common components that are available.
+       * @summary Retrieves a list of standard components that you can use.
        *
        * @param request DescribeComponentListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -195,7 +191,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentListResponse describeComponentListWithOptions(const Models::DescribeComponentListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of common components that are available.
+       * @summary Retrieves a list of standard components that you can use.
        *
        * @param request DescribeComponentListRequest
        * @return DescribeComponentListResponse
@@ -203,7 +199,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentListResponse describeComponentList(const Models::DescribeComponentListRequest &request);
 
       /**
-       * @summary Queries a list of predefined components that are available.
+       * @summary Retrieves a list of predefined components.
        *
        * @param request DescribeComponentPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -212,7 +208,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentPlaybookResponse describeComponentPlaybookWithOptions(const Models::DescribeComponentPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of predefined components that are available.
+       * @summary Retrieves a list of predefined components.
        *
        * @param request DescribeComponentPlaybookRequest
        * @return DescribeComponentPlaybookResponse
@@ -220,7 +216,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentPlaybookResponse describeComponentPlaybook(const Models::DescribeComponentPlaybookRequest &request);
 
       /**
-       * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+       * @summary Obtains the JavaScript (JS) file that a component uses to render the page.
        *
        * @param request DescribeComponentsJsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -229,7 +225,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentsJsResponse describeComponentsJsWithOptions(const Models::DescribeComponentsJsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+       * @summary Obtains the JavaScript (JS) file that a component uses to render the page.
        *
        * @param request DescribeComponentsJsRequest
        * @return DescribeComponentsJsResponse
@@ -237,7 +233,7 @@ namespace Sophonsoar20220728
       Models::DescribeComponentsJsResponse describeComponentsJs(const Models::DescribeComponentsJsRequest &request);
 
       /**
-       * @summary Queries the information about the published versions of a playbook after deduplication.
+       * @summary Retrieves a list of distinct playbook releases.
        *
        * @param request DescribeDistinctReleasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -246,7 +242,7 @@ namespace Sophonsoar20220728
       Models::DescribeDistinctReleasesResponse describeDistinctReleasesWithOptions(const Models::DescribeDistinctReleasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the published versions of a playbook after deduplication.
+       * @summary Retrieves a list of distinct playbook releases.
        *
        * @param request DescribeDistinctReleasesRequest
        * @return DescribeDistinctReleasesResponse
@@ -254,7 +250,7 @@ namespace Sophonsoar20220728
       Models::DescribeDistinctReleasesResponse describeDistinctReleases(const Models::DescribeDistinctReleasesRequest &request);
 
       /**
-       * @summary Queries enumeration items that are required by a cloud service.
+       * @summary Queries the enumeration information for a product.
        *
        * @param request DescribeEnumItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +259,7 @@ namespace Sophonsoar20220728
       Models::DescribeEnumItemsResponse describeEnumItemsWithOptions(const Models::DescribeEnumItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries enumeration items that are required by a cloud service.
+       * @summary Queries the enumeration information for a product.
        *
        * @param request DescribeEnumItemsRequest
        * @return DescribeEnumItemsResponse
@@ -271,7 +267,7 @@ namespace Sophonsoar20220728
       Models::DescribeEnumItemsResponse describeEnumItems(const Models::DescribeEnumItemsRequest &request);
 
       /**
-       * @summary Queries the playbooks that are available for an automatic response plan.
+       * @summary Queries a list of executable playbooks that are used to configure automated response plans.
        *
        * @param request DescribeExecutePlaybooksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -280,7 +276,7 @@ namespace Sophonsoar20220728
       Models::DescribeExecutePlaybooksResponse describeExecutePlaybooksWithOptions(const Models::DescribeExecutePlaybooksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the playbooks that are available for an automatic response plan.
+       * @summary Queries a list of executable playbooks that are used to configure automated response plans.
        *
        * @param request DescribeExecutePlaybooksRequest
        * @return DescribeExecutePlaybooksResponse
@@ -288,7 +284,7 @@ namespace Sophonsoar20220728
       Models::DescribeExecutePlaybooksResponse describeExecutePlaybooks(const Models::DescribeExecutePlaybooksRequest &request);
 
       /**
-       * @summary Queries the global configuration information about a cloud service.
+       * @summary Retrieves global configuration information for the product.
        *
        * @param request DescribeFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -297,7 +293,7 @@ namespace Sophonsoar20220728
       Models::DescribeFieldResponse describeFieldWithOptions(const Models::DescribeFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the global configuration information about a cloud service.
+       * @summary Retrieves global configuration information for the product.
        *
        * @param request DescribeFieldRequest
        * @return DescribeFieldResponse
@@ -326,7 +322,7 @@ namespace Sophonsoar20220728
       Models::DescribeGroupProductionsResponse describeGroupProductions(const Models::DescribeGroupProductionsRequest &request);
 
       /**
-       * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+       * @summary Describes the output structure of each node in a playbook based on the latest execution record.
        *
        * @param request DescribeLatestRecordSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +331,7 @@ namespace Sophonsoar20220728
       Models::DescribeLatestRecordSchemaResponse describeLatestRecordSchemaWithOptions(const Models::DescribeLatestRecordSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+       * @summary Describes the output structure of each node in a playbook based on the latest execution record.
        *
        * @param request DescribeLatestRecordSchemaRequest
        * @return DescribeLatestRecordSchemaResponse
@@ -343,7 +339,7 @@ namespace Sophonsoar20220728
       Models::DescribeLatestRecordSchemaResponse describeLatestRecordSchema(const Models::DescribeLatestRecordSchemaRequest &request);
 
       /**
-       * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+       * @summary Returns the reference paths for component inputs in a playbook orchestration.
        *
        * @param request DescribeNodeParamTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,7 +348,7 @@ namespace Sophonsoar20220728
       Models::DescribeNodeParamTagsResponse describeNodeParamTagsWithOptions(const Models::DescribeNodeParamTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+       * @summary Returns the reference paths for component inputs in a playbook orchestration.
        *
        * @param request DescribeNodeParamTagsRequest
        * @return DescribeNodeParamTagsResponse
@@ -402,9 +398,9 @@ namespace Sophonsoar20220728
       Models::DescribeOpenApiInfoResponse describeOpenApiInfo(const Models::DescribeOpenApiInfoRequest &request);
 
       /**
-       * @summary Queries the API operations of an Alibaba Cloud service.
+       * @summary Retrieve the API list for a product.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
        *
        * @param request DescribeOpenApiListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -413,9 +409,9 @@ namespace Sophonsoar20220728
       Models::DescribeOpenApiListResponse describeOpenApiListWithOptions(const Models::DescribeOpenApiListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the API operations of an Alibaba Cloud service.
+       * @summary Retrieve the API list for a product.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
        *
        * @param request DescribeOpenApiListRequest
        * @return DescribeOpenApiListResponse
@@ -423,7 +419,7 @@ namespace Sophonsoar20220728
       Models::DescribeOpenApiListResponse describeOpenApiList(const Models::DescribeOpenApiListRequest &request);
 
       /**
-       * @summary Queries the XML configuration of a playbook.
+       * @summary Retrieves the XML configuration of a playbook.
        *
        * @param request DescribePlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -432,7 +428,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookResponse describePlaybookWithOptions(const Models::DescribePlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the XML configuration of a playbook.
+       * @summary Retrieves the XML configuration of a playbook.
        *
        * @param request DescribePlaybookRequest
        * @return DescribePlaybookResponse
@@ -440,7 +436,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookResponse describePlaybook(const Models::DescribePlaybookRequest &request);
 
       /**
-       * @summary Queries the input and output parameter configurations of a playbook.
+       * @summary Retrieves the input and output parameter configurations for a playbook.
        *
        * @param request DescribePlaybookInputOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,7 +445,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookInputOutputResponse describePlaybookInputOutputWithOptions(const Models::DescribePlaybookInputOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the input and output parameter configurations of a playbook.
+       * @summary Retrieves the input and output parameter configurations for a playbook.
        *
        * @param request DescribePlaybookInputOutputRequest
        * @return DescribePlaybookInputOutputResponse
@@ -457,7 +453,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookInputOutputResponse describePlaybookInputOutput(const Models::DescribePlaybookInputOutputRequest &request);
 
       /**
-       * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+       * @summary Queries playbook metadata, including its name, description, number of runs, and failure rate.
        *
        * @param request DescribePlaybookMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,7 +462,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookMetricsResponse describePlaybookMetricsWithOptions(const Models::DescribePlaybookMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+       * @summary Queries playbook metadata, including its name, description, number of runs, and failure rate.
        *
        * @param request DescribePlaybookMetricsRequest
        * @return DescribePlaybookMetricsResponse
@@ -474,7 +470,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookMetricsResponse describePlaybookMetrics(const Models::DescribePlaybookMetricsRequest &request);
 
       /**
-       * @summary Queries the historical output data of a component node.
+       * @summary Retrieves the historical output data of a component.
        *
        * @param request DescribePlaybookNodesOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -483,7 +479,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookNodesOutputResponse describePlaybookNodesOutputWithOptions(const Models::DescribePlaybookNodesOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical output data of a component node.
+       * @summary Retrieves the historical output data of a component.
        *
        * @param request DescribePlaybookNodesOutputRequest
        * @return DescribePlaybookNodesOutputResponse
@@ -491,7 +487,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookNodesOutputResponse describePlaybookNodesOutput(const Models::DescribePlaybookNodesOutputRequest &request);
 
       /**
-       * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+       * @summary Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
        *
        * @param request DescribePlaybookNumberMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,7 +496,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookNumberMetricsResponse describePlaybookNumberMetricsWithOptions(const Models::DescribePlaybookNumberMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+       * @summary Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
        *
        * @param request DescribePlaybookNumberMetricsRequest
        * @return DescribePlaybookNumberMetricsResponse
@@ -508,7 +504,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookNumberMetricsResponse describePlaybookNumberMetrics(const Models::DescribePlaybookNumberMetricsRequest &request);
 
       /**
-       * @summary Queries the information about the published versions of a playbook.
+       * @summary Queries a list of published versions of a playbook.
        *
        * @param request DescribePlaybookReleasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +513,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookReleasesResponse describePlaybookReleasesWithOptions(const Models::DescribePlaybookReleasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the published versions of a playbook.
+       * @summary Queries a list of published versions of a playbook.
        *
        * @param request DescribePlaybookReleasesRequest
        * @return DescribePlaybookReleasesResponse
@@ -525,7 +521,9 @@ namespace Sophonsoar20220728
       Models::DescribePlaybookReleasesResponse describePlaybookReleases(const Models::DescribePlaybookReleasesRequest &request);
 
       /**
-       * @summary Retrieve the list of playbooks.
+       * @summary Queries a list of playbooks.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
        *
        * @param request DescribePlaybooksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -534,7 +532,9 @@ namespace Sophonsoar20220728
       Models::DescribePlaybooksResponse describePlaybooksWithOptions(const Models::DescribePlaybooksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the list of playbooks.
+       * @summary Queries a list of playbooks.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
        *
        * @param request DescribePlaybooksRequest
        * @return DescribePlaybooksResponse
@@ -542,7 +542,7 @@ namespace Sophonsoar20220728
       Models::DescribePlaybooksResponse describePlaybooks(const Models::DescribePlaybooksRequest &request);
 
       /**
-       * @summary Queries the details of an API operation.
+       * @summary Retrieves the details of an OpenAPI.
        *
        * @param request DescribePopApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +551,7 @@ namespace Sophonsoar20220728
       Models::DescribePopApiResponse describePopApiWithOptions(const Models::DescribePopApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an API operation.
+       * @summary Retrieves the details of an OpenAPI.
        *
        * @param request DescribePopApiRequest
        * @return DescribePopApiResponse
@@ -559,9 +559,9 @@ namespace Sophonsoar20220728
       Models::DescribePopApiResponse describePopApi(const Models::DescribePopApiRequest &request);
 
       /**
-       * @summary Queries statistics.
+       * @summary Retrieves statistics information.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
        *
        * @param request DescribeProcessStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -570,9 +570,9 @@ namespace Sophonsoar20220728
       Models::DescribeProcessStatisticsResponse describeProcessStatisticsWithOptions(const Models::DescribeProcessStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics.
+       * @summary Retrieves statistics information.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
        *
        * @param request DescribeProcessStatisticsRequest
        * @return DescribeProcessStatisticsResponse
@@ -580,7 +580,7 @@ namespace Sophonsoar20220728
       Models::DescribeProcessStatisticsResponse describeProcessStatistics(const Models::DescribeProcessStatisticsRequest &request);
 
       /**
-       * @summary Query the number of associated disposal tasks based on the entity UUID.
+       * @summary Queries the count of response tasks associated with an entity UUID.
        *
        * @param request DescribeProcessTaskCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -589,7 +589,7 @@ namespace Sophonsoar20220728
       Models::DescribeProcessTaskCountResponse describeProcessTaskCountWithOptions(const Models::DescribeProcessTaskCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the number of associated disposal tasks based on the entity UUID.
+       * @summary Queries the count of response tasks associated with an entity UUID.
        *
        * @param request DescribeProcessTaskCountRequest
        * @return DescribeProcessTaskCountResponse
@@ -597,9 +597,9 @@ namespace Sophonsoar20220728
       Models::DescribeProcessTaskCountResponse describeProcessTaskCount(const Models::DescribeProcessTaskCountRequest &request);
 
       /**
-       * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+       * @summary Retrieves a list of disposal tasks.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
        *
        * @param request DescribeProcessTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,9 +608,9 @@ namespace Sophonsoar20220728
       Models::DescribeProcessTasksResponse describeProcessTasksWithOptions(const Models::DescribeProcessTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+       * @summary Retrieves a list of disposal tasks.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
        *
        * @param request DescribeProcessTasksRequest
        * @return DescribeProcessTasksResponse
@@ -618,7 +618,7 @@ namespace Sophonsoar20220728
       Models::DescribeProcessTasksResponse describeProcessTasks(const Models::DescribeProcessTasksRequest &request);
 
       /**
-       * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+       * @summary Retrieves the output data generated by a component for an action in a playbook task.
        *
        * @param request DescribeSoarRecordActionOutputListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -627,7 +627,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordActionOutputListResponse describeSoarRecordActionOutputListWithOptions(const Models::DescribeSoarRecordActionOutputListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+       * @summary Retrieves the output data generated by a component for an action in a playbook task.
        *
        * @param request DescribeSoarRecordActionOutputListRequest
        * @return DescribeSoarRecordActionOutputListResponse
@@ -635,7 +635,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordActionOutputListResponse describeSoarRecordActionOutputList(const Models::DescribeSoarRecordActionOutputListRequest &request);
 
       /**
-       * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+       * @summary Retrieves the input and output data of a component action after a playbook task is executed.
        *
        * @param request DescribeSoarRecordInOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -644,7 +644,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordInOutputResponse describeSoarRecordInOutputWithOptions(const Models::DescribeSoarRecordInOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+       * @summary Retrieves the input and output data of a component action after a playbook task is executed.
        *
        * @param request DescribeSoarRecordInOutputRequest
        * @return DescribeSoarRecordInOutputResponse
@@ -652,7 +652,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordInOutputResponse describeSoarRecordInOutput(const Models::DescribeSoarRecordInOutputRequest &request);
 
       /**
-       * @summary Get the execution records of a playbook.
+       * @summary Queries the execution records for a playbook.
        *
        * @param request DescribeSoarRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +661,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordsResponse describeSoarRecordsWithOptions(const Models::DescribeSoarRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the execution records of a playbook.
+       * @summary Queries the execution records for a playbook.
        *
        * @param request DescribeSoarRecordsRequest
        * @return DescribeSoarRecordsResponse
@@ -669,7 +669,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarRecordsResponse describeSoarRecords(const Models::DescribeSoarRecordsRequest &request);
 
       /**
-       * @summary Queries the execution records of a component during the running of a playbook.
+       * @summary Retrieves the component execution records for a single playbook run.
        *
        * @param request DescribeSoarTaskAndActionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -678,7 +678,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarTaskAndActionsResponse describeSoarTaskAndActionsWithOptions(const Models::DescribeSoarTaskAndActionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution records of a component during the running of a playbook.
+       * @summary Retrieves the component execution records for a single playbook run.
        *
        * @param request DescribeSoarTaskAndActionsRequest
        * @return DescribeSoarTaskAndActionsResponse
@@ -686,7 +686,7 @@ namespace Sophonsoar20220728
       Models::DescribeSoarTaskAndActionsResponse describeSoarTaskAndActions(const Models::DescribeSoarTaskAndActionsRequest &request);
 
       /**
-       * @summary Queries the commands that can be run to obtain objects.
+       * @summary Queries the commands that are used to manage entities.
        *
        * @param request DescribeSophonCommandsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +695,7 @@ namespace Sophonsoar20220728
       Models::DescribeSophonCommandsResponse describeSophonCommandsWithOptions(const Models::DescribeSophonCommandsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the commands that can be run to obtain objects.
+       * @summary Queries the commands that are used to manage entities.
        *
        * @param request DescribeSophonCommandsRequest
        * @return DescribeSophonCommandsResponse
@@ -724,7 +724,7 @@ namespace Sophonsoar20220728
       Models::DescribeVendorApiListResponse describeVendorApiList(const Models::DescribeVendorApiListRequest &request);
 
       /**
-       * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+       * @summary After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
        *
        * @param request DescriberPython3ScriptLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -733,7 +733,7 @@ namespace Sophonsoar20220728
       Models::DescriberPython3ScriptLogsResponse describerPython3ScriptLogsWithOptions(const Models::DescriberPython3ScriptLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+       * @summary After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
        *
        * @param request DescriberPython3ScriptLogsRequest
        * @return DescriberPython3ScriptLogsResponse
@@ -741,7 +741,7 @@ namespace Sophonsoar20220728
       Models::DescriberPython3ScriptLogsResponse describerPython3ScriptLogs(const Models::DescriberPython3ScriptLogsRequest &request);
 
       /**
-       * @summary Modifies the information about the asset that is configured for a component.
+       * @summary You can call this operation to modify the asset information for a component.
        *
        * @param request ModifyComponentAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -750,7 +750,7 @@ namespace Sophonsoar20220728
       Models::ModifyComponentAssetResponse modifyComponentAssetWithOptions(const Models::ModifyComponentAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about the asset that is configured for a component.
+       * @summary You can call this operation to modify the asset information for a component.
        *
        * @param request ModifyComponentAssetRequest
        * @return ModifyComponentAssetResponse
@@ -792,7 +792,7 @@ namespace Sophonsoar20220728
       Models::ModifyPlaybookInputOutputResponse modifyPlaybookInputOutput(const Models::ModifyPlaybookInputOutputRequest &request);
 
       /**
-       * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+       * @summary Publishes a playbook. Once published, the playbook runs with the new logic.
        *
        * @param request PublishPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -801,7 +801,7 @@ namespace Sophonsoar20220728
       Models::PublishPlaybookResponse publishPlaybookWithOptions(const Models::PublishPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+       * @summary Publishes a playbook. Once published, the playbook runs with the new logic.
        *
        * @param request PublishPlaybookRequest
        * @return PublishPlaybookResponse
@@ -809,7 +809,7 @@ namespace Sophonsoar20220728
       Models::PublishPlaybookResponse publishPlaybook(const Models::PublishPlaybookRequest &request);
 
       /**
-       * @summary Queries all playbooks at a time.
+       * @summary Retrieves a list of all playbooks.
        *
        * @param request QueryTreeDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -818,7 +818,7 @@ namespace Sophonsoar20220728
       Models::QueryTreeDataResponse queryTreeDataWithOptions(const Models::QueryTreeDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all playbooks at a time.
+       * @summary Retrieves a list of all playbooks.
        *
        * @param request QueryTreeDataRequest
        * @return QueryTreeDataResponse
@@ -826,7 +826,7 @@ namespace Sophonsoar20220728
       Models::QueryTreeDataResponse queryTreeData(const Models::QueryTreeDataRequest &request);
 
       /**
-       * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+       * @summary Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
        *
        * @param request RevertPlaybookReleaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -835,7 +835,7 @@ namespace Sophonsoar20220728
       Models::RevertPlaybookReleaseResponse revertPlaybookReleaseWithOptions(const Models::RevertPlaybookReleaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+       * @summary Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
        *
        * @param request RevertPlaybookReleaseRequest
        * @return RevertPlaybookReleaseResponse
@@ -843,9 +843,9 @@ namespace Sophonsoar20220728
       Models::RevertPlaybookReleaseResponse revertPlaybookRelease(const Models::RevertPlaybookReleaseRequest &request);
 
       /**
-       * @summary Runs the email notification component to send messages.
+       * @summary Runs the notification component to send an email message.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
        *
        * @param request RunNotifyComponentWithEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -854,9 +854,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithEmailResponse runNotifyComponentWithEmailWithOptions(const Models::RunNotifyComponentWithEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs the email notification component to send messages.
+       * @summary Runs the notification component to send an email message.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
        *
        * @param request RunNotifyComponentWithEmailRequest
        * @return RunNotifyComponentWithEmailResponse
@@ -864,9 +864,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithEmailResponse runNotifyComponentWithEmail(const Models::RunNotifyComponentWithEmailRequest &request);
 
       /**
-       * @summary Execute Notification Component - Send Message via Message Center.
+       * @summary Sends a message using the notification component in Message Center.
        *
-       * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
        *
        * @param request RunNotifyComponentWithMessageCenterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -875,9 +875,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithMessageCenterResponse runNotifyComponentWithMessageCenterWithOptions(const Models::RunNotifyComponentWithMessageCenterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Execute Notification Component - Send Message via Message Center.
+       * @summary Sends a message using the notification component in Message Center.
        *
-       * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
        *
        * @param request RunNotifyComponentWithMessageCenterRequest
        * @return RunNotifyComponentWithMessageCenterResponse
@@ -885,9 +885,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithMessageCenterResponse runNotifyComponentWithMessageCenter(const Models::RunNotifyComponentWithMessageCenterRequest &request);
 
       /**
-       * @summary Runs the webhook notification component to send messages.
+       * @summary Sends a message from a notification component using a webhook.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
        *
        * @param request RunNotifyComponentWithWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -896,9 +896,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithWebhookResponse runNotifyComponentWithWebhookWithOptions(const Models::RunNotifyComponentWithWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs the webhook notification component to send messages.
+       * @summary Sends a message from a notification component using a webhook.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
        *
        * @param request RunNotifyComponentWithWebhookRequest
        * @return RunNotifyComponentWithWebhookResponse
@@ -906,9 +906,9 @@ namespace Sophonsoar20220728
       Models::RunNotifyComponentWithWebhookResponse runNotifyComponentWithWebhook(const Models::RunNotifyComponentWithWebhookRequest &request);
 
       /**
-       * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+       * @summary Executes a Python 3 code snippet for data processing.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
        *
        * @param request RunPython3ScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -917,9 +917,9 @@ namespace Sophonsoar20220728
       Models::RunPython3ScriptResponse runPython3ScriptWithOptions(const Models::RunPython3ScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+       * @summary Executes a Python 3 code snippet for data processing.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
        *
        * @param request RunPython3ScriptRequest
        * @return RunPython3ScriptResponse
@@ -927,9 +927,9 @@ namespace Sophonsoar20220728
       Models::RunPython3ScriptResponse runPython3Script(const Models::RunPython3ScriptRequest &request);
 
       /**
-       * @summary Triggers an enabled custom playbook or a predefined playbook.
+       * @summary Triggers an enabled custom or predefined playbook.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
        *
        * @param request TriggerPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -938,9 +938,9 @@ namespace Sophonsoar20220728
       Models::TriggerPlaybookResponse triggerPlaybookWithOptions(const Models::TriggerPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers an enabled custom playbook or a predefined playbook.
+       * @summary Triggers an enabled custom or predefined playbook.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
        *
        * @param request TriggerPlaybookRequest
        * @return TriggerPlaybookResponse
@@ -948,7 +948,7 @@ namespace Sophonsoar20220728
       Models::TriggerPlaybookResponse triggerPlaybook(const Models::TriggerPlaybookRequest &request);
 
       /**
-       * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+       * @summary When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
        *
        * @param request TriggerProcessTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -957,7 +957,7 @@ namespace Sophonsoar20220728
       Models::TriggerProcessTaskResponse triggerProcessTaskWithOptions(const Models::TriggerProcessTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+       * @summary When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
        *
        * @param request TriggerProcessTaskRequest
        * @return TriggerProcessTaskResponse
@@ -965,9 +965,9 @@ namespace Sophonsoar20220728
       Models::TriggerProcessTaskResponse triggerProcessTask(const Models::TriggerProcessTaskRequest &request);
 
       /**
-       * @summary Triggers a playbook or a command.
+       * @summary Triggers a playbook or a response command.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+       * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
        *
        * @param request TriggerSophonPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -976,9 +976,9 @@ namespace Sophonsoar20220728
       Models::TriggerSophonPlaybookResponse triggerSophonPlaybookWithOptions(const Models::TriggerSophonPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers a playbook or a command.
+       * @summary Triggers a playbook or a response command.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+       * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
        *
        * @param request TriggerSophonPlaybookRequest
        * @return TriggerSophonPlaybookResponse
@@ -986,7 +986,7 @@ namespace Sophonsoar20220728
       Models::TriggerSophonPlaybookResponse triggerSophonPlaybook(const Models::TriggerSophonPlaybookRequest &request);
 
       /**
-       * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+       * @summary Verifies that a playbook configuration is correct and its orchestration logic is valid.
        *
        * @param request VerifyPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -995,7 +995,7 @@ namespace Sophonsoar20220728
       Models::VerifyPlaybookResponse verifyPlaybookWithOptions(const Models::VerifyPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+       * @summary Verifies that a playbook configuration is correct and its orchestration logic is valid.
        *
        * @param request VerifyPlaybookRequest
        * @return VerifyPlaybookResponse
@@ -1003,7 +1003,7 @@ namespace Sophonsoar20220728
       Models::VerifyPlaybookResponse verifyPlaybook(const Models::VerifyPlaybookRequest &request);
 
       /**
-       * @summary Checks whether the syntax of a Python code snippet is correct.
+       * @summary Verifies the syntax of a Python code snippet.
        *
        * @param request VerifyPythonFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1012,7 @@ namespace Sophonsoar20220728
       Models::VerifyPythonFileResponse verifyPythonFileWithOptions(const Models::VerifyPythonFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the syntax of a Python code snippet is correct.
+       * @summary Verifies the syntax of a Python code snippet.
        *
        * @param request VerifyPythonFileRequest
        * @return VerifyPythonFileResponse

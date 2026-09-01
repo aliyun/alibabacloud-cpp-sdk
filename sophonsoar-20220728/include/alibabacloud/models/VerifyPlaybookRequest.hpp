@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     shared_ptr<string> playbookUuid_ {};
     // The XML configuration of the playbook.
     shared_ptr<string> taskFlow_ {};

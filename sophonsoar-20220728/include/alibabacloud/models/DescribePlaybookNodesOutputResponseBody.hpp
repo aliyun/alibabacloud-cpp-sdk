@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The name of the component node.
+      // The name of the playbook node.
       shared_ptr<string> nodeName_ {};
-      // The historical output data of the component node. The value is in the JSON string format. If no data is found, the parameter is left empty.
+      // The historical output data of the component. The data is in the JSON format. If no data exists, this parameter is empty.
       shared_ptr<string> nodeOutput_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The output data of the component node.
+    // The output data of the node.
     shared_ptr<DescribePlaybookNodesOutputResponseBody::PlaybookNodesOutput> playbookNodesOutput_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

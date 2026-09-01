@@ -96,18 +96,21 @@ namespace Models
 
 
     protected:
-      // The execution method of the playbook is in JSONObject format.
+      // The execution method of the playbook. The value is in the JSONObject format.
       shared_ptr<string> exeConfig_ {};
-      // The input parameter configuration of the playbook. The value is a JSON array.
+      // The input parameter configurations of the playbook. The value is in the JSONArray format.
       shared_ptr<string> inputParams_ {};
-      // The output parameter configuration. This parameter is unavailable and is always left empty.
+      // Playbooks do not support output parameter configurations. This parameter is empty.
       shared_ptr<string> outputParams_ {};
-      // The input parameter type of the playbook. Valid values:
+      // The type of the input parameters for the playbook.
       // 
-      // *   **template-ip**
-      // *   **template-file**
-      // *   **template-process**
-      // *   **custom**
+      // - **template-ip**: IP request template.
+      // 
+      // - **template-file**: file request template.
+      // 
+      // - **template-process**: process request template.
+      // 
+      // - **custom**: custom parameters.
       shared_ptr<string> paramType_ {};
       // The UUID of the playbook.
       shared_ptr<string> playbookUuid_ {};
@@ -132,9 +135,9 @@ namespace Models
 
 
   protected:
-    // The configurations.
+    // The configuration information.
     shared_ptr<DescribePlaybookInputOutputResponseBody::Config> config_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

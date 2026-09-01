@@ -57,20 +57,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to directly publish the new playbook after the rollback.
+    // Specifies whether to publish the playbook after the rollback.
     // 
-    // *   **true** (default)
-    // *   **false**
+    // - **true** (default): Publishes the playbook after the rollback.
+    // 
+    // - **false**: Rolls back the playbook without publishing it.
     shared_ptr<bool> isPublish_ {};
-    // The version of the playbook that you want to publish.
+    // The ID of the published playbook version.
     // 
-    // >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the playbook version.
+    // > Call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int32_t> playReleaseId_ {};
     // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

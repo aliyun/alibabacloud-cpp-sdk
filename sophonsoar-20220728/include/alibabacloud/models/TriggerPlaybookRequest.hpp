@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The input parameters of the playbook.
+    // The input parameters for the playbook.
     // 
     // This parameter is required.
     shared_ptr<string> inputParam_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number of the returned page.
       shared_ptr<string> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<string> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -220,24 +223,25 @@ namespace Models
 
 
       protected:
-        // The action name of the component.
+        // The name of the component action.
         shared_ptr<string> action_ {};
-        // The UUID of the component execution record.
+        // The UUID of the component action execution record.
         shared_ptr<string> actionUuid_ {};
-        // The name of the asset that is used by the component.
+        // The name of the asset used by the component.
         shared_ptr<string> assetName_ {};
-        // The component name.
+        // The name of the component.
         shared_ptr<string> component_ {};
-        // The end of the time range during which the component is run. The value is a 13-digit timestamp.
+        // The end time of the component run. This is a 13-digit timestamp.
         shared_ptr<int64_t> endTime_ {};
-        // The custom name of the node in the component.
+        // The custom node name of the component.
         shared_ptr<string> nodeName_ {};
-        // The beginning of the time range during which the component is run. The value is a 13-digit timestamp.
+        // The start time of the component run. This is a 13-digit timestamp.
         shared_ptr<int64_t> startTime_ {};
-        // The running result of the component. Valid values:
+        // The result of the component run. Valid values:
         // 
-        // *   **success**
-        // *   **fail**
+        // - **success**: The run was successful.
+        // 
+        // - **fail**: The run failed.
         shared_ptr<string> status_ {};
       };
 
@@ -332,36 +336,41 @@ namespace Models
 
 
     protected:
+      // The total number of action logs.
       shared_ptr<int32_t> actionLogNum_ {};
-      // The list of component actions during the running of the playbook.
+      // The list of component actions executed in the playbook.
       shared_ptr<vector<Details::Actions>> actions_ {};
-      // The end of the time range during which the playbook is run. The value is a 13-digit timestamp.
+      // The end time of the playbook run. This is a 13-digit timestamp.
       shared_ptr<int64_t> endTime_ {};
-      // The error message of the task. If the task is successful, this field is empty.
+      // The error message for the playbook task. This field is empty if the task is successful.
       shared_ptr<string> errorMsg_ {};
-      // The request parameters of the task.
+      // The request parameters of the playbook task.
       shared_ptr<string> rawEventReq_ {};
-      // The request ID of the task. The value is unique.
+      // The request ID of the playbook task. This is the unique ID for each task run.
       shared_ptr<string> requestUuid_ {};
-      // The beginning of the time range during which the playbook is run. The value is a 13-digit timestamp.
+      // The start time of the playbook run. This is a 13-digit timestamp.
       shared_ptr<int64_t> startTime_ {};
-      // The task status. Valid values:
+      // The status of the playbook task. Valid values:
       // 
-      // *   **success**
-      // *   **fail**
-      // *   **running**
+      // - **success**: The task was successful.
+      // 
+      // - **fail**: The task failed.
+      // 
+      // - **running**: The task is running.
       shared_ptr<string> status_ {};
-      // The MD5 value of the playbook.
+      // The MD5 value of the playbook configuration that was run.
       shared_ptr<string> taskFlowMd5_ {};
-      // The name of the task. The value is the same as the playbook UUID.
+      // The name of the playbook task. This is the same as the playbook UUID.
       shared_ptr<string> taskName_ {};
-      // The task type. Valid values:
+      // The trigger type. Valid values:
       // 
-      // *   **debug**: a debugging task
-      // *   **manual**: a manual task
-      // *   **siem**: an event-triggered task
+      // - **debug**: A task for debugging a playbook.
+      // 
+      // - **manual**: A manually triggered task.
+      // 
+      // - **siem**: An event-triggered task.
       shared_ptr<string> triggerType_ {};
-      // The ID of the Alibaba Cloud account that triggers the task.
+      // The ID of the Alibaba Cloud account that triggered the playbook task.
       shared_ptr<string> triggerUser_ {};
     };
 
@@ -393,10 +402,11 @@ namespace Models
 
 
   protected:
-    // The execution details of each task.
+    // The details of the task execution.
     shared_ptr<DescribeSoarTaskAndActionsResponseBody::Details> details_ {};
+    // The pagination information.
     shared_ptr<DescribeSoarTaskAndActionsResponseBody::Page> page_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The running UUID of the playbook. This parameter is used to query the running result of the playbook.
+    // The UUID of the playbook run. You can use this UUID to obtain the results of the playbook run.
     shared_ptr<string> triggerUuid_ {};
   };
 

@@ -88,14 +88,20 @@ namespace Models
 
 
     protected:
-      // The description of the predefined component.
+      // The description of the component playbook.
       shared_ptr<string> description_ {};
-      // The name of the predefined component.
+      // The name of the component playbook.
       shared_ptr<string> displayName_ {};
-      // The input parameter configuration of the playbook. The value is a JSON array.
+      // The input parameter configurations of the component playbook. The value is a JSON array.
       // 
-      // >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
+      // > For more information about the format, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
       shared_ptr<string> inputParams_ {};
+      // The input parameter type of the component playbook.
+      // 
+      // template-ip: IP request template.
+      // template-file: file request template.
+      // template-process: process request template.
+      // custom: custom parameters.
       shared_ptr<string> paramType_ {};
     };
 
@@ -118,9 +124,9 @@ namespace Models
 
 
   protected:
-    // The information about the predefined components.
+    // The list of component playbooks.
     shared_ptr<vector<DescribeComponentPlaybookResponseBody::Playbooks>> playbooks_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

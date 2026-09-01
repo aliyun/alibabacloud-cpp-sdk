@@ -84,16 +84,33 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response.
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. The maximum value is 20. If you do not specify this parameter, 10 entries are returned.
+    // 
+    // > Specify a value for this parameter.
     shared_ptr<int32_t> pageSize_ {};
+    // The trigger type of the task. Valid values:
+    // 
+    // - **stream**: The task is triggered by a data stream.
+    // 
+    // - **debug**: The task is triggered by a debugging process.
+    // 
+    // - **manual**: The task is triggered manually.
+    // 
+    // - **timer**: The task is triggered by a timer.
+    // 
+    // - **SubInvoke**: The task is triggered by a child flow.
     shared_ptr<string> queryType_ {};
+    // The input parameter of the playbook.
     shared_ptr<string> queryValue_ {};
-    // The playbook UUID.
+    // The UUID of the playbook task.
     shared_ptr<string> requestUuid_ {};
   };
 

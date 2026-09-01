@@ -50,14 +50,15 @@ namespace Models
   protected:
     // The UUID of the component action.
     // 
-    // >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
+    // > Call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) API to get this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> actionUuid_ {};
-    // The language of the content within the request and the response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

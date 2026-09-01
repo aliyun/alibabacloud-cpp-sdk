@@ -57,19 +57,15 @@ namespace Models
 
 
   protected:
-    // The operation name of the Alibaba Cloud service.
+    // The name of the Alibaba Cloud product API.
     // 
     // This parameter is required.
     shared_ptr<string> apiName_ {};
     // The version number of the API.
     // 
-    // >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
-    // 
     // This parameter is required.
     shared_ptr<string> apiVersion_ {};
-    // The POP code of the Alibaba Cloud service.
-    // 
-    // >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
+    // The POP code of the Alibaba Cloud product API.
     // 
     // This parameter is required.
     shared_ptr<string> popCode_ {};

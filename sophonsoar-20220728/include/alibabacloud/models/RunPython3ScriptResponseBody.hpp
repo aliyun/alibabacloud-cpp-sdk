@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The execution result of the Python3 script.
+    // The data returned after the script is run.
     shared_ptr<string> runResult_ {};
   };
 

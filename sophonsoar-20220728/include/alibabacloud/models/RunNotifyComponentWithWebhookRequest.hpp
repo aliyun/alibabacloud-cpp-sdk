@@ -140,54 +140,57 @@ namespace Models
 
 
   protected:
-    // The name of the action in the playbook.
+    // The name of the playbook action.
     // 
     // This parameter is required.
     shared_ptr<string> actionName_ {};
-    // The ID of the resource. This parameter is deprecated.
+    // The ID of the resource. This parameter is deprecated and no longer used.
     shared_ptr<string> assetId_ {};
-    // The name of the component in the playbook.
+    // The name of the playbook component.
     // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
-    // The message body sent by the DingTalk group chatbot webhook.
+    // The content of the message sent by the webhook of the DingTalk group robot.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The language of the content within the request and the response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese.
-    // *   **en**: English.
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of the webhook message. Valid values:
-    // *   text.
-    // *   markdown.
-    // *   actionCard.
+    // The message type of the webhook. Valid values:
+    // 
+    // - text
+    // 
+    // - markdown
+    // 
+    // - actionCard
     // 
     // This parameter is required.
     shared_ptr<string> msgType_ {};
-    // The name of the node in the playbook.
+    // The name of the playbook node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
     // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
+    // > Call the [DescribePlaybooks](https://help.aliyun.com/document_detail/3000306.html) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};
-    // The ID of the user who switches from the current view to the destination view by using the management account.
+    // The UID of the member that the administrator wants to switch to.
     shared_ptr<int64_t> roleFor_ {};
-    // The type of the view. Valid values:
+    // The view type. Valid values:
     // 
-    // *   0 (default): the view of the current Alibaba Cloud account.
-    // *   1: the view of all accounts for the enterprise.
+    // - 0 (default): the view of the current Alibaba Cloud account.
+    // 
+    // - 1: the view of all accounts that belong to the enterprise.
     shared_ptr<string> roleType_ {};
-    // The message key of the DingTalk chatbot webhook. This parameter is deprecated.
+    // The secret key for the webhook of the DingTalk group robot. This parameter is deprecated and no longer used.
     shared_ptr<string> secret_ {};
-    // The IDs of chatbots that are configured in the message center. Only DingTalk chatbots are supported.
-    // 
-    // >  You can call the [ListEncryptWebhooks](~~ListEncryptWebhooks~~) operation to query the chatbot IDs.
+    // The IDs of the DingTalk robots. Obtain the IDs on the robot management page in Message Center.
     // 
     // This parameter is required.
     shared_ptr<string> webhook_ {};

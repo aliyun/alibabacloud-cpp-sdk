@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The name of the upstream node.
+      // The name of the ancestor node.
       shared_ptr<string> paramName_ {};
-      // The paths.
+      // An array of paths.
       shared_ptr<vector<string>> referredPath_ {};
     };
 
@@ -97,9 +97,9 @@ namespace Models
 
 
   protected:
-    // The configuration of the recommended path.
+    // The recommended path configurations.
     shared_ptr<vector<DescribeNodeParamTagsResponseBody::ParamReferredPaths>> paramReferredPaths_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

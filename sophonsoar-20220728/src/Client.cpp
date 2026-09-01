@@ -17,7 +17,11 @@ namespace Sophonsoar20220728
 {
 
 AlibabaCloud::Sophonsoar20220728::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-southeast-1" , "sophonsoar.ap-southeast-1.aliyuncs.com"},
+    {"public" , "sophonsoar.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("sophonsoar", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Compares configurations between two versions of a published playbook.
+ * @summary Compares the configurations of two published playbook versions.
  *
  * @param request ComparePlaybooksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +83,7 @@ ComparePlaybooksResponse Client::comparePlaybooksWithOptions(const ComparePlaybo
 }
 
 /**
- * @summary Compares configurations between two versions of a published playbook.
+ * @summary Compares the configurations of two published playbook versions.
  *
  * @param request ComparePlaybooksRequest
  * @return ComparePlaybooksResponse
@@ -222,9 +226,7 @@ CopyPlaybookResponse Client::copyPlaybook(const CopyPlaybookRequest &request) {
 }
 
 /**
- * @summary New Playbook.
- *
- * @description Create Playbook.
+ * @summary Creates a new playbook.
  *
  * @param request CreatePlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -275,9 +277,7 @@ CreatePlaybookResponse Client::createPlaybookWithOptions(const CreatePlaybookReq
 }
 
 /**
- * @summary New Playbook.
- *
- * @description Create Playbook.
+ * @summary Creates a new playbook.
  *
  * @param request CreatePlaybookRequest
  * @return CreatePlaybookResponse
@@ -342,7 +342,7 @@ DebugPlaybookResponse Client::debugPlaybook(const DebugPlaybookRequest &request)
 }
 
 /**
- * @summary Deletes the assets in a component.
+ * @summary Deletes a component asset.
  *
  * @param request DeleteComponentAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +377,7 @@ DeleteComponentAssetResponse Client::deleteComponentAssetWithOptions(const Delet
 }
 
 /**
- * @summary Deletes the assets in a component.
+ * @summary Deletes a component asset.
  *
  * @param request DeleteComponentAssetRequest
  * @return DeleteComponentAssetResponse
@@ -388,7 +388,7 @@ DeleteComponentAssetResponse Client::deleteComponentAsset(const DeleteComponentA
 }
 
 /**
- * @summary Deletes a custom playbook.
+ * @summary Deletes a specified custom playbook.
  *
  * @param request DeletePlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -423,7 +423,7 @@ DeletePlaybookResponse Client::deletePlaybookWithOptions(const DeletePlaybookReq
 }
 
 /**
- * @summary Deletes a custom playbook.
+ * @summary Deletes a specified custom playbook.
  *
  * @param request DeletePlaybookRequest
  * @return DeletePlaybookResponse
@@ -434,7 +434,7 @@ DeletePlaybookResponse Client::deletePlaybook(const DeletePlaybookRequest &reque
 }
 
 /**
- * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+ * @summary Obtains the metadata for a component asset, which defines the fields that constitute the asset.
  *
  * @param request DescribeComponentAssetFormRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +461,7 @@ DescribeComponentAssetFormResponse Client::describeComponentAssetFormWithOptions
 }
 
 /**
- * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+ * @summary Obtains the metadata for a component asset, which defines the fields that constitute the asset.
  *
  * @param request DescribeComponentAssetFormRequest
  * @return DescribeComponentAssetFormResponse
@@ -472,7 +472,7 @@ DescribeComponentAssetFormResponse Client::describeComponentAssetForm(const Desc
 }
 
 /**
- * @summary Queries a list of assets in a component.
+ * @summary Retrieves the asset list for a component.
  *
  * @param request DescribeComponentAssetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -499,7 +499,7 @@ DescribeComponentAssetsResponse Client::describeComponentAssetsWithOptions(const
 }
 
 /**
- * @summary Queries a list of assets in a component.
+ * @summary Retrieves the asset list for a component.
  *
  * @param request DescribeComponentAssetsRequest
  * @return DescribeComponentAssetsResponse
@@ -510,7 +510,7 @@ DescribeComponentAssetsResponse Client::describeComponentAssets(const DescribeCo
 }
 
 /**
- * @summary Queries a list of common components that are available.
+ * @summary Retrieves a list of standard components that you can use.
  *
  * @param request DescribeComponentListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +537,7 @@ DescribeComponentListResponse Client::describeComponentListWithOptions(const Des
 }
 
 /**
- * @summary Queries a list of common components that are available.
+ * @summary Retrieves a list of standard components that you can use.
  *
  * @param request DescribeComponentListRequest
  * @return DescribeComponentListResponse
@@ -548,7 +548,7 @@ DescribeComponentListResponse Client::describeComponentList(const DescribeCompon
 }
 
 /**
- * @summary Queries a list of predefined components that are available.
+ * @summary Retrieves a list of predefined components.
  *
  * @param request DescribeComponentPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -575,7 +575,7 @@ DescribeComponentPlaybookResponse Client::describeComponentPlaybookWithOptions(c
 }
 
 /**
- * @summary Queries a list of predefined components that are available.
+ * @summary Retrieves a list of predefined components.
  *
  * @param request DescribeComponentPlaybookRequest
  * @return DescribeComponentPlaybookResponse
@@ -586,7 +586,7 @@ DescribeComponentPlaybookResponse Client::describeComponentPlaybook(const Descri
 }
 
 /**
- * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+ * @summary Obtains the JavaScript (JS) file that a component uses to render the page.
  *
  * @param request DescribeComponentsJsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -613,7 +613,7 @@ DescribeComponentsJsResponse Client::describeComponentsJsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+ * @summary Obtains the JavaScript (JS) file that a component uses to render the page.
  *
  * @param request DescribeComponentsJsRequest
  * @return DescribeComponentsJsResponse
@@ -624,7 +624,7 @@ DescribeComponentsJsResponse Client::describeComponentsJs(const DescribeComponen
 }
 
 /**
- * @summary Queries the information about the published versions of a playbook after deduplication.
+ * @summary Retrieves a list of distinct playbook releases.
  *
  * @param request DescribeDistinctReleasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +651,7 @@ DescribeDistinctReleasesResponse Client::describeDistinctReleasesWithOptions(con
 }
 
 /**
- * @summary Queries the information about the published versions of a playbook after deduplication.
+ * @summary Retrieves a list of distinct playbook releases.
  *
  * @param request DescribeDistinctReleasesRequest
  * @return DescribeDistinctReleasesResponse
@@ -662,7 +662,7 @@ DescribeDistinctReleasesResponse Client::describeDistinctReleases(const Describe
 }
 
 /**
- * @summary Queries enumeration items that are required by a cloud service.
+ * @summary Queries the enumeration information for a product.
  *
  * @param request DescribeEnumItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -689,7 +689,7 @@ DescribeEnumItemsResponse Client::describeEnumItemsWithOptions(const DescribeEnu
 }
 
 /**
- * @summary Queries enumeration items that are required by a cloud service.
+ * @summary Queries the enumeration information for a product.
  *
  * @param request DescribeEnumItemsRequest
  * @return DescribeEnumItemsResponse
@@ -700,7 +700,7 @@ DescribeEnumItemsResponse Client::describeEnumItems(const DescribeEnumItemsReque
 }
 
 /**
- * @summary Queries the playbooks that are available for an automatic response plan.
+ * @summary Queries a list of executable playbooks that are used to configure automated response plans.
  *
  * @param request DescribeExecutePlaybooksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ DescribeExecutePlaybooksResponse Client::describeExecutePlaybooksWithOptions(con
 }
 
 /**
- * @summary Queries the playbooks that are available for an automatic response plan.
+ * @summary Queries a list of executable playbooks that are used to configure automated response plans.
  *
  * @param request DescribeExecutePlaybooksRequest
  * @return DescribeExecutePlaybooksResponse
@@ -738,7 +738,7 @@ DescribeExecutePlaybooksResponse Client::describeExecutePlaybooks(const Describe
 }
 
 /**
- * @summary Queries the global configuration information about a cloud service.
+ * @summary Retrieves global configuration information for the product.
  *
  * @param request DescribeFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -765,7 +765,7 @@ DescribeFieldResponse Client::describeFieldWithOptions(const DescribeFieldReques
 }
 
 /**
- * @summary Queries the global configuration information about a cloud service.
+ * @summary Retrieves global configuration information for the product.
  *
  * @param request DescribeFieldRequest
  * @return DescribeFieldResponse
@@ -818,7 +818,7 @@ DescribeGroupProductionsResponse Client::describeGroupProductions(const Describe
 }
 
 /**
- * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+ * @summary Describes the output structure of each node in a playbook based on the latest execution record.
  *
  * @param request DescribeLatestRecordSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -845,7 +845,7 @@ DescribeLatestRecordSchemaResponse Client::describeLatestRecordSchemaWithOptions
 }
 
 /**
- * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+ * @summary Describes the output structure of each node in a playbook based on the latest execution record.
  *
  * @param request DescribeLatestRecordSchemaRequest
  * @return DescribeLatestRecordSchemaResponse
@@ -856,7 +856,7 @@ DescribeLatestRecordSchemaResponse Client::describeLatestRecordSchema(const Desc
 }
 
 /**
- * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+ * @summary Returns the reference paths for component inputs in a playbook orchestration.
  *
  * @param request DescribeNodeParamTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -883,7 +883,7 @@ DescribeNodeParamTagsResponse Client::describeNodeParamTagsWithOptions(const Des
 }
 
 /**
- * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+ * @summary Returns the reference paths for component inputs in a playbook orchestration.
  *
  * @param request DescribeNodeParamTagsRequest
  * @return DescribeNodeParamTagsResponse
@@ -978,9 +978,9 @@ DescribeOpenApiInfoResponse Client::describeOpenApiInfo(const DescribeOpenApiInf
 }
 
 /**
- * @summary Queries the API operations of an Alibaba Cloud service.
+ * @summary Retrieve the API list for a product.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
  *
  * @param request DescribeOpenApiListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,9 +1007,9 @@ DescribeOpenApiListResponse Client::describeOpenApiListWithOptions(const Describ
 }
 
 /**
- * @summary Queries the API operations of an Alibaba Cloud service.
+ * @summary Retrieve the API list for a product.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
  *
  * @param request DescribeOpenApiListRequest
  * @return DescribeOpenApiListResponse
@@ -1020,7 +1020,7 @@ DescribeOpenApiListResponse Client::describeOpenApiList(const DescribeOpenApiLis
 }
 
 /**
- * @summary Queries the XML configuration of a playbook.
+ * @summary Retrieves the XML configuration of a playbook.
  *
  * @param request DescribePlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1047,7 @@ DescribePlaybookResponse Client::describePlaybookWithOptions(const DescribePlayb
 }
 
 /**
- * @summary Queries the XML configuration of a playbook.
+ * @summary Retrieves the XML configuration of a playbook.
  *
  * @param request DescribePlaybookRequest
  * @return DescribePlaybookResponse
@@ -1058,7 +1058,7 @@ DescribePlaybookResponse Client::describePlaybook(const DescribePlaybookRequest 
 }
 
 /**
- * @summary Queries the input and output parameter configurations of a playbook.
+ * @summary Retrieves the input and output parameter configurations for a playbook.
  *
  * @param request DescribePlaybookInputOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1085,7 @@ DescribePlaybookInputOutputResponse Client::describePlaybookInputOutputWithOptio
 }
 
 /**
- * @summary Queries the input and output parameter configurations of a playbook.
+ * @summary Retrieves the input and output parameter configurations for a playbook.
  *
  * @param request DescribePlaybookInputOutputRequest
  * @return DescribePlaybookInputOutputResponse
@@ -1096,7 +1096,7 @@ DescribePlaybookInputOutputResponse Client::describePlaybookInputOutput(const De
 }
 
 /**
- * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+ * @summary Queries playbook metadata, including its name, description, number of runs, and failure rate.
  *
  * @param request DescribePlaybookMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1123,7 @@ DescribePlaybookMetricsResponse Client::describePlaybookMetricsWithOptions(const
 }
 
 /**
- * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+ * @summary Queries playbook metadata, including its name, description, number of runs, and failure rate.
  *
  * @param request DescribePlaybookMetricsRequest
  * @return DescribePlaybookMetricsResponse
@@ -1134,7 +1134,7 @@ DescribePlaybookMetricsResponse Client::describePlaybookMetrics(const DescribePl
 }
 
 /**
- * @summary Queries the historical output data of a component node.
+ * @summary Retrieves the historical output data of a component.
  *
  * @param request DescribePlaybookNodesOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1161,7 @@ DescribePlaybookNodesOutputResponse Client::describePlaybookNodesOutputWithOptio
 }
 
 /**
- * @summary Queries the historical output data of a component node.
+ * @summary Retrieves the historical output data of a component.
  *
  * @param request DescribePlaybookNodesOutputRequest
  * @return DescribePlaybookNodesOutputResponse
@@ -1172,7 +1172,7 @@ DescribePlaybookNodesOutputResponse Client::describePlaybookNodesOutput(const De
 }
 
 /**
- * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+ * @summary Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
  *
  * @param request DescribePlaybookNumberMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1199,7 +1199,7 @@ DescribePlaybookNumberMetricsResponse Client::describePlaybookNumberMetricsWithO
 }
 
 /**
- * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+ * @summary Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
  *
  * @param request DescribePlaybookNumberMetricsRequest
  * @return DescribePlaybookNumberMetricsResponse
@@ -1210,7 +1210,7 @@ DescribePlaybookNumberMetricsResponse Client::describePlaybookNumberMetrics(cons
 }
 
 /**
- * @summary Queries the information about the published versions of a playbook.
+ * @summary Queries a list of published versions of a playbook.
  *
  * @param request DescribePlaybookReleasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1237,7 +1237,7 @@ DescribePlaybookReleasesResponse Client::describePlaybookReleasesWithOptions(con
 }
 
 /**
- * @summary Queries the information about the published versions of a playbook.
+ * @summary Queries a list of published versions of a playbook.
  *
  * @param request DescribePlaybookReleasesRequest
  * @return DescribePlaybookReleasesResponse
@@ -1248,7 +1248,9 @@ DescribePlaybookReleasesResponse Client::describePlaybookReleases(const Describe
 }
 
 /**
- * @summary Retrieve the list of playbooks.
+ * @summary Queries a list of playbooks.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
  *
  * @param request DescribePlaybooksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1275,7 +1277,9 @@ DescribePlaybooksResponse Client::describePlaybooksWithOptions(const DescribePla
 }
 
 /**
- * @summary Retrieve the list of playbooks.
+ * @summary Queries a list of playbooks.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
  *
  * @param request DescribePlaybooksRequest
  * @return DescribePlaybooksResponse
@@ -1286,7 +1290,7 @@ DescribePlaybooksResponse Client::describePlaybooks(const DescribePlaybooksReque
 }
 
 /**
- * @summary Queries the details of an API operation.
+ * @summary Retrieves the details of an OpenAPI.
  *
  * @param request DescribePopApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1329,7 @@ DescribePopApiResponse Client::describePopApiWithOptions(const DescribePopApiReq
 }
 
 /**
- * @summary Queries the details of an API operation.
+ * @summary Retrieves the details of an OpenAPI.
  *
  * @param request DescribePopApiRequest
  * @return DescribePopApiResponse
@@ -1336,9 +1340,9 @@ DescribePopApiResponse Client::describePopApi(const DescribePopApiRequest &reque
 }
 
 /**
- * @summary Queries statistics.
+ * @summary Retrieves statistics information.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
  *
  * @param request DescribeProcessStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1365,9 +1369,9 @@ DescribeProcessStatisticsResponse Client::describeProcessStatisticsWithOptions(c
 }
 
 /**
- * @summary Queries statistics.
+ * @summary Retrieves statistics information.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
  *
  * @param request DescribeProcessStatisticsRequest
  * @return DescribeProcessStatisticsResponse
@@ -1378,7 +1382,7 @@ DescribeProcessStatisticsResponse Client::describeProcessStatistics(const Descri
 }
 
 /**
- * @summary Query the number of associated disposal tasks based on the entity UUID.
+ * @summary Queries the count of response tasks associated with an entity UUID.
  *
  * @param request DescribeProcessTaskCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1405,7 +1409,7 @@ DescribeProcessTaskCountResponse Client::describeProcessTaskCountWithOptions(con
 }
 
 /**
- * @summary Query the number of associated disposal tasks based on the entity UUID.
+ * @summary Queries the count of response tasks associated with an entity UUID.
  *
  * @param request DescribeProcessTaskCountRequest
  * @return DescribeProcessTaskCountResponse
@@ -1416,9 +1420,9 @@ DescribeProcessTaskCountResponse Client::describeProcessTaskCount(const Describe
 }
 
 /**
- * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+ * @summary Retrieves a list of disposal tasks.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
  *
  * @param request DescribeProcessTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1427,6 +1431,10 @@ DescribeProcessTaskCountResponse Client::describeProcessTaskCount(const Describe
 DescribeProcessTasksResponse Client::describeProcessTasksWithOptions(const DescribeProcessTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlertId()) {
+    query["AlertId"] = request.getAlertId();
+  }
+
   if (!!request.hasDirection()) {
     query["Direction"] = request.getDirection();
   }
@@ -1445,6 +1453,10 @@ DescribeProcessTasksResponse Client::describeProcessTasksWithOptions(const Descr
 
   if (!!request.hasEventUuid()) {
     query["EventUuid"] = request.getEventUuid();
+  }
+
+  if (!!request.hasExecuteUuid()) {
+    query["ExecuteUuid"] = request.getExecuteUuid();
   }
 
   if (!!request.hasOrderField()) {
@@ -1485,6 +1497,10 @@ DescribeProcessTasksResponse Client::describeProcessTasksWithOptions(const Descr
 
   if (!!request.hasReqUuid()) {
     query["ReqUuid"] = request.getReqUuid();
+  }
+
+  if (!!request.hasResponseRuleId()) {
+    query["ResponseRuleId"] = request.getResponseRuleId();
   }
 
   if (!!request.hasSceneCode()) {
@@ -1533,9 +1549,9 @@ DescribeProcessTasksResponse Client::describeProcessTasksWithOptions(const Descr
 }
 
 /**
- * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+ * @summary Retrieves a list of disposal tasks.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
  *
  * @param request DescribeProcessTasksRequest
  * @return DescribeProcessTasksResponse
@@ -1546,7 +1562,7 @@ DescribeProcessTasksResponse Client::describeProcessTasks(const DescribeProcessT
 }
 
 /**
- * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+ * @summary Retrieves the output data generated by a component for an action in a playbook task.
  *
  * @param request DescribeSoarRecordActionOutputListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1573,7 +1589,7 @@ DescribeSoarRecordActionOutputListResponse Client::describeSoarRecordActionOutpu
 }
 
 /**
- * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+ * @summary Retrieves the output data generated by a component for an action in a playbook task.
  *
  * @param request DescribeSoarRecordActionOutputListRequest
  * @return DescribeSoarRecordActionOutputListResponse
@@ -1584,7 +1600,7 @@ DescribeSoarRecordActionOutputListResponse Client::describeSoarRecordActionOutpu
 }
 
 /**
- * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+ * @summary Retrieves the input and output data of a component action after a playbook task is executed.
  *
  * @param request DescribeSoarRecordInOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1627,7 @@ DescribeSoarRecordInOutputResponse Client::describeSoarRecordInOutputWithOptions
 }
 
 /**
- * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+ * @summary Retrieves the input and output data of a component action after a playbook task is executed.
  *
  * @param request DescribeSoarRecordInOutputRequest
  * @return DescribeSoarRecordInOutputResponse
@@ -1622,7 +1638,7 @@ DescribeSoarRecordInOutputResponse Client::describeSoarRecordInOutput(const Desc
 }
 
 /**
- * @summary Get the execution records of a playbook.
+ * @summary Queries the execution records for a playbook.
  *
  * @param request DescribeSoarRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1649,7 +1665,7 @@ DescribeSoarRecordsResponse Client::describeSoarRecordsWithOptions(const Describ
 }
 
 /**
- * @summary Get the execution records of a playbook.
+ * @summary Queries the execution records for a playbook.
  *
  * @param request DescribeSoarRecordsRequest
  * @return DescribeSoarRecordsResponse
@@ -1660,7 +1676,7 @@ DescribeSoarRecordsResponse Client::describeSoarRecords(const DescribeSoarRecord
 }
 
 /**
- * @summary Queries the execution records of a component during the running of a playbook.
+ * @summary Retrieves the component execution records for a single playbook run.
  *
  * @param request DescribeSoarTaskAndActionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1687,7 +1703,7 @@ DescribeSoarTaskAndActionsResponse Client::describeSoarTaskAndActionsWithOptions
 }
 
 /**
- * @summary Queries the execution records of a component during the running of a playbook.
+ * @summary Retrieves the component execution records for a single playbook run.
  *
  * @param request DescribeSoarTaskAndActionsRequest
  * @return DescribeSoarTaskAndActionsResponse
@@ -1698,7 +1714,7 @@ DescribeSoarTaskAndActionsResponse Client::describeSoarTaskAndActions(const Desc
 }
 
 /**
- * @summary Queries the commands that can be run to obtain objects.
+ * @summary Queries the commands that are used to manage entities.
  *
  * @param request DescribeSophonCommandsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1729,7 +1745,7 @@ DescribeSophonCommandsResponse Client::describeSophonCommandsWithOptions(const D
 }
 
 /**
- * @summary Queries the commands that can be run to obtain objects.
+ * @summary Queries the commands that are used to manage entities.
  *
  * @param request DescribeSophonCommandsRequest
  * @return DescribeSophonCommandsResponse
@@ -1806,7 +1822,7 @@ DescribeVendorApiListResponse Client::describeVendorApiList(const DescribeVendor
 }
 
 /**
- * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+ * @summary After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
  *
  * @param request DescriberPython3ScriptLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1833,7 +1849,7 @@ DescriberPython3ScriptLogsResponse Client::describerPython3ScriptLogsWithOptions
 }
 
 /**
- * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+ * @summary After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
  *
  * @param request DescriberPython3ScriptLogsRequest
  * @return DescriberPython3ScriptLogsResponse
@@ -1844,7 +1860,7 @@ DescriberPython3ScriptLogsResponse Client::describerPython3ScriptLogs(const Desc
 }
 
 /**
- * @summary Modifies the information about the asset that is configured for a component.
+ * @summary You can call this operation to modify the asset information for a component.
  *
  * @param request ModifyComponentAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1879,7 +1895,7 @@ ModifyComponentAssetResponse Client::modifyComponentAssetWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the information about the asset that is configured for a component.
+ * @summary You can call this operation to modify the asset information for a component.
  *
  * @param request ModifyComponentAssetRequest
  * @return ModifyComponentAssetResponse
@@ -2010,7 +2026,7 @@ ModifyPlaybookInputOutputResponse Client::modifyPlaybookInputOutput(const Modify
 }
 
 /**
- * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+ * @summary Publishes a playbook. Once published, the playbook runs with the new logic.
  *
  * @param request PublishPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2045,7 +2061,7 @@ PublishPlaybookResponse Client::publishPlaybookWithOptions(const PublishPlaybook
 }
 
 /**
- * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+ * @summary Publishes a playbook. Once published, the playbook runs with the new logic.
  *
  * @param request PublishPlaybookRequest
  * @return PublishPlaybookResponse
@@ -2056,7 +2072,7 @@ PublishPlaybookResponse Client::publishPlaybook(const PublishPlaybookRequest &re
 }
 
 /**
- * @summary Queries all playbooks at a time.
+ * @summary Retrieves a list of all playbooks.
  *
  * @param request QueryTreeDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2099,7 @@ QueryTreeDataResponse Client::queryTreeDataWithOptions(const QueryTreeDataReques
 }
 
 /**
- * @summary Queries all playbooks at a time.
+ * @summary Retrieves a list of all playbooks.
  *
  * @param request QueryTreeDataRequest
  * @return QueryTreeDataResponse
@@ -2094,7 +2110,7 @@ QueryTreeDataResponse Client::queryTreeData(const QueryTreeDataRequest &request)
 }
 
 /**
- * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+ * @summary Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
  *
  * @param request RevertPlaybookReleaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2133,7 +2149,7 @@ RevertPlaybookReleaseResponse Client::revertPlaybookReleaseWithOptions(const Rev
 }
 
 /**
- * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+ * @summary Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
  *
  * @param request RevertPlaybookReleaseRequest
  * @return RevertPlaybookReleaseResponse
@@ -2144,9 +2160,9 @@ RevertPlaybookReleaseResponse Client::revertPlaybookRelease(const RevertPlaybook
 }
 
 /**
- * @summary Runs the email notification component to send messages.
+ * @summary Runs the notification component to send an email message.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
  *
  * @param request RunNotifyComponentWithEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2217,9 +2233,9 @@ RunNotifyComponentWithEmailResponse Client::runNotifyComponentWithEmailWithOptio
 }
 
 /**
- * @summary Runs the email notification component to send messages.
+ * @summary Runs the notification component to send an email message.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
  *
  * @param request RunNotifyComponentWithEmailRequest
  * @return RunNotifyComponentWithEmailResponse
@@ -2230,9 +2246,9 @@ RunNotifyComponentWithEmailResponse Client::runNotifyComponentWithEmail(const Ru
 }
 
 /**
- * @summary Execute Notification Component - Send Message via Message Center.
+ * @summary Sends a message using the notification component in Message Center.
  *
- * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
  *
  * @param request RunNotifyComponentWithMessageCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2307,9 +2323,9 @@ RunNotifyComponentWithMessageCenterResponse Client::runNotifyComponentWithMessag
 }
 
 /**
- * @summary Execute Notification Component - Send Message via Message Center.
+ * @summary Sends a message using the notification component in Message Center.
  *
- * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
  *
  * @param request RunNotifyComponentWithMessageCenterRequest
  * @return RunNotifyComponentWithMessageCenterResponse
@@ -2320,9 +2336,9 @@ RunNotifyComponentWithMessageCenterResponse Client::runNotifyComponentWithMessag
 }
 
 /**
- * @summary Runs the webhook notification component to send messages.
+ * @summary Sends a message from a notification component using a webhook.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
  *
  * @param request RunNotifyComponentWithWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2397,9 +2413,9 @@ RunNotifyComponentWithWebhookResponse Client::runNotifyComponentWithWebhookWithO
 }
 
 /**
- * @summary Runs the webhook notification component to send messages.
+ * @summary Sends a message from a notification component using a webhook.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
  *
  * @param request RunNotifyComponentWithWebhookRequest
  * @return RunNotifyComponentWithWebhookResponse
@@ -2410,9 +2426,9 @@ RunNotifyComponentWithWebhookResponse Client::runNotifyComponentWithWebhook(cons
 }
 
 /**
- * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+ * @summary Executes a Python 3 code snippet for data processing.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
  *
  * @param request RunPython3ScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2461,9 +2477,9 @@ RunPython3ScriptResponse Client::runPython3ScriptWithOptions(const RunPython3Scr
 }
 
 /**
- * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+ * @summary Executes a Python 3 code snippet for data processing.
  *
- * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
  *
  * @param request RunPython3ScriptRequest
  * @return RunPython3ScriptResponse
@@ -2474,9 +2490,9 @@ RunPython3ScriptResponse Client::runPython3Script(const RunPython3ScriptRequest 
 }
 
 /**
- * @summary Triggers an enabled custom playbook or a predefined playbook.
+ * @summary Triggers an enabled custom or predefined playbook.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
  *
  * @param request TriggerPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2511,9 +2527,9 @@ TriggerPlaybookResponse Client::triggerPlaybookWithOptions(const TriggerPlaybook
 }
 
 /**
- * @summary Triggers an enabled custom playbook or a predefined playbook.
+ * @summary Triggers an enabled custom or predefined playbook.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
  *
  * @param request TriggerPlaybookRequest
  * @return TriggerPlaybookResponse
@@ -2524,7 +2540,7 @@ TriggerPlaybookResponse Client::triggerPlaybook(const TriggerPlaybookRequest &re
 }
 
 /**
- * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+ * @summary When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
  *
  * @param request TriggerProcessTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2561,7 +2577,7 @@ TriggerProcessTaskResponse Client::triggerProcessTaskWithOptions(const TriggerPr
 }
 
 /**
- * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+ * @summary When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
  *
  * @param request TriggerProcessTaskRequest
  * @return TriggerProcessTaskResponse
@@ -2572,9 +2588,9 @@ TriggerProcessTaskResponse Client::triggerProcessTask(const TriggerProcessTaskRe
 }
 
 /**
- * @summary Triggers a playbook or a command.
+ * @summary Triggers a playbook or a response command.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+ * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
  *
  * @param request TriggerSophonPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2583,6 +2599,10 @@ TriggerProcessTaskResponse Client::triggerProcessTask(const TriggerProcessTaskRe
 TriggerSophonPlaybookResponse Client::triggerSophonPlaybookWithOptions(const TriggerSophonPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasCommandName()) {
     query["CommandName"] = request.getCommandName();
   }
@@ -2621,9 +2641,9 @@ TriggerSophonPlaybookResponse Client::triggerSophonPlaybookWithOptions(const Tri
 }
 
 /**
- * @summary Triggers a playbook or a command.
+ * @summary Triggers a playbook or a response command.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+ * @description Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
  *
  * @param request TriggerSophonPlaybookRequest
  * @return TriggerSophonPlaybookResponse
@@ -2634,7 +2654,7 @@ TriggerSophonPlaybookResponse Client::triggerSophonPlaybook(const TriggerSophonP
 }
 
 /**
- * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+ * @summary Verifies that a playbook configuration is correct and its orchestration logic is valid.
  *
  * @param request VerifyPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2669,7 +2689,7 @@ VerifyPlaybookResponse Client::verifyPlaybookWithOptions(const VerifyPlaybookReq
 }
 
 /**
- * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+ * @summary Verifies that a playbook configuration is correct and its orchestration logic is valid.
  *
  * @param request VerifyPlaybookRequest
  * @return VerifyPlaybookResponse
@@ -2680,7 +2700,7 @@ VerifyPlaybookResponse Client::verifyPlaybook(const VerifyPlaybookRequest &reque
 }
 
 /**
- * @summary Checks whether the syntax of a Python code snippet is correct.
+ * @summary Verifies the syntax of a Python code snippet.
  *
  * @param request VerifyPythonFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2711,7 +2731,7 @@ VerifyPythonFileResponse Client::verifyPythonFileWithOptions(const VerifyPythonF
 }
 
 /**
- * @summary Checks whether the syntax of a Python code snippet is correct.
+ * @summary Verifies the syntax of a Python code snippet.
  *
  * @param request VerifyPythonFileRequest
  * @return VerifyPythonFileResponse

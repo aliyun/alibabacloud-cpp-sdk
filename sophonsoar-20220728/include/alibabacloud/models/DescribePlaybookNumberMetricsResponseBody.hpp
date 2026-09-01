@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The statistics.
     shared_ptr<DescribePlaybookNumberMetricsResponseBody::Metrics> metrics_ {};
-    // The request ID.
+    // The unique ID of the request. If you have an issue with a request, provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

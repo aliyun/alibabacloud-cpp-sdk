@@ -144,14 +144,15 @@ namespace Models
     protected:
       // The status of the playbook. Valid values:
       // 
-      // *   **1**: enabled
-      // *   **0**: disabled
+      // - **1**: The playbook is enabled.
+      // 
+      // - **0**: The playbook is disabled.
       shared_ptr<int32_t> active_ {};
       // The description of the playbook.
       shared_ptr<string> description_ {};
       // The name of the playbook.
       shared_ptr<string> displayName_ {};
-      // The number of the tasks that are created for the playbook and failed to run.
+      // The number of failed playbook runs.
       shared_ptr<int32_t> failNum_ {};
       // The time when the playbook was created. The value is a 13-digit timestamp.
       shared_ptr<int64_t> gmtCreate_ {};
@@ -161,12 +162,13 @@ namespace Models
       shared_ptr<int64_t> lastRuntime_ {};
       // The type of the playbook. Valid values:
       // 
-      // *   **preset**: predefined playbook
-      // *   **user**: custom playbook
+      // - **preset**: predefined playbook.
+      // 
+      // - **user**: custom playbook.
       shared_ptr<string> ownType_ {};
       // The UUID of the playbook.
       shared_ptr<string> playbookUuid_ {};
-      // The number of the tasks that are created for the playbook and were successfully run.
+      // The number of successful playbook runs.
       shared_ptr<int32_t> succNum_ {};
     };
 
@@ -191,7 +193,7 @@ namespace Models
   protected:
     // The details of the playbook.
     shared_ptr<DescribePlaybookMetricsResponseBody::Metrics> metrics_ {};
-    // The request ID.
+    // The ID of the request. This ID is unique to each request and is used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

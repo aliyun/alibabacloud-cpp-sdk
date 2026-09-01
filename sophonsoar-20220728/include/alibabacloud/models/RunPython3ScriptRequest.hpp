@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
-    // The name of the node in the playbook.
+    // The name of the playbook node.
     shared_ptr<string> nodeName_ {};
-    // The input parameters of the Python3 script.
+    // The input parameters for the Python 3 script.
     shared_ptr<string> params_ {};
     // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     shared_ptr<string> playbookUuid_ {};
-    // The Python3 script.
+    // The Python 3 script.
     shared_ptr<string> pythonScript_ {};
+    // The Python version.
     shared_ptr<string> pythonVersion_ {};
   };
 

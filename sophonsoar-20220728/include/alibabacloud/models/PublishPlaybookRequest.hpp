@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The description of the released version.
+    // The description of the published version.
     shared_ptr<string> description_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The key of the enumeration item.
+      // The key of the enumeration.
       shared_ptr<string> key_ {};
-      // The value of the enumeration item.
+      // The value of the enumeration.
       shared_ptr<string> value_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The information about the enumeration item.
+    // The enumeration information.
     shared_ptr<vector<DescribeEnumItemsResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request. This ID is unique to each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,16 +48,17 @@ namespace Models
 
 
   protected:
-    // The type of the enumeration item. Valid values:
+    // The type of the enumeration. Valid value:
     // 
-    // *   **process**: scenarios
+    // - **process**: The enumeration for response scenarios.
     // 
     // This parameter is required.
     shared_ptr<string> enumType_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh_cn**: Simplified Chinese (default)
-    // *   **en_us**: English
+    // - **zh_cn**: The default value. Simplified Chinese.
+    // 
+    // - **en_us**: American English.
     shared_ptr<string> lang_ {};
   };
 

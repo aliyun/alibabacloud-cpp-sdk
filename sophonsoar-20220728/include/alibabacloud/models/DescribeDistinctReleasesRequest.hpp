@@ -57,18 +57,19 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};
-    // The MD5 value of the playbook XML configuration.
+    // The MD5 value of the playbook\\"s XML configuration.
     shared_ptr<string> taskflowMd5_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request. Use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

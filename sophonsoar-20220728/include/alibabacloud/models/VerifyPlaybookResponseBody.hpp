@@ -72,7 +72,17 @@ namespace Models
 
 
     protected:
+      // The check type. Valid values:
+      // 
+      // - **role**: The name of the custom RAM role.
+      // 
+      // - **policies**: The list of RAM system policies.
       shared_ptr<string> prerequisiteType_ {};
+      // The check content. The value is determined as follows:
+      // 
+      // - If PrerequisiteType is **role**, the value is the static field AliyunSiemSoarExecutionDefaultRole.
+      // 
+      // - If PrerequisiteType is **policies**, the value is a collection of policy names.
       shared_ptr<string> prerequisiteValue_ {};
     };
 
@@ -123,15 +133,17 @@ namespace Models
 
 
     protected:
-      // The error message returned when the playbook does not pass the check.
+      // The specific error message that is returned if the verification fails.
       shared_ptr<string> detail_ {};
-      // The name of the node in the playbook.
+      // The name of the playbook node.
       shared_ptr<string> nodeName_ {};
-      // The severity level of the verification information. Valid values:
+      // The severity level of the verification message. Valid values:
       // 
-      // *   warn: An issue may occur during playbook running.
-      // *   error: The playbook cannot be compiled.
-      // *   remind: The publishing and running of the playbook are not affected. We recommend that you optimize the playbook format.
+      // - **warn**: A warning message. An issue may occur when the playbook runs.
+      // 
+      // - **error**: An error message. The playbook fails to be compiled.
+      // 
+      // - **remind**: A suggestion. This does not affect publishing or running the playbook. Optimize the playbook format.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -163,10 +175,11 @@ namespace Models
 
 
   protected:
-    // The result of the verification.
+    // The verification results.
     shared_ptr<vector<VerifyPlaybookResponseBody::CheckTaskInfos>> checkTaskInfos_ {};
+    // The prerequisite check information for the playbook.
     shared_ptr<vector<VerifyPlaybookResponseBody::Prerequisites>> prerequisites_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique identifier for the request. Use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,31 +84,35 @@ namespace Models
 
 
   protected:
-    // The executed mode of a playbook. The value is a JSON array.
+    // The execution method for the playbook. This parameter is in the JSONObject format.
     shared_ptr<string> exeConfig_ {};
-    // The configuration of the input parameters. The value is a JSON array.
+    // The input parameter configuration for the playbook. This parameter is in the JSONArray format.
     // 
     // This parameter is required.
     shared_ptr<string> inputParams_ {};
-    // The language of the content within the request and response.
+    // The language of the request and response messages.
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The configuration of the output parameters. This parameter is unavailable. Leave it empty.
+    // Playbooks do not support output parameter configurations. This parameter is fixed to an empty value.
     // 
     // This parameter is required.
     shared_ptr<string> outputParams_ {};
-    // The input parameter type.
+    // The type of the input parameter for the playbook.
     // 
-    // *   **template-ip**
-    // *   **template-file**
-    // *   **template-process**
-    // *   **custom**
+    // - **template-ip**: IP request template.
+    // 
+    // - **template-file**: file request template.
+    // 
+    // - **template-process**: process request template.
+    // 
+    // - **custom**: custom parameter.
     shared_ptr<string> paramType_ {};
     // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

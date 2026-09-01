@@ -149,58 +149,73 @@ namespace Models
 
 
   protected:
-    // Activation status of the playbook. Values:
+    // The status of the playbook. Valid values:
     // 
-    // - **1**: Indicates the playbook is activated.
-    // - **0**: Indicates the playbook is not activated.
+    // - **1**: The playbook is enabled.
+    // 
+    // - **0**: The playbook is disabled.
     shared_ptr<int32_t> active_ {};
-    // End time for the query, in 13-digit timestamp format.
+    // The end of the time range to query. This value is a 13-digit timestamp.
     shared_ptr<int64_t> endMillis_ {};
-    // Specifies the language type for the request and response, default is **zh**. Values:
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // 
     // - **zh**: Chinese.
+    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The name of the playbook.
     shared_ptr<string> name_ {};
-    // The sorting logic, with a default value of **desc**. Values:
-    // - **desc**: Descending order.
-    // - **asc**: Ascending order.
-    shared_ptr<string> order_ {};
-    // Type of the playbook. Values:
+    // The sort order. Default value: **desc**. Valid values:
     // 
-    // - **preset**: Predefined playbook.
-    // - **user**: Custom playbook.
+    // - **desc**: descending.
+    // 
+    // - **asc**: ascending.
+    shared_ptr<string> order_ {};
+    // The type of the playbook. Valid values:
+    // 
+    // - **preset**: predefined playbook.
+    // 
+    // - **user**: custom playbook.
     shared_ptr<string> ownType_ {};
-    // Sets the page number from which to start displaying the query results. The default value is 1, indicating the first page.
+    // The page number of the page to return. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // Specifies the maximum number of items to display per page in a paginated query. The default number of items per page is 20. If the PageSize parameter is empty, it will return 10 items by default.
-    // > It is recommended that the PageSize value is not empty.
+    // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 10 entries are returned by default.
+    // 
+    // > Specify a value for this parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The trigger method for the playbook, with a default value of **query all**. Values:
-    // - **template-incident**: Security incident.
+    // The trigger type of the playbook. If you do not specify this parameter, playbooks of all trigger types are queried. Valid values:
+    // 
+    // - **template-incident**: security event.
+    // 
     // - **template-ip**: IP entity.
-    // - **template-file**: File entity.
-    // - **template-process**: Process entity.
-    // - **template-alert**: Security alert.
-    // - **template-domain**: Domain entity.
-    // - **template-container**: Container entity.
-    // - **template-host**: Host entity.
-    // - **template-custom**: Custom.
+    // 
+    // - **template-file**: file entity.
+    // 
+    // - **template-process**: process entity.
+    // 
+    // - **template-alert**: security alert.
+    // 
+    // - **template-domain**: domain name entity.
+    // 
+    // - **template-container**: container entity.
+    // 
+    // - **template-host**: host entity.
+    // 
+    // - **template-custom**: custom.
     shared_ptr<string> paramTypes_ {};
     // The UUID of the playbook.
-    // > You can use the UUID to query specific playbook information.
-    // > - Call the [CreatePlaybook](~~CreatePlaybook~~) API to obtain this parameter.
-    shared_ptr<string> playbookUuid_ {};
-    // UUID List of the playbook.
     // 
-    // Note You can use the UUID list to query specific playbook information.
-    // Call the DescribePlaybooks API to obtain this parameter.
+    // > Call the [CreatePlaybook](~~CreatePlaybook~~) operation to obtain this parameter.
+    shared_ptr<string> playbookUuid_ {};
+    // A comma-separated list of playbook UUIDs. You can specify up to 100 UUIDs.
     shared_ptr<string> playbookUuids_ {};
-    // The sorting basis, with a default value of **1**. Values:
-    // - **1**: Last modified time.
-    // - **2**: Most recent execution time.
+    // The field to sort by. Default value: **1**. Valid values:
+    // 
+    // - **1**: last modification time.
+    // 
+    // - **2**: last running time.
     shared_ptr<int32_t> sort_ {};
-    // Start time for the query, in 13-digit timestamp format.
+    // The start of the time range to query. This value is a 13-digit timestamp.
     shared_ptr<int64_t> startMillis_ {};
   };
 

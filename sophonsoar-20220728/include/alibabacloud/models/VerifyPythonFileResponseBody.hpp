@@ -106,20 +106,21 @@ namespace Models
 
 
     protected:
-      // The number that indicates the end column of the error code.
+      // The ending column number of the code that contains an error.
       shared_ptr<int32_t> endColumn_ {};
-      // The number that indicates the end line of the error code.
+      // The ending line number of the code that contains an error.
       shared_ptr<int32_t> endLineNumber_ {};
-      // The error message for the error code.
+      // The error message for the code.
       shared_ptr<string> message_ {};
-      // The severity level of the error code. Valid values:
+      // The error level of the code.
       // 
-      // *   4: moderate
-      // *   8: serious
+      // - 4: General error
+      // 
+      // - 8: Critical error
       shared_ptr<int32_t> severity_ {};
-      // The number that indicates the start column of the error code.
+      // The starting column number of the code that contains an error.
       shared_ptr<int32_t> startColumn_ {};
-      // The number that indicates the start line of the error code.
+      // The starting line number of the code that contains an error.
       shared_ptr<int32_t> startLineNumber_ {};
     };
 
@@ -142,9 +143,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The verification result. If the parameter is left empty, the syntax of the code snippet is correct.
+    // The result set of the Python code verification. If this parameter is empty, the code syntax is correct.
     shared_ptr<vector<VerifyPythonFileResponseBody::Syntax>> syntax_ {};
   };
 

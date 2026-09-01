@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // The UUID of the debugging task. You can use the UUID to query the result and other details of the debugging task.
+    // The run UUID of the debugging task. Use this UUID to query information, such as the task result.
     shared_ptr<string> requestUuid_ {};
   };
 

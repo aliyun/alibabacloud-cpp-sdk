@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the command. Fuzzy match is supported.
+    // The name of the command. Fuzzy search is supported.
     shared_ptr<string> name_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The execution result of the component action.
     shared_ptr<string> inOutputInfo_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

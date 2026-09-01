@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The configuration of the asset. The value is a JSON object.
+    // The configuration of the component asset. This parameter is a JSON object.
     // 
     // This parameter is required.
     shared_ptr<string> assetConfig_ {};
-    // The language of the content within the request and response.
+    // The language of the request and response.
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

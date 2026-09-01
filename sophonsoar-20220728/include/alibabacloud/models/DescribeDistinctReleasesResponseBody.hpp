@@ -79,14 +79,15 @@ namespace Models
 
 
     protected:
-      // The version description.
+      // The description of the version.
       shared_ptr<string> description_ {};
-      // The MD5 value of the version XML configuration.
+      // The MD5 value of the version\\"s XML configuration.
       shared_ptr<string> taskflowMd5_ {};
-      // The format of the playbook. Valid values:
+      // The configuration format of the playbook.
       // 
-      // *   **xml**: XML format.
-      // *   **x6**: JSON format.
+      // - **xml**: XML format.
+      // 
+      // - **x6**: JSON format.
       shared_ptr<string> taskflowType_ {};
     };
 
@@ -109,9 +110,9 @@ namespace Models
 
 
   protected:
-    // The information about versions.
+    // The version records.
     shared_ptr<vector<DescribeDistinctReleasesResponseBody::Records>> records_ {};
-    // The request ID.
+    // The ID of the request. This ID is unique to each request and is used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,18 +57,19 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Valid values:
+    // The language of the request and response.
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The name of the node.
+    // The name of the component node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // The playbook UUID.
+    // The UUID of the playbook.
     // 
-    // >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+    // > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> playbookUuid_ {};

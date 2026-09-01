@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The configuration content.
+    // The content of the configuration.
     shared_ptr<string> fields_ {};
     // The name of the global configuration.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

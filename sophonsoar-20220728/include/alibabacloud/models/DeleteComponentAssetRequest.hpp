@@ -48,16 +48,17 @@ namespace Models
 
 
   protected:
-    // The ID of the asset.
+    // The asset ID of the component.
     // 
-    // >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
+    // > Call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> assetId_ {};
-    // The language of the content within the request and the response. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account that is used to publish the version.
+      // The ID of the Alibaba Cloud account that published the version.
       shared_ptr<string> creator_ {};
-      // The description of the layer version.
+      // The description of the version.
       shared_ptr<string> description_ {};
-      // The time when the version was created. The value is a 13-digit timestamp.
+      // The time when the version was created. This is a 13-digit UNIX timestamp.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the version was modified. The value is a 13-digit timestamp.
+      // The time when the version was last modified. This is a 13-digit UNIX timestamp.
       shared_ptr<int64_t> gmtModified_ {};
       // The record ID.
       shared_ptr<int32_t> id_ {};
-      // The MD5 value configured for the published version of the playbook.
+      // The MD5 hash of the playbook configuration for the published version.
       shared_ptr<string> taskflowMd5_ {};
     };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -207,9 +207,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribePlaybookReleasesResponseBody::Page> page_ {};
-    // The information about the playbook version.
+    // A list of playbook versions.
     shared_ptr<vector<DescribePlaybookReleasesResponseBody::Records>> records_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

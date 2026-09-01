@@ -84,22 +84,27 @@ namespace Models
 
 
   protected:
-    // Description of the playbook.
+    // The description of the playbook.
     shared_ptr<string> description_ {};
-    // Name of the playbook.
+    // The name of the playbook.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // The input configuration of the playbook.
     shared_ptr<string> inputParams_ {};
-    // Language type for receiving messages. Values:
+    // The language of the messages to receive. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The output configuration of the playbook.
     shared_ptr<string> outputParams_ {};
-    // Playbook TaskFlow type.
-    // - **x6** : x6
-    // - **bpmn**: bpmn
+    // The configuration format of the playbook.
+    // 
+    // - **xml**: XML format.
+    // 
+    // - **x6**: JSON format.
     shared_ptr<string> taskflowType_ {};
   };
 
