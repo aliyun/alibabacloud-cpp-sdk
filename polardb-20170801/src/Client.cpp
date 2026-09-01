@@ -614,6 +614,88 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
+ * @summary 知识库单轮问答
+ *
+ * @param request AnswerKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AnswerKnowledgeBaseResponse
+ */
+AnswerKnowledgeBaseResponse Client::answerKnowledgeBaseWithOptions(const AnswerKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasMaxContextChars()) {
+    query["MaxContextChars"] = request.getMaxContextChars();
+  }
+
+  if (!!request.hasQueryText()) {
+    query["QueryText"] = request.getQueryText();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRerankEnabled()) {
+    query["RerankEnabled"] = request.getRerankEnabled();
+  }
+
+  if (!!request.hasReturnSources()) {
+    query["ReturnSources"] = request.getReturnSources();
+  }
+
+  if (!!request.hasScoreThreshold()) {
+    query["ScoreThreshold"] = request.getScoreThreshold();
+  }
+
+  if (!!request.hasSearchMode()) {
+    query["SearchMode"] = request.getSearchMode();
+  }
+
+  if (!!request.hasSystemPrompt()) {
+    query["SystemPrompt"] = request.getSystemPrompt();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  if (!!request.hasUserInstructions()) {
+    query["UserInstructions"] = request.getUserInstructions();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AnswerKnowledgeBase"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AnswerKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 知识库单轮问答
+ *
+ * @param request AnswerKnowledgeBaseRequest
+ * @return AnswerKnowledgeBaseResponse
+ */
+AnswerKnowledgeBaseResponse Client::answerKnowledgeBase(const AnswerKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return answerKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
  * @summary Applies prompts to an application instance.
  *
  * @description ## Request
@@ -5376,6 +5458,84 @@ CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsum
 }
 
 /**
+ * @summary 创建知识库同步链路
+ *
+ * @param request CreateKBSyncLinkRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKBSyncLinkResponse
+ */
+CreateKBSyncLinkResponse Client::createKBSyncLinkWithOptions(const CreateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.getClientId();
+  }
+
+  if (!!request.hasClientSecret()) {
+    query["ClientSecret"] = request.getClientSecret();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasLinkName()) {
+    query["LinkName"] = request.getLinkName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceDir()) {
+    query["SourceDir"] = request.getSourceDir();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasSyncIntervalMinutes()) {
+    query["SyncIntervalMinutes"] = request.getSyncIntervalMinutes();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateKBSyncLink"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKBSyncLinkResponse>();
+}
+
+/**
+ * @summary 创建知识库同步链路
+ *
+ * @param request CreateKBSyncLinkRequest
+ * @return CreateKBSyncLinkResponse
+ */
+CreateKBSyncLinkResponse Client::createKBSyncLink(const CreateKBSyncLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createKBSyncLinkWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a knowledge base.
  *
  * @param request CreateKnowledgeBaseRequest
@@ -8766,6 +8926,56 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
+ * @summary 删除知识库同步链路
+ *
+ * @param request DeleteKBSyncLinkRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKBSyncLinkResponse
+ */
+DeleteKBSyncLinkResponse Client::deleteKBSyncLinkWithOptions(const DeleteKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasLinkId()) {
+    query["LinkId"] = request.getLinkId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKBSyncLink"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKBSyncLinkResponse>();
+}
+
+/**
+ * @summary 删除知识库同步链路
+ *
+ * @param request DeleteKBSyncLinkRequest
+ * @return DeleteKBSyncLinkResponse
+ */
+DeleteKBSyncLinkResponse Client::deleteKBSyncLink(const DeleteKBSyncLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKBSyncLinkWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a knowledge base.
  *
  * @param request DeleteKnowledgeBaseRequest
@@ -8809,6 +9019,56 @@ DeleteKnowledgeBaseResponse Client::deleteKnowledgeBaseWithOptions(const DeleteK
 DeleteKnowledgeBaseResponse Client::deleteKnowledgeBase(const DeleteKnowledgeBaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除知识库文件
+ *
+ * @param request DeleteKnowledgeBaseFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKnowledgeBaseFileResponse
+ */
+DeleteKnowledgeBaseFileResponse Client::deleteKnowledgeBaseFileWithOptions(const DeleteKnowledgeBaseFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKnowledgeBaseFile"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKnowledgeBaseFileResponse>();
+}
+
+/**
+ * @summary 删除知识库文件
+ *
+ * @param request DeleteKnowledgeBaseFileRequest
+ * @return DeleteKnowledgeBaseFileResponse
+ */
+DeleteKnowledgeBaseFileResponse Client::deleteKnowledgeBaseFile(const DeleteKnowledgeBaseFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKnowledgeBaseFileWithOptions(request, runtime);
 }
 
 /**
@@ -17284,6 +17544,106 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
+ * @summary 查询知识库同步列表
+ *
+ * @param request DescribeKBSyncLinksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKBSyncLinksResponse
+ */
+DescribeKBSyncLinksResponse Client::describeKBSyncLinksWithOptions(const DescribeKBSyncLinksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImPlatform()) {
+    query["ImPlatform"] = request.getImPlatform();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKBSyncLinks"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKBSyncLinksResponse>();
+}
+
+/**
+ * @summary 查询知识库同步列表
+ *
+ * @param request DescribeKBSyncLinksRequest
+ * @return DescribeKBSyncLinksResponse
+ */
+DescribeKBSyncLinksResponse Client::describeKBSyncLinks(const DescribeKBSyncLinksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKBSyncLinksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询知识库单轮问答结果
+ *
+ * @param request DescribeKnowledgeBaseAnswerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseAnswerResponse
+ */
+DescribeKnowledgeBaseAnswerResponse Client::describeKnowledgeBaseAnswerWithOptions(const DescribeKnowledgeBaseAnswerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasQueryId()) {
+    query["QueryId"] = request.getQueryId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseAnswer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseAnswerResponse>();
+}
+
+/**
+ * @summary 查询知识库单轮问答结果
+ *
+ * @param request DescribeKnowledgeBaseAnswerRequest
+ * @return DescribeKnowledgeBaseAnswerResponse
+ */
+DescribeKnowledgeBaseAnswerResponse Client::describeKnowledgeBaseAnswer(const DescribeKnowledgeBaseAnswerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseAnswerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a knowledge base.
  *
  * @param request DescribeKnowledgeBaseAttributeRequest
@@ -17327,6 +17687,134 @@ DescribeKnowledgeBaseAttributeResponse Client::describeKnowledgeBaseAttributeWit
 DescribeKnowledgeBaseAttributeResponse Client::describeKnowledgeBaseAttribute(const DescribeKnowledgeBaseAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeKnowledgeBaseAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询知识库文件分片列表
+ *
+ * @param request DescribeKnowledgeBaseFileShardsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseFileShardsResponse
+ */
+DescribeKnowledgeBaseFileShardsResponse Client::describeKnowledgeBaseFileShardsWithOptions(const DescribeKnowledgeBaseFileShardsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseFileShards"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseFileShardsResponse>();
+}
+
+/**
+ * @summary 查询知识库文件分片列表
+ *
+ * @param request DescribeKnowledgeBaseFileShardsRequest
+ * @return DescribeKnowledgeBaseFileShardsResponse
+ */
+DescribeKnowledgeBaseFileShardsResponse Client::describeKnowledgeBaseFileShards(const DescribeKnowledgeBaseFileShardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseFileShardsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询知识库文件列表
+ *
+ * @param request DescribeKnowledgeBaseFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseFilesResponse
+ */
+DescribeKnowledgeBaseFilesResponse Client::describeKnowledgeBaseFilesWithOptions(const DescribeKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileIds()) {
+    query["FileIds"] = request.getFileIds();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasLinkId()) {
+    query["LinkId"] = request.getLinkId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseFiles"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseFilesResponse>();
+}
+
+/**
+ * @summary 查询知识库文件列表
+ *
+ * @param request DescribeKnowledgeBaseFilesRequest
+ * @return DescribeKnowledgeBaseFilesResponse
+ */
+DescribeKnowledgeBaseFilesResponse Client::describeKnowledgeBaseFiles(const DescribeKnowledgeBaseFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseFilesWithOptions(request, runtime);
 }
 
 /**
@@ -17389,6 +17877,52 @@ DescribeKnowledgeBasesResponse Client::describeKnowledgeBasesWithOptions(const D
 DescribeKnowledgeBasesResponse Client::describeKnowledgeBases(const DescribeKnowledgeBasesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeKnowledgeBasesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询知识空间详情
+ *
+ * @param request DescribeKnowledgeSpaceAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeSpaceAttributeResponse
+ */
+DescribeKnowledgeSpaceAttributeResponse Client::describeKnowledgeSpaceAttributeWithOptions(const DescribeKnowledgeSpaceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeSpaceId()) {
+    query["KnowledgeSpaceId"] = request.getKnowledgeSpaceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeSpaceAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeSpaceAttributeResponse>();
+}
+
+/**
+ * @summary 查询知识空间详情
+ *
+ * @param request DescribeKnowledgeSpaceAttributeRequest
+ * @return DescribeKnowledgeSpaceAttributeResponse
+ */
+DescribeKnowledgeSpaceAttributeResponse Client::describeKnowledgeSpaceAttribute(const DescribeKnowledgeSpaceAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeSpaceAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -29711,6 +30245,118 @@ RestoreTableResponse Client::restoreTable(const RestoreTableRequest &request) {
 }
 
 /**
+ * @summary 检索知识库
+ *
+ * @param request RetrievalKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetrievalKnowledgeBaseResponse
+ */
+RetrievalKnowledgeBaseResponse Client::retrievalKnowledgeBaseWithOptions(const RetrievalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasQueryText()) {
+    query["QueryText"] = request.getQueryText();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRerankEnabled()) {
+    query["RerankEnabled"] = request.getRerankEnabled();
+  }
+
+  if (!!request.hasScoreThreshold()) {
+    query["ScoreThreshold"] = request.getScoreThreshold();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetrievalKnowledgeBase"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetrievalKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 检索知识库
+ *
+ * @param request RetrievalKnowledgeBaseRequest
+ * @return RetrievalKnowledgeBaseResponse
+ */
+RetrievalKnowledgeBaseResponse Client::retrievalKnowledgeBase(const RetrievalKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retrievalKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量重试知识库失败文件
+ *
+ * @param request RetryKnowledgeBaseFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryKnowledgeBaseFilesResponse
+ */
+RetryKnowledgeBaseFilesResponse Client::retryKnowledgeBaseFilesWithOptions(const RetryKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileIds()) {
+    query["FileIds"] = request.getFileIds();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryKnowledgeBaseFiles"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryKnowledgeBaseFilesResponse>();
+}
+
+/**
+ * @summary 批量重试知识库失败文件
+ *
+ * @param request RetryKnowledgeBaseFilesRequest
+ * @return RetryKnowledgeBaseFilesResponse
+ */
+RetryKnowledgeBaseFilesResponse Client::retryKnowledgeBaseFiles(const RetryKnowledgeBaseFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retryKnowledgeBaseFilesWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes access permissions on a database from a PolarDB standard account.
  *
  * @param request RevokeAccountPrivilegeRequest
@@ -30423,6 +31069,56 @@ TransformDBClusterPayTypeResponse Client::transformDBClusterPayType(const Transf
 }
 
 /**
+ * @summary 触发知识库同步
+ *
+ * @param request TriggerKnowledgeBaseSyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TriggerKnowledgeBaseSyncResponse
+ */
+TriggerKnowledgeBaseSyncResponse Client::triggerKnowledgeBaseSyncWithOptions(const TriggerKnowledgeBaseSyncRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasLinkId()) {
+    query["LinkId"] = request.getLinkId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TriggerKnowledgeBaseSync"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TriggerKnowledgeBaseSyncResponse>();
+}
+
+/**
+ * @summary 触发知识库同步
+ *
+ * @param request TriggerKnowledgeBaseSyncRequest
+ * @return TriggerKnowledgeBaseSyncResponse
+ */
+TriggerKnowledgeBaseSyncResponse Client::triggerKnowledgeBaseSync(const TriggerKnowledgeBaseSyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return triggerKnowledgeBaseSyncWithOptions(request, runtime);
+}
+
+/**
  * @summary Unbinds a PolarClaw Agent.
  *
  * @param request UnbindPolarClawAgentRequest
@@ -30810,6 +31506,254 @@ UpdateExtensionsResponse Client::updateExtensionsWithOptions(const UpdateExtensi
 UpdateExtensionsResponse Client::updateExtensions(const UpdateExtensionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateExtensionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新知识库同步链路
+ *
+ * @param request UpdateKBSyncLinkRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKBSyncLinkResponse
+ */
+UpdateKBSyncLinkResponse Client::updateKBSyncLinkWithOptions(const UpdateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasLinkId()) {
+    query["LinkId"] = request.getLinkId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSyncIntervalMinutes()) {
+    query["SyncIntervalMinutes"] = request.getSyncIntervalMinutes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKBSyncLink"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKBSyncLinkResponse>();
+}
+
+/**
+ * @summary 更新知识库同步链路
+ *
+ * @param request UpdateKBSyncLinkRequest
+ * @return UpdateKBSyncLinkResponse
+ */
+UpdateKBSyncLinkResponse Client::updateKBSyncLink(const UpdateKBSyncLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKBSyncLinkWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchMode()) {
+    query["SearchMode"] = request.getSearchMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeBase"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 更新知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新知识库文件分块策略
+ *
+ * @param tmpReq UpdateKnowledgeBaseFileShardingStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+ */
+UpdateKnowledgeBaseFileShardingStrategyResponse Client::updateKnowledgeBaseFileShardingStrategyWithOptions(const UpdateKnowledgeBaseFileShardingStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateKnowledgeBaseFileShardingStrategyShrinkRequest request = UpdateKnowledgeBaseFileShardingStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasShardingStrategyConfig()) {
+    request.setShardingStrategyConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShardingStrategyConfig(), "ShardingStrategyConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasInheritSpaceStrategy()) {
+    query["InheritSpaceStrategy"] = request.getInheritSpaceStrategy();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasShardingStrategyConfigShrink()) {
+    query["ShardingStrategyConfig"] = request.getShardingStrategyConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeBaseFileShardingStrategy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeBaseFileShardingStrategyResponse>();
+}
+
+/**
+ * @summary 更新知识库文件分块策略
+ *
+ * @param request UpdateKnowledgeBaseFileShardingStrategyRequest
+ * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+ */
+UpdateKnowledgeBaseFileShardingStrategyResponse Client::updateKnowledgeBaseFileShardingStrategy(const UpdateKnowledgeBaseFileShardingStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKnowledgeBaseFileShardingStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新知识空间
+ *
+ * @param tmpReq UpdateKnowledgeSpaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeSpaceResponse
+ */
+UpdateKnowledgeSpaceResponse Client::updateKnowledgeSpaceWithOptions(const UpdateKnowledgeSpaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateKnowledgeSpaceShrinkRequest request = UpdateKnowledgeSpaceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasShardingStrategyConfig()) {
+    request.setShardingStrategyConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getShardingStrategyConfig(), "ShardingStrategyConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKnowledgeSpaceId()) {
+    query["KnowledgeSpaceId"] = request.getKnowledgeSpaceId();
+  }
+
+  if (!!request.hasLLMModel()) {
+    query["LLMModel"] = request.getLLMModel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRerankModel()) {
+    query["RerankModel"] = request.getRerankModel();
+  }
+
+  if (!!request.hasShardingStrategyConfigShrink()) {
+    query["ShardingStrategyConfig"] = request.getShardingStrategyConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeSpace"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeSpaceResponse>();
+}
+
+/**
+ * @summary 更新知识空间
+ *
+ * @param request UpdateKnowledgeSpaceRequest
+ * @return UpdateKnowledgeSpaceResponse
+ */
+UpdateKnowledgeSpaceResponse Client::updateKnowledgeSpace(const UpdateKnowledgeSpaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKnowledgeSpaceWithOptions(request, runtime);
 }
 
 /**

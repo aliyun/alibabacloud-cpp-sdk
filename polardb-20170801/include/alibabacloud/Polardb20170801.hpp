@@ -193,6 +193,23 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
+       * @summary 知识库单轮问答
+       *
+       * @param request AnswerKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AnswerKnowledgeBaseResponse
+       */
+      Models::AnswerKnowledgeBaseResponse answerKnowledgeBaseWithOptions(const Models::AnswerKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 知识库单轮问答
+       *
+       * @param request AnswerKnowledgeBaseRequest
+       * @return AnswerKnowledgeBaseResponse
+       */
+      Models::AnswerKnowledgeBaseResponse answerKnowledgeBase(const Models::AnswerKnowledgeBaseRequest &request);
+
+      /**
        * @summary Applies prompts to an application instance.
        *
        * @description ## Request
@@ -1314,6 +1331,23 @@ namespace Polardb20170801
       Models::CreateGwConsumerOrderResponse createGwConsumerOrder(const Models::CreateGwConsumerOrderRequest &request);
 
       /**
+       * @summary 创建知识库同步链路
+       *
+       * @param request CreateKBSyncLinkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKBSyncLinkResponse
+       */
+      Models::CreateKBSyncLinkResponse createKBSyncLinkWithOptions(const Models::CreateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建知识库同步链路
+       *
+       * @param request CreateKBSyncLinkRequest
+       * @return CreateKBSyncLinkResponse
+       */
+      Models::CreateKBSyncLinkResponse createKBSyncLink(const Models::CreateKBSyncLinkRequest &request);
+
+      /**
        * @summary Creates a knowledge base.
        *
        * @param request CreateKnowledgeBaseRequest
@@ -2281,6 +2315,23 @@ namespace Polardb20170801
       Models::DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(const Models::DeleteGlobalSecurityIPGroupRequest &request);
 
       /**
+       * @summary 删除知识库同步链路
+       *
+       * @param request DeleteKBSyncLinkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKBSyncLinkResponse
+       */
+      Models::DeleteKBSyncLinkResponse deleteKBSyncLinkWithOptions(const Models::DeleteKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除知识库同步链路
+       *
+       * @param request DeleteKBSyncLinkRequest
+       * @return DeleteKBSyncLinkResponse
+       */
+      Models::DeleteKBSyncLinkResponse deleteKBSyncLink(const Models::DeleteKBSyncLinkRequest &request);
+
+      /**
        * @summary Deletes a knowledge base.
        *
        * @param request DeleteKnowledgeBaseRequest
@@ -2296,6 +2347,23 @@ namespace Polardb20170801
        * @return DeleteKnowledgeBaseResponse
        */
       Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const Models::DeleteKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 删除知识库文件
+       *
+       * @param request DeleteKnowledgeBaseFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeBaseFileResponse
+       */
+      Models::DeleteKnowledgeBaseFileResponse deleteKnowledgeBaseFileWithOptions(const Models::DeleteKnowledgeBaseFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除知识库文件
+       *
+       * @param request DeleteKnowledgeBaseFileRequest
+       * @return DeleteKnowledgeBaseFileResponse
+       */
+      Models::DeleteKnowledgeBaseFileResponse deleteKnowledgeBaseFile(const Models::DeleteKnowledgeBaseFileRequest &request);
 
       /**
        * @summary Deletes a PolarFS S3 account.
@@ -4614,6 +4682,40 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
+       * @summary 查询知识库同步列表
+       *
+       * @param request DescribeKBSyncLinksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKBSyncLinksResponse
+       */
+      Models::DescribeKBSyncLinksResponse describeKBSyncLinksWithOptions(const Models::DescribeKBSyncLinksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识库同步列表
+       *
+       * @param request DescribeKBSyncLinksRequest
+       * @return DescribeKBSyncLinksResponse
+       */
+      Models::DescribeKBSyncLinksResponse describeKBSyncLinks(const Models::DescribeKBSyncLinksRequest &request);
+
+      /**
+       * @summary 查询知识库单轮问答结果
+       *
+       * @param request DescribeKnowledgeBaseAnswerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseAnswerResponse
+       */
+      Models::DescribeKnowledgeBaseAnswerResponse describeKnowledgeBaseAnswerWithOptions(const Models::DescribeKnowledgeBaseAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识库单轮问答结果
+       *
+       * @param request DescribeKnowledgeBaseAnswerRequest
+       * @return DescribeKnowledgeBaseAnswerResponse
+       */
+      Models::DescribeKnowledgeBaseAnswerResponse describeKnowledgeBaseAnswer(const Models::DescribeKnowledgeBaseAnswerRequest &request);
+
+      /**
        * @summary Queries the details of a knowledge base.
        *
        * @param request DescribeKnowledgeBaseAttributeRequest
@@ -4631,6 +4733,40 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAttributeResponse describeKnowledgeBaseAttribute(const Models::DescribeKnowledgeBaseAttributeRequest &request);
 
       /**
+       * @summary 查询知识库文件分片列表
+       *
+       * @param request DescribeKnowledgeBaseFileShardsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseFileShardsResponse
+       */
+      Models::DescribeKnowledgeBaseFileShardsResponse describeKnowledgeBaseFileShardsWithOptions(const Models::DescribeKnowledgeBaseFileShardsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识库文件分片列表
+       *
+       * @param request DescribeKnowledgeBaseFileShardsRequest
+       * @return DescribeKnowledgeBaseFileShardsResponse
+       */
+      Models::DescribeKnowledgeBaseFileShardsResponse describeKnowledgeBaseFileShards(const Models::DescribeKnowledgeBaseFileShardsRequest &request);
+
+      /**
+       * @summary 查询知识库文件列表
+       *
+       * @param request DescribeKnowledgeBaseFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseFilesResponse
+       */
+      Models::DescribeKnowledgeBaseFilesResponse describeKnowledgeBaseFilesWithOptions(const Models::DescribeKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识库文件列表
+       *
+       * @param request DescribeKnowledgeBaseFilesRequest
+       * @return DescribeKnowledgeBaseFilesResponse
+       */
+      Models::DescribeKnowledgeBaseFilesResponse describeKnowledgeBaseFiles(const Models::DescribeKnowledgeBaseFilesRequest &request);
+
+      /**
        * @summary Queries the list of knowledge bases.
        *
        * @param request DescribeKnowledgeBasesRequest
@@ -4646,6 +4782,23 @@ namespace Polardb20170801
        * @return DescribeKnowledgeBasesResponse
        */
       Models::DescribeKnowledgeBasesResponse describeKnowledgeBases(const Models::DescribeKnowledgeBasesRequest &request);
+
+      /**
+       * @summary 查询知识空间详情
+       *
+       * @param request DescribeKnowledgeSpaceAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeSpaceAttributeResponse
+       */
+      Models::DescribeKnowledgeSpaceAttributeResponse describeKnowledgeSpaceAttributeWithOptions(const Models::DescribeKnowledgeSpaceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识空间详情
+       *
+       * @param request DescribeKnowledgeSpaceAttributeRequest
+       * @return DescribeKnowledgeSpaceAttributeResponse
+       */
+      Models::DescribeKnowledgeSpaceAttributeResponse describeKnowledgeSpaceAttribute(const Models::DescribeKnowledgeSpaceAttributeRequest &request);
 
       /**
        * @summary Queries the details of a PolarFS S3 account.
@@ -7942,6 +8095,40 @@ namespace Polardb20170801
       Models::RestoreTableResponse restoreTable(const Models::RestoreTableRequest &request);
 
       /**
+       * @summary 检索知识库
+       *
+       * @param request RetrievalKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetrievalKnowledgeBaseResponse
+       */
+      Models::RetrievalKnowledgeBaseResponse retrievalKnowledgeBaseWithOptions(const Models::RetrievalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检索知识库
+       *
+       * @param request RetrievalKnowledgeBaseRequest
+       * @return RetrievalKnowledgeBaseResponse
+       */
+      Models::RetrievalKnowledgeBaseResponse retrievalKnowledgeBase(const Models::RetrievalKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 批量重试知识库失败文件
+       *
+       * @param request RetryKnowledgeBaseFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryKnowledgeBaseFilesResponse
+       */
+      Models::RetryKnowledgeBaseFilesResponse retryKnowledgeBaseFilesWithOptions(const Models::RetryKnowledgeBaseFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量重试知识库失败文件
+       *
+       * @param request RetryKnowledgeBaseFilesRequest
+       * @return RetryKnowledgeBaseFilesResponse
+       */
+      Models::RetryKnowledgeBaseFilesResponse retryKnowledgeBaseFiles(const Models::RetryKnowledgeBaseFilesRequest &request);
+
+      /**
        * @summary Revokes access permissions on a database from a PolarDB standard account.
        *
        * @param request RevokeAccountPrivilegeRequest
@@ -8136,6 +8323,23 @@ namespace Polardb20170801
       Models::TransformDBClusterPayTypeResponse transformDBClusterPayType(const Models::TransformDBClusterPayTypeRequest &request);
 
       /**
+       * @summary 触发知识库同步
+       *
+       * @param request TriggerKnowledgeBaseSyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerKnowledgeBaseSyncResponse
+       */
+      Models::TriggerKnowledgeBaseSyncResponse triggerKnowledgeBaseSyncWithOptions(const Models::TriggerKnowledgeBaseSyncRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 触发知识库同步
+       *
+       * @param request TriggerKnowledgeBaseSyncRequest
+       * @return TriggerKnowledgeBaseSyncResponse
+       */
+      Models::TriggerKnowledgeBaseSyncResponse triggerKnowledgeBaseSync(const Models::TriggerKnowledgeBaseSyncRequest &request);
+
+      /**
        * @summary Unbinds a PolarClaw Agent.
        *
        * @param request UnbindPolarClawAgentRequest
@@ -8248,6 +8452,74 @@ namespace Polardb20170801
        * @return UpdateExtensionsResponse
        */
       Models::UpdateExtensionsResponse updateExtensions(const Models::UpdateExtensionsRequest &request);
+
+      /**
+       * @summary 更新知识库同步链路
+       *
+       * @param request UpdateKBSyncLinkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKBSyncLinkResponse
+       */
+      Models::UpdateKBSyncLinkResponse updateKBSyncLinkWithOptions(const Models::UpdateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识库同步链路
+       *
+       * @param request UpdateKBSyncLinkRequest
+       * @return UpdateKBSyncLinkResponse
+       */
+      Models::UpdateKBSyncLinkResponse updateKBSyncLink(const Models::UpdateKBSyncLinkRequest &request);
+
+      /**
+       * @summary 更新知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const Models::UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 更新知识库文件分块策略
+       *
+       * @param tmpReq UpdateKnowledgeBaseFileShardingStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+       */
+      Models::UpdateKnowledgeBaseFileShardingStrategyResponse updateKnowledgeBaseFileShardingStrategyWithOptions(const Models::UpdateKnowledgeBaseFileShardingStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识库文件分块策略
+       *
+       * @param request UpdateKnowledgeBaseFileShardingStrategyRequest
+       * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+       */
+      Models::UpdateKnowledgeBaseFileShardingStrategyResponse updateKnowledgeBaseFileShardingStrategy(const Models::UpdateKnowledgeBaseFileShardingStrategyRequest &request);
+
+      /**
+       * @summary 更新知识空间
+       *
+       * @param tmpReq UpdateKnowledgeSpaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeSpaceResponse
+       */
+      Models::UpdateKnowledgeSpaceResponse updateKnowledgeSpaceWithOptions(const Models::UpdateKnowledgeSpaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新知识空间
+       *
+       * @param request UpdateKnowledgeSpaceRequest
+       * @return UpdateKnowledgeSpaceResponse
+       */
+      Models::UpdateKnowledgeSpaceResponse updateKnowledgeSpace(const Models::UpdateKnowledgeSpaceRequest &request);
 
       /**
        * @summary Updates a PolarClaw agent.
