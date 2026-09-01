@@ -759,7 +759,7 @@ namespace Models
     shared_ptr<AuthConfig> authConfig_ {};
     // The API base path.
     shared_ptr<string> basePath_ {};
-    // The API operation publish status.
+    // The API operation deployment status.
     shared_ptr<map<string, HttpApiApiInfoDeployCntMapValue>> deployCntMap_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};

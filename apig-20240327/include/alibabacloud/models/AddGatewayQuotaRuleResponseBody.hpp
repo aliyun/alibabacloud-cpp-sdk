@@ -168,13 +168,18 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer. A value of day, week, or month indicates the conflicting rule has a daily, weekly, or monthly period respectively.
+          // The period type of the existing conflicting rule on the consumer subject. Valid values:
+          // - day: The existing conflicting rule has a daily period.
+          // - week: The existing conflicting rule has a weekly period.
+          // - month: The existing conflicting rule has a monthly period.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer. A value of calendar indicates the conflicting rule uses a calendar period. A value of epoch indicates the conflicting rule uses an epoch period.
+          // The type of the existing conflicting rule on the consumer subject. Valid values:
+          // - calendar: The existing conflicting rule uses a calendar period.
+          // - epoch: The existing conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
-          // The consumer ID.
+          // The conflicting consumer ID. You can use subjectId instead.
           shared_ptr<string> consumerId_ {};
-          // The consumer name.
+          // The conflicting consumer name. You can use subjectName instead.
           shared_ptr<string> consumerName_ {};
           // The ID of the conflicting subject.
           shared_ptr<string> subjectId_ {};
@@ -210,9 +215,9 @@ namespace Models
 
 
       protected:
-        // The conflict hash.
+        // The conflict snapshot hash.
         shared_ptr<string> conflictHash_ {};
-        // The list of conflicting subjects (consumers).
+        // The list of conflicting subjects (consumers or consumer groups).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
         // The total number of conflicts.
         shared_ptr<int32_t> totalConflictCount_ {};
@@ -251,7 +256,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
@@ -298,9 +303,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<AddGatewayQuotaRuleResponseBody::Data> data_ {};
-    // The message content.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

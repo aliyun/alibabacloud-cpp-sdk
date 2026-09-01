@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter zero values.
+    // Specifies whether to filter out zero values.
     shared_ptr<bool> filterFailedRequests_ {};
-    // The page number of the detailed consumption (request) records of the consumer within the cycle.
+    // The page number of the detailed consumption (request) records of the subject within the cycle.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of detailed consumption (request) records per page for the consumer within the cycle. Maximum value: 10.
+    // The number of detailed consumption (request) records per page for the subject within the cycle. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

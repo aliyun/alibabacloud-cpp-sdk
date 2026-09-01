@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The page number of the consumer list.
+    // The page number.
     shared_ptr<string> consumerPageNumber_ {};
-    // The page size of the consumer list.
+    // The page size.
     shared_ptr<string> consumerPageSize_ {};
-    // Specifies whether to return the consumer list.
+    // Specifies whether to return the API consumer list.
     shared_ptr<bool> withConsumers_ {};
-    // Specifies whether to return the general subject list. This parameter applies to both consumer and consumer group rules.
+    // Specifies whether to return the general subject list. This parameter applies to both API consumer and API consumer group rules.
     shared_ptr<bool> withSubjects_ {};
   };
 

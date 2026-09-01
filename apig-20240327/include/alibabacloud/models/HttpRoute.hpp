@@ -331,6 +331,7 @@ namespace Models
 
 
       protected:
+        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
@@ -557,7 +558,7 @@ namespace Models
   protected:
     // The backend service.
     shared_ptr<Backend> backend_ {};
-    // Indicates whether the route is a built-in system route.
+    // Indicates whether the route is a system built-in route.
     shared_ptr<string> builtin_ {};
     // The creation time, in ms.
     shared_ptr<int64_t> createTimestamp_ {};

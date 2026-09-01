@@ -67,15 +67,15 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
+ * @description Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
  * > 
- * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun=true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflicts: dryRun=false, overwrite=false.
- * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+ * >  Recommended call sequence:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun to true.
+ * > - - The response returns a conflict preview that contains the conflictHash value.
+ * > - Step 2: Submit the request after confirmation.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @param headers map
@@ -158,15 +158,15 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
 /**
  * @summary Creates a gateway quota throttling rule.
  *
- * @description Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
+ * @description Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
  * > 
- * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun=true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflicts: dryRun=false, overwrite=false.
- * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+ * >  Recommended call sequence:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
+ * > - - Set dryRun to true.
+ * > - - The response returns a conflict preview that contains the conflictHash value.
+ * > - Step 2: Submit the request after confirmation.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @return AddGatewayQuotaRuleResponse
@@ -2703,7 +2703,7 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 /**
  * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
+ * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -2732,7 +2732,7 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 /**
  * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
+ * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -4035,9 +4035,9 @@ GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicy(const string &ga
 }
 
 /**
- * @summary Queries the details of a gateway quota rate limiting rule.
+ * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description Queries the details of a consumer quota rule on an AI gateway.
+ * @description Queries a specific API consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @param headers map
@@ -4082,9 +4082,9 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of a gateway quota rate limiting rule.
+ * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description Queries the details of a consumer quota rule on an AI gateway.
+ * @description Queries a specific API consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @return GetGatewayQuotaRuleResponse
@@ -4098,7 +4098,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -4141,7 +4141,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -5424,6 +5424,67 @@ ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumers(const stri
 }
 
 /**
+ * @summary 查询消费者组配额限流规则列表
+ *
+ * @description 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+ *
+ * @param request ListConsumerGroupQuotaRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerGroupQuotaRulesResponse
+ */
+ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRulesWithOptions(const string &consumerGroupId, const ListConsumerGroupQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerGroupQuotaRules"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/quota-rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerGroupQuotaRulesResponse>();
+}
+
+/**
+ * @summary 查询消费者组配额限流规则列表
+ *
+ * @description 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+ *
+ * @param request ListConsumerGroupQuotaRulesRequest
+ * @return ListConsumerGroupQuotaRulesResponse
+ */
+ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRules(const string &consumerGroupId, const ListConsumerGroupQuotaRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerGroupQuotaRulesWithOptions(consumerGroupId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the list of consumer groups.
  *
  * @param request ListConsumerGroupsRequest
@@ -6060,9 +6121,9 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancers(const string &
 }
 
 /**
- * @summary Queries the list of consumer quota rules bound to a gateway.
+ * @summary Queries the list of FinOps quota rules bound to a gateway.
  *
- * @description Queries the list of consumer quota rules bound to a gateway.
+ * @description Queries the list of FinOps quota rules bound to a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @param headers map
@@ -6111,9 +6172,9 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const str
 }
 
 /**
- * @summary Queries the list of consumer quota rules bound to a gateway.
+ * @summary Queries the list of FinOps quota rules bound to a gateway.
  *
- * @description Queries the list of consumer quota rules bound to a gateway.
+ * @description Queries the list of FinOps quota rules bound to a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @return ListGatewayQuotaRulesResponse
@@ -8031,15 +8092,15 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
+ * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
  * > 
  * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun=true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflict: dryRun=false, overwrite=false.
- * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+ * > - - Set dryRun to true.
+ * > - - The response contains a conflict preview with a conflictHash value.
+ * > - 2. Confirm and submit the request.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @param headers map
@@ -8102,15 +8163,15 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
+ * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
  * > 
  * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun=true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflict: dryRun=false, overwrite=false.
- * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+ * > - - Set dryRun to true.
+ * > - - The response contains a conflict preview with a conflictHash value.
+ * > - 2. Confirm and submit the request.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @return ResetGatewayQuotaRuleResponse
@@ -9281,16 +9342,16 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
 }
 
 /**
- * @summary Edits a quota rate-limiting rule on a gateway.
+ * @summary Edits a quota throttling rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
- * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
+ * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+ * >  Recommended call sequence:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflict: Set dryRun to false and overwrite to false.
- * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - Step 2: Confirm and submit the request.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -9351,16 +9412,16 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Edits a quota rate-limiting rule on a gateway.
+ * @summary Edits a quota throttling rule on a gateway.
  *
- * @description Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
- * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
+ * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+ * >  Recommended call sequence:
+ * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - No conflict: Set dryRun to false and overwrite to false.
- * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - Step 2: Confirm and submit the request.
+ * > - - No conflicts: Set dryRun to false and overwrite to false.
+ * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -9374,7 +9435,7 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRule(const string &gate
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
+ * @description Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @param headers map
@@ -9413,7 +9474,7 @@ UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatusWithOpt
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
+ * @description Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @return UpdateGatewayQuotaRuleStatusResponse

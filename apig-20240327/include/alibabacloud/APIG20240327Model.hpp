@@ -381,6 +381,9 @@
 #include <alibabacloud/models/ListConsumerGroupConsumersRequest.hpp>
 #include <alibabacloud/models/ListConsumerGroupConsumersResponseBody.hpp>
 #include <alibabacloud/models/ListConsumerGroupConsumersResponse.hpp>
+#include <alibabacloud/models/ListConsumerGroupQuotaRulesRequest.hpp>
+#include <alibabacloud/models/ListConsumerGroupQuotaRulesResponseBody.hpp>
+#include <alibabacloud/models/ListConsumerGroupQuotaRulesResponse.hpp>
 #include <alibabacloud/models/ListConsumerGroupsRequest.hpp>
 #include <alibabacloud/models/ListConsumerGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListConsumerGroupsResponse.hpp>

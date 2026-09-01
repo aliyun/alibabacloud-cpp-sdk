@@ -326,7 +326,7 @@ namespace Models
       shared_ptr<string> subjectType_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};
-      // The total used quota of the subject.
+      // The total used amount of the subject.
       shared_ptr<int64_t> usedAmount_ {};
     };
 

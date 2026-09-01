@@ -174,9 +174,9 @@ namespace Models
 
 
       protected:
-        // The subject (consumer) ID.
+        // The subject (API consumer) ID.
         shared_ptr<string> id_ {};
-        // The subject (consumer) name.
+        // The subject (API consumer) name.
         shared_ptr<string> name_ {};
       };
 
@@ -289,9 +289,9 @@ namespace Models
     protected:
       // The period base timestamp.
       shared_ptr<int64_t> baseTimestamp_ {};
-      // The number of consumers associated with the rule.
+      // The number of API consumers associated with the rule.
       shared_ptr<int64_t> consumerCount_ {};
-      // The list of subjects (consumers) bound to this rule.
+      // The list of subjects (API consumers) bound to this rule.
       shared_ptr<vector<Data::Consumers>> consumers_ {};
       // The quota period type.
       shared_ptr<string> periodType_ {};
