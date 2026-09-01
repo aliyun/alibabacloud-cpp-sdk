@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the tag configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configId_ {};
   };

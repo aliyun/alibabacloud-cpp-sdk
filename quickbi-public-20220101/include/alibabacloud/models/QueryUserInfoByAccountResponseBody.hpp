@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthAdminUser, authAdminUser_);
         DARABONBA_PTR_TO_JSON(CopilotModules, copilotModules_);
         DARABONBA_PTR_TO_JSON(Email, email_);
+        DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_TO_JSON(NickName, nickName_);
         DARABONBA_PTR_TO_JSON(Phone, phone_);
         DARABONBA_PTR_TO_JSON(RoleIdList, roleIdList_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthAdminUser, authAdminUser_);
         DARABONBA_PTR_FROM_JSON(CopilotModules, copilotModules_);
         DARABONBA_PTR_FROM_JSON(Email, email_);
+        DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_FROM_JSON(NickName, nickName_);
         DARABONBA_PTR_FROM_JSON(Phone, phone_);
         DARABONBA_PTR_FROM_JSON(RoleIdList, roleIdList_);
@@ -75,7 +77,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountId_ == nullptr
         && this->accountName_ == nullptr && this->adminUser_ == nullptr && this->authAdminUser_ == nullptr && this->copilotModules_ == nullptr && this->email_ == nullptr
-        && this->nickName_ == nullptr && this->phone_ == nullptr && this->roleIdList_ == nullptr && this->userId_ == nullptr && this->userType_ == nullptr; };
+        && this->isDeleted_ == nullptr && this->nickName_ == nullptr && this->phone_ == nullptr && this->roleIdList_ == nullptr && this->userId_ == nullptr
+        && this->userType_ == nullptr; };
       // accountId Field Functions 
       bool hasAccountId() const { return this->accountId_ != nullptr;};
       void deleteAccountId() { this->accountId_ = nullptr;};
@@ -118,6 +121,13 @@ namespace Models
       void deleteEmail() { this->email_ = nullptr;};
       inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
       inline Result& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+      // isDeleted Field Functions 
+      bool hasIsDeleted() const { return this->isDeleted_ != nullptr;};
+      void deleteIsDeleted() { this->isDeleted_ = nullptr;};
+      inline bool getIsDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, false) };
+      inline Result& setIsDeleted(bool isDeleted) { DARABONBA_PTR_SET_VALUE(isDeleted_, isDeleted) };
 
 
       // nickName Field Functions 
@@ -186,6 +196,7 @@ namespace Models
       shared_ptr<vector<string>> copilotModules_ {};
       // The user\\"s email address.
       shared_ptr<string> email_ {};
+      shared_ptr<bool> isDeleted_ {};
       // The user\\"s nickname.
       shared_ptr<string> nickName_ {};
       // The user\\"s phone number.

@@ -118,12 +118,23 @@ namespace Models
 
 
     protected:
+      // The column name of the associated data source.
       shared_ptr<string> columnName_ {};
+      // The ID of the individual configuration.
       shared_ptr<string> configId_ {};
+      // The name of the label configuration.
       shared_ptr<string> configName_ {};
+      // The ID of the associated data source.
       shared_ptr<string> dsId_ {};
+      // The organization ID.
       shared_ptr<string> organizationId_ {};
+      // The associated user attribute. Valid values:
+      // 
+      // - 0: account ID
+      // - 1: account name
+      // - 2: nickname within the organization
       shared_ptr<int32_t> relatedAttribute_ {};
+      // The table name of the associated data source.
       shared_ptr<string> tableName_ {};
     };
 
@@ -153,8 +164,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The label list.
     shared_ptr<vector<ListDynamicTagResponseBody::Result>> result_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

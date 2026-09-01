@@ -19,16 +19,16 @@ namespace QuickbiPublic20220101
 AlibabaCloud::QuickbiPublic20220101::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-east-1" , "quickbi-public.us-east-1.aliyuncs.com"},
-    {"me-central-1" , "quickbi-public.me-central-1.aliyuncs.com"},
-    {"eu-central-1" , "quickbi-public.eu-central-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "quickbi-public.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-hongkong" , "quickbi-public.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "quickbi-public.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-5" , "quickbi-public.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "quickbi-public.ap-southeast-3.aliyuncs.com"},
+    {"ap-northeast-1" , "quickbi-public.ap-northeast-1.aliyuncs.com"},
     {"ap-southeast-1" , "quickbi-public.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "quickbi-public.ap-northeast-1.aliyuncs.com"}
+    {"ap-southeast-3" , "quickbi-public.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "quickbi-public.ap-southeast-5.aliyuncs.com"},
+    {"cn-hangzhou" , "quickbi-public.cn-hangzhou.aliyuncs.com"},
+    {"cn-hongkong" , "quickbi-public.cn-hongkong.aliyuncs.com"},
+    {"us-east-1" , "quickbi-public.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "quickbi-public.eu-central-1.aliyuncs.com"},
+    {"me-central-1" , "quickbi-public.me-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "quickbi-public.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("quickbi-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1120,7 +1120,7 @@ CheckReadableResponse Client::checkReadable(const CheckReadableRequest &request)
 }
 
 /**
- * @summary 删除单条配置的标签值缓存
+ * @summary Deletes the cached tag value for a single configuration.
  *
  * @param request ClearDynamicTagCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1151,7 +1151,7 @@ ClearDynamicTagCacheResponse Client::clearDynamicTagCacheWithOptions(const Clear
 }
 
 /**
- * @summary 删除单条配置的标签值缓存
+ * @summary Deletes the cached tag value for a single configuration.
  *
  * @param request ClearDynamicTagCacheRequest
  * @return ClearDynamicTagCacheResponse
@@ -2840,7 +2840,7 @@ ListDataSourceResponse Client::listDataSource(const ListDataSourceRequest &reque
 }
 
 /**
- * @summary 获取当前组织的动态标签列表
+ * @summary Retrieves the list of dynamic labels for the current organization.
  *
  * @param request ListDynamicTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2864,7 +2864,7 @@ ListDynamicTagResponse Client::listDynamicTagWithOptions(const ListDynamicTagReq
 }
 
 /**
- * @summary 获取当前组织的动态标签列表
+ * @summary Retrieves the list of dynamic labels for the current organization.
  *
  * @param request ListDynamicTagRequest
  * @return ListDynamicTagResponse
@@ -5373,7 +5373,7 @@ QueryUserInfoByUserIdResponse Client::queryUserInfoByUserId(const QueryUserInfoB
 }
 
 /**
- * @summary Lists organization members.
+ * @summary Queries the list of organization members.
  *
  * @param request QueryUserListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5400,7 +5400,7 @@ QueryUserListResponse Client::queryUserListWithOptions(const QueryUserListReques
 }
 
 /**
- * @summary Lists organization members.
+ * @summary Queries the list of organization members.
  *
  * @param request QueryUserListRequest
  * @return QueryUserListResponse
@@ -6535,7 +6535,7 @@ UpdateTicketNumResponse Client::updateTicketNum(const UpdateTicketNumRequest &re
 }
 
 /**
- * @summary Update the information of a specific member in an organization.
+ * @summary Updates the information of a specified member in an organization.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6594,7 +6594,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Update the information of a specific member in an organization.
+ * @summary Updates the information of a specified member in an organization.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse

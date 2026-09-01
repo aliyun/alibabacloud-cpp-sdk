@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The QuickBI user ID of the bound account.
+      // The Quick BI user ID of the bound account.
       shared_ptr<string> boundUserId_ {};
       // The mobile account name.
       shared_ptr<string> thirdAccountName_ {};

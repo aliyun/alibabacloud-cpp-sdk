@@ -103,58 +103,58 @@ namespace Models
 
 
   protected:
-    // Whether to assign the organization administrator role to the user. Valid values:
+    // Specifies whether to assign the organization administrator role. Valid values:
     // 
-    // - `true`
+    // - true: Yes.
+    // - false: No.
     // 
-    // - `false`
-    // 
-    // >Notice: 
-    // 
-    // This parameter is deprecated and is ignored if RoleIds is also specified.
+    // <notice>This parameter is deprecated. When RoleIds is specified, this parameter does not take effect.</notice>
     shared_ptr<bool> adminUser_ {};
-    // Whether to assign the permission administrator role to the user. Valid values:
+    // Specifies whether to assign the organization permission management administrator role. Valid values:
     // 
-    // - `true`
+    // - true: Yes.
+    // - false: No.
     // 
-    // - `false`
-    // 
-    // >Notice: 
-    // 
-    // This parameter is deprecated and is ignored if RoleIds is also specified.
+    // <notice>This parameter has expired and is not recommended. When RoleIds is specified, this parameter does not take effect.</notice>
     shared_ptr<bool> authAdminUser_ {};
+    // The intelligent module quota modification information.
+    // 
+    // Pass the parameter as a JSON array. Each array element contains the following fields:
+    // 
+    // moduleType -- The intelligent module.
+    // - smartQAskNum -- Smart Q questions.
+    // - smartQDevNum -- Smart Q building.
+    // - qreport -- Smart Q reports.
+    // - qExploreNum -- Smart Q exploration edition.
+    // 
+    // status -- Specifies whether to enable the module.
+    // 
+    // - 0 -- Revoke authorization.
+    // - 1 -- Grant authorization.
     shared_ptr<string> copilotModules_ {};
-    // The user status:
-    // 
-    // - **`false`**: active
-    // 
-    // - **`true`**: inactive
+    // The user status. Valid values:
+    // * **false**: Activated.
+    // * **true**: Deactivated.
     shared_ptr<bool> isDeleted_ {};
-    // The nickname of the user.
+    // The nickname.
     // 
-    // - The nickname can be up to 50 characters in length.
-    // 
-    // - The nickname can contain Chinese characters, letters, digits, and the following special characters: `_ \\ / | () ] [`
+    // - Format check: The maximum length is 50 characters.
+    // - Special format check: Chinese characters, English characters, digits, _ \\ / | () ] [
     shared_ptr<string> nickName_ {};
-    // The IDs of the built-in or custom organization roles to assign to the user. Specify up to three comma-separated role IDs.
-    // 
-    // - organization administrator (built-in role): 111111111
-    // 
-    // - permission administrator (built-in role): 111111112
-    // 
-    // - standard user (built-in role): 111111113
+    // The IDs of preset or custom organization roles to attach to the user, separated by commas (,). A maximum of three role IDs are supported. Valid values:
+    // - Organization administrator (preset role): 111111111
+    // - Permission management administrator (preset role): 111111112
+    // - Common user (preset role): 111111113
     shared_ptr<string> roleIds_ {};
-    // The ID of the Quick BI user to update. This is not an Alibaba Cloud UID.
+    // The ID of the user to update. This user ID is the Quick BI UserID, not the Alibaba Cloud UID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
     // The user type of the organization member. Valid values:
     // 
-    // - `1`: developer
-    // 
-    // - `2`: viewer
-    // 
-    // - `3`: analyst
+    // - 1: Developer.
+    // - 2: Visitor.
+    // - 3: Analyst.
     shared_ptr<int32_t> userType_ {};
   };
 

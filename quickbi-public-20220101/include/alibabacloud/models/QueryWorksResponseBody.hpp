@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYWORKSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYWORKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Auth3rdFlag, auth3rdFlag_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Directory, directory_);
+        DARABONBA_PTR_TO_JSON(GlobalParamVoList, globalParamVoList_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModify, gmtModify_);
         DARABONBA_PTR_TO_JSON(ModifyName, modifyName_);
@@ -58,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Auth3rdFlag, auth3rdFlag_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Directory, directory_);
+        DARABONBA_PTR_FROM_JSON(GlobalParamVoList, globalParamVoList_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModify, gmtModify_);
         DARABONBA_PTR_FROM_JSON(ModifyName, modifyName_);
@@ -84,6 +87,68 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class GlobalParamVoList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const GlobalParamVoList& obj) { 
+          DARABONBA_PTR_TO_JSON(DataType, dataType_);
+          DARABONBA_PTR_TO_JSON(ParamAlias, paramAlias_);
+          DARABONBA_PTR_TO_JSON(ParamName, paramName_);
+          DARABONBA_PTR_TO_JSON(Required, required_);
+        };
+        friend void from_json(const Darabonba::Json& j, GlobalParamVoList& obj) { 
+          DARABONBA_PTR_FROM_JSON(DataType, dataType_);
+          DARABONBA_PTR_FROM_JSON(ParamAlias, paramAlias_);
+          DARABONBA_PTR_FROM_JSON(ParamName, paramName_);
+          DARABONBA_PTR_FROM_JSON(Required, required_);
+        };
+        GlobalParamVoList() = default ;
+        GlobalParamVoList(const GlobalParamVoList &) = default ;
+        GlobalParamVoList(GlobalParamVoList &&) = default ;
+        GlobalParamVoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~GlobalParamVoList() = default ;
+        GlobalParamVoList& operator=(const GlobalParamVoList &) = default ;
+        GlobalParamVoList& operator=(GlobalParamVoList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dataType_ == nullptr
+        && this->paramAlias_ == nullptr && this->paramName_ == nullptr && this->required_ == nullptr; };
+        // dataType Field Functions 
+        bool hasDataType() const { return this->dataType_ != nullptr;};
+        void deleteDataType() { this->dataType_ = nullptr;};
+        inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+        inline GlobalParamVoList& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
+
+
+        // paramAlias Field Functions 
+        bool hasParamAlias() const { return this->paramAlias_ != nullptr;};
+        void deleteParamAlias() { this->paramAlias_ = nullptr;};
+        inline string getParamAlias() const { DARABONBA_PTR_GET_DEFAULT(paramAlias_, "") };
+        inline GlobalParamVoList& setParamAlias(string paramAlias) { DARABONBA_PTR_SET_VALUE(paramAlias_, paramAlias) };
+
+
+        // paramName Field Functions 
+        bool hasParamName() const { return this->paramName_ != nullptr;};
+        void deleteParamName() { this->paramName_ = nullptr;};
+        inline string getParamName() const { DARABONBA_PTR_GET_DEFAULT(paramName_, "") };
+        inline GlobalParamVoList& setParamName(string paramName) { DARABONBA_PTR_SET_VALUE(paramName_, paramName) };
+
+
+        // required Field Functions 
+        bool hasRequired() const { return this->required_ != nullptr;};
+        void deleteRequired() { this->required_ = nullptr;};
+        inline bool getRequired() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
+        inline GlobalParamVoList& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
+
+
+      protected:
+        shared_ptr<string> dataType_ {};
+        shared_ptr<string> paramAlias_ {};
+        shared_ptr<string> paramName_ {};
+        shared_ptr<bool> required_ {};
+      };
+
       class Directory : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Directory& obj) { 
@@ -151,10 +216,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->auth3rdFlag_ == nullptr
-        && this->description_ == nullptr && this->directory_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModify_ == nullptr && this->modifyName_ == nullptr
-        && this->ownerId_ == nullptr && this->ownerName_ == nullptr && this->publicFlag_ == nullptr && this->publicInvalidTime_ == nullptr && this->securityLevel_ == nullptr
-        && this->status_ == nullptr && this->workName_ == nullptr && this->workType_ == nullptr && this->worksId_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr; };
+        && this->description_ == nullptr && this->directory_ == nullptr && this->globalParamVoList_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModify_ == nullptr
+        && this->modifyName_ == nullptr && this->ownerId_ == nullptr && this->ownerName_ == nullptr && this->publicFlag_ == nullptr && this->publicInvalidTime_ == nullptr
+        && this->securityLevel_ == nullptr && this->status_ == nullptr && this->workName_ == nullptr && this->workType_ == nullptr && this->worksId_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
       // auth3rdFlag Field Functions 
       bool hasAuth3rdFlag() const { return this->auth3rdFlag_ != nullptr;};
       void deleteAuth3rdFlag() { this->auth3rdFlag_ = nullptr;};
@@ -176,6 +241,15 @@ namespace Models
       inline Result::Directory getDirectory() { DARABONBA_PTR_GET(directory_, Result::Directory) };
       inline Result& setDirectory(const Result::Directory & directory) { DARABONBA_PTR_SET_VALUE(directory_, directory) };
       inline Result& setDirectory(Result::Directory && directory) { DARABONBA_PTR_SET_RVALUE(directory_, directory) };
+
+
+      // globalParamVoList Field Functions 
+      bool hasGlobalParamVoList() const { return this->globalParamVoList_ != nullptr;};
+      void deleteGlobalParamVoList() { this->globalParamVoList_ = nullptr;};
+      inline const vector<Result::GlobalParamVoList> & getGlobalParamVoList() const { DARABONBA_PTR_GET_CONST(globalParamVoList_, vector<Result::GlobalParamVoList>) };
+      inline vector<Result::GlobalParamVoList> getGlobalParamVoList() { DARABONBA_PTR_GET(globalParamVoList_, vector<Result::GlobalParamVoList>) };
+      inline Result& setGlobalParamVoList(const vector<Result::GlobalParamVoList> & globalParamVoList) { DARABONBA_PTR_SET_VALUE(globalParamVoList_, globalParamVoList) };
+      inline Result& setGlobalParamVoList(vector<Result::GlobalParamVoList> && globalParamVoList) { DARABONBA_PTR_SET_RVALUE(globalParamVoList_, globalParamVoList) };
 
 
       // gmtCreate Field Functions 
@@ -286,6 +360,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The directory to which the work belongs.
       shared_ptr<Result::Directory> directory_ {};
+      shared_ptr<vector<Result::GlobalParamVoList>> globalParamVoList_ {};
       // The timestamp of the creation of the work in milliseconds.
       shared_ptr<string> gmtCreate_ {};
       // The timestamp of the modification of the work in milliseconds.

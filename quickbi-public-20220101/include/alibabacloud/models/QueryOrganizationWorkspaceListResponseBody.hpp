@@ -77,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(OwnerAccountName, ownerAccountName_);
           DARABONBA_PTR_TO_JSON(RealOwnerAccountName, realOwnerAccountName_);
           DARABONBA_PTR_TO_JSON(WorkspaceDescription, workspaceDescription_);
+          DARABONBA_PTR_TO_JSON(WorkspaceExportConfig, workspaceExportConfig_);
           DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
         };
@@ -94,6 +95,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(OwnerAccountName, ownerAccountName_);
           DARABONBA_PTR_FROM_JSON(RealOwnerAccountName, realOwnerAccountName_);
           DARABONBA_PTR_FROM_JSON(WorkspaceDescription, workspaceDescription_);
+          DARABONBA_PTR_FROM_JSON(WorkspaceExportConfig, workspaceExportConfig_);
           DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
         };
@@ -108,10 +110,123 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class WorkspaceExportConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const WorkspaceExportConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(AllowExcelImageFile, allowExcelImageFile_);
+            DARABONBA_PTR_TO_JSON(DataExport, dataExport_);
+            DARABONBA_PTR_TO_JSON(DefaultExportType, defaultExportType_);
+            DARABONBA_PTR_TO_JSON(ExportMainSwitch, exportMainSwitch_);
+            DARABONBA_PTR_TO_JSON(ExportToLocal, exportToLocal_);
+            DARABONBA_PTR_TO_JSON(ExportToPublicWork, exportToPublicWork_);
+            DARABONBA_PTR_TO_JSON(ExportToServer, exportToServer_);
+            DARABONBA_PTR_TO_JSON(ImageExport, imageExport_);
+            DARABONBA_PTR_TO_JSON(PdfExport, pdfExport_);
+          };
+          friend void from_json(const Darabonba::Json& j, WorkspaceExportConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(AllowExcelImageFile, allowExcelImageFile_);
+            DARABONBA_PTR_FROM_JSON(DataExport, dataExport_);
+            DARABONBA_PTR_FROM_JSON(DefaultExportType, defaultExportType_);
+            DARABONBA_PTR_FROM_JSON(ExportMainSwitch, exportMainSwitch_);
+            DARABONBA_PTR_FROM_JSON(ExportToLocal, exportToLocal_);
+            DARABONBA_PTR_FROM_JSON(ExportToPublicWork, exportToPublicWork_);
+            DARABONBA_PTR_FROM_JSON(ExportToServer, exportToServer_);
+            DARABONBA_PTR_FROM_JSON(ImageExport, imageExport_);
+            DARABONBA_PTR_FROM_JSON(PdfExport, pdfExport_);
+          };
+          WorkspaceExportConfig() = default ;
+          WorkspaceExportConfig(const WorkspaceExportConfig &) = default ;
+          WorkspaceExportConfig(WorkspaceExportConfig &&) = default ;
+          WorkspaceExportConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~WorkspaceExportConfig() = default ;
+          WorkspaceExportConfig& operator=(const WorkspaceExportConfig &) = default ;
+          WorkspaceExportConfig& operator=(WorkspaceExportConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->allowExcelImageFile_ == nullptr
+        && this->dataExport_ == nullptr && this->defaultExportType_ == nullptr && this->exportMainSwitch_ == nullptr && this->exportToLocal_ == nullptr && this->exportToPublicWork_ == nullptr
+        && this->exportToServer_ == nullptr && this->imageExport_ == nullptr && this->pdfExport_ == nullptr; };
+          // allowExcelImageFile Field Functions 
+          bool hasAllowExcelImageFile() const { return this->allowExcelImageFile_ != nullptr;};
+          void deleteAllowExcelImageFile() { this->allowExcelImageFile_ = nullptr;};
+          inline bool getAllowExcelImageFile() const { DARABONBA_PTR_GET_DEFAULT(allowExcelImageFile_, false) };
+          inline WorkspaceExportConfig& setAllowExcelImageFile(bool allowExcelImageFile) { DARABONBA_PTR_SET_VALUE(allowExcelImageFile_, allowExcelImageFile) };
+
+
+          // dataExport Field Functions 
+          bool hasDataExport() const { return this->dataExport_ != nullptr;};
+          void deleteDataExport() { this->dataExport_ = nullptr;};
+          inline bool getDataExport() const { DARABONBA_PTR_GET_DEFAULT(dataExport_, false) };
+          inline WorkspaceExportConfig& setDataExport(bool dataExport) { DARABONBA_PTR_SET_VALUE(dataExport_, dataExport) };
+
+
+          // defaultExportType Field Functions 
+          bool hasDefaultExportType() const { return this->defaultExportType_ != nullptr;};
+          void deleteDefaultExportType() { this->defaultExportType_ = nullptr;};
+          inline bool getDefaultExportType() const { DARABONBA_PTR_GET_DEFAULT(defaultExportType_, false) };
+          inline WorkspaceExportConfig& setDefaultExportType(bool defaultExportType) { DARABONBA_PTR_SET_VALUE(defaultExportType_, defaultExportType) };
+
+
+          // exportMainSwitch Field Functions 
+          bool hasExportMainSwitch() const { return this->exportMainSwitch_ != nullptr;};
+          void deleteExportMainSwitch() { this->exportMainSwitch_ = nullptr;};
+          inline bool getExportMainSwitch() const { DARABONBA_PTR_GET_DEFAULT(exportMainSwitch_, false) };
+          inline WorkspaceExportConfig& setExportMainSwitch(bool exportMainSwitch) { DARABONBA_PTR_SET_VALUE(exportMainSwitch_, exportMainSwitch) };
+
+
+          // exportToLocal Field Functions 
+          bool hasExportToLocal() const { return this->exportToLocal_ != nullptr;};
+          void deleteExportToLocal() { this->exportToLocal_ = nullptr;};
+          inline bool getExportToLocal() const { DARABONBA_PTR_GET_DEFAULT(exportToLocal_, false) };
+          inline WorkspaceExportConfig& setExportToLocal(bool exportToLocal) { DARABONBA_PTR_SET_VALUE(exportToLocal_, exportToLocal) };
+
+
+          // exportToPublicWork Field Functions 
+          bool hasExportToPublicWork() const { return this->exportToPublicWork_ != nullptr;};
+          void deleteExportToPublicWork() { this->exportToPublicWork_ = nullptr;};
+          inline bool getExportToPublicWork() const { DARABONBA_PTR_GET_DEFAULT(exportToPublicWork_, false) };
+          inline WorkspaceExportConfig& setExportToPublicWork(bool exportToPublicWork) { DARABONBA_PTR_SET_VALUE(exportToPublicWork_, exportToPublicWork) };
+
+
+          // exportToServer Field Functions 
+          bool hasExportToServer() const { return this->exportToServer_ != nullptr;};
+          void deleteExportToServer() { this->exportToServer_ = nullptr;};
+          inline bool getExportToServer() const { DARABONBA_PTR_GET_DEFAULT(exportToServer_, false) };
+          inline WorkspaceExportConfig& setExportToServer(bool exportToServer) { DARABONBA_PTR_SET_VALUE(exportToServer_, exportToServer) };
+
+
+          // imageExport Field Functions 
+          bool hasImageExport() const { return this->imageExport_ != nullptr;};
+          void deleteImageExport() { this->imageExport_ = nullptr;};
+          inline bool getImageExport() const { DARABONBA_PTR_GET_DEFAULT(imageExport_, false) };
+          inline WorkspaceExportConfig& setImageExport(bool imageExport) { DARABONBA_PTR_SET_VALUE(imageExport_, imageExport) };
+
+
+          // pdfExport Field Functions 
+          bool hasPdfExport() const { return this->pdfExport_ != nullptr;};
+          void deletePdfExport() { this->pdfExport_ = nullptr;};
+          inline bool getPdfExport() const { DARABONBA_PTR_GET_DEFAULT(pdfExport_, false) };
+          inline WorkspaceExportConfig& setPdfExport(bool pdfExport) { DARABONBA_PTR_SET_VALUE(pdfExport_, pdfExport) };
+
+
+        protected:
+          shared_ptr<bool> allowExcelImageFile_ {};
+          shared_ptr<bool> dataExport_ {};
+          shared_ptr<bool> defaultExportType_ {};
+          shared_ptr<bool> exportMainSwitch_ {};
+          shared_ptr<bool> exportToLocal_ {};
+          shared_ptr<bool> exportToPublicWork_ {};
+          shared_ptr<bool> exportToServer_ {};
+          shared_ptr<bool> imageExport_ {};
+          shared_ptr<bool> pdfExport_ {};
+        };
+
         virtual bool empty() const override { return this->allowPublishOperation_ == nullptr
         && this->allowShareOperation_ == nullptr && this->createTime_ == nullptr && this->createUser_ == nullptr && this->createUserAccountName_ == nullptr && this->modifiedTime_ == nullptr
         && this->modifyUser_ == nullptr && this->modifyUserAccountName_ == nullptr && this->organizationId_ == nullptr && this->owner_ == nullptr && this->ownerAccountName_ == nullptr
-        && this->realOwnerAccountName_ == nullptr && this->workspaceDescription_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->realOwnerAccountName_ == nullptr && this->workspaceDescription_ == nullptr && this->workspaceExportConfig_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
         // allowPublishOperation Field Functions 
         bool hasAllowPublishOperation() const { return this->allowPublishOperation_ != nullptr;};
         void deleteAllowPublishOperation() { this->allowPublishOperation_ = nullptr;};
@@ -203,6 +318,15 @@ namespace Models
         inline Data& setWorkspaceDescription(string workspaceDescription) { DARABONBA_PTR_SET_VALUE(workspaceDescription_, workspaceDescription) };
 
 
+        // workspaceExportConfig Field Functions 
+        bool hasWorkspaceExportConfig() const { return this->workspaceExportConfig_ != nullptr;};
+        void deleteWorkspaceExportConfig() { this->workspaceExportConfig_ = nullptr;};
+        inline const Data::WorkspaceExportConfig & getWorkspaceExportConfig() const { DARABONBA_PTR_GET_CONST(workspaceExportConfig_, Data::WorkspaceExportConfig) };
+        inline Data::WorkspaceExportConfig getWorkspaceExportConfig() { DARABONBA_PTR_GET(workspaceExportConfig_, Data::WorkspaceExportConfig) };
+        inline Data& setWorkspaceExportConfig(const Data::WorkspaceExportConfig & workspaceExportConfig) { DARABONBA_PTR_SET_VALUE(workspaceExportConfig_, workspaceExportConfig) };
+        inline Data& setWorkspaceExportConfig(Data::WorkspaceExportConfig && workspaceExportConfig) { DARABONBA_PTR_SET_RVALUE(workspaceExportConfig_, workspaceExportConfig) };
+
+
         // workspaceId Field Functions 
         bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
         void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -252,6 +376,7 @@ namespace Models
         shared_ptr<string> realOwnerAccountName_ {};
         // The workspace description.
         shared_ptr<string> workspaceDescription_ {};
+        shared_ptr<Data::WorkspaceExportConfig> workspaceExportConfig_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
         // The workspace name.

@@ -390,7 +390,7 @@ namespace QuickbiPublic20220101
       Models::CheckReadableResponse checkReadable(const Models::CheckReadableRequest &request);
 
       /**
-       * @summary 删除单条配置的标签值缓存
+       * @summary Deletes the cached tag value for a single configuration.
        *
        * @param request ClearDynamicTagCacheRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,7 +399,7 @@ namespace QuickbiPublic20220101
       Models::ClearDynamicTagCacheResponse clearDynamicTagCacheWithOptions(const Models::ClearDynamicTagCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除单条配置的标签值缓存
+       * @summary Deletes the cached tag value for a single configuration.
        *
        * @param request ClearDynamicTagCacheRequest
        * @return ClearDynamicTagCacheResponse
@@ -992,7 +992,7 @@ namespace QuickbiPublic20220101
       Models::ListDataSourceResponse listDataSource(const Models::ListDataSourceRequest &request);
 
       /**
-       * @summary 获取当前组织的动态标签列表
+       * @summary Retrieves the list of dynamic labels for the current organization.
        *
        * @param request ListDynamicTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1001,7 +1001,7 @@ namespace QuickbiPublic20220101
       Models::ListDynamicTagResponse listDynamicTagWithOptions(const Models::ListDynamicTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前组织的动态标签列表
+       * @summary Retrieves the list of dynamic labels for the current organization.
        *
        * @param request ListDynamicTagRequest
        * @return ListDynamicTagResponse
@@ -1924,7 +1924,7 @@ namespace QuickbiPublic20220101
       Models::QueryUserInfoByUserIdResponse queryUserInfoByUserId(const Models::QueryUserInfoByUserIdRequest &request);
 
       /**
-       * @summary Lists organization members.
+       * @summary Queries the list of organization members.
        *
        * @param request QueryUserListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1933,7 +1933,7 @@ namespace QuickbiPublic20220101
       Models::QueryUserListResponse queryUserListWithOptions(const Models::QueryUserListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists organization members.
+       * @summary Queries the list of organization members.
        *
        * @param request QueryUserListRequest
        * @return QueryUserListResponse
@@ -2354,7 +2354,7 @@ namespace QuickbiPublic20220101
       Models::UpdateTicketNumResponse updateTicketNum(const Models::UpdateTicketNumRequest &request);
 
       /**
-       * @summary Update the information of a specific member in an organization.
+       * @summary Updates the information of a specified member in an organization.
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2363,7 +2363,7 @@ namespace QuickbiPublic20220101
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the information of a specific member in an organization.
+       * @summary Updates the information of a specified member in an organization.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
