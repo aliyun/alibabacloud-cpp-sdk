@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(agentName, agentName_);
         DARABONBA_PTR_TO_JSON(agentScene, agentScene_);
         DARABONBA_PTR_TO_JSON(characterAgeStage, characterAgeStage_);
+        DARABONBA_PTR_TO_JSON(characterGender, characterGender_);
         DARABONBA_PTR_TO_JSON(characterName, characterName_);
         DARABONBA_PTR_TO_JSON(charactersDescription, charactersDescription_);
         DARABONBA_PTR_TO_JSON(enableInteraction, enableInteraction_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(agentName, agentName_);
         DARABONBA_PTR_FROM_JSON(agentScene, agentScene_);
         DARABONBA_PTR_FROM_JSON(characterAgeStage, characterAgeStage_);
+        DARABONBA_PTR_FROM_JSON(characterGender, characterGender_);
         DARABONBA_PTR_FROM_JSON(characterName, characterName_);
         DARABONBA_PTR_FROM_JSON(charactersDescription, charactersDescription_);
         DARABONBA_PTR_FROM_JSON(enableInteraction, enableInteraction_);
@@ -84,9 +86,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentIconUrl_ == nullptr
-        && this->agentId_ == nullptr && this->agentName_ == nullptr && this->agentScene_ == nullptr && this->characterAgeStage_ == nullptr && this->characterName_ == nullptr
-        && this->charactersDescription_ == nullptr && this->enableInteraction_ == nullptr && this->industry_ == nullptr && this->onlineSearch_ == nullptr && this->owner_ == nullptr
-        && this->referenceUrl_ == nullptr && this->status_ == nullptr && this->textStyle_ == nullptr && this->viewer_ == nullptr; };
+        && this->agentId_ == nullptr && this->agentName_ == nullptr && this->agentScene_ == nullptr && this->characterAgeStage_ == nullptr && this->characterGender_ == nullptr
+        && this->characterName_ == nullptr && this->charactersDescription_ == nullptr && this->enableInteraction_ == nullptr && this->industry_ == nullptr && this->onlineSearch_ == nullptr
+        && this->owner_ == nullptr && this->referenceUrl_ == nullptr && this->status_ == nullptr && this->textStyle_ == nullptr && this->viewer_ == nullptr; };
       // agentIconUrl Field Functions 
       bool hasAgentIconUrl() const { return this->agentIconUrl_ != nullptr;};
       void deleteAgentIconUrl() { this->agentIconUrl_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
       void deleteCharacterAgeStage() { this->characterAgeStage_ = nullptr;};
       inline string getCharacterAgeStage() const { DARABONBA_PTR_GET_DEFAULT(characterAgeStage_, "") };
       inline List& setCharacterAgeStage(string characterAgeStage) { DARABONBA_PTR_SET_VALUE(characterAgeStage_, characterAgeStage) };
+
+
+      // characterGender Field Functions 
+      bool hasCharacterGender() const { return this->characterGender_ != nullptr;};
+      void deleteCharacterGender() { this->characterGender_ = nullptr;};
+      inline string getCharacterGender() const { DARABONBA_PTR_GET_DEFAULT(characterGender_, "") };
+      inline List& setCharacterGender(string characterGender) { DARABONBA_PTR_SET_VALUE(characterGender_, characterGender) };
 
 
       // characterName Field Functions 
@@ -198,6 +207,7 @@ namespace Models
       shared_ptr<string> agentName_ {};
       shared_ptr<string> agentScene_ {};
       shared_ptr<string> characterAgeStage_ {};
+      shared_ptr<string> characterGender_ {};
       shared_ptr<string> characterName_ {};
       shared_ptr<string> charactersDescription_ {};
       shared_ptr<int32_t> enableInteraction_ {};
