@@ -21,7 +21,7 @@ namespace CodeSec20260401
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+       * @summary Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
        *
        * @param request DescribeProjectsRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace CodeSec20260401
       Models::DescribeProjectsResponse describeProjectsWithOptions(const Models::DescribeProjectsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+       * @summary Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
        *
        * @param request DescribeProjectsRequest
        * @return DescribeProjectsResponse

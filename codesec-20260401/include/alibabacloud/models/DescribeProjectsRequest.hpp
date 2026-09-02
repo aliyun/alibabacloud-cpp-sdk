@@ -16,11 +16,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(query, query_);
+      DARABONBA_PTR_TO_JSON(sortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProjectsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(query, query_);
+      DARABONBA_PTR_FROM_JSON(sortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
     };
     DescribeProjectsRequest() = default ;
     DescribeProjectsRequest(const DescribeProjectsRequest &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->query_ == nullptr; };
+        && this->nextToken_ == nullptr && this->query_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -56,13 +60,42 @@ namespace Models
     inline DescribeProjectsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
+    // sortBy Field Functions 
+    bool hasSortBy() const { return this->sortBy_ != nullptr;};
+    void deleteSortBy() { this->sortBy_ = nullptr;};
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline DescribeProjectsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
+
+
+    // sortOrder Field Functions 
+    bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
+    void deleteSortOrder() { this->sortOrder_ = nullptr;};
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline DescribeProjectsRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
+
+
   protected:
     // The number of entries per page. Default value: 10. Maximum value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken in the response is empty, the last page has been reached.
+    // The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
     shared_ptr<string> nextToken_ {};
-    // Fuzzy matches projects by project name or prompt.
+    // The keyword for fuzzy match by project name or prompt.
     shared_ptr<string> query_ {};
+    // The field by which to sort the results. Default value: last_scan_time.
+    // 
+    // Valid values:
+    // 
+    // *   last_scan_time: the time when a task was last created.
+    // *   created_at: the time when the project was created.
+    // *   updated_at: the time when the project was last modified.
+    shared_ptr<string> sortBy_ {};
+    // The sort order. Default value: desc.
+    // 
+    // Valid values:
+    // 
+    // *   desc: descending order.
+    // *   asc: ascending order.
+    shared_ptr<string> sortOrder_ {};
   };
 
   } // namespace Models

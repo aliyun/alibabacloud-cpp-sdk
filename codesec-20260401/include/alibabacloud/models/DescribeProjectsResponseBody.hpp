@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(engines, engines_);
         DARABONBA_PTR_TO_JSON(id, id_);
         DARABONBA_PTR_TO_JSON(instructionPrompt, instructionPrompt_);
+        DARABONBA_PTR_TO_JSON(lastScanTime, lastScanTime_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(source, source_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(engines, engines_);
         DARABONBA_PTR_FROM_JSON(id, id_);
         DARABONBA_PTR_FROM_JSON(instructionPrompt, instructionPrompt_);
+        DARABONBA_PTR_FROM_JSON(lastScanTime, lastScanTime_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(source, source_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
@@ -145,15 +147,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether SAST is supported.
+        // Indicates whether SAST is enabled.
         shared_ptr<bool> sast_ {};
-        // Indicates whether SCA is supported.
+        // Indicates whether SCA is enabled.
         shared_ptr<bool> sca_ {};
       };
 
       virtual bool empty() const override { return this->configRevision_ == nullptr
         && this->createdAt_ == nullptr && this->createdBy_ == nullptr && this->description_ == nullptr && this->engines_ == nullptr && this->id_ == nullptr
-        && this->instructionPrompt_ == nullptr && this->name_ == nullptr && this->source_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->instructionPrompt_ == nullptr && this->lastScanTime_ == nullptr && this->name_ == nullptr && this->source_ == nullptr && this->updatedAt_ == nullptr; };
       // configRevision Field Functions 
       bool hasConfigRevision() const { return this->configRevision_ != nullptr;};
       void deleteConfigRevision() { this->configRevision_ = nullptr;};
@@ -205,6 +207,13 @@ namespace Models
       inline Items& setInstructionPrompt(string instructionPrompt) { DARABONBA_PTR_SET_VALUE(instructionPrompt_, instructionPrompt) };
 
 
+      // lastScanTime Field Functions 
+      bool hasLastScanTime() const { return this->lastScanTime_ != nullptr;};
+      void deleteLastScanTime() { this->lastScanTime_ = nullptr;};
+      inline string getLastScanTime() const { DARABONBA_PTR_GET_DEFAULT(lastScanTime_, "") };
+      inline Items& setLastScanTime(string lastScanTime) { DARABONBA_PTR_SET_VALUE(lastScanTime_, lastScanTime) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -231,23 +240,25 @@ namespace Models
     protected:
       // The project configuration version number.
       shared_ptr<int64_t> configRevision_ {};
-      // The creation time.
+      // The time when the project was created.
       shared_ptr<string> createdAt_ {};
       // The user ID of the project creator.
       shared_ptr<string> createdBy_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The engine switches for the project or scan snapshot (SAST and SCA only).
+      // The engine switches for the project or scan snapshot. Only SAST and SCA are supported.
       shared_ptr<Items::Engines> engines_ {};
       // The project ID.
       shared_ptr<int64_t> id_ {};
       // The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
       shared_ptr<string> instructionPrompt_ {};
+      // The time when a task was last created.
+      shared_ptr<string> lastScanTime_ {};
       // The project name.
       shared_ptr<string> name_ {};
       // The project source.
       shared_ptr<Items::Source> source_ {};
-      // The update time.
+      // The time when the project was last updated.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -295,7 +306,7 @@ namespace Models
     shared_ptr<vector<DescribeProjectsResponseBody::Items>> items_ {};
     // The page size.
     // 
-    // > If not specified, all projects are displayed.
+    // > If this parameter is not specified, all projects are returned.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};

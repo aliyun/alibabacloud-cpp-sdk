@@ -19,10 +19,6 @@ namespace CodeSec20260401
 
 AlibabaCloud::CodeSec20260401::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-southeast-1" , "codesec.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou" , "codesec.cn-hangzhou.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("codesec", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -41,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+ * @summary Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
  *
  * @param request DescribeProjectsRequest
  * @param headers map
@@ -63,6 +59,14 @@ DescribeProjectsResponse Client::describeProjectsWithOptions(const DescribeProje
     query["query"] = request.getQuery();
   }
 
+  if (!!request.hasSortBy()) {
+    query["sortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["sortOrder"] = request.getSortOrder();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -82,7 +86,7 @@ DescribeProjectsResponse Client::describeProjectsWithOptions(const DescribeProje
 }
 
 /**
- * @summary Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+ * @summary Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
  *
  * @param request DescribeProjectsRequest
  * @return DescribeProjectsResponse
