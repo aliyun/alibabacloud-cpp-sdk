@@ -3643,7 +3643,7 @@ GlobalHotelQueryOrderResponse Client::globalHotelQueryOrder(const GlobalHotelQue
 }
 
 /**
- * @summary Queries city administrative divisions (in Chinese and English) by paging.
+ * @summary Queries city administrative divisions by paging (in Chinese and English).
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @param headers map
@@ -3692,7 +3692,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPageWithOptions(c
 }
 
 /**
- * @summary Queries city administrative divisions (in Chinese and English) by paging.
+ * @summary Queries city administrative divisions by paging (in Chinese and English).
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @return GlobalHotelSearchCityPageResponse
@@ -3704,7 +3704,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPage(const Global
 }
 
 /**
- * @summary Performs a paged query of the hotel list by city with paging support.
+ * @summary Performs a paged query to retrieve the list of hotels by city with paging support.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @param headers map
@@ -3753,7 +3753,7 @@ GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelListWithOptions
 }
 
 /**
- * @summary Performs a paged query of the hotel list by city with paging support.
+ * @summary Performs a paged query to retrieve the list of hotels by city with paging support.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @return GlobalHotelSearchHotelListResponse

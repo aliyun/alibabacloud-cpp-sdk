@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The account ID of the distributor.
+    // The distributor account ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
@@ -120,17 +120,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> adultCount_ {};
-    // The end date of the check-in period to query, in the format of yyyy-MM-dd. The date cannot be earlier than the start date. The date range includes both the start and end dates, with a maximum span of 30 days.
+    // The end date of the check-in date range to query, in the yyyy-MM-dd format. The date cannot be earlier than the start date. The date range is inclusive and supports a maximum of 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> checkInDateEnd_ {};
-    // The start date of the check-in period to query, in the format of yyyy-MM-dd. The date cannot be earlier than the current day.
+    // The start date of the check-in date range to query, in the yyyy-MM-dd format. The date cannot be earlier than the current day.
     // 
     // This parameter is required.
     shared_ptr<string> checkInDateStart_ {};
     // The number of children.
     shared_ptr<int32_t> childCount_ {};
-    // The list of children\\"s ages.
+    // The list of children ages.
     shared_ptr<string> childrenAgesShrink_ {};
     // The number of rooms.
     // 

@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The distributor account ID.
+    // The ID of the distributor account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
-    // The language (such as en or zh).
+    // The language for the response, such as en or zh.
     shared_ptr<string> language_ {};
     // The list of standard hotel IDs. A maximum of 100 IDs are supported.
     // 

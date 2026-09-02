@@ -134,7 +134,7 @@ namespace Models
         shared_ptr<string> hotelName_ {};
         // The platform standard hotel ID.
         shared_ptr<string> standardHotelId_ {};
-        // The hotel status (ONLINE/OFFLINE).
+        // The hotel status. Valid values: ONLINE and OFFLINE.
         shared_ptr<string> status_ {};
       };
 
@@ -218,7 +218,7 @@ namespace Models
     shared_ptr<string> errorMsg_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // traceId
     shared_ptr<string> tracerId_ {};

@@ -1049,7 +1049,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryOrderResponse globalHotelQueryOrder(const Models::GlobalHotelQueryOrderRequest &request);
 
       /**
-       * @summary Queries city administrative divisions (in Chinese and English) by paging.
+       * @summary Queries city administrative divisions by paging (in Chinese and English).
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @param headers map
@@ -1059,7 +1059,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPageWithOptions(const Models::GlobalHotelSearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries city administrative divisions (in Chinese and English) by paging.
+       * @summary Queries city administrative divisions by paging (in Chinese and English).
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @return GlobalHotelSearchCityPageResponse
@@ -1067,7 +1067,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPage(const Models::GlobalHotelSearchCityPageRequest &request);
 
       /**
-       * @summary Performs a paged query of the hotel list by city with paging support.
+       * @summary Performs a paged query to retrieve the list of hotels by city with paging support.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @param headers map
@@ -1077,7 +1077,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelListWithOptions(const Models::GlobalHotelSearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of the hotel list by city with paging support.
+       * @summary Performs a paged query to retrieve the list of hotels by city with paging support.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @return GlobalHotelSearchHotelListResponse

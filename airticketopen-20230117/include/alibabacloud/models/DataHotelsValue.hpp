@@ -339,15 +339,15 @@ namespace Models
 
 
         protected:
-          // The effective start time as a UTC millisecond timestamp.
+          // The effective start time, in UTC millisecond timestamp format.
           shared_ptr<string> start_ {};
-          // The effective end time as a UTC millisecond timestamp.
+          // The effective end time, in UTC millisecond timestamp format.
           shared_ptr<string> end_ {};
           // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
           shared_ptr<string> penaltyType_ {};
-          // The penalty value (percentage/amount/nights).
+          // The penalty value (percentage, amount, or number of nights).
           shared_ptr<string> penaltyValue_ {};
-          // The currency code. This field is present only when the penalty type is AMOUNT.
+          // The currency code. This field has a value only when the penalty type is AMOUNT.
           shared_ptr<string> currency_ {};
           // TraceId
           shared_ptr<string> tracerId_ {};
@@ -467,7 +467,7 @@ namespace Models
 
 
     protected:
-      // The item offer key used for price verification. Pass through this value as-is.
+      // The item offer key, which is a price verification key. Pass this value through as-is.
       shared_ptr<string> itemOfferKey_ {};
       // The rate plan name.
       shared_ptr<string> ratePlanName_ {};
@@ -819,9 +819,9 @@ namespace Models
             shared_ptr<string> end_ {};
             // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
             shared_ptr<string> penaltyType_ {};
-            // The penalty value (percentage/amount/nights).
+            // The penalty value (percentage/amount/number of nights).
             shared_ptr<string> penaltyValue_ {};
-            // The currency code (present only when the penalty type is AMOUNT).
+            // The currency code (present only when the type is AMOUNT).
             shared_ptr<string> currency_ {};
             // traceId
             shared_ptr<string> tracerId_ {};

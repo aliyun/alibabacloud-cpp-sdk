@@ -129,7 +129,8 @@ namespace Models
         class RoomTypes : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const RoomTypes& obj) { 
-            DARABONBA_PTR_TO_JSON(BedType, bedType_);
+            DARABONBA_PTR_TO_JSON(BedGroups, bedGroups_);
+            DARABONBA_PTR_TO_JSON(Facilities, facilities_);
             DARABONBA_PTR_TO_JSON(Pictures, pictures_);
             DARABONBA_PTR_TO_JSON(RoomName, roomName_);
             DARABONBA_PTR_TO_JSON(RoomNameCn, roomNameCn_);
@@ -140,7 +141,8 @@ namespace Models
             DARABONBA_PTR_TO_JSON(WindowTypeDefect, windowTypeDefect_);
           };
           friend void from_json(const Darabonba::Json& j, RoomTypes& obj) { 
-            DARABONBA_PTR_FROM_JSON(BedType, bedType_);
+            DARABONBA_PTR_FROM_JSON(BedGroups, bedGroups_);
+            DARABONBA_PTR_FROM_JSON(Facilities, facilities_);
             DARABONBA_PTR_FROM_JSON(Pictures, pictures_);
             DARABONBA_PTR_FROM_JSON(RoomName, roomName_);
             DARABONBA_PTR_FROM_JSON(RoomNameCn, roomNameCn_);
@@ -254,7 +256,7 @@ namespace Models
 
 
           protected:
-            // The picture description.
+            // The description of the picture.
             shared_ptr<string> description_ {};
             // The first-level category code.
             shared_ptr<string> firstCategoryCode_ {};
@@ -262,81 +264,214 @@ namespace Models
             shared_ptr<string> firstCategoryName_ {};
             // Indicates whether the picture is the cover image.
             shared_ptr<bool> isHeadPic_ {};
-            // The picture ID (subject to the URL).
+            // The picture ID. The URL takes precedence.
             shared_ptr<string> pictureId_ {};
             // The second-level category code.
             shared_ptr<string> secondCategoryCode_ {};
             // The second-level category name.
             shared_ptr<string> secondCategoryName_ {};
-            // The picture URL.
+            // The URL of the picture.
             shared_ptr<string> url_ {};
           };
 
-          class BedType : public Darabonba::Model {
+          class Facilities : public Darabonba::Model {
           public:
-            friend void to_json(Darabonba::Json& j, const BedType& obj) { 
-              DARABONBA_PTR_TO_JSON(BedCount, bedCount_);
-              DARABONBA_PTR_TO_JSON(BedSize, bedSize_);
-              DARABONBA_PTR_TO_JSON(BedType, bedType_);
+            friend void to_json(Darabonba::Json& j, const Facilities& obj) { 
+              DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
+              DARABONBA_PTR_TO_JSON(SubItems, subItems_);
+              DARABONBA_PTR_TO_JSON(Type, type_);
             };
-            friend void from_json(const Darabonba::Json& j, BedType& obj) { 
-              DARABONBA_PTR_FROM_JSON(BedCount, bedCount_);
-              DARABONBA_PTR_FROM_JSON(BedSize, bedSize_);
-              DARABONBA_PTR_FROM_JSON(BedType, bedType_);
+            friend void from_json(const Darabonba::Json& j, Facilities& obj) { 
+              DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
+              DARABONBA_PTR_FROM_JSON(SubItems, subItems_);
+              DARABONBA_PTR_FROM_JSON(Type, type_);
             };
-            BedType() = default ;
-            BedType(const BedType &) = default ;
-            BedType(BedType &&) = default ;
-            BedType(const Darabonba::Json & obj) { from_json(obj, *this); };
-            virtual ~BedType() = default ;
-            BedType& operator=(const BedType &) = default ;
-            BedType& operator=(BedType &&) = default ;
+            Facilities() = default ;
+            Facilities(const Facilities &) = default ;
+            Facilities(Facilities &&) = default ;
+            Facilities(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Facilities() = default ;
+            Facilities& operator=(const Facilities &) = default ;
+            Facilities& operator=(Facilities &&) = default ;
             virtual void validate() const override {
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->bedCount_ == nullptr
-        && this->bedSize_ == nullptr && this->bedType_ == nullptr; };
-            // bedCount Field Functions 
-            bool hasBedCount() const { return this->bedCount_ != nullptr;};
-            void deleteBedCount() { this->bedCount_ = nullptr;};
-            inline int32_t getBedCount() const { DARABONBA_PTR_GET_DEFAULT(bedCount_, 0) };
-            inline BedType& setBedCount(int32_t bedCount) { DARABONBA_PTR_SET_VALUE(bedCount_, bedCount) };
+            virtual bool empty() const override { return this->description_ == nullptr
+        && this->name_ == nullptr && this->subItems_ == nullptr && this->type_ == nullptr; };
+            // description Field Functions 
+            bool hasDescription() const { return this->description_ != nullptr;};
+            void deleteDescription() { this->description_ = nullptr;};
+            inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+            inline Facilities& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-            // bedSize Field Functions 
-            bool hasBedSize() const { return this->bedSize_ != nullptr;};
-            void deleteBedSize() { this->bedSize_ = nullptr;};
-            inline string getBedSize() const { DARABONBA_PTR_GET_DEFAULT(bedSize_, "") };
-            inline BedType& setBedSize(string bedSize) { DARABONBA_PTR_SET_VALUE(bedSize_, bedSize) };
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline Facilities& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
-            // bedType Field Functions 
-            bool hasBedType() const { return this->bedType_ != nullptr;};
-            void deleteBedType() { this->bedType_ = nullptr;};
-            inline string getBedType() const { DARABONBA_PTR_GET_DEFAULT(bedType_, "") };
-            inline BedType& setBedType(string bedType) { DARABONBA_PTR_SET_VALUE(bedType_, bedType) };
+            // subItems Field Functions 
+            bool hasSubItems() const { return this->subItems_ != nullptr;};
+            void deleteSubItems() { this->subItems_ = nullptr;};
+            inline const vector<Darabonba::Json> & getSubItems() const { DARABONBA_PTR_GET_CONST(subItems_, vector<Darabonba::Json>) };
+            inline vector<Darabonba::Json> getSubItems() { DARABONBA_PTR_GET(subItems_, vector<Darabonba::Json>) };
+            inline Facilities& setSubItems(const vector<Darabonba::Json> & subItems) { DARABONBA_PTR_SET_VALUE(subItems_, subItems) };
+            inline Facilities& setSubItems(vector<Darabonba::Json> && subItems) { DARABONBA_PTR_SET_RVALUE(subItems_, subItems) };
+
+
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline Facilities& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
           protected:
-            // The number of beds.
-            shared_ptr<int32_t> bedCount_ {};
-            // The bed width in meters.
-            shared_ptr<string> bedSize_ {};
-            // The bed type name.
-            shared_ptr<string> bedType_ {};
+            // The facility description.
+            shared_ptr<string> description_ {};
+            // The name of the facility.
+            shared_ptr<string> name_ {};
+            // The list of sub-facilities.
+            shared_ptr<vector<Darabonba::Json>> subItems_ {};
+            // The type of the facility.
+            shared_ptr<string> type_ {};
           };
 
-          virtual bool empty() const override { return this->bedType_ == nullptr
-        && this->pictures_ == nullptr && this->roomName_ == nullptr && this->roomNameCn_ == nullptr && this->roomSize_ == nullptr && this->roomSizeUnit_ == nullptr
-        && this->standardRoomId_ == nullptr && this->windowType_ == nullptr && this->windowTypeDefect_ == nullptr; };
-          // bedType Field Functions 
-          bool hasBedType() const { return this->bedType_ != nullptr;};
-          void deleteBedType() { this->bedType_ = nullptr;};
-          inline const vector<RoomTypes::BedType> & getBedType() const { DARABONBA_PTR_GET_CONST(bedType_, vector<RoomTypes::BedType>) };
-          inline vector<RoomTypes::BedType> getBedType() { DARABONBA_PTR_GET(bedType_, vector<RoomTypes::BedType>) };
-          inline RoomTypes& setBedType(const vector<RoomTypes::BedType> & bedType) { DARABONBA_PTR_SET_VALUE(bedType_, bedType) };
-          inline RoomTypes& setBedType(vector<RoomTypes::BedType> && bedType) { DARABONBA_PTR_SET_RVALUE(bedType_, bedType) };
+          class BedGroups : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const BedGroups& obj) { 
+              DARABONBA_PTR_TO_JSON(BedInfos, bedInfos_);
+            };
+            friend void from_json(const Darabonba::Json& j, BedGroups& obj) { 
+              DARABONBA_PTR_FROM_JSON(BedInfos, bedInfos_);
+            };
+            BedGroups() = default ;
+            BedGroups(const BedGroups &) = default ;
+            BedGroups(BedGroups &&) = default ;
+            BedGroups(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~BedGroups() = default ;
+            BedGroups& operator=(const BedGroups &) = default ;
+            BedGroups& operator=(BedGroups &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class BedInfos : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const BedInfos& obj) { 
+                DARABONBA_PTR_TO_JSON(BedCount, bedCount_);
+                DARABONBA_PTR_TO_JSON(BedNameCn, bedNameCn_);
+                DARABONBA_PTR_TO_JSON(BedNameEn, bedNameEn_);
+                DARABONBA_PTR_TO_JSON(BedSize, bedSize_);
+                DARABONBA_PTR_TO_JSON(BedType, bedType_);
+              };
+              friend void from_json(const Darabonba::Json& j, BedInfos& obj) { 
+                DARABONBA_PTR_FROM_JSON(BedCount, bedCount_);
+                DARABONBA_PTR_FROM_JSON(BedNameCn, bedNameCn_);
+                DARABONBA_PTR_FROM_JSON(BedNameEn, bedNameEn_);
+                DARABONBA_PTR_FROM_JSON(BedSize, bedSize_);
+                DARABONBA_PTR_FROM_JSON(BedType, bedType_);
+              };
+              BedInfos() = default ;
+              BedInfos(const BedInfos &) = default ;
+              BedInfos(BedInfos &&) = default ;
+              BedInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~BedInfos() = default ;
+              BedInfos& operator=(const BedInfos &) = default ;
+              BedInfos& operator=(BedInfos &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->bedCount_ == nullptr
+        && this->bedNameCn_ == nullptr && this->bedNameEn_ == nullptr && this->bedSize_ == nullptr && this->bedType_ == nullptr; };
+              // bedCount Field Functions 
+              bool hasBedCount() const { return this->bedCount_ != nullptr;};
+              void deleteBedCount() { this->bedCount_ = nullptr;};
+              inline int32_t getBedCount() const { DARABONBA_PTR_GET_DEFAULT(bedCount_, 0) };
+              inline BedInfos& setBedCount(int32_t bedCount) { DARABONBA_PTR_SET_VALUE(bedCount_, bedCount) };
+
+
+              // bedNameCn Field Functions 
+              bool hasBedNameCn() const { return this->bedNameCn_ != nullptr;};
+              void deleteBedNameCn() { this->bedNameCn_ = nullptr;};
+              inline string getBedNameCn() const { DARABONBA_PTR_GET_DEFAULT(bedNameCn_, "") };
+              inline BedInfos& setBedNameCn(string bedNameCn) { DARABONBA_PTR_SET_VALUE(bedNameCn_, bedNameCn) };
+
+
+              // bedNameEn Field Functions 
+              bool hasBedNameEn() const { return this->bedNameEn_ != nullptr;};
+              void deleteBedNameEn() { this->bedNameEn_ = nullptr;};
+              inline string getBedNameEn() const { DARABONBA_PTR_GET_DEFAULT(bedNameEn_, "") };
+              inline BedInfos& setBedNameEn(string bedNameEn) { DARABONBA_PTR_SET_VALUE(bedNameEn_, bedNameEn) };
+
+
+              // bedSize Field Functions 
+              bool hasBedSize() const { return this->bedSize_ != nullptr;};
+              void deleteBedSize() { this->bedSize_ = nullptr;};
+              inline string getBedSize() const { DARABONBA_PTR_GET_DEFAULT(bedSize_, "") };
+              inline BedInfos& setBedSize(string bedSize) { DARABONBA_PTR_SET_VALUE(bedSize_, bedSize) };
+
+
+              // bedType Field Functions 
+              bool hasBedType() const { return this->bedType_ != nullptr;};
+              void deleteBedType() { this->bedType_ = nullptr;};
+              inline string getBedType() const { DARABONBA_PTR_GET_DEFAULT(bedType_, "") };
+              inline BedInfos& setBedType(string bedType) { DARABONBA_PTR_SET_VALUE(bedType_, bedType) };
+
+
+            protected:
+              // The number of beds.
+              shared_ptr<int32_t> bedCount_ {};
+              // The Chinese name of the bed type.
+              shared_ptr<string> bedNameCn_ {};
+              // The English name of the bed type.
+              shared_ptr<string> bedNameEn_ {};
+              // The bed width in meters.
+              shared_ptr<string> bedSize_ {};
+              // The bed type code. This is the original channel code passed through directly. For the meaning of code values, refer to the API documentation.
+              shared_ptr<string> bedType_ {};
+            };
+
+            virtual bool empty() const override { return this->bedInfos_ == nullptr; };
+            // bedInfos Field Functions 
+            bool hasBedInfos() const { return this->bedInfos_ != nullptr;};
+            void deleteBedInfos() { this->bedInfos_ = nullptr;};
+            inline const vector<BedGroups::BedInfos> & getBedInfos() const { DARABONBA_PTR_GET_CONST(bedInfos_, vector<BedGroups::BedInfos>) };
+            inline vector<BedGroups::BedInfos> getBedInfos() { DARABONBA_PTR_GET(bedInfos_, vector<BedGroups::BedInfos>) };
+            inline BedGroups& setBedInfos(const vector<BedGroups::BedInfos> & bedInfos) { DARABONBA_PTR_SET_VALUE(bedInfos_, bedInfos) };
+            inline BedGroups& setBedInfos(vector<BedGroups::BedInfos> && bedInfos) { DARABONBA_PTR_SET_RVALUE(bedInfos_, bedInfos) };
+
+
+          protected:
+            // The list of bed types within a group. Items are in an AND relationship.
+            shared_ptr<vector<BedGroups::BedInfos>> bedInfos_ {};
+          };
+
+          virtual bool empty() const override { return this->bedGroups_ == nullptr
+        && this->facilities_ == nullptr && this->pictures_ == nullptr && this->roomName_ == nullptr && this->roomNameCn_ == nullptr && this->roomSize_ == nullptr
+        && this->roomSizeUnit_ == nullptr && this->standardRoomId_ == nullptr && this->windowType_ == nullptr && this->windowTypeDefect_ == nullptr; };
+          // bedGroups Field Functions 
+          bool hasBedGroups() const { return this->bedGroups_ != nullptr;};
+          void deleteBedGroups() { this->bedGroups_ = nullptr;};
+          inline const vector<RoomTypes::BedGroups> & getBedGroups() const { DARABONBA_PTR_GET_CONST(bedGroups_, vector<RoomTypes::BedGroups>) };
+          inline vector<RoomTypes::BedGroups> getBedGroups() { DARABONBA_PTR_GET(bedGroups_, vector<RoomTypes::BedGroups>) };
+          inline RoomTypes& setBedGroups(const vector<RoomTypes::BedGroups> & bedGroups) { DARABONBA_PTR_SET_VALUE(bedGroups_, bedGroups) };
+          inline RoomTypes& setBedGroups(vector<RoomTypes::BedGroups> && bedGroups) { DARABONBA_PTR_SET_RVALUE(bedGroups_, bedGroups) };
+
+
+          // facilities Field Functions 
+          bool hasFacilities() const { return this->facilities_ != nullptr;};
+          void deleteFacilities() { this->facilities_ = nullptr;};
+          inline const vector<RoomTypes::Facilities> & getFacilities() const { DARABONBA_PTR_GET_CONST(facilities_, vector<RoomTypes::Facilities>) };
+          inline vector<RoomTypes::Facilities> getFacilities() { DARABONBA_PTR_GET(facilities_, vector<RoomTypes::Facilities>) };
+          inline RoomTypes& setFacilities(const vector<RoomTypes::Facilities> & facilities) { DARABONBA_PTR_SET_VALUE(facilities_, facilities) };
+          inline RoomTypes& setFacilities(vector<RoomTypes::Facilities> && facilities) { DARABONBA_PTR_SET_RVALUE(facilities_, facilities) };
 
 
           // pictures Field Functions 
@@ -398,34 +533,36 @@ namespace Models
 
 
         protected:
-          // The list of bed types.
-          shared_ptr<vector<RoomTypes::BedType>> bedType_ {};
+          // The list of bed type groups. This has the same structure as bedInfoJson. Groups are in an OR relationship, and items within a group are in an AND relationship.
+          shared_ptr<vector<RoomTypes::BedGroups>> bedGroups_ {};
+          // The list of room type facilities.
+          shared_ptr<vector<RoomTypes::Facilities>> facilities_ {};
           // The list of room type pictures.
           shared_ptr<vector<RoomTypes::Pictures>> pictures_ {};
           // The room type name.
           shared_ptr<string> roomName_ {};
-          // The Chinese room type name (always in Chinese, regardless of the language parameter).
+          // The Chinese room type name. This value is always in Chinese regardless of the language parameter.
           shared_ptr<string> roomNameCn_ {};
-          // The room area (passed through as-is, may be a range value).
+          // The room size. The value is passed through as-is and may be a range.
           shared_ptr<string> roomSize_ {};
-          // The area unit. Valid values: SQM (square meters) and SQFT (square feet). Default value: SQM.
+          // The unit of the room size. Valid values: SQM (square meters) and SQFT (square feet). Default value: SQM.
           shared_ptr<string> roomSizeUnit_ {};
           // The platform standard room type ID.
           shared_ptr<string> standardRoomId_ {};
           // The window type. Valid values:
-          // - 0: no window
-          // - 1: with window
-          // - 2: partially with window
-          // - 3: opaque window
-          // - 4: partially opaque window
-          // - 5: floor-to-ceiling window
+          // - 0: no window.
+          // - 1: with window.
+          // - 2: partially with window.
+          // - 3: frosted or opaque window.
+          // - 4: partially frosted or opaque window.
+          // - 5: floor-to-ceiling window.
           shared_ptr<string> windowType_ {};
           // The window defect code. Valid values:
-          // - 0: window cannot be opened for ventilation
-          // - 1: view is obstructed outside the window
-          // - 2: window faces the interior of the hotel
-          // - 3: window is located in a corridor or hallway
-          // - 4: window can be opened for ventilation and faces an outdoor open environment
+          // - 0: The window cannot be opened for ventilation.
+          // - 1: The view from the window is obstructed.
+          // - 2: The window faces an interior hotel view.
+          // - 3: The window is located along a corridor or hallway.
+          // - 4: The window can be opened for ventilation and faces an outdoor open environment.
           shared_ptr<string> windowTypeDefect_ {};
         };
 
@@ -510,7 +647,7 @@ namespace Models
 
 
           protected:
-            // The list of sub-items.
+            // The list of subkeys.
             shared_ptr<vector<Darabonba::Json>> children_ {};
             // The item name.
             shared_ptr<string> itemName_ {};
@@ -647,7 +784,7 @@ namespace Models
 
 
         protected:
-          // The picture description.
+          // The description of the picture.
           shared_ptr<string> description_ {};
           // The first-level category code.
           shared_ptr<string> firstCategoryCode_ {};
@@ -655,13 +792,13 @@ namespace Models
           shared_ptr<string> firstCategoryName_ {};
           // Indicates whether the picture is the cover image.
           shared_ptr<bool> isHeadPic_ {};
-          // The picture ID (subject to the URL).
+          // The picture ID. The URL takes precedence.
           shared_ptr<string> pictureId_ {};
           // The second-level category code.
           shared_ptr<string> secondCategoryCode_ {};
           // The second-level category name.
           shared_ptr<string> secondCategoryName_ {};
-          // The picture URL.
+          // The URL of the picture.
           shared_ptr<string> url_ {};
         };
 
@@ -670,11 +807,13 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const Facilities& obj) { 
             DARABONBA_PTR_TO_JSON(Description, description_);
             DARABONBA_PTR_TO_JSON(Name, name_);
+            DARABONBA_PTR_TO_JSON(SubItems, subItems_);
             DARABONBA_PTR_TO_JSON(Type, type_);
           };
           friend void from_json(const Darabonba::Json& j, Facilities& obj) { 
             DARABONBA_PTR_FROM_JSON(Description, description_);
             DARABONBA_PTR_FROM_JSON(Name, name_);
+            DARABONBA_PTR_FROM_JSON(SubItems, subItems_);
             DARABONBA_PTR_FROM_JSON(Type, type_);
           };
           Facilities() = default ;
@@ -689,7 +828,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->description_ == nullptr
-        && this->name_ == nullptr && this->type_ == nullptr; };
+        && this->name_ == nullptr && this->subItems_ == nullptr && this->type_ == nullptr; };
           // description Field Functions 
           bool hasDescription() const { return this->description_ != nullptr;};
           void deleteDescription() { this->description_ = nullptr;};
@@ -704,6 +843,15 @@ namespace Models
           inline Facilities& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+          // subItems Field Functions 
+          bool hasSubItems() const { return this->subItems_ != nullptr;};
+          void deleteSubItems() { this->subItems_ = nullptr;};
+          inline const vector<Darabonba::Json> & getSubItems() const { DARABONBA_PTR_GET_CONST(subItems_, vector<Darabonba::Json>) };
+          inline vector<Darabonba::Json> getSubItems() { DARABONBA_PTR_GET(subItems_, vector<Darabonba::Json>) };
+          inline Facilities& setSubItems(const vector<Darabonba::Json> & subItems) { DARABONBA_PTR_SET_VALUE(subItems_, subItems) };
+          inline Facilities& setSubItems(vector<Darabonba::Json> && subItems) { DARABONBA_PTR_SET_RVALUE(subItems_, subItems) };
+
+
           // type Field Functions 
           bool hasType() const { return this->type_ != nullptr;};
           void deleteType() { this->type_ = nullptr;};
@@ -714,9 +862,11 @@ namespace Models
         protected:
           // The facility description.
           shared_ptr<string> description_ {};
-          // The facility name.
+          // The name of the facility.
           shared_ptr<string> name_ {};
-          // The facility type.
+          // The list of sub-facilities.
+          shared_ptr<vector<Darabonba::Json>> subItems_ {};
+          // The type of the facility.
           shared_ptr<string> type_ {};
         };
 
@@ -910,55 +1060,55 @@ namespace Models
 
 
       protected:
-        // The address.
+        // The address of the hotel.
         shared_ptr<string> address_ {};
-        // The default check-in time.
+        // The default check-in time in HH:mm format, based on the hotel\\"s local time zone.
         shared_ptr<string> checkInTime_ {};
-        // The default check-out time.
+        // The default check-out time in HH:mm format, based on the hotel\\"s local time zone.
         shared_ptr<string> checkOutTime_ {};
         // The city name.
         shared_ptr<string> cityName_ {};
         // The country name.
         shared_ptr<string> countryName_ {};
-        // The hotel description.
+        // The description of the hotel.
         shared_ptr<string> description_ {};
         // The error code for the individual hotel.
         shared_ptr<string> errorCode_ {};
-        // The error message for the individual hotel.
+        // The error description for the individual hotel.
         shared_ptr<string> errorMessage_ {};
         // The list of facilities.
         shared_ptr<vector<Hotels::Facilities>> facilities_ {};
         // The hotel name.
         shared_ptr<string> hotelName_ {};
-        // The Chinese hotel name.
+        // The Chinese hotel name. This value is always in Chinese regardless of the language setting.
         shared_ptr<string> hotelNameCn_ {};
         // The hotel type (LUXURY/DELUXE/COMFORT).
         shared_ptr<string> hotelType_ {};
-        // The latitude.
+        // The latitude of the hotel.
         shared_ptr<string> latitude_ {};
-        // The longitude.
+        // The longitude of the hotel.
         shared_ptr<string> longitude_ {};
-        // The opening year.
+        // The year the hotel opened.
         shared_ptr<int32_t> openingTime_ {};
         // The list of pictures.
         shared_ptr<vector<Hotels::Pictures>> pictures_ {};
         // The hotel policy information.
         shared_ptr<vector<Hotels::Policies>> policies_ {};
-        // The source of the coordinates.
+        // The source of the latitude and longitude coordinates.
         shared_ptr<string> positionType_ {};
-        // The renovation year.
+        // The year the hotel was last renovated.
         shared_ptr<int32_t> renovationTime_ {};
         // The list of room types.
         shared_ptr<vector<Hotels::RoomTypes>> roomTypes_ {};
         // The platform standard hotel ID.
         shared_ptr<string> standardHotelId_ {};
-        // The star rating.
+        // The star rating of the hotel.
         shared_ptr<string> star_ {};
         // The hotel status (ONLINE/OFFLINE).
         shared_ptr<string> status_ {};
-        // The phone number.
+        // The phone number of the hotel.
         shared_ptr<string> tel_ {};
-        // The hotel time zone (IANA ID).
+        // The time zone of the hotel in IANA ID format.
         shared_ptr<string> timezone_ {};
       };
 
@@ -1030,7 +1180,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The unique request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
