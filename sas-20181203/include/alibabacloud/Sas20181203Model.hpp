@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_SAS20181203MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/QueryIncidentTracingSubNodesCountRequest.hpp>
+#include <alibabacloud/models/DataValue.hpp>
 #include <alibabacloud/models/AddAssetSelectionCriteriaRequest.hpp>
 #include <alibabacloud/models/AddAssetSelectionCriteriaResponseBody.hpp>
 #include <alibabacloud/models/AddAssetSelectionCriteriaResponse.hpp>
@@ -1279,6 +1280,9 @@
 #include <alibabacloud/models/DescribeUserSettingRequest.hpp>
 #include <alibabacloud/models/DescribeUserSettingResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserSettingResponse.hpp>
+#include <alibabacloud/models/DescribeUuidVulNumClassifyStatisticRequest.hpp>
+#include <alibabacloud/models/DescribeUuidVulNumClassifyStatisticResponseBody.hpp>
+#include <alibabacloud/models/DescribeUuidVulNumClassifyStatisticResponse.hpp>
 #include <alibabacloud/models/DescribeUuidsByVulNamesRequest.hpp>
 #include <alibabacloud/models/DescribeUuidsByVulNamesResponseBody.hpp>
 #include <alibabacloud/models/DescribeUuidsByVulNamesResponse.hpp>

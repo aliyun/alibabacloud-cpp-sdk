@@ -92,6 +92,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AiDetect, aiDetect_);
         DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
         DARABONBA_PTR_TO_JSON(Details, details_);
         DARABONBA_PTR_TO_JSON(DisplaySandboxResult, displaySandboxResult_);
@@ -114,6 +115,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiDetect, aiDetect_);
         DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
         DARABONBA_PTR_FROM_JSON(Details, details_);
         DARABONBA_PTR_FROM_JSON(DisplaySandboxResult, displaySandboxResult_);
@@ -223,11 +225,18 @@ namespace Models
         shared_ptr<string> valueDisplay_ {};
       };
 
-      virtual bool empty() const override { return this->bucketName_ == nullptr
-        && this->details_ == nullptr && this->displaySandboxResult_ == nullptr && this->errorMsg_ == nullptr && this->eventId_ == nullptr && this->eventName_ == nullptr
-        && this->filePath_ == nullptr && this->firstTime_ == nullptr && this->hasSubEvent_ == nullptr && this->lastTime_ == nullptr && this->matchedWhiteListRuleI18nStr_ == nullptr
-        && this->md5_ == nullptr && this->operateResult_ == nullptr && this->ossKey_ == nullptr && this->remark_ == nullptr && this->riskLevel_ == nullptr
-        && this->sha1_ == nullptr && this->sha256_ == nullptr && this->source_ == nullptr && this->status_ == nullptr; };
+      virtual bool empty() const override { return this->aiDetect_ == nullptr
+        && this->bucketName_ == nullptr && this->details_ == nullptr && this->displaySandboxResult_ == nullptr && this->errorMsg_ == nullptr && this->eventId_ == nullptr
+        && this->eventName_ == nullptr && this->filePath_ == nullptr && this->firstTime_ == nullptr && this->hasSubEvent_ == nullptr && this->lastTime_ == nullptr
+        && this->matchedWhiteListRuleI18nStr_ == nullptr && this->md5_ == nullptr && this->operateResult_ == nullptr && this->ossKey_ == nullptr && this->remark_ == nullptr
+        && this->riskLevel_ == nullptr && this->sha1_ == nullptr && this->sha256_ == nullptr && this->source_ == nullptr && this->status_ == nullptr; };
+      // aiDetect Field Functions 
+      bool hasAiDetect() const { return this->aiDetect_ != nullptr;};
+      void deleteAiDetect() { this->aiDetect_ = nullptr;};
+      inline bool getAiDetect() const { DARABONBA_PTR_GET_DEFAULT(aiDetect_, false) };
+      inline Data& setAiDetect(bool aiDetect) { DARABONBA_PTR_SET_VALUE(aiDetect_, aiDetect) };
+
+
       // bucketName Field Functions 
       bool hasBucketName() const { return this->bucketName_ != nullptr;};
       void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -371,6 +380,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> aiDetect_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
       // The detailed information of the check item.

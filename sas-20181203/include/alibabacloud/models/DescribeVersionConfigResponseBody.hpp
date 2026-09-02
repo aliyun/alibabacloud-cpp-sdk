@@ -64,6 +64,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SasEdrVersion, sasEdrVersion_);
       DARABONBA_PTR_TO_JSON(SasLog, sasLog_);
       DARABONBA_PTR_TO_JSON(SasScreen, sasScreen_);
+      DARABONBA_PTR_TO_JSON(SdkAiPostPaidGray, sdkAiPostPaidGray_);
       DARABONBA_PTR_TO_JSON(SdkCapacity, sdkCapacity_);
       DARABONBA_PTR_TO_JSON(SlsCapacity, slsCapacity_);
       DARABONBA_PTR_TO_JSON(ThreatAnalysisCapacity, threatAnalysisCapacity_);
@@ -128,6 +129,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SasEdrVersion, sasEdrVersion_);
       DARABONBA_PTR_FROM_JSON(SasLog, sasLog_);
       DARABONBA_PTR_FROM_JSON(SasScreen, sasScreen_);
+      DARABONBA_PTR_FROM_JSON(SdkAiPostPaidGray, sdkAiPostPaidGray_);
       DARABONBA_PTR_FROM_JSON(SdkCapacity, sdkCapacity_);
       DARABONBA_PTR_FROM_JSON(SlsCapacity, slsCapacity_);
       DARABONBA_PTR_FROM_JSON(ThreatAnalysisCapacity, threatAnalysisCapacity_);
@@ -194,10 +196,10 @@ namespace Models
         && this->newPostPaidCspm_ == nullptr && this->newThreatAnalysis_ == nullptr && this->onboardedAssets_ == nullptr && this->openTime_ == nullptr && this->postPayHostVersion_ == nullptr
         && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayOpenTime_ == nullptr && this->postPayStatus_ == nullptr && this->raspCapacity_ == nullptr
         && this->releaseTime_ == nullptr && this->requestId_ == nullptr && this->sasEdrClientAuthCount_ == nullptr && this->sasEdrPostPaidInstanceId_ == nullptr && this->sasEdrPrePaidInstanceId_ == nullptr
-        && this->sasEdrPrePaidInstanceStatus_ == nullptr && this->sasEdrVersion_ == nullptr && this->sasLog_ == nullptr && this->sasScreen_ == nullptr && this->sdkCapacity_ == nullptr
-        && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->trialModuleList_ == nullptr && this->trialVersion_ == nullptr
-        && this->userDefinedAlarms_ == nullptr && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr && this->webLock_ == nullptr
-        && this->webLockAuthCount_ == nullptr; };
+        && this->sasEdrPrePaidInstanceStatus_ == nullptr && this->sasEdrVersion_ == nullptr && this->sasLog_ == nullptr && this->sasScreen_ == nullptr && this->sdkAiPostPaidGray_ == nullptr
+        && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->trialModuleList_ == nullptr
+        && this->trialVersion_ == nullptr && this->userDefinedAlarms_ == nullptr && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr
+        && this->webLock_ == nullptr && this->webLockAuthCount_ == nullptr; };
     // agentlessCapacity Field Functions 
     bool hasAgentlessCapacity() const { return this->agentlessCapacity_ != nullptr;};
     void deleteAgentlessCapacity() { this->agentlessCapacity_ = nullptr;};
@@ -548,6 +550,13 @@ namespace Models
     inline DescribeVersionConfigResponseBody& setSasScreen(int32_t sasScreen) { DARABONBA_PTR_SET_VALUE(sasScreen_, sasScreen) };
 
 
+    // sdkAiPostPaidGray Field Functions 
+    bool hasSdkAiPostPaidGray() const { return this->sdkAiPostPaidGray_ != nullptr;};
+    void deleteSdkAiPostPaidGray() { this->sdkAiPostPaidGray_ = nullptr;};
+    inline int32_t getSdkAiPostPaidGray() const { DARABONBA_PTR_GET_DEFAULT(sdkAiPostPaidGray_, 0) };
+    inline DescribeVersionConfigResponseBody& setSdkAiPostPaidGray(int32_t sdkAiPostPaidGray) { DARABONBA_PTR_SET_VALUE(sdkAiPostPaidGray_, sdkAiPostPaidGray) };
+
+
     // sdkCapacity Field Functions 
     bool hasSdkCapacity() const { return this->sdkCapacity_ != nullptr;};
     void deleteSdkCapacity() { this->sdkCapacity_ = nullptr;};
@@ -800,6 +809,7 @@ namespace Models
     // - **0**: Not purchased.
     // - **1**: Purchased.
     shared_ptr<int32_t> sasScreen_ {};
+    shared_ptr<int32_t> sdkAiPostPaidGray_ {};
     // The number of malicious file detection SDK authorizations.
     shared_ptr<int64_t> sdkCapacity_ {};
     // The purchased log storage capacity. Unit: GB. Valid values: 0 to 200000.

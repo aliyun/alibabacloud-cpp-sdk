@@ -23963,6 +23963,52 @@ DescribeUserSettingResponse Client::describeUserSetting(const DescribeUserSettin
 }
 
 /**
+ * @summary 查询 UUID 维度的漏洞数量统计
+ *
+ * @param request DescribeUuidVulNumClassifyStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUuidVulNumClassifyStatisticResponse
+ */
+DescribeUuidVulNumClassifyStatisticResponse Client::describeUuidVulNumClassifyStatisticWithOptions(const DescribeUuidVulNumClassifyStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageVul()) {
+    query["ImageVul"] = request.getImageVul();
+  }
+
+  if (!!request.hasUuids()) {
+    query["Uuids"] = request.getUuids();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUuidVulNumClassifyStatistic"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUuidVulNumClassifyStatisticResponse>();
+}
+
+/**
+ * @summary 查询 UUID 维度的漏洞数量统计
+ *
+ * @param request DescribeUuidVulNumClassifyStatisticRequest
+ * @return DescribeUuidVulNumClassifyStatisticResponse
+ */
+DescribeUuidVulNumClassifyStatisticResponse Client::describeUuidVulNumClassifyStatistic(const DescribeUuidVulNumClassifyStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUuidVulNumClassifyStatisticWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
  *
  * @param request DescribeUuidsByVulNamesRequest
@@ -38717,6 +38763,10 @@ ListMultiUserInstancesResponse Client::listMultiUserInstances(const ListMultiUse
 ListObjectScanEventResponse Client::listObjectScanEventWithOptions(const ListObjectScanEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAiDetect()) {
+    query["AiDetect"] = request.getAiDetect();
+  }
+
   if (!!request.hasBatchType()) {
     query["BatchType"] = request.getBatchType();
   }

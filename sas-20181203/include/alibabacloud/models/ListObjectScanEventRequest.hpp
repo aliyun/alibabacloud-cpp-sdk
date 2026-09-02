@@ -13,6 +13,7 @@ namespace Models
   class ListObjectScanEventRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListObjectScanEventRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AiDetect, aiDetect_);
       DARABONBA_PTR_TO_JSON(BatchType, batchType_);
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TimeStart, timeStart_);
     };
     friend void from_json(const Darabonba::Json& j, ListObjectScanEventRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AiDetect, aiDetect_);
       DARABONBA_PTR_FROM_JSON(BatchType, batchType_);
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
@@ -57,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->batchType_ == nullptr
-        && this->bucketName_ == nullptr && this->currentPage_ == nullptr && this->eventId_ == nullptr && this->eventName_ == nullptr && this->lang_ == nullptr
-        && this->md5_ == nullptr && this->ossKey_ == nullptr && this->pageSize_ == nullptr && this->parentEventId_ == nullptr && this->riskLevel_ == nullptr
-        && this->source_ == nullptr && this->status_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
+    virtual bool empty() const override { return this->aiDetect_ == nullptr
+        && this->batchType_ == nullptr && this->bucketName_ == nullptr && this->currentPage_ == nullptr && this->eventId_ == nullptr && this->eventName_ == nullptr
+        && this->lang_ == nullptr && this->md5_ == nullptr && this->ossKey_ == nullptr && this->pageSize_ == nullptr && this->parentEventId_ == nullptr
+        && this->riskLevel_ == nullptr && this->source_ == nullptr && this->status_ == nullptr && this->timeEnd_ == nullptr && this->timeStart_ == nullptr; };
+    // aiDetect Field Functions 
+    bool hasAiDetect() const { return this->aiDetect_ != nullptr;};
+    void deleteAiDetect() { this->aiDetect_ = nullptr;};
+    inline bool getAiDetect() const { DARABONBA_PTR_GET_DEFAULT(aiDetect_, false) };
+    inline ListObjectScanEventRequest& setAiDetect(bool aiDetect) { DARABONBA_PTR_SET_VALUE(aiDetect_, aiDetect) };
+
+
     // batchType Field Functions 
     bool hasBatchType() const { return this->batchType_ != nullptr;};
     void deleteBatchType() { this->batchType_ = nullptr;};
@@ -167,6 +176,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> aiDetect_ {};
     // The batch operation type. Valid values:
     // 
     // - **sha256**: same file content

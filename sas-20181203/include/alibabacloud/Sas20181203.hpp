@@ -7557,6 +7557,23 @@ namespace Sas20181203
       Models::DescribeUserSettingResponse describeUserSetting(const Models::DescribeUserSettingRequest &request);
 
       /**
+       * @summary 查询 UUID 维度的漏洞数量统计
+       *
+       * @param request DescribeUuidVulNumClassifyStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUuidVulNumClassifyStatisticResponse
+       */
+      Models::DescribeUuidVulNumClassifyStatisticResponse describeUuidVulNumClassifyStatisticWithOptions(const Models::DescribeUuidVulNumClassifyStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 UUID 维度的漏洞数量统计
+       *
+       * @param request DescribeUuidVulNumClassifyStatisticRequest
+       * @return DescribeUuidVulNumClassifyStatisticResponse
+       */
+      Models::DescribeUuidVulNumClassifyStatisticResponse describeUuidVulNumClassifyStatistic(const Models::DescribeUuidVulNumClassifyStatisticRequest &request);
+
+      /**
        * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
        *
        * @param request DescribeUuidsByVulNamesRequest
