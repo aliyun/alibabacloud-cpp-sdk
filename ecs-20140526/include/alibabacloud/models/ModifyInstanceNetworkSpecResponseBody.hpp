@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The order ID. This parameter is returned only when the bandwidth configuration of a subscription (PrePaid) instance is modified.
+    // The order ID. This parameter is returned only when you modify the bandwidth configuration of a subscription (PrePaid) instance.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

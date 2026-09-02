@@ -521,9 +521,11 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const HostDetailInfo& obj) { 
             DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
+            DARABONBA_PTR_TO_JSON(VgpuVersion, vgpuVersion_);
           };
           friend void from_json(const Darabonba::Json& j, HostDetailInfo& obj) { 
             DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
+            DARABONBA_PTR_FROM_JSON(VgpuVersion, vgpuVersion_);
           };
           HostDetailInfo() = default ;
           HostDetailInfo(const HostDetailInfo &) = default ;
@@ -536,7 +538,8 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->serialNumber_ == nullptr; };
+          virtual bool empty() const override { return this->serialNumber_ == nullptr
+        && this->vgpuVersion_ == nullptr; };
           // serialNumber Field Functions 
           bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
           void deleteSerialNumber() { this->serialNumber_ = nullptr;};
@@ -544,8 +547,16 @@ namespace Models
           inline HostDetailInfo& setSerialNumber(string serialNumber) { DARABONBA_PTR_SET_VALUE(serialNumber_, serialNumber) };
 
 
+          // vgpuVersion Field Functions 
+          bool hasVgpuVersion() const { return this->vgpuVersion_ != nullptr;};
+          void deleteVgpuVersion() { this->vgpuVersion_ = nullptr;};
+          inline string getVgpuVersion() const { DARABONBA_PTR_GET_DEFAULT(vgpuVersion_, "") };
+          inline HostDetailInfo& setVgpuVersion(string vgpuVersion) { DARABONBA_PTR_SET_VALUE(vgpuVersion_, vgpuVersion) };
+
+
         protected:
           shared_ptr<string> serialNumber_ {};
+          shared_ptr<string> vgpuVersion_ {};
         };
 
         class Capacity : public Darabonba::Model {
@@ -1253,7 +1264,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
-    // The paging token returned in this call. When you use MaxResults and NextToken for paging query, an empty value indicates that no more data is available.
+    // The query token returned by this call. If this value is empty when you use MaxResults and NextToken for paging, no more data is returned.
     shared_ptr<string> nextToken_ {};
     // The page number of the dedicated host list.
     shared_ptr<int32_t> pageNumber_ {};

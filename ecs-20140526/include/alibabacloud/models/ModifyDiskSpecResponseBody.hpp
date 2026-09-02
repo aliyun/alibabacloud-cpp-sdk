@@ -63,9 +63,9 @@ namespace Models
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID for the disk type change.
+    // The task ID for the disk specification change.
     // 
-    // > This parameter is not returned if you only modified the performance level (PL) of an ESSD.
+    // > This parameter is not returned if you only modify the performance level (PL) of an ESSD.
     shared_ptr<string> taskId_ {};
   };
 
