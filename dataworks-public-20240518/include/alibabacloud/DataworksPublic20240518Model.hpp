@@ -461,6 +461,9 @@
 #include <alibabacloud/models/GetApplicationContentsRequest.hpp>
 #include <alibabacloud/models/GetApplicationContentsResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationContentsResponse.hpp>
+#include <alibabacloud/models/GetBatchChangeTableOwnerStatusRequest.hpp>
+#include <alibabacloud/models/GetBatchChangeTableOwnerStatusResponseBody.hpp>
+#include <alibabacloud/models/GetBatchChangeTableOwnerStatusResponse.hpp>
 #include <alibabacloud/models/GetBusinessRequest.hpp>
 #include <alibabacloud/models/GetBusinessResponseBody.hpp>
 #include <alibabacloud/models/GetBusinessResponse.hpp>
@@ -1100,6 +1103,10 @@
 #include <alibabacloud/models/StopWorkflowInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/StopWorkflowInstancesResponseBody.hpp>
 #include <alibabacloud/models/StopWorkflowInstancesResponse.hpp>
+#include <alibabacloud/models/SubmitBatchChangeTableOwnerRequest.hpp>
+#include <alibabacloud/models/SubmitBatchChangeTableOwnerShrinkRequest.hpp>
+#include <alibabacloud/models/SubmitBatchChangeTableOwnerResponseBody.hpp>
+#include <alibabacloud/models/SubmitBatchChangeTableOwnerResponse.hpp>
 #include <alibabacloud/models/SubmitFileRequest.hpp>
 #include <alibabacloud/models/SubmitFileResponseBody.hpp>
 #include <alibabacloud/models/SubmitFileResponse.hpp>

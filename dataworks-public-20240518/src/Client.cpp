@@ -8405,6 +8405,48 @@ GetApplicationContentsResponse Client::getApplicationContents(const GetApplicati
 }
 
 /**
+ * @summary 查询批量转交表Owner状态
+ *
+ * @param request GetBatchChangeTableOwnerStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBatchChangeTableOwnerStatusResponse
+ */
+GetBatchChangeTableOwnerStatusResponse Client::getBatchChangeTableOwnerStatusWithOptions(const GetBatchChangeTableOwnerStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBatchId()) {
+    query["BatchId"] = request.getBatchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBatchChangeTableOwnerStatus"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBatchChangeTableOwnerStatusResponse>();
+}
+
+/**
+ * @summary 查询批量转交表Owner状态
+ *
+ * @param request GetBatchChangeTableOwnerStatusRequest
+ * @return GetBatchChangeTableOwnerStatusResponse
+ */
+GetBatchChangeTableOwnerStatusResponse Client::getBatchChangeTableOwnerStatus(const GetBatchChangeTableOwnerStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBatchChangeTableOwnerStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a business process by calling GetBusiness.
  *
  * @param request GetBusinessRequest
@@ -19624,6 +19666,62 @@ StopWorkflowInstancesResponse Client::stopWorkflowInstancesWithOptions(const Sto
 StopWorkflowInstancesResponse Client::stopWorkflowInstances(const StopWorkflowInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopWorkflowInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交批量转交表Owner
+ *
+ * @param tmpReq SubmitBatchChangeTableOwnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitBatchChangeTableOwnerResponse
+ */
+SubmitBatchChangeTableOwnerResponse Client::submitBatchChangeTableOwnerWithOptions(const SubmitBatchChangeTableOwnerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitBatchChangeTableOwnerShrinkRequest request = SubmitBatchChangeTableOwnerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTableMetaEntityIds()) {
+    request.setTableMetaEntityIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableMetaEntityIds(), "TableMetaEntityIds", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasEnableCrossTenant()) {
+    body["EnableCrossTenant"] = request.getEnableCrossTenant();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasTableMetaEntityIdsShrink()) {
+    body["TableMetaEntityIds"] = request.getTableMetaEntityIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitBatchChangeTableOwner"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitBatchChangeTableOwnerResponse>();
+}
+
+/**
+ * @summary 提交批量转交表Owner
+ *
+ * @param request SubmitBatchChangeTableOwnerRequest
+ * @return SubmitBatchChangeTableOwnerResponse
+ */
+SubmitBatchChangeTableOwnerResponse Client::submitBatchChangeTableOwner(const SubmitBatchChangeTableOwnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitBatchChangeTableOwnerWithOptions(request, runtime);
 }
 
 /**

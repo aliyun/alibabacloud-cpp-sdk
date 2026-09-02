@@ -2987,6 +2987,23 @@ namespace DataworksPublic20240518
       Models::GetApplicationContentsResponse getApplicationContents(const Models::GetApplicationContentsRequest &request);
 
       /**
+       * @summary 查询批量转交表Owner状态
+       *
+       * @param request GetBatchChangeTableOwnerStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBatchChangeTableOwnerStatusResponse
+       */
+      Models::GetBatchChangeTableOwnerStatusResponse getBatchChangeTableOwnerStatusWithOptions(const Models::GetBatchChangeTableOwnerStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量转交表Owner状态
+       *
+       * @param request GetBatchChangeTableOwnerStatusRequest
+       * @return GetBatchChangeTableOwnerStatusResponse
+       */
+      Models::GetBatchChangeTableOwnerStatusResponse getBatchChangeTableOwnerStatus(const Models::GetBatchChangeTableOwnerStatusRequest &request);
+
+      /**
        * @summary Queries the details of a business process by calling GetBusiness.
        *
        * @param request GetBusinessRequest
@@ -7466,6 +7483,23 @@ namespace DataworksPublic20240518
        * @return StopWorkflowInstancesResponse
        */
       Models::StopWorkflowInstancesResponse stopWorkflowInstances(const Models::StopWorkflowInstancesRequest &request);
+
+      /**
+       * @summary 提交批量转交表Owner
+       *
+       * @param tmpReq SubmitBatchChangeTableOwnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitBatchChangeTableOwnerResponse
+       */
+      Models::SubmitBatchChangeTableOwnerResponse submitBatchChangeTableOwnerWithOptions(const Models::SubmitBatchChangeTableOwnerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交批量转交表Owner
+       *
+       * @param request SubmitBatchChangeTableOwnerRequest
+       * @return SubmitBatchChangeTableOwnerResponse
+       */
+      Models::SubmitBatchChangeTableOwnerResponse submitBatchChangeTableOwner(const Models::SubmitBatchChangeTableOwnerRequest &request);
 
       /**
        * @summary Commits a file to the development environment of the scheduling system to generate a task.
