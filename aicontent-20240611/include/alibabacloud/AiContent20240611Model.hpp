@@ -434,6 +434,9 @@
 #include <alibabacloud/models/ModelRouterTransferToMemberRequest.hpp>
 #include <alibabacloud/models/ModelRouterTransferToMemberResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterTransferToMemberResponse.hpp>
+#include <alibabacloud/models/ModelRouterUpdateApiKeyStatusRequest.hpp>
+#include <alibabacloud/models/ModelRouterUpdateApiKeyStatusResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterUpdateApiKeyStatusResponse.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleRequest.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponse.hpp>

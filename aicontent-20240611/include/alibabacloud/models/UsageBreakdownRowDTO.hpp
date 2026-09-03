@@ -144,25 +144,29 @@ namespace Models
 
 
   protected:
+    // The API key ID. A value of 0 indicates that historical data is not broken down by API key.
     shared_ptr<int64_t> apiKeyId_ {};
+    // The API key name, corresponding to api_key_id.
     shared_ptr<string> apiKeyName_ {};
-    // Department ID; 0 indicates no associated department
+    // The department ID. A value of 0 indicates no affiliated department.
     shared_ptr<int64_t> clientId_ {};
-    // Department name
+    // The department name.
     shared_ptr<string> clientName_ {};
+    // The member ID for a member row. The value is 0 for a department row.
     shared_ptr<int64_t> memberUserId_ {};
+    // The member name for a member row. The value is empty for a department row.
     shared_ptr<string> memberUserName_ {};
-    // Array of usage metrics, containing only entries with non-zero values
+    // The usage metric array. Only entries with non-zero values are included.
     shared_ptr<vector<MetricKVPairDTO>> metrics_ {};
-    // Model identifier
+    // The model identifier.
     shared_ptr<string> modelCode_ {};
-    // Model ID
+    // The model ID.
     shared_ptr<int64_t> modelId_ {};
-    // Model name
+    // The model name.
     shared_ptr<string> modelName_ {};
-    // Statistics scope
+    // The statistical dimension.
     shared_ptr<string> modelType_ {};
-    // Statistics time point, Unix timestamp (seconds)
+    // The statistical time point, in UNIX timestamp (seconds).
     shared_ptr<int64_t> summaryTime_ {};
   };
 

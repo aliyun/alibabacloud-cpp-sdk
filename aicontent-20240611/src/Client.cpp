@@ -21,8 +21,6 @@ namespace AiContent20240611
 AlibabaCloud::AiContent20240611::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-beijing" , "aicontent.cn-beijing.aliyuncs.com"},
-    {"cn-hangzhou" , "aicontent.cn-hangzhou.aliyuncs.com"},
     {"cn-shanghai" , "aicontent.aliyuncs.com"},
     {"public" , "aicontent.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -7316,6 +7314,51 @@ ModelRouterTransferToMemberResponse Client::modelRouterTransferToMember(const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterTransferToMemberWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies the status of an API key.
+ *
+ * @param request ModelRouterUpdateApiKeyStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterUpdateApiKeyStatusResponse
+ */
+ModelRouterUpdateApiKeyStatusResponse Client::modelRouterUpdateApiKeyStatusWithOptions(const string &id, const ModelRouterUpdateApiKeyStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterUpdateApiKeyStatus"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/apikeys/" , Darabonba::Encode::Encoder::percentEncode(id) , "/status")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterUpdateApiKeyStatusResponse>();
+}
+
+/**
+ * @summary Modifies the status of an API key.
+ *
+ * @param request ModelRouterUpdateApiKeyStatusRequest
+ * @return ModelRouterUpdateApiKeyStatusResponse
+ */
+ModelRouterUpdateApiKeyStatusResponse Client::modelRouterUpdateApiKeyStatus(const string &id, const ModelRouterUpdateApiKeyStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterUpdateApiKeyStatusWithOptions(id, request, headers, runtime);
 }
 
 /**

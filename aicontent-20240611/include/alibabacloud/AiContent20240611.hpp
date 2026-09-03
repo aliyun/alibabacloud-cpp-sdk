@@ -2277,6 +2277,24 @@ namespace AiContent20240611
       Models::ModelRouterTransferToMemberResponse modelRouterTransferToMember(const string &clientId, const string &id, const Models::ModelRouterTransferToMemberRequest &request);
 
       /**
+       * @summary Modifies the status of an API key.
+       *
+       * @param request ModelRouterUpdateApiKeyStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterUpdateApiKeyStatusResponse
+       */
+      Models::ModelRouterUpdateApiKeyStatusResponse modelRouterUpdateApiKeyStatusWithOptions(const string &id, const Models::ModelRouterUpdateApiKeyStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the status of an API key.
+       *
+       * @param request ModelRouterUpdateApiKeyStatusRequest
+       * @return ModelRouterUpdateApiKeyStatusResponse
+       */
+      Models::ModelRouterUpdateApiKeyStatusResponse modelRouterUpdateApiKeyStatus(const string &id, const Models::ModelRouterUpdateApiKeyStatusRequest &request);
+
+      /**
        * @summary Billing management/Update billing rules
        *
        * @param request ModelRouterUpdateBillingRuleRequest
