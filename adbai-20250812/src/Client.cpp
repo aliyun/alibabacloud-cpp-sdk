@@ -19,17 +19,6 @@ namespace ADBAI20250812
 
 AlibabaCloud::ADBAI20250812::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-northeast-1" , "adbai.ap-northeast-1.aliyuncs.com"},
-    {"ap-southeast-1" , "adbai.ap-southeast-1.aliyuncs.com"},
-    {"cn-beijing" , "adbai.cn-beijing.aliyuncs.com"},
-    {"cn-hangzhou" , "adbai.cn-hangzhou.aliyuncs.com"},
-    {"cn-shanghai" , "adbai.cn-shanghai.aliyuncs.com"},
-    {"cn-shenzhen" , "adbai.cn-shenzhen.aliyuncs.com"},
-    {"cn-guangzhou" , "adbai.cn-guangzhou.aliyuncs.com"},
-    {"cn-wulanchabu" , "adbai.cn-wulanchabu.aliyuncs.com"},
-    {"us-west-1" , "adbai.us-west-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adbai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -199,12 +188,44 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 CreateMultiModelKnowledgeBaseResponse Client::createMultiModelKnowledgeBaseWithOptions(const CreateMultiModelKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdbInstanceName()) {
+    query["AdbInstanceName"] = request.getAdbInstanceName();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasDbClusterAcu()) {
+    query["DbClusterAcu"] = request.getDbClusterAcu();
+  }
+
+  if (!!request.hasLakeStorageBucketName()) {
+    query["LakeStorageBucketName"] = request.getLakeStorageBucketName();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceAcuMax()) {
+    query["ResourceAcuMax"] = request.getResourceAcuMax();
+  }
+
+  if (!!request.hasResourceAcuMin()) {
+    query["ResourceAcuMin"] = request.getResourceAcuMin();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -351,6 +372,10 @@ DeleteMultiModalKnowledgeBaseResponse Client::deleteMultiModalKnowledgeBaseWithO
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasMmkbName()) {
+    query["MmkbName"] = request.getMmkbName();
   }
 
   if (!!request.hasRegionId()) {

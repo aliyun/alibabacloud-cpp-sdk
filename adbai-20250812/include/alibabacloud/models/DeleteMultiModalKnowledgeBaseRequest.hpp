@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteMultiModalKnowledgeBaseRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(MmkbName, mmkbName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteMultiModalKnowledgeBaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(MmkbName, mmkbName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DeleteMultiModalKnowledgeBaseRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->mmkbName_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DeleteMultiModalKnowledgeBaseRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // mmkbName Field Functions 
+    bool hasMmkbName() const { return this->mmkbName_ != nullptr;};
+    void deleteMmkbName() { this->mmkbName_ = nullptr;};
+    inline string getMmkbName() const { DARABONBA_PTR_GET_DEFAULT(mmkbName_, "") };
+    inline DeleteMultiModalKnowledgeBaseRequest& setMmkbName(string mmkbName) { DARABONBA_PTR_SET_VALUE(mmkbName_, mmkbName) };
 
 
     // regionId Field Functions 
@@ -49,9 +58,8 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> mmkbName_ {};
     // The region ID.
     // 
     // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
