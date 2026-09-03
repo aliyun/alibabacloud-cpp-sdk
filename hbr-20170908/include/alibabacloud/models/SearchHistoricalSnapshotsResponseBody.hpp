@@ -613,13 +613,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the request was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The number of historical snapshots displayed on the current page.
     shared_ptr<int32_t> limit_ {};
-    // The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
+    // The returned message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
     shared_ptr<string> message_ {};
-    // The token that is required to obtain the next page of snapshots.
+    // The token required to retrieve the next page of snapshots.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -627,10 +627,9 @@ namespace Models
     // Indicates whether the request was successful.
     // 
     // - true: The request was successful.
-    // 
     // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of snapshots that meet the specified criteria.
+    // The total number of snapshots that meet the specified conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

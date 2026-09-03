@@ -944,6 +944,23 @@ namespace Hbr20170908
       Models::DescribeDataSourcesResponse describeDataSources(const Models::DescribeDataSourcesRequest &request);
 
       /**
+       * @summary Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+       *
+       * @param request DescribeFeatureTrialInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFeatureTrialInfoResponse
+       */
+      Models::DescribeFeatureTrialInfoResponse describeFeatureTrialInfoWithOptions(const Models::DescribeFeatureTrialInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+       *
+       * @param request DescribeFeatureTrialInfoRequest
+       * @return DescribeFeatureTrialInfoResponse
+       */
+      Models::DescribeFeatureTrialInfoResponse describeFeatureTrialInfo(const Models::DescribeFeatureTrialInfoRequest &request);
+
+      /**
        * @summary Queries for one or more SAP HANA backup plans that match specified criteria.
        *
        * @param request DescribeHanaBackupPlansRequest
@@ -1441,6 +1458,23 @@ namespace Hbr20170908
       Models::GetTempFileDownloadLinkResponse getTempFileDownloadLink(const Models::GetTempFileDownloadLinkRequest &request);
 
       /**
+       * @summary Queries the free trial information of a specified OSS bucket or NAS file system.
+       *
+       * @param request GetTrialInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTrialInfoResponse
+       */
+      Models::GetTrialInfoResponse getTrialInfoWithOptions(const Models::GetTrialInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the free trial information of a specified OSS bucket or NAS file system.
+       *
+       * @param request GetTrialInfoRequest
+       * @return GetTrialInfoResponse
+       */
+      Models::GetTrialInfoResponse getTrialInfo(const Models::GetTrialInfoRequest &request);
+
+      /**
        * @summary Installs backup clients on one or more ECS instances.
        *
        * @description - This operation creates a background asynchronous task. The task uses Cloud Assistant to install backup clients on ECS instances.
@@ -1483,6 +1517,23 @@ namespace Hbr20170908
       Models::ListProtectedResourcesResponse listProtectedResources(const Models::ListProtectedResourcesRequest &request);
 
       /**
+       * @summary Queries a list of backup points.
+       *
+       * @param request ListSnapshotsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSnapshotsResponse
+       */
+      Models::ListSnapshotsResponse listSnapshotsWithOptions(const Models::ListSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of backup points.
+       *
+       * @param request ListSnapshotsRequest
+       * @return ListSnapshotsResponse
+       */
+      Models::ListSnapshotsResponse listSnapshots(const Models::ListSnapshotsRequest &request);
+
+      /**
        * @summary Activates Cloud Backup.
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -1521,7 +1572,7 @@ namespace Hbr20170908
       Models::RemoveDataSourceResponse removeDataSource(const Models::RemoveDataSourceRequest &request);
 
       /**
-       * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
+       * @summary Retrieves one or more historical backup snapshots that meet the specified conditions.
        *
        * @param tmpReq SearchHistoricalSnapshotsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1530,7 +1581,7 @@ namespace Hbr20170908
       Models::SearchHistoricalSnapshotsResponse searchHistoricalSnapshotsWithOptions(const Models::SearchHistoricalSnapshotsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
+       * @summary Retrieves one or more historical backup snapshots that meet the specified conditions.
        *
        * @param request SearchHistoricalSnapshotsRequest
        * @return SearchHistoricalSnapshotsResponse

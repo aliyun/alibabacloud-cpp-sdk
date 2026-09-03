@@ -151,6 +151,9 @@
 #include <alibabacloud/models/DescribeDataSourcesRequest.hpp>
 #include <alibabacloud/models/DescribeDataSourcesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataSourcesResponse.hpp>
+#include <alibabacloud/models/DescribeFeatureTrialInfoRequest.hpp>
+#include <alibabacloud/models/DescribeFeatureTrialInfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeFeatureTrialInfoResponse.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansRequest.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansResponseBody.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansResponse.hpp>
@@ -234,6 +237,9 @@
 #include <alibabacloud/models/GetTempFileDownloadLinkRequest.hpp>
 #include <alibabacloud/models/GetTempFileDownloadLinkResponseBody.hpp>
 #include <alibabacloud/models/GetTempFileDownloadLinkResponse.hpp>
+#include <alibabacloud/models/GetTrialInfoRequest.hpp>
+#include <alibabacloud/models/GetTrialInfoResponseBody.hpp>
+#include <alibabacloud/models/GetTrialInfoResponse.hpp>
 #include <alibabacloud/models/InstallBackupClientsRequest.hpp>
 #include <alibabacloud/models/InstallBackupClientsShrinkRequest.hpp>
 #include <alibabacloud/models/InstallBackupClientsResponseBody.hpp>
@@ -241,6 +247,9 @@
 #include <alibabacloud/models/ListProtectedResourcesRequest.hpp>
 #include <alibabacloud/models/ListProtectedResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListProtectedResourcesResponse.hpp>
+#include <alibabacloud/models/ListSnapshotsRequest.hpp>
+#include <alibabacloud/models/ListSnapshotsResponseBody.hpp>
+#include <alibabacloud/models/ListSnapshotsResponse.hpp>
 #include <alibabacloud/models/OpenHbrServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenHbrServiceResponse.hpp>
 #include <alibabacloud/models/RemoveDataSourceRequest.hpp>

@@ -49,40 +49,7 @@ AlibabaCloud::Hbr20170908::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhangjiakou-na62-a01" , "hbr.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "hbr.aliyuncs.com"},
     {"eu-west-1-oxs" , "hbr.aliyuncs.com"},
-    {"rus-west-1-pop" , "hbr.aliyuncs.com"},
-    {"cn-wulanchabu" , "hbr.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "hbr.cn-beijing.aliyuncs.com"},
-    {"cn-qingdao" , "hbr.cn-qingdao.aliyuncs.com"},
-    {"cn-shanghai" , "hbr.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "hbr.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "hbr.cn-heyuan.aliyuncs.com"},
-    {"cn-zhangjiakou" , "hbr.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen" , "hbr.cn-shenzhen.aliyuncs.com"},
-    {"ap-northeast-2" , "hbr.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "hbr.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "hbr.cn-chengdu.aliyuncs.com"},
-    {"cn-guangzhou" , "hbr.cn-guangzhou.aliyuncs.com"},
-    {"ap-southeast-1" , "hbr.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "hbr.ap-southeast-3.aliyuncs.com"},
-    {"cn-huhehaote" , "hbr.cn-huhehaote.aliyuncs.com"},
-    {"ap-southeast-5" , "hbr.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-6" , "hbr.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-7" , "hbr.ap-southeast-7.aliyuncs.com"},
-    {"cn-hangzhou" , "hbr.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-8" , "hbr.ap-southeast-8.aliyuncs.com"},
-    {"cn-zhongwei" , "hbr.cn-zhongwei.aliyuncs.com"},
-    {"us-southeast-1" , "hbr.us-southeast-1.aliyuncs.com"},
-    {"na-south-1" , "hbr.na-south-1.aliyuncs.com"},
-    {"eu-central-1" , "hbr.eu-central-1.aliyuncs.com"},
-    {"us-west-1" , "hbr.us-west-1.aliyuncs.com"},
-    {"eu-west-1" , "hbr.eu-west-1.aliyuncs.com"},
-    {"us-east-1" , "hbr.us-east-1.aliyuncs.com"},
-    {"me-central-1" , "hbr.me-central-1.aliyuncs.com"},
-    {"me-east-1" , "hbr.me-east-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "hbr.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "hbr.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "hbr.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "hbr.cn-hangzhou-finance.aliyuncs.com"}
+    {"rus-west-1-pop" , "hbr.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("hbr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -3230,6 +3197,48 @@ DescribeDataSourcesResponse Client::describeDataSources(const DescribeDataSource
 }
 
 /**
+ * @summary Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+ *
+ * @param request DescribeFeatureTrialInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFeatureTrialInfoResponse
+ */
+DescribeFeatureTrialInfoResponse Client::describeFeatureTrialInfoWithOptions(const DescribeFeatureTrialInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFeatureType()) {
+    query["FeatureType"] = request.getFeatureType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeFeatureTrialInfo"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFeatureTrialInfoResponse>();
+}
+
+/**
+ * @summary Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+ *
+ * @param request DescribeFeatureTrialInfoRequest
+ * @return DescribeFeatureTrialInfoResponse
+ */
+DescribeFeatureTrialInfoResponse Client::describeFeatureTrialInfo(const DescribeFeatureTrialInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFeatureTrialInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries for one or more SAP HANA backup plans that match specified criteria.
  *
  * @param request DescribeHanaBackupPlansRequest
@@ -4876,6 +4885,60 @@ GetTempFileDownloadLinkResponse Client::getTempFileDownloadLink(const GetTempFil
 }
 
 /**
+ * @summary Queries the free trial information of a specified OSS bucket or NAS file system.
+ *
+ * @param request GetTrialInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTrialInfoResponse
+ */
+GetTrialInfoResponse Client::getTrialInfoWithOptions(const GetTrialInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucket()) {
+    query["Bucket"] = request.getBucket();
+  }
+
+  if (!!request.hasCreateTime()) {
+    query["CreateTime"] = request.getCreateTime();
+  }
+
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTrialInfo"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTrialInfoResponse>();
+}
+
+/**
+ * @summary Queries the free trial information of a specified OSS bucket or NAS file system.
+ *
+ * @param request GetTrialInfoRequest
+ * @return GetTrialInfoResponse
+ */
+GetTrialInfoResponse Client::getTrialInfo(const GetTrialInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTrialInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Installs backup clients on one or more ECS instances.
  *
  * @description - This operation creates a background asynchronous task. The task uses Cloud Assistant to install backup clients on ECS instances.
@@ -5010,6 +5073,80 @@ ListProtectedResourcesResponse Client::listProtectedResources(const ListProtecte
 }
 
 /**
+ * @summary Queries a list of backup points.
+ *
+ * @param request ListSnapshotsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSnapshotsResponse
+ */
+ListSnapshotsResponse Client::listSnapshotsWithOptions(const ListSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompleteTimeEnd()) {
+    query["CompleteTimeEnd"] = request.getCompleteTimeEnd();
+  }
+
+  if (!!request.hasCompleteTimeStart()) {
+    query["CompleteTimeStart"] = request.getCompleteTimeStart();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPlanId()) {
+    query["PlanId"] = request.getPlanId();
+  }
+
+  if (!!request.hasProtectedResourceId()) {
+    query["ProtectedResourceId"] = request.getProtectedResourceId();
+  }
+
+  if (!!request.hasSkip()) {
+    query["Skip"] = request.getSkip();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasVaultId()) {
+    query["VaultId"] = request.getVaultId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSnapshots"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSnapshotsResponse>();
+}
+
+/**
+ * @summary Queries a list of backup points.
+ *
+ * @param request ListSnapshotsRequest
+ * @return ListSnapshotsResponse
+ */
+ListSnapshotsResponse Client::listSnapshots(const ListSnapshotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSnapshotsWithOptions(request, runtime);
+}
+
+/**
  * @summary Activates Cloud Backup.
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -5090,7 +5227,7 @@ RemoveDataSourceResponse Client::removeDataSource(const RemoveDataSourceRequest 
 }
 
 /**
- * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
+ * @summary Retrieves one or more historical backup snapshots that meet the specified conditions.
  *
  * @param tmpReq SearchHistoricalSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5151,7 +5288,7 @@ SearchHistoricalSnapshotsResponse Client::searchHistoricalSnapshotsWithOptions(c
 }
 
 /**
- * @summary Retrieves one or more historical backup snapshots that meet the specified criteria.
+ * @summary Retrieves one or more historical backup snapshots that meet the specified conditions.
  *
  * @param request SearchHistoricalSnapshotsRequest
  * @return SearchHistoricalSnapshotsResponse
