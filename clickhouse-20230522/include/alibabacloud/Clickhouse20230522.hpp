@@ -548,7 +548,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceDataSourcesResponse describeDBInstanceDataSources(const Models::DescribeDBInstanceDataSourcesRequest &request);
 
       /**
-       * @summary Queries the list of clusters.
+       * @summary Queries a list of clusters.
        *
        * @param request DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of clusters.
+       * @summary Queries a list of clusters.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse

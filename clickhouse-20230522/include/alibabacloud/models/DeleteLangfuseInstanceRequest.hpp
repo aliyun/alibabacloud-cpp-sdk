@@ -13,10 +13,12 @@ namespace Models
   class DeleteLangfuseInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteLangfuseInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfirmDeleteAiGateway, confirmDeleteAiGateway_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteLangfuseInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfirmDeleteAiGateway, confirmDeleteAiGateway_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->confirmDeleteAiGateway_ == nullptr
+        && this->DBInstanceId_ == nullptr && this->regionId_ == nullptr; };
+    // confirmDeleteAiGateway Field Functions 
+    bool hasConfirmDeleteAiGateway() const { return this->confirmDeleteAiGateway_ != nullptr;};
+    void deleteConfirmDeleteAiGateway() { this->confirmDeleteAiGateway_ = nullptr;};
+    inline bool getConfirmDeleteAiGateway() const { DARABONBA_PTR_GET_DEFAULT(confirmDeleteAiGateway_, false) };
+    inline DeleteLangfuseInstanceRequest& setConfirmDeleteAiGateway(bool confirmDeleteAiGateway) { DARABONBA_PTR_SET_VALUE(confirmDeleteAiGateway_, confirmDeleteAiGateway) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -48,6 +57,8 @@ namespace Models
 
 
   protected:
+    // The confirmation flag for deleting the AiGateway instance associated with the Langfuse instance.
+    shared_ptr<bool> confirmDeleteAiGateway_ {};
     // The Langfuse instance ID.
     // 
     // This parameter is required.

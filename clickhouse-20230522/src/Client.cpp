@@ -63,22 +63,7 @@ AlibabaCloud::Clickhouse20230522::Client::Client(Config &config): OpenApiClient(
     {"rus-west-1-pop" , "clickhouse.aliyuncs.com"},
     {"us-east-1" , "clickhouse.aliyuncs.com"},
     {"us-west-1" , "clickhouse.aliyuncs.com"},
-    {"us-southeast-1" , "clickhouse.us-southeast-1.aliyuncs.com"},
-    {"na-south-1" , "clickhouse.na-south-1.aliyuncs.com"},
-    {"me-central-1" , "clickhouse.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "clickhouse.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "clickhouse.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "clickhouse.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "clickhouse.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "clickhouse.cn-wulanchabu.aliyuncs.com"},
-    {"cn-huhehaote" , "clickhouse.cn-huhehaote.aliyuncs.com"},
-    {"cn-guangzhou" , "clickhouse.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "clickhouse.cn-chengdu.aliyuncs.com"},
-    {"ap-southeast-8" , "clickhouse.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-6" , "clickhouse.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "clickhouse.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "clickhouse.aliyuncs.com"},
-    {"ap-northeast-1" , "clickhouse.ap-northeast-1.aliyuncs.com"}
+    {"ap-southeast-3" , "clickhouse.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("clickhouse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1131,6 +1116,10 @@ DeleteEndpointResponse Client::deleteEndpoint(const DeleteEndpointRequest &reque
 DeleteLangfuseInstanceResponse Client::deleteLangfuseInstanceWithOptions(const DeleteLangfuseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfirmDeleteAiGateway()) {
+    query["ConfirmDeleteAiGateway"] = request.getConfirmDeleteAiGateway();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.getDBInstanceId();
   }
@@ -1822,7 +1811,7 @@ DescribeDBInstanceDataSourcesResponse Client::describeDBInstanceDataSources(cons
 }
 
 /**
- * @summary Queries the list of clusters.
+ * @summary Queries a list of clusters.
  *
  * @param request DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1885,7 +1874,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries the list of clusters.
+ * @summary Queries a list of clusters.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
