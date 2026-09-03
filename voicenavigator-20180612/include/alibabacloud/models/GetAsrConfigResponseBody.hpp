@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AsrClassVocabularyId, asrClassVocabularyId_);
         DARABONBA_PTR_TO_JSON(AsrCustomizationId, asrCustomizationId_);
         DARABONBA_PTR_TO_JSON(AsrOverrides, asrOverrides_);
+        DARABONBA_PTR_TO_JSON(AsrOverridesUuid, asrOverridesUuid_);
         DARABONBA_PTR_TO_JSON(AsrVocabularyId, asrVocabularyId_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(EngineXufei, engineXufei_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AsrClassVocabularyId, asrClassVocabularyId_);
         DARABONBA_PTR_FROM_JSON(AsrCustomizationId, asrCustomizationId_);
         DARABONBA_PTR_FROM_JSON(AsrOverrides, asrOverrides_);
+        DARABONBA_PTR_FROM_JSON(AsrOverridesUuid, asrOverridesUuid_);
         DARABONBA_PTR_FROM_JSON(AsrVocabularyId, asrVocabularyId_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(EngineXufei, engineXufei_);
@@ -75,8 +77,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appKey_ == nullptr
-        && this->asrAcousticModelId_ == nullptr && this->asrClassVocabularyId_ == nullptr && this->asrCustomizationId_ == nullptr && this->asrOverrides_ == nullptr && this->asrVocabularyId_ == nullptr
-        && this->engine_ == nullptr && this->engineXufei_ == nullptr && this->nlsServiceType_ == nullptr; };
+        && this->asrAcousticModelId_ == nullptr && this->asrClassVocabularyId_ == nullptr && this->asrCustomizationId_ == nullptr && this->asrOverrides_ == nullptr && this->asrOverridesUuid_ == nullptr
+        && this->asrVocabularyId_ == nullptr && this->engine_ == nullptr && this->engineXufei_ == nullptr && this->nlsServiceType_ == nullptr; };
       // appKey Field Functions 
       bool hasAppKey() const { return this->appKey_ != nullptr;};
       void deleteAppKey() { this->appKey_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
       void deleteAsrOverrides() { this->asrOverrides_ = nullptr;};
       inline string getAsrOverrides() const { DARABONBA_PTR_GET_DEFAULT(asrOverrides_, "") };
       inline Data& setAsrOverrides(string asrOverrides) { DARABONBA_PTR_SET_VALUE(asrOverrides_, asrOverrides) };
+
+
+      // asrOverridesUuid Field Functions 
+      bool hasAsrOverridesUuid() const { return this->asrOverridesUuid_ != nullptr;};
+      void deleteAsrOverridesUuid() { this->asrOverridesUuid_ = nullptr;};
+      inline string getAsrOverridesUuid() const { DARABONBA_PTR_GET_DEFAULT(asrOverridesUuid_, "") };
+      inline Data& setAsrOverridesUuid(string asrOverridesUuid) { DARABONBA_PTR_SET_VALUE(asrOverridesUuid_, asrOverridesUuid) };
 
 
       // asrVocabularyId Field Functions 
@@ -150,6 +159,8 @@ namespace Models
       // The ASR dataset ID.
       shared_ptr<string> asrCustomizationId_ {};
       shared_ptr<string> asrOverrides_ {};
+      // The ASR correction dictionary ID.
+      shared_ptr<string> asrOverridesUuid_ {};
       // The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
       shared_ptr<string> asrVocabularyId_ {};
       // The speech engine.

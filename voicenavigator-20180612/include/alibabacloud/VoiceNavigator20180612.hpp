@@ -38,7 +38,7 @@ namespace VoiceNavigator20180612
       Models::AssociateChatbotInstanceResponse associateChatbotInstance(const Models::AssociateChatbotInstanceRequest &request);
 
       /**
-       * @summary Previews a TTS voice.
+       * @summary Auditions a TTS voice.
        *
        * @param request AuditTTSVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace VoiceNavigator20180612
       Models::AuditTTSVoiceResponse auditTTSVoiceWithOptions(const Models::AuditTTSVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Previews a TTS voice.
+       * @summary Auditions a TTS voice.
        *
        * @param request AuditTTSVoiceRequest
        * @return AuditTTSVoiceResponse
@@ -55,7 +55,7 @@ namespace VoiceNavigator20180612
       Models::AuditTTSVoiceResponse auditTTSVoice(const Models::AuditTTSVoiceRequest &request);
 
       /**
-       * @summary Starts a conversation.
+       * @summary Starts a session.
        *
        * @param request BeginDialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace VoiceNavigator20180612
       Models::BeginDialogueResponse beginDialogueWithOptions(const Models::BeginDialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a conversation.
+       * @summary Starts a session.
        *
        * @param request BeginDialogueRequest
        * @return BeginDialogueResponse
@@ -140,7 +140,7 @@ namespace VoiceNavigator20180612
       Models::DebugBeginDialogueResponse debugBeginDialogue(const Models::DebugBeginDialogueRequest &request);
 
       /**
-       * @summary Debugs the number collection process.
+       * @summary Collects digits in the debug environment.
        *
        * @param request DebugCollectedNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace VoiceNavigator20180612
       Models::DebugCollectedNumberResponse debugCollectedNumberWithOptions(const Models::DebugCollectedNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Debugs the number collection process.
+       * @summary Collects digits in the debug environment.
        *
        * @param request DebugCollectedNumberRequest
        * @return DebugCollectedNumberResponse
@@ -208,7 +208,7 @@ namespace VoiceNavigator20180612
       Models::DescribeConversationResponse describeConversation(const Models::DescribeConversationRequest &request);
 
       /**
-       * @summary Queries the context of a specified conversation.
+       * @summary Queries the context data of a session.
        *
        * @param request DescribeConversationContextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace VoiceNavigator20180612
       Models::DescribeConversationContextResponse describeConversationContextWithOptions(const Models::DescribeConversationContextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the context of a specified conversation.
+       * @summary Queries the context data of a session.
        *
        * @param request DescribeConversationContextRequest
        * @return DescribeConversationContextResponse
@@ -684,7 +684,7 @@ namespace VoiceNavigator20180612
       Models::SaveRecordingResponse saveRecording(const Models::SaveRecordingRequest &request);
 
       /**
-       * @summary Handles the silence timeout event in a conversation.
+       * @summary Triggers a silence timeout.
        *
        * @param request SilenceTimeoutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +693,7 @@ namespace VoiceNavigator20180612
       Models::SilenceTimeoutResponse silenceTimeoutWithOptions(const Models::SilenceTimeoutRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles the silence timeout event in a conversation.
+       * @summary Triggers a silence timeout.
        *
        * @param request SilenceTimeoutRequest
        * @return SilenceTimeoutResponse

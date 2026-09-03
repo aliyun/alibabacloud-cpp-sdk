@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The conversation context, returned as a JSON string.
+    // The session context data.
     shared_ptr<string> conversationContext_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -90,11 +90,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
-    // The conversation ID.
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
-    // The conversation context.
+    // The session context.
     shared_ptr<string> initialContext_ {};
     // The instance ID.
     // 

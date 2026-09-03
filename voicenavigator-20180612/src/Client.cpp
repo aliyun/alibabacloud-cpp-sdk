@@ -18,10 +18,6 @@ namespace VoiceNavigator20180612
 
 AlibabaCloud::VoiceNavigator20180612::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hangzhou" , "voicenavigator.cn-hangzhou.aliyuncs.com"},
-    {"cn-shanghai" , "voicenavigator.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("voicenavigator", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -102,7 +98,7 @@ AssociateChatbotInstanceResponse Client::associateChatbotInstance(const Associat
 }
 
 /**
- * @summary Previews a TTS voice.
+ * @summary Auditions a TTS voice.
  *
  * @param request AuditTTSVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,6 +125,10 @@ AuditTTSVoiceResponse Client::auditTTSVoiceWithOptions(const AuditTTSVoiceReques
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNlsServiceType()) {
+    query["NlsServiceType"] = request.getNlsServiceType();
   }
 
   if (!!request.hasPitchRate()) {
@@ -173,7 +173,7 @@ AuditTTSVoiceResponse Client::auditTTSVoiceWithOptions(const AuditTTSVoiceReques
 }
 
 /**
- * @summary Previews a TTS voice.
+ * @summary Auditions a TTS voice.
  *
  * @param request AuditTTSVoiceRequest
  * @return AuditTTSVoiceResponse
@@ -184,7 +184,7 @@ AuditTTSVoiceResponse Client::auditTTSVoice(const AuditTTSVoiceRequest &request)
 }
 
 /**
- * @summary Starts a conversation.
+ * @summary Starts a session.
  *
  * @param request BeginDialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +235,7 @@ BeginDialogueResponse Client::beginDialogueWithOptions(const BeginDialogueReques
 }
 
 /**
- * @summary Starts a conversation.
+ * @summary Starts a session.
  *
  * @param request BeginDialogueRequest
  * @return BeginDialogueResponse
@@ -466,7 +466,7 @@ DebugBeginDialogueResponse Client::debugBeginDialogue(const DebugBeginDialogueRe
 }
 
 /**
- * @summary Debugs the number collection process.
+ * @summary Collects digits in the debug environment.
  *
  * @param request DebugCollectedNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -505,7 +505,7 @@ DebugCollectedNumberResponse Client::debugCollectedNumberWithOptions(const Debug
 }
 
 /**
- * @summary Debugs the number collection process.
+ * @summary Collects digits in the debug environment.
  *
  * @param request DebugCollectedNumberRequest
  * @return DebugCollectedNumberResponse
@@ -650,7 +650,7 @@ DescribeConversationResponse Client::describeConversation(const DescribeConversa
 }
 
 /**
- * @summary Queries the context of a specified conversation.
+ * @summary Queries the context data of a session.
  *
  * @param request DescribeConversationContextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +677,7 @@ DescribeConversationContextResponse Client::describeConversationContextWithOptio
 }
 
 /**
- * @summary Queries the context of a specified conversation.
+ * @summary Queries the context data of a session.
  *
  * @param request DescribeConversationContextRequest
  * @return DescribeConversationContextResponse
@@ -1579,6 +1579,10 @@ ModifyAsrConfigResponse Client::modifyAsrConfigWithOptions(const ModifyAsrConfig
     query["AsrOverrides"] = request.getAsrOverrides();
   }
 
+  if (!!request.hasAsrOverridesUuid()) {
+    query["AsrOverridesUuid"] = request.getAsrOverridesUuid();
+  }
+
   if (!!request.hasAsrVocabularyId()) {
     query["AsrVocabularyId"] = request.getAsrVocabularyId();
   }
@@ -1589,6 +1593,10 @@ ModifyAsrConfigResponse Client::modifyAsrConfigWithOptions(const ModifyAsrConfig
 
   if (!!request.hasEngine()) {
     query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasEngineXunfei()) {
+    query["EngineXunfei"] = request.getEngineXunfei();
   }
 
   if (!!request.hasEntryId()) {
@@ -1863,6 +1871,10 @@ ModifyTTSConfigResponse Client::modifyTTSConfigWithOptions(const ModifyTTSConfig
     query["TtsOverrides"] = request.getTtsOverrides();
   }
 
+  if (!!request.hasTtsOverridesUuid()) {
+    query["TtsOverridesUuid"] = request.getTtsOverridesUuid();
+  }
+
   if (!!request.hasVoice()) {
     query["Voice"] = request.getVoice();
   }
@@ -2074,7 +2086,7 @@ SaveRecordingResponse Client::saveRecording(const SaveRecordingRequest &request)
 }
 
 /**
- * @summary Handles the silence timeout event in a conversation.
+ * @summary Triggers a silence timeout.
  *
  * @param request SilenceTimeoutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2117,7 +2129,7 @@ SilenceTimeoutResponse Client::silenceTimeoutWithOptions(const SilenceTimeoutReq
 }
 
 /**
- * @summary Handles the silence timeout event in a conversation.
+ * @summary Triggers a silence timeout.
  *
  * @param request SilenceTimeoutRequest
  * @return SilenceTimeoutResponse

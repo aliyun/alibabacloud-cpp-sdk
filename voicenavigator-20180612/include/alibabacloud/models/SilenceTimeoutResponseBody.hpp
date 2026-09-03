@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The system\\"s next action.
+    // The action.
     shared_ptr<string> action_ {};
-    // Parameters for the action defined in the Action parameter.
+    // The action parameters.
     shared_ptr<string> actionParams_ {};
-    // Indicates whether the action is interruptible.
+    // Indicates whether the action can be interrupted.
     shared_ptr<bool> interruptible_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The text response to play to the user.
+    // The text response.
     shared_ptr<string> textResponse_ {};
   };
 

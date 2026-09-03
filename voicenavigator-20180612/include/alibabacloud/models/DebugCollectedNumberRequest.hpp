@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the conversation.
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
-    // The ID of the Voice Navigator instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The collected number.
+    // The collected digit input.
     shared_ptr<string> number_ {};
   };
 

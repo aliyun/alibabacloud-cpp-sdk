@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The rejection action performed after the final rejection prompt is played.
+    // The rejection action.
     // 
     // This parameter is required.
     shared_ptr<string> finalAction_ {};
-    // The action parameters for the rejection action, in JSON format.
+    // The action parameters.
     shared_ptr<string> finalActionParams_ {};
-    // The final rejection prompt. The service plays this prompt when the rejection threshold is met.
+    // The final rejection prompt.
     // 
     // This parameter is required.
     shared_ptr<string> finalPrompt_ {};
@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The rejection prompt played when the service fails to recognize user input.
+    // The rejection prompt.
     // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
-    // The rejection threshold. The maximum number of consecutive rejections before the service triggers the rejection action.
+    // The maximum number of rejections.
     // 
     // This parameter is required.
     shared_ptr<int32_t> threshold_ {};

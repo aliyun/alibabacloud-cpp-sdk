@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_TO_JSON(SpeechRate, speechRate_);
       DARABONBA_PTR_TO_JSON(TtsOverrides, ttsOverrides_);
+      DARABONBA_PTR_TO_JSON(TtsOverridesUuid, ttsOverridesUuid_);
       DARABONBA_PTR_TO_JSON(Voice, voice_);
       DARABONBA_PTR_TO_JSON(Volume, volume_);
     };
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
       DARABONBA_PTR_FROM_JSON(SpeechRate, speechRate_);
       DARABONBA_PTR_FROM_JSON(TtsOverrides, ttsOverrides_);
+      DARABONBA_PTR_FROM_JSON(TtsOverridesUuid, ttsOverridesUuid_);
       DARABONBA_PTR_FROM_JSON(Voice, voice_);
       DARABONBA_PTR_FROM_JSON(Volume, volume_);
     };
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->aliCustomizedVoice_ == nullptr
         && this->appKey_ == nullptr && this->backgroundMusicName_ == nullptr && this->engine_ == nullptr && this->engineXunfei_ == nullptr && this->extParams_ == nullptr
         && this->instanceId_ == nullptr && this->nlsServiceType_ == nullptr && this->pitchRate_ == nullptr && this->speechRate_ == nullptr && this->ttsOverrides_ == nullptr
-        && this->voice_ == nullptr && this->volume_ == nullptr; };
+        && this->ttsOverridesUuid_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
     // aliCustomizedVoice Field Functions 
     bool hasAliCustomizedVoice() const { return this->aliCustomizedVoice_ != nullptr;};
     void deleteAliCustomizedVoice() { this->aliCustomizedVoice_ = nullptr;};
@@ -134,6 +136,13 @@ namespace Models
     inline ModifyTTSConfigRequest& setTtsOverrides(string ttsOverrides) { DARABONBA_PTR_SET_VALUE(ttsOverrides_, ttsOverrides) };
 
 
+    // ttsOverridesUuid Field Functions 
+    bool hasTtsOverridesUuid() const { return this->ttsOverridesUuid_ != nullptr;};
+    void deleteTtsOverridesUuid() { this->ttsOverridesUuid_ = nullptr;};
+    inline string getTtsOverridesUuid() const { DARABONBA_PTR_GET_DEFAULT(ttsOverridesUuid_, "") };
+    inline ModifyTTSConfigRequest& setTtsOverridesUuid(string ttsOverridesUuid) { DARABONBA_PTR_SET_VALUE(ttsOverridesUuid_, ttsOverridesUuid) };
+
+
     // voice Field Functions 
     bool hasVoice() const { return this->voice_ != nullptr;};
     void deleteVoice() { this->voice_ = nullptr;};
@@ -171,6 +180,8 @@ namespace Models
     shared_ptr<string> speechRate_ {};
     // The TTS error correction dictionary.
     shared_ptr<string> ttsOverrides_ {};
+    // The TTS error correction dictionary ID.
+    shared_ptr<string> ttsOverridesUuid_ {};
     // The voice.
     shared_ptr<string> voice_ {};
     // The volume.
