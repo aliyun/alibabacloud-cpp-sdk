@@ -1,3 +1,6 @@
+2026-09-03 Version: 1.0.13
+- Generated cpp 2021-05-15 for cloudsso.
+
 2026-08-25 Version: 1.0.12
 - Update API CreateAccessAssignment: add request parameters OriginTargetId.
 - Update API CreateAccessAssignment: add response parameters Body.Task.OriginTargetId.

@@ -18,14 +18,6 @@ namespace Cloudsso20210515
 
 AlibabaCloud::Cloudsso20210515::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "cloudsso.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "cloudsso.cn-hongkong.aliyuncs.com"},
-    {"ap-northeast-2" , "cloudsso.ap-northeast-2.aliyuncs.com"},
-    {"ap-southeast-1" , "cloudsso.ap-southeast-1.aliyuncs.com"},
-    {"us-west-1" , "cloudsso.us-west-1.aliyuncs.com"},
-    {"eu-central-1" , "cloudsso.eu-central-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudsso", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1523,6 +1515,52 @@ GetAccessConfigurationResponse Client::getAccessConfigurationWithOptions(const G
 GetAccessConfigurationResponse Client::getAccessConfiguration(const GetAccessConfigurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAccessConfigurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+ *
+ * @description You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+ *
+ * @param request GetAttributePassingSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAttributePassingSettingResponse
+ */
+GetAttributePassingSettingResponse Client::getAttributePassingSettingWithOptions(const GetAttributePassingSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAttributePassingSetting"},
+    {"version" , "2021-05-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAttributePassingSettingResponse>();
+}
+
+/**
+ * @summary Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+ *
+ * @description You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+ *
+ * @param request GetAttributePassingSettingRequest
+ * @return GetAttributePassingSettingResponse
+ */
+GetAttributePassingSettingResponse Client::getAttributePassingSetting(const GetAttributePassingSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAttributePassingSettingWithOptions(request, runtime);
 }
 
 /**
@@ -4165,6 +4203,56 @@ UpdateAccessConfigurationResponse Client::updateAccessConfigurationWithOptions(c
 UpdateAccessConfigurationResponse Client::updateAccessConfiguration(const UpdateAccessConfigurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAccessConfigurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+ *
+ * @description You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+ *
+ * @param request UpdateAttributePassingSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAttributePassingSettingResponse
+ */
+UpdateAttributePassingSettingResponse Client::updateAttributePassingSettingWithOptions(const UpdateAttributePassingSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirectoryId()) {
+    query["DirectoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasSourceIdentityPassing()) {
+    query["SourceIdentityPassing"] = request.getSourceIdentityPassing();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAttributePassingSetting"},
+    {"version" , "2021-05-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAttributePassingSettingResponse>();
+}
+
+/**
+ * @summary Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+ *
+ * @description You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+ *
+ * @param request UpdateAttributePassingSettingRequest
+ * @return UpdateAttributePassingSettingResponse
+ */
+UpdateAttributePassingSettingResponse Client::updateAttributePassingSetting(const UpdateAttributePassingSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAttributePassingSettingWithOptions(request, runtime);
 }
 
 /**

@@ -633,6 +633,27 @@ namespace Cloudsso20210515
       Models::GetAccessConfigurationResponse getAccessConfiguration(const Models::GetAccessConfigurationRequest &request);
 
       /**
+       * @summary Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+       *
+       * @description You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+       *
+       * @param request GetAttributePassingSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAttributePassingSettingResponse
+       */
+      Models::GetAttributePassingSettingResponse getAttributePassingSettingWithOptions(const Models::GetAttributePassingSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+       *
+       * @description You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+       *
+       * @param request GetAttributePassingSettingRequest
+       * @return GetAttributePassingSettingResponse
+       */
+      Models::GetAttributePassingSettingResponse getAttributePassingSetting(const Models::GetAttributePassingSettingRequest &request);
+
+      /**
        * @summary Queries information about a directory.
        *
        * @description This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
@@ -1638,6 +1659,27 @@ namespace Cloudsso20210515
        * @return UpdateAccessConfigurationResponse
        */
       Models::UpdateAccessConfigurationResponse updateAccessConfiguration(const Models::UpdateAccessConfigurationRequest &request);
+
+      /**
+       * @summary Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+       *
+       * @description You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+       *
+       * @param request UpdateAttributePassingSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAttributePassingSettingResponse
+       */
+      Models::UpdateAttributePassingSettingResponse updateAttributePassingSettingWithOptions(const Models::UpdateAttributePassingSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+       *
+       * @description You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+       *
+       * @param request UpdateAttributePassingSettingRequest
+       * @return UpdateAttributePassingSettingResponse
+       */
+      Models::UpdateAttributePassingSettingResponse updateAttributePassingSetting(const Models::UpdateAttributePassingSettingRequest &request);
 
       /**
        * @summary Changes the name of a directory.

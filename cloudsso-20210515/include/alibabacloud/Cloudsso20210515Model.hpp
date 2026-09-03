@@ -78,6 +78,9 @@
 #include <alibabacloud/models/GetAccessConfigurationRequest.hpp>
 #include <alibabacloud/models/GetAccessConfigurationResponseBody.hpp>
 #include <alibabacloud/models/GetAccessConfigurationResponse.hpp>
+#include <alibabacloud/models/GetAttributePassingSettingRequest.hpp>
+#include <alibabacloud/models/GetAttributePassingSettingResponseBody.hpp>
+#include <alibabacloud/models/GetAttributePassingSettingResponse.hpp>
 #include <alibabacloud/models/GetDirectoryRequest.hpp>
 #include <alibabacloud/models/GetDirectoryResponseBody.hpp>
 #include <alibabacloud/models/GetDirectoryResponse.hpp>
@@ -224,6 +227,9 @@
 #include <alibabacloud/models/UpdateAccessConfigurationRequest.hpp>
 #include <alibabacloud/models/UpdateAccessConfigurationResponseBody.hpp>
 #include <alibabacloud/models/UpdateAccessConfigurationResponse.hpp>
+#include <alibabacloud/models/UpdateAttributePassingSettingRequest.hpp>
+#include <alibabacloud/models/UpdateAttributePassingSettingResponseBody.hpp>
+#include <alibabacloud/models/UpdateAttributePassingSettingResponse.hpp>
 #include <alibabacloud/models/UpdateDirectoryRequest.hpp>
 #include <alibabacloud/models/UpdateDirectoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateDirectoryResponse.hpp>
