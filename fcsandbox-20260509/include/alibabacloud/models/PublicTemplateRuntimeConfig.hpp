@@ -103,12 +103,19 @@ namespace Models
 
 
   protected:
+    // The number of CPU cores.
     shared_ptr<float> cpu_ {};
+    // The disk size. Unit: GB.
     shared_ptr<int32_t> diskSize_ {};
+    // Specifies whether to allow access to the Internet.
     shared_ptr<bool> internetAccess_ {};
+    // The log configuration.
     shared_ptr<PublicTemplateLogConfig> logConfig_ {};
+    // The memory size. Unit: MB.
     shared_ptr<int32_t> memorySize_ {};
+    // The sandbox configuration.
     shared_ptr<PublicTemplateSandboxConfig> sandboxConfig_ {};
+    // The VPC configuration.
     shared_ptr<PublicTemplateVPCConfig> vpcConfig_ {};
   };
 

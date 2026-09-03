@@ -109,13 +109,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createdTime_ {};
+    // The template name.
     shared_ptr<string> name_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The template runtime configuration.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
+    // The template build status.
     shared_ptr<PublicTemplateStatus> status_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The template ID.
     shared_ptr<string> templateID_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The time when the build is completed.
     shared_ptr<string> finishedAt_ {};
+    // The reason for the build failure.
     shared_ptr<PublicTemplateStatusReason> reason_ {};
+    // The build status.
     shared_ptr<string> state_ {};
   };
 

@@ -19,16 +19,6 @@ namespace FCSandbox20260509
 
 AlibabaCloud::FCSandbox20260509::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "fcsandbox.cn-shenzhen.aliyuncs.com"},
-    {"cn-beijing" , "fcsandbox.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "fcsandbox.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "fcsandbox.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "fcsandbox.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou" , "fcsandbox.cn-hangzhou.aliyuncs.com"},
-    {"us-west-1" , "fcsandbox.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "fcsandbox.us-east-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("fcsandbox", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -588,7 +578,7 @@ GetTemplateResponse Client::getTemplate(const string &templateID, const GetTempl
 }
 
 /**
- * @summary Queries a Volume.
+ * @summary Queries a volume.
  *
  * @param request GetVolumeRequest
  * @param headers map
@@ -621,7 +611,7 @@ GetVolumeResponse Client::getVolumeWithOptions(const string &volumeID, const Get
 }
 
 /**
- * @summary Queries a Volume.
+ * @summary Queries a volume.
  *
  * @param request GetVolumeRequest
  * @return GetVolumeResponse

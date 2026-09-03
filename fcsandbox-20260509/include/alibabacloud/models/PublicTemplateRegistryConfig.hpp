@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The network configuration of the image repository.
     shared_ptr<PublicTemplateRegistryNetworkConfig> networkConfig_ {};
   };
 

@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The VPC authorization role name.
     shared_ptr<string> role_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // VPC ID
     shared_ptr<string> vpcId_ {};
   };
 

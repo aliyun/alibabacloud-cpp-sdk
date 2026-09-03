@@ -255,7 +255,7 @@ namespace FCSandbox20260509
       Models::GetTemplateResponse getTemplate(const string &templateID, const Models::GetTemplateRequest &request);
 
       /**
-       * @summary Queries a Volume.
+       * @summary Queries a volume.
        *
        * @param request GetVolumeRequest
        * @param headers map
@@ -265,7 +265,7 @@ namespace FCSandbox20260509
       Models::GetVolumeResponse getVolumeWithOptions(const string &volumeID, const Models::GetVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a Volume.
+       * @summary Queries a volume.
        *
        * @param request GetVolumeRequest
        * @return GetVolumeResponse

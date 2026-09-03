@@ -40,7 +40,9 @@
 #include <alibabacloud/models/E2BTemplateBuild.hpp>
 #include <alibabacloud/models/E2BVolume.hpp>
 #include <alibabacloud/models/E2BVolumeMount.hpp>
+#include <alibabacloud/models/EffectivePermissions.hpp>
 #include <alibabacloud/models/ImportApiKeyInput.hpp>
+#include <alibabacloud/models/PermissionPolicy.hpp>
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryNetworkConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryConfig.hpp>

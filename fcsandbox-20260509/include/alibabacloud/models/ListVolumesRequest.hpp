@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> teamID_ {};
     // The UID of the creator.
     shared_ptr<string> userID_ {};
-    // The name of the volume. The name must be unique within the team.
+    // The name of the volume. The name must be unique within a team.
     shared_ptr<string> volumeName_ {};
   };
 

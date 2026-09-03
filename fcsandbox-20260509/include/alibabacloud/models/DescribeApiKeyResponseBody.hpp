@@ -3,8 +3,10 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEAPIKEYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ApiKey.hpp>
+#include <alibabacloud/models/EffectivePermissions.hpp>
 #include <vector>
 #include <alibabacloud/models/IPConfig.hpp>
+#include <alibabacloud/models/PermissionPolicy.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,17 +20,21 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeApiKeyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(effectivePermissions, effectivePermissions_);
       DARABONBA_PTR_TO_JSON(ipBlacklist, ipBlacklist_);
       DARABONBA_PTR_TO_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(permissionPolicy, permissionPolicy_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApiKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(effectivePermissions, effectivePermissions_);
       DARABONBA_PTR_FROM_JSON(ipBlacklist, ipBlacklist_);
       DARABONBA_PTR_FROM_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(permissionPolicy, permissionPolicy_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
     DescribeApiKeyResponseBody() = default ;
@@ -43,7 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->code_ == nullptr && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->effectivePermissions_ == nullptr && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->message_ == nullptr
+        && this->permissionPolicy_ == nullptr && this->requestId_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -58,6 +65,15 @@ namespace Models
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeApiKeyResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // effectivePermissions Field Functions 
+    bool hasEffectivePermissions() const { return this->effectivePermissions_ != nullptr;};
+    void deleteEffectivePermissions() { this->effectivePermissions_ = nullptr;};
+    inline const EffectivePermissions & getEffectivePermissions() const { DARABONBA_PTR_GET_CONST(effectivePermissions_, EffectivePermissions) };
+    inline EffectivePermissions getEffectivePermissions() { DARABONBA_PTR_GET(effectivePermissions_, EffectivePermissions) };
+    inline DescribeApiKeyResponseBody& setEffectivePermissions(const EffectivePermissions & effectivePermissions) { DARABONBA_PTR_SET_VALUE(effectivePermissions_, effectivePermissions) };
+    inline DescribeApiKeyResponseBody& setEffectivePermissions(EffectivePermissions && effectivePermissions) { DARABONBA_PTR_SET_RVALUE(effectivePermissions_, effectivePermissions) };
 
 
     // ipBlacklist Field Functions 
@@ -85,6 +101,15 @@ namespace Models
     inline DescribeApiKeyResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
+    // permissionPolicy Field Functions 
+    bool hasPermissionPolicy() const { return this->permissionPolicy_ != nullptr;};
+    void deletePermissionPolicy() { this->permissionPolicy_ = nullptr;};
+    inline const PermissionPolicy & getPermissionPolicy() const { DARABONBA_PTR_GET_CONST(permissionPolicy_, PermissionPolicy) };
+    inline PermissionPolicy getPermissionPolicy() { DARABONBA_PTR_GET(permissionPolicy_, PermissionPolicy) };
+    inline DescribeApiKeyResponseBody& setPermissionPolicy(const PermissionPolicy & permissionPolicy) { DARABONBA_PTR_SET_VALUE(permissionPolicy_, permissionPolicy) };
+    inline DescribeApiKeyResponseBody& setPermissionPolicy(PermissionPolicy && permissionPolicy) { DARABONBA_PTR_SET_RVALUE(permissionPolicy_, permissionPolicy) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -97,11 +122,13 @@ namespace Models
     shared_ptr<ApiKey> apiKey_ {};
     // The error code.
     shared_ptr<string> code_ {};
+    shared_ptr<EffectivePermissions> effectivePermissions_ {};
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
     // The IP whitelist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The response message.
     shared_ptr<string> message_ {};
+    shared_ptr<PermissionPolicy> permissionPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };
