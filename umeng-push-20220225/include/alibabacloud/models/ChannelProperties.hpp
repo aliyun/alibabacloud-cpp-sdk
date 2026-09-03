@@ -60,138 +60,138 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelActivity_ == nullptr
-        && return this->channelFcm_ == nullptr && return this->harmonyChannelCategory_ == nullptr && return this->huaweiChannelCategory_ == nullptr && return this->huaweiChannelImportance_ == nullptr && return this->huaweiMessageUrgency_ == nullptr
-        && return this->mainActivity_ == nullptr && return this->oppoCategory_ == nullptr && return this->oppoChannelId_ == nullptr && return this->oppoNotifyLevel_ == nullptr && return this->useHuaweiMessage_ == nullptr
-        && return this->useHuaweiPlainMessage_ == nullptr && return this->vivoAddBadge_ == nullptr && return this->vivoCategory_ == nullptr && return this->vivoPushMode_ == nullptr && return this->xiaomiChannelId_ == nullptr; };
+        && this->channelFcm_ == nullptr && this->harmonyChannelCategory_ == nullptr && this->huaweiChannelCategory_ == nullptr && this->huaweiChannelImportance_ == nullptr && this->huaweiMessageUrgency_ == nullptr
+        && this->mainActivity_ == nullptr && this->oppoCategory_ == nullptr && this->oppoChannelId_ == nullptr && this->oppoNotifyLevel_ == nullptr && this->useHuaweiMessage_ == nullptr
+        && this->useHuaweiPlainMessage_ == nullptr && this->vivoAddBadge_ == nullptr && this->vivoCategory_ == nullptr && this->vivoPushMode_ == nullptr && this->xiaomiChannelId_ == nullptr; };
     // channelActivity Field Functions 
     bool hasChannelActivity() const { return this->channelActivity_ != nullptr;};
     void deleteChannelActivity() { this->channelActivity_ = nullptr;};
-    inline string channelActivity() const { DARABONBA_PTR_GET_DEFAULT(channelActivity_, "") };
+    inline string getChannelActivity() const { DARABONBA_PTR_GET_DEFAULT(channelActivity_, "") };
     inline ChannelProperties& setChannelActivity(string channelActivity) { DARABONBA_PTR_SET_VALUE(channelActivity_, channelActivity) };
 
 
     // channelFcm Field Functions 
     bool hasChannelFcm() const { return this->channelFcm_ != nullptr;};
     void deleteChannelFcm() { this->channelFcm_ = nullptr;};
-    inline string channelFcm() const { DARABONBA_PTR_GET_DEFAULT(channelFcm_, "") };
+    inline string getChannelFcm() const { DARABONBA_PTR_GET_DEFAULT(channelFcm_, "") };
     inline ChannelProperties& setChannelFcm(string channelFcm) { DARABONBA_PTR_SET_VALUE(channelFcm_, channelFcm) };
 
 
     // harmonyChannelCategory Field Functions 
     bool hasHarmonyChannelCategory() const { return this->harmonyChannelCategory_ != nullptr;};
     void deleteHarmonyChannelCategory() { this->harmonyChannelCategory_ = nullptr;};
-    inline string harmonyChannelCategory() const { DARABONBA_PTR_GET_DEFAULT(harmonyChannelCategory_, "") };
+    inline string getHarmonyChannelCategory() const { DARABONBA_PTR_GET_DEFAULT(harmonyChannelCategory_, "") };
     inline ChannelProperties& setHarmonyChannelCategory(string harmonyChannelCategory) { DARABONBA_PTR_SET_VALUE(harmonyChannelCategory_, harmonyChannelCategory) };
 
 
     // huaweiChannelCategory Field Functions 
     bool hasHuaweiChannelCategory() const { return this->huaweiChannelCategory_ != nullptr;};
     void deleteHuaweiChannelCategory() { this->huaweiChannelCategory_ = nullptr;};
-    inline string huaweiChannelCategory() const { DARABONBA_PTR_GET_DEFAULT(huaweiChannelCategory_, "") };
+    inline string getHuaweiChannelCategory() const { DARABONBA_PTR_GET_DEFAULT(huaweiChannelCategory_, "") };
     inline ChannelProperties& setHuaweiChannelCategory(string huaweiChannelCategory) { DARABONBA_PTR_SET_VALUE(huaweiChannelCategory_, huaweiChannelCategory) };
 
 
     // huaweiChannelImportance Field Functions 
     bool hasHuaweiChannelImportance() const { return this->huaweiChannelImportance_ != nullptr;};
     void deleteHuaweiChannelImportance() { this->huaweiChannelImportance_ = nullptr;};
-    inline string huaweiChannelImportance() const { DARABONBA_PTR_GET_DEFAULT(huaweiChannelImportance_, "") };
+    inline string getHuaweiChannelImportance() const { DARABONBA_PTR_GET_DEFAULT(huaweiChannelImportance_, "") };
     inline ChannelProperties& setHuaweiChannelImportance(string huaweiChannelImportance) { DARABONBA_PTR_SET_VALUE(huaweiChannelImportance_, huaweiChannelImportance) };
 
 
     // huaweiMessageUrgency Field Functions 
     bool hasHuaweiMessageUrgency() const { return this->huaweiMessageUrgency_ != nullptr;};
     void deleteHuaweiMessageUrgency() { this->huaweiMessageUrgency_ = nullptr;};
-    inline string huaweiMessageUrgency() const { DARABONBA_PTR_GET_DEFAULT(huaweiMessageUrgency_, "") };
+    inline string getHuaweiMessageUrgency() const { DARABONBA_PTR_GET_DEFAULT(huaweiMessageUrgency_, "") };
     inline ChannelProperties& setHuaweiMessageUrgency(string huaweiMessageUrgency) { DARABONBA_PTR_SET_VALUE(huaweiMessageUrgency_, huaweiMessageUrgency) };
 
 
     // mainActivity Field Functions 
     bool hasMainActivity() const { return this->mainActivity_ != nullptr;};
     void deleteMainActivity() { this->mainActivity_ = nullptr;};
-    inline string mainActivity() const { DARABONBA_PTR_GET_DEFAULT(mainActivity_, "") };
+    inline string getMainActivity() const { DARABONBA_PTR_GET_DEFAULT(mainActivity_, "") };
     inline ChannelProperties& setMainActivity(string mainActivity) { DARABONBA_PTR_SET_VALUE(mainActivity_, mainActivity) };
 
 
     // oppoCategory Field Functions 
     bool hasOppoCategory() const { return this->oppoCategory_ != nullptr;};
     void deleteOppoCategory() { this->oppoCategory_ = nullptr;};
-    inline string oppoCategory() const { DARABONBA_PTR_GET_DEFAULT(oppoCategory_, "") };
+    inline string getOppoCategory() const { DARABONBA_PTR_GET_DEFAULT(oppoCategory_, "") };
     inline ChannelProperties& setOppoCategory(string oppoCategory) { DARABONBA_PTR_SET_VALUE(oppoCategory_, oppoCategory) };
 
 
     // oppoChannelId Field Functions 
     bool hasOppoChannelId() const { return this->oppoChannelId_ != nullptr;};
     void deleteOppoChannelId() { this->oppoChannelId_ = nullptr;};
-    inline string oppoChannelId() const { DARABONBA_PTR_GET_DEFAULT(oppoChannelId_, "") };
+    inline string getOppoChannelId() const { DARABONBA_PTR_GET_DEFAULT(oppoChannelId_, "") };
     inline ChannelProperties& setOppoChannelId(string oppoChannelId) { DARABONBA_PTR_SET_VALUE(oppoChannelId_, oppoChannelId) };
 
 
     // oppoNotifyLevel Field Functions 
     bool hasOppoNotifyLevel() const { return this->oppoNotifyLevel_ != nullptr;};
     void deleteOppoNotifyLevel() { this->oppoNotifyLevel_ = nullptr;};
-    inline string oppoNotifyLevel() const { DARABONBA_PTR_GET_DEFAULT(oppoNotifyLevel_, "") };
+    inline string getOppoNotifyLevel() const { DARABONBA_PTR_GET_DEFAULT(oppoNotifyLevel_, "") };
     inline ChannelProperties& setOppoNotifyLevel(string oppoNotifyLevel) { DARABONBA_PTR_SET_VALUE(oppoNotifyLevel_, oppoNotifyLevel) };
 
 
     // useHuaweiMessage Field Functions 
     bool hasUseHuaweiMessage() const { return this->useHuaweiMessage_ != nullptr;};
     void deleteUseHuaweiMessage() { this->useHuaweiMessage_ = nullptr;};
-    inline string useHuaweiMessage() const { DARABONBA_PTR_GET_DEFAULT(useHuaweiMessage_, "") };
+    inline string getUseHuaweiMessage() const { DARABONBA_PTR_GET_DEFAULT(useHuaweiMessage_, "") };
     inline ChannelProperties& setUseHuaweiMessage(string useHuaweiMessage) { DARABONBA_PTR_SET_VALUE(useHuaweiMessage_, useHuaweiMessage) };
 
 
     // useHuaweiPlainMessage Field Functions 
     bool hasUseHuaweiPlainMessage() const { return this->useHuaweiPlainMessage_ != nullptr;};
     void deleteUseHuaweiPlainMessage() { this->useHuaweiPlainMessage_ = nullptr;};
-    inline string useHuaweiPlainMessage() const { DARABONBA_PTR_GET_DEFAULT(useHuaweiPlainMessage_, "") };
+    inline string getUseHuaweiPlainMessage() const { DARABONBA_PTR_GET_DEFAULT(useHuaweiPlainMessage_, "") };
     inline ChannelProperties& setUseHuaweiPlainMessage(string useHuaweiPlainMessage) { DARABONBA_PTR_SET_VALUE(useHuaweiPlainMessage_, useHuaweiPlainMessage) };
 
 
     // vivoAddBadge Field Functions 
     bool hasVivoAddBadge() const { return this->vivoAddBadge_ != nullptr;};
     void deleteVivoAddBadge() { this->vivoAddBadge_ = nullptr;};
-    inline string vivoAddBadge() const { DARABONBA_PTR_GET_DEFAULT(vivoAddBadge_, "") };
+    inline string getVivoAddBadge() const { DARABONBA_PTR_GET_DEFAULT(vivoAddBadge_, "") };
     inline ChannelProperties& setVivoAddBadge(string vivoAddBadge) { DARABONBA_PTR_SET_VALUE(vivoAddBadge_, vivoAddBadge) };
 
 
     // vivoCategory Field Functions 
     bool hasVivoCategory() const { return this->vivoCategory_ != nullptr;};
     void deleteVivoCategory() { this->vivoCategory_ = nullptr;};
-    inline string vivoCategory() const { DARABONBA_PTR_GET_DEFAULT(vivoCategory_, "") };
+    inline string getVivoCategory() const { DARABONBA_PTR_GET_DEFAULT(vivoCategory_, "") };
     inline ChannelProperties& setVivoCategory(string vivoCategory) { DARABONBA_PTR_SET_VALUE(vivoCategory_, vivoCategory) };
 
 
     // vivoPushMode Field Functions 
     bool hasVivoPushMode() const { return this->vivoPushMode_ != nullptr;};
     void deleteVivoPushMode() { this->vivoPushMode_ = nullptr;};
-    inline string vivoPushMode() const { DARABONBA_PTR_GET_DEFAULT(vivoPushMode_, "") };
+    inline string getVivoPushMode() const { DARABONBA_PTR_GET_DEFAULT(vivoPushMode_, "") };
     inline ChannelProperties& setVivoPushMode(string vivoPushMode) { DARABONBA_PTR_SET_VALUE(vivoPushMode_, vivoPushMode) };
 
 
     // xiaomiChannelId Field Functions 
     bool hasXiaomiChannelId() const { return this->xiaomiChannelId_ != nullptr;};
     void deleteXiaomiChannelId() { this->xiaomiChannelId_ = nullptr;};
-    inline string xiaomiChannelId() const { DARABONBA_PTR_GET_DEFAULT(xiaomiChannelId_, "") };
+    inline string getXiaomiChannelId() const { DARABONBA_PTR_GET_DEFAULT(xiaomiChannelId_, "") };
     inline ChannelProperties& setXiaomiChannelId(string xiaomiChannelId) { DARABONBA_PTR_SET_VALUE(xiaomiChannelId_, xiaomiChannelId) };
 
 
   protected:
-    std::shared_ptr<string> channelActivity_ = nullptr;
-    std::shared_ptr<string> channelFcm_ = nullptr;
-    std::shared_ptr<string> harmonyChannelCategory_ = nullptr;
-    std::shared_ptr<string> huaweiChannelCategory_ = nullptr;
-    std::shared_ptr<string> huaweiChannelImportance_ = nullptr;
-    std::shared_ptr<string> huaweiMessageUrgency_ = nullptr;
-    std::shared_ptr<string> mainActivity_ = nullptr;
-    std::shared_ptr<string> oppoCategory_ = nullptr;
-    std::shared_ptr<string> oppoChannelId_ = nullptr;
-    std::shared_ptr<string> oppoNotifyLevel_ = nullptr;
-    std::shared_ptr<string> useHuaweiMessage_ = nullptr;
-    std::shared_ptr<string> useHuaweiPlainMessage_ = nullptr;
-    std::shared_ptr<string> vivoAddBadge_ = nullptr;
-    std::shared_ptr<string> vivoCategory_ = nullptr;
-    std::shared_ptr<string> vivoPushMode_ = nullptr;
-    std::shared_ptr<string> xiaomiChannelId_ = nullptr;
+    shared_ptr<string> channelActivity_ {};
+    shared_ptr<string> channelFcm_ {};
+    shared_ptr<string> harmonyChannelCategory_ {};
+    shared_ptr<string> huaweiChannelCategory_ {};
+    shared_ptr<string> huaweiChannelImportance_ {};
+    shared_ptr<string> huaweiMessageUrgency_ {};
+    shared_ptr<string> mainActivity_ {};
+    shared_ptr<string> oppoCategory_ {};
+    shared_ptr<string> oppoChannelId_ {};
+    shared_ptr<string> oppoNotifyLevel_ {};
+    shared_ptr<string> useHuaweiMessage_ {};
+    shared_ptr<string> useHuaweiPlainMessage_ {};
+    shared_ptr<string> vivoAddBadge_ {};
+    shared_ptr<string> vivoCategory_ {};
+    shared_ptr<string> vivoPushMode_ {};
+    shared_ptr<string> xiaomiChannelId_ {};
   };
 
   } // namespace Models

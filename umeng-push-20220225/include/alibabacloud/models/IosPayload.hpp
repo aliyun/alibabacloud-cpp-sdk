@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aps_ == nullptr
-        && return this->extra_ == nullptr; };
+        && this->extra_ == nullptr; };
     // aps Field Functions 
     bool hasAps() const { return this->aps_ != nullptr;};
     void deleteAps() { this->aps_ = nullptr;};
-    inline const Aps & aps() const { DARABONBA_PTR_GET_CONST(aps_, Aps) };
-    inline Aps aps() { DARABONBA_PTR_GET(aps_, Aps) };
+    inline const Aps & getAps() const { DARABONBA_PTR_GET_CONST(aps_, Aps) };
+    inline Aps getAps() { DARABONBA_PTR_GET(aps_, Aps) };
     inline IosPayload& setAps(const Aps & aps) { DARABONBA_PTR_SET_VALUE(aps_, aps) };
     inline IosPayload& setAps(Aps && aps) { DARABONBA_PTR_SET_RVALUE(aps_, aps) };
 
@@ -46,15 +46,15 @@ namespace Models
     // extra Field Functions 
     bool hasExtra() const { return this->extra_ != nullptr;};
     void deleteExtra() { this->extra_ = nullptr;};
-    inline     const Darabonba::Json & extra() const { DARABONBA_GET(extra_) };
-    Darabonba::Json & extra() { DARABONBA_GET(extra_) };
+    inline     const Darabonba::Json & getExtra() const { DARABONBA_GET(extra_) };
+    Darabonba::Json & getExtra() { DARABONBA_GET(extra_) };
     inline IosPayload& setExtra(const Darabonba::Json & extra) { DARABONBA_SET_VALUE(extra_, extra) };
-    inline IosPayload& setExtra(Darabonba::Json & extra) { DARABONBA_SET_RVALUE(extra_, extra) };
+    inline IosPayload& setExtra(Darabonba::Json && extra) { DARABONBA_SET_RVALUE(extra_, extra) };
 
 
   protected:
-    std::shared_ptr<Aps> aps_ = nullptr;
-    Darabonba::Json extra_ = nullptr;
+    shared_ptr<Aps> aps_ {};
+    Darabonba::Json extra_ {};
   };
 
   } // namespace Models

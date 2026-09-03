@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->subtitle_ == nullptr && return this->title_ == nullptr; };
+        && this->subtitle_ == nullptr && this->title_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline Alert& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
     // subtitle Field Functions 
     bool hasSubtitle() const { return this->subtitle_ != nullptr;};
     void deleteSubtitle() { this->subtitle_ = nullptr;};
-    inline string subtitle() const { DARABONBA_PTR_GET_DEFAULT(subtitle_, "") };
+    inline string getSubtitle() const { DARABONBA_PTR_GET_DEFAULT(subtitle_, "") };
     inline Alert& setSubtitle(string subtitle) { DARABONBA_PTR_SET_VALUE(subtitle_, subtitle) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline Alert& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<string> body_ = nullptr;
-    std::shared_ptr<string> subtitle_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> body_ {};
+    shared_ptr<string> subtitle_ {};
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

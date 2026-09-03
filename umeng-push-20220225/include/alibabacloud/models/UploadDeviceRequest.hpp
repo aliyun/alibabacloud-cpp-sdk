@@ -33,12 +33,12 @@ namespace Models
     // deviceTokens Field Functions 
     bool hasDeviceTokens() const { return this->deviceTokens_ != nullptr;};
     void deleteDeviceTokens() { this->deviceTokens_ = nullptr;};
-    inline string deviceTokens() const { DARABONBA_PTR_GET_DEFAULT(deviceTokens_, "") };
+    inline string getDeviceTokens() const { DARABONBA_PTR_GET_DEFAULT(deviceTokens_, "") };
     inline UploadDeviceRequest& setDeviceTokens(string deviceTokens) { DARABONBA_PTR_SET_VALUE(deviceTokens_, deviceTokens) };
 
 
   protected:
-    std::shared_ptr<string> deviceTokens_ = nullptr;
+    shared_ptr<string> deviceTokens_ {};
   };
 
   } // namespace Models

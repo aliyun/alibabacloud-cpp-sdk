@@ -46,15 +46,5 @@
 #include <alibabacloud/models/UploadDeviceRequest.hpp>
 #include <alibabacloud/models/UploadDeviceResponseBody.hpp>
 #include <alibabacloud/models/UploadDeviceResponse.hpp>
-#include <alibabacloud/models/AndroidShortPayloadBody.hpp>
-#include <alibabacloud/models/CancelByMsgIdResponseBodyData.hpp>
-#include <alibabacloud/models/QueryMsgStatResponseBodyData.hpp>
-#include <alibabacloud/models/SendByAliasResponseBodyData.hpp>
-#include <alibabacloud/models/SendByAliasFileIdResponseBodyData.hpp>
-#include <alibabacloud/models/SendByAppResponseBodyData.hpp>
-#include <alibabacloud/models/SendByDeviceResponseBodyData.hpp>
-#include <alibabacloud/models/SendByDeviceFileIdResponseBodyData.hpp>
-#include <alibabacloud/models/SendByFilterResponseBodyData.hpp>
-#include <alibabacloud/models/UploadDeviceResponseBodyData.hpp>
 
 #endif

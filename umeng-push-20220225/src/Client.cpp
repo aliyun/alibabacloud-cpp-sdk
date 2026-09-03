@@ -47,7 +47,7 @@ CancelByMsgIdResponse Client::cancelByMsgIdWithOptions(const CancelByMsgIdReques
   request.validate();
   json body = {};
   if (!!request.hasMsgId()) {
-    body["MsgId"] = request.msgId();
+    body["MsgId"] = request.getMsgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -92,7 +92,7 @@ QueryMsgStatResponse Client::queryMsgStatWithOptions(const QueryMsgStatRequest &
   request.validate();
   json body = {};
   if (!!request.hasMsgId()) {
-    body["MsgId"] = request.msgId();
+    body["MsgId"] = request.getMsgId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -138,84 +138,84 @@ SendByAliasResponse Client::sendByAliasWithOptions(const SendByAliasRequest &tmp
   SendByAliasShrinkRequest request = SendByAliasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasAndroidShortPayload()) {
-    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload(), "AndroidShortPayload", "json"));
+    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidShortPayload(), "AndroidShortPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAlias()) {
-    body["Alias"] = request.alias();
+    body["Alias"] = request.getAlias();
   }
 
   if (!!request.hasAliasType()) {
-    body["AliasType"] = request.aliasType();
+    body["AliasType"] = request.getAliasType();
   }
 
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayloadShrink()) {
-    body["AndroidShortPayload"] = request.androidShortPayloadShrink();
+    body["AndroidShortPayload"] = request.getAndroidShortPayloadShrink();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -261,84 +261,84 @@ SendByAliasFileIdResponse Client::sendByAliasFileIdWithOptions(const SendByAlias
   SendByAliasFileIdShrinkRequest request = SendByAliasFileIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasAndroidShortPayload()) {
-    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload(), "AndroidShortPayload", "json"));
+    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidShortPayload(), "AndroidShortPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAliasType()) {
-    body["AliasType"] = request.aliasType();
+    body["AliasType"] = request.getAliasType();
   }
 
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayloadShrink()) {
-    body["AndroidShortPayload"] = request.androidShortPayloadShrink();
+    body["AndroidShortPayload"] = request.getAndroidShortPayloadShrink();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -384,76 +384,76 @@ SendByAppResponse Client::sendByAppWithOptions(const SendByAppRequest &tmpReq, c
   SendByAppShrinkRequest request = SendByAppShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasAndroidShortPayload()) {
-    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload(), "AndroidShortPayload", "json"));
+    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidShortPayload(), "AndroidShortPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayloadShrink()) {
-    body["AndroidShortPayload"] = request.androidShortPayloadShrink();
+    body["AndroidShortPayload"] = request.getAndroidShortPayloadShrink();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -499,80 +499,80 @@ SendByDeviceResponse Client::sendByDeviceWithOptions(const SendByDeviceRequest &
   SendByDeviceShrinkRequest request = SendByDeviceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasAndroidShortPayload()) {
-    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload(), "AndroidShortPayload", "json"));
+    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidShortPayload(), "AndroidShortPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayloadShrink()) {
-    body["AndroidShortPayload"] = request.androidShortPayloadShrink();
+    body["AndroidShortPayload"] = request.getAndroidShortPayloadShrink();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDeviceTokens()) {
-    body["DeviceTokens"] = request.deviceTokens();
+    body["DeviceTokens"] = request.getDeviceTokens();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -618,80 +618,80 @@ SendByDeviceFileIdResponse Client::sendByDeviceFileIdWithOptions(const SendByDev
   SendByDeviceFileIdShrinkRequest request = SendByDeviceFileIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasAndroidShortPayload()) {
-    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidShortPayload(), "AndroidShortPayload", "json"));
+    request.setAndroidShortPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidShortPayload(), "AndroidShortPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayloadShrink()) {
-    body["AndroidShortPayload"] = request.androidShortPayloadShrink();
+    body["AndroidShortPayload"] = request.getAndroidShortPayloadShrink();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -737,76 +737,76 @@ SendByFilterResponse Client::sendByFilterWithOptions(const SendByFilterRequest &
   SendByFilterShrinkRequest request = SendByFilterShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAndroidPayload()) {
-    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.androidPayload(), "AndroidPayload", "json"));
+    request.setAndroidPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAndroidPayload(), "AndroidPayload", "json"));
   }
 
   if (!!tmpReq.hasChannelProperties()) {
-    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelProperties(), "ChannelProperties", "json"));
+    request.setChannelPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelProperties(), "ChannelProperties", "json"));
   }
 
   if (!!tmpReq.hasHarmonyPayload()) {
-    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.harmonyPayload(), "HarmonyPayload", "json"));
+    request.setHarmonyPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHarmonyPayload(), "HarmonyPayload", "json"));
   }
 
   if (!!tmpReq.hasIosPayload()) {
-    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.iosPayload(), "IosPayload", "json"));
+    request.setIosPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIosPayload(), "IosPayload", "json"));
   }
 
   if (!!tmpReq.hasPolicy()) {
-    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.policy(), "Policy", "json"));
+    request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
   json body = {};
   if (!!request.hasAndroidPayloadShrink()) {
-    body["AndroidPayload"] = request.androidPayloadShrink();
+    body["AndroidPayload"] = request.getAndroidPayloadShrink();
   }
 
   if (!!request.hasAndroidShortPayload()) {
-    body["AndroidShortPayload"] = request.androidShortPayload();
+    body["AndroidShortPayload"] = request.getAndroidShortPayload();
   }
 
   if (!!request.hasChannelPropertiesShrink()) {
-    body["ChannelProperties"] = request.channelPropertiesShrink();
+    body["ChannelProperties"] = request.getChannelPropertiesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasHarmonyPayloadShrink()) {
-    body["HarmonyPayload"] = request.harmonyPayloadShrink();
+    body["HarmonyPayload"] = request.getHarmonyPayloadShrink();
   }
 
   if (!!request.hasIosPayloadShrink()) {
-    body["IosPayload"] = request.iosPayloadShrink();
+    body["IosPayload"] = request.getIosPayloadShrink();
   }
 
   if (!!request.hasPolicyShrink()) {
-    body["Policy"] = request.policyShrink();
+    body["Policy"] = request.getPolicyShrink();
   }
 
   if (!!request.hasProductionMode()) {
-    body["ProductionMode"] = request.productionMode();
+    body["ProductionMode"] = request.getProductionMode();
   }
 
   if (!!request.hasReceiptType()) {
-    body["ReceiptType"] = request.receiptType();
+    body["ReceiptType"] = request.getReceiptType();
   }
 
   if (!!request.hasReceiptUrl()) {
-    body["ReceiptUrl"] = request.receiptUrl();
+    body["ReceiptUrl"] = request.getReceiptUrl();
   }
 
   if (!!request.hasThirdPartyId()) {
-    body["ThirdPartyId"] = request.thirdPartyId();
+    body["ThirdPartyId"] = request.getThirdPartyId();
   }
 
   if (!!request.hasCallbackParams()) {
-    body["callbackParams"] = request.callbackParams();
+    body["callbackParams"] = request.getCallbackParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -851,7 +851,7 @@ UploadDeviceResponse Client::uploadDeviceWithOptions(const UploadDeviceRequest &
   request.validate();
   json body = {};
   if (!!request.hasDeviceTokens()) {
-    body["DeviceTokens"] = request.deviceTokens();
+    body["DeviceTokens"] = request.getDeviceTokens();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -33,12 +33,12 @@ namespace Models
     // msgId Field Functions 
     bool hasMsgId() const { return this->msgId_ != nullptr;};
     void deleteMsgId() { this->msgId_ = nullptr;};
-    inline string msgId() const { DARABONBA_PTR_GET_DEFAULT(msgId_, "") };
+    inline string getMsgId() const { DARABONBA_PTR_GET_DEFAULT(msgId_, "") };
     inline QueryMsgStatRequest& setMsgId(string msgId) { DARABONBA_PTR_SET_VALUE(msgId_, msgId) };
 
 
   protected:
-    std::shared_ptr<string> msgId_ = nullptr;
+    shared_ptr<string> msgId_ {};
   };
 
   } // namespace Models
