@@ -91,6 +91,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PortProxy, portProxy_);
+      DARABONBA_PTR_TO_JSON(PrinterAlert, printerAlert_);
+      DARABONBA_PTR_TO_JSON(PrinterAlertContent, printerAlertContent_);
+      DARABONBA_PTR_TO_JSON(PrinterAlertTitle, printerAlertTitle_);
       DARABONBA_PTR_TO_JSON(PrinterRedirect, printerRedirect_);
       DARABONBA_PTR_TO_JSON(QualityEnhancement, qualityEnhancement_);
       DARABONBA_PTR_TO_JSON(RecordEventDuration, recordEventDuration_);
@@ -128,6 +131,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StreamingMode, streamingMode_);
       DARABONBA_PTR_TO_JSON(TargetFps, targetFps_);
       DARABONBA_PTR_TO_JSON(Taskbar, taskbar_);
+      DARABONBA_PTR_TO_JSON(ThreeScreen, threeScreen_);
       DARABONBA_PTR_TO_JSON(UsbRedirect, usbRedirect_);
       DARABONBA_PTR_TO_JSON(UsbSupplyRedirectRule, usbSupplyRedirectRule_);
       DARABONBA_PTR_TO_JSON(UseTime, useTime_);
@@ -233,6 +237,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PortProxy, portProxy_);
+      DARABONBA_PTR_FROM_JSON(PrinterAlert, printerAlert_);
+      DARABONBA_PTR_FROM_JSON(PrinterAlertContent, printerAlertContent_);
+      DARABONBA_PTR_FROM_JSON(PrinterAlertTitle, printerAlertTitle_);
       DARABONBA_PTR_FROM_JSON(PrinterRedirect, printerRedirect_);
       DARABONBA_PTR_FROM_JSON(QualityEnhancement, qualityEnhancement_);
       DARABONBA_PTR_FROM_JSON(RecordEventDuration, recordEventDuration_);
@@ -270,6 +277,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StreamingMode, streamingMode_);
       DARABONBA_PTR_FROM_JSON(TargetFps, targetFps_);
       DARABONBA_PTR_FROM_JSON(Taskbar, taskbar_);
+      DARABONBA_PTR_FROM_JSON(ThreeScreen, threeScreen_);
       DARABONBA_PTR_FROM_JSON(UsbRedirect, usbRedirect_);
       DARABONBA_PTR_FROM_JSON(UsbSupplyRedirectRule, usbSupplyRedirectRule_);
       DARABONBA_PTR_FROM_JSON(UseTime, useTime_);
@@ -469,26 +477,26 @@ namespace Models
 
 
     protected:
-      // The target of the security group control rule to delete, which is an IPv4 CIDR block.
+      // The target of the security group rule to delete. The value is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
-      // The description of the security group control rule to delete.
+      // The description of the security group rule to delete.
       shared_ptr<string> description_ {};
-      // The protocol type of the security group control rule to delete.
+      // The protocol type of the security group rule to delete.
       shared_ptr<string> ipProtocol_ {};
-      // The authorization policy of the security group control rule to delete.
+      // The authorization policy of the security group rule to delete.
       shared_ptr<string> policy_ {};
-      // The port range of the security group control rule to delete. The port range is determined by the value of IpProtocol:
+      // The port range of the security group rule to delete. The port range is determined by the value of IpProtocol:
       // 
-      // - TCP or UDP: Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
+      // - TCP or UDP: The port range is 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
-      // - IpProtocol set to all: -1/-1.
+      // - If IpProtocol is set to all: -1/-1.
       // 
-      // For common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+      // For more information about common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
       shared_ptr<string> portRange_ {};
-      // The priority of the security group control rule to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
+      // The priority of the security group rule to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
       shared_ptr<string> priority_ {};
-      // The direction of the security group control rule to delete.
+      // The direction of the security group rule to delete.
       shared_ptr<string> type_ {};
     };
 
@@ -530,7 +538,7 @@ namespace Models
 
 
     protected:
-      // The client access IP CIDR block to delete, in IPv4 CIDR format.
+      // The client IP address range to delete. The value is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
       // The description of the client IP whitelist entry to delete.
       shared_ptr<string> description_ {};
@@ -629,7 +637,7 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The redirection policy.
+      // The redirect policy.
       shared_ptr<string> policy_ {};
       // The rule type.
       shared_ptr<string> ruleType_ {};
@@ -778,12 +786,13 @@ namespace Models
       shared_ptr<string> deviceName_ {};
       // The product ID.
       shared_ptr<string> devicePid_ {};
-      // The peripheral device type.
+      // The peripheral type.
       shared_ptr<string> deviceType_ {};
       // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
       shared_ptr<string> deviceVid_ {};
       // The link optimization command.
       shared_ptr<string> optCommand_ {};
+      // The platform types to which the device rule applies.
       shared_ptr<string> platforms_ {};
       // The redirection type.
       shared_ptr<string> redirectType_ {};
@@ -827,7 +836,7 @@ namespace Models
 
 
     protected:
-      // The peripheral device type.
+      // The peripheral type.
       shared_ptr<string> deviceType_ {};
       // The redirection type.
       shared_ptr<string> redirectType_ {};
@@ -926,13 +935,29 @@ namespace Models
 
 
     protected:
+      // The maximum size of a single clipboard transfer. Use this parameter together with the size unit parameter.
       shared_ptr<int32_t> clipboardSize_ {};
+      // The unit of the maximum size of a single clipboard transfer.
       shared_ptr<string> clipboardSizeUnit_ {};
+      // The fine-grained clipboard control type. Valid values:
+      // - off: Clipboard usage is disabled.
+      // - read: Read-only.
+      // - write: Write-only.
+      // - readwrite: Read and write.
       shared_ptr<string> clipboardType_ {};
+      // The content type for fine-grained clipboard control. Valid values:
+      // - text: Text.
+      // - richtext: Rich text.
+      // - file: File.
+      // - picture: Image.
       shared_ptr<string> grainedType_ {};
+      // The maximum size of a single clipboard transfer to the cloud desktop. Use this parameter together with the inbound size unit parameter.
       shared_ptr<int32_t> inClipboardSize_ {};
+      // The unit of the maximum size of a single clipboard transfer to the cloud desktop.
       shared_ptr<string> inClipboardSizeUnit_ {};
+      // The maximum size of a single clipboard transfer from the cloud desktop. Use this parameter together with the outbound size unit parameter.
       shared_ptr<int32_t> outClipboardSize_ {};
+      // The unit of the maximum size of a single clipboard transfer from the cloud desktop.
       shared_ptr<string> outClipboardSizeUnit_ {};
     };
 
@@ -976,9 +1001,9 @@ namespace Models
     protected:
       // The client type for logon method control.
       shared_ptr<string> clientType_ {};
-      // Specifies whether to allow a specific client type to log on to the cloud desktop.
+      // Specifies whether to allow a specific type of client to log on to cloud computers.
       // 
-      // > If you do not set the ClientType parameters, all client types are allowed to log on to the cloud desktop by default.
+      // > If you do not set the `ClientType` parameters, all client types are allowed to log on to cloud computers by default.
       shared_ptr<string> status_ {};
     };
 
@@ -1066,7 +1091,7 @@ namespace Models
 
 
     protected:
-      // The target of the security group control rule, which is an IPv4 CIDR block.
+      // The object of the security group control rule. An IPv4 CIDR block in CIDR notation.
       shared_ptr<string> cidrIp_ {};
       // The description of the security group control rule.
       shared_ptr<string> description_ {};
@@ -1074,12 +1099,12 @@ namespace Models
       shared_ptr<string> ipProtocol_ {};
       // The authorization policy of the security group control rule.
       shared_ptr<string> policy_ {};
-      // The port range of the security group control rule. The port range is determined by the value of IpProtocol:
+      // The port range of the security group control rule. The port range is determined by the value of the protocol (IpProtocol):
       // 
       // - TCP or UDP: Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
-      // - IpProtocol set to all: -1/-1.
+      // - If IpProtocol is set to all: -1/-1.
       // 
       // For common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
       shared_ptr<string> portRange_ {};
@@ -1127,7 +1152,7 @@ namespace Models
 
 
     protected:
-      // The client access IP CIDR block in IPv4 format.
+      // The client IP address range. The value is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
       // The description of the client IP whitelist entry.
       shared_ptr<string> description_ {};
@@ -1149,19 +1174,20 @@ namespace Models
         && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr
         && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr
         && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyGroupId_ == nullptr
-        && this->portProxy_ == nullptr && this->printerRedirect_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr
-        && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recordEvents_ == nullptr && this->recording_ == nullptr
-        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
-        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->regionId_ == nullptr && this->remoteCoordinate_ == nullptr
-        && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->resourceType_ == nullptr && this->revokeAccessPolicyRule_ == nullptr && this->revokeSecurityPolicyRule_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr
-        && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->sessionMaxRateKbps_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr
-        && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
-        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
-        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
-        && this->watermarkColor_ == nullptr && this->watermarkColumnAmount_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr
-        && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr
-        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->portProxy_ == nullptr && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr && this->printerAlertTitle_ == nullptr && this->printerRedirect_ == nullptr
+        && this->qualityEnhancement_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr
+        && this->recordEventRegisters_ == nullptr && this->recordEvents_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr
+        && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr
+        && this->recordingUserNotifyMessage_ == nullptr && this->regionId_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceType_ == nullptr && this->revokeAccessPolicyRule_ == nullptr
+        && this->revokeSecurityPolicyRule_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
+        && this->sessionMaxRateKbps_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr
+        && this->taskbar_ == nullptr && this->threeScreen_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr
+        && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr
+        && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr
+        && this->watermarkColumnAmount_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
+        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr
+        && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
     // academicProxy Field Functions 
     bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
     void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1721,6 +1747,27 @@ namespace Models
     inline ModifyCenterPolicyRequest& setPortProxy(string portProxy) { DARABONBA_PTR_SET_VALUE(portProxy_, portProxy) };
 
 
+    // printerAlert Field Functions 
+    bool hasPrinterAlert() const { return this->printerAlert_ != nullptr;};
+    void deletePrinterAlert() { this->printerAlert_ = nullptr;};
+    inline string getPrinterAlert() const { DARABONBA_PTR_GET_DEFAULT(printerAlert_, "") };
+    inline ModifyCenterPolicyRequest& setPrinterAlert(string printerAlert) { DARABONBA_PTR_SET_VALUE(printerAlert_, printerAlert) };
+
+
+    // printerAlertContent Field Functions 
+    bool hasPrinterAlertContent() const { return this->printerAlertContent_ != nullptr;};
+    void deletePrinterAlertContent() { this->printerAlertContent_ = nullptr;};
+    inline string getPrinterAlertContent() const { DARABONBA_PTR_GET_DEFAULT(printerAlertContent_, "") };
+    inline ModifyCenterPolicyRequest& setPrinterAlertContent(string printerAlertContent) { DARABONBA_PTR_SET_VALUE(printerAlertContent_, printerAlertContent) };
+
+
+    // printerAlertTitle Field Functions 
+    bool hasPrinterAlertTitle() const { return this->printerAlertTitle_ != nullptr;};
+    void deletePrinterAlertTitle() { this->printerAlertTitle_ = nullptr;};
+    inline string getPrinterAlertTitle() const { DARABONBA_PTR_GET_DEFAULT(printerAlertTitle_, "") };
+    inline ModifyCenterPolicyRequest& setPrinterAlertTitle(string printerAlertTitle) { DARABONBA_PTR_SET_VALUE(printerAlertTitle_, printerAlertTitle) };
+
+
     // printerRedirect Field Functions 
     bool hasPrinterRedirect() const { return this->printerRedirect_ != nullptr;};
     void deletePrinterRedirect() { this->printerRedirect_ = nullptr;};
@@ -1996,6 +2043,13 @@ namespace Models
     inline ModifyCenterPolicyRequest& setTaskbar(string taskbar) { DARABONBA_PTR_SET_VALUE(taskbar_, taskbar) };
 
 
+    // threeScreen Field Functions 
+    bool hasThreeScreen() const { return this->threeScreen_ != nullptr;};
+    void deleteThreeScreen() { this->threeScreen_ = nullptr;};
+    inline string getThreeScreen() const { DARABONBA_PTR_GET_DEFAULT(threeScreen_, "") };
+    inline ModifyCenterPolicyRequest& setThreeScreen(string threeScreen) { DARABONBA_PTR_SET_VALUE(threeScreen_, threeScreen) };
+
+
     // usbRedirect Field Functions 
     bool hasUsbRedirect() const { return this->usbRedirect_ != nullptr;};
     void deleteUsbRedirect() { this->usbRedirect_ = nullptr;};
@@ -2181,14 +2235,23 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the academic proxy feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> academicProxy_ {};
     // Specifies whether the user has administrator permissions after logging on to the cloud desktop.
     // 
     // > This feature is in invitational preview and is not publicly available.
     shared_ptr<string> adminAccess_ {};
+    // Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> adminKeyboardOnFullScreen_ {};
+    // Specifies whether to enable administrator keyboard control within the Windows system. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> adminKeyboardOnWindows_ {};
-    // Specifies whether to enable the anti-screenshot feature.
+    // Specifies whether to enable the screenshot prevention feature.
     shared_ptr<string> appContentProtection_ {};
     // The list of client IP whitelist entries to add.
     shared_ptr<vector<ModifyCenterPolicyRequest::AuthorizeAccessPolicyRule>> authorizeAccessPolicyRule_ {};
@@ -2196,31 +2259,47 @@ namespace Models
     shared_ptr<vector<ModifyCenterPolicyRequest::AuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule_ {};
     // Specifies whether to automatically reconnect after disconnection.
     shared_ptr<string> autoReconnect_ {};
+    // The business channel. Valid values:
+    // - Enterprise: Enterprise Edition.
+    // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The business type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
-    // The local camera redirection setting. This parameter takes effect only when no camera redirection policy is specified in DeviceRedirects.
+    // The local camera redirection policy. This parameter takes effect only when no local camera redirection policy is specified in DeviceRedirects.
     shared_ptr<string> cameraRedirect_ {};
-    // The recording event level.
+    // Specifies whether to display the client control menu. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> clientControlMenu_ {};
+    // Specifies whether to enable the custom snapshot creation feature on the client. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> clientCreateSnapshot_ {};
-    // The list of logon method control rules. Specifies which client types can access the cloud desktop.
+    // The list of logon method control rules. Specifies which client types can be used to access cloud computers.
     shared_ptr<vector<ModifyCenterPolicyRequest::ClientType>> clientType_ {};
     // The clipboard permission.
     shared_ptr<string> clipboard_ {};
+    // The fine-grained clipboard control configurations.
     shared_ptr<vector<ModifyCenterPolicyRequest::ClipboardGraineds>> clipboardGraineds_ {};
+    // The effective scope of the clipboard.
     shared_ptr<string> clipboardScope_ {};
-    // Specifies whether color enhancement is enabled for the design and 3D common scenarios.
+    // Indicates whether color enhancement is enabled for the design and 3D application common scenarios.
     shared_ptr<string> colorEnhancement_ {};
+    // Specifies whether to enable the local drive clipboard feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> cpdDriveClipboard_ {};
     // The CPU throttling duration. Valid values: 30 to 120. Unit: seconds.
     shared_ptr<int32_t> cpuDownGradeDuration_ {};
+    // Specifies whether to enable CPU overload protection. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> cpuOverload_ {};
     // The process name.
     shared_ptr<vector<string>> cpuProcessors_ {};
-    // The CPU protection mode switch.
+    // Specifies whether to enable CPU protection mode.
     shared_ptr<string> cpuProtectedMode_ {};
     // The overall CPU usage percentage. Valid values: 70 to 90.
     shared_ptr<int32_t> cpuRateLimit_ {};
@@ -2228,19 +2307,23 @@ namespace Models
     shared_ptr<int32_t> cpuSampleDuration_ {};
     // The single-core CPU usage percentage. Valid values: 70 to 100.
     shared_ptr<int32_t> cpuSingleRateLimit_ {};
+    // The description of the NAS file system.
     shared_ptr<string> description_ {};
     // The peripheral connection notification control.
     shared_ptr<string> deviceConnectHint_ {};
-    // The device redirection rule list.
+    // The list of device redirection rules.
     shared_ptr<vector<ModifyCenterPolicyRequest::DeviceRedirects>> deviceRedirects_ {};
-    // The custom peripheral device rule list.
+    // The list of custom peripheral rules.
     shared_ptr<vector<ModifyCenterPolicyRequest::DeviceRules>> deviceRules_ {};
-    // The session retention after disconnection.
+    // The session retention policy after disconnection.
     // > This parameter applies only to cloud application policies.
     shared_ptr<string> disconnectKeepSession_ {};
-    // The session retention duration after disconnection. Valid values: 30 to 7200. Unit: seconds.
+    // The session retention period after disconnection. Valid values: 30 to 7200. Unit: seconds.
     // > This parameter applies only to cloud application policies.
     shared_ptr<int32_t> disconnectKeepSessionTime_ {};
+    // Specifies whether to enable disk overload protection. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> diskOverload_ {};
     // The display mode.
     shared_ptr<string> displayMode_ {};
@@ -2248,65 +2331,91 @@ namespace Models
     shared_ptr<vector<ModifyCenterPolicyRequest::DomainResolveRule>> domainResolveRule_ {};
     // The domain name resolution policy type.
     shared_ptr<string> domainResolveRuleType_ {};
-    // The session bandwidth throttling setting.
+    // Specifies whether to enable session bandwidth throttling.
     shared_ptr<string> enableSessionRateLimiting_ {};
-    // The setting for users to request administrator assistance.
+    // Specifies whether users can request assistance from administrators.
     shared_ptr<string> endUserApplyAdminCoordinate_ {};
-    // The setting for users within the same office network to share cloud desktops.
+    // Specifies whether users in the same office network can share cloud desktops.
     shared_ptr<string> endUserGroupCoordinate_ {};
+    // Specifies whether to enable external storage devices. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> externalDrive_ {};
-    // The file migration setting.
+    // Specifies whether to enable file migration.
     shared_ptr<string> fileMigrate_ {};
+    // The service address for the file transfer feature.
     shared_ptr<string> fileTransferAddress_ {};
+    // The maximum file size for a single transfer to the cloud desktop. This parameter must be used together with the transfer-in unit parameter.
     shared_ptr<string> fileTransferInSize_ {};
+    // The unit of the maximum file size for a single transfer to the cloud desktop.
     shared_ptr<string> fileTransferInUnit_ {};
+    // The maximum file size for a single transfer from the cloud desktop. This parameter must be used together with the transfer-out unit parameter.
     shared_ptr<string> fileTransferOutSize_ {};
+    // The unit of the maximum file size for a single transfer from the cloud desktop.
     shared_ptr<string> fileTransferOutUnit_ {};
+    // Specifies whether to enable the file transfer size limit. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> fileTransferSizeLimit_ {};
+    // The file transfer speed level.
     shared_ptr<string> fileTransferSpeed_ {};
-    // The recording event file extension.
+    // The location where the file transfer speed configured on the client takes effect.
     shared_ptr<string> fileTransferSpeedLocation_ {};
-    // Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
+    // Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high cloud desktop performance and user experience are required, such as in professional design scenarios.
     shared_ptr<string> gpuAcceleration_ {};
+    // Specifies whether to enable the floating ball configuration message prompt. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> hoverConfigMsg_ {};
     // The file transfer policy for the web client.
     shared_ptr<string> html5FileTransfer_ {};
     // The network communication protocol.
     shared_ptr<string> internetCommunicationProtocol_ {};
-    // The WUYING Keeper switch for mobile clients.
+    // Specifies whether to enable the network printer feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> internetPrinter_ {};
     // The local disk mapping permission.
     shared_ptr<string> localDrive_ {};
-    // The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
+    // The maximum connection retry time when a cloud computer is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
     shared_ptr<int32_t> maxReconnectTime_ {};
-    // The single-process memory throttling duration. Valid values: 30 to 120. Unit: seconds.
+    // The memory throttling duration of a single process. Valid values: 30 to 120. Unit: seconds.
     shared_ptr<int32_t> memoryDownGradeDuration_ {};
+    // Specifies whether to enable memory overload protection. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> memoryOverload_ {};
     // The process name.
     shared_ptr<vector<string>> memoryProcessors_ {};
-    // The memory protection mode switch.
+    // Specifies whether to enable memory protection mode.
     shared_ptr<string> memoryProtectedMode_ {};
     // The overall memory usage percentage. Valid values: 70 to 90.
     shared_ptr<int32_t> memoryRateLimit_ {};
     // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
     shared_ptr<int32_t> memorySampleDuration_ {};
-    // The single-process memory usage percentage. Valid values: 30 to 60.
+    // The memory usage percentage of a single process. Valid values: 30 to 60.
     shared_ptr<int32_t> memorySingleRateLimit_ {};
-    // Specifies whether to provide a restart button in the cloud desktop floating ball when connecting through mobile clients (Android<props="china"> and iOS clients).
+    // Specifies whether to provide the restart button in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
     // 
-    // > This parameter applies only to mobile client V7.4 or later.
+    // > This parameter applies only to mobile clients of V7.4 or later.
     shared_ptr<string> mobileRestart_ {};
-    // The security button switch for Windows on mobile clients.
+    // Specifies whether to enable the security button for Windows on the mobile client.
     shared_ptr<string> mobileSafeMenu_ {};
-    // Specifies whether to provide a shutdown button in the cloud desktop floating ball when connecting through mobile clients (Android<props="china"> and iOS clients).
+    // Specifies whether to provide the shutdown button in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
     // 
-    // > This parameter applies only to mobile client V7.4 or later.
+    // > This parameter applies only to mobile clients of V7.4 or later.
     shared_ptr<string> mobileShutdown_ {};
-    // The WUYING Keeper switch for mobile clients.
+    // Specifies whether to enable WUYING Keeper on the mobile client.
     shared_ptr<string> mobileWuyingKeeper_ {};
-    // The Xiaoying switch for mobile clients.
+    // Specifies whether to enable WUYING Assistant on the mobile client.
     shared_ptr<string> mobileWyAssistant_ {};
+    // Specifies whether to enable the model library feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> modelLibrary_ {};
+    // Specifies whether to enable the multi-screen display feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> multiScreen_ {};
     // The policy name.
     shared_ptr<string> name_ {};
@@ -2314,55 +2423,67 @@ namespace Models
     // 
     // > This feature is in invitational preview and is not publicly available.
     shared_ptr<string> netRedirect_ {};
-    // The network redirection policy details.
+    // The details of the network redirect policy.
     // 
     // > This feature is in invitational preview and is not publicly available.
     // >
     shared_ptr<vector<ModifyCenterPolicyRequest::NetRedirectRule>> netRedirectRule_ {};
-    // The no-operation disconnect setting.
+    // Specifies whether to disconnect the session when no operation is performed.
     // > This parameter applies only to cloud application policies.
     shared_ptr<string> noOperationDisconnect_ {};
-    // The no-operation disconnect duration. Valid values: 120 to 7200. Unit: seconds.
+    // The idle disconnection period. Valid values: 120 to 7200. Unit: seconds.
     // > This parameter applies only to cloud application policies.
     shared_ptr<int32_t> noOperationDisconnectTime_ {};
-    // The ID of the Cloud Desktop policy.
+    // The ID of the cloud desktop policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupId_ {};
+    // Specifies whether to enable the port proxy feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> portProxy_ {};
+    // The printer pop-up prompt. Valid values:
+    // - default: Default value.
+    // - off: Disabled.
+    // - custom: Custom.
+    shared_ptr<string> printerAlert_ {};
+    // The content of the printer pop-up prompt.
+    shared_ptr<string> printerAlertContent_ {};
+    // The title of the printer pop-up prompt.
+    shared_ptr<string> printerAlertTitle_ {};
     // The printer redirection policy. This parameter takes effect only when no printer redirection policy is specified in DeviceRedirects.
     shared_ptr<string> printerRedirect_ {};
-    // Specifies whether image quality enhancement is enabled for the design and 3D common scenarios.
+    // Indicates whether image quality enhancement is enabled for the design and 3D application common scenarios.
     shared_ptr<string> qualityEnhancement_ {};
-    // The recording duration after an event is detected in recording audit. Unit: minutes. Valid values: 10 to 60.
+    // The duration of screen recording after an event is detected in screen recording audits. Unit: minutes. Valid values: 10 to 60.
     shared_ptr<int32_t> recordEventDuration_ {};
-    // The recording event file extension.
+    // The file extensions of recording events.
     shared_ptr<vector<string>> recordEventFileExts_ {};
-    // The absolute paths for file monitoring in recording audit.
+    // The absolute paths for file monitoring in screen recording audits.
     shared_ptr<vector<string>> recordEventFilePaths_ {};
-    // The recording event level.
+    // The levels of recording events.
     shared_ptr<vector<ModifyCenterPolicyRequest::RecordEventLevels>> recordEventLevels_ {};
-    // The absolute paths for registry monitoring in recording audit.
+    // The absolute paths for registry monitoring in screen recording audits.
     shared_ptr<vector<string>> recordEventRegisters_ {};
-    // The list of recording events.
+    // The list of screen recording events.
     shared_ptr<vector<string>> recordEvents_ {};
     // Specifies whether to enable screen recording.
     shared_ptr<string> recording_ {};
-    // The audio recording option for the cloud desktop.
+    // The audio recording option for cloud desktops.
     shared_ptr<string> recordingAudio_ {};
-    // The duration of each recording file segment, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB. Valid values: 10 to 60.
+    // The duration of each screen recording file, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB. Valid values: 10 to 60.
     shared_ptr<int32_t> recordingDuration_ {};
-    // The recording end time in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+    // The end time of screen recording. Format: HH:MM:SS. This response value is meaningful only when `Recording` is set to `PERIOD`.
     shared_ptr<string> recordingEndTime_ {};
-    // The retention period of recording files. Valid values: 1 to 180. Unit: days.
+    // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
     shared_ptr<int32_t> recordingExpires_ {};
-    // The recording frame rate. Unit: FPS (frames per second).
+    // The screen recording frame rate. Unit: FPS (frames per second).
     shared_ptr<string> recordingFps_ {};
-    // The recording start time in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+    // The start time of screen recording. Format: HH:MM:SS. This response value is meaningful only when `Recording` is set to `PERIOD`.
     shared_ptr<string> recordingStartTime_ {};
     // Specifies whether to notify end users that screen recording is enabled.
     shared_ptr<string> recordingUserNotify_ {};
-    // The notification message displayed to end users about screen recording.
+    // The notification message displayed to end users when screen recording is enabled.
     shared_ptr<string> recordingUserNotifyMessage_ {};
     // The region ID. This feature is region-independent. Set this parameter to `cn-shanghai`.
     // 
@@ -2370,14 +2491,15 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The keyboard and mouse control permission for remote assistance.
     shared_ptr<string> remoteCoordinate_ {};
-    // The cloud desktop reset setting.
+    // Specifies whether to allow resetting the cloud desktop.
     shared_ptr<string> resetDesktop_ {};
+    // The DPI value of the screen resolution.
     shared_ptr<int32_t> resolutionDpi_ {};
-    // The resolution height. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
+    // The height of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
     shared_ptr<int32_t> resolutionHeight_ {};
     // The resolution type.
     shared_ptr<string> resolutionModel_ {};
-    // The resolution width. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
+    // The width of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
     shared_ptr<int32_t> resolutionWidth_ {};
     // The resource type.
     // 
@@ -2385,33 +2507,42 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The list of client IP whitelist entries to delete.
     shared_ptr<vector<ModifyCenterPolicyRequest::RevokeAccessPolicyRule>> revokeAccessPolicyRule_ {};
-    // The list of security group control rules to delete.
+    // The list of security group rules to delete.
     shared_ptr<vector<ModifyCenterPolicyRequest::RevokeSecurityPolicyRule>> revokeSecurityPolicyRule_ {};
-    // The security button switch for Windows on mobile clients.
+    // Specifies whether to enable the Security Center shortcut key. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> safeMenu_ {};
-    // The scope of the policy.
+    // The scope in which the policy takes effect.
     shared_ptr<string> scope_ {};
-    // The scope values. Specify this parameter when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
+    // The value to specify when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
     shared_ptr<vector<string>> scopeValue_ {};
-    // The Xiaoying switch for mobile clients.
+    // The screen display mode.
     shared_ptr<string> screenDisplayMode_ {};
-    // The maximum value for session bandwidth throttling. Unit: Kbps. Valid values: 2000 to 100000.
+    // The maximum value of session bandwidth throttling. Unit: Kbps. Valid values: 2000 to 100000.
     shared_ptr<int32_t> sessionMaxRateKbps_ {};
-    // Specifies whether to enable smoothness enhancement for daily office scenarios.
+    // Specifies whether to enable smoothness enhancement for the daily office scenario.
     shared_ptr<string> smoothEnhancement_ {};
     // Specifies whether to provide the status monitoring entry in the cloud desktop floating ball.
     shared_ptr<string> statusMonitor_ {};
-    // The streaming mode scenario.
+    // The streaming mode adaptation scenario.
     shared_ptr<string> streamingMode_ {};
     // The target frame rate. Valid values: 10 to 60.
     shared_ptr<int32_t> targetFps_ {};
     // The application taskbar.
     // > This parameter applies only to cloud application policies.
     shared_ptr<string> taskbar_ {};
-    // The USB redirection setting.
+    // Specifies whether to enable the three-screen feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
+    shared_ptr<string> threeScreen_ {};
+    // The USB redirection policy.
     shared_ptr<string> usbRedirect_ {};
-    // The USB redirection rules.
+    // The USB redirection rule.
     shared_ptr<vector<ModifyCenterPolicyRequest::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
+    // Specifies whether to display the usage duration in the floating ball. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> useTime_ {};
     // The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
     shared_ptr<int32_t> videoEncAvgKbps_ {};
@@ -2419,15 +2550,15 @@ namespace Models
     shared_ptr<int32_t> videoEncMaxQP_ {};
     // The minimum QP for video encoding, which represents the highest quality. Valid values: 0 to 51.
     shared_ptr<int32_t> videoEncMinQP_ {};
-    // The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+    // The peak video encoding bitrate. Unit: Kbps. Valid values: 1000 to 50000.
     shared_ptr<int32_t> videoEncPeakKbps_ {};
     // The video encoding policy.
     shared_ptr<string> videoEncPolicy_ {};
-    // The multimedia redirection setting.
+    // The multimedia redirection policy.
     shared_ptr<string> videoRedirect_ {};
     // The image display quality policy.
     shared_ptr<string> visualQuality_ {};
-    // The watermark setting.
+    // The watermark policy.
     shared_ptr<string> watermark_ {};
     // The invisible watermark anti-photography feature.
     shared_ptr<string> watermarkAntiCam_ {};
@@ -2435,7 +2566,7 @@ namespace Models
     shared_ptr<int32_t> watermarkColor_ {};
     // The number of watermark columns. Valid values: 3 to 10.
     shared_ptr<int32_t> watermarkColumnAmount_ {};
-    // The custom text content. This parameter is required if you set WatermarkType to `custom`.
+    // If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
     shared_ptr<string> watermarkCustomText_ {};
     // The watermark tilt angle. Valid values: -10 to -30.
     shared_ptr<double> watermarkDegree_ {};
@@ -2449,18 +2580,21 @@ namespace Models
     shared_ptr<int32_t> watermarkRowAmount_ {};
     // The security priority rule for invisible watermarks.
     shared_ptr<string> watermarkSecurity_ {};
+    // Specifies whether to enable the watermark shadow effect. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> watermarkShadow_ {};
     // The watermark opacity. A larger value indicates lower transparency. Valid values: 10 to 100.
     shared_ptr<int32_t> watermarkTransparencyValue_ {};
     // The watermark type. You can select up to three types, separated by commas (,).
     // 
-    // > If you set this parameter to `custom`, you must also specify the custom text content by using the WatermarkCustomText parameter.
+    // > If you set this parameter to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
     shared_ptr<string> watermarkType_ {};
-    // The WUYING Keeper switch.
+    // Specifies whether to enable WUYING Keeper.
     shared_ptr<string> wuyingKeeper_ {};
-    // Specifies whether to provide the WUYING AI Assistant entry in the cloud desktop floating ball when connecting through desktop clients (including Windows and macOS clients).
+    // Specifies whether to provide the WUYING AI Assistant entry in the floating ball when connecting to a cloud computer through a desktop client (including Windows client and macOS client).
     // 
-    // > This parameter applies only to desktop client V7.7 or later.
+    // > This feature applies only to desktop clients of V7.7 or later.
     shared_ptr<string> wyAssistant_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the automatic snapshot policy.
+    // The automatic snapshot policy ID.
     shared_ptr<string> policyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

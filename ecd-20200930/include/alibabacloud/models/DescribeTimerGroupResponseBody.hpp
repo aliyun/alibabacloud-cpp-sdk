@@ -313,27 +313,43 @@ namespace Models
 
 
         protected:
-          // The specified time point for the fixed-time scheduled task. After this parameter is specified, the scheduled task is executed at the specified time point.
+          // The appointment timer used for executing scheduled tasks at specified time points. After this parameter is specified, the scheduled task is executed at the specified time points.
           shared_ptr<int64_t> appointmentTimer_ {};
+          // Specifies whether to create a snapshot.
           shared_ptr<bool> createSnapshot_ {};
+          // The cron expression for the end time of the scheduled task.
           shared_ptr<string> endCronExpression_ {};
+          // Specifies whether to forcefully execute the task. A value of true indicates that the desktop and connection status checks are ignored and the scheduled task is forcefully executed.
           shared_ptr<bool> enforce_ {};
           // The image ID specified for the image change scheduled task.
           shared_ptr<string> imageId_ {};
+          // The time interval. Unit: minutes.
           shared_ptr<int32_t> interval_ {};
+          // The list of effective IP CIDR blocks.
           shared_ptr<vector<string>> ipSegments_ {};
-          // The lock screen time point for the no-operation lock screen feature. This feature cannot be used for non-AD desktops.
+          // The duration of inactivity before the screen is locked, used by the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
           shared_ptr<int32_t> lockScreenTime_ {};
+          // The advance notification time before the scheduled task is executed. Unit: seconds.
           shared_ptr<int32_t> notificationTime_ {};
+          // The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
           shared_ptr<string> operationType_ {};
+          // The patch ID.
           shared_ptr<string> patchId_ {};
+          // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
           shared_ptr<vector<string>> processWhitelist_ {};
+          // The reset type, which determines whether to reset and the scope of cloud disks to reset.
           shared_ptr<string> resetType_ {};
+          // The cron expression for the start time of the scheduled task.
           shared_ptr<string> startCronExpression_ {};
+          // The execution order number of the timer.
           shared_ptr<int32_t> timerOrder_ {};
+          // The time zone used by the scheduled task.
           shared_ptr<string> timezone_ {};
+          // The trigger configuration type of the no-operation scheduled task.
           shared_ptr<string> triggerType_ {};
+          // The advance notification time before verification is executed. Unit: seconds.
           shared_ptr<int32_t> verificationNotificationTime_ {};
+          // The verification wait duration. Unit: seconds.
           shared_ptr<int32_t> verificationTime_ {};
         };
 
@@ -428,8 +444,9 @@ namespace Models
         shared_ptr<string> cronExpression_ {};
         // Specifies whether to forcefully execute the task. A value of true indicates that the desktop and connection status checks are ignored and the scheduled task is forcefully executed.
         shared_ptr<bool> enforce_ {};
-        // The time interval, in minutes.
+        // The time interval. Unit: minutes.
         shared_ptr<int32_t> interval_ {};
+        // The advance notification time before the scheduled task is executed. Unit: seconds.
         shared_ptr<int32_t> notificationTime_ {};
         // The type of the disconnect scheduled task.
         shared_ptr<string> operationType_ {};
@@ -437,6 +454,7 @@ namespace Models
         shared_ptr<vector<string>> processWhitelist_ {};
         // The reset type of the reset scheduled task.
         shared_ptr<string> resetType_ {};
+        // The list of segment timer configurations.
         shared_ptr<vector<ConfigTimers::SegmentTimers>> segmentTimers_ {};
         // The type of the scheduled task.
         shared_ptr<string> timerType_ {};
@@ -548,19 +566,19 @@ namespace Models
       shared_ptr<int32_t> bindCount_ {};
       // The quantity information of resources bound to the configuration.
       shared_ptr<map<string, int32_t>> bindCountMap_ {};
-      // The configuration information of scheduled tasks, in list format.
+      // The configuration information of scheduled tasks. This is a list structure.
       shared_ptr<vector<Data::ConfigTimers>> configTimers_ {};
       // The description of the configuration group.
       shared_ptr<string> description_ {};
       // The configuration group ID.
       shared_ptr<string> groupId_ {};
-      // The mapping code for the system scheduled task description, used for frontend display.
+      // The code of the system scheduled task description, used for frontend display.
       shared_ptr<string> innerTimerDesc_ {};
-      // The mapping code for the system scheduled task name, used for frontend display.
+      // The mapping code of the system scheduled task name, used for frontend display.
       shared_ptr<string> innerTimerName_ {};
-      // Used for system scheduled task checks. The current scheduled task does not support unbinding or binding.
+      // Used for system scheduled task check. The current scheduled task does not support unbinding or binding.
       shared_ptr<bool> isBind_ {};
-      // Used for system scheduled task checks. The current scheduled task does not support modification.
+      // Used for system scheduled task check. The current scheduled task does not support modification.
       shared_ptr<bool> isUpdate_ {};
       // The name of the configuration group.
       shared_ptr<string> name_ {};

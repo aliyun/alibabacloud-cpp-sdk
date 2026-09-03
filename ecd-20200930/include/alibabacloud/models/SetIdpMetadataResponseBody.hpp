@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The entity ID obtained after the IdP metadata file is parsed.
+    // The entityID value obtained after parsing the IdP metadata file.
     shared_ptr<string> idpEntityId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

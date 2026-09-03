@@ -116,9 +116,9 @@ namespace Models
 
 
       protected:
-        // The ID of the enterprise network disk (The order is not paid, and the enterprise network disk cannot be used).
+        // The ID of the enterprise NAS drive. The order is not paid, and the NAS drive is unavailable.
         shared_ptr<string> cdsId_ {};
-        // The order ID. You can obtain the order ID on the **Order Management** page in the Alibaba Cloud User Center.
+        // The order ID. You can obtain the order ID on the **Orders** page in the Alibaba Cloud User Center.
         shared_ptr<string> orderId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -162,9 +162,9 @@ namespace Models
 
 
       protected:
-        // The ID of the enterprise network disk.
+        // The ID of the enterprise NAS drive.
         shared_ptr<string> cdsId_ {};
-        // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions that are supported by Elastic Desktop Service.
+        // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
         shared_ptr<string> regionId_ {};
       };
 
@@ -189,9 +189,9 @@ namespace Models
 
 
     protected:
-      // The information of conflicting enterprise network disks.
+      // The information about the conflicting NAS drive.
       shared_ptr<vector<ConflictCdsAndOrder::ConflictCds>> conflictCds_ {};
-      // The information of conflicting unpaid orders for enterprise network disks (orders for subscription enterprise network disks).
+      // The information about the conflicting unpaid NAS drive order (subscription NAS drive order).
       shared_ptr<vector<ConflictCdsAndOrder::ConflictOrder>> conflictOrder_ {};
     };
 
@@ -271,25 +271,25 @@ namespace Models
 
 
   protected:
-    // The ID of the enterprise network disk.
+    // The ID of the enterprise NAS drive.
     shared_ptr<string> cdsId_ {};
-    // The name of the cloud storage service.
+    // The service name of the cloud storage.
     shared_ptr<string> cdsName_ {};
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The instance ID of the Cloud Enterprise Network (CEN).
     // 
-    // > If you want to connect to a cloud desktop through a VPC, you can add the office network to a CEN instance. This CEN instance connects to your on-premises network through a VPN or a dedicated line.
+    // > To connect to cloud desktops over a VPC, you can add the office network to a CEN instance. This CEN instance is the one to which the on-premises network is connected by using a VPN or Express Connect circuit.
     shared_ptr<string> cenId_ {};
-    // The existing enterprise network disks or orders for enterprise network disks that conflict with the enterprise network disk that you want to create.
+    // The existing NAS drive or NAS drive order that conflicts with the NAS drive to be created.
     shared_ptr<CreateCloudDriveServiceResponseBody::ConflictCdsAndOrder> conflictCdsAndOrder_ {};
-    // The name of the Active Directory (AD) domain corresponding to the AD office network.
+    // The AD domain name of the AD office network.
     shared_ptr<string> domainName_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The maximum storage usage of the enterprise network disk. Unit: bytes.
+    // The maximum storage capacity of the enterprise NAS drive. Unit: bytes.
     shared_ptr<string> maxSize_ {};
-    // The office network type.
+    // The network type of the office network.
     shared_ptr<string> officeSiteType_ {};
-    // The order ID. You can obtain the order ID on the Order Management page in the Alibaba Cloud User Center.
+    // The order ID. You can obtain the order ID on the Orders page in the Alibaba Cloud User Center.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

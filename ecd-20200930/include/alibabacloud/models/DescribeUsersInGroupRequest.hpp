@@ -124,31 +124,30 @@ namespace Models
 
 
   protected:
-    // The connection status of the user.
+    // The connection state of the user.
     shared_ptr<int32_t> connectState_ {};
-    // The shared cloud desktop ID.
+    // The ID of the shared cloud computer.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
     // The ID of the authorized user.
     shared_ptr<string> endUserId_ {};
-    // A list of authorized user IDs.
+    // The list of authorized user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The string for a partial match query. Results that contain this string are returned.
+    // The fuzzy query string. All results that contain this character string are returned.
     shared_ptr<string> filter_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
     // - Maximum value: 100.
-    // 
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to start the next query. An empty value indicates that all results have been returned.
+    // The pagination token for the next query. An empty value indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
     // The ID of the organization to which the user belongs.
     shared_ptr<string> orgId_ {};
     // Specifies whether to query user details.
     shared_ptr<bool> queryUserDetail_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

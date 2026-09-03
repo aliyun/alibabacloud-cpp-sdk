@@ -124,19 +124,19 @@ namespace Models
 
 
   protected:
-    // The region filter condition for the template query. 
+    // The region filter condition for template queries.
     // 
-    // > If this parameter is specified, region-specific configurations that do not match are excluded from the query results.
+    // > If this parameter is specified, the query results exclude configurations for regions that do not match.
     shared_ptr<string> bizRegionId_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
-    // The cloud computer image ID. You can obtain the ID from the image management page. System images, custom images, and other image types are supported.
+    // The cloud computer image ID. You can obtain the ID from the image management page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
     // The keyword. Fuzzy match is supported for the template ID and template name fields.
     shared_ptr<string> keyword_ {};
-    // The page number of the current page in a paged query. This parameter is used for paging.
+    // The page number of the current page in a paged query. Paging starts from page 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of rows per page in a paged query. This parameter is used for paging.
+    // The maximum number of rows per page in a paged query. Paging is used to return results in batches.
     shared_ptr<int32_t> pageSize_ {};
     // The product type. Set this parameter to `CloudDesktop`.
     shared_ptr<string> productType_ {};

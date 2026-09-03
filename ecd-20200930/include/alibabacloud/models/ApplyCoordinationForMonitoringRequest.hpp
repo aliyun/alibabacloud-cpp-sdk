@@ -130,7 +130,7 @@ namespace Models
       shared_ptr<int64_t> ownerAliUid_ {};
       // The username of the current user of the cloud computer.
       // 
-      // > This field is required.
+      // > This parameter is required.
       shared_ptr<string> ownerEndUserId_ {};
       // The cloud computer ID.
       // 
@@ -140,7 +140,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> resourceName_ {};
-      // The properties of the cloud computer.
+      // The cloud computer properties.
       shared_ptr<string> resourceProperties_ {};
       // The region where the resource resides.
       // 
@@ -199,11 +199,11 @@ namespace Models
 
 
   protected:
-    // The access policy during the remote assistance procedure.
+    // The access policy for the remote assistance procedure.
     // 
     // This parameter is required.
     shared_ptr<string> coordinatePolicyType_ {};
-    // The ID of the end user who initiates the coordination flow. This parameter is not required if the request is initiated by an administrator.
+    // The ID of the end user who initiates the streaming collaboration. This parameter is not required if the administrator initiates the request.
     shared_ptr<string> endUserId_ {};
     // The initiator type.
     shared_ptr<string> initiatorType_ {};

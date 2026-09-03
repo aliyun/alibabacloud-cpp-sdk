@@ -108,7 +108,9 @@ namespace Models
 
 
     protected:
+      // The application control policy ID.
       shared_ptr<string> appRuleId_ {};
+      // The site name.
       shared_ptr<string> siteId_ {};
     };
 
@@ -242,7 +244,7 @@ namespace Models
     protected:
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
+      // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
       shared_ptr<string> regionId_ {};
       // The cloud computer specification ID.
       shared_ptr<string> resourceInstanceType_ {};
@@ -250,9 +252,9 @@ namespace Models
       shared_ptr<string> snapshotPolicyId_ {};
       // The subnet ID.
       shared_ptr<string> subnetId_ {};
-      // Specifies whether to enable cloud disk encryption.
+      // Specifies whether to enable disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The ID of the KMS key used when cloud disk encryption is enabled.
+      // The ID of the KMS key used when disk encryption is enabled.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -461,36 +463,55 @@ namespace Models
 
 
   protected:
+    // Specifies whether automatic payment is enabled for the subscription order.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal for the subscription cloud computer.
     shared_ptr<bool> autoRenew_ {};
+    // The billing method of the cloud computer.
     shared_ptr<string> chargeType_ {};
+    // The system cloud disk performance level.
     shared_ptr<vector<ModifyTemplateRequest::DataDiskList>> dataDiskList_ {};
     // The default language that is set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
     shared_ptr<string> defaultLanguage_ {};
     // The description of the template. The description must meet the following requirements:
     // 
-    // - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
     // - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
     shared_ptr<string> description_ {};
-    // The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
+    // The ID of the cloud computer image. You can query the ID on the Image Management page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
+    // The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+    // - If `PeriodUnit` is set to `Month`, valid values:
+    //     - 1
+    //     - 2
+    //     - 3
+    //     - 6
+    // - If `PeriodUnit` is set to `Year`, valid values:
+    //     - 1
+    //     - 2
+    //     - 3
+    //     - 4
+    //     - 5
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription duration for the subscription billing method.
     shared_ptr<string> periodUnit_ {};
     // The ID of the global policy.
     shared_ptr<string> policyGroupId_ {};
+    // Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
     shared_ptr<bool> postPaidAfterUsedUp_ {};
-    // The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+    // The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
     // 
-    // > A maximum of 20 region configurations are supported.
+    // > You can specify configurations for up to 20 regions.
     shared_ptr<vector<ModifyTemplateRequest::RegionConfigList>> regionConfigList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags of the cloud computer in key-value format. A maximum of 20 tags can be specified.
+    // The tags of the cloud computer in key-value format. You can specify up to 20 tags.
     shared_ptr<vector<ModifyTemplateRequest::ResourceTagList>> resourceTagList_ {};
+    // The site configuration management.
     shared_ptr<vector<ModifyTemplateRequest::SiteConfigList>> siteConfigList_ {};
     // The type of the system cloud disk.
     // 
-    // > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD cloud disks.
+    // > Only high frequency and graphics cloud computer specifications support ESSD cloud disks.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
     // The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
     // 
@@ -502,12 +523,13 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The name of the template. The name must meet the following requirements:
     // 
-    // - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
-    // - The name must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`.
+    // - The name must be 2 to 126 characters in length.
+    // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
     shared_ptr<string> templateName_ {};
     // The configuration group ID.
     shared_ptr<string> timerGroupId_ {};
+    // The per-user usage duration plan.
     shared_ptr<int32_t> userDuration_ {};
   };
 

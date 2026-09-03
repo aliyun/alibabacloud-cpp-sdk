@@ -151,30 +151,21 @@ namespace Models
       shared_ptr<string> desktopId_ {};
       // The cloud computer name.
       shared_ptr<string> desktopName_ {};
-      // The end time of the recording.
+      // The end time of the recording. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> endTime_ {};
-      // The end user IDs.
+      // The list of end user IDs.
       shared_ptr<vector<string>> endUserIds_ {};
       // The file path.
       shared_ptr<string> filePath_ {};
       // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The size of the screen recording file. Unit: bytes.
+      // The size of the recording file. Unit: bytes.
       shared_ptr<int32_t> recordingSize_ {};
-      // The type of event that triggers the recording.
-      // 
-      // Valid values:
-      // 
-      // *   byaction_cmd_ft: triggered by copy-paste or file transfer events.
-      // *   period: triggered at scheduled intervals.
-      // *   session: triggered by session lifecycle monitoring.
-      // *   byaction_commands: triggered by copy-paste only.
-      // *   alltime: continuous recording.
-      // *   byaction_file_transfer: triggered by file transfer only.
+      // The recording type.
       shared_ptr<string> recordingType_ {};
       // The download URL of the screen recording file.
       shared_ptr<string> signedUrl_ {};
-      // The start time of the recording.
+      // The start time of the recording. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
     };
 
@@ -204,9 +195,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The screen recording files.
+    // The collection of cloud computer screen recording information.
     shared_ptr<vector<DescribeRecordingsResponseBody::Recordings>> recordings_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

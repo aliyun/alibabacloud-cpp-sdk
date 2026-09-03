@@ -60,14 +60,15 @@ namespace Models
 
 
   protected:
-    // List of public network premium bandwidth IDs. You can specify one or more IDs.
+    // The IDs of the premium Internet bandwidth plans. You can specify one or more IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> networkPackageId_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain a list of regions where WUYING Workspace is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The user ID of resource ownership in the reseller pattern. This parameter is not required in the non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically rename the file when a file with the same name exists in the destination folder.
+    // Specifies whether to automatically rename the file when a file with the same name already exists in the destination folder.
     shared_ptr<bool> autoRename_ {};
     // The enterprise cloud drive ID.
     // 
@@ -124,14 +124,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The ID of the personal drive (which can be obtained from the `UserId` response parameter of the [DescribeCloudDriveUsers](https://help.aliyun.com/document_detail/2357237.html) operation) or the team space ID (which can be obtained from the `GroupId` response parameter of the [DescribeCloudDriveGroups](https://help.aliyun.com/document_detail/609896.html) operation) at the copy destination.
-    // > If both `FileReceiverId` and `FileReceiverType` are empty, the file is copied to the personal drive where the file currently resides by default.
+    // The ID of the personal drive (which can be obtained from the UserId response parameter of the [DescribeCloudDriveUsers](https://help.aliyun.com/document_detail/2357237.html) operation) or the team space ID (which can be obtained from the GroupId response parameter of the [DescribeCloudDriveGroups](https://help.aliyun.com/document_detail/609896.html) operation) at the destination.
+    // > If both FileReceiverId and FileReceiverType are empty, the file is copied to the personal drive where the file currently resides by default.
     shared_ptr<string> fileReceiverId_ {};
-    // The type of space to which the file belongs.
+    // The type of the space to which the file belongs.
     shared_ptr<string> fileReceiverType_ {};
     // The team space ID.
     shared_ptr<string> groupId_ {};
-    // The ID of the parent folder at the copy destination. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the folder. Set this parameter to `root` if you want to copy the file to the root directory.
+    // The ID of the parent folder at the destination. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the folder. Set this parameter to `root` if you want to copy the file or folder to the root directory.
     // 
     // This parameter is required.
     shared_ptr<string> parentFolderId_ {};

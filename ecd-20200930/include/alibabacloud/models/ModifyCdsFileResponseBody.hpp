@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // Indicates whether data is returned successfully.
+    // Indicates whether the data is returned successfully.
     // [_single.resp.200.props.Data.enum. false]Failed to return data.
     shared_ptr<string> data_ {};
     // The error message. This parameter is not returned when Code is `success`.

@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> coId_ {};
     // The username of the end user.
     shared_ptr<string> endUserId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

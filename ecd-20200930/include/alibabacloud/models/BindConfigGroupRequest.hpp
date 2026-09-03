@@ -130,7 +130,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
+    // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
     // The resource information to associate.
     // 

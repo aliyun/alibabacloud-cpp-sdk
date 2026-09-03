@@ -119,28 +119,29 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // A list of WUYING Workspace instance IDs. You can renew only instances purchased on a monthly basis.
+    // The list of cloud computer IDs. Only monthly subscription cloud computers can be renewed.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
-    // The renewal duration. Valid values depend on the value of `PeriodUnit`.
+    // The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
     // 
-    // - If `PeriodUnit` is `Month`, valid values are 1, 2, 3, and 6.
+    // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
     // 
-    // - If `PeriodUnit` is `Year`, valid values are 1 to 5.
+    // - If `PeriodUnit` is set to `Year`, valid values are 1 to 5.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
-    // The unit for the renewal duration, which applies to the `Period` parameter.
+    // The unit of the renewal duration, which is the unit of the `Period` parameter.
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to list the regions where WUYING Workspace is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The user ID for resource ownership in the reselling pattern. You do not need to specify this parameter if you are not using the reselling pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
-    // > This field is not available for public use.
+    // > This parameter is not publicly available.
     shared_ptr<string> resourceType_ {};
   };
 

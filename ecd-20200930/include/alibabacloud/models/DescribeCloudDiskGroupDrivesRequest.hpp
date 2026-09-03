@@ -79,15 +79,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The team drive name.
+    // The team space name.
     shared_ptr<string> groupName_ {};
-    // The number of entries per page for paged queries.
+    // The number of entries per page for a paged query.
     // 
-    // - Maximum: 100
-    // 
-    // - Default: 20
+    // - Maximum value: 100
+    // - Default value: 20
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the start of the next query. An empty NextToken means no more results.
+    // The token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 

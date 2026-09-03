@@ -191,30 +191,33 @@ namespace Models
 
 
   protected:
-    // The cloud computer ID. If you do not specify this parameter, all cloud computers in the region are queried.
+    // The cloud computer ID. If this parameter is not specified, all cloud computers in the region are queried.
     shared_ptr<string> desktopId_ {};
-    // The IP address of the cloud computer. If you do not specify this parameter, events of all cloud computers in the region are queried.
+    // The IP address of the cloud computer. If this parameter is not specified, events of all cloud computers in the region are queried.
     shared_ptr<string> desktopIp_ {};
     // The name of the cloud computer.
     shared_ptr<string> desktopName_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> directoryId_ {};
-    // The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the current time is used.
+    // The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If this parameter is not specified, the current time is used.
     shared_ptr<string> endTime_ {};
-    // The logon user information, which is a Resource Access Management (RAM) user ID or AD username. If you do not specify this parameter, events of all users in the region are queried.
+    // The logon user information, which is a Resource Access Management (RAM) user ID or AD username. If this parameter is not specified, events of all users in the region are queried.
     shared_ptr<string> endUserId_ {};
+    // The list of end user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
     // The event type to query. If EventTypes is not empty, the EventTypes combination is used as the query filter condition. If both EventTypes and EventType are empty, all events are queried.
     shared_ptr<string> eventType_ {};
-    // The combination of event types to query. You can specify multiple event types. The query results include events of all specified types.
+    // The combination of event types to query. You can specify multiple event types. The query results include all events of the specified types.
     shared_ptr<vector<string>> eventTypes_ {};
+    // Specifies whether to include terminal information in the response.
     shared_ptr<bool> fillHardwareInfo_ {};
+    // The language type of the returned information.
     shared_ptr<string> language_ {};
     // The number of entries per page for a paged query. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the office network to which the cloud computer belongs. If you do not specify this parameter, user events in all office networks in the region are queried.
+    // The ID of the office network to which the cloud computer belongs. If this parameter is not specified, user events in all office networks in the region are queried.
     shared_ptr<string> officeSiteId_ {};
     // The name of the office network.
     shared_ptr<string> officeSiteName_ {};
@@ -222,7 +225,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, events are queried backward from the time specified by `EndTime`.
+    // The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If this parameter is not specified, events are queried backward from the time specified by `EndTime`.
     shared_ptr<string> startTime_ {};
   };
 

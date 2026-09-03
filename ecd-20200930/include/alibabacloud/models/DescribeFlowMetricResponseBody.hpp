@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Metric data.
+    // The metric data.
     shared_ptr<string> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

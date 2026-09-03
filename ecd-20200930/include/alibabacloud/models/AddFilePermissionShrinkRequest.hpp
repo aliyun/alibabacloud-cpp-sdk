@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> cdsId_ {};
     // The ID of the user who uses the cloud disk.
     shared_ptr<string> endUserId_ {};
-    // The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
+    // The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the file ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};

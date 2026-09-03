@@ -197,12 +197,14 @@ namespace Models
     shared_ptr<vector<string>> desktopId_ {};
     // The cloud computer name.
     shared_ptr<string> desktopName_ {};
-    // The end time of the query.
+    // The end of the time range to query.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
     // The end user ID. This parameter is the same as EndUserId. You only need to specify one of them.
     shared_ptr<string> endUserIdFilter_ {};
+    // The list of end user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
     // Specifies whether to include terminal information in the response.
     shared_ptr<bool> fillHardwareInfo_ {};
@@ -218,10 +220,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The session connection status.
     shared_ptr<string> sessionStatus_ {};
-    // The start time of the query.
+    // The beginning of the time range to query.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
     // The purchase method of the cloud computer.
     shared_ptr<string> subPayType_ {};

@@ -103,25 +103,23 @@ namespace Models
 
 
   protected:
+    // The end time of the custom time range.
     shared_ptr<int64_t> customEndTimePeriod_ {};
+    // The start time of the custom time range.
     shared_ptr<int64_t> customStartTimePeriod_ {};
-    // The ID of the desktop group.
+    // The ID of the shared cloud desktop.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // Specifies whether to return deleted desktops.
+    // Specifies whether to ignore the deletion flag.
     shared_ptr<bool> ignoreDeleted_ {};
-    // The maximum number of entries to return on a single page.
-    // 
-    // - Maximum value: 100.
-    // 
-    // - Default value: 10.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. If this parameter is empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

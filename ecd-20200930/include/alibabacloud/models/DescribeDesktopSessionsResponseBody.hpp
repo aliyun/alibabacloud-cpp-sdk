@@ -401,7 +401,7 @@ namespace Models
       shared_ptr<int64_t> latestConnectionTime_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
       // Specifies whether to check the session status within the cloud computer.
       shared_ptr<string> osSessionStatus_ {};
@@ -412,10 +412,12 @@ namespace Models
       // The resource group information.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
       // The end time of the session.
+      // The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> sessionEndTime_ {};
       // The session idle duration. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
       // The start time of the session.
+      // The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> sessionStartTime_ {};
       // The session connection status.
       shared_ptr<string> sessionStatus_ {};

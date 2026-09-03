@@ -118,14 +118,19 @@ namespace Models
 
 
     protected:
+      // The number of assigned cloud computers.
       shared_ptr<int32_t> assignedDesktopNumber_ {};
       // The display name of the AD account.
       shared_ptr<string> displayName_ {};
+      // The new display name of the user.
       shared_ptr<string> displayNameNew_ {};
+      // The email address.
       shared_ptr<string> email_ {};
       // The username of the AD account.
       shared_ptr<string> endUser_ {};
+      // The mobile phone number.
       shared_ptr<string> phone_ {};
+      // The user principal name (UPN).
       shared_ptr<string> userPrincipalName_ {};
     };
 
@@ -155,12 +160,11 @@ namespace Models
 
 
   protected:
-    // The token to start the next query. If this parameter is empty, all results have been returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the AD accounts.<br>
-    // If the enterprise AD contains only the Administrator and Guest users, an empty Users array is returned.<br>
+    // The array of AD account usernames. If the enterprise AD contains only the Administrator and Guest users and no other users, an empty Users array is returned.
     shared_ptr<vector<ListOfficeSiteUsersResponseBody::Users>> users_ {};
   };
 

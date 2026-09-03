@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
-    // The ID of the office network. You can call [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) to obtain the ID of the office network associated with the premium Internet bandwidth plan.
+    // The ID of the office network. You can call [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) to query the ID of the office network associated with the premium Internet bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};

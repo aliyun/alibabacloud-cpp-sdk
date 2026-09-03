@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time of the query. UNIX timestamp, in milliseconds.
     shared_ptr<string> endTime_ {};
     // The workspace ID.
     shared_ptr<string> officeSiteId_ {};
-    // The query interval. Unit: seconds. Valid values:
+    // The query interval, in seconds. Valid values:
     // 
     // - 60
     // - 120
     shared_ptr<int32_t> period_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The region ID used to filter desktop information for a specified region.
+    // The region ID used to filter desktop information in a specified region.
     shared_ptr<string> searchRegionId_ {};
-    // The beginning of the time range to query.
+    // The start time of the query. UNIX timestamp, in milliseconds.
     shared_ptr<string> startTime_ {};
   };
 

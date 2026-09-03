@@ -106,9 +106,9 @@ namespace Models
       protected:
         // The cloud computer ID.
         shared_ptr<string> desktopId_ {};
-        // The user IDs (usernames) authorized for the cloud computer.
+        // The user IDs (usernames) authorized to use the cloud computer.
         shared_ptr<vector<string>> endUserIds_ {};
-        // The assignment result of a single cloud computer.
+        // The assignment result for a single cloud computer.
         shared_ptr<string> innerStatus_ {};
       };
 
@@ -138,7 +138,7 @@ namespace Models
 
 
     protected:
-      // The assignment results.
+      // The assignment result details.
       shared_ptr<vector<Entitlements::AssignModels>> assignModels_ {};
       // The overall assignment result.
       shared_ptr<string> status_ {};
@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The collection of assignment results.
+    // The assignment results.
     shared_ptr<BatchModifyEntitlementResponseBody::Entitlements> entitlements_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

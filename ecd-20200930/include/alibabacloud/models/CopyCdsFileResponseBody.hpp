@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The result of copying the file.
+    // The result of the file copy operation.
     shared_ptr<CopyCdsFileResponseBody::CopyCdsFileModel> copyCdsFileModel_ {};
     // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};

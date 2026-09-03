@@ -213,32 +213,37 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // Enterprise: Enterprise Edition.
+    // Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The cloud desktop ID. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The cloud desktop name.
     shared_ptr<string> desktopName_ {};
+    // The list of cloud desktop statuses to include.
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
+    // The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
     shared_ptr<string> desktopType_ {};
     // The end time. The maximum interval between the start time and end time is 30 days. Supported format:
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> endTime_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
+    // The list of cloud desktop statuses to exclude.
     shared_ptr<vector<string>> excludeDesktopStatusList_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
+    // The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
     // 
     // - uptime: sorts by cloud desktop uptime.
     shared_ptr<string> orderBy_ {};
-    // The page number of the current page in a paged query. Paging starts from page 1.    
+    // The page number of the current page when using paging.    
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The region ID. Valid values:
     // - Shanghai
     // - Singapore
     // 
@@ -263,6 +268,7 @@ namespace Models
     // - postPaid: pay-as-you-go.
     // - monthPackage: monthly duration package.
     shared_ptr<string> subPayType_ {};
+    // The list of usernames.
     shared_ptr<vector<string>> userNames_ {};
   };
 

@@ -228,17 +228,17 @@ namespace Models
     protected:
       // The rule description.
       shared_ptr<string> description_ {};
-      // The device class. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+      // The device class. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
       shared_ptr<string> deviceClass_ {};
-      // The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+      // The device subclass. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
       shared_ptr<string> deviceSubclass_ {};
-      // The product ID (PID).
+      // The product ID.
       shared_ptr<string> productId_ {};
       // The USB redirection type.
       shared_ptr<int64_t> usbRedirectType_ {};
       // The USB redirection rule type.
       shared_ptr<int64_t> usbRuleType_ {};
-      // The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+      // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
       shared_ptr<string> vendorId_ {};
     };
 
@@ -383,14 +383,15 @@ namespace Models
     protected:
       // The device name.
       shared_ptr<string> deviceName_ {};
-      // The product ID (PID).
+      // The product ID.
       shared_ptr<string> devicePid_ {};
       // The peripheral type.
       shared_ptr<string> deviceType_ {};
-      // The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+      // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
       shared_ptr<string> deviceVid_ {};
       // The link optimization instruction.
       shared_ptr<string> optCommand_ {};
+      // The platform types to which the device rule applies.
       shared_ptr<string> platforms_ {};
       // The redirection type.
       shared_ptr<string> redirectType_ {};
@@ -478,13 +479,11 @@ namespace Models
 
 
     protected:
-      // Logon method control. Specifies the client type.
-      // 
-      // > If you do not configure the `ClientType` parameters, all types of clients are allowed to log on to the cloud computer by default.
+      // The client type for logon method control.
       shared_ptr<string> clientType_ {};
-      // Logon method control. Specifies whether to allow a specific type of client to log on to the cloud computer.
+      // Specifies whether to allow users to log on to cloud desktops by using a specific type of client.
       // 
-      // > If you do not configure the `ClientType` parameters, all types of clients are allowed to log on to the cloud computer by default.
+      // > If you do not set `ClientType`-related parameters, all types of clients are allowed to log on to cloud desktops by default.
       shared_ptr<string> status_ {};
     };
 
@@ -572,7 +571,7 @@ namespace Models
 
 
     protected:
-      // The object of the security group rule. The value is an IPv4 CIDR block.
+      // The object of the security group rule. The value is an IPv4 CIDR block in CIDR notation.
       shared_ptr<string> cidrIp_ {};
       // The description of the security group rule.
       shared_ptr<string> description_ {};
@@ -580,21 +579,20 @@ namespace Models
       shared_ptr<string> ipProtocol_ {};
       // The authorization policy of the security group rule.
       shared_ptr<string> policy_ {};
-      // The port range of the security group rule. The value of this parameter depends on the value of the \\`IpProtocol\\` parameter.
+      // The port range of the security group rule. The valid values of this parameter are determined by the value of IpProtocol:
       // 
-      // - If \\`IpProtocol\\` is set to TCP or UDP, the port range is 1 to 65535. Use a forward slash (/) to separate the start port and the end port. For example: 1/200.
+      // - TCP or UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+      // - ICMP: -1/-1.
+      // - GRE: -1/-1.
+      // - If IpProtocol is set to all: -1/-1.
       // 
-      // - If \\`IpProtocol\\` is set to ICMP, the port range is -1/-1.
-      // 
-      // - If \\`IpProtocol\\` is set to GRE, the port range is -1/-1.
-      // 
-      // - If \\`IpProtocol\\` is set to all, the port range is -1/-1.
-      // 
-      // For more information about common ports, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+      // For more information about the common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
       shared_ptr<string> portRange_ {};
-      // The priority of the security group rule. A smaller value indicates a higher priority.<br>
-      // Valid values: 1 to 60.<br>
-      // Default value: 1.<br><br>
+      // The priority of the security group access control rule. A smaller value indicates a higher priority.
+      // 
+      // Valid values: 1 to 60.
+      // 
+      // Default value: 1.
       shared_ptr<string> priority_ {};
       // The direction of the security group rule.
       shared_ptr<string> type_ {};
@@ -638,9 +636,9 @@ namespace Models
 
 
     protected:
-      // The client IP address CIDR block. The value is an IPv4 CIDR block.
+      // The client access IP CIDR block. The value is an IPv4 CIDR block in CIDR notation.
       shared_ptr<string> cidrIp_ {};
-      // The description of the client IP address whitelist.
+      // The description of the client IP whitelist rule.
       shared_ptr<string> description_ {};
     };
 
@@ -1075,19 +1073,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether a user has administrative permissions after logging on to the cloud computer.
-    // 
-    // > This feature is in invitational preview and is not available to the public.
+    // Specifies whether users have administrator permissions after logging on to the cloud desktop.
     shared_ptr<string> adminAccess_ {};
     // Specifies whether to enable the anti-screenshot feature.
     shared_ptr<string> appContentProtection_ {};
-    // The client IP address whitelist. After you configure this parameter, only IP addresses in the whitelist can access the cloud computer.
+    // The list of client IP whitelist rules. After you configure this parameter, only IP addresses within the whitelisted CIDR blocks can access the cloud computer.
     shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeAccessPolicyRule>> authorizeAccessPolicyRule_ {};
     // The list of security group rules.
     shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule_ {};
     // Specifies whether to enable local camera redirection.
     shared_ptr<string> cameraRedirect_ {};
-    // The list of logon method control rules. These rules control which clients can be used to access the cloud computer.
+    // The list of logon method control rules. Specifies which client types are allowed to access cloud desktops.
     shared_ptr<vector<CreatePolicyGroupRequest::ClientType>> clientType_ {};
     // The clipboard permission.
     shared_ptr<string> clipboard_ {};
@@ -1095,79 +1091,74 @@ namespace Models
     shared_ptr<vector<CreatePolicyGroupRequest::DeviceRedirects>> deviceRedirects_ {};
     // The list of custom peripheral rules.
     shared_ptr<vector<CreatePolicyGroupRequest::DeviceRules>> deviceRules_ {};
-    // The policy for controlling access to domain names. You can use a wildcard character (\\*). Separate multiple domain names with commas (,).
+    // The domain name access control setting. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
     shared_ptr<string> domainList_ {};
-    // The details of the domain name resolution policy.
+    // The domain name resolution policy details.
     shared_ptr<vector<CreatePolicyGroupRequest::DomainResolveRule>> domainResolveRule_ {};
-    // The type of the domain name resolution policy.
+    // The domain name resolution policy type.
     shared_ptr<string> domainResolveRuleType_ {};
-    // Specifies whether to allow end users to request assistance from administrators.
+    // Specifies whether to enable the feature that allows users to request administrator assistance.
     shared_ptr<string> endUserApplyAdminCoordinate_ {};
     // Specifies whether to enable stream collaboration between users.
     shared_ptr<string> endUserGroupCoordinate_ {};
-    // Specifies whether to enable the image quality policy for graphics cloud computers. Enable this policy for scenarios that require high performance and user experience, such as professional design.
+    // Specifies whether to enable the image quality policy for graphics-type cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
     shared_ptr<string> gpuAcceleration_ {};
-    // The policy for access from web clients.
-    // 
-    // > Use the `ClientType` parameters to manage logon methods.
+    // The web client access policy.
     shared_ptr<string> html5Access_ {};
-    // The file transfer policy for web clients.
+    // The web client file transfer policy.
     shared_ptr<string> html5FileTransfer_ {};
     // The network communication protocol.
     shared_ptr<string> internetCommunicationProtocol_ {};
     // The local disk mapping permission.
     shared_ptr<string> localDrive_ {};
-    // The maximum amount of time to retry the connection if the cloud computer is disconnected due to an unexpected event. Valid values: 30 to 7200. Unit: seconds.
+    // The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
     shared_ptr<int32_t> maxReconnectTime_ {};
     // The policy name.
     shared_ptr<string> name_ {};
     // Specifies whether to enable network redirection.
-    // 
-    // > This feature is in invitational preview and is not available to the public.
     shared_ptr<string> netRedirect_ {};
-    // The preemption policy.
+    // The preemption policy for the cloud desktop.
     // 
-    // > To ensure the user experience and data security of the end users who are using cloud computers, mutual preemption among multiple users is not allowed. This parameter is set to `off` by default and cannot be changed.
+    // > To ensure the user experience and data security of end users who are using the cloud desktop, preemption between multiple users is not allowed. This parameter is set to `off` by default and cannot be modified.
     shared_ptr<string> preemptLogin_ {};
-    // The usernames of the users that are allowed to preempt the cloud computer. You can specify up to five usernames.
-    // 
-    // > To ensure the user experience and data security of the end users who are using cloud computers, mutual preemption among multiple users is not allowed.
+    // The usernames of users who are allowed to preempt the cloud desktop. You can specify up to 5 usernames.
+    // > To ensure the user experience and data security of end users who are using the cloud desktop, mutual preemption among multiple users is not supported.
     shared_ptr<vector<string>> preemptLoginUser_ {};
     // The printer redirection policy.
     shared_ptr<string> printerRedirection_ {};
     // Specifies whether to enable custom screen recording.
     shared_ptr<string> recordContent_ {};
-    // The expiration time of custom recording files. The default value is 30. Unit: days.
+    // The expiration time of custom screen recording files. Default value: 30 days.
     shared_ptr<int64_t> recordContentExpires_ {};
     // Specifies whether to enable screen recording.
     shared_ptr<string> recording_ {};
-    // The option to record audio from the cloud computer.
+    // The option for recording cloud desktop audio.
     shared_ptr<string> recordingAudio_ {};
-    // The duration for viewing the recording file. Unit: minutes. The recording file is automatically split based on the specified duration and uploaded to a bucket. If a file reaches 300 MB, it is rolled over first.
+    // The duration of each screen recording file segment. Unit: minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
     shared_ptr<int32_t> recordingDuration_ {};
-    // The time when screen recording ends. The value is in the HH:MM:SS format. This parameter is valid only when \\`Recording\\` is set to \\`PERIOD\\`.
+    // The end time of screen recording in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
     shared_ptr<string> recordingEndTime_ {};
-    // The retention period of the recording file. Valid values: 1 to 180. Unit: days.
+    // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
     shared_ptr<int64_t> recordingExpires_ {};
-    // The frame rate for screen recording. Unit: frames per second (fps).
+    // The frame rate of screen recording. Unit: FPS (frames per second).
     shared_ptr<int64_t> recordingFps_ {};
-    // The time when screen recording starts. The value is in the HH:MM:SS format. This parameter is valid only when \\`Recording\\` is set to \\`PERIOD\\`.
+    // The start time of screen recording in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
     shared_ptr<string> recordingStartTime_ {};
-    // The feature that sends notifications to the client when screen recording is in progress.
+    // The screen recording client notification feature.
     shared_ptr<string> recordingUserNotify_ {};
-    // The content of the notification that is sent to the client when screen recording is in progress. You do not need to specify this parameter.
+    // The notification content for the screen recording client. Leave this parameter empty by default.
     shared_ptr<string> recordingUserNotifyMessage_ {};
-    // The region ID. Call the [DescribeRegions](~~DescribeRegions~~) operation to obtain the list of regions that support WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The keyboard and mouse control permissions for remote assistance.
+    // The keyboard and mouse control permissions during remote assistance.
     shared_ptr<string> remoteCoordinate_ {};
     // The scope of the policy.
     shared_ptr<string> scope_ {};
-    // This parameter is required when `Scope` is set to `IP`. It takes effect only when `Scope` is set to `IP`.
+    // The scope value. This parameter is required when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
     shared_ptr<vector<string>> scopeValue_ {};
-    // USB redirection.
+    // The USB redirection setting.
     shared_ptr<string> usbRedirect_ {};
     // The USB redirection rules.
     shared_ptr<vector<CreatePolicyGroupRequest::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
@@ -1175,37 +1166,33 @@ namespace Models
     shared_ptr<string> videoRedirect_ {};
     // The image display quality policy.
     shared_ptr<string> visualQuality_ {};
-    // The watermark feature.
+    // The watermark setting.
     shared_ptr<string> watermark_ {};
-    // The anti-screen-recording feature for invisible watermarks.
+    // The anti-camera capture feature for invisible watermarks.
     shared_ptr<string> watermarkAntiCam_ {};
-    // The font color of the watermark. Valid values: 0 to 16777215.
+    // The watermark font color. Valid values: 0 to 16777215.
     shared_ptr<int32_t> watermarkColor_ {};
-    // The rotation angle of the watermark. Valid values: -10 to -30.
+    // The watermark tilt angle. Valid values: -10 to -30.
     shared_ptr<double> watermarkDegree_ {};
-    // The font size of the watermark. Valid values: 10 to 20.
+    // The watermark font size. Valid values: 10 to 20.
     shared_ptr<int32_t> watermarkFontSize_ {};
-    // The font style of the watermark.
+    // The watermark font style.
     shared_ptr<string> watermarkFontStyle_ {};
-    // The enhanced feature for invisible watermarks.
+    // The enhancement level for invisible watermarks.
     shared_ptr<string> watermarkPower_ {};
     // The number of watermark rows.
-    // 
-    // > This parameter is not yet available.
     shared_ptr<int32_t> watermarkRowAmount_ {};
-    // The security priority rule for invisible watermarks.
+    // The security-first rule for invisible watermarks.
     shared_ptr<string> watermarkSecurity_ {};
-    // The transparency of the watermark.
+    // The transparency level of the watermark.
     shared_ptr<string> watermarkTransparency_ {};
-    // The opacity of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
+    // The watermark opacity. A larger value indicates lower transparency. Valid values: 10 to 100.
     shared_ptr<int32_t> watermarkTransparencyValue_ {};
-    // The type of watermark. You can specify up to three types. Separate multiple types with commas (,).
-    // 
-    // > If you set this parameter to `custom`, you must also specify the `WatermarkCustomText` parameter.
+    // The watermark type. You can select up to three types, separated by commas (,).
     shared_ptr<string> watermarkType_ {};
-    // When you connect to a cloud computer from a desktop client (including a Windows client and a macOS client), specifies whether to display the entry for the WUYING AI assistant in the floating ball on the cloud computer.
+    // Specifies whether to provide the WUYING AI Assistant entry in the floating ball when connecting to a cloud computer through a desktop client (including Windows and macOS clients).
     // 
-    // > This feature is available only for desktop clients of V7.7 or later.
+    // > Applicable only to desktop clients of V7.7 or later.
     shared_ptr<string> wyAssistant_ {};
   };
 

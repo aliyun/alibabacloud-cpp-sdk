@@ -253,18 +253,18 @@ namespace Models
 
 
       protected:
-        // <props="china">The unit of currency. The value is CNY.
-        // <props="intl">The unit of currency. The value is USD.
+        // <props="china">The currency unit (CNY).
+        // <props="intl">The currency unit (USD).
         shared_ptr<string> currency_ {};
-        // The discount.
+        // The discount amount.
         shared_ptr<float> discountPrice_ {};
-        // The order details.
+        // The order information.
         shared_ptr<map<string, string>> orderLines_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The promotion details.
+        // The promotion information.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The final price. This is the value of `OriginalPrice` minus `DiscountPrice`.
+        // The actual payment price. The value is the original price minus the discount amount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -291,7 +291,7 @@ namespace Models
     protected:
       // The price.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The promotion rules.
+      // The promotion rule information.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
     };
 

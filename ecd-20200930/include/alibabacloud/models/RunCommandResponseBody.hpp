@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The script execution ID. You can use this ID with the [DescribeInvocations](~~DescribeInvocations~~) operation to query the script\\"s execution status.
+    // The script execution ID. You can call [DescribeInvocations](~~DescribeInvocations~~) and pass in this value to query the script execution status.
     shared_ptr<string> invokeId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The RAM directory ID.
+    // The ID of the RAM-type directory.
     shared_ptr<string> directoryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

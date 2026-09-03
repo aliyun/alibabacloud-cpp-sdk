@@ -79,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The user ID of the resource ownership in resale pattern. You do not need to specify this parameter if you are not using resale pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

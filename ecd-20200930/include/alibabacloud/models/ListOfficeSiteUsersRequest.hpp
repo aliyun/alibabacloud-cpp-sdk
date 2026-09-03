@@ -112,28 +112,30 @@ namespace Models
 
 
   protected:
+    // > This parameter is not publicly available. You can only pass in `1` or leave it empty.
     shared_ptr<string> assignedInfo_ {};
-    // The query string for fuzzy matching.
+    // The fuzzy query character string.
     shared_ptr<string> filter_ {};
+    // Specifies whether to return only users who are assigned cloud computers.
     shared_ptr<bool> includeAssignedUser_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for a paged query.    
     // 
-    // - Maximum value: 100.
-    // 
+    // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. Leave this empty for the first query. For subsequent queries, use the NextToken value from the previous response.
+    // The pagination token. Leave this parameter empty for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The path of the organizational unit (OU) in the AD domain.
+    // The specified AD domain organizational unit (OU).
     shared_ptr<string> OUPath_ {};
-    // The office network ID. Only office networks that use enterprise AD accounts are supported.
+    // The office network ID. Only office networks based on enterprise AD accounts are supported.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where WUYING Workspace is available.
+    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The sorting method.
     shared_ptr<string> sortType_ {};
   };
 

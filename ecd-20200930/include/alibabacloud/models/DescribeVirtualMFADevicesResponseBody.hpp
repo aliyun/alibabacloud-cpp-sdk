@@ -125,9 +125,13 @@ namespace Models
 
 
       protected:
+        // The display name of the AD account.
         shared_ptr<string> displayName_ {};
+        // The new display name of the user.
         shared_ptr<string> displayNameNew_ {};
+        // The username of the AD account.
         shared_ptr<string> endUser_ {};
+        // The user principal name (UPN).
         shared_ptr<string> userPrincipalName_ {};
       };
 
@@ -200,18 +204,19 @@ namespace Models
 
 
     protected:
+      // The AD domain user information.
       shared_ptr<VirtualMFADevices::AdUser> adUser_ {};
-      // The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
+      // The number of consecutive failures to bind or authenticate the virtual MFA device.
       shared_ptr<int32_t> consecutiveFails_ {};
-      // > This parameter is in private preview.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> directoryId_ {};
-      // The AD username of the bound user.
+      // The username of the AD account that uses the virtual MFA device.
       shared_ptr<string> endUserId_ {};
-      // The time when the virtual MFA device was enabled. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+      // The time when the virtual MFA device was enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> gmtEnabled_ {};
-      // The time when the locked virtual MFA device is automatically unlocked. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+      // The automatic unlock time after the virtual MFA device is locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> gmtUnlock_ {};
-      // The workspace ID.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
       // The serial number of the virtual MFA device.
       shared_ptr<string> serialNumber_ {};
@@ -245,11 +250,11 @@ namespace Models
 
 
   protected:
-    // The token to retrieve the next page of results. If this parameter is empty, no more results are available.
+    // The token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of virtual MFA devices.
+    // The information about virtual MFA devices.
     shared_ptr<vector<DescribeVirtualMFADevicesResponseBody::VirtualMFADevices>> virtualMFADevices_ {};
   };
 

@@ -316,9 +316,9 @@ namespace Models
 
 
       protected:
-        // The number of vCPUs included in the cloud computer instance type.
+        // The number of vCPUs included in the cloud computer specification.
         shared_ptr<int32_t> cpuCount_ {};
-        // The GPU memory information. This field is displayed only when the instance type is a graphics-accelerated type.
+        // The GPU memory information. This field is displayed only when the specification is a graphics-accelerated type.
         shared_ptr<string> gpuSpec_ {};
         // The memory size. Unit: MiB.
         shared_ptr<int64_t> memorySize_ {};
@@ -326,7 +326,7 @@ namespace Models
         shared_ptr<string> officeSiteId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The cloud computer instance type ID.
+        // The cloud computer specification ID.
         shared_ptr<string> resourceInstanceType_ {};
         // The snapshot policy ID.
         shared_ptr<string> snapshotPolicyId_ {};
@@ -587,8 +587,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic payment is enabled for subscription orders.
       shared_ptr<bool> autoPay_ {};
+      // Indicates whether auto-renewal is enabled for the subscription shared cloud computer.
       shared_ptr<bool> autoRenew_ {};
+      // The billing type of the cloud computer.
       shared_ptr<string> chargeType_ {};
       // The size and specification configurations of data cloud disks.
       shared_ptr<vector<Data::DataDiskList>> dataDiskList_ {};
@@ -598,20 +601,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The creation time of the template (UTC).
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time of the template (UTC).
+      // The update time of the template (UTC).
       shared_ptr<string> gmtModified_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image type.
       shared_ptr<string> imageType_ {};
+      // The subscription duration of the subscription shared cloud computer. This parameter takes effect only when ChargeType is set to PrePaid, and is required in that case. The unit is specified by PeriodUnit.
       shared_ptr<int32_t> period_ {};
+      // The unit of the subscription billing duration. Billable methods use this parameter to specify the time unit.
       shared_ptr<string> periodUnit_ {};
       // The policy group ID.
       shared_ptr<string> policyGroupId_ {};
+      // Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration plan is exhausted.
       shared_ptr<bool> postPaidAfterUsedUp_ {};
       // The product type.
       shared_ptr<string> productType_ {};
-      // The region-specific configuration parameters.
+      // The region-related configuration parameters.
       shared_ptr<vector<Data::RegionConfigList>> regionConfigList_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
@@ -633,6 +639,7 @@ namespace Models
       shared_ptr<string> templateType_ {};
       // The scheduled task group ID.
       shared_ptr<string> timerGroupId_ {};
+      // The per-user usage duration plan.
       shared_ptr<string> userDuration_ {};
     };
 
@@ -715,11 +722,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

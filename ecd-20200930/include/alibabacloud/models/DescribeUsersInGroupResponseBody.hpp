@@ -215,7 +215,7 @@ namespace Models
         shared_ptr<string> propertyKey_ {};
         // The property type.
         shared_ptr<int32_t> propertyType_ {};
-        // An array of property values.
+        // The array of property values.
         shared_ptr<vector<UserSetPropertiesModels::PropertyValues>> propertyValues_ {};
         // The user ID.
         shared_ptr<int64_t> userId_ {};
@@ -383,12 +383,13 @@ namespace Models
     protected:
       // The connection status.
       shared_ptr<string> connectionStatus_ {};
-      // The ID of the cloud desktop.
+      // The ID of the cloud computer.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud desktop.
+      // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
       // The display name of the enterprise AD account.
       shared_ptr<string> displayName_ {};
+      // The new display name of the user.
       shared_ptr<string> displayNameNew_ {};
       // The email address of the authorized user.
       shared_ptr<string> endUserEmail_ {};
@@ -398,16 +399,17 @@ namespace Models
       shared_ptr<string> endUserName_ {};
       // The phone number of the authorized user.
       shared_ptr<string> endUserPhone_ {};
-      // The user remarks.
+      // The remarks of the user.
       shared_ptr<string> endUserRemark_ {};
-      // The user account type.
+      // The type of the user account system.
       shared_ptr<string> endUserType_ {};
-      // Additional information.
+      // The additional information.
       shared_ptr<EndUsers::ExternalInfo> externalInfo_ {};
-      // The ID of the virtual cloud desktop assigned to the user.
+      // The ID of the virtual cloud computer that corresponds to the user.
       shared_ptr<string> userDesktopId_ {};
+      // The user principal name (UPN).
       shared_ptr<string> userPrincipalName_ {};
-      // A list of user seat information.
+      // The list of user seat information.
       shared_ptr<vector<EndUsers::UserSetPropertiesModels>> userSetPropertiesModels_ {};
     };
 
@@ -466,17 +468,19 @@ namespace Models
 
 
   protected:
-    // A list of authorized user information.
+    // The list of authorized user information.
     shared_ptr<vector<DescribeUsersInGroupResponseBody::EndUsers>> endUsers_ {};
-    // The token to start the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The total number of authorized users in the cloud desktop group who meet the query conditions and are connected to a cloud desktop.
+    // The total number of authorized users of the shared cloud computer that match the query conditions and are currently connected to a cloud computer.
     shared_ptr<int32_t> onlineUsersCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the user group.
     shared_ptr<string> userGroupName_ {};
+    // The organizational unit path of the user.
     shared_ptr<string> userOuPath_ {};
-    // The total number of authorized users in the cloud desktop group who meet the query conditions.
+    // The total number of authorized users of the shared cloud computer that match the query conditions.
     shared_ptr<int32_t> usersCount_ {};
   };
 

@@ -170,79 +170,36 @@ namespace Models
 
 
   protected:
-    // The instance type of the cloud computer. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/436816.html) operation to obtain the parameter value.
+    // The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/436816.html) to obtain this parameter.
     shared_ptr<string> desktopInstanceType_ {};
-    // The image version.
+    // The image version information.
     shared_ptr<string> fotaVersion_ {};
-    // Specifies whether the images are GPU-accelerated images.
-    // 
-    // Valid values:
-    // 
-    // - true
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    // - false
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
+    // Specifies whether the image is a GPU image.
     shared_ptr<bool> gpuCategory_ {};
-    // The version of the GPU driver.
+    // The GPU driver version.
     shared_ptr<string> gpuDriverVersion_ {};
-    // The IDs of the images. You can specify one or more image IDs.
+    // The image ID. You can specify one or more image IDs.
     shared_ptr<vector<string>> imageId_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // The state of the image.
+    // The image status.
     shared_ptr<string> imageStatus_ {};
-    // The type of the image.
+    // The image type.
     shared_ptr<string> imageType_ {};
-    // The language of the OS.
+    // The operating system language.
     shared_ptr<string> languageType_ {};
-    // The maximum number of entries to return on each page.
+    // The number of entries per page for a paged query.
     // 
-    // - Maximum value: 100.
-    // 
-    // - Default value: 10.
+    // - Maximum value: 100
+    // - Default value: 10
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. If you do not specify this parameter, all results are returned.
+    // The pagination token for the next query. An empty value indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The type of the operating system of the images. Default value: `null`.
-    // 
-    // Valid values:
-    // 
-    // - Linux
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    // - Windows
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
+    // The operating system type. Default value: `null`.
     shared_ptr<string> osType_ {};
     // The protocol type.
-    // 
-    // Valid values:
-    // 
-    // - HDX: High-definition Experience (HDX) protocol
-    // 
-    // - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
     shared_ptr<string> protocolType_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

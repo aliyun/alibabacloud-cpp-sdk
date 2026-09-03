@@ -112,27 +112,26 @@ namespace Models
 
 
   protected:
-    // > This parameter is not publicly available. You can only set this parameter to `1` or leave it empty.
+    // > This field is not available for use. You can only pass in `1` or leave it empty.
     shared_ptr<string> assignedInfo_ {};
     // The AD directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The string for a fuzzy search. The operation returns all results that contain this string.
+    // The fuzzy match query string. All results that contain this character string are returned.
     shared_ptr<string> filter_ {};
-    // Specifies whether to return only users who are assigned cloud desktops.
+    // Specifies whether to return only users who have been assigned cloud computers.
     shared_ptr<bool> includeAssignedUser_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for a paged query.    
     // 
-    // - Maximum value: 100.
-    // 
+    // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. If this value is empty, no more results are available.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The path of the organizational unit (OU) in the AD domain. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the OU path.
+    // The organizational unit (OU) in the AD domain to which the user belongs. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain this value.
     shared_ptr<string> OUPath_ {};
-    // The region ID. To get a list of regions that WUYING Workspace supports, call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html).
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

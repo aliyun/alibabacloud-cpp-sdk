@@ -124,43 +124,27 @@ namespace Models
 
 
   protected:
-    // The ID of the enterprise drive.
+    // The enterprise cloud drive ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The ID of the user to which the network disk is assigned.
+    // The ID of the user to whom the cloud drive is assigned.
     shared_ptr<string> endUserId_ {};
-    // The IDs of the files to be queried.
+    // The list of file IDs to query.
     shared_ptr<vector<string>> fileIds_ {};
-    // The ID of the team space.
+    // The team space ID.
     shared_ptr<string> groupId_ {};
-    // The number of entries to return on each page. Default value: 100.
+    // The maximum number of entries per page in a paging query. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the value of the `NextToken` parameter returned in the last call to the operation. You do not need to set this parameter when you call the operation for the first time.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
-    // The sorting method of the files.
-    // 
-    // Valid values:
-    // 
-    // *   CreateTimeDesc: sorts the by creation time in descending order.
-    // *   ModifiedTimeAsc: sort the by modification time in ascending order.
-    // *   NameDesc: sorts the by file name in descending order.
-    // *   SizeAsc: sorts by file size in ascending order.
-    // *   ModifiedTimeDesc: sort the by modification time in descending order.
-    // *   CreateTimeAsc: sorts the by creation time in ascending order.
-    // *   SizeDesc: sorts by file size in descending order.
-    // *   NameAsc: sorts by file name in ascending order.
+    // The sort order of the file list.
     shared_ptr<string> orderType_ {};
-    // The parent folder ID. You can obtain the value by using the response parameter `FileId` of this operation.
+    // The parent file ID. You can obtain this value from the FileId response parameter of this operation.
     shared_ptr<string> parentFileId_ {};
-    // The ID of the logon region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by cloud computers.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     shared_ptr<string> regionId_ {};
     // The file status.
-    // 
-    // Valid values:
-    // 
-    // *   available: returns only normal file.
-    // *   uploading: returns only the of objects that are being uploaded.
     shared_ptr<string> status_ {};
   };
 

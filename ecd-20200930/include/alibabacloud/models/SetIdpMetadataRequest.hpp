@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The workspace ID. This parameter is the same as `OfficeSiteId`. We recommend that you use `OfficeSiteId` to replace `DirectoryId`. You can specify only `DirectoryId` or `OfficeSiteId`.
+    // The office network ID, which has the same meaning as `OfficeSiteId`. We recommend that you stop using `DirectoryId` and use `OfficeSiteId` instead. You can specify only one of `DirectoryId` and `OfficeSiteId`, not both.
     shared_ptr<string> directoryId_ {};
-    // The metadata of the IdP.
+    // The metadata of the identity provider (IdP).
     // 
     // This parameter is required.
     shared_ptr<string> idpMetadata_ {};
-    // The workspace ID.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

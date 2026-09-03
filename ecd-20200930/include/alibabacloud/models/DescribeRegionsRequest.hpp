@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The display name of the region, which varies based on the current language.
+    // The display language of the business location. Default value: Chinese.
     shared_ptr<string> acceptLanguage_ {};
     // The region ID.
     // 

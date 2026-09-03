@@ -121,7 +121,9 @@ namespace Models
 
 
       protected:
+        // The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
+        // The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -250,7 +252,7 @@ namespace Models
       shared_ptr<int32_t> bandwidth_ {};
       // The business status.
       shared_ptr<string> businessStatus_ {};
-      // The creation time.
+      // The time when the plan was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> createTime_ {};
       // The public egress IP address of the premium Internet bandwidth plan.
       shared_ptr<vector<string>> eipAddresses_ {};
@@ -258,14 +260,16 @@ namespace Models
       // 
       // - If the plan uses the subscription billing method, the actual expiration time is returned.
       // - If the plan uses the pay-as-you-go billing method, `2099-12-31T15:59:59Z` is returned.
+      // 
+      // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> expiredTime_ {};
       // The billing method of the premium Internet bandwidth plan.
       // 
-      // - If the parameter `PayType` is set to `PrePaid`, valid values:
-      //     - PayByBandwidth: pay-by-bandwidth.
-      // - If the parameter `PayType` is set to `PostPaid`, valid values:
-      //     - PayByTraffic: pay-by-data-transfer.
-      //     - PayByBandwidth: pay-by-bandwidth.
+      // - If the parameter `PayType` is set to `PrePaid`, the valid value is:
+      //     - PayByBandwidth: billing by fixed bandwidth.
+      // - If the parameter `PayType` is set to `PostPaid`, valid values are:
+      //     - PayByTraffic: billing by data transfer.
+      //     - PayByBandwidth: billing by fixed bandwidth.
       shared_ptr<string> internetChargeType_ {};
       // The ID of the premium Internet bandwidth plan.
       shared_ptr<string> networkPackageId_ {};
@@ -279,12 +283,13 @@ namespace Models
       shared_ptr<string> officeSiteVpcType_ {};
       // The billing method.
       shared_ptr<string> payType_ {};
-      // The effective period of the reserved network bandwidth.
+      // The effective period of the reserved network bandwidth. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> reservationActiveTime_ {};
       // The peak reserved network bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> reservationBandwidth_ {};
       // The billing method of the reserved network bandwidth.
       shared_ptr<string> reservationInternetChargeType_ {};
+      // The tags.
       shared_ptr<vector<NetworkPackages::Tags>> tags_ {};
     };
 
@@ -316,7 +321,7 @@ namespace Models
   protected:
     // The list of premium Internet bandwidth plans.
     shared_ptr<vector<DescribeNetworkPackagesResponseBody::NetworkPackages>> networkPackages_ {};
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The pagination token for the next query. If NextToken is empty, no more pages exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

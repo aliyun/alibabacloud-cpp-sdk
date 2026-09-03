@@ -64,7 +64,7 @@ namespace Models
 
 
     protected:
-      // The connection address.
+      // The endpoint.
       shared_ptr<string> address_ {};
     };
 
@@ -101,11 +101,11 @@ namespace Models
 
 
   protected:
-    // The details of AD connectors.
+    // The information about AD Connectors.
     shared_ptr<vector<CreateADConnectorDirectoryResponseBody::AdConnectors>> adConnectors_ {};
     // The ID of the AD directory.
     shared_ptr<string> directoryId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The AD trust password.
     shared_ptr<string> trustPassword_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer template.
+    // The cloud computer template ID.
     shared_ptr<string> bundleId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

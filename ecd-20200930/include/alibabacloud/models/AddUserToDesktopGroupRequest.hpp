@@ -117,21 +117,25 @@ namespace Models
 
 
   protected:
-    // A client token that ensures the idempotence of a request. Generate a unique value for this parameter from your client. The token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The ID of the shared cloud desktop to which to add an authorized user.
+    // The ID of the shared cloud computer to which you want to add authorized users.
     shared_ptr<string> desktopGroupId_ {};
-    // A list of shared cloud desktop group IDs.
+    // The list of shared cloud computer IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
-    // A list of users to authorize.
+    // The list of users to authorize.
     shared_ptr<vector<string>> endUserIds_ {};
+    // The organization ID of the team.
     shared_ptr<string> orgId_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain a list of regions where WUYING Workspace is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The convenience user group ID.
     shared_ptr<string> simpleUserGroupId_ {};
+    // The user group name.
     shared_ptr<string> userGroupName_ {};
+    // The organizational unit (OU) path of the user.
     shared_ptr<string> userOuPath_ {};
   };
 

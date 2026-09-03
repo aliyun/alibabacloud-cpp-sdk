@@ -94,34 +94,25 @@ namespace Models
 
 
   protected:
-    // The address of the Active Directory (AD) office network.
+    // The address of the AD workspace.
     shared_ptr<string> adDomain_ {};
-    // The type of the client.
-    // 
-    // Valid values:
-    // 
-    // *   1: hardware client.
+    // The device type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> clientType_ {};
-    // The serial number (SN) of the hardware client.
+    // The serial number (SN) of the WUYING hardware terminal.
     // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
-    // The ID of the convenient office network.
+    // The ID of the convenience workspace.
     shared_ptr<string> directoryId_ {};
-    // The ID of the user that you want to bind to the hardware client.
+    // The ID of the bound user to add to the WUYING hardware terminal.
     // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     shared_ptr<string> regionId_ {};
-    // The account type of the user.
-    // 
-    // Valid values:
-    // 
-    // *   AD: enterprise AD account.
-    // *   SIMPLE: convenience account
+    // The user account type.
     shared_ptr<string> userType_ {};
   };
 

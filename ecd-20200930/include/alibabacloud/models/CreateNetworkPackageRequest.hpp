@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -201,17 +203,18 @@ namespace Models
     // The bandwidth of the premium bandwidth plan. Unit: Mbit/s.    
     // 
     // - If the premium bandwidth plan uses the subscription billing method, the valid values are 2 to 1000.
-    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-data-transfer (PayByTraffic), the valid values are 2 to 200.
-    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-bandwidth (PayByBandwidth), the valid values are 2 to 1000.
+    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the metering method is pay-by-data-transfer (PayByTraffic), the valid values are 2 to 200.
+    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the metering method is pay-by-bandwidth (PayByBandwidth), the valid values are 2 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
+    // > This field is not publicly available.
     shared_ptr<string> channelCookie_ {};
     // The billable methods of the premium bandwidth plan.
     // 
-    // - If the parameter `PayType` is set to `PrePaid`, valid values:
+    // - When the parameter `PayType` is set to `PrePaid`, the valid value is:
     //     - PayByBandwidth: billing by fixed bandwidth.
-    // - If the parameter `PayType` is set to `PostPaid`, valid values:
+    // - When the parameter `PayType` is set to `PostPaid`, the valid values are:
     //     - PayByTraffic: billing by data transfer.
     //     - PayByBandwidth: billing by fixed bandwidth.
     shared_ptr<string> internetChargeType_ {};
@@ -222,20 +225,22 @@ namespace Models
     // The subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid. Valid values are determined by the PeriodUnit parameter.
     // 
     // - If PeriodUnit is set to Week, the valid value is 1.
-    // - If PeriodUnit is set to Month, valid values are 1, 2, 3, and 6.
-    // - If PeriodUnit is set to Year, valid values are 1, 2, and 3.
+    // - If PeriodUnit is set to Month, the valid values are 1, 2, 3, and 6.
+    // - If PeriodUnit is set to Year, the valid values are 1, 2, and 3.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration for the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid.
     shared_ptr<string> periodUnit_ {};
-    // The promotion ID.
+    // The promotion activity ID.
     shared_ptr<string> promotionId_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The user ID of resource ownership in the reseller pattern. You do not need to specify this parameter if you are not using the reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
+    // The tags. A maximum of 20 tags are supported.
     shared_ptr<vector<CreateNetworkPackageRequest::Tag>> tag_ {};
   };
 

@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The operation result. A value of `Success` indicates the rebuild was initiated. Otherwise, an error code is returned.
+      // The rebuild result. A value of `success` indicates success. Otherwise, an error message is returned.
       shared_ptr<string> code_ {};
-      // The desktop ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The error message. This parameter is returned only if the value of `Code` is not `Success`.
+      // The error message. This parameter is not returned when `Code` is `success`.
       shared_ptr<string> message_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The rebuild results.
+    // The collection of rebuild results.
     shared_ptr<vector<RebuildDesktopsResponseBody::RebuildResults>> rebuildResults_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

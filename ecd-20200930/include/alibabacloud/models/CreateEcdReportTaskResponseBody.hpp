@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The operation result. The value `success` indicates success. Otherwise, an error message is returned.
+    // The operation result. The value `success` indicates that the operation is successful. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
     // The error message. This parameter is not returned when Code is success.
     shared_ptr<string> message_ {};

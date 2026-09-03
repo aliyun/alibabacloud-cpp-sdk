@@ -149,6 +149,7 @@ namespace Models
 
 
   protected:
+    // The boot mode of the image.
     shared_ptr<string> bootMode_ {};
     // The data cloud disk size. Valid values: 80 to 500. Unit: GiB.
     shared_ptr<int32_t> dataDiskSize_ {};
@@ -156,7 +157,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to enable security check.
     shared_ptr<bool> enableSecurityCheck_ {};
-    // Specifies whether the image is a GPU image.
+    // Specifies whether the image is a GPU-type image.
     shared_ptr<bool> gpuCategory_ {};
     // The type of the pre-installed GPU driver.
     shared_ptr<string> gpuDriverType_ {};
@@ -168,11 +169,11 @@ namespace Models
     // 
     // - Auto: Alibaba Cloud detects the source operating system and assigns a license. In automatic mode, the system first checks whether an Alibaba Cloud official license is available for the `Platform` you specified and assigns it to the imported image. If no such license is available, the system switches to BYOL (Bring Your Own License) mode.
     // - Aliyun: Uses an Alibaba Cloud official license based on the `Platform` you specified.
-    // - BYOL: Uses the license that comes with the source operating system. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
+    // - BYOL: Uses the license that comes with the source operating system. When using BYOL, ensure that your license key supports use on Alibaba Cloud.
     // 
-    // Default value: Auto.
+    // Default value: Auto
     // 
-    // > Systems such as Windows 10 cannot be activated through Alibaba Cloud. Set `LicenseType` to BYOL for custom activation.
+    // > Systems such as Windows 10 cannot be activated through Alibaba Cloud. Set `LicenseType` to custom activation (BYOL).
     shared_ptr<string> licenseType_ {};
     // The operating system type.
     shared_ptr<string> osType_ {};
@@ -188,7 +189,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The system cloud disk size. Unit: GiB.
     // 
-    // > The system cloud disk size cannot be smaller than the image file size.
+    // > The system cloud disk size cannot be smaller than the image file.
     shared_ptr<string> systemDiskSize_ {};
   };
 

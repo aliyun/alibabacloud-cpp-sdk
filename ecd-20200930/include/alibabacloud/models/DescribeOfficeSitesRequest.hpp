@@ -115,28 +115,30 @@ namespace Models
 
 
   protected:
+    // The account type.
     shared_ptr<string> accountType_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for a paged query.    
     // 
-    // - Maximum value: 100.
-    // 
+    // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The office network IDs. You can specify 1 to 100 office network IDs.
+    // The office network ID. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> officeSiteId_ {};
-    // The type of account for the office network.
+    // The account system type of the office network.
     shared_ptr<string> officeSiteType_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The security protection setting for the office network.
+    // The Network Security Protection Settings of the office network.
     shared_ptr<string> securityProtection_ {};
-    // The office network status.
+    // The status of the office network.
     shared_ptr<string> status_ {};
-    // The ID of the virtual private cloud (VPC).
+    // The ID of the VPC in which the office network of the shared cloud computer resides.
+    // 
+    // > This parameter is not yet available.
     shared_ptr<string> vpcId_ {};
   };
 

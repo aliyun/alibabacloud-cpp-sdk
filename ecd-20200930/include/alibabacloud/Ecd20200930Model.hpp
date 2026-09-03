@@ -457,6 +457,9 @@
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupRequest.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponse.hpp>
+#include <alibabacloud/models/DescribePrinterEventsRequest.hpp>
+#include <alibabacloud/models/DescribePrinterEventsResponseBody.hpp>
+#include <alibabacloud/models/DescribePrinterEventsResponse.hpp>
 #include <alibabacloud/models/DescribeQosRulesRequest.hpp>
 #include <alibabacloud/models/DescribeQosRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeQosRulesResponse.hpp>

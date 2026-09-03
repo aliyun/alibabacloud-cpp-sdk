@@ -96,7 +96,7 @@ namespace Models
 
 
       protected:
-        // The description of the rule.
+        // The rule description.
         shared_ptr<string> description_ {};
         // The rule ID.
         shared_ptr<int64_t> ruleId_ {};
@@ -198,15 +198,15 @@ namespace Models
 
 
         protected:
-          // The description of the promotion rule.
+          // The promotion rule description.
           shared_ptr<string> optionCode_ {};
-          // The description of the promotion.
+          // The promotion description.
           shared_ptr<string> promotionDesc_ {};
           // The promotion ID.
           shared_ptr<string> promotionId_ {};
           // The promotion name.
           shared_ptr<string> promotionName_ {};
-          // Indicates whether an item is selected.
+          // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -267,19 +267,20 @@ namespace Models
 
 
       protected:
-        // The unit of currency (USD).
+        // <props="china">The currency unit (CNY).
+        // <props="intl">The currency unit (USD).
         shared_ptr<string> currency_ {};
-        // The discounted amount.
+        // The discount amount.
         shared_ptr<float> discountPrice_ {};
-        // The orders.
+        // The order information.
         shared_ptr<map<string, string>> orderLines_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The promotions.
+        // The promotion information.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The price under an effective savings plan.
+        // The price under the savings plan.
         shared_ptr<int64_t> spPrice_ {};
-        // The actual price. The original price minus the discounted amount equals the actual price.
+        // The actual payment price. The value is the original price minus the discount amount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -318,13 +319,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether a free enterprise drive is available.
+      // Indicates whether a free enterprise cloud disk is available.
       shared_ptr<bool> freeCdsQuota_ {};
-      // The free capacity provided by the enterprise drive. Unit: GiB.
+      // The free capacity of the enterprise cloud disk. Unit: GiB.
       shared_ptr<int64_t> freeCdsSize_ {};
-      // The price.
+      // The price information.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The details of the promotion rules.
+      // The promotion rule information.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
     };
 

@@ -57,33 +57,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable SSO.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to enable or shutdown single sign-on (SSO) logon.
     // 
     // This parameter is required.
     shared_ptr<bool> enableSso_ {};
-    // The workspace ID.
+    // The office network ID.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

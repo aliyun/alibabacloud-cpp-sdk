@@ -101,9 +101,9 @@ namespace Models
     protected:
       // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The system cloud disk size. Unit: GiB.
+      // The size of the system cloud disk. Unit: GiB.
       shared_ptr<int32_t> rootDiskSizeGib_ {};
-      // The data cloud disk size. Unit: GiB.
+      // The size of the data cloud disk. Unit: GiB.
       shared_ptr<int32_t> userDiskSizeGib_ {};
     };
 
@@ -200,13 +200,13 @@ namespace Models
   protected:
     // The peak Internet bandwidth. Unit: Mbit/s.
     // 
-    // > If you use the pay-by-bandwidth billing method, the valid values range from 10 to 1000.
+    // > If you use the pay-by-fixed-bandwidth billing method, valid values are 10 to 1000.
     shared_ptr<int32_t> bandwidth_ {};
-    // The instance ID. The value can be the ID of a monthly-subscribed (unlimited-duration) cloud computer or the ID of a premium Internet bandwidth instance.
+    // The instance ID. The value can be the ID of a monthly subscription (unlimited duration) cloud computer or the ID of a premium Internet bandwidth instance.
     shared_ptr<string> instanceId_ {};
     // The resource specification.
     // 
-    // - If `ResourceType` is set to `Desktop`, valid values include:
+    // - If ResourceType is set to Desktop, valid values include:
     //     - ecd.basic.small
     //     - ecd.basic.large
     //     - ecd.advanced.large
@@ -226,30 +226,30 @@ namespace Models
     //     - eds.general.8c32g
     //     - eds.general.16c32g
     // 
-    // - If `ResourceType` is set to `NetworkPackage`, you do not need to specify this parameter.
+    // - If ResourceType is set to NetworkPackage, you do not need to specify this parameter.
     shared_ptr<string> instanceType_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+    // The resource ownership user ID in the reseller pattern. You do not need to specify this parameter in non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
     // The list of resource specification templates.
     shared_ptr<vector<DescribeModificationPriceRequest::ResourceSpecs>> resourceSpecs_ {};
-    // The resource type. The required parameters vary based on the resource type for which you want to query the specification change price:
+    // The resource type. The required parameters vary based on the resource type for which you want to query the upgrade/downgrade price:
     // 
-    // - If `ResourceType` is set to `Desktop`, you must specify the `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib` parameters.
-    // - If `ResourceType` is set to `NetworkPackage`, you must specify the `Bandwidth` parameter.
+    // - If ResourceType is set to Desktop, you must specify the InstanceType, RootDiskSizeGib, and UserDiskSizeGib parameters.
+    // - If ResourceType is set to NetworkPackage, you must specify the Bandwidth parameter.
     shared_ptr<string> resourceType_ {};
-    // The performance level of the system cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
+    // The performance level (PL) of the system cloud disk. You can set the disk performance level when the cloud computer specification in Settings is Graphics or High Frequency. For more information about the differences between disk performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD and ESSD have different performance levels.
     shared_ptr<string> rootDiskPerformanceLevel_ {};
-    // The system cloud disk size. Unit: GiB.
+    // The size of the system cloud disk. Unit: GiB.
     shared_ptr<int32_t> rootDiskSizeGib_ {};
-    // The performance level of the data cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
+    // The performance level (PL) of the data cloud disk. You can set the disk performance level when the cloud computer specification in Settings is Graphics or High Frequency. For more information about the differences between disk performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD and ESSD have different performance levels.
     shared_ptr<string> userDiskPerformanceLevel_ {};
-    // The data cloud disk size. Unit: GiB.
+    // The size of the data cloud disk. Unit: GiB.
     shared_ptr<int32_t> userDiskSizeGib_ {};
   };
 

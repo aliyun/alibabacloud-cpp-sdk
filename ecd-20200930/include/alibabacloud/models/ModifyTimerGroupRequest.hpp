@@ -81,6 +81,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const SegmentTimers& obj) { 
           DARABONBA_PTR_TO_JSON(AppointmentTimer, appointmentTimer_);
+          DARABONBA_PTR_TO_JSON(CreateSnapshot, createSnapshot_);
           DARABONBA_PTR_TO_JSON(EndCronExpression, endCronExpression_);
           DARABONBA_PTR_TO_JSON(Enforce, enforce_);
           DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -100,6 +101,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, SegmentTimers& obj) { 
           DARABONBA_PTR_FROM_JSON(AppointmentTimer, appointmentTimer_);
+          DARABONBA_PTR_FROM_JSON(CreateSnapshot, createSnapshot_);
           DARABONBA_PTR_FROM_JSON(EndCronExpression, endCronExpression_);
           DARABONBA_PTR_FROM_JSON(Enforce, enforce_);
           DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -129,15 +131,22 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->appointmentTimer_ == nullptr
-        && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr && this->ipSegments_ == nullptr
-        && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->processWhitelist_ == nullptr && this->resetType_ == nullptr
-        && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr && this->verificationNotificationTime_ == nullptr
-        && this->verificationTime_ == nullptr; };
+        && this->createSnapshot_ == nullptr && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr
+        && this->ipSegments_ == nullptr && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->processWhitelist_ == nullptr
+        && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr
+        && this->verificationNotificationTime_ == nullptr && this->verificationTime_ == nullptr; };
         // appointmentTimer Field Functions 
         bool hasAppointmentTimer() const { return this->appointmentTimer_ != nullptr;};
         void deleteAppointmentTimer() { this->appointmentTimer_ = nullptr;};
         inline int64_t getAppointmentTimer() const { DARABONBA_PTR_GET_DEFAULT(appointmentTimer_, 0L) };
         inline SegmentTimers& setAppointmentTimer(int64_t appointmentTimer) { DARABONBA_PTR_SET_VALUE(appointmentTimer_, appointmentTimer) };
+
+
+        // createSnapshot Field Functions 
+        bool hasCreateSnapshot() const { return this->createSnapshot_ != nullptr;};
+        void deleteCreateSnapshot() { this->createSnapshot_ = nullptr;};
+        inline bool getCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(createSnapshot_, false) };
+        inline SegmentTimers& setCreateSnapshot(bool createSnapshot) { DARABONBA_PTR_SET_VALUE(createSnapshot_, createSnapshot) };
 
 
         // endCronExpression Field Functions 
@@ -257,25 +266,41 @@ namespace Models
 
 
       protected:
-        // The specified time point for fixed-time scheduled task execution. After this parameter is specified, the scheduled task is executed at the specified time point.
+        // The appointment timer for executing scheduled tasks at specified time points.
         shared_ptr<int64_t> appointmentTimer_ {};
+        // Specifies whether to create a snapshot.
+        shared_ptr<bool> createSnapshot_ {};
+        // The cron expression for the end time of the scheduled task.
         shared_ptr<string> endCronExpression_ {};
+        // Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
         shared_ptr<bool> enforce_ {};
-        // The image ID to change to. This parameter is used for image change scheduled tasks.
+        // The image ID.
         shared_ptr<string> imageId_ {};
+        // The time interval. Unit: minutes.
         shared_ptr<int32_t> interval_ {};
+        // The list of IP CIDR blocks that take effect.
         shared_ptr<vector<string>> ipSegments_ {};
-        // The lock screen time point for the no-operation lock screen feature. This parameter is not supported for non-AD desktops.
+        // The duration of inactivity before the screen is locked for the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
         shared_ptr<int32_t> lockScreenTime_ {};
+        // The advance notification time before the scheduled task is executed. Unit: seconds.
         shared_ptr<int32_t> notificationTime_ {};
+        // The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
         shared_ptr<string> operationType_ {};
+        // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
         shared_ptr<vector<string>> processWhitelist_ {};
+        // The reset type, which determines whether to reset and the scope of cloud disks to reset.
         shared_ptr<string> resetType_ {};
+        // The cron expression for the start time of the scheduled task.
         shared_ptr<string> startCronExpression_ {};
+        // The execution order number of the timer.
         shared_ptr<int32_t> timerOrder_ {};
+        // The time zone used by the scheduled task.
         shared_ptr<string> timezone_ {};
+        // The trigger configuration type for no-operation scheduled tasks.
         shared_ptr<string> triggerType_ {};
+        // The advance notification time before verification is executed. Unit: seconds.
         shared_ptr<int32_t> verificationNotificationTime_ {};
+        // The verification wait duration. Unit: seconds.
         shared_ptr<int32_t> verificationTime_ {};
       };
 
@@ -370,10 +395,11 @@ namespace Models
       // 
       // > Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.
       shared_ptr<string> cronExpression_ {};
-      // Specifies whether to forcefully execute the task. If set to true, the scheduled task is forcefully executed regardless of the desktop and connection status.
+      // Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
       shared_ptr<bool> enforce_ {};
-      // The time interval, in minutes.
+      // The time interval. Unit: minutes.
       shared_ptr<int32_t> interval_ {};
+      // The advance notification time before the scheduled task is executed. Unit: seconds.
       shared_ptr<int32_t> notificationTime_ {};
       // The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
       shared_ptr<string> operationType_ {};
@@ -381,8 +407,9 @@ namespace Models
       shared_ptr<vector<string>> processWhitelist_ {};
       // The reset type, which determines whether to reset and the scope of cloud disks to reset.
       shared_ptr<string> resetType_ {};
+      // The list of segment timer configurations.
       shared_ptr<vector<ConfigTimers::SegmentTimers>> segmentTimers_ {};
-      // The scheduled task type.
+      // The type of the scheduled task.
       shared_ptr<string> timerType_ {};
       // The trigger configuration type for no-operation scheduled tasks.
       shared_ptr<string> triggerType_ {};
@@ -436,7 +463,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The configuration group name.
+    // The name of the configuration group.
     shared_ptr<string> name_ {};
     // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};

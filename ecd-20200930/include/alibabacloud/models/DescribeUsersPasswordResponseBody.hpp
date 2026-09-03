@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The display name of the end user.
+      // The display name of the account in the cloud computer image.
       shared_ptr<string> displayName_ {};
-      // The ID of the end user.
+      // The end user ID.
       shared_ptr<string> endUserId_ {};
-      // The password of the end user.
+      // The password of the account in the cloud computer image.
       shared_ptr<string> password_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The authorized users of the cloud computer.
+    // The list of accounts in the cloud computer image.
     shared_ptr<vector<DescribeUsersPasswordResponseBody::DesktopUsers>> desktopUsers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

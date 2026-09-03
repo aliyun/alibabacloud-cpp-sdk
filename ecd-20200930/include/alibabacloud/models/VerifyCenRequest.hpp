@@ -75,24 +75,25 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The Alibaba Cloud account to which the CEN instance belongs.
+    // The Alibaba Cloud account ID to which the CEN instance belongs.
     // 
-    // *   If you own the CEN instance, you can skip this parameter.
-    // *   If you do not own the CEN instance, you must specify the ID of the account that owns the CEN instance.
+    // - If the specified CenId belongs to your Alibaba Cloud account, you do not need to configure this parameter.
+    // 
+    // - If the specified CenId belongs to another Alibaba Cloud account, specify the ID of that Alibaba Cloud account.
     shared_ptr<int64_t> cenOwnerId_ {};
-    // The IPv4 CIDR block of the associated office network.
+    // The IPv4 CIDR block of the office network.
     // 
     // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The verification code. If you do not own the CEN instance, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain a verification code.
+    // The verification code. If the specified CenId belongs to another Alibaba Cloud account, you must first call [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) to obtain the verification code.
     shared_ptr<string> verifyCode_ {};
   };
 

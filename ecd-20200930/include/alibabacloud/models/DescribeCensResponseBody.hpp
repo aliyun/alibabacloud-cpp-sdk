@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The ID of the bandwidth plan that is bound to the CEN instance.
+        // The ID of the bandwidth package bound to the CEN instance.
         shared_ptr<string> packageId_ {};
       };
 
@@ -220,9 +220,9 @@ namespace Models
 
 
     protected:
-      // The ID of the CEN instance.
+      // The CEN instance ID.
       shared_ptr<string> cenId_ {};
-      // The time when the CEN instance was created.
+      // The time when the CEN instance was created. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> creationTime_ {};
       // The description of the CEN instance.
       shared_ptr<string> description_ {};
@@ -232,23 +232,11 @@ namespace Models
       shared_ptr<string> ipv6Level_ {};
       // The name of the CEN instance.
       shared_ptr<string> name_ {};
-      // The bandwidth plans that are bound to the CEN instance.
+      // The list of bandwidth packages bound to the CEN instance.
       shared_ptr<vector<Cens::PackageIds>> packageIds_ {};
-      // The tolerated level of CIDR block conflict.
-      // 
-      // Valid value:
-      // 
-      // - REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
+      // The level of CIDR block overlap conflicts.
       shared_ptr<string> protectionLevel_ {};
       // The status of the CEN instance.
-      // 
-      // Valid values:
-      // 
-      // - Creating
-      // 
-      // - Active
-      // 
-      // - Deleting
       shared_ptr<string> status_ {};
       // The tags of the CEN instance.
       shared_ptr<vector<Cens::Tags>> tags_ {};
@@ -294,9 +282,9 @@ namespace Models
 
 
   protected:
-    // Details of the CEN instances.
+    // The details of the CEN instances.
     shared_ptr<vector<DescribeCensResponseBody::Cens>> cens_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

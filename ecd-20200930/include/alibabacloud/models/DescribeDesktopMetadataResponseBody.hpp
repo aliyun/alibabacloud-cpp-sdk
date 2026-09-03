@@ -232,39 +232,39 @@ namespace Models
 
 
     protected:
-      // The agents supported by the current cloud desktop.
+      // The agents supported by the current cloud computer.
       shared_ptr<vector<string>> agentProviderList_ {};
       // The billing type of the cloud desktop. Valid values:
       // - PostPaid: pay-as-you-go.
       // - PrePaid: subscription.
       shared_ptr<string> chargeType_ {};
-      // The time when the cloud desktop was created.
+      // The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> creationTime_ {};
-      // The shared cloud desktop ID.
+      // The shared cloud computer ID.
       shared_ptr<string> desktopGroupId_ {};
       // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud desktop.
+      // The cloud desktop name.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud desktop. Valid values:
-      // - Stopped
-      // - Starting
-      // - Rebuilding
-      // - Running
-      // - Stopping
-      // - Expired
-      // - Deleted
-      // - Pending
+      // The cloud desktop status. Valid values:
+      // - Stopped: stopped.
+      // - Starting: starting.
+      // - Rebuilding: rebuilding.
+      // - Running: running.
+      // - Stopping: stopping.
+      // - Expired: expired.
+      // - Deleted: deleted.
+      // - Pending: pending.
       shared_ptr<string> desktopStatus_ {};
       // The cloud desktop specifications.
       shared_ptr<string> desktopType_ {};
-      // The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method.
+      // The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method. The time format follows the ISO 8601 standard (UTC).
       shared_ptr<string> expiredTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The local name of the region where the cloud desktop resides.
+      // The local name of the region to which the cloud desktop belongs.
       shared_ptr<string> localName_ {};
-      // The management status of the cloud desktop.
+      // The management status of the cloud computer.
       shared_ptr<vector<string>> managementFlags_ {};
       // The IP address of the member elastic network interface (ENI) of the instance.
       shared_ptr<string> memberEniIp_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The time when the cloud desktop was started.
+      // The time when the cloud desktop was started. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> startTime_ {};
     };
 
@@ -308,7 +308,7 @@ namespace Models
 
 
   protected:
-    // The details of the cloud desktops.
+    // The cloud desktop details.
     shared_ptr<vector<DescribeDesktopMetadataResponseBody::Desktops>> desktops_ {};
     // The token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};

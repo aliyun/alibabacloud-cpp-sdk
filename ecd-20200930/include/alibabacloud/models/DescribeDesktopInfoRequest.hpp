@@ -69,11 +69,15 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // - Enterprise: Enterprise Edition.
+    // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
-    // Desktop ID. Set 1 to 100.
+    // The cloud computer ID. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
+    // Specifies whether to return the extended information of the cloud computer.
     shared_ptr<bool> needExtraInfo_ {};
-    // Region ID. Call [](t2167755.xdita#)to get a list of regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -131,6 +131,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PortProxy, portProxy_);
         DARABONBA_PTR_TO_JSON(PreemptLogin, preemptLogin_);
         DARABONBA_PTR_TO_JSON(PreemptLoginUsers, preemptLoginUsers_);
+        DARABONBA_PTR_TO_JSON(PrinterAlert, printerAlert_);
+        DARABONBA_PTR_TO_JSON(PrinterAlertContent, printerAlertContent_);
+        DARABONBA_PTR_TO_JSON(PrinterAlertTitle, printerAlertTitle_);
         DARABONBA_PTR_TO_JSON(PrinterRedirection, printerRedirection_);
         DARABONBA_PTR_TO_JSON(QualityEnhancement, qualityEnhancement_);
         DARABONBA_PTR_TO_JSON(RecordContent, recordContent_);
@@ -165,6 +168,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StatusMonitor, statusMonitor_);
         DARABONBA_PTR_TO_JSON(StreamingMode, streamingMode_);
         DARABONBA_PTR_TO_JSON(TargetFps, targetFps_);
+        DARABONBA_PTR_TO_JSON(ThreeScreen, threeScreen_);
         DARABONBA_PTR_TO_JSON(UsbRedirect, usbRedirect_);
         DARABONBA_PTR_TO_JSON(UsbSupplyRedirectRule, usbSupplyRedirectRule_);
         DARABONBA_PTR_TO_JSON(UseTime, useTime_);
@@ -281,6 +285,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PortProxy, portProxy_);
         DARABONBA_PTR_FROM_JSON(PreemptLogin, preemptLogin_);
         DARABONBA_PTR_FROM_JSON(PreemptLoginUsers, preemptLoginUsers_);
+        DARABONBA_PTR_FROM_JSON(PrinterAlert, printerAlert_);
+        DARABONBA_PTR_FROM_JSON(PrinterAlertContent, printerAlertContent_);
+        DARABONBA_PTR_FROM_JSON(PrinterAlertTitle, printerAlertTitle_);
         DARABONBA_PTR_FROM_JSON(PrinterRedirection, printerRedirection_);
         DARABONBA_PTR_FROM_JSON(QualityEnhancement, qualityEnhancement_);
         DARABONBA_PTR_FROM_JSON(RecordContent, recordContent_);
@@ -315,6 +322,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(StatusMonitor, statusMonitor_);
         DARABONBA_PTR_FROM_JSON(StreamingMode, streamingMode_);
         DARABONBA_PTR_FROM_JSON(TargetFps, targetFps_);
+        DARABONBA_PTR_FROM_JSON(ThreeScreen, threeScreen_);
         DARABONBA_PTR_FROM_JSON(UsbRedirect, usbRedirect_);
         DARABONBA_PTR_FROM_JSON(UsbSupplyRedirectRule, usbSupplyRedirectRule_);
         DARABONBA_PTR_FROM_JSON(UseTime, useTime_);
@@ -439,9 +447,9 @@ namespace Models
       protected:
         // The rule description.
         shared_ptr<string> description_ {};
-        // The device class. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+        // The device class. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
         shared_ptr<string> deviceClass_ {};
-        // The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+        // The device subclass. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
         shared_ptr<string> deviceSubclass_ {};
         // The product ID.
         shared_ptr<string> productId_ {};
@@ -449,7 +457,7 @@ namespace Models
         shared_ptr<int64_t> usbRedirectType_ {};
         // The USB redirection rule type.
         shared_ptr<int64_t> usbRuleType_ {};
-        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> vendorId_ {};
       };
 
@@ -491,7 +499,7 @@ namespace Models
 
 
       protected:
-        // The event severity.
+        // The event level.
         shared_ptr<string> eventLevel_ {};
         // The event type.
         shared_ptr<string> eventType_ {};
@@ -697,10 +705,11 @@ namespace Models
         shared_ptr<string> devicePid_ {};
         // The peripheral type.
         shared_ptr<string> deviceType_ {};
-        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> deviceVid_ {};
         // The link optimization command.
         shared_ptr<string> optCommand_ {};
+        // The platform types to which the device rule applies.
         shared_ptr<string> platforms_ {};
         // The redirection type.
         shared_ptr<string> redirectType_ {};
@@ -746,13 +755,11 @@ namespace Models
       protected:
         // The peripheral type.
         shared_ptr<string> deviceType_ {};
-        // The redirection type.
+        // The redirection type. Valid values:
         // 
         // - usbRedirect: USB redirection.
-        // 
-        // - deviceRedirect: Device redirection.
-        // 
-        // - off: Disabled.
+        // - deviceRedirect: device redirection.
+        // - off: disabled.
         shared_ptr<string> redirectType_ {};
       };
 
@@ -796,7 +803,7 @@ namespace Models
       protected:
         // The client type.
         shared_ptr<string> clientType_ {};
-        // Whether a specific client type is allowed to connect to the cloud computer.
+        // Specifies whether a specific type of client is allowed to connect to cloud desktops.
         shared_ptr<string> status_ {};
       };
 
@@ -884,19 +891,19 @@ namespace Models
 
 
       protected:
-        // The target of the security group control rule. The value is an IPv4 CIDR block.
+        // The target of the security group rule. The value is an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // The description of the security group control rule.
+        // The description of the security group rule.
         shared_ptr<string> description_ {};
-        // The protocol type of the security group control rule.
+        // The protocol type of the security group rule.
         shared_ptr<string> ipProtocol_ {};
-        // The authorization policy of the security group control rule.
+        // The authorization policy of the security group rule.
         shared_ptr<string> policy_ {};
-        // The port range of the security group control rule.
+        // The port range of the security group rule.
         shared_ptr<string> portRange_ {};
-        // The priority of the security group control rule. A smaller number indicates a higher priority.
+        // The priority of the security group rule. A smaller value indicates a higher priority.
         shared_ptr<string> priority_ {};
-        // The rule direction of the security group control rule.
+        // The direction of the security group rule.
         shared_ptr<string> type_ {};
       };
 
@@ -938,9 +945,9 @@ namespace Models
 
 
       protected:
-        // The client-accessible IP address segment. The value is an IPv4 CIDR block.
+        // The client access IP CIDR block. The value is an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // The remarks for the client-accessible CIDR block.
+        // The description of the client access IP CIDR block.
         shared_ptr<string> description_ {};
       };
 
@@ -962,19 +969,20 @@ namespace Models
         && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr
         && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->networkPrinter_ == nullptr
         && this->organizationCount_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr
-        && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr
-        && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr
-        && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr
-        && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr
-        && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr
-        && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr
-        && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr
-        && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr
-        && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr
-        && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr
-        && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr
-        && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr
-        && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerAlert_ == nullptr && this->printerAlertContent_ == nullptr && this->printerAlertTitle_ == nullptr
+        && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr
+        && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr
+        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
+        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr
+        && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr
+        && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
+        && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->threeScreen_ == nullptr
+        && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr
+        && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr
+        && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr
+        && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr
+        && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr
+        && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1611,6 +1619,27 @@ namespace Models
       inline DescribePolicyGroups& setPreemptLoginUsers(vector<string> && preemptLoginUsers) { DARABONBA_PTR_SET_RVALUE(preemptLoginUsers_, preemptLoginUsers) };
 
 
+      // printerAlert Field Functions 
+      bool hasPrinterAlert() const { return this->printerAlert_ != nullptr;};
+      void deletePrinterAlert() { this->printerAlert_ = nullptr;};
+      inline string getPrinterAlert() const { DARABONBA_PTR_GET_DEFAULT(printerAlert_, "") };
+      inline DescribePolicyGroups& setPrinterAlert(string printerAlert) { DARABONBA_PTR_SET_VALUE(printerAlert_, printerAlert) };
+
+
+      // printerAlertContent Field Functions 
+      bool hasPrinterAlertContent() const { return this->printerAlertContent_ != nullptr;};
+      void deletePrinterAlertContent() { this->printerAlertContent_ = nullptr;};
+      inline string getPrinterAlertContent() const { DARABONBA_PTR_GET_DEFAULT(printerAlertContent_, "") };
+      inline DescribePolicyGroups& setPrinterAlertContent(string printerAlertContent) { DARABONBA_PTR_SET_VALUE(printerAlertContent_, printerAlertContent) };
+
+
+      // printerAlertTitle Field Functions 
+      bool hasPrinterAlertTitle() const { return this->printerAlertTitle_ != nullptr;};
+      void deletePrinterAlertTitle() { this->printerAlertTitle_ = nullptr;};
+      inline string getPrinterAlertTitle() const { DARABONBA_PTR_GET_DEFAULT(printerAlertTitle_, "") };
+      inline DescribePolicyGroups& setPrinterAlertTitle(string printerAlertTitle) { DARABONBA_PTR_SET_VALUE(printerAlertTitle_, printerAlertTitle) };
+
+
       // printerRedirection Field Functions 
       bool hasPrinterRedirection() const { return this->printerRedirection_ != nullptr;};
       void deletePrinterRedirection() { this->printerRedirection_ = nullptr;};
@@ -1859,6 +1888,13 @@ namespace Models
       inline DescribePolicyGroups& setTargetFps(int32_t targetFps) { DARABONBA_PTR_SET_VALUE(targetFps_, targetFps) };
 
 
+      // threeScreen Field Functions 
+      bool hasThreeScreen() const { return this->threeScreen_ != nullptr;};
+      void deleteThreeScreen() { this->threeScreen_ = nullptr;};
+      inline string getThreeScreen() const { DARABONBA_PTR_GET_DEFAULT(threeScreen_, "") };
+      inline DescribePolicyGroups& setThreeScreen(string threeScreen) { DARABONBA_PTR_SET_VALUE(threeScreen_, threeScreen) };
+
+
       // usbRedirect Field Functions 
       bool hasUsbRedirect() const { return this->usbRedirect_ != nullptr;};
       void deleteUsbRedirect() { this->usbRedirect_ = nullptr;};
@@ -2044,91 +2080,153 @@ namespace Models
 
 
     protected:
+      // Specifies whether the academic proxy feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> academicProxy_ {};
-      // Whether end users have administrative permission after connecting to the cloud computer.
+      // Indicates whether the user has administrator permissions after connecting to the cloud computer.
       // 
       // > This feature is in invitational preview and is not publicly available.
       shared_ptr<string> adminAccess_ {};
+      // Specifies whether the administrator keyboard control in full-screen mode is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> adminKeyboardOnFullScreen_ {};
+      // Specifies whether the administrator keyboard control within the Windows system is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> adminKeyboardOnWindows_ {};
-      // Whether to enable the anti-screenshot feature.
+      // Specifies whether the screenshot prevention feature is enabled.
       shared_ptr<string> appContentProtection_ {};
-      // The client IP address whitelist. Only IP addresses within the whitelisted CIDR blocks can access the cloud computer.
+      // The client IP whitelist. Only IP addresses within the whitelisted CIDR blocks can access cloud desktops.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The security group control rules.
+      // The list of security group rules.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ {};
-      // The automatic client reconnection configuration.
+      // The client auto-reconnect configuration.
       shared_ptr<string> autoReconnect_ {};
-      // Whether to enable local camera redirection.
+      // Specifies whether local camera redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
+      // The client control menu display switch. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientControlMenu_ {};
+      // Specifies whether the client custom snapshot creation feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientCreateSnapshot_ {};
+      // Specifies whether the hibernate option in the client menu is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientHibernate_ {};
+      // Specifies whether the restart option in the client menu is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientRestart_ {};
+      // Specifies whether the shutdown option in the client menu is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientShutdown_ {};
-      // The logon method control list. Controls which clients can access the cloud computer.
+      // The logon method control list. Specifies which client types are allowed to access cloud desktops.
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
-      // The clipboard permissions.
+      // The clipboard permission.
       shared_ptr<string> clipboard_ {};
-      // Whether to enable color enhancement for design and 3D application scenarios.
+      // Indicates whether color enhancement is enabled for common scenarios of design and 3D applications.
       shared_ptr<string> colorEnhancement_ {};
+      // Specifies whether the local drive clipboard feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> cpdDriveClipboard_ {};
-      // The CPU downclocking duration in seconds. Valid values: 30 to 120.
+      // The CPU throttling duration. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> cpuDownGradeDuration_ {};
+      // Specifies whether CPU overload protection is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> cpuOverload_ {};
-      // The process whitelist exempt from CPU usage limits.
+      // The whitelist of processes that are not subject to CPU usage limits.
       shared_ptr<vector<string>> cpuProcessors_ {};
-      // The CPU protection mode switch.
+      // Specifies whether to enable CPU protection mode.
       shared_ptr<string> cpuProtectedMode_ {};
       // The overall CPU usage percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> cpuRateLimit_ {};
-      // The overall CPU sampling duration in seconds. Valid values: 10 to 60.
+      // The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
       shared_ptr<int32_t> cpuSampleDuration_ {};
       // The single-core CPU usage percentage. Valid values: 70 to 100.
       shared_ptr<int32_t> cpuSingleRateLimit_ {};
+      // The description of the NAS file system.
       shared_ptr<string> description_ {};
-      // The number of cloud computers associated with this policy.
+      // The number of cloud computers associated with the policy.
       shared_ptr<int32_t> desktopCount_ {};
-      // The number of cloud computer pools associated with this policy.
+      // The number of cloud computer pools associated with the policy.
       shared_ptr<int32_t> desktopGroupCount_ {};
+      // The peripheral connection hint control.
       shared_ptr<string> deviceConnectHint_ {};
-      // The device redirection rule list.
+      // The list of device redirection rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRedirects>> deviceRedirects_ {};
-      // The custom peripheral rule list.
+      // The list of custom peripheral rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRules>> deviceRules_ {};
+      // Specifies whether disk overload protection is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> diskOverload_ {};
       // The display mode.
       shared_ptr<string> displayMode_ {};
-      // The access control for domain names. Wildcards (\\*) are supported. Separate multiple domain names with commas (,).
+      // The access domain name permission control. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
       shared_ptr<string> domainList_ {};
       // The domain name resolution policy list.
       shared_ptr<vector<DescribePolicyGroups::DomainResolveRule>> domainResolveRule_ {};
-      // The domain name resolution policy switch.
+      // The switch for the domain name resolution policy.
       shared_ptr<string> domainResolveRuleType_ {};
       // The total number of cloud computers and cloud computer pools associated with this policy. This value is returned only for custom policies.
       shared_ptr<int32_t> edsCount_ {};
-      // The switch for users to request administrator assistance.
+      // Specifies whether to enable the feature that allows users to request administrator assistance.
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
+      // The number of associated end users.
       shared_ptr<string> endUserCount_ {};
-      // The switch for stream collaboration between users.
+      // Specifies whether to enable stream collaboration between users.
       shared_ptr<string> endUserGroupCoordinate_ {};
+      // Specifies whether the use of external storage devices is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> externalDrive_ {};
+      // The file migration setting.
       shared_ptr<string> fileMigrate_ {};
-      // File transfer.
+      // The file transfer setting.
       shared_ptr<string> fileTransfer_ {};
+      // The service address for the file transfer feature.
       shared_ptr<string> fileTransferAddress_ {};
+      // The file size limit for a single file transfer to the cloud desktop. Use this parameter together with the inbound unit parameter.
       shared_ptr<int32_t> fileTransferInSize_ {};
+      // The unit for the file size limit of a single file transfer to the cloud desktop.
       shared_ptr<string> fileTransferInUnit_ {};
+      // The file size limit for a single file transfer from the cloud desktop. Use this parameter together with the outbound unit parameter.
       shared_ptr<int32_t> fileTransferOutSize_ {};
+      // The unit for the file size limit of a single file transfer from the cloud desktop.
       shared_ptr<string> fileTransferOutUnit_ {};
+      // Specifies whether the file transfer size limit is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> fileTransferSizeLimit_ {};
+      // The file transfer speed level.
       shared_ptr<string> fileTransferSpeed_ {};
+      // The location where the file transfer speed configured on the client takes effect.
       shared_ptr<string> fileTransferSpeedLocation_ {};
-      // Whether to enable the image quality policy for graphics-specification cloud computers. Enable this policy if you have high requirements for cloud computer performance and user experience, such as in professional design scenarios.
+      // Specifies whether the image quality policy is enabled for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
       shared_ptr<string> gpuAcceleration_ {};
+      // Specifies whether the floating ball configuration message prompt is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverConfigMsg_ {};
+      // Specifies whether the hibernate button on the floating ball is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverHibernate_ {};
+      // Specifies whether the restart button on the floating ball is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverRestart_ {};
+      // Specifies whether the shutdown button on the floating ball is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverShutdown_ {};
       // The web client access policy.
       shared_ptr<string> html5Access_ {};
@@ -2136,44 +2234,59 @@ namespace Models
       shared_ptr<string> html5FileTransfer_ {};
       // The network communication protocol.
       shared_ptr<string> internetCommunicationProtocol_ {};
+      // The network printer feature switch. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> internetPrinter_ {};
+      // Specifies whether the keyboard control on the floating ball is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> keyboardControl_ {};
-      // The local disk mapping permissions.
+      // The local drive mapping permission.
       shared_ptr<string> localDrive_ {};
-      // The maximum retry time for reconnecting to the cloud computer after a disconnection caused by objective reasons. Valid values: 30 to 7200 seconds.
+      // The maximum reconnection retry time when the cloud computer is disconnected due to external reasons. Valid values: 30 to 7200. Unit: seconds.
       shared_ptr<int32_t> maxReconnectTime_ {};
-      // The memory downclocking duration per process in seconds. Valid values: 30 to 120.
+      // The memory throttling duration of a single process. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
+      // Specifies whether memory overload protection is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> memoryOverload_ {};
-      // The process whitelist exempt from memory usage limits.
+      // The whitelist of processes that are not subject to memory usage limits.
       shared_ptr<vector<string>> memoryProcessors_ {};
-      // The memory protection mode switch.
+      // Specifies whether to enable memory protection mode.
       shared_ptr<string> memoryProtectedMode_ {};
       // The overall memory usage percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> memoryRateLimit_ {};
-      // The overall memory sampling duration in seconds. Valid values: 30 to 60.
+      // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
       shared_ptr<int32_t> memorySampleDuration_ {};
-      // The memory usage percentage per worker. Valid values: 30 to 60.
+      // The memory usage percentage of a single process. Valid values: 30 to 60.
       shared_ptr<int32_t> memorySingleRateLimit_ {};
-      // Whether to display the restart button in the floating ball when accessing the cloud computer from mobile clients (including Android and iOS clients).
+      // Specifies whether the restart button is provided in the cloud computer floating ball when connecting to a cloud computer from a mobile client (including Android and iOS clients).
       // 
-      // > Applies only to mobile clients of V7.4 or later.
+      // > This applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileRestart_ {};
-      // The Windows security control switch for mobile clients.
+      // Specifies whether the Windows security control feature is enabled on mobile clients.
       shared_ptr<string> mobileSafeMenu_ {};
-      // Whether to display the shutdown button in the floating ball when accessing the cloud computer from mobile clients (including Android and iOS clients).
+      // Specifies whether the shutdown button is provided in the cloud computer floating ball when connecting to a cloud computer from a mobile client (including Android and iOS clients).
       // 
-      // > Applies only to mobile clients of V7.4 or later.
+      // > This applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileShutdown_ {};
-      // The WUYING Keeper switch for mobile clients.
+      // Specifies whether the WUYING Keeper feature is enabled on mobile clients.
       shared_ptr<string> mobileWuyingKeeper_ {};
-      // The Xiaoying AI Assistant switch for mobile clients.
+      // Specifies whether the WUYING Assistant feature is enabled on mobile clients.
       shared_ptr<string> mobileWyAssistant_ {};
+      // Specifies whether the model library feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> modelLibrary_ {};
+      // Specifies whether the multi-screen display feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> multiScreen_ {};
-      // The cloud computer policy name.
+      // The Policy Name of the cloud computer policy.
       shared_ptr<string> name_ {};
-      // Network redirection.
+      // The network redirection setting.
       // 
       // > This feature is in invitational preview and is not publicly available.
       shared_ptr<string> netRedirect_ {};
@@ -2181,111 +2294,142 @@ namespace Models
       // 
       // > This feature is in invitational preview and is not publicly available.
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
+      // The network printer feature switch. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> networkPrinter_ {};
+      // The number of associated organizations.
       shared_ptr<string> organizationCount_ {};
       // The cloud computer policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The cloud computer policy type.
+      // The type of the cloud computer policy.
       shared_ptr<string> policyGroupType_ {};
       // The status of the cloud computer policy.
       shared_ptr<string> policyStatus_ {};
+      // Specifies whether the port proxy feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> portProxy_ {};
-      // The cloud computer preemption policy.
+      // The preemption policy for the cloud computer.
       // 
-      // > To ensure user experience and data security for end users currently using a cloud computer, mutual preemption between multiple users is not allowed. This parameter defaults to `off` and cannot be modified.
+      // > To ensure the user experience and data security of end users who are using cloud computers, preemption among multiple users is not allowed. This means the configuration is set to `off` by default and cannot be modified.
       shared_ptr<string> preemptLogin_ {};
-      // The usernames of users who can preempt the cloud computer.
+      // The usernames of users who can preempt cloud desktops.
       shared_ptr<vector<string>> preemptLoginUsers_ {};
+      // The printer pop-up alert setting. Valid values:
+      // - default: Default value.
+      // - off: Disabled.
+      // - custom: Custom.
+      shared_ptr<string> printerAlert_ {};
+      // The content of the printer pop-up alert.
+      shared_ptr<string> printerAlertContent_ {};
+      // The title of the printer pop-up alert.
+      shared_ptr<string> printerAlertTitle_ {};
       // The printer redirection policy.
       shared_ptr<string> printerRedirection_ {};
-      // Whether to enable image quality enhancement for design and 3D application scenarios.
+      // Specifies whether image quality enhancement is enabled for design and 3D common scenarios.
       shared_ptr<string> qualityEnhancement_ {};
-      // Whether to enable custom screen recording.
+      // Specifies whether custom screen recording is enabled.
       shared_ptr<string> recordContent_ {};
-      // The expiration time for custom screen recording files. Default value: 30 days.
+      // The expiration time of custom screen recording files. Default value: 30 days.
       shared_ptr<int64_t> recordContentExpires_ {};
-      // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
+      // The recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
       shared_ptr<int32_t> recordEventDuration_ {};
-      // The screen recording event suffix.
+      // The file extensions for screen recording events.
       shared_ptr<vector<string>> recordEventFileExts_ {};
       // The list of absolute paths for file monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventFilePaths_ {};
-      // The screen recording event severity switch.
+      // The screen recording event level settings.
       shared_ptr<vector<DescribePolicyGroups::RecordEventLevels>> recordEventLevels_ {};
       // The list of absolute paths for registry monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventRegisters_ {};
-      // Whether to enable screen recording.
+      // Specifies whether screen recording is enabled.
       shared_ptr<string> recording_ {};
-      // The option to record audio from the cloud computer.
+      // The option for recording cloud computer audio.
       shared_ptr<string> recordingAudio_ {};
-      // The screen recording file viewing duration in minutes. Recording files are automatically split based on this duration and uploaded to the bucket. When a file reaches 300 MB, it is preferentially rolled over.
+      // The duration of a screen recording file, in minutes. Recording files are automatically split and uploaded to the storage space based on the duration you specify. When a file reaches 300 MB, it is rolled over first.
       shared_ptr<int32_t> recordingDuration_ {};
-      // The screen recording end time in HH:MM:SS format. This parameter takes effect only when Recording is set to PERIOD.
+      // The screen recording end time in the format of HH:MM:SS. This parameter is meaningful only when Recording is set to PERIOD.
       shared_ptr<string> recordingEndTime_ {};
-      // The retention period for screen recording files. Valid values: 1 to 180 days.
+      // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
       shared_ptr<int64_t> recordingExpires_ {};
       // The screen recording frame rate. Unit: FPS (frames per second).
       shared_ptr<int64_t> recordingFps_ {};
-      // The screen recording start time in HH:MM:SS format. This parameter takes effect only when Recording is set to PERIOD.
+      // The screen recording start time in the format of HH:MM:SS. This parameter is meaningful only when Recording is set to PERIOD.
       shared_ptr<string> recordingStartTime_ {};
-      // The screen recording client notification feature.
+      // The client notification feature for screen recording.
       shared_ptr<string> recordingUserNotify_ {};
-      // The screen recording client notification message. Leave empty by default.
+      // The notification content for the screen recording client. Leave this parameter empty by default.
       shared_ptr<string> recordingUserNotifyMessage_ {};
-      // The keyboard and mouse control permissions during remote assistance.
+      // The keyboard and mouse control permission for remote assistance.
       shared_ptr<string> remoteCoordinate_ {};
-      // Resets the cloud computer.
+      // The setting for resetting the cloud computer.
       shared_ptr<string> resetDesktop_ {};
+      // The DPI value of the screen resolution.
       shared_ptr<int32_t> resolutionDpi_ {};
+      // The height of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud computers: 480 to 4096.
       shared_ptr<int32_t> resolutionHeight_ {};
+      // The resolution type.
       shared_ptr<string> resolutionModel_ {};
+      // The width of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud computers: 640 to 4096.
       shared_ptr<int32_t> resolutionWidth_ {};
-      // The number of resource groups associated with this policy.
+      // The number of resource groups associated with the policy.
       shared_ptr<int32_t> resourceGroupCount_ {};
       // The region to which the cloud computer policy belongs.
       // 
-      // > For region-less policies, this value is `center`.
+      // > If the policy is a region-independent policy, this value is `center`.
       shared_ptr<string> resourceRegionId_ {};
+      // The security center shortcut key switch. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> safeMenu_ {};
       // The effective scope of the policy.
       shared_ptr<string> scope_ {};
-      // Specify this parameter when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
+      // This parameter is required when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
       shared_ptr<vector<string>> scopeValue_ {};
+      // The screen display mode.
       shared_ptr<string> screenDisplayMode_ {};
-      // Whether to enable smoothness enhancement for daily office scenarios.
+      // Specifies whether smoothness enhancement is enabled for daily office scenarios.
       shared_ptr<string> smoothEnhancement_ {};
-      // Whether to provide the status monitoring feature in the floating ball when accessing the cloud computer.
+      // Specifies whether the status monitoring entry is provided in the cloud computer floating ball.
       shared_ptr<string> statusMonitor_ {};
-      // The streaming mode adaptation scenario.
+      // The streaming mode for scenario adaptation.
       shared_ptr<string> streamingMode_ {};
       // The target frame rate. Valid values: 10 to 60.
       shared_ptr<int32_t> targetFps_ {};
-      // USB redirection.
+      // Specifies whether the three-screen feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
+      shared_ptr<string> threeScreen_ {};
+      // The USB redirection policy.
       shared_ptr<string> usbRedirect_ {};
-      // The USB redirection rule.
+      // The USB redirection rules.
       shared_ptr<vector<DescribePolicyGroups::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
+      // Specifies whether the usage duration display on the floating ball is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> useTime_ {};
       // The average bitrate for video encoding. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncAvgKbps_ {};
-      // The maximum quantization parameter (QP) for video encoding, representing the lowest quality. Valid values: 0 to 51.
+      // The maximum QP for video encoding, which represents the lowest image quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMaxQP_ {};
-      // The minimum quantization parameter (QP) for video encoding, representing the highest quality. Valid values: 0 to 51.
+      // The minimum QP for video encoding, which represents the highest quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMinQP_ {};
       // The peak bitrate for video encoding. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncPeakKbps_ {};
       // The video encoding policy.
       shared_ptr<string> videoEncPolicy_ {};
-      // Multimedia redirection.
+      // The multimedia redirection setting.
       shared_ptr<string> videoRedirect_ {};
       // The image display quality policy.
       shared_ptr<string> visualQuality_ {};
-      // Watermark.
+      // The watermark policy.
       shared_ptr<string> watermark_ {};
-      // The blind watermark anti-photo feature.
+      // The anti-camera capture feature for invisible watermarks.
       shared_ptr<string> watermarkAntiCam_ {};
-      // The watermark font color in RGB format. Valid values: 0 to 16777215.
+      // The watermark font color. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
-      // If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
+      // If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
       shared_ptr<string> watermarkCustomText_ {};
       // The watermark tilt angle. Valid values: -10 to -30.
       shared_ptr<double> watermarkDegree_ {};
@@ -2293,23 +2437,27 @@ namespace Models
       shared_ptr<int32_t> watermarkFontSize_ {};
       // The watermark font style.
       shared_ptr<string> watermarkFontStyle_ {};
-      // The blind watermark enhancement feature.
+      // The enhancement feature for invisible watermarks.
       shared_ptr<string> watermarkPower_ {};
       // The number of watermark rows.
       // 
-      // > This parameter is not publicly available.
+      // > This parameter is not yet available for use.
       shared_ptr<int32_t> watermarkRowAmount_ {};
-      // The blind watermark security priority rule.
+      // The security-first rule for invisible watermarks.
       shared_ptr<string> watermarkSecurity_ {};
+      // Specifies whether the watermark shadow effect is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> watermarkShadow_ {};
-      // The watermark transparency level.
+      // The transparency level of the watermark.
       shared_ptr<string> watermarkTransparency_ {};
-      // The watermark transparency. A higher value means lower transparency. Valid values: 10 to 100.
+      // The watermark transparency. A larger value indicates lower transparency. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
       // The watermark type.
       shared_ptr<string> watermarkType_ {};
+      // The WUYING Keeper switch.
       shared_ptr<string> wuyingKeeper_ {};
-      // Whether to provide the WUYING AI Assistant feature in the floating ball when accessing the cloud computer.
+      // Specifies whether the WUYING AI Assistant entry is provided in the cloud computer floating ball.
       shared_ptr<string> wyAssistant_ {};
     };
 
@@ -2360,12 +2508,16 @@ namespace Models
 
 
   protected:
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The detailed information about the cloud computer policies.
+    // The details of the cloud computer policies.
     shared_ptr<vector<DescribePolicyGroupsResponseBody::DescribePolicyGroups>> describePolicyGroups_ {};
-    // The pagination token for the next query. If NextToken is empty, no further pages exist.
+    // The token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
+    // The page number of the current page for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of entries per page for a paged query.    
+    // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

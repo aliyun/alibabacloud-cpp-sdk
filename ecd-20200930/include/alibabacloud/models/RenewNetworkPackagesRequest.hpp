@@ -106,31 +106,31 @@ namespace Models
 
 
   protected:
-    // Whether to enable automatic payment.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal for subscription shared cloud desktops.
     shared_ptr<bool> autoRenew_ {};
-    // A list of premium public bandwidth IDs. You can specify 1 to 100 IDs.
+    // The IDs of premium Internet bandwidth plans. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> networkPackageId_ {};
-    // The renewal duration. Valid values depend on the value of `PeriodUnit`.
+    // The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
     // 
-    // - If `PeriodUnit` is `Week`, valid values are: 1.
-    // 
-    // - If `PeriodUnit` is `Month`, valid values are: 1, 2, 3, or 6.
-    // 
-    // - If `PeriodUnit` is `Year`, valid values are: 1, 2, or 3.
+    // - If `PeriodUnit` is set to `Week`, the valid value is 1.
+    // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
+    // - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
-    // The unit for the renewal duration.
+    // The unit of the renewal duration.
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to list regions that support WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter if you are not using the reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

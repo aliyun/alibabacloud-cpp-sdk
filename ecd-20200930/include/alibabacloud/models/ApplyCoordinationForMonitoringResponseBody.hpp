@@ -116,13 +116,13 @@ namespace Models
 
 
     protected:
-      // The coordination flow ID.
+      // The collaboration flow ID.
       shared_ptr<string> coId_ {};
-      // The current coordination status.
-      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]coordinating
-      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ] terminating
-      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]terminated
-      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]pending acceptance
+      // The current collaboration status.
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]Collaborating.
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ]Terminating.
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]Terminated.
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]Pending acceptance.
       shared_ptr<string> coordinateStatus_ {};
       // The ticket used by ASP to establish a connection.
       shared_ptr<string> coordinateTicket_ {};
@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The list of coordination flow data.
+    // The list of collaboration flow data.
     shared_ptr<vector<ApplyCoordinationForMonitoringResponseBody::CoordinateFlowModels>> coordinateFlowModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

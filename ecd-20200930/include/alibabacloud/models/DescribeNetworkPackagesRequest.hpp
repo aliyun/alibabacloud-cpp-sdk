@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -138,14 +140,15 @@ namespace Models
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The IDs of the premium Internet bandwidth plans. You can specify 1 to 100 IDs.
+    // The IDs of premium Internet bandwidth plans. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> networkPackageId_ {};
-    // The token for the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The tags. A maximum of 20 tags are supported.
     shared_ptr<vector<DescribeNetworkPackagesRequest::Tag>> tag_ {};
   };
 

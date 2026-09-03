@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the configuration groups.
+    // The list of unbound configuration group IDs.
     shared_ptr<vector<string>> groupIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

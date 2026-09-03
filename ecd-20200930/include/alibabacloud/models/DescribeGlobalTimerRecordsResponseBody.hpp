@@ -200,23 +200,26 @@ namespace Models
       // The record information during the execution of the scheduled task.
       shared_ptr<string> context_ {};
       // The time when the record was created.
+      // The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
       // The display result name.
       shared_ptr<string> displayResultName_ {};
       // The time when the task ended.
+      // The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> finishTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The ID of the resource parent.
       shared_ptr<string> resourceParentId_ {};
       // Specifies whether the task can be retried.
       shared_ptr<bool> retryable_ {};
       // The ID of the scheduled task group.
       shared_ptr<string> timerGroupId_ {};
-      // The timer record ID.
+      // The ID of the scheduled record.
       shared_ptr<string> timerRecordId_ {};
       // The execution result of the scheduled task.
       shared_ptr<string> timerResult_ {};

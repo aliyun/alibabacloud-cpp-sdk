@@ -145,7 +145,8 @@ namespace Models
       protected:
         // The end user ID.
         shared_ptr<string> endUserId_ {};
-        // The time when the session was created.
+        // The session creation time.
+        // The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -400,6 +401,7 @@ namespace Models
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
+      // The creation time of the cloud desktop. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> creationTime_ {};
       // The shared cloud desktop ID.
       shared_ptr<string> desktopGroupId_ {};
@@ -434,20 +436,20 @@ namespace Models
       shared_ptr<string> osType_ {};
       // The specific operating system model.
       shared_ptr<string> platform_ {};
-      // The protocol type.
+      // The protocol type. Valid values:
       // 
       // - HDX
       // - ASP
       shared_ptr<string> protocolType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The enterprise resource group name.
+      // The enterprise resource group names.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
       // The session idle duration. Unit: minutes.
       shared_ptr<int64_t> sessionIdleTime_ {};
       // The session details.
       shared_ptr<vector<Sessions::SessionsItem>> sessions_ {};
-      // The time when the cloud desktop status changed.
+      // The UNIX timestamp of the cloud desktop status change. Unit: milliseconds.
       shared_ptr<int64_t> statusChangeTime_ {};
       // The billing method of the cloud desktop. Valid values:
       // 

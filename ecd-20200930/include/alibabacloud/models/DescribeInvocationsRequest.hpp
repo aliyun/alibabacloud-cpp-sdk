@@ -147,7 +147,7 @@ namespace Models
     shared_ptr<string> commandType_ {};
     // The encoding method of the returned data.
     shared_ptr<string> contentEncoding_ {};
-    // The cloud desktop ID. If you specify a cloud desktop, all script execution records for that cloud desktop are queried.
+    // The cloud desktop ID. If you specify a cloud desktop, all script execution records of the cloud desktop are queried.
     shared_ptr<string> desktopId_ {};
     // The list of cloud desktop IDs.
     // 
@@ -155,11 +155,11 @@ namespace Models
     shared_ptr<vector<string>> desktopIds_ {};
     // The user ID.
     shared_ptr<string> endUserId_ {};
-    // Specifies whether to return the execution results of all cloud desktops when a remote command is run on multiple cloud desktops.
+    // Specifies whether to return the execution results of all cloud desktops when the remote command is executed on multiple cloud desktops.
     shared_ptr<bool> includeInvokeDesktops_ {};
-    // Specifies whether to return the output of the script execution in the results.
+    // Specifies whether to return the output information of the script execution in the results.
     shared_ptr<bool> includeOutput_ {};
-    // The script execution ID. Obtained from the response of [RunCommand](~~RunCommand~~).
+    // The execution ID of the script process. Obtained from the response of [RunCommand](~~RunCommand~~).
     shared_ptr<string> invokeId_ {};
     // The overall execution status of the script. The overall execution status depends on the combined execution status of one or more cloud desktops in the execution.
     shared_ptr<string> invokeStatus_ {};
@@ -170,7 +170,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

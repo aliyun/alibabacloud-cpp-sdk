@@ -107,19 +107,21 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phones to bind to the QoS rule.
+    // The list of cloud phone IDs to associate.
     shared_ptr<vector<string>> authAndroidId_ {};
+    // The ID of the cloud desktop pool to authorize.
     shared_ptr<vector<string>> authDesktopGroupId_ {};
-    // The IDs of the cloud desktops to bind to the QoS rule.
+    // The list of cloud desktop IDs to associate.
     shared_ptr<vector<string>> authDesktopId_ {};
-    // The ID of the QoS rule.
+    // The ID of the public network rate limiting rule.
     // 
     // This parameter is required.
     shared_ptr<string> qosRuleId_ {};
-    // The IDs of the cloud phones to unbind from the QoS rule.
+    // The list of cloud phone IDs to disassociate.
     shared_ptr<vector<string>> revokeAndroidId_ {};
+    // The ID of the cloud desktop pool to revoke authorization from.
     shared_ptr<vector<string>> revokeDesktopGroupId_ {};
-    // The IDs of the cloud desktops to unbind from the QoS rule.
+    // The list of cloud desktop IDs to disassociate.
     shared_ptr<vector<string>> revokeDesktopId_ {};
   };
 

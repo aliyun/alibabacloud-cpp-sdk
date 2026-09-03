@@ -115,25 +115,34 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the academic proxy feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> academicProxy_ {};
     // The business type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
+    // Specifies whether to enable the model library feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> modelLibrary_ {};
-    // The page number of the current page in a paging query.    
+    // The page number of the current page in a paged query. This parameter implements paging.    
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of rows per page in a paged query. This parameter implements paging.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of cloud desktop policy IDs.
+    // The list of Cloud Desktop policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
+    // Specifies whether to enable the port proxy feature. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> portProxy_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The effective scope of the cloud desktop policy.
+    // The effective scope of the Cloud Desktop policy.
     shared_ptr<string> scope_ {};
   };
 

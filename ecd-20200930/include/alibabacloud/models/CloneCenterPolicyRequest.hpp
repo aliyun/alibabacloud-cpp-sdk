@@ -83,7 +83,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the target cloud computer policy to clone.
+    // The ID of the cloud computer policy to clone.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupId_ {};

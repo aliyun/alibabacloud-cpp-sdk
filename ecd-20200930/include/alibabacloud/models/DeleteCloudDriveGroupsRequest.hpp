@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk in Cloud Drive Service.
+    // The enterprise network drive ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The IDs of the teams that you want to delete. You can delete multiple teams at a time.
+    // The list of team space IDs.
     shared_ptr<vector<string>> groupId_ {};
-    // The region ID.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

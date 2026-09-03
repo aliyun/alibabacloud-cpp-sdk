@@ -97,6 +97,9 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // - Enterprise: Enterprise Edition.
+    // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

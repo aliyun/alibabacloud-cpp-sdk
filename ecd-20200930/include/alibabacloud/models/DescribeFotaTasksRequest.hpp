@@ -106,7 +106,7 @@ namespace Models
     // - Maximum value: 100.
     // - Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 

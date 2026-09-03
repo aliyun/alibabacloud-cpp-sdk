@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ManagementFlag, managementFlag_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(MultiResource, multiResource_);
+      DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_TO_JSON(QueryFotaUpdate, queryFotaUpdate_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -75,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ManagementFlag, managementFlag_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(MultiResource, multiResource_);
+      DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
@@ -84,6 +87,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_FROM_JSON(QueryFotaUpdate, queryFotaUpdate_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -142,9 +146,9 @@ namespace Models
 
 
     protected:
-      // The tag key. If you specify `Tag`, `Key` is required. The tag key cannot exceed 128 characters in length, cannot start with `aliyun` or `acs:`, cannot contain `http://` or `https://`, and cannot consist of only spaces.
+      // The tag key. If you specify `Tag`, `Key` is required. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, contain `http://` or `https://`, or consist of only spaces.
       shared_ptr<string> key_ {};
-      // The tag value. The tag value cannot exceed 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value. The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -153,10 +157,10 @@ namespace Models
         && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->excludedEndUserId_ == nullptr
         && this->expiredTime_ == nullptr && this->fillResourceGroup_ == nullptr && this->filterDesktopGroup_ == nullptr && this->gpuInstanceGroupId_ == nullptr && this->groupId_ == nullptr
         && this->imageId_ == nullptr && this->includeAutoSnapshotPolicy_ == nullptr && this->managementFlag_ == nullptr && this->maxResults_ == nullptr && this->multiResource_ == nullptr
-        && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->onlyDesktopGroup_ == nullptr && this->osTypes_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->policyGroupId_ == nullptr && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr
-        && this->queryFotaUpdate_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subPayType_ == nullptr
-        && this->tag_ == nullptr && this->userName_ == nullptr; };
+        && this->networkInterfaceIp_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->onlyDesktopGroup_ == nullptr
+        && this->osTypes_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->policyGroupId_ == nullptr && this->protocolType_ == nullptr
+        && this->publicIp_ == nullptr && this->qosRuleId_ == nullptr && this->queryFotaUpdate_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->snapshotPolicyId_ == nullptr && this->subPayType_ == nullptr && this->tag_ == nullptr && this->userName_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -314,6 +318,13 @@ namespace Models
     inline DescribeDesktopsRequest& setMultiResource(bool multiResource) { DARABONBA_PTR_SET_VALUE(multiResource_, multiResource) };
 
 
+    // networkInterfaceIp Field Functions 
+    bool hasNetworkInterfaceIp() const { return this->networkInterfaceIp_ != nullptr;};
+    void deleteNetworkInterfaceIp() { this->networkInterfaceIp_ = nullptr;};
+    inline string getNetworkInterfaceIp() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceIp_, "") };
+    inline DescribeDesktopsRequest& setNetworkInterfaceIp(string networkInterfaceIp) { DARABONBA_PTR_SET_VALUE(networkInterfaceIp_, networkInterfaceIp) };
+
+
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -379,6 +390,13 @@ namespace Models
     inline DescribeDesktopsRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+    // publicIp Field Functions 
+    bool hasPublicIp() const { return this->publicIp_ != nullptr;};
+    void deletePublicIp() { this->publicIp_ = nullptr;};
+    inline string getPublicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
+    inline DescribeDesktopsRequest& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
+
+
     // qosRuleId Field Functions 
     bool hasQosRuleId() const { return this->qosRuleId_ != nullptr;};
     void deleteQosRuleId() { this->qosRuleId_ = nullptr;};
@@ -438,10 +456,13 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // - Enterprise: Enterprise Edition.
+    // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The billing method of the cloud computer.
     shared_ptr<string> chargeType_ {};
-    // The cloud computer pool ID. If `DesktopId` is specified, `DesktopGroupId` is ignored. If `DesktopId` is empty, the system retrieves the `DesktopId` of all cloud computers in the cloud computer pool specified by `DesktopGroupId`.
+    // The cloud computer pool ID. If `DesktopId` is specified, `DesktopGroupId` is ignored. If `DesktopId` is empty, the system retrieves the IDs of all cloud computers in the cloud computer pool specified by `DesktopGroupId`.
     shared_ptr<string> desktopGroupId_ {};
     // The cloud computer IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
@@ -449,7 +470,7 @@ namespace Models
     shared_ptr<string> desktopName_ {};
     // The cloud computer status.
     shared_ptr<string> desktopStatus_ {};
-    // The list of cloud computer statuses.
+    // The cloud computer status list.
     shared_ptr<vector<string>> desktopStatusList_ {};
     // The cloud computer specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by cloud computers.
     shared_ptr<string> desktopType_ {};
@@ -461,9 +482,9 @@ namespace Models
     shared_ptr<vector<string>> endUserId_ {};
     // The list of authorized users to exclude. You can specify 1 to 100 users.
     shared_ptr<vector<string>> excludedEndUserId_ {};
-    // The expiration time of the subscription cloud computer.
+    // The expiration time of the subscription cloud computer. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> expiredTime_ {};
-    // Specifies whether to query enterprise resource group information.
+    // Specifies whether to query resource group information.
     shared_ptr<bool> fillResourceGroup_ {};
     // Specifies whether to exclude pooled cloud computers (cloud computers in a cloud computer pool).
     shared_ptr<bool> filterDesktopGroup_ {};
@@ -473,6 +494,7 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The image IDs.
     shared_ptr<vector<string>> imageId_ {};
+    // Specifies whether to include automatic snapshot policy information in the response.
     shared_ptr<bool> includeAutoSnapshotPolicy_ {};
     // The management flag.
     shared_ptr<string> managementFlag_ {};
@@ -481,9 +503,10 @@ namespace Models
     // - Maximum value: 100.
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether there are multiple resources.
+    // Specifies whether multiple resources exist.
     shared_ptr<bool> multiResource_ {};
-    // The pagination token for the next query. If this parameter is empty, no more results exist.
+    shared_ptr<string> networkInterfaceIp_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
@@ -491,16 +514,17 @@ namespace Models
     shared_ptr<string> officeSiteName_ {};
     // Specifies whether to query only pooled cloud computers (cloud computers in a cloud computer pool).
     shared_ptr<bool> onlyDesktopGroup_ {};
-    // The operating system type.
+    // The operating system types.
     shared_ptr<vector<string>> osTypes_ {};
-    // The page number of the current page for a paged query.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page for a paged query.
+    // The maximum number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The cloud computer policy ID.
     shared_ptr<string> policyGroupId_ {};
     // The protocol type.
     shared_ptr<string> protocolType_ {};
+    shared_ptr<string> publicIp_ {};
     // The Internet bandwidth throttling rule ID.
     shared_ptr<string> qosRuleId_ {};
     // Specifies whether to query cloud computer image version information.
@@ -509,13 +533,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The enterprise resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The snapshot policy ID.
     shared_ptr<string> snapshotPolicyId_ {};
     // The purchase method of the cloud computer.
     shared_ptr<string> subPayType_ {};
-    // The tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud computers for easy searching and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
+    // The tags. A tag is a key-value pair that is used to mark resources. You can use tags to group and manage cloud computers for easy searching and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
     shared_ptr<vector<DescribeDesktopsRequest::Tag>> tag_ {};
     // The username.
     shared_ptr<string> userName_ {};

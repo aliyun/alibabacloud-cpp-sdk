@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error code description.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message. This parameter is not returned if Code is `success`.
+    // The error message. This parameter is not returned when Code is `success`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

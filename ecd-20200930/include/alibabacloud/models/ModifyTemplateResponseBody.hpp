@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The execution result. The value `success` indicates success. Otherwise, an error message is returned.
+    // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

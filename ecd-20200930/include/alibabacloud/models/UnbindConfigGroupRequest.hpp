@@ -90,22 +90,13 @@ namespace Models
 
 
     protected:
-      // The service type of the resource.
-      // 
-      // Valid value:
-      // 
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // The product type to which the resource belongs.
       shared_ptr<string> productType_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The region ID of the resource.
       shared_ptr<string> resourceRegionId_ {};
-      // The type of the resource.
-      // 
-      // Valid values:
-      // 
-      // *   RESOURCE_GROUP: the resource group.
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -135,17 +126,13 @@ namespace Models
 
 
   protected:
-    // The ID of the region. Set the value to `cn-shanghai`.
+    // The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
-    // The resources from which you want to unbind the configuration group.
+    // The information about the resources to unbind.
     // 
     // This parameter is required.
     shared_ptr<vector<UnbindConfigGroupRequest::ResourceInfos>> resourceInfos_ {};
-    // The type of the configuration group.
-    // 
-    // Valid value:
-    // 
-    // *   Timer: the scheduled task type.
+    // The type of the configuration group to unbind.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

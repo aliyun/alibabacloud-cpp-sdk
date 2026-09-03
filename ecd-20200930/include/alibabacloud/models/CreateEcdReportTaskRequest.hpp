@@ -82,7 +82,7 @@ namespace Models
     protected:
       // The report query filter condition. The valid values vary based on the SubType value:
       // 1. Cloud computer report
-      // - KeyWord: automatic keyword recognition for cloud computers.
+      // - KeyWord: automatically identifies the cloud computer keyword.
       // - RegionId: the region ID.
       // - DesktopId: the cloud computer ID.
       // - DesktopName: the cloud computer name (fuzzy match).
@@ -93,7 +93,7 @@ namespace Models
       // - DesktopIP: the cloud computer IP address.
       // - SubPayType: the billing method.
       // - EndUserId: the username (fuzzy match).
-      // - ExpireTime: the expiration time in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
+      // - ExpireTime: the expiration time, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
       // - IncludeAssignedUser: specifies whether users are assigned.
       // - ResourceGroupId: the resource group ID.
       // - PolicyId: the policy ID.
@@ -158,9 +158,12 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // Enterprise: Enterprise Edition.
+    // Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The list of filter conditions for query results. The filter condition objects have a logical AND (&) relationship.
-    // Each filter condition contains FilterKey and FilterValues, which represent the filter condition name and specific values.
+    // Each filter condition contains FilterKey and FilterValues, which specify the filter condition name and its values.
     shared_ptr<vector<CreateEcdReportTaskRequest::FilterList>> filterList_ {};
     // The report language type. This is an enumerated value.
     shared_ptr<string> langType_ {};

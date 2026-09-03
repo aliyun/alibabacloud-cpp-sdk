@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the created QoS rule.
+    // The rate limiting rule ID.
     shared_ptr<string> qosRuleId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

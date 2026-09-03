@@ -117,22 +117,27 @@ namespace Models
 
 
   protected:
+    // The business channel. Valid values:
+    // - Enterprise: Enterprise Edition.
+    // - Business: Business Edition.
     shared_ptr<string> businessChannel_ {};
     // The list of cloud computer policy IDs to exclude from the query results.
     shared_ptr<vector<string>> externalPolicyGroupIds_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // - Maximum value: 100
-    // 
-    // - Default value: 10
+    // - Maximum value: 100.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous response. Do not set this parameter for the first request.
+    // The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The page number of the current page for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of entries per page for a paged query.    
+    // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The list of cloud computer policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

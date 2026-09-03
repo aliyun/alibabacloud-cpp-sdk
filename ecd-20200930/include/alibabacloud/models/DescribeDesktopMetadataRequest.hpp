@@ -170,20 +170,20 @@ namespace Models
 
 
   protected:
-    // The time when the cloud desktop was created. The time is in UTC format:
+    // The time when the cloud computer was created. The time is in UTC and follows the format:
     // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> creationTimeStart_ {};
-    // The list of cloud desktop IDs.
+    // The list of cloud computer IDs.
     shared_ptr<vector<string>> desktopIds_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
-    // The shared cloud desktop ID.
+    // The shared cloud computer ID.
     shared_ptr<string> groupId_ {};
     // The hostname.
     shared_ptr<string> hostName_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // Specifies whether the response includes cloud desktops in shared cloud desktop groups.
+    // Specifies whether the response includes cloud computers in shared cloud computer groups.
     shared_ptr<bool> includeDesktopGroup_ {};
     // >This parameter is not yet available for use.
     shared_ptr<string> keyword_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The workspace ID.
     shared_ptr<string> officeSiteId_ {};
-    // The start time of the operation performed on the cloud desktop. The time is in UTC format:
+    // The start time of operations performed on the cloud computer. The time is in UTC and follows the format:
     // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> operationTimeStart_ {};
     // The region ID.

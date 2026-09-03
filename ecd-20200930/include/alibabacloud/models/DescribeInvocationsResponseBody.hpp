@@ -234,9 +234,9 @@ namespace Models
         shared_ptr<string> desktopId_ {};
         // The cloud desktop name.
         shared_ptr<string> desktopName_ {};
-        // The length of the truncated and discarded text after the text length in the Output field exceeds 24 KB.
+        // The length of the truncated and discarded text after the text length in the Output field exceeded 24 KB.
         shared_ptr<int32_t> dropped_ {};
-        // The error code for the command delivery failure or execution failure. Valid values:
+        // The error code indicating the reason for command delivery failure or execution failure. Valid values:
         // 
         // - Empty: The command ran normally.
         // - InstanceNotExists: The specified cloud desktop does not exist or has been released.
@@ -253,7 +253,7 @@ namespace Models
         // - ExecutionInterrupted: Command execution was interrupted.
         // - ExitCodeNonzero: Command execution completed with a non-zero exit code.
         shared_ptr<string> errorCode_ {};
-        // The detailed information about the command delivery failure or execution failure. Valid values:
+        // The detailed reason for command delivery failure or execution failure. Valid values:
         // 
         // - Empty: The command ran normally.
         // - the specified instance does not exists: The specified cloud desktop does not exist or has been released.
@@ -274,19 +274,20 @@ namespace Models
         shared_ptr<int64_t> exitCode_ {};
         // The end time of the script process.
         shared_ptr<string> finishTime_ {};
-        // The script execution status on a single cloud desktop.
+        // The script process status on a single cloud desktop.
         shared_ptr<string> invocationStatus_ {};
+        // jvs agent id。
         shared_ptr<string> jvsAgentId_ {};
-        // The output of the script process.
+        // The output information of the script process.
         // 
         // - If the request parameter `IncludeOutput` is set to false, Output is not returned.
-        // - If the request parameter `ContentEncoding` is set to Base64, Output is the Base64-encoded output.
+        // - If the request parameter `ContentEncoding` is set to Base64, Output is the Base64-encoded output information.
         shared_ptr<string> output_ {};
-        // The number of times the command was run on the cloud desktop.
+        // The number of times the command was executed on the cloud desktop.
         shared_ptr<int32_t> repeats_ {};
         // The time when the script process started running on the cloud desktop.
         shared_ptr<string> startTime_ {};
-        // The time when execution was stopped, if StopInvocation was called.
+        // The time when the execution was stopped, if StopInvocation was called.
         shared_ptr<string> stopTime_ {};
         // The update time of the task status.
         shared_ptr<string> updateTime_ {};
@@ -374,29 +375,32 @@ namespace Models
       shared_ptr<string> commandType_ {};
       // The creation time of the task.
       shared_ptr<string> creationTime_ {};
+      // The cloud desktop scenario. Valid values:
+      // - Classic: the classic cloud desktop scenario.
+      // - JvsClaw: the JVS Claw cloud desktop scenario.
       shared_ptr<string> desktopScenario_ {};
       // The end user ID.
       shared_ptr<string> endUserId_ {};
       // The overall execution status of the script. The overall execution status depends on the combined execution status of all cloud desktops in this call. Valid values:
       // 
-      // - Pending: The system is validating or sending the command. If the script execution status on at least one cloud desktop is Pending, the overall execution status is Pending.
-      // - Running: The command is running on the cloud desktop. If the script execution status on at least one cloud desktop is Running, the overall execution status is Running.
-      // - Success: The script execution status on each cloud desktop is Stopped or Success, and the script execution status on at least one cloud desktop is Success. The overall execution status is Success.
-      // - Failed: The script execution status on each cloud desktop is Stopped or Failed. The overall execution status is Failed. The return value is Failed when one or more of the following statuses occur on a cloud desktop:
-      //     - Command validation failed (Invalid).
-      //     - Command delivery failed (Aborted).
-      //     - Command execution completed but the exit code is non-zero (Failed).
-      //     - Command execution timed out (Timeout).
-      //     - Command execution encountered an exception (Error).
-      // - Stopping: The task is being stopped. If the script execution status on at least one instance is Stopping, the overall execution status is Stopping.
-      // - Stopped: The task has been stopped. If the script execution status on all instances is Stopped, the overall execution status is Stopped. The return value is Stopped when the script execution status on an instance is one of the following:
-      //     - Task cancelled (Cancelled).
-      //     - Task terminated (Terminated).
-      // - PartialFailed: Some instances succeeded and some instances failed. If the script execution status on each instance is Success, Failed, or Stopped, the overall execution status is PartialFailed.
+      // - Pending: The system is validating or sending the command. The overall execution status is Pending if at least one cloud desktop has a script execution status of Pending.
+      // - Running: The command is running on the cloud desktop. The overall execution status is Running if at least one cloud desktop has a script execution status of Running.
+      // - Success: The overall execution status is Success if the script execution status on each cloud desktop is Stopped or Success, and at least one cloud desktop has a script execution status of Success.
+      // - Failed: The overall execution status is Failed if the script execution status on each cloud desktop is Stopped or Failed. The return value is Failed when one or more of the following statuses occur on a cloud desktop:
+      //     - Command validation failed (Invalid)
+      //     - Command delivery failed (Aborted)
+      //     - Command execution completed with a non-zero exit code (Failed)
+      //     - Command execution timed out (Timeout)
+      //     - Command execution encountered an exception (Error)
+      // - Stopping: The task is being stopped. The overall execution status is Stopping if at least one instance has a script execution status of Stopping.
+      // - Stopped: The task has been stopped. The overall execution status is Stopped if the script execution status on all instances is Stopped. The return value is Stopped when the script execution status on an instance is one of the following:
+      //     - Task cancelled (Cancelled)
+      //     - Task terminated (Terminated)
+      // - PartialFailed: The overall execution status is PartialFailed if some instances succeeded and some instances failed. The overall execution status is PartialFailed if the script execution status on each instance is Success, Failed, or Stopped.
       shared_ptr<string> invocationStatus_ {};
-      // The total number of cloud desktops on which the script was run.
+      // The total number of cloud desktops on which the script was executed.
       shared_ptr<int32_t> invokeDesktopCount_ {};
-      // The total number of cloud desktops on which the script was run successfully.
+      // The total number of cloud desktops on which the script was executed successfully.
       shared_ptr<int32_t> invokeDesktopSucceedCount_ {};
       // The list of target cloud desktops for execution.
       shared_ptr<vector<Invocations::InvokeDesktops>> invokeDesktops_ {};

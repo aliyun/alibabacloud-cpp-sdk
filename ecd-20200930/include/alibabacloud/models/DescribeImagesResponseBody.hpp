@@ -248,161 +248,47 @@ namespace Models
 
 
     protected:
-      // The version of the image.
+      // The image version.
       shared_ptr<string> appVersion_ {};
-      // The time when the image was created.
+      // The time when the image was created. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> creationTime_ {};
-      // The size of the data disk. Unit: GiB.
+      // The data cloud disk size. Unit: GiB.
       shared_ptr<int32_t> dataDiskSize_ {};
-      // The description of the image.
+      // The image description.
       shared_ptr<string> description_ {};
-      // Indicates whether the image is a GPU-accelerated image.
+      // Specifies whether the image is a GPU image.
       shared_ptr<bool> gpuCategory_ {};
-      // The version number of the GPU driver.
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The type of the image.
-      // 
-      // Valid values:
-      // 
-      // - SYSTEM
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - CUSTOM
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
+      // The image type.
       shared_ptr<string> imageType_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> name_ {};
-      // The type of the operating system.
+      // The operating system type.
       shared_ptr<string> osType_ {};
       // The operating system type of the image.
-      // 
-      // Valid values:
-      // 
-      // - Ubuntu
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Windows Server 2022
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - UOS
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - CentOS
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Windows Server 2019
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - SQL Server 2016
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Windows 10
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
       shared_ptr<string> platform_ {};
-      // The creation progress of the image. Unit: %.
+      // The progress of image creation. Unit: %.
       shared_ptr<string> progress_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // - HDX: High-definition Experience (HDX) protocol
-      // 
-      // - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
       shared_ptr<string> protocolType_ {};
-      // The type of the image session.
-      // 
-      // Valid values:
-      // 
-      // - SINGLE_SESSION: single-session image.
-      // 
-      // - MULTIPLE_SESSION: multi-session image.
+      // The session type of the image.
       shared_ptr<string> sessionType_ {};
       // The number of shared images.
       shared_ptr<int32_t> sharedCount_ {};
-      // The size of the image. Unit: GiB.
+      // The image size. Unit: GiB.
       shared_ptr<int32_t> size_ {};
-      // The status of the image.
-      // 
-      // Valid values:
-      // 
-      // - Creating
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Available
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - CreateFailed
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
+      // The image status.
       shared_ptr<string> status_ {};
-      // The languages of the operating system.
+      // The operating system language.
       shared_ptr<vector<string>> supportedLanguages_ {};
-      // The time when the image was last modified.
+      // The time when the image was last modified. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> updateTime_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
+      // The ID of the KMS key used for disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -432,11 +318,11 @@ namespace Models
 
 
   protected:
-    // The details of the images.
+    // The collection of image information.
     shared_ptr<vector<DescribeImagesResponseBody::Images>> images_ {};
-    // The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

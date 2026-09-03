@@ -143,29 +143,29 @@ namespace Models
 
 
   protected:
-    // The IDs of shared desktop groups.
+    // The list of shared desktop group IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
     // The name of the shared desktop.
     shared_ptr<string> desktopGroupName_ {};
-    // The end of the time range to query.
+    // The end time of the query. The time is in the ISO 8601 standard (UTC).
     shared_ptr<string> endTime_ {};
-    // The user ID of the terminal that connects to the session.
+    // The ID of the end user connected to the session.
     shared_ptr<string> endUserId_ {};
-    // Whether to supplement terminal information.
+    // Specifies whether to include terminal information.
     shared_ptr<bool> fillTerminalInfo_ {};
-    // The language of the response.
+    // The language type of the returned information.
     shared_ptr<string> language_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The type of the session.
+    // The session type.
     shared_ptr<int32_t> ownType_ {};
-    // The ID of the region. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
     shared_ptr<string> regionId_ {};
-    // The status of the session.
+    // The connection status.
     shared_ptr<string> sessionStatus_ {};
-    // The beginning of the time range to query.
+    // The start time of the query. The time is in the ISO 8601 standard (UTC).
     shared_ptr<string> startTime_ {};
   };
 

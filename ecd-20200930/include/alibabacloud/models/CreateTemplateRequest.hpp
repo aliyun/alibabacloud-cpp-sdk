@@ -250,13 +250,13 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The cloud computer specification ID.
       shared_ptr<string> resourceInstanceType_ {};
-      // The automatic snapshot policy ID.
+      // The ID of the automatic snapshot policy.
       shared_ptr<string> snapshotPolicyId_ {};
       // The subnet ID.
       shared_ptr<string> subnetId_ {};
       // Specifies whether to enable disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+      // The ID of the KMS key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -298,11 +298,11 @@ namespace Models
 
 
     protected:
-      // The data disk performance level. Default value: `AutoPL`.
+      // The performance level of the data disk. Default value: `AutoPL`.
       shared_ptr<string> performanceLevel_ {};
-      // The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
+      // The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
       // 
-      // >Notice: The larger the standard SSD or ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities above 460 GiB). Higher performance levels incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
+      // >Notice: The larger the ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements. Note: Only standard SSD and ESSD cloud disks are supported.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -475,50 +475,67 @@ namespace Models
 
 
   protected:
+    // Indicates whether automatic payment is enabled for the subscription order.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal for the subscription cloud computer.
     shared_ptr<bool> autoRenew_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
+    // The billing method of the cloud computer.
     shared_ptr<string> chargeType_ {};
-    // The data disk size and specification configurations.
+    // The size and specification configurations of data disks.
     shared_ptr<vector<CreateTemplateRequest::DataDiskList>> dataDiskList_ {};
     // The default language set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
     shared_ptr<string> defaultLanguage_ {};
     // The description of the template. The description must meet the following requirements:
     // 
-    // - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
     // - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
     shared_ptr<string> description_ {};
-    // The cloud computer image ID. You can query this value on the image management page. System images and custom images are supported.
+    // The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
+    // The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+    // - If `PeriodUnit` is set to `Month`, valid values:
+    //     - 1
+    //     - 2
+    //     - 3
+    //     - 6
+    // - If `PeriodUnit` is set to `Year`, valid values:
+    //     - 1
+    //     - 2
+    //     - 3
+    //     - 4
+    //     - 5
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription billable methods duration.
     shared_ptr<string> periodUnit_ {};
     // The ID of the global policy.
     shared_ptr<string> policyGroupId_ {};
+    // Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
     shared_ptr<bool> postPaidAfterUsedUp_ {};
     // The product type. Set the value to `CloudDesktop`.
     shared_ptr<string> productType_ {};
-    // The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+    // The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
     // 
-    // > You can configure up to 20 regions.
+    // > You can specify configurations for up to 20 regions.
     shared_ptr<vector<CreateTemplateRequest::RegionConfigList>> regionConfigList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The cloud computer tags in key-value format. You can specify up to 20 tags.
+    // The tags of the cloud computer in key-value format. You can specify up to 20 tags.
     shared_ptr<vector<CreateTemplateRequest::ResourceTagList>> resourceTagList_ {};
     // The site configuration management.
     shared_ptr<vector<CreateTemplateRequest::SiteConfigList>> siteConfigList_ {};
-    // The system disk type.
+    // The type of the system disk.
     // 
-    // > Only high frequency and graphics cloud computer specifications support ESSD disks.
+    // > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD disks.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
+    // The size of the system disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
     // 
     // > The system disk size cannot be smaller than the image size.
     shared_ptr<int32_t> systemDiskSize_ {};
     // The name of the template. The name must meet the following requirements:
     // 
-    // - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
+    // - The name must be 2 to 126 characters in length.
     // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
     // 
@@ -526,6 +543,7 @@ namespace Models
     shared_ptr<string> templateName_ {};
     // The configuration group ID.
     shared_ptr<string> timerGroupId_ {};
+    // The usage duration plan per user.
     shared_ptr<int32_t> userDuration_ {};
   };
 

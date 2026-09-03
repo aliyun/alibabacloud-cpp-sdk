@@ -60,20 +60,15 @@ namespace Models
 
 
   protected:
-    // The type of the client.
-    // 
-    // Valid values:
-    // 
-    // *   1: hardware client.
-    // *   2: software client.
+    // The device type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> clientType_ {};
-    // The IDs of the devices. You can specify up to 200 IDs.
+    // The list of device IDs. You can specify 1 to 200 device IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> deviceIds_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     shared_ptr<string> regionId_ {};
   };
 

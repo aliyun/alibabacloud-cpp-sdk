@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The enterprise drive ID.
+    // The ID of the enterprise network disk.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};

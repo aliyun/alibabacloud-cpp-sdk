@@ -149,50 +149,46 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud desktop.
+    // The Cloud Desktop ID.
     shared_ptr<string> desktopId_ {};
-    // The end of the time range to query.
+    // The end time of the query. Format: yyyyMMddHHmmss.
     shared_ptr<string> endTime_ {};
     // The ID of the end user.
     shared_ptr<string> endUserId_ {};
     // The name of the recording file.
     shared_ptr<string> fileName_ {};
-    // The sorting basis. If you do not specify this parameter, the results are sorted by screen recording start time in descending order. Valid value:
+    // The field used for sorting. If this parameter is not specified, the results are sorted by recording start time in descending order. Valid values:
     // 
-    // - `startTime`: the start time of a screen recording.
+    // - startTime: recording start time.
     shared_ptr<string> orderBy_ {};
-    // The sorting order. Valid values:
+    // The sort order. Valid values:
     // 
-    // - `asc`: ascending
-    // 
-    // - `desc`: descending
+    // - asc: ascending order.
+    // - desc: descending order.
     shared_ptr<string> orderSort_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of rows per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the screen recording. Valid values:
+    // The type of the screen recording file. Valid values:
     // 
-    // - `alltime`: full-time recording
-    // 
-    // - `period`: recording at intervals
-    // 
-    // - `event`: event-triggered recording
-    // 
-    // - `session`: session-based recording
+    // - alltime: full-time recording.
+    // - period: interval recording.
+    // - event: event-based recording.
+    // - session: session recording.
     shared_ptr<string> recordType_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that are supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The beginning of the time range to query.
+    // The start time of the query. Format: yyyyMMddHHmmss.
     shared_ptr<string> startTime_ {};
     // The status of the screen recording file. Valid values:
     // 
-    // - `0`: The file is uploaded.
-    // 
-    // - `1`: The file is being uploaded.
+    // - 0: uploaded.
+    // - 1: uploading.
     shared_ptr<int32_t> status_ {};
   };
 

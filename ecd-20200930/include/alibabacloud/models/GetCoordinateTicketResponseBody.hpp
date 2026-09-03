@@ -75,41 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the stream collaboration.
+    // The coordination flow ID.
     shared_ptr<string> coId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the cloud computer connection task.
+    // The cloud computer connection task ID.
     shared_ptr<string> taskId_ {};
     // The task status.
-    // 
-    // Possible values:
-    // 
-    // - Finished
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    // - Failed
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    // - Running
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
     shared_ptr<string> taskStatus_ {};
-    // The credentials of the stream collaboration.
+    // The coordination flow ticket.
     shared_ptr<string> ticket_ {};
   };
 

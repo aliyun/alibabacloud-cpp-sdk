@@ -171,39 +171,13 @@ namespace Models
 
 
       protected:
-        // The level of the log entry.
-        // 
-        // Valid values:
-        // 
-        // *   ERROR
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   INFO
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   WARN
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // The log level.
         shared_ptr<string> level_ {};
-        // Details of the log entry.
+        // The detailed log information.
         shared_ptr<string> message_ {};
         // The step that corresponds to the log entry.
         shared_ptr<string> step_ {};
-        // The time when the log entry was printed.
+        // The time when the log was printed. The time is in the ISO 8601 standard (UTC).
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -281,41 +255,17 @@ namespace Models
 
 
       protected:
-        // The connection address.
+        // The endpoint.
         shared_ptr<string> ADConnectorAddress_ {};
-        // Valid values:
-        // 
-        // *   CONNECT_ERROR
-        // *   RUNNING
-        // *   CONNECTING: You must configure domain trust for your AD system.
-        // *   EXPIRED
-        // *   CREATING
+        // The connection status.
         shared_ptr<string> connectorStatus_ {};
-        // The ID of the NIC to which the AD connector is mounted.
+        // The ID of the network interface controller (NIC) attached to the AD connector.
         shared_ptr<string> networkInterfaceId_ {};
-        // The AD connector type.
-        // 
-        // Valid values:
-        // 
-        // *   1: General
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   2: Advanced
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // The AD connector specification.
         shared_ptr<string> specification_ {};
         // The trust password of the AD domain controller.
         shared_ptr<string> trustKey_ {};
-        // The ID of the vSwitch with which the AD connector is associated.
+        // The ID of the vSwitch where the AD connector resides.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -556,7 +506,7 @@ namespace Models
 
 
     protected:
-      // Details of the AD connector.
+      // The information about AD connectors.
       shared_ptr<vector<Directories::ADConnectors>> ADConnectors_ {};
       // The hostname of the domain controller.
       shared_ptr<string> adHostname_ {};
@@ -564,124 +514,65 @@ namespace Models
       shared_ptr<string> backupDCHostname_ {};
       // The DNS address of the backup domain controller.
       shared_ptr<string> backupDns_ {};
-      // The time when the directory was created.
+      // The time when the directory was created. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> creationTime_ {};
-      // The security group ID. This parameter is returned only when the directory type is AD office network.
+      // The security group ID. This parameter is returned only when the directory type is AD workspace.
       shared_ptr<string> customSecurityGroupId_ {};
-      // The method in which the cloud computer is connected.
+      // The method allowed for connecting to cloud computers. Valid values:
       // 
-      // Valid values:
-      // 
-      // *   VPC
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Internet
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Any
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // - VPC: VPC connection.
+      // - Internet: Internet connection.
+      // - Any: Both Internet and VPC connections.
       shared_ptr<string> desktopAccessType_ {};
-      // The endpoint that is used to connect to cloud computers in the directory over a VPC.
+      // The endpoint used for connecting to cloud computers over a VPC.
       shared_ptr<string> desktopVpcEndpoint_ {};
       // The directory ID.
       shared_ptr<string> directoryId_ {};
       // The directory type.
-      // 
-      // Valid values:
-      // 
-      // *   AD_CONNECTOR: AD directory
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   RAM: RAM directory
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> directoryType_ {};
-      // The DNS address of the directory.
+      // The DNS addresses of the directory.
       shared_ptr<vector<string>> dnsAddress_ {};
-      // The username of a DNS user.
+      // The DNS username.
       shared_ptr<string> dnsUserName_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
-      // The password of the domain administrator. This parameter is returned only when the directory type is AD office network.
+      // The password of the domain administrator. This parameter is returned only when the directory type is AD workspace.
       shared_ptr<string> domainPassword_ {};
       // The username of the domain administrator.
       shared_ptr<string> domainUserName_ {};
-      // Indicates whether the local administrator permissions are granted to users that use cloud computers in the office network.
+      // Indicates whether local administrator permissions are granted to cloud computer users.
       shared_ptr<bool> enableAdminAccess_ {};
-      // Indicates whether cloud computers can communicate with each other in the directory.
+      // Indicates whether the cross-cloud-computer access feature is enabled for the directory. After this feature is enabled, cloud computers within the same directory can access each other over the network.
       shared_ptr<bool> enableCrossDesktopAccess_ {};
-      // Indicates whether access over the Internet is enabled.
+      // Indicates whether Internet access is enabled.    
       // 
-      // >  This parameter is unavailable.
+      // > This parameter is not yet available for use.
       shared_ptr<bool> enableInternetAccess_ {};
-      // The IDs of File Storage NAS (NAS) file systems.
+      // The NAS file system IDs.
       shared_ptr<vector<string>> fileSystemIds_ {};
-      // The registration logs. This parameter is returned only when the directory type is AD office network.
+      // The list of registration log information. This parameter is returned only when the directory type is AD workspace.
       shared_ptr<vector<Directories::Logs>> logs_ {};
-      // Indicates whether MFA is enabled.
+      // Indicates whether multi-factor authentication (MFA) is enabled.
       shared_ptr<bool> mfaEnabled_ {};
       // The directory name.
       shared_ptr<string> name_ {};
-      // Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\\
-      // If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
+      // Indicates whether secondary authentication is required for logon. This parameter applies only to convenience directories. If secondary authentication is enabled, the system checks for security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification.
       shared_ptr<bool> needVerifyLoginRisk_ {};
-      // The organization unit that you selected when you added the cloud computer to the domain.
+      // The organizational unit (OU) selected when cloud computers join the domain.
       shared_ptr<string> ouName_ {};
-      // Indicates whether single sign-on (SSO) is enabled.
+      // Indicates whether SSO is enabled.
       shared_ptr<bool> ssoEnabled_ {};
       // The status of the AD directory.
-      // 
-      // Valid values:
-      // 
-      // *   REGISTERING
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   REGISTERED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> status_ {};
-      // The DNS address of the enterprise AD subdomain.
+      // The DNS addresses of the AD subdomain.
       shared_ptr<vector<string>> subDnsAddress_ {};
-      // The fully qualified domain name (FQDN) of the existing AD subdomain. The value contains both the host name and the domain name.
+      // The fully qualified domain name (FQDN) of the existing AD subdomain, which includes both the hostname and the domain name.
       shared_ptr<string> subDomainName_ {};
-      // The AD trust password. This parameter is returned only when the directory type is AD office network.
+      // The AD trust password. This parameter is returned only when the directory type is AD workspace.
       shared_ptr<string> trustPassword_ {};
-      // The IDs of the vSwitches specified when the directory was created.
+      // The vSwitch IDs specified when the directory was created.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The ID of the VPC to which the vSwitch belongs. This parameter is returned only when the directory type is AD office network.
+      // The ID of the VPC to which the vSwitch belongs. This parameter is returned only when the directory type is AD workspace.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -718,13 +609,13 @@ namespace Models
 
 
   protected:
-    // The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows. This parameter is returned only when the directory type is AD office network.
+    // The hostname of the domain controller. The hostname must comply with Windows hostname naming conventions. This parameter is returned only when the directory type is AD workspace.
     shared_ptr<string> adHostname_ {};
-    // The directories.
+    // The list of directory information.
     shared_ptr<vector<DescribeDirectoriesResponseBody::Directories>> directories_ {};
-    // The token that is used for the next query. If this parameter is empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

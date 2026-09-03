@@ -108,19 +108,23 @@ namespace Models
 
 
   protected:
-    // The ID of the shared cloud desktop from which you revoke the user’s permission.
+    // The ID of the shared cloud computer from which to remove authorized users.
     shared_ptr<string> desktopGroupId_ {};
-    // A list of shared desktop group IDs.
+    // The list of shared cloud computer IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
     // The list of authorized users to remove.
     shared_ptr<vector<string>> endUserIds_ {};
+    // The organization ID of the team.
     shared_ptr<string> orgId_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The convenience user group ID.
     shared_ptr<string> simpleUserGroupId_ {};
+    // The user group name.
     shared_ptr<string> userGroupName_ {};
+    // The organizational unit (OU) path of the user.
     shared_ptr<string> userOuPath_ {};
   };
 

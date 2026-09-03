@@ -123,10 +123,11 @@ namespace Models
       // The batch ID of the scheduled task execution.
       shared_ptr<string> batchId_ {};
       // The time when the record was created.
+      // The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The number of tasks that failed to execute.
+      // The number of tasks that failed to be executed.
       shared_ptr<int32_t> failedCount_ {};
-      // The number of tasks that are currently running.
+      // The number of tasks that are being executed.
       shared_ptr<int32_t> runningCount_ {};
       // The number of tasks that were skipped.
       shared_ptr<int32_t> skippedCount_ {};
@@ -171,9 +172,9 @@ namespace Models
   protected:
     // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The pagination token for the next query. An empty value indicates that there are no more results.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of results.
     shared_ptr<vector<DescribeGlobalTimerBatchesResponseBody::Results>> results_ {};

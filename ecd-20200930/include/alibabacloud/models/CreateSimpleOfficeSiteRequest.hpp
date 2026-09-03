@@ -235,58 +235,63 @@ namespace Models
 
 
   protected:
+    // The access attribute of the office network (workspace).
     shared_ptr<string> accessAttribute_ {};
+    // The account type.
     shared_ptr<string> accountType_ {};
+    // The authority URL of the identity authentication service.
     shared_ptr<string> authorityHost_ {};
-    // The peak public bandwidth. Valid values: 10 to 200. Unit: Mbps.
-    // This parameter is valid only when `EnableInternetAccess` is set to `true`.
+    // The peak Internet bandwidth. Valid values: 10 to 200. Unit: Mbit/s.
+    // You can specify this parameter when `EnableInternetAccess` is set to `true`.
     shared_ptr<int32_t> bandwidth_ {};
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The instance ID of the Cloud Enterprise Network (CEN) instance.
     // 
-    // > If you want to connect to cloud desktops over a VPC, attach the office site to the same CEN instance that is connected to your on-premises network by a VPN or an Express Connect circuit.
+    // > To connect to cloud desktops over a VPC connection, add the office network to a CEN instance. The CEN instance is the one that the on-premises network connects to by using a VPN or Express Connect circuit.
     shared_ptr<string> cenId_ {};
-    // The ID of the Alibaba Cloud account that owns the CEN instance.
+    // The Alibaba Cloud account ID to which the CEN instance belongs.
     // 
-    // - If you do not specify CenId, or if the CEN instance belongs to your Alibaba Cloud account, this parameter is not required.
-    // 
-    // - If the CEN instance is owned by another Alibaba Cloud account, specify the ID of that account.
+    // - If CenId is not specified or the specified CEN instance belongs to the current Alibaba Cloud account, you do not need to specify this parameter.
+    // - If the specified CEN instance belongs to another Alibaba Cloud account, specify the Alibaba Cloud account ID of that account.
     shared_ptr<int64_t> cenOwnerId_ {};
-    // The IPv4 CIDR block for the office site\\"s Virtual Private Cloud (VPC). This parameter is required for standard office sites. The system automatically creates a VPC based on the specified IPv4 CIDR block. Use one of the following CIDR blocks or their subnets:
+    // The IPv4 CIDR block of the VPC for the office network. This parameter is required for advanced office networks. The system uses automatic creation of a VPC based on the specified IPv4 CIDR block. Use one of the following CIDR blocks or their subnets:
     // 
-    // - `10.0.0.0/12` (The valid mask range is 12 to 24 bits.)
-    // 
-    // - `172.16.0.0/12` (The valid mask range is 12 to 24 bits.)
-    // 
-    // - `192.168.0.0/16` (The valid mask range is 16 to 24 bits.)
+    // - `10.0.0.0/12` (valid mask range: 12 to 24 bits)
+    // - `172.16.0.0/12` (valid mask range: 12 to 24 bits)
+    // - `192.168.0.0/16` (valid mask range: 16 to 24 bits)
     shared_ptr<string> cidrBlock_ {};
+    // The client ID registered with the identity provider application.
     shared_ptr<string> clientId_ {};
+    // The client secret registered with the identity provider application.
     shared_ptr<string> clientSecret_ {};
-    // Specifies whether to create a Cloud Box office site.
+    // Specifies whether the office network is a CloudBox office network.
     shared_ptr<bool> cloudBoxOfficeSite_ {};
-    // Specifies how clients can connect to cloud desktops.
+    // The access method allowed when connecting to cloud desktops.
     // 
-    // > VPC connections rely on the Alibaba Cloud PrivateLink service, which is free of charge. If you set this parameter to `VPC` or `Any`, the system automatically enables the PrivateLink service.
+    // > The VPC connection method depends on the Alibaba Cloud PrivateLink service, which is free of charge. If this parameter is set to `VPC` or `Any`, the system automatically activates the PrivateLink service.
     shared_ptr<string> desktopAccessType_ {};
+    // The domain name of the enterprise AD.
     shared_ptr<string> domainName_ {};
+    // The enterprise ID (EID).
     shared_ptr<string> eid_ {};
-    // Specifies whether to grant users local administrator privileges on their cloud desktops.
+    // Specifies whether to grant local administrator permissions to users who use cloud desktops.
     shared_ptr<bool> enableAdminAccess_ {};
-    // Specifies whether to enable internet access.
+    // Specifies whether to enable public network access.
     shared_ptr<bool> enableInternetAccess_ {};
     // Specifies whether to enable trusted device verification.
     shared_ptr<bool> needVerifyZeroDevice_ {};
-    // The name of the office site. The name must be 2 to 255 characters in length. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+    // The name of the office network. The name must be 2 to 255 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter or Chinese character and cannot start with `http://` or `https://`.
     shared_ptr<string> officeSiteName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to get a list of regions that support Elastic Desktop Service (ECD).
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The tenant ID of the identity provider.
     shared_ptr<string> tenantId_ {};
-    // The vSwitch ID. This parameter is required when you create a Cloud Box office site.
+    // The ID of the vSwitch in the VPC. This parameter is required when you create a CloudBox office network.
     shared_ptr<vector<string>> vSwitchId_ {};
-    // The verification code. If the CEN instance is owned by another Alibaba Cloud account, you must first call [SendVerifyCode](https://help.aliyun.com/document_detail/335132.html) to obtain a verification code.
+    // The verification code. If the specified CEN instance belongs to another Alibaba Cloud account, call [SendVerifyCode](https://help.aliyun.com/document_detail/335132.html) to obtain the verification code first.
     shared_ptr<string> verifyCode_ {};
-    // The type of the office site.
+    // The type of the office network.
     shared_ptr<string> vpcType_ {};
   };
 

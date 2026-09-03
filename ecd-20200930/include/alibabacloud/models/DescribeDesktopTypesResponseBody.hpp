@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceTypeFamily, instanceTypeFamily_);
         DARABONBA_PTR_TO_JSON(MaxSessionCount, maxSessionCount_);
         DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
+        DARABONBA_PTR_TO_JSON(SaleTypes, saleTypes_);
         DARABONBA_PTR_TO_JSON(Scopes, scopes_);
         DARABONBA_PTR_TO_JSON(StockState, stockState_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -66,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceTypeFamily, instanceTypeFamily_);
         DARABONBA_PTR_FROM_JSON(MaxSessionCount, maxSessionCount_);
         DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
+        DARABONBA_PTR_FROM_JSON(SaleTypes, saleTypes_);
         DARABONBA_PTR_FROM_JSON(Scopes, scopes_);
         DARABONBA_PTR_FROM_JSON(StockState, stockState_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -84,7 +86,8 @@ namespace Models
       virtual bool empty() const override { return this->cpuCount_ == nullptr
         && this->dataDiskSize_ == nullptr && this->description_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeStatus_ == nullptr && this->envId_ == nullptr
         && this->envType_ == nullptr && this->gpuCount_ == nullptr && this->gpuMemory_ == nullptr && this->gpuSpec_ == nullptr && this->instanceTypeFamily_ == nullptr
-        && this->maxSessionCount_ == nullptr && this->memorySize_ == nullptr && this->scopes_ == nullptr && this->stockState_ == nullptr && this->systemDiskSize_ == nullptr; };
+        && this->maxSessionCount_ == nullptr && this->memorySize_ == nullptr && this->saleTypes_ == nullptr && this->scopes_ == nullptr && this->stockState_ == nullptr
+        && this->systemDiskSize_ == nullptr; };
       // cpuCount Field Functions 
       bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
       void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -176,6 +179,15 @@ namespace Models
       inline DesktopTypes& setMemorySize(string memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
+      // saleTypes Field Functions 
+      bool hasSaleTypes() const { return this->saleTypes_ != nullptr;};
+      void deleteSaleTypes() { this->saleTypes_ = nullptr;};
+      inline const vector<string> & getSaleTypes() const { DARABONBA_PTR_GET_CONST(saleTypes_, vector<string>) };
+      inline vector<string> getSaleTypes() { DARABONBA_PTR_GET(saleTypes_, vector<string>) };
+      inline DesktopTypes& setSaleTypes(const vector<string> & saleTypes) { DARABONBA_PTR_SET_VALUE(saleTypes_, saleTypes) };
+      inline DesktopTypes& setSaleTypes(vector<string> && saleTypes) { DARABONBA_PTR_SET_RVALUE(saleTypes_, saleTypes) };
+
+
       // scopes Field Functions 
       bool hasScopes() const { return this->scopes_ != nullptr;};
       void deleteScopes() { this->scopes_ = nullptr;};
@@ -202,32 +214,37 @@ namespace Models
     protected:
       // The number of vCPUs.
       shared_ptr<string> cpuCount_ {};
-      // The size of the data disk, in GiB.
+      // The data cloud disk size. Unit: GiB.
       shared_ptr<string> dataDiskSize_ {};
+      // The description of the NAS file system.
       shared_ptr<string> description_ {};
       // The specification ID.
       shared_ptr<string> desktopTypeId_ {};
-      // The availability of the specification. A value of `SUFFICIENT` indicates that the specification is in stock.
+      // The specification status. A value of `SUFFICIENT` indicates that the specification resources are sufficient.
       shared_ptr<string> desktopTypeStatus_ {};
+      // The environment ID. This parameter is not publicly available.
       shared_ptr<string> envId_ {};
+      // The environment type. This parameter is not publicly available.
       shared_ptr<string> envType_ {};
       // The number of GPU cores.
       shared_ptr<float> gpuCount_ {};
-      // The GPU memory size in MiB. This parameter is valid only for GPU-accelerated cloud desktops.
+      // The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud computers. Unit: MB.
       shared_ptr<int32_t> gpuMemory_ {};
-      // The GPU memory size.
+      // The GPU memory.
       shared_ptr<string> gpuSpec_ {};
-      // The instance type family.
+      // The instance family.
       shared_ptr<string> instanceTypeFamily_ {};
-      // The maximum number of concurrent sessions that is supported by the cloud desktop specification.
+      // The number of multi-sessions supported by the current specification.
       shared_ptr<int32_t> maxSessionCount_ {};
-      // The memory size, in MiB.
+      // The memory size. Unit: MiB.
       shared_ptr<string> memorySize_ {};
-      // The purchase options for the specification.
+      // The supported desktop type sale categories.
+      shared_ptr<vector<string>> saleTypes_ {};
+      // The list of billing methods for the specification.
       shared_ptr<vector<string>> scopes_ {};
-      // The inventory status.
+      // The stock status.
       shared_ptr<string> stockState_ {};
-      // The size of the system disk, in GiB.
+      // The system cloud disk size. Unit: GiB.
       shared_ptr<string> systemDiskSize_ {};
     };
 

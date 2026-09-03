@@ -153,13 +153,13 @@ namespace Models
 
 
       protected:
-        // The type of the terminal.
+        // The terminal device model.
         shared_ptr<string> model_ {};
         // The terminal type.
         shared_ptr<string> productName_ {};
-        // Terminal Serial Number
+        // The terminal serial number.
         shared_ptr<string> serialNumber_ {};
-        // The terminal UUID.
+        // The UUID of the terminal device.
         shared_ptr<string> uuid_ {};
       };
 
@@ -328,47 +328,47 @@ namespace Models
     protected:
       // The account type.
       shared_ptr<string> accountType_ {};
-      // The IP address of the client.
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
       // The operating system of the client.
       shared_ptr<string> clientOS_ {};
-      // The version of the client.
+      // The client version.
       shared_ptr<string> clientVersion_ {};
       // The ID of the shared cloud computer.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the cloud computer share.
+      // The name of the shared cloud computer.
       shared_ptr<string> desktopGroupName_ {};
-      // If the session status is Connected, it indicates the ID of the cloud computer that is currently connected. If the session status is Disconnected, it indicates the ID of the cloud computer that was last connected.
+      // The cloud computer ID. If the session status is Connected, this value indicates the ID of the currently connected cloud computer. If the session status is Disconnected, this value indicates the ID of the most recently connected cloud computer.
       shared_ptr<string> desktopId_ {};
       // The office network type.
       shared_ptr<string> directoryType_ {};
-      // The point in time when the end user applies for administrator assistance.
+      // The point in time when the user requested administrator assistance. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> endUserApplyCoordinateTime_ {};
-      // The user ID of the terminal that connects to the session.
+      // The ID of the end user connected to the session.
       shared_ptr<string> endUserId_ {};
-      // The end time of the most recent connection.
+      // The end time of the most recent connection. Time format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> lastSessionEndTime_ {};
-      // The start time of the most recent connection.
+      // The start time of the most recent connection. Time format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> lastSessionStartTime_ {};
-      // The duration of the most recent session. Unit: seconds.
+      // The duration of the most recent connection. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The office network ID.
+      // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
       // The operating system type of the cloud computer.
       shared_ptr<string> osType_ {};
-      // The type of the session.
+      // The session type.
       shared_ptr<int32_t> ownType_ {};
-      // The protocol type supported by the rule.
+      // The protocol type.
       shared_ptr<string> protocolType_ {};
       // The idle duration of the cloud computer. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // The state of the session.
+      // The session connection status.
       shared_ptr<string> sessionStatus_ {};
-      // Terminal Info
+      // The terminal information.
       shared_ptr<Sessions::TerminalInfo> terminalInfo_ {};
-      // The total duration of the sessions. Unit: seconds.
+      // The total connection duration. Unit: seconds.
       shared_ptr<int64_t> totalConnectionDuration_ {};
     };
 
@@ -405,13 +405,13 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token for the start of the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sessions.
+    // The list of session data.
     shared_ptr<vector<DescribeDesktopGroupSessionsResponseBody::Sessions>> sessions_ {};
-    // The total number of sessions.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

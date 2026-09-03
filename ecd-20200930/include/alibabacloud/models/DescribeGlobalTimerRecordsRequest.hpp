@@ -181,6 +181,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Wuying Workspace.
     shared_ptr<string> regionId_ {};
+    // The list of resource types. If empty, all resource types are queried.
     shared_ptr<vector<string>> resourceTypes_ {};
     // Filters results by execution result.
     shared_ptr<string> resultCategory_ {};
@@ -192,6 +193,7 @@ namespace Models
     shared_ptr<string> timerResult_ {};
     // The list of scheduled tasks.
     shared_ptr<vector<string>> timerTypes_ {};
+    // The list of Wuying server IDs.
     shared_ptr<vector<string>> wuyingServerIds_ {};
   };
 

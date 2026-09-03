@@ -130,38 +130,33 @@ namespace Models
 
 
   protected:
-    // The cloud computer ID. If this parameter is not specified, the screen recording files on all cloud computers in the designated region will be queried.
+    // The cloud computer ID. If you do not specify this parameter, all cloud computers in the region are queried.
     shared_ptr<string> desktopId_ {};
-    // The end time of the query. Specify the time in the `YYYYMMDDhhmmss` format. The time must be in UTC+8.
+    // The end time of the query. Specify the time in UTC+8 in the `YYYYMMDDhhmmss` format.
     shared_ptr<string> endTime_ {};
-    // The maximum number of entries per page.
+    // The number of entries per page for a paged query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to return a URL.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false (default)
+    // Specifies whether to return the URL.
     shared_ptr<bool> needSignedUrl_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call to this operation. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The policy ID.
     shared_ptr<string> policyGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The validity period of the returned URL. Unit: minutes.
     shared_ptr<int32_t> signedUrlExpireMinutes_ {};
-    // The end time of the query. Specify the time in the ISO 8601 standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC+0.
+    // The end time of the query. Specify the time in the ISO 8601 standard in UTC+0 in the `yyyy-mm-ddthh:mm:ssz` format.
     shared_ptr<string> standardEndTime_ {};
-    // The start time of the query. Specify the time in the ISO 8601 standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC+0.
+    // The start time of the query. Specify the time in the ISO 8601 standard in UTC+0 in the `yyyy-mm-ddthh:mm:ssz` format.
     shared_ptr<string> standardStartTime_ {};
-    // The start time of the query. Specify the time in the `YYYYMMDDhhmmss` format. The time must be in UTC+8.
+    // The start time of the query. Specify the time in UTC+8 in the `YYYYMMDDhhmmss` format.
     shared_ptr<string> startTime_ {};
   };
 

@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> ossBucketRegionId_ {};
     // The approval result.
     shared_ptr<string> result_ {};
-    // The ID of the transfer task.
+    // The ID of the file transfer task.
     shared_ptr<string> taskId_ {};
   };
 

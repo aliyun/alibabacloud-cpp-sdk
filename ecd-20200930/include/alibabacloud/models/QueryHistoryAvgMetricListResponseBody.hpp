@@ -141,13 +141,13 @@ namespace Models
 
 
       protected:
-        // The ID of the end user.
+        // The end user ID.
         shared_ptr<string> endUserId_ {};
-        // The time when the session was created.
+        // The time when the session was created. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> establishmentTime_ {};
-        // The external username of the end user.
+        // The external username.
         shared_ptr<string> externalUserName_ {};
-        // The nickname of the end user.
+        // The nickname of the user.
         shared_ptr<string> nickName_ {};
       };
 
@@ -282,57 +282,48 @@ namespace Models
     protected:
       // The aggregated metric value.
       shared_ptr<float> avgValue_ {};
-      // The billing method of the desktop. Valid values:
+      // The billing method of the cloud desktop. Valid values:
       // 
-      // - `PostPaid`: pay-as-you-go
+      // - PostPaid: Pay-as-you-go.
+      // - PrePaid: Subscription.
       // 
-      // - `PrePaid`: subscription
-      // 
-      // Default value: `PostPaid`.
+      // Default value: PostPaid.
       shared_ptr<string> chargeType_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The desktop group ID.
+      // The cloud desktop pool ID.
       shared_ptr<string> desktopGroupId_ {};
-      // **The desktop ID.**
+      // The desktop ID.
       shared_ptr<string> desktopId_ {};
-      // **The desktop name.**
+      // The desktop name.
       shared_ptr<string> desktopName_ {};
-      // The status of the desktop. Valid values:
-      // 
-      // - `Stopped`: The desktop is stopped.
-      // 
-      // - `Starting`: The desktop is being started.
-      // 
-      // - `Rebuilding`: The desktop is being rebuilt.
-      // 
-      // - `Running`: The desktop is running.
-      // 
-      // - `Stopping`: The desktop is being stopped.
-      // 
-      // - `Expired`: The desktop has expired.
-      // 
-      // - `Deleted`: The desktop has been deleted.
-      // 
-      // - `Pending`: The desktop is in a pending state.
+      // The cloud desktop status. Valid values:
+      // - Stopped: Stopped.
+      // - Starting: Starting.
+      // - Rebuilding: Rebuilding.
+      // - Running: Running.
+      // - Stopping: Stopping.
+      // - Expired: Expired.
+      // - Deleted: Deleted.
+      // - Pending: Pending.
       shared_ptr<string> desktopStatus_ {};
-      // The desktop type.
+      // The desktop specification.
       shared_ptr<string> desktopType_ {};
-      // The IDs of the authorized end users.
+      // The list of authorized users.
       shared_ptr<vector<string>> endUserIds_ {};
       // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
       // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The memory size, in MB.
+      // The memory size.
       shared_ptr<int64_t> memory_ {};
-      // Whether the desktop is a multi-user shared desktop.
+      // Indicates whether the cloud desktop is a multi-resource shared type.
       shared_ptr<bool> multiResource_ {};
-      // The type of the system image.
+      // The system image type.
       shared_ptr<string> platform_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // A list of session details.
+      // The list of session information.
       shared_ptr<vector<AvgMetricList::Sessions>> sessions_ {};
       // The payment type.
       shared_ptr<string> subPayType_ {};
@@ -364,11 +355,11 @@ namespace Models
 
 
   protected:
-    // The list of average metric data.
+    // The list of average values of monitoring metrics.
     shared_ptr<vector<QueryHistoryAvgMetricListResponseBody::AvgMetricList>> avgMetricList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

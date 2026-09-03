@@ -145,33 +145,27 @@ namespace Models
 
 
     protected:
-      // The time when the policy was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The cron expression that is used to create snapshots.
+      // The cron expression that specifies the snapshot creation time.
       shared_ptr<string> cronExpression_ {};
-      // The number of cloud computers to which the automatic snapshot policy is applied.
+      // The number of cloud computers to which the snapshot policy is attached.
       shared_ptr<int32_t> desktopNum_ {};
-      // The disk type for which the automatic snapshot policy is created.
-      // 
-      // Valid values:
-      // 
-      // - SYSTEM: system disk
-      // 
-      // - DATA: data disk
+      // The cloud disk type.
       shared_ptr<string> diskType_ {};
       // The ID of the automatic snapshot policy.
       shared_ptr<string> policyId_ {};
-      // The name of the automatic snapshot policy.
+      // The Policy Name of the automatic snapshot policy.
       shared_ptr<string> policyName_ {};
-      // The ID of the region where the automatic snapshot policy resides.
+      // The region ID of the automatic snapshot policy.
       shared_ptr<string> regionId_ {};
-      // The retention period of automatic snapshots. Unit: days. Valid values: 1 to 180.
+      // The retention period of automatic snapshots, in days. Valid values: 1 to 180.
       shared_ptr<string> retentionDays_ {};
       // The status of the automatic snapshot policy.
       shared_ptr<string> status_ {};
-      // The points in time when automatic snapshots are created.
+      // The points in time at which automatic snapshots are created.
       // 
-      // The value is a JSON array of integers. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time can be specified.
+      // The parameter value is a JSON array in the format of `["0", "1", ... "23"]`, with a maximum of 24 time points separated by commas (,).
       shared_ptr<string> timePoints_ {};
     };
 
@@ -201,9 +195,9 @@ namespace Models
 
 
   protected:
-    // The automatic snapshot policies.
+    // The list of automatic snapshot policies.
     shared_ptr<vector<DescribeAutoSnapshotPolicyResponseBody::AutoSnapshotPolicies>> autoSnapshotPolicies_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the return value is empty, no more results are returned.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

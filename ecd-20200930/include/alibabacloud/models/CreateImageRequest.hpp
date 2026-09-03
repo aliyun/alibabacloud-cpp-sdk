@@ -126,26 +126,27 @@ namespace Models
 
 
   protected:
-    // Specify whether to clear user personal data. If set to `true`, the image clears all folders under `C:\\Users`, except `Administrator` and `Public`.
+    // Specifies whether to clear personal user data. If this parameter is set to `true`, the created image clears data in all directories under `C:\\Users` except the `Administrator` and `Public` directories.
     shared_ptr<bool> autoCleanUserdata_ {};
+    // The list of data cloud disk snapshot IDs. To include data cloud disks when creating an image, specify the corresponding data cloud disk snapshot IDs. A maximum of 100 IDs are supported.
     shared_ptr<vector<string>> dataSnapshotIds_ {};
-    // The description of the image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+    // The description of the image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The ID of the cloud computer.
+    // The cloud computer ID.
     shared_ptr<string> desktopId_ {};
     // The disk data included in the image.
     shared_ptr<string> diskType_ {};
-    // The name of the image. The name must be 2 to 128 characters in length. It must start with a letter or Chinese character. It cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The image name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
     shared_ptr<string> imageName_ {};
-    // This parameter is not available for use.
+    // This parameter is not publicly available.
     shared_ptr<string> imageResourceType_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to view the list of regions that support WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the snapshot.
+    // The snapshot ID.
     shared_ptr<string> snapshotId_ {};
-    // A list of snapshot IDs.
+    // The list of snapshot IDs.
     shared_ptr<vector<string>> snapshotIds_ {};
   };
 

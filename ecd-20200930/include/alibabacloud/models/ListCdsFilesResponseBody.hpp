@@ -254,52 +254,47 @@ namespace Models
 
 
     protected:
-      // File type classification. The network disk will classify files according to their suffix and MIME Type. The main categories are `doc`, `image`, `audio` and `video`.
+      // The file category. The cloud drive categorizes files based on file name extensions and MIME types. The main categories include `doc`, `image`, `audio`, and `video`.
       shared_ptr<string> category_ {};
       // The content type of the file.
       shared_ptr<string> contentType_ {};
-      // The time when the file was created.
+      // The creation time. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The file creator.
+      // The creator of the file.
       shared_ptr<string> creator_ {};
       // The file description.
       shared_ptr<string> description_ {};
-      // The download link. The default validity period is 15 minutes.
+      // The download URL. The URL is valid for 15 minutes by default.
       shared_ptr<string> downloadUrl_ {};
-      // The filename extension.
+      // The file name extension.
       shared_ptr<string> fileExtension_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
       // The file path.
       shared_ptr<string> filePath_ {};
       // The file type.
-      // 
-      // Valid value:
-      // 
-      // *   file
-      // *   folder
       shared_ptr<string> fileType_ {};
-      // The MD5 hash of the object.
+      // The MD5 hash value of the file.
       shared_ptr<string> md5_ {};
-      // The time when the file was last modified.
+      // The time when the file was last modified. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
-      // Modifier.
+      // The modifier of the file.
       shared_ptr<string> modifier_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> name_ {};
-      // The time when the file was last opened.
+      // The time when the file was last opened. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> openTime_ {};
-      // The timestamp that indicates the time when the file was last opened.
+      // The timestamp of the last time the file was opened.
       shared_ptr<int64_t> openTimeStamp_ {};
-      // The ID of the parent folder.
+      // The parent folder ID.
       shared_ptr<string> parentId_ {};
-      // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by cloud computers.
+      // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
       shared_ptr<string> regionId_ {};
-      // The SHA1 hash of the data file.
+      // The SHA1 hash value of the data file.
       shared_ptr<string> sha1_ {};
-      // The size of the file. Unit: bytes.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The URL of the thumbnail.
+      // The thumbnail URL.
       shared_ptr<string> thumbnail_ {};
     };
 
@@ -358,24 +353,19 @@ namespace Models
 
 
   protected:
-    // The response parameters. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+    // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The total number of file list entries.
+    // The total number of entries in the file list.
     shared_ptr<string> count_ {};
-    // The files.
+    // The file list.
     shared_ptr<vector<ListCdsFilesResponseBody::FileModels>> fileModels_ {};
-    // Error message. This parameter is not returned if the value of Code is `success`.
+    // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};
-    // The token used to start the next query. If the `NextToken` is empty, the next query does not exist.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
-    // 
-    // Valid value:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -97,104 +97,25 @@ namespace Models
 
 
   protected:
-    // Details of directory IDs. You can specify one or more directory IDs.
+    // The directory IDs. You can specify one or more directory IDs.
     shared_ptr<vector<string>> directoryId_ {};
-    // The directory status. This parameter is equivalent to `Status`.
+    // The directory status. This parameter is the same as Status.
     shared_ptr<string> directoryStatus_ {};
     // The directory type.
-    // 
-    // Valid value:
-    // 
-    // *   SIMPLE: the convenience directory.
-    // *   AD_CONNECTOR: the Active Directory (AD) directory.
     shared_ptr<string> directoryType_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in a paged query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The directory status.
-    // 
-    // Valid values:
-    // 
-    // *   REGISTERING: The directory is being registered.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DEREGISTERING: The directory is being deregistered.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   REGISTERED: The directory is registered.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   NEEDCONFIGTRUST: A trust relationship needs to be configured for the directory.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the directory.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DEREGISTERED: The directory is deregistered.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   ERROR: One or more configurations of the directory are invalid.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CONFIGTRUSTING: A trust relationship is being configured.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   NEEDCONFIGUSER: Users need to be configured for the directory.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> status_ {};
   };
 

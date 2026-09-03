@@ -430,7 +430,7 @@ namespace Models
 
 
     protected:
-      // > This field is not publicly available.
+      // Indicates whether operations on user directories (adding users, deleting data) are supported.
       shared_ptr<bool> allowOperateUserDrive_ {};
       // The list of cloud application delivery group objects bound to the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::AppInstanceGroups>> appInstanceGroups_ {};
@@ -441,7 +441,7 @@ namespace Models
       shared_ptr<int64_t> capacity_ {};
       // The time when the NAS file system was created.
       shared_ptr<string> createTime_ {};
-      // The NAS file system description.
+      // The description of the NAS file system.
       shared_ptr<string> description_ {};
       // The list of shared cloud computer objects bound to the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::DesktopGroups>> desktopGroups_ {};
@@ -449,9 +449,9 @@ namespace Models
       shared_ptr<bool> encryptionEnabled_ {};
       // The NAS file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The NAS file system name.
+      // The name of the NAS file system.
       shared_ptr<string> fileSystemName_ {};
-      // The NAS file system status.
+      // The status of the NAS file system.
       shared_ptr<string> fileSystemStatus_ {};
       // The type of the NAS file system. Currently, only the general-purpose type is supported, which is `standard`.
       shared_ptr<string> fileSystemType_ {};
@@ -461,15 +461,19 @@ namespace Models
       shared_ptr<string> mountTargetDomain_ {};
       // The mount target status.
       shared_ptr<string> mountTargetStatus_ {};
-      // The office network ID.
+      // The office network ID (deprecated).
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The office network name (deprecated).
       shared_ptr<string> officeSiteName_ {};
       // The list of office networks.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
       shared_ptr<string> productType_ {};
       // Indicates whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
+      // The protocol type of the file system. Valid values:
+      // 
+      // - NFS: NFS file protocol.
+      // - SMB: SMB file protocol.
       shared_ptr<string> protocolType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -480,7 +484,7 @@ namespace Models
       shared_ptr<string> storageType_ {};
       // Indicates whether the SMB ACL feature is supported.
       shared_ptr<bool> supportAcl_ {};
-      // The zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 

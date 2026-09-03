@@ -66,31 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer share.
+    // The ID of the shared cloud computer.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The status of the scheduled task.
-    // 
-    // Valid values:
-    // 
-    // *   1: enabled
-    // *   2: disabled
-    // *   3: deleted
-    // *   100: unknown
     shared_ptr<int32_t> status_ {};
     // The type of the scheduled task.
-    // 
-    // Valid values:
-    // 
-    // *   1: scheduled reset
-    // *   2: scheduled startup
-    // *   3: scheduled stop
-    // *   4: scheduled restart
     // 
     // This parameter is required.
     shared_ptr<int32_t> timerType_ {};

@@ -87,16 +87,17 @@ namespace Models
 
 
   protected:
-    // The list of Active Directory (AD) account usernames.
+    // The list of AD account usernames.
     shared_ptr<vector<string>> endUserId_ {};
+    // The fuzzy match query string character.
     shared_ptr<string> filter_ {};
     // The maximum number of entries to return. Valid values: 1 to 500. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If a response is truncated, use the returned `NextToken` to retrieve the next page of results.
+    // The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation.
     shared_ptr<string> nextToken_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. Call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

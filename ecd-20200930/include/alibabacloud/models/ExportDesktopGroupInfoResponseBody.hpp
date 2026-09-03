@@ -50,11 +50,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The download URL of the exported shared cloud desktop list file. The exported file contains the following details of shared cloud desktops:
+    // The download URL of the exported shared cloud computer list file. The exported file contains the following details:
     // 
-    // - Shared cloud desktop ID/name
+    // - Shared cloud computer ID/name
     // - Office network ID/name
-    // - Shared cloud desktop template
+    // - Shared cloud computer template
     // - CPU/memory
     // - System cloud disk/data cloud disk
     // - Security policy name

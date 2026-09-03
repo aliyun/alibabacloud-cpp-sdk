@@ -90,11 +90,11 @@ namespace Models
     protected:
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The status of the file.
+      // The file status.
       shared_ptr<string> status_ {};
-      // The download URL of the file.
+      // The file download URL.
       shared_ptr<string> url_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of download URL information for the files.
+    // The list of file download URL information.
     shared_ptr<vector<ListTransferFileDownloadUrlResponseBody::Urls>> urls_ {};
   };
 

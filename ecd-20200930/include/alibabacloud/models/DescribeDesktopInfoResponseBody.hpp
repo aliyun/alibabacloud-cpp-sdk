@@ -145,25 +145,25 @@ namespace Models
 
 
     protected:
-      // User connection status.
+      // The connection status of the user.
       shared_ptr<string> connectionStatus_ {};
-      // Desktop image version number.
+      // The image version number of the cloud computer.
       shared_ptr<string> currentAppVersion_ {};
-      // Desktop group ID.
+      // The cloud computer pool ID.
       shared_ptr<string> desktopGroupId_ {};
-      // Desktop ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The status of the cloud desktop.
+      // The status of the cloud computer.
       shared_ptr<string> desktopStatus_ {};
-      // The management flag.
+      // The management flags.
       shared_ptr<vector<string>> managementFlag_ {};
-      // Upgrade package size, in KB.
+      // The size of the upgrade package, in KB.
       shared_ptr<int64_t> newAppSize_ {};
-      // Desktop upgradable image version number.
+      // The image version number to which the cloud computer can be upgraded.
       shared_ptr<string> newAppVersion_ {};
-      // Description of the upgradable image version.
+      // The description of the image version to which the cloud computer can be upgraded.
       shared_ptr<string> releaseNote_ {};
-      // Desktop first startup time.
+      // The time when the cloud computer was first started. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> startTime_ {};
     };
 
@@ -186,9 +186,9 @@ namespace Models
 
 
   protected:
-    // Basic desktop information.
+    // The basic information of cloud computers.
     shared_ptr<vector<DescribeDesktopInfoResponseBody::Desktops>> desktops_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

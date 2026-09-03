@@ -87,85 +87,21 @@ namespace Models
 
 
   protected:
-    // The method in which the cloud computer is connected.
-    // 
-    // Valid values:
-    // 
-    // *   VPC
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Internet (default)
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Any
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The method allowed for connecting to cloud computers.
     shared_ptr<string> desktopAccessType_ {};
-    // The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+    // The directory name. The name must be 2 to 255 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> directoryName_ {};
-    // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
-    // 
-    // Valid values:
-    // 
-    // *   <!-- -->
-    // 
-    //     true
-    // 
-    //     <!-- -->
-    // 
-    //     (default)
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to grant local administrator permissions to users who use cloud computers.
     shared_ptr<bool> enableAdminAccess_ {};
-    // Specifies whether to enable Internet access.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to enable public network access.
     shared_ptr<bool> enableInternetAccess_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The vSwitch IDs. You can configure only one vSwitch.
+    // The vSwitch ID. Only one vSwitch can be specified.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> vSwitchId_ {};

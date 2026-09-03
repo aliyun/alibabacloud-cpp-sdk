@@ -118,17 +118,19 @@ namespace Models
 
 
     protected:
-      // The number of assigned cloud desktops.
+      // The number of assigned cloud computers.
       shared_ptr<int32_t> assignedDesktopNumber_ {};
       // The display name.
       shared_ptr<string> displayName_ {};
+      // The new display name of the user.
       shared_ptr<string> displayNameNew_ {};
       // The email address.
       shared_ptr<string> email_ {};
       // The username.
       shared_ptr<string> endUser_ {};
-      // The mobile phone number.
+      // The phone number.
       shared_ptr<string> phone_ {};
+      // The user principal name (UPN).
       shared_ptr<string> userPrincipalName_ {};
     };
 
@@ -158,11 +160,11 @@ namespace Models
 
 
   protected:
-    // The token that is used to start the next query. If this parameter is empty, all results have been returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the users in the AD directory. If the AD directory contains only the Administrator and Guest users, an empty \\`Users\\` array is returned.
+    // The array of usernames in the AD directory. If the AD directory contains only the Administrator and Guest users and no other users, an empty Users array is returned.
     shared_ptr<vector<ListDirectoryUsersResponseBody::Users>> users_ {};
   };
 

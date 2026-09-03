@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The network package ID.
+    // The premium Internet bandwidth ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
-    // The QoS rule name.
+    // The name of the QoS rule.
     shared_ptr<string> qosRuleName_ {};
   };
 

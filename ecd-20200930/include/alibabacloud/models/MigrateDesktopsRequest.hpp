@@ -78,21 +78,21 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computers to migrate. You can specify 1 to 100 IDs.
+    // The IDs of cloud computers. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
-    // The region ID. To get a list of supported regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // This parameter is not publicly available.
+    // The member IP address of the target node for migration.
     shared_ptr<string> targetMemberIp_ {};
     // The ID of the target office network.
     // 
     // This parameter is required.
     shared_ptr<string> targetOfficeSiteId_ {};
-    // This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<string> targetSubnetId_ {};
   };
 

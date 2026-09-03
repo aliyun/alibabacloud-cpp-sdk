@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The office site ID.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

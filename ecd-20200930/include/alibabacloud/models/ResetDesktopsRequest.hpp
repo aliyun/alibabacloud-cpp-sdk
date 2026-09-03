@@ -117,30 +117,29 @@ namespace Models
 
 
   protected:
-    // The ID of the shared cloud desktop.
+    // The shared cloud computer ID.
     // 
-    // - If you specify `DesktopId`, the system ignores `DesktopGroupId`.
-    // 
-    // - If `DesktopId` is empty, the system uses `DesktopGroupId` to retrieve the `DesktopId` of all cloud desktops in the shared cloud desktop group.
+    // - If DesktopId is specified, DesktopGroupId is ignored.
+    // - If DesktopId is empty, the system retrieves the DesktopId of all cloud computers within the shared cloud computer based on DesktopGroupId.
     shared_ptr<string> desktopGroupId_ {};
-    // A list of shared cloud desktop group IDs.
+    // The shared cloud computer IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
-    // A list of cloud desktop IDs. You can specify 1 to 100 IDs.
+    // The cloud computer IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
+    // The timestamp of the last retry. Unit: milliseconds.
     shared_ptr<int64_t> lastRetryTime_ {};
     // The billing method.
-    // 
-    // > This parameter applies only when resetting shared cloud desktops. If you leave it empty, the system resets all cloud desktops in the shared cloud desktop group, regardless of their billing method.
+    // > This parameter takes effect only for resetting shared cloud computers. If this parameter is left empty, all cloud computers of all billing methods within the shared cloud computer are reset.
     shared_ptr<string> payType_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to list regions that support WUYING Workspace.
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The scope of the reset operation. Set this parameter to reset either the image or the cloud desktop.
+    // The reset scope. You can configure this parameter to specify whether to reset the image or the cloud computer.
     shared_ptr<string> resetScope_ {};
-    // The reset type. This determines whether to reset and which disks to reset.
+    // The reset type, which determines whether to reset and the scope of cloud disks to reset.
     // 
     // This parameter is required.
     shared_ptr<string> resetType_ {};

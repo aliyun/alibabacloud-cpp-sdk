@@ -116,18 +116,19 @@ namespace Models
 
 
     protected:
-      // The number of associated cloud desktops.
+      // The number of cloud computers in the pool.
       shared_ptr<string> desktopCount_ {};
+      // The number of cloud computer pools associated with the policy.
       shared_ptr<int32_t> desktopGroupCount_ {};
-      // The download bandwidth.
+      // The downstream bandwidth.
       shared_ptr<string> download_ {};
-      // The network package ID.
+      // The premium Internet bandwidth ID.
       shared_ptr<string> networkPackageId_ {};
       // The QoS rule ID.
       shared_ptr<string> qosRuleId_ {};
-      // The QoS rule name.
+      // The name of the QoS rule.
       shared_ptr<string> qosRuleName_ {};
-      // The upload bandwidth.
+      // The upstream bandwidth.
       shared_ptr<string> upload_ {};
     };
 
@@ -150,7 +151,7 @@ namespace Models
 
 
   protected:
-    // A list of QoS rules.
+    // The list of QoS rules.
     shared_ptr<vector<DescribeQosRulesResponseBody::QosRules>> qosRules_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

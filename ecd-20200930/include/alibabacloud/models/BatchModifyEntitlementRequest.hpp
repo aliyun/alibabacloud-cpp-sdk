@@ -99,7 +99,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computers for which you want to modify authorized users.
+    // The IDs of the cloud computers for which you want to update authorized users.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
@@ -109,17 +109,17 @@ namespace Models
     shared_ptr<int32_t> maxDesktopPerUser_ {};
     // The number of users to assign to each cloud computer.
     shared_ptr<int32_t> maxUserPerDesktop_ {};
-    // Specifies whether to preview the assignment. If set to true, the assignment is not actually performed.
+    // Specifies whether to preview the assignment. If you set this parameter to true, the assignment is not actually performed.
     shared_ptr<bool> preview_ {};
-    // The region ID. You can call DescribeRegions to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call DescribeRegions to query the regions supported by Elastic Desktop Service (EDS).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The policy used when the ratio of cloud computers to users cannot be evenly matched. Valid values:
     // 
-    // - AVERAGE: prioritizes assigning a cloud computer to each user. When the number of selected cloud computers and users cannot be evenly matched, the system prioritizes assigning a cloud computer to each user.
+    // - AVERAGE: Prioritizes assigning a cloud computer to each user. When the number of selected cloud computers and users cannot be evenly matched, the system prioritizes assigning a cloud computer to each user.
     // 
-    // - CENTRAL: prioritizes assigning the specified number of cloud computers to users. When the number of selected cloud computers and users cannot be evenly matched, the system prioritizes assigning the specified number of cloud computers to users.
+    // - CENTRAL: Prioritizes assigning the specified number of cloud computers to users. When the number of selected cloud computers and users cannot be evenly matched, the system prioritizes assigning the specified number of cloud computers to users.
     shared_ptr<string> strategy_ {};
   };
 

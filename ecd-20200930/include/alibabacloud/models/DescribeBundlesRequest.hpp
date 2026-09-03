@@ -227,51 +227,47 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
+    // The list of cloud computer template IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> bundleId_ {};
-    // The type of the cloud computer template.
+    // The cloud computer templatetype.
     shared_ptr<string> bundleType_ {};
-    // Specifies whether to query the inventory status of the cloud computer instance type.
+    // Specifies whether to query the stock status of the cloud computer instance type.
     shared_ptr<bool> checkStock_ {};
-    // The number of vCPUs contained in the cloud computer instance type.
+    // The number of vCPUs included in the cloud computer instance type.
     shared_ptr<int32_t> cpuCount_ {};
-    // The instance family of the cloud computers.
+    // The cloud computer instance family.
     shared_ptr<string> desktopTypeFamily_ {};
-    // > This parameter is not available for public use.
+    // > This parameter is not publicly available.
     shared_ptr<string> fotaChannel_ {};
-    // Specifies whether the cloud computers in the template belong to a cloud computer pool.
+    // Specifies whether the template belongs to a cloud computer pool.
     shared_ptr<bool> fromDesktopGroup_ {};
-    // The number of GPUs contained in the cloud computer instance type.
+    // The number of GPUs included in the cloud computer instance type.
     shared_ptr<float> gpuCount_ {};
     // The GPU driver type.
     shared_ptr<string> gpuDriverType_ {};
-    // The image IDs.
+    // The list of image IDs.
     shared_ptr<vector<string>> imageId_ {};
-    // The number of entries to return on each page.
-    // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The memory size of the cloud computer instance type. Unit: GiB.
+    // The memory size included in the cloud computer instance type. Unit: GiB.
     shared_ptr<int32_t> memorySize_ {};
-    // The token that is used to start the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The type of the OS.
+    // The operating system type.
     shared_ptr<string> osType_ {};
     // The protocol type.
     shared_ptr<string> protocolType_ {};
-    // The region ID. You can call the [](t2167755.xdita#)operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The scenario to use the image.
+    // Scenarios.
     shared_ptr<string> scope_ {};
-    // The desktop template that is selected based on specific criteria.
+    // The selected template.
     shared_ptr<bool> selectedBundle_ {};
-    // The type of the session.
+    // The session type.
     shared_ptr<string> sessionType_ {};
-    // Specifies whether to return multi-session cloud computer templates. Default value: false.
+    // Specifies whether to return multi-session cloud computer templates when querying the cloud computer list. Multi-session templates are not returned by default.
     shared_ptr<bool> supportMultiSession_ {};
     // Specifies whether to enable disk encryption.
     shared_ptr<bool> volumeEncryptionEnabled_ {};

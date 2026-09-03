@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The cloud desktop ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
       // The end user ID.
       shared_ptr<string> endUserId_ {};

@@ -96,16 +96,17 @@ namespace Models
   protected:
     // The description of the NAS file system.
     shared_ptr<string> description_ {};
-    // Specifies whether the file system uses a KMS-managed key to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
+    // Specifies whether to use a Key Management Service (KMS) managed key to encrypt data stored in the file system. Encrypted data does not need to be decrypted during read and write operations.
     shared_ptr<string> encryptType_ {};
-    // The NAS file system name. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
+    // The name of the NAS file system. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
     shared_ptr<string> name_ {};
     // The office network ID.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
+    // The protocol type.
     shared_ptr<string> protocolType_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

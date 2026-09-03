@@ -96,7 +96,7 @@ namespace Models
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
+    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};

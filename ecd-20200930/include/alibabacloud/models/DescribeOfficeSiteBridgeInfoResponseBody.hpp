@@ -193,9 +193,9 @@ namespace Models
       shared_ptr<string> defaultPassword_ {};
       // The default account for the administrator page.
       shared_ptr<string> defaultUser_ {};
-      // The deployment time of the virtual bridge.
+      // The deployment time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> deployTime_ {};
-      // The expiration time of the virtual bridge.
+      // The expiration time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expireTime_ {};
       // The public network address.
       shared_ptr<string> internetUrl_ {};
@@ -205,7 +205,7 @@ namespace Models
       shared_ptr<string> officeSiteId_ {};
       // The office network name. The name must be 2 to 255 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter or Chinese character and cannot start with `http://` or `https://`.
       shared_ptr<string> officeSiteName_ {};
-      // The start time of the virtual bridge.
+      // The start time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
     };
 

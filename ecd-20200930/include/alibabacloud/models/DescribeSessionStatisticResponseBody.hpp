@@ -74,7 +74,7 @@ namespace Models
     protected:
       // The total number of sessions within the interval.
       shared_ptr<int64_t> count_ {};
-      // The point in time.
+      // The time point. UNIX timestamp, in milliseconds.
       shared_ptr<int64_t> timePoint_ {};
     };
 
@@ -108,7 +108,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The statistics information.
     shared_ptr<vector<DescribeSessionStatisticResponseBody::Statistic>> statistic_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<string> totalCount_ {};
   };
 

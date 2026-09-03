@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // Shared desktop group ID.
+    // The ID of the shared Cloud Desktop.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource ownership user in the reseller pattern. This parameter is not required in the non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

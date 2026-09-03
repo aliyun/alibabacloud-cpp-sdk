@@ -148,11 +148,11 @@ namespace Models
       shared_ptr<int32_t> pendingCustomImageCount_ {};
       // The number of cloud desktops that can be upgraded to this version.
       shared_ptr<int32_t> pendingDesktopCount_ {};
-      // The publish time of the upgrade version.
+      // The release time of the upgrade version. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> publishTime_ {};
       // The upgrade version description.
       shared_ptr<string> releaseNote_ {};
-      // The size of the upgrade package. Unit: KB.
+      // The size of the upgrade package, in KB.
       shared_ptr<int32_t> size_ {};
       // Indicates whether the image upgrade task is automatically pushed.
       shared_ptr<string> status_ {};
@@ -200,13 +200,13 @@ namespace Models
 
 
   protected:
-    // The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
+    // The result of the operation. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
     // The image upgrade task information.
     shared_ptr<vector<DescribeFotaTasksResponseBody::FotaTasks>> fotaTasks_ {};
-    // The error message. This parameter is not returned if Code is `success`.
+    // The error message. This parameter is not returned when Code is `success`.
     shared_ptr<string> message_ {};
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

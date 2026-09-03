@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The region ID. Call [](t2167755.xdita#)to get the list of regions supported by EDS.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to retrieve the list of regions supported by Alibaba Cloud Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Specifies whether the zone supports VPC access.
     shared_ptr<bool> vpcAccessZone_ {};
-    // The zone type to query. Default value: `AvailabilityZone`. This queries standard cloud zones.
+    // The type of zone to query. Default value: `AvailabilityZone`, which indicates a standard cloud zone.
     shared_ptr<string> zoneType_ {};
   };
 

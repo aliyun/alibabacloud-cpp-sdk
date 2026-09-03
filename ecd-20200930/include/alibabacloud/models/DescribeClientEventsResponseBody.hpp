@@ -148,8 +148,11 @@ namespace Models
 
 
       protected:
+        // The terminal device model.
         shared_ptr<string> model_ {};
+        // The terminal type.
         shared_ptr<string> productName_ {};
+        // The terminal serial number.
         shared_ptr<string> serialNumber_ {};
       };
 
@@ -362,7 +365,7 @@ namespace Models
       shared_ptr<string> endUserId_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
-      // The time when the event occurred.
+      // The time when the event occurred. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> eventTime_ {};
       // The event type.
       shared_ptr<string> eventType_ {};
@@ -376,8 +379,9 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The status of the event action. This field typically appears in `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
       // - 200: success.
-      // - A failure message is returned, such as FailedToGetConnectionTicket.
+      // - A failure message, such as FailedToGetConnectionTicket.
       shared_ptr<string> status_ {};
+      // The terminal information.
       shared_ptr<Events::TerminalInfo> terminalInfo_ {};
     };
 
@@ -420,6 +424,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

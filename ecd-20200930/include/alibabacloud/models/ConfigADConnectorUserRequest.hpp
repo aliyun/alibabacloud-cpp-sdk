@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainPassword_ {};
-    // The username of the AD user that has the permission to join computers to the domain. After the configuration is complete, cloud computers created in the corresponding AD office network are added to the specified OU.
+    // The username of the AD user that has the permission to join computers to the domain. The AD user specified here must have the permission to join computers to the domain. After the configuration is complete, cloud computers created in the corresponding AD office network are added to the specified OU.
     // 
     // This parameter is required.
     shared_ptr<string> domainUserName_ {};
