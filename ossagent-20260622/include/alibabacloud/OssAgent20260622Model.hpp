@@ -6,6 +6,9 @@
 #include <alibabacloud/models/ChatResponse.hpp>
 #include <alibabacloud/models/ConfirmRequest.hpp>
 #include <alibabacloud/models/ConfirmResponse.hpp>
+#include <alibabacloud/models/GetSessionContentRequest.hpp>
+#include <alibabacloud/models/GetSessionContentResponseBody.hpp>
+#include <alibabacloud/models/GetSessionContentResponse.hpp>
 #include <alibabacloud/models/InterruptRequest.hpp>
 #include <alibabacloud/models/InterruptResponse.hpp>
 
