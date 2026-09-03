@@ -149,25 +149,45 @@ namespace Models
 
 
   protected:
+    // The client ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
+    // The client secret.
+    // 
     // This parameter is required.
     shared_ptr<string> clientSecret_ {};
+    // The description of the synchronization link.
     shared_ptr<string> description_ {};
+    // The unique identifier of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The name of the synchronization link.
+    // 
     // This parameter is required.
     shared_ptr<string> linkName_ {};
+    // The DingTalk document MCP Server endpoint.
     shared_ptr<string> mcpEndpoint_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The DingTalk spreadsheet MCP Server endpoint.
     shared_ptr<string> sheetMcpEndpoint_ {};
+    // The source directory address for synchronization.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
+    // The data source type. Valid values: FEISHU and SHAREPOINT.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
+    // The synchronization interval. Unit: minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};
+    // The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
     shared_ptr<string> tenantId_ {};
+    // The DingTalk operator user ID.
     shared_ptr<string> userId_ {};
   };
 

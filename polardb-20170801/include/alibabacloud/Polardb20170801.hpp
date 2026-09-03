@@ -818,7 +818,7 @@ namespace Polardb20170801
       Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKey(const Models::CreateAgenticDBTenantApiKeyRequest &request);
 
       /**
-       * @summary Creates an application attached to a PolarDB instance.
+       * @summary Creates an application that is attached to a PolarDB instance.
        *
        * @param tmpReq CreateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +827,7 @@ namespace Polardb20170801
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application attached to a PolarDB instance.
+       * @summary Creates an application that is attached to a PolarDB instance.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse
@@ -1331,7 +1331,7 @@ namespace Polardb20170801
       Models::CreateGwConsumerOrderResponse createGwConsumerOrder(const Models::CreateGwConsumerOrderRequest &request);
 
       /**
-       * @summary 创建知识库同步链路
+       * @summary Creates a knowledge base synchronization link.
        *
        * @param request CreateKBSyncLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1340,7 +1340,7 @@ namespace Polardb20170801
       Models::CreateKBSyncLinkResponse createKBSyncLinkWithOptions(const Models::CreateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建知识库同步链路
+       * @summary Creates a knowledge base synchronization link.
        *
        * @param request CreateKBSyncLinkRequest
        * @return CreateKBSyncLinkResponse
@@ -2315,7 +2315,7 @@ namespace Polardb20170801
       Models::DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(const Models::DeleteGlobalSecurityIPGroupRequest &request);
 
       /**
-       * @summary 删除知识库同步链路
+       * @summary Deletes a knowledge base synchronization link.
        *
        * @param request DeleteKBSyncLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2324,7 +2324,7 @@ namespace Polardb20170801
       Models::DeleteKBSyncLinkResponse deleteKBSyncLinkWithOptions(const Models::DeleteKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除知识库同步链路
+       * @summary Deletes a knowledge base synchronization link.
        *
        * @param request DeleteKBSyncLinkRequest
        * @return DeleteKBSyncLinkResponse
@@ -4682,7 +4682,7 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
-       * @summary 查询知识库同步列表
+       * @summary Queries the synchronization list of a knowledge base.
        *
        * @param request DescribeKBSyncLinksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4691,7 +4691,7 @@ namespace Polardb20170801
       Models::DescribeKBSyncLinksResponse describeKBSyncLinksWithOptions(const Models::DescribeKBSyncLinksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识库同步列表
+       * @summary Queries the synchronization list of a knowledge base.
        *
        * @param request DescribeKBSyncLinksRequest
        * @return DescribeKBSyncLinksResponse
@@ -8450,7 +8450,7 @@ namespace Polardb20170801
       Models::UpdateExtensionsResponse updateExtensions(const Models::UpdateExtensionsRequest &request);
 
       /**
-       * @summary 更新知识库同步链路
+       * @summary Updates a knowledge base synchronization link.
        *
        * @param request UpdateKBSyncLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8459,7 +8459,7 @@ namespace Polardb20170801
       Models::UpdateKBSyncLinkResponse updateKBSyncLinkWithOptions(const Models::UpdateKBSyncLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识库同步链路
+       * @summary Updates a knowledge base synchronization link.
        *
        * @param request UpdateKBSyncLinkRequest
        * @return UpdateKBSyncLinkResponse

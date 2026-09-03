@@ -88,11 +88,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bucket_ {};
-    // The AccessKey ID for the storage bucket.
+    // The AccessKey ID of the storage bucket.
     // 
     // This parameter is required.
     shared_ptr<string> bucketAccessKeyId_ {};
-    // The AccessKey secret for the storage bucket.
+    // The AccessKey secret of the storage bucket.
     // 
     // This parameter is required.
     shared_ptr<string> bucketAccessKeySecret_ {};

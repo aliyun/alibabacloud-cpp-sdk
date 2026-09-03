@@ -121,15 +121,31 @@ namespace Models
 
 
   protected:
+    // The client ID.
     shared_ptr<string> clientId_ {};
+    // The creation time.
     shared_ptr<string> creationTime_ {};
+    // The description of the synchronization link.
     shared_ptr<string> description_ {};
+    // The source channel of the synchronization link. Valid values:
+    // - FEISHU 
+    // - SHAREPOINT
     shared_ptr<string> imPlatform_ {};
+    // The synchronization link ID.
     shared_ptr<string> linkId_ {};
+    // The name of the synchronization link.
     shared_ptr<string> linkName_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The source directory address for synchronization.
     shared_ptr<string> sourceDir_ {};
+    // The synchronization interval. Unit: minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};
+    // The synchronization status. Valid values:
+    // - CREATING
+    // - RUNNING
+    // - PAUSED
+    // - DELETING
     shared_ptr<string> syncStatus_ {};
   };
 

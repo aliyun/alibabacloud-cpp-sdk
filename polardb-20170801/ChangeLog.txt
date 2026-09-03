@@ -1,3 +1,6 @@
+2026-09-03 Version: 7.2.2
+- Generated cpp 2017-08-01 for polardb.
+
 2026-09-01 Version: 7.2.1
 - Update API CreateKBSyncLink: add request parameters McpEndpoint.
 - Update API CreateKBSyncLink: add request parameters SheetMcpEndpoint.

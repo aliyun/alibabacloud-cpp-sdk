@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(DnatMappings, dnatMappings_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_TO_JSON(NatMappingSnatIpAddress, natMappingSnatIpAddress_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -48,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(Version, version_);
+      DARABONBA_PTR_TO_JSON(VpcNatGatewayId, vpcNatGatewayId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationAttributeResponseBody& obj) { 
@@ -59,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(DnatMappings, dnatMappings_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
@@ -70,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_FROM_JSON(NatMappingSnatIpAddress, natMappingSnatIpAddress_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -85,6 +90,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
+      DARABONBA_PTR_FROM_JSON(VpcNatGatewayId, vpcNatGatewayId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
     DescribeApplicationAttributeResponseBody() = default ;
@@ -637,12 +643,100 @@ namespace Models
       shared_ptr<string> IP_ {};
       // The endpoint type. Valid values:
       // - Private: VPC endpoint.
-      // - Public: public endpoint.
+      // - Public: Public endpoint.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
       // The port description.
       shared_ptr<string> portDescription_ {};
+    };
+
+    class DnatMappings : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DnatMappings& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessAddress, accessAddress_);
+        DARABONBA_PTR_TO_JSON(BackendPort, backendPort_);
+        DARABONBA_PTR_TO_JSON(EntryId, entryId_);
+        DARABONBA_PTR_TO_JSON(FrontPort, frontPort_);
+        DARABONBA_PTR_TO_JSON(PortName, portName_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, DnatMappings& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessAddress, accessAddress_);
+        DARABONBA_PTR_FROM_JSON(BackendPort, backendPort_);
+        DARABONBA_PTR_FROM_JSON(EntryId, entryId_);
+        DARABONBA_PTR_FROM_JSON(FrontPort, frontPort_);
+        DARABONBA_PTR_FROM_JSON(PortName, portName_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      DnatMappings() = default ;
+      DnatMappings(const DnatMappings &) = default ;
+      DnatMappings(DnatMappings &&) = default ;
+      DnatMappings(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DnatMappings() = default ;
+      DnatMappings& operator=(const DnatMappings &) = default ;
+      DnatMappings& operator=(DnatMappings &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->accessAddress_ == nullptr
+        && this->backendPort_ == nullptr && this->entryId_ == nullptr && this->frontPort_ == nullptr && this->portName_ == nullptr && this->status_ == nullptr; };
+      // accessAddress Field Functions 
+      bool hasAccessAddress() const { return this->accessAddress_ != nullptr;};
+      void deleteAccessAddress() { this->accessAddress_ = nullptr;};
+      inline string getAccessAddress() const { DARABONBA_PTR_GET_DEFAULT(accessAddress_, "") };
+      inline DnatMappings& setAccessAddress(string accessAddress) { DARABONBA_PTR_SET_VALUE(accessAddress_, accessAddress) };
+
+
+      // backendPort Field Functions 
+      bool hasBackendPort() const { return this->backendPort_ != nullptr;};
+      void deleteBackendPort() { this->backendPort_ = nullptr;};
+      inline int32_t getBackendPort() const { DARABONBA_PTR_GET_DEFAULT(backendPort_, 0) };
+      inline DnatMappings& setBackendPort(int32_t backendPort) { DARABONBA_PTR_SET_VALUE(backendPort_, backendPort) };
+
+
+      // entryId Field Functions 
+      bool hasEntryId() const { return this->entryId_ != nullptr;};
+      void deleteEntryId() { this->entryId_ = nullptr;};
+      inline string getEntryId() const { DARABONBA_PTR_GET_DEFAULT(entryId_, "") };
+      inline DnatMappings& setEntryId(string entryId) { DARABONBA_PTR_SET_VALUE(entryId_, entryId) };
+
+
+      // frontPort Field Functions 
+      bool hasFrontPort() const { return this->frontPort_ != nullptr;};
+      void deleteFrontPort() { this->frontPort_ = nullptr;};
+      inline int32_t getFrontPort() const { DARABONBA_PTR_GET_DEFAULT(frontPort_, 0) };
+      inline DnatMappings& setFrontPort(int32_t frontPort) { DARABONBA_PTR_SET_VALUE(frontPort_, frontPort) };
+
+
+      // portName Field Functions 
+      bool hasPortName() const { return this->portName_ != nullptr;};
+      void deletePortName() { this->portName_ = nullptr;};
+      inline string getPortName() const { DARABONBA_PTR_GET_DEFAULT(portName_, "") };
+      inline DnatMappings& setPortName(string portName) { DARABONBA_PTR_SET_VALUE(portName_, portName) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline DnatMappings& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The access address in the format of NatIp:FrontPort. This address can be used directly from the office network.
+      shared_ptr<string> accessAddress_ {};
+      // The backend service port.
+      shared_ptr<int32_t> backendPort_ {};
+      // The DNAT entry ID.
+      shared_ptr<string> entryId_ {};
+      // The frontend port.
+      shared_ptr<int32_t> frontPort_ {};
+      // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+      shared_ptr<string> portName_ {};
+      // The entry status.
+      shared_ptr<string> status_ {};
     };
 
     class Components : public Darabonba::Model {
@@ -985,19 +1079,19 @@ namespace Models
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas of the application subcomponent.
       shared_ptr<int64_t> componentReplica_ {};
-      // The group name of the application subcomponent replicas.
+      // The group name of the replicas of the application subcomponent.
       shared_ptr<string> componentReplicaGroupName_ {};
       // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
-      // The list of subcomponent-level security groups.
+      // The list of security groups at the subcomponent level.
       // 
-      // If the subcomponent-level security groups are the same as the application-level security groups, this response element is omitted.
+      // If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
       shared_ptr<vector<Components::SecurityGroups>> securityGroups_ {};
-      // The list of subcomponent-level whitelist addresses.
+      // The list of whitelist addresses at the subcomponent level.
       // 
-      // If the subcomponent-level whitelists are the same as the application-level whitelists, this response element is omitted.
+      // If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
-      // The component status. Valid values are the same as the application status.
+      // The component status. Valid values are the same as those of the application status.
       shared_ptr<string> status_ {};
       // The topology information of the application subcomponent.
       shared_ptr<Components::Topology> topology_ {};
@@ -1005,12 +1099,13 @@ namespace Models
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->canDisableSnat_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
-        && this->isLatestVersion_ == nullptr && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
-        && this->memApplicationAttribute_ == nullptr && this->minorVersion_ == nullptr && this->natGatewayId_ == nullptr && this->payType_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr
-        && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr
-        && this->serverlessType_ == nullptr && this->snatStatus_ == nullptr && this->status_ == nullptr && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatMappings_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr
+        && this->expired_ == nullptr && this->isLatestVersion_ == nullptr && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr
+        && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr && this->minorVersion_ == nullptr && this->natGatewayId_ == nullptr && this->natMappingSnatIpAddress_ == nullptr
+        && this->payType_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->snatStatus_ == nullptr && this->status_ == nullptr
+        && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
+        && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -1067,6 +1162,15 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeApplicationAttributeResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dnatMappings Field Functions 
+    bool hasDnatMappings() const { return this->dnatMappings_ != nullptr;};
+    void deleteDnatMappings() { this->dnatMappings_ = nullptr;};
+    inline const vector<DescribeApplicationAttributeResponseBody::DnatMappings> & getDnatMappings() const { DARABONBA_PTR_GET_CONST(dnatMappings_, vector<DescribeApplicationAttributeResponseBody::DnatMappings>) };
+    inline vector<DescribeApplicationAttributeResponseBody::DnatMappings> getDnatMappings() { DARABONBA_PTR_GET(dnatMappings_, vector<DescribeApplicationAttributeResponseBody::DnatMappings>) };
+    inline DescribeApplicationAttributeResponseBody& setDnatMappings(const vector<DescribeApplicationAttributeResponseBody::DnatMappings> & dnatMappings) { DARABONBA_PTR_SET_VALUE(dnatMappings_, dnatMappings) };
+    inline DescribeApplicationAttributeResponseBody& setDnatMappings(vector<DescribeApplicationAttributeResponseBody::DnatMappings> && dnatMappings) { DARABONBA_PTR_SET_RVALUE(dnatMappings_, dnatMappings) };
 
 
     // endpoints Field Functions 
@@ -1148,6 +1252,13 @@ namespace Models
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
     inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DescribeApplicationAttributeResponseBody& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
+
+
+    // natMappingSnatIpAddress Field Functions 
+    bool hasNatMappingSnatIpAddress() const { return this->natMappingSnatIpAddress_ != nullptr;};
+    void deleteNatMappingSnatIpAddress() { this->natMappingSnatIpAddress_ = nullptr;};
+    inline string getNatMappingSnatIpAddress() const { DARABONBA_PTR_GET_DEFAULT(natMappingSnatIpAddress_, "") };
+    inline DescribeApplicationAttributeResponseBody& setNatMappingSnatIpAddress(string natMappingSnatIpAddress) { DARABONBA_PTR_SET_VALUE(natMappingSnatIpAddress_, natMappingSnatIpAddress) };
 
 
     // payType Field Functions 
@@ -1263,6 +1374,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+    // vpcNatGatewayId Field Functions 
+    bool hasVpcNatGatewayId() const { return this->vpcNatGatewayId_ != nullptr;};
+    void deleteVpcNatGatewayId() { this->vpcNatGatewayId_ = nullptr;};
+    inline string getVpcNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpcNatGatewayId_, "") };
+    inline DescribeApplicationAttributeResponseBody& setVpcNatGatewayId(string vpcNatGatewayId) { DARABONBA_PTR_SET_VALUE(vpcNatGatewayId_, vpcNatGatewayId) };
+
+
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -1288,11 +1406,13 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The list of endpoints for the application.
+    // The list of DNAT mapping entries for NAT mapping.
+    shared_ptr<vector<DescribeApplicationAttributeResponseBody::DnatMappings>> dnatMappings_ {};
+    // The list of endpoints of the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
     // The expiration time.
     // 
-    // This value is empty when the billing type is Postpaid.
+    // This value is empty if the billing method is Postpaid.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the application has expired.
     shared_ptr<bool> expired_ {};
@@ -1305,9 +1425,9 @@ namespace Models
     // - Unlock: Not locked.
     // - Lock: Locked.
     shared_ptr<string> lockMode_ {};
-    // The maintenance end time.
+    // The end time of the maintenance window.
     shared_ptr<string> maintainEndTime_ {};
-    // The maintenance start time.
+    // The start time of the maintenance window.
     shared_ptr<string> maintainStartTime_ {};
     // The Mem0 application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
@@ -1315,7 +1435,9 @@ namespace Models
     shared_ptr<string> minorVersion_ {};
     // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The billing type.
+    // The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This is a customer-managed SNAT entry that is discovered and returned by the control plane in real time. It is not related to the Internet NAT gateway SNAT.
+    shared_ptr<string> natMappingSnatIpAddress_ {};
+    // The billing method.
     shared_ptr<string> payType_ {};
     // The PolarClaw SaaS application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
@@ -1325,9 +1447,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of application-level security groups.
+    // The list of security groups at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
-    // The list of application-level whitelists.
+    // The list of whitelists at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     // The serverless type. Valid values:
     // - 2: agile.
@@ -1362,6 +1484,8 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The application version.
     shared_ptr<string> version_ {};
+    // The customer-created VPC NAT gateway ID for NAT mapping.
+    shared_ptr<string> vpcNatGatewayId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};
   };

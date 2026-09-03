@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The ID of the child component.
+      // The child component ID.
       shared_ptr<string> componentId_ {};
     };
 
@@ -129,19 +129,19 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> applicationId_ {};
-    // A list of child components.
+    // The list of child components.
     shared_ptr<vector<CreateApplicationResponseBody::Components>> components_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The ID of the generated order.
+    // The generated order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the resources are sufficient. This parameter is returned only when `DryRun` is set to `true`.
+    // Indicates whether resources are sufficient. This parameter is returned only when DryRun is set to true.
     shared_ptr<bool> resourceAvailable_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -58,29 +58,7 @@ AlibabaCloud::Polardb20170801::Client::Client(Config &config): OpenApiClient(con
     {"cn-zhangjiakou-na62-a01" , "polardb.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "polardb.aliyuncs.com"},
     {"eu-west-1-oxs" , "polardb.aliyuncs.com"},
-    {"rus-west-1-pop" , "polardb.aliyuncs.com"},
-    {"cn-hongkong" , "polardb.cn-hongkong.aliyuncs.com"},
-    {"cn-zhangjiakou" , "polardb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen" , "polardb.cn-shenzhen.aliyuncs.com"},
-    {"ap-northeast-2" , "polardb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "polardb.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "polardb.cn-chengdu.aliyuncs.com"},
-    {"cn-guangzhou" , "polardb.cn-guangzhou.aliyuncs.com"},
-    {"ap-southeast-1" , "polardb.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "polardb.ap-southeast-3.aliyuncs.com"},
-    {"cn-huhehaote" , "polardb.cn-huhehaote.aliyuncs.com"},
-    {"ap-southeast-5" , "polardb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-6" , "polardb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-7" , "polardb.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-8" , "polardb.ap-southeast-8.aliyuncs.com"},
-    {"na-south-1" , "polardb.na-south-1.aliyuncs.com"},
-    {"eu-central-1" , "polardb.eu-central-1.aliyuncs.com"},
-    {"us-west-1" , "polardb.us-west-1.aliyuncs.com"},
-    {"eu-west-1" , "polardb.eu-west-1.aliyuncs.com"},
-    {"us-east-1" , "polardb.us-east-1.aliyuncs.com"},
-    {"me-east-1" , "polardb.me-east-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "polardb.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "polardb.cn-shenzhen-finance-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "polardb.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("polardb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -2942,7 +2920,7 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKey(const Cr
 }
 
 /**
- * @summary Creates an application attached to a PolarDB instance.
+ * @summary Creates an application that is attached to a PolarDB instance.
  *
  * @param tmpReq CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2954,6 +2932,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasComponents()) {
     request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComponents(), "Components", "json"));
+  }
+
+  if (!!tmpReq.hasDnatEntries()) {
+    request.setDnatEntriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDnatEntries(), "DnatEntries", "json"));
   }
 
   if (!!tmpReq.hasEndpoints()) {
@@ -3019,6 +3001,14 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDnatEntriesShrink()) {
+    query["DnatEntries"] = request.getDnatEntriesShrink();
+  }
+
+  if (!!request.hasDnatIpAddress()) {
+    query["DnatIpAddress"] = request.getDnatIpAddress();
   }
 
   if (!!request.hasDryRun()) {
@@ -3125,6 +3115,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["VpcId"] = request.getVpcId();
   }
 
+  if (!!request.hasVpcNatGatewayId()) {
+    query["VpcNatGatewayId"] = request.getVpcNatGatewayId();
+  }
+
   if (!!request.hasZoneId()) {
     query["ZoneId"] = request.getZoneId();
   }
@@ -3147,7 +3141,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Creates an application attached to a PolarDB instance.
+ * @summary Creates an application that is attached to a PolarDB instance.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -5458,7 +5452,7 @@ CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsum
 }
 
 /**
- * @summary 创建知识库同步链路
+ * @summary Creates a knowledge base synchronization link.
  *
  * @param request CreateKBSyncLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5537,7 +5531,7 @@ CreateKBSyncLinkResponse Client::createKBSyncLinkWithOptions(const CreateKBSyncL
 }
 
 /**
- * @summary 创建知识库同步链路
+ * @summary Creates a knowledge base synchronization link.
  *
  * @param request CreateKBSyncLinkRequest
  * @return CreateKBSyncLinkResponse
@@ -8938,7 +8932,7 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
- * @summary 删除知识库同步链路
+ * @summary Deletes a knowledge base synchronization link.
  *
  * @param request DeleteKBSyncLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8977,7 +8971,7 @@ DeleteKBSyncLinkResponse Client::deleteKBSyncLinkWithOptions(const DeleteKBSyncL
 }
 
 /**
- * @summary 删除知识库同步链路
+ * @summary Deletes a knowledge base synchronization link.
  *
  * @param request DeleteKBSyncLinkRequest
  * @return DeleteKBSyncLinkResponse
@@ -17556,7 +17550,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
- * @summary 查询知识库同步列表
+ * @summary Queries the synchronization list of a knowledge base.
  *
  * @param request DescribeKBSyncLinksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17595,7 +17589,7 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinksWithOptions(const Describ
 }
 
 /**
- * @summary 查询知识库同步列表
+ * @summary Queries the synchronization list of a knowledge base.
  *
  * @param request DescribeKBSyncLinksRequest
  * @return DescribeKBSyncLinksResponse
@@ -31517,7 +31511,7 @@ UpdateExtensionsResponse Client::updateExtensions(const UpdateExtensionsRequest 
 }
 
 /**
- * @summary 更新知识库同步链路
+ * @summary Updates a knowledge base synchronization link.
  *
  * @param request UpdateKBSyncLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31584,7 +31578,7 @@ UpdateKBSyncLinkResponse Client::updateKBSyncLinkWithOptions(const UpdateKBSyncL
 }
 
 /**
- * @summary 更新知识库同步链路
+ * @summary Updates a knowledge base synchronization link.
  *
  * @param request UpdateKBSyncLinkRequest
  * @return UpdateKBSyncLinkResponse

@@ -121,18 +121,31 @@ namespace Models
 
 
   protected:
+    // The client ID.
     shared_ptr<string> clientId_ {};
+    // The client secret.
     shared_ptr<string> clientSecret_ {};
+    // The unique identifier of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The synchronization link ID.
+    // 
     // This parameter is required.
     shared_ptr<string> linkId_ {};
+    // The MCP Server address for DingTalk documents.
     shared_ptr<string> mcpEndpoint_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The MCP Server address for DingTalk spreadsheets.
     shared_ptr<string> sheetMcpEndpoint_ {};
+    // Specifies whether to enable automatic synchronization. This parameter can only be modified independently and cannot be changed together with other configurations.
     shared_ptr<bool> syncEnabled_ {};
+    // 20
     shared_ptr<int32_t> syncIntervalMinutes_ {};
+    // The DingTalk user ID for the operation.
     shared_ptr<string> userId_ {};
   };
 
