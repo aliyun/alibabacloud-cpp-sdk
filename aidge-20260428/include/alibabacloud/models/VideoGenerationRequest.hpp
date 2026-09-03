@@ -142,9 +142,15 @@ namespace Models
     protected:
       // The distribution channel.
       shared_ptr<string> channel_ {};
-      // The business goal.
+      // The business goal. Valid values:
+      // 
+      // camera_motion: Camera movement mode. Generates video based on fixed 360° camera movement logic.
+      // 
+      // scripted_video: Scripted mode. Provides a script or prompt, and the system generates video based on the script.
+      // 
+      // auto_video: Unscripted mode. No script is provided. The system automatically plans the script and then generates the video.
       shared_ptr<string> goal_ {};
-      // Required when goal is set to scripted_video.
+      // The script or prompt.
       shared_ptr<string> script_ {};
     };
 
@@ -222,11 +228,9 @@ namespace Models
       protected:
         // The asset index.
         shared_ptr<int32_t> assetIndex_ {};
-        // The natural language description of the asset.
+        // The asset description.
         shared_ptr<string> description_ {};
-        // Valid values:
-        // - look_reference: appearance reference.
-        // - scene_reference: scene reference.
+        // The asset usage.
         shared_ptr<string> slot_ {};
       };
 
@@ -267,7 +271,7 @@ namespace Models
 
 
     protected:
-      // Specifies the purpose and description of images by asset index.
+      // The asset binding list.
       shared_ptr<vector<Input::AssetBindings>> assetBindings_ {};
       // The extended information.
       Darabonba::Json extra_ {};

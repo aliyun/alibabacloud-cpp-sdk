@@ -1,3 +1,6 @@
+2026-09-03 Version: 5.2.2
+- Generated cpp 2026-04-28 for Aidge.
+
 2026-08-28 Version: 5.2.1
 - Update API LanguageDetect: add request parameters Scene.
 

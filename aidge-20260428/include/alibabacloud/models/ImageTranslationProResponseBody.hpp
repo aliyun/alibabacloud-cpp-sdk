@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // The URL of the translated result image.
+        // The URL of the image translation result image.
         shared_ptr<string> fileUrl_ {};
         // The target language for image translation.
         shared_ptr<string> language_ {};
@@ -518,7 +518,7 @@ namespace Models
               shared_ptr<int32_t> lineCount_ {};
               // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
-              // Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is false.
+              // Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is set to false.
               shared_ptr<bool> valid_ {};
               // The translated text content.
               shared_ptr<string> value_ {};
@@ -870,9 +870,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data. ResultList contains the URL of the translation result. EditInfo in GenFiles contains the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The content contains sensitive data. Try other input."
+    // The error message. Returns "Success" for a successful call. Returns a specific error message for an exception, such as "The content contains sensitive data. Try other input."
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID. Used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};

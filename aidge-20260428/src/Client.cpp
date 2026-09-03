@@ -18,9 +18,6 @@ namespace Aidge20260428
 
 AlibabaCloud::Aidge20260428::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "aidge.cn-beijing.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aidge", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -591,24 +588,24 @@ DiduiAreaDeductionResponse Client::diduiAreaDeduction(const DiduiAreaDeductionRe
 }
 
 /**
- * @summary Designed specifically for document translation, this API supports translation between more than 100 language pairs (including bridged pairs), meeting the needs of multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
- * It excels in the following areas:
- * - Content accuracy: translation accuracy, and accuracy of parameters and units.
- * - Structural integrity: overall layout continuity, and page margin and layout restoration.
+ * @summary Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+ * Excels in the following areas:
+ * - Content accuracy: translation accuracy, parameter and unit accuracy.
+ * - Structural integrity: overall layout continuity, page margin and layout restoration.
  *
  * @description ## Product Introduction
- * Designed specifically for document translation, this service supports translation between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+ * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
  * Excels in the following areas:
  * - Content accuracy: translation accuracy, parameter and unit accuracy
- * - Structural integrity: overall layout continuity, page margin and layout preservation
- * ## Scenarios
- * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and other scenarios.
- * ## Features
- * - Supports PDF and Word formats. Supports source documents containing multiple languages. For a detailed language list, see section 4.5.
+ * - Structural integrity: overall layout continuity, page margin and layout restoration
+ * ## Common scenarios
+ * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
+ * ## Functions and features
+ * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
  * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
- * - Supports high-fidelity layout preservation after translation.
+ * - Supports high-fidelity layout restoration after translation.
  * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
- * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection. Pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. Contact the platform if you need more.
+ * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. If you need more, contact the platform for assistance.
  *
  * @param request DocumentTranslateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,24 +648,24 @@ DocumentTranslateResponse Client::documentTranslateWithOptions(const DocumentTra
 }
 
 /**
- * @summary Designed specifically for document translation, this API supports translation between more than 100 language pairs (including bridged pairs), meeting the needs of multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
- * It excels in the following areas:
- * - Content accuracy: translation accuracy, and accuracy of parameters and units.
- * - Structural integrity: overall layout continuity, and page margin and layout restoration.
+ * @summary Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+ * Excels in the following areas:
+ * - Content accuracy: translation accuracy, parameter and unit accuracy.
+ * - Structural integrity: overall layout continuity, page margin and layout restoration.
  *
  * @description ## Product Introduction
- * Designed specifically for document translation, this service supports translation between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
+ * Designed specifically for document translation. Supports translation between more than 100 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
  * Excels in the following areas:
  * - Content accuracy: translation accuracy, parameter and unit accuracy
- * - Structural integrity: overall layout continuity, page margin and layout preservation
- * ## Scenarios
- * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and other scenarios.
- * ## Features
- * - Supports PDF and Word formats. Supports source documents containing multiple languages. For a detailed language list, see section 4.5.
+ * - Structural integrity: overall layout continuity, page margin and layout restoration
+ * ## Common scenarios
+ * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and many other scenarios.
+ * ## Functions and features
+ * - Supports PDF and Word formats. Supports source documents that contain multiple languages. For a detailed language list, see section 4.5.
  * - Supports translation of text within images in documents, as well as complex translation scenarios such as charts and special symbols.
- * - Supports high-fidelity layout preservation after translation.
+ * - Supports high-fidelity layout restoration after translation.
  * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
- * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection. Pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. Contact the platform if you need more.
+ * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. If you need more, contact the platform for assistance.
  *
  * @param request DocumentTranslateRequest
  * @return DocumentTranslateResponse
@@ -676,6 +673,106 @@ DocumentTranslateResponse Client::documentTranslateWithOptions(const DocumentTra
 DocumentTranslateResponse Client::documentTranslate(const DocumentTranslateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return documentTranslateWithOptions(request, runtime);
+}
+
+/**
+ * @summary E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+ *
+ * @description ## **Product Introduction**
+ * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+ * ## **Scenarios**
+ * - **Video asset remix:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is suitable for multi-SKU, multi-model, multi-region, and multi-version asset production.
+ * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate video assets for new products and help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
+ * - **Product presentation and selling point expression:** Suitable for apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, and small appliances. Based on the selling point structure, display actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
+ * - **Multi-selling-point and multi-version testing:** Rapidly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support content testing and ad creative iteration.
+ * ## **Capabilities**
+ * ### **Core capabilities**
+ * Two replacement modes are supported:
+ * - **Product replacement (product_replacement):** Preserves the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
+ * - **Person replacement (person_replacement):** Preserves the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
+ * - **Fully automated end-to-end generation with zero prompt requirements:** Simply provide a reference video and a target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
+ * - **Product understanding and information structuring:** Identifies product category, appearance, material, color, structure, and key components, and combines merchant-provided titles, attributes, and selling points to generate usable video expression information.
+ * - **Template video element replacement:** Supports replacing products or persons within the authorized scope, with configurable replacement and protection ranges to minimize changes in non-target areas.
+ * - **Product subject consistency:** Maintains stable product shape, color, texture, pattern, packaging, and logo across different shots, angles, actions, and scenes.
+ * - **Product fidelity:** Multi-round VL quality inspection locks product state (color, texture, structure, and print) throughout the process to prevent product feature drift.
+ * - **Strength category — Apparel:** Faithfully restores apparel details with attention to silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories, reducing clipping, deformation, texture loss, and detail artifacts.
+ * - **Selling point script and storyboard replication:** Replicates the selling point structure, video composition, shot sequence, display actions, voiceover content, and closing style of the original video.
+ * - **Commercial model matching:** Supports matching model appearance and display style based on product style, silhouette, target audience, and market requirements.
+ * - **Quality verification and result feedback:** Performs multi-dimensional checks on product subject, person, apparel, text, frame completeness, audio, and overall usability, and outputs result information for manual review.
+ *
+ * @param tmpReq EcomVideoRecreationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EcomVideoRecreationResponse
+ */
+EcomVideoRecreationResponse Client::ecomVideoRecreationWithOptions(const EcomVideoRecreationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EcomVideoRecreationShrinkRequest request = EcomVideoRecreationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInput()) {
+    request.setInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInput(), "Input", "json"));
+  }
+
+  if (!!tmpReq.hasOutput()) {
+    request.setOutputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutput(), "Output", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInputShrink()) {
+    query["Input"] = request.getInputShrink();
+  }
+
+  if (!!request.hasOutputShrink()) {
+    query["Output"] = request.getOutputShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EcomVideoRecreation"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EcomVideoRecreationResponse>();
+}
+
+/**
+ * @summary E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+ *
+ * @description ## **Product Introduction**
+ * E-commerce Video Remix is an AI video service designed for product content production. It covers video understanding, element replacement, quality verification, and result delivery. The service focuses on product and person consistency, detail restoration, conversion-oriented expression, and large-scale production. It supports targeted replacement of products or persons based on hit video templates while preserving the original actions, shot rhythm, and marketing structure to rapidly generate multi-version content and reduce shooting, editing, and adaptation costs.
+ * ## **Scenarios**
+ * - **Video asset remix:** Use an existing e-commerce video as a template and replace only the specified product or person while preserving the original shots, rhythm, and marketing expression. This is suitable for multi-SKU, multi-model, multi-region, and multi-version asset production.
+ * - **New product launch with rapid asset generation:** For products launched in batches, reduce the need for live shooting, studio time, post-production editing, and repetitive production. Quickly generate video assets for new products and help merchants shorten the cycle from discovering a hit video to scripting and publishing new content.
+ * - **Product presentation and selling point expression:** Suitable for apparel, beauty and personal care, food and beverages, home and daily essentials, 3C electronics, and small appliances. Based on the selling point structure, display actions, and shot rhythm of the original video, generate presentation videos optimized for new product conversion.
+ * - **Multi-selling-point and multi-version testing:** Rapidly generate multiple versions based on different product selling points, target audiences, scripts, shots, and visual styles to support content testing and ad creative iteration.
+ * ## **Capabilities**
+ * ### **Core capabilities**
+ * Two replacement modes are supported:
+ * - **Product replacement (product_replacement):** Preserves the original video host identity, actions, scene, and selling structure while replacing the original product with the target product.
+ * - **Person replacement (person_replacement):** Preserves the original video product, actions, scene, and selling structure while replacing the on-screen person with the target person from a reference image or description.
+ * - **Fully automated end-to-end generation with zero prompt requirements:** Simply provide a reference video and a target product image or person image. The system automatically completes the entire pipeline including video understanding, script planning, storyboard design, first-frame generation, and video synthesis.
+ * - **Product understanding and information structuring:** Identifies product category, appearance, material, color, structure, and key components, and combines merchant-provided titles, attributes, and selling points to generate usable video expression information.
+ * - **Template video element replacement:** Supports replacing products or persons within the authorized scope, with configurable replacement and protection ranges to minimize changes in non-target areas.
+ * - **Product subject consistency:** Maintains stable product shape, color, texture, pattern, packaging, and logo across different shots, angles, actions, and scenes.
+ * - **Product fidelity:** Multi-round VL quality inspection locks product state (color, texture, structure, and print) throughout the process to prevent product feature drift.
+ * - **Strength category — Apparel:** Faithfully restores apparel details with attention to silhouette, wrinkles, drape, fabric texture, buttons, zippers, prints, and accessories, reducing clipping, deformation, texture loss, and detail artifacts.
+ * - **Selling point script and storyboard replication:** Replicates the selling point structure, video composition, shot sequence, display actions, voiceover content, and closing style of the original video.
+ * - **Commercial model matching:** Supports matching model appearance and display style based on product style, silhouette, target audience, and market requirements.
+ * - **Quality verification and result feedback:** Performs multi-dimensional checks on product subject, person, apparel, text, frame completeness, audio, and overall usability, and outputs result information for manual review.
+ *
+ * @param request EcomVideoRecreationRequest
+ * @return EcomVideoRecreationResponse
+ */
+EcomVideoRecreationResponse Client::ecomVideoRecreation(const EcomVideoRecreationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return ecomVideoRecreationWithOptions(request, runtime);
 }
 
 /**
@@ -1545,17 +1642,17 @@ ImageTranslationPlusResponse Client::imageTranslationPlus(const ImageTranslation
 }
 
 /**
- * @summary Translates images using the Pro edition, which is designed for e-commerce images and integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. Supports more than 100 language directions (including bridged directions).
+ * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
  *
  * @description ## Product Introduction
- * The Image Translation Pro edition is designed specifically for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+ * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
  * ## Scenarios
  * E-commerce product images, marketing images, and images for various other scenarios.
  * ## Features
- * - **Product subject protection**: Allows you to choose whether to translate text on the product subject, helping you protect subject information such as embedded product names from being translated.
- * - **Post-translation editing**: Allows you to choose whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
- * - **Brand name protection**: Allows you to choose whether to translate brand names on images, helping you protect brand name information from being translated.
- * - **Translation intervention**: Allows you to customize translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+ * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
+ * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+ * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
+ * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
  * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
  *
  * @param request ImageTranslationProRequest
@@ -1615,17 +1712,17 @@ ImageTranslationProResponse Client::imageTranslationProWithOptions(const ImageTr
 }
 
 /**
- * @summary Translates images using the Pro edition, which is designed for e-commerce images and integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. Supports more than 100 language directions (including bridged directions).
+ * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
  *
  * @description ## Product Introduction
- * The Image Translation Pro edition is designed specifically for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+ * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions, including bridged translations.
  * ## Scenarios
  * E-commerce product images, marketing images, and images for various other scenarios.
  * ## Features
- * - **Product subject protection**: Allows you to choose whether to translate text on the product subject, helping you protect subject information such as embedded product names from being translated.
- * - **Post-translation editing**: Allows you to choose whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
- * - **Brand name protection**: Allows you to choose whether to translate brand names on images, helping you protect brand name information from being translated.
- * - **Translation intervention**: Allows you to customize translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+ * - **Product subject protection**: Specify whether to translate text on the product subject. This helps protect subject information such as embedded product names from being translated.
+ * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+ * - **Brand name protection**: Specify whether to translate brand names on images. This helps protect brand name information from being translated.
+ * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need a higher limit.  
  * - **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
  *
  * @param request ImageTranslationProRequest
@@ -1637,21 +1734,21 @@ ImageTranslationProResponse Client::imageTranslationPro(const ImageTranslationPr
 }
 
 /**
- * @summary Translates text in images with support for over 100 language directions (including bridging). This product is designed specifically for e-commerce images, accurately handling complex text layouts within images and ensuring that translated content matches the image context. It helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color, enabling secondary editing of translation results through an image editor.
+ * @summary Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
  *
  * @description # 1. Product Introduction
- * The image translation product is designed specifically for e-commerce images, supporting over 100 language directions (including bridging). It accurately handles complex text layouts within images and ensures that translated content matches the image context, helping e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color, enabling secondary editing of translation results through an image editor.
- * # 2. Common scenarios
+ * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
+ * # 2. Applicable scenarios
  * E-commerce product images, marketing images, and images for various other scenarios.
  * # 3. Features
- * *   **Product area protection**: Allows you to choose whether to translate text on the product area. This helps protect product information from being translated, avoiding translation of embedded information such as product names.
+ * *   **Product subject information protection**: You can choose whether to translate text on the product subject. This helps protect subject information from being translated, avoiding translation of embedded information such as product names.
  *     
- * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
+ * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
  *     
- * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This can be used to integrate with an image editor for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
+ * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
  *     
- * *   **Translation intervention**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
- * *   **Image editor integration**: For more information, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+ * *   **Translation intervention support**: You can customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand term protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+ * *   **Image editor integration support**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
  *
  * @param request ImageTranslationStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1706,21 +1803,21 @@ ImageTranslationStandardResponse Client::imageTranslationStandardWithOptions(con
 }
 
 /**
- * @summary Translates text in images with support for over 100 language directions (including bridging). This product is designed specifically for e-commerce images, accurately handling complex text layouts within images and ensuring that translated content matches the image context. It helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color, enabling secondary editing of translation results through an image editor.
+ * @summary Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
  *
  * @description # 1. Product Introduction
- * The image translation product is designed specifically for e-commerce images, supporting over 100 language directions (including bridging). It accurately handles complex text layouts within images and ensures that translated content matches the image context, helping e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color, enabling secondary editing of translation results through an image editor.
- * # 2. Common scenarios
+ * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
+ * # 2. Applicable scenarios
  * E-commerce product images, marketing images, and images for various other scenarios.
  * # 3. Features
- * *   **Product area protection**: Allows you to choose whether to translate text on the product area. This helps protect product information from being translated, avoiding translation of embedded information such as product names.
+ * *   **Product subject information protection**: You can choose whether to translate text on the product subject. This helps protect subject information from being translated, avoiding translation of embedded information such as product names.
  *     
- * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
+ * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
  *     
- * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This can be used to integrate with an image editor for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
+ * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
  *     
- * *   **Translation intervention**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
- * *   **Image editor integration**: For more information, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+ * *   **Translation intervention support**: You can customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). This is commonly used for scenarios such as brand term protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+ * *   **Image editor integration support**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
  *
  * @param request ImageTranslationStandardRequest
  * @return ImageTranslationStandardResponse
@@ -1731,10 +1828,10 @@ ImageTranslationStandardResponse Client::imageTranslationStandard(const ImageTra
 }
 
 /**
- * @summary Supports automatic language identification for 24 language directions. Applicable to short text such as search queries, titles, and conversations.
+ * @summary Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations.
  *
  * @description ## Product Introduction
- * Supports automatic language identification for 24 language directions. Applicable to short text such as search queries, titles, and conversations.
+ * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
  *
  * @param request LanguageDetectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1769,10 +1866,10 @@ LanguageDetectResponse Client::languageDetectWithOptions(const LanguageDetectReq
 }
 
 /**
- * @summary Supports automatic language identification for 24 language directions. Applicable to short text such as search queries, titles, and conversations.
+ * @summary Supports automatic language identification for 31 languages in query scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations.
  *
  * @description ## Product Introduction
- * Supports automatic language identification for 24 language directions. Applicable to short text such as search queries, titles, and conversations.
+ * Supports automatic language identification for 31 languages in query phrase scenarios and 35 languages in general scenarios. Applicable to short text language identification such as search terms, titles, and conversations. For supported language directions, refer to the [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
  *
  * @param request LanguageDetectRequest
  * @return LanguageDetectResponse
@@ -2729,31 +2826,31 @@ TextCorrectResponse Client::textCorrect(const TextCorrectRequest &request) {
 }
 
 /**
- * @summary Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+ * @summary Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
  *
  * @description ## Product Introduction
- * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+ * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
  * ## Common scenarios
  * - Product titles: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
  * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
- * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+ * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
  * - Customer service conversations: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language pairs.
- * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
- * ## Features
+ * Marco MT can also be used for general translation scenarios, such as office work, meetings, and daily conversations.
+ * ## Functions and features
  * - **Supported language pairs**   
- * Marco MT supports translation between more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+ * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
  * - **Ultra-low hallucination rate and high-speed inference**   
- * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+ * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
  * - **Supported text format types**   
- * Currently supports text and html format types.
- * - **Translation intervention**   
- * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform for additional capacity.
+ * Currently, text and html text types are supported.
+ * - **Translation intervention support**   
+ * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
  * ## Translation quality comparison
  * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
  * |----------|---------------|-----------------------|-----------------------|---------------------|
  * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
  * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
- * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer product subject description — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
+ * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type in other translations |
  *
  * @param tmpReq TextTranslateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2814,31 +2911,31 @@ TextTranslateResponse Client::textTranslateWithOptions(const TextTranslateReques
 }
 
 /**
- * @summary Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+ * @summary Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
  *
  * @description ## Product Introduction
- * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
+ * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language pairs (including bridged pairs), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic detection is performed.
  * ## Common scenarios
  * - Product titles: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
  * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
- * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+ * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and parameters.
  * - Customer service conversations: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language pairs.
- * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
- * ## Features
+ * Marco MT can also be used for general translation scenarios, such as office work, meetings, and daily conversations.
+ * ## Functions and features
  * - **Supported language pairs**   
- * Marco MT supports translation between more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+ * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
  * - **Ultra-low hallucination rate and high-speed inference**   
- * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+ * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
  * - **Supported text format types**   
- * Currently supports text and html format types.
- * - **Translation intervention**   
- * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform for additional capacity.
+ * Currently, text and html text types are supported.
+ * - **Translation intervention support**   
+ * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
  * ## Translation quality comparison
  * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
  * |----------|---------------|-----------------------|-----------------------|---------------------|
  * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
  * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
- * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer product subject description — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
+ * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type in other translations |
  *
  * @param request TextTranslateRequest
  * @return TextTranslateResponse
@@ -2849,24 +2946,24 @@ TextTranslateResponse Client::textTranslate(const TextTranslateRequest &request)
 }
 
 /**
- * @summary Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
+ * @summary The E-commerce AI Video Generation Agent is designed for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The product supports multiple resolution outputs such as 720P and 1080P, supports both quick single-product calls and multi-product batch generation, and accommodates both daily operations and large-scale product content production needs. Currently, it covers all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.) and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
  *
- * @description # Applicable scenarios
- * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
- * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and more, helping merchants rapidly complete material preparation during the launch phase.
- * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette accuracy, fabric texture preservation, color fidelity, and consistent detail stability. Supports common e-commerce display methods such as wearing, turning, walking, close-up shots, and multi-angle switching.
- * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
- * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
- * - Multi-product, multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+ * @description # Scenarios
+ * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage displays, information feed placements, short video content marketing, campaign material, and other scenarios.
+ * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images, product titles, and other basic information to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete material preparation during the launch phase.
+ * - High-fidelity apparel display: Generates model showcase videos based on product main images that closely resemble real commercial photography, with key optimizations for silhouette accuracy, fabric texture preservation, color fidelity, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
+ * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commuter, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports multiple commercial photography presentation methods such as standing poses, side views, walking displays, and detail close-ups.
+ * - Standard product explanation and other high-frequency e-commerce scenarios: Suitable for standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling point information, and explanation scripts.
+ * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling businesses to cost-effectively validate the conversion performance of different selling points and presentation formats, improving placement ROI.
  * # Features
- * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
- * - Highly stable generation with low discard rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
- * - E-commerce-specific product fidelity capability: Built-in multi-round quality inspection agents lock product state throughout video generation (such as zippers not being unzipped, sleeves not being lowered, prints not disappearing), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
- * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm, using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
- * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
- * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
- * - Model library and customization services: Built-in multi-type model resource library, supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
- * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign materials, and new product and promotional video generation.
+ * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation, without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities for product understanding, visual quality inspection, script planning, and directing/camera movement significantly lower the barrier to use.
+ * - Highly stable generation with low waste rate: Uses a deterministic generation process and multi-layer quality control mechanism to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+ * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (for example, zippers will not be unzipped, sleeves will not be lowered, prints will not disappear). Multi-layer defense through "script rewriting + explicit constraint injection + failure-aware retry" ensures product consistency.
+ * - Reference image priority + 6-axis consistency verification: Uses a Reference-Image-First generation paradigm with the original product image as the sole visual source of truth. Automatically performs 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally preventing generated images from deviating from the product.
+ * - Flexible storyboard arrangement and duration control: Supports adjustable video duration from 5–30 seconds. The agent autonomously plans independent storyboards to showcase the product in different scenarios. Also supports fixed-scene mode for in-depth product presentation under a unified visual style.
+ * - Cinematic camera movement capabilities: Built-in advanced camera movement modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segment-level precise control.
+ * - Model library and customization services: Built-in multi-type model resource library. Supports merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+ * - Adapted for high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video displays, waterfall/information feed placements, campaign materials, and new product launch and promotional video generation.
  *
  * @param tmpReq VideoGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2919,24 +3016,24 @@ VideoGenerationResponse Client::videoGenerationWithOptions(const VideoGeneration
 }
 
 /**
- * @summary Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
+ * @summary The E-commerce AI Video Generation Agent is designed for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The product supports multiple resolution outputs such as 720P and 1080P, supports both quick single-product calls and multi-product batch generation, and accommodates both daily operations and large-scale product content production needs. Currently, it covers all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.) and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
  *
- * @description # Applicable scenarios
- * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
- * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and more, helping merchants rapidly complete material preparation during the launch phase.
- * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette accuracy, fabric texture preservation, color fidelity, and consistent detail stability. Supports common e-commerce display methods such as wearing, turning, walking, close-up shots, and multi-angle switching.
- * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
- * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
- * - Multi-product, multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+ * @description # Scenarios
+ * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage displays, information feed placements, short video content marketing, campaign material, and other scenarios.
+ * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images, product titles, and other basic information to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete material preparation during the launch phase.
+ * - High-fidelity apparel display: Generates model showcase videos based on product main images that closely resemble real commercial photography, with key optimizations for silhouette accuracy, fabric texture preservation, color fidelity, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
+ * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commuter, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports multiple commercial photography presentation methods such as standing poses, side views, walking displays, and detail close-ups.
+ * - Standard product explanation and other high-frequency e-commerce scenarios: Suitable for standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling point information, and explanation scripts.
+ * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling businesses to cost-effectively validate the conversion performance of different selling points and presentation formats, improving placement ROI.
  * # Features
- * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
- * - Highly stable generation with low discard rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
- * - E-commerce-specific product fidelity capability: Built-in multi-round quality inspection agents lock product state throughout video generation (such as zippers not being unzipped, sleeves not being lowered, prints not disappearing), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
- * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm, using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
- * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
- * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
- * - Model library and customization services: Built-in multi-type model resource library, supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
- * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign materials, and new product and promotional video generation.
+ * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation, without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities for product understanding, visual quality inspection, script planning, and directing/camera movement significantly lower the barrier to use.
+ * - Highly stable generation with low waste rate: Uses a deterministic generation process and multi-layer quality control mechanism to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+ * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (for example, zippers will not be unzipped, sleeves will not be lowered, prints will not disappear). Multi-layer defense through "script rewriting + explicit constraint injection + failure-aware retry" ensures product consistency.
+ * - Reference image priority + 6-axis consistency verification: Uses a Reference-Image-First generation paradigm with the original product image as the sole visual source of truth. Automatically performs 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally preventing generated images from deviating from the product.
+ * - Flexible storyboard arrangement and duration control: Supports adjustable video duration from 5–30 seconds. The agent autonomously plans independent storyboards to showcase the product in different scenarios. Also supports fixed-scene mode for in-depth product presentation under a unified visual style.
+ * - Cinematic camera movement capabilities: Built-in advanced camera movement modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segment-level precise control.
+ * - Model library and customization services: Built-in multi-type model resource library. Supports merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+ * - Adapted for high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video displays, waterfall/information feed placements, campaign materials, and new product launch and promotional video generation.
  *
  * @param request VideoGenerationRequest
  * @return VideoGenerationResponse
@@ -3044,6 +3141,120 @@ VideoTranslationResponse Client::videoTranslationWithOptions(const VideoTranslat
 VideoTranslationResponse Client::videoTranslation(const VideoTranslationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return videoTranslationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to achieve a realistic and well-fitted try-on result. You only need to provide the URL of the original product image to obtain a processed clean image.
+ *
+ * @description ## Scenarios
+ * - **Virtual try-on for clothing products:**
+ * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and skirts. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that intuitively showcases how the clothing looks when worn.
+ * - **Virtual try-on for shoes and hats:**
+ * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts, producing a coordinated and realistic wearing effect.
+ * - **E-commerce product display and marketing:**
+ * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.  
+ * - **Online shopping experience optimization:**
+ * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products, which assists purchase decisions and enhances the shopping experience.
+ * ## Features
+ * - **First, the user needs to provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
+ *   - a. Model image: the image of the person for the virtual try-on.
+ *   - b. Product image: the image of the clothing, shoes, or hat to be applied onto the model.
+ * - **Second, the user can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, skirts, shoes, and hats:**
+ *   - a. Specified product type: the user can directly specify the product type, and the system processes accordingly.
+ *   - b. Automatic type recognition: if the user does not specify a product type, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
+ * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image that shows how the product looks on the model:**
+ *   - a. Preserves model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
+ *   - b. Maintains scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
+ *   - c. Generates try-on effect: the product is naturally applied onto the model, fitting the model\\"s pose and body structure to produce a coordinated and realistic virtual try-on image.
+ * ## Sample results
+ * | **Type** | **Model image** | **Garment image** | **Try-on result** |
+ * | --- | --- | --- | --- |
+ * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![男模特衬衫正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
+ * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![微喇牛仔裤-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+ * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![男模特鞋子正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
+ * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
+ * | Skirts | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+ * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![帽子-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
+ *
+ * @param request VirtualTryOnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VirtualTryOnResponse
+ */
+VirtualTryOnResponse Client::virtualTryOnWithOptions(const VirtualTryOnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClothImageUrl()) {
+    query["ClothImageUrl"] = request.getClothImageUrl();
+  }
+
+  if (!!request.hasClothType()) {
+    query["ClothType"] = request.getClothType();
+  }
+
+  if (!!request.hasModelImageUrl()) {
+    query["ModelImageUrl"] = request.getModelImageUrl();
+  }
+
+  if (!!request.hasResolution()) {
+    query["Resolution"] = request.getResolution();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VirtualTryOn"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VirtualTryOnResponse>();
+}
+
+/**
+ * @summary Generates virtual try-on images based on AI algorithms. This API service replaces the clothing on a model with the specified garment based on the input garment image and model image, while preserving the model\\"s appearance details, pose, facial features, and scene details to achieve a realistic and well-fitted try-on result. You only need to provide the URL of the original product image to obtain a processed clean image.
+ *
+ * @description ## Scenarios
+ * - **Virtual try-on for clothing products:**
+ * Supports multiple clothing categories such as tops, bottoms, jumpsuits, and skirts. After uploading a model image and a product image, the system generates a natural and realistic try-on effect that intuitively showcases how the clothing looks when worn.
+ * - **Virtual try-on for shoes and hats:**
+ * Supports virtual try-on for shoes, hats, and similar products. The system intelligently matches the product position and proportion based on the model\\"s pose and body parts, producing a coordinated and realistic wearing effect.
+ * - **E-commerce product display and marketing:**
+ * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.  
+ * - **Online shopping experience optimization:**
+ * Consumers can preview how products look when worn through virtual try-on, gaining a more intuitive understanding of the style, coordination, and overall effect of products, which assists purchase decisions and enhances the shopping experience.
+ * ## Features
+ * - **First, the user needs to provide a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image onto the model:**
+ *   - a. Model image: the image of the person for the virtual try-on.
+ *   - b. Product image: the image of the clothing, shoes, or hat to be applied onto the model.
+ * - **Second, the user can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, skirts, shoes, and hats:**
+ *   - a. Specified product type: the user can directly specify the product type, and the system processes accordingly.
+ *   - b. Automatic type recognition: if the user does not specify a product type, the system automatically identifies the product category from the product image and performs the virtual try-on based on the recognition result.
+ * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image that shows how the product looks on the model:**
+ *   - a. Preserves model details: the generation process does not alter the model\\"s appearance, hairstyle, pose, body shape, or other details from the original model image.
+ *   - b. Maintains scene consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
+ *   - c. Generates try-on effect: the product is naturally applied onto the model, fitting the model\\"s pose and body structure to produce a coordinated and realistic virtual try-on image.
+ * ## Sample results
+ * | **Type** | **Model image** | **Garment image** | **Try-on result** |
+ * | --- | --- | --- | --- |
+ * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![男模特衬衫正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
+ * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![微喇牛仔裤-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+ * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![男模特鞋子正面-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
+ * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
+ * | Skirts | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+ * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![帽子-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
+ *
+ * @param request VirtualTryOnRequest
+ * @return VirtualTryOnResponse
+ */
+VirtualTryOnResponse Client::virtualTryOn(const VirtualTryOnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return virtualTryOnWithOptions(request, runtime);
 }
 
 /**

@@ -138,7 +138,7 @@ namespace Models
     protected:
       // The translation result list. Each element corresponds to a translation result for an entry in the input text list.
       shared_ptr<vector<Data::Translations>> translations_ {};
-      // The usage information, including the input character count.
+      // The usage information, including the number of input characters.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -182,15 +182,15 @@ namespace Models
 
 
   protected:
-    // The response code. Returns "success" for successful calls.
+    // The response code. The value "success" is returned for successful calls.
     shared_ptr<string> code_ {};
     // The translation result data, including the translation list and usage information.
     shared_ptr<TextTranslateResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
+    // The error message. The value "Success" is returned for successful calls. For exceptions, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
-    // The request ID, used to identify a unique request call.
+    // The request ID, which uniquely identifies a single API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. true indicates success. false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

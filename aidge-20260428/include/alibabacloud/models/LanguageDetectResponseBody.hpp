@@ -128,9 +128,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The language identification result data, including the detected language and usage information.
     shared_ptr<LanguageDetectResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The parameters contain sensitive information. Try other input."
+    // The error message. "Success" is returned for a successful call. A specific error message is returned for an exception, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};

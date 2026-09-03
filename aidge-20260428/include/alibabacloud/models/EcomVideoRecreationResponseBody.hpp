@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_VIDEOGENERATIONRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_VIDEOGENERATIONRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_ECOMVIDEORECREATIONRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_ECOMVIDEORECREATIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,29 +10,29 @@ namespace Aidge20260428
 {
 namespace Models
 {
-  class VideoGenerationResponseBody : public Darabonba::Model {
+  class EcomVideoRecreationResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const VideoGenerationResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const EcomVideoRecreationResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, VideoGenerationResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, EcomVideoRecreationResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    VideoGenerationResponseBody() = default ;
-    VideoGenerationResponseBody(const VideoGenerationResponseBody &) = default ;
-    VideoGenerationResponseBody(VideoGenerationResponseBody &&) = default ;
-    VideoGenerationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~VideoGenerationResponseBody() = default ;
-    VideoGenerationResponseBody& operator=(const VideoGenerationResponseBody &) = default ;
-    VideoGenerationResponseBody& operator=(VideoGenerationResponseBody &&) = default ;
+    EcomVideoRecreationResponseBody() = default ;
+    EcomVideoRecreationResponseBody(const EcomVideoRecreationResponseBody &) = default ;
+    EcomVideoRecreationResponseBody(EcomVideoRecreationResponseBody &&) = default ;
+    EcomVideoRecreationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~EcomVideoRecreationResponseBody() = default ;
+    EcomVideoRecreationResponseBody& operator=(const EcomVideoRecreationResponseBody &) = default ;
+    EcomVideoRecreationResponseBody& operator=(EcomVideoRecreationResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,11 +41,9 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
-        DARABONBA_PTR_TO_JSON(UsageMap, usageMap_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
-        DARABONBA_PTR_FROM_JSON(UsageMap, usageMap_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -59,8 +56,7 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->taskId_ == nullptr
-        && this->usageMap_ == nullptr; };
+      virtual bool empty() const override { return this->taskId_ == nullptr; };
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -68,20 +64,9 @@ namespace Models
       inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
-      // usageMap Field Functions 
-      bool hasUsageMap() const { return this->usageMap_ != nullptr;};
-      void deleteUsageMap() { this->usageMap_ = nullptr;};
-      inline const map<string, int64_t> & getUsageMap() const { DARABONBA_PTR_GET_CONST(usageMap_, map<string, int64_t>) };
-      inline map<string, int64_t> getUsageMap() { DARABONBA_PTR_GET(usageMap_, map<string, int64_t>) };
-      inline Data& setUsageMap(const map<string, int64_t> & usageMap) { DARABONBA_PTR_SET_VALUE(usageMap_, usageMap) };
-      inline Data& setUsageMap(map<string, int64_t> && usageMap) { DARABONBA_PTR_SET_RVALUE(usageMap_, usageMap) };
-
-
     protected:
-      // The downstream task ID.
+      // The asynchronous task ID for QueryAsyncTaskResult queries.
       shared_ptr<string> taskId_ {};
-      // The metering usage information.
-      shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -90,49 +75,49 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline VideoGenerationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline EcomVideoRecreationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const VideoGenerationResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, VideoGenerationResponseBody::Data) };
-    inline VideoGenerationResponseBody::Data getData() { DARABONBA_PTR_GET(data_, VideoGenerationResponseBody::Data) };
-    inline VideoGenerationResponseBody& setData(const VideoGenerationResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline VideoGenerationResponseBody& setData(VideoGenerationResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const EcomVideoRecreationResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, EcomVideoRecreationResponseBody::Data) };
+    inline EcomVideoRecreationResponseBody::Data getData() { DARABONBA_PTR_GET(data_, EcomVideoRecreationResponseBody::Data) };
+    inline EcomVideoRecreationResponseBody& setData(const EcomVideoRecreationResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline EcomVideoRecreationResponseBody& setData(EcomVideoRecreationResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline VideoGenerationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline EcomVideoRecreationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline VideoGenerationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline EcomVideoRecreationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline VideoGenerationResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline EcomVideoRecreationResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The response code. A value of success indicates a successful call, and a value of failed indicates a failed call.
+    // The result code. `success` indicates success. An error code is returned upon failure.
     shared_ptr<string> code_ {};
-    // The response struct.
-    shared_ptr<VideoGenerationResponseBody::Data> data_ {};
-    // The response message. An error message is returned if the call fails.
+    // The asynchronous task submit status.
+    shared_ptr<EcomVideoRecreationResponseBody::Data> data_ {};
+    // The response message. An error description is returned upon failure.
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies a single API call.
+    // The request ID, used to identify a unique call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the submission is successful.
     shared_ptr<bool> success_ {};
   };
 

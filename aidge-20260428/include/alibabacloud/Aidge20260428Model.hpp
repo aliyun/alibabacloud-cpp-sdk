@@ -23,6 +23,10 @@
 #include <alibabacloud/models/DocumentTranslateRequest.hpp>
 #include <alibabacloud/models/DocumentTranslateResponseBody.hpp>
 #include <alibabacloud/models/DocumentTranslateResponse.hpp>
+#include <alibabacloud/models/EcomVideoRecreationRequest.hpp>
+#include <alibabacloud/models/EcomVideoRecreationShrinkRequest.hpp>
+#include <alibabacloud/models/EcomVideoRecreationResponseBody.hpp>
+#include <alibabacloud/models/EcomVideoRecreationResponse.hpp>
 #include <alibabacloud/models/ImageCroppingRequest.hpp>
 #include <alibabacloud/models/ImageCroppingResponseBody.hpp>
 #include <alibabacloud/models/ImageCroppingResponse.hpp>
@@ -94,6 +98,9 @@
 #include <alibabacloud/models/VideoTranslationShrinkRequest.hpp>
 #include <alibabacloud/models/VideoTranslationResponseBody.hpp>
 #include <alibabacloud/models/VideoTranslationResponse.hpp>
+#include <alibabacloud/models/VirtualTryOnRequest.hpp>
+#include <alibabacloud/models/VirtualTryOnResponseBody.hpp>
+#include <alibabacloud/models/VirtualTryOnResponse.hpp>
 #include <alibabacloud/models/VisionFlowRequest.hpp>
 #include <alibabacloud/models/VisionFlowShrinkRequest.hpp>
 #include <alibabacloud/models/VisionFlowResponseBody.hpp>

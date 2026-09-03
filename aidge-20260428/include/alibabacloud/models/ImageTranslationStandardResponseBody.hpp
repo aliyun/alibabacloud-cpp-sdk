@@ -755,15 +755,15 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+    // The response code. 200 indicates success. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
     // The translation result data, including the translated image URL and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for successful calls, and a specific error message is returned for failed calls.
+    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
     shared_ptr<string> message_ {};
     // The request ID, used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the call is successful. true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 
