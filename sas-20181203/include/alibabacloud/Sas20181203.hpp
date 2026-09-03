@@ -864,7 +864,7 @@ namespace Sas20181203
       Models::CreateAttestorResponse createAttestor(const Models::CreateAttestorRequest &request);
 
       /**
-       * @summary Creates an anti-ransomware policy for servers.
+       * @summary Creates an anti-ransomware policy for server protection.
        *
        * @param tmpReq CreateBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -873,7 +873,7 @@ namespace Sas20181203
       Models::CreateBackupPolicyResponse createBackupPolicyWithOptions(const Models::CreateBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an anti-ransomware policy for servers.
+       * @summary Creates an anti-ransomware policy for server protection.
        *
        * @param request CreateBackupPolicyRequest
        * @return CreateBackupPolicyResponse
@@ -3282,7 +3282,7 @@ namespace Sas20181203
       Models::DescribeBackupMachineStatusResponse describeBackupMachineStatus(const Models::DescribeBackupMachineStatusRequest &request);
 
       /**
-       * @summary Query anti-ransomware protection policies.
+       * @summary Queries anti-ransomware mitigation policies.
        *
        * @param request DescribeBackupPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3291,7 +3291,7 @@ namespace Sas20181203
       Models::DescribeBackupPoliciesResponse describeBackupPoliciesWithOptions(const Models::DescribeBackupPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query anti-ransomware protection policies.
+       * @summary Queries anti-ransomware mitigation policies.
        *
        * @param request DescribeBackupPoliciesRequest
        * @return DescribeBackupPoliciesResponse
@@ -7557,7 +7557,7 @@ namespace Sas20181203
       Models::DescribeUserSettingResponse describeUserSetting(const Models::DescribeUserSettingRequest &request);
 
       /**
-       * @summary 查询 UUID 维度的漏洞数量统计
+       * @summary Queries vulnerability count statistics by UUID.
        *
        * @param request DescribeUuidVulNumClassifyStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7566,7 +7566,7 @@ namespace Sas20181203
       Models::DescribeUuidVulNumClassifyStatisticResponse describeUuidVulNumClassifyStatisticWithOptions(const Models::DescribeUuidVulNumClassifyStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 UUID 维度的漏洞数量统计
+       * @summary Queries vulnerability count statistics by UUID.
        *
        * @param request DescribeUuidVulNumClassifyStatisticRequest
        * @return DescribeUuidVulNumClassifyStatisticResponse
@@ -13333,7 +13333,7 @@ namespace Sas20181203
       Models::ModifyAutoDelConfigResponse modifyAutoDelConfig(const Models::ModifyAutoDelConfigRequest &request);
 
       /**
-       * @summary Modifies an anti-ransomware mitigation policy.
+       * @summary Modifies an anti-ransomware policy.
        *
        * @param tmpReq ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13342,7 +13342,7 @@ namespace Sas20181203
       Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an anti-ransomware mitigation policy.
+       * @summary Modifies an anti-ransomware policy.
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse

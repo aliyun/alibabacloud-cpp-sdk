@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query image vulnerability statistics. Valid values:
+    // - true: The Uuids parameter specifies image IDs.
+    // - false: The Uuids parameter specifies host UUIDs.
+    // 
+    // Default value: false.
     shared_ptr<bool> imageVul_ {};
+    // The unique identifier of the asset. If ImageVul is set to false, specify the host UUID. If ImageVul is set to true, specify the image ID. Separate multiple values with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};
   };

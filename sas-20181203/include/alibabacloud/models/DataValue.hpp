@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The number of Linux software vulnerabilities.
     shared_ptr<int32_t> cveNum_ {};
+    // The number of emergency vulnerabilities. This field is 0 when ImageVul is set to true.
     shared_ptr<int32_t> emgNum_ {};
+    // The number of Windows system vulnerabilities. This field is 0 when ImageVul is set to true.
     shared_ptr<int32_t> sysNum_ {};
+    // The number of Web-CMS vulnerabilities. This field is 0 when ImageVul is set to true.
     shared_ptr<int32_t> cmsNum_ {};
+    // The number of application vulnerabilities. This field is 0 when ImageVul is set to true.
     shared_ptr<int32_t> appNum_ {};
+    // The number of software composition analysis (SCA) vulnerabilities.
     shared_ptr<int32_t> scaNum_ {};
+    // The number of high-priority vulnerabilities.
     shared_ptr<int32_t> vulAsapSum_ {};
+    // The number of medium-priority vulnerabilities.
     shared_ptr<int32_t> vulLaterSum_ {};
+    // The number of low-priority vulnerabilities.
     shared_ptr<int32_t> vulNntfSum_ {};
+    // The number of high-priority system vulnerabilities among Linux software vulnerabilities and Windows system vulnerabilities.
     shared_ptr<int32_t> sysAsapNum_ {};
   };
 

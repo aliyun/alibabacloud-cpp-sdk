@@ -2943,7 +2943,7 @@ CreateAttestorResponse Client::createAttestor(const CreateAttestorRequest &reque
 }
 
 /**
- * @summary Creates an anti-ransomware policy for servers.
+ * @summary Creates an anti-ransomware policy for server protection.
  *
  * @param tmpReq CreateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2974,6 +2974,14 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
     query["PolicyVersion"] = request.getPolicyVersion();
   }
 
+  if (!!request.hasSelectType()) {
+    query["SelectType"] = request.getSelectType();
+  }
+
+  if (!!request.hasServerType()) {
+    query["ServerType"] = request.getServerType();
+  }
+
   if (!!request.hasUuidList()) {
     query["UuidList"] = request.getUuidList();
   }
@@ -2996,7 +3004,7 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
 }
 
 /**
- * @summary Creates an anti-ransomware policy for servers.
+ * @summary Creates an anti-ransomware policy for server protection.
  *
  * @param request CreateBackupPolicyRequest
  * @return CreateBackupPolicyResponse
@@ -10319,7 +10327,7 @@ DescribeBackupMachineStatusResponse Client::describeBackupMachineStatus(const De
 }
 
 /**
- * @summary Query anti-ransomware protection policies.
+ * @summary Queries anti-ransomware mitigation policies.
  *
  * @param request DescribeBackupPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10366,7 +10374,7 @@ DescribeBackupPoliciesResponse Client::describeBackupPoliciesWithOptions(const D
 }
 
 /**
- * @summary Query anti-ransomware protection policies.
+ * @summary Queries anti-ransomware mitigation policies.
  *
  * @param request DescribeBackupPoliciesRequest
  * @return DescribeBackupPoliciesResponse
@@ -23963,7 +23971,7 @@ DescribeUserSettingResponse Client::describeUserSetting(const DescribeUserSettin
 }
 
 /**
- * @summary 查询 UUID 维度的漏洞数量统计
+ * @summary Queries vulnerability count statistics by UUID.
  *
  * @param request DescribeUuidVulNumClassifyStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23998,7 +24006,7 @@ DescribeUuidVulNumClassifyStatisticResponse Client::describeUuidVulNumClassifySt
 }
 
 /**
- * @summary 查询 UUID 维度的漏洞数量统计
+ * @summary Queries vulnerability count statistics by UUID.
  *
  * @param request DescribeUuidVulNumClassifyStatisticRequest
  * @return DescribeUuidVulNumClassifyStatisticResponse
@@ -41440,7 +41448,7 @@ ModifyAutoDelConfigResponse Client::modifyAutoDelConfig(const ModifyAutoDelConfi
 }
 
 /**
- * @summary Modifies an anti-ransomware mitigation policy.
+ * @summary Modifies an anti-ransomware policy.
  *
  * @param tmpReq ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41475,6 +41483,14 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
     query["PolicyVersion"] = request.getPolicyVersion();
   }
 
+  if (!!request.hasSelectType()) {
+    query["SelectType"] = request.getSelectType();
+  }
+
+  if (!!request.hasServerType()) {
+    query["ServerType"] = request.getServerType();
+  }
+
   if (!!request.hasUuidList()) {
     query["UuidList"] = request.getUuidList();
   }
@@ -41497,7 +41513,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies an anti-ransomware mitigation policy.
+ * @summary Modifies an anti-ransomware policy.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse

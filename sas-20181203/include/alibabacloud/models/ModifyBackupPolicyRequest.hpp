@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_ANY_TO_JSON(Policy, policy_);
       DARABONBA_PTR_TO_JSON(PolicyRegionId, policyRegionId_);
       DARABONBA_PTR_TO_JSON(PolicyVersion, policyVersion_);
+      DARABONBA_PTR_TO_JSON(SelectType, selectType_);
+      DARABONBA_PTR_TO_JSON(ServerType, serverType_);
       DARABONBA_PTR_TO_JSON(UuidList, uuidList_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyBackupPolicyRequest& obj) { 
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(Policy, policy_);
       DARABONBA_PTR_FROM_JSON(PolicyRegionId, policyRegionId_);
       DARABONBA_PTR_FROM_JSON(PolicyVersion, policyVersion_);
+      DARABONBA_PTR_FROM_JSON(SelectType, selectType_);
+      DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
       DARABONBA_PTR_FROM_JSON(UuidList, uuidList_);
     };
     ModifyBackupPolicyRequest() = default ;
@@ -41,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && this->name_ == nullptr && this->policy_ == nullptr && this->policyRegionId_ == nullptr && this->policyVersion_ == nullptr && this->uuidList_ == nullptr; };
+        && this->name_ == nullptr && this->policy_ == nullptr && this->policyRegionId_ == nullptr && this->policyVersion_ == nullptr && this->selectType_ == nullptr
+        && this->serverType_ == nullptr && this->uuidList_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -79,6 +84,20 @@ namespace Models
     inline ModifyBackupPolicyRequest& setPolicyVersion(string policyVersion) { DARABONBA_PTR_SET_VALUE(policyVersion_, policyVersion) };
 
 
+    // selectType Field Functions 
+    bool hasSelectType() const { return this->selectType_ != nullptr;};
+    void deleteSelectType() { this->selectType_ = nullptr;};
+    inline string getSelectType() const { DARABONBA_PTR_GET_DEFAULT(selectType_, "") };
+    inline ModifyBackupPolicyRequest& setSelectType(string selectType) { DARABONBA_PTR_SET_VALUE(selectType_, selectType) };
+
+
+    // serverType Field Functions 
+    bool hasServerType() const { return this->serverType_ != nullptr;};
+    void deleteServerType() { this->serverType_ = nullptr;};
+    inline string getServerType() const { DARABONBA_PTR_GET_DEFAULT(serverType_, "") };
+    inline ModifyBackupPolicyRequest& setServerType(string serverType) { DARABONBA_PTR_SET_VALUE(serverType_, serverType) };
+
+
     // uuidList Field Functions 
     bool hasUuidList() const { return this->uuidList_ != nullptr;};
     void deleteUuidList() { this->uuidList_ = nullptr;};
@@ -89,43 +108,50 @@ namespace Models
 
 
   protected:
-    // The ID of the anti-ransomware mitigation policy to modify.
+    // The ID of the anti-ransomware policy to modify.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The name of the anti-ransomware mitigation policy to modify.
+    // The name of the anti-ransomware policy to modify.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The content of the mitigation policy to modify. The value is a JSON-format string that contains the following fields:
+    // The content of the policy to modify. The value is a JSON format character string that contains the following fields:
     // 
     // - **Source**: The server folder to protect. To protect all folders, set this field to [].
     // - **Include**: The file types to protect. Examples: "\\*.jpg" and "\\*.doc".
-    // - **Exclude**: The custom folders to exclude. For example, exclude the folder "/home/user". Invoke the DescribeExcludeSystemPath operation to obtain all folders, and then add the folders that you want to exclude.
-    // - **Schedule**: The start time and interval of the data backup task. Specify a non-hourly time during off-peak hours.
+    // - **Exclude**: The custom folders to exclude. For example, "/home/user" excludes the /home/user folder. Invoke the DescribeExcludeSystemPath operation to obtain all folders, and then add the folders that you want to exclude.
+    // - **Schedule**: The start time and interval of the data backup node. Specify a non-hourly time during off-peak hours.
     // 
-    //     - Example 1: I|1583216092|P21D indicates that the start time is 2020-03-03 14:14:52 and the interval is 3 weeks.
+    //     - Example 1: I|1583216092|P21D indicates that the execute start time is 2020-03-03 14:14:52 and the interval is 3 weeks.
     // 
-    //     - Example 2: I|1583216092|PT24H indicates that the start time is 2020-03-03 14:14:52 and the interval is 24 hours.
+    //     - Example 2: I|1583216092|PT24H indicates that the execute start time is 2020-03-03 14:14:52 and the interval is 24 hours.
     // 
     // - **Retention**: The retention period of backup data. Unit: days. 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
-    // - **SpeedLimiter**: The network bandwidth throttling for backup. Example: 12:15:15360|6:12:5120 indicates 15 MB from 12:00 to 15:00 and 5 MB from 6:00 to 12:00.
-    // Cloud-hosted servers connect through the internal network. Do not limit the backup network bandwidth. To remove the bandwidth limit, set this parameter to an empty string ("").
+    // - **SpeedLimiter**: The network bandwidth throttling for backup. For example, 12:15:15360|6:12:5120 indicates 15 MB from 12:00 to 15:00 and 5 MB from 6:00 to 12:00.
+    // For cloud-based servers connected to the internal network, do not limit the backup network bandwidth. To remove the network bandwidth throttling, set this parameter to an empty character string ("").
     // 
     // This parameter is required.
     Darabonba::Json policy_ {};
-    // The region of the server for which you want to modify the mitigation policy.
+    // The region of the server for which you want to modify the policy.
     // 
     // You can invoke the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions supported by the anti-ransomware feature.
     shared_ptr<string> policyRegionId_ {};
-    // The version of the mitigation policy. You can invoke the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the version.
+    // The version of the policy. You can invoke the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the version.
     // 
     // - **1.0.0**
     // - **2.0.0**
     shared_ptr<string> policyVersion_ {};
-    // The UUIDs of the servers protected by the mitigation policy.
-    // 
-    // This parameter is required.
+    // The method used to select assets. Valid values:
+    // - **ALL_MACHINE**: all assets
+    // >To cover all assets of the specified type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
+    shared_ptr<string> selectType_ {};
+    // The server type. Valid values:
+    // - **ALIYUN**: Alibaba Cloud server
+    // - **OUT_CLOUD**: non-Alibaba Cloud server
+    // - **TRIPARTITE**: simple application server
+    shared_ptr<string> serverType_ {};
+    // The list of UUIDs of the servers protected by the policy.
     shared_ptr<vector<string>> uuidList_ {};
   };
 

@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolicyVersion, policyVersion_);
         DARABONBA_PTR_TO_JSON(PreStatus, preStatus_);
         DARABONBA_PTR_TO_JSON(RemarkedUuidList, remarkedUuidList_);
+        DARABONBA_PTR_TO_JSON(SelectType, selectType_);
         DARABONBA_PTR_TO_JSON(ServerType, serverType_);
         DARABONBA_PTR_TO_JSON(ServiceErrorCount, serviceErrorCount_);
         DARABONBA_PTR_TO_JSON(ServiceErrorUuidList, serviceErrorUuidList_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolicyVersion, policyVersion_);
         DARABONBA_PTR_FROM_JSON(PreStatus, preStatus_);
         DARABONBA_PTR_FROM_JSON(RemarkedUuidList, remarkedUuidList_);
+        DARABONBA_PTR_FROM_JSON(SelectType, selectType_);
         DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
         DARABONBA_PTR_FROM_JSON(ServiceErrorCount, serviceErrorCount_);
         DARABONBA_PTR_FROM_JSON(ServiceErrorUuidList, serviceErrorUuidList_);
@@ -92,8 +94,8 @@ namespace Models
       virtual bool empty() const override { return this->clientErrorCount_ == nullptr
         && this->clientErrorUuidList_ == nullptr && this->clientStatus_ == nullptr && this->healthClientCount_ == nullptr && this->healthClientUuidList_ == nullptr && this->id_ == nullptr
         && this->lastStatusSyncTime_ == nullptr && this->name_ == nullptr && this->policy_ == nullptr && this->policyRegionId_ == nullptr && this->policyVersion_ == nullptr
-        && this->preStatus_ == nullptr && this->remarkedUuidList_ == nullptr && this->serverType_ == nullptr && this->serviceErrorCount_ == nullptr && this->serviceErrorUuidList_ == nullptr
-        && this->status_ == nullptr && this->upgradeStatus_ == nullptr && this->uuidList_ == nullptr; };
+        && this->preStatus_ == nullptr && this->remarkedUuidList_ == nullptr && this->selectType_ == nullptr && this->serverType_ == nullptr && this->serviceErrorCount_ == nullptr
+        && this->serviceErrorUuidList_ == nullptr && this->status_ == nullptr && this->upgradeStatus_ == nullptr && this->uuidList_ == nullptr; };
       // clientErrorCount Field Functions 
       bool hasClientErrorCount() const { return this->clientErrorCount_ != nullptr;};
       void deleteClientErrorCount() { this->clientErrorCount_ = nullptr;};
@@ -191,6 +193,13 @@ namespace Models
       inline Policies& setRemarkedUuidList(vector<string> && remarkedUuidList) { DARABONBA_PTR_SET_RVALUE(remarkedUuidList_, remarkedUuidList) };
 
 
+      // selectType Field Functions 
+      bool hasSelectType() const { return this->selectType_ != nullptr;};
+      void deleteSelectType() { this->selectType_ = nullptr;};
+      inline string getSelectType() const { DARABONBA_PTR_GET_DEFAULT(selectType_, "") };
+      inline Policies& setSelectType(string selectType) { DARABONBA_PTR_SET_VALUE(selectType_, selectType) };
+
+
       // serverType Field Functions 
       bool hasServerType() const { return this->serverType_ != nullptr;};
       void deleteServerType() { this->serverType_ = nullptr;};
@@ -240,7 +249,7 @@ namespace Models
     protected:
       // The number of errors reported by the anti-ransomware client.
       shared_ptr<int32_t> clientErrorCount_ {};
-      // The UUID list of clients in the **abnormal** state.
+      // The list of UUIDs of clients in the **abnormal** state.
       shared_ptr<vector<string>> clientErrorUuidList_ {};
       // The status of the anti-ransomware client. Valid values:
       // 
@@ -248,68 +257,74 @@ namespace Models
       // 
       // - **exception**: Abnormal.
       shared_ptr<string> clientStatus_ {};
-      // The number of clients in the normal state.
+      // The number of clients in the Normal state.
       shared_ptr<int32_t> healthClientCount_ {};
-      // The UUID list of clients in the **healthy** state.
+      // The list of UUIDs of clients in the **healthy** state.
       shared_ptr<vector<string>> healthClientUuidList_ {};
-      // The ID of the anti-ransomware protection policy.
+      // The ID of the anti-ransomware mitigation policy.
       shared_ptr<int64_t> id_ {};
-      // The latest update time of the anti-ransomware protection policy status, in milliseconds.
+      // The most recent time when the anti-ransomware mitigation policy status was updated, in milliseconds.
       shared_ptr<int64_t> lastStatusSyncTime_ {};
-      // The name of the anti-ransomware protection policy.
+      // The name of the anti-ransomware mitigation policy.
       shared_ptr<string> name_ {};
-      // The content of the anti-ransomware protection policy. This parameter is in JSON format. The following section describes the fields:
+      // The content of the anti-ransomware mitigation policy. This parameter is in JSON format. The following fields are included:
       // 
-      // - **IsDefault**: The type of the protection policy. Valid values:
-      //     - **1**: Recommended policy.
-      //     - **0**: Custom policy.
-      // - **Include**: The file types to protect. To protect all file types, set this parameter to [].
-      // - **Source**: The server directories to protect. To protect all directories, set this parameter to [].
-      // - **ExcludeSystemPath**: Specifies whether to exclude specified directories. Set this parameter to **true** to exclude directories. If you do not want to exclude directories, you do not need to set this parameter.
-      // - **Exclude**: The specified protection directory addresses. If no specific protection directory address is set, set this parameter to [].
-      // - **Schedule**: The execution time and interval of the data backup task. We recommend that you specify a non-peak hour at a non-round time. The following provides setting examples:
-      //     - Example 1: I|1583216092|P21D indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy is executed at an interval of 3 weeks.
-      //     - Example 2: I|1583216092|PT24H indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy is executed at an interval of 24 hours.
-      // - **Retention**: The retention period of the backup data, in days. 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
-      // -  **SpeedLimiter**: The backup network bandwidth limit. For example, 0:24:30720 indicates that the backup network bandwidth limit from 0:00 to 24:00 is 30 MByte/s.
+      // - **IsDefault**: The type of the mitigation policy. Valid values:
+      //     - **1**: recommended policy
+      //     - **0**: custom policy
+      // - **Include**: The file types to protect. If all file types are protected, this parameter is set to [].
+      // - **Source**: The server folders to protect. If all folders need to be protected, this parameter is set to [].
+      // - **ExcludeSystemPath**: Specifies whether to exclude specified folders. To exclude folders, set this parameter to **true**. If you do not want to exclude folders, you do not need to set this parameter.
+      // - **Exclude**: The specified protection folder addresses. If no specific protection folder address is set, this parameter is set to [].
+      // - **Schedule**: The execution time and interval of the data backup node. Specify a non-peak hour that is not on the hour. Examples:
+      //     - Example 1: I|1583216092|P21D indicates that data backup starts at 2020-03-03 14:14:52, and the backup policy executes at an interval of 3 weeks.
+      //     - Example 2: I|1583216092|PT24H indicates that data backup starts at 2020-03-03 14:14:52, and the backup policy executes at an interval of 24 hours.
+      // - **Retention**: The retention period of backup data, in days. 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
+      // - **SpeedLimiter**: The backup network bandwidth throttling. For example, 0:24:30720 indicates that the backup network bandwidth throttling is 30 MB/s from 00:00 to 24:00.
       // - **UseVss**: Specifies whether to enable the VSS (Windows) feature. Valid values:
-      //     -  **true**: Enable.
-      //     -  **false**: Disable.
+      //     - **true**: enabled
+      //     - **false**: not enabled
       // 
-      // > The VSS (Windows) feature is only available for Windows systems. After it is enabled, it can effectively reduce the issue of individual file backup failures caused by process occupation. We recommend that you enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats will not be supported.
+      // > The VSS (Windows) feature is available only for Windows systems. After this feature is enabled, it effectively reduces the issue of individual file backup failures caused by process occupation. Enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats is not supported.
       shared_ptr<string> policy_ {};
-      // The region ID of the backup service selected when installing the anti-ransomware client on non-Alibaba Cloud servers.
+      // The region ID of the backup service selected when the anti-ransomware client is installed on a non-Alibaba Cloud server.
       shared_ptr<string> policyRegionId_ {};
-      // The version of the protection policy. Valid values:
+      // The version of the mitigation policy. Valid values:
       // 
       // - 1.0.0.
       // - 2.0.0.
       shared_ptr<string> policyVersion_ {};
-      // The previous status of the anti-ransomware protection policy.
+      // The previous status of the anti-ransomware mitigation policy.
       // 
-      // - **enabled**: The policy is manually enabled.
+      // - **enabled**: The policy was manually enabled.
       // 
-      // - **disabled**: The policy is manually disabled. After the policy is disabled, running backup tasks will stop.
+      // - **disabled**: The policy was manually disabled. After the policy is disabled, running backup nodes are stopped.
       // 
-      // - **closed**: The anti-ransomware capacity is exceeded, and the system disables the policy.
+      // - **closed**: The anti-ransomware capacity was exceeded, and the system disabled the policy.
       shared_ptr<string> preStatus_ {};
-      // The UUID list of servers returned after retrieval by the MachineRemark request parameter.
+      // The list of UUIDs of servers returned after the search by the MachineRemark request parameter.
       shared_ptr<vector<string>> remarkedUuidList_ {};
+      // The method used to select covered assets. Valid values:
+      // 
+      // - **ALL_MACHINE**: All assets.
+      // 
+      // > If the policy covers **all assets**, this property value is **ALL_MACHINE**.
+      shared_ptr<string> selectType_ {};
       // The server type. Valid values:
       // 
       // - **OUT_CLOUD**: Non-Alibaba Cloud server.
       // - **ALIYUN**: Alibaba Cloud server.
-      // - **TRIPARTITE**: Simple Application Server.
+      // - **TRIPARTITE**: Lightweight application server.
       shared_ptr<string> serverType_ {};
       // The number of servers with data backup exceptions.
       shared_ptr<int32_t> serviceErrorCount_ {};
-      // The UUID list of servers with data backup exceptions.
+      // The list of UUIDs of servers with data backup exceptions.
       shared_ptr<vector<string>> serviceErrorUuidList_ {};
-      // The status of the anti-ransomware protection policy.
+      // The status of the anti-ransomware mitigation policy.
       // 
       // - **enabled**: The policy is manually enabled.
       // 
-      // - **disabled**: The policy is manually disabled. After the policy is disabled, running backup tasks will stop.
+      // - **disabled**: The policy is manually disabled. After the policy is disabled, running backup nodes are stopped.
       // 
       // - **closed**: The anti-ransomware capacity is exceeded, and the system disables the policy.
       shared_ptr<string> status_ {};
@@ -320,7 +335,7 @@ namespace Models
       // - **UpgradeFailed**: Upgrade failed.
       // - **UpgradeSuccess**: Upgrade succeeded.
       shared_ptr<string> upgradeStatus_ {};
-      // The UUID list of servers protected by the anti-ransomware protection policy.
+      // The list of UUIDs of servers protected by the anti-ransomware mitigation policy.
       shared_ptr<vector<string>> uuidList_ {};
     };
 
@@ -380,11 +395,11 @@ namespace Models
 
 
     protected:
-      // The number of entries displayed on the current page during paginated queries.
+      // The number of entries on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
       // The page number of the current page in the returned data.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of backup policies on each page during paginated queries. Default value: 10, which indicates that each page contains 10 backup policies.
+      // The number of backup policies per page in a paged query. Default value: 10, which indicates that each page contains 10 backup policies.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of backup policies in the returned data.
       shared_ptr<int32_t> totalCount_ {};
@@ -420,9 +435,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<DescribeBackupPoliciesResponseBody::PageInfo> pageInfo_ {};
-    // The details of protection policies.
+    // The details of the mitigation policies.
     shared_ptr<vector<DescribeBackupPoliciesResponseBody::Policies>> policies_ {};
-    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot and locate issues.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

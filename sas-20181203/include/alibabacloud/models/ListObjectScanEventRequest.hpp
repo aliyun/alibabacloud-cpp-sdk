@@ -176,16 +176,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether the alert was detected by AI. Valid values:
+    // - true: The alert was detected by AI.
+    // - false: The alert was not detected by AI.
     shared_ptr<bool> aiDetect_ {};
     // The batch operation type. Valid values:
     // 
-    // - **sha256**: same file content
+    // - **sha256**: same file content.
     // 
     // - **eventName**: same alerting type.
     shared_ptr<string> batchType_ {};
     // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The page number of the current page when you perform a paged query.
+    // The page number of the current page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
@@ -193,15 +196,15 @@ namespace Models
     shared_ptr<int64_t> eventId_ {};
     // The alert name.
     shared_ptr<string> eventName_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The MD5 hash of the file.
     shared_ptr<string> md5_ {};
     // The storage key of the file in the OSS bucket.
     shared_ptr<string> ossKey_ {};
-    // The maximum number of entries to return on each page when you perform a paged query.
+    // The maximum number of entries to return on each page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
@@ -214,27 +217,27 @@ namespace Models
     shared_ptr<int64_t> parentEventId_ {};
     // The risk level. Valid values:
     // 
-    // - **high**: high risk
+    // - **high**: High risk.
     // 
-    // - **medium**: medium risk
+    // - **medium**: Medium risk.
     // 
-    // - **low**: low risk.
+    // - **low**: Low risk.
     shared_ptr<string> riskLevel_ {};
     // The data source. Valid values:
-    // - **API**: API detection
-    // - **OSS**: OSS detection.
+    // - **API**: API-based detection.
+    // - **OSS**: OSS-based detection.
     shared_ptr<string> source_ {};
     // The event status. Valid values:
     // 
-    // - 0: unhandled 
-    // - 1: manually handled
-    // - 2: whitelisted
-    // - 3: ignored
-    // - 4: access denied.
+    // - 0: Unhandled. 
+    // - 1: Manually handled.
+    // - 2: Whitelisted.
+    // - 3: Ignored.
+    // - 4: Access blocked.
     shared_ptr<int32_t> status_ {};
-    // The end time of the time range during which the exception event occurred.
+    // The end time of the time range during which the anomalous event occurred.
     shared_ptr<int64_t> timeEnd_ {};
-    // The start time of the time range during which the exception event occurred.
+    // The start time of the time range during which the anomalous event occurred.
     shared_ptr<int64_t> timeStart_ {};
   };
 

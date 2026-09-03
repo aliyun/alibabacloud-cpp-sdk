@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The vulnerability statistics returned by asset unique identifier. The key of the map is the host UUID or image ID specified in the request.
     shared_ptr<map<string, DataValue>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
