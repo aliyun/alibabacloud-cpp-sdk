@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The conversation ID, typically used for JSSDK.
+    // The session ID, typically used for JSSDK.
     shared_ptr<string> chatId_ {};
     // The status code.
     shared_ptr<string> code_ {};
@@ -144,11 +144,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The image name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};
-    // The data source ID, which is unique within the tenant.
+    // The data source ID (unique within the tenant).
     shared_ptr<string> sourceId_ {};
     // The signing status. Valid values:
     // - CREATED: Created but not signed.

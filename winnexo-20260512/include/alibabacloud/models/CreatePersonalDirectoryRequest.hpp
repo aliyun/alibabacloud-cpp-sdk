@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The workspace description.
     shared_ptr<string> description_ {};
-    // The name of the digital human.
+    // The name of the digital employee.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The name of the digital human (operating object name, optional).
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
     // The folder ID.
     shared_ptr<string> parentDirectoryId_ {};

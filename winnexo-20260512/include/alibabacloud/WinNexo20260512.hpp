@@ -52,6 +52,28 @@ namespace WinNexo20260512
       Models::AddUserGroupMembersResponse addUserGroupMembers(const Models::AddUserGroupMembersRequest &request);
 
       /**
+       * @summary Batch cancels digital employee favorites for specific object types.
+       *
+       * @description Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. The server validates and deduplicates items while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. Deletion, per-item status updates, and remaining valid count are completed within a single transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clean up historical records, MISSING records, or permission-hidden records that are not visible in the list. Then read back the result to confirm that total is 0.
+       *
+       * @param tmpReq BatchRemoveOperatingObjectFavoritesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchRemoveOperatingObjectFavoritesResponse
+       */
+      Models::BatchRemoveOperatingObjectFavoritesResponse batchRemoveOperatingObjectFavoritesWithOptions(const Models::BatchRemoveOperatingObjectFavoritesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch cancels digital employee favorites for specific object types.
+       *
+       * @description Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. The server validates and deduplicates items while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. Deletion, per-item status updates, and remaining valid count are completed within a single transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clean up historical records, MISSING records, or permission-hidden records that are not visible in the list. Then read back the result to confirm that total is 0.
+       *
+       * @param request BatchRemoveOperatingObjectFavoritesRequest
+       * @return BatchRemoveOperatingObjectFavoritesResponse
+       */
+      Models::BatchRemoveOperatingObjectFavoritesResponse batchRemoveOperatingObjectFavorites(const Models::BatchRemoveOperatingObjectFavoritesRequest &request);
+
+      /**
        * @summary Performs a service health check.
        *
        * @param request CheckHealthRequest
@@ -70,13 +92,35 @@ namespace WinNexo20260512
       Models::CheckHealthResponse checkHealth(const Models::CheckHealthRequest &request);
 
       /**
+       * @summary Clears all follows of a specific object type for a digital employee.
+       *
+       * @description Clears all persisted follows for the current calling user across three independent dimensions: graphName, operatingObjectName, and objectType. This includes historical records, MISSING records, and permission-hidden records that are not visible in the list. The operation does not return invisible object IDs and verifies that the remaining physical record count is zero within the same transaction.
+       *
+       * @param request ClearOperatingObjectFavoritesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClearOperatingObjectFavoritesResponse
+       */
+      Models::ClearOperatingObjectFavoritesResponse clearOperatingObjectFavoritesWithOptions(const Models::ClearOperatingObjectFavoritesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Clears all follows of a specific object type for a digital employee.
+       *
+       * @description Clears all persisted follows for the current calling user across three independent dimensions: graphName, operatingObjectName, and objectType. This includes historical records, MISSING records, and permission-hidden records that are not visible in the list. The operation does not return invisible object IDs and verifies that the remaining physical record count is zero within the same transaction.
+       *
+       * @param request ClearOperatingObjectFavoritesRequest
+       * @return ClearOperatingObjectFavoritesResponse
+       */
+      Models::ClearOperatingObjectFavoritesResponse clearOperatingObjectFavorites(const Models::ClearOperatingObjectFavoritesRequest &request);
+
+      /**
        * @summary Creates a service notice.
        *
-       * @description ## Operation description
-       * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+       * @description ## Request description
+       * Creates a service notice. The caller must be mapped to a real platform user in the system O&M tenant and must have announcement management permissions.
        * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
        * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
-       * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+       * - `effectiveStart` / `effectiveEnd`: ISO 8601 time with time zone.
        * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
        *
        * @param tmpReq CreateAnnouncementRequest
@@ -89,11 +133,11 @@ namespace WinNexo20260512
       /**
        * @summary Creates a service notice.
        *
-       * @description ## Operation description
-       * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+       * @description ## Request description
+       * Creates a service notice. The caller must be mapped to a real platform user in the system O&M tenant and must have announcement management permissions.
        * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
        * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
-       * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+       * - `effectiveStart` / `effectiveEnd`: ISO 8601 time with time zone.
        * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
        *
        * @param request CreateAnnouncementRequest
@@ -184,14 +228,14 @@ namespace WinNexo20260512
       Models::CreateGroupAliDingChatResponse createGroupAliDingChat(const Models::CreateGroupAliDingChatRequest &request);
 
       /**
-       * @summary Creates a group-level DingTalk chat knowledge source.
+       * @summary Creates knowledge from a standard DingTalk group chat for a group.
        *
-       * @description ## Operation description
-       * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+       * @description ## Request description
+       * - Connects a specified standard DingTalk group chat to the group knowledge base that the caller has joined.
        * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
        * - groupId, chatId, and historyStartTime are required.
-       * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
-       * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+       * - updateFrequency can be configured through preset or a five-segment cron expression for subsequent synchronization frequency.
+       * - The server verifies the caller\\"s group member identity and target group directory permissions. The same group chat can be created as different Sources.
        *
        * @param tmpReq CreateGroupDingtalkChatRequest
        * @param headers map
@@ -201,14 +245,14 @@ namespace WinNexo20260512
       Models::CreateGroupDingtalkChatResponse createGroupDingtalkChatWithOptions(const Models::CreateGroupDingtalkChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a group-level DingTalk chat knowledge source.
+       * @summary Creates knowledge from a standard DingTalk group chat for a group.
        *
-       * @description ## Operation description
-       * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+       * @description ## Request description
+       * - Connects a specified standard DingTalk group chat to the group knowledge base that the caller has joined.
        * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
        * - groupId, chatId, and historyStartTime are required.
-       * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
-       * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+       * - updateFrequency can be configured through preset or a five-segment cron expression for subsequent synchronization frequency.
+       * - The server verifies the caller\\"s group member identity and target group directory permissions. The same group chat can be created as different Sources.
        *
        * @param request CreateGroupDingtalkChatRequest
        * @return CreateGroupDingtalkChatResponse
@@ -642,9 +686,9 @@ namespace WinNexo20260512
        *
        * @description ## Request description
        * - This API is used to create a personal folder (category) under "My Resources".
-       * - If `parentDirectoryId` is not specified, the system automatically uses or creates the default root folder of the current digital human as the parent folder.
-       * - If `parentDirectoryId` is specified, it must be an existing personal folder of the current user under the current digital human.
-       * - `tenant_id` and `user_id` are derived from the authentication identity only. These fields are ignored if included in the request body.
+       * - If `parentDirectoryId` is not specified, the system automatically uses or creates the default root folder of the current digital employee as the parent folder.
+       * - If `parentDirectoryId` is specified, it must be an existing personal folder of the current user under the current digital employee.
+       * - `tenant_id` and `user_id` are derived from the authenticated identity only. These fields are ignored if passed in the request body.
        *
        * @param request CreatePersonalDirectoryRequest
        * @param headers map
@@ -658,9 +702,9 @@ namespace WinNexo20260512
        *
        * @description ## Request description
        * - This API is used to create a personal folder (category) under "My Resources".
-       * - If `parentDirectoryId` is not specified, the system automatically uses or creates the default root folder of the current digital human as the parent folder.
-       * - If `parentDirectoryId` is specified, it must be an existing personal folder of the current user under the current digital human.
-       * - `tenant_id` and `user_id` are derived from the authentication identity only. These fields are ignored if included in the request body.
+       * - If `parentDirectoryId` is not specified, the system automatically uses or creates the default root folder of the current digital employee as the parent folder.
+       * - If `parentDirectoryId` is specified, it must be an existing personal folder of the current user under the current digital employee.
+       * - `tenant_id` and `user_id` are derived from the authenticated identity only. These fields are ignored if passed in the request body.
        *
        * @param request CreatePersonalDirectoryRequest
        * @return CreatePersonalDirectoryResponse
@@ -913,11 +957,11 @@ namespace WinNexo20260512
        * @summary Adds a knowledge base and knowledge base categories.
        *
        * @description ## Request description
-       * - This API is used to create a new enterprise knowledge base directory under a specified tenant.
-       * - You can specify the parent directory of the new directory by setting the `parentId` parameter. If this parameter is not specified, the directory is created as a root directory by default.
-       * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent directory.
+       * - This API is used to create a new enterprise knowledge base folder under a specified tenant.
+       * - You can set the `parentId` parameter to specify the parent folder of the new folder. If this parameter is not specified, the folder is created as a root folder by default.
+       * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent folder.
        * - Calling this operation requires the corresponding permissions. Multiple authentication methods are supported, including AK, BearerToken, and APP authentication.
-       * - After the directory is created, the related information of the new directory is returned, such as the directory ID and name.
+       * - After the folder is created, the related information about the new folder is returned, such as the folder ID and name.
        *
        * @param request CreateTenantDirectoryRequest
        * @param headers map
@@ -930,11 +974,11 @@ namespace WinNexo20260512
        * @summary Adds a knowledge base and knowledge base categories.
        *
        * @description ## Request description
-       * - This API is used to create a new enterprise knowledge base directory under a specified tenant.
-       * - You can specify the parent directory of the new directory by setting the `parentId` parameter. If this parameter is not specified, the directory is created as a root directory by default.
-       * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent directory.
+       * - This API is used to create a new enterprise knowledge base folder under a specified tenant.
+       * - You can set the `parentId` parameter to specify the parent folder of the new folder. If this parameter is not specified, the folder is created as a root folder by default.
+       * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent folder.
        * - Calling this operation requires the corresponding permissions. Multiple authentication methods are supported, including AK, BearerToken, and APP authentication.
-       * - After the directory is created, the related information of the new directory is returned, such as the directory ID and name.
+       * - After the folder is created, the related information about the new folder is returned, such as the folder ID and name.
        *
        * @param request CreateTenantDirectoryRequest
        * @return CreateTenantDirectoryResponse
@@ -946,12 +990,12 @@ namespace WinNexo20260512
        *
        * @description Creates a user by using OpenAPI.
        *     Business orchestration:
-       *     1. Parses roleCodes → role_ids (validates against system role enumerations).
+       *     1. Parses roleCodes into role_ids (validates against system role enumerations).
        *     2. Checks whether the user already exists (used to return the isNewUser flag).
-       *     3. Calls UserManagementService.add_tenant_member to create or add the user (the password must be passed in as an RSA ciphertext by the caller).
+       *     3. Calls UserManagementService.add_tenant_member to create or add the user (the password must be passed by the caller as an RSA ciphertext).
        *     4. Returns the creation result (including the isNewUser flag).
        *     Error codes:
-       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume the user.
+       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to restore the user.
        *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
        *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
        *
@@ -967,12 +1011,12 @@ namespace WinNexo20260512
        *
        * @description Creates a user by using OpenAPI.
        *     Business orchestration:
-       *     1. Parses roleCodes → role_ids (validates against system role enumerations).
+       *     1. Parses roleCodes into role_ids (validates against system role enumerations).
        *     2. Checks whether the user already exists (used to return the isNewUser flag).
-       *     3. Calls UserManagementService.add_tenant_member to create or add the user (the password must be passed in as an RSA ciphertext by the caller).
+       *     3. Calls UserManagementService.add_tenant_member to create or add the user (the password must be passed by the caller as an RSA ciphertext).
        *     4. Returns the creation result (including the isNewUser flag).
        *     Error codes:
-       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume the user.
+       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to restore the user.
        *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
        *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
        *
@@ -1006,16 +1050,15 @@ namespace WinNexo20260512
       /**
        * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
        *
-       * @description Creates a user and sets initial roles and user groups via OpenAPI.
-       *     Business orchestration:
-       *     1. Parses roleCodes → role_ids (system role enumeration validation)
-       *     2. Checks whether the user already exists (used to return the isNewUser flag)
-       *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
-       *     4. Returns the creation result (including the isNewUser flag)
-       *     Error codes:
-       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
-       *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
-       *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+       * @description ## Request description
+       * - This operation creates a WINNEXO user under a specified tenant and optionally assigns system roles and user groups to the user.
+       * - The `accountId` parameter serves as the logon account for the user and must be unique.
+       * - The `displayName` parameter specifies the display name of the user, which must also be unique within the tenant and cannot exceed 100 characters in length.
+       * - The optional `roleCodes` parameter specifies a list of roles for the user. By default, the `APPLICATION_USER` role is assigned.
+       * - The `userGroupIds` parameter allows you to add up to 100 user group IDs to the new user. Make sure that all specified user groups belong to the same tenant.
+       * - The password must be encrypted by using the RSA-OAEP-SHA256 algorithm and submitted in Base64 format.
+       * - This operation supports calls over HTTPS and requires the request body in JSON format.
+       * - For security authentication, AK, BearerToken, and APP are supported.
        *
        * @param tmpReq CreateUserWithGroupsRequest
        * @param headers map
@@ -1027,16 +1070,15 @@ namespace WinNexo20260512
       /**
        * @summary Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
        *
-       * @description Creates a user and sets initial roles and user groups via OpenAPI.
-       *     Business orchestration:
-       *     1. Parses roleCodes → role_ids (system role enumeration validation)
-       *     2. Checks whether the user already exists (used to return the isNewUser flag)
-       *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
-       *     4. Returns the creation result (including the isNewUser flag)
-       *     Error codes:
-       *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
-       *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
-       *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+       * @description ## Request description
+       * - This operation creates a WINNEXO user under a specified tenant and optionally assigns system roles and user groups to the user.
+       * - The `accountId` parameter serves as the logon account for the user and must be unique.
+       * - The `displayName` parameter specifies the display name of the user, which must also be unique within the tenant and cannot exceed 100 characters in length.
+       * - The optional `roleCodes` parameter specifies a list of roles for the user. By default, the `APPLICATION_USER` role is assigned.
+       * - The `userGroupIds` parameter allows you to add up to 100 user group IDs to the new user. Make sure that all specified user groups belong to the same tenant.
+       * - The password must be encrypted by using the RSA-OAEP-SHA256 algorithm and submitted in Base64 format.
+       * - This operation supports calls over HTTPS and requires the request body in JSON format.
+       * - For security authentication, AK, BearerToken, and APP are supported.
        *
        * @param request CreateUserWithGroupsRequest
        * @return CreateUserWithGroupsResponse
@@ -1050,8 +1092,8 @@ namespace WinNexo20260512
        * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If the target directory ID (`directoryId`) is not specified, the file is automatically attached to the default root directory of the current digital employee. If specified, ensure that the directory belongs to the personal directory of the caller.
-       * - Security authentication is supported through multiple methods (AK, BearerToken, APP).
+       * - If the target directory ID (`directoryId`) is not specified, the file is automatically bound to the default root directory of the current digital employee. If specified, ensure that the directory belongs to the caller\\"s personal directory.
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param request DeleteChatSessionRequest
@@ -1068,8 +1110,8 @@ namespace WinNexo20260512
        * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If the target directory ID (`directoryId`) is not specified, the file is automatically attached to the default root directory of the current digital employee. If specified, ensure that the directory belongs to the personal directory of the caller.
-       * - Security authentication is supported through multiple methods (AK, BearerToken, APP).
+       * - If the target directory ID (`directoryId`) is not specified, the file is automatically bound to the default root directory of the current digital employee. If specified, ensure that the directory belongs to the caller\\"s personal directory.
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param request DeleteChatSessionRequest
@@ -1215,7 +1257,7 @@ namespace WinNexo20260512
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
        * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
-       * - Security verification is supported through multiple authenticate methods (AK, BearerToken, APP).
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param request GetChatSessionRequest
@@ -1233,7 +1275,7 @@ namespace WinNexo20260512
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
        * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
-       * - Security verification is supported through multiple authenticate methods (AK, BearerToken, APP).
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param request GetChatSessionRequest
@@ -1430,12 +1472,12 @@ namespace WinNexo20260512
        *
        * @summary Retrieves the details of scheduled task understanding.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - This operation uploads a file to the enterprise knowledge base.
-       * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
-       * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-       * - Optional parameters include the public access URL of the file and the original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
+       * - The OSS persistent address (`filePath`) of the file must be provided during upload.
+       * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
        * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
        * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
        *
@@ -1451,12 +1493,12 @@ namespace WinNexo20260512
        *
        * @summary Retrieves the details of scheduled task understanding.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - This operation uploads a file to the enterprise knowledge base.
-       * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
-       * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-       * - Optional parameters include the public access URL of the file and the original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
+       * - The OSS persistent address (`filePath`) of the file must be provided during upload.
+       * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
        * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
        * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
        *
@@ -1838,8 +1880,8 @@ namespace WinNexo20260512
       /**
        * @summary Queries currently effective service notices.
        *
-       * @description ## Request description
-       * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+       * @description ## Operation description
+       * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
        *
        * @param request ListActiveAnnouncementsRequest
        * @param headers map
@@ -1851,8 +1893,8 @@ namespace WinNexo20260512
       /**
        * @summary Queries currently effective service notices.
        *
-       * @description ## Request description
-       * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+       * @description ## Operation description
+       * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
        *
        * @param request ListActiveAnnouncementsRequest
        * @return ListActiveAnnouncementsResponse
@@ -2030,12 +2072,12 @@ namespace WinNexo20260512
       /**
        * @summary Queries and filters the bill list through OpenAPI with support for multiple filter conditions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation queries the bill list based on specified conditions.
        * - Supports filtering by tenant, user, operation type, status, time range, business source, and other conditions.
        * - Returns bill data in pages. The default page size is 20 records.
        * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-       * - Authentication information (such as AK, BearerToken, or APP authentication) is required in the request.
+       * - Authentication information (such as AK, BearerToken, or APP authentication) is required for the request.
        *
        * @param request ListBillingRequest
        * @param headers map
@@ -2047,12 +2089,12 @@ namespace WinNexo20260512
       /**
        * @summary Queries and filters the bill list through OpenAPI with support for multiple filter conditions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation queries the bill list based on specified conditions.
        * - Supports filtering by tenant, user, operation type, status, time range, business source, and other conditions.
        * - Returns bill data in pages. The default page size is 20 records.
        * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-       * - Authentication information (such as AK, BearerToken, or APP authentication) is required in the request.
+       * - Authentication information (such as AK, BearerToken, or APP authentication) is required for the request.
        *
        * @param request ListBillingRequest
        * @return ListBillingResponse
@@ -2146,16 +2188,38 @@ namespace WinNexo20260512
       Models::ListKnowledgeBaseDirectoriesResponse listKnowledgeBaseDirectories(const Models::ListKnowledgeBaseDirectoriesRequest &request);
 
       /**
-       * @summary Queries the output list of the current user with support for conditional filtering and pagination.
+       * @summary Queries the precise object type follows of a digital employee by page.
+       *
+       * @description Queries follows by three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1000-item display window of the follow panel.
+       *
+       * @param request ListOperatingObjectFavoritesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOperatingObjectFavoritesResponse
+       */
+      Models::ListOperatingObjectFavoritesResponse listOperatingObjectFavoritesWithOptions(const Models::ListOperatingObjectFavoritesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the precise object type follows of a digital employee by page.
+       *
+       * @description Queries follows by three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1000-item display window of the follow panel.
+       *
+       * @param request ListOperatingObjectFavoritesRequest
+       * @return ListOperatingObjectFavoritesResponse
+       */
+      Models::ListOperatingObjectFavoritesResponse listOperatingObjectFavorites(const Models::ListOperatingObjectFavoritesRequest &request);
+
+      /**
+       * @summary Queries the output list of the current user, with support for conditional filtering and pagination.
        *
        * @description ## Operation description
-       * - This API operation queries the output list of the current logon user.
-       * - `tenantId` is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
-       * - You can filter results by using parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-       * - Set `sharedOnly` to `true` to display only shared outputs.
-       * - Pagination is controlled by `page` (page number) and `pageSize` (number of entries per page). By default, the first page is returned with 20 records per page.
+       * - This API operation queries the output list of the current logged-in user.
+       * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
+       * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+       * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
+       * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
        * - Results are sorted by update time in descending order by default.
-       * - The `tenant_id` or `user_id` values passed in the request body are ignored. This information is obtained only from the authenticated identity.
+       * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
        *
        * @param request ListOutputFilesRequest
        * @param headers map
@@ -2165,16 +2229,16 @@ namespace WinNexo20260512
       Models::ListOutputFilesResponse listOutputFilesWithOptions(const Models::ListOutputFilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the output list of the current user with support for conditional filtering and pagination.
+       * @summary Queries the output list of the current user, with support for conditional filtering and pagination.
        *
        * @description ## Operation description
-       * - This API operation queries the output list of the current logon user.
-       * - `tenantId` is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
-       * - You can filter results by using parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-       * - Set `sharedOnly` to `true` to display only shared outputs.
-       * - Pagination is controlled by `page` (page number) and `pageSize` (number of entries per page). By default, the first page is returned with 20 records per page.
+       * - This API operation queries the output list of the current logged-in user.
+       * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
+       * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+       * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
+       * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
        * - Results are sorted by update time in descending order by default.
-       * - The `tenant_id` or `user_id` values passed in the request body are ignored. This information is obtained only from the authenticated identity.
+       * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
        *
        * @param request ListOutputFilesRequest
        * @return ListOutputFilesResponse
@@ -2254,7 +2318,7 @@ namespace WinNexo20260512
        *
        * @description ## Operation description
        * - This operation uploads a file to an enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` permission is required to call this API.
+       * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
        * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
        * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
        * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
@@ -2273,7 +2337,7 @@ namespace WinNexo20260512
        *
        * @description ## Operation description
        * - This operation uploads a file to an enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` permission is required to call this API.
+       * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
        * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
        * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
        * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
@@ -2289,15 +2353,15 @@ namespace WinNexo20260512
        * @summary Lists the skills visible to the current tenant.
        *
        * @description ## Request description
-       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
+       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, and keywords, and supports pagination.
        * ### Request parameters
        * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
        * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
-       * - **Tags**: Optional. Filters by tags. A match occurs if any tag in the array is hit.
-       * - **Keyword**: Optional. Performs fuzzy matching by skill name or description.
+       * - **Tags**: Optional. Filters by tags. A match is returned if any tag in the array is hit.
+       * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
        * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
-       * - **PageSize**: Optional. The number of entries per page. Value range: 1 to 100. Default value: 20.
-       * - **OperatingObjectName**: Optional. The digital employee name. If specified, filters by binding relationship. Must be used together with `BindStatus`.
+       * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
+       * - **OperatingObjectName**: Optional. The digital employee name. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
        * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
        * ### Response parameters
        * The response contains the skill list `items`, total count `total`, current page `page`, and page size `pageSize`.
@@ -2313,15 +2377,15 @@ namespace WinNexo20260512
        * @summary Lists the skills visible to the current tenant.
        *
        * @description ## Request description
-       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
+       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, and keywords, and supports pagination.
        * ### Request parameters
        * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
        * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
-       * - **Tags**: Optional. Filters by tags. A match occurs if any tag in the array is hit.
-       * - **Keyword**: Optional. Performs fuzzy matching by skill name or description.
+       * - **Tags**: Optional. Filters by tags. A match is returned if any tag in the array is hit.
+       * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
        * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
-       * - **PageSize**: Optional. The number of entries per page. Value range: 1 to 100. Default value: 20.
-       * - **OperatingObjectName**: Optional. The digital employee name. If specified, filters by binding relationship. Must be used together with `BindStatus`.
+       * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
+       * - **OperatingObjectName**: Optional. The digital employee name. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
        * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
        * ### Response parameters
        * The response contains the skill list `items`, total count `total`, current page `page`, and page size `pageSize`.
@@ -2622,10 +2686,10 @@ namespace WinNexo20260512
       Models::MoveResourceResponse moveResource(const Models::MoveResourceRequest &request);
 
       /**
-       * @summary Offlines a service notice.
+       * @summary Takes a service notice offline.
        *
-       * @description ## Request description
-       * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+       * @description ## Operation description
+       * Idempotently takes a platform announcement offline by announcement ID. Returns `changed=true` when a PUBLISHED announcement is taken offline for the first time. Returns `changed=false` when the announcement is already offline or expired.
        * The caller must belong to the system operations tenant and have announcement management permissions.
        *
        * @param request OfflineAnnouncementRequest
@@ -2636,10 +2700,10 @@ namespace WinNexo20260512
       Models::OfflineAnnouncementResponse offlineAnnouncementWithOptions(const Models::OfflineAnnouncementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Offlines a service notice.
+       * @summary Takes a service notice offline.
        *
-       * @description ## Request description
-       * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+       * @description ## Operation description
+       * Idempotently takes a platform announcement offline by announcement ID. Returns `changed=true` when a PUBLISHED announcement is taken offline for the first time. Returns `changed=false` when the announcement is already offline or expired.
        * The caller must belong to the system operations tenant and have announcement management permissions.
        *
        * @param request OfflineAnnouncementRequest
@@ -2710,14 +2774,14 @@ namespace WinNexo20260512
       Models::PreviewPersonalSourceResponse previewPersonalSource(const Models::PreviewPersonalSourceRequest &request);
 
       /**
-       * @summary Queries primary object data by operating object name with paging support, including filtering and search.
+       * @summary Queries primary object data by operating object name with pagination, and supports filtering and searching.
        *
-       * @description ## Operation description
-       * - This API queries primary object data by a specified operating object name (such as `customer_1`) with paging.
-       * - Keyword-based search is supported. You can set whether to return only objects marked as favorites in Settings.
-       * - Complex filter conditions can be used to further narrow results, including but not limited to equal to, not equal to, greater than, and less than operators.
+       * @description ## Request description
+       * - This API queries primary object data with pagination based on a specified operating object name (such as `customer_1`).
+       * - Supports keyword-based searching and allows you to specify whether to return only objects marked as favorites.
+       * - Complex filter conditions can be used to further refine results, including but not limited to logical operators such as equal to, not equal to, greater than, and less than.
        * - If no primary object type is configured, an empty result set is returned.
-       * - Data in the request undergoes authentication and filtering to ensure security and accuracy.
+       * - Data included in the request undergoes authentication and filtering to ensure security and accuracy.
        *
        * @param request QueryPrimaryObjectDataRequest
        * @param headers map
@@ -2727,14 +2791,14 @@ namespace WinNexo20260512
       Models::QueryPrimaryObjectDataResponse queryPrimaryObjectDataWithOptions(const Models::QueryPrimaryObjectDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries primary object data by operating object name with paging support, including filtering and search.
+       * @summary Queries primary object data by operating object name with pagination, and supports filtering and searching.
        *
-       * @description ## Operation description
-       * - This API queries primary object data by a specified operating object name (such as `customer_1`) with paging.
-       * - Keyword-based search is supported. You can set whether to return only objects marked as favorites in Settings.
-       * - Complex filter conditions can be used to further narrow results, including but not limited to equal to, not equal to, greater than, and less than operators.
+       * @description ## Request description
+       * - This API queries primary object data with pagination based on a specified operating object name (such as `customer_1`).
+       * - Supports keyword-based searching and allows you to specify whether to return only objects marked as favorites.
+       * - Complex filter conditions can be used to further refine results, including but not limited to logical operators such as equal to, not equal to, greater than, and less than.
        * - If no primary object type is configured, an empty result set is returned.
-       * - Data in the request undergoes authentication and filtering to ensure security and accuracy.
+       * - Data included in the request undergoes authentication and filtering to ensure security and accuracy.
        *
        * @param request QueryPrimaryObjectDataRequest
        * @return QueryPrimaryObjectDataResponse
@@ -3178,7 +3242,7 @@ namespace WinNexo20260512
        * - Ensure that `tenantId` and `userId` come from verified identity information.
        * ### Precautions
        * - `directoryId` is a required parameter that specifies the target folder in which to check and retry failed data sources.
-       * - If `tenantId` is not provided, the tenant ID of the caller is used by default.
+       * - If `tenantId` is not provided, the caller\\"s tenant ID is used by default.
        * - The API supports multiple authentication methods, including AccessKey, BearerToken, and APP authentication.
        *
        * @param request RetryDirectoryFailedSourcesRequest
@@ -3199,7 +3263,7 @@ namespace WinNexo20260512
        * - Ensure that `tenantId` and `userId` come from verified identity information.
        * ### Precautions
        * - `directoryId` is a required parameter that specifies the target folder in which to check and retry failed data sources.
-       * - If `tenantId` is not provided, the tenant ID of the caller is used by default.
+       * - If `tenantId` is not provided, the caller\\"s tenant ID is used by default.
        * - The API supports multiple authentication methods, including AccessKey, BearerToken, and APP authentication.
        *
        * @param request RetryDirectoryFailedSourcesRequest
@@ -3208,14 +3272,14 @@ namespace WinNexo20260512
       Models::RetryDirectoryFailedSourcesResponse retryDirectoryFailedSources(const Models::RetryDirectoryFailedSourcesRequest &request);
 
       /**
-       * @summary Retries all data sources in failed status under a specified directory in batch.
+       * @summary Retries all data sources in failed status under a specified directory in batches.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * This API retrieves and retries all data sources in FAILED status under a specified enterprise knowledge base directory (including its subdirectories). The request returns immediately, and the actual retry operations are executed asynchronously in the background.
        * - **Authentication**: In addition to basic authentication, the `DEVELOPMENT_KB_MANAGE` permission is required.
        * - **Security constraints**: Only callers with the corresponding tenant and user identity are allowed access, and KB management permission is required. Administrators can initiate retries for failed resources of any user.
        * - **Parameters**:
-       *   - `directoryId` (required): The ID of the enterprise knowledge base directory for which to check and retry failed data sources.
+       *   - `directoryId` (required): The ID of the enterprise knowledge base directory to check and retry failed data sources.
        *   - `tenantId` (optional): The tenant ID. The default tenant of the caller is used if this parameter is not specified.
        * - **Response**: On success, returns the number of data sources enqueued for retry and related details.
        *
@@ -3227,14 +3291,14 @@ namespace WinNexo20260512
       Models::RetryKnowledgeBaseFailedSourcesResponse retryKnowledgeBaseFailedSourcesWithOptions(const Models::RetryKnowledgeBaseFailedSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries all data sources in failed status under a specified directory in batch.
+       * @summary Retries all data sources in failed status under a specified directory in batches.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * This API retrieves and retries all data sources in FAILED status under a specified enterprise knowledge base directory (including its subdirectories). The request returns immediately, and the actual retry operations are executed asynchronously in the background.
        * - **Authentication**: In addition to basic authentication, the `DEVELOPMENT_KB_MANAGE` permission is required.
        * - **Security constraints**: Only callers with the corresponding tenant and user identity are allowed access, and KB management permission is required. Administrators can initiate retries for failed resources of any user.
        * - **Parameters**:
-       *   - `directoryId` (required): The ID of the enterprise knowledge base directory for which to check and retry failed data sources.
+       *   - `directoryId` (required): The ID of the enterprise knowledge base directory to check and retry failed data sources.
        *   - `tenantId` (optional): The tenant ID. The default tenant of the caller is used if this parameter is not specified.
        * - **Response**: On success, returns the number of data sources enqueued for retry and related details.
        *
@@ -3440,11 +3504,11 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
+       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
+       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
        * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write, and operation logs are recorded for subsequent auditing.
        *
@@ -3458,11 +3522,11 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
+       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
+       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
        * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write, and operation logs are recorded for subsequent auditing.
        *
@@ -3476,11 +3540,11 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
+       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
+       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
        * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write, and operation logs are recorded for subsequent auditing.
        *
@@ -3986,20 +4050,20 @@ namespace WinNexo20260512
       Models::UpdateUserInfoResponse updateUserInfo(const Models::UpdateUserInfoRequest &request);
 
       /**
-       * @summary Uploads a local file in a session.
+       * @summary Uploads a local file for a session.
        *
        * @description ## Operation description
-       * This API is used to upload a session temporary file by using the **file transfer upload** mode (`fileTransfer`). The file binary data is not transmitted through the request body of this API. Instead, the file is first uploaded to Object Storage Service (OSS), and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the bytes from that address, writes them to its own OSS, and creates a session temporary file record.
-       * ### Call methods
-       * - **Recommended**: Use the `UploadChatFileAdvance` method generated by the SDK. Pass in the local file stream, and the SDK automatically completes the transfer upload and populates `FileUrl`.
-       * - **Direct upload**: Upload the file to an OSS address accessible by the server, and then directly call this API with the `FileUrl` parameter.
+       * This API operation uploads a temporary temporary file by using the **file transfer upload** mode (`fileTransfer`). The file binary data is not transmitted in the request body of this API operation. Instead, the file is first uploaded to Object Storage Service (OSS), and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the bytes from that address, writes them to its own OSS bucket, and creates a temporary temporary file record.
+       * ### How to call
+       * - **Recommended**: Use the `UploadChatFileAdvance` method generated by the SDK. Pass in the local file stream, and the SDK automatically completes the transfer upload and populates the `FileUrl` parameter.
+       * - **Direct upload**: Upload the file to an OSS address accessible by the server, and then call this API operation directly with the `FileUrl` parameter.
        * ### Request parameters
-       * - **FileUrl**: Required. The OSS address of the file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to manually assign a value.
-       * - **FileName**: Required. The original file name including the extension, such as `report.pdf`. The OSS address generated during transfer does not carry the original file name. The backend uses this parameter to determine the file extension and display name. Therefore, you must explicitly pass in this parameter.
+       * - **FileUrl**: Required. The OSS address of the file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to manually set it.
+       * - **FileName**: Required. The original file name including the extension, such as `report.pdf`. The OSS address generated during the transfer does not carry the original file name. The backend uses this parameter to determine the file extension and display name. Therefore, you must explicitly pass in this parameter.
        * - **ContentType**: Optional. The MIME type of the file. If this parameter is not specified, `application/octet-stream` is used.
-       * - **OperatingObjectName**: Optional. The Agent namespace identifier that determines the file storage path.
+       * - **OperatingObjectName**: Optional. The agent namespace identifier that determines the file storage path.
        * ### Response parameters
-       * The response includes the OSS object path `objectName`, the storage address `fileUrl`, the public access address `filePublicUrl` (valid for 1 hour), and the file record ID `fileRecordId`. The `uploadSignatureUrl` parameter is always empty in this mode.
+       * The response includes the OSS object path `objectName`, the storage address `fileUrl`, the publicly accessible address `filePublicUrl` (valid for 1 hour), and the file record ID `fileRecordId`. The `uploadSignatureUrl` parameter is always empty in this mode.
        *
        * @param request UploadChatFileRequest
        * @param headers map
@@ -4009,20 +4073,20 @@ namespace WinNexo20260512
       Models::UploadChatFileResponse uploadChatFileWithOptions(const Models::UploadChatFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a local file in a session.
+       * @summary Uploads a local file for a session.
        *
        * @description ## Operation description
-       * This API is used to upload a session temporary file by using the **file transfer upload** mode (`fileTransfer`). The file binary data is not transmitted through the request body of this API. Instead, the file is first uploaded to Object Storage Service (OSS), and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the bytes from that address, writes them to its own OSS, and creates a session temporary file record.
-       * ### Call methods
-       * - **Recommended**: Use the `UploadChatFileAdvance` method generated by the SDK. Pass in the local file stream, and the SDK automatically completes the transfer upload and populates `FileUrl`.
-       * - **Direct upload**: Upload the file to an OSS address accessible by the server, and then directly call this API with the `FileUrl` parameter.
+       * This API operation uploads a temporary temporary file by using the **file transfer upload** mode (`fileTransfer`). The file binary data is not transmitted in the request body of this API operation. Instead, the file is first uploaded to Object Storage Service (OSS), and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the bytes from that address, writes them to its own OSS bucket, and creates a temporary temporary file record.
+       * ### How to call
+       * - **Recommended**: Use the `UploadChatFileAdvance` method generated by the SDK. Pass in the local file stream, and the SDK automatically completes the transfer upload and populates the `FileUrl` parameter.
+       * - **Direct upload**: Upload the file to an OSS address accessible by the server, and then call this API operation directly with the `FileUrl` parameter.
        * ### Request parameters
-       * - **FileUrl**: Required. The OSS address of the file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to manually assign a value.
-       * - **FileName**: Required. The original file name including the extension, such as `report.pdf`. The OSS address generated during transfer does not carry the original file name. The backend uses this parameter to determine the file extension and display name. Therefore, you must explicitly pass in this parameter.
+       * - **FileUrl**: Required. The OSS address of the file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to manually set it.
+       * - **FileName**: Required. The original file name including the extension, such as `report.pdf`. The OSS address generated during the transfer does not carry the original file name. The backend uses this parameter to determine the file extension and display name. Therefore, you must explicitly pass in this parameter.
        * - **ContentType**: Optional. The MIME type of the file. If this parameter is not specified, `application/octet-stream` is used.
-       * - **OperatingObjectName**: Optional. The Agent namespace identifier that determines the file storage path.
+       * - **OperatingObjectName**: Optional. The agent namespace identifier that determines the file storage path.
        * ### Response parameters
-       * The response includes the OSS object path `objectName`, the storage address `fileUrl`, the public access address `filePublicUrl` (valid for 1 hour), and the file record ID `fileRecordId`. The `uploadSignatureUrl` parameter is always empty in this mode.
+       * The response includes the OSS object path `objectName`, the storage address `fileUrl`, the publicly accessible address `filePublicUrl` (valid for 1 hour), and the file record ID `fileRecordId`. The `uploadSignatureUrl` parameter is always empty in this mode.
        *
        * @param request UploadChatFileRequest
        * @return UploadChatFileResponse

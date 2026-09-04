@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> announcementId_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass this explicitly with --tenant-id.
+    // The tenant ID. This is a common parameter. Pass it explicitly in winnexo-cli by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

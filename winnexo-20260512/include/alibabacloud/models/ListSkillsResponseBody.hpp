@@ -199,11 +199,11 @@ namespace Models
       shared_ptr<string> skillCode_ {};
       // The skill definition ID.
       shared_ptr<int64_t> skillHubDefinitionId_ {};
-      // The data source type. Fixed value: FILE.
+      // The skill source type.
       shared_ptr<string> sourceType_ {};
-      // The task status. Returns Running upon submission.
+      // The task status. Running is returned upon submission.
       shared_ptr<string> status_ {};
-      // The keys.
+      // The key.
       shared_ptr<vector<string>> tags_ {};
       // The update timestamp, in milliseconds.
       shared_ptr<string> updatedTime_ {};

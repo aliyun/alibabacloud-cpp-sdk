@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<int64_t> parentId_ {};
     // The path of the node.
     shared_ptr<string> path_ {};
-    // The ID of the effective tenant.
+    // The ID of the tenant for which the operation takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

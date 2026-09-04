@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The incremental information list.
     shared_ptr<vector<map<string, string>>> items_ {};
-    // The error description. This value is empty when the request succeeds.
+    // The error description. This parameter is empty when the request succeeds.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};

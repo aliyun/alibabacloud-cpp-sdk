@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};

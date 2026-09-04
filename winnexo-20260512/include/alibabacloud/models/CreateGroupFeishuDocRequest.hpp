@@ -253,7 +253,7 @@ namespace Models
   protected:
     // The description of the AI assistant.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The document URL.
     // 

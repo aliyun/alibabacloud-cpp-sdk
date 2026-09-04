@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> enabled_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The ID of the recommended item, which can be a **feedId** or a mini-app ID.
+      // The ID of the recommended item, which can be a **feedId** or a micro-application ID.
       shared_ptr<string> objectId_ {};
       // The object type, such as customer. This parameter has a value when type is set to mention.
       shared_ptr<string> objectType_ {};
@@ -182,9 +182,9 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group to which the task belongs (such as cg_101). If this parameter is specified, a group space task is created (the caller must be a valid group member). If this parameter is left empty, a personal task is created.
+    // The ID of the collaboration group (such as cg_101). If this parameter is specified, a group space task is created (the caller must be a valid group member). If this parameter is left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
-    // The name of the current effective digital employee. This parameter is empty if not configured.
+    // The name of the current effective digital employee. This value is empty if not configured.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> digitalEmployeeName_ {};

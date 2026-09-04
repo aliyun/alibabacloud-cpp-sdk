@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The datasource status after re-parsing.
+    // The data source status after re-parsing.
     shared_ptr<string> status_ {};
     // The user who performed the update.
     shared_ptr<int64_t> updatedBy_ {};

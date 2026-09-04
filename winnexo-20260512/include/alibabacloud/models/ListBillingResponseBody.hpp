@@ -228,9 +228,9 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The business type.
       shared_ptr<string> bizType_ {};
-      // costSource
+      // The cost source type.
       shared_ptr<vector<string>> costSource_ {};
-      // costSourceDisplayName
+      // The display name of the cost source.
       shared_ptr<vector<string>> costSourceDisplayName_ {};
       // The end timestamp, in milliseconds.
       shared_ptr<string> endTime_ {};
@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<string> entryObjectId_ {};
       // The entry object type.
       shared_ptr<string> entryObjectType_ {};
-      // Indicates whether the bill is a shadow bill.
+      // Indicates whether this is a shadow bill.
       shared_ptr<bool> isShadow_ {};
       // The operation type.
       shared_ptr<string> operation_ {};
@@ -246,7 +246,7 @@ namespace Models
       shared_ptr<string> operationDisplayName_ {};
       // The start timestamp, in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The task status. Running is returned upon submission.
+      // The task status. The status is returned as Running upon submission.
       shared_ptr<string> status_ {};
       // The display name of the status.
       shared_ptr<string> statusDisplayName_ {};
@@ -315,7 +315,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The details of the list.
+    // The details of the bill list.
     shared_ptr<vector<ListBillingResponseBody::List>> list_ {};
     // The prompt message.
     shared_ptr<string> message_ {};

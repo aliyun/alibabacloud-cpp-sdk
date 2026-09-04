@@ -132,7 +132,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The document URL.
     shared_ptr<string> docUrl_ {};
@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The image name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};

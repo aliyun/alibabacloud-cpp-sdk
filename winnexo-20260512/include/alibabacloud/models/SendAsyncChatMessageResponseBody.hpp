@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<bool> sessionCreated_ {};
     // The session ID. For continued sessions, this matches the input value. For new sessions, this is a server-generated value.
     shared_ptr<string> sessionId_ {};
-    // The user message ID. Use this ID to establish a pairing relationship with the assistant message in this turn.
+    // The user message ID.
     shared_ptr<string> userMessageId_ {};
   };
 

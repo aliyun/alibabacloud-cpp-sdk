@@ -454,7 +454,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The username.
     shared_ptr<string> name_ {};
-    // The meeting notes content (optional), which participates in auxiliary analysis.
+    // The meeting notes content (optional). The notes are used for auxiliary analysis.
     shared_ptr<string> notes_ {};
     // The object bindings.
     shared_ptr<vector<GetSourceResponseBody::ObjectBindings>> objectBindings_ {};
@@ -468,13 +468,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The task scope.
     shared_ptr<string> scope_ {};
-    // The user profile card settings.
+    // The user profile settings.
     Darabonba::Json settings_ {};
     // The skill output ID (carried when the output is saved as a resource).
     shared_ptr<string> skillOutputId_ {};
     // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // The knowledge base affiliation type. Valid values:
+    // The knowledge base (KB) ownership type. Valid values:
     // - aliding_kb_doc: DingTalk knowledge base document.
     // - normal: common knowledge.
     shared_ptr<string> sourceKind_ {};
@@ -484,7 +484,7 @@ namespace Models
     shared_ptr<string> sourceType_ {};
     // The final status of the message.
     shared_ptr<string> status_ {};
-    // structuredTables
+    // The list of structured tables.
     shared_ptr<vector<string>> structuredTables_ {};
     // The unstructured documents.
     shared_ptr<vector<GetSourceResponseBody::UnstructuredDocs>> unstructuredDocs_ {};

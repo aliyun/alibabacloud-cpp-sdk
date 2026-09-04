@@ -96,15 +96,15 @@ namespace Models
   protected:
     // The type of the output item. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
     shared_ptr<string> itemType_ {};
-    // The keyword for searching. Matches output titles or item names.
+    // The keyword for searching. Matches the output title or item name.
     shared_ptr<string> keyword_ {};
     // The name of the digital employee (operating object). Used to filter results by name.
     shared_ptr<string> operatingObjectName_ {};
     // The page number, starting from 1.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of items per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // Specifies whether to display only outputs and output items that have sharing enabled.
+    // Specifies whether to display only outputs and output items with sharing enabled.
     shared_ptr<bool> sharedOnly_ {};
     // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};

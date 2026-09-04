@@ -174,11 +174,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The ID of the enterprise knowledge base folder. Failed resources in the folder and its subfolders are included recursively.
+    // The ID of the enterprise knowledge base folder. Failed resources in subfolders are recursively included.
     shared_ptr<string> directoryId_ {};
     // The number of resources successfully enqueued for retry.
     shared_ptr<int64_t> enqueuedCount_ {};
-    // enqueuedIds。
+    // The list of source IDs that have been re-enqueued.
     shared_ptr<vector<string>> enqueuedIds_ {};
     // The total number of failed resources in the folder.
     shared_ptr<int64_t> failedCount_ {};

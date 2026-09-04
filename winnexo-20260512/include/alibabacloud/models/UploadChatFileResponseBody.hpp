@@ -125,24 +125,24 @@ namespace Models
     shared_ptr<string> code_ {};
     // The content type of the file. Valid values:
     // 
-    // - **image**: image
-    // - **document**: general document
-    // - **alidoc**: Alibaba document
-    // - **text**: text
-    // - **video**: video
-    // - **audio**: audio
-    // - **archive**: archive
-    // - **app**: application
-    // - **link**: shortcut
-    // - **other**: other
+    // - **image**: Image.
+    // - **document**: General document.
+    // - **alidoc**: Alibaba document.
+    // - **text**: Text.
+    // - **video**: Video.
+    // - **audio**: Audio.
+    // - **archive**: Archive.
+    // - **app**: Application.
+    // - **link**: Shortcut.
+    // - **other**: Other.
     shared_ptr<string> contentType_ {};
     // The full path name of the file.
     shared_ptr<string> fileName_ {};
-    // The publicly accessible URL of the online document.
+    // The publicly accessible URL of the AliDing online document.
     shared_ptr<string> filePublicUrl_ {};
-    // The file record ID (optional, corresponding to settings.file_record_id).
+    // The file record ID. This parameter is optional and corresponds to settings.file_record_id.
     shared_ptr<string> fileRecordId_ {};
-    // The attachment address.
+    // The Yida attachment address.
     shared_ptr<string> fileUrl_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};

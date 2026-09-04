@@ -98,13 +98,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // Id of the request
+    // The session ID.
     shared_ptr<string> conversationId_ {};
     // The time when the share was created.
     shared_ptr<string> createdAt_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // A reserved field for extension use.
+    // A reserved field for extension purposes.
     Darabonba::Json metadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

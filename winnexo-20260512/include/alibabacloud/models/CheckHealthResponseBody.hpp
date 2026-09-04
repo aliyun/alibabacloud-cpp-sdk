@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The authentication source: bearer / aliyun_gateway.
+    // The authentication source. Valid values: bearer and aliyun_gateway.
     shared_ptr<string> authSource_ {};
-    // The caller type: user / aliyun_main / aliyun_ram / service.
+    // The caller type. Valid values: user, aliyun_main, aliyun_ram, and service.
     shared_ptr<string> callerType_ {};
     // The response status code.
     shared_ptr<string> code_ {};
     // The name of the currently effective digital employee. This value is empty if not configured.
     shared_ptr<string> digitalEmployeeName_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

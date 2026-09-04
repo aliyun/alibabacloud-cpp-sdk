@@ -77,28 +77,28 @@ namespace Models
   protected:
     // The content type of the file. Valid values:
     // 
-    // - **image**: image
-    // - **document**: general document
-    // - **alidoc**: Alibaba document
-    // - **text**: text
-    // - **video**: video
-    // - **audio**: audio
-    // - **archive**: archive
-    // - **app**: application
-    // - **link**: shortcut
-    // - **other**: other
+    // - **image**: Image.
+    // - **document**: General document.
+    // - **alidoc**: Alibaba document.
+    // - **text**: Text.
+    // - **video**: Video.
+    // - **audio**: Audio.
+    // - **archive**: Archive.
+    // - **app**: Application.
+    // - **link**: Shortcut.
+    // - **other**: Other.
     shared_ptr<string> contentType_ {};
     // The full path name of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The attachment address.
+    // The Yida attachment address.
     // 
     // This parameter is required.
     shared_ptr<Darabonba::IStream> fileUrlObject_ {};
-    // The name of the digital employee (operating object name, optional).
+    // The name of the digital employee (operating object name). This parameter is optional.
     shared_ptr<string> operatingObjectName_ {};
-    // The tenant ID.
+    // The tenant ID that takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -164,9 +164,9 @@ namespace Models
     shared_ptr<string> displayType_ {};
     // The effective end time.
     shared_ptr<string> effectiveEnd_ {};
-    // The effective start time in ISO 8601 format with time zone information. If this parameter is not specified, the notice takes effect immediately.
+    // The effective start time in ISO 8601 format with time zone. If this parameter is not specified, the notice takes effect immediately.
     shared_ptr<string> effectiveStart_ {};
-    // The priority level. Valid values:
+    // The priority. Valid values:
     // 
     // This parameter is required.
     shared_ptr<string> priority_ {};

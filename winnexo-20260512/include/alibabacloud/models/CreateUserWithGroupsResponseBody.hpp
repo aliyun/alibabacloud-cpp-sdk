@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The WINNEXO logon account.
     shared_ptr<string> accountId_ {};
-    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
+    // The error code.
     shared_ptr<string> code_ {};
     // The display name of the user.
     shared_ptr<string> displayName_ {};
-    // Indicates whether the user is newly created. A value of false indicates that an existing user joined the tenant.
+    // Indicates whether the user is newly created.
     shared_ptr<bool> isNewUser_ {};
-    // The error description. This parameter is empty when the request succeeds.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The WINNEXO platform user ID.
+    // The platform user ID.
     shared_ptr<string> wnUserId_ {};
   };
 

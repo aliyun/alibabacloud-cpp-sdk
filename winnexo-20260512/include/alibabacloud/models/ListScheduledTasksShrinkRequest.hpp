@@ -116,9 +116,9 @@ namespace Models
     shared_ptr<string> collaborationGroupId_ {};
     // Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension (in the personal dimension, only the caller\\"s own tasks are returned). If not specified, no filtering is applied.
     shared_ptr<bool> creatorOnly_ {};
-    // The keyword of the rule name, used for fuzzy match.
+    // The keyword of the rule name for fuzzy match.
     shared_ptr<string> keyword_ {};
-    // The maximum number of entries returned in this request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};

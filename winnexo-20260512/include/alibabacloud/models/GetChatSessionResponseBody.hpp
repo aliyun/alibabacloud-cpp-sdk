@@ -157,7 +157,7 @@ namespace Models
       shared_ptr<int64_t> createdAt_ {};
       // The message ID.
       shared_ptr<string> id_ {};
-      // Indicates whether the creation time exceeds 30 days.
+      // Indicates whether the creation time is older than 30 days.
       shared_ptr<bool> isExpired_ {};
       // The session metadata.
       Darabonba::Json metadata_ {};
@@ -321,7 +321,7 @@ namespace Models
       shared_ptr<string> object_ {};
       // The role.
       shared_ptr<string> role_ {};
-      // The username of the sharing source. This parameter has a value only when from_share=True.
+      // The username of the user who shared the message. This parameter has a value only when from_share is set to True.
       shared_ptr<string> shareUserName_ {};
       // The message status.
       shared_ptr<string> status_ {};
@@ -383,7 +383,7 @@ namespace Models
     shared_ptr<vector<GetChatSessionResponseBody::Messages>> messages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session ID.
+    // The session information.
     shared_ptr<GetChatSessionResponseBody::Session> session_ {};
   };
 

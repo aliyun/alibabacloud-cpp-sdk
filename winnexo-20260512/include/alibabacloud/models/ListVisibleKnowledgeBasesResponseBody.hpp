@@ -155,7 +155,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The directory ID. You can obtain this value by calling the API operation for retrieving the knowledge base directory.
       shared_ptr<string> directoryId_ {};
-      // The creation time. This value is a timestamp in milliseconds.
+      // The creation time. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
@@ -163,11 +163,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The file directory information.
       shared_ptr<string> path_ {};
-      // The number of resources in the FAILED state. This parameter is returned only when listing top-level knowledge base directories.
+      // The number of resources in the FAILED state. This parameter is returned only when the top-level knowledge base directory list is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The number of resources in the READY state. This parameter is returned only when listing top-level knowledge base directories.
+      // The number of resources in the READY state. This parameter is returned only when the top-level knowledge base directory list is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The total number of resources in the directory and its subdirectories. This parameter is returned only when listing top-level knowledge base directories.
+      // The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level knowledge base directory list is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
     };
 
@@ -217,7 +217,7 @@ namespace Models
     shared_ptr<vector<ListVisibleKnowledgeBasesResponseBody::Items>> items_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

@@ -14,15 +14,19 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const StreamChatMessageResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_ANY_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, StreamChatMessageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_ANY_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(type, type_);
     };
     StreamChatMessageResponseBody() = default ;
     StreamChatMessageResponseBody(const StreamChatMessageResponseBody &) = default ;
@@ -36,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->content_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->type_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline StreamChatMessageResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // content Field Functions 
+    bool hasContent() const { return this->content_ != nullptr;};
+    void deleteContent() { this->content_ = nullptr;};
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline StreamChatMessageResponseBody& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // data Field Functions 
@@ -67,15 +78,26 @@ namespace Models
     inline StreamChatMessageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline StreamChatMessageResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The SSE event stream payload. On success, the response is in text/event-stream raw frames and must be consumed frame by frame in a streaming manner.
+    // The incremental content of the current SSE frame.
+    shared_ptr<string> content_ {};
+    // The SSE event stream payload. On success, the response is returned as raw text/event-stream frames that must be consumed frame by frame in streaming mode.
     Darabonba::Json data_ {};
     // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The SSE event type, such as text, think, heartbeat, done, or error.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

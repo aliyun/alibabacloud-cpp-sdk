@@ -274,7 +274,7 @@ namespace Models
 
 
     protected:
-      // The reason for the abnormality. This field has a value only when status is abnormal.
+      // The reason for the exception. This field has a value only when status is abnormal.
       shared_ptr<string> abnormalReason_ {};
       // Indicates whether the current caller can delete the task (only the task creator and group owner can do so). Always returns true for personal tasks.
       shared_ptr<bool> canDelete_ {};
@@ -296,7 +296,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The list of digital employee names.
       shared_ptr<vector<string>> digitalEmployeeName_ {};
-      // The cumulative number of executions.
+      // The total number of executions.
       shared_ptr<int64_t> executionCount_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -314,14 +314,14 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The trigger type.
       shared_ptr<string> triggerType_ {};
-      // The visibility of the group task. Valid values:
+      // The visibility scope of the group task. Valid values:
       // - PRIVATE: visible only to the creator and group owner.
       // - COLLABORATIVE: visible to specified collaborators.
       // - PUBLIC: visible to all group members.
       // 
-      // If not specified for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
+      // For group tasks, the default value is PRIVATE if not specified. This field is ignored for personal tasks.
       shared_ptr<string> visibility_ {};
-      // The list of collaborator user IDs (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
+      // The list of collaborators (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
       shared_ptr<vector<string>> visibleMemberUserIds_ {};
     };
 
@@ -409,7 +409,7 @@ namespace Models
     shared_ptr<bool> hasMore_ {};
     // The list of skill cards.
     shared_ptr<vector<ListScheduledTasksResponseBody::Items>> items_ {};
-    // The maximum number of entries returned in this request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The status code description.
     shared_ptr<string> message_ {};

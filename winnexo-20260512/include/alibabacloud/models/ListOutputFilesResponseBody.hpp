@@ -186,7 +186,7 @@ namespace Models
         protected:
           // The number of completed slides.
           shared_ptr<int64_t> completedSlides_ {};
-          // PPT ID
+          // The PPT file ID.
           shared_ptr<string> pptId_ {};
           // The PPT name.
           shared_ptr<string> pptName_ {};
@@ -466,7 +466,7 @@ namespace Models
         shared_ptr<string> outputItemId_ {};
         // Indicates whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // The share token, which is present when sharing is enabled. You can use this token to access the public share preview API.
+        // The share token that is present when sharing is enabled. You can use this token to access the public share preview API.
         shared_ptr<string> shareToken_ {};
         // The skill output ID.
         shared_ptr<string> skillOutputId_ {};

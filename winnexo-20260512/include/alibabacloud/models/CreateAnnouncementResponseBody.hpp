@@ -109,7 +109,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The creator.
     shared_ptr<int64_t> createdBy_ {};
-    // The response message.
+    // The prompt message.
     shared_ptr<string> message_ {};
     // The publish time in ISO 8601 format. This field is empty for drafts.
     shared_ptr<string> publishedAt_ {};
@@ -117,8 +117,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The source type of the dictionary file. Valid values: OSS: Object Storage Service (OSS). ORIGIN: retains the previously uploaded dictionary.
     shared_ptr<string> sourceType_ {};
-    // The refund status. You must query this field to confirm the refund status during processing. Valid values:
-    // - SUCCESS: All refunds succeeded.
+    // The refund status. You need to query and confirm the refund status during the refund process. Valid values:
+    // - SUCCESS: All succeeded.
     // - FAIL: Failed.
     // - WAIT_PAY: Waiting for refund.
     // - EXPIRE: Expired.

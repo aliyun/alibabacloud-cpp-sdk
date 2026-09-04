@@ -130,18 +130,18 @@ namespace Models
 
 
   protected:
-    // The unique business identifier. When bizType is set to LibraryChat, bizId refers to the document library ID.
+    // The unique business identifier. When bizType is LibraryChat, bizId refers to the document library ID.
     shared_ptr<string> bizId_ {};
     // The business type. Currently supported values: model Q&A (LlmChat) and document library Q&A (LibraryChat).
     shared_ptr<string> bizType_ {};
     // The actual end timestamp of the live stream, in milliseconds.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to filter out bills with zero credit consumption. Default value: true (filtered).
+    // Specifies whether to filter out bills with zero credit consumption. Default value: true (filter out).
     shared_ptr<bool> ignoreZero_ {};
     // The operation type. Valid values:
     // 
-    // - start: indicates node creation. This is the default value and does not need to be explicitly set in most cases.
-    // - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. Set this to stop after the meeting ends to trigger the call. This is used in real-time meeting scenarios.
+    // - start: indicates task creation. This is the default value and does not need to be explicitly set in most cases.
+    // - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. After the meeting ends, set this to stop to trigger the call. This is used in real-time meeting scenarios.
     // 
     // Note: When ending a real-time recording, you must set this parameter to stop.
     shared_ptr<string> operation_ {};
@@ -149,9 +149,9 @@ namespace Models
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The query start time. This is a UNIX timestamp in seconds.
+    // The query start time. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
-    // The task status. Running is returned upon submission.
+    // The task status. The status is returned as Running upon submission.
     shared_ptr<string> status_ {};
     // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};

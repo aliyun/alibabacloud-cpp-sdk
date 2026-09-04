@@ -6,9 +6,16 @@
 #include <alibabacloud/models/AddUserGroupMembersShrinkRequest.hpp>
 #include <alibabacloud/models/AddUserGroupMembersResponseBody.hpp>
 #include <alibabacloud/models/AddUserGroupMembersResponse.hpp>
+#include <alibabacloud/models/BatchRemoveOperatingObjectFavoritesRequest.hpp>
+#include <alibabacloud/models/BatchRemoveOperatingObjectFavoritesShrinkRequest.hpp>
+#include <alibabacloud/models/BatchRemoveOperatingObjectFavoritesResponseBody.hpp>
+#include <alibabacloud/models/BatchRemoveOperatingObjectFavoritesResponse.hpp>
 #include <alibabacloud/models/CheckHealthRequest.hpp>
 #include <alibabacloud/models/CheckHealthResponseBody.hpp>
 #include <alibabacloud/models/CheckHealthResponse.hpp>
+#include <alibabacloud/models/ClearOperatingObjectFavoritesRequest.hpp>
+#include <alibabacloud/models/ClearOperatingObjectFavoritesResponseBody.hpp>
+#include <alibabacloud/models/ClearOperatingObjectFavoritesResponse.hpp>
 #include <alibabacloud/models/CreateAnnouncementRequest.hpp>
 #include <alibabacloud/models/CreateAnnouncementShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAnnouncementResponseBody.hpp>
@@ -219,6 +226,9 @@
 #include <alibabacloud/models/ListKnowledgeBaseDirectoriesRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeBaseDirectoriesResponseBody.hpp>
 #include <alibabacloud/models/ListKnowledgeBaseDirectoriesResponse.hpp>
+#include <alibabacloud/models/ListOperatingObjectFavoritesRequest.hpp>
+#include <alibabacloud/models/ListOperatingObjectFavoritesResponseBody.hpp>
+#include <alibabacloud/models/ListOperatingObjectFavoritesResponse.hpp>
 #include <alibabacloud/models/ListOutputFilesRequest.hpp>
 #include <alibabacloud/models/ListOutputFilesResponseBody.hpp>
 #include <alibabacloud/models/ListOutputFilesResponse.hpp>

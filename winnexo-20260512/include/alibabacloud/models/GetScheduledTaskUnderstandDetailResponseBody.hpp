@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The skill code.
       shared_ptr<string> skillCode_ {};
-      // sourceIds
+      // The list of source IDs for related skills.
       shared_ptr<vector<string>> sourceIds_ {};
     };
 

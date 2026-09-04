@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(passwordEncrypted, passwordEncrypted_);
       DARABONBA_PTR_TO_JSON(roleCodes, roleCodes_);
+      DARABONBA_PTR_TO_JSON(ssoProvider, ssoProvider_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(wnAccountId, wnAccountId_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(passwordEncrypted, passwordEncrypted_);
       DARABONBA_PTR_FROM_JSON(roleCodes, roleCodes_);
+      DARABONBA_PTR_FROM_JSON(ssoProvider, ssoProvider_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(wnAccountId, wnAccountId_);
     };
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->passwordEncrypted_ == nullptr && this->roleCodes_ == nullptr && this->tenantId_ == nullptr && this->wnAccountId_ == nullptr; };
+        && this->passwordEncrypted_ == nullptr && this->roleCodes_ == nullptr && this->ssoProvider_ == nullptr && this->tenantId_ == nullptr && this->wnAccountId_ == nullptr; };
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     inline CreateUserRequest& setRoleCodes(vector<string> && roleCodes) { DARABONBA_PTR_SET_RVALUE(roleCodes_, roleCodes) };
 
 
+    // ssoProvider Field Functions 
+    bool hasSsoProvider() const { return this->ssoProvider_ != nullptr;};
+    void deleteSsoProvider() { this->ssoProvider_ = nullptr;};
+    inline string getSsoProvider() const { DARABONBA_PTR_GET_DEFAULT(ssoProvider_, "") };
+    inline CreateUserRequest& setSsoProvider(string ssoProvider) { DARABONBA_PTR_SET_VALUE(ssoProvider_, ssoProvider) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -82,13 +91,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // The base64-encoded password ciphertext encrypted by RSA-OAEP-SHA256 (required).
+    // The base64-encoded password ciphertext encrypted by using RSA-OAEP-SHA256 (required).
     // 
     // This parameter is required.
     shared_ptr<string> passwordEncrypted_ {};
     // The list of new system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<vector<string>> roleCodes_ {};
-    // The ID of the tenant in which the operation takes effect.
+    // The SSO provider type. This parameter is optional if the tenant has only one external logon method. This parameter is required if the tenant has multiple external logon methods. Currently, createUser supports BUILD_IN and AGENT_ONE.
+    shared_ptr<string> ssoProvider_ {};
+    // The ID of the tenant on which the operation takes effect.
     shared_ptr<string> tenantId_ {};
     // The WINNEXO logon account (unique identifier, required).
     // 

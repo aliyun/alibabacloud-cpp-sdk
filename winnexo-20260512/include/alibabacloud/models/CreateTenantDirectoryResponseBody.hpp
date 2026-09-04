@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The description of the to-do card type.
     shared_ptr<string> description_ {};
-    // The directory ID.
+    // The folder ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
@@ -170,7 +170,7 @@ namespace Models
     shared_ptr<int64_t> gmtCreate_ {};
     // The last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // Id of the request
+    // The tenant folder ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -190,7 +190,7 @@ namespace Models
     shared_ptr<string> path_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the effective tenant.
+    // The ID of the tenant for which the operation takes effect.
     // 
     // This parameter is required.
     shared_ptr<int64_t> tenantId_ {};

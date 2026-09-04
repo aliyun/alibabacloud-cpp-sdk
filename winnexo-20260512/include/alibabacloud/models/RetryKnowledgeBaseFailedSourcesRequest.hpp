@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the enterprise knowledge base directory. Failed resources in subdirectories are recursively included.
+    // The enterprise knowledge base directory ID (recursively includes failed resources in subdirectories).
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

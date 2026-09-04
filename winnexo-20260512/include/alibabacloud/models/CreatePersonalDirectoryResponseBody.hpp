@@ -156,13 +156,13 @@ namespace Models
     shared_ptr<string> message_ {};
     // The name of the worksheet.
     shared_ptr<string> name_ {};
-    // The name of the digital human (operating object name, optional).
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
     // The folder ID.
     shared_ptr<string> parentDirectoryId_ {};
     // The path.
     shared_ptr<string> path_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

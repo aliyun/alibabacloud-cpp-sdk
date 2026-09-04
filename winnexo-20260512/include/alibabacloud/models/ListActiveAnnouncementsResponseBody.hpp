@@ -162,7 +162,7 @@ namespace Models
 
 
     protected:
-      // The business ID of the notice.
+      // The business ID of the announcement.
       shared_ptr<int64_t> announcementId_ {};
       // The returned content.
       shared_ptr<string> content_ {};
@@ -174,11 +174,11 @@ namespace Models
       shared_ptr<string> displayType_ {};
       // The custom effective end time.
       shared_ptr<string> effectiveEnd_ {};
-      // The effective start time in ISO 8601 format with time zone. If this parameter is not specified, the notice takes effect immediately.
+      // The effective start time in ISO 8601 format with time zone. If not specified, the announcement takes effect immediately.
       shared_ptr<string> effectiveStart_ {};
       // The priority of the free task.
       // 
-      // - Uses the default priority of the project, as shown in the following figure. The default priority values are as follows:
+      // - Uses the default priority of the project, as shown in the following figure. The default priorities are as follows:
       // 
       //      - **-10**: Low. This is the default value.
       // 
@@ -190,15 +190,15 @@ namespace Models
       // 
       // ![](https://img.alicdn.com/imgextra/i1/O1CN01hNuSPz25juCzgxhmW_!!6000000007563-2-tps-2682-1304.png)
       // 
-      // - Custom priority defined by the user, as shown in the following figure, with an additional "Generally urgent" level.
+      // - Custom priority, as shown in the following figure, with an additional "Moderately urgent" level.
       // 
-      // The value of this parameter is subject to the actual response of the API call. A higher priority corresponds to a larger value.
+      // The value of this parameter is subject to the actual response of the API. A higher priority corresponds to a larger value.
       // 
       // ![](https://img.alicdn.com/imgextra/i1/O1CN01V67b3i1mkNvJiW8D1_!!6000000004992-2-tps-2128-1126.png)
       shared_ptr<string> priority_ {};
       // The publish time in ISO 8601 format.
       shared_ptr<string> publishedAt_ {};
-      // The task status. The value Running is returned upon submission.
+      // The task status. Running is returned upon submission.
       shared_ptr<string> status_ {};
       // The title of the scheduled meeting.
       shared_ptr<string> title_ {};

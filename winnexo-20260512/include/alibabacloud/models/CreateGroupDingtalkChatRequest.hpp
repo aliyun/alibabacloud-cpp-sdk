@@ -189,11 +189,11 @@ namespace Models
 
 
   protected:
-    // The conversation ID, typically used for JSSDK.
+    // The session ID, typically used for JSSDK.
     // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
-    // The chat name.
+    // The group chat name.
     shared_ptr<string> chatName_ {};
     // The description of the AI assistant.
     shared_ptr<string> description_ {};
@@ -213,7 +213,7 @@ namespace Models
     shared_ptr<string> operatingObjectName_ {};
     // The source tags.
     shared_ptr<string> sourceTags_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};
     // The feature update frequency.
     shared_ptr<CreateGroupDingtalkChatRequest::UpdateFrequency> updateFrequency_ {};

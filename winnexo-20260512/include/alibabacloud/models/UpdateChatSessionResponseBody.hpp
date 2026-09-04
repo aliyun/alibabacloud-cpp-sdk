@@ -206,7 +206,7 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
+    // The business status code. A value of 200 indicates success. A non-200 value indicates a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
     // The error description. This is empty when the request is successful.
     shared_ptr<string> message_ {};

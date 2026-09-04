@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the session to delete.
+    // The ID of the session to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // The ID of the effective tenant.
+    // The tenant ID that takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

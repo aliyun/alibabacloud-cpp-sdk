@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<string> directoryId_ {};
     // The number of resources successfully enqueued for retry.
     shared_ptr<int64_t> enqueuedCount_ {};
-    // enqueuedIds。
+    // The list of knowledge base source IDs that have been re-enqueued.
     shared_ptr<vector<string>> enqueuedIds_ {};
     // The total number of failed resources under the directory.
     shared_ptr<int64_t> failedCount_ {};
@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // The number of resources skipped because they are not in FAILED status.
+    // The number of resources skipped (not in FAILED status).
     shared_ptr<int64_t> skippedCount_ {};
   };
 
