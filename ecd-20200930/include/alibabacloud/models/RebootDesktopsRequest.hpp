@@ -78,15 +78,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to create a snapshot.
     shared_ptr<bool> createSnapshot_ {};
-    // An array of 1 to 100 desktop IDs.
+    // The cloud computer ID. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
     // Specifies whether to install system patches.
     shared_ptr<bool> osUpdate_ {};
+    // The patch ID.
     shared_ptr<string> patchId_ {};
-    // The ID of the region. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where Elastic Desktop Service is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

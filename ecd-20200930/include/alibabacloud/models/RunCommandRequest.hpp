@@ -106,7 +106,8 @@ namespace Models
 
 
   protected:
-    // The plaintext or Base64-encoded content of the script. The Base64-encoded script content cannot exceed 16 KB.
+    // The plaintext or Base64-encoded content of the script.  
+    // The Base64-encoded script content cannot exceed 16 KB.
     // 
     // > If the script content is Base64-encoded, set the ContentEncoding parameter to Base64.
     // 
@@ -116,21 +117,23 @@ namespace Models
     shared_ptr<string> commandRole_ {};
     // The encoding method of the script content.
     // 
-    // > If the specified value is not within the valid values, the value is treated as PlainText.
+    // > If the specified value is not within the valid values, the value is treated as `PlainText`.
     shared_ptr<string> contentEncoding_ {};
-    // The IDs of cloud computers. Valid values of N: 1 to 50. If you specify multiple cloud computers, the API call succeeds as long as the script is successfully executed on at least one cloud computer. If the script fails to be executed on all specified cloud computers, reset this parameter.
+    // The list of cloud computer IDs. Valid values of N: 1 to 50.  
+    // If multiple cloud computers are specified, the API call succeeds as long as the script is successfully executed on at least one cloud computer. If the script fails to execute on all specified cloud computers, reset this parameter.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
     // The ID of the end user. If this parameter is specified, the command is executed with the permissions of the end user.
     // 
-    // > The user must have a session record on the cloud computer (the user has logged on and connected to the cloud computer after it is started, and the connection was not preempted by another user). This parameter is not supported for Linux cloud computers.
+    // > The user must have a session record on the cloud computer (the user has logged on and connected to the cloud computer after it was started, and the session was not preempted by another user). This parameter is not supported for Linux cloud computers.
     shared_ptr<string> endUserId_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The timeout period for executing the script. Unit: seconds. Default value: 300. A timeout may occur when the script cannot run due to process issues, missing modules, or missing Cloud Assistant Agent. After a timeout, the script process is forcefully terminated.
+    // The timeout period for executing the script. Unit: seconds. Default value: 300.  
+    // A timeout may occur when the script cannot run because of process issues, missing modules, or a missing Cloud Assistant client. After a timeout, the script process is forcefully terminated.
     shared_ptr<int64_t> timeout_ {};
     // The language type of the O&M script.
     // 

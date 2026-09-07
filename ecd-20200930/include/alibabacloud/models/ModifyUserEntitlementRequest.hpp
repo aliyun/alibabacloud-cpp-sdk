@@ -73,15 +73,15 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computers to which you want to add end users.
+    // The list of cloud computer IDs for which to add authorized users.
     shared_ptr<vector<string>> authorizeDesktopId_ {};
-    // The ID of the users.
+    // The list of user IDs (usernames).
     shared_ptr<vector<string>> endUserId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the cloud computers whose end users you want to remove.
+    // The list of cloud computer IDs for which to remove authorized users.
     shared_ptr<vector<string>> revokeDesktopId_ {};
   };
 

@@ -3694,12 +3694,12 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
 }
 
 /**
- * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+ * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
  *
- * @description Before creating cloud desktops, complete the following preparations:
- * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
- *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * @description Before creating cloud computers, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
  * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
  * **Call examples:**
  * <details>
@@ -3782,7 +3782,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * }
  * ```
  * </details>
- * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+ * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param tmpReq CreateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3995,12 +3995,12 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 }
 
 /**
- * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+ * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
  *
- * @description Before creating cloud desktops, complete the following preparations:
- * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
- *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * @description Before creating cloud computers, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
  * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
  * **Call examples:**
  * <details>
@@ -4083,7 +4083,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * }
  * ```
  * </details>
- * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+ * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param request CreateDesktopsRequest
  * @return CreateDesktopsResponse
@@ -4640,9 +4640,9 @@ CreateNetworkPackageResponse Client::createNetworkPackage(const CreateNetworkPac
 }
 
 /**
- * @summary Enables the Global Accelerator (GA) service for an office network.
+ * @summary Enables Global Accelerator (GA) for an office network.
  *
- * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+ * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4689,9 +4689,9 @@ CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary Enables the Global Accelerator (GA) service for an office network.
+ * @summary Enables Global Accelerator (GA) for an office network.
  *
- * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+ * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @return CreateOfficeSiteAcceleratorResponse
@@ -9548,7 +9548,7 @@ DescribeEcdReportTasksResponse Client::describeEcdReportTasks(const DescribeEcdR
 }
 
 /**
- * @summary Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+ * @summary Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
  *
  * @param request DescribeFlowMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9603,7 +9603,7 @@ DescribeFlowMetricResponse Client::describeFlowMetricWithOptions(const DescribeF
 }
 
 /**
- * @summary Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+ * @summary Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
  *
  * @param request DescribeFlowMetricRequest
  * @return DescribeFlowMetricResponse
@@ -10872,7 +10872,7 @@ DescribeOfficeSiteBridgeInfoResponse Client::describeOfficeSiteBridgeInfo(const 
 }
 
 /**
- * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
+ * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10935,7 +10935,7 @@ DescribeOfficeSitesResponse Client::describeOfficeSitesWithOptions(const Describ
 }
 
 /**
- * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
+ * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @return DescribeOfficeSitesResponse
@@ -11001,6 +11001,214 @@ DescribeOnlineUserCountResponse Client::describeOnlineUserCountWithOptions(const
 DescribeOnlineUserCountResponse Client::describeOnlineUserCount(const DescribeOnlineUserCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeOnlineUserCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+ *
+ * @description When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+ * ## Request examples
+ * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+ * ### Query official printer drivers
+ * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+ * ```json
+ * {
+ *   "Action": "DescribePeripheralDrivers",
+ *   "Version": "2020-09-30",
+ *   "OwnerType": "WUYING",
+ *   "Brand": "hp",
+ *   "DeviceType": "printer",
+ *   "Filter": "LaserJet",
+ *   "PageSize": 20,
+ *   "PageNumber": 1
+ * }
+ * ```
+ * ### Query drivers by driver ID in batches
+ * ```json
+ * {
+ *   "Action": "DescribePeripheralDrivers",
+ *   "Version": "2020-09-30",
+ *   "DriverIds": [
+ *     "11111111-2222-4333-8444-555555555555",
+ *     "66666666-7777-4888-8999-000000000000"
+ *   ],
+ *   "PageSize": 20,
+ *   "PageNumber": 1
+ * }
+ * ```
+ * When you construct request parameters directly, expand DriverIds by sequence number:
+ * ```text
+ * DriverIds.1=11111111-2222-4333-8444-555555555555
+ * DriverIds.2=66666666-7777-4888-8999-000000000000
+ * ```
+ * When you use an SDK, pass in a string array and the SDK handles the encoding.
+ * ## Response examples
+ * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+ * ### Successful query
+ * ```json
+ * {
+ *   "RequestId": "00000000-1111-4222-8333-444444444444",
+ *   "Count": 1,
+ *   "DriverInfos": [
+ *     {
+ *       "Id": "11111111-2222-4333-8444-555555555555",
+ *       "Icon": "https://example.com/icons/printer.png",
+ *       "Name": "HP Universal Printing PCL 6",
+ *       "Brand": "hp",
+ *       "DeviceType": "printer",
+ *       "OsType": "Windows",
+ *       "CreateTime": "2026-09-01T10:30:00+08:00",
+ *       "Source": "Wuying",
+ *       "OwnerType": "WUYING"
+ *     }
+ *   ]
+ * }
+ * ```
+ * ### No matching results
+ * ```json
+ * {
+ *   "RequestId": "00000000-1111-4222-8333-444444444444",
+ *   "Count": 0,
+ *   "DriverInfos": []
+ * }
+ * ```
+ *
+ * @param request DescribePeripheralDriversRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePeripheralDriversResponse
+ */
+DescribePeripheralDriversResponse Client::describePeripheralDriversWithOptions(const DescribePeripheralDriversRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrand()) {
+    query["Brand"] = request.getBrand();
+  }
+
+  if (!!request.hasDeviceType()) {
+    query["DeviceType"] = request.getDeviceType();
+  }
+
+  if (!!request.hasDriverIds()) {
+    query["DriverIds"] = request.getDriverIds();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOwnerType()) {
+    query["OwnerType"] = request.getOwnerType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePeripheralDrivers"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePeripheralDriversResponse>();
+}
+
+/**
+ * @summary Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+ *
+ * @description When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+ * ## Request examples
+ * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+ * ### Query official printer drivers
+ * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+ * ```json
+ * {
+ *   "Action": "DescribePeripheralDrivers",
+ *   "Version": "2020-09-30",
+ *   "OwnerType": "WUYING",
+ *   "Brand": "hp",
+ *   "DeviceType": "printer",
+ *   "Filter": "LaserJet",
+ *   "PageSize": 20,
+ *   "PageNumber": 1
+ * }
+ * ```
+ * ### Query drivers by driver ID in batches
+ * ```json
+ * {
+ *   "Action": "DescribePeripheralDrivers",
+ *   "Version": "2020-09-30",
+ *   "DriverIds": [
+ *     "11111111-2222-4333-8444-555555555555",
+ *     "66666666-7777-4888-8999-000000000000"
+ *   ],
+ *   "PageSize": 20,
+ *   "PageNumber": 1
+ * }
+ * ```
+ * When you construct request parameters directly, expand DriverIds by sequence number:
+ * ```text
+ * DriverIds.1=11111111-2222-4333-8444-555555555555
+ * DriverIds.2=66666666-7777-4888-8999-000000000000
+ * ```
+ * When you use an SDK, pass in a string array and the SDK handles the encoding.
+ * ## Response examples
+ * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+ * ### Successful query
+ * ```json
+ * {
+ *   "RequestId": "00000000-1111-4222-8333-444444444444",
+ *   "Count": 1,
+ *   "DriverInfos": [
+ *     {
+ *       "Id": "11111111-2222-4333-8444-555555555555",
+ *       "Icon": "https://example.com/icons/printer.png",
+ *       "Name": "HP Universal Printing PCL 6",
+ *       "Brand": "hp",
+ *       "DeviceType": "printer",
+ *       "OsType": "Windows",
+ *       "CreateTime": "2026-09-01T10:30:00+08:00",
+ *       "Source": "Wuying",
+ *       "OwnerType": "WUYING"
+ *     }
+ *   ]
+ * }
+ * ```
+ * ### No matching results
+ * ```json
+ * {
+ *   "RequestId": "00000000-1111-4222-8333-444444444444",
+ *   "Count": 0,
+ *   "DriverInfos": []
+ * }
+ * ```
+ *
+ * @param request DescribePeripheralDriversRequest
+ * @return DescribePeripheralDriversResponse
+ */
+DescribePeripheralDriversResponse Client::describePeripheralDrivers(const DescribePeripheralDriversRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePeripheralDriversWithOptions(request, runtime);
 }
 
 /**
@@ -12124,7 +12332,7 @@ DescribeSessionStatisticResponse Client::describeSessionStatistic(const Describe
 }
 
 /**
- * @summary Queries the snapshot list and snapshot details of a cloud computer.
+ * @summary Queries the snapshot list and detailed snapshot information of a cloud computer.
  *
  * @param request DescribeSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12207,7 +12415,7 @@ DescribeSnapshotsResponse Client::describeSnapshotsWithOptions(const DescribeSna
 }
 
 /**
- * @summary Queries the snapshot list and snapshot details of a cloud computer.
+ * @summary Queries the snapshot list and detailed snapshot information of a cloud computer.
  *
  * @param request DescribeSnapshotsRequest
  * @return DescribeSnapshotsResponse
@@ -12859,6 +13067,184 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevicesWithOptions(c
 DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevices(const DescribeVirtualMFADevicesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVirtualMFADevicesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves cloud computer information for a vulnerability.
+ *
+ * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+ * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+ *
+ * @param request DescribeVulDesktopsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVulDesktopsResponse
+ */
+DescribeVulDesktopsResponse Client::describeVulDesktopsWithOptions(const DescribeVulDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCveId()) {
+    query["CveId"] = request.getCveId();
+  }
+
+  if (!!request.hasDesktopIdList()) {
+    query["DesktopIdList"] = request.getDesktopIdList();
+  }
+
+  if (!!request.hasIncludeFixResult()) {
+    query["IncludeFixResult"] = request.getIncludeFixResult();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOnlyCurrentMonthFixAttempted()) {
+    query["OnlyCurrentMonthFixAttempted"] = request.getOnlyCurrentMonthFixAttempted();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPatchId()) {
+    query["PatchId"] = request.getPatchId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.getSearchRegionId();
+  }
+
+  if (!!request.hasStatusList()) {
+    query["StatusList"] = request.getStatusList();
+  }
+
+  if (!!request.hasVulLevel()) {
+    query["VulLevel"] = request.getVulLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVulDesktops"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVulDesktopsResponse>();
+}
+
+/**
+ * @summary Retrieves cloud computer information for a vulnerability.
+ *
+ * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+ * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+ *
+ * @param request DescribeVulDesktopsRequest
+ * @return DescribeVulDesktopsResponse
+ */
+DescribeVulDesktopsResponse Client::describeVulDesktops(const DescribeVulDesktopsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVulDesktopsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves vulnerability information.
+ *
+ * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+ *
+ * @param request DescribeVulnerabilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVulnerabilityResponse
+ */
+DescribeVulnerabilityResponse Client::describeVulnerabilityWithOptions(const DescribeVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCveId()) {
+    query["CveId"] = request.getCveId();
+  }
+
+  if (!!request.hasIncludeDesktop()) {
+    query["IncludeDesktop"] = request.getIncludeDesktop();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPatchId()) {
+    query["PatchId"] = request.getPatchId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.getSearchRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVulnerability"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVulnerabilityResponse>();
+}
+
+/**
+ * @summary Retrieves vulnerability information.
+ *
+ * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+ *
+ * @param request DescribeVulnerabilityRequest
+ * @return DescribeVulnerabilityResponse
+ */
+DescribeVulnerabilityResponse Client::describeVulnerability(const DescribeVulnerabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVulnerabilityWithOptions(request, runtime);
 }
 
 /**
@@ -14032,7 +14418,7 @@ ListCdsFilesResponse Client::listCdsFiles(const ListCdsFilesRequest &request) {
 }
 
 /**
- * @summary Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+ * @summary Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
  *
  * @param request ListDirectoryUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14095,7 +14481,7 @@ ListDirectoryUsersResponse Client::listDirectoryUsersWithOptions(const ListDirec
 }
 
 /**
- * @summary Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+ * @summary Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
  *
  * @param request ListDirectoryUsersRequest
  * @return ListDirectoryUsersResponse
@@ -14682,7 +15068,7 @@ LockVirtualMFADeviceResponse Client::lockVirtualMFADevice(const LockVirtualMFADe
 }
 
 /**
- * @summary Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+ * @summary Migrates cloud computers from the current office network to a new office network.
  *
  * @param request MigrateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14729,7 +15115,7 @@ MigrateDesktopsResponse Client::migrateDesktopsWithOptions(const MigrateDesktops
 }
 
 /**
- * @summary Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+ * @summary Migrates cloud computers from the current office network to a new office network.
  *
  * @param request MigrateDesktopsRequest
  * @return MigrateDesktopsResponse
@@ -18556,9 +18942,9 @@ ModifyTimerGroupResponse Client::modifyTimerGroup(const ModifyTimerGroupRequest 
 }
 
 /**
- * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+ * @summary Adds or removes the authorization of one or more cloud computers for one or more users.
  *
- * @description You can modify end users only for cloud computers that are in the Running state.
+ * @description Only cloud computers in the Running state support modifying authorized users.
  *
  * @param request ModifyUserEntitlementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18601,9 +18987,9 @@ ModifyUserEntitlementResponse Client::modifyUserEntitlementWithOptions(const Mod
 }
 
 /**
- * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+ * @summary Adds or removes the authorization of one or more cloud computers for one or more users.
  *
- * @description You can modify end users only for cloud computers that are in the Running state.
+ * @description Only cloud computers in the Running state support modifying authorized users.
  *
  * @param request ModifyUserEntitlementRequest
  * @return ModifyUserEntitlementResponse
@@ -18866,6 +19252,122 @@ MoveCdsFileResponse Client::moveCdsFile(const MoveCdsFileRequest &request) {
 }
 
 /**
+ * @summary Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+ *
+ * @param request QueryActiveUserStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryActiveUserStatisticResponse
+ */
+QueryActiveUserStatisticResponse Client::queryActiveUserStatisticWithOptions(const QueryActiveUserStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryActiveUserStatistic"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryActiveUserStatisticResponse>();
+}
+
+/**
+ * @summary Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+ *
+ * @param request QueryActiveUserStatisticRequest
+ * @return QueryActiveUserStatisticResponse
+ */
+QueryActiveUserStatisticResponse Client::queryActiveUserStatistic(const QueryActiveUserStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryActiveUserStatisticWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+ *
+ * @param request QueryEndUserHistoryUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryEndUserHistoryUsageResponse
+ */
+QueryEndUserHistoryUsageResponse Client::queryEndUserHistoryUsageWithOptions(const QueryEndUserHistoryUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasIsAdUser()) {
+    query["IsAdUser"] = request.getIsAdUser();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryEndUserHistoryUsage"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryEndUserHistoryUsageResponse>();
+}
+
+/**
+ * @summary Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+ *
+ * @param request QueryEndUserHistoryUsageRequest
+ * @return QueryEndUserHistoryUsageResponse
+ */
+QueryEndUserHistoryUsageResponse Client::queryEndUserHistoryUsage(const QueryEndUserHistoryUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryEndUserHistoryUsageWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the historical daily active user count and monthly active user count for a specified date.
  *
  * @description ## Request description
@@ -18915,6 +19417,68 @@ QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCountWithOptio
 QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCount(const QueryHistoryActiveUserCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryHistoryActiveUserCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+ *
+ * @param request QueryHistoryActiveUserStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoryActiveUserStatisticResponse
+ */
+QueryHistoryActiveUserStatisticResponse Client::queryHistoryActiveUserStatisticWithOptions(const QueryHistoryActiveUserStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasUserGroupId()) {
+    query["UserGroupId"] = request.getUserGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoryActiveUserStatistic"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoryActiveUserStatisticResponse>();
+}
+
+/**
+ * @summary Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+ *
+ * @param request QueryHistoryActiveUserStatisticRequest
+ * @return QueryHistoryActiveUserStatisticResponse
+ */
+QueryHistoryActiveUserStatisticResponse Client::queryHistoryActiveUserStatistic(const QueryHistoryActiveUserStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoryActiveUserStatisticWithOptions(request, runtime);
 }
 
 /**
@@ -19154,9 +19718,9 @@ QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRank(cons
 }
 
 /**
- * @summary Reboots one or more desktops.
+ * @summary Restarts one or more cloud computers.
  *
- * @description The desktops must be in the Running state.
+ * @description The cloud computers must be in the Running state.
  *
  * @param request RebootDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19203,9 +19767,9 @@ RebootDesktopsResponse Client::rebootDesktopsWithOptions(const RebootDesktopsReq
 }
 
 /**
- * @summary Reboots one or more desktops.
+ * @summary Restarts one or more cloud computers.
  *
- * @description The desktops must be in the Running state.
+ * @description The cloud computers must be in the Running state.
  *
  * @param request RebootDesktopsRequest
  * @return RebootDesktopsResponse
@@ -20110,7 +20674,7 @@ RevokeCoordinatePrivilegeResponse Client::revokeCoordinatePrivilege(const Revoke
 }
 
 /**
- * @summary Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+ * @summary Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
  *
  * @param request RunCommandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20169,7 +20733,7 @@ RunCommandResponse Client::runCommandWithOptions(const RunCommandRequest &reques
 }
 
 /**
- * @summary Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+ * @summary Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
  *
  * @param request RunCommandRequest
  * @return RunCommandResponse
@@ -20674,9 +21238,9 @@ SetUserProfilePathRulesResponse Client::setUserProfilePathRules(const SetUserPro
 }
 
 /**
- * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+ * @summary Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
  *
- * @description The cloud computers that you want to start must be in the Stopped state.
+ * @description The cloud computers must be in the Stopped state.
  *
  * @param request StartDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20711,9 +21275,9 @@ StartDesktopsResponse Client::startDesktopsWithOptions(const StartDesktopsReques
 }
 
 /**
- * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+ * @summary Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
  *
- * @description The cloud computers that you want to start must be in the Stopped state.
+ * @description The cloud computers must be in the Stopped state.
  *
  * @param request StartDesktopsRequest
  * @return StartDesktopsResponse

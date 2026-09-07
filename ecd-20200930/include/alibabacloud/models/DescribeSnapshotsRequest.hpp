@@ -165,7 +165,7 @@ namespace Models
     // The cloud computer name.
     shared_ptr<string> desktopName_ {};
     shared_ptr<string> desktopScenario_ {};
-    // The end of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+    // The end of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     // The number of entries per page for paging.    
     // 
@@ -182,15 +182,15 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The snapshot ID.
     shared_ptr<string> snapshotId_ {};
-    // The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter or Chinese character. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
+    // The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
     shared_ptr<string> snapshotName_ {};
     // The snapshot type.
     shared_ptr<string> snapshotType_ {};
-    // The type of the cloud disk for which to create the snapshot.
+    // The type of the cloud disk from which the snapshot is created.
     // 
     // > The value is case-insensitive.
     shared_ptr<string> sourceDiskType_ {};
-    // The beginning of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+    // The beginning of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

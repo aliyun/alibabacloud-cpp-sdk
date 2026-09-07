@@ -96,20 +96,20 @@ namespace Models
   protected:
     // The end time. The following formats are supported:
     // 
-    // - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
+    // - Unix timestamp: the number of milliseconds that have elapsed since January 1, 1970.
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The instance ID. The value can be a cloud computer ID or a premium public bandwidth plan ID.
+    // The instance ID, which can be a cloud computer ID or a premium public bandwidth ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The instance type. You can select the cloud computer type or the premium public bandwidth plan type. If you select the cloud computer type, set InstanceId and MetricType to the cloud computer ID and the traffic type of the cloud computer. The same rule applies to the premium public bandwidth plan type.
+    // The instance type. You can select the cloud computer type or the premium public bandwidth type. If you select the cloud computer type, set InstanceId and MetricType to the cloud computer ID and the corresponding traffic type of the cloud computer. The same applies to the premium public bandwidth type.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // The monitoring metric type. This parameter supports the inbound and outbound bandwidth of a cloud computer, and the public inbound and outbound bandwidth of a premium public bandwidth plan.
+    // The monitoring metric type. Supports inbound and outbound bandwidth of cloud computers, and public inbound and outbound bandwidth of premium public bandwidth instances.
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
@@ -123,7 +123,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The start time. The following formats are supported:
     // 
-    // - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
+    // - Unix timestamp: the number of milliseconds that have elapsed since January 1, 1970.
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     // 
     // This parameter is required.

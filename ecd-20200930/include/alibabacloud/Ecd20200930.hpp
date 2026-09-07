@@ -845,12 +845,12 @@ namespace Ecd20200930
       Models::CreateDesktopOversoldGroupResponse createDesktopOversoldGroup(const Models::CreateDesktopOversoldGroupRequest &request);
 
       /**
-       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+       * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
        *
-       * @description Before creating cloud desktops, complete the following preparations:
-       * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * @description Before creating cloud computers, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
        * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
        * **Call examples:**
        * <details>
@@ -933,7 +933,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+       * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param tmpReq CreateDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -942,12 +942,12 @@ namespace Ecd20200930
       Models::CreateDesktopsResponse createDesktopsWithOptions(const Models::CreateDesktopsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+       * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
        *
-       * @description Before creating cloud desktops, complete the following preparations:
-       * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * @description Before creating cloud computers, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
        * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
        * **Call examples:**
        * <details>
@@ -1030,7 +1030,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+       * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param request CreateDesktopsRequest
        * @return CreateDesktopsResponse
@@ -1184,9 +1184,9 @@ namespace Ecd20200930
       Models::CreateNetworkPackageResponse createNetworkPackage(const Models::CreateNetworkPackageRequest &request);
 
       /**
-       * @summary Enables the Global Accelerator (GA) service for an office network.
+       * @summary Enables Global Accelerator (GA) for an office network.
        *
-       * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+       * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
        *
        * @param request CreateOfficeSiteAcceleratorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1195,9 +1195,9 @@ namespace Ecd20200930
       Models::CreateOfficeSiteAcceleratorResponse createOfficeSiteAcceleratorWithOptions(const Models::CreateOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Global Accelerator (GA) service for an office network.
+       * @summary Enables Global Accelerator (GA) for an office network.
        *
-       * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+       * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
        *
        * @param request CreateOfficeSiteAcceleratorRequest
        * @return CreateOfficeSiteAcceleratorResponse
@@ -2501,7 +2501,7 @@ namespace Ecd20200930
       Models::DescribeEcdReportTasksResponse describeEcdReportTasks(const Models::DescribeEcdReportTasksRequest &request);
 
       /**
-       * @summary Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+       * @summary Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
        *
        * @param request DescribeFlowMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2510,7 +2510,7 @@ namespace Ecd20200930
       Models::DescribeFlowMetricResponse describeFlowMetricWithOptions(const Models::DescribeFlowMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+       * @summary Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
        *
        * @param request DescribeFlowMetricRequest
        * @return DescribeFlowMetricResponse
@@ -2858,7 +2858,7 @@ namespace Ecd20200930
       Models::DescribeOfficeSiteBridgeInfoResponse describeOfficeSiteBridgeInfo(const Models::DescribeOfficeSiteBridgeInfoRequest &request);
 
       /**
-       * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
+       * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
        *
        * @param request DescribeOfficeSitesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2867,7 +2867,7 @@ namespace Ecd20200930
       Models::DescribeOfficeSitesResponse describeOfficeSitesWithOptions(const Models::DescribeOfficeSitesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
+       * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
        *
        * @param request DescribeOfficeSitesRequest
        * @return DescribeOfficeSitesResponse
@@ -2894,6 +2894,157 @@ namespace Ecd20200930
        * @return DescribeOnlineUserCountResponse
        */
       Models::DescribeOnlineUserCountResponse describeOnlineUserCount(const Models::DescribeOnlineUserCountRequest &request);
+
+      /**
+       * @summary Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+       *
+       * @description When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+       * ## Request examples
+       * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+       * ### Query official printer drivers
+       * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+       * ```json
+       * {
+       *   "Action": "DescribePeripheralDrivers",
+       *   "Version": "2020-09-30",
+       *   "OwnerType": "WUYING",
+       *   "Brand": "hp",
+       *   "DeviceType": "printer",
+       *   "Filter": "LaserJet",
+       *   "PageSize": 20,
+       *   "PageNumber": 1
+       * }
+       * ```
+       * ### Query drivers by driver ID in batches
+       * ```json
+       * {
+       *   "Action": "DescribePeripheralDrivers",
+       *   "Version": "2020-09-30",
+       *   "DriverIds": [
+       *     "11111111-2222-4333-8444-555555555555",
+       *     "66666666-7777-4888-8999-000000000000"
+       *   ],
+       *   "PageSize": 20,
+       *   "PageNumber": 1
+       * }
+       * ```
+       * When you construct request parameters directly, expand DriverIds by sequence number:
+       * ```text
+       * DriverIds.1=11111111-2222-4333-8444-555555555555
+       * DriverIds.2=66666666-7777-4888-8999-000000000000
+       * ```
+       * When you use an SDK, pass in a string array and the SDK handles the encoding.
+       * ## Response examples
+       * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+       * ### Successful query
+       * ```json
+       * {
+       *   "RequestId": "00000000-1111-4222-8333-444444444444",
+       *   "Count": 1,
+       *   "DriverInfos": [
+       *     {
+       *       "Id": "11111111-2222-4333-8444-555555555555",
+       *       "Icon": "https://example.com/icons/printer.png",
+       *       "Name": "HP Universal Printing PCL 6",
+       *       "Brand": "hp",
+       *       "DeviceType": "printer",
+       *       "OsType": "Windows",
+       *       "CreateTime": "2026-09-01T10:30:00+08:00",
+       *       "Source": "Wuying",
+       *       "OwnerType": "WUYING"
+       *     }
+       *   ]
+       * }
+       * ```
+       * ### No matching results
+       * ```json
+       * {
+       *   "RequestId": "00000000-1111-4222-8333-444444444444",
+       *   "Count": 0,
+       *   "DriverInfos": []
+       * }
+       * ```
+       *
+       * @param request DescribePeripheralDriversRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePeripheralDriversResponse
+       */
+      Models::DescribePeripheralDriversResponse describePeripheralDriversWithOptions(const Models::DescribePeripheralDriversRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+       *
+       * @description When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+       * ## Request examples
+       * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+       * ### Query official printer drivers
+       * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+       * ```json
+       * {
+       *   "Action": "DescribePeripheralDrivers",
+       *   "Version": "2020-09-30",
+       *   "OwnerType": "WUYING",
+       *   "Brand": "hp",
+       *   "DeviceType": "printer",
+       *   "Filter": "LaserJet",
+       *   "PageSize": 20,
+       *   "PageNumber": 1
+       * }
+       * ```
+       * ### Query drivers by driver ID in batches
+       * ```json
+       * {
+       *   "Action": "DescribePeripheralDrivers",
+       *   "Version": "2020-09-30",
+       *   "DriverIds": [
+       *     "11111111-2222-4333-8444-555555555555",
+       *     "66666666-7777-4888-8999-000000000000"
+       *   ],
+       *   "PageSize": 20,
+       *   "PageNumber": 1
+       * }
+       * ```
+       * When you construct request parameters directly, expand DriverIds by sequence number:
+       * ```text
+       * DriverIds.1=11111111-2222-4333-8444-555555555555
+       * DriverIds.2=66666666-7777-4888-8999-000000000000
+       * ```
+       * When you use an SDK, pass in a string array and the SDK handles the encoding.
+       * ## Response examples
+       * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+       * ### Successful query
+       * ```json
+       * {
+       *   "RequestId": "00000000-1111-4222-8333-444444444444",
+       *   "Count": 1,
+       *   "DriverInfos": [
+       *     {
+       *       "Id": "11111111-2222-4333-8444-555555555555",
+       *       "Icon": "https://example.com/icons/printer.png",
+       *       "Name": "HP Universal Printing PCL 6",
+       *       "Brand": "hp",
+       *       "DeviceType": "printer",
+       *       "OsType": "Windows",
+       *       "CreateTime": "2026-09-01T10:30:00+08:00",
+       *       "Source": "Wuying",
+       *       "OwnerType": "WUYING"
+       *     }
+       *   ]
+       * }
+       * ```
+       * ### No matching results
+       * ```json
+       * {
+       *   "RequestId": "00000000-1111-4222-8333-444444444444",
+       *   "Count": 0,
+       *   "DriverInfos": []
+       * }
+       * ```
+       *
+       * @param request DescribePeripheralDriversRequest
+       * @return DescribePeripheralDriversResponse
+       */
+      Models::DescribePeripheralDriversResponse describePeripheralDrivers(const Models::DescribePeripheralDriversRequest &request);
 
       /**
        * @summary Queries the details of cloud computer policies.
@@ -3195,7 +3346,7 @@ namespace Ecd20200930
       Models::DescribeSessionStatisticResponse describeSessionStatistic(const Models::DescribeSessionStatisticRequest &request);
 
       /**
-       * @summary Queries the snapshot list and snapshot details of a cloud computer.
+       * @summary Queries the snapshot list and detailed snapshot information of a cloud computer.
        *
        * @param request DescribeSnapshotsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3204,7 +3355,7 @@ namespace Ecd20200930
       Models::DescribeSnapshotsResponse describeSnapshotsWithOptions(const Models::DescribeSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the snapshot list and snapshot details of a cloud computer.
+       * @summary Queries the snapshot list and detailed snapshot information of a cloud computer.
        *
        * @param request DescribeSnapshotsRequest
        * @return DescribeSnapshotsResponse
@@ -3376,6 +3527,50 @@ namespace Ecd20200930
        * @return DescribeVirtualMFADevicesResponse
        */
       Models::DescribeVirtualMFADevicesResponse describeVirtualMFADevices(const Models::DescribeVirtualMFADevicesRequest &request);
+
+      /**
+       * @summary Retrieves cloud computer information for a vulnerability.
+       *
+       * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+       * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+       *
+       * @param request DescribeVulDesktopsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVulDesktopsResponse
+       */
+      Models::DescribeVulDesktopsResponse describeVulDesktopsWithOptions(const Models::DescribeVulDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves cloud computer information for a vulnerability.
+       *
+       * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+       * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+       *
+       * @param request DescribeVulDesktopsRequest
+       * @return DescribeVulDesktopsResponse
+       */
+      Models::DescribeVulDesktopsResponse describeVulDesktops(const Models::DescribeVulDesktopsRequest &request);
+
+      /**
+       * @summary Retrieves vulnerability information.
+       *
+       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+       *
+       * @param request DescribeVulnerabilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVulnerabilityResponse
+       */
+      Models::DescribeVulnerabilityResponse describeVulnerabilityWithOptions(const Models::DescribeVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves vulnerability information.
+       *
+       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+       *
+       * @param request DescribeVulnerabilityRequest
+       * @return DescribeVulnerabilityResponse
+       */
+      Models::DescribeVulnerabilityResponse describeVulnerability(const Models::DescribeVulnerabilityRequest &request);
 
       /**
        * @summary Queries the zones supported by Alibaba Cloud Workspace in a specified Alibaba Cloud region.
@@ -3739,7 +3934,7 @@ namespace Ecd20200930
       Models::ListCdsFilesResponse listCdsFiles(const Models::ListCdsFilesRequest &request);
 
       /**
-       * @summary Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+       * @summary Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
        *
        * @param request ListDirectoryUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +3943,7 @@ namespace Ecd20200930
       Models::ListDirectoryUsersResponse listDirectoryUsersWithOptions(const Models::ListDirectoryUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+       * @summary Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
        *
        * @param request ListDirectoryUsersRequest
        * @return ListDirectoryUsersResponse
@@ -3938,7 +4133,7 @@ namespace Ecd20200930
       Models::LockVirtualMFADeviceResponse lockVirtualMFADevice(const Models::LockVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+       * @summary Migrates cloud computers from the current office network to a new office network.
        *
        * @param request MigrateDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3947,7 +4142,7 @@ namespace Ecd20200930
       Models::MigrateDesktopsResponse migrateDesktopsWithOptions(const Models::MigrateDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+       * @summary Migrates cloud computers from the current office network to a new office network.
        *
        * @param request MigrateDesktopsRequest
        * @return MigrateDesktopsResponse
@@ -4850,9 +5045,9 @@ namespace Ecd20200930
       Models::ModifyTimerGroupResponse modifyTimerGroup(const Models::ModifyTimerGroupRequest &request);
 
       /**
-       * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+       * @summary Adds or removes the authorization of one or more cloud computers for one or more users.
        *
-       * @description You can modify end users only for cloud computers that are in the Running state.
+       * @description Only cloud computers in the Running state support modifying authorized users.
        *
        * @param request ModifyUserEntitlementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4861,9 +5056,9 @@ namespace Ecd20200930
       Models::ModifyUserEntitlementResponse modifyUserEntitlementWithOptions(const Models::ModifyUserEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+       * @summary Adds or removes the authorization of one or more cloud computers for one or more users.
        *
-       * @description You can modify end users only for cloud computers that are in the Running state.
+       * @description Only cloud computers in the Running state support modifying authorized users.
        *
        * @param request ModifyUserEntitlementRequest
        * @return ModifyUserEntitlementResponse
@@ -4947,6 +5142,40 @@ namespace Ecd20200930
       Models::MoveCdsFileResponse moveCdsFile(const Models::MoveCdsFileRequest &request);
 
       /**
+       * @summary Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+       *
+       * @param request QueryActiveUserStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryActiveUserStatisticResponse
+       */
+      Models::QueryActiveUserStatisticResponse queryActiveUserStatisticWithOptions(const Models::QueryActiveUserStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+       *
+       * @param request QueryActiveUserStatisticRequest
+       * @return QueryActiveUserStatisticResponse
+       */
+      Models::QueryActiveUserStatisticResponse queryActiveUserStatistic(const Models::QueryActiveUserStatisticRequest &request);
+
+      /**
+       * @summary Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+       *
+       * @param request QueryEndUserHistoryUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryEndUserHistoryUsageResponse
+       */
+      Models::QueryEndUserHistoryUsageResponse queryEndUserHistoryUsageWithOptions(const Models::QueryEndUserHistoryUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+       *
+       * @param request QueryEndUserHistoryUsageRequest
+       * @return QueryEndUserHistoryUsageResponse
+       */
+      Models::QueryEndUserHistoryUsageResponse queryEndUserHistoryUsage(const Models::QueryEndUserHistoryUsageRequest &request);
+
+      /**
        * @summary Queries the historical daily active user count and monthly active user count for a specified date.
        *
        * @description ## Request description
@@ -4972,6 +5201,23 @@ namespace Ecd20200930
        * @return QueryHistoryActiveUserCountResponse
        */
       Models::QueryHistoryActiveUserCountResponse queryHistoryActiveUserCount(const Models::QueryHistoryActiveUserCountRequest &request);
+
+      /**
+       * @summary Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+       *
+       * @param request QueryHistoryActiveUserStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoryActiveUserStatisticResponse
+       */
+      Models::QueryHistoryActiveUserStatisticResponse queryHistoryActiveUserStatisticWithOptions(const Models::QueryHistoryActiveUserStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+       *
+       * @param request QueryHistoryActiveUserStatisticRequest
+       * @return QueryHistoryActiveUserStatisticResponse
+       */
+      Models::QueryHistoryActiveUserStatisticResponse queryHistoryActiveUserStatistic(const Models::QueryHistoryActiveUserStatisticRequest &request);
 
       /**
        * @summary Queries the historical average monitoring metrics of desktop resources within a specified date range.
@@ -5073,9 +5319,9 @@ namespace Ecd20200930
       Models::QueryHistoryUsageDurationRankResponse queryHistoryUsageDurationRank(const Models::QueryHistoryUsageDurationRankRequest &request);
 
       /**
-       * @summary Reboots one or more desktops.
+       * @summary Restarts one or more cloud computers.
        *
-       * @description The desktops must be in the Running state.
+       * @description The cloud computers must be in the Running state.
        *
        * @param request RebootDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5084,9 +5330,9 @@ namespace Ecd20200930
       Models::RebootDesktopsResponse rebootDesktopsWithOptions(const Models::RebootDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reboots one or more desktops.
+       * @summary Restarts one or more cloud computers.
        *
-       * @description The desktops must be in the Running state.
+       * @description The cloud computers must be in the Running state.
        *
        * @param request RebootDesktopsRequest
        * @return RebootDesktopsResponse
@@ -5368,7 +5614,7 @@ namespace Ecd20200930
       Models::RevokeCoordinatePrivilegeResponse revokeCoordinatePrivilege(const Models::RevokeCoordinatePrivilegeRequest &request);
 
       /**
-       * @summary Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+       * @summary Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
        *
        * @param request RunCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5377,7 +5623,7 @@ namespace Ecd20200930
       Models::RunCommandResponse runCommandWithOptions(const Models::RunCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+       * @summary Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
        *
        * @param request RunCommandRequest
        * @return RunCommandResponse
@@ -5552,9 +5798,9 @@ namespace Ecd20200930
       Models::SetUserProfilePathRulesResponse setUserProfilePathRules(const Models::SetUserProfilePathRulesRequest &request);
 
       /**
-       * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+       * @summary Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
        *
-       * @description The cloud computers that you want to start must be in the Stopped state.
+       * @description The cloud computers must be in the Stopped state.
        *
        * @param request StartDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5563,9 +5809,9 @@ namespace Ecd20200930
       Models::StartDesktopsResponse startDesktopsWithOptions(const Models::StartDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+       * @summary Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
        *
-       * @description The cloud computers that you want to start must be in the Stopped state.
+       * @description The cloud computers must be in the Stopped state.
        *
        * @param request StartDesktopsRequest
        * @return StartDesktopsResponse

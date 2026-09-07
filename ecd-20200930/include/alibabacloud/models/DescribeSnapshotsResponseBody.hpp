@@ -304,7 +304,7 @@ namespace Models
       shared_ptr<string> jvsId_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The snapshot creation progress. Unit: percent.
+      // The snapshot creation progress, in percentage.
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};

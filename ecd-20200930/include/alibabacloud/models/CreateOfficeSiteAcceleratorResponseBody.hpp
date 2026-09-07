@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The GA instance ID.
     shared_ptr<string> acceleratorId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

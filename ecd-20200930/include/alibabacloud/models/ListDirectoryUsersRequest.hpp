@@ -118,16 +118,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The fuzzy match query string. All results that contain this character string are returned.
+    // The fuzzy search string. All results that contain this string are matched.
     shared_ptr<string> filter_ {};
     // Specifies whether to return only users who have been assigned cloud computers.
     shared_ptr<bool> includeAssignedUser_ {};
-    // The number of entries per page for a paged query.    
+    // The number of entries per page for a paginated query.    
     // 
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The token for the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The organizational unit (OU) in the AD domain to which the user belongs. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain this value.
     shared_ptr<string> OUPath_ {};

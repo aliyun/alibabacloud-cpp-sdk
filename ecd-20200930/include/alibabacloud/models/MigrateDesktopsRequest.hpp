@@ -86,13 +86,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The member IP address of the target node for migration.
+    // The member IP address of the destination node for migration.
     shared_ptr<string> targetMemberIp_ {};
-    // The ID of the target office network.
+    // The ID of the destination office network.
     // 
     // This parameter is required.
     shared_ptr<string> targetOfficeSiteId_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not yet available for use.
     shared_ptr<string> targetSubnetId_ {};
   };
 

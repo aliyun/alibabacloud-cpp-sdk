@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> email_ {};
       // The username.
       shared_ptr<string> endUser_ {};
-      // The phone number.
+      // The mobile phone number.
       shared_ptr<string> phone_ {};
       // The user principal name (UPN).
       shared_ptr<string> userPrincipalName_ {};
@@ -160,7 +160,7 @@ namespace Models
 
 
   protected:
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The token for the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
