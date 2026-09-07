@@ -42,9 +42,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AuthedResources, authedResources_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(DownloadNeedApproval, downloadNeedApproval_);
         DARABONBA_PTR_TO_JSON(GroupId, groupId_);
         DARABONBA_PTR_TO_JSON(GroupName, groupName_);
         DARABONBA_PTR_TO_JSON(TransferFileNeedApproval, transferFileNeedApproval_);
+        DARABONBA_PTR_TO_JSON(UploadNeedApproval, uploadNeedApproval_);
         DARABONBA_PTR_TO_JSON(UserCount, userCount_);
       };
       friend void from_json(const Darabonba::Json& j, Groups& obj) { 
@@ -52,9 +54,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AuthedResources, authedResources_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(DownloadNeedApproval, downloadNeedApproval_);
         DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
         DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
         DARABONBA_PTR_FROM_JSON(TransferFileNeedApproval, transferFileNeedApproval_);
+        DARABONBA_PTR_FROM_JSON(UploadNeedApproval, uploadNeedApproval_);
         DARABONBA_PTR_FROM_JSON(UserCount, userCount_);
       };
       Groups() = default ;
@@ -106,15 +110,13 @@ namespace Models
 
 
       protected:
-        // The name of the logon policy.
         shared_ptr<string> name_ {};
-        // The ID of the logon policy.
         shared_ptr<string> policyId_ {};
       };
 
       virtual bool empty() const override { return this->attachedLoginPolicy_ == nullptr
-        && this->authedResources_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr
-        && this->transferFileNeedApproval_ == nullptr && this->userCount_ == nullptr; };
+        && this->authedResources_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->downloadNeedApproval_ == nullptr && this->groupId_ == nullptr
+        && this->groupName_ == nullptr && this->transferFileNeedApproval_ == nullptr && this->uploadNeedApproval_ == nullptr && this->userCount_ == nullptr; };
       // attachedLoginPolicy Field Functions 
       bool hasAttachedLoginPolicy() const { return this->attachedLoginPolicy_ != nullptr;};
       void deleteAttachedLoginPolicy() { this->attachedLoginPolicy_ = nullptr;};
@@ -147,6 +149,13 @@ namespace Models
       inline Groups& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // downloadNeedApproval Field Functions 
+      bool hasDownloadNeedApproval() const { return this->downloadNeedApproval_ != nullptr;};
+      void deleteDownloadNeedApproval() { this->downloadNeedApproval_ = nullptr;};
+      inline bool getDownloadNeedApproval() const { DARABONBA_PTR_GET_DEFAULT(downloadNeedApproval_, false) };
+      inline Groups& setDownloadNeedApproval(bool downloadNeedApproval) { DARABONBA_PTR_SET_VALUE(downloadNeedApproval_, downloadNeedApproval) };
+
+
       // groupId Field Functions 
       bool hasGroupId() const { return this->groupId_ != nullptr;};
       void deleteGroupId() { this->groupId_ = nullptr;};
@@ -168,6 +177,13 @@ namespace Models
       inline Groups& setTransferFileNeedApproval(bool transferFileNeedApproval) { DARABONBA_PTR_SET_VALUE(transferFileNeedApproval_, transferFileNeedApproval) };
 
 
+      // uploadNeedApproval Field Functions 
+      bool hasUploadNeedApproval() const { return this->uploadNeedApproval_ != nullptr;};
+      void deleteUploadNeedApproval() { this->uploadNeedApproval_ = nullptr;};
+      inline bool getUploadNeedApproval() const { DARABONBA_PTR_GET_DEFAULT(uploadNeedApproval_, false) };
+      inline Groups& setUploadNeedApproval(bool uploadNeedApproval) { DARABONBA_PTR_SET_VALUE(uploadNeedApproval_, uploadNeedApproval) };
+
+
       // userCount Field Functions 
       bool hasUserCount() const { return this->userCount_ != nullptr;};
       void deleteUserCount() { this->userCount_ = nullptr;};
@@ -176,20 +192,23 @@ namespace Models
 
 
     protected:
-      // The logon policy attached to the user group.
       shared_ptr<Groups::AttachedLoginPolicy> attachedLoginPolicy_ {};
-      // A list of authorized resources.
+      // The list of assigned resources.
       shared_ptr<map<string, string>> authedResources_ {};
-      // The time when the user group was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The description of the user group.
       shared_ptr<string> description_ {};
-      // The ID of the user group.
+      // Indicates whether download requires approval.
+      shared_ptr<bool> downloadNeedApproval_ {};
+      // The user group ID.
       shared_ptr<string> groupId_ {};
-      // The name of the user group.
+      // The user group name.
       shared_ptr<string> groupName_ {};
-      // Indicates whether file transfer approval is enabled.
+      // Indicates whether file approval is enabled.
       shared_ptr<bool> transferFileNeedApproval_ {};
+      // Indicates whether upload requires approval.
+      shared_ptr<bool> uploadNeedApproval_ {};
       // The number of members in the user group.
       shared_ptr<int32_t> userCount_ {};
     };
@@ -220,9 +239,9 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The number of entries returned in the query result.
     shared_ptr<int32_t> count_ {};
-    // A list of user groups.
+    // The list of user groups.
     shared_ptr<vector<DescribeGroupsResponseBody::Groups>> groups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -14,11 +14,13 @@ namespace Models
   class DescribeUsersResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeUsersResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Users, users_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeUsersResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
@@ -135,7 +137,7 @@ namespace Models
 
 
       protected:
-        // The property key.
+        // The property name.
         shared_ptr<string> key_ {};
         // The property value.
         shared_ptr<string> value_ {};
@@ -188,9 +190,9 @@ namespace Models
 
 
       protected:
-        // The ID of the organization.
+        // The department ID.
         shared_ptr<string> orgId_ {};
-        // The name of the organization.
+        // The department name.
         shared_ptr<string> orgName_ {};
         shared_ptr<string> orgNamePath_ {};
       };
@@ -233,9 +235,9 @@ namespace Models
 
 
       protected:
-        // The ID of the user group.
+        // The user group ID.
         shared_ptr<string> groupId_ {};
-        // The name of the user group.
+        // The user group name.
         shared_ptr<string> groupName_ {};
       };
 
@@ -506,67 +508,68 @@ namespace Models
     protected:
       // The work address of the user.
       shared_ptr<string> address_ {};
-      // The URL of the user\\"s avatar.
+      // The URL of the user\\"s profile picture.
       shared_ptr<string> avatar_ {};
       // The email address.
       shared_ptr<string> email_ {};
-      // Indicates whether administrator access is enabled.
+      // Indicates whether administrator access permissions are enabled.
       shared_ptr<bool> enableAdminAccess_ {};
-      // The end user ID.
+      // The username.
       shared_ptr<string> endUserId_ {};
-      // The name of the user imported from an external system.
+      // The username imported from an external source.
       // 
-      // > This parameter is for internal use only.
+      // > This field is not publicly available.
       shared_ptr<string> externalName_ {};
-      // The extended properties of the user.
+      // The extended user information.
       shared_ptr<Users::Extras> extras_ {};
-      // The user groups to which the convenience account belongs.
+      // The collection of user groups to which the convenience account belongs.
       shared_ptr<vector<Users::Groups>> groups_ {};
-      // The ID of the convenience account.
+      // The convenience account ID.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the user is a tenant manager. When you create a convenience account of the `CreateFromManager` type, you must specify a tenant manager. Notifications, such as password resets initiated by an end user from a client, are sent to the tenant manager\\"s email or mobile phone. For more information, see [Create a convenience account](https://help.aliyun.com/document_detail/214472.html).
+      // Indicates whether the user is a user administrator. If the convenience account is of the administrator-activated type, a user administrator must be specified. Notifications such as password resets initiated by end users through the client are sent to the user administrator\\"s email or phone. For more information, see [Create a convenience account](https://help.aliyun.com/document_detail/214472.html).
       shared_ptr<bool> isTenantManager_ {};
-      // The employee ID.
+      // The employee ID of the user.
       shared_ptr<string> jobNumber_ {};
-      // The nickname of the user.<br>
-      // The value is determined from the following parameters, in order of priority:<br>
-      // 
-      // - `RealNickName`
-      // 
-      // - `Remark`
-      // 
-      // - `EndUserId`
+      // The nickname of the user. The value is determined in the following order:
+      // - RealNickName
+      // - Remark
+      // - EndUserId
       shared_ptr<string> nickName_ {};
-      // The ID of the organization to which the convenience account belongs.
-      // 
-      // > This parameter is deprecated and may be removed in a future release.
+      // The department ID to which the convenience account belongs.
+      // > This parameter will be deprecated soon.
       shared_ptr<string> orgId_ {};
-      // The organizations to which the convenience account belongs.
+      // The collection of departments to which the convenience account belongs.
       shared_ptr<vector<Users::Orgs>> orgs_ {};
-      // The type of the convenience account. The account can be activated in one of the following ways:
+      // The convenience account type, which includes:
       // 
-      // - Tenant manager-activated: The tenant manager sets the username and password. Notifications such as password resets are sent to the tenant manager\\"s email address or mobile phone.
-      // 
-      // - End user-activated: The tenant manager sets the username and the end user\\"s email address or mobile phone. Notifications for the end user, such as the initial password for the cloud desktop, are sent to the end user\\"s email address or mobile phone.
+      // * Administrator-activated type: The administrator sets the username and password. User notifications such as password resets are sent to the administrator\\"s email or phone.
+      // * User-activated type: The administrator sets the username and the user\\"s email or phone for receiving notifications. User notifications such as cloud computer provisioning notifications (including the initial password) are sent to the user\\"s email or phone.
       shared_ptr<string> ownerType_ {};
       shared_ptr<int32_t> passwordExpireDays_ {};
       shared_ptr<int32_t> passwordExpireRestDays_ {};
-      // The phone number. This parameter is returned only if a phone number is set.
+      // The phone number. This parameter is not returned if it is not set.
       shared_ptr<string> phone_ {};
-      // A list of custom properties for the user.
+      // The user properties.
       shared_ptr<vector<Users::Properties>> properties_ {};
       // The display name of the user.
       shared_ptr<string> realNickName_ {};
-      // The note about the convenience account.
+      // The remark of the convenience account.
       shared_ptr<string> remark_ {};
-      // The status of the convenience account.
+      // The status.
       shared_ptr<int64_t> status_ {};
       // The globally unique ID of the convenience account.
       shared_ptr<string> wyId_ {};
     };
 
-    virtual bool empty() const override { return this->nextToken_ == nullptr
-        && this->requestId_ == nullptr && this->users_ == nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->users_ == nullptr; };
+    // count Field Functions 
+    bool hasCount() const { return this->count_ != nullptr;};
+    void deleteCount() { this->count_ = nullptr;};
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline DescribeUsersResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -591,11 +594,13 @@ namespace Models
 
 
   protected:
-    // The token to start the next query. If this parameter is empty, all results have been returned.
+    // The total number of users that meet the query conditions
+    shared_ptr<int32_t> count_ {};
+    // The pagination token for the next query. An empty NextToken indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the convenience accounts.
+    // The collection of convenience account information.
     shared_ptr<vector<DescribeUsersResponseBody::Users>> users_ {};
   };
 

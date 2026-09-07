@@ -245,7 +245,7 @@ namespace EdsUser20210308
       Models::DescribeGroupUserResponse describeGroupUser(const Models::DescribeGroupUserRequest &request);
 
       /**
-       * @summary Query user groups.
+       * @summary Queries user groups.
        *
        * @param request DescribeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -254,7 +254,7 @@ namespace EdsUser20210308
       Models::DescribeGroupsResponse describeGroupsWithOptions(const Models::DescribeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query user groups.
+       * @summary Queries user groups.
        *
        * @param request DescribeGroupsRequest
        * @return DescribeGroupsResponse
@@ -296,9 +296,9 @@ namespace EdsUser20210308
       Models::DescribeOrgByLayerResponse describeOrgByLayer(const Models::DescribeOrgByLayerRequest &request);
 
       /**
-       * @summary Queries a list of organizations.
+       * @summary Queries the list of organizations.
        *
-       * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+       * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
        *
        * @param tmpReq DescribeOrgsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -307,9 +307,9 @@ namespace EdsUser20210308
       Models::DescribeOrgsResponse describeOrgsWithOptions(const Models::DescribeOrgsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of organizations.
+       * @summary Queries the list of organizations.
        *
-       * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+       * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
        *
        * @param request DescribeOrgsRequest
        * @return DescribeOrgsResponse
@@ -351,7 +351,7 @@ namespace EdsUser20210308
       Models::DescribeUserResponse describeUser(const Models::DescribeUserRequest &request);
 
       /**
-       * @summary Retrieves directory account information, including the username, email address, and display name.
+       * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
        *
        * @param tmpReq DescribeUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -360,7 +360,7 @@ namespace EdsUser20210308
       Models::DescribeUsersResponse describeUsersWithOptions(const Models::DescribeUsersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves directory account information, including the username, email address, and display name.
+       * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
        *
        * @param request DescribeUsersRequest
        * @return DescribeUsersResponse
@@ -385,6 +385,29 @@ namespace EdsUser20210308
       Models::FilterUsersResponse filterUsers(const Models::FilterUsersRequest &request);
 
       /**
+       * @summary 获取用户数量
+       *
+       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       *
+       * @param request GetAdUsersCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAdUsersCountResponse
+       */
+      Models::GetAdUsersCountResponse getAdUsersCountWithOptions(const Models::GetAdUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户数量
+       *
+       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       *
+       * @param request GetAdUsersCountRequest
+       * @return GetAdUsersCountResponse
+       */
+      Models::GetAdUsersCountResponse getAdUsersCount(const Models::GetAdUsersCountRequest &request);
+
+      /**
        * @summary Obtains the information about the current logon administrator based on the authorization code.
        *
        * @param request GetManagerInfoByAuthCodeRequest
@@ -400,6 +423,29 @@ namespace EdsUser20210308
        * @return GetManagerInfoByAuthCodeResponse
        */
       Models::GetManagerInfoByAuthCodeResponse getManagerInfoByAuthCode(const Models::GetManagerInfoByAuthCodeRequest &request);
+
+      /**
+       * @summary 获取用户数量
+       *
+       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       *
+       * @param request GetUsersCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUsersCountResponse
+       */
+      Models::GetUsersCountResponse getUsersCountWithOptions(const Models::GetUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户数量
+       *
+       * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+       * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+       *
+       * @param request GetUsersCountRequest
+       * @return GetUsersCountResponse
+       */
+      Models::GetUsersCountResponse getUsersCount(const Models::GetUsersCountRequest &request);
 
       /**
        * @summary Initialize the organization ID.

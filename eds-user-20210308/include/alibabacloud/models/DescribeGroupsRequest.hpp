@@ -130,25 +130,25 @@ namespace Models
 
 
   protected:
-    // > This parameter is for internal use only.
+    // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
     shared_ptr<string> businessChannel_ {};
-    // Specifies whether to exclude user groups that are already associated with a logon policy.
+    // Specifies whether to exclude user groups that have associated logon policies.
     shared_ptr<bool> excludeAttachedLoginPolicyGroups_ {};
-    // The ID of the user group.
+    // The user group ID.
     shared_ptr<string> groupId_ {};
-    // The name of the user group.
+    // The user group name.
     shared_ptr<string> groupName_ {};
     shared_ptr<string> idpId_ {};
-    // The ID of a logon policy. If you specify this parameter, the call returns only user groups associated with the policy.
+    // Filters user groups by the specified associated logon policy.
     shared_ptr<string> loginPolicyId_ {};
-    // The page number to return.
+    // The page number for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // > This parameter is for internal use only.
+    // > This parameter is not publicly available.
     shared_ptr<string> solutionId_ {};
-    // Specifies whether file approval is enabled.
+    // Indicates whether file approval is enabled.
     shared_ptr<bool> transferFileNeedApproval_ {};
   };
 

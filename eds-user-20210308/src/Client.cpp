@@ -18,10 +18,6 @@ namespace EdsUser20210308
 
 AlibabaCloud::EdsUser20210308::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "eds-user.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "eds-user.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-user", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -718,7 +714,7 @@ DescribeGroupUserResponse Client::describeGroupUser(const DescribeGroupUserReque
 }
 
 /**
- * @summary Query user groups.
+ * @summary Queries user groups.
  *
  * @param request DescribeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -789,7 +785,7 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
 }
 
 /**
- * @summary Query user groups.
+ * @summary Queries user groups.
  *
  * @param request DescribeGroupsRequest
  * @return DescribeGroupsResponse
@@ -916,9 +912,9 @@ DescribeOrgByLayerResponse Client::describeOrgByLayer(const DescribeOrgByLayerRe
 }
 
 /**
- * @summary Queries a list of organizations.
+ * @summary Queries the list of organizations.
  *
- * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+ * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
  *
  * @param tmpReq DescribeOrgsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,6 +935,10 @@ DescribeOrgsResponse Client::describeOrgsWithOptions(const DescribeOrgsRequest &
 
   if (!!request.hasIncludeOrgIds()) {
     query["IncludeOrgIds"] = request.getIncludeOrgIds();
+  }
+
+  if (!!request.hasIsQueryAllSubOrgs()) {
+    query["IsQueryAllSubOrgs"] = request.getIsQueryAllSubOrgs();
   }
 
   if (!!request.hasMaxResults()) {
@@ -979,9 +979,9 @@ DescribeOrgsResponse Client::describeOrgsWithOptions(const DescribeOrgsRequest &
 }
 
 /**
- * @summary Queries a list of organizations.
+ * @summary Queries the list of organizations.
  *
- * @description Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+ * @description Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
  *
  * @param request DescribeOrgsRequest
  * @return DescribeOrgsResponse
@@ -1120,7 +1120,7 @@ DescribeUserResponse Client::describeUser(const DescribeUserRequest &request) {
 }
 
 /**
- * @summary Retrieves directory account information, including the username, email address, and display name.
+ * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
  *
  * @param tmpReq DescribeUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1235,7 @@ DescribeUsersResponse Client::describeUsersWithOptions(const DescribeUsersReques
 }
 
 /**
- * @summary Retrieves directory account information, including the username, email address, and display name.
+ * @summary Queries convenience account information, such as usernames, email addresses, and remarks.
  *
  * @param request DescribeUsersRequest
  * @return DescribeUsersResponse
@@ -1370,6 +1370,64 @@ FilterUsersResponse Client::filterUsers(const FilterUsersRequest &request) {
 }
 
 /**
+ * @summary 获取用户数量
+ *
+ * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+ * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+ *
+ * @param request GetAdUsersCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAdUsersCountResponse
+ */
+GetAdUsersCountResponse Client::getAdUsersCountWithOptions(const GetAdUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  json body = {};
+  if (!!request.hasBizType()) {
+    body["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasSolutionId()) {
+    body["SolutionId"] = request.getSolutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAdUsersCount"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAdUsersCountResponse>();
+}
+
+/**
+ * @summary 获取用户数量
+ *
+ * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+ * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+ *
+ * @param request GetAdUsersCountRequest
+ * @return GetAdUsersCountResponse
+ */
+GetAdUsersCountResponse Client::getAdUsersCount(const GetAdUsersCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAdUsersCountWithOptions(request, runtime);
+}
+
+/**
  * @summary Obtains the information about the current logon administrator based on the authorization code.
  *
  * @param request GetManagerInfoByAuthCodeRequest
@@ -1409,6 +1467,64 @@ GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCodeWithOptions(con
 GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCode(const GetManagerInfoByAuthCodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getManagerInfoByAuthCodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户数量
+ *
+ * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+ * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+ *
+ * @param request GetUsersCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUsersCountResponse
+ */
+GetUsersCountResponse Client::getUsersCountWithOptions(const GetUsersCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  json body = {};
+  if (!!request.hasBizType()) {
+    body["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasSolutionId()) {
+    body["SolutionId"] = request.getSolutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetUsersCount"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUsersCountResponse>();
+}
+
+/**
+ * @summary 获取用户数量
+ *
+ * @description 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+ * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+ *
+ * @param request GetUsersCountRequest
+ * @return GetUsersCountResponse
+ */
+GetUsersCountResponse Client::getUsersCount(const GetUsersCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUsersCountWithOptions(request, runtime);
 }
 
 /**

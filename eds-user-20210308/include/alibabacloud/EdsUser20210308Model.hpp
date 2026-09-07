@@ -68,9 +68,15 @@
 #include <alibabacloud/models/FilterUsersShrinkRequest.hpp>
 #include <alibabacloud/models/FilterUsersResponseBody.hpp>
 #include <alibabacloud/models/FilterUsersResponse.hpp>
+#include <alibabacloud/models/GetAdUsersCountRequest.hpp>
+#include <alibabacloud/models/GetAdUsersCountResponseBody.hpp>
+#include <alibabacloud/models/GetAdUsersCountResponse.hpp>
 #include <alibabacloud/models/GetManagerInfoByAuthCodeRequest.hpp>
 #include <alibabacloud/models/GetManagerInfoByAuthCodeResponseBody.hpp>
 #include <alibabacloud/models/GetManagerInfoByAuthCodeResponse.hpp>
+#include <alibabacloud/models/GetUsersCountRequest.hpp>
+#include <alibabacloud/models/GetUsersCountResponseBody.hpp>
+#include <alibabacloud/models/GetUsersCountResponse.hpp>
 #include <alibabacloud/models/InitTenantAliasRequest.hpp>
 #include <alibabacloud/models/InitTenantAliasResponseBody.hpp>
 #include <alibabacloud/models/InitTenantAliasResponse.hpp>

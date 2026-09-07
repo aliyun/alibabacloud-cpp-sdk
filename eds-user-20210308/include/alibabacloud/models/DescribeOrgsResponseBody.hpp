@@ -37,6 +37,7 @@ namespace Models
     class Orgs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Orgs& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessType, accessType_);
         DARABONBA_PTR_TO_JSON(OrgId, orgId_);
         DARABONBA_PTR_TO_JSON(OrgName, orgName_);
         DARABONBA_PTR_TO_JSON(OrgNamePath, orgNamePath_);
@@ -44,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourcePolicyList, resourcePolicyList_);
       };
       friend void from_json(const Darabonba::Json& j, Orgs& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
         DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
         DARABONBA_PTR_FROM_JSON(OrgName, orgName_);
         DARABONBA_PTR_FROM_JSON(OrgNamePath, orgNamePath_);
@@ -103,8 +105,15 @@ namespace Models
         shared_ptr<string> policyName_ {};
       };
 
-      virtual bool empty() const override { return this->orgId_ == nullptr
-        && this->orgName_ == nullptr && this->orgNamePath_ == nullptr && this->parentOrgId_ == nullptr && this->resourcePolicyList_ == nullptr; };
+      virtual bool empty() const override { return this->accessType_ == nullptr
+        && this->orgId_ == nullptr && this->orgName_ == nullptr && this->orgNamePath_ == nullptr && this->parentOrgId_ == nullptr && this->resourcePolicyList_ == nullptr; };
+      // accessType Field Functions 
+      bool hasAccessType() const { return this->accessType_ != nullptr;};
+      void deleteAccessType() { this->accessType_ = nullptr;};
+      inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
+      inline Orgs& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
       // orgId Field Functions 
       bool hasOrgId() const { return this->orgId_ != nullptr;};
       void deleteOrgId() { this->orgId_ = nullptr;};
@@ -143,6 +152,10 @@ namespace Models
 
 
     protected:
+      // The access type of the organization node. Valid values:
+      // - MANAGEABLE: indicates a manageable node.
+      // - PATH_ONLY: indicates a node used only to display the full path to the root organization.
+      shared_ptr<string> accessType_ {};
       // The organization ID.
       shared_ptr<string> orgId_ {};
       // The organization name.
@@ -179,9 +192,9 @@ namespace Models
 
 
   protected:
-    // The token used to retrieve the next page of results. If this parameter is not empty, more results are available. To retrieve the next page, pass this value in the `NextToken` parameter of a subsequent request.
+    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The organization list.
+    // The list of organizations.
     shared_ptr<vector<DescribeOrgsResponseBody::Orgs>> orgs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

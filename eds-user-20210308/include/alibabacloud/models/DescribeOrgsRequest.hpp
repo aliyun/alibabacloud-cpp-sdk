@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeOrgsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(IncludeOrgIds, includeOrgIds_);
+      DARABONBA_PTR_TO_JSON(IsQueryAllSubOrgs, isQueryAllSubOrgs_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OrgName, orgName_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeOrgsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(IncludeOrgIds, includeOrgIds_);
+      DARABONBA_PTR_FROM_JSON(IsQueryAllSubOrgs, isQueryAllSubOrgs_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OrgName, orgName_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->includeOrgIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orgName_ == nullptr && this->parentOrgId_ == nullptr
-        && this->showExtras_ == nullptr; };
+        && this->includeOrgIds_ == nullptr && this->isQueryAllSubOrgs_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orgName_ == nullptr
+        && this->parentOrgId_ == nullptr && this->showExtras_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -59,6 +61,13 @@ namespace Models
     inline vector<string> getIncludeOrgIds() { DARABONBA_PTR_GET(includeOrgIds_, vector<string>) };
     inline DescribeOrgsRequest& setIncludeOrgIds(const vector<string> & includeOrgIds) { DARABONBA_PTR_SET_VALUE(includeOrgIds_, includeOrgIds) };
     inline DescribeOrgsRequest& setIncludeOrgIds(vector<string> && includeOrgIds) { DARABONBA_PTR_SET_RVALUE(includeOrgIds_, includeOrgIds) };
+
+
+    // isQueryAllSubOrgs Field Functions 
+    bool hasIsQueryAllSubOrgs() const { return this->isQueryAllSubOrgs_ != nullptr;};
+    void deleteIsQueryAllSubOrgs() { this->isQueryAllSubOrgs_ = nullptr;};
+    inline bool getIsQueryAllSubOrgs() const { DARABONBA_PTR_GET_DEFAULT(isQueryAllSubOrgs_, false) };
+    inline DescribeOrgsRequest& setIsQueryAllSubOrgs(bool isQueryAllSubOrgs) { DARABONBA_PTR_SET_VALUE(isQueryAllSubOrgs_, isQueryAllSubOrgs) };
 
 
     // maxResults Field Functions 
@@ -102,10 +111,12 @@ namespace Models
     // The channel.
     shared_ptr<string> businessChannel_ {};
     shared_ptr<vector<string>> includeOrgIds_ {};
-    // The maximum number of entries to return. Valid values: 1 to 100.<br>
-    // Default value: 100.<br>
+    // Specifies whether to query all subordinate organizations when a parent organization is specified.
+    shared_ptr<bool> isQueryAllSubOrgs_ {};
+    // The maximum number of results to return. Valid values: 1 to 100.    
+    // Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value that was returned from a previous request.
+    // The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The organization name.
     shared_ptr<string> orgName_ {};
