@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The approval instance ID. You can obtain the value from:
+    // The approval instance ID. You can obtain the value from the following operations:
     // - [ListApprovals](~~ListApprovals~~): Lists approval instances.
     // - [GetApproval](~~GetApproval~~): Queries the details of an approval instance.
     // 

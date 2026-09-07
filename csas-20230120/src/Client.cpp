@@ -664,6 +664,72 @@ CreateApprovalProcessResponse Client::createApprovalProcess(const CreateApproval
 }
 
 /**
+ * @summary Creates a backend filing.
+ *
+ * @param request CreateBackendReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBackendReportResponse
+ */
+CreateBackendReportResponse Client::createBackendReportWithOptions(const CreateBackendReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTimestamp()) {
+    body["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasPolicyType()) {
+    body["PolicyType"] = request.getPolicyType();
+  }
+
+  if (!!request.hasReason()) {
+    body["Reason"] = request.getReason();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasReportObjects()) {
+    bodyFlat["ReportObjects"] = request.getReportObjects();
+  }
+
+  if (!!request.hasTargets()) {
+    bodyFlat["Targets"] = request.getTargets();
+  }
+
+  if (!!request.hasValidityType()) {
+    body["ValidityType"] = request.getValidityType();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateBackendReport"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBackendReportResponse>();
+}
+
+/**
+ * @summary Creates a backend filing.
+ *
+ * @param request CreateBackendReportRequest
+ * @return CreateBackendReportResponse
+ */
+CreateBackendReportResponse Client::createBackendReport(const CreateBackendReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBackendReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Create a custom identity source user for your Alibaba Cloud account.
  *
  * @param request CreateClientUserRequest
@@ -5792,6 +5858,48 @@ ImportEnterpriseAccelerateTargetsResponse Client::importEnterpriseAccelerateTarg
 }
 
 /**
+ * @summary Immediately invalidates an approval.
+ *
+ * @param request InvalidateApprovalRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvalidateApprovalResponse
+ */
+InvalidateApprovalResponse Client::invalidateApprovalWithOptions(const InvalidateApprovalRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApprovalId()) {
+    body["ApprovalId"] = request.getApprovalId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "InvalidateApproval"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InvalidateApprovalResponse>();
+}
+
+/**
+ * @summary Immediately invalidates an approval.
+ *
+ * @param request InvalidateApprovalRequest
+ * @return InvalidateApprovalResponse
+ */
+InvalidateApprovalResponse Client::invalidateApproval(const InvalidateApprovalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return invalidateApprovalWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the applications associated with one or more private access policies.
  *
  * @param request ListApplicationsForPrivateAccessPolicyRequest
@@ -6945,6 +7053,64 @@ ListNacUserCertResponse Client::listNacUserCertWithOptions(const ListNacUserCert
 ListNacUserCertResponse Client::listNacUserCert(const ListNacUserCertRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNacUserCertWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+ *
+ * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+ *
+ * @param request ListNetBandwidthRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNetBandwidthResponse
+ */
+ListNetBandwidthResponse Client::listNetBandwidthWithOptions(const ListNetBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasNetType()) {
+    query["NetType"] = request.getNetType();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNetBandwidth"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNetBandwidthResponse>();
+}
+
+/**
+ * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+ *
+ * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+ *
+ * @param request ListNetBandwidthRequest
+ * @return ListNetBandwidthResponse
+ */
+ListNetBandwidthResponse Client::listNetBandwidth(const ListNetBandwidthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNetBandwidthWithOptions(request, runtime);
 }
 
 /**

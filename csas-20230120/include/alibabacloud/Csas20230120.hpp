@@ -241,6 +241,23 @@ namespace Csas20230120
       Models::CreateApprovalProcessResponse createApprovalProcess(const Models::CreateApprovalProcessRequest &request);
 
       /**
+       * @summary Creates a backend filing.
+       *
+       * @param request CreateBackendReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBackendReportResponse
+       */
+      Models::CreateBackendReportResponse createBackendReportWithOptions(const Models::CreateBackendReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a backend filing.
+       *
+       * @param request CreateBackendReportRequest
+       * @return CreateBackendReportResponse
+       */
+      Models::CreateBackendReportResponse createBackendReport(const Models::CreateBackendReportRequest &request);
+
+      /**
        * @summary Create a custom identity source user for your Alibaba Cloud account.
        *
        * @param request CreateClientUserRequest
@@ -1923,6 +1940,23 @@ namespace Csas20230120
       Models::ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargets(const Models::ImportEnterpriseAccelerateTargetsRequest &request);
 
       /**
+       * @summary Immediately invalidates an approval.
+       *
+       * @param request InvalidateApprovalRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvalidateApprovalResponse
+       */
+      Models::InvalidateApprovalResponse invalidateApprovalWithOptions(const Models::InvalidateApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Immediately invalidates an approval.
+       *
+       * @param request InvalidateApprovalRequest
+       * @return InvalidateApprovalResponse
+       */
+      Models::InvalidateApprovalResponse invalidateApproval(const Models::InvalidateApprovalRequest &request);
+
+      /**
        * @summary Queries the applications associated with one or more private access policies.
        *
        * @param request ListApplicationsForPrivateAccessPolicyRequest
@@ -2390,6 +2424,27 @@ namespace Csas20230120
        * @return ListNacUserCertResponse
        */
       Models::ListNacUserCertResponse listNacUserCert(const Models::ListNacUserCertRequest &request);
+
+      /**
+       * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+       *
+       * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+       *
+       * @param request ListNetBandwidthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNetBandwidthResponse
+       */
+      Models::ListNetBandwidthResponse listNetBandwidthWithOptions(const Models::ListNetBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+       *
+       * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+       *
+       * @param request ListNetBandwidthRequest
+       * @return ListNetBandwidthResponse
+       */
+      Models::ListNetBandwidthResponse listNetBandwidth(const Models::ListNetBandwidthRequest &request);
 
       /**
        * @summary Queries administrator operation audit logs in batches.

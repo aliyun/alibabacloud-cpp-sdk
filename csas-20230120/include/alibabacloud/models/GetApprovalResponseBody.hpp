@@ -160,7 +160,9 @@ namespace Models
 
 
         protected:
+          // The SASE user ID of the actual effective user.
           shared_ptr<string> userId_ {};
+          // The username of the actual effective user.
           shared_ptr<string> username_ {};
         };
 
@@ -206,10 +208,15 @@ namespace Models
 
 
       protected:
+        // The associated policy name.
         shared_ptr<string> associatedPolicyName_ {};
+        // The associated policy type, which is the same as PolicyType.
         shared_ptr<string> associatedPolicyType_ {};
+        // The remark for the backend report, which is the same as the report reason.
         shared_ptr<string> remark_ {};
+        // The report object. The fields vary based on PolicyType. Fields within the object use camelCase naming.
         Darabonba::Json reportObject_ {};
+        // The actual effective user of the backend report.
         shared_ptr<BackendReportDetail::TargetUser> targetUser_ {};
       };
 
@@ -351,7 +358,7 @@ namespace Models
         // - **Rejected**: Rejected.
         // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
-        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
+        // The execution time of the approval progress node. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -531,23 +538,31 @@ namespace Models
       shared_ptr<string> approvalDetail_ {};
       // The approval instance ID.
       shared_ptr<string> approvalId_ {};
-      // The list of approval progress nodes.
+      // The approval progress list. For backend reports without approval nodes, an empty array is returned.
       shared_ptr<vector<Approval::ApprovalProgresses>> approvalProgresses_ {};
+      // The approval type. Valid values:
+      // * 0: built-in approval.
+      // * 1: DingTalk approval.
+      // * 2: WeCom approval.
+      // * 3: Lark approval.
       shared_ptr<int32_t> approvalType_ {};
-      // The backend report details. This parameter is returned only when ReportType is set to BackendReport.
+      // The backend report details. This value is returned only when ReportType is set to BackendReport.
       shared_ptr<Approval::BackendReportDetail> backendReportDetail_ {};
-      // The time when the approval instance was created.
+      // The creation time in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> createTime_ {};
+      // The creation time as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTimeUnix_ {};
-      // The department of the user who created the approval instance.
+      // The department path of the report initiator.
       shared_ptr<string> creatorDepartment_ {};
       // The device ID of the terminal that created the approval instance.
       shared_ptr<string> creatorDevTag_ {};
-      // The ID of the user who created the approval instance.
+      // The ID of the user who created the approval instance. For backend reports, this is the actual effective user, not the administrator.
       shared_ptr<string> creatorUserId_ {};
       // The username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
-      // The effective status of the report. Enabled indicates that the report is active, and Expired indicates that the report has expired.
+      // The effective status of the report. This value is an empty string when the approval status is not Approved. Valid values:
+      // * Enabled: valid.
+      // * Expired: expired.
       shared_ptr<string> effectStatus_ {};
       // The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTimestamp_ {};
@@ -555,9 +570,14 @@ namespace Models
       // - **DomainBlacklist**: Domain name blacklist.
       // - **DomainWhitelist**: Domain name whitelist.
       // - **SoftwareBlock**: Software blocking.
-      // - **AppUninstall**: Agent uninstallation.
+      // - **DeviceRegistration**: Excess registration.
+      // - **AppUninstall**: Client uninstallation.
       // - **DlpSend**: File outbound transfer.
-      // - **PeripheralBlock**: Peripheral device control.
+      // - **PeripheralBlock**: Peripheral control.
+      // - **EndpointHardening**: Endpoint hardening.
+      // - **oftwareHardening**: Software hardening.
+      // - **AiAgentBlock**: AI Agent control.
+      // - **PrivateAccessBlock**: Private access.
       shared_ptr<string> policyType_ {};
       // The ID of the process associated with the approval instance.
       shared_ptr<string> processId_ {};
@@ -565,7 +585,9 @@ namespace Models
       shared_ptr<string> processName_ {};
       // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
-      // The report type. ApprovalReport indicates an approval report, and BackendReport indicates a backend report.
+      // The report type. Valid values:
+      // * ApprovalReport: approval report.
+      // * BackendReport: backend report.
       shared_ptr<string> reportType_ {};
       // The content of the template associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
@@ -579,8 +601,11 @@ namespace Models
       // - **Rejected**: Denied.
       // - **Revoked**: Revoked.
       // - **Expired**: Expired.
+      // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
-      // The validity duration type. When the value is Permanent, EndTimestamp returns 0.
+      // The validity duration type. Valid values:
+      // - **FixedTime**: Expires at a specified time.
+      // - **Permanent**: Permanently valid.
       shared_ptr<string> validityType_ {};
     };
 
@@ -603,7 +628,7 @@ namespace Models
 
 
   protected:
-    // The approval instance.
+    // The approval details list, which typically contains one record.
     shared_ptr<vector<GetApprovalResponseBody::Approval>> approval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -76,6 +76,9 @@
 #include <alibabacloud/models/CreateApprovalProcessShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApprovalProcessResponseBody.hpp>
 #include <alibabacloud/models/CreateApprovalProcessResponse.hpp>
+#include <alibabacloud/models/CreateBackendReportRequest.hpp>
+#include <alibabacloud/models/CreateBackendReportResponseBody.hpp>
+#include <alibabacloud/models/CreateBackendReportResponse.hpp>
 #include <alibabacloud/models/CreateClientUserRequest.hpp>
 #include <alibabacloud/models/CreateClientUserResponseBody.hpp>
 #include <alibabacloud/models/CreateClientUserResponse.hpp>
@@ -366,6 +369,9 @@
 #include <alibabacloud/models/ImportEnterpriseAccelerateTargetsRequest.hpp>
 #include <alibabacloud/models/ImportEnterpriseAccelerateTargetsResponseBody.hpp>
 #include <alibabacloud/models/ImportEnterpriseAccelerateTargetsResponse.hpp>
+#include <alibabacloud/models/InvalidateApprovalRequest.hpp>
+#include <alibabacloud/models/InvalidateApprovalResponseBody.hpp>
+#include <alibabacloud/models/InvalidateApprovalResponse.hpp>
 #include <alibabacloud/models/ListApplicationsForPrivateAccessPolicyRequest.hpp>
 #include <alibabacloud/models/ListApplicationsForPrivateAccessPolicyResponseBody.hpp>
 #include <alibabacloud/models/ListApplicationsForPrivateAccessPolicyResponse.hpp>
@@ -446,6 +452,9 @@
 #include <alibabacloud/models/ListNacUserCertRequest.hpp>
 #include <alibabacloud/models/ListNacUserCertResponseBody.hpp>
 #include <alibabacloud/models/ListNacUserCertResponse.hpp>
+#include <alibabacloud/models/ListNetBandwidthRequest.hpp>
+#include <alibabacloud/models/ListNetBandwidthResponseBody.hpp>
+#include <alibabacloud/models/ListNetBandwidthResponse.hpp>
 #include <alibabacloud/models/ListOperationAuditLogsRequest.hpp>
 #include <alibabacloud/models/ListOperationAuditLogsResponseBody.hpp>
 #include <alibabacloud/models/ListOperationAuditLogsResponse.hpp>

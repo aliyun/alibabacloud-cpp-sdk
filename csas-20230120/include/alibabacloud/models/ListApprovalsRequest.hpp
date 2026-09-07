@@ -215,9 +215,9 @@ namespace Models
   protected:
     // The collection of approval instance IDs.
     shared_ptr<vector<string>> approvalIds_ {};
-    // The end time for approval instance creation, in seconds-level timestamp.
+    // The end time for querying approval instance creation, in seconds-level timestamp.
     shared_ptr<int64_t> createEndTime_ {};
-    // The start time for approval instance creation, in seconds-level timestamp.
+    // The start time for querying approval instance creation, in seconds-level timestamp.
     shared_ptr<int64_t> createStartTime_ {};
     // The department of the approval instance creator.
     shared_ptr<string> creatorDepartment_ {};
@@ -231,7 +231,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The list of report effective statuses. Valid values: Enabled, Expired.
+    // The list of report effective statuses, serialized in Flat format. Duplicate values are not allowed. Only records with an approval status of Approved are matched. Valid values:
+    // * Enabled: effective.
+    // * Expired: expired or invalidated.
     shared_ptr<vector<string>> effectStatuses_ {};
     // The ID of the approval instance operator.
     shared_ptr<string> operatorUserId_ {};
@@ -242,12 +244,21 @@ namespace Models
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     // The adaptation policy type. Valid values:
+    // - **DomainBlacklist**: Domain name blacklist.
+    // - **DomainWhitelist**: Domain name whitelist.
+    // - **SoftwareBlock**: Software blocking.
+    // - **AppUninstall**: Agent uninstallation.
+    // - **DlpSend**: File outbound transfer.
+    // - **PeripheralBlock**: Peripheral control.
     shared_ptr<string> policyType_ {};
     // The associated approval process ID.
     shared_ptr<string> processId_ {};
     // The associated approval process name.
     shared_ptr<string> processName_ {};
-    // The list of report types. If not specified, only ApprovalReport is queried.
+    // The list of report types, serialized in Flat format. Duplicate values are not allowed. Valid values:
+    // * ApprovalReport: approval report.
+    // * BackendReport: backend report.
+    // If not specified, only ApprovalReport is queried by default.
     shared_ptr<vector<string>> reportTypes_ {};
     // The associated approval template ID.
     shared_ptr<string> schemaId_ {};
