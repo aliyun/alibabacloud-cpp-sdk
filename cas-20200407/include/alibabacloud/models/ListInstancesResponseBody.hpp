@@ -15,6 +15,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(DisableReissueCount, disableReissueCount_);
+      DARABONBA_PTR_TO_JSON(EnableReissueCount, enableReissueCount_);
       DARABONBA_PTR_TO_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
@@ -22,6 +24,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(DisableReissueCount, disableReissueCount_);
+      DARABONBA_PTR_FROM_JSON(EnableReissueCount, enableReissueCount_);
       DARABONBA_PTR_FROM_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
@@ -66,6 +70,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Spec, spec_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UsingProductList, usingProductList_);
+        DARABONBA_PTR_TO_JSON(VersionType, versionType_);
         DARABONBA_PTR_TO_JSON(WildcardDomainCount, wildcardDomainCount_);
       };
       friend void from_json(const Darabonba::Json& j, InstanceList& obj) { 
@@ -94,6 +99,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Spec, spec_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UsingProductList, usingProductList_);
+        DARABONBA_PTR_FROM_JSON(VersionType, versionType_);
         DARABONBA_PTR_FROM_JSON(WildcardDomainCount, wildcardDomainCount_);
       };
       InstanceList() = default ;
@@ -112,7 +118,8 @@ namespace Models
         && this->certificateNotAfter_ == nullptr && this->certificateNotBefore_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr
         && this->domain_ == nullptr && this->fullDomainCount_ == nullptr && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr
         && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->usingProductList_ == nullptr && this->wildcardDomainCount_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->usingProductList_ == nullptr && this->versionType_ == nullptr
+        && this->wildcardDomainCount_ == nullptr; };
       // autoReissue Field Functions 
       bool hasAutoReissue() const { return this->autoReissue_ != nullptr;};
       void deleteAutoReissue() { this->autoReissue_ = nullptr;};
@@ -290,6 +297,13 @@ namespace Models
       inline InstanceList& setUsingProductList(vector<string> && usingProductList) { DARABONBA_PTR_SET_RVALUE(usingProductList_, usingProductList) };
 
 
+      // versionType Field Functions 
+      bool hasVersionType() const { return this->versionType_ != nullptr;};
+      void deleteVersionType() { this->versionType_ = nullptr;};
+      inline string getVersionType() const { DARABONBA_PTR_GET_DEFAULT(versionType_, "") };
+      inline InstanceList& setVersionType(string versionType) { DARABONBA_PTR_SET_VALUE(versionType_, versionType) };
+
+
       // wildcardDomainCount Field Functions 
       bool hasWildcardDomainCount() const { return this->wildcardDomainCount_ != nullptr;};
       void deleteWildcardDomainCount() { this->wildcardDomainCount_ = nullptr;};
@@ -299,16 +313,16 @@ namespace Models
 
     protected:
       // Indicates whether automatic managed renewal is enabled. Valid values:
-      // - enable: enabled.
-      // - disable: disabled.
+      // - enable: Enabled.
+      // - disable: Not enabled.
       shared_ptr<string> autoReissue_ {};
       // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
       shared_ptr<string> brand_ {};
-      // The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
-      // - For the China site: certificate ID + "-cn-hangzhou"
-      // - For the China site: certificate ID + "-ap-southeast-1"
+      // The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+      // - China site: certificate ID + "-cn-hangzhou"
+      // - International site: certificate ID + "-ap-southeast-1"
       // 
-      // For example, if the certificate ID is 123, the CertIdentifier for the China site is "123-cn-hangzhou", and the CertIdentifier for the International site is "123-ap-southeast-1".
+      // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the international site is "123-ap-southeast-1".
       shared_ptr<string> certIdentifier_ {};
       // The domain name of the latest issued certificate.
       shared_ptr<string> certificateDomain_ {};
@@ -316,11 +330,11 @@ namespace Models
       shared_ptr<int64_t> certificateId_ {};
       // The certificate name.
       shared_ptr<string> certificateName_ {};
-      // The end time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
+      // The end time of the latest certificate. The value is a UNIX timestamp in seconds. This field is empty if no certificate has been issued.
       shared_ptr<int64_t> certificateNotAfter_ {};
-      // The start time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
+      // The start time of the latest certificate. The value is a UNIX timestamp in seconds. This field is empty if no certificate has been issued.
       shared_ptr<int64_t> certificateNotBefore_ {};
-      // The revocation time of the latest certificate. The value is a UNIX timestamp accurate to seconds.
+      // The revocation time of the latest certificate. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> certificateRevokeTime_ {};
       // The status of the certificate. Valid values:
       // - **issued**: Issued.
@@ -334,14 +348,14 @@ namespace Models
       shared_ptr<string> domain_ {};
       // The number of exact-match domain names.
       shared_ptr<int32_t> fullDomainCount_ {};
-      // The expiration time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
+      // The expiration time of the instance. The value is a UNIX timestamp in seconds. This field is empty if no certificate has been issued.
       shared_ptr<int64_t> instanceEndTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The start time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
+      // The start time of the instance. The value is a UNIX timestamp in seconds. This field is empty if no certificate has been issued.
       shared_ptr<int64_t> instanceStartTime_ {};
       // The instance type. Valid values:
-      // - BUY: official certificate.
+      // - BUY: formal certificate.
       // - TEST: test certificate.
       shared_ptr<string> instanceType_ {};
       // The certificate algorithm. Default value: RSA_2048. Valid values:
@@ -351,9 +365,9 @@ namespace Models
       // - **ECC_256**
       // - **SM2**
       shared_ptr<string> keyAlgorithm_ {};
-      // The end time of the instance purchase. The value is a UNIX timestamp accurate to seconds. Used to determine the purchase duration of the instance.
+      // The end time when the instance was purchased. The value is a UNIX timestamp in seconds. This value is used to determine the purchase duration of the instance.
       shared_ptr<int64_t> orderEndTime_ {};
-      // The start time of the instance purchase. The value is a UNIX timestamp accurate to seconds. Used to determine the refund time limit.
+      // The start time when the instance was purchased. The value is a UNIX timestamp in seconds. This value is used to determine the refund time limit.
       shared_ptr<int64_t> orderStartTime_ {};
       // The result returned by the CA during the last certificate operation.
       shared_ptr<string> pendingResult_ {};
@@ -364,25 +378,46 @@ namespace Models
       // The instance status. Valid values:
       // - **inactive**: Pending use.
       // - **pending**: Under review. The latest certificate is being reviewed.
-      // - **willExpire**: About to expire.
-      // - **expired**: Expired.
+      // - **willExpire**: The instance is about to expire.
+      // - **expired**: The instance has expired.
       // - **refund**: Refunded.
       // - **normal**: Normal.
-      // - **closed**: Closed and unavailable.
+      // - **closed**: Closed. The instance is unavailable.
       shared_ptr<string> status_ {};
       // The list of cloud services to which the latest certificate is deployed.
       shared_ptr<vector<string>> usingProductList_ {};
+      // The version type. Valid values:
+      // - basic: Basic Edition.
+      // - standard: Standard Edition.
+      // - professional: Professional Edition.
+      // - ultimate: Ultimate Edition.
+      shared_ptr<string> versionType_ {};
       // The number of wildcard domain names.
       shared_ptr<int32_t> wildcardDomainCount_ {};
     };
 
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->instanceList_ == nullptr && this->requestId_ == nullptr && this->showSize_ == nullptr && this->totalCount_ == nullptr; };
+        && this->disableReissueCount_ == nullptr && this->enableReissueCount_ == nullptr && this->instanceList_ == nullptr && this->requestId_ == nullptr && this->showSize_ == nullptr
+        && this->totalCount_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListInstancesResponseBody& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // disableReissueCount Field Functions 
+    bool hasDisableReissueCount() const { return this->disableReissueCount_ != nullptr;};
+    void deleteDisableReissueCount() { this->disableReissueCount_ = nullptr;};
+    inline int64_t getDisableReissueCount() const { DARABONBA_PTR_GET_DEFAULT(disableReissueCount_, 0L) };
+    inline ListInstancesResponseBody& setDisableReissueCount(int64_t disableReissueCount) { DARABONBA_PTR_SET_VALUE(disableReissueCount_, disableReissueCount) };
+
+
+    // enableReissueCount Field Functions 
+    bool hasEnableReissueCount() const { return this->enableReissueCount_ != nullptr;};
+    void deleteEnableReissueCount() { this->enableReissueCount_ = nullptr;};
+    inline int64_t getEnableReissueCount() const { DARABONBA_PTR_GET_DEFAULT(enableReissueCount_, 0L) };
+    inline ListInstancesResponseBody& setEnableReissueCount(int64_t enableReissueCount) { DARABONBA_PTR_SET_VALUE(enableReissueCount_, enableReissueCount) };
 
 
     // instanceList Field Functions 
@@ -416,8 +451,12 @@ namespace Models
 
 
   protected:
-    // The current page number in the paged query.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
+    // The number of instances for which managed renewal is not enabled.
+    shared_ptr<int64_t> disableReissueCount_ {};
+    // The number of instances for which managed renewal is enabled.
+    shared_ptr<int64_t> enableReissueCount_ {};
     // The list of instances.
     shared_ptr<vector<ListInstancesResponseBody::InstanceList>> instanceList_ {};
     // The request ID.

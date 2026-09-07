@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> certificateId_ {};
+    // The UID of the user with whom the certificate is shared.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> targetUserId_ {};
   };

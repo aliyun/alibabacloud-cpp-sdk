@@ -69,14 +69,7 @@ AlibabaCloud::Cas20200407::Client::Client(Config &config): OpenApiClient(config)
     {"eu-west-1-oxs" , "cas.aliyuncs.com"},
     {"rus-west-1-pop" , "cas.aliyuncs.com"},
     {"us-east-1" , "cas.aliyuncs.com"},
-    {"us-west-1" , "cas.aliyuncs.com"},
-    {"ap-southeast-2" , "cas.ap-southeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "cas.ap-northeast-1.aliyuncs.com"},
-    {"ap-southeast-1" , "cas.ap-southeast-1.aliyuncs.com"},
-    {"eu-central-1" , "cas.eu-central-1.aliyuncs.com"},
-    {"me-central-1" , "cas.me-central-1.aliyuncs.com"},
-    {"ap-south-1" , "cas.ap-south-1.aliyuncs.com"},
-    {"me-east-1" , "cas.me-east-1.aliyuncs.com"}
+    {"us-west-1" , "cas.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -2329,6 +2322,11 @@ GetCsrDetailResponse Client::getCsrDetail(const GetCsrDetailRequest &request) {
 /**
  * @summary Queries the details of an instance.
  *
+ * @description This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
+ *
  * @param request GetInstanceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceDetailResponse
@@ -2359,6 +2357,11 @@ GetInstanceDetailResponse Client::getInstanceDetailWithOptions(const GetInstance
 
 /**
  * @summary Queries the details of an instance.
+ *
+ * @description This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
  *
  * @param request GetInstanceDetailRequest
  * @return GetInstanceDetailResponse
@@ -3303,6 +3306,11 @@ ListDeploymentJobResourceResponse Client::listDeploymentJobResource(const ListDe
 /**
  * @summary Retrieves a list of instances.
  *
+ * @description Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+ *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInstancesResponse
@@ -3310,6 +3318,10 @@ ListDeploymentJobResourceResponse Client::listDeploymentJobResource(const ListDe
 ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoReissueFlag()) {
+    query["AutoReissueFlag"] = request.getAutoReissueFlag();
+  }
+
   if (!!request.hasBrand()) {
     query["Brand"] = request.getBrand();
   }
@@ -3336,6 +3348,10 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasServerDeployFlag()) {
+    query["ServerDeployFlag"] = request.getServerDeployFlag();
   }
 
   if (!!request.hasShowSize()) {
@@ -3365,6 +3381,11 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 
 /**
  * @summary Retrieves a list of instances.
+ *
+ * @description Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+ * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -4037,7 +4058,7 @@ RevokeWHClientCertificateResponse Client::revokeWHClientCertificate(const Revoke
 }
 
 /**
- * @summary 共享证书
+ * @summary Shares a certificate.
  *
  * @param request ShareCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4072,7 +4093,7 @@ ShareCertificateResponse Client::shareCertificateWithOptions(const ShareCertific
 }
 
 /**
- * @summary 共享证书
+ * @summary Shares a certificate.
  *
  * @param request ShareCertificateRequest
  * @return ShareCertificateResponse
@@ -4591,7 +4612,7 @@ UpdateDeploymentJobStatusResponse Client::updateDeploymentJobStatus(const Update
 }
 
 /**
- * @summary Updates the configuration of a Certificate Management Service instance.
+ * @summary Updates an instance.
  *
  * @param request UpdateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4678,7 +4699,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 }
 
 /**
- * @summary Updates the configuration of a Certificate Management Service instance.
+ * @summary Updates an instance.
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
