@@ -708,6 +708,52 @@ GetRemakeScriptJobResponse Client::getRemakeScriptJob(const GetRemakeScriptJobRe
 }
 
 /**
+ * @summary Queries the status, input parameters, and video result of a video text erasure task.
+ *
+ * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+ *
+ * @param request GetVideoDetextJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoDetextJobResponse
+ */
+GetVideoDetextJobResponse Client::getVideoDetextJobWithOptions(const GetVideoDetextJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetVideoDetextJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoDetextJobResponse>();
+}
+
+/**
+ * @summary Queries the status, input parameters, and video result of a video text erasure task.
+ *
+ * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+ *
+ * @param request GetVideoDetextJobRequest
+ * @return GetVideoDetextJobResponse
+ */
+GetVideoDetextJobResponse Client::getVideoDetextJob(const GetVideoDetextJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoDetextJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
@@ -1396,6 +1442,68 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeScriptJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+ *
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+ *
+ * @param request SubmitVideoDetextJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoDetextJobResponse
+ */
+SubmitVideoDetextJobResponse Client::submitVideoDetextJobWithOptions(const SubmitVideoDetextJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInput()) {
+    body["Input"] = request.getInput();
+  }
+
+  if (!!request.hasJobParameters()) {
+    body["JobParameters"] = request.getJobParameters();
+  }
+
+  if (!!request.hasOutput()) {
+    body["Output"] = request.getOutput();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoDetextJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoDetextJobResponse>();
+}
+
+/**
+ * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+ *
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+ *
+ * @param request SubmitVideoDetextJobRequest
+ * @return SubmitVideoDetextJobResponse
+ */
+SubmitVideoDetextJobResponse Client::submitVideoDetextJob(const SubmitVideoDetextJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoDetextJobWithOptions(request, runtime);
 }
 
 /**

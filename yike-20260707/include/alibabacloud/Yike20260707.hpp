@@ -288,6 +288,27 @@ namespace Yike20260707
       Models::GetRemakeScriptJobResponse getRemakeScriptJob(const Models::GetRemakeScriptJobRequest &request);
 
       /**
+       * @summary Queries the status, input parameters, and video result of a video text erasure task.
+       *
+       * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+       *
+       * @param request GetVideoDetextJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoDetextJobResponse
+       */
+      Models::GetVideoDetextJobResponse getVideoDetextJobWithOptions(const Models::GetVideoDetextJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status, input parameters, and video result of a video text erasure task.
+       *
+       * @description Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+       *
+       * @param request GetVideoDetextJobRequest
+       * @return GetVideoDetextJobResponse
+       */
+      Models::GetVideoDetextJobResponse getVideoDetextJob(const Models::GetVideoDetextJobRequest &request);
+
+      /**
        * @summary Queries a video generation task.
        *
        * @param request GetVideoGenerationJobRequest
@@ -516,6 +537,27 @@ namespace Yike20260707
        * @return SubmitRemakeScriptJobResponse
        */
       Models::SubmitRemakeScriptJobResponse submitRemakeScriptJob(const Models::SubmitRemakeScriptJobRequest &request);
+
+      /**
+       * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+       *
+       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+       *
+       * @param request SubmitVideoDetextJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoDetextJobResponse
+       */
+      Models::SubmitVideoDetextJobResponse submitVideoDetextJobWithOptions(const Models::SubmitVideoDetextJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+       *
+       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+       *
+       * @param request SubmitVideoDetextJobRequest
+       * @return SubmitVideoDetextJobResponse
+       */
+      Models::SubmitVideoDetextJobResponse submitVideoDetextJob(const Models::SubmitVideoDetextJobRequest &request);
 
       /**
        * @summary Submits a video generation task.
