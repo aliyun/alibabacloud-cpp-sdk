@@ -62,9 +62,9 @@ namespace Models
 
 
   protected:
-    // The IDs or input URLs that are forbidden to delete.
+    // The IDs or input URLs that are forbidden from being deleted.
     shared_ptr<vector<string>> forbiddenList_ {};
-    // The ignored IDs or input URLs (invalid or items with retrieval errors).
+    // The ignored IDs or input URLs, which are invalid or have retrieval errors.
     shared_ptr<vector<string>> ignoredList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -121,33 +121,36 @@ namespace Models
 
 
   protected:
-    // The aspect ratio. Valid values: 16:9 (default), 9:16, 4:3, 3:4, and 1:1.
+    // The aspect ratio. Valid values: 16:9 (default), 9:16, 4:3, 3:4, 1:1, and 21:9.
     shared_ptr<string> aspectRatio_ {};
-    // The idempotency token.
+    // The idempotency token. A unique, case-sensitive string of up to 32 characters. This token ensures that the request is completed no more than once, preventing duplicate operations caused by multiple retries.
     shared_ptr<string> clientToken_ {};
-    // The task input. A JSON string that contains the following fields:
-    // - Prompt: String. Required. The prompt.
+    // The task input. This parameter is required. The value is a JSON string that contains the following fields:
+    // 
+    // - Prompt: String. Required. The prompt for image generation.
     // - Medias: A list of media items. Required when the task type is `image_to_image`. A maximum of 9 items are supported.
-    // > The Media structure contains: Type, the media type, String, valid value: image; URL, the media download URL, String; MediaId, the media asset ID, String.
+    // > The Media struct contains the following fields: Type, the media type, String, valid value: image. URL, the download URL of the media, String. MediaId, the media asset ID, String.
     // >
     shared_ptr<string> input_ {};
-    // The task function parameters. A JSON string. No configuration is required at this time.
+    // The task feature parameters. The value is a JSON string. You do not need to set this parameter.
     shared_ptr<string> jobParameters_ {};
-    // The type of the generation task. Valid values:
+    // The type of the generation task. This parameter is required. Valid values:
     // 
-    // - text_to_image: text-to-image.
-    // - image_to_image: image-to-image.
+    // - text_to_image: text-to-image generation.
+    // - image_to_image: image-to-image generation.
     shared_ptr<string> jobType_ {};
-    // The model name. Currently supported models:
-    // - wan2.7-image
-    // - qwen-image-2.0
+    // The model name. This parameter is required. Valid values:
+    // 
+    // - qwen-image-3.0
     // - qwen-image-2.0-pro
+    // - qwen-image-2.0
+    // - wan2.7-image
     shared_ptr<string> model_ {};
     // The number of images. Valid values: 1 to 4. Default value: 1.
     shared_ptr<string> n_ {};
     // The resolution. Valid values: 1K (default), 2K, and 4K.
     shared_ptr<string> resolution_ {};
-    // The scene. This is an enumeration type. Currently only `general` is supported.
+    // The scenario. This is an enumeration type. Currently, only `general` is supported.
     shared_ptr<string> scene_ {};
     // The user business data in JSON format.
     shared_ptr<string> userData_ {};

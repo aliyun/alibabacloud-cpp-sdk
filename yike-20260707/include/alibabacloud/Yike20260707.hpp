@@ -227,7 +227,8 @@ namespace Yike20260707
       /**
        * @summary Queries a media asset.
        *
-       * @description ## Operation description.
+       * @description ## Operation description
+       * This API operation is used to query a media content analysis job.
        *
        * @param request GetMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -238,7 +239,8 @@ namespace Yike20260707
       /**
        * @summary Queries a media asset.
        *
-       * @description ## Operation description.
+       * @description ## Operation description
+       * This API operation is used to query a media content analysis job.
        *
        * @param request GetMediaRequest
        * @return GetMediaResponse
@@ -320,15 +322,9 @@ namespace Yike20260707
       Models::GetVideoRenderJobResponse getVideoRenderJob(const Models::GetVideoRenderJobRequest &request);
 
       /**
-       * @summary Queries the status and result of a video translation task by the specified ID.
+       * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
        *
-       * @description ## Request description
-       * - This API retrieves the status and details of a video translation task based on the `JobId`.
-       * - `JobId` is a required parameter, passed through query or form.
-       * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-       * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-       * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-       * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+       * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
        *
        * @param request GetVideoTranslationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -337,15 +333,9 @@ namespace Yike20260707
       Models::GetVideoTranslationJobResponse getVideoTranslationJobWithOptions(const Models::GetVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status and result of a video translation task by the specified ID.
+       * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
        *
-       * @description ## Request description
-       * - This API retrieves the status and details of a video translation task based on the `JobId`.
-       * - `JobId` is a required parameter, passed through query or form.
-       * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-       * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-       * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-       * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+       * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
        *
        * @param request GetVideoTranslationJobRequest
        * @return GetVideoTranslationJobResponse
@@ -389,8 +379,8 @@ namespace Yike20260707
       /**
        * @summary Imports a media asset.
        *
-       * @description ## Operation description
-       * This API is used to query media content understanding jobs.
+       * @description ## Request description
+       * This API is used to query media content analysis jobs.
        *
        * @param request ImportMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -401,8 +391,8 @@ namespace Yike20260707
       /**
        * @summary Imports a media asset.
        *
-       * @description ## Operation description
-       * This API is used to query media content understanding jobs.
+       * @description ## Request description
+       * This API is used to query media content analysis jobs.
        *
        * @param request ImportMediaRequest
        * @return ImportMediaResponse
@@ -410,7 +400,7 @@ namespace Yike20260707
       Models::ImportMediaResponse importMedia(const Models::ImportMediaRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of categories.
+       * @summary Retrieves a paged list of categories.
        *
        * @param request ListAssetCategoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -419,7 +409,7 @@ namespace Yike20260707
       Models::ListAssetCategoriesResponse listAssetCategoriesWithOptions(const Models::ListAssetCategoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of categories.
+       * @summary Retrieves a paged list of categories.
        *
        * @param request ListAssetCategoriesRequest
        * @return ListAssetCategoriesResponse
@@ -562,16 +552,9 @@ namespace Yike20260707
       Models::SubmitVideoRenderJobResponse submitVideoRenderJob(const Models::SubmitVideoRenderJobRequest &request);
 
       /**
-       * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
        *
-       * @description ## Request description
-       * - This API supports multiple video translation features, including subtitle translation and voice translation.
-       * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-       * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-       * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-       * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-       * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-       * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+       * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
        *
        * @param request SubmitVideoTranslationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -580,16 +563,9 @@ namespace Yike20260707
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(const Models::SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+       * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
        *
-       * @description ## Request description
-       * - This API supports multiple video translation features, including subtitle translation and voice translation.
-       * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-       * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-       * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-       * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-       * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-       * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+       * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
        *
        * @param request SubmitVideoTranslationJobRequest
        * @return SubmitVideoTranslationJobResponse
@@ -599,7 +575,7 @@ namespace Yike20260707
       /**
        * @summary Updates a media asset category.
        *
-       * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+       * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
        *
        * @param request UpdateAssetCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -610,7 +586,7 @@ namespace Yike20260707
       /**
        * @summary Updates a media asset category.
        *
-       * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+       * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
        *
        * @param request UpdateAssetCategoryRequest
        * @return UpdateAssetCategoryResponse
@@ -643,8 +619,8 @@ namespace Yike20260707
       /**
        * @summary Updates media asset information.
        *
-       * @description ## Request description
-       * This API is used to query media content understanding jobs.
+       * @description ## Operation description
+       * This API operation is used to query media content understanding jobs.
        *
        * @param request UpdateMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -655,8 +631,8 @@ namespace Yike20260707
       /**
        * @summary Updates media asset information.
        *
-       * @description ## Request description
-       * This API is used to query media content understanding jobs.
+       * @description ## Operation description
+       * This API operation is used to query media content understanding jobs.
        *
        * @param request UpdateMediaRequest
        * @return UpdateMediaResponse

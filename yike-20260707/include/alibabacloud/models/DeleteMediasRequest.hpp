@@ -13,11 +13,13 @@ namespace Models
   class DeleteMediasRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteMediasRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_TO_JSON(DeletePhysicalFiles, deletePhysicalFiles_);
       DARABONBA_PTR_TO_JSON(InputURLs, inputURLs_);
       DARABONBA_PTR_TO_JSON(MediaIds, mediaIds_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteMediasRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_FROM_JSON(DeletePhysicalFiles, deletePhysicalFiles_);
       DARABONBA_PTR_FROM_JSON(InputURLs, inputURLs_);
       DARABONBA_PTR_FROM_JSON(MediaIds, mediaIds_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->deletePhysicalFiles_ == nullptr
-        && this->inputURLs_ == nullptr && this->mediaIds_ == nullptr; };
+    virtual bool empty() const override { return this->bizConfig_ == nullptr
+        && this->deletePhysicalFiles_ == nullptr && this->inputURLs_ == nullptr && this->mediaIds_ == nullptr; };
+    // bizConfig Field Functions 
+    bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
+    void deleteBizConfig() { this->bizConfig_ = nullptr;};
+    inline string getBizConfig() const { DARABONBA_PTR_GET_DEFAULT(bizConfig_, "") };
+    inline DeleteMediasRequest& setBizConfig(string bizConfig) { DARABONBA_PTR_SET_VALUE(bizConfig_, bizConfig) };
+
+
     // deletePhysicalFiles Field Functions 
     bool hasDeletePhysicalFiles() const { return this->deletePhysicalFiles_ != nullptr;};
     void deleteDeletePhysicalFiles() { this->deletePhysicalFiles_ = nullptr;};
@@ -57,11 +66,12 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> bizConfig_ {};
     // Specifies whether to delete the physical files at the same time.
     shared_ptr<bool> deletePhysicalFiles_ {};
     // Not supported.
     shared_ptr<string> inputURLs_ {};
-    // The media asset IDs, separated by commas. Invalid IDs are added to the IgnoredList.
+    // The media asset IDs, separated by commas. Invalid IDs are added to IgnoredList.
     shared_ptr<string> mediaIds_ {};
   };
 

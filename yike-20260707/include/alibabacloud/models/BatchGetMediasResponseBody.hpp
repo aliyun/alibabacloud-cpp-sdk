@@ -592,9 +592,9 @@ namespace Models
           shared_ptr<string> avgFPS_ {};
           // The bitrate of the file.
           shared_ptr<string> bitrate_ {};
-          // The long name of the codec.
+          // The long name of the codec format.
           shared_ptr<string> codecLongName_ {};
-          // The short name of the codec.
+          // The short name of the codec format.
           shared_ptr<string> codecName_ {};
           // The codec tag.
           shared_ptr<string> codecTag_ {};
@@ -749,9 +749,9 @@ namespace Models
 
 
         protected:
-          // The long name of the codec.
+          // The long name of the codec format.
           shared_ptr<string> codecLongName_ {};
-          // The short name of the codec.
+          // The short name of the codec format.
           shared_ptr<string> codecName_ {};
           // The codec tag.
           shared_ptr<string> codecTag_ {};
@@ -1106,9 +1106,9 @@ namespace Models
           shared_ptr<string> channelLayout_ {};
           // The number of audio channels.
           shared_ptr<string> channels_ {};
-          // The long name of the codec.
+          // The long name of the codec format.
           shared_ptr<string> codecLongName_ {};
-          // The short name of the codec.
+          // The short name of the codec format.
           shared_ptr<string> codecName_ {};
           // The codec tag.
           shared_ptr<string> codecTag_ {};

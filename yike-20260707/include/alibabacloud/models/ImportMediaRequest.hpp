@@ -13,6 +13,7 @@ namespace Models
   class ImportMediaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImportMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_TO_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -26,8 +27,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegisterConfig, registerConfig_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
+      DARABONBA_PTR_TO_JSON(YikeAssetConfig, yikeAssetConfig_);
     };
     friend void from_json(const Darabonba::Json& j, ImportMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_FROM_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -41,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegisterConfig, registerConfig_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
+      DARABONBA_PTR_FROM_JSON(YikeAssetConfig, yikeAssetConfig_);
     };
     ImportMediaRequest() = default ;
     ImportMediaRequest(const ImportMediaRequest &) = default ;
@@ -53,10 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->entityId_ == nullptr && this->importSource_ == nullptr
-        && this->inputURL_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->overwrite_ == nullptr && this->registerConfig_ == nullptr
-        && this->title_ == nullptr && this->userData_ == nullptr; };
+    virtual bool empty() const override { return this->bizConfig_ == nullptr
+        && this->categoryId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->entityId_ == nullptr
+        && this->importSource_ == nullptr && this->inputURL_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->overwrite_ == nullptr
+        && this->registerConfig_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr && this->yikeAssetConfig_ == nullptr; };
+    // bizConfig Field Functions 
+    bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
+    void deleteBizConfig() { this->bizConfig_ = nullptr;};
+    inline string getBizConfig() const { DARABONBA_PTR_GET_DEFAULT(bizConfig_, "") };
+    inline ImportMediaRequest& setBizConfig(string bizConfig) { DARABONBA_PTR_SET_VALUE(bizConfig_, bizConfig) };
+
+
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -148,7 +159,15 @@ namespace Models
     inline ImportMediaRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
+    // yikeAssetConfig Field Functions 
+    bool hasYikeAssetConfig() const { return this->yikeAssetConfig_ != nullptr;};
+    void deleteYikeAssetConfig() { this->yikeAssetConfig_ = nullptr;};
+    inline string getYikeAssetConfig() const { DARABONBA_PTR_GET_DEFAULT(yikeAssetConfig_, "") };
+    inline ImportMediaRequest& setYikeAssetConfig(string yikeAssetConfig) { DARABONBA_PTR_SET_VALUE(yikeAssetConfig_, yikeAssetConfig) };
+
+
   protected:
+    shared_ptr<string> bizConfig_ {};
     shared_ptr<int64_t> categoryId_ {};
     // The cover image URL. This parameter is valid only for video media assets.
     shared_ptr<string> coverURL_ {};
@@ -162,7 +181,7 @@ namespace Models
     shared_ptr<string> importSource_ {};
     // The URL of the media asset.
     shared_ptr<string> inputURL_ {};
-    // The tags of the media asset. Separate multiple tags with commas.
+    // The tags of the media asset. Separate multiple tags with commas (,).
     shared_ptr<string> mediaTags_ {};
     // The type of the media asset.
     shared_ptr<string> mediaType_ {};
@@ -172,8 +191,9 @@ namespace Models
     shared_ptr<string> registerConfig_ {};
     // The title of the media asset.
     shared_ptr<string> title_ {};
-    // The user data. The maximum size is 1024 bytes.
+    // The user data. Maximum length: 1024 bytes.
     shared_ptr<string> userData_ {};
+    shared_ptr<string> yikeAssetConfig_ {};
   };
 
   } // namespace Models

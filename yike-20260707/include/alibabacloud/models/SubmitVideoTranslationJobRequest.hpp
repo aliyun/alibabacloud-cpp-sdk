@@ -103,34 +103,27 @@ namespace Models
 
 
   protected:
-    // The user-level idempotency key.
+    // The user-level idempotency token, up to 40 characters. If the same user submits a request with the same token, the original job is returned.
     shared_ptr<string> clientToken_ {};
-    // The job description.
+    // The job description, used to record business purposes or processing requirements.
     shared_ptr<string> description_ {};
-    // The input configuration JSON string:
-    // - Video
-    // - Audio
-    // - Subtitle
-    // 
-    // <notice>Currently, only OSS addresses under the calling account are supported as input.</notice>
+    // The input configuration JSON string. You must specify either Video or VideoMediaId, but not both. You can specify at most one of Audio or AudioMediaId. Subtitle is optional.
     // 
     // This parameter is required.
     shared_ptr<string> input_ {};
-    // The job parameters JSON string.
+    // The job parameters JSON string. It must contain at least SourceLanguage and TargetLanguage. You can also configure main subtitle erasure, voice translation, on-screen text translation, and final editing.
     // 
     // This parameter is required.
     shared_ptr<string> jobParameters_ {};
-    // The job type. Valid values:
-    // - SubtitleTranslate
-    // - VoiceTranslate
+    // The job type. SubtitleTranslate indicates subtitle translation. VoiceTranslate indicates voice translation.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The output configuration JSON string. The OssUri value must be a folder.
+    // The output configuration JSON string. OssUri is an optional customer OSS output directory. If not specified, a signed URL of the service-owned artifact is returned.
     shared_ptr<string> output_ {};
-    // If not specified, the service generates a default title.
+    // The job title. If not specified, the service generates a default title.
     shared_ptr<string> title_ {};
-    // The custom user data JSON string.
+    // The custom user data JSON string. It can contain the asynchronous notification address NotifyAddress.
     shared_ptr<string> userData_ {};
   };
 

@@ -142,25 +142,25 @@ namespace Models
 
 
     protected:
-      // The duration of the input video, in seconds.
+      // The input video duration, in seconds.
       shared_ptr<double> duration_ {};
-      // The editing project ID.
+      // The editing project ID for a single-target-language job. For multi-target-language results, retrieve the ID from Output.AiResult.ResultMap.
       shared_ptr<string> editingProjectId_ {};
-      // Optional. The error code returned when the task ultimately fails.
+      // The business error code returned when the job fails. This field is typically not returned for non-failed states.
       shared_ptr<string> errorCode_ {};
-      // Optional. The error message returned when the task ultimately fails.
+      // The business error message returned when the job fails. This field is typically not returned for non-failed states.
       shared_ptr<string> errorMessage_ {};
-      // The normalized Input JSON.
+      // The normalized input configuration JSON string saved at submission time.
       shared_ptr<string> input_ {};
-      // The task ID.
+      // The video translation job ID.
       shared_ptr<string> jobId_ {};
-      // The normalized JobParameters JSON, including default values.
+      // The normalized job parameters JSON string, including default values supplemented by the service.
       shared_ptr<string> jobParameters_ {};
-      // The normalized task type.
+      // The normalized job type.
       shared_ptr<string> jobType_ {};
-      // The JSON string of the final task result.
+      // The job output JSON string. When the job succeeds, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
       shared_ptr<string> output_ {};
-      // The task status. Valid values: Created, Queuing, Executing, Finished, and Failed.
+      // The job status. Valid values: Created, Queuing, Executing, Finished, or Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
   protected:
-    // The video translation task.
+    // The video translation job.
     shared_ptr<GetVideoTranslationJobResponseBody::Job> job_ {};
-    // The request ID.
+    // The request ID, used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

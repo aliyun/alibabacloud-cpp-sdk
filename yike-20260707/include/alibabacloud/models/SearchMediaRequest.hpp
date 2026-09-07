@@ -13,6 +13,7 @@ namespace Models
   class SearchMediaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_TO_JSON(Match, match_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_FROM_JSON(Match, match_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->match_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->scrollToken_ == nullptr && this->sortBy_ == nullptr; };
+    virtual bool empty() const override { return this->bizConfig_ == nullptr
+        && this->categoryId_ == nullptr && this->match_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->scrollToken_ == nullptr
+        && this->sortBy_ == nullptr; };
+    // bizConfig Field Functions 
+    bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
+    void deleteBizConfig() { this->bizConfig_ = nullptr;};
+    inline string getBizConfig() const { DARABONBA_PTR_GET_DEFAULT(bizConfig_, "") };
+    inline SearchMediaRequest& setBizConfig(string bizConfig) { DARABONBA_PTR_SET_VALUE(bizConfig_, bizConfig) };
+
+
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -84,17 +94,21 @@ namespace Models
 
 
   protected:
-    // The category ID. You can obtain the ID by using the following methods:
+    shared_ptr<string> bizConfig_ {};
+    // The category ID. You can obtain the category ID by using the following methods:
+    // 
+    // - When you create a category by calling the CreateAssetCategory operation, the category ID is the value of CategoryId in the response.
+    // - When you query categories by calling the ListAssetCategories operation, the category ID is the value of CategoryId in the corresponding entry of the response.
     shared_ptr<int64_t> categoryId_ {};
-    // The filter condition. For syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
+    // The filter conditions. For syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
     shared_ptr<string> match_ {};
     // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return per page. Default value: 10. Maximum value: 50.
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The pagination token. A 32-character string. You do not need to set this parameter for the first search request. When the search request matches data, the server returns this parameter value to record the current position of the search data. Record the returned parameter value and set this parameter in the next search request based on the following requirements or suggestions: This parameter must be set if you want to traverse all data that matches the search conditions. If the PageNo parameter value exceeds 200, set this parameter to optimize search performance. You can only page forward, with a maximum paging distance of 1000 media assets.
+    // The pagination token. The value is a 32-character string. Do not set this parameter for the first search request. When the search request matches data, the server returns this parameter value to record the current position of the search data. Record the returned parameter value and set this parameter in the next search request based on the following requirements or recommendations: This parameter is required if you want to traverse all data that matches the search conditions. If the PageNo parameter value exceeds 200, set this parameter to optimize search performance. You can only page forward, and the maximum paging distance is 1000 media assets.
     shared_ptr<string> scrollToken_ {};
-    // The sort fields and sort orders, separated by commas (,). Format: field1:Desc,field2:Asc. The direction can only be Asc or Desc.
+    // The sort fields and sort orders, separated by commas (,). The format is field1:Desc,field2:Asc. The direction can only be Asc or Desc.
     shared_ptr<string> sortBy_ {};
   };
 

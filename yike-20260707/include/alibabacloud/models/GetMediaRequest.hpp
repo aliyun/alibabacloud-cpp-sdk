@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetMediaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AuthTimeout, authTimeout_);
+      DARABONBA_PTR_TO_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_TO_JSON(InputURL, inputURL_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
     };
     friend void from_json(const Darabonba::Json& j, GetMediaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthTimeout, authTimeout_);
+      DARABONBA_PTR_FROM_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_FROM_JSON(InputURL, inputURL_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && this->inputURL_ == nullptr && this->mediaId_ == nullptr; };
+        && this->bizConfig_ == nullptr && this->inputURL_ == nullptr && this->mediaId_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
     inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline GetMediaRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
+
+
+    // bizConfig Field Functions 
+    bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
+    void deleteBizConfig() { this->bizConfig_ = nullptr;};
+    inline string getBizConfig() const { DARABONBA_PTR_GET_DEFAULT(bizConfig_, "") };
+    inline GetMediaRequest& setBizConfig(string bizConfig) { DARABONBA_PTR_SET_VALUE(bizConfig_, bizConfig) };
 
 
     // inputURL Field Functions 
@@ -59,9 +68,10 @@ namespace Models
   protected:
     // The validity period of the signed file URL. Unit: seconds.
     shared_ptr<int64_t> authTimeout_ {};
+    shared_ptr<string> bizConfig_ {};
     // Currently unavailable.
     shared_ptr<string> inputURL_ {};
-    // The media asset ID. If this parameter is not empty, the system queries the media asset by this ID and validates whether the value is a valid MediaId.
+    // The media asset ID. If this parameter is not empty, the query is performed based on this parameter, and the system verifies whether the value is a valid MediaId.
     shared_ptr<string> mediaId_ {};
   };
 

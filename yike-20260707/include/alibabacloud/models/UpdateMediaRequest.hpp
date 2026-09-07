@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateMediaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppendTags, appendTags_);
+      DARABONBA_PTR_TO_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_TO_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -26,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateMediaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppendTags, appendTags_);
+      DARABONBA_PTR_FROM_JSON(BizConfig, bizConfig_);
       DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_FROM_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -48,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appendTags_ == nullptr
-        && this->categoryId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->inputURL_ == nullptr
-        && this->mediaId_ == nullptr && this->mediaTags_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr; };
+        && this->bizConfig_ == nullptr && this->categoryId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr
+        && this->inputURL_ == nullptr && this->mediaId_ == nullptr && this->mediaTags_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr; };
     // appendTags Field Functions 
     bool hasAppendTags() const { return this->appendTags_ != nullptr;};
     void deleteAppendTags() { this->appendTags_ = nullptr;};
     inline bool getAppendTags() const { DARABONBA_PTR_GET_DEFAULT(appendTags_, false) };
     inline UpdateMediaRequest& setAppendTags(bool appendTags) { DARABONBA_PTR_SET_VALUE(appendTags_, appendTags) };
+
+
+    // bizConfig Field Functions 
+    bool hasBizConfig() const { return this->bizConfig_ != nullptr;};
+    void deleteBizConfig() { this->bizConfig_ = nullptr;};
+    inline string getBizConfig() const { DARABONBA_PTR_GET_DEFAULT(bizConfig_, "") };
+    inline UpdateMediaRequest& setBizConfig(string bizConfig) { DARABONBA_PTR_SET_VALUE(bizConfig_, bizConfig) };
 
 
     // categoryId Field Functions 
@@ -123,6 +132,7 @@ namespace Models
   protected:
     // Specifies whether to update the Tags field in append mode.
     shared_ptr<bool> appendTags_ {};
+    shared_ptr<string> bizConfig_ {};
     shared_ptr<int64_t> categoryId_ {};
     // The cover image URL. This parameter is valid only for video media assets.
     shared_ptr<string> coverURL_ {};
@@ -134,11 +144,11 @@ namespace Models
     shared_ptr<string> inputURL_ {};
     // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The tags. Separate multiple tags with commas.
+    // The tags. Separate multiple tags with commas (,).
     shared_ptr<string> mediaTags_ {};
     // The title.
     shared_ptr<string> title_ {};
-    // The user data. The maximum length is 1024 bytes.
+    // The user data. Maximum length: 1024 bytes.
     shared_ptr<string> userData_ {};
   };
 

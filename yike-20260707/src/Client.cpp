@@ -18,10 +18,6 @@ namespace Yike20260707
 
 AlibabaCloud::Yike20260707::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "yike.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "yike.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("yike", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -55,8 +51,16 @@ BatchGetMediasResponse Client::batchGetMediasWithOptions(const BatchGetMediasReq
     query["AuthTimeout"] = request.getAuthTimeout();
   }
 
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
+  }
+
   if (!!request.hasMediaIds()) {
     query["MediaIds"] = request.getMediaIds();
+  }
+
+  if (!!request.hasReturnDynamicMeta()) {
+    query["ReturnDynamicMeta"] = request.getReturnDynamicMeta();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -303,6 +307,10 @@ DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvas(const DeleteInfiniteCa
 DeleteMediasResponse Client::deleteMediasWithOptions(const DeleteMediasRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
+  }
+
   if (!!request.hasDeletePhysicalFiles()) {
     query["DeletePhysicalFiles"] = request.getDeletePhysicalFiles();
   }
@@ -552,7 +560,8 @@ GetInfiniteCanvasResponse Client::getInfiniteCanvas(const GetInfiniteCanvasReque
 /**
  * @summary Queries a media asset.
  *
- * @description ## Operation description.
+ * @description ## Operation description
+ * This API operation is used to query a media content analysis job.
  *
  * @param request GetMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -563,6 +572,10 @@ GetMediaResponse Client::getMediaWithOptions(const GetMediaRequest &request, con
   json query = {};
   if (!!request.hasAuthTimeout()) {
     query["AuthTimeout"] = request.getAuthTimeout();
+  }
+
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
   }
 
   if (!!request.hasInputURL()) {
@@ -593,7 +606,8 @@ GetMediaResponse Client::getMediaWithOptions(const GetMediaRequest &request, con
 /**
  * @summary Queries a media asset.
  *
- * @description ## Operation description.
+ * @description ## Operation description
+ * This API operation is used to query a media content analysis job.
  *
  * @param request GetMediaRequest
  * @return GetMediaResponse
@@ -782,15 +796,9 @@ GetVideoRenderJobResponse Client::getVideoRenderJob(const GetVideoRenderJobReque
 }
 
 /**
- * @summary Queries the status and result of a video translation task by the specified ID.
+ * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description ## Request description
- * - This API retrieves the status and details of a video translation task based on the `JobId`.
- * - `JobId` is a required parameter, passed through query or form.
- * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
- * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
- * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
- * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+ * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
  *
  * @param request GetVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -821,15 +829,9 @@ GetVideoTranslationJobResponse Client::getVideoTranslationJobWithOptions(const G
 }
 
 /**
- * @summary Queries the status and result of a video translation task by the specified ID.
+ * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description ## Request description
- * - This API retrieves the status and details of a video translation task based on the `JobId`.
- * - `JobId` is a required parameter, passed through query or form.
- * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
- * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
- * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
- * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+ * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
  *
  * @param request GetVideoTranslationJobRequest
  * @return GetVideoTranslationJobResponse
@@ -919,8 +921,8 @@ GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest 
 /**
  * @summary Imports a media asset.
  *
- * @description ## Operation description
- * This API is used to query media content understanding jobs.
+ * @description ## Request description
+ * This API is used to query media content analysis jobs.
  *
  * @param request ImportMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -929,6 +931,10 @@ GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest 
 ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
+  }
+
   if (!!request.hasCategoryId()) {
     query["CategoryId"] = request.getCategoryId();
   }
@@ -981,6 +987,10 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
     query["UserData"] = request.getUserData();
   }
 
+  if (!!request.hasYikeAssetConfig()) {
+    query["YikeAssetConfig"] = request.getYikeAssetConfig();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1001,8 +1011,8 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
 /**
  * @summary Imports a media asset.
  *
- * @description ## Operation description
- * This API is used to query media content understanding jobs.
+ * @description ## Request description
+ * This API is used to query media content analysis jobs.
  *
  * @param request ImportMediaRequest
  * @return ImportMediaResponse
@@ -1013,7 +1023,7 @@ ImportMediaResponse Client::importMedia(const ImportMediaRequest &request) {
 }
 
 /**
- * @summary Retrieves a paginated list of categories.
+ * @summary Retrieves a paged list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1048,7 +1058,7 @@ ListAssetCategoriesResponse Client::listAssetCategoriesWithOptions(const ListAss
 }
 
 /**
- * @summary Retrieves a paginated list of categories.
+ * @summary Retrieves a paged list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @return ListAssetCategoriesResponse
@@ -1140,6 +1150,10 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanv
 SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
+  }
+
   if (!!request.hasCategoryId()) {
     query["CategoryId"] = request.getCategoryId();
   }
@@ -1521,16 +1535,9 @@ SubmitVideoRenderJobResponse Client::submitVideoRenderJob(const SubmitVideoRende
 }
 
 /**
- * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
  *
- * @description ## Request description
- * - This API supports multiple video translation features, including subtitle translation and voice translation.
- * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
- * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
- * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
- * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
- * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
- * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+ * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1589,16 +1596,9 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 }
 
 /**
- * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+ * @summary Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
  *
- * @description ## Request description
- * - This API supports multiple video translation features, including subtitle translation and voice translation.
- * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
- * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
- * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
- * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
- * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
- * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+ * @description Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @return SubmitVideoTranslationJobResponse
@@ -1611,7 +1611,7 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const Submit
 /**
  * @summary Updates a media asset category.
  *
- * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+ * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1648,7 +1648,7 @@ UpdateAssetCategoryResponse Client::updateAssetCategoryWithOptions(const UpdateA
 /**
  * @summary Updates a media asset category.
  *
- * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+ * @description After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @return UpdateAssetCategoryResponse
@@ -1717,8 +1717,8 @@ UpdateInfiniteCanvasResponse Client::updateInfiniteCanvas(const UpdateInfiniteCa
 /**
  * @summary Updates media asset information.
  *
- * @description ## Request description
- * This API is used to query media content understanding jobs.
+ * @description ## Operation description
+ * This API operation is used to query media content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1729,6 +1729,10 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
   json query = {};
   if (!!request.hasAppendTags()) {
     query["AppendTags"] = request.getAppendTags();
+  }
+
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
   }
 
   if (!!request.hasCategoryId()) {
@@ -1787,8 +1791,8 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
 /**
  * @summary Updates media asset information.
  *
- * @description ## Request description
- * This API is used to query media content understanding jobs.
+ * @description ## Operation description
+ * This API operation is used to query media content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @return UpdateMediaResponse

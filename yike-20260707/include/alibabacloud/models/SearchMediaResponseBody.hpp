@@ -354,7 +354,7 @@ namespace Models
         shared_ptr<string> categoryName_ {};
         // The cover URL.
         shared_ptr<string> coverURL_ {};
-        // The time when the media asset was created.
+        // The creation time of the media asset.
         shared_ptr<string> createTime_ {};
         // The content description.
         shared_ptr<string> description_ {};
@@ -368,7 +368,7 @@ namespace Models
         shared_ptr<string> mediaTags_ {};
         // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
-        // The time when the media asset was last modified.
+        // The modification time of the media asset.
         shared_ptr<string> modifiedTime_ {};
         // The snapshots.
         shared_ptr<string> snapshots_ {};
@@ -579,7 +579,7 @@ namespace Models
           shared_ptr<string> imagesInput_ {};
           // The modification time.
           shared_ptr<string> modifiedTime_ {};
-          // The storage region of the file.
+          // The file storage region.
           shared_ptr<string> region_ {};
           // The width.
           shared_ptr<string> width_ {};
@@ -694,7 +694,7 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The response code.
     shared_ptr<string> code_ {};
     // The collection of media assets that meet the specified criteria.
     shared_ptr<vector<SearchMediaResponseBody::MediaInfoList>> mediaInfoList_ {};

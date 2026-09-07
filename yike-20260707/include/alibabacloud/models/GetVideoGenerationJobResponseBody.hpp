@@ -197,15 +197,15 @@ namespace Models
       shared_ptr<string> model_ {};
       // The number of generated videos.
       shared_ptr<int32_t> n_ {};
-      // The generation result. The value is a JSON string that contains the following fields:
+      // The generation result in JsonString format, which contains:
       // 
-      // Medias: a list of media information (Media objects). The Media object contains the following fields:
+      // Medias: a list of media information (Media objects). Fields of a Media object:
       // MediaId: String. The media asset ID.
       // OutputUrl: String. The media URL (with authentication string).
       shared_ptr<string> output_ {};
       // The resolution.
       shared_ptr<string> resolution_ {};
-      // The scene type. Currently, only general is supported.
+      // The scene type. Currently only general is supported.
       shared_ptr<string> scene_ {};
       // The task status. Valid values:
       // 

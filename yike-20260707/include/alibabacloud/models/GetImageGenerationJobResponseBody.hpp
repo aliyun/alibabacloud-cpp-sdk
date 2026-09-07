@@ -172,7 +172,7 @@ namespace Models
     protected:
       // The video aspect ratio.
       shared_ptr<string> aspectRatio_ {};
-      // The error message. This parameter is of the String type and is returned when the task is in the Failed state.
+      // The error message. This parameter is returned only when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
