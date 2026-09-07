@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The query statement that corresponds to the data source.
+    // The query statement for the data source.
     shared_ptr<string> expression_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The type of the Grafana data source.
+    // The Grafana data source type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -205,20 +205,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+    // The status code. A value of 200 indicates success. Other values indicate exceptions.
     shared_ptr<int32_t> code_ {};
-    // The queried files.
+    // The file list.
     shared_ptr<GetRumUploadFilesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The message returned when the call fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the query is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

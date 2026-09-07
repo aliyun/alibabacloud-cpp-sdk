@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 状态码。200表示成功。
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The struct returned.
+    // The response struct.
     shared_ptr<string> data_ {};
-    // 返回结果的提示信息。
+    // The message returned with the result.
     shared_ptr<string> message_ {};
-    // The ID of the request. You can use the ID to query logs and troubleshoot issues.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

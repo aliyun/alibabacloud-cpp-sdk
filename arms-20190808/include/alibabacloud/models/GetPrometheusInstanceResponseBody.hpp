@@ -465,89 +465,93 @@ namespace Models
 
 
     protected:
-      // The permission type. Valid values: readWrite, readOnly, and httpReadOnly
+      // The permission type. Valid values:
+      // 
+      // - readWrite
+      // - readOnly
+      // - httpReadOnly.
       shared_ptr<string> accessType_ {};
-      // The number of days for which data is automatically archived after the storage duration expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+      // The number of days that data is automatically archived after the storage period expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates that data is not archived.
       shared_ptr<int32_t> archiveDuration_ {};
-      // The whitelist of IP addresses for which password-free read is enabled.
+      // The whitelist policy for authentication-free read access.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // The whitelist of IP addresses for which password-free write is enabled.
+      // The whitelist policy for authentication-free write access.
       shared_ptr<string> authFreeWritePolicy_ {};
-      // The authorization token.
+      // The authorization token string.
       shared_ptr<string> authToken_ {};
-      // The ID of the Prometheus instance.
+      // The Prometheus instance ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the monitoring object.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // *   remote-write: general-purpose Prometheus instance
-      // *   ecs: Prometheus instances for ECS
-      // *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
-      // *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
-      // *   global-view: global aggregation instance
-      // *   aliyun-cs: Prometheus instance for Container Service
+      // - remote-write (Prometheus for Remote Write)
+      // - ecs (Prometheus for ECS)
+      // - cloud-monitor (Prometheus for Cloud Service in the Chinese mainland)
+      // - cloud-product (Prometheus for Cloud Service outside the Chinese mainland)
+      // - global-view (Prometheus for GlobalView)
+      // - aliyun-cs (Prometheus for Container Service).
       shared_ptr<string> clusterType_ {};
-      // The data storage status at the backend.
+      // The status of the backend data storage.
       shared_ptr<string> dbInstanceStatus_ {};
-      // Indicates whether password-free read is enabled.
+      // Indicates whether authentication-free read access is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Indicates whether password-free write is enabled.
+      // Indicates whether authentication-free write access is enabled.
       shared_ptr<bool> enableAuthFreeWrite_ {};
       // Indicates whether access token authentication is enabled.
       shared_ptr<string> enableAuthToken_ {};
-      // The extra information. This parameter is returned only for console requests.
+      // The extended information. This parameter is returned only for console requests.
       shared_ptr<map<string, string>> extraInfo_ {};
-      // The ID of the Grafana workspace.
+      // The Grafana workspace ID.
       shared_ptr<string> grafanaInstanceId_ {};
-      // The public URL for the HTTP API.
+      // The public endpoint for HTTP API.
       shared_ptr<string> httpApiInterUrl_ {};
-      // The internal URL for the HTTP API.
+      // The internal endpoint for HTTP API.
       shared_ptr<string> httpApiIntraUrl_ {};
       shared_ptr<string> openTelemetryInterUrl_ {};
       shared_ptr<string> openTelemetryIntraUrl_ {};
       // The billing method. Valid values:
       // 
-      // *   PREPAY: subscription
-      // *   POSTPAY: pay-as-you-go
+      // - PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
-      // The time when the billing method was modified.
+      // The time when the billing method of the instance was last modified.
       shared_ptr<string> paymentTypeUpdateTime_ {};
-      // The product to which the Prometheus instance belongs. Valid values: arms and cms.
+      // The product to which the Prometheus instance belongs (arms or cms).
       shared_ptr<string> product_ {};
-      // The public URL for Pushgateway.
+      // The public endpoint for push gateway.
       shared_ptr<string> pushGatewayInterUrl_ {};
-      // The internal URL for Pushgateway.
+      // The internal endpoint for push gateway.
       shared_ptr<string> pushGatewayIntraUrl_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The public URL for remote read.
+      // The public endpoint for remote read.
       shared_ptr<string> remoteReadInterUrl_ {};
-      // The internal URL for remote read.
+      // The internal endpoint for remote read.
       shared_ptr<string> remoteReadIntraUrl_ {};
-      // The public URL for remote write.
+      // The public endpoint for remote write.
       shared_ptr<string> remoteWriteInterUrl_ {};
-      // The internal URL for remote write.
+      // The internal endpoint for remote write.
       shared_ptr<string> remoteWriteIntraUrl_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The type of the resource. Set the value to PROMETHEUS.
+      // The fixed value: PROMETHEUS.
       shared_ptr<string> resourceType_ {};
-      // The ID of the security group. This parameter is returned only for Prometheus instances for ECS.
+      // The security group ID. This parameter is returned only for Prometheus for ECS instances.
       shared_ptr<string> securityGroupId_ {};
-      // The data storage duration. Unit: days.
+      // The storage duration, in days.
       shared_ptr<int32_t> storageDuration_ {};
-      // The child instances of the global aggregation instance. The value is a JSON string.
+      // The JSON string of sub-instances for the GlobalView instance.
       shared_ptr<string> subClustersJson_ {};
       // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
-      // The tags of the instance.
+      // The tags bound to the instance.
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // The vSwitch ID. This parameter is returned only for Prometheus instances for ECS.
+      // The vSwitch ID. This parameter is returned only for Prometheus for ECS instances.
       shared_ptr<string> vSwitchId_ {};
-      // Version
+      // The version.
       shared_ptr<string> version_ {};
-      // The VPC ID. This parameter is returned only for Prometheus instances for ECS.
+      // The VPC associated with the cluster. This parameter is returned only for Prometheus for ECS instances.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -584,11 +588,11 @@ namespace Models
 
 
   protected:
-    // The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+    // The status code. A value of 200 indicates success. Other values indicate errors.
     shared_ptr<int32_t> code_ {};
-    // The response parameters.
+    // The returned information.
     shared_ptr<GetPrometheusInstanceResponseBody::Data> data_ {};
-    // The message returned.
+    // The message returned for the result.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

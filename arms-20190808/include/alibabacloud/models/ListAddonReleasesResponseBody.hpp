@@ -194,17 +194,17 @@ namespace Models
 
 
         protected:
-          // The first transition time.
+          // The time of the first transition.
           shared_ptr<string> firstTransitionTime_ {};
-          // The last transition time.
+          // The time of the last transition.
           shared_ptr<string> lastTransitionTime_ {};
           // The detailed information.
           shared_ptr<string> message_ {};
-          // The reason for the failure.
+          // The failure reason.
           shared_ptr<string> reason_ {};
-          // The status of the phase.
+          // The phase status.
           shared_ptr<string> status_ {};
-          // The type of the phase.
+          // The phase type.
           shared_ptr<string> type_ {};
         };
 
@@ -363,29 +363,29 @@ namespace Models
 
 
       protected:
-        // The name of the add-on.
+        // The component name.
         shared_ptr<string> addonName_ {};
-        // The number of alert rules.
+        // The number of alert groups.
         shared_ptr<int64_t> alertRuleCount_ {};
-        // The installation phase.
+        // The installation phases.
         shared_ptr<vector<Releases::Conditions>> conditions_ {};
-        // The configuration information of the add-on release.
+        // The configuration of the addon release.
         shared_ptr<string> config_ {};
-        // The time when the add-on was created.
+        // The creation time.
         shared_ptr<string> createTime_ {};
         // The number of dashboards.
         shared_ptr<int64_t> dashboardCount_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The number of exporters.
+        // The number of plug-ins.
         shared_ptr<int64_t> exporterCount_ {};
-        // Indicates whether the configuration is available.
+        // Indicates whether the addon has configurations.
         shared_ptr<bool> haveConfig_ {};
-        // The user ID.
+        // The user ID of the installer.
         shared_ptr<string> installUserId_ {};
         // The language.
         shared_ptr<string> language_ {};
-        // Indicates whether the component is fully managed.
+        // Indicates whether the component is managed.
         shared_ptr<bool> managed_ {};
         // The latest version.
         shared_ptr<string> nextVersion_ {};
@@ -395,15 +395,15 @@ namespace Models
         shared_ptr<string> releaseId_ {};
         // The name of the release.
         shared_ptr<string> releaseName_ {};
-        // The scenario.
+        // The identified scenario.
         shared_ptr<string> scene_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The time when the add-on was updated.
+        // The update time.
         shared_ptr<string> updateTime_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
-        // The version of the add-on.
+        // The addon version.
         shared_ptr<string> version_ {};
       };
 
@@ -434,7 +434,7 @@ namespace Models
 
     protected:
       shared_ptr<bool> containsV2Addon_ {};
-      // The queried add-ons.
+      // The collection of addon releases.
       shared_ptr<vector<Data::Releases>> releases_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};
@@ -480,15 +480,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The result returned.
+    // The returned data.
     shared_ptr<ListAddonReleasesResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the query was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

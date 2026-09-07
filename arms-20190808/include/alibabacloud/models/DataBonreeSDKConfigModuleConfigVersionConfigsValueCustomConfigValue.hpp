@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the configuration is enabled.
+    // The switch.
     shared_ptr<bool> enable_ {};
   };
 

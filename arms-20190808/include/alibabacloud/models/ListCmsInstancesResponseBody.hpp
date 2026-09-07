@@ -164,15 +164,29 @@ namespace Models
 
 
       protected:
+        // The product description.
         shared_ptr<string> descr_ {};
+        // The instance ID.
         shared_ptr<string> id_ {};
+        // The instance name.
         shared_ptr<string> instance_ {};
+        // The name of the integrated cloud product.
         shared_ptr<string> name_ {};
+        // The product code.
         shared_ptr<string> prod_ {};
+        // The event source.
         shared_ptr<string> source_ {};
+        // The integration status of the product.
+        // 
+        // - `true`: Integrated.
+        // 
+        // - `false`: Not integrated.
         shared_ptr<string> state_ {};
+        // The creation timestamp of the Grafana dashboard.
         shared_ptr<string> time_ {};
+        // The product type.
         shared_ptr<string> type_ {};
+        // The complete URL of the Grafana dashboard.
         shared_ptr<string> url_ {};
       };
 
@@ -195,7 +209,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether tag collection for the cloud product is enabled.
       shared_ptr<bool> enableTag_ {};
+      // The list of cloud products.
       shared_ptr<vector<Data::Products>> products_ {};
     };
 
@@ -218,7 +234,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListCmsInstancesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

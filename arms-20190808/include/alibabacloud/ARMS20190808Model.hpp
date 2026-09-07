@@ -119,6 +119,9 @@
 #include <alibabacloud/models/CreateGrafanaWorkspaceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateGrafanaWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateGrafanaWorkspaceResponse.hpp>
+#include <alibabacloud/models/CreateGrafanaWorkspaceAccountRequest.hpp>
+#include <alibabacloud/models/CreateGrafanaWorkspaceAccountResponseBody.hpp>
+#include <alibabacloud/models/CreateGrafanaWorkspaceAccountResponse.hpp>
 #include <alibabacloud/models/CreateIntegrationRequest.hpp>
 #include <alibabacloud/models/CreateIntegrationResponseBody.hpp>
 #include <alibabacloud/models/CreateIntegrationResponse.hpp>
@@ -233,6 +236,12 @@
 #include <alibabacloud/models/DeleteGrafanaWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteGrafanaWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteGrafanaWorkspaceResponse.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountRequest.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountResponseBody.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountResponse.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountRoleRequest.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountRoleResponseBody.hpp>
+#include <alibabacloud/models/DeleteGrafanaWorkspaceAccountRoleResponse.hpp>
 #include <alibabacloud/models/DeleteIMRobotRequest.hpp>
 #include <alibabacloud/models/DeleteIMRobotResponseBody.hpp>
 #include <alibabacloud/models/DeleteIMRobotResponse.hpp>
@@ -466,6 +475,9 @@
 #include <alibabacloud/models/GetTraceAppConfigRequest.hpp>
 #include <alibabacloud/models/GetTraceAppConfigResponseBody.hpp>
 #include <alibabacloud/models/GetTraceAppConfigResponse.hpp>
+#include <alibabacloud/models/GrafanaWorkspaceHttpApiProxyRequest.hpp>
+#include <alibabacloud/models/GrafanaWorkspaceHttpApiProxyResponseBody.hpp>
+#include <alibabacloud/models/GrafanaWorkspaceHttpApiProxyResponse.hpp>
 #include <alibabacloud/models/ImportAppAlertRulesRequest.hpp>
 #include <alibabacloud/models/ImportAppAlertRulesResponseBody.hpp>
 #include <alibabacloud/models/ImportAppAlertRulesResponse.hpp>
@@ -556,6 +568,9 @@
 #include <alibabacloud/models/ListGrafanaWorkspaceShrinkRequest.hpp>
 #include <alibabacloud/models/ListGrafanaWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/ListGrafanaWorkspaceResponse.hpp>
+#include <alibabacloud/models/ListGrafanaWorkspaceAccountRequest.hpp>
+#include <alibabacloud/models/ListGrafanaWorkspaceAccountResponseBody.hpp>
+#include <alibabacloud/models/ListGrafanaWorkspaceAccountResponse.hpp>
 #include <alibabacloud/models/ListInsightsEventsRequest.hpp>
 #include <alibabacloud/models/ListInsightsEventsResponseBody.hpp>
 #include <alibabacloud/models/ListInsightsEventsResponse.hpp>
@@ -750,6 +765,9 @@
 #include <alibabacloud/models/UpdateGrafanaWorkspaceRequest.hpp>
 #include <alibabacloud/models/UpdateGrafanaWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/UpdateGrafanaWorkspaceResponse.hpp>
+#include <alibabacloud/models/UpdateGrafanaWorkspaceAccountRoleRequest.hpp>
+#include <alibabacloud/models/UpdateGrafanaWorkspaceAccountRoleResponseBody.hpp>
+#include <alibabacloud/models/UpdateGrafanaWorkspaceAccountRoleResponse.hpp>
 #include <alibabacloud/models/UpdateGrafanaWorkspaceVersionRequest.hpp>
 #include <alibabacloud/models/UpdateGrafanaWorkspaceVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateGrafanaWorkspaceVersionResponse.hpp>

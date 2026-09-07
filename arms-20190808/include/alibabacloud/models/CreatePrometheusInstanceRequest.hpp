@@ -96,7 +96,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -212,47 +214,51 @@ namespace Models
 
 
   protected:
-    // Does it require all child instances to be verified successfully before creating a GlobalView instance. The default is false, which means partial success is possible.
+    // Specifies whether all sub-instances must pass validation before the GlobalView instance is created. Default value: false, which indicates that partial success is allowed.
     shared_ptr<bool> allSubClustersSuccess_ {};
-    // The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+    // The number of days to automatically archive data after the storage period expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates that data is not archived.
     shared_ptr<int32_t> archiveDuration_ {};
-    // The ID of the ACK cluster. This parameter is required if you set the ClusterType parameter to aliyun-cs.
+    // The Container Service cluster ID. This parameter is required when ClusterType is set to aliyun-cs.
     shared_ptr<string> clusterId_ {};
-    // The name of the created cluster. This parameter is required if you set the ClusterType parameter to remote-write or ecs.
-    shared_ptr<string> clusterName_ {};
-    // The type of the Prometheus instance. Valid values:
+    // The name of the cluster to create. This parameter is required when ClusterType is set to remote-write, ecs, or global-view.
     // 
-    // *   remote-write: Prometheus instance for Remote Write
-    // *   ecs (unavailable): Prometheus instance for ECS
-    // *   global-view: Prometheus instance for GlobalView
-    // *   aliyun-cs: Prometheus instance for Container Service
-    // *   cloud-product (unavailable): Prometheus instance for Alibaba Cloud services
-    // *   cloud-monitor (unavailable): Prometheus instance for Hybrid Cloud Monitoring
-    // *   flink (unavailable): Prometheus instance for Flink
+    // For ecs instances, the ClusterName must follow the format "name-vpc-id", and the name part cannot exceed 24 characters. Example: "mytest1-vpc-xxxxxxxxxxx".
+    shared_ptr<string> clusterName_ {};
+    // The instance type. Valid values: 
+    // -  remote-write: Prometheus for Remote Write.
+    // -  ecs (no longer supported): Prometheus for ECS.
+    // -  global-view: Prometheus for GlobalView.
+    // -  aliyun-cs (no longer supported): Prometheus for Container Service.
+    // - cloud-product (no longer supported): Prometheus for Cloud Service.
+    // - cloud-monitor (no longer supported): Prometheus for Hybrid Cloud Monitoring.
+    // - flink (no longer supported): Prometheus for Flink.
     // 
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
-    // The data storage duration. Unit: days.
+    // The data storage duration, in days.
     shared_ptr<int32_t> duration_ {};
-    // The ID of the Grafana dedicated instance. This parameter is available if you set the ClusterType parameter to ecs.
+    // The ID of the bound Grafana workspace. Set this parameter to "free" when you use the shared Grafana edition.
     shared_ptr<string> grafanaInstanceId_ {};
-    // The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data. Empty: The user-defined default billing mode is used. If you do not specify a default value, you are charged based on the amount of reported metric data.
+    // The Billable methods. Valid values:
+    // POSTPAY: pay-as-you-go based on the number of reported metrics.
+    // POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+    // Empty: uses the default billing method configured by the user. If no default is configured, the system defaults to billing based on the number of reported metrics.
     shared_ptr<string> paymentType_ {};
-    // The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
+    // The actual region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the custom resource group. You can configure this parameter to bind the instance to the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the security group. This parameter is required if you set the ClusterType parameter to ecs.
+    // The Network Security group ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
     shared_ptr<string> securityGroupId_ {};
-    // JSON string for child instances of the globalView instance.
+    // The JSON string of sub-instances for the GlobalView instance.
     shared_ptr<string> subClustersJson_ {};
-    // The tags of the instance. You can configure this parameter to manage tags for the instance.
+    // The custom tags.
     shared_ptr<vector<CreatePrometheusInstanceRequest::Tags>> tags_ {};
-    // The ID of the vSwitch. This parameter is required if you set the ClusterType parameter to ecs.
+    // The vSwitch ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of virtual private cloud (VPC). This parameter is required if you set the ClusterType parameter to ecs.
+    // The VPC ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
     shared_ptr<string> vpcId_ {};
   };
 

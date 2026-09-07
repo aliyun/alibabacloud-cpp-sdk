@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // Information of files to be deleted in JSON array format. If a single file needs to be deleted, this field should be left empty. If multiple files need to be deleted, just fill in this field.
+    // The batch deletion parameters in JSON array format. Leave this parameter empty if you want to delete a single file. If you want to delete multiple files in a batch, specify only this parameter.
     shared_ptr<string> batchItems_ {};
-    // The file name, with the extension.
+    // The file name, including the file name extension.
     shared_ptr<string> fileName_ {};
     // The application ID.
     shared_ptr<string> pid_ {};
@@ -114,9 +114,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> serviceId_ {};
-    // The file ID.
+    // The unique ID of the file.
     shared_ptr<string> uuid_ {};
-    // The version number of the file.
+    // The file version number.
     shared_ptr<string> versionId_ {};
     shared_ptr<string> workspace_ {};
   };

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Prometheus instance.
+    // The Prometheus instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

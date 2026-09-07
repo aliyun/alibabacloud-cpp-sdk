@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The environment ID.
+    // 
     // This parameter is required.
     shared_ptr<string> environmentId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

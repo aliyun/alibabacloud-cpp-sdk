@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The file upload URL.
+    // The file upload link.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message that is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The operation was successful.
+    // 
+    // - `false`: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

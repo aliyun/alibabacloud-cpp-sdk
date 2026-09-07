@@ -183,9 +183,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The label key.
         shared_ptr<string> name_ {};
-        // The tag value.
+        // The label value.
         shared_ptr<string> value_ {};
       };
 
@@ -265,9 +265,9 @@ namespace Models
         protected:
           // The key of the filter condition.
           shared_ptr<string> filterKey_ {};
-          // The logical operator of the filter condition.
+          // The operator for the filter condition.
           shared_ptr<string> filterOpt_ {};
-          // The details of the filter condition.
+          // The values for the filter condition.
           shared_ptr<vector<string>> filterValues_ {};
         };
 
@@ -338,16 +338,17 @@ namespace Models
         protected:
           // The key of the filter condition.
           shared_ptr<string> key_ {};
-          // The logical operator of the filter condition. Valid values:
+          // The operator for the filter condition.
           // 
-          // *   \\=: equal to
-          // *   not: not equal to
+          // - `=`: equals
+          // 
+          // - `not`: not equal to
           shared_ptr<string> opt_ {};
-          // Indicates whether this filter condition was displayed on the frontend.
+          // Indicates whether the filter condition is displayed on the console.
           shared_ptr<bool> show_ {};
-          // The log type of Browser Monitoring. This field was not included in other filter conditions.
+          // Used exclusively to distinguish between log types in browser monitoring. This parameter does not apply to other filter conditions.
           shared_ptr<string> t_ {};
-          // The value of the filter condition.
+          // The value for the filter condition.
           shared_ptr<string> value_ {};
         };
 
@@ -390,13 +391,13 @@ namespace Models
 
 
       protected:
-        // The custom filter condition of the Browser Monitoring alert rule.
+        // The custom filter conditions for the browser monitoring alert rule.
         shared_ptr<vector<Filters::CustomSLSFilters>> customSLSFilters_ {};
-        // The information of the aggregation dimension.
+        // The aggregation dimensions.
         shared_ptr<vector<string>> customSLSGroupByDimensions_ {};
-        // The details of the custom filter condition.
+        // The configured filter conditions.
         shared_ptr<vector<string>> customSLSWheres_ {};
-        // The information about each filter condition of the Application Monitoring or Browser Monitoring alert rule.
+        // The filter conditions of the alert rule. This applies to application monitoring or browser monitoring.
         shared_ptr<vector<Filters::DimFilters>> dimFilters_ {};
       };
 
@@ -438,9 +439,9 @@ namespace Models
 
 
       protected:
-        // The key of the annotation.
+        // The annotation key.
         shared_ptr<string> name_ {};
-        // The value of the annotation.
+        // The annotation value.
         shared_ptr<string> value_ {};
       };
 
@@ -530,29 +531,39 @@ namespace Models
 
 
         protected:
-          // The aggregation method of the alert condition. Valid values:
+          // The aggregation method for the alert condition.
           // 
-          // *   AVG: calculates the average value
-          // *   SUM: calculates the total value
-          // *   MAX: selects the maximum value
-          // *   MIN: selects the minimum value
+          // - `AVG`: average
+          // 
+          // - `SUM`: sum
+          // 
+          // - `MAX`: maximum
+          // 
+          // - `MIN`: minimum
           shared_ptr<string> aggregate_ {};
-          // The metric of the alert condition.
+          // The metric that is evaluated by the alert condition.
           shared_ptr<string> metricKey_ {};
-          // Indicates the last N minutes.
+          // The duration of the time window, in minutes, for evaluating the alert condition.
           shared_ptr<float> n_ {};
-          // The comparison operator that was used to compare the metric value with the threshold. Valid values:
+          // The operator used to compare the aggregated metric value with the threshold.
           // 
-          // *   CURRENT_GTE: greater than or equal to
-          // *   CURRENT_LTE: less than or equal to
-          // *   PREVIOUS_UP: the increase percentage compared with the last period
-          // *   PREVIOUS_DOWN: the decrease percentage compared with the last period
-          // *   HOH_UP: the increase percentage compared with the last hour
-          // *   HOH_DOWN: the decrease percentage compared with the last hour
-          // *   DOD_UP: the increase percentage compared with the last day
-          // *   DOD_DOWN: the decrease percentage compared with the last day
+          // - `CURRENT_GTE`: greater than or equal to
+          // 
+          // - `CURRENT_LTE`: less than or equal to
+          // 
+          // - `PREVIOUS_UP`: period-over-period increase percentage
+          // 
+          // - `PREVIOUS_DOWN`: period-over-period decrease percentage
+          // 
+          // - `HOH_UP`: hour-over-hour increase percentage
+          // 
+          // - `HOH_DOWN`: hour-over-hour decrease percentage
+          // 
+          // - `DOD_UP`: day-over-day increase percentage
+          // 
+          // - `DOD_DOWN`: day-over-day decrease percentage
           shared_ptr<string> operator_ {};
-          // The threshold of the alert condition.
+          // The threshold for the alert condition.
           shared_ptr<string> value_ {};
         };
 
@@ -575,12 +586,13 @@ namespace Models
 
 
       protected:
-        // The trigger conditions of the Application Monitoring or Browser Monitoring alert rule.
+        // The alert conditions. This applies to application monitoring and browser monitoring alert rules.
         shared_ptr<vector<AlertRuleContent::AlertRuleItems>> alertRuleItems_ {};
-        // The relationship between multiple alert conditions that were specified for the Application Monitoring or Browser Monitoring alert rule. Valid values:
+        // The logical operator for combining multiple alert conditions. This applies to application monitoring and browser monitoring.
         // 
-        // *   OR: meets any of the specified conditions.
-        // *   AND: meets all the specified conditions.
+        // - `OR`: The alert is triggered if any condition is met.
+        // 
+        // - `AND`: The alert is triggered only if all conditions are met.
         shared_ptr<string> condition_ {};
       };
 
@@ -785,83 +797,95 @@ namespace Models
 
 
     protected:
-      // The alert check type of the Prometheus alert rule. Valid values:
+      // The check type of the Prometheus alert rule.
       // 
-      // *   STATIC: a static threshold value.
-      // *   CUSTOM: a custom PromQL statement.
+      // - `STATIC`: The alert is triggered based on a static threshold.
+      // 
+      // - `CUSTOM`: The alert is triggered based on a custom PromQL expression.
       shared_ptr<string> alertCheckType_ {};
-      // The alert contact group ID of the Prometheus alert rule. Valid values:
+      // The alert group for the Prometheus alert rule.
       // 
-      // *   \\-1: custom PromQL
-      // *   1: Kubernetes load
-      // *   15: Kubernetes node
+      // - `-1`: Custom PromQL
+      // 
+      // - `1`: Kubernetes Workloads
+      // 
+      // - `15`: Kubernetes Nodes
       shared_ptr<int64_t> alertGroup_ {};
-      // The alert rule ID.
+      // The ID of the alert rule.
       shared_ptr<int64_t> alertId_ {};
       // The name of the alert rule.
       shared_ptr<string> alertName_ {};
-      // The content of the Application Monitoring or Browser Monitoring alert rule.
+      // The content of the alert rule. This applies to application monitoring and browser monitoring.
       shared_ptr<AlertRule::AlertRuleContent> alertRuleContent_ {};
-      // The status of the alert rule. Valid values:
+      // The status of the alert rule.
       // 
-      // *   RUNNING
-      // *   STOPPED
-      // *   PAUSED
+      // - `RUNNING`: The alert rule is running.
       // 
-      // > The PAUSED status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
+      // - `STOPPED`: The alert rule is stopped.
+      // 
+      // - `PAUSED`: The alert rule is paused.
+      // 
+      // > The `PAUSED` status indicates that the system has automatically suspended the alert rule due to an abnormality. This can happen if the alert rule generates too many distinct time series or its associated cluster is deleted.
       shared_ptr<string> alertStatus_ {};
       // The type of the alert rule. Valid values:
       // 
-      // *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
-      // *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
-      // *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Prometheus Service
+      // - `APPLICATION_MONITORING_ALERT_RULE`: an alert rule for application monitoring.
+      // 
+      // - `BROWSER_MONITORING_ALERT_RULE`: an alert rule for browser monitoring.
+      // 
+      // - `PROMETHEUS_MONITORING_ALERT_RULE`: an alert rule for Prometheus monitoring.
       shared_ptr<string> alertType_ {};
       // The annotations of the Prometheus alert rule.
       shared_ptr<vector<AlertRule::Annotations>> annotations_ {};
-      // Indicates whether the alert rule was applied to new applications that were created in Application Monitoring or Browser Monitoring. Valid values:
+      // Indicates whether newly created applications are automatically added to the alert rule. This applies to application monitoring and browser monitoring rules.
       // 
-      // *   `true`: enables the health check feature.
-      // *   `false`: disables the automatic backup feature.
+      // - `true`: Enabled
+      // 
+      // - `false`: Disabled
       shared_ptr<bool> autoAddNewApplication_ {};
-      // The ID of the monitored cluster.
+      // The ID of the cluster that is associated with the Prometheus alert rule.
       shared_ptr<string> clusterId_ {};
-      // The timestamp generated when the alert rule was created. Unit: seconds.
+      // The UNIX timestamp, in milliseconds, when the alert rule was created.
       shared_ptr<int64_t> createdTime_ {};
-      // The duration of the Prometheus alert rule. Unit: minutes.
+      // The duration, in minutes, for which a condition must be true before an alert is triggered. This applies only to Prometheus alert rules.
       shared_ptr<string> duration_ {};
-      // The extended fields.
+      // The extended fields, returned as a JSON string.
       shared_ptr<string> extend_ {};
-      // The filter conditions of the Application Monitoring or Browser Monitoring alert rule.
+      // The filters of the alert rule. This applies to application monitoring or browser monitoring.
       shared_ptr<AlertRule::Filters> filters_ {};
-      // The tags of the Prometheus alert rule.
+      // The labels of the Prometheus alert rule.
       shared_ptr<vector<AlertRule::Labels>> labels_ {};
       // The severity level of the Prometheus alert rule.
       // 
-      // *   P1: Alert notifications are sent for major issues that affect the availability of core business, have a huge impact, and may lead to serious consequences.
-      // *   P2: Alert notifications are sent for service errors that affect the system availability with relatively limited impact.
-      // *   P3: Alert notifications are sent for issues that may cause service errors or negative effects, or alert notifications for services that are relatively less important.
-      // *   P4: Alert notifications are sent for low-priority issues that do not affect your business.
-      // *   Default: Alert notifications are sent regardless of alert levels.
+      // - `P1`: Critical. Indicates major issues that affect core business availability and can have severe consequences.
+      // 
+      // - `P2`: Warning. Indicates issues that impact system availability but have a limited scope.
+      // 
+      // - `P3`: Info. Indicates potential issues or alerts from less critical services.
+      // 
+      // - `P4`: Low priority. Indicates informational alerts that do not affect services.
+      // 
+      // - `Default`: The default level used when no specific severity is required.
       shared_ptr<string> level_ {};
-      // The alert message of the Prometheus alert rule.
+      // The message of the Prometheus alert rule.
       shared_ptr<string> message_ {};
-      // The metric type of the Application Monitoring or Browser Monitoring alert rule.
+      // The metric type of the alert rule. This applies to application monitoring and browser monitoring.
       shared_ptr<string> metricsType_ {};
-      // Notification Mode.
+      // The notification mode.
       shared_ptr<string> notifyMode_ {};
-      // The name of the notification policy.
+      // The notification policy.
       shared_ptr<string> notifyStrategy_ {};
-      // The process ID (PID) that was associated with the Application Monitoring or Browser Monitoring alert rule.
+      // The PIDs of the applications associated with the alert rule. This applies to application monitoring and browser monitoring rules.
       shared_ptr<vector<string>> pids_ {};
-      // The PromQL statement of the Prometheus alert rule.
+      // The PromQL expression for the Prometheus alert rule.
       shared_ptr<string> promQL_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The list of tags.
+      // The tags that are added to the alert rule.
       shared_ptr<vector<AlertRule::Tags>> tags_ {};
-      // The timestamp generated when the alert rule was updated. Unit: seconds.
+      // The UNIX timestamp, in milliseconds, when the alert rule was last updated.
       shared_ptr<int64_t> updatedTime_ {};
-      // The ID of the Alibaba Cloud account.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -884,7 +908,7 @@ namespace Models
 
 
   protected:
-    // The details of the alert rule.
+    // The alert rule object.
     shared_ptr<CreateOrUpdateAlertRuleResponseBody::AlertRule> alertRule_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

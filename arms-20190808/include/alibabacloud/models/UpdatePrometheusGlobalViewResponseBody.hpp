@@ -146,8 +146,9 @@ namespace Models
       shared_ptr<vector<Data::FailedInstances>> failedInstances_ {};
       // Indicates whether the request was successful. Valid values:
       // 
-      // *   `true`
-      // *   `false`
+      // - `true`
+      // 
+      // - `false`
       shared_ptr<bool> success_ {};
     };
 

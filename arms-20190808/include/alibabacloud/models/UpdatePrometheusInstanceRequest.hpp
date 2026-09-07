@@ -130,31 +130,33 @@ namespace Models
 
 
   protected:
-    // The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+    // The number of days for automatic archiving after storage expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates no archiving.
     shared_ptr<int32_t> archiveDuration_ {};
-    // The IP addresses or CIDR blocks for which password-free read is enabled. Separate multiple IP addresses with line breaks.
+    // The list of IP addresses for authentication-free read. CIDR notation is supported. Separate multiple IP addresses with line feeds.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // The IP addresses or CIDR blocks for which password-free write is enabled. Separate multiple IP addresses with line breaks.
+    // The list of IP addresses for authentication-free write. CIDR notation is supported. Separate multiple IP addresses with line feeds.
     shared_ptr<string> authFreeWritePolicy_ {};
-    // The ID of the Prometheus instance.
+    // The Prometheus instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to enable password-free read.
+    // Specifies whether to enable authentication-free read.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable password-free write.
+    // Specifies whether to enable authentication-free write.
     shared_ptr<bool> enableAuthFreeWrite_ {};
     // Specifies whether to enable access token authentication.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data.
+    // The billing method. Valid values:
+    // - POSTPAY: Pay-as-you-go based on metric reporting volume.
+    // - POSTPAY_GB: Pay-as-you-go based on metric write volume.
     shared_ptr<string> paymentType_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the Prometheus resource group.
+    // The resource group ID of the Prometheus instance.
     shared_ptr<string> resourceGroupId_ {};
-    // The data storage duration. Unit: days.
+    // The data retention period, in days.
     shared_ptr<int32_t> storageDuration_ {};
   };
 

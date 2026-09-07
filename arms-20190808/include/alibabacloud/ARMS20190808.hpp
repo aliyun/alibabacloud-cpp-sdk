@@ -86,7 +86,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
        *
-       * @summary Adds a global aggregation instance in Prometheus Service.
+       * @summary Adds an aggregation instance for ARMS Prometheus monitoring.
        *
        * @param request AddPrometheusGlobalViewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,7 +97,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
        *
-       * @summary Adds a global aggregation instance in Prometheus Service.
+       * @summary Adds an aggregation instance for ARMS Prometheus monitoring.
        *
        * @param request AddPrometheusGlobalViewRequest
        * @return AddPrometheusGlobalViewResponse
@@ -231,6 +231,8 @@ namespace ARMS20190808
       Models::AppendInstancesToPrometheusGlobalViewResponse appendInstancesToPrometheusGlobalView(const Models::AppendInstancesToPrometheusGlobalViewRequest &request);
 
       /**
+       * @summary Create or update Business Monitoring.
+       *
        * @param tmpReq ApplyScenarioRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ApplyScenarioResponse
@@ -238,6 +240,8 @@ namespace ARMS20190808
       Models::ApplyScenarioResponse applyScenarioWithOptions(const Models::ApplyScenarioRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Create or update Business Monitoring.
+       *
        * @param request ApplyScenarioRequest
        * @return ApplyScenarioResponse
        */
@@ -316,9 +320,9 @@ namespace ARMS20190808
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+       * @summary Checks the commercial activation status of a product.
        *
-       * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+       * @description Retrieves the commercial activation status of a product.
        *
        * @param request CheckCommercialStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -327,9 +331,9 @@ namespace ARMS20190808
       Models::CheckCommercialStatusResponse checkCommercialStatusWithOptions(const Models::CheckCommercialStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+       * @summary Checks the commercial activation status of a product.
        *
-       * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+       * @description Retrieves the commercial activation status of a product.
        *
        * @param request CheckCommercialStatusRequest
        * @return CheckCommercialStatusResponse
@@ -453,6 +457,8 @@ namespace ARMS20190808
       /**
        * @summary Creates a dispatch policy.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
+       *
        * @param request CreateDispatchRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateDispatchRuleResponse
@@ -461,6 +467,8 @@ namespace ARMS20190808
 
       /**
        * @summary Creates a dispatch policy.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
        *
        * @param request CreateDispatchRuleRequest
        * @return CreateDispatchRuleResponse
@@ -536,13 +544,13 @@ namespace ARMS20190808
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
-       * @summary Creates a workspace in Managed Service for Grafana.
+       * @summary Create a Managed Service for Grafana workspace instance.
        *
-       * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
-       * > 
-       * *   To create workspaces, you must complete real-name verification.
-       * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
-       * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+       * @description Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.  
+       * >  
+       * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.  
+       * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).  
+       * > - Internal testing users can only create the internal testing edition (`free of charge`).
        *
        * @param tmpReq CreateGrafanaWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,18 +559,35 @@ namespace ARMS20190808
       Models::CreateGrafanaWorkspaceResponse createGrafanaWorkspaceWithOptions(const Models::CreateGrafanaWorkspaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workspace in Managed Service for Grafana.
+       * @summary Create a Managed Service for Grafana workspace instance.
        *
-       * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
-       * > 
-       * *   To create workspaces, you must complete real-name verification.
-       * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
-       * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+       * @description Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.  
+       * >  
+       * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.  
+       * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).  
+       * > - Internal testing users can only create the internal testing edition (`free of charge`).
        *
        * @param request CreateGrafanaWorkspaceRequest
        * @return CreateGrafanaWorkspaceResponse
        */
       Models::CreateGrafanaWorkspaceResponse createGrafanaWorkspace(const Models::CreateGrafanaWorkspaceRequest &request);
+
+      /**
+       * @summary 指定工作区下创建账号
+       *
+       * @param request CreateGrafanaWorkspaceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGrafanaWorkspaceAccountResponse
+       */
+      Models::CreateGrafanaWorkspaceAccountResponse createGrafanaWorkspaceAccountWithOptions(const Models::CreateGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 指定工作区下创建账号
+       *
+       * @param request CreateGrafanaWorkspaceAccountRequest
+       * @return CreateGrafanaWorkspaceAccountResponse
+       */
+      Models::CreateGrafanaWorkspaceAccountResponse createGrafanaWorkspaceAccount(const Models::CreateGrafanaWorkspaceAccountRequest &request);
 
       /**
        * @summary Creates an alert integration.
@@ -582,7 +607,7 @@ namespace ARMS20190808
       Models::CreateIntegrationResponse createIntegration(const Models::CreateIntegrationRequest &request);
 
       /**
-       * @summary Creates or modifies an alert rule.
+       * @summary Create or modify alarm rules.
        *
        * @param request CreateOrUpdateAlertRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +616,7 @@ namespace ARMS20190808
       Models::CreateOrUpdateAlertRuleResponse createOrUpdateAlertRuleWithOptions(const Models::CreateOrUpdateAlertRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an alert rule.
+       * @summary Create or modify alarm rules.
        *
        * @param request CreateOrUpdateAlertRuleRequest
        * @return CreateOrUpdateAlertRuleResponse
@@ -720,6 +745,8 @@ namespace ARMS20190808
       /**
        * @summary Creates an alert rule.
        *
+       * @description > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+       *
        * @param request CreatePrometheusAlertRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreatePrometheusAlertRuleResponse
@@ -729,13 +756,15 @@ namespace ARMS20190808
       /**
        * @summary Creates an alert rule.
        *
+       * @description > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+       *
        * @param request CreatePrometheusAlertRuleRequest
        * @return CreatePrometheusAlertRuleResponse
        */
       Models::CreatePrometheusAlertRuleResponse createPrometheusAlertRule(const Models::CreatePrometheusAlertRuleRequest &request);
 
       /**
-       * @summary Creates a Prometheus instance.
+       * @summary Creates a Managed Service for Prometheus instance.
        *
        * @param request CreatePrometheusInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +773,7 @@ namespace ARMS20190808
       Models::CreatePrometheusInstanceResponse createPrometheusInstanceWithOptions(const Models::CreatePrometheusInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Prometheus instance.
+       * @summary Creates a Managed Service for Prometheus instance.
        *
        * @param request CreatePrometheusInstanceRequest
        * @return CreatePrometheusInstanceResponse
@@ -807,9 +836,9 @@ namespace ARMS20190808
       Models::CreateRumAppResponse createRumApp(const Models::CreateRumAppRequest &request);
 
       /**
-       * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+       * @summary Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
        *
-       * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+       * @description This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
        *
        * @param request CreateRumUploadFileUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -818,9 +847,9 @@ namespace ARMS20190808
       Models::CreateRumUploadFileUrlResponse createRumUploadFileUrlWithOptions(const Models::CreateRumUploadFileUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+       * @summary Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
        *
-       * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+       * @description This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
        *
        * @param request CreateRumUploadFileUrlRequest
        * @return CreateRumUploadFileUrlResponse
@@ -847,6 +876,8 @@ namespace ARMS20190808
       /**
        * @summary Creates a scheduled synthetic test task.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param tmpReq CreateTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateTimingSyntheticTaskResponse
@@ -856,6 +887,8 @@ namespace ARMS20190808
       /**
        * @summary Creates a scheduled synthetic test task.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param request CreateTimingSyntheticTaskRequest
        * @return CreateTimingSyntheticTaskResponse
        */
@@ -863,6 +896,8 @@ namespace ARMS20190808
 
       /**
        * @summary Adds a contact for webhook alerts.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
        *
        * @param request CreateWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -872,6 +907,8 @@ namespace ARMS20190808
 
       /**
        * @summary Adds a contact for webhook alerts.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
        *
        * @param request CreateWebhookRequest
        * @return CreateWebhookResponse
@@ -936,6 +973,8 @@ namespace ARMS20190808
       /**
        * @summary Deletes an DeleteAlertContactGroup contact group.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
+       *
        * @param request DeleteAlertContactGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAlertContactGroupResponse
@@ -944,6 +983,8 @@ namespace ARMS20190808
 
       /**
        * @summary Deletes an DeleteAlertContactGroup contact group.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
        *
        * @param request DeleteAlertContactGroupRequest
        * @return DeleteAlertContactGroupResponse
@@ -1008,7 +1049,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Uninstalls a Prometheus instance.
+       * @summary Uninstall Prometheus for an Alibaba Cloud service instance.
        *
        * @param request DeleteCmsExporterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1019,7 +1060,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Uninstalls a Prometheus instance.
+       * @summary Uninstall Prometheus for an Alibaba Cloud service instance.
        *
        * @param request DeleteCmsExporterRequest
        * @return DeleteCmsExporterResponse
@@ -1063,6 +1104,8 @@ namespace ARMS20190808
       /**
        * @summary Deletes the dispatch policy of a specified ID.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
+       *
        * @param request DeleteDispatchRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDispatchRuleResponse
@@ -1071,6 +1114,8 @@ namespace ARMS20190808
 
       /**
        * @summary Deletes the dispatch policy of a specified ID.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
        *
        * @param request DeleteDispatchRuleRequest
        * @return DeleteDispatchRuleResponse
@@ -1201,10 +1246,13 @@ namespace ARMS20190808
       Models::DeleteGrafanaResourceResponse deleteGrafanaResource(const Models::DeleteGrafanaResourceRequest &request);
 
       /**
-       * @summary Deletes a Managed Service for Prometheus workspace.
+       * @summary Deletes a Managed Service for Grafana workspace instance.
        *
-       * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-       * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+       * @description <props="china">>
+       * > - This operation supports deletion only for beta (`free`) Grafana instances.
+       * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+       * <props="intl">
+       * > This operation supports deletion only for beta (`free`) Grafana instances.
        *
        * @param request DeleteGrafanaWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1213,15 +1261,52 @@ namespace ARMS20190808
       Models::DeleteGrafanaWorkspaceResponse deleteGrafanaWorkspaceWithOptions(const Models::DeleteGrafanaWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Managed Service for Prometheus workspace.
+       * @summary Deletes a Managed Service for Grafana workspace instance.
        *
-       * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-       * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+       * @description <props="china">>
+       * > - This operation supports deletion only for beta (`free`) Grafana instances.
+       * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+       * <props="intl">
+       * > This operation supports deletion only for beta (`free`) Grafana instances.
        *
        * @param request DeleteGrafanaWorkspaceRequest
        * @return DeleteGrafanaWorkspaceResponse
        */
       Models::DeleteGrafanaWorkspaceResponse deleteGrafanaWorkspace(const Models::DeleteGrafanaWorkspaceRequest &request);
+
+      /**
+       * @summary 删除指定工作区下账号
+       *
+       * @param request DeleteGrafanaWorkspaceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGrafanaWorkspaceAccountResponse
+       */
+      Models::DeleteGrafanaWorkspaceAccountResponse deleteGrafanaWorkspaceAccountWithOptions(const Models::DeleteGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定工作区下账号
+       *
+       * @param request DeleteGrafanaWorkspaceAccountRequest
+       * @return DeleteGrafanaWorkspaceAccountResponse
+       */
+      Models::DeleteGrafanaWorkspaceAccountResponse deleteGrafanaWorkspaceAccount(const Models::DeleteGrafanaWorkspaceAccountRequest &request);
+
+      /**
+       * @summary 删除指定工作区下账号的角色
+       *
+       * @param request DeleteGrafanaWorkspaceAccountRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGrafanaWorkspaceAccountRoleResponse
+       */
+      Models::DeleteGrafanaWorkspaceAccountRoleResponse deleteGrafanaWorkspaceAccountRoleWithOptions(const Models::DeleteGrafanaWorkspaceAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定工作区下账号的角色
+       *
+       * @param request DeleteGrafanaWorkspaceAccountRoleRequest
+       * @return DeleteGrafanaWorkspaceAccountRoleResponse
+       */
+      Models::DeleteGrafanaWorkspaceAccountRoleResponse deleteGrafanaWorkspaceAccountRole(const Models::DeleteGrafanaWorkspaceAccountRoleRequest &request);
 
       /**
        * @summary Deletes an instant messaging (IM) chatbot.
@@ -1410,9 +1495,9 @@ namespace ARMS20190808
       Models::DeleteRumAppResponse deleteRumApp(const Models::DeleteRumAppRequest &request);
 
       /**
-       * @summary Deletes a file such as a symbol table or SourceMap.
+       * @summary Deletes files such as symbol tables and SourceMap files.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
        *
        * @param request DeleteRumUploadFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1421,9 +1506,9 @@ namespace ARMS20190808
       Models::DeleteRumUploadFileResponse deleteRumUploadFileWithOptions(const Models::DeleteRumUploadFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a file such as a symbol table or SourceMap.
+       * @summary Deletes files such as symbol tables and SourceMap files.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
        *
        * @param request DeleteRumUploadFileRequest
        * @return DeleteRumUploadFileResponse
@@ -1431,6 +1516,8 @@ namespace ARMS20190808
       Models::DeleteRumUploadFileResponse deleteRumUploadFile(const Models::DeleteRumUploadFileRequest &request);
 
       /**
+       * @summary Delete a Business Monitoring.
+       *
        * @param request DeleteScenarioRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteScenarioResponse
@@ -1438,6 +1525,8 @@ namespace ARMS20190808
       Models::DeleteScenarioResponse deleteScenarioWithOptions(const Models::DeleteScenarioRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Delete a Business Monitoring.
+       *
        * @param request DeleteScenarioRequest
        * @return DeleteScenarioResponse
        */
@@ -1497,6 +1586,8 @@ namespace ARMS20190808
       /**
        * @summary Deletes a scheduled synthetic monitoring task.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param request DeleteTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteTimingSyntheticTaskResponse
@@ -1505,6 +1596,8 @@ namespace ARMS20190808
 
       /**
        * @summary Deletes a scheduled synthetic monitoring task.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request DeleteTimingSyntheticTaskRequest
        * @return DeleteTimingSyntheticTaskResponse
@@ -1616,6 +1709,8 @@ namespace ARMS20190808
       /**
        * @summary Queries the information about a dispatch policy.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
+       *
        * @param request DescribeDispatchRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDispatchRuleResponse
@@ -1624,6 +1719,8 @@ namespace ARMS20190808
 
       /**
        * @summary Queries the information about a dispatch policy.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
        *
        * @param request DescribeDispatchRuleRequest
        * @return DescribeDispatchRuleResponse
@@ -1648,7 +1745,7 @@ namespace ARMS20190808
       Models::DescribeEnvCustomJobResponse describeEnvCustomJob(const Models::DescribeEnvCustomJobRequest &request);
 
       /**
-       * @summary Queries the list of discarded metrics of a specified environment instance.
+       * @summary Queries the metric drop rule for a specified environment instance.
        *
        * @param request DescribeEnvDropMetricsRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1657,7 +1754,7 @@ namespace ARMS20190808
       Models::DescribeEnvDropMetricsRuleResponse describeEnvDropMetricsRuleWithOptions(const Models::DescribeEnvDropMetricsRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of discarded metrics of a specified environment instance.
+       * @summary Queries the metric drop rule for a specified environment instance.
        *
        * @param request DescribeEnvDropMetricsRuleRequest
        * @return DescribeEnvDropMetricsRuleResponse
@@ -1801,7 +1898,7 @@ namespace ARMS20190808
       Models::DescribeWebhookContactsResponse describeWebhookContacts(const Models::DescribeWebhookContactsRequest &request);
 
       /**
-       * @summary Performs actions based on the specified module type.
+       * @summary Executes the corresponding action based on the module type specified by the parameter.
        *
        * @param request DoInsightsActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1810,7 +1907,7 @@ namespace ARMS20190808
       Models::DoInsightsActionResponse doInsightsActionWithOptions(const Models::DoInsightsActionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs actions based on the specified module type.
+       * @summary Executes the corresponding action based on the module type specified by the parameter.
        *
        * @param request DoInsightsActionRequest
        * @return DoInsightsActionResponse
@@ -1873,7 +1970,7 @@ namespace ARMS20190808
       Models::GetAgentDownloadUrlV2Response getAgentDownloadUrlV2(const Models::GetAgentDownloadUrlV2Request &request);
 
       /**
-       * @summary Queries alert rules.
+       * @summary Query the created alert rules.
        *
        * @param request GetAlertRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1882,7 +1979,7 @@ namespace ARMS20190808
       Models::GetAlertRulesResponse getAlertRulesWithOptions(const Models::GetAlertRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert rules.
+       * @summary Query the created alert rules.
        *
        * @param request GetAlertRulesRequest
        * @return GetAlertRulesResponse
@@ -2002,7 +2099,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI GetExploreUrl is deprecated
        *
-       * @summary Enables the Explore feature of Grafana.
+       * @summary Retrieves data using the Explore feature of Grafana.
        *
        * @param request GetExploreUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +2110,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI GetExploreUrl is deprecated
        *
-       * @summary Enables the Explore feature of Grafana.
+       * @summary Retrieves data using the Explore feature of Grafana.
        *
        * @param request GetExploreUrlRequest
        * @return GetExploreUrlResponse
@@ -2101,7 +2198,7 @@ namespace ARMS20190808
       Models::GetMultipleTraceResponse getMultipleTrace(const Models::GetMultipleTraceRequest &request);
 
       /**
-       * @summary Queries the information about a scheduling policy.
+       * @summary Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
        *
        * @param request GetOnCallSchedulesDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2110,7 +2207,7 @@ namespace ARMS20190808
       Models::GetOnCallSchedulesDetailResponse getOnCallSchedulesDetailWithOptions(const Models::GetOnCallSchedulesDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a scheduling policy.
+       * @summary Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
        *
        * @param request GetOnCallSchedulesDetailRequest
        * @return GetOnCallSchedulesDetailResponse
@@ -2156,7 +2253,7 @@ namespace ARMS20190808
       Models::GetPrometheusGlobalViewResponse getPrometheusGlobalView(const Models::GetPrometheusGlobalViewRequest &request);
 
       /**
-       * @summary Queries the information about a Prometheus instance.
+       * @summary Retrieves information about a specified Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2165,7 +2262,7 @@ namespace ARMS20190808
       Models::GetPrometheusInstanceResponse getPrometheusInstanceWithOptions(const Models::GetPrometheusInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a Prometheus instance.
+       * @summary Retrieves information about a specified Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @return GetPrometheusInstanceResponse
@@ -2304,9 +2401,9 @@ namespace ARMS20190808
       Models::GetRetcodeShareUrlResponse getRetcodeShareUrl(const Models::GetRetcodeShareUrlRequest &request);
 
       /**
-       * @summary Obtains the information about a single application in Browser Monitoring.
+       * @summary Retrieves a single Frontend Monitoring application.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
        *
        * @param request GetRumAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2315,9 +2412,9 @@ namespace ARMS20190808
       Models::GetRumAppInfoResponse getRumAppInfoWithOptions(const Models::GetRumAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about a single application in Browser Monitoring.
+       * @summary Retrieves a single Frontend Monitoring application.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
        *
        * @param request GetRumAppInfoRequest
        * @return GetRumAppInfoResponse
@@ -2367,9 +2464,9 @@ namespace ARMS20190808
       Models::GetRumDataForPageResponse getRumDataForPage(const Models::GetRumDataForPageRequest &request);
 
       /**
-       * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+       * @summary Retrieves Real User Monitoring (RUM) exception stack information.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request GetRumExceptionStackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2378,9 +2475,9 @@ namespace ARMS20190808
       Models::GetRumExceptionStackResponse getRumExceptionStackWithOptions(const Models::GetRumExceptionStackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+       * @summary Retrieves Real User Monitoring (RUM) exception stack information.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request GetRumExceptionStackRequest
        * @return GetRumExceptionStackResponse
@@ -2409,9 +2506,9 @@ namespace ARMS20190808
       Models::GetRumOcuStatisticDataResponse getRumOcuStatisticData(const Models::GetRumOcuStatisticDataRequest &request);
 
       /**
-       * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+       * @summary Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request GetRumUploadFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2420,9 +2517,9 @@ namespace ARMS20190808
       Models::GetRumUploadFilesResponse getRumUploadFilesWithOptions(const Models::GetRumUploadFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+       * @summary Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request GetRumUploadFilesRequest
        * @return GetRumUploadFilesResponse
@@ -2466,6 +2563,8 @@ namespace ARMS20190808
       /**
        * @summary Obtains detection points.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param tmpReq GetSyntheticMonitorsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSyntheticMonitorsResponse
@@ -2474,6 +2573,8 @@ namespace ARMS20190808
 
       /**
        * @summary Obtains detection points.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request GetSyntheticMonitorsRequest
        * @return GetSyntheticMonitorsResponse
@@ -2534,6 +2635,8 @@ namespace ARMS20190808
       /**
        * @summary Obtains the details of a synthetic monitoring task.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param request GetTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTimingSyntheticTaskResponse
@@ -2542,6 +2645,8 @@ namespace ARMS20190808
 
       /**
        * @summary Obtains the details of a synthetic monitoring task.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request GetTimingSyntheticTaskRequest
        * @return GetTimingSyntheticTaskResponse
@@ -2602,6 +2707,23 @@ namespace ARMS20190808
        * @return GetTraceAppConfigResponse
        */
       Models::GetTraceAppConfigResponse getTraceAppConfig(const Models::GetTraceAppConfigRequest &request);
+
+      /**
+       * @summary 代理指定工作区的HTTP API 接口
+       *
+       * @param request GrafanaWorkspaceHttpApiProxyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrafanaWorkspaceHttpApiProxyResponse
+       */
+      Models::GrafanaWorkspaceHttpApiProxyResponse grafanaWorkspaceHttpApiProxyWithOptions(const Models::GrafanaWorkspaceHttpApiProxyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 代理指定工作区的HTTP API 接口
+       *
+       * @param request GrafanaWorkspaceHttpApiProxyRequest
+       * @return GrafanaWorkspaceHttpApiProxyResponse
+       */
+      Models::GrafanaWorkspaceHttpApiProxyResponse grafanaWorkspaceHttpApiProxy(const Models::GrafanaWorkspaceHttpApiProxyRequest &request);
 
       /**
        * @summary Creates an alert rule based on an alert template.
@@ -2699,9 +2821,9 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI InstallManagedPrometheus is deprecated
        *
-       * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+       * @summary Create a managed (ASK/ECS) Prometheus instance.
        *
-       * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+       * @description This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
        *
        * @param request InstallManagedPrometheusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2712,9 +2834,9 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI InstallManagedPrometheus is deprecated
        *
-       * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+       * @summary Create a managed (ASK/ECS) Prometheus instance.
        *
-       * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+       * @description This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
        *
        * @param request InstallManagedPrometheusRequest
        * @return InstallManagedPrometheusResponse
@@ -2722,7 +2844,9 @@ namespace ARMS20190808
       Models::InstallManagedPrometheusResponse installManagedPrometheus(const Models::InstallManagedPrometheusRequest &request);
 
       /**
-       * @summary Queries the alerts that have been triggered.
+       * @summary Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+       *
+       * @description This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
        *
        * @param request ListActivatedAlertsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2731,7 +2855,9 @@ namespace ARMS20190808
       Models::ListActivatedAlertsResponse listActivatedAlertsWithOptions(const Models::ListActivatedAlertsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the alerts that have been triggered.
+       * @summary Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+       *
+       * @description This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
        *
        * @param request ListActivatedAlertsRequest
        * @return ListActivatedAlertsResponse
@@ -2739,7 +2865,7 @@ namespace ARMS20190808
       Models::ListActivatedAlertsResponse listActivatedAlerts(const Models::ListActivatedAlertsRequest &request);
 
       /**
-       * @summary Queries the add-ons installed in an environment.
+       * @summary Queries the addons installed in an environment.
        *
        * @param request ListAddonReleasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2748,7 +2874,7 @@ namespace ARMS20190808
       Models::ListAddonReleasesResponse listAddonReleasesWithOptions(const Models::ListAddonReleasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the add-ons installed in an environment.
+       * @summary Queries the addons installed in an environment.
        *
        * @param request ListAddonReleasesRequest
        * @return ListAddonReleasesResponse
@@ -2830,7 +2956,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI ListCmsInstances is deprecated
        *
-       * @summary Queries the collection of cloud services.
+       * @summary Queries the data collection status of cloud services.
        *
        * @param request ListCmsInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2841,7 +2967,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI ListCmsInstances is deprecated
        *
-       * @summary Queries the collection of cloud services.
+       * @summary Queries the data collection status of cloud services.
        *
        * @param request ListCmsInstancesRequest
        * @return ListCmsInstancesResponse
@@ -2963,7 +3089,7 @@ namespace ARMS20190808
       Models::ListEnvServiceMonitorsResponse listEnvServiceMonitors(const Models::ListEnvServiceMonitorsRequest &request);
 
       /**
-       * @summary Queries the information about the add-ons that are installed in an environment.
+       * @summary Lists the add-ons installed in a specified environment.
        *
        * @param request ListEnvironmentAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +3098,7 @@ namespace ARMS20190808
       Models::ListEnvironmentAddonsResponse listEnvironmentAddonsWithOptions(const Models::ListEnvironmentAddonsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the add-ons that are installed in an environment.
+       * @summary Lists the add-ons installed in a specified environment.
        *
        * @param request ListEnvironmentAddonsRequest
        * @return ListEnvironmentAddonsResponse
@@ -3135,6 +3261,23 @@ namespace ARMS20190808
        * @return ListGrafanaWorkspaceResponse
        */
       Models::ListGrafanaWorkspaceResponse listGrafanaWorkspace(const Models::ListGrafanaWorkspaceRequest &request);
+
+      /**
+       * @summary 获取指定工作区下的阿里云账号列表
+       *
+       * @param request ListGrafanaWorkspaceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGrafanaWorkspaceAccountResponse
+       */
+      Models::ListGrafanaWorkspaceAccountResponse listGrafanaWorkspaceAccountWithOptions(const Models::ListGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定工作区下的阿里云账号列表
+       *
+       * @param request ListGrafanaWorkspaceAccountRequest
+       * @return ListGrafanaWorkspaceAccountResponse
+       */
+      Models::ListGrafanaWorkspaceAccountResponse listGrafanaWorkspaceAccount(const Models::ListGrafanaWorkspaceAccountRequest &request);
 
       /**
        * @summary Queries the abnormal Insights events within a specified period of time.
@@ -3353,6 +3496,8 @@ namespace ARMS20190808
       Models::ListRetcodeAppsResponse listRetcodeApps(const Models::ListRetcodeAppsRequest &request);
 
       /**
+       * @summary Obtain Business Monitoring details.
+       *
        * @param request ListScenarioRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListScenarioResponse
@@ -3360,6 +3505,8 @@ namespace ARMS20190808
       Models::ListScenarioResponse listScenarioWithOptions(const Models::ListScenarioRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtain Business Monitoring details.
+       *
        * @param request ListScenarioRequest
        * @return ListScenarioResponse
        */
@@ -3385,6 +3532,8 @@ namespace ARMS20190808
       /**
        * @summary Obtains the results of one or more synthetic tests.
        *
+       * @description 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+       *
        * @param tmpReq ListSyntheticDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSyntheticDetailResponse
@@ -3394,6 +3543,8 @@ namespace ARMS20190808
       /**
        * @summary Obtains the results of one or more synthetic tests.
        *
+       * @description 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+       *
        * @param request ListSyntheticDetailRequest
        * @return ListSyntheticDetailResponse
        */
@@ -3401,6 +3552,8 @@ namespace ARMS20190808
 
       /**
        * @summary Queries scheduled synthetic monitoring tasks.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param tmpReq ListTimingSyntheticTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3410,6 +3563,8 @@ namespace ARMS20190808
 
       /**
        * @summary Queries scheduled synthetic monitoring tasks.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request ListTimingSyntheticTasksRequest
        * @return ListTimingSyntheticTasksResponse
@@ -3518,7 +3673,7 @@ namespace ARMS20190808
       Models::OpenXtraceDefaultSLRResponse openXtraceDefaultSLR(const Models::OpenXtraceDefaultSLRRequest &request);
 
       /**
-       * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+       * @summary Queries application metadata by ID and type.
        *
        * @param request QueryAppMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3527,7 +3682,7 @@ namespace ARMS20190808
       Models::QueryAppMetadataResponse queryAppMetadataWithOptions(const Models::QueryAppMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+       * @summary Queries application metadata by ID and type.
        *
        * @param request QueryAppMetadataRequest
        * @return QueryAppMetadataResponse
@@ -3932,7 +4087,9 @@ namespace ARMS20190808
       Models::SetRetcodeShareStatusResponse setRetcodeShareStatus(const Models::SetRetcodeShareStatusRequest &request);
 
       /**
-       * @summary 启动报警
+       * @summary Invoke the StartAlert API to start an alert rule.
+       *
+       * @description This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
        *
        * @param request StartAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3941,7 +4098,9 @@ namespace ARMS20190808
       Models::StartAlertResponse startAlertWithOptions(const Models::StartAlertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动报警
+       * @summary Invoke the StartAlert API to start an alert rule.
+       *
+       * @description This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
        *
        * @param request StartAlertRequest
        * @return StartAlertResponse
@@ -3950,6 +4109,8 @@ namespace ARMS20190808
 
       /**
        * @summary Starts scheduled synthetic monitoring tasks.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param tmpReq StartTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3960,6 +4121,8 @@ namespace ARMS20190808
       /**
        * @summary Starts scheduled synthetic monitoring tasks.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param request StartTimingSyntheticTaskRequest
        * @return StartTimingSyntheticTaskResponse
        */
@@ -3967,6 +4130,8 @@ namespace ARMS20190808
 
       /**
        * @summary Call StartAlert to stop an alert rule.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
        *
        * @param request StopAlertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3977,6 +4142,8 @@ namespace ARMS20190808
       /**
        * @summary Call StartAlert to stop an alert rule.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
+       *
        * @param request StopAlertRequest
        * @return StopAlertResponse
        */
@@ -3984,6 +4151,8 @@ namespace ARMS20190808
 
       /**
        * @summary Stops scheduled synthetic monitoring tasks.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param tmpReq StopTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3993,6 +4162,8 @@ namespace ARMS20190808
 
       /**
        * @summary Stops scheduled synthetic monitoring tasks.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request StopTimingSyntheticTaskRequest
        * @return StopTimingSyntheticTaskResponse
@@ -4019,7 +4190,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI SyncRecordingRules is deprecated
        *
-       * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+       * @summary Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
        *
        * @param request SyncRecordingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4030,7 +4201,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI SyncRecordingRules is deprecated
        *
-       * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+       * @summary Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
        *
        * @param request SyncRecordingRulesRequest
        * @return SyncRecordingRulesResponse
@@ -4137,6 +4308,8 @@ namespace ARMS20190808
       /**
        * @summary Updates UpdateAlertContactGroup alarm contact group.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+       *
        * @param request UpdateAlertContactGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateAlertContactGroupResponse
@@ -4146,12 +4319,18 @@ namespace ARMS20190808
       /**
        * @summary Updates UpdateAlertContactGroup alarm contact group.
        *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+       *
        * @param request UpdateAlertContactGroupRequest
        * @return UpdateAlertContactGroupResponse
        */
       Models::UpdateAlertContactGroupResponse updateAlertContactGroup(const Models::UpdateAlertContactGroupRequest &request);
 
       /**
+       * @summary You can invoke the UpdateAlertRule API to update an alert rule.
+       *
+       * @description This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+       *
        * @param request UpdateAlertRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateAlertRuleResponse
@@ -4159,6 +4338,10 @@ namespace ARMS20190808
       Models::UpdateAlertRuleResponse updateAlertRuleWithOptions(const Models::UpdateAlertRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can invoke the UpdateAlertRule API to update an alert rule.
+       *
+       * @description This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+       *
        * @param request UpdateAlertRuleRequest
        * @return UpdateAlertRuleResponse
        */
@@ -4166,6 +4349,8 @@ namespace ARMS20190808
 
       /**
        * @summary Modifies a dispatch policy.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
        *
        * @param request UpdateDispatchRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4175,6 +4360,8 @@ namespace ARMS20190808
 
       /**
        * @summary Modifies a dispatch policy.
+       *
+       * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
        *
        * @param request UpdateDispatchRuleRequest
        * @return UpdateDispatchRuleResponse
@@ -4284,6 +4471,23 @@ namespace ARMS20190808
       Models::UpdateGrafanaWorkspaceResponse updateGrafanaWorkspace(const Models::UpdateGrafanaWorkspaceRequest &request);
 
       /**
+       * @summary 修改指定工作区下账号的角色
+       *
+       * @param request UpdateGrafanaWorkspaceAccountRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGrafanaWorkspaceAccountRoleResponse
+       */
+      Models::UpdateGrafanaWorkspaceAccountRoleResponse updateGrafanaWorkspaceAccountRoleWithOptions(const Models::UpdateGrafanaWorkspaceAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改指定工作区下账号的角色
+       *
+       * @param request UpdateGrafanaWorkspaceAccountRoleRequest
+       * @return UpdateGrafanaWorkspaceAccountRoleResponse
+       */
+      Models::UpdateGrafanaWorkspaceAccountRoleResponse updateGrafanaWorkspaceAccountRole(const Models::UpdateGrafanaWorkspaceAccountRoleRequest &request);
+
+      /**
        * @summary Updates the version of a Grafana workspace.
        *
        * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
@@ -4345,6 +4549,8 @@ namespace ARMS20190808
       /**
        * @summary Updates a Prometheus alert rule.
        *
+       * @description UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
+       *
        * @param request UpdatePrometheusAlertRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdatePrometheusAlertRuleResponse
@@ -4353,6 +4559,8 @@ namespace ARMS20190808
 
       /**
        * @summary Updates a Prometheus alert rule.
+       *
+       * @description UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
        *
        * @param request UpdatePrometheusAlertRuleRequest
        * @return UpdatePrometheusAlertRuleResponse
@@ -4381,7 +4589,7 @@ namespace ARMS20190808
       Models::UpdatePrometheusGlobalViewResponse updatePrometheusGlobalView(const Models::UpdatePrometheusGlobalViewRequest &request);
 
       /**
-       * @summary Updates the information about a Prometheus instance.
+       * @summary Updates the information of a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4390,7 +4598,7 @@ namespace ARMS20190808
       Models::UpdatePrometheusInstanceResponse updatePrometheusInstanceWithOptions(const Models::UpdatePrometheusInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a Prometheus instance.
+       * @summary Updates the information of a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @return UpdatePrometheusInstanceResponse
@@ -4463,7 +4671,7 @@ namespace ARMS20190808
       /**
        * @summary Updates a Real User Monitoring (RUM) application.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request UpdateRumAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4474,7 +4682,7 @@ namespace ARMS20190808
       /**
        * @summary Updates a Real User Monitoring (RUM) application.
        *
-       * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+       * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
        *
        * @param request UpdateRumAppRequest
        * @return UpdateRumAppResponse
@@ -4505,6 +4713,8 @@ namespace ARMS20190808
       /**
        * @summary Updates a scheduled synthetic test task.
        *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+       *
        * @param tmpReq UpdateTimingSyntheticTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateTimingSyntheticTaskResponse
@@ -4513,6 +4723,8 @@ namespace ARMS20190808
 
       /**
        * @summary Updates a scheduled synthetic test task.
+       *
+       * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
        *
        * @param request UpdateTimingSyntheticTaskRequest
        * @return UpdateTimingSyntheticTaskResponse

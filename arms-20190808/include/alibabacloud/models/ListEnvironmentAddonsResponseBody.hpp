@@ -227,7 +227,7 @@ namespace Models
               shared_ptr<string> description_ {};
               // The URL of the protocol icon.
               shared_ptr<string> icon_ {};
-              // The tag of the protocol.
+              // The label of the protocol.
               shared_ptr<string> label_ {};
               // The name of the protocol.
               shared_ptr<string> name_ {};
@@ -263,7 +263,7 @@ namespace Models
 
 
             protected:
-              // The PromQL statements.
+              // The PromQL query statements.
               shared_ptr<vector<string>> promQL_ {};
             };
 
@@ -324,19 +324,19 @@ namespace Models
 
 
           protected:
-            // The default alert status.
+            // The default status of the alert.
             shared_ptr<string> alertDefaultStatus_ {};
-            // The default installation status.
+            // Indicates whether the addon is installed by default in the environment.
             shared_ptr<bool> defaultInstall_ {};
-            // Indicates whether a service account is enabled.
+            // Indicates whether a service account is enabled for the addon.
             shared_ptr<bool> enableServiceAccount_ {};
-            // The metric check rule.
+            // The rules for checking metric status.
             shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-            // Indicates whether a restart is required after the installation.
+            // Indicates whether a restart is required after the addon is installed.
             shared_ptr<bool> needRestartAfterIntegration_ {};
-            // The supported protocols.
+            // The list of supported protocols.
             shared_ptr<vector<Policies::Protocols>> protocols_ {};
-            // The target name of the add-on.
+            // The target name of the addon.
             shared_ptr<string> targetAddonName_ {};
           };
 
@@ -393,11 +393,11 @@ namespace Models
 
 
           protected:
-            // The cluster type.
+            // The required cluster types.
             shared_ptr<vector<string>> clusterTypes_ {};
-            // The feature that can be installed in the environment.
+            // The features available for installation in the environment.
             shared_ptr<map<string, bool>> features_ {};
-            // The services.
+            // The dependent services.
             shared_ptr<vector<string>> services_ {};
           };
 
@@ -450,17 +450,17 @@ namespace Models
 
 
         protected:
-          // The dependencies of the environment.
+          // The dependencies of the addon within the environment.
           shared_ptr<Environments::Dependencies> dependencies_ {};
           // The description of the environment.
           shared_ptr<string> description_ {};
-          // Indicates whether the feature is enabled.
+          // Indicates whether the addon is supported in this environment.
           shared_ptr<bool> enable_ {};
-          // The tag of the environment.
+          // The label of the environment.
           shared_ptr<string> label_ {};
           // The name of the environment.
           shared_ptr<string> name_ {};
-          // The control policies in the environment.
+          // The policies related to the addon in this environment.
           shared_ptr<Environments::Policies> policies_ {};
         };
 
@@ -630,33 +630,33 @@ namespace Models
 
 
       protected:
-        // The alias of the add-on.
+        // The alias of the addon.
         shared_ptr<string> alias_ {};
-        // The tags of the add-on.
+        // The list of addon tags.
         shared_ptr<vector<string>> categories_ {};
-        // The dashboards.
+        // The list of dashboards.
         shared_ptr<vector<Addons::Dashboards>> dashboards_ {};
-        // The description of the add-on.
+        // The description of the addon.
         shared_ptr<string> description_ {};
-        // The supported environments.
+        // The list of supported environments.
         shared_ptr<vector<Addons::Environments>> environments_ {};
-        // The URL of the icon.
+        // The URL of the addon icon.
         shared_ptr<string> icon_ {};
-        // The collection of keywords.
+        // The keywords for the addon.
         shared_ptr<vector<string>> keywords_ {};
-        // The language.
+        // The language of the addon metadata.
         shared_ptr<string> language_ {};
-        // The time when the instance was last created.
+        // The creation time of the latest release of the addon.
         shared_ptr<string> latestReleaseCreateTime_ {};
-        // The name of the add-on.
+        // The name of the addon.
         shared_ptr<string> name_ {};
-        // Indicates whether the add-on can be installed only once.
+        // Indicates whether the addon can be installed only once per environment.
         shared_ptr<bool> once_ {};
-        // The scenario.
+        // The application scenario of the addon.
         shared_ptr<string> scene_ {};
-        // The version of the agent.
+        // The addon version.
         shared_ptr<string> version_ {};
-        // The weight.
+        // The weight of the addon, which is used for sorting in the UI.
         shared_ptr<string> weight_ {};
       };
 
@@ -686,9 +686,11 @@ namespace Models
 
 
     protected:
-      // The queried add-ons.
+      // The list of addons.
       shared_ptr<vector<Data::Addons>> addons_ {};
+      // Indicates whether the list contains V2 addons.
       shared_ptr<bool> containsV2Addon_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -732,12 +734,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The result of the operation.
+    // The returned data.
     shared_ptr<ListEnvironmentAddonsResponseBody::Data> data_ {};
+    // The message returned.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values are `true` if the operation succeeded and `false` if it failed.
     shared_ptr<bool> success_ {};
   };
 

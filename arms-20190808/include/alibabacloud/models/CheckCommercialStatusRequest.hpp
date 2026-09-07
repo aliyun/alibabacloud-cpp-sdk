@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // The region ID. Default value: cn-hangzhou.
+    // The region ID. Default value: ap-southeast-1.
     shared_ptr<string> regionId_ {};
-    // The ARMS sub-service. Valid values:
+    // The sub-product type. Valid values:
     // 
-    // *   apm: Application Monitoring
-    // *   rum: RUM
-    // *   prometheus: Managed Service for Prometheus
-    // *   xtrace: Managed Service for OpenTelemetry
+    // - apm: Application Monitoring
+    // - rum: Real User Monitoring
+    // - prometheus: Managed Service for Prometheus
+    // - xtrace: Managed Service for OpenTelemetry
     // 
     // This parameter is required.
     shared_ptr<string> service_ {};

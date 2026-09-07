@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The list of discarded metrics. Separate multiple metrics with line feeds.
+      // The metrics to be dropped. Metrics are separated by line breaks.
       shared_ptr<string> dropMetrics_ {};
-      // The name of the discarded metric rule.
+      // The name of the metric drop rule.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The status code. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The returned struct.
+    // The response data.
     shared_ptr<DescribeEnvDropMetricsRuleResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

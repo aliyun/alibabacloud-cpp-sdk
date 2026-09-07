@@ -251,15 +251,17 @@ namespace Models
         shared_ptr<string> resourceGroupId_ {};
         // Indicates whether the application is displayed in the Application Real-Time Monitoring Service (ARMS) console. Valid values:
         // 
-        // *   `true`: yes
-        // *   `false`: no
+        // - `true`: yes
+        // 
+        // - `false`: no
         shared_ptr<bool> show_ {};
         // A list of tags.
         shared_ptr<vector<TraceApps::Tags>> tags_ {};
         // The type of the monitoring task. Valid values:
         // 
-        // *   `TRACE`: Application Monitoring
-        // *   `RETCODE`: Browser Monitoring
+        // - `TRACE`: Application Monitoring
+        // 
+        // - `RETCODE`: Browser Monitoring
         shared_ptr<string> type_ {};
         // The timestamp generated when the task information was updated.
         shared_ptr<int64_t> updateTime_ {};

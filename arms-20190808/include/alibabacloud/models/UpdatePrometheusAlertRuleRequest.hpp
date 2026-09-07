@@ -229,6 +229,7 @@ namespace Models
     // The method that is used to send alert notifications. Valid values:
     // 
     // - `ALERT_MANAGER`: Alert notifications are sent by Operation Center. This is the default value.
+    // 
     // - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
     shared_ptr<string> notifyType_ {};
     // The region ID.

@@ -66,13 +66,22 @@ namespace Models
 
 
   protected:
-    // The status code. The status code 200 indicates that the request was successful.
+    // The HTTP status code. Valid values:
+    // 
+    // - 2XX: success.
+    // - 3XX: redirection.
+    // - 4XX: request error.
+    // - 5XX: server error.
     shared_ptr<int32_t> code_ {};
-    // The ID of the created Prometheus instance.
+    // The instance ID returned after the instance is created.
+    // 
+    // - For aliyun-cs instances, the Prometheus instance ID is the Container Service cluster ID.
+    // 
+    // - For ecs instances, the Prometheus instance ID is the VPC ID.
     shared_ptr<string> data_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

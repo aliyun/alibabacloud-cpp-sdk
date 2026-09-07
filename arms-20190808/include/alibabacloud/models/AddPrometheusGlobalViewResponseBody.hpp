@@ -107,7 +107,7 @@ namespace Models
       protected:
         // The list of instances that failed to be added.
         shared_ptr<string> failedInstances_ {};
-        // The ID of the global aggregation instance.
+        // The aggregation instance ID.
         shared_ptr<string> globalViewClusterId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -141,12 +141,12 @@ namespace Models
     protected:
       // The Info-level information.
       shared_ptr<Data::Info> info_ {};
-      // The additional information.
+      // The additional description.
       shared_ptr<string> msg_ {};
-      // Indicates whether the request was successful. Valid values:
+      // Indicates whether the query was successful.
       // 
-      // *   `true`
-      // *   `false`
+      // - `true`: Successful.
+      // - `false`: Failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -183,13 +183,13 @@ namespace Models
 
 
   protected:
-    // 状态码。说明 200表示成功。
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The information about the array object.
+    // The response struct.
     shared_ptr<AddPrometheusGlobalViewResponseBody::Data> data_ {};
-    // 返回结果的提示信息。
+    // The message returned for the result.
     shared_ptr<string> message_ {};
-    // The request ID. You can use the ID to query logs and troubleshoot issues.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

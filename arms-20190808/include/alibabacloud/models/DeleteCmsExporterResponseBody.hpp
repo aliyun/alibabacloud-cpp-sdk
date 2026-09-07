@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Return Result information.
     shared_ptr<string> data_ {};
+    // The unique ID of this request. If a fault occurs, you can use this ID to troubleshoot the issue.
     shared_ptr<string> requestId_ {};
   };
 

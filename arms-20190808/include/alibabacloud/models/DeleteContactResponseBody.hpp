@@ -50,8 +50,9 @@ namespace Models
   protected:
     // Indicates whether the alert contact is deleted. Valid values:
     // 
-    // *   `true`: The alert contact is deleted.
-    // *   `false`: The alert contact is not deleted.
+    // - `true`: The alert contact is deleted.
+    // 
+    // - `false`: The alert contact is not deleted.
     shared_ptr<bool> isSuccess_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

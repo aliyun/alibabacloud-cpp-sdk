@@ -390,6 +390,7 @@ namespace Models
 
 
   protected:
+    // The error message returned when the invocation fails.
     shared_ptr<string> message_ {};
     // The struct returned.
     shared_ptr<ListActivatedAlertsResponseBody::Page> page_ {};

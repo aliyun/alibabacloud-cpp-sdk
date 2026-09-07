@@ -239,7 +239,7 @@ AddIntegrationResponse Client::addIntegration(const AddIntegrationRequest &reque
 /**
  * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
  *
- * @summary Adds a global aggregation instance in Prometheus Service.
+ * @summary Adds an aggregation instance for ARMS Prometheus monitoring.
  *
  * @param request AddPrometheusGlobalViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -288,7 +288,7 @@ AddPrometheusGlobalViewResponse Client::addPrometheusGlobalViewWithOptions(const
 /**
  * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
  *
- * @summary Adds a global aggregation instance in Prometheus Service.
+ * @summary Adds an aggregation instance for ARMS Prometheus monitoring.
  *
  * @param request AddPrometheusGlobalViewRequest
  * @return AddPrometheusGlobalViewResponse
@@ -647,6 +647,8 @@ AppendInstancesToPrometheusGlobalViewResponse Client::appendInstancesToPrometheu
 }
 
 /**
+ * @summary Create or update Business Monitoring.
+ *
  * @param tmpReq ApplyScenarioRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ApplyScenarioResponse
@@ -722,6 +724,8 @@ ApplyScenarioResponse Client::applyScenarioWithOptions(const ApplyScenarioReques
 }
 
 /**
+ * @summary Create or update Business Monitoring.
+ *
  * @param request ApplyScenarioRequest
  * @return ApplyScenarioResponse
  */
@@ -951,9 +955,9 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+ * @summary Checks the commercial activation status of a product.
  *
- * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+ * @description Retrieves the commercial activation status of a product.
  *
  * @param request CheckCommercialStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -980,9 +984,9 @@ CheckCommercialStatusResponse Client::checkCommercialStatusWithOptions(const Che
 }
 
 /**
- * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+ * @summary Checks the commercial activation status of a product.
  *
- * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+ * @description Retrieves the commercial activation status of a product.
  *
  * @param request CheckCommercialStatusRequest
  * @return CheckCommercialStatusResponse
@@ -1327,6 +1331,8 @@ CreateAlertContactGroupResponse Client::createAlertContactGroup(const CreateAler
 /**
  * @summary Creates a dispatch policy.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
+ *
  * @param request CreateDispatchRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDispatchRuleResponse
@@ -1361,6 +1367,8 @@ CreateDispatchRuleResponse Client::createDispatchRuleWithOptions(const CreateDis
 
 /**
  * @summary Creates a dispatch policy.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
  *
  * @param request CreateDispatchRuleRequest
  * @return CreateDispatchRuleResponse
@@ -1641,13 +1649,13 @@ CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentReque
 }
 
 /**
- * @summary Creates a workspace in Managed Service for Grafana.
+ * @summary Create a Managed Service for Grafana workspace instance.
  *
- * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
- * > 
- * *   To create workspaces, you must complete real-name verification.
- * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
- * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+ * @description Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.  
+ * >  
+ * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.  
+ * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).  
+ * > - Internal testing users can only create the internal testing edition (`free of charge`).
  *
  * @param tmpReq CreateGrafanaWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1736,13 +1744,13 @@ CreateGrafanaWorkspaceResponse Client::createGrafanaWorkspaceWithOptions(const C
 }
 
 /**
- * @summary Creates a workspace in Managed Service for Grafana.
+ * @summary Create a Managed Service for Grafana workspace instance.
  *
- * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
- * > 
- * *   To create workspaces, you must complete real-name verification.
- * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
- * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+ * @description Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.  
+ * >  
+ * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.  
+ * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).  
+ * > - Internal testing users can only create the internal testing edition (`free of charge`).
  *
  * @param request CreateGrafanaWorkspaceRequest
  * @return CreateGrafanaWorkspaceResponse
@@ -1750,6 +1758,76 @@ CreateGrafanaWorkspaceResponse Client::createGrafanaWorkspaceWithOptions(const C
 CreateGrafanaWorkspaceResponse Client::createGrafanaWorkspace(const CreateGrafanaWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createGrafanaWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 指定工作区下创建账号
+ *
+ * @param request CreateGrafanaWorkspaceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGrafanaWorkspaceAccountResponse
+ */
+CreateGrafanaWorkspaceAccountResponse Client::createGrafanaWorkspaceAccountWithOptions(const CreateGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountNotes()) {
+    query["AccountNotes"] = request.getAccountNotes();
+  }
+
+  if (!!request.hasAccountPassword()) {
+    query["AccountPassword"] = request.getAccountPassword();
+  }
+
+  if (!!request.hasAliyunLang()) {
+    query["AliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasAliyunUid()) {
+    query["AliyunUid"] = request.getAliyunUid();
+  }
+
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGrafanaWorkspaceAccount"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGrafanaWorkspaceAccountResponse>();
+}
+
+/**
+ * @summary 指定工作区下创建账号
+ *
+ * @param request CreateGrafanaWorkspaceAccountRequest
+ * @return CreateGrafanaWorkspaceAccountResponse
+ */
+CreateGrafanaWorkspaceAccountResponse Client::createGrafanaWorkspaceAccount(const CreateGrafanaWorkspaceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGrafanaWorkspaceAccountWithOptions(request, runtime);
 }
 
 /**
@@ -1817,7 +1895,7 @@ CreateIntegrationResponse Client::createIntegration(const CreateIntegrationReque
 }
 
 /**
- * @summary Creates or modifies an alert rule.
+ * @summary Create or modify alarm rules.
  *
  * @param request CreateOrUpdateAlertRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1968,7 +2046,7 @@ CreateOrUpdateAlertRuleResponse Client::createOrUpdateAlertRuleWithOptions(const
 }
 
 /**
- * @summary Creates or modifies an alert rule.
+ * @summary Create or modify alarm rules.
  *
  * @param request CreateOrUpdateAlertRuleRequest
  * @return CreateOrUpdateAlertRuleResponse
@@ -2495,6 +2573,8 @@ CreateOrUpdateWebhookContactResponse Client::createOrUpdateWebhookContact(const 
 /**
  * @summary Creates an alert rule.
  *
+ * @description > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+ *
  * @param request CreatePrometheusAlertRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreatePrometheusAlertRuleResponse
@@ -2570,6 +2650,8 @@ CreatePrometheusAlertRuleResponse Client::createPrometheusAlertRuleWithOptions(c
 /**
  * @summary Creates an alert rule.
  *
+ * @description > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+ *
  * @param request CreatePrometheusAlertRuleRequest
  * @return CreatePrometheusAlertRuleResponse
  */
@@ -2579,7 +2661,7 @@ CreatePrometheusAlertRuleResponse Client::createPrometheusAlertRule(const Create
 }
 
 /**
- * @summary Creates a Prometheus instance.
+ * @summary Creates a Managed Service for Prometheus instance.
  *
  * @param request CreatePrometheusInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2666,7 +2748,7 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary Creates a Prometheus instance.
+ * @summary Creates a Managed Service for Prometheus instance.
  *
  * @param request CreatePrometheusInstanceRequest
  * @return CreatePrometheusInstanceResponse
@@ -2891,9 +2973,9 @@ CreateRumAppResponse Client::createRumApp(const CreateRumAppRequest &request) {
 }
 
 /**
- * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+ * @summary Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
  *
- * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+ * @description This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
  *
  * @param request CreateRumUploadFileUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2960,9 +3042,9 @@ CreateRumUploadFileUrlResponse Client::createRumUploadFileUrlWithOptions(const C
 }
 
 /**
- * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+ * @summary Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
  *
- * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+ * @description This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
  *
  * @param request CreateRumUploadFileUrlRequest
  * @return CreateRumUploadFileUrlResponse
@@ -3103,6 +3185,8 @@ CreateSyntheticTaskResponse Client::createSyntheticTask(const CreateSyntheticTas
 /**
  * @summary Creates a scheduled synthetic test task.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param tmpReq CreateTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateTimingSyntheticTaskResponse
@@ -3204,6 +3288,8 @@ CreateTimingSyntheticTaskResponse Client::createTimingSyntheticTaskWithOptions(c
 /**
  * @summary Creates a scheduled synthetic test task.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param request CreateTimingSyntheticTaskRequest
  * @return CreateTimingSyntheticTaskResponse
  */
@@ -3214,6 +3300,8 @@ CreateTimingSyntheticTaskResponse Client::createTimingSyntheticTask(const Create
 
 /**
  * @summary Adds a contact for webhook alerts.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
  *
  * @param request CreateWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3273,6 +3361,8 @@ CreateWebhookResponse Client::createWebhookWithOptions(const CreateWebhookReques
 
 /**
  * @summary Adds a contact for webhook alerts.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
  *
  * @param request CreateWebhookRequest
  * @return CreateWebhookResponse
@@ -3439,6 +3529,8 @@ DeleteAlertContactResponse Client::deleteAlertContact(const DeleteAlertContactRe
 /**
  * @summary Deletes an DeleteAlertContactGroup contact group.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
+ *
  * @param request DeleteAlertContactGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAlertContactGroupResponse
@@ -3473,6 +3565,8 @@ DeleteAlertContactGroupResponse Client::deleteAlertContactGroupWithOptions(const
 
 /**
  * @summary Deletes an DeleteAlertContactGroup contact group.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
  *
  * @param request DeleteAlertContactGroupRequest
  * @return DeleteAlertContactGroupResponse
@@ -3623,7 +3717,7 @@ DeleteAppListResponse Client::deleteAppList(const DeleteAppListRequest &request)
 /**
  * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Uninstalls a Prometheus instance.
+ * @summary Uninstall Prometheus for an Alibaba Cloud service instance.
  *
  * @param request DeleteCmsExporterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3660,7 +3754,7 @@ DeleteCmsExporterResponse Client::deleteCmsExporterWithOptions(const DeleteCmsEx
 /**
  * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Uninstalls a Prometheus instance.
+ * @summary Uninstall Prometheus for an Alibaba Cloud service instance.
  *
  * @param request DeleteCmsExporterRequest
  * @return DeleteCmsExporterResponse
@@ -3757,6 +3851,8 @@ DeleteContactGroupResponse Client::deleteContactGroup(const DeleteContactGroupRe
 /**
  * @summary Deletes the dispatch policy of a specified ID.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
+ *
  * @param request DeleteDispatchRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDispatchRuleResponse
@@ -3791,6 +3887,8 @@ DeleteDispatchRuleResponse Client::deleteDispatchRuleWithOptions(const DeleteDis
 
 /**
  * @summary Deletes the dispatch policy of a specified ID.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
  *
  * @param request DeleteDispatchRuleRequest
  * @return DeleteDispatchRuleResponse
@@ -4157,10 +4255,13 @@ DeleteGrafanaResourceResponse Client::deleteGrafanaResource(const DeleteGrafanaR
 }
 
 /**
- * @summary Deletes a Managed Service for Prometheus workspace.
+ * @summary Deletes a Managed Service for Grafana workspace instance.
  *
- * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
- * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+ * @description <props="china">>
+ * > - This operation supports deletion only for beta (`free`) Grafana instances.
+ * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+ * <props="intl">
+ * > This operation supports deletion only for beta (`free`) Grafana instances.
  *
  * @param request DeleteGrafanaWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4195,10 +4296,13 @@ DeleteGrafanaWorkspaceResponse Client::deleteGrafanaWorkspaceWithOptions(const D
 }
 
 /**
- * @summary Deletes a Managed Service for Prometheus workspace.
+ * @summary Deletes a Managed Service for Grafana workspace instance.
  *
- * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
- * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+ * @description <props="china">>
+ * > - This operation supports deletion only for beta (`free`) Grafana instances.
+ * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+ * <props="intl">
+ * > This operation supports deletion only for beta (`free`) Grafana instances.
  *
  * @param request DeleteGrafanaWorkspaceRequest
  * @return DeleteGrafanaWorkspaceResponse
@@ -4206,6 +4310,110 @@ DeleteGrafanaWorkspaceResponse Client::deleteGrafanaWorkspaceWithOptions(const D
 DeleteGrafanaWorkspaceResponse Client::deleteGrafanaWorkspace(const DeleteGrafanaWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteGrafanaWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定工作区下账号
+ *
+ * @param request DeleteGrafanaWorkspaceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGrafanaWorkspaceAccountResponse
+ */
+DeleteGrafanaWorkspaceAccountResponse Client::deleteGrafanaWorkspaceAccountWithOptions(const DeleteGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountId()) {
+    query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGrafanaWorkspaceAccount"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGrafanaWorkspaceAccountResponse>();
+}
+
+/**
+ * @summary 删除指定工作区下账号
+ *
+ * @param request DeleteGrafanaWorkspaceAccountRequest
+ * @return DeleteGrafanaWorkspaceAccountResponse
+ */
+DeleteGrafanaWorkspaceAccountResponse Client::deleteGrafanaWorkspaceAccount(const DeleteGrafanaWorkspaceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGrafanaWorkspaceAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定工作区下账号的角色
+ *
+ * @param request DeleteGrafanaWorkspaceAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGrafanaWorkspaceAccountRoleResponse
+ */
+DeleteGrafanaWorkspaceAccountRoleResponse Client::deleteGrafanaWorkspaceAccountRoleWithOptions(const DeleteGrafanaWorkspaceAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountId()) {
+    query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGrafanaWorkspaceAccountRole"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGrafanaWorkspaceAccountRoleResponse>();
+}
+
+/**
+ * @summary 删除指定工作区下账号的角色
+ *
+ * @param request DeleteGrafanaWorkspaceAccountRoleRequest
+ * @return DeleteGrafanaWorkspaceAccountRoleResponse
+ */
+DeleteGrafanaWorkspaceAccountRoleResponse Client::deleteGrafanaWorkspaceAccountRole(const DeleteGrafanaWorkspaceAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGrafanaWorkspaceAccountRoleWithOptions(request, runtime);
 }
 
 /**
@@ -4705,9 +4913,9 @@ DeleteRumAppResponse Client::deleteRumApp(const DeleteRumAppRequest &request) {
 }
 
 /**
- * @summary Deletes a file such as a symbol table or SourceMap.
+ * @summary Deletes files such as symbol tables and SourceMap files.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
  *
  * @param request DeleteRumUploadFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4766,9 +4974,9 @@ DeleteRumUploadFileResponse Client::deleteRumUploadFileWithOptions(const DeleteR
 }
 
 /**
- * @summary Deletes a file such as a symbol table or SourceMap.
+ * @summary Deletes files such as symbol tables and SourceMap files.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
  *
  * @param request DeleteRumUploadFileRequest
  * @return DeleteRumUploadFileResponse
@@ -4779,6 +4987,8 @@ DeleteRumUploadFileResponse Client::deleteRumUploadFile(const DeleteRumUploadFil
 }
 
 /**
+ * @summary Delete a Business Monitoring.
+ *
  * @param request DeleteScenarioRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteScenarioResponse
@@ -4812,6 +5022,8 @@ DeleteScenarioResponse Client::deleteScenarioWithOptions(const DeleteScenarioReq
 }
 
 /**
+ * @summary Delete a Business Monitoring.
+ *
  * @param request DeleteScenarioRequest
  * @return DeleteScenarioResponse
  */
@@ -4967,6 +5179,8 @@ DeleteSyntheticTaskResponse Client::deleteSyntheticTask(const DeleteSyntheticTas
 /**
  * @summary Deletes a scheduled synthetic monitoring task.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param request DeleteTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteTimingSyntheticTaskResponse
@@ -5005,6 +5219,8 @@ DeleteTimingSyntheticTaskResponse Client::deleteTimingSyntheticTaskWithOptions(c
 
 /**
  * @summary Deletes a scheduled synthetic monitoring task.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request DeleteTimingSyntheticTaskRequest
  * @return DeleteTimingSyntheticTaskResponse
@@ -5363,6 +5579,8 @@ DescribeContactsResponse Client::describeContacts(const DescribeContactsRequest 
 /**
  * @summary Queries the information about a dispatch policy.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
+ *
  * @param request DescribeDispatchRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDispatchRuleResponse
@@ -5397,6 +5615,8 @@ DescribeDispatchRuleResponse Client::describeDispatchRuleWithOptions(const Descr
 
 /**
  * @summary Queries the information about a dispatch policy.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
  *
  * @param request DescribeDispatchRuleRequest
  * @return DescribeDispatchRuleResponse
@@ -5461,7 +5681,7 @@ DescribeEnvCustomJobResponse Client::describeEnvCustomJob(const DescribeEnvCusto
 }
 
 /**
- * @summary Queries the list of discarded metrics of a specified environment instance.
+ * @summary Queries the metric drop rule for a specified environment instance.
  *
  * @param request DescribeEnvDropMetricsRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5496,7 +5716,7 @@ DescribeEnvDropMetricsRuleResponse Client::describeEnvDropMetricsRuleWithOptions
 }
 
 /**
- * @summary Queries the list of discarded metrics of a specified environment instance.
+ * @summary Queries the metric drop rule for a specified environment instance.
  *
  * @param request DescribeEnvDropMetricsRuleRequest
  * @return DescribeEnvDropMetricsRuleResponse
@@ -5895,7 +6115,7 @@ DescribeWebhookContactsResponse Client::describeWebhookContacts(const DescribeWe
 }
 
 /**
- * @summary Performs actions based on the specified module type.
+ * @summary Executes the corresponding action based on the module type specified by the parameter.
  *
  * @param request DoInsightsActionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5936,7 +6156,7 @@ DoInsightsActionResponse Client::doInsightsActionWithOptions(const DoInsightsAct
 }
 
 /**
- * @summary Performs actions based on the specified module type.
+ * @summary Executes the corresponding action based on the module type specified by the parameter.
  *
  * @param request DoInsightsActionRequest
  * @return DoInsightsActionResponse
@@ -6089,7 +6309,7 @@ GetAgentDownloadUrlV2Response Client::getAgentDownloadUrlV2(const GetAgentDownlo
 }
 
 /**
- * @summary Queries alert rules.
+ * @summary Query the created alert rules.
  *
  * @param request GetAlertRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6160,7 +6380,7 @@ GetAlertRulesResponse Client::getAlertRulesWithOptions(const GetAlertRulesReques
 }
 
 /**
- * @summary Queries alert rules.
+ * @summary Query the created alert rules.
  *
  * @param request GetAlertRulesRequest
  * @return GetAlertRulesResponse
@@ -6469,7 +6689,7 @@ GetCommercialStatusResponse Client::getCommercialStatus(const GetCommercialStatu
 /**
  * @deprecated OpenAPI GetExploreUrl is deprecated
  *
- * @summary Enables the Explore feature of Grafana.
+ * @summary Retrieves data using the Explore feature of Grafana.
  *
  * @param request GetExploreUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6514,7 +6734,7 @@ GetExploreUrlResponse Client::getExploreUrlWithOptions(const GetExploreUrlReques
 /**
  * @deprecated OpenAPI GetExploreUrl is deprecated
  *
- * @summary Enables the Explore feature of Grafana.
+ * @summary Retrieves data using the Explore feature of Grafana.
  *
  * @param request GetExploreUrlRequest
  * @return GetExploreUrlResponse
@@ -6757,7 +6977,7 @@ GetMultipleTraceResponse Client::getMultipleTrace(const GetMultipleTraceRequest 
 }
 
 /**
- * @summary Queries the information about a scheduling policy.
+ * @summary Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
  *
  * @param request GetOnCallSchedulesDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6784,7 +7004,7 @@ GetOnCallSchedulesDetailResponse Client::getOnCallSchedulesDetailWithOptions(con
 }
 
 /**
- * @summary Queries the information about a scheduling policy.
+ * @summary Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
  *
  * @param request GetOnCallSchedulesDetailRequest
  * @return GetOnCallSchedulesDetailResponse
@@ -6887,7 +7107,7 @@ GetPrometheusGlobalViewResponse Client::getPrometheusGlobalView(const GetPrometh
 }
 
 /**
- * @summary Queries the information about a Prometheus instance.
+ * @summary Retrieves information about a specified Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6922,7 +7142,7 @@ GetPrometheusInstanceResponse Client::getPrometheusInstanceWithOptions(const Get
 }
 
 /**
- * @summary Queries the information about a Prometheus instance.
+ * @summary Retrieves information about a specified Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @return GetPrometheusInstanceResponse
@@ -7283,9 +7503,9 @@ GetRetcodeShareUrlResponse Client::getRetcodeShareUrl(const GetRetcodeShareUrlRe
 }
 
 /**
- * @summary Obtains the information about a single application in Browser Monitoring.
+ * @summary Retrieves a single Frontend Monitoring application.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
  *
  * @param request GetRumAppInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7324,9 +7544,9 @@ GetRumAppInfoResponse Client::getRumAppInfoWithOptions(const GetRumAppInfoReques
 }
 
 /**
- * @summary Obtains the information about a single application in Browser Monitoring.
+ * @summary Retrieves a single Frontend Monitoring application.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
  *
  * @param request GetRumAppInfoRequest
  * @return GetRumAppInfoResponse
@@ -7487,9 +7707,9 @@ GetRumDataForPageResponse Client::getRumDataForPage(const GetRumDataForPageReque
 }
 
 /**
- * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+ * @summary Retrieves Real User Monitoring (RUM) exception stack information.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request GetRumExceptionStackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7552,9 +7772,9 @@ GetRumExceptionStackResponse Client::getRumExceptionStackWithOptions(const GetRu
 }
 
 /**
- * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
+ * @summary Retrieves Real User Monitoring (RUM) exception stack information.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request GetRumExceptionStackRequest
  * @return GetRumExceptionStackResponse
@@ -7617,9 +7837,9 @@ GetRumOcuStatisticDataResponse Client::getRumOcuStatisticData(const GetRumOcuSta
 }
 
 /**
- * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+ * @summary Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request GetRumUploadFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7682,9 +7902,9 @@ GetRumUploadFilesResponse Client::getRumUploadFilesWithOptions(const GetRumUploa
 }
 
 /**
- * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+ * @summary Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request GetRumUploadFilesRequest
  * @return GetRumUploadFilesResponse
@@ -7825,6 +8045,8 @@ GetStackResponse Client::getStack(const GetStackRequest &request) {
 /**
  * @summary Obtains detection points.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param tmpReq GetSyntheticMonitorsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSyntheticMonitorsResponse
@@ -7857,6 +8079,8 @@ GetSyntheticMonitorsResponse Client::getSyntheticMonitorsWithOptions(const GetSy
 
 /**
  * @summary Obtains detection points.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request GetSyntheticMonitorsRequest
  * @return GetSyntheticMonitorsResponse
@@ -8031,6 +8255,8 @@ GetSyntheticTaskMonitorsResponse Client::getSyntheticTaskMonitors(const GetSynth
 /**
  * @summary Obtains the details of a synthetic monitoring task.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param request GetTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTimingSyntheticTaskResponse
@@ -8057,6 +8283,8 @@ GetTimingSyntheticTaskResponse Client::getTimingSyntheticTaskWithOptions(const G
 
 /**
  * @summary Obtains the details of a synthetic monitoring task.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request GetTimingSyntheticTaskRequest
  * @return GetTimingSyntheticTaskResponse
@@ -8222,6 +8450,62 @@ GetTraceAppConfigResponse Client::getTraceAppConfigWithOptions(const GetTraceApp
 GetTraceAppConfigResponse Client::getTraceAppConfig(const GetTraceAppConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getTraceAppConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 代理指定工作区的HTTP API 接口
+ *
+ * @param request GrafanaWorkspaceHttpApiProxyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrafanaWorkspaceHttpApiProxyResponse
+ */
+GrafanaWorkspaceHttpApiProxyResponse Client::grafanaWorkspaceHttpApiProxyWithOptions(const GrafanaWorkspaceHttpApiProxyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasBodyStr()) {
+    body["BodyStr"] = request.getBodyStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GrafanaWorkspaceHttpApiProxy"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrafanaWorkspaceHttpApiProxyResponse>();
+}
+
+/**
+ * @summary 代理指定工作区的HTTP API 接口
+ *
+ * @param request GrafanaWorkspaceHttpApiProxyRequest
+ * @return GrafanaWorkspaceHttpApiProxyResponse
+ */
+GrafanaWorkspaceHttpApiProxyResponse Client::grafanaWorkspaceHttpApiProxy(const GrafanaWorkspaceHttpApiProxyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return grafanaWorkspaceHttpApiProxyWithOptions(request, runtime);
 }
 
 /**
@@ -8553,9 +8837,9 @@ InstallEnvironmentFeatureResponse Client::installEnvironmentFeature(const Instal
 /**
  * @deprecated OpenAPI InstallManagedPrometheus is deprecated
  *
- * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+ * @summary Create a managed (ASK/ECS) Prometheus instance.
  *
- * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+ * @description This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
  *
  * @param request InstallManagedPrometheusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8628,9 +8912,9 @@ InstallManagedPrometheusResponse Client::installManagedPrometheusWithOptions(con
 /**
  * @deprecated OpenAPI InstallManagedPrometheus is deprecated
  *
- * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+ * @summary Create a managed (ASK/ECS) Prometheus instance.
  *
- * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+ * @description This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
  *
  * @param request InstallManagedPrometheusRequest
  * @return InstallManagedPrometheusResponse
@@ -8641,7 +8925,9 @@ InstallManagedPrometheusResponse Client::installManagedPrometheus(const InstallM
 }
 
 /**
- * @summary Queries the alerts that have been triggered.
+ * @summary Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+ *
+ * @description This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
  *
  * @param request ListActivatedAlertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8684,7 +8970,9 @@ ListActivatedAlertsResponse Client::listActivatedAlertsWithOptions(const ListAct
 }
 
 /**
- * @summary Queries the alerts that have been triggered.
+ * @summary Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+ *
+ * @description This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
  *
  * @param request ListActivatedAlertsRequest
  * @return ListActivatedAlertsResponse
@@ -8695,7 +8983,7 @@ ListActivatedAlertsResponse Client::listActivatedAlerts(const ListActivatedAlert
 }
 
 /**
- * @summary Queries the add-ons installed in an environment.
+ * @summary Queries the addons installed in an environment.
  *
  * @param request ListAddonReleasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8734,7 +9022,7 @@ ListAddonReleasesResponse Client::listAddonReleasesWithOptions(const ListAddonRe
 }
 
 /**
- * @summary Queries the add-ons installed in an environment.
+ * @summary Queries the addons installed in an environment.
  *
  * @param request ListAddonReleasesRequest
  * @return ListAddonReleasesResponse
@@ -9011,7 +9299,7 @@ ListClusterFromGrafanaResponse Client::listClusterFromGrafana(const ListClusterF
 /**
  * @deprecated OpenAPI ListCmsInstances is deprecated
  *
- * @summary Queries the collection of cloud services.
+ * @summary Queries the data collection status of cloud services.
  *
  * @param request ListCmsInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9052,7 +9340,7 @@ ListCmsInstancesResponse Client::listCmsInstancesWithOptions(const ListCmsInstan
 /**
  * @deprecated OpenAPI ListCmsInstances is deprecated
  *
- * @summary Queries the collection of cloud services.
+ * @summary Queries the data collection status of cloud services.
  *
  * @param request ListCmsInstancesRequest
  * @return ListCmsInstancesResponse
@@ -9411,7 +9699,7 @@ ListEnvServiceMonitorsResponse Client::listEnvServiceMonitors(const ListEnvServi
 }
 
 /**
- * @summary Queries the information about the add-ons that are installed in an environment.
+ * @summary Lists the add-ons installed in a specified environment.
  *
  * @param request ListEnvironmentAddonsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9446,7 +9734,7 @@ ListEnvironmentAddonsResponse Client::listEnvironmentAddonsWithOptions(const Lis
 }
 
 /**
- * @summary Queries the information about the add-ons that are installed in an environment.
+ * @summary Lists the add-ons installed in a specified environment.
  *
  * @param request ListEnvironmentAddonsRequest
  * @return ListEnvironmentAddonsResponse
@@ -9942,6 +10230,56 @@ ListGrafanaWorkspaceResponse Client::listGrafanaWorkspaceWithOptions(const ListG
 ListGrafanaWorkspaceResponse Client::listGrafanaWorkspace(const ListGrafanaWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listGrafanaWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取指定工作区下的阿里云账号列表
+ *
+ * @param request ListGrafanaWorkspaceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGrafanaWorkspaceAccountResponse
+ */
+ListGrafanaWorkspaceAccountResponse Client::listGrafanaWorkspaceAccountWithOptions(const ListGrafanaWorkspaceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["AliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGrafanaWorkspaceAccount"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGrafanaWorkspaceAccountResponse>();
+}
+
+/**
+ * @summary 获取指定工作区下的阿里云账号列表
+ *
+ * @param request ListGrafanaWorkspaceAccountRequest
+ * @return ListGrafanaWorkspaceAccountResponse
+ */
+ListGrafanaWorkspaceAccountResponse Client::listGrafanaWorkspaceAccount(const ListGrafanaWorkspaceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGrafanaWorkspaceAccountWithOptions(request, runtime);
 }
 
 /**
@@ -10561,6 +10899,8 @@ ListRetcodeAppsResponse Client::listRetcodeApps(const ListRetcodeAppsRequest &re
 }
 
 /**
+ * @summary Obtain Business Monitoring details.
+ *
  * @param request ListScenarioRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListScenarioResponse
@@ -10606,6 +10946,8 @@ ListScenarioResponse Client::listScenarioWithOptions(const ListScenarioRequest &
 }
 
 /**
+ * @summary Obtain Business Monitoring details.
+ *
  * @param request ListScenarioRequest
  * @return ListScenarioResponse
  */
@@ -10675,6 +11017,8 @@ ListSilencePoliciesResponse Client::listSilencePolicies(const ListSilencePolicie
 /**
  * @summary Obtains the results of one or more synthetic tests.
  *
+ * @description 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+ *
  * @param tmpReq ListSyntheticDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSyntheticDetailResponse
@@ -10716,6 +11060,8 @@ ListSyntheticDetailResponse Client::listSyntheticDetailWithOptions(const ListSyn
 /**
  * @summary Obtains the results of one or more synthetic tests.
  *
+ * @description 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+ *
  * @param request ListSyntheticDetailRequest
  * @return ListSyntheticDetailResponse
  */
@@ -10726,6 +11072,8 @@ ListSyntheticDetailResponse Client::listSyntheticDetail(const ListSyntheticDetai
 
 /**
  * @summary Queries scheduled synthetic monitoring tasks.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param tmpReq ListTimingSyntheticTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10763,6 +11111,8 @@ ListTimingSyntheticTasksResponse Client::listTimingSyntheticTasksWithOptions(con
 
 /**
  * @summary Queries scheduled synthetic monitoring tasks.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request ListTimingSyntheticTasksRequest
  * @return ListTimingSyntheticTasksResponse
@@ -11035,7 +11385,7 @@ OpenXtraceDefaultSLRResponse Client::openXtraceDefaultSLR(const OpenXtraceDefaul
 }
 
 /**
- * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+ * @summary Queries application metadata by ID and type.
  *
  * @param request QueryAppMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11062,7 +11412,7 @@ QueryAppMetadataResponse Client::queryAppMetadataWithOptions(const QueryAppMetad
 }
 
 /**
- * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+ * @summary Queries application metadata by ID and type.
  *
  * @param request QueryAppMetadataRequest
  * @return QueryAppMetadataResponse
@@ -12485,7 +12835,9 @@ SetRetcodeShareStatusResponse Client::setRetcodeShareStatus(const SetRetcodeShar
 }
 
 /**
- * @summary 启动报警
+ * @summary Invoke the StartAlert API to start an alert rule.
+ *
+ * @description This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
  *
  * @param request StartAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12520,7 +12872,9 @@ StartAlertResponse Client::startAlertWithOptions(const StartAlertRequest &reques
 }
 
 /**
- * @summary 启动报警
+ * @summary Invoke the StartAlert API to start an alert rule.
+ *
+ * @description This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
  *
  * @param request StartAlertRequest
  * @return StartAlertResponse
@@ -12532,6 +12886,8 @@ StartAlertResponse Client::startAlert(const StartAlertRequest &request) {
 
 /**
  * @summary Starts scheduled synthetic monitoring tasks.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param tmpReq StartTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12574,6 +12930,8 @@ StartTimingSyntheticTaskResponse Client::startTimingSyntheticTaskWithOptions(con
 /**
  * @summary Starts scheduled synthetic monitoring tasks.
  *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+ *
  * @param request StartTimingSyntheticTaskRequest
  * @return StartTimingSyntheticTaskResponse
  */
@@ -12584,6 +12942,8 @@ StartTimingSyntheticTaskResponse Client::startTimingSyntheticTask(const StartTim
 
 /**
  * @summary Call StartAlert to stop an alert rule.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
  *
  * @param request StopAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12620,6 +12980,8 @@ StopAlertResponse Client::stopAlertWithOptions(const StopAlertRequest &request, 
 /**
  * @summary Call StartAlert to stop an alert rule.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
+ *
  * @param request StopAlertRequest
  * @return StopAlertResponse
  */
@@ -12630,6 +12992,8 @@ StopAlertResponse Client::stopAlert(const StopAlertRequest &request) {
 
 /**
  * @summary Stops scheduled synthetic monitoring tasks.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param tmpReq StopTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12671,6 +13035,8 @@ StopTimingSyntheticTaskResponse Client::stopTimingSyntheticTaskWithOptions(const
 
 /**
  * @summary Stops scheduled synthetic monitoring tasks.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request StopTimingSyntheticTaskRequest
  * @return StopTimingSyntheticTaskResponse
@@ -12729,7 +13095,7 @@ SwitchSyntheticTaskStatusResponse Client::switchSyntheticTaskStatus(const Switch
 /**
  * @deprecated OpenAPI SyncRecordingRules is deprecated
  *
- * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+ * @summary Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
  *
  * @param request SyncRecordingRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12770,7 +13136,7 @@ SyncRecordingRulesResponse Client::syncRecordingRulesWithOptions(const SyncRecor
 /**
  * @deprecated OpenAPI SyncRecordingRules is deprecated
  *
- * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+ * @summary Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
  *
  * @param request SyncRecordingRulesRequest
  * @return SyncRecordingRulesResponse
@@ -13077,6 +13443,8 @@ UpdateAlertContactResponse Client::updateAlertContact(const UpdateAlertContactRe
 /**
  * @summary Updates UpdateAlertContactGroup alarm contact group.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+ *
  * @param request UpdateAlertContactGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAlertContactGroupResponse
@@ -13120,6 +13488,8 @@ UpdateAlertContactGroupResponse Client::updateAlertContactGroupWithOptions(const
 /**
  * @summary Updates UpdateAlertContactGroup alarm contact group.
  *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+ *
  * @param request UpdateAlertContactGroupRequest
  * @return UpdateAlertContactGroupResponse
  */
@@ -13129,6 +13499,10 @@ UpdateAlertContactGroupResponse Client::updateAlertContactGroup(const UpdateAler
 }
 
 /**
+ * @summary You can invoke the UpdateAlertRule API to update an alert rule.
+ *
+ * @description This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+ *
  * @param request UpdateAlertRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAlertRuleResponse
@@ -13174,6 +13548,10 @@ UpdateAlertRuleResponse Client::updateAlertRuleWithOptions(const UpdateAlertRule
 }
 
 /**
+ * @summary You can invoke the UpdateAlertRule API to update an alert rule.
+ *
+ * @description This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+ *
  * @param request UpdateAlertRuleRequest
  * @return UpdateAlertRuleResponse
  */
@@ -13184,6 +13562,8 @@ UpdateAlertRuleResponse Client::updateAlertRule(const UpdateAlertRuleRequest &re
 
 /**
  * @summary Modifies a dispatch policy.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
  *
  * @param request UpdateDispatchRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13219,6 +13599,8 @@ UpdateDispatchRuleResponse Client::updateDispatchRuleWithOptions(const UpdateDis
 
 /**
  * @summary Modifies a dispatch policy.
+ *
+ * @description 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
  *
  * @param request UpdateDispatchRuleRequest
  * @return UpdateDispatchRuleResponse
@@ -13601,6 +13983,64 @@ UpdateGrafanaWorkspaceResponse Client::updateGrafanaWorkspace(const UpdateGrafan
 }
 
 /**
+ * @summary 修改指定工作区下账号的角色
+ *
+ * @param request UpdateGrafanaWorkspaceAccountRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGrafanaWorkspaceAccountRoleResponse
+ */
+UpdateGrafanaWorkspaceAccountRoleResponse Client::updateGrafanaWorkspaceAccountRoleWithOptions(const UpdateGrafanaWorkspaceAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccountId()) {
+    query["AccountId"] = request.getAccountId();
+  }
+
+  if (!!request.hasGrafanaWorkspaceId()) {
+    query["GrafanaWorkspaceId"] = request.getGrafanaWorkspaceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateGrafanaWorkspaceAccountRole"},
+    {"version" , "2019-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGrafanaWorkspaceAccountRoleResponse>();
+}
+
+/**
+ * @summary 修改指定工作区下账号的角色
+ *
+ * @param request UpdateGrafanaWorkspaceAccountRoleRequest
+ * @return UpdateGrafanaWorkspaceAccountRoleResponse
+ */
+UpdateGrafanaWorkspaceAccountRoleResponse Client::updateGrafanaWorkspaceAccountRole(const UpdateGrafanaWorkspaceAccountRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateGrafanaWorkspaceAccountRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the version of a Grafana workspace.
  *
  * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
@@ -13809,6 +14249,8 @@ UpdateMetricDropResponse Client::updateMetricDrop(const UpdateMetricDropRequest 
 /**
  * @summary Updates a Prometheus alert rule.
  *
+ * @description UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
+ *
  * @param request UpdatePrometheusAlertRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdatePrometheusAlertRuleResponse
@@ -13887,6 +14329,8 @@ UpdatePrometheusAlertRuleResponse Client::updatePrometheusAlertRuleWithOptions(c
 
 /**
  * @summary Updates a Prometheus alert rule.
+ *
+ * @description UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
  *
  * @param request UpdatePrometheusAlertRuleRequest
  * @return UpdatePrometheusAlertRuleResponse
@@ -13967,7 +14411,7 @@ UpdatePrometheusGlobalViewResponse Client::updatePrometheusGlobalView(const Upda
 }
 
 /**
- * @summary Updates the information about a Prometheus instance.
+ * @summary Updates the information of a Prometheus instance.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14038,7 +14482,7 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary Updates the information about a Prometheus instance.
+ * @summary Updates the information of a Prometheus instance.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @return UpdatePrometheusInstanceResponse
@@ -14239,7 +14683,7 @@ UpdatePrometheusMonitoringStatusResponse Client::updatePrometheusMonitoringStatu
 /**
  * @summary Updates a Real User Monitoring (RUM) application.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request UpdateRumAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14324,7 +14768,7 @@ UpdateRumAppResponse Client::updateRumAppWithOptions(const UpdateRumAppRequest &
 /**
  * @summary Updates a Real User Monitoring (RUM) application.
  *
- * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+ * @description Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
  *
  * @param request UpdateRumAppRequest
  * @return UpdateRumAppResponse
@@ -14406,6 +14850,8 @@ UpdateRumFileStatusResponse Client::updateRumFileStatus(const UpdateRumFileStatu
 
 /**
  * @summary Updates a scheduled synthetic test task.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param tmpReq UpdateTimingSyntheticTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14503,6 +14949,8 @@ UpdateTimingSyntheticTaskResponse Client::updateTimingSyntheticTaskWithOptions(c
 
 /**
  * @summary Updates a scheduled synthetic test task.
+ *
+ * @description 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
  *
  * @param request UpdateTimingSyntheticTaskRequest
  * @return UpdateTimingSyntheticTaskResponse

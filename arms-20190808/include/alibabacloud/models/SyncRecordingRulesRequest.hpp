@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster whose aggregation rule you want to synchronize.
+    // The ID of the source cluster whose rules are to be synchronized.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The ID of the region. The destination region can be the same as the source region.
+    // The region ID. This can be the same as the region ID of the source cluster.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of clusters to which you want to synchronize the aggregation rule.
+    // The IDs of the target clusters for batch synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> targetClusters_ {};

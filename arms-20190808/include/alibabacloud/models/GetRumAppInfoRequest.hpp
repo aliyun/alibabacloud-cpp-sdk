@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The group to which the application belongs.
+    // The application group.
     shared_ptr<string> appGroup_ {};
-    // The process ID (PID) of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> pid_ {};

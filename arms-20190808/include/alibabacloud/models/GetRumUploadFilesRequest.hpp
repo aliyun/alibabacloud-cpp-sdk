@@ -112,19 +112,23 @@ namespace Models
 
 
   protected:
-    // The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+    // The file type. Valid values:
+    // 
+    // - source-map: SourceMap file.
+    // - mapping: Android symbol table file.
+    // - dsym: iOS dSYM file.
     shared_ptr<string> appType_ {};
     shared_ptr<string> fileName_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // The process ID (PID) of the application.
+    // The application ID.
     shared_ptr<string> pid_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> serviceId_ {};
-    // The version number of the files. If you do not specify this parameter, all versions of the files are returned by default.
+    // The file version number. If this parameter is not specified, files of all versions are returned by default.
     shared_ptr<string> versionId_ {};
     shared_ptr<string> workspace_ {};
   };

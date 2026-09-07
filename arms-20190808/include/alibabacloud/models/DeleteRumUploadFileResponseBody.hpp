@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful.
+    // The status code. 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the file is deleted. If the file is deleted, "success" is returned.
+    // Indicates whether the deletion was successful. The value success is returned if the deletion was successful.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The operation was successful.
+    // - `false`: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

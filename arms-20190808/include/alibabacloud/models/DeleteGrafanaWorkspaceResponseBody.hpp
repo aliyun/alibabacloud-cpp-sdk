@@ -84,23 +84,22 @@ namespace Models
 
 
   protected:
-    // The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+    // The status code. A value of 200 indicates success. Other values indicate errors.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the workspace was deleted. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the Grafana workspace was deleted. Valid values:
+    // - true: The workspace was deleted.
+    // - false: The workspace failed to be deleted.
     shared_ptr<bool> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The operation was successful.
+    // - `false`: The operation failed.
     shared_ptr<bool> success_ {};
-    // The ID of the trace. The ID is used to query the details of a request.
+    // The trace ID, which is used to query the details of the call.
     shared_ptr<string> traceId_ {};
   };
 

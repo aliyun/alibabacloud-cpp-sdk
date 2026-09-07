@@ -95,13 +95,15 @@ namespace Models
 
 
     protected:
-      // The user configurations. This is a reserved parameter.
+      // The user configuration. This is a reserved field.
       shared_ptr<string> config_ {};
-      // The QPS limit. Unit: bytes.
+      // The quota limit, in bytes.
       shared_ptr<int32_t> limit_ {};
-      // Indicates whether the request is throttled due to the QPS limit. Valid values: true and false.
+      // Indicates whether the quota is exceeded. Valid values:
+      // - true: Exceeded.
+      // - false: Not exceeded.
       shared_ptr<bool> limited_ {};
-      // The usage. Unit: bytes.
+      // The usage, in bytes.
       shared_ptr<int32_t> usage_ {};
     };
 
@@ -152,20 +154,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The details of the returned results.
+    // The details of the response.
     shared_ptr<UpdateRumAppResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the update was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: Successful.
+    // - `false`: Failed.
     shared_ptr<string> success_ {};
   };
 

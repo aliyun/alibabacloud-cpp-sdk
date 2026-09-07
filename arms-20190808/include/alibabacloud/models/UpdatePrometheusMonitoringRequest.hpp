@@ -91,8 +91,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The type of the monitoring configuration. 
-    // Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe. 
+    // The type of the monitoring configuration.
+    // Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe.
     // Valid values for a Prometheus instance for ECS: customJob and probe.
     // 
     // This parameter is required.

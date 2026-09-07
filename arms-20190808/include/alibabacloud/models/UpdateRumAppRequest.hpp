@@ -158,17 +158,21 @@ namespace Models
 
 
   protected:
-    // The application configurations in the JSON format. This parameter is deprecated.
+    // The legacy application configuration in JSON format. This parameter is deprecated.
     shared_ptr<string> appConfig_ {};
-    // Specifies whether to restart the application the next day. Valid values: true and false.
+    // Specifies whether to restart the application the next day. Valid values:
+    // - true: Restart.
+    // - false: Do not restart.
     shared_ptr<bool> autoRestart_ {};
     // The region where the backend application is deployed. This parameter is used in end-to-end tracing scenarios.
     shared_ptr<string> backendServiceTraceRegion_ {};
-    // The collection configurations of the mobile SDK. You can enable or disable collection configurations based on the app version.
+    // The mobile SDK collection configuration. You can enable or disable collection items by app version.
     shared_ptr<string> bonreeSDKConfigJson_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // Specifies whether you want to subscribe to the application. Valid values: true and false.
+    // Specifies whether to add the application to favorites. Valid values:
+    // - true: Add to favorites.
+    // - false: Do not add to favorites.
     shared_ptr<bool> isSubscribe_ {};
     // The alias of the application.
     shared_ptr<string> nickname_ {};
@@ -176,17 +180,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pid_ {};
-    // The region where the application resides. You can leave this parameter empty or set it to China East 2 Finance.
+    // The region where the application is actually connected. This parameter is used only in the China (Shanghai) Finance Cloud scenario.
     shared_ptr<string> realRegionId_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to restart the application. Valid values: true and false.
+    // Specifies whether to restart the application. Valid values:
+    // - true: Restart.
+    // - false: Do not restart.
     shared_ptr<bool> restart_ {};
-    // The service domain name of the application. You can create, modify, and delete service domain name configurations.
+    // The service domain name settings for the application. You can create, update, or delete service domain name configurations.
     shared_ptr<string> serviceDomainOperationJson_ {};
-    // Specifies whether to stop the application. Valid values: true and false.
+    // Specifies whether to stop the application. Valid values:
+    // - true: Stop.
+    // - false: Do not stop.
     shared_ptr<bool> stop_ {};
     shared_ptr<string> webSDKConfigJson_ {};
   };

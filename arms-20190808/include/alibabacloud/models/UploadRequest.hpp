@@ -102,7 +102,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // We recommend that you do not specify this parameter.
     shared_ptr<string> version_ {};
   };
 

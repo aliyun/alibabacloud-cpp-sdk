@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the custom configuration is used.
+    // Indicates whether to use a custom configuration.
     shared_ptr<bool> useCustom_ {};
-    // The custom configuration.
+    // The custom configuration items.
     shared_ptr<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue>> customConfig_ {};
     // The description of the version configuration.
     shared_ptr<string> description_ {};
-    // The time when the version configuration was updated.
+    // The update time of the version configuration.
     shared_ptr<int64_t> updateTime_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The name of the add-on.
+    // The name of the addon.
     shared_ptr<string> addonName_ {};
     // The environment ID.
     // 

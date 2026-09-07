@@ -340,12 +340,17 @@ namespace Models
         shared_ptr<string> clusterName_ {};
         // The instance type. Valid values:
         // 
-        // *   remote-write: Prometheus instance for Remote Write
-        // *   ecs: Prometheus instances for ECS
-        // *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
-        // *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
-        // *   global-view: global aggregation instance
-        // *   aliyun-cs: Prometheus instance for Container Service
+        // - remote-write: Prometheus instance for Remote Write
+        // 
+        // - ecs: Prometheus instances for ECS
+        // 
+        // - cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
+        // 
+        // - cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
+        // 
+        // - global-view: global aggregation instance
+        // 
+        // - aliyun-cs: Prometheus instance for Container Service
         shared_ptr<string> clusterType_ {};
         // The ID of the Grafana workspace.
         shared_ptr<string> grafanaInstanceId_ {};
@@ -355,8 +360,9 @@ namespace Models
         shared_ptr<string> httpApiIntraUrl_ {};
         // The billing method. Valid values:
         // 
-        // *   PREPAY: subscription
-        // *   POSTPAY: pay-as-you-go
+        // - PREPAY: subscription
+        // 
+        // - POSTPAY: pay-as-you-go
         shared_ptr<string> paymentType_ {};
         // The public URL for Pushgateway.
         shared_ptr<string> pushGatewayInterUrl_ {};

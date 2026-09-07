@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The binary images, which represent all executable files loaded into the process address space when a crash occurs.
+    // The binary images, which represent all executable files loaded into the process address space at the time of the crash.
     shared_ptr<string> exceptionBinaryImages_ {};
-    // The exception stack information. Set the value to a JSON string. call_stack.info represents the stack information, call_stack.thread.name represents the thread name, and call_stack.thread.id represents the thread ID. This parameter is exactly the same as the exception.stack parameter in the logstore-rum Logstore of Simple Log Service.
+    // The error stack information in JSON list format. Each list element contains three fields: call_stack.info, call_stack.thread.name, and call_stack.thread.id, which represent the stack information, thread name, and thread ID, respectively. This is identical to the exception.stack field in the Simple Log Service logstore-rum.
     shared_ptr<string> exceptionStack_ {};
-    // The ID of the exception thread.
+    // The exception thread ID.
     shared_ptr<string> exceptionThreadId_ {};
-    // Extra information about iOS symbol tables. You can leave this parameter empty.
+    // The additional system symbol table information for iOS parsing. This parameter is optional.
     shared_ptr<string> extraInfo_ {};
     // The application ID.
     shared_ptr<string> pid_ {};
@@ -126,12 +126,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> serviceId_ {};
     // The parsing type. Valid values:
-    // 
-    // *   js: Parses JavaScript errors.
-    // *   sym: Parses PC errors.
-    // *   har: Parses HarmonyOS errors.
-    // *   dSYM: Parses iOS errors.
-    // *   so: Parses Android errors.
+    // - js: JavaScript error parsing
+    // - sym: PC parsing
+    // - har: HarmonyOS parsing
+    // - dSYM: iOS parsing
+    // - so: Android parsing.
     shared_ptr<string> sourcemapType_ {};
     shared_ptr<string> workspace_ {};
   };

@@ -179,30 +179,37 @@ namespace Models
   protected:
     // The unique IDs of alert rules.
     // 
-    // *   If you do not specify this parameter, the API operation does not filter alert rules based on their IDs.
-    // *   If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
+    // - If you do not specify this parameter, the API operation does not filter alert rules based on their IDs.
+    // 
+    // - If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
     // 
     // > When you call the GetAlertRules operation, you can specify other request parameters to obtain the AlertIds parameter from the response. Then, you can specify the AlertIds parameter to query the specified alert rules.
     shared_ptr<string> alertIds_ {};
     // The names of alert rules. When you create alert rules of the new version, you cannot specify duplicate names. However, existing alert rules may have duplicate names. Therefore, the **AlertName** parameter does not uniquely identify an alert rule.
     // 
-    // *   If you do not specify this parameter, the API operation does not filter alert rules based on their names.
-    // *   If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
+    // - If you do not specify this parameter, the API operation does not filter alert rules based on their names.
+    // 
+    // - If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
     shared_ptr<string> alertNames_ {};
     // The status of the alert rule. Valid values:
     // 
-    // *   RUNNING
-    // *   STOPPED
-    // *   PAUSED
+    // - RUNNING
     // 
-    // >  The PAUSED state indicates an abnormal and paused alert rule. This may result from excessively large threshold values or deleted associated clusters.
+    // - STOPPED
+    // 
+    // - PAUSED
+    // 
+    // > The PAUSED state indicates an abnormal and paused alert rule. This may result from excessively large threshold values or deleted associated clusters.
     shared_ptr<string> alertStatus_ {};
     // The type of the alert rule. This parameter is required for the new version of Alert Management. Valid values:
     // 
-    // *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
-    // *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
-    // *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
+    // - APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+    // 
+    // - BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+    // 
+    // - PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
     shared_ptr<string> alertType_ {};
+    // The area ID where the rule resides.
     shared_ptr<string> bizRegionId_ {};
     // The ID of the monitored cluster.
     shared_ptr<string> clusterId_ {};

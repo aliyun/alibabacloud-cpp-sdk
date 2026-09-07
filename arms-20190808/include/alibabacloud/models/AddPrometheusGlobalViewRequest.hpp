@@ -122,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The queried global aggregation instances. The value is a JSON string.
+    // The list of aggregation instances. The value is a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> clusters_ {};

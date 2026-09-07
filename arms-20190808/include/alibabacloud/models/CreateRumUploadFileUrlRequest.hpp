@@ -123,24 +123,30 @@ namespace Models
   protected:
     // The application name.
     shared_ptr<string> appName_ {};
-    // The type of the file. You can set this parameter to "application/zip", "text/plain", or an empty string.
+    // The file type. Valid values include `"application/zip"` and `"text/plain"`. You can also pass an empty string.
     shared_ptr<string> contentType_ {};
     // The file name.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The process ID (PID) of the application.
+    // The application ID.
     shared_ptr<string> pid_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> serviceId_ {};
-    // The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+    // The file type. Valid values:
+    // 
+    // - source-map: a source map file
+    // 
+    // - mapping: an Android symbol table file
+    // 
+    // - dsym: an iOS dSYM file
     shared_ptr<string> sourcemapType_ {};
-    // The file ID.
+    // The UUID of the file.
     shared_ptr<string> uuid_ {};
-    // The version number of the file.
+    // The file version.
     shared_ptr<string> versionId_ {};
     shared_ptr<string> workspace_ {};
   };

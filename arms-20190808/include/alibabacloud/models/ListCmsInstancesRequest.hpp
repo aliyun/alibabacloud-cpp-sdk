@@ -57,14 +57,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The type of the cloud service integration. Valid values:
+    // The type of integrated cloud service. Valid values:
     // 
-    // *   direct: self-monitoring
-    // *   cms: Hybrid Cloud Monitoring
+    // - `direct`: An integration for cloud products that are monitored by the product itself.
+    // 
+    // - `cms`: An integration with CloudMonitor.
     shared_ptr<string> typeFilter_ {};
   };
 

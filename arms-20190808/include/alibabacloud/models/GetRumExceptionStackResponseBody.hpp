@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // Thread stack details.
+        // The detailed thread stack.
         shared_ptr<string> threadDetail_ {};
-        // The thread tag, including the thread number and name.
+        // The thread tag, which includes the thread number and thread name.
         shared_ptr<string> threadTag_ {};
       };
 
@@ -181,21 +181,21 @@ namespace Models
 
 
     protected:
-      // The name and UUID of the symbol table required for parsing the exception stack. This parameter is exposed during the parsing of PC errors.
+      // The names and UUIDs of the system symbol tables required for exception stack parsing. This field is returned only for PC parsing.
       shared_ptr<string> binaryImages_ {};
-      // The crash address. This parameter is exposed during the parsing of PC errors.
+      // The crash address. This field is returned only for PC parsing.
       shared_ptr<string> crashAddress_ {};
-      // The cause of the exception. This parameter is exposed during the parsing of PC errors.
+      // The exception reason. This field is returned only for PC parsing.
       shared_ptr<string> crashReason_ {};
-      // The list of stacks.
+      // The stack list.
       shared_ptr<vector<string>> lines_ {};
-      // The name of the crash parsing module. This parameter is exposed during the parsing of PC errors.
+      // The name of the crash parsing module. This field is returned only for PC parsing.
       shared_ptr<string> moduleName_ {};
       // The thread ID.
       shared_ptr<string> threadId_ {};
-      // The thread stack information captured during PC crashes.
+      // The thread stack details captured during a PC crash.
       shared_ptr<vector<Data::ThreadInfoList>> threadInfoList_ {};
-      // The UUID of the symbol table required for parsing the stack. This parameter is exposed during the parsing of PC errors.
+      // The UUID of the symbol table required for stack parsing. This field is returned only for PC parsing.
       shared_ptr<string> uuid_ {};
     };
 
@@ -246,20 +246,20 @@ namespace Models
 
 
   protected:
-    // The responses code. The status code 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The response data.
     shared_ptr<GetRumExceptionStackResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The message returned when the call fails.
     shared_ptr<string> message_ {};
-    // Id of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The request was successful.
+    // - `false`: The request failed.
     shared_ptr<string> success_ {};
   };
 

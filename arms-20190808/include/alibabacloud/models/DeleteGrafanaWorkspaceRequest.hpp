@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the workspace.
+    // The Managed Service for Grafana workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> grafanaWorkspaceId_ {};
-    // The region ID. Default value: cn-hangzhou.
+    // The region ID. Default value: ap-southeast-1.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

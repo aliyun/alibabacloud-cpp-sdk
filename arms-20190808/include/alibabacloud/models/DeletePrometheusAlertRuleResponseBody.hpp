@@ -74,8 +74,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the alert rule was deleted. Valid values:
     // 
-    // *   `true`: The alert rule was deleted.
-    // *   `false`: The alert rule failed to be deleted.
+    // - `true`: The alert rule was deleted.
+    // 
+    // - `false`: The alert rule failed to be deleted.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The date on which the shift ends. Format: `yyyy-MM-dd`.
+    // The end date of the query range in `yyyy-MM-dd` format.
     shared_ptr<string> endTime_ {};
-    // The ID of the scheduling policy.
+    // The ID of the on-call schedule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The date from which the shift starts. Format: `yyyy-MM-dd`.
+    // The start date of the query range in `yyyy-MM-dd` format.
     shared_ptr<string> startTime_ {};
   };
 

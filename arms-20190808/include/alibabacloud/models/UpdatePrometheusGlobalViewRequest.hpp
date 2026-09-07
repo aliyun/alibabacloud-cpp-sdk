@@ -95,7 +95,9 @@ namespace Models
 
   protected:
     // To edit a GlobalView aggregated instance, do you require all passed child instances to be verified successfully before creating a GlobalView instance (optional, default to false):
+    // 
     // - true
+    // 
     // - false
     shared_ptr<bool> allSubClustersSuccess_ {};
     // The ID of the Prometheus instance.

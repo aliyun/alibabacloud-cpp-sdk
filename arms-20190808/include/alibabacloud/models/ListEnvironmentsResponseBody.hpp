@@ -501,16 +501,19 @@ namespace Models
         shared_ptr<string> environmentName_ {};
         // The type of the environment instance. Valid values:
         // 
-        // *   CS: Container Service
-        // *   ECS: Elastic Compute Service
-        // *   Cloud: cloud service
+        // - CS: Container Service
+        // 
+        // - ECS: Elastic Compute Service
+        // 
+        // - Cloud: cloud service
         shared_ptr<string> environmentType_ {};
         // The parameters of the feature.
         shared_ptr<vector<Environments::Features>> features_ {};
         // The payable resource plan.
         // 
-        // *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
-        // *   Otherwise, leave the parameter empty.
+        // - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
+        // 
+        // - Otherwise, leave the parameter empty.
         shared_ptr<string> feePackage_ {};
         // The unique ID of the Grafana data source.
         shared_ptr<string> grafanaDatasourceUid_ {};
@@ -522,9 +525,11 @@ namespace Models
         shared_ptr<string> latestReleaseCreateTime_ {};
         // Indicates whether agents or exporters are managed. Valid values:
         // 
-        // *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
-        // *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
-        // *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+        // - none: No. By default, no managed agents or exporters are provided for ACK clusters.
+        // 
+        // - agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+        // 
+        // - agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
         shared_ptr<string> managedType_ {};
         // The Prometheus ID.
         shared_ptr<int64_t> prometheusId_ {};

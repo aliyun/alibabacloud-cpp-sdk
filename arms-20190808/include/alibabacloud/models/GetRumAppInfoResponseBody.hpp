@@ -144,9 +144,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the tag.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -221,14 +221,15 @@ namespace Models
         shared_ptr<string> description_ {};
         // The domain name or IP address.
         shared_ptr<string> domain_ {};
-        // The trace propagation protocols. This parameter is required if the tracing analysis feature is enabled.
+        // The list of trace pass-through protocols. This parameter is required when trace tracking is enabled.
         shared_ptr<vector<string>> propagatorTypes_ {};
-        // The sampling rate of a trace. Valid values: (0, 100].
+        // The trace sampling rate. Valid values: (0, 100].
         shared_ptr<int32_t> samplingRate_ {};
-        // Indicates whether the tracing analysis feature is enabled. To enable the tracing analysis feature, you must activate Managed Service for OpenTelemetry. Valid values:
+        // Indicates whether to enable trace tracking. You must activate Application Real-Time Monitoring Service (ARMS) OpenTelemetry Edition to use this feature. Valid values:
         // 
-        // *   `true`: enables the tracing analysis feature. If you enable the tracing analysis feature, related headers are inserted into requests for the domain name.
-        // *   `false`: disables the tracing analysis feature.
+        // - `true`: enables trace tracking. If you set this parameter to true, a related header is inserted into the request for this domain name.
+        // 
+        // - `false`: does not enable trace tracking.
         shared_ptr<bool> tracing_ {};
       };
 
@@ -291,9 +292,9 @@ namespace Models
 
 
         protected:
-          // Sampling rate: between (0, 1000], a thousandth.
+          // The sampling rate, in parts per thousand. The value must be greater than 0 and less than or equal to 1,000.
           shared_ptr<int32_t> samplingRate_ {};
-          // Sampling type, currently only session random sampling is supported, that is, fixed transmission: 1.
+          // The sampling type. Only random session sampling is supported. You must set this parameter to `1`.
           shared_ptr<int32_t> samplingType_ {};
         };
 
@@ -350,9 +351,9 @@ namespace Models
         protected:
           // The default configuration of the application.
           shared_ptr<map<string, DataBonreeSDKConfigModuleConfigDefaultConfigValue>> defaultConfig_ {};
-          // Indicates whether the configuration is enabled.
+          // The master switch.
           shared_ptr<bool> enable_ {};
-          // The version configurations of the application.
+          // The application version configurations.
           shared_ptr<map<string, DataBonreeSDKConfigModuleConfigVersionConfigsValue>> versionConfigs_ {};
         };
 
@@ -377,9 +378,9 @@ namespace Models
 
 
       protected:
-        // The module configuration.
+        // The feature switches for modules.
         shared_ptr<BonreeSDKConfig::ModuleConfig> moduleConfig_ {};
-        // Sampling configuration.
+        // The sampling configuration.
         shared_ptr<BonreeSDKConfig::SamplingConfig> samplingConfig_ {};
       };
 
@@ -557,49 +558,49 @@ namespace Models
 
 
     protected:
-      // The application configurations in the JSON format. This parameter is deprecated.
+      // This parameter is deprecated. The legacy application configuration in the JSON format.
       shared_ptr<string> appConfig_ {};
-      // The group to which the application belongs.
+      // The application group.
       shared_ptr<string> appGroup_ {};
-      // The application type. Valid values: web, miniapp, ios, and android.
+      // The application type. Valid values: `web`, `miniapp`, `ios`, and `android`. `web` indicates Web and H5 applications, `miniapp` indicates mini programs.
       shared_ptr<string> appType_ {};
-      // The region where the backend is deployed.
+      // The region where the back-end application is deployed. This parameter is used for end-to-end tracing.
       shared_ptr<string> backendServiceTraceRegion_ {};
-      // The collection configurations.
+      // The data collection configurations for mobile applications.
       shared_ptr<Data::BonreeSDKConfig> bonreeSDKConfig_ {};
-      // The domain name of the SDK.
+      // The SDK domain name.
       shared_ptr<string> cdnDomain_ {};
-      // The time when the application was created. The value is a timestamp. Unit: milliseconds.
+      // The creation time of the application. This value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
       // The description of the application.
       shared_ptr<string> description_ {};
-      // The endpoint that is used to report application data.
+      // The endpoint for reporting application data.
       shared_ptr<string> endpoint_ {};
-      // Indicates whether the application is subscribed. Valid values: true and false.
+      // Indicates whether the application is bookmarked. Valid values: `true` and `false`.
       shared_ptr<string> isSubscription_ {};
       // The application name.
       shared_ptr<string> name_ {};
       // The alias of the application.
       shared_ptr<string> nickName_ {};
-      // The name of the application package.
+      // The application package name.
       shared_ptr<string> packageName_ {};
       // The application ID.
       shared_ptr<string> pid_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The list of service domain configurations. Only mobile applications are supported.
+      // The list of service domain name configurations. This parameter is supported only for mobile applications.
       shared_ptr<vector<Data::ServiceDomainConfigs>> serviceDomainConfigs_ {};
-      // The name of the Simple Log Service Logstore that stores application data.
+      // The name of the Log Service Logstore that is used to store application data.
       shared_ptr<string> slsLogstore_ {};
-      // The name of the Simple Log Service project that stores application data.
+      // The name of the Log Service project that is used to store application data.
       shared_ptr<string> slsProject_ {};
-      // The status of the application. Valid values: created, running, and stopped.
+      // The application status. Valid values: `created`, `running`, and `stopped`. `stopped` indicates that data reporting is stopped.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The type of the application. Valid value: RUM.
+      // The application type. This parameter is a constant of `RUM`.
       shared_ptr<string> type_ {};
       shared_ptr<string> webSDKConfigJson_ {};
     };
@@ -651,20 +652,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. The status code 200 indicates that the request was successful.
+    // The HTTP status code. A `200` status code indicates a successful request.
     shared_ptr<int32_t> code_ {};
-    // The application details.
+    // The details of the application.
     shared_ptr<GetRumAppInfoResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The error message.
+    // The error message returned for a failed request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
-    // *   `true`
-    // *   `false`
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

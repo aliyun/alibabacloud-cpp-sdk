@@ -151,6 +151,7 @@ namespace Models
     shared_ptr<string> kubeConfig_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // Resource group ID of the Prometheus instance.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the security group to which the cluster belongs.
     // 
@@ -160,6 +161,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // Extension information for the Flink VC cluster.
     shared_ptr<string> vcExtraInfo_ {};
     // The virtual private cloud (VPC) where the cluster resides.
     // 

@@ -199,8 +199,10 @@ namespace Models
     // The language. Default value: zh.
     // 
     // Valid values:
-    // *   en: English
-    // *   zh: Chinese
+    // 
+    // - en: English
+    // 
+    // - zh: Chinese
     shared_ptr<string> aliyunLang_ {};
     // The ID of the resource bound to the environment, such as the container ID or VPC ID. For a Cloud environment, specify the region ID.
     // 
@@ -212,24 +214,29 @@ namespace Models
     shared_ptr<string> environmentName_ {};
     // The subtype of the environment. Valid values:
     // 
-    // *   CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
-    // *   ECS: ECS
-    // *   Cloud: cloud service
+    // - CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
+    // 
+    // - ECS: ECS
+    // 
+    // - Cloud: cloud service
     // 
     // This parameter is required.
     shared_ptr<string> environmentSubType_ {};
     // The type of the environment. Valid values:
     // 
-    // *   CS: Container Service
-    // *   ECS: Elastic Compute Service
-    // *   Cloud: cloud service
+    // - CS: Container Service
+    // 
+    // - ECS: Elastic Compute Service
+    // 
+    // - Cloud: cloud service
     // 
     // This parameter is required.
     shared_ptr<string> environmentType_ {};
     // The payable resource plan.
     // 
-    // *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
-    // *   Otherwise, leave the parameter empty.
+    // - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+    // 
+    // - Otherwise, leave the parameter empty.
     shared_ptr<string> feePackage_ {};
     // The ID of the Grafana workspace associated with the environment. If this parameter is left empty, the default shared Grafana workspace is used.
     shared_ptr<string> grafanaWorkspaceId_ {};
@@ -237,9 +244,11 @@ namespace Models
     shared_ptr<bool> initEnvironment_ {};
     // Specifies whether agents or exporters are managed. Valid values:
     // 
-    // *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
-    // *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
-    // *   agent-exporter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+    // - none: No. By default, no managed agents or exporters are provided for ACK clusters.
+    // 
+    // - agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+    // 
+    // - agent-exporter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
     shared_ptr<string> managedType_ {};
     // The ID of the Prometheus instance. If no Prometheus instance is created, call the InitEnvironment operation.
     shared_ptr<string> prometheusInstanceId_ {};

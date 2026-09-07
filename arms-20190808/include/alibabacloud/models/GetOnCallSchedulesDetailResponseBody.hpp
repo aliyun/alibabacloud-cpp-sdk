@@ -139,14 +139,15 @@ namespace Models
 
 
         protected:
-          // The end time of the shift per day.
+          // The end time for on-call duty each day.
           shared_ptr<string> endTimeOfDay_ {};
-          // The type of the limit. Valid values:
+          // The type of restriction. Valid values:
           // 
-          // *   daily_restriction
-          // *   weekly_restriction
+          // - `daily_restriction`: A daily time-based restriction.
+          // 
+          // - `weekly_restriction`: A weekly time-based restriction.
           shared_ptr<string> restrictionType_ {};
-          // The start time of the shift per day.
+          // The start time for on-call duty each day.
           shared_ptr<string> startTimeOfDay_ {};
         };
 
@@ -192,19 +193,21 @@ namespace Models
 
 
       protected:
-        // The ID list of users on duty.
+        // A list of contact IDs for the schedule layer.
         shared_ptr<vector<int64_t>> contactIds_ {};
-        // The limit on the time of the shift.
+        // A list of restrictions for the schedule layer.
         shared_ptr<vector<ScheduleLayers::Restrictions>> restrictions_ {};
-        // The type of the shift. Valid values:
+        // The rotation type. Valid values:
         // 
-        // *   DAY
-        // *   WEEK
-        // *   CUSTOM
+        // - `DAY`: Rotates every day.
+        // 
+        // - `WEEK`: Rotates every week.
+        // 
+        // - `CUSTOM`: Rotates based on a custom schedule.
         shared_ptr<string> rotationType_ {};
-        // The shift cycle. Unit: hours.
+        // The shift length for the rotation, in hours.
         shared_ptr<int64_t> shiftLength_ {};
-        // The date on which the shift change took effect.
+        // The start time for the rotation.
         shared_ptr<string> startTime_ {};
       };
 
@@ -269,9 +272,9 @@ namespace Models
 
 
         protected:
-          // The ID of the substitute.
+          // The substitute ID.
           shared_ptr<int64_t> id_ {};
-          // The name of the substitute.
+          // The substitute name.
           shared_ptr<string> name_ {};
         };
 
@@ -301,11 +304,11 @@ namespace Models
 
 
       protected:
-        // The date on which the substitute was supposed to complete shift work.
+        // The end time of the on-call duty for the substitute.
         shared_ptr<string> end_ {};
-        // The information about the substitute.
+        // Details of the substitute.
         shared_ptr<RenderedSubstitudeEntries::SimpleContact> simpleContact_ {};
-        // The date from which the substitute was supposed to start shift work.
+        // The start time of the on-call duty for the substitute.
         shared_ptr<string> start_ {};
       };
 
@@ -370,9 +373,9 @@ namespace Models
 
 
         protected:
-          // The ID of the user on duty.
+          // The contact ID.
           shared_ptr<int64_t> id_ {};
-          // The name of the user on duty.
+          // The contact name.
           shared_ptr<string> name_ {};
         };
 
@@ -402,11 +405,11 @@ namespace Models
 
 
       protected:
-        // The date on which the user completed shift work.
+        // The end time of the on-call duty for the contact.
         shared_ptr<string> end_ {};
-        // The information about the user on duty.
+        // Details of the final on-call contact.
         shared_ptr<RenderedFinnalEntries::SimpleContact> simpleContact_ {};
-        // The date from which the user started shift work.
+        // The start time of the on-call duty for the contact.
         shared_ptr<string> start_ {};
       };
 
@@ -478,21 +481,21 @@ namespace Models
 
 
     protected:
-      // The URL of the DingTalk chatbot, which is used to receive notifications about shift changes.
+      // The webhook URL of the DingTalk bot for rotation notifications.
       shared_ptr<int64_t> alertRobotId_ {};
-      // The description of the scheduling policy.
+      // The description of the on-call schedule.
       shared_ptr<string> description_ {};
-      // The ID of the scheduling policy.
+      // The ID of the on-call schedule.
       shared_ptr<int64_t> id_ {};
-      // The name of the scheduling policy.
+      // The name of the on-call schedule.
       shared_ptr<string> name_ {};
-      // The information about the final user on duty.
+      // The final list of on-call contacts, after accounting for all rotations and substitutions.
       shared_ptr<vector<Data::RenderedFinnalEntries>> renderedFinnalEntries_ {};
-      // The scheduled users on duty within a time range.
+      // A list of contacts on duty within the specified time range, as defined by the schedule layers.
       shared_ptr<vector<vector<Data::RenderedLayerEntries>>> renderedLayerEntries_ {};
-      // The information about the substitutes within a time range.
+      // A list of substitutes scheduled within the specified time range.
       shared_ptr<vector<Data::RenderedSubstitudeEntries>> renderedSubstitudeEntries_ {};
-      // The information about the shift.
+      // A list of schedule layers.
       shared_ptr<vector<Data::ScheduleLayers>> scheduleLayers_ {};
     };
 
@@ -515,7 +518,7 @@ namespace Models
 
 
   protected:
-    // The information about the scheduling policy.
+    // The details of the on-call schedule.
     shared_ptr<GetOnCallSchedulesDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
