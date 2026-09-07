@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(disabled, disabled_);
         DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+        DARABONBA_PTR_TO_JSON(workspaceName, workspaceName_);
       };
       friend void from_json(const Darabonba::Json& j, ApiKeys& obj) { 
         DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(disabled, disabled_);
         DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+        DARABONBA_PTR_FROM_JSON(workspaceName, workspaceName_);
       };
       ApiKeys() = default ;
       ApiKeys(const ApiKeys &) = default ;
@@ -186,7 +188,7 @@ namespace Models
 
       virtual bool empty() const override { return this->apiKeyId_ == nullptr
         && this->apiKeyValue_ == nullptr && this->auth_ == nullptr && this->createdBy_ == nullptr && this->description_ == nullptr && this->disabled_ == nullptr
-        && this->gmtCreate_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
       // apiKeyId Field Functions 
       bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
       void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -245,6 +247,13 @@ namespace Models
       inline ApiKeys& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
+      // workspaceName Field Functions 
+      bool hasWorkspaceName() const { return this->workspaceName_ != nullptr;};
+      void deleteWorkspaceName() { this->workspaceName_ = nullptr;};
+      inline string getWorkspaceName() const { DARABONBA_PTR_GET_DEFAULT(workspaceName_, "") };
+      inline ApiKeys& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
+
+
     protected:
       // API Key ID。
       shared_ptr<int64_t> apiKeyId_ {};
@@ -265,6 +274,7 @@ namespace Models
       shared_ptr<int64_t> gmtCreate_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      shared_ptr<string> workspaceName_ {};
     };
 
     virtual bool empty() const override { return this->apiKeys_ == nullptr

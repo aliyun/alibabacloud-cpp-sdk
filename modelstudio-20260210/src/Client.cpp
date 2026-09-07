@@ -19,13 +19,6 @@ namespace ModelStudio20260210
 
 AlibabaCloud::ModelStudio20260210::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "modelstudio.cn-beijing.aliyuncs.com"},
-    {"cn-hongkong" , "modelstudio.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "modelstudio.ap-southeast-1.aliyuncs.com"},
-    {"us-east-1" , "modelstudio.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "modelstudio.eu-central-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("modelstudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
