@@ -192,7 +192,7 @@ namespace Qualitycheck20190115
       Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
 
       /**
-       * @summary Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+       * @summary Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
        *
        * @param request CreateAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +201,7 @@ namespace Qualitycheck20190115
       Models::CreateAgentTaskResponse createAgentTaskWithOptions(const Models::CreateAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+       * @summary Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
        *
        * @param request CreateAgentTaskRequest
        * @return CreateAgentTaskResponse
@@ -752,10 +752,27 @@ namespace Qualitycheck20190115
       Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
+       * @summary Queries the details of a single AgentM task.
+       *
+       * @param request GetAgentMJobInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentMJobInfoResponse
+       */
+      Models::GetAgentMJobInfoResponse getAgentMJobInfoWithOptions(const Models::GetAgentMJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a single AgentM task.
+       *
+       * @param request GetAgentMJobInfoRequest
+       * @return GetAgentMJobInfoResponse
+       */
+      Models::GetAgentMJobInfoResponse getAgentMJobInfo(const Models::GetAgentMJobInfoRequest &request);
+
+      /**
        * @summary Retrieves the task result of an agent node.
        *
-       * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
-       * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+       * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+       * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
        *
        * @param request GetAgentTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,8 +783,8 @@ namespace Qualitycheck20190115
       /**
        * @summary Retrieves the task result of an agent node.
        *
-       * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
-       * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+       * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+       * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
        *
        * @param request GetAgentTaskResultRequest
        * @return GetAgentTaskResultResponse
@@ -1204,6 +1221,23 @@ namespace Qualitycheck20190115
        * @return InvalidRuleResponse
        */
       Models::InvalidRuleResponse invalidRule(const Models::InvalidRuleRequest &request);
+
+      /**
+       * @summary Lists AI analysis assistant tasks.
+       *
+       * @param request ListAgentMJobInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentMJobInfoResponse
+       */
+      Models::ListAgentMJobInfoResponse listAgentMJobInfoWithOptions(const Models::ListAgentMJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists AI analysis assistant tasks.
+       *
+       * @param request ListAgentMJobInfoRequest
+       * @return ListAgentMJobInfoResponse
+       */
+      Models::ListAgentMJobInfoResponse listAgentMJobInfo(const Models::ListAgentMJobInfoRequest &request);
 
       /**
        * @summary Retrieves a list of vocabulary groups without their specific content.

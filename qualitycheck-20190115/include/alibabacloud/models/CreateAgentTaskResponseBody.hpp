@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<CreateAgentTaskResponseBody::Data> data_ {};

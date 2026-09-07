@@ -135,6 +135,9 @@
 #include <alibabacloud/models/GetAgentRequest.hpp>
 #include <alibabacloud/models/GetAgentResponseBody.hpp>
 #include <alibabacloud/models/GetAgentResponse.hpp>
+#include <alibabacloud/models/GetAgentMJobInfoRequest.hpp>
+#include <alibabacloud/models/GetAgentMJobInfoResponseBody.hpp>
+#include <alibabacloud/models/GetAgentMJobInfoResponse.hpp>
 #include <alibabacloud/models/GetAgentTaskResultRequest.hpp>
 #include <alibabacloud/models/GetAgentTaskResultResponseBody.hpp>
 #include <alibabacloud/models/GetAgentTaskResultResponse.hpp>
@@ -207,6 +210,9 @@
 #include <alibabacloud/models/InvalidRuleRequest.hpp>
 #include <alibabacloud/models/InvalidRuleResponseBody.hpp>
 #include <alibabacloud/models/InvalidRuleResponse.hpp>
+#include <alibabacloud/models/ListAgentMJobInfoRequest.hpp>
+#include <alibabacloud/models/ListAgentMJobInfoResponseBody.hpp>
+#include <alibabacloud/models/ListAgentMJobInfoResponse.hpp>
 #include <alibabacloud/models/ListAsrVocabRequest.hpp>
 #include <alibabacloud/models/ListAsrVocabResponseBody.hpp>
 #include <alibabacloud/models/ListAsrVocabResponse.hpp>

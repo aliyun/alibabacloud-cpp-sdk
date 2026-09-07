@@ -19,9 +19,6 @@ namespace Qualitycheck20190115
 
 AlibabaCloud::Qualitycheck20190115::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hangzhou" , "qualitycheck.cn-hangzhou.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("qualitycheck", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -478,7 +475,7 @@ CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
 }
 
 /**
- * @summary Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+ * @summary Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
  *
  * @param request CreateAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -513,7 +510,7 @@ CreateAgentTaskResponse Client::createAgentTaskWithOptions(const CreateAgentTask
 }
 
 /**
- * @summary Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+ * @summary Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
  *
  * @param request CreateAgentTaskRequest
  * @return CreateAgentTaskResponse
@@ -2015,10 +2012,56 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
+ * @summary Queries the details of a single AgentM task.
+ *
+ * @param request GetAgentMJobInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentMJobInfoResponse
+ */
+GetAgentMJobInfoResponse Client::getAgentMJobInfoWithOptions(const GetAgentMJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBaseMeAgentId()) {
+    body["BaseMeAgentId"] = request.getBaseMeAgentId();
+  }
+
+  if (!!request.hasJsonStr()) {
+    body["JsonStr"] = request.getJsonStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAgentMJobInfo"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentMJobInfoResponse>();
+}
+
+/**
+ * @summary Queries the details of a single AgentM task.
+ *
+ * @param request GetAgentMJobInfoRequest
+ * @return GetAgentMJobInfoResponse
+ */
+GetAgentMJobInfoResponse Client::getAgentMJobInfo(const GetAgentMJobInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentMJobInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the task result of an agent node.
  *
- * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
- * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+ * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+ * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
  *
  * @param request GetAgentTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2055,8 +2098,8 @@ GetAgentTaskResultResponse Client::getAgentTaskResultWithOptions(const GetAgentT
 /**
  * @summary Retrieves the task result of an agent node.
  *
- * @description 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
- * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+ * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+ * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
  *
  * @param request GetAgentTaskResultRequest
  * @return GetAgentTaskResultResponse
@@ -3258,6 +3301,52 @@ InvalidRuleResponse Client::invalidRuleWithOptions(const InvalidRuleRequest &req
 InvalidRuleResponse Client::invalidRule(const InvalidRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return invalidRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists AI analysis assistant tasks.
+ *
+ * @param request ListAgentMJobInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgentMJobInfoResponse
+ */
+ListAgentMJobInfoResponse Client::listAgentMJobInfoWithOptions(const ListAgentMJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBaseMeAgentId()) {
+    body["BaseMeAgentId"] = request.getBaseMeAgentId();
+  }
+
+  if (!!request.hasJsonStr()) {
+    body["JsonStr"] = request.getJsonStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAgentMJobInfo"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgentMJobInfoResponse>();
+}
+
+/**
+ * @summary Lists AI analysis assistant tasks.
+ *
+ * @param request ListAgentMJobInfoRequest
+ * @return ListAgentMJobInfoResponse
+ */
+ListAgentMJobInfoResponse Client::listAgentMJobInfo(const ListAgentMJobInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgentMJobInfoWithOptions(request, runtime);
 }
 
 /**
