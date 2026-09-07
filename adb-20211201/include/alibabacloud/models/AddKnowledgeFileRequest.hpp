@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileLocation, fileLocation_);
       DARABONBA_PTR_TO_JSON(FileType, fileType_);
       DARABONBA_PTR_TO_JSON(IsDir, isDir_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UploadUser, uploadUser_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileLocation, fileLocation_);
       DARABONBA_PTR_FROM_JSON(FileType, fileType_);
       DARABONBA_PTR_FROM_JSON(IsDir, isDir_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UploadUser, uploadUser_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->fileLocation_ == nullptr && this->fileType_ == nullptr && this->isDir_ == nullptr && this->tags_ == nullptr && this->uploadUser_ == nullptr; };
+        && this->fileLocation_ == nullptr && this->fileType_ == nullptr && this->isDir_ == nullptr && this->priority_ == nullptr && this->tags_ == nullptr
+        && this->uploadUser_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline AddKnowledgeFileRequest& setIsDir(bool isDir) { DARABONBA_PTR_SET_VALUE(isDir_, isDir) };
 
 
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+    inline AddKnowledgeFileRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -88,14 +98,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The file address. Currently, only OSS paths are supported.
+    // The file location. Currently, only OSS paths are supported.
     // 
     // This parameter is required.
     shared_ptr<string> fileLocation_ {};
     // The file type.
     shared_ptr<string> fileType_ {};
-    // Specifies whether the file is a folder.
+    // Specifies whether the path is a directory.
     shared_ptr<bool> isDir_ {};
+    // The confidence level or weight of the file.
+    shared_ptr<string> priority_ {};
     // The file tags in JSON format.
     shared_ptr<string> tags_ {};
     // The user who uploads the knowledge base file.

@@ -50,10 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the status of SQL audit is updated. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the SQL audit logging status is updated. Valid values:
+    // - **true**: The status is updated.
+    // - **false**: The status failed to be updated.
     shared_ptr<bool> updateSucceed_ {};
   };
 

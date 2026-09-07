@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAccountsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     DescribeAccountsRequest() = default ;
     DescribeAccountsRequest(const DescribeAccountsRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->DBClusterId_ == nullptr && this->engine_ == nullptr && this->ownerId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->engine_ == nullptr && this->ownerId_ == nullptr && this->resourceGroupName_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -65,9 +67,15 @@ namespace Models
     inline DescribeAccountsRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // resourceGroupName Field Functions 
+    bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+    void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline DescribeAccountsRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
+
+
   protected:
     // The database account.
-    // 
     // > If you do not specify this parameter, information about all database accounts is returned.
     shared_ptr<string> accountName_ {};
     // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
@@ -77,11 +85,12 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine
-    // 
-    // - **Clickhouse**: the LindormTable engine
+    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+    // - **Clickhouse**: the wide table engine.
     shared_ptr<string> engine_ {};
     shared_ptr<string> ownerId_ {};
+    // The name of the resource group.
+    shared_ptr<string> resourceGroupName_ {};
   };
 
   } // namespace Models

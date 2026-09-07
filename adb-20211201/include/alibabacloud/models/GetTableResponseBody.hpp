@@ -86,7 +86,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The table details.
+    // The detailed table information.
     shared_ptr<TableModel> table_ {};
   };
 

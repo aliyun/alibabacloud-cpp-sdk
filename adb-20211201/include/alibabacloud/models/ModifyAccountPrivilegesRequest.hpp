@@ -17,13 +17,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
       DARABONBA_PTR_TO_JSON(AccountPrivileges, accountPrivileges_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+      DARABONBA_PTR_TO_JSON(PromqlSelectNodePercentage, promqlSelectNodePercentage_);
+      DARABONBA_PTR_TO_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAccountPrivilegesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(AccountPrivileges, accountPrivileges_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+      DARABONBA_PTR_FROM_JSON(PromqlSelectNodePercentage, promqlSelectNodePercentage_);
+      DARABONBA_PTR_FROM_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     ModifyAccountPrivilegesRequest() = default ;
     ModifyAccountPrivilegesRequest(const ModifyAccountPrivilegesRequest &) = default ;
@@ -106,11 +114,11 @@ namespace Models
 
 
       protected:
-        // The columns on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Column.
+        // The column to which permissions are granted. This parameter is required when the privilege level is column.
         shared_ptr<string> column_ {};
-        // The databases on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Database, Table, or Column.
+        // The database to which permissions are granted. This parameter is required when the privilege level is database, table, or column.
         shared_ptr<string> database_ {};
-        // The tables on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Table or Column.
+        // The table to which permissions are granted. This parameter is required when the privilege level is table or column.
         shared_ptr<string> table_ {};
       };
 
@@ -142,16 +150,17 @@ namespace Models
 
 
     protected:
-      // The objects on which you want to grant permissions, including databases, tables, and columns.
+      // The privilege object, which is a tuple of database, table, and column.
       shared_ptr<AccountPrivileges::PrivilegeObject> privilegeObject_ {};
-      // The permission level that you want to assign to the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level that can be assigned to the database account.
+      // The privilege level, obtained from the `DescribeEnabledPrivileges` operation.
       shared_ptr<string> privilegeType_ {};
-      // The permissions that you want to grant to the database account.
+      // The list of granted permissions.
       shared_ptr<vector<string>> privileges_ {};
     };
 
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->accountPrivileges_ == nullptr && this->DBClusterId_ == nullptr && this->regionId_ == nullptr; };
+        && this->accountPrivileges_ == nullptr && this->DBClusterId_ == nullptr && this->promqlInsertPrivileges_ == nullptr && this->promqlSelectNodePercentage_ == nullptr && this->promqlSelectPrivileges_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupName_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -175,6 +184,31 @@ namespace Models
     inline ModifyAccountPrivilegesRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
+    // promqlInsertPrivileges Field Functions 
+    bool hasPromqlInsertPrivileges() const { return this->promqlInsertPrivileges_ != nullptr;};
+    void deletePromqlInsertPrivileges() { this->promqlInsertPrivileges_ = nullptr;};
+    inline const vector<string> & getPromqlInsertPrivileges() const { DARABONBA_PTR_GET_CONST(promqlInsertPrivileges_, vector<string>) };
+    inline vector<string> getPromqlInsertPrivileges() { DARABONBA_PTR_GET(promqlInsertPrivileges_, vector<string>) };
+    inline ModifyAccountPrivilegesRequest& setPromqlInsertPrivileges(const vector<string> & promqlInsertPrivileges) { DARABONBA_PTR_SET_VALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+    inline ModifyAccountPrivilegesRequest& setPromqlInsertPrivileges(vector<string> && promqlInsertPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+
+
+    // promqlSelectNodePercentage Field Functions 
+    bool hasPromqlSelectNodePercentage() const { return this->promqlSelectNodePercentage_ != nullptr;};
+    void deletePromqlSelectNodePercentage() { this->promqlSelectNodePercentage_ = nullptr;};
+    inline double getPromqlSelectNodePercentage() const { DARABONBA_PTR_GET_DEFAULT(promqlSelectNodePercentage_, 0.0) };
+    inline ModifyAccountPrivilegesRequest& setPromqlSelectNodePercentage(double promqlSelectNodePercentage) { DARABONBA_PTR_SET_VALUE(promqlSelectNodePercentage_, promqlSelectNodePercentage) };
+
+
+    // promqlSelectPrivileges Field Functions 
+    bool hasPromqlSelectPrivileges() const { return this->promqlSelectPrivileges_ != nullptr;};
+    void deletePromqlSelectPrivileges() { this->promqlSelectPrivileges_ = nullptr;};
+    inline const vector<string> & getPromqlSelectPrivileges() const { DARABONBA_PTR_GET_CONST(promqlSelectPrivileges_, vector<string>) };
+    inline vector<string> getPromqlSelectPrivileges() { DARABONBA_PTR_GET(promqlSelectPrivileges_, vector<string>) };
+    inline ModifyAccountPrivilegesRequest& setPromqlSelectPrivileges(const vector<string> & promqlSelectPrivileges) { DARABONBA_PTR_SET_VALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+    inline ModifyAccountPrivilegesRequest& setPromqlSelectPrivileges(vector<string> && promqlSelectPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -182,23 +216,33 @@ namespace Models
     inline ModifyAccountPrivilegesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceGroupName Field Functions 
+    bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+    void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline ModifyAccountPrivilegesRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
+
+
   protected:
     // The name of the database account.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The permissions that you want to grant to the database account.
-    // 
-    // This parameter is required.
+    // The list of granted permissions.
     shared_ptr<vector<ModifyAccountPrivilegesRequest::AccountPrivileges>> accountPrivileges_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<vector<string>> promqlInsertPrivileges_ {};
+    shared_ptr<double> promqlSelectNodePercentage_ {};
+    shared_ptr<vector<string>> promqlSelectPrivileges_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupName_ {};
   };
 
   } // namespace Models

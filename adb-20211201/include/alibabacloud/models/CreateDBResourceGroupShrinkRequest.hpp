@@ -252,7 +252,7 @@ namespace Models
   protected:
     // The PromQL resource group configuration.
     shared_ptr<string> atmConfigShrink_ {};
-    // The automatic stop interval, in minutes (m).
+    // The auto-stop interval, in minutes (m).
     shared_ptr<string> autoStopInterval_ {};
     // The classification of the resource group. Valid values:
     // - SQL
@@ -269,8 +269,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
-    // - **True**: enables the spot instance feature.
-    // - **False**: disables the spot instance feature.
+    // - **True**: Enables the spot instance feature.
+    // - **False**: Disables the spot instance feature.
     shared_ptr<bool> enableSpot_ {};
     // The database engine. Valid values:
     // 
@@ -279,7 +279,7 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The engine configuration.
     shared_ptr<string> engineParamsShrink_ {};
-    // The GPU time-sharing elastic plan.
+    // The GPU time-based elastic plan.
     shared_ptr<string> gpuElasticPlanShrink_ {};
     // The name of the resource group.
     // - The name can be up to 255 characters in length.
@@ -291,23 +291,23 @@ namespace Models
     // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about resource groups of the Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about Data Lakehouse Edition resource groups, see [Introduction to resource groups (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
     // A reserved parameter (not applicable).
     shared_ptr<int32_t> maxClusterCount_ {};
     // The maximum reserved computing resources, in ACUs.
-    // - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 8 ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
     // The maximum number of GPUs.
     shared_ptr<int32_t> maxGpuQuantity_ {};
     // A reserved parameter (not applicable).
     shared_ptr<int32_t> minClusterCount_ {};
     // The minimum reserved computing resources, in ACUs.
-    // - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
-    // - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
+    // - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
+    // - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
     shared_ptr<string> minComputeResource_ {};
     // The minimum number of GPUs.
     shared_ptr<int32_t> minGpuQuantity_ {};
@@ -321,13 +321,13 @@ namespace Models
     // The job routing rules.
     shared_ptr<string> rulesShrink_ {};
     // The scaling policy of the resource group. Valid values:
-    // - AutoScaling: enables the AutoScaling automatic scaling policy.
-    // - Disable: disables automatic scaling.
-    // - MultiCluster: enables the MultiCluster automatic scaling policy.
+    // - AutoScaling: enables the AutoScaling auto-scaling policy.
+    // - Disable: disables auto-scaling.
+    // - MultiCluster: enables the MultiCluster auto-scaling policy.
     shared_ptr<string> scalePolicy_ {};
     // The specification name.
     shared_ptr<string> specName_ {};
-    // The name of the target resource group.
+    // The name of the destination resource group.
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

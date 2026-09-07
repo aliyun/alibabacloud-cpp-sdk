@@ -90,7 +90,7 @@ namespace Models
 
 
     protected:
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> count_ {};
       // The prompt message.
       shared_ptr<string> message_ {};

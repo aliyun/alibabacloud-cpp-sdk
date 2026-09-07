@@ -21,7 +21,7 @@ namespace Adb20211201
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a knowledge base document.
+       * @summary Adds a document to a knowledge base.
        *
        * @param request AddKnowledgeFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,12 +30,46 @@ namespace Adb20211201
       Models::AddKnowledgeFileResponse addKnowledgeFileWithOptions(const Models::AddKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a knowledge base document.
+       * @summary Adds a document to a knowledge base.
        *
        * @param request AddKnowledgeFileRequest
        * @return AddKnowledgeFileResponse
        */
       Models::AddKnowledgeFileResponse addKnowledgeFile(const Models::AddKnowledgeFileRequest &request);
+
+      /**
+       * @summary Adds tags to a knowledge base document.
+       *
+       * @param request AddKnowledgeTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddKnowledgeTagsResponse
+       */
+      Models::AddKnowledgeTagsResponse addKnowledgeTagsWithOptions(const Models::AddKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds tags to a knowledge base document.
+       *
+       * @param request AddKnowledgeTagsRequest
+       * @return AddKnowledgeTagsResponse
+       */
+      Models::AddKnowledgeTagsResponse addKnowledgeTags(const Models::AddKnowledgeTagsRequest &request);
+
+      /**
+       * @summary Adds authorized users to a knowledge base document.
+       *
+       * @param request AddKnowledgeUploadUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddKnowledgeUploadUserResponse
+       */
+      Models::AddKnowledgeUploadUserResponse addKnowledgeUploadUserWithOptions(const Models::AddKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds authorized users to a knowledge base document.
+       *
+       * @param request AddKnowledgeUploadUserRequest
+       * @return AddKnowledgeUploadUserResponse
+       */
+      Models::AddKnowledgeUploadUserResponse addKnowledgeUploadUser(const Models::AddKnowledgeUploadUserRequest &request);
 
       /**
        * @summary Allocates a public connection address for a cluster.
@@ -326,7 +360,7 @@ namespace Adb20211201
       /**
        * @summary Creates a database account for a cluster.
        *
-       * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -337,7 +371,7 @@ namespace Adb20211201
       /**
        * @summary Creates a database account for a cluster.
        *
-       * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateAccountRequest
        * @return CreateAccountResponse
@@ -457,7 +491,10 @@ namespace Adb20211201
       /**
        * @summary Creates a backup set immediately.
        *
-       * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+       * @description **Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+       * )
+       * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+       * Temporary backups and regular backups have the same pricing and backup set retention period.
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,7 +505,10 @@ namespace Adb20211201
       /**
        * @summary Creates a backup set immediately.
        *
-       * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+       * @description **Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+       * )
+       * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+       * Temporary backups and regular backups have the same pricing and backup set retention period.
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -499,7 +539,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,7 +550,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateDBResourceGroupRequest
        * @return CreateDBResourceGroupResponse
@@ -696,9 +736,9 @@ namespace Adb20211201
       Models::CreateSparkTemplateResponse createSparkTemplate(const Models::CreateSparkTemplateRequest &request);
 
       /**
-       * @summary Deletes a database account from an AnalyticDB for MySQL cluster.
+       * @summary Deletes a database account from a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DeleteAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -707,9 +747,9 @@ namespace Adb20211201
       Models::DeleteAccountResponse deleteAccountWithOptions(const Models::DeleteAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a database account from an AnalyticDB for MySQL cluster.
+       * @summary Deletes a database account from a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DeleteAccountRequest
        * @return DeleteAccountResponse
@@ -891,6 +931,23 @@ namespace Adb20211201
        * @return DeleteFormationCrawlerResponse
        */
       Models::DeleteFormationCrawlerResponse deleteFormationCrawler(const Models::DeleteFormationCrawlerRequest &request);
+
+      /**
+       * @summary Deletes a knowledge base document.
+       *
+       * @param request DeleteKnowledgeFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKnowledgeFileResponse
+       */
+      Models::DeleteKnowledgeFileResponse deleteKnowledgeFileWithOptions(const Models::DeleteKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a knowledge base document.
+       *
+       * @param request DeleteKnowledgeFileRequest
+       * @return DeleteKnowledgeFileResponse
+       */
+      Models::DeleteKnowledgeFileResponse deleteKnowledgeFile(const Models::DeleteKnowledgeFileRequest &request);
 
       /**
        * @summary Deletes a lake storage.
@@ -1118,7 +1175,7 @@ namespace Adb20211201
       /**
        * @summary Queries the database accounts of a cluster.
        *
-       * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1186,7 @@ namespace Adb20211201
       /**
        * @summary Queries the database accounts of a cluster.
        *
-       * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountsRequest
        * @return DescribeAccountsResponse
@@ -1788,9 +1845,9 @@ namespace Adb20211201
       Models::DescribeDBClusterHealthStatusResponse describeDBClusterHealthStatus(const Models::DescribeDBClusterHealthStatusRequest &request);
 
       /**
-       * @summary View target cluster performance data.
+       * @summary Queries the performance data of a specified cluster.
        *
-       * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1799,9 +1856,9 @@ namespace Adb20211201
       Models::DescribeDBClusterPerformanceResponse describeDBClusterPerformanceWithOptions(const Models::DescribeDBClusterPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View target cluster performance data.
+       * @summary Queries the performance data of a specified cluster.
        *
-       * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterPerformanceRequest
        * @return DescribeDBClusterPerformanceResponse
@@ -3672,8 +3729,8 @@ namespace Adb20211201
       /**
        * @summary Retrieves table information.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3684,8 +3741,8 @@ namespace Adb20211201
       /**
        * @summary Retrieves table information.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableRequest
        * @return GetTableResponse
@@ -3944,6 +4001,40 @@ namespace Adb20211201
       Models::ListApsWebhookResponse listApsWebhook(const Models::ListApsWebhookRequest &request);
 
       /**
+       * @summary Queries the tags of a knowledge base document.
+       *
+       * @param request ListKnowledgeTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeTagsResponse
+       */
+      Models::ListKnowledgeTagsResponse listKnowledgeTagsWithOptions(const Models::ListKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the tags of a knowledge base document.
+       *
+       * @param request ListKnowledgeTagsRequest
+       * @return ListKnowledgeTagsResponse
+       */
+      Models::ListKnowledgeTagsResponse listKnowledgeTags(const Models::ListKnowledgeTagsRequest &request);
+
+      /**
+       * @summary Queries the authorized users of a knowledge base document.
+       *
+       * @param request ListKnowledgeUploadUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeUploadUserResponse
+       */
+      Models::ListKnowledgeUploadUserResponse listKnowledgeUploadUserWithOptions(const Models::ListKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the authorized users of a knowledge base document.
+       *
+       * @param request ListKnowledgeUploadUserRequest
+       * @return ListKnowledgeUploadUserResponse
+       */
+      Models::ListKnowledgeUploadUserResponse listKnowledgeUploadUser(const Models::ListKnowledgeUploadUserRequest &request);
+
+      /**
        * @summary Queries a list of lake storages.
        *
        * @param request ListLakeStoragesRequest
@@ -4162,9 +4253,9 @@ namespace Adb20211201
       Models::LoadSampleDataSetResponse loadSampleDataSet(const Models::LoadSampleDataSetRequest &request);
 
       /**
-       * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+       * @summary Modifies the description of a database account for a specified cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyAccountDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4173,9 +4264,9 @@ namespace Adb20211201
       Models::ModifyAccountDescriptionResponse modifyAccountDescriptionWithOptions(const Models::ModifyAccountDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+       * @summary Modifies the description of a database account for a specified cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyAccountDescriptionRequest
        * @return ModifyAccountDescriptionResponse
@@ -4185,7 +4276,7 @@ namespace Adb20211201
       /**
        * @summary Modifies the permissions of a database account.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq ModifyAccountPrivilegesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4196,7 +4287,7 @@ namespace Adb20211201
       /**
        * @summary Modifies the permissions of a database account.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyAccountPrivilegesRequest
        * @return ModifyAccountPrivilegesResponse
@@ -4288,9 +4379,9 @@ namespace Adb20211201
       Models::ModifyApsWorkloadNameResponse modifyApsWorkloadName(const Models::ModifyApsWorkloadNameRequest &request);
 
       /**
-       * @summary Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+       * @summary Modifies the SQL audit log settings of a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyAuditLogConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4299,9 +4390,9 @@ namespace Adb20211201
       Models::ModifyAuditLogConfigResponse modifyAuditLogConfigWithOptions(const Models::ModifyAuditLogConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+       * @summary Modifies the SQL audit log settings of a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyAuditLogConfigRequest
        * @return ModifyAuditLogConfigResponse
@@ -4326,9 +4417,9 @@ namespace Adb20211201
       Models::ModifyAutoRenewalAttributeResponse modifyAutoRenewalAttribute(const Models::ModifyAutoRenewalAttributeRequest &request);
 
       /**
-       * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
+       * @summary Modifies the backup policy of a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4337,9 +4428,9 @@ namespace Adb20211201
       Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
+       * @summary Modifies the backup policy of a cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse
@@ -4530,7 +4621,7 @@ namespace Adb20211201
       /**
        * @summary Changes the resource group of a cluster.
        *
-       * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq ModifyDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4541,7 +4632,7 @@ namespace Adb20211201
       /**
        * @summary Changes the resource group of a cluster.
        *
-       * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyDBResourceGroupRequest
        * @return ModifyDBResourceGroupResponse
@@ -4815,6 +4906,23 @@ namespace Adb20211201
       Models::ReleaseClusterPublicConnectionResponse releaseClusterPublicConnection(const Models::ReleaseClusterPublicConnectionRequest &request);
 
       /**
+       * @summary Deletes tags from a knowledge base document.
+       *
+       * @param request RemoveKnowledgeTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveKnowledgeTagsResponse
+       */
+      Models::RemoveKnowledgeTagsResponse removeKnowledgeTagsWithOptions(const Models::RemoveKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes tags from a knowledge base document.
+       *
+       * @param request RemoveKnowledgeTagsRequest
+       * @return RemoveKnowledgeTagsResponse
+       */
+      Models::RemoveKnowledgeTagsResponse removeKnowledgeTags(const Models::RemoveKnowledgeTagsRequest &request);
+
+      /**
        * @summary Modifies the name of a semantic view.
        *
        * @param request RenameSemanticViewRequest
@@ -4849,9 +4957,9 @@ namespace Adb20211201
       Models::ReplaceSemanticViewResponse replaceSemanticView(const Models::ReplaceSemanticViewRequest &request);
 
       /**
-       * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+       * @summary Resets the password of a database account for a specified cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ResetAccountPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4860,9 +4968,9 @@ namespace Adb20211201
       Models::ResetAccountPasswordResponse resetAccountPasswordWithOptions(const Models::ResetAccountPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+       * @summary Resets the password of a database account for a specified cluster.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ResetAccountPasswordRequest
        * @return ResetAccountPasswordResponse

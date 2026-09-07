@@ -37,6 +37,12 @@
 #include <alibabacloud/models/AddKnowledgeFileRequest.hpp>
 #include <alibabacloud/models/AddKnowledgeFileResponseBody.hpp>
 #include <alibabacloud/models/AddKnowledgeFileResponse.hpp>
+#include <alibabacloud/models/AddKnowledgeTagsRequest.hpp>
+#include <alibabacloud/models/AddKnowledgeTagsResponseBody.hpp>
+#include <alibabacloud/models/AddKnowledgeTagsResponse.hpp>
+#include <alibabacloud/models/AddKnowledgeUploadUserRequest.hpp>
+#include <alibabacloud/models/AddKnowledgeUploadUserResponseBody.hpp>
+#include <alibabacloud/models/AddKnowledgeUploadUserResponse.hpp>
 #include <alibabacloud/models/AllocateClusterPublicConnectionRequest.hpp>
 #include <alibabacloud/models/AllocateClusterPublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/AllocateClusterPublicConnectionResponse.hpp>
@@ -170,6 +176,9 @@
 #include <alibabacloud/models/DeleteFormationCrawlerRequest.hpp>
 #include <alibabacloud/models/DeleteFormationCrawlerResponseBody.hpp>
 #include <alibabacloud/models/DeleteFormationCrawlerResponse.hpp>
+#include <alibabacloud/models/DeleteKnowledgeFileRequest.hpp>
+#include <alibabacloud/models/DeleteKnowledgeFileResponseBody.hpp>
+#include <alibabacloud/models/DeleteKnowledgeFileResponse.hpp>
 #include <alibabacloud/models/DeleteLakeStorageRequest.hpp>
 #include <alibabacloud/models/DeleteLakeStorageResponseBody.hpp>
 #include <alibabacloud/models/DeleteLakeStorageResponse.hpp>
@@ -618,6 +627,12 @@
 #include <alibabacloud/models/ListApsWebhookRequest.hpp>
 #include <alibabacloud/models/ListApsWebhookResponseBody.hpp>
 #include <alibabacloud/models/ListApsWebhookResponse.hpp>
+#include <alibabacloud/models/ListKnowledgeTagsRequest.hpp>
+#include <alibabacloud/models/ListKnowledgeTagsResponseBody.hpp>
+#include <alibabacloud/models/ListKnowledgeTagsResponse.hpp>
+#include <alibabacloud/models/ListKnowledgeUploadUserRequest.hpp>
+#include <alibabacloud/models/ListKnowledgeUploadUserResponseBody.hpp>
+#include <alibabacloud/models/ListKnowledgeUploadUserResponse.hpp>
 #include <alibabacloud/models/ListLakeStoragesRequest.hpp>
 #include <alibabacloud/models/ListLakeStoragesResponseBody.hpp>
 #include <alibabacloud/models/ListLakeStoragesResponse.hpp>
@@ -753,6 +768,9 @@
 #include <alibabacloud/models/ReleaseClusterPublicConnectionRequest.hpp>
 #include <alibabacloud/models/ReleaseClusterPublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/ReleaseClusterPublicConnectionResponse.hpp>
+#include <alibabacloud/models/RemoveKnowledgeTagsRequest.hpp>
+#include <alibabacloud/models/RemoveKnowledgeTagsResponseBody.hpp>
+#include <alibabacloud/models/RemoveKnowledgeTagsResponse.hpp>
 #include <alibabacloud/models/RenameSemanticViewRequest.hpp>
 #include <alibabacloud/models/RenameSemanticViewResponseBody.hpp>
 #include <alibabacloud/models/RenameSemanticViewResponse.hpp>

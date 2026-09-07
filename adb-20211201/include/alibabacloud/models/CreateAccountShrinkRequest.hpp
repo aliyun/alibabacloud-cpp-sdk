@@ -19,7 +19,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(PromqlInsertPrivileges, promqlInsertPrivilegesShrink_);
+      DARABONBA_PTR_TO_JSON(PromqlSelectNodePercentage, promqlSelectNodePercentage_);
+      DARABONBA_PTR_TO_JSON(PromqlSelectPrivileges, promqlSelectPrivilegesShrink_);
       DARABONBA_PTR_TO_JSON(RamUserList, ramUserListShrink_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAccountShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountDescription, accountDescription_);
@@ -28,7 +32,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(PromqlInsertPrivileges, promqlInsertPrivilegesShrink_);
+      DARABONBA_PTR_FROM_JSON(PromqlSelectNodePercentage, promqlSelectNodePercentage_);
+      DARABONBA_PTR_FROM_JSON(PromqlSelectPrivileges, promqlSelectPrivilegesShrink_);
       DARABONBA_PTR_FROM_JSON(RamUserList, ramUserListShrink_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     CreateAccountShrinkRequest() = default ;
     CreateAccountShrinkRequest(const CreateAccountShrinkRequest &) = default ;
@@ -43,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountDescription_ == nullptr
         && this->accountName_ == nullptr && this->accountPassword_ == nullptr && this->accountType_ == nullptr && this->DBClusterId_ == nullptr && this->engine_ == nullptr
-        && this->ramUserListShrink_ == nullptr; };
+        && this->promqlInsertPrivilegesShrink_ == nullptr && this->promqlSelectNodePercentage_ == nullptr && this->promqlSelectPrivilegesShrink_ == nullptr && this->ramUserListShrink_ == nullptr && this->resourceGroupName_ == nullptr; };
     // accountDescription Field Functions 
     bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
     void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -86,11 +94,39 @@ namespace Models
     inline CreateAccountShrinkRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+    // promqlInsertPrivilegesShrink Field Functions 
+    bool hasPromqlInsertPrivilegesShrink() const { return this->promqlInsertPrivilegesShrink_ != nullptr;};
+    void deletePromqlInsertPrivilegesShrink() { this->promqlInsertPrivilegesShrink_ = nullptr;};
+    inline string getPromqlInsertPrivilegesShrink() const { DARABONBA_PTR_GET_DEFAULT(promqlInsertPrivilegesShrink_, "") };
+    inline CreateAccountShrinkRequest& setPromqlInsertPrivilegesShrink(string promqlInsertPrivilegesShrink) { DARABONBA_PTR_SET_VALUE(promqlInsertPrivilegesShrink_, promqlInsertPrivilegesShrink) };
+
+
+    // promqlSelectNodePercentage Field Functions 
+    bool hasPromqlSelectNodePercentage() const { return this->promqlSelectNodePercentage_ != nullptr;};
+    void deletePromqlSelectNodePercentage() { this->promqlSelectNodePercentage_ = nullptr;};
+    inline double getPromqlSelectNodePercentage() const { DARABONBA_PTR_GET_DEFAULT(promqlSelectNodePercentage_, 0.0) };
+    inline CreateAccountShrinkRequest& setPromqlSelectNodePercentage(double promqlSelectNodePercentage) { DARABONBA_PTR_SET_VALUE(promqlSelectNodePercentage_, promqlSelectNodePercentage) };
+
+
+    // promqlSelectPrivilegesShrink Field Functions 
+    bool hasPromqlSelectPrivilegesShrink() const { return this->promqlSelectPrivilegesShrink_ != nullptr;};
+    void deletePromqlSelectPrivilegesShrink() { this->promqlSelectPrivilegesShrink_ = nullptr;};
+    inline string getPromqlSelectPrivilegesShrink() const { DARABONBA_PTR_GET_DEFAULT(promqlSelectPrivilegesShrink_, "") };
+    inline CreateAccountShrinkRequest& setPromqlSelectPrivilegesShrink(string promqlSelectPrivilegesShrink) { DARABONBA_PTR_SET_VALUE(promqlSelectPrivilegesShrink_, promqlSelectPrivilegesShrink) };
+
+
     // ramUserListShrink Field Functions 
     bool hasRamUserListShrink() const { return this->ramUserListShrink_ != nullptr;};
     void deleteRamUserListShrink() { this->ramUserListShrink_ = nullptr;};
     inline string getRamUserListShrink() const { DARABONBA_PTR_GET_DEFAULT(ramUserListShrink_, "") };
     inline CreateAccountShrinkRequest& setRamUserListShrink(string ramUserListShrink) { DARABONBA_PTR_SET_VALUE(ramUserListShrink_, ramUserListShrink) };
+
+
+    // resourceGroupName Field Functions 
+    bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+    void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline CreateAccountShrinkRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
   protected:
@@ -124,11 +160,15 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
-    // - **AnalyticDB** (default): AnalyticDB for MySQL engine.
-    // - **Clickhouse**: wide table engine.
+    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+    // - **Clickhouse**: the wide table engine.
     shared_ptr<string> engine_ {};
-    // The list of Alibaba Cloud Resource Access Management (RAM) user IDs to attach. Currently, only one RAM user can be attached.
+    shared_ptr<string> promqlInsertPrivilegesShrink_ {};
+    shared_ptr<double> promqlSelectNodePercentage_ {};
+    shared_ptr<string> promqlSelectPrivilegesShrink_ {};
+    // The list of Alibaba Cloud RAM user IDs to bind. Currently, only one RAM user can be bound.
     shared_ptr<string> ramUserListShrink_ {};
+    shared_ptr<string> resourceGroupName_ {};
   };
 
   } // namespace Models

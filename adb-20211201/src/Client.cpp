@@ -62,22 +62,7 @@ AlibabaCloud::Adb20211201::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhengzhou-nebula-1" , "adb.aliyuncs.com"},
     {"eu-west-1-oxs" , "adb.ap-northeast-1.aliyuncs.com"},
     {"me-east-1" , "adb.ap-northeast-1.aliyuncs.com"},
-    {"rus-west-1-pop" , "adb.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "adb.cn-chengdu.aliyuncs.com"},
-    {"cn-wulanchabu" , "adb.cn-wulanchabu.aliyuncs.com"},
-    {"cn-zhangjiakou" , "adb.cn-zhangjiakou.aliyuncs.com"},
-    {"ap-northeast-2" , "adb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "adb.ap-northeast-1.aliyuncs.com"},
-    {"cn-guangzhou" , "adb.cn-guangzhou.aliyuncs.com"},
-    {"ap-southeast-3" , "adb.ap-southeast-3.aliyuncs.com"},
-    {"cn-huhehaote" , "adb.cn-huhehaote.aliyuncs.com"},
-    {"ap-southeast-5" , "adb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-6" , "adb.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-7" , "adb.ap-southeast-7.aliyuncs.com"},
-    {"eu-west-1" , "adb.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "adb.eu-central-1.aliyuncs.com"},
-    {"na-south-1" , "adb.na-south-1.aliyuncs.com"},
-    {"me-central-1" , "adb.me-central-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "adb.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -97,7 +82,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a knowledge base document.
+ * @summary Adds a document to a knowledge base.
  *
  * @param request AddKnowledgeFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -120,6 +105,10 @@ AddKnowledgeFileResponse Client::addKnowledgeFileWithOptions(const AddKnowledgeF
 
   if (!!request.hasIsDir()) {
     query["IsDir"] = request.getIsDir();
+  }
+
+  if (!!request.hasPriority()) {
+    query["Priority"] = request.getPriority();
   }
 
   if (!!request.hasTags()) {
@@ -148,7 +137,7 @@ AddKnowledgeFileResponse Client::addKnowledgeFileWithOptions(const AddKnowledgeF
 }
 
 /**
- * @summary Adds a knowledge base document.
+ * @summary Adds a document to a knowledge base.
  *
  * @param request AddKnowledgeFileRequest
  * @return AddKnowledgeFileResponse
@@ -156,6 +145,106 @@ AddKnowledgeFileResponse Client::addKnowledgeFileWithOptions(const AddKnowledgeF
 AddKnowledgeFileResponse Client::addKnowledgeFile(const AddKnowledgeFileRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addKnowledgeFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds tags to a knowledge base document.
+ *
+ * @param request AddKnowledgeTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddKnowledgeTagsResponse
+ */
+AddKnowledgeTagsResponse Client::addKnowledgeTagsWithOptions(const AddKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddKnowledgeTags"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddKnowledgeTagsResponse>();
+}
+
+/**
+ * @summary Adds tags to a knowledge base document.
+ *
+ * @param request AddKnowledgeTagsRequest
+ * @return AddKnowledgeTagsResponse
+ */
+AddKnowledgeTagsResponse Client::addKnowledgeTags(const AddKnowledgeTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addKnowledgeTagsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds authorized users to a knowledge base document.
+ *
+ * @param request AddKnowledgeUploadUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddKnowledgeUploadUserResponse
+ */
+AddKnowledgeUploadUserResponse Client::addKnowledgeUploadUserWithOptions(const AddKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasUsers()) {
+    query["Users"] = request.getUsers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddKnowledgeUploadUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddKnowledgeUploadUserResponse>();
+}
+
+/**
+ * @summary Adds authorized users to a knowledge base document.
+ *
+ * @param request AddKnowledgeUploadUserRequest
+ * @return AddKnowledgeUploadUserResponse
+ */
+AddKnowledgeUploadUserResponse Client::addKnowledgeUploadUser(const AddKnowledgeUploadUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addKnowledgeUploadUserWithOptions(request, runtime);
 }
 
 /**
@@ -985,7 +1074,7 @@ CreateAPSJobResponse Client::createAPSJob(const CreateAPSJobRequest &request) {
 /**
  * @summary Creates a database account for a cluster.
  *
- * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -995,6 +1084,14 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
   tmpReq.validate();
   CreateAccountShrinkRequest request = CreateAccountShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPromqlInsertPrivileges()) {
+    request.setPromqlInsertPrivilegesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromqlInsertPrivileges(), "PromqlInsertPrivileges", "json"));
+  }
+
+  if (!!tmpReq.hasPromqlSelectPrivileges()) {
+    request.setPromqlSelectPrivilegesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromqlSelectPrivileges(), "PromqlSelectPrivileges", "json"));
+  }
+
   if (!!tmpReq.hasRamUserList()) {
     request.setRamUserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRamUserList(), "RamUserList", "json"));
   }
@@ -1024,8 +1121,24 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasPromqlInsertPrivilegesShrink()) {
+    query["PromqlInsertPrivileges"] = request.getPromqlInsertPrivilegesShrink();
+  }
+
+  if (!!request.hasPromqlSelectNodePercentage()) {
+    query["PromqlSelectNodePercentage"] = request.getPromqlSelectNodePercentage();
+  }
+
+  if (!!request.hasPromqlSelectPrivilegesShrink()) {
+    query["PromqlSelectPrivileges"] = request.getPromqlSelectPrivilegesShrink();
+  }
+
   if (!!request.hasRamUserListShrink()) {
     query["RamUserList"] = request.getRamUserListShrink();
+  }
+
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1048,7 +1161,7 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 /**
  * @summary Creates a database account for a cluster.
  *
- * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -1749,7 +1862,10 @@ CreateApsWebhookResponse Client::createApsWebhook(const CreateApsWebhookRequest 
 /**
  * @summary Creates a backup set immediately.
  *
- * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+ * @description **Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+ * )
+ * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+ * Temporary backups and regular backups have the same pricing and backup set retention period.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1802,7 +1918,10 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 /**
  * @summary Creates a backup set immediately.
  *
- * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+ * @description **Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+ * )
+ * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+ * Temporary backups and regular backups have the same pricing and backup set retention period.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -1981,7 +2100,7 @@ CreateDBClusterResponse Client::createDBCluster(const CreateDBClusterRequest &re
 /**
  * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2128,7 +2247,7 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 /**
  * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBResourceGroupRequest
  * @return CreateDBResourceGroupResponse
@@ -2715,9 +2834,9 @@ CreateSparkTemplateResponse Client::createSparkTemplate(const CreateSparkTemplat
 }
 
 /**
- * @summary Deletes a database account from an AnalyticDB for MySQL cluster.
+ * @summary Deletes a database account from a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2738,6 +2857,10 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2756,9 +2879,9 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary Deletes a database account from an AnalyticDB for MySQL cluster.
+ * @summary Deletes a database account from a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -3206,6 +3329,52 @@ DeleteFormationCrawlerResponse Client::deleteFormationCrawlerWithOptions(const D
 DeleteFormationCrawlerResponse Client::deleteFormationCrawler(const DeleteFormationCrawlerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteFormationCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a knowledge base document.
+ *
+ * @param request DeleteKnowledgeFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKnowledgeFileResponse
+ */
+DeleteKnowledgeFileResponse Client::deleteKnowledgeFileWithOptions(const DeleteKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKnowledgeFile"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKnowledgeFileResponse>();
+}
+
+/**
+ * @summary Deletes a knowledge base document.
+ *
+ * @param request DeleteKnowledgeFileRequest
+ * @return DeleteKnowledgeFileResponse
+ */
+DeleteKnowledgeFileResponse Client::deleteKnowledgeFile(const DeleteKnowledgeFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKnowledgeFileWithOptions(request, runtime);
 }
 
 /**
@@ -3887,7 +4056,7 @@ DescribeAccountPrivilegesResponse Client::describeAccountPrivileges(const Descri
 /**
  * @summary Queries the database accounts of a cluster.
  *
- * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3912,6 +4081,10 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3932,7 +4105,7 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
 /**
  * @summary Queries the database accounts of a cluster.
  *
- * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountsRequest
  * @return DescribeAccountsResponse
@@ -6009,9 +6182,9 @@ DescribeDBClusterHealthStatusResponse Client::describeDBClusterHealthStatus(cons
 }
 
 /**
- * @summary View target cluster performance data.
+ * @summary Queries the performance data of a specified cluster.
  *
- * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6062,9 +6235,9 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 }
 
 /**
- * @summary View target cluster performance data.
+ * @summary Queries the performance data of a specified cluster.
  *
- * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @return DescribeDBClusterPerformanceResponse
@@ -11739,8 +11912,8 @@ GetSparkWarehouseBatchSQLResponse Client::getSparkWarehouseBatchSQL(const GetSpa
 /**
  * @summary Retrieves table information.
  *
- * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
- * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11785,8 +11958,8 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 /**
  * @summary Retrieves table information.
  *
- * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
- * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -12481,6 +12654,98 @@ ListApsWebhookResponse Client::listApsWebhook(const ListApsWebhookRequest &reque
 }
 
 /**
+ * @summary Queries the tags of a knowledge base document.
+ *
+ * @param request ListKnowledgeTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeTagsResponse
+ */
+ListKnowledgeTagsResponse Client::listKnowledgeTagsWithOptions(const ListKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeTags"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeTagsResponse>();
+}
+
+/**
+ * @summary Queries the tags of a knowledge base document.
+ *
+ * @param request ListKnowledgeTagsRequest
+ * @return ListKnowledgeTagsResponse
+ */
+ListKnowledgeTagsResponse Client::listKnowledgeTags(const ListKnowledgeTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKnowledgeTagsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the authorized users of a knowledge base document.
+ *
+ * @param request ListKnowledgeUploadUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeUploadUserResponse
+ */
+ListKnowledgeUploadUserResponse Client::listKnowledgeUploadUserWithOptions(const ListKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeUploadUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeUploadUserResponse>();
+}
+
+/**
+ * @summary Queries the authorized users of a knowledge base document.
+ *
+ * @param request ListKnowledgeUploadUserRequest
+ * @return ListKnowledgeUploadUserResponse
+ */
+ListKnowledgeUploadUserResponse Client::listKnowledgeUploadUser(const ListKnowledgeUploadUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKnowledgeUploadUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of lake storages.
  *
  * @param request ListLakeStoragesRequest
@@ -13075,9 +13340,9 @@ LoadSampleDataSetResponse Client::loadSampleDataSet(const LoadSampleDataSetReque
 }
 
 /**
- * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+ * @summary Modifies the description of a database account for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyAccountDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13102,6 +13367,10 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescriptionWithOptions(con
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -13120,9 +13389,9 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescriptionWithOptions(con
 }
 
 /**
- * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+ * @summary Modifies the description of a database account for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyAccountDescriptionRequest
  * @return ModifyAccountDescriptionResponse
@@ -13135,7 +13404,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 /**
  * @summary Modifies the permissions of a database account.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq ModifyAccountPrivilegesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13147,6 +13416,14 @@ ModifyAccountPrivilegesResponse Client::modifyAccountPrivilegesWithOptions(const
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAccountPrivileges()) {
     request.setAccountPrivilegesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccountPrivileges(), "AccountPrivileges", "json"));
+  }
+
+  if (!!tmpReq.hasPromqlInsertPrivileges()) {
+    request.setPromqlInsertPrivilegesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromqlInsertPrivileges(), "PromqlInsertPrivileges", "json"));
+  }
+
+  if (!!tmpReq.hasPromqlSelectPrivileges()) {
+    request.setPromqlSelectPrivilegesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPromqlSelectPrivileges(), "PromqlSelectPrivileges", "json"));
   }
 
   json query = {};
@@ -13162,8 +13439,24 @@ ModifyAccountPrivilegesResponse Client::modifyAccountPrivilegesWithOptions(const
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasPromqlInsertPrivilegesShrink()) {
+    query["PromqlInsertPrivileges"] = request.getPromqlInsertPrivilegesShrink();
+  }
+
+  if (!!request.hasPromqlSelectNodePercentage()) {
+    query["PromqlSelectNodePercentage"] = request.getPromqlSelectNodePercentage();
+  }
+
+  if (!!request.hasPromqlSelectPrivilegesShrink()) {
+    query["PromqlSelectPrivileges"] = request.getPromqlSelectPrivilegesShrink();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13186,7 +13479,7 @@ ModifyAccountPrivilegesResponse Client::modifyAccountPrivilegesWithOptions(const
 /**
  * @summary Modifies the permissions of a database account.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyAccountPrivilegesRequest
  * @return ModifyAccountPrivilegesResponse
@@ -13517,9 +13810,9 @@ ModifyApsWorkloadNameResponse Client::modifyApsWorkloadName(const ModifyApsWorkl
 }
 
 /**
- * @summary Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+ * @summary Modifies the SQL audit log settings of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyAuditLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13578,9 +13871,9 @@ ModifyAuditLogConfigResponse Client::modifyAuditLogConfigWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+ * @summary Modifies the SQL audit log settings of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyAuditLogConfigRequest
  * @return ModifyAuditLogConfigResponse
@@ -13665,9 +13958,9 @@ ModifyAutoRenewalAttributeResponse Client::modifyAutoRenewalAttribute(const Modi
 }
 
 /**
- * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
+ * @summary Modifies the backup policy of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13734,9 +14027,9 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
+ * @summary Modifies the backup policy of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -14275,7 +14568,7 @@ ModifyDBClusterVipResponse Client::modifyDBClusterVip(const ModifyDBClusterVipRe
 /**
  * @summary Changes the resource group of a cluster.
  *
- * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq ModifyDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14414,7 +14707,7 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
 /**
  * @summary Changes the resource group of a cluster.
  *
- * @description For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyDBResourceGroupRequest
  * @return ModifyDBResourceGroupResponse
@@ -15311,6 +15604,56 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnection(co
 }
 
 /**
+ * @summary Deletes tags from a knowledge base document.
+ *
+ * @param request RemoveKnowledgeTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveKnowledgeTagsResponse
+ */
+RemoveKnowledgeTagsResponse Client::removeKnowledgeTagsWithOptions(const RemoveKnowledgeTagsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveKnowledgeTags"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveKnowledgeTagsResponse>();
+}
+
+/**
+ * @summary Deletes tags from a knowledge base document.
+ *
+ * @param request RemoveKnowledgeTagsRequest
+ * @return RemoveKnowledgeTagsResponse
+ */
+RemoveKnowledgeTagsResponse Client::removeKnowledgeTags(const RemoveKnowledgeTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeKnowledgeTagsWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the name of a semantic view.
  *
  * @param request RenameSemanticViewRequest
@@ -15423,9 +15766,9 @@ ReplaceSemanticViewResponse Client::replaceSemanticView(const ReplaceSemanticVie
 }
 
 /**
- * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+ * @summary Resets the password of a database account for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ResetAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15454,6 +15797,10 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -15472,9 +15819,9 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 }
 
 /**
- * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+ * @summary Resets the password of a database account for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ResetAccountPasswordRequest
  * @return ResetAccountPasswordResponse

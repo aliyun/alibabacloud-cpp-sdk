@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // The name of the performance metric. This parameter is the Value Name of the monitoring metric. For more information, see [Overview of Monitoring Items](https://help.aliyun.com/document_detail/2863211.html).
+        // The name of the performance metric (monitoring metric value name). For more information, see [Monitoring metrics overview](https://help.aliyun.com/document_detail/2863211.html).
         shared_ptr<string> name_ {};
-        // A JSON string that contains the tags for the metric series.
+        // The tag value.
         shared_ptr<string> tags_ {};
-        // A key for internal internationalization (i18n). You can safely ignore this parameter.
+        // The key used for internationalization translation. You can ignore this parameter in most cases.
         shared_ptr<string> translateKey_ {};
-        // An array of data points for the time series.
+        // The performance values at different points in time.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -157,7 +157,7 @@ namespace Models
     protected:
       // The name of the performance metric.
       shared_ptr<string> key_ {};
-      // The time series data for the metric.
+      // The list of performance data.
       shared_ptr<vector<Performances::Series>> series_ {};
       // The unit of the monitoring metric.
       shared_ptr<string> unit_ {};
@@ -204,16 +204,15 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a specific region.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a specified region.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The time is in UTC and uses the *yyyy-MM-ddTHH:mmZ* format.
+    // The end time of the query. The time is in UTC in the format of <i>yyyy-MM-ddTHH:mmZ</i>.
     shared_ptr<string> endTime_ {};
-    // The cluster performance metrics.
+    // The list of cluster performance metrics.
     shared_ptr<vector<DescribeDBClusterPerformanceResponseBody::Performances>> performances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time is in UTC and uses the *yyyy-MM-ddTHH:mmZ* format.
+    // The start time of the query. Specify the time in UTC in the format of <i>yyyy-MM-ddTHH:mmZ</i>.
     shared_ptr<string> startTime_ {};
   };
 

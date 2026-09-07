@@ -59,8 +59,12 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_TO_JSON(AccountType, accountType_);
           DARABONBA_PTR_TO_JSON(Engine, engine_);
+          DARABONBA_PTR_TO_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+          DARABONBA_PTR_TO_JSON(PromqlSelectNodes, promqlSelectNodes_);
+          DARABONBA_PTR_TO_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
           DARABONBA_PTR_TO_JSON(RamUserList, ramUserList_);
           DARABONBA_PTR_TO_JSON(RamUsers, ramUsers_);
+          DARABONBA_PTR_TO_JSON(promqlSelectNodePercentage, promqlSelectNodePercentage_);
         };
         friend void from_json(const Darabonba::Json& j, DBAccount& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountDescription, accountDescription_);
@@ -68,8 +72,12 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
           DARABONBA_PTR_FROM_JSON(Engine, engine_);
+          DARABONBA_PTR_FROM_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+          DARABONBA_PTR_FROM_JSON(PromqlSelectNodes, promqlSelectNodes_);
+          DARABONBA_PTR_FROM_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
           DARABONBA_PTR_FROM_JSON(RamUserList, ramUserList_);
           DARABONBA_PTR_FROM_JSON(RamUsers, ramUsers_);
+          DARABONBA_PTR_FROM_JSON(promqlSelectNodePercentage, promqlSelectNodePercentage_);
         };
         DBAccount() = default ;
         DBAccount(const DBAccount &) = default ;
@@ -115,9 +123,108 @@ namespace Models
           shared_ptr<vector<string>> ramUserList_ {};
         };
 
+        class PromqlSelectPrivileges : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PromqlSelectPrivileges& obj) { 
+            DARABONBA_PTR_TO_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
+          };
+          friend void from_json(const Darabonba::Json& j, PromqlSelectPrivileges& obj) { 
+            DARABONBA_PTR_FROM_JSON(PromqlSelectPrivileges, promqlSelectPrivileges_);
+          };
+          PromqlSelectPrivileges() = default ;
+          PromqlSelectPrivileges(const PromqlSelectPrivileges &) = default ;
+          PromqlSelectPrivileges(PromqlSelectPrivileges &&) = default ;
+          PromqlSelectPrivileges(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PromqlSelectPrivileges() = default ;
+          PromqlSelectPrivileges& operator=(const PromqlSelectPrivileges &) = default ;
+          PromqlSelectPrivileges& operator=(PromqlSelectPrivileges &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->promqlSelectPrivileges_ == nullptr; };
+          // promqlSelectPrivileges Field Functions 
+          bool hasPromqlSelectPrivileges() const { return this->promqlSelectPrivileges_ != nullptr;};
+          void deletePromqlSelectPrivileges() { this->promqlSelectPrivileges_ = nullptr;};
+          inline const vector<string> & getPromqlSelectPrivileges() const { DARABONBA_PTR_GET_CONST(promqlSelectPrivileges_, vector<string>) };
+          inline vector<string> getPromqlSelectPrivileges() { DARABONBA_PTR_GET(promqlSelectPrivileges_, vector<string>) };
+          inline PromqlSelectPrivileges& setPromqlSelectPrivileges(const vector<string> & promqlSelectPrivileges) { DARABONBA_PTR_SET_VALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+          inline PromqlSelectPrivileges& setPromqlSelectPrivileges(vector<string> && promqlSelectPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+
+
+        protected:
+          shared_ptr<vector<string>> promqlSelectPrivileges_ {};
+        };
+
+        class PromqlSelectNodes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PromqlSelectNodes& obj) { 
+            DARABONBA_PTR_TO_JSON(PromqlSelectNodes, promqlSelectNodes_);
+          };
+          friend void from_json(const Darabonba::Json& j, PromqlSelectNodes& obj) { 
+            DARABONBA_PTR_FROM_JSON(PromqlSelectNodes, promqlSelectNodes_);
+          };
+          PromqlSelectNodes() = default ;
+          PromqlSelectNodes(const PromqlSelectNodes &) = default ;
+          PromqlSelectNodes(PromqlSelectNodes &&) = default ;
+          PromqlSelectNodes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PromqlSelectNodes() = default ;
+          PromqlSelectNodes& operator=(const PromqlSelectNodes &) = default ;
+          PromqlSelectNodes& operator=(PromqlSelectNodes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->promqlSelectNodes_ == nullptr; };
+          // promqlSelectNodes Field Functions 
+          bool hasPromqlSelectNodes() const { return this->promqlSelectNodes_ != nullptr;};
+          void deletePromqlSelectNodes() { this->promqlSelectNodes_ = nullptr;};
+          inline const vector<string> & getPromqlSelectNodes() const { DARABONBA_PTR_GET_CONST(promqlSelectNodes_, vector<string>) };
+          inline vector<string> getPromqlSelectNodes() { DARABONBA_PTR_GET(promqlSelectNodes_, vector<string>) };
+          inline PromqlSelectNodes& setPromqlSelectNodes(const vector<string> & promqlSelectNodes) { DARABONBA_PTR_SET_VALUE(promqlSelectNodes_, promqlSelectNodes) };
+          inline PromqlSelectNodes& setPromqlSelectNodes(vector<string> && promqlSelectNodes) { DARABONBA_PTR_SET_RVALUE(promqlSelectNodes_, promqlSelectNodes) };
+
+
+        protected:
+          shared_ptr<vector<string>> promqlSelectNodes_ {};
+        };
+
+        class PromqlInsertPrivileges : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PromqlInsertPrivileges& obj) { 
+            DARABONBA_PTR_TO_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+          };
+          friend void from_json(const Darabonba::Json& j, PromqlInsertPrivileges& obj) { 
+            DARABONBA_PTR_FROM_JSON(PromqlInsertPrivileges, promqlInsertPrivileges_);
+          };
+          PromqlInsertPrivileges() = default ;
+          PromqlInsertPrivileges(const PromqlInsertPrivileges &) = default ;
+          PromqlInsertPrivileges(PromqlInsertPrivileges &&) = default ;
+          PromqlInsertPrivileges(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PromqlInsertPrivileges() = default ;
+          PromqlInsertPrivileges& operator=(const PromqlInsertPrivileges &) = default ;
+          PromqlInsertPrivileges& operator=(PromqlInsertPrivileges &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->promqlInsertPrivileges_ == nullptr; };
+          // promqlInsertPrivileges Field Functions 
+          bool hasPromqlInsertPrivileges() const { return this->promqlInsertPrivileges_ != nullptr;};
+          void deletePromqlInsertPrivileges() { this->promqlInsertPrivileges_ = nullptr;};
+          inline const vector<string> & getPromqlInsertPrivileges() const { DARABONBA_PTR_GET_CONST(promqlInsertPrivileges_, vector<string>) };
+          inline vector<string> getPromqlInsertPrivileges() { DARABONBA_PTR_GET(promqlInsertPrivileges_, vector<string>) };
+          inline PromqlInsertPrivileges& setPromqlInsertPrivileges(const vector<string> & promqlInsertPrivileges) { DARABONBA_PTR_SET_VALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+          inline PromqlInsertPrivileges& setPromqlInsertPrivileges(vector<string> && promqlInsertPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+
+
+        protected:
+          shared_ptr<vector<string>> promqlInsertPrivileges_ {};
+        };
+
         virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->engine_ == nullptr && this->ramUserList_ == nullptr
-        && this->ramUsers_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->engine_ == nullptr && this->promqlInsertPrivileges_ == nullptr
+        && this->promqlSelectNodes_ == nullptr && this->promqlSelectPrivileges_ == nullptr && this->ramUserList_ == nullptr && this->ramUsers_ == nullptr && this->promqlSelectNodePercentage_ == nullptr; };
         // accountDescription Field Functions 
         bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
         void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -153,6 +260,33 @@ namespace Models
         inline DBAccount& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+        // promqlInsertPrivileges Field Functions 
+        bool hasPromqlInsertPrivileges() const { return this->promqlInsertPrivileges_ != nullptr;};
+        void deletePromqlInsertPrivileges() { this->promqlInsertPrivileges_ = nullptr;};
+        inline const DBAccount::PromqlInsertPrivileges & getPromqlInsertPrivileges() const { DARABONBA_PTR_GET_CONST(promqlInsertPrivileges_, DBAccount::PromqlInsertPrivileges) };
+        inline DBAccount::PromqlInsertPrivileges getPromqlInsertPrivileges() { DARABONBA_PTR_GET(promqlInsertPrivileges_, DBAccount::PromqlInsertPrivileges) };
+        inline DBAccount& setPromqlInsertPrivileges(const DBAccount::PromqlInsertPrivileges & promqlInsertPrivileges) { DARABONBA_PTR_SET_VALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+        inline DBAccount& setPromqlInsertPrivileges(DBAccount::PromqlInsertPrivileges && promqlInsertPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlInsertPrivileges_, promqlInsertPrivileges) };
+
+
+        // promqlSelectNodes Field Functions 
+        bool hasPromqlSelectNodes() const { return this->promqlSelectNodes_ != nullptr;};
+        void deletePromqlSelectNodes() { this->promqlSelectNodes_ = nullptr;};
+        inline const DBAccount::PromqlSelectNodes & getPromqlSelectNodes() const { DARABONBA_PTR_GET_CONST(promqlSelectNodes_, DBAccount::PromqlSelectNodes) };
+        inline DBAccount::PromqlSelectNodes getPromqlSelectNodes() { DARABONBA_PTR_GET(promqlSelectNodes_, DBAccount::PromqlSelectNodes) };
+        inline DBAccount& setPromqlSelectNodes(const DBAccount::PromqlSelectNodes & promqlSelectNodes) { DARABONBA_PTR_SET_VALUE(promqlSelectNodes_, promqlSelectNodes) };
+        inline DBAccount& setPromqlSelectNodes(DBAccount::PromqlSelectNodes && promqlSelectNodes) { DARABONBA_PTR_SET_RVALUE(promqlSelectNodes_, promqlSelectNodes) };
+
+
+        // promqlSelectPrivileges Field Functions 
+        bool hasPromqlSelectPrivileges() const { return this->promqlSelectPrivileges_ != nullptr;};
+        void deletePromqlSelectPrivileges() { this->promqlSelectPrivileges_ = nullptr;};
+        inline const DBAccount::PromqlSelectPrivileges & getPromqlSelectPrivileges() const { DARABONBA_PTR_GET_CONST(promqlSelectPrivileges_, DBAccount::PromqlSelectPrivileges) };
+        inline DBAccount::PromqlSelectPrivileges getPromqlSelectPrivileges() { DARABONBA_PTR_GET(promqlSelectPrivileges_, DBAccount::PromqlSelectPrivileges) };
+        inline DBAccount& setPromqlSelectPrivileges(const DBAccount::PromqlSelectPrivileges & promqlSelectPrivileges) { DARABONBA_PTR_SET_VALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+        inline DBAccount& setPromqlSelectPrivileges(DBAccount::PromqlSelectPrivileges && promqlSelectPrivileges) { DARABONBA_PTR_SET_RVALUE(promqlSelectPrivileges_, promqlSelectPrivileges) };
+
+
         // ramUserList Field Functions 
         bool hasRamUserList() const { return this->ramUserList_ != nullptr;};
         void deleteRamUserList() { this->ramUserList_ = nullptr;};
@@ -169,14 +303,25 @@ namespace Models
         inline DBAccount& setRamUsers(string ramUsers) { DARABONBA_PTR_SET_VALUE(ramUsers_, ramUsers) };
 
 
+        // promqlSelectNodePercentage Field Functions 
+        bool hasPromqlSelectNodePercentage() const { return this->promqlSelectNodePercentage_ != nullptr;};
+        void deletePromqlSelectNodePercentage() { this->promqlSelectNodePercentage_ = nullptr;};
+        inline double getPromqlSelectNodePercentage() const { DARABONBA_PTR_GET_DEFAULT(promqlSelectNodePercentage_, 0.0) };
+        inline DBAccount& setPromqlSelectNodePercentage(double promqlSelectNodePercentage) { DARABONBA_PTR_SET_VALUE(promqlSelectNodePercentage_, promqlSelectNodePercentage) };
+
+
       protected:
         shared_ptr<string> accountDescription_ {};
         shared_ptr<string> accountName_ {};
         shared_ptr<string> accountStatus_ {};
         shared_ptr<string> accountType_ {};
         shared_ptr<string> engine_ {};
+        shared_ptr<DBAccount::PromqlInsertPrivileges> promqlInsertPrivileges_ {};
+        shared_ptr<DBAccount::PromqlSelectNodes> promqlSelectNodes_ {};
+        shared_ptr<DBAccount::PromqlSelectPrivileges> promqlSelectPrivileges_ {};
         shared_ptr<DBAccount::RamUserList> ramUserList_ {};
         shared_ptr<string> ramUsers_ {};
+        shared_ptr<double> promqlSelectNodePercentage_ {};
       };
 
       virtual bool empty() const override { return this->DBAccount_ == nullptr; };
