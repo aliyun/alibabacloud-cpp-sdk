@@ -24,6 +24,9 @@
 #include <alibabacloud/models/ListSkillsRequest.hpp>
 #include <alibabacloud/models/ListSkillsResponseBody.hpp>
 #include <alibabacloud/models/ListSkillsResponse.hpp>
+#include <alibabacloud/models/ListTenantAppRequest.hpp>
+#include <alibabacloud/models/ListTenantAppResponseBody.hpp>
+#include <alibabacloud/models/ListTenantAppResponse.hpp>
 #include <alibabacloud/models/ParseSkillPackageRequest.hpp>
 #include <alibabacloud/models/ParseSkillPackageResponseBody.hpp>
 #include <alibabacloud/models/ParseSkillPackageResponse.hpp>

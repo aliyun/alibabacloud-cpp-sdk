@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SkillChannel, skillChannel_);
       DARABONBA_PTR_TO_JSON(SkillIds, skillIds_);
       DARABONBA_PTR_TO_JSON(SupplierType, supplierType_);
+      DARABONBA_PTR_TO_JSON(TagCodes, tagCodes_);
     };
     friend void from_json(const Darabonba::Json& j, ListSkillsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SkillChannel, skillChannel_);
       DARABONBA_PTR_FROM_JSON(SkillIds, skillIds_);
       DARABONBA_PTR_FROM_JSON(SupplierType, supplierType_);
+      DARABONBA_PTR_FROM_JSON(TagCodes, tagCodes_);
     };
     ListSkillsRequest() = default ;
     ListSkillsRequest(const ListSkillsRequest &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->skillChannel_ == nullptr && this->skillIds_ == nullptr && this->supplierType_ == nullptr; };
+        && this->pageSize_ == nullptr && this->skillChannel_ == nullptr && this->skillIds_ == nullptr && this->supplierType_ == nullptr && this->tagCodes_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -77,6 +79,15 @@ namespace Models
     inline ListSkillsRequest& setSupplierType(string supplierType) { DARABONBA_PTR_SET_VALUE(supplierType_, supplierType) };
 
 
+    // tagCodes Field Functions 
+    bool hasTagCodes() const { return this->tagCodes_ != nullptr;};
+    void deleteTagCodes() { this->tagCodes_ = nullptr;};
+    inline const vector<string> & getTagCodes() const { DARABONBA_PTR_GET_CONST(tagCodes_, vector<string>) };
+    inline vector<string> getTagCodes() { DARABONBA_PTR_GET(tagCodes_, vector<string>) };
+    inline ListSkillsRequest& setTagCodes(const vector<string> & tagCodes) { DARABONBA_PTR_SET_VALUE(tagCodes_, tagCodes) };
+    inline ListSkillsRequest& setTagCodes(vector<string> && tagCodes) { DARABONBA_PTR_SET_RVALUE(tagCodes_, tagCodes) };
+
+
   protected:
     // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
@@ -90,6 +101,8 @@ namespace Models
     shared_ptr<vector<string>> skillIds_ {};
     // The supply type.
     shared_ptr<string> supplierType_ {};
+    // TagCodes
+    shared_ptr<vector<string>> tagCodes_ {};
   };
 
   } // namespace Models

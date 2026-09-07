@@ -375,7 +375,7 @@ namespace Models
       // The name in the SKILL.md file.
       shared_ptr<string> skillName_ {};
       shared_ptr<vector<Skills::SkillVersions>> skillVersions_ {};
-      // The skill slug identifier, which is user-defined and unique within the tenant.
+      // The skill slug identifier, which is user-defined and unique within the tenant dimension.
       shared_ptr<string> slug_ {};
       // The source marketplace code.
       shared_ptr<string> sourceMarket_ {};

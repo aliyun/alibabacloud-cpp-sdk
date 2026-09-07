@@ -18,32 +18,6 @@ namespace Ecd20210602
 
 AlibabaCloud::Ecd20210602::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "ecd.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "ecd.us-east-1.aliyuncs.com"},
-    {"me-east-1" , "ecd.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "ecd.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "ecd.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "ecd.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "ecd.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "ecd.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "ecd.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "ecd.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "ecd.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "ecd.cn-qingdao.aliyuncs.com"},
-    {"cn-nanjing" , "ecd.cn-nanjing.aliyuncs.com"},
-    {"cn-hongkong" , "ecd.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "ecd.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "ecd.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "ecd.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "ecd.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "ecd.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-7" , "ecd.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "ecd.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "ecd.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "ecd.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "ecd.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ecd", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -425,6 +399,10 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
     query["SupplierType"] = request.getSupplierType();
   }
 
+  if (!!request.hasTagCodes()) {
+    query["TagCodes"] = request.getTagCodes();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -451,6 +429,78 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
 ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSkillsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Performs a paging query of desktop applications visible to the current tenant, with support for filtering by application name and source.
+ *
+ * @description The query scope is determined by the caller identity and includes applications uploaded by the current tenant and marketplace applications that the tenant is authorized to view. The visibility of marketplace applications is subject to authorization and display policy restrictions. The authorization and auto-installation information in the list represents application configurations and does not indicate the actual installation result on a specific device.
+ * - **Application identity**: Id is a numeric application ID, and AppUid is a character string UID. The two cannot be used interchangeably.
+ * - **Authorization scope**: DistributeType is used together with AuthType. For example, `AuthType=auth_type_user` and `DistributeType=ALL` indicate that the application is allocated to all users on a per-user dimension.
+ * - **Auto-installation**: AutoInstallmentType specifies the auto-installation scope policy, which is used to distinguish between full, partial, or disabled auto-installation.
+ * - **Partial auto-installation**: When AutoInstallmentType is set to 1, use SetAutoInstallUser or SetAutoInstallDesktop to configure specific users or cloud desktops. OperationType=1 indicates enabled, and OperationType=2 indicates disabled. ListTenantApp only returns configurations and does not modify auto-installation settings.
+ * - **Capabilities and execution results**: The silent installation capability is application metadata returned in the response. To determine the actual installation or execution result on a device, use the corresponding execution result query capability.
+ * - **Optional information**: Information such as timestamps may be empty.
+ * - **Compatibility handling**: Extension information and subtype do not use closed enumerations. Clients should ignore unrecognized extension fields and be compatible with new enumeration values.
+ *
+ * @param request ListTenantAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTenantAppResponse
+ */
+ListTenantAppResponse Client::listTenantAppWithOptions(const ListTenantAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.getKeyName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTenantApp"},
+    {"version" , "2021-06-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTenantAppResponse>();
+}
+
+/**
+ * @summary Performs a paging query of desktop applications visible to the current tenant, with support for filtering by application name and source.
+ *
+ * @description The query scope is determined by the caller identity and includes applications uploaded by the current tenant and marketplace applications that the tenant is authorized to view. The visibility of marketplace applications is subject to authorization and display policy restrictions. The authorization and auto-installation information in the list represents application configurations and does not indicate the actual installation result on a specific device.
+ * - **Application identity**: Id is a numeric application ID, and AppUid is a character string UID. The two cannot be used interchangeably.
+ * - **Authorization scope**: DistributeType is used together with AuthType. For example, `AuthType=auth_type_user` and `DistributeType=ALL` indicate that the application is allocated to all users on a per-user dimension.
+ * - **Auto-installation**: AutoInstallmentType specifies the auto-installation scope policy, which is used to distinguish between full, partial, or disabled auto-installation.
+ * - **Partial auto-installation**: When AutoInstallmentType is set to 1, use SetAutoInstallUser or SetAutoInstallDesktop to configure specific users or cloud desktops. OperationType=1 indicates enabled, and OperationType=2 indicates disabled. ListTenantApp only returns configurations and does not modify auto-installation settings.
+ * - **Capabilities and execution results**: The silent installation capability is application metadata returned in the response. To determine the actual installation or execution result on a device, use the corresponding execution result query capability.
+ * - **Optional information**: Information such as timestamps may be empty.
+ * - **Compatibility handling**: Extension information and subtype do not use closed enumerations. Clients should ignore unrecognized extension fields and be compatible with new enumeration values.
+ *
+ * @param request ListTenantAppRequest
+ * @return ListTenantAppResponse
+ */
+ListTenantAppResponse Client::listTenantApp(const ListTenantAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTenantAppWithOptions(request, runtime);
 }
 
 /**
