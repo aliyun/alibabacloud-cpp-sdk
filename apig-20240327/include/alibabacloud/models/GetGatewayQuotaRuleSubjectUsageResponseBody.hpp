@@ -40,23 +40,33 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(cachedAmount, cachedAmount_);
+        DARABONBA_PTR_TO_JSON(cachedAmountDecimal, cachedAmountDecimal_);
         DARABONBA_PTR_TO_JSON(details, details_);
         DARABONBA_PTR_TO_JSON(inputAmount, inputAmount_);
+        DARABONBA_PTR_TO_JSON(inputAmountDecimal, inputAmountDecimal_);
         DARABONBA_PTR_TO_JSON(outputAmount, outputAmount_);
+        DARABONBA_PTR_TO_JSON(outputAmountDecimal, outputAmountDecimal_);
         DARABONBA_PTR_TO_JSON(overLimit, overLimit_);
+        DARABONBA_PTR_TO_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_TO_JSON(subjectType, subjectType_);
         DARABONBA_PTR_TO_JSON(totalQuota, totalQuota_);
         DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
+        DARABONBA_PTR_TO_JSON(usedAmountDecimal, usedAmountDecimal_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(cachedAmount, cachedAmount_);
+        DARABONBA_PTR_FROM_JSON(cachedAmountDecimal, cachedAmountDecimal_);
         DARABONBA_PTR_FROM_JSON(details, details_);
         DARABONBA_PTR_FROM_JSON(inputAmount, inputAmount_);
+        DARABONBA_PTR_FROM_JSON(inputAmountDecimal, inputAmountDecimal_);
         DARABONBA_PTR_FROM_JSON(outputAmount, outputAmount_);
+        DARABONBA_PTR_FROM_JSON(outputAmountDecimal, outputAmountDecimal_);
         DARABONBA_PTR_FROM_JSON(overLimit, overLimit_);
+        DARABONBA_PTR_FROM_JSON(quotaDimension, quotaDimension_);
         DARABONBA_PTR_FROM_JSON(subjectType, subjectType_);
         DARABONBA_PTR_FROM_JSON(totalQuota, totalQuota_);
         DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
+        DARABONBA_PTR_FROM_JSON(usedAmountDecimal, usedAmountDecimal_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -98,23 +108,31 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Items& obj) { 
             DARABONBA_PTR_TO_JSON(cachedAmount, cachedAmount_);
+            DARABONBA_PTR_TO_JSON(cachedAmountDecimal, cachedAmountDecimal_);
             DARABONBA_PTR_TO_JSON(consumer, consumer_);
             DARABONBA_PTR_TO_JSON(inputAmount, inputAmount_);
+            DARABONBA_PTR_TO_JSON(inputAmountDecimal, inputAmountDecimal_);
             DARABONBA_PTR_TO_JSON(model, model_);
             DARABONBA_PTR_TO_JSON(outputAmount, outputAmount_);
+            DARABONBA_PTR_TO_JSON(outputAmountDecimal, outputAmountDecimal_);
             DARABONBA_PTR_TO_JSON(requestId, requestId_);
             DARABONBA_PTR_TO_JSON(startTime, startTime_);
             DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
+            DARABONBA_PTR_TO_JSON(usedAmountDecimal, usedAmountDecimal_);
           };
           friend void from_json(const Darabonba::Json& j, Items& obj) { 
             DARABONBA_PTR_FROM_JSON(cachedAmount, cachedAmount_);
+            DARABONBA_PTR_FROM_JSON(cachedAmountDecimal, cachedAmountDecimal_);
             DARABONBA_PTR_FROM_JSON(consumer, consumer_);
             DARABONBA_PTR_FROM_JSON(inputAmount, inputAmount_);
+            DARABONBA_PTR_FROM_JSON(inputAmountDecimal, inputAmountDecimal_);
             DARABONBA_PTR_FROM_JSON(model, model_);
             DARABONBA_PTR_FROM_JSON(outputAmount, outputAmount_);
+            DARABONBA_PTR_FROM_JSON(outputAmountDecimal, outputAmountDecimal_);
             DARABONBA_PTR_FROM_JSON(requestId, requestId_);
             DARABONBA_PTR_FROM_JSON(startTime, startTime_);
             DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
+            DARABONBA_PTR_FROM_JSON(usedAmountDecimal, usedAmountDecimal_);
           };
           Items() = default ;
           Items(const Items &) = default ;
@@ -128,13 +146,21 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->cachedAmount_ == nullptr
-        && this->consumer_ == nullptr && this->inputAmount_ == nullptr && this->model_ == nullptr && this->outputAmount_ == nullptr && this->requestId_ == nullptr
-        && this->startTime_ == nullptr && this->usedAmount_ == nullptr; };
+        && this->cachedAmountDecimal_ == nullptr && this->consumer_ == nullptr && this->inputAmount_ == nullptr && this->inputAmountDecimal_ == nullptr && this->model_ == nullptr
+        && this->outputAmount_ == nullptr && this->outputAmountDecimal_ == nullptr && this->requestId_ == nullptr && this->startTime_ == nullptr && this->usedAmount_ == nullptr
+        && this->usedAmountDecimal_ == nullptr; };
           // cachedAmount Field Functions 
           bool hasCachedAmount() const { return this->cachedAmount_ != nullptr;};
           void deleteCachedAmount() { this->cachedAmount_ = nullptr;};
           inline int64_t getCachedAmount() const { DARABONBA_PTR_GET_DEFAULT(cachedAmount_, 0L) };
           inline Items& setCachedAmount(int64_t cachedAmount) { DARABONBA_PTR_SET_VALUE(cachedAmount_, cachedAmount) };
+
+
+          // cachedAmountDecimal Field Functions 
+          bool hasCachedAmountDecimal() const { return this->cachedAmountDecimal_ != nullptr;};
+          void deleteCachedAmountDecimal() { this->cachedAmountDecimal_ = nullptr;};
+          inline double getCachedAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(cachedAmountDecimal_, 0.0) };
+          inline Items& setCachedAmountDecimal(double cachedAmountDecimal) { DARABONBA_PTR_SET_VALUE(cachedAmountDecimal_, cachedAmountDecimal) };
 
 
           // consumer Field Functions 
@@ -151,6 +177,13 @@ namespace Models
           inline Items& setInputAmount(int64_t inputAmount) { DARABONBA_PTR_SET_VALUE(inputAmount_, inputAmount) };
 
 
+          // inputAmountDecimal Field Functions 
+          bool hasInputAmountDecimal() const { return this->inputAmountDecimal_ != nullptr;};
+          void deleteInputAmountDecimal() { this->inputAmountDecimal_ = nullptr;};
+          inline double getInputAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(inputAmountDecimal_, 0.0) };
+          inline Items& setInputAmountDecimal(double inputAmountDecimal) { DARABONBA_PTR_SET_VALUE(inputAmountDecimal_, inputAmountDecimal) };
+
+
           // model Field Functions 
           bool hasModel() const { return this->model_ != nullptr;};
           void deleteModel() { this->model_ = nullptr;};
@@ -163,6 +196,13 @@ namespace Models
           void deleteOutputAmount() { this->outputAmount_ = nullptr;};
           inline int64_t getOutputAmount() const { DARABONBA_PTR_GET_DEFAULT(outputAmount_, 0L) };
           inline Items& setOutputAmount(int64_t outputAmount) { DARABONBA_PTR_SET_VALUE(outputAmount_, outputAmount) };
+
+
+          // outputAmountDecimal Field Functions 
+          bool hasOutputAmountDecimal() const { return this->outputAmountDecimal_ != nullptr;};
+          void deleteOutputAmountDecimal() { this->outputAmountDecimal_ = nullptr;};
+          inline double getOutputAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(outputAmountDecimal_, 0.0) };
+          inline Items& setOutputAmountDecimal(double outputAmountDecimal) { DARABONBA_PTR_SET_VALUE(outputAmountDecimal_, outputAmountDecimal) };
 
 
           // requestId Field Functions 
@@ -186,23 +226,38 @@ namespace Models
           inline Items& setUsedAmount(int64_t usedAmount) { DARABONBA_PTR_SET_VALUE(usedAmount_, usedAmount) };
 
 
+          // usedAmountDecimal Field Functions 
+          bool hasUsedAmountDecimal() const { return this->usedAmountDecimal_ != nullptr;};
+          void deleteUsedAmountDecimal() { this->usedAmountDecimal_ = nullptr;};
+          inline double getUsedAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(usedAmountDecimal_, 0.0) };
+          inline Items& setUsedAmountDecimal(double usedAmountDecimal) { DARABONBA_PTR_SET_VALUE(usedAmountDecimal_, usedAmountDecimal) };
+
+
         protected:
           // The cached token consumption.
           shared_ptr<int64_t> cachedAmount_ {};
+          // The exact value of cached consumption. Supports decimals in credit scenarios.
+          shared_ptr<double> cachedAmountDecimal_ {};
           // The consumer name.
           shared_ptr<string> consumer_ {};
           // The input token consumption.
           shared_ptr<int64_t> inputAmount_ {};
+          // The exact value of input consumption. Supports decimals in credit scenarios.
+          shared_ptr<double> inputAmountDecimal_ {};
           // The model name.
           shared_ptr<string> model_ {};
           // The output token consumption.
           shared_ptr<int64_t> outputAmount_ {};
+          // The exact value of output consumption. Supports decimals in credit scenarios.
+          shared_ptr<double> outputAmountDecimal_ {};
           // The request ID.
           shared_ptr<string> requestId_ {};
           // The consumption (request) time in the format of YYYY-MM-DD.
           shared_ptr<string> startTime_ {};
           // The total consumption.
           shared_ptr<int64_t> usedAmount_ {};
+          // The exact value of total consumption. Supports decimals in credit scenarios.
+          shared_ptr<double> usedAmountDecimal_ {};
         };
 
         virtual bool empty() const override { return this->items_ == nullptr
@@ -244,18 +299,26 @@ namespace Models
         shared_ptr<int32_t> pageNumber_ {};
         // The current page size.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of records.
+        // The total number of entries.
         shared_ptr<int32_t> totalSize_ {};
       };
 
       virtual bool empty() const override { return this->cachedAmount_ == nullptr
-        && this->details_ == nullptr && this->inputAmount_ == nullptr && this->outputAmount_ == nullptr && this->overLimit_ == nullptr && this->subjectType_ == nullptr
-        && this->totalQuota_ == nullptr && this->usedAmount_ == nullptr; };
+        && this->cachedAmountDecimal_ == nullptr && this->details_ == nullptr && this->inputAmount_ == nullptr && this->inputAmountDecimal_ == nullptr && this->outputAmount_ == nullptr
+        && this->outputAmountDecimal_ == nullptr && this->overLimit_ == nullptr && this->quotaDimension_ == nullptr && this->subjectType_ == nullptr && this->totalQuota_ == nullptr
+        && this->usedAmount_ == nullptr && this->usedAmountDecimal_ == nullptr; };
       // cachedAmount Field Functions 
       bool hasCachedAmount() const { return this->cachedAmount_ != nullptr;};
       void deleteCachedAmount() { this->cachedAmount_ = nullptr;};
       inline int64_t getCachedAmount() const { DARABONBA_PTR_GET_DEFAULT(cachedAmount_, 0L) };
       inline Data& setCachedAmount(int64_t cachedAmount) { DARABONBA_PTR_SET_VALUE(cachedAmount_, cachedAmount) };
+
+
+      // cachedAmountDecimal Field Functions 
+      bool hasCachedAmountDecimal() const { return this->cachedAmountDecimal_ != nullptr;};
+      void deleteCachedAmountDecimal() { this->cachedAmountDecimal_ = nullptr;};
+      inline double getCachedAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(cachedAmountDecimal_, 0.0) };
+      inline Data& setCachedAmountDecimal(double cachedAmountDecimal) { DARABONBA_PTR_SET_VALUE(cachedAmountDecimal_, cachedAmountDecimal) };
 
 
       // details Field Functions 
@@ -274,6 +337,13 @@ namespace Models
       inline Data& setInputAmount(int64_t inputAmount) { DARABONBA_PTR_SET_VALUE(inputAmount_, inputAmount) };
 
 
+      // inputAmountDecimal Field Functions 
+      bool hasInputAmountDecimal() const { return this->inputAmountDecimal_ != nullptr;};
+      void deleteInputAmountDecimal() { this->inputAmountDecimal_ = nullptr;};
+      inline double getInputAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(inputAmountDecimal_, 0.0) };
+      inline Data& setInputAmountDecimal(double inputAmountDecimal) { DARABONBA_PTR_SET_VALUE(inputAmountDecimal_, inputAmountDecimal) };
+
+
       // outputAmount Field Functions 
       bool hasOutputAmount() const { return this->outputAmount_ != nullptr;};
       void deleteOutputAmount() { this->outputAmount_ = nullptr;};
@@ -281,11 +351,25 @@ namespace Models
       inline Data& setOutputAmount(int64_t outputAmount) { DARABONBA_PTR_SET_VALUE(outputAmount_, outputAmount) };
 
 
+      // outputAmountDecimal Field Functions 
+      bool hasOutputAmountDecimal() const { return this->outputAmountDecimal_ != nullptr;};
+      void deleteOutputAmountDecimal() { this->outputAmountDecimal_ = nullptr;};
+      inline double getOutputAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(outputAmountDecimal_, 0.0) };
+      inline Data& setOutputAmountDecimal(double outputAmountDecimal) { DARABONBA_PTR_SET_VALUE(outputAmountDecimal_, outputAmountDecimal) };
+
+
       // overLimit Field Functions 
       bool hasOverLimit() const { return this->overLimit_ != nullptr;};
       void deleteOverLimit() { this->overLimit_ = nullptr;};
       inline bool getOverLimit() const { DARABONBA_PTR_GET_DEFAULT(overLimit_, false) };
       inline Data& setOverLimit(bool overLimit) { DARABONBA_PTR_SET_VALUE(overLimit_, overLimit) };
+
+
+      // quotaDimension Field Functions 
+      bool hasQuotaDimension() const { return this->quotaDimension_ != nullptr;};
+      void deleteQuotaDimension() { this->quotaDimension_ = nullptr;};
+      inline string getQuotaDimension() const { DARABONBA_PTR_GET_DEFAULT(quotaDimension_, "") };
+      inline Data& setQuotaDimension(string quotaDimension) { DARABONBA_PTR_SET_VALUE(quotaDimension_, quotaDimension) };
 
 
       // subjectType Field Functions 
@@ -309,25 +393,40 @@ namespace Models
       inline Data& setUsedAmount(int64_t usedAmount) { DARABONBA_PTR_SET_VALUE(usedAmount_, usedAmount) };
 
 
+      // usedAmountDecimal Field Functions 
+      bool hasUsedAmountDecimal() const { return this->usedAmountDecimal_ != nullptr;};
+      void deleteUsedAmountDecimal() { this->usedAmountDecimal_ = nullptr;};
+      inline double getUsedAmountDecimal() const { DARABONBA_PTR_GET_DEFAULT(usedAmountDecimal_, 0.0) };
+      inline Data& setUsedAmountDecimal(double usedAmountDecimal) { DARABONBA_PTR_SET_VALUE(usedAmountDecimal_, usedAmountDecimal) };
+
+
     protected:
       // The total cached token consumption.
       shared_ptr<int64_t> cachedAmount_ {};
+      // The exact value of total cached consumption. Supports decimals in credit scenarios.
+      shared_ptr<double> cachedAmountDecimal_ {};
       // The paginated consumption details.
       shared_ptr<Data::Details> details_ {};
       // The total input token consumption.
       shared_ptr<int64_t> inputAmount_ {};
+      // The exact value of total input consumption. Supports decimals in credit scenarios.
+      shared_ptr<double> inputAmountDecimal_ {};
       // The total output token consumption.
       shared_ptr<int64_t> outputAmount_ {};
+      // The exact value of total output consumption. Supports decimals in credit scenarios.
+      shared_ptr<double> outputAmountDecimal_ {};
       // Indicates whether the quota limit is exceeded.
       shared_ptr<bool> overLimit_ {};
-      // The subject type. Valid values:
-      // - consumer
-      // - consumer_group
+      // The quota dimension. Valid values: token and credit.
+      shared_ptr<string> quotaDimension_ {};
+      // The subject type. Valid values: consumer and consumer_group.
       shared_ptr<string> subjectType_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};
       // The total used amount of the subject.
       shared_ptr<int64_t> usedAmount_ {};
+      // The exact value of the total used amount of the subject. Supports decimals in credit scenarios.
+      shared_ptr<double> usedAmountDecimal_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

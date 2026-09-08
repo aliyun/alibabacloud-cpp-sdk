@@ -13,14 +13,18 @@ namespace Models
   class GetGatewayQuotaRuleSubjectUsageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetGatewayQuotaRuleSubjectUsageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(filterFailedRequests, filterFailedRequests_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetGatewayQuotaRuleSubjectUsageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(filterFailedRequests, filterFailedRequests_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(startTime, startTime_);
     };
     GetGatewayQuotaRuleSubjectUsageRequest() = default ;
     GetGatewayQuotaRuleSubjectUsageRequest(const GetGatewayQuotaRuleSubjectUsageRequest &) = default ;
@@ -33,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->filterFailedRequests_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->filterFailedRequests_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline GetGatewayQuotaRuleSubjectUsageRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
     // filterFailedRequests Field Functions 
     bool hasFilterFailedRequests() const { return this->filterFailedRequests_ != nullptr;};
     void deleteFilterFailedRequests() { this->filterFailedRequests_ = nullptr;};
@@ -56,13 +67,24 @@ namespace Models
     inline GetGatewayQuotaRuleSubjectUsageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline GetGatewayQuotaRuleSubjectUsageRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
   protected:
+    // The end time for querying consumption record details, in UNIX timestamp format (seconds). If only this parameter is specified, the system automatically calculates startTime based on the rule cycle.
+    shared_ptr<int64_t> endTime_ {};
     // Specifies whether to filter out zero values.
     shared_ptr<bool> filterFailedRequests_ {};
     // The page number of the detailed consumption (request) records of the subject within the cycle.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of detailed consumption (request) records per page for the subject within the cycle. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time for querying consumption record details, in UNIX timestamp format (seconds). If only this parameter is specified, the system automatically calculates endTime based on the rule cycle.
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

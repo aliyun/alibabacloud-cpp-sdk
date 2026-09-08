@@ -1429,7 +1429,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @param headers map
@@ -1441,7 +1441,7 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @return GetGatewayQuotaRuleSubjectUsageResponse

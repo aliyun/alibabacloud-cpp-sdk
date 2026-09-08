@@ -20,33 +20,6 @@ namespace APIG20240327
 
 AlibabaCloud::APIG20240327::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-southeast-2" , "apig.ap-southeast-2.aliyuncs.com"},
-    {"ap-southeast-6" , "apig.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-7" , "apig.ap-southeast-7.aliyuncs.com"},
-    {"cn-guangzhou" , "apig.cn-guangzhou.aliyuncs.com"},
-    {"cn-heyuan" , "apig.cn-heyuan.aliyuncs.com"},
-    {"cn-shenzhen" , "apig.cn-shenzhen.aliyuncs.com"},
-    {"cn-wulanchabu" , "apig.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "apig.cn-beijing.aliyuncs.com"},
-    {"ap-northeast-2" , "apig.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "apig.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "apig.cn-chengdu.aliyuncs.com"},
-    {"cn-qingdao" , "apig.cn-qingdao.aliyuncs.com"},
-    {"cn-shanghai" , "apig.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "apig.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "apig.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "apig.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-5" , "apig.ap-southeast-5.aliyuncs.com"},
-    {"cn-zhangjiakou" , "apig.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-hangzhou" , "apig.cn-hangzhou.aliyuncs.com"},
-    {"us-west-1" , "apig.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "apig.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "apig.eu-central-1.aliyuncs.com"},
-    {"eu-west-1" , "apig.eu-west-1.aliyuncs.com"},
-    {"me-east-1" , "apig.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "apig.me-central-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("apig", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -4098,7 +4071,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -4108,6 +4081,10 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const GetGatewayQuotaRuleSubjectUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
   if (!!request.hasFilterFailedRequests()) {
     query["filterFailedRequests"] = request.getFilterFailedRequests();
   }
@@ -4118,6 +4095,10 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4141,7 +4122,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+ * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
