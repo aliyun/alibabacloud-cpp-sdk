@@ -135,36 +135,36 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // One or more IPv4 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
-    // > If you need to set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
+    // One or more IPv4 prefixes to specify for the elastic network interfaces (ENIs). Valid values of N: 1 to 10.
+    // > To set IPv4 prefixes for the elastic network interfaces (ENIs), you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
     shared_ptr<vector<string>> ipv4Prefix_ {};
-    // The number of randomly generated IPv4 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
-    // > If you need to set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
+    // The number of randomly generated IPv4 prefixes to specify for the elastic network interfaces (ENIs). Valid values: 1 to 10.
+    // > To set IPv4 prefixes for the elastic network interfaces (ENIs), you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
     shared_ptr<int32_t> ipv4PrefixCount_ {};
-    // The ID of the network interface controller (NIC).
+    // The elastic network interfaces (ENIs) ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // One or more secondary private IP addresses selected from the idle IP addresses within the vSwitch to which the network interface controller (NIC) belongs. Valid values of N:
+    // One or more secondary private IP addresses selected from the idle private IP addresses of the vSwitch to which the elastic network interfaces (ENIs) belongs. Valid values of N:
     // 
-    // - When the NIC is in the active (`Available`) state: 1 to 32.
-    // - When the NIC is in the `InUse` state: subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // - When the elastic network interfaces (ENIs) is in the Available (`Available`) state: 1 to 32.
+    // - When the elastic network interfaces (ENIs) is in the `InUse` state: subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
     // 
-    // When you allocate secondary private IP addresses, you cannot specify both PrivateIpAddress.N and SecondaryPrivateIpAddressCount.
+    // When you allocate secondary private IP addresses, you cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount`.
     shared_ptr<vector<string>> privateIpAddress_ {};
-    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the elastic network interfaces (ENIs). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The number of private IP addresses to be automatically assigned from the idle IP addresses within the vSwitch.
+    // The number of private IP addresses to automatically assign from the idle IP addresses of the vSwitch.
     // 
-    // When you assign secondary private IP addresses, you cannot specify both PrivateIpAddress.N and SecondaryPrivateIpAddressCount.
+    // When you assign secondary private IP addresses, you cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount`.
     shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
   };
 

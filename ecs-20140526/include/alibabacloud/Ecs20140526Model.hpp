@@ -1009,9 +1009,6 @@
 #include <alibabacloud/models/OpenSnapshotServiceRequest.hpp>
 #include <alibabacloud/models/OpenSnapshotServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenSnapshotServiceResponse.hpp>
-#include <alibabacloud/models/PurchaseElasticityAssuranceRequest.hpp>
-#include <alibabacloud/models/PurchaseElasticityAssuranceResponseBody.hpp>
-#include <alibabacloud/models/PurchaseElasticityAssuranceResponse.hpp>
 #include <alibabacloud/models/PurchaseReservedInstancesOfferingRequest.hpp>
 #include <alibabacloud/models/PurchaseReservedInstancesOfferingResponseBody.hpp>
 #include <alibabacloud/models/PurchaseReservedInstancesOfferingResponse.hpp>

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DedicatedHostType, dedicatedHostType_);
       DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NeedHostDetail, needHostDetail_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DedicatedHostType, dedicatedHostType_);
       DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NeedHostDetail, needHostDetail_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -114,9 +116,9 @@ namespace Models
 
     virtual bool empty() const override { return this->dedicatedHostClusterId_ == nullptr
         && this->dedicatedHostIds_ == nullptr && this->dedicatedHostName_ == nullptr && this->dedicatedHostType_ == nullptr && this->lockReason_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->queryInventory_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->socketDetails_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->zoneId_ == nullptr; };
+        && this->needHostDetail_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->queryInventory_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->socketDetails_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->zoneId_ == nullptr; };
     // dedicatedHostClusterId Field Functions 
     bool hasDedicatedHostClusterId() const { return this->dedicatedHostClusterId_ != nullptr;};
     void deleteDedicatedHostClusterId() { this->dedicatedHostClusterId_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeDedicatedHostsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // needHostDetail Field Functions 
+    bool hasNeedHostDetail() const { return this->needHostDetail_ != nullptr;};
+    void deleteNeedHostDetail() { this->needHostDetail_ = nullptr;};
+    inline string getNeedHostDetail() const { DARABONBA_PTR_GET_DEFAULT(needHostDetail_, "") };
+    inline DescribeDedicatedHostsRequest& setNeedHostDetail(string needHostDetail) { DARABONBA_PTR_SET_VALUE(needHostDetail_, needHostDetail) };
 
 
     // nextToken Field Functions 
@@ -269,15 +278,17 @@ namespace Models
     // The type of the dedicated host. You can call [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) to query the most recent list of dedicated host types.
     shared_ptr<string> dedicatedHostType_ {};
     // The reason why the dedicated host is locked. Valid values:
-    // - financial: The dedicated host is locked due to an overdue payment.
+    // - financial: The dedicated host is locked due to overdue payments.
     // - security: The dedicated host is locked for security reasons.
     shared_ptr<string> lockReason_ {};
-    // The maximum number of entries per page for a paged query. If you set this parameter, the MaxResults and NextToken parameters are used together for paging.
+    // The maximum number of entries per page for a paged query. If you set this parameter, it indicates that the paging method using the MaxResults and NextToken parameters is used.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The detailed information of the dedicated host.
+    shared_ptr<string> needHostDetail_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
@@ -299,8 +310,8 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to display socket-level capacity information. You can use socket-level capacity information to view remaining resources (vCPUs, memory usage, remaining capacity, and total capacity) to determine whether an ECS instance of a specific instance type can be created. Valid values:
     // 
-    // - true: Displays socket-level capacity information. Only specific dedicated host types support displaying socket-level resource information. For more information, see [View and export DDH information](https://help.aliyun.com/document_detail/68989.html).
-    // - false: Does not display socket-level capacity information.
+    // - true: Display socket-level capacity information. Only specific dedicated host types support displaying socket-level resource information. For more information, see [View and export DDH information](https://help.aliyun.com/document_detail/68989.html).
+    // - false: Do not display socket-level capacity information.
     // 
     // >Notice: 
     // 
@@ -324,7 +335,7 @@ namespace Models
     // 
     // Default value: Available.
     shared_ptr<string> status_ {};
-    // The tags. You can specify up to 20 tags.
+    // The tags. Valid values of N: 0 to 20.
     shared_ptr<vector<DescribeDedicatedHostsRequest::Tag>> tag_ {};
     // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the most recent zone list.
     shared_ptr<string> zoneId_ {};
