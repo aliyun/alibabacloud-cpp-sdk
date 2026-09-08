@@ -3026,9 +3026,9 @@ namespace WebsiteBuild20250429
       Models::RenewAppSandboxResponse renewAppSandbox(const Models::RenewAppSandboxRequest &request);
 
       /**
-       * @summary Reports the publish result back to the system.
+       * @summary Reports the publishing result.
        *
-       * @description Reports the publish result back to the system.
+       * @description Reports the publishing result.
        *
        * @param request ReportChannelPublishResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3037,9 +3037,9 @@ namespace WebsiteBuild20250429
       Models::ReportChannelPublishResultResponse reportChannelPublishResultWithOptions(const Models::ReportChannelPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reports the publish result back to the system.
+       * @summary Reports the publishing result.
        *
-       * @description Reports the publish result back to the system.
+       * @description Reports the publishing result.
        *
        * @param request ReportChannelPublishResultRequest
        * @return ReportChannelPublishResultResponse

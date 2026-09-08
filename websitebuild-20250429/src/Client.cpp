@@ -8773,9 +8773,9 @@ RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &re
 }
 
 /**
- * @summary Reports the publish result back to the system.
+ * @summary Reports the publishing result.
  *
- * @description Reports the publish result back to the system.
+ * @description Reports the publishing result.
  *
  * @param request ReportChannelPublishResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8784,6 +8784,10 @@ RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &re
 ReportChannelPublishResultResponse Client::reportChannelPublishResultWithOptions(const ReportChannelPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasChannelAccountName()) {
+    query["ChannelAccountName"] = request.getChannelAccountName();
+  }
+
   if (!!request.hasDraftId()) {
     query["DraftId"] = request.getDraftId();
   }
@@ -8822,9 +8826,9 @@ ReportChannelPublishResultResponse Client::reportChannelPublishResultWithOptions
 }
 
 /**
- * @summary Reports the publish result back to the system.
+ * @summary Reports the publishing result.
  *
- * @description Reports the publish result back to the system.
+ * @description Reports the publishing result.
  *
  * @param request ReportChannelPublishResultRequest
  * @return ReportChannelPublishResultResponse
@@ -9266,12 +9270,20 @@ SaveChannelDraftResponse Client::saveChannelDraftWithOptions(const SaveChannelDr
     query["AdaptedTitle"] = request.getAdaptedTitle();
   }
 
+  if (!!request.hasChannelAccountName()) {
+    query["ChannelAccountName"] = request.getChannelAccountName();
+  }
+
   if (!!request.hasCoverImagesShrink()) {
     query["CoverImages"] = request.getCoverImagesShrink();
   }
 
   if (!!request.hasDraftId()) {
     query["DraftId"] = request.getDraftId();
+  }
+
+  if (!!request.hasWebsiteNavName()) {
+    query["WebsiteNavName"] = request.getWebsiteNavName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
-    // The user personalization requirement in free text format. This parameter is optional.
+    // The user personalization requirement in free text. This parameter is optional.
     shared_ptr<string> userRequirement_ {};
   };
 

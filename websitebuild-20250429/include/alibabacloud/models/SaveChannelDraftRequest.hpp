@@ -16,14 +16,18 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SaveChannelDraftRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AdaptedContent, adaptedContent_);
       DARABONBA_PTR_TO_JSON(AdaptedTitle, adaptedTitle_);
+      DARABONBA_PTR_TO_JSON(ChannelAccountName, channelAccountName_);
       DARABONBA_PTR_TO_JSON(CoverImages, coverImages_);
       DARABONBA_PTR_TO_JSON(DraftId, draftId_);
+      DARABONBA_PTR_TO_JSON(WebsiteNavName, websiteNavName_);
     };
     friend void from_json(const Darabonba::Json& j, SaveChannelDraftRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdaptedContent, adaptedContent_);
       DARABONBA_PTR_FROM_JSON(AdaptedTitle, adaptedTitle_);
+      DARABONBA_PTR_FROM_JSON(ChannelAccountName, channelAccountName_);
       DARABONBA_PTR_FROM_JSON(CoverImages, coverImages_);
       DARABONBA_PTR_FROM_JSON(DraftId, draftId_);
+      DARABONBA_PTR_FROM_JSON(WebsiteNavName, websiteNavName_);
     };
     SaveChannelDraftRequest() = default ;
     SaveChannelDraftRequest(const SaveChannelDraftRequest &) = default ;
@@ -83,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The image URL.
+      // The URL of the image.
       // 
       // This parameter is required.
       shared_ptr<string> imageUrl_ {};
@@ -96,7 +100,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->adaptedContent_ == nullptr
-        && this->adaptedTitle_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr; };
+        && this->adaptedTitle_ == nullptr && this->channelAccountName_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr && this->websiteNavName_ == nullptr; };
     // adaptedContent Field Functions 
     bool hasAdaptedContent() const { return this->adaptedContent_ != nullptr;};
     void deleteAdaptedContent() { this->adaptedContent_ = nullptr;};
@@ -109,6 +113,13 @@ namespace Models
     void deleteAdaptedTitle() { this->adaptedTitle_ = nullptr;};
     inline string getAdaptedTitle() const { DARABONBA_PTR_GET_DEFAULT(adaptedTitle_, "") };
     inline SaveChannelDraftRequest& setAdaptedTitle(string adaptedTitle) { DARABONBA_PTR_SET_VALUE(adaptedTitle_, adaptedTitle) };
+
+
+    // channelAccountName Field Functions 
+    bool hasChannelAccountName() const { return this->channelAccountName_ != nullptr;};
+    void deleteChannelAccountName() { this->channelAccountName_ = nullptr;};
+    inline string getChannelAccountName() const { DARABONBA_PTR_GET_DEFAULT(channelAccountName_, "") };
+    inline SaveChannelDraftRequest& setChannelAccountName(string channelAccountName) { DARABONBA_PTR_SET_VALUE(channelAccountName_, channelAccountName) };
 
 
     // coverImages Field Functions 
@@ -127,17 +138,26 @@ namespace Models
     inline SaveChannelDraftRequest& setDraftId(string draftId) { DARABONBA_PTR_SET_VALUE(draftId_, draftId) };
 
 
+    // websiteNavName Field Functions 
+    bool hasWebsiteNavName() const { return this->websiteNavName_ != nullptr;};
+    void deleteWebsiteNavName() { this->websiteNavName_ = nullptr;};
+    inline string getWebsiteNavName() const { DARABONBA_PTR_GET_DEFAULT(websiteNavName_, "") };
+    inline SaveChannelDraftRequest& setWebsiteNavName(string websiteNavName) { DARABONBA_PTR_SET_VALUE(websiteNavName_, websiteNavName) };
+
+
   protected:
-    // The channel content (overseas only).
+    // The channel content (international only).
     shared_ptr<string> adaptedContent_ {};
     // The channel title.
     shared_ptr<string> adaptedTitle_ {};
+    shared_ptr<string> channelAccountName_ {};
     // The collection of channel cover images (full overwrite).
     shared_ptr<vector<SaveChannelDraftRequest::CoverImages>> coverImages_ {};
     // The ID of the channel draft.
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
+    shared_ptr<string> websiteNavName_ {};
   };
 
   } // namespace Models

@@ -83,6 +83,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AdaptedTitle, adaptedTitle_);
           DARABONBA_PTR_TO_JSON(Channel, channel_);
           DARABONBA_PTR_TO_JSON(ChannelAccount, channelAccount_);
+          DARABONBA_PTR_TO_JSON(ChannelAccountName, channelAccountName_);
           DARABONBA_PTR_TO_JSON(ChannelName, channelName_);
           DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
           DARABONBA_PTR_TO_JSON(CoverImages, coverImages_);
@@ -100,6 +101,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AdaptedTitle, adaptedTitle_);
           DARABONBA_PTR_FROM_JSON(Channel, channel_);
           DARABONBA_PTR_FROM_JSON(ChannelAccount, channelAccount_);
+          DARABONBA_PTR_FROM_JSON(ChannelAccountName, channelAccountName_);
           DARABONBA_PTR_FROM_JSON(ChannelName, channelName_);
           DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
           DARABONBA_PTR_FROM_JSON(CoverImages, coverImages_);
@@ -178,9 +180,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->adaptStatus_ == nullptr
-        && this->adaptedContent_ == nullptr && this->adaptedTitle_ == nullptr && this->channel_ == nullptr && this->channelAccount_ == nullptr && this->channelName_ == nullptr
-        && this->channelType_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr && this->externalId_ == nullptr && this->externalUrl_ == nullptr
-        && this->failReason_ == nullptr && this->publishConfig_ == nullptr && this->publishedAt_ == nullptr && this->status_ == nullptr; };
+        && this->adaptedContent_ == nullptr && this->adaptedTitle_ == nullptr && this->channel_ == nullptr && this->channelAccount_ == nullptr && this->channelAccountName_ == nullptr
+        && this->channelName_ == nullptr && this->channelType_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr && this->externalId_ == nullptr
+        && this->externalUrl_ == nullptr && this->failReason_ == nullptr && this->publishConfig_ == nullptr && this->publishedAt_ == nullptr && this->status_ == nullptr; };
         // adaptStatus Field Functions 
         bool hasAdaptStatus() const { return this->adaptStatus_ != nullptr;};
         void deleteAdaptStatus() { this->adaptStatus_ = nullptr;};
@@ -214,6 +216,13 @@ namespace Models
         void deleteChannelAccount() { this->channelAccount_ = nullptr;};
         inline string getChannelAccount() const { DARABONBA_PTR_GET_DEFAULT(channelAccount_, "") };
         inline Drafts& setChannelAccount(string channelAccount) { DARABONBA_PTR_SET_VALUE(channelAccount_, channelAccount) };
+
+
+        // channelAccountName Field Functions 
+        bool hasChannelAccountName() const { return this->channelAccountName_ != nullptr;};
+        void deleteChannelAccountName() { this->channelAccountName_ = nullptr;};
+        inline string getChannelAccountName() const { DARABONBA_PTR_GET_DEFAULT(channelAccountName_, "") };
+        inline Drafts& setChannelAccountName(string channelAccountName) { DARABONBA_PTR_SET_VALUE(channelAccountName_, channelAccountName) };
 
 
         // channelName Field Functions 
@@ -289,9 +298,13 @@ namespace Models
 
 
       protected:
-        // The AI adaptation status. Valid values: NONE, ADAPTING, DONE, FAILED.
+        // The AI adaptation status. Valid values:
+        // - NONE
+        // - ADAPTING
+        // - DONE
+        // - FAILED
         shared_ptr<string> adaptStatus_ {};
-        // The channel-adapted content body.
+        // The channel-adapted body content.
         shared_ptr<string> adaptedContent_ {};
         // The channel-adapted title.
         shared_ptr<string> adaptedTitle_ {};
@@ -299,9 +312,13 @@ namespace Models
         shared_ptr<string> channel_ {};
         // The publishing account snapshot. For overseas channels, this is the OWLAIS socialAccountNo.
         shared_ptr<string> channelAccount_ {};
+        shared_ptr<string> channelAccountName_ {};
         // The channel display name.
         shared_ptr<string> channelName_ {};
-        // The channel type. Valid values: DOMESTIC, OVERSEA, INTERNAL.
+        // The channel type. Valid values:
+        // - DOMESTIC
+        // - OVERSEA
+        // - INTERNAL
         shared_ptr<string> channelType_ {};
         // The list of channel cover images.
         shared_ptr<vector<Drafts::CoverImages>> coverImages_ {};
@@ -315,9 +332,13 @@ namespace Models
         shared_ptr<string> failReason_ {};
         // The channel-specific publish configuration in JSON format.
         shared_ptr<string> publishConfig_ {};
-        // The publish time in millisecond timestamp.
+        // The publish time, in millisecond timestamp.
         shared_ptr<int64_t> publishedAt_ {};
-        // The status. Valid values: EDITING, PUBLISHING, SUCCESS, FAILED.
+        // The status. Valid values:
+        // - EDITING
+        // - PUBLISHING
+        // - SUCCESS
+        // - FAILED
         shared_ptr<string> status_ {};
       };
 
@@ -358,7 +379,7 @@ namespace Models
       shared_ptr<string> articleId_ {};
       // The distribution batch ID.
       shared_ptr<string> batchId_ {};
-      // The creation time in millisecond timestamp.
+      // The creation time, in millisecond timestamp.
       shared_ptr<int64_t> createTime_ {};
       // The list of channel drafts within the batch.
       shared_ptr<vector<Module::Drafts>> drafts_ {};
@@ -451,9 +472,9 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: Not allowed.
+    // - true: Allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -469,7 +490,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};

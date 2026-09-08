@@ -101,7 +101,7 @@ namespace Models
       shared_ptr<string> articleStatus_ {};
       // The channel draft ID.
       shared_ptr<string> draftId_ {};
-      // The draft status: SUCCESS/FAILED.
+      // The draft status. Valid values: SUCCESS and FAILED.
       shared_ptr<string> status_ {};
     };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -198,7 +198,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message. This parameter is used to replace the %s variable in the ErrMessage error message.
+    // The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

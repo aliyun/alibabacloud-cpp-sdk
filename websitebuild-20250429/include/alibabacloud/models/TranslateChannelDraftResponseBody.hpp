@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AdaptedTitle, adaptedTitle_);
         DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(ChannelAccount, channelAccount_);
+        DARABONBA_PTR_TO_JSON(ChannelAccountName, channelAccountName_);
         DARABONBA_PTR_TO_JSON(ChannelName, channelName_);
         DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
         DARABONBA_PTR_TO_JSON(CoverImages, coverImages_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AdaptedTitle, adaptedTitle_);
         DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(ChannelAccount, channelAccount_);
+        DARABONBA_PTR_FROM_JSON(ChannelAccountName, channelAccountName_);
         DARABONBA_PTR_FROM_JSON(ChannelName, channelName_);
         DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
         DARABONBA_PTR_FROM_JSON(CoverImages, coverImages_);
@@ -153,9 +155,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->adaptStatus_ == nullptr
-        && this->adaptedContent_ == nullptr && this->adaptedTitle_ == nullptr && this->channel_ == nullptr && this->channelAccount_ == nullptr && this->channelName_ == nullptr
-        && this->channelType_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr && this->externalId_ == nullptr && this->externalUrl_ == nullptr
-        && this->failReason_ == nullptr && this->publishConfig_ == nullptr && this->publishedAt_ == nullptr && this->status_ == nullptr; };
+        && this->adaptedContent_ == nullptr && this->adaptedTitle_ == nullptr && this->channel_ == nullptr && this->channelAccount_ == nullptr && this->channelAccountName_ == nullptr
+        && this->channelName_ == nullptr && this->channelType_ == nullptr && this->coverImages_ == nullptr && this->draftId_ == nullptr && this->externalId_ == nullptr
+        && this->externalUrl_ == nullptr && this->failReason_ == nullptr && this->publishConfig_ == nullptr && this->publishedAt_ == nullptr && this->status_ == nullptr; };
       // adaptStatus Field Functions 
       bool hasAdaptStatus() const { return this->adaptStatus_ != nullptr;};
       void deleteAdaptStatus() { this->adaptStatus_ = nullptr;};
@@ -189,6 +191,13 @@ namespace Models
       void deleteChannelAccount() { this->channelAccount_ = nullptr;};
       inline string getChannelAccount() const { DARABONBA_PTR_GET_DEFAULT(channelAccount_, "") };
       inline Module& setChannelAccount(string channelAccount) { DARABONBA_PTR_SET_VALUE(channelAccount_, channelAccount) };
+
+
+      // channelAccountName Field Functions 
+      bool hasChannelAccountName() const { return this->channelAccountName_ != nullptr;};
+      void deleteChannelAccountName() { this->channelAccountName_ = nullptr;};
+      inline string getChannelAccountName() const { DARABONBA_PTR_GET_DEFAULT(channelAccountName_, "") };
+      inline Module& setChannelAccountName(string channelAccountName) { DARABONBA_PTR_SET_VALUE(channelAccountName_, channelAccountName) };
 
 
       // channelName Field Functions 
@@ -264,7 +273,7 @@ namespace Models
 
 
     protected:
-      // The AI adaptation status. Valid values: NONE, ADAPTING, DONE, FAILED.
+      // The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
       shared_ptr<string> adaptStatus_ {};
       // The channel-adapted content body.
       shared_ptr<string> adaptedContent_ {};
@@ -274,9 +283,10 @@ namespace Models
       shared_ptr<string> channel_ {};
       // The snapshot of the publishing account.
       shared_ptr<string> channelAccount_ {};
+      shared_ptr<string> channelAccountName_ {};
       // The display name of the channel.
       shared_ptr<string> channelName_ {};
-      // The channel type. Valid values: DOMESTIC, OVERSEA, INTERNAL.
+      // The channel type. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
       shared_ptr<string> channelType_ {};
       // The list of channel cover images.
       shared_ptr<vector<Module::CoverImages>> coverImages_ {};
@@ -292,7 +302,7 @@ namespace Models
       shared_ptr<string> publishConfig_ {};
       // The publishing time, in millisecond timestamp format.
       shared_ptr<int64_t> publishedAt_ {};
-      // The status. Valid values: EDITING, PUBLISHING, SUCCESS, FAILED.
+      // The status. Valid values: EDITING, PUBLISHING, SUCCESS, and FAILED.
       shared_ptr<string> status_ {};
     };
 
@@ -402,7 +412,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

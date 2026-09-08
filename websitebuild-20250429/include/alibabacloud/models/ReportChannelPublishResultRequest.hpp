@@ -13,6 +13,7 @@ namespace Models
   class ReportChannelPublishResultRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ReportChannelPublishResultRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChannelAccountName, channelAccountName_);
       DARABONBA_PTR_TO_JSON(DraftId, draftId_);
       DARABONBA_PTR_TO_JSON(ExternalId, externalId_);
       DARABONBA_PTR_TO_JSON(ExternalUrl, externalUrl_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, ReportChannelPublishResultRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChannelAccountName, channelAccountName_);
       DARABONBA_PTR_FROM_JSON(DraftId, draftId_);
       DARABONBA_PTR_FROM_JSON(ExternalId, externalId_);
       DARABONBA_PTR_FROM_JSON(ExternalUrl, externalUrl_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->draftId_ == nullptr
-        && this->externalId_ == nullptr && this->externalUrl_ == nullptr && this->failReason_ == nullptr && this->success_ == nullptr; };
+    virtual bool empty() const override { return this->channelAccountName_ == nullptr
+        && this->draftId_ == nullptr && this->externalId_ == nullptr && this->externalUrl_ == nullptr && this->failReason_ == nullptr && this->success_ == nullptr; };
+    // channelAccountName Field Functions 
+    bool hasChannelAccountName() const { return this->channelAccountName_ != nullptr;};
+    void deleteChannelAccountName() { this->channelAccountName_ = nullptr;};
+    inline string getChannelAccountName() const { DARABONBA_PTR_GET_DEFAULT(channelAccountName_, "") };
+    inline ReportChannelPublishResultRequest& setChannelAccountName(string channelAccountName) { DARABONBA_PTR_SET_VALUE(channelAccountName_, channelAccountName) };
+
+
     // draftId Field Functions 
     bool hasDraftId() const { return this->draftId_ != nullptr;};
     void deleteDraftId() { this->draftId_ = nullptr;};
@@ -75,17 +84,19 @@ namespace Models
 
 
   protected:
+    // The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
+    shared_ptr<string> channelAccountName_ {};
     // The channel draft ID.
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
-    // The ID returned by the platform. Specify this parameter when the publish operation is successful.
+    // The ID returned by the platform. Set this parameter when the publishing is successful.
     shared_ptr<string> externalId_ {};
     // The redirect URL of the platform.
     shared_ptr<string> externalUrl_ {};
-    // The failure reason. Specify this parameter when the publish operation fails.
+    // The failure reason. Set this parameter when the publishing fails.
     shared_ptr<string> failReason_ {};
-    // Specifies whether the publish operation is successful (true/false).
+    // Specifies whether the publishing is successful (true/false).
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
